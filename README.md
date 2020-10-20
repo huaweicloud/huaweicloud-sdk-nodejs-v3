@@ -1,33 +1,33 @@
 English | [简体中文](README_CN.md)
 
-# HuaweiCloud NodeJs Software Development Kit (NodeJs SDK)
+# HuaweiCloud Node.js Software Development Kit (Node.js SDK)
 
-The HuaweiCloud NodeJs SDK allows you to easily work with Huawei Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC) without the need to handle API related tasks.
+The HuaweiCloud Node.js SDK allows you to easily work with Huawei Cloud services such as Elastic Compute Service (ECS) and Virtual Private Cloud (VPC) without the need to handle API related tasks.
 
-This document introduces how to obtain and use HuaweiCloud NodeJs SDK.
+This document introduces how to obtain and use HuaweiCloud Node.js SDK.
 
 ## Getting Started
 
-- To use HuaweiCloud NodeJs SDK, you must have Huawei Cloud account as well as the Access Key and Secret key of the HuaweiCloud account.
+- To use HuaweiCloud Node.js SDK, you must have Huawei Cloud account as well as the Access Key and Secret key of the HuaweiCloud account.
 
     The accessKey is required when initializing `{Service}Client`. You can create an AccessKey in the Huawei Cloud console. For more information, see [My Credentials](https://support.huaweicloud.com/usermanual-ca/zh-cn_topic_0046606340.html).
 
-- HuaweiCloud NodeJs SDK requires **Node 10.16.1** or later.
+- HuaweiCloud Node.js SDK requires **Node 10.16.1** or later.
 
-## Install NodeJs SDK
+## Install Node.js SDK
 
-You could obtain and install NodeJs SDK through following methods:
+You could obtain and install Node.js SDK through following methods:
 
 - Installing Dependencies Using NPM (Recommended) 
 
-    Using npm to install project dependencies is the recommended method to use NodeJs SDK:
+    Using npm to install project dependencies is the recommended method to use Node.js SDK:
     
     You must install `@huaweicloud/huaweicloud-sdk-core` library no matter which product/service development kit you need to use. Take using Devstar SDK for example, you need to install `@huaweicloud/huaweicloud-sdk-core` library and `@huaweicloud/huaweicloud-sdk-devstar` library: 
     ``` xml
     npm install @huaweicloud/huaweicloud-sdk-core @huaweicloud/huaweicloud-sdk-devstar
     ```
 
-## Use NodeJs SDK
+## Use Node.js SDK
 
 1. Import the required modules as follows
 

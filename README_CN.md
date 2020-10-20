@@ -1,12 +1,12 @@
 [English](./README.md) | 简体中文
 
-# 华为云  NodeJs 软件开发工具包（NodeJs SDK）
+# 华为云  Node.js 软件开发工具包（Node.js SDK）
 
-欢迎使用华为云 NodeJs SDK。
+欢迎使用华为云 Node.js SDK。
 
-华为云 NodeJs SDK 让您无需关心请求细节即可快速使用云服务器、虚拟私有云等多个华为云服务。
+华为云 Node.js SDK 让您无需关心请求细节即可快速使用云服务器、虚拟私有云等多个华为云服务。
 
-这里将向您介绍如何获取并使用华为云 NodeJs SDK。
+这里将向您介绍如何获取并使用华为云 Node.js SDK。
 
 ## 在线示例
 
@@ -14,8 +14,8 @@
 
 ## 现在开始
 
-- 要使用华为云 NodeJs SDK，您需要拥有华为云账号以及该账号对应的 Access Key（AK）和 Secret Access Key（SK）。请在华为云控制台“我的凭证-访问密钥”页面上创建和查看您的 AKSK。更多信息请查看[访问密钥]( https://support.huaweicloud.com/usermanual-ca/zh-cn_topic_0046606340.html )。
-- 华为云 NodeJs SDK 支持 **Node 10.16.1** 及其以上版本。
+- 要使用华为云 Node.js SDK，您需要拥有华为云账号以及该账号对应的 Access Key（AK）和 Secret Access Key（SK）。请在华为云控制台“我的凭证-访问密钥”页面上创建和查看您的 AKSK。更多信息请查看[访问密钥]( https://support.huaweicloud.com/usermanual-ca/zh-cn_topic_0046606340.html )。
+- 华为云 Node.js SDK 支持 **Node 10.16.1** 及其以上版本。
 
 ## SDK 获取和安装
 
@@ -23,7 +23,7 @@
 
 - 通过 npm 安装依赖（推荐）
 
-    通过 npm 安装项目依赖是使用 NodeJs SDK 的推荐方法
+    通过 npm 安装项目依赖是使用 Node.js SDK 的推荐方法
     
     无论您要使用哪个产品/服务的开发工具包，都必须安装@huaweicloud/huaweicloud-sdk-core。以使用虚拟私有云Devstar SDK为例，您需要安装@huaweicloud/huaweicloud-sdk-core和@huaweicloud/huaweicloud-sdk-devstar：
     ``` xml
