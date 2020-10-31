@@ -155,7 +155,7 @@ export class DefaultHttpClient implements HttpClient {
                 res.result = res.data;
                 delete res.data;
 
-                let requestId = res.headers['x-request-id'];
+                let requestId = res.headers ? res.headers['x-request-id'] : undefined;
                 let reponseLength = res.result ? JSON.stringify(res.result).length : 1;
                 log4jsLogger.info('"' + requestParams.method + ' ' + requestParams.url + '" ' + res.status + ' '  + reponseLength + ' ' + requestId);
                 if (process.env.DEBUG) {
@@ -169,11 +169,18 @@ export class DefaultHttpClient implements HttpClient {
                 let response = err.response;
 				DefaultHttpClient.httpResponse = err;
 
-                let requestId = response.headers['x-request-id'];
-                let reponseLength = response.data ? JSON.stringify(response.data).length : 1;
-                log4jsLogger.info('"' + requestParams.method + ' ' + requestParams.url + '" ' + response.status + ' '  + reponseLength + ' ' + requestId);
+                let requestId;
+                let reponseLength;
+                let status;
+                if (response) {
+                    requestId = response.headers ? response.headers['x-request-id'] : undefined;
+                    reponseLength = response.data ? JSON.stringify(response.data).length : 1;
+                    status = response.status;
+                }
+
+                log4jsLogger.info('"' + requestParams.method + ' ' + requestParams.url + '" ' + status + ' '  + reponseLength + ' ' + requestId);
                 if (process.env.DEBUG) {
-                    log4jsLogger.debug('request: ' + JSON.stringify(requestParams) + ". response: " + JSON.stringify(response.data));
+                    log4jsLogger.debug('request: ' + JSON.stringify(requestParams) + ". response: " + JSON.stringify(err));
                 }
 
                 // return another promise that rejects with 'err' to be handled in generated code

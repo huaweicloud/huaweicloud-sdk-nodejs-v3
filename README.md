@@ -22,9 +22,9 @@ You could obtain and install Node.js SDK through following methods:
 
     Using npm to install project dependencies is the recommended method to use Node.js SDK:
     
-    You must install `@huaweicloud/huaweicloud-sdk-core` library no matter which product/service development kit you need to use. Take using Devstar SDK for example, you need to install `@huaweicloud/huaweicloud-sdk-core` library and `@huaweicloud/huaweicloud-sdk-devstar` library: 
+    You must depended on `@huaweicloud/huaweicloud-sdk-core` library no matter which product/service development kit you need to use. Take using Devstar SDK for example, you need to install `@huaweicloud/huaweicloud-sdk-devstar` library: 
     ``` xml
-    npm install @huaweicloud/huaweicloud-sdk-core @huaweicloud/huaweicloud-sdk-devstar
+    npm install @huaweicloud/huaweicloud-sdk-devstar
     ```
 
 ## Use Node.js SDK
@@ -35,8 +35,8 @@ You could obtain and install Node.js SDK through following methods:
     // User identity authentication 
     import { BasicCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/BasicCredentials";
     import { GlobalCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/GlobalCredentials";
-    // {Service}Client, replace Devstar to your specified service, take DevstarClient for example
-    import { DevstarClient } from "@huaweicloud/huaweicloud-sdk-devstar/v1/DevstarClient";
+    // {Service}Client, replace Devstar to your specified service, take DevStarClient for example
+    import { DevStarClient } from "@huaweicloud/huaweicloud-sdk-devstar/v1/DevStarClient";
     // Import the corresponding product model
     import { ShowJobDetailRequest } from '@huaweicloud/huaweicloud-sdk-devstar/v1/model/ShowJobDetailRequest';
     ```
@@ -47,7 +47,7 @@ You could obtain and install Node.js SDK through following methods:
     
     ``` nodejs
     // Use default configuration
-    const client = DevstarClient.newBuilder()
+    const client = DevStarClient.newBuilder()
     ```
    
     2.2  Proxy(Optional)
@@ -116,7 +116,7 @@ You could obtain and install Node.js SDK through following methods:
 4. Initialize the {Service}Client instance
 
     ``` nodejs
-    const client = DevstarClient.newBuilder()
+    const client = DevStarClient.newBuilder()
         .withCredential(basicCredentials)
         .withEndpoint(endpoint)
         .withProxyAgent(proxy)
@@ -233,20 +233,19 @@ You could obtain and install Node.js SDK through following methods:
 
 ## Code Example
 
-- The following example shows how to query job detail, you need to substitute your real `{Service}Client` for `DevstarClient` in actual use.
+- The following example shows how to query job detail, you need to substitute your real `{Service}Client` for `DevStarClient` in actual use.
 - Substitute the values for `{your ak string}`, `{your sk string}`, `{your endpoint string}`, `{your project id}`and `{job id}`.
 
     ``` nodejs
     import express = require('express');
-    import { DevstarClient } from "@huaweicloud/huaweicloud-sdk-devstar/v1/DevstarClient";
+    import { DevStarClient } from "@huaweicloud/huaweicloud-sdk-devstar/v1/DevStarClient";
     import { BasicCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/BasicCredentials";
     import { ShowJobDetailRequest } from '@huaweicloud/huaweicloud-sdk-devstar/v1/model/ShowJobDetailRequest';
     
     // Create a new express application instance
     const app: express.Application = express();
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     app.get('/', function (req: any, res: { send: (arg0: string) => void; }) {
-      const client = DevstarClient.newBuilder()
+      const client = DevStarClient.newBuilder()
           .withCredential(new BasicCredentials()
               .withAk("{your ak string}")
               .withSk("{your sk string}")

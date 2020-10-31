@@ -2,20 +2,23 @@ import { TemplateJobInfo } from './TemplateJobInfo';
 
 
 export class RunDevstarTemplateJobRequest {
-    public xLanguage?: RunDevstarTemplateJobRequestXLanguageEnum;
+    private 'X-Language'?: RunDevstarTemplateJobRequestXLanguageEnum | undefined;
     public body?: TemplateJobInfo;
     public constructor() { 
     }
-    public withXLanguage(xLanguage?: RunDevstarTemplateJobRequestXLanguageEnum): RunDevstarTemplateJobRequest {
-        this.xLanguage = xLanguage;
+    public withXLanguage(xLanguage: RunDevstarTemplateJobRequestXLanguageEnum): RunDevstarTemplateJobRequest {
+        this['X-Language'] = xLanguage;
         return this;
     }
-    public withBody(body?: TemplateJobInfo): RunDevstarTemplateJobRequest {
-        this.body = body;
-        return this;
+    public set xLanguage(xLanguage: RunDevstarTemplateJobRequestXLanguageEnum | undefined) {
+        this['X-Language'] = xLanguage;
     }
-    public getParseParam() {
-        return this.body;
+    public get xLanguage() {
+        return this['X-Language'];
+    }
+    public withBody(body: TemplateJobInfo): RunDevstarTemplateJobRequest {
+        this['body'] = body;
+        return this;
     }
 }
 

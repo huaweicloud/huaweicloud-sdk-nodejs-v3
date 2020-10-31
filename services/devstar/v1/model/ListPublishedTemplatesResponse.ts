@@ -8,12 +8,12 @@ export class ListPublishedTemplatesResponse extends SdkResponse {
     public constructor() { 
         super();
     }
-    public withCount(count?: number): ListPublishedTemplatesResponse {
-        this.count = count;
+    public withCount(count: number): ListPublishedTemplatesResponse {
+        this['count'] = count;
         return this;
     }
-    public withTemplates(templates?: Array<TemplateSimpleInfo>): ListPublishedTemplatesResponse {
-        this.templates = templates;
+    public withTemplates(templates: Array<TemplateSimpleInfo>): ListPublishedTemplatesResponse {
+        this['templates'] = templates;
         return this;
     }
 }

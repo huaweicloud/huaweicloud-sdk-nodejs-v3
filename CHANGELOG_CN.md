@@ -1,3 +1,12 @@
+# 3.0.3-beta 2020-10-31
+## HuaweiCloud SDK DevStar
+ - ### 新增特性
+    - 增加README.MD文件
+ - ### 解决问题
+    - 无
+ - ### 特性变更
+    - 无
+
 # 3.0.2-beta 2020-10-20
 ## HuaweiCloud SDK DevStar
  - ### 新增特性

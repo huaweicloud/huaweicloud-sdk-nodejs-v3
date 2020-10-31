@@ -25,9 +25,9 @@
 
     通过 npm 安装项目依赖是使用 Node.js SDK 的推荐方法
     
-    无论您要使用哪个产品/服务的开发工具包，都必须安装@huaweicloud/huaweicloud-sdk-core。以使用虚拟私有云Devstar SDK为例，您需要安装@huaweicloud/huaweicloud-sdk-core和@huaweicloud/huaweicloud-sdk-devstar：
+    无论您要使用哪个产品/服务的开发工具包，都必须依赖@huaweicloud/huaweicloud-sdk-core。以使用虚拟私有云Devstar SDK为例，您需要安装@huaweicloud/huaweicloud-sdk-devstar：
     ``` xml
-    npm install @huaweicloud/huaweicloud-sdk-core @huaweicloud/huaweicloud-sdk-devstar
+    npm install @huaweicloud/huaweicloud-sdk-devstar
     ```
 
 ### 开始使用
@@ -38,8 +38,8 @@
     // 用户身份认证
     import { BasicCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/BasicCredentials";
     import { GlobalCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/GlobalCredentials";
-    // 导入指定云服务的 {Service}Client，此处以 DevstarClient 为例
-    import { DevstarClient } from "@huaweicloud/huaweicloud-sdk-devstar/v1/DevstarClient";
+    // 导入指定云服务的 {Service}Client，此处以 DevStarClient 为例
+    import { DevStarClient } from "@huaweicloud/huaweicloud-sdk-devstar/v1/DevStarClient";
     // 导入相应产品的 model
     import { ShowJobDetailRequest } from '@huaweicloud/huaweicloud-sdk-devstar/v1/model/ShowJobDetailRequest';
     ```
@@ -50,7 +50,7 @@
 
     ``` nodejs
     // 使用默认配置
-    const client = DevstarClient.newBuilder()
+    const client = DevStarClient.newBuilder()
     ```
 
     2.2 代理配置（可选）
@@ -121,8 +121,8 @@
 4. 初始化客户端
 
     ``` nodejs
-    // 初始化指定云服务的客户端 {Service}Client ，以初始化 DevstarClient 为例
-    const client = DevstarClient.newBuilder()
+    // 初始化指定云服务的客户端 {Service}Client ，以初始化 DevStarClient 为例
+    const client = DevStarClient.newBuilder()
         .withCredential(basicCredentials)
         .withEndpoint(endpoint)
         .withProxyAgent(proxy)
@@ -242,15 +242,14 @@
 
     ``` nodejs
     import express = require('express');
-    import { DevstarClient } from "@huaweicloud/huaweicloud-sdk-devstar/v1/DevstarClient";
+    import { DevStarClient } from "@huaweicloud/huaweicloud-sdk-devstar/v1/DevStarClient";
     import { BasicCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/BasicCredentials";
     import { ShowJobDetailRequest } from '@huaweicloud/huaweicloud-sdk-devstar/v1/model/ShowJobDetailRequest';
     
     // Create a new express application instance
     const app: express.Application = express();
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     app.get('/', function (req: any, res: { send: (arg0: string) => void; }) {
-      const client = DevstarClient.newBuilder()
+      const client = DevStarClient.newBuilder()
           .withCredential(new BasicCredentials()
               .withAk("{your ak string}")
               .withSk("{your sk string}")

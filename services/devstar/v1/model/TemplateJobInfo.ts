@@ -2,75 +2,56 @@ import { RepositoryInfo } from './RepositoryInfo';
 
 
 export class TemplateJobInfo {
-    public applicationName?: string;
-    public templateId: string;
-    public repoType?: number;
+    private 'application_name'?: string | undefined;
+    private 'template_id': string | undefined;
+    private 'repo_type'?: number | undefined;
     public properties?: object;
-    public repoInfo?: RepositoryInfo;
+    private 'repo_info'?: RepositoryInfo | undefined;
     public constructor(templateId: any) { 
-        this.templateId = templateId;
-    }
-    public withApplicationName(applicationName?: string): TemplateJobInfo {
-        this.applicationName = applicationName;
-        return this;
-    }
-    public withTemplateId(templateId: string): TemplateJobInfo {
-        this.templateId = templateId;
-        return this;
-    }
-    public withRepoType(repoType?: number): TemplateJobInfo {
-        this.repoType = repoType;
-        return this;
-    }
-    public withProperties(properties?: object): TemplateJobInfo {
-        this.properties = properties;
-        return this;
-    }
-    public withRepoInfo(repoInfo?: RepositoryInfo): TemplateJobInfo {
-        this.repoInfo = repoInfo;
-        return this;
-    }
-    public getParseParam() {
-        const parseParam = new TemplateJobInfoParse();
-        if(this.applicationName !== null && this.applicationName !== undefined) { 
-            parseParam.setApplicationName(this.applicationName);
-        }
-        if(this.templateId !== null && this.templateId !== undefined) { 
-            parseParam.setTemplateId(this.templateId);
-        }
-        if(this.repoType !== null && this.repoType !== undefined) { 
-            parseParam.setRepoType(this.repoType);
-        }
-        if(this.properties !== null && this.properties !== undefined) { 
-            parseParam.setProperties(this.properties);
-        }
-        if(this.repoInfo !== null && this.repoInfo !== undefined) { 
-            parseParam.setRepoInfo(this.repoInfo.getParseParam());
-        }
-        return parseParam;
-    }
-}
-
-export class TemplateJobInfoParse {
-    private 'application_name'?: any;
-    private 'template_id'?: any;
-    private 'repo_type'?: any;
-    private 'properties'?: any;
-    private 'repo_info'?: any;
-
-    public setApplicationName(applicationName?: any) {
-        this['application_name'] = applicationName;
-    }
-    public setTemplateId(templateId?: any) {
         this['template_id'] = templateId;
     }
-    public setRepoType(repoType?: any) {
+    public withApplicationName(applicationName: string): TemplateJobInfo {
+        this['application_name'] = applicationName;
+        return this;
+    }
+    public set applicationName(applicationName: string | undefined) {
+        this['application_name'] = applicationName;
+    }
+    public get applicationName() {
+        return this['application_name'];
+    }
+    public withTemplateId(templateId: string): TemplateJobInfo {
+        this['template_id'] = templateId;
+        return this;
+    }
+    public set templateId(templateId: string | undefined) {
+        this['template_id'] = templateId;
+    }
+    public get templateId() {
+        return this['template_id'];
+    }
+    public withRepoType(repoType: number): TemplateJobInfo {
+        this['repo_type'] = repoType;
+        return this;
+    }
+    public set repoType(repoType: number | undefined) {
         this['repo_type'] = repoType;
     }
-    public setProperties(properties?: any) {
-        this['properties'] = properties;
+    public get repoType() {
+        return this['repo_type'];
     }
-    public setRepoInfo(repoInfo?: any) {
+    public withProperties(properties: object): TemplateJobInfo {
+        this['properties'] = properties;
+        return this;
+    }
+    public withRepoInfo(repoInfo: RepositoryInfo): TemplateJobInfo {
         this['repo_info'] = repoInfo;
+        return this;
+    }
+    public set repoInfo(repoInfo: RepositoryInfo | undefined) {
+        this['repo_info'] = repoInfo;
+    }
+    public get repoInfo() {
+        return this['repo_info'];
     }
 }

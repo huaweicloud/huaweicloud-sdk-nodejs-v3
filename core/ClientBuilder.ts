@@ -131,20 +131,23 @@ export class ClientBuilder<T> {
         // 判断是否有_
         let hash = {};
         for (let key in credential) {
-            const value = credential[key]
-            if (key.indexOf('_') == -1) {
-                key = key.toLowerCase();
-                key = 'with' + key.charAt(0).toUpperCase() + key.slice(1);
-            } else {
-                const arr = key.split('_').map(item => {
-                    item = item.toLowerCase();
-                    return item.charAt(0).toUpperCase() + item.slice(1);
-                })
-                if (Array.isArray(arr)) {
-                    key = 'with' + arr.join("");
+            if (key.indexOf("HUAWEICLOUD_SDK_") == 0) {
+                const value = credential[key]
+                key = key.substring(16);
+                if (key.indexOf('_') == -1) {
+                    key = key.toLowerCase();
+                    key = 'with' + key.charAt(0).toUpperCase() + key.slice(1);
+                } else {
+                    const arr = key.split('_').map(item => {
+                        item = item.toLowerCase();
+                        return item.charAt(0).toUpperCase() + item.slice(1);
+                    })
+                    if (Array.isArray(arr)) {
+                        key = 'with' + arr.join("");
+                    }
                 }
+                hash[key] = value
             }
-            hash[key] = value
         }
         credential = hash;
         for (const key in credential) {

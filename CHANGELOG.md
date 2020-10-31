@@ -1,3 +1,12 @@
+# 3.0.3-beta 2020-10-31
+## HuaweiCloud SDK DevStar
+ - ### Features
+    - Add the README.MD file.
+ - ### Bug Fix
+    - None
+ - ### Change
+    - None
+
 # 3.0.2-beta 2020-10-20
 ## HuaweiCloud SDK DevStar
  - ### Features

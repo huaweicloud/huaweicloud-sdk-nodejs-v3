@@ -1,18 +1,30 @@
 
 
 export class ShowJobDetailRequest {
-    public xLanguage?: ShowJobDetailRequestXLanguageEnum;
-    public jobId: string;
+    private 'X-Language'?: ShowJobDetailRequestXLanguageEnum | undefined;
+    private 'job_id': string | undefined;
     public constructor(jobId: any) { 
-        this.jobId = jobId;
+        this['job_id'] = jobId;
     }
-    public withXLanguage(xLanguage?: ShowJobDetailRequestXLanguageEnum): ShowJobDetailRequest {
-        this.xLanguage = xLanguage;
+    public withXLanguage(xLanguage: ShowJobDetailRequestXLanguageEnum): ShowJobDetailRequest {
+        this['X-Language'] = xLanguage;
         return this;
+    }
+    public set xLanguage(xLanguage: ShowJobDetailRequestXLanguageEnum | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage() {
+        return this['X-Language'];
     }
     public withJobId(jobId: string): ShowJobDetailRequest {
-        this.jobId = jobId;
+        this['job_id'] = jobId;
         return this;
+    }
+    public set jobId(jobId: string | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId() {
+        return this['job_id'];
     }
 }
 

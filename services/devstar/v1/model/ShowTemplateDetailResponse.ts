@@ -6,54 +6,84 @@ export class ShowTemplateDetailResponse extends SdkResponse {
     public id?: string;
     public title?: string;
     public description?: string;
-    public regionId?: string;
-    public repostoryId?: string;
-    public codeUrl?: string;
-    public sshUrl?: string;
-    public projectUuid?: string;
+    private 'region_id'?: string | undefined;
+    private 'repostory_id'?: string | undefined;
+    private 'code_url'?: string | undefined;
+    private 'ssh_url'?: string | undefined;
+    private 'project_uuid'?: string | undefined;
     public status?: number;
     public properties?: Array<PropertiesInfo>;
     public constructor() { 
         super();
     }
-    public withId(id?: string): ShowTemplateDetailResponse {
-        this.id = id;
+    public withId(id: string): ShowTemplateDetailResponse {
+        this['id'] = id;
         return this;
     }
-    public withTitle(title?: string): ShowTemplateDetailResponse {
-        this.title = title;
+    public withTitle(title: string): ShowTemplateDetailResponse {
+        this['title'] = title;
         return this;
     }
-    public withDescription(description?: string): ShowTemplateDetailResponse {
-        this.description = description;
+    public withDescription(description: string): ShowTemplateDetailResponse {
+        this['description'] = description;
         return this;
     }
-    public withRegionId(regionId?: string): ShowTemplateDetailResponse {
-        this.regionId = regionId;
+    public withRegionId(regionId: string): ShowTemplateDetailResponse {
+        this['region_id'] = regionId;
         return this;
     }
-    public withRepostoryId(repostoryId?: string): ShowTemplateDetailResponse {
-        this.repostoryId = repostoryId;
+    public set regionId(regionId: string | undefined) {
+        this['region_id'] = regionId;
+    }
+    public get regionId() {
+        return this['region_id'];
+    }
+    public withRepostoryId(repostoryId: string): ShowTemplateDetailResponse {
+        this['repostory_id'] = repostoryId;
         return this;
     }
-    public withCodeUrl(codeUrl?: string): ShowTemplateDetailResponse {
-        this.codeUrl = codeUrl;
+    public set repostoryId(repostoryId: string | undefined) {
+        this['repostory_id'] = repostoryId;
+    }
+    public get repostoryId() {
+        return this['repostory_id'];
+    }
+    public withCodeUrl(codeUrl: string): ShowTemplateDetailResponse {
+        this['code_url'] = codeUrl;
         return this;
     }
-    public withSshUrl(sshUrl?: string): ShowTemplateDetailResponse {
-        this.sshUrl = sshUrl;
+    public set codeUrl(codeUrl: string | undefined) {
+        this['code_url'] = codeUrl;
+    }
+    public get codeUrl() {
+        return this['code_url'];
+    }
+    public withSshUrl(sshUrl: string): ShowTemplateDetailResponse {
+        this['ssh_url'] = sshUrl;
         return this;
     }
-    public withProjectUuid(projectUuid?: string): ShowTemplateDetailResponse {
-        this.projectUuid = projectUuid;
+    public set sshUrl(sshUrl: string | undefined) {
+        this['ssh_url'] = sshUrl;
+    }
+    public get sshUrl() {
+        return this['ssh_url'];
+    }
+    public withProjectUuid(projectUuid: string): ShowTemplateDetailResponse {
+        this['project_uuid'] = projectUuid;
         return this;
     }
-    public withStatus(status?: number): ShowTemplateDetailResponse {
-        this.status = status;
+    public set projectUuid(projectUuid: string | undefined) {
+        this['project_uuid'] = projectUuid;
+    }
+    public get projectUuid() {
+        return this['project_uuid'];
+    }
+    public withStatus(status: number): ShowTemplateDetailResponse {
+        this['status'] = status;
         return this;
     }
-    public withProperties(properties?: Array<PropertiesInfo>): ShowTemplateDetailResponse {
-        this.properties = properties;
+    public withProperties(properties: Array<PropertiesInfo>): ShowTemplateDetailResponse {
+        this['properties'] = properties;
         return this;
     }
 }

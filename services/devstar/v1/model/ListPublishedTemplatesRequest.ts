@@ -1,26 +1,32 @@
 
 
 export class ListPublishedTemplatesRequest {
-    public xLanguage?: ListPublishedTemplatesRequestXLanguageEnum;
+    private 'X-Language'?: ListPublishedTemplatesRequestXLanguageEnum | undefined;
     public keyword?: string;
     public offset?: number;
     public limit?: number;
     public constructor() { 
     }
-    public withXLanguage(xLanguage?: ListPublishedTemplatesRequestXLanguageEnum): ListPublishedTemplatesRequest {
-        this.xLanguage = xLanguage;
+    public withXLanguage(xLanguage: ListPublishedTemplatesRequestXLanguageEnum): ListPublishedTemplatesRequest {
+        this['X-Language'] = xLanguage;
         return this;
     }
-    public withKeyword(keyword?: string): ListPublishedTemplatesRequest {
-        this.keyword = keyword;
+    public set xLanguage(xLanguage: ListPublishedTemplatesRequestXLanguageEnum | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage() {
+        return this['X-Language'];
+    }
+    public withKeyword(keyword: string): ListPublishedTemplatesRequest {
+        this['keyword'] = keyword;
         return this;
     }
-    public withOffset(offset?: number): ListPublishedTemplatesRequest {
-        this.offset = offset;
+    public withOffset(offset: number): ListPublishedTemplatesRequest {
+        this['offset'] = offset;
         return this;
     }
-    public withLimit(limit?: number): ListPublishedTemplatesRequest {
-        this.limit = limit;
+    public withLimit(limit: number): ListPublishedTemplatesRequest {
+        this['limit'] = limit;
         return this;
     }
 }
