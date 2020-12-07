@@ -57,7 +57,7 @@
 
     ``` nodejs
     // 使用代理服务器（可选）
-    client.withProxyAgent("http://proxy.huaweicloud.com")
+    client.withProxyAgent("http://username:password@proxy.huaweicloud.com")
     ```
    
     2.3 SSL配置（可选）

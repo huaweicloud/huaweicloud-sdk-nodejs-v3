@@ -65,6 +65,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().downloadApplicationCode(downloadApplicationCodeRequest);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -87,6 +88,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().runCodehubTemplateJob(runCodehubTemplateJobRequest);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -109,6 +111,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().runDevstarTemplateJob(runDevstarTemplateJobRequest);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -131,6 +134,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().showJobDetail(showJobDetailRequest);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -155,6 +159,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().showTemplateFile(showTemplateFileRequest);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -177,6 +182,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().createTemplateViewHistories(createTemplateViewHistoriesRequest);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -201,6 +207,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().listPublishedTemplates(listPublishedTemplatesRequest);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -223,6 +230,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().listTemplateViewHistories(listTemplateViewHistoriesRequest);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -246,6 +254,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().listTemplatesV2(listTemplatesV2Request);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -268,6 +277,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().showTemplateV3(showTemplateV3Request);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -290,6 +300,7 @@ export class DevStarClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().showTemplateDetail(showTemplateDetailRequest);
+            options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
                 (res: any) => {
@@ -319,9 +330,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let jobId;
-            let xLanguage;
+            const localVarQueryParameter = {} as any;let jobId;let xLanguage;
 
             if (downloadApplicationCodeRequest !== null && downloadApplicationCodeRequest !== undefined) {
                 if (downloadApplicationCodeRequest instanceof DownloadApplicationCodeRequest) {
@@ -362,8 +371,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;
-            let xLanguage;
+            var body: any;let xLanguage;
 
             if (runCodehubTemplateJobRequest !== null && runCodehubTemplateJobRequest !== undefined) {
                 if (runCodehubTemplateJobRequest instanceof RunCodehubTemplateJobRequest) {
@@ -402,8 +410,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;
-            let xLanguage;
+            var body: any;let xLanguage;
 
             if (runDevstarTemplateJobRequest !== null && runDevstarTemplateJobRequest !== undefined) {
                 if (runDevstarTemplateJobRequest instanceof RunDevstarTemplateJobRequest) {
@@ -441,9 +448,7 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;
-            let jobId;
-            let xLanguage;
+            const localVarHeaderParameter = {} as any;let jobId;let xLanguage;
 
             if (showJobDetailRequest !== null && showJobDetailRequest !== undefined) {
                 if (showJobDetailRequest instanceof ShowJobDetailRequest) {
@@ -481,11 +486,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let templateId;
-            let filePath;
-            let xLanguage;
-            let type;
+            const localVarQueryParameter = {} as any;let templateId;let filePath;let xLanguage;let type;
 
             if (showTemplateFileRequest !== null && showTemplateFileRequest !== undefined) {
                 if (showTemplateFileRequest instanceof ShowTemplateFileRequest) {
@@ -537,8 +538,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;
-            let xLanguage;
+            var body: any;let xLanguage;
 
             if (createTemplateViewHistoriesRequest !== null && createTemplateViewHistoriesRequest !== undefined) {
                 if (createTemplateViewHistoriesRequest instanceof CreateTemplateViewHistoriesRequest) {
@@ -577,11 +577,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let xLanguage;
-            let keyword;
-            let offset;
-            let limit;
+            const localVarQueryParameter = {} as any;let xLanguage;let keyword;let offset;let limit;
 
             if (listPublishedTemplatesRequest !== null && listPublishedTemplatesRequest !== undefined) {
                 if (listPublishedTemplatesRequest instanceof ListPublishedTemplatesRequest) {
@@ -629,9 +625,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let platformSource;
-            let xLanguage;
+            const localVarQueryParameter = {} as any;let platformSource;let xLanguage;
 
             if (listTemplateViewHistoriesRequest !== null && listTemplateViewHistoriesRequest !== undefined) {
                 if (listTemplateViewHistoriesRequest instanceof ListTemplateViewHistoriesRequest) {
@@ -673,9 +667,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-            var body: any;
-            let actionId;
-            let xLanguage;
+            var body: any;let actionId;let xLanguage;
 
             if (listTemplatesV2Request !== null && listTemplatesV2Request !== undefined) {
                 if (listTemplatesV2Request instanceof ListTemplatesV2Request) {
@@ -719,9 +711,7 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;
-            let templateId;
-            let xLanguage;
+            const localVarHeaderParameter = {} as any;let templateId;let xLanguage;
 
             if (showTemplateV3Request !== null && showTemplateV3Request !== undefined) {
                 if (showTemplateV3Request instanceof ShowTemplateV3Request) {
@@ -758,9 +748,7 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;
-            let templateId;
-            let xLanguage;
+            const localVarHeaderParameter = {} as any;let templateId;let xLanguage;
 
             if (showTemplateDetailRequest !== null && showTemplateDetailRequest !== undefined) {
                 if (showTemplateDetailRequest instanceof ShowTemplateDetailRequest) {

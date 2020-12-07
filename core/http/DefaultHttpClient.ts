@@ -120,14 +120,8 @@ export class DefaultHttpClient implements HttpClient {
 
         // Path params
         let url = endpoint;//parsePath(endpoint, pathParams);
-
-        if (queryParams && Object.keys(queryParams).length > 0) {
-            Object.keys(queryParams).forEach(
-                key => Array.isArray(queryParams[key]) && (queryParams[key] = queryParams[key].join(','))
-            );
-        }
         url = stripTrailingSlash(url);
-
+        headers['User-Agent'] = "huaweicloud-usdk-nodejs/3.0";
         const requestParams = {
             url,
             method,
@@ -154,6 +148,16 @@ export class DefaultHttpClient implements HttpClient {
                 // the other sdks use the interface `result` for the body
                 res.result = res.data;
                 delete res.data;
+
+                if (httpRequest['responseHeaders']) {
+                    const responseHeaders = httpRequest['responseHeaders'];
+                    for (let item of responseHeaders) {
+                        let lowerItem = item.toString().toLowerCase();
+                        if (!res.result[item] && res.headers[lowerItem]) {
+                            res.result[item] = res.headers[lowerItem];
+                        }
+                    }
+                }
 
                 let requestId = res.headers ? res.headers['x-request-id'] : undefined;
                 let reponseLength = res.result ? JSON.stringify(res.result).length : 1;

@@ -2,12 +2,14 @@ import { RepositoryInfo } from './RepositoryInfo';
 
 
 export class TemplateJobInfo {
-    private 'application_name'?: string | undefined;
+    private 'application_name': string | undefined;
+    private 'repo_type': TemplateJobInfoRepoTypeEnum | undefined;
     private 'template_id': string | undefined;
-    private 'repo_type'?: number | undefined;
-    public properties?: object;
+    public properties?: { [key: string]: string; };
     private 'repo_info'?: RepositoryInfo | undefined;
-    public constructor(templateId: any) { 
+    public constructor(applicationName: any, repoType: any, templateId: any) { 
+        this['application_name'] = applicationName;
+        this['repo_type'] = repoType;
         this['template_id'] = templateId;
     }
     public withApplicationName(applicationName: string): TemplateJobInfo {
@@ -20,6 +22,16 @@ export class TemplateJobInfo {
     public get applicationName() {
         return this['application_name'];
     }
+    public withRepoType(repoType: TemplateJobInfoRepoTypeEnum): TemplateJobInfo {
+        this['repo_type'] = repoType;
+        return this;
+    }
+    public set repoType(repoType: TemplateJobInfoRepoTypeEnum | undefined) {
+        this['repo_type'] = repoType;
+    }
+    public get repoType() {
+        return this['repo_type'];
+    }
     public withTemplateId(templateId: string): TemplateJobInfo {
         this['template_id'] = templateId;
         return this;
@@ -30,17 +42,7 @@ export class TemplateJobInfo {
     public get templateId() {
         return this['template_id'];
     }
-    public withRepoType(repoType: number): TemplateJobInfo {
-        this['repo_type'] = repoType;
-        return this;
-    }
-    public set repoType(repoType: number | undefined) {
-        this['repo_type'] = repoType;
-    }
-    public get repoType() {
-        return this['repo_type'];
-    }
-    public withProperties(properties: object): TemplateJobInfo {
+    public withProperties(properties: { [key: string]: string; }): TemplateJobInfo {
         this['properties'] = properties;
         return this;
     }
@@ -54,4 +56,13 @@ export class TemplateJobInfo {
     public get repoInfo() {
         return this['repo_info'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TemplateJobInfoRepoTypeEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1
 }

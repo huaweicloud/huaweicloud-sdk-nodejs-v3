@@ -54,7 +54,7 @@ You could obtain and install Node.js SDK through following methods:
 
     ``` nodejs
     // Use proxy if needed
-    client.withProxyAgent("http://proxy.huaweicloud.com")
+    client.withProxyAgent("http://username:password@proxy.huaweicloud.com")
     ```
     2.3 SSL Certification(Optional)
 

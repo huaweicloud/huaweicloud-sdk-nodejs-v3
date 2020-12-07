@@ -84,7 +84,9 @@ export class HcClient {
 
         // @ts-ignore
         httpRequest = this.credential.processAuthRequest(httpRequest);
-
+        if (options['responseHeaders']) {
+            httpRequest['responseHeaders'] = options['responseHeaders'];
+        }
         return httpRequest;
     }
 
