@@ -54,8 +54,8 @@ export class DevStarClient {
     }
 
     /**
-     * 下载模板产物
-     * @summary 下载模板产物
+     * 通过任务ID下载ZIP格式的代码工程。
+     * @summary 下载代码工程
      * @param {string} jobId 任务id
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
      * @param {*} [options] Override http request option.
@@ -317,13 +317,13 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 下载模板产物
+         * 通过任务ID下载ZIP格式的代码工程。
          */
         downloadApplicationCode(downloadApplicationCodeRequest?: DownloadApplicationCodeRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/application-codes",
-                contentType: "",
+                url: "",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -363,7 +363,7 @@ export const ParamCreater = function () {
         runCodehubTemplateJob(runCodehubTemplateJobRequest?: RunCodehubTemplateJobRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/jobs/codehub",
+                url: "",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -402,7 +402,7 @@ export const ParamCreater = function () {
         runDevstarTemplateJob(runDevstarTemplateJobRequest?: RunDevstarTemplateJobRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/jobs/template",
+                url: "",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -441,8 +441,8 @@ export const ParamCreater = function () {
         showJobDetail(showJobDetailRequest?: ShowJobDetailRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/jobs/{job_id}",
-                contentType: "",
+                url: "",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -478,8 +478,8 @@ export const ParamCreater = function () {
         showTemplateFile(showTemplateFileRequest?: ShowTemplateFileRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/templates/{template_id}/files",
-                contentType: "",
+                url: "",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -530,7 +530,7 @@ export const ParamCreater = function () {
         createTemplateViewHistories(createTemplateViewHistoriesRequest?: CreateTemplateViewHistoriesRequest) {
             const options = {
                 method: "POST",
-                url: "/v1/templates/view-histories",
+                url: "",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -569,8 +569,8 @@ export const ParamCreater = function () {
         listPublishedTemplates(listPublishedTemplatesRequest?: ListPublishedTemplatesRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/templates",
-                contentType: "",
+                url: "",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -617,8 +617,8 @@ export const ParamCreater = function () {
         listTemplateViewHistories(listTemplateViewHistoriesRequest?: ListTemplateViewHistoriesRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/templates/view-histories",
-                contentType: "",
+                url: "",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -658,7 +658,7 @@ export const ParamCreater = function () {
         listTemplatesV2(listTemplatesV2Request?: ListTemplatesV2Request) {
             const options = {
                 method: "POST",
-                url: "/v2/templates/action",
+                url: "",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -704,8 +704,8 @@ export const ParamCreater = function () {
         showTemplateV3(showTemplateV3Request?: ShowTemplateV3Request) {
             const options = {
                 method: "GET",
-                url: "/v3/templates/{template_id}",
-                contentType: "",
+                url: "",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -741,8 +741,8 @@ export const ParamCreater = function () {
         showTemplateDetail(showTemplateDetailRequest?: ShowTemplateDetailRequest) {
             const options = {
                 method: "GET",
-                url: "/v1/templates/{template_id}",
-                contentType: "",
+                url: "",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
