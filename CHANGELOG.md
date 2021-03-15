@@ -1,3 +1,37 @@
+# 3.0.7-beta 2021-03-15
+
+### HuaweiCloud SDK Core
+
+- _Features_
+    - None
+- _Bug Fix_
+    - Fix the problem of path loss when sending requests.
+- _Change_
+    - None
+
+### HuaweiCloud SDK IAM
+
+- _Features_
+    - Support more interfaces:
+        - `KeystoneShowIdentityProvider`
+        - `KeystoneCreateIdentityProvider`
+        - `KeystoneUpdateIdentityProvider`
+        - `KeystoneDeleteIdentityProvider`
+        - `CreateTokenWithIdToken`
+- _Bug Fix_
+    - None
+- _Change_
+    - Do not support interface `CreateUnscopeTokenByIdpInitiated` anymore.
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+    - Support `IoT Device Access` service.
+- _Bug Fix_
+    - None
+- _Change_
+    - None
+
 # 3.0.6-beta 2021-02-27
 
 ### HuaweiCloud SDK Core

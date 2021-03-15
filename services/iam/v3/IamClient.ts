@@ -79,6 +79,10 @@ import { CreateMfaDeviceReq } from './model/CreateMfaDeviceReq';
 import { CreateMfaDeviceRequest } from './model/CreateMfaDeviceRequest';
 import { CreateMfaDeviceRespon } from './model/CreateMfaDeviceRespon';
 import { CreateMfaDeviceResponse } from './model/CreateMfaDeviceResponse';
+import { CreateOpenIdConnectConfig } from './model/CreateOpenIdConnectConfig';
+import { CreateOpenIdConnectConfigRequest } from './model/CreateOpenIdConnectConfigRequest';
+import { CreateOpenIdConnectConfigRequestBody } from './model/CreateOpenIdConnectConfigRequestBody';
+import { CreateOpenIdConnectConfigResponse } from './model/CreateOpenIdConnectConfigResponse';
 import { CreatePermanentAccessKeyRequest } from './model/CreatePermanentAccessKeyRequest';
 import { CreatePermanentAccessKeyRequestBody } from './model/CreatePermanentAccessKeyRequestBody';
 import { CreatePermanentAccessKeyResponse } from './model/CreatePermanentAccessKeyResponse';
@@ -88,8 +92,8 @@ import { CreateTemporaryAccessKeyByAgencyResponse } from './model/CreateTemporar
 import { CreateTemporaryAccessKeyByTokenRequest } from './model/CreateTemporaryAccessKeyByTokenRequest';
 import { CreateTemporaryAccessKeyByTokenRequestBody } from './model/CreateTemporaryAccessKeyByTokenRequestBody';
 import { CreateTemporaryAccessKeyByTokenResponse } from './model/CreateTemporaryAccessKeyByTokenResponse';
-import { CreateUnscopeTokenByIdpInitiatedRequest } from './model/CreateUnscopeTokenByIdpInitiatedRequest';
-import { CreateUnscopeTokenByIdpInitiatedResponse } from './model/CreateUnscopeTokenByIdpInitiatedResponse';
+import { CreateTokenWithIdTokenRequest } from './model/CreateTokenWithIdTokenRequest';
+import { CreateTokenWithIdTokenResponse } from './model/CreateTokenWithIdTokenResponse';
 import { CreateUserOption } from './model/CreateUserOption';
 import { CreateUserRequest } from './model/CreateUserRequest';
 import { CreateUserRequestBody } from './model/CreateUserRequestBody';
@@ -109,14 +113,21 @@ import { DeleteMfaDeviceRequest } from './model/DeleteMfaDeviceRequest';
 import { DeleteMfaDeviceResponse } from './model/DeleteMfaDeviceResponse';
 import { DeletePermanentAccessKeyRequest } from './model/DeletePermanentAccessKeyRequest';
 import { DeletePermanentAccessKeyResponse } from './model/DeletePermanentAccessKeyResponse';
+import { DomainInfo } from './model/DomainInfo';
 import { Domains } from './model/Domains';
 import { Endpoint } from './model/Endpoint';
+import { FederationUserBody } from './model/FederationUserBody';
+import { GetIdTokenAuthParams } from './model/GetIdTokenAuthParams';
+import { GetIdTokenIdScopeBody } from './model/GetIdTokenIdScopeBody';
+import { GetIdTokenIdTokenBody } from './model/GetIdTokenIdTokenBody';
+import { GetIdTokenRequestBody } from './model/GetIdTokenRequestBody';
+import { GetIdTokenScopeDomainOrProjectBody } from './model/GetIdTokenScopeDomainOrProjectBody';
 import { IdentityAssumerole } from './model/IdentityAssumerole';
 import { IdentityToken } from './model/IdentityToken';
 import { IdentityproviderOption } from './model/IdentityproviderOption';
 import { IdentityprovidersLinks } from './model/IdentityprovidersLinks';
 import { IdentityprovidersResult } from './model/IdentityprovidersResult';
-import { IdpToken } from './model/IdpToken';
+import { IdpIdInfo } from './model/IdpIdInfo';
 import { KeystoneAddUserToGroupRequest } from './model/KeystoneAddUserToGroupRequest';
 import { KeystoneAddUserToGroupResponse } from './model/KeystoneAddUserToGroupResponse';
 import { KeystoneAssociateGroupWithDomainPermissionRequest } from './model/KeystoneAssociateGroupWithDomainPermissionRequest';
@@ -317,6 +328,8 @@ import { MfaDeviceResult } from './model/MfaDeviceResult';
 import { MfaIdentity } from './model/MfaIdentity';
 import { MfaTotp } from './model/MfaTotp';
 import { MfaTotpUser } from './model/MfaTotpUser';
+import { OpenIdConnectConfig } from './model/OpenIdConnectConfig';
+import { OsFederationInfo } from './model/OsFederationInfo';
 import { OsfederationGroups } from './model/OsfederationGroups';
 import { OsfederationIdentityprovider } from './model/OsfederationIdentityprovider';
 import { OsfederationProtocol } from './model/OsfederationProtocol';
@@ -326,9 +339,11 @@ import { PolicyDepends } from './model/PolicyDepends';
 import { PolicyRoleResult } from './model/PolicyRoleResult';
 import { PolicyStatement } from './model/PolicyStatement';
 import { ProjectDetailsAndStatusResult } from './model/ProjectDetailsAndStatusResult';
+import { ProjectInfo } from './model/ProjectInfo';
 import { ProjectResult } from './model/ProjectResult';
 import { ProtectPolicyOption } from './model/ProtectPolicyOption';
 import { ProtectPolicyResult } from './model/ProtectPolicyResult';
+import { ProtocolIdInfo } from './model/ProtocolIdInfo';
 import { ProtocolLinks } from './model/ProtocolLinks';
 import { ProtocolOption } from './model/ProtocolOption';
 import { ProtocolResult } from './model/ProtocolResult';
@@ -357,6 +372,7 @@ import { ScopeTokenResult } from './model/ScopeTokenResult';
 import { ScopedToken } from './model/ScopedToken';
 import { ScopedTokenAuth } from './model/ScopedTokenAuth';
 import { ScopedTokenIdentity } from './model/ScopedTokenIdentity';
+import { ScopedTokenInfo } from './model/ScopedTokenInfo';
 import { ScopedTokenUser } from './model/ScopedTokenUser';
 import { SecurityCompliance } from './model/SecurityCompliance';
 import { Service } from './model/Service';
@@ -383,6 +399,8 @@ import { ShowDomainQuotaRequest } from './model/ShowDomainQuotaRequest';
 import { ShowDomainQuotaResponse } from './model/ShowDomainQuotaResponse';
 import { ShowMetadataRequest } from './model/ShowMetadataRequest';
 import { ShowMetadataResponse } from './model/ShowMetadataResponse';
+import { ShowOpenIdConnectConfigRequest } from './model/ShowOpenIdConnectConfigRequest';
+import { ShowOpenIdConnectConfigResponse } from './model/ShowOpenIdConnectConfigResponse';
 import { ShowPermanentAccessKeyRequest } from './model/ShowPermanentAccessKeyRequest';
 import { ShowPermanentAccessKeyResponse } from './model/ShowPermanentAccessKeyResponse';
 import { ShowProjectDetailsAndStatusRequest } from './model/ShowProjectDetailsAndStatusRequest';
@@ -410,7 +428,8 @@ import { TokenUserDomainResult } from './model/TokenUserDomainResult';
 import { TokenUserOsfederation } from './model/TokenUserOsfederation';
 import { TokenUserResult } from './model/TokenUserResult';
 import { UnbindMfaDevice } from './model/UnbindMfaDevice';
-import { UnscopedTokenUser } from './model/UnscopedTokenUser';
+import { UnscopedTokenInfoCatalog } from './model/UnscopedTokenInfoCatalog';
+import { UnscopedTokenInfoRoles } from './model/UnscopedTokenInfoRoles';
 import { UpdateAgencyCustomPolicyRequest } from './model/UpdateAgencyCustomPolicyRequest';
 import { UpdateAgencyCustomPolicyRequestBody } from './model/UpdateAgencyCustomPolicyRequestBody';
 import { UpdateAgencyCustomPolicyResponse } from './model/UpdateAgencyCustomPolicyResponse';
@@ -445,6 +464,10 @@ import { UpdateLoginProjectReq } from './model/UpdateLoginProjectReq';
 import { UpdateLoginProtectRequest } from './model/UpdateLoginProtectRequest';
 import { UpdateLoginProtectRespon } from './model/UpdateLoginProtectRespon';
 import { UpdateLoginProtectResponse } from './model/UpdateLoginProtectResponse';
+import { UpdateOpenIdConnectConfig } from './model/UpdateOpenIdConnectConfig';
+import { UpdateOpenIdConnectConfigRequest } from './model/UpdateOpenIdConnectConfigRequest';
+import { UpdateOpenIdConnectConfigRequestBody } from './model/UpdateOpenIdConnectConfigRequestBody';
+import { UpdateOpenIdConnectConfigResponse } from './model/UpdateOpenIdConnectConfigResponse';
 import { UpdatePermanentAccessKeyRequest } from './model/UpdatePermanentAccessKeyRequest';
 import { UpdatePermanentAccessKeyRequestBody } from './model/UpdatePermanentAccessKeyRequestBody';
 import { UpdatePermanentAccessKeyResponse } from './model/UpdatePermanentAccessKeyResponse';
@@ -735,17 +758,40 @@ export class IamClient {
         });
     }
     /**
-     * 该接口可以用于通过IdP initiated的联邦认证方式获取unscoped token。    Unscoped token不能用来鉴权，若联邦用户需要使用token进行鉴权，请参考[获取联邦认证scoped token](https://support.huaweicloud.com/api-iam/iam_13_0604.html)获取scoped token。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。     > - 该接口支持在命令行侧调用，需要客户端使用IdP initiated的联邦认证方式获取SAMLResponse，并采用浏览器提交表单数据的方式，获取unscoped token。
-     * @summary 获取联邦认证unscoped token(IdP initiated)
-     * @param {string} xIdpId 身份提供商ID。
-     * @param {string} sAMLResponse 在IdP认证成功后返回的响应体。详情请参见：[获取联邦认证unscoped token(IdP initiated)](https://support.huaweicloud.com/api-iam/iam_02_0003.html)。
+     * 创建OpenId Connect身份提供商配置
+     * @summary 创建OpenId Connect身份提供商配置
+     * @param {string} idpId 身份提供商ID
+     * @param {CreateOpenIdConnectConfigRequestBody} createOpenIdConnectConfigRequestBody 创建身份提供商的信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createUnscopeTokenByIdpInitiated(createUnscopeTokenByIdpInitiatedRequest?: CreateUnscopeTokenByIdpInitiatedRequest): Promise<CreateUnscopeTokenByIdpInitiatedResponse> {
+    public createOpenIdConnectConfig(createOpenIdConnectConfigRequest?: CreateOpenIdConnectConfigRequest): Promise<CreateOpenIdConnectConfigResponse> {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createUnscopeTokenByIdpInitiated(createUnscopeTokenByIdpInitiatedRequest);
+            const options = ParamCreater().createOpenIdConnectConfig(createOpenIdConnectConfigRequest);
+            options['responseHeaders'] = [''];
+
+            return this.hcClient.sendRequest(options).then(
+                (res: any) => {
+                    return resolve(res);
+                },
+                (err: any) => {
+                    return reject(err);
+                });
+        });
+    }
+    /**
+     * 获取联邦认证token(OpenId Connect Id token方式)
+     * @summary 获取联邦认证token(OpenId Connect Id token方式)
+     * @param {string} xIdpId 身份提供商ID。
+     * @param {GetIdTokenRequestBody} body 获取iam token必要的请求体auth参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTokenWithIdToken(createTokenWithIdTokenRequest?: CreateTokenWithIdTokenRequest): Promise<CreateTokenWithIdTokenResponse> {
+        // @ts-ignore
+        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
+            const options = ParamCreater().createTokenWithIdToken(createTokenWithIdTokenRequest);
             options['responseHeaders'] = ['X-Subject-Token'];
 
             return this.hcClient.sendRequest(options).then(
@@ -2453,6 +2499,28 @@ export class IamClient {
         });
     }
     /**
+     * 查询OpenId Connect身份提供商配置
+     * @summary 查询OpenId Connect身份提供商配置
+     * @param {string} idpId 身份提供商ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOpenIdConnectConfig(showOpenIdConnectConfigRequest?: ShowOpenIdConnectConfigRequest): Promise<ShowOpenIdConnectConfigResponse> {
+        // @ts-ignore
+        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
+            const options = ParamCreater().showOpenIdConnectConfig(showOpenIdConnectConfigRequest);
+            options['responseHeaders'] = [''];
+
+            return this.hcClient.sendRequest(options).then(
+                (res: any) => {
+                    return resolve(res);
+                },
+                (err: any) => {
+                    return reject(err);
+                });
+        });
+    }
+    /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询项目详情与状态。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
      * @summary 查询项目详情与状态
      * @param {*} [options] Override http request option.
@@ -2691,6 +2759,29 @@ export class IamClient {
         // @ts-ignore
         return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
             const options = ParamCreater().updateDomainProtectPolicy(updateDomainProtectPolicyRequest);
+            options['responseHeaders'] = [''];
+
+            return this.hcClient.sendRequest(options).then(
+                (res: any) => {
+                    return resolve(res);
+                },
+                (err: any) => {
+                    return reject(err);
+                });
+        });
+    }
+    /**
+     * 修改OpenId Connect身份提供商配置
+     * @summary 修改OpenId Connect身份提供商配置
+     * @param {string} idpId 身份提供商ID
+     * @param {UpdateOpenIdConnectConfigRequestBody} updateOpenIDConnectConfigRequestBody 修改身份提供商的信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOpenIdConnectConfig(updateOpenIdConnectConfigRequest?: UpdateOpenIdConnectConfigRequest): Promise<UpdateOpenIdConnectConfigResponse> {
+        // @ts-ignore
+        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
+            const options = ParamCreater().updateOpenIdConnectConfig(updateOpenIdConnectConfigRequest);
             options['responseHeaders'] = [''];
 
             return this.hcClient.sendRequest(options).then(
@@ -3429,7 +3520,7 @@ export const ParamCreater = function () {
         associateAgencyWithAllProjectsPermission(associateAgencyWithAllProjectsPermissionRequest?: AssociateAgencyWithAllProjectsPermissionRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-INHERIT/domains/{domain_id}/agencies/{agency_id}/roles/{role_id}/inherited_to_projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3471,7 +3562,7 @@ export const ParamCreater = function () {
         associateAgencyWithDomainPermission(associateAgencyWithDomainPermissionRequest?: AssociateAgencyWithDomainPermissionRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-AGENCY/domains/{domain_id}/agencies/{agency_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3513,7 +3604,7 @@ export const ParamCreater = function () {
         associateAgencyWithProjectPermission(associateAgencyWithProjectPermissionRequest?: AssociateAgencyWithProjectPermissionRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-AGENCY/projects/{project_id}/agencies/{agency_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3550,7 +3641,7 @@ export const ParamCreater = function () {
         checkAllProjectsPermissionForAgency(checkAllProjectsPermissionForAgencyRequest?: CheckAllProjectsPermissionForAgencyRequest) {
             const options = {
                 method: "HEAD",
-                url: "",
+                url: "/v3.0/OS-INHERIT/domains/{domain_id}/agencies/{agency_id}/roles/{role_id}/inherited_to_projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3592,7 +3683,7 @@ export const ParamCreater = function () {
         checkDomainPermissionForAgency(checkDomainPermissionForAgencyRequest?: CheckDomainPermissionForAgencyRequest) {
             const options = {
                 method: "HEAD",
-                url: "",
+                url: "/v3.0/OS-AGENCY/domains/{domain_id}/agencies/{agency_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3634,7 +3725,7 @@ export const ParamCreater = function () {
         checkProjectPermissionForAgency(checkProjectPermissionForAgencyRequest?: CheckProjectPermissionForAgencyRequest) {
             const options = {
                 method: "HEAD",
-                url: "",
+                url: "/v3.0/OS-AGENCY/projects/{project_id}/agencies/{agency_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3671,7 +3762,7 @@ export const ParamCreater = function () {
         createAgency(createAgencyRequest?: CreateAgencyRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3.0/OS-AGENCY/agencies",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -3705,7 +3796,7 @@ export const ParamCreater = function () {
         createAgencyCustomPolicy(createAgencyCustomPolicyRequest?: CreateAgencyCustomPolicyRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3.0/OS-ROLE/roles",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -3739,7 +3830,7 @@ export const ParamCreater = function () {
         createCloudServiceCustomPolicy(createCloudServiceCustomPolicyRequest?: CreateCloudServiceCustomPolicyRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3.0/OS-ROLE/roles",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -3773,7 +3864,7 @@ export const ParamCreater = function () {
         createLoginToken(createLoginTokenRequest?: CreateLoginTokenRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3.0/OS-AUTH/securitytoken/logintokens",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -3807,7 +3898,7 @@ export const ParamCreater = function () {
         createMetadata(createMetadataRequest?: CreateMetadataRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3-ext/OS-FEDERATION/identity_providers/{idp_id}/protocols/{protocol_id}/metadata",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -3847,44 +3938,83 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口可以用于通过IdP initiated的联邦认证方式获取unscoped token。    Unscoped token不能用来鉴权，若联邦用户需要使用token进行鉴权，请参考[获取联邦认证scoped token](https://support.huaweicloud.com/api-iam/iam_13_0604.html)获取scoped token。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。     &gt; - 该接口支持在命令行侧调用，需要客户端使用IdP initiated的联邦认证方式获取SAMLResponse，并采用浏览器提交表单数据的方式，获取unscoped token。
+         * 创建OpenId Connect身份提供商配置
          */
-        createUnscopeTokenByIdpInitiated(createUnscopeTokenByIdpInitiatedRequest?: CreateUnscopeTokenByIdpInitiatedRequest) {
+        createOpenIdConnectConfig(createOpenIdConnectConfigRequest?: CreateOpenIdConnectConfigRequest) {
             const options = {
                 method: "POST",
-                url: "",
-                contentType: "application/x-www-form-urlencoded",
+                url: "/v3.0/OS-FEDERATION/identity-providers/{idp_id}/openid-connect-config",
+                contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarFormParams = new URLSearchParams();let xIdpId;var sAMLResponse;
+            var body: any;let idpId;
 
-            if (createUnscopeTokenByIdpInitiatedRequest !== null && createUnscopeTokenByIdpInitiatedRequest !== undefined) {
-                if (createUnscopeTokenByIdpInitiatedRequest instanceof CreateUnscopeTokenByIdpInitiatedRequest) {
-                    xIdpId = createUnscopeTokenByIdpInitiatedRequest.xIdpId;
-                    sAMLResponse = createUnscopeTokenByIdpInitiatedRequest.body;
+            if (createOpenIdConnectConfigRequest !== null && createOpenIdConnectConfigRequest !== undefined) {
+                if (createOpenIdConnectConfigRequest instanceof CreateOpenIdConnectConfigRequest) {
+                    idpId = createOpenIdConnectConfigRequest.idpId;
+                    body = createOpenIdConnectConfigRequest.body
                 } else {
-                    xIdpId = createUnscopeTokenByIdpInitiatedRequest['X-Idp-Id'];
-                    sAMLResponse = createUnscopeTokenByIdpInitiatedRequest['body'];
+                    idpId = createOpenIdConnectConfigRequest['idp_id'];
+                    body = createOpenIdConnectConfigRequest['body'];
+                }
+            }
+        
+            if (idpId === null || idpId === undefined) {
+                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling createOpenIdConnectConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'idp_id': idpId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取联邦认证token(OpenId Connect Id token方式)
+         */
+        createTokenWithIdToken(createTokenWithIdTokenRequest?: CreateTokenWithIdTokenRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3.0/OS-AUTH/id-token/tokens",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            var body: any;let xIdpId;
+
+            if (createTokenWithIdTokenRequest !== null && createTokenWithIdTokenRequest !== undefined) {
+                if (createTokenWithIdTokenRequest instanceof CreateTokenWithIdTokenRequest) {
+                    xIdpId = createTokenWithIdTokenRequest.xIdpId;
+                    body = createTokenWithIdTokenRequest.body
+                } else {
+                    xIdpId = createTokenWithIdTokenRequest['X-Idp-Id'];
+                    body = createTokenWithIdTokenRequest['body'];
                 }
             }
         
             if (xIdpId === null || xIdpId === undefined) {
-                throw new RequiredError('xIdpId','Required parameter xIdpId was null or undefined when calling createUnscopeTokenByIdpInitiated.');
+                throw new RequiredError('xIdpId','Required parameter xIdpId was null or undefined when calling createTokenWithIdToken.');
             }
-            if (sAMLResponse === null || sAMLResponse === undefined) {
-                throw new RequiredError('sAMLResponse','Required parameter sAMLResponse was null or undefined when calling createUnscopeTokenByIdpInitiated.');
-            }
-            if (sAMLResponse !== undefined) { 
-                localVarFormParams.set('SAMLResponse', sAMLResponse as any);
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             if (xIdpId !== undefined && xIdpId !== null) {
                 localVarHeaderParameter['X-Idp-Id'] = String(xIdpId);
             }
-            options.data = localVarFormParams.toString();
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3895,7 +4025,7 @@ export const ParamCreater = function () {
         deleteAgency(deleteAgencyRequest?: DeleteAgencyRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3.0/OS-AGENCY/agencies/{agency_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3927,7 +4057,7 @@ export const ParamCreater = function () {
         deleteCustomPolicy(deleteCustomPolicyRequest?: DeleteCustomPolicyRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3.0/OS-ROLE/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3959,7 +4089,7 @@ export const ParamCreater = function () {
         deleteDomainGroupInheritedRole(deleteDomainGroupInheritedRoleRequest?: DeleteDomainGroupInheritedRoleRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3/OS-INHERIT/domains/{domain_id}/groups/{group_id}/roles/{role_id}/inherited_to_projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4001,7 +4131,7 @@ export const ParamCreater = function () {
         keystoneAddUserToGroup(keystoneAddUserToGroupRequest?: KeystoneAddUserToGroupRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3/groups/{group_id}/users/{user_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4038,7 +4168,7 @@ export const ParamCreater = function () {
         keystoneAssociateGroupWithDomainPermission(keystoneAssociateGroupWithDomainPermissionRequest?: KeystoneAssociateGroupWithDomainPermissionRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3/domains/{domain_id}/groups/{group_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4080,7 +4210,7 @@ export const ParamCreater = function () {
         keystoneAssociateGroupWithProjectPermission(keystoneAssociateGroupWithProjectPermissionRequest?: KeystoneAssociateGroupWithProjectPermissionRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3/projects/{project_id}/groups/{group_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4117,7 +4247,7 @@ export const ParamCreater = function () {
         keystoneCheckDomainPermissionForGroup(keystoneCheckDomainPermissionForGroupRequest?: KeystoneCheckDomainPermissionForGroupRequest) {
             const options = {
                 method: "HEAD",
-                url: "",
+                url: "/v3/domains/{domain_id}/groups/{group_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4159,7 +4289,7 @@ export const ParamCreater = function () {
         keystoneCheckProjectPermissionForGroup(keystoneCheckProjectPermissionForGroupRequest?: KeystoneCheckProjectPermissionForGroupRequest) {
             const options = {
                 method: "HEAD",
-                url: "",
+                url: "/v3/projects/{project_id}/groups/{group_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4196,7 +4326,7 @@ export const ParamCreater = function () {
         keystoneCheckUserInGroup(keystoneCheckUserInGroupRequest?: KeystoneCheckUserInGroupRequest) {
             const options = {
                 method: "HEAD",
-                url: "",
+                url: "/v3/groups/{group_id}/users/{user_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4233,7 +4363,7 @@ export const ParamCreater = function () {
         keystoneCheckroleForGroup(keystoneCheckroleForGroupRequest?: KeystoneCheckroleForGroupRequest) {
             const options = {
                 method: "HEAD",
-                url: "",
+                url: "/v3/OS-INHERIT/domains/{domain_id}/groups/{group_id}/roles/{role_id}/inherited_to_projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4275,7 +4405,7 @@ export const ParamCreater = function () {
         keystoneCreateGroup(keystoneCreateGroupRequest?: KeystoneCreateGroupRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3/groups",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -4309,7 +4439,7 @@ export const ParamCreater = function () {
         keystoneCreateIdentityProvider(keystoneCreateIdentityProviderRequest?: KeystoneCreateIdentityProviderRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3/OS-FEDERATION/identity_providers/{id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -4357,7 +4487,7 @@ export const ParamCreater = function () {
         keystoneCreateMapping(keystoneCreateMappingRequest?: KeystoneCreateMappingRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3/OS-FEDERATION/mappings/{id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -4397,7 +4527,7 @@ export const ParamCreater = function () {
         keystoneCreateProject(keystoneCreateProjectRequest?: KeystoneCreateProjectRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3/projects",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -4431,7 +4561,7 @@ export const ParamCreater = function () {
         keystoneCreateProtocol(keystoneCreateProtocolRequest?: KeystoneCreateProtocolRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3/OS-FEDERATION/identity_providers/{idp_id}/protocols/{protocol_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -4476,7 +4606,7 @@ export const ParamCreater = function () {
         keystoneCreateScopedToken(keystoneCreateScopedTokenRequest?: KeystoneCreateScopedTokenRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3/auth/tokens",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -4510,7 +4640,7 @@ export const ParamCreater = function () {
         keystoneDeleteGroup(keystoneDeleteGroupRequest?: KeystoneDeleteGroupRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3/groups/{group_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4542,7 +4672,7 @@ export const ParamCreater = function () {
         keystoneDeleteIdentityProvider(keystoneDeleteIdentityProviderRequest?: KeystoneDeleteIdentityProviderRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3/OS-FEDERATION/identity_providers/{id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4574,7 +4704,7 @@ export const ParamCreater = function () {
         keystoneDeleteMapping(keystoneDeleteMappingRequest?: KeystoneDeleteMappingRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3/OS-FEDERATION/mappings/{id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4606,7 +4736,7 @@ export const ParamCreater = function () {
         keystoneDeleteProtocol(keystoneDeleteProtocolRequest?: KeystoneDeleteProtocolRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3/OS-FEDERATION/identity_providers/{idp_id}/protocols/{protocol_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4643,7 +4773,7 @@ export const ParamCreater = function () {
         keystoneListAllProjectPermissionsForGroup(keystoneListAllProjectPermissionsForGroupRequest?: KeystoneListAllProjectPermissionsForGroupRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/OS-INHERIT/domains/{domain_id}/groups/{group_id}/roles/inherited_to_projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4680,7 +4810,7 @@ export const ParamCreater = function () {
         keystoneListAuthDomains() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/auth/domains",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4699,7 +4829,7 @@ export const ParamCreater = function () {
         keystoneListAuthProjects() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/auth/projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4718,7 +4848,7 @@ export const ParamCreater = function () {
         keystoneListDomainPermissionsForGroup(keystoneListDomainPermissionsForGroupRequest?: KeystoneListDomainPermissionsForGroupRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/domains/{domain_id}/groups/{group_id}/roles",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4755,7 +4885,7 @@ export const ParamCreater = function () {
         keystoneListEndpoints(keystoneListEndpointsRequest?: KeystoneListEndpointsRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/endpoints",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4793,7 +4923,7 @@ export const ParamCreater = function () {
         keystoneListGroups(keystoneListGroupsRequest?: KeystoneListGroupsRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/groups",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4831,7 +4961,7 @@ export const ParamCreater = function () {
         keystoneListIdentityProviders() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/OS-FEDERATION/identity_providers",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4850,7 +4980,7 @@ export const ParamCreater = function () {
         keystoneListMappings() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/OS-FEDERATION/mappings",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4869,7 +4999,7 @@ export const ParamCreater = function () {
         keystoneListPermissions(keystoneListPermissionsRequest?: KeystoneListPermissionsRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/roles",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4917,7 +5047,7 @@ export const ParamCreater = function () {
         keystoneListProjectPermissionsForGroup(keystoneListProjectPermissionsForGroupRequest?: KeystoneListProjectPermissionsForGroupRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/projects/{project_id}/groups/{group_id}/roles",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4949,7 +5079,7 @@ export const ParamCreater = function () {
         keystoneListProjects(keystoneListProjectsRequest?: KeystoneListProjectsRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5012,7 +5142,7 @@ export const ParamCreater = function () {
         keystoneListProjectsForUser(keystoneListProjectsForUserRequest?: KeystoneListProjectsForUserRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/users/{user_id}/projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5044,7 +5174,7 @@ export const ParamCreater = function () {
         keystoneListProtocols(keystoneListProtocolsRequest?: KeystoneListProtocolsRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/OS-FEDERATION/identity_providers/{idp_id}/protocols",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5076,7 +5206,7 @@ export const ParamCreater = function () {
         keystoneListRegions() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/regions",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5095,7 +5225,7 @@ export const ParamCreater = function () {
         keystoneListServices(keystoneListServicesRequest?: KeystoneListServicesRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/services",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5128,7 +5258,7 @@ export const ParamCreater = function () {
         keystoneListUsersForGroupByAdmin(keystoneListUsersForGroupByAdminRequest?: KeystoneListUsersForGroupByAdminRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/groups/{group_id}/users",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5160,7 +5290,7 @@ export const ParamCreater = function () {
         keystoneListVersions() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5179,7 +5309,7 @@ export const ParamCreater = function () {
         keystoneRemoveDomainPermissionFromGroup(keystoneRemoveDomainPermissionFromGroupRequest?: KeystoneRemoveDomainPermissionFromGroupRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3/domains/{domain_id}/groups/{group_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5221,7 +5351,7 @@ export const ParamCreater = function () {
         keystoneRemoveProjectPermissionFromGroup(keystoneRemoveProjectPermissionFromGroupRequest?: KeystoneRemoveProjectPermissionFromGroupRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3/projects/{project_id}/groups/{group_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5258,7 +5388,7 @@ export const ParamCreater = function () {
         keystoneRemoveUserFromGroup(keystoneRemoveUserFromGroupRequest?: KeystoneRemoveUserFromGroupRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3/groups/{group_id}/users/{user_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5295,7 +5425,7 @@ export const ParamCreater = function () {
         keystoneShowCatalog() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/auth/catalog",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5314,7 +5444,7 @@ export const ParamCreater = function () {
         keystoneShowEndpoint(keystoneShowEndpointRequest?: KeystoneShowEndpointRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/endpoints/{endpoint_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5346,7 +5476,7 @@ export const ParamCreater = function () {
         keystoneShowGroup(keystoneShowGroupRequest?: KeystoneShowGroupRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/groups/{group_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5378,7 +5508,7 @@ export const ParamCreater = function () {
         keystoneShowIdentityProvider(keystoneShowIdentityProviderRequest?: KeystoneShowIdentityProviderRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/OS-FEDERATION/identity_providers/{id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5410,7 +5540,7 @@ export const ParamCreater = function () {
         keystoneShowMapping(keystoneShowMappingRequest?: KeystoneShowMappingRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/OS-FEDERATION/mappings/{id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5442,7 +5572,7 @@ export const ParamCreater = function () {
         keystoneShowPermission(keystoneShowPermissionRequest?: KeystoneShowPermissionRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5474,7 +5604,7 @@ export const ParamCreater = function () {
         keystoneShowProject() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/projects/{project_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5493,7 +5623,7 @@ export const ParamCreater = function () {
         keystoneShowProtocol(keystoneShowProtocolRequest?: KeystoneShowProtocolRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/OS-FEDERATION/identity_providers/{idp_id}/protocols/{protocol_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5530,7 +5660,7 @@ export const ParamCreater = function () {
         keystoneShowRegion(keystoneShowRegionRequest?: KeystoneShowRegionRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/regions/{region_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5562,7 +5692,7 @@ export const ParamCreater = function () {
         keystoneShowSecurityCompliance(keystoneShowSecurityComplianceRequest?: KeystoneShowSecurityComplianceRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/domains/{domain_id}/config/security_compliance",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5594,7 +5724,7 @@ export const ParamCreater = function () {
         keystoneShowSecurityComplianceByOption(keystoneShowSecurityComplianceByOptionRequest?: KeystoneShowSecurityComplianceByOptionRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/domains/{domain_id}/config/security_compliance/{option}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5631,7 +5761,7 @@ export const ParamCreater = function () {
         keystoneShowService(keystoneShowServiceRequest?: KeystoneShowServiceRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/services/{service_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5663,7 +5793,7 @@ export const ParamCreater = function () {
         keystoneShowVersion() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5682,7 +5812,7 @@ export const ParamCreater = function () {
         keystoneUpdateGroup(keystoneUpdateGroupRequest?: KeystoneUpdateGroupRequest) {
             const options = {
                 method: "PATCH",
-                url: "",
+                url: "/v3/groups/{group_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -5722,7 +5852,7 @@ export const ParamCreater = function () {
         keystoneUpdateIdentityProvider(keystoneUpdateIdentityProviderRequest?: KeystoneUpdateIdentityProviderRequest) {
             const options = {
                 method: "PATCH",
-                url: "",
+                url: "/v3/OS-FEDERATION/identity_providers/{id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -5762,7 +5892,7 @@ export const ParamCreater = function () {
         keystoneUpdateMapping(keystoneUpdateMappingRequest?: KeystoneUpdateMappingRequest) {
             const options = {
                 method: "PATCH",
-                url: "",
+                url: "/v3/OS-FEDERATION/mappings/{id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -5802,7 +5932,7 @@ export const ParamCreater = function () {
         keystoneUpdateProject(keystoneUpdateProjectRequest?: KeystoneUpdateProjectRequest) {
             const options = {
                 method: "PATCH",
-                url: "",
+                url: "/v3/projects/{project_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -5836,7 +5966,7 @@ export const ParamCreater = function () {
         keystoneUpdateProtocol(keystoneUpdateProtocolRequest?: KeystoneUpdateProtocolRequest) {
             const options = {
                 method: "PATCH",
-                url: "",
+                url: "/v3/OS-FEDERATION/identity_providers/{idp_id}/protocols/{protocol_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -5881,7 +6011,7 @@ export const ParamCreater = function () {
         listAgencies(listAgenciesRequest?: ListAgenciesRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-AGENCY/agencies",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5927,7 +6057,7 @@ export const ParamCreater = function () {
         listAllProjectsPermissionsForAgency(listAllProjectsPermissionsForAgencyRequest?: ListAllProjectsPermissionsForAgencyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-INHERIT/domains/{domain_id}/agencies/{agency_id}/roles/inherited_to_projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -5964,7 +6094,7 @@ export const ParamCreater = function () {
         listCustomPolicies(listCustomPoliciesRequest?: ListCustomPoliciesRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-ROLE/roles",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6002,7 +6132,7 @@ export const ParamCreater = function () {
         listDomainPermissionsForAgency(listDomainPermissionsForAgencyRequest?: ListDomainPermissionsForAgencyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-AGENCY/domains/{domain_id}/agencies/{agency_id}/roles",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6039,7 +6169,7 @@ export const ParamCreater = function () {
         listProjectPermissionsForAgency(listProjectPermissionsForAgencyRequest?: ListProjectPermissionsForAgencyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-AGENCY/projects/{project_id}/agencies/{agency_id}/roles",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6071,7 +6201,7 @@ export const ParamCreater = function () {
         removeAllProjectsPermissionFromAgency(removeAllProjectsPermissionFromAgencyRequest?: RemoveAllProjectsPermissionFromAgencyRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3.0/OS-INHERIT/domains/{domain_id}/agencies/{agency_id}/roles/{role_id}/inherited_to_projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6113,7 +6243,7 @@ export const ParamCreater = function () {
         removeDomainPermissionFromAgency(removeDomainPermissionFromAgencyRequest?: RemoveDomainPermissionFromAgencyRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3.0/OS-AGENCY/domains/{domain_id}/agencies/{agency_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6155,7 +6285,7 @@ export const ParamCreater = function () {
         removeProjectPermissionFromAgency(removeProjectPermissionFromAgencyRequest?: RemoveProjectPermissionFromAgencyRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3.0/OS-AGENCY/projects/{project_id}/agencies/{agency_id}/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6192,7 +6322,7 @@ export const ParamCreater = function () {
         showAgency(showAgencyRequest?: ShowAgencyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-AGENCY/agencies/{agency_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6224,7 +6354,7 @@ export const ParamCreater = function () {
         showCustomPolicy(showCustomPolicyRequest?: ShowCustomPolicyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-ROLE/roles/{role_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6256,7 +6386,7 @@ export const ParamCreater = function () {
         showDomainApiAclPolicy(showDomainApiAclPolicyRequest?: ShowDomainApiAclPolicyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-SECURITYPOLICY/domains/{domain_id}/api-acl-policy",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6288,7 +6418,7 @@ export const ParamCreater = function () {
         showDomainConsoleAclPolicy(showDomainConsoleAclPolicyRequest?: ShowDomainConsoleAclPolicyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-SECURITYPOLICY/domains/{domain_id}/console-acl-policy",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6320,7 +6450,7 @@ export const ParamCreater = function () {
         showDomainLoginPolicy(showDomainLoginPolicyRequest?: ShowDomainLoginPolicyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-SECURITYPOLICY/domains/{domain_id}/login-policy",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6352,7 +6482,7 @@ export const ParamCreater = function () {
         showDomainPasswordPolicy(showDomainPasswordPolicyRequest?: ShowDomainPasswordPolicyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-SECURITYPOLICY/domains/{domain_id}/password-policy",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6384,7 +6514,7 @@ export const ParamCreater = function () {
         showDomainProtectPolicy(showDomainProtectPolicyRequest?: ShowDomainProtectPolicyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-SECURITYPOLICY/domains/{domain_id}/protect-policy",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6416,7 +6546,7 @@ export const ParamCreater = function () {
         showDomainQuota(showDomainQuotaRequest?: ShowDomainQuotaRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-QUOTA/domains/{domain_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6455,7 +6585,7 @@ export const ParamCreater = function () {
         showMetadata(showMetadataRequest?: ShowMetadataRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3-ext/OS-FEDERATION/identity_providers/{idp_id}/protocols/{protocol_id}/metadata",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6487,12 +6617,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询OpenId Connect身份提供商配置
+         */
+        showOpenIdConnectConfig(showOpenIdConnectConfigRequest?: ShowOpenIdConnectConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3.0/OS-FEDERATION/identity-providers/{idp_id}/openid-connect-config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;let idpId;
+
+            if (showOpenIdConnectConfigRequest !== null && showOpenIdConnectConfigRequest !== undefined) {
+                if (showOpenIdConnectConfigRequest instanceof ShowOpenIdConnectConfigRequest) {
+                    idpId = showOpenIdConnectConfigRequest.idpId;
+                } else {
+                    idpId = showOpenIdConnectConfigRequest['idp_id'];
+                }
+            }
+        
+            if (idpId === null || idpId === undefined) {
+                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling showOpenIdConnectConfig.');
+            }
+
+            options.pathParams = { 'idp_id': idpId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询项目详情与状态。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
          */
         showProjectDetailsAndStatus() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3-ext/projects/{project_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6511,7 +6673,7 @@ export const ParamCreater = function () {
         showProjectQuota() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-QUOTA/projects/{project_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6530,7 +6692,7 @@ export const ParamCreater = function () {
         updateAgency(updateAgencyRequest?: UpdateAgencyRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-AGENCY/agencies/{agency_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6570,7 +6732,7 @@ export const ParamCreater = function () {
         updateAgencyCustomPolicy(updateAgencyCustomPolicyRequest?: UpdateAgencyCustomPolicyRequest) {
             const options = {
                 method: "PATCH",
-                url: "",
+                url: "/v3.0/OS-ROLE/roles/{role_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6610,7 +6772,7 @@ export const ParamCreater = function () {
         updateCloudServiceCustomPolicy(updateCloudServiceCustomPolicyRequest?: UpdateCloudServiceCustomPolicyRequest) {
             const options = {
                 method: "PATCH",
-                url: "",
+                url: "/v3.0/OS-ROLE/roles/{role_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6650,7 +6812,7 @@ export const ParamCreater = function () {
         updateDomainApiAclPolicy(updateDomainApiAclPolicyRequest?: UpdateDomainApiAclPolicyRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-SECURITYPOLICY/domains/{domain_id}/api-acl-policy",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6690,7 +6852,7 @@ export const ParamCreater = function () {
         updateDomainConsoleAclPolicy(updateDomainConsoleAclPolicyRequest?: UpdateDomainConsoleAclPolicyRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-SECURITYPOLICY/domains/{domain_id}/console-acl-policy",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6727,7 +6889,7 @@ export const ParamCreater = function () {
         updateDomainGroupInheritRole(updateDomainGroupInheritRoleRequest?: UpdateDomainGroupInheritRoleRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3/OS-INHERIT/domains/{domain_id}/groups/{group_id}/roles/{role_id}/inherited_to_projects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -6769,7 +6931,7 @@ export const ParamCreater = function () {
         updateDomainLoginPolicy(updateDomainLoginPolicyRequest?: UpdateDomainLoginPolicyRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-SECURITYPOLICY/domains/{domain_id}/login-policy",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6809,7 +6971,7 @@ export const ParamCreater = function () {
         updateDomainPasswordPolicy(updateDomainPasswordPolicyRequest?: UpdateDomainPasswordPolicyRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-SECURITYPOLICY/domains/{domain_id}/password-policy",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6849,7 +7011,7 @@ export const ParamCreater = function () {
         updateDomainProtectPolicy(updateDomainProtectPolicyRequest?: UpdateDomainProtectPolicyRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-SECURITYPOLICY/domains/{domain_id}/protect-policy",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6884,12 +7046,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 修改OpenId Connect身份提供商配置
+         */
+        updateOpenIdConnectConfig(updateOpenIdConnectConfigRequest?: UpdateOpenIdConnectConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3.0/OS-FEDERATION/identity-providers/{idp_id}/openid-connect-config",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            var body: any;let idpId;
+
+            if (updateOpenIdConnectConfigRequest !== null && updateOpenIdConnectConfigRequest !== undefined) {
+                if (updateOpenIdConnectConfigRequest instanceof UpdateOpenIdConnectConfigRequest) {
+                    idpId = updateOpenIdConnectConfigRequest.idpId;
+                    body = updateOpenIdConnectConfigRequest.body
+                } else {
+                    idpId = updateOpenIdConnectConfigRequest['idp_id'];
+                    body = updateOpenIdConnectConfigRequest['body'];
+                }
+            }
+        
+            if (idpId === null || idpId === undefined) {
+                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling updateOpenIdConnectConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'idp_id': idpId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)设置项目状态。项目状态包括：正常、冻结。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
          */
         updateProjectStatus(updateProjectStatusRequest?: UpdateProjectStatusRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3-ext/projects/{project_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6923,7 +7125,7 @@ export const ParamCreater = function () {
         createPermanentAccessKey(createPermanentAccessKeyRequest?: CreatePermanentAccessKeyRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3.0/OS-CREDENTIAL/credentials",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6957,7 +7159,7 @@ export const ParamCreater = function () {
         createTemporaryAccessKeyByAgency(createTemporaryAccessKeyByAgencyRequest?: CreateTemporaryAccessKeyByAgencyRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3.0/OS-CREDENTIAL/securitytokens",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -6991,7 +7193,7 @@ export const ParamCreater = function () {
         createTemporaryAccessKeyByToken(createTemporaryAccessKeyByTokenRequest?: CreateTemporaryAccessKeyByTokenRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3.0/OS-CREDENTIAL/securitytokens",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7025,7 +7227,7 @@ export const ParamCreater = function () {
         deletePermanentAccessKey(deletePermanentAccessKeyRequest?: DeletePermanentAccessKeyRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3.0/OS-CREDENTIAL/credentials/{access_key}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7057,7 +7259,7 @@ export const ParamCreater = function () {
         listPermanentAccessKeys(listPermanentAccessKeysRequest?: ListPermanentAccessKeysRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-CREDENTIAL/credentials",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7090,7 +7292,7 @@ export const ParamCreater = function () {
         showPermanentAccessKey(showPermanentAccessKeyRequest?: ShowPermanentAccessKeyRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-CREDENTIAL/credentials/{access_key}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7122,7 +7324,7 @@ export const ParamCreater = function () {
         updatePermanentAccessKey(updatePermanentAccessKeyRequest?: UpdatePermanentAccessKeyRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-CREDENTIAL/credentials/{access_key}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7162,7 +7364,7 @@ export const ParamCreater = function () {
         createBindingDevice(createBindingDeviceRequest?: CreateBindingDeviceRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-MFA/mfa-devices/bind",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7196,7 +7398,7 @@ export const ParamCreater = function () {
         createMfaDevice(createMfaDeviceRequest?: CreateMfaDeviceRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3.0/OS-MFA/virtual-mfa-devices",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7230,7 +7432,7 @@ export const ParamCreater = function () {
         createUser(createUserRequest?: CreateUserRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3.0/OS-USER/users",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7264,7 +7466,7 @@ export const ParamCreater = function () {
         deleteBindingDevice(deleteBindingDeviceRequest?: DeleteBindingDeviceRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-MFA/mfa-devices/unbind",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7298,7 +7500,7 @@ export const ParamCreater = function () {
         deleteMfaDevice(deleteMfaDeviceRequest?: DeleteMfaDeviceRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3.0/OS-MFA/virtual-mfa-devices",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7342,7 +7544,7 @@ export const ParamCreater = function () {
         keystoneCreateUser(keystoneCreateUserRequest?: KeystoneCreateUserRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3/users",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7376,7 +7578,7 @@ export const ParamCreater = function () {
         keystoneDeleteUser(keystoneDeleteUserRequest?: KeystoneDeleteUserRequest) {
             const options = {
                 method: "DELETE",
-                url: "",
+                url: "/v3/users/{user_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7408,7 +7610,7 @@ export const ParamCreater = function () {
         keystoneListGroupsForUser(keystoneListGroupsForUserRequest?: KeystoneListGroupsForUserRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/users/{user_id}/groups",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7440,7 +7642,7 @@ export const ParamCreater = function () {
         keystoneListUsers(keystoneListUsersRequest?: KeystoneListUsersRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/users",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7488,7 +7690,7 @@ export const ParamCreater = function () {
         keystoneShowUser(keystoneShowUserRequest?: KeystoneShowUserRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/users/{user_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7520,7 +7722,7 @@ export const ParamCreater = function () {
         keystoneUpdateUserByAdmin(keystoneUpdateUserByAdminRequest?: KeystoneUpdateUserByAdminRequest) {
             const options = {
                 method: "PATCH",
-                url: "",
+                url: "/v3/users/{user_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7560,7 +7762,7 @@ export const ParamCreater = function () {
         keystoneUpdateUserPassword(keystoneUpdateUserPasswordRequest?: KeystoneUpdateUserPasswordRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3/users/{user_id}/password",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7600,7 +7802,7 @@ export const ParamCreater = function () {
         listUserLoginProtects() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-USER/login-protects",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7619,7 +7821,7 @@ export const ParamCreater = function () {
         listUserMfaDevices() {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-MFA/virtual-mfa-devices",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7638,7 +7840,7 @@ export const ParamCreater = function () {
         showUser(showUserRequest?: ShowUserRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-USER/users/{user_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7670,7 +7872,7 @@ export const ParamCreater = function () {
         showUserLoginProtect(showUserLoginProtectRequest?: ShowUserLoginProtectRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-USER/users/{user_id}/login-protect",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7702,7 +7904,7 @@ export const ParamCreater = function () {
         showUserMfaDevice(showUserMfaDeviceRequest?: ShowUserMfaDeviceRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3.0/OS-MFA/users/{user_id}/virtual-mfa-device",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -7734,7 +7936,7 @@ export const ParamCreater = function () {
         updateLoginProtect(updateLoginProtectRequest?: UpdateLoginProtectRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-USER/users/{user_id}/login-protect",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7774,7 +7976,7 @@ export const ParamCreater = function () {
         updateUser(updateUserRequest?: UpdateUserRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-USER/users/{user_id}",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7814,7 +8016,7 @@ export const ParamCreater = function () {
         updateUserInformation(updateUserInformationRequest?: UpdateUserInformationRequest) {
             const options = {
                 method: "PUT",
-                url: "",
+                url: "/v3.0/OS-USER/users/{user_id}/info",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7854,7 +8056,7 @@ export const ParamCreater = function () {
         keystoneCreateAgencyToken(keystoneCreateAgencyTokenRequest?: KeystoneCreateAgencyTokenRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3/auth/tokens",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7895,7 +8097,7 @@ export const ParamCreater = function () {
         keystoneCreateUserTokenByPassword(keystoneCreateUserTokenByPasswordRequest?: KeystoneCreateUserTokenByPasswordRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3/auth/tokens",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7936,7 +8138,7 @@ export const ParamCreater = function () {
         keystoneCreateUserTokenByPasswordAndMfa(keystoneCreateUserTokenByPasswordAndMfaRequest?: KeystoneCreateUserTokenByPasswordAndMfaRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v3/auth/tokens",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -7977,7 +8179,7 @@ export const ParamCreater = function () {
         keystoneValidateToken(keystoneValidateTokenRequest?: KeystoneValidateTokenRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/auth/tokens",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},

@@ -1,3 +1,37 @@
+# 3.0.7-beta 2021-03-15
+
+### HuaweiCloud SDK Core
+
+- _新增特性_
+    - 无
+- _解决问题_
+    - 修复代码请求路径缺失的问题
+- _特性变更_
+    - 无
+
+### HuaweiCloud SDK IAM
+
+- _新增特性_
+    - 新增支持接口：
+        - 查询身份提供商详情 `KeystoneShowIdentityProvider`
+        - 注册身份提供商 `KeystoneCreateIdentityProvider`
+        - 更新身份提供商 `KeystoneUpdateIdentityProvider`
+        - 删除身份提供商 `KeystoneDeleteIdentityProvider`
+        - 获取联邦认证token(OpenId Connect Id token方式) `CreateTokenWithIdToken`
+- _解决问题_
+    - 无
+- _特性变更_
+    - 下线接口：获取联邦认证unscoped token `CreateUnscopeTokenByIdpInitiated`
+
+### HuaweiCloud SDK IoTDA
+
+- _新增特性_
+    - 支持设备接入服务
+- _解决问题_
+    - 无
+- _特性变更_
+    - 无
+
 # 3.0.6-beta 2021-02-27
 
 ### HuaweiCloud SDK Core

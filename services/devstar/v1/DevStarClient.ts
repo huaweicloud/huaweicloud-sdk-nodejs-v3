@@ -322,7 +322,7 @@ export const ParamCreater = function () {
         downloadApplicationCode(downloadApplicationCodeRequest?: DownloadApplicationCodeRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v1/application-codes",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -363,7 +363,7 @@ export const ParamCreater = function () {
         runCodehubTemplateJob(runCodehubTemplateJobRequest?: RunCodehubTemplateJobRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v1/jobs/codehub",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -402,7 +402,7 @@ export const ParamCreater = function () {
         runDevstarTemplateJob(runDevstarTemplateJobRequest?: RunDevstarTemplateJobRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v1/jobs/template",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -441,7 +441,7 @@ export const ParamCreater = function () {
         showJobDetail(showJobDetailRequest?: ShowJobDetailRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v1/jobs/{job_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -478,7 +478,7 @@ export const ParamCreater = function () {
         showTemplateFile(showTemplateFileRequest?: ShowTemplateFileRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v1/templates/{template_id}/files",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -530,7 +530,7 @@ export const ParamCreater = function () {
         createTemplateViewHistories(createTemplateViewHistoriesRequest?: CreateTemplateViewHistoriesRequest) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v1/templates/view-histories",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -569,7 +569,7 @@ export const ParamCreater = function () {
         listPublishedTemplates(listPublishedTemplatesRequest?: ListPublishedTemplatesRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v1/templates",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -617,7 +617,7 @@ export const ParamCreater = function () {
         listTemplateViewHistories(listTemplateViewHistoriesRequest?: ListTemplateViewHistoriesRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v1/templates/view-histories",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -658,7 +658,7 @@ export const ParamCreater = function () {
         listTemplatesV2(listTemplatesV2Request?: ListTemplatesV2Request) {
             const options = {
                 method: "POST",
-                url: "",
+                url: "/v2/templates/action",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
                 pathParams: {},
@@ -704,7 +704,7 @@ export const ParamCreater = function () {
         showTemplateV3(showTemplateV3Request?: ShowTemplateV3Request) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v3/templates/{template_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -741,7 +741,7 @@ export const ParamCreater = function () {
         showTemplateDetail(showTemplateDetailRequest?: ShowTemplateDetailRequest) {
             const options = {
                 method: "GET",
-                url: "",
+                url: "/v1/templates/{template_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
