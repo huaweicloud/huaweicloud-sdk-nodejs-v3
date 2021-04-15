@@ -3,7 +3,7 @@
 export class AgencyTokenDomain {
     public name: string;
     public id: string;
-    public constructor(name: any, id: any) { 
+    public constructor(name?: any, id?: any) { 
         this['name'] = name;
         this['id'] = id;
     }

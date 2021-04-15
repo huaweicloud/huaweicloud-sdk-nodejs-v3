@@ -19,9 +19,9 @@
  * under the License.
  */
 
-import {HcClient} from "./HcClient";
-import {ICredential} from "./auth/ICredential";
-import {DefaultHttpClient} from "./http/DefaultHttpClient";
+import { HcClient } from "./HcClient";
+import { ICredential } from "./auth/ICredential";
+import { DefaultHttpClient } from "./http/DefaultHttpClient";
 import extend from 'extend';
 import { RequiredError } from "./auth/AKSKSigner";
 import { BasicCredentials } from "./auth/BasicCredentials";
@@ -39,7 +39,7 @@ export class ClientBuilder<T> {
     private endpoint: string | undefined;
     private credential: ICredential | undefined;
     private proxyAgent: string | undefined;
-    public credentialType: string[] = ["BasicCredentials","GlobalCredentials"];
+    public credentialType: string[] = ["BasicCredentials", "GlobalCredentials"];
     public envParams: CredParams = process.env;
 
     public constructor(init: (hcClient: HcClient) => T, credentialType?: string) {
@@ -99,7 +99,7 @@ export class ClientBuilder<T> {
         // 返回Credentials
     }
 
-    public  whichCredential(sdkType: string) {
+    public whichCredential(sdkType: string) {
         let credentialTYPE;
         if (sdkType) {
             switch (sdkType) {
@@ -110,7 +110,7 @@ export class ClientBuilder<T> {
                     credentialTYPE = new GlobalCredentials();
                     break;
                 default:
-                    const obj = {};
+                    const obj = {}; 
                     const definedCredPath = path.join(this.init().getPath(), `${sdkType}`);
                     if (!obj[sdkType]) {
                         credentialTYPE = require(definedCredPath);
@@ -127,7 +127,7 @@ export class ClientBuilder<T> {
         return credentialTYPE;
     }
 
-    public  getInputParamCredential(CredentialsType: any, credential: CredParams) {
+    public getInputParamCredential(CredentialsType: any, credential: CredParams) {
         // 判断是否有_
         let hash = {};
         for (let key in credential) {
@@ -156,6 +156,6 @@ export class ClientBuilder<T> {
             }
         }
         return CredentialsType;
-}
+    }
 
 }

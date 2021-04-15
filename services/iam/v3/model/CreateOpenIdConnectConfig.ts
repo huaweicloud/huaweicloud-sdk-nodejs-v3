@@ -9,7 +9,7 @@ export class CreateOpenIdConnectConfig {
     private 'response_type'?: CreateOpenIdConnectConfigResponseTypeEnum | undefined;
     private 'response_mode'?: CreateOpenIdConnectConfigResponseModeEnum | undefined;
     private 'signing_key': string | undefined;
-    public constructor(accessMode: any, idpUrl: any, clientId: any, signingKey: any) { 
+    public constructor(accessMode?: any, idpUrl?: any, clientId?: any, signingKey?: any) { 
         this['access_mode'] = accessMode;
         this['idp_url'] = idpUrl;
         this['client_id'] = clientId;

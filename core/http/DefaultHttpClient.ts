@@ -19,27 +19,50 @@
  * under the License.
  */
 
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import extend from 'extend';
 import https = require('https');
-import logger from './logger';
 import { IHttpRequest } from './IHttpRequest';
 import querystring = require('querystring');
 import { HttpClient } from './HttpClient';
 import HttpsProxyAgent = require('https-proxy-agent');
-import { log4jsLogger } from './log4js';
+import { Logger, LogLevel, getLogger } from '../logger';
 
 export class DefaultHttpClient implements HttpClient {
     private axiosInstance: any;
-	public static httpReqParam: any; 
+    public static httpReqParam: any;
     public static httpResponse: any;
+    private static loggerName = "DefaultHttpClient";
+    private logger: Logger;
 
-    public constructor(axiosOptions?: any) {
-        axiosOptions = axiosOptions || {};
-        let proxyAgent;
+    private DEFAULT_HEADERS =
+        {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        };
 
-        if (axiosOptions.proxyAgent) {
-            proxyAgent = HttpsProxyAgent(axiosOptions.proxyAgent);
+    public constructor({
+        disableSslVerification = true,
+        proxy = undefined,
+        logger = undefined,
+        logLevel = LogLevel.INFO,
+        headers = {}
+    }: ClientOptions) {
+
+        // proxy
+        let proxyAgent = undefined;
+        if (proxy) {
+            proxyAgent = HttpsProxyAgent(proxy);
+        }
+
+        // Logging
+        if (typeof logger !== 'undefined') {
+            this.logger = logger;
+            if (typeof logLevel !== 'undefined') {
+                this.logger.debug('The logLevel given to client was ignored as you also gave logger');
+            }
+        } else {
+            this.logger = getLogger(DefaultHttpClient.loggerName, logLevel, logger);
         }
 
         // override several axios defaults
@@ -49,74 +72,42 @@ export class DefaultHttpClient implements HttpClient {
 
         this.axiosInstance = axios.create({
             maxContentLength: Infinity,
-            headers: {
-                post: {
-                    'Content-Type': 'application/json',
-                    'accept-encoding': '*'
-                },
-                put: {
-                    'Content-Type': 'application/json',
-                    'accept-encoding': '*'
-                },
-                patch: {
-                    'Content-Type': 'application/json',
-                    'accept-encoding': '*'
-                },
-                get: {
-                    'Content-Type': 'application/json',
-                    'accept-encoding': '*'
-                },
-            },
-            // proxy: { host: '10.78.74.174', port: 3128 }
+            headers: Object.assign(
+                this.DEFAULT_HEADERS,
+                headers
+            ),
             proxy: false,
+            httpAgent: proxyAgent,
             httpsAgent: proxyAgent
         });
 
-        if (process.env.NODE_DEBUG === 'axios' || process.env.DEBUG) {
-            this.axiosInstance.interceptors.request.use((config: any) => {
-                logger.debug('Request:');
-                try {
-                    logger.debug(JSON.stringify(config, null, 2));
-                } catch {
-                    logger.error(config)
-                }
+        this.axiosInstance.interceptors.request.use((config: any) => {
+            this.logger.debug('Request:', config);
 
-                return config;
-            }, (error: any) => {
-                logger.error('Error: ');
-                try {
-                    logger.error(JSON.stringify(error, null, 2));
-                } catch {
-                    logger.error(error);
-                }
-                // @ts-ignore
-                return Promise.reject(error);
-            });
+            return config;
+        }, (error: any) => {
+            this.logger.error('Error: ', error);
+            // @ts-ignore
+            return Promise.reject(error);
+        });
 
-            this.axiosInstance.interceptors.response.use((response: any) => {
-                logger.debug('Response:');
-                try {
-                    logger.debug(JSON.stringify(response, null, 2));
-                } catch {
-                    logger.error(response);
-                }
+        this.axiosInstance.interceptors.response.use((response: any) => {
+            this.logger.debug('Response:', response);
 
-                return response;
-            }, (error: any) => {
-                logger.error('Error: ');
-                try {
-                    logger.error(JSON.stringify(error, null, 2));
-                } catch {
-                    logger.error(error);
-                }
-                // @ts-ignore
-                return Promise.reject(error);
-            });
-        }
+            return response;
+        }, (error: any) => {
+            this.logger.error('Error: ', error);
+            // @ts-ignore
+            return Promise.reject(error);
+        });
+
+
+        this.logger.debug('initialized');
     }
 
     public sendRequest(httpRequest: IHttpRequest): Promise<any> {
-        const { endpoint, queryParams, pathParams, method, data, headers, contentType } = httpRequest;
+        const { endpoint, queryParams, method, data, headers } = httpRequest;
+        this.logger.debug(`send request start: ${endpoint} `);
 
         // Path params
         let url = endpoint;//parsePath(endpoint, pathParams);
@@ -128,16 +119,15 @@ export class DefaultHttpClient implements HttpClient {
             headers,
             params: queryParams,
             data,
-            responseType: 'json',
             paramsSerializer: (params: any) => {
                 return querystring.stringify(params);
             },
         };
-		DefaultHttpClient.httpReqParam = requestParams;
+        DefaultHttpClient.httpReqParam = requestParams;
         return this.axiosInstance(requestParams).then(
-            (res: { config: any; request: any; result: any; data: any; status: string; headers: any}) => {
+            (res: { config: any; request: any; result: any; data: any; status: string; headers: any }) => {
                 // sometimes error responses will still trigger the `then` block - escape that behavior here
-				DefaultHttpClient.httpResponse = res;
+                DefaultHttpClient.httpResponse = res;
                 if (!res) { return };
 
                 // these objects contain circular json structures and are not always relevant to the user
@@ -161,17 +151,17 @@ export class DefaultHttpClient implements HttpClient {
 
                 let requestId = res.headers ? res.headers['x-request-id'] : undefined;
                 let reponseLength = res.result ? JSON.stringify(res.result).length : 1;
-                log4jsLogger.info('"' + requestParams.method + ' ' + requestParams.url + '" ' + res.status + ' '  + reponseLength + ' ' + requestId);
-                if (process.env.DEBUG) {
-                    log4jsLogger.debug('request: ' + JSON.stringify(requestParams) + ". response: " + JSON.stringify(res));
-                }
+                this.logger.info('"' + requestParams.method + ' ' + requestParams.url + '" ' + res.status + ' ' + reponseLength + ' ' + requestId);
 
-                // return another promise that resolves with 'res' to be handled in generated code
+                this.logger.debug('request: ' + JSON.stringify(requestParams) + ". response: " + JSON.stringify(res));
+
+
                 return res;
             },
             (err: any) => {
+                this.logger.error('http reqeust failed', err.message);
                 let response = err.response;
-				DefaultHttpClient.httpResponse = err;
+                DefaultHttpClient.httpResponse = err;
 
                 let requestId;
                 let reponseLength;
@@ -182,10 +172,10 @@ export class DefaultHttpClient implements HttpClient {
                     status = response.status;
                 }
 
-                log4jsLogger.info('"' + requestParams.method + ' ' + requestParams.url + '" ' + status + ' '  + reponseLength + ' ' + requestId);
-                if (process.env.DEBUG) {
-                    log4jsLogger.debug('request: ' + JSON.stringify(requestParams) + ". response: " + JSON.stringify(err));
-                }
+                this.logger.info('"' + requestParams.method + ' ' + requestParams.url + '" ' + status + ' ' + reponseLength + ' ' + requestId);
+
+                this.logger.debug('request: ' + JSON.stringify(requestParams) + ". response: " + JSON.stringify(err));
+
 
                 // return another promise that rejects with 'err' to be handled in generated code
                 throw this.formatError(err);
@@ -232,7 +222,7 @@ export class DefaultHttpClient implements HttpClient {
                 // ignore the error, use the object, and tack on a warning
                 errorBody = axiosError.data;
                 errorBody.warning = 'Body contains circular reference';
-                logger.error(`Failed to stringify axiosError: ${e}`);
+                this.logger.error(`Failed to stringify axiosError: ${e}`);
             }
 
             error.body = errorBody;
@@ -250,7 +240,7 @@ export class DefaultHttpClient implements HttpClient {
             // http.ClientRequest in node.js
             error.message = axiosError.message;
             error.statusText = axiosError.code;
-            error.body = 'Response not received - no connection was made to the service.';
+            error.body = axiosError.message;
 
             // when a request to a private cloud instance has an ssl problem, it never connects and follows this branch of the error handling
             if (isSelfSignedCertificateError(axiosError)) {
@@ -332,7 +322,7 @@ function parseServiceErrorMessage(response: any): string | undefined {
         message = response.errorMessage;
     }
 
-    logger.info(`Parsing service error message: ${message}`);
+    this.logger.info(`Parsing service error message: ${message}`);
     return message;
 }
 
@@ -367,4 +357,12 @@ function isSelfSignedCertificateError(error: any): boolean {
     }
 
     return result;
+}
+
+export interface ClientOptions {
+    disableSslVerification: boolean,
+    proxy: string,
+    headers?: object,
+    logger?: Logger,
+    logLevel?: LogLevel;
 }

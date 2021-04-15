@@ -3,7 +3,7 @@
 export class CreateMfaDevice {
     public name: string;
     private 'user_id': string | undefined;
-    public constructor(name: any, userId: any) { 
+    public constructor(name?: any, userId?: any) { 
         this['name'] = name;
         this['user_id'] = userId;
     }

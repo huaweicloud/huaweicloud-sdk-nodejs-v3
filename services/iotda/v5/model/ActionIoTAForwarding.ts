@@ -3,7 +3,7 @@
 export class ActionIoTAForwarding {
     private 'region_name': string | undefined;
     private 'project_id': string | undefined;
-    public constructor(regionName: any, projectId: any) { 
+    public constructor(regionName?: any, projectId?: any) { 
         this['region_name'] = regionName;
         this['project_id'] = projectId;
     }

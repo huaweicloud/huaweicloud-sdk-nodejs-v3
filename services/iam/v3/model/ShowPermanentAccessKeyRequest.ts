@@ -2,7 +2,7 @@
 
 export class ShowPermanentAccessKeyRequest {
     private 'access_key': string | undefined;
-    public constructor(accessKey: any) { 
+    public constructor(accessKey?: any) { 
         this['access_key'] = accessKey;
     }
     public withAccessKey(accessKey: string): ShowPermanentAccessKeyRequest {

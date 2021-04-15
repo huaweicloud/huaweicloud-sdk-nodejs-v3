@@ -14,7 +14,7 @@ export class ScopedTokenInfo {
     public project?: ProjectInfo;
     public roles: Array<UnscopedTokenInfoRoles>;
     public catalog: Array<UnscopedTokenInfoCatalog>;
-    public constructor(expiresAt: any, methods: any, issuedAt: any, user: any, roles: any, catalog: any) { 
+    public constructor(expiresAt?: any, methods?: any, issuedAt?: any, user?: any, roles?: any, catalog?: any) { 
         this['expires_at'] = expiresAt;
         this['methods'] = methods;
         this['issued_at'] = issuedAt;

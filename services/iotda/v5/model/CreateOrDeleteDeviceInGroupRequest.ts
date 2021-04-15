@@ -5,7 +5,7 @@ export class CreateOrDeleteDeviceInGroupRequest {
     private 'group_id': string | undefined;
     private 'action_id': string | undefined;
     private 'device_id': string | undefined;
-    public constructor(groupId: any, actionId: any, deviceId: any) { 
+    public constructor(groupId?: any, actionId?: any, deviceId?: any) { 
         this['group_id'] = groupId;
         this['action_id'] = actionId;
         this['device_id'] = deviceId;

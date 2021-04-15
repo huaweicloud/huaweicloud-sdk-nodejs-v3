@@ -4,7 +4,7 @@ import { PwdPassword } from './PwdPassword';
 export class PwdIdentity {
     public methods: Array<PwdIdentityMethodsEnum>;
     public password: PwdPassword;
-    public constructor(methods: any, password: any) { 
+    public constructor(methods?: any, password?: any) { 
         this['methods'] = methods;
         this['password'] = password;
     }

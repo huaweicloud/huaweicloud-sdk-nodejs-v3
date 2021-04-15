@@ -3,7 +3,7 @@
 export class LtsForwarding {
     private 'log_group_id': string | undefined;
     private 'log_stream_id': string | undefined;
-    public constructor(logGroupId: any, logStreamId: any) { 
+    public constructor(logGroupId?: any, logStreamId?: any) { 
         this['log_group_id'] = logGroupId;
         this['log_stream_id'] = logStreamId;
     }

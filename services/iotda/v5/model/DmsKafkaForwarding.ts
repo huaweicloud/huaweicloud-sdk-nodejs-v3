@@ -9,7 +9,7 @@ export class DmsKafkaForwarding {
     public username?: string;
     public password?: string;
     public mechanism?: string;
-    public constructor(regionName: any, projectId: any, addresses: any, topic: any) { 
+    public constructor(regionName?: any, projectId?: any, addresses?: any, topic?: any) { 
         this['region_name'] = regionName;
         this['project_id'] = projectId;
         this['addresses'] = addresses;

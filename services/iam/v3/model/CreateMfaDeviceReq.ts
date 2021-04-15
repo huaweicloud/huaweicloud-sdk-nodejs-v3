@@ -3,7 +3,7 @@ import { CreateMfaDevice } from './CreateMfaDevice';
 
 export class CreateMfaDeviceReq {
     private 'virtual_mfa_device': CreateMfaDevice | undefined;
-    public constructor(virtualMfaDevice: any) { 
+    public constructor(virtualMfaDevice?: any) { 
         this['virtual_mfa_device'] = virtualMfaDevice;
     }
     public withVirtualMfaDevice(virtualMfaDevice: CreateMfaDevice): CreateMfaDeviceReq {

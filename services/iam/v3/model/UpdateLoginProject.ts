@@ -3,7 +3,7 @@
 export class UpdateLoginProject {
     public enabled: boolean;
     private 'verification_method': string | undefined;
-    public constructor(enabled: any, verificationMethod: any) { 
+    public constructor(enabled?: any, verificationMethod?: any) { 
         this['enabled'] = enabled;
         this['verification_method'] = verificationMethod;
     }

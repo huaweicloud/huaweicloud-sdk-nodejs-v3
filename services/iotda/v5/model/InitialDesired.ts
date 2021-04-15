@@ -3,7 +3,7 @@
 export class InitialDesired {
     private 'service_id': string | undefined;
     public desired: object;
-    public constructor(serviceId: any, desired: any) { 
+    public constructor(serviceId?: any, desired?: any) { 
         this['service_id'] = serviceId;
         this['desired'] = desired;
     }

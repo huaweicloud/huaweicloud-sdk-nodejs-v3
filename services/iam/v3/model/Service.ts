@@ -8,7 +8,7 @@ export class Service {
     public id: string;
     public type: string;
     public enabled: boolean;
-    public constructor(name: any, links: any, id: any, type: any, enabled: any) { 
+    public constructor(name?: any, links?: any, id?: any, type?: any, enabled?: any) { 
         this['name'] = name;
         this['links'] = links;
         this['id'] = id;

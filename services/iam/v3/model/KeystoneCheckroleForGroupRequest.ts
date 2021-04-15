@@ -4,7 +4,7 @@ export class KeystoneCheckroleForGroupRequest {
     private 'domain_id': string | undefined;
     private 'group_id': string | undefined;
     private 'role_id': string | undefined;
-    public constructor(domainId: any, groupId: any, roleId: any) { 
+    public constructor(domainId?: any, groupId?: any, roleId?: any) { 
         this['domain_id'] = domainId;
         this['group_id'] = groupId;
         this['role_id'] = roleId;

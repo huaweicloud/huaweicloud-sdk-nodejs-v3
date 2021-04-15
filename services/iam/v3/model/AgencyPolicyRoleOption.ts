@@ -7,7 +7,7 @@ export class AgencyPolicyRoleOption {
     public description: string;
     private 'description_cn'?: string | undefined;
     public policy: AgencyPolicy;
-    public constructor(displayName: any, type: any, description: any, policy: any) { 
+    public constructor(displayName?: any, type?: any, description?: any, policy?: any) { 
         this['display_name'] = displayName;
         this['type'] = type;
         this['description'] = description;

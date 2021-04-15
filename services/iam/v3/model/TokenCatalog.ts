@@ -6,7 +6,7 @@ export class TokenCatalog {
     public id: string;
     public name: string;
     public endpoints: Array<TokenCatalogEndpoint>;
-    public constructor(type: any, id: any, name: any, endpoints: any) { 
+    public constructor(type?: any, id?: any, name?: any, endpoints?: any) { 
         this['type'] = type;
         this['id'] = id;
         this['name'] = name;

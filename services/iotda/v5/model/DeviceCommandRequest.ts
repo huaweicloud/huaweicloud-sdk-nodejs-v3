@@ -4,7 +4,7 @@ export class DeviceCommandRequest {
     private 'service_id'?: string | undefined;
     private 'command_name'?: string | undefined;
     public paras: object;
-    public constructor(paras: any) { 
+    public constructor(paras?: any) { 
         this['paras'] = paras;
     }
     public withServiceId(serviceId: string): DeviceCommandRequest {

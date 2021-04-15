@@ -5,7 +5,7 @@ export class ActionDisForwarding {
     private 'project_id': string | undefined;
     private 'stream_name'?: string | undefined;
     private 'stream_id'?: string | undefined;
-    public constructor(regionName: any, projectId: any) { 
+    public constructor(regionName?: any, projectId?: any) { 
         this['region_name'] = regionName;
         this['project_id'] = projectId;
     }

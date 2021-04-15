@@ -3,7 +3,7 @@
 export class ListDeviceMessagesRequest {
     private 'device_id': string | undefined;
     private 'Instance-Id'?: string | undefined;
-    public constructor(deviceId: any) { 
+    public constructor(deviceId?: any) { 
         this['device_id'] = deviceId;
     }
     public withDeviceId(deviceId: string): ListDeviceMessagesRequest {

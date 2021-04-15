@@ -3,7 +3,7 @@
 export class ShowJobDetailRequest {
     private 'X-Language'?: ShowJobDetailRequestXLanguageEnum | undefined;
     private 'job_id': string | undefined;
-    public constructor(jobId: any) { 
+    public constructor(jobId?: any) { 
         this['job_id'] = jobId;
     }
     public withXLanguage(xLanguage: ShowJobDetailRequestXLanguageEnum): ShowJobDetailRequest {

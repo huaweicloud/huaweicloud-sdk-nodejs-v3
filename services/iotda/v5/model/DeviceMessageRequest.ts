@@ -8,7 +8,7 @@ export class DeviceMessageRequest {
     private 'payload_format'?: string | undefined;
     public topic?: string;
     private 'topic_full_name'?: string | undefined;
-    public constructor(message: any) { 
+    public constructor(message?: any) { 
         this['message'] = message;
     }
     public withMessageId(messageId: string): DeviceMessageRequest {

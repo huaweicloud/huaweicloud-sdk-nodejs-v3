@@ -5,7 +5,7 @@ import { AllowIpRangesOption } from './AllowIpRangesOption';
 export class AclPolicyOption {
     private 'allow_address_netmasks': Array<AllowAddressNetmasksOption> | undefined;
     private 'allow_ip_ranges': Array<AllowIpRangesOption> | undefined;
-    public constructor(allowAddressNetmasks: any, allowIpRanges: any) { 
+    public constructor(allowAddressNetmasks?: any, allowIpRanges?: any) { 
         this['allow_address_netmasks'] = allowAddressNetmasks;
         this['allow_ip_ranges'] = allowIpRanges;
     }

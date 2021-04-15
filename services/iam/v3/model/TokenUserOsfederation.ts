@@ -7,7 +7,7 @@ export class TokenUserOsfederation {
     public groups: Array<OsfederationGroups>;
     private 'identity_provider': OsfederationIdentityprovider | undefined;
     public protocol: OsfederationProtocol;
-    public constructor(groups: any, identityProvider: any, protocol: any) { 
+    public constructor(groups?: any, identityProvider?: any, protocol?: any) { 
         this['groups'] = groups;
         this['identity_provider'] = identityProvider;
         this['protocol'] = protocol;

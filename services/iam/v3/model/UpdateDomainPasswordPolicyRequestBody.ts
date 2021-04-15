@@ -3,7 +3,7 @@ import { PasswordPolicyOption } from './PasswordPolicyOption';
 
 export class UpdateDomainPasswordPolicyRequestBody {
     private 'password_policy': PasswordPolicyOption | undefined;
-    public constructor(passwordPolicy: any) { 
+    public constructor(passwordPolicy?: any) { 
         this['password_policy'] = passwordPolicy;
     }
     public withPasswordPolicy(passwordPolicy: PasswordPolicyOption): UpdateDomainPasswordPolicyRequestBody {

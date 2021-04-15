@@ -8,7 +8,7 @@ export class Version {
     public links: Array<VersionLinks>;
     public id: string;
     private 'media-types': Array<VersionMediatypes> | undefined;
-    public constructor(status: any, updated: any, links: any, id: any, mediaTypes: any) { 
+    public constructor(status?: any, updated?: any, links?: any, id?: any, mediaTypes?: any) { 
         this['status'] = status;
         this['updated'] = updated;
         this['links'] = links;

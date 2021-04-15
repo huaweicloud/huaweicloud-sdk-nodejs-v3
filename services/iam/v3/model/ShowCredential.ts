@@ -7,7 +7,7 @@ export class ShowCredential {
     private 'create_time': string | undefined;
     private 'last_use_time': string | undefined;
     public description: string;
-    public constructor(userId: any, access: any, status: any, createTime: any, lastUseTime: any, description: any) { 
+    public constructor(userId?: any, access?: any, status?: any, createTime?: any, lastUseTime?: any, description?: any) { 
         this['user_id'] = userId;
         this['access'] = access;
         this['status'] = status;

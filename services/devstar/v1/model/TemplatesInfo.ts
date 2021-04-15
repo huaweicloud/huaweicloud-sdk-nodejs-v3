@@ -3,7 +3,7 @@
 export class TemplatesInfo {
     private 'template_ids': Array<string> | undefined;
     private 'platform_source': number | undefined;
-    public constructor(templateIds: any, platformSource: any) { 
+    public constructor(templateIds?: any, platformSource?: any) { 
         this['template_ids'] = templateIds;
         this['platform_source'] = platformSource;
     }

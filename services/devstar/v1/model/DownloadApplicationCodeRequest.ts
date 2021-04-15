@@ -3,7 +3,7 @@
 export class DownloadApplicationCodeRequest {
     private 'X-Language'?: DownloadApplicationCodeRequestXLanguageEnum | undefined;
     private 'job_id': string | undefined;
-    public constructor(jobId: any) { 
+    public constructor(jobId?: any) { 
         this['job_id'] = jobId;
     }
     public withXLanguage(xLanguage: DownloadApplicationCodeRequestXLanguageEnum): DownloadApplicationCodeRequest {

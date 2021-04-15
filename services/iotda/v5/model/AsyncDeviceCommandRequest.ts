@@ -6,7 +6,7 @@ export class AsyncDeviceCommandRequest {
     public paras: object;
     private 'expire_time'?: number | undefined;
     private 'send_strategy': string | undefined;
-    public constructor(paras: any, sendStrategy: any) { 
+    public constructor(paras?: any, sendStrategy?: any) { 
         this['paras'] = paras;
         this['send_strategy'] = sendStrategy;
     }

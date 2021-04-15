@@ -5,7 +5,7 @@ export class UpdateRuleActionRequest {
     private 'Instance-Id'?: string | undefined;
     private 'action_id': string | undefined;
     public body?: UpdateActionReq;
-    public constructor(actionId: any) { 
+    public constructor(actionId?: any) { 
         this['action_id'] = actionId;
     }
     public withInstanceId(instanceId: string): UpdateRuleActionRequest {

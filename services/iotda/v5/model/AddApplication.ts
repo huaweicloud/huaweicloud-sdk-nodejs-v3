@@ -5,7 +5,7 @@ export class AddApplication {
     private 'app_id'?: string | undefined;
     private 'instance_id'?: string | undefined;
     private 'service_name'?: string | undefined;
-    public constructor(appName: any) { 
+    public constructor(appName?: any) { 
         this['app_name'] = appName;
     }
     public withAppName(appName: string): AddApplication {

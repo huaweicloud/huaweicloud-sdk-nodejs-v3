@@ -7,7 +7,7 @@ export class CreateCredentialResult {
     public status: string;
     private 'user_id': string | undefined;
     public description: string;
-    public constructor(createTime: any, access: any, secret: any, status: any, userId: any, description: any) { 
+    public constructor(createTime?: any, access?: any, secret?: any, status?: any, userId?: any, description?: any) { 
         this['create_time'] = createTime;
         this['access'] = access;
         this['secret'] = secret;

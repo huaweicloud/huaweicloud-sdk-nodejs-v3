@@ -6,7 +6,7 @@ export class TokenUserResult {
     public id: string;
     private 'password_expires_at': string | undefined;
     public domain: TokenUserDomainResult;
-    public constructor(name: any, id: any, passwordExpiresAt: any, domain: any) { 
+    public constructor(name?: any, id?: any, passwordExpiresAt?: any, domain?: any) { 
         this['name'] = name;
         this['id'] = id;
         this['password_expires_at'] = passwordExpiresAt;

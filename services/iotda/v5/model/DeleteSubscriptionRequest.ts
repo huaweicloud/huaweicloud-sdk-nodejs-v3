@@ -3,7 +3,7 @@
 export class DeleteSubscriptionRequest {
     private 'Instance-Id'?: string | undefined;
     private 'subscription_id': string | undefined;
-    public constructor(subscriptionId: any) { 
+    public constructor(subscriptionId?: any) { 
         this['subscription_id'] = subscriptionId;
     }
     public withInstanceId(instanceId: string): DeleteSubscriptionRequest {

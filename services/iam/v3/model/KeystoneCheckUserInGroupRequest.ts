@@ -3,7 +3,7 @@
 export class KeystoneCheckUserInGroupRequest {
     private 'group_id': string | undefined;
     private 'user_id': string | undefined;
-    public constructor(groupId: any, userId: any) { 
+    public constructor(groupId?: any, userId?: any) { 
         this['group_id'] = groupId;
         this['user_id'] = userId;
     }

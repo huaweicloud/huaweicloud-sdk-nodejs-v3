@@ -20,7 +20,7 @@ export class ShowUserResult {
     private 'is_domain_owner': boolean | undefined;
     private 'access_mode': string | undefined;
     public description: string;
-    public constructor(enabled: any, id: any, domainId: any, name: any, links: any, isDomainOwner: any, accessMode: any, description: any) { 
+    public constructor(enabled?: any, id?: any, domainId?: any, name?: any, links?: any, isDomainOwner?: any, accessMode?: any, description?: any) { 
         this['enabled'] = enabled;
         this['id'] = id;
         this['domain_id'] = domainId;

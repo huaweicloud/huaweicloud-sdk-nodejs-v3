@@ -3,7 +3,7 @@ import { UpdateAgencyOption } from './UpdateAgencyOption';
 
 export class UpdateAgencyRequestBody {
     public agency: UpdateAgencyOption;
-    public constructor(agency: any) { 
+    public constructor(agency?: any) { 
         this['agency'] = agency;
     }
     public withAgency(agency: UpdateAgencyOption): UpdateAgencyRequestBody {

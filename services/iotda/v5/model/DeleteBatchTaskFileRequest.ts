@@ -3,7 +3,7 @@
 export class DeleteBatchTaskFileRequest {
     private 'Instance-Id'?: string | undefined;
     private 'file_id': string | undefined;
-    public constructor(fileId: any) { 
+    public constructor(fileId?: any) { 
         this['file_id'] = fileId;
     }
     public withInstanceId(instanceId: string): DeleteBatchTaskFileRequest {

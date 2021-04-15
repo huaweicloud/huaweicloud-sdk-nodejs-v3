@@ -10,7 +10,7 @@ export class CreateBatchTask {
     public document?: object;
     private 'task_policy'?: TaskPolicy | undefined;
     private 'document_source'?: string | undefined;
-    public constructor(taskName: any, taskType: any) { 
+    public constructor(taskName?: any, taskType?: any) { 
         this['task_name'] = taskName;
         this['task_type'] = taskType;
     }

@@ -13,7 +13,7 @@ export class KeystoneUpdateUserByAdminResult {
     public id: string;
     public enabled: boolean;
     public extra?: KeystoneUserResultExtra;
-    public constructor(domainId: any, name: any, passwordExpiresAt: any, links: any, id: any, enabled: any) { 
+    public constructor(domainId?: any, name?: any, passwordExpiresAt?: any, links?: any, id?: any, enabled?: any) { 
         this['domain_id'] = domainId;
         this['name'] = name;
         this['password_expires_at'] = passwordExpiresAt;

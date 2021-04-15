@@ -3,7 +3,7 @@
 export class KeystoneShowProtocolRequest {
     private 'idp_id': string | undefined;
     private 'protocol_id': string | undefined;
-    public constructor(idpId: any, protocolId: any) { 
+    public constructor(idpId?: any, protocolId?: any) { 
         this['idp_id'] = idpId;
         this['protocol_id'] = protocolId;
     }

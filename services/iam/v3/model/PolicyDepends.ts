@@ -3,7 +3,7 @@
 export class PolicyDepends {
     public catalog: string;
     private 'display_name': string | undefined;
-    public constructor(catalog: any, displayName: any) { 
+    public constructor(catalog?: any, displayName?: any) { 
         this['catalog'] = catalog;
         this['display_name'] = displayName;
     }

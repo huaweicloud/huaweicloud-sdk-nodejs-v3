@@ -14,7 +14,7 @@ export class ScopeTokenResult {
     public roles: Array<TokenRole>;
     public user: ScopedTokenUser;
     private 'issued_at': string | undefined;
-    public constructor(methods: any, expiresAt: any, domain: any, project: any, roles: any, user: any, issuedAt: any) { 
+    public constructor(methods?: any, expiresAt?: any, domain?: any, project?: any, roles?: any, user?: any, issuedAt?: any) { 
         this['methods'] = methods;
         this['expires_at'] = expiresAt;
         this['domain'] = domain;

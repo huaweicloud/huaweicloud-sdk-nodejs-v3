@@ -3,7 +3,7 @@
 export class KeystoneShowSecurityComplianceByOptionRequest {
     private 'domain_id': string | undefined;
     public option: KeystoneShowSecurityComplianceByOptionRequestOptionEnum;
-    public constructor(domainId: any, option: any) { 
+    public constructor(domainId?: any, option?: any) { 
         this['domain_id'] = domainId;
         this['option'] = option;
     }

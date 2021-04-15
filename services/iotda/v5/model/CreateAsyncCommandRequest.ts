@@ -5,7 +5,7 @@ export class CreateAsyncCommandRequest {
     private 'device_id': string | undefined;
     private 'Instance-Id'?: string | undefined;
     public body?: AsyncDeviceCommandRequest;
-    public constructor(deviceId: any) { 
+    public constructor(deviceId?: any) { 
         this['device_id'] = deviceId;
     }
     public withDeviceId(deviceId: string): CreateAsyncCommandRequest {

@@ -16,7 +16,7 @@ export class RoleResult {
     public policy: RolePolicy;
     private 'updated_time'?: string | undefined;
     private 'created_time'?: string | undefined;
-    public constructor(name: any, id: any, type: any, policy: any) { 
+    public constructor(name?: any, id?: any, type?: any, policy?: any) { 
         this['name'] = name;
         this['id'] = id;
         this['type'] = type;

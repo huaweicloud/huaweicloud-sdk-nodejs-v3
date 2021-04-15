@@ -3,7 +3,7 @@
 export class IoTAForwarding {
     private 'data_source_id': string | undefined;
     private 'project_id': string | undefined;
-    public constructor(dataSourceId: any, projectId: any) { 
+    public constructor(dataSourceId?: any, projectId?: any) { 
         this['data_source_id'] = dataSourceId;
         this['project_id'] = projectId;
     }

@@ -3,7 +3,7 @@ import { AclPolicyOption } from './AclPolicyOption';
 
 export class UpdateDomainApiAclPolicyRequestBody {
     private 'api_acl_policy': AclPolicyOption | undefined;
-    public constructor(apiAclPolicy: any) { 
+    public constructor(apiAclPolicy?: any) { 
         this['api_acl_policy'] = apiAclPolicy;
     }
     public withApiAclPolicy(apiAclPolicy: AclPolicyOption): UpdateDomainApiAclPolicyRequestBody {

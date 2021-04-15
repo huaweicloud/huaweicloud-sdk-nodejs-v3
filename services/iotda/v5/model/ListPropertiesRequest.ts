@@ -5,7 +5,7 @@ export class ListPropertiesRequest {
     private 'Stage-Auth-Token'?: string | undefined;
     private 'Instance-Id'?: string | undefined;
     private 'service_id': string | undefined;
-    public constructor(deviceId: any, serviceId: any) { 
+    public constructor(deviceId?: any, serviceId?: any) { 
         this['device_id'] = deviceId;
         this['service_id'] = serviceId;
     }

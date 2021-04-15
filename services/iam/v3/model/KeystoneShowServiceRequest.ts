@@ -2,7 +2,7 @@
 
 export class KeystoneShowServiceRequest {
     private 'service_id': string | undefined;
-    public constructor(serviceId: any) { 
+    public constructor(serviceId?: any) { 
         this['service_id'] = serviceId;
     }
     public withServiceId(serviceId: string): KeystoneShowServiceRequest {

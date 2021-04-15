@@ -3,7 +3,7 @@
 export class AssociateAgencyWithProjectPermissionRequest {
     private 'agency_id': string | undefined;
     private 'role_id': string | undefined;
-    public constructor(agencyId: any, roleId: any) { 
+    public constructor(agencyId?: any, roleId?: any) { 
         this['agency_id'] = agencyId;
         this['role_id'] = roleId;
     }

@@ -5,7 +5,7 @@ import { AgencyTokenScope } from './AgencyTokenScope';
 export class AgencyTokenAuth {
     public identity: AgencyTokenIdentity;
     public scope: AgencyTokenScope;
-    public constructor(identity: any, scope: any) { 
+    public constructor(identity?: any, scope?: any) { 
         this['identity'] = identity;
         this['scope'] = scope;
     }

@@ -5,7 +5,7 @@ export class CreateCommandRequest {
     private 'device_id': string | undefined;
     private 'Instance-Id'?: string | undefined;
     public body?: DeviceCommandRequest;
-    public constructor(deviceId: any) { 
+    public constructor(deviceId?: any) { 
         this['device_id'] = deviceId;
     }
     public withDeviceId(deviceId: string): CreateCommandRequest {

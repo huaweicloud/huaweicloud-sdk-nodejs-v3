@@ -4,7 +4,7 @@ import { ServiceCommandPara } from './ServiceCommandPara';
 export class ServiceEvent {
     private 'event_type': string | undefined;
     public paras?: Array<ServiceCommandPara>;
-    public constructor(eventType: any) { 
+    public constructor(eventType?: any) { 
         this['event_type'] = eventType;
     }
     public withEventType(eventType: string): ServiceEvent {

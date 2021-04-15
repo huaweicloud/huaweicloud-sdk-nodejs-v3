@@ -3,7 +3,7 @@
 export class AllowAddressNetmasksOption {
     private 'address_netmask': string | undefined;
     public description?: string;
-    public constructor(addressNetmask: any) { 
+    public constructor(addressNetmask?: any) { 
         this['address_netmask'] = addressNetmask;
     }
     public withAddressNetmask(addressNetmask: string): AllowAddressNetmasksOption {

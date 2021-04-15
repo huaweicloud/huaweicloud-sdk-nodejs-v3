@@ -4,7 +4,7 @@ export class RemoveDomainPermissionFromAgencyRequest {
     private 'domain_id': string | undefined;
     private 'agency_id': string | undefined;
     private 'role_id': string | undefined;
-    public constructor(domainId: any, agencyId: any, roleId: any) { 
+    public constructor(domainId?: any, agencyId?: any, roleId?: any) { 
         this['domain_id'] = domainId;
         this['agency_id'] = agencyId;
         this['role_id'] = roleId;

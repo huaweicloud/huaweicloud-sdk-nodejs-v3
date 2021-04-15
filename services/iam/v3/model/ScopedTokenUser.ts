@@ -8,7 +8,7 @@ export class ScopedTokenUser {
     public id: string;
     public name: string;
     private 'password_expires_at': string | undefined;
-    public constructor(domain: any, osFederation: any, id: any, name: any, passwordExpiresAt: any) { 
+    public constructor(domain?: any, osFederation?: any, id?: any, name?: any, passwordExpiresAt?: any) { 
         this['domain'] = domain;
         this['OS-FEDERATION'] = osFederation;
         this['id'] = id;

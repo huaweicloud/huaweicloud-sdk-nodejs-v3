@@ -4,7 +4,7 @@ export class ShowAsyncDeviceCommandRequest {
     private 'device_id': string | undefined;
     private 'Instance-Id'?: string | undefined;
     private 'command_id': string | undefined;
-    public constructor(deviceId: any, commandId: any) { 
+    public constructor(deviceId?: any, commandId?: any) { 
         this['device_id'] = deviceId;
         this['command_id'] = commandId;
     }

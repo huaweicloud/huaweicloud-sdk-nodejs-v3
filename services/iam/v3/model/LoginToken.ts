@@ -10,7 +10,7 @@ export class LoginToken {
     private 'session_id': string | undefined;
     private 'session_name'?: string | undefined;
     private 'assumed_by'?: LoginTokenAssumedBy | undefined;
-    public constructor(domainId: any, expiresAt: any, method: any, userId: any, userName: any, sessionId: any) { 
+    public constructor(domainId?: any, expiresAt?: any, method?: any, userId?: any, userName?: any, sessionId?: any) { 
         this['domain_id'] = domainId;
         this['expires_at'] = expiresAt;
         this['method'] = method;

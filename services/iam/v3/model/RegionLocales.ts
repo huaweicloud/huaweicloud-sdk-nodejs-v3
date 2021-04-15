@@ -6,7 +6,7 @@ export class RegionLocales {
     private 'pt-br'?: string | undefined;
     private 'es-us'?: string | undefined;
     private 'es-es'?: string | undefined;
-    public constructor(zhCn: any, enUs: any) { 
+    public constructor(zhCn?: any, enUs?: any) { 
         this['zh-cn'] = zhCn;
         this['en-us'] = enUs;
     }

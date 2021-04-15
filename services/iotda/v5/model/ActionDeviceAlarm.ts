@@ -5,7 +5,7 @@ export class ActionDeviceAlarm {
     private 'alarm_status': string | undefined;
     public severity: string;
     public description?: string;
-    public constructor(name: any, alarmStatus: any, severity: any) { 
+    public constructor(name?: any, alarmStatus?: any, severity?: any) { 
         this['name'] = name;
         this['alarm_status'] = alarmStatus;
         this['severity'] = severity;

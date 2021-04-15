@@ -6,7 +6,7 @@ export class CatalogEndpoints {
     public region: string;
     private 'region_id': string | undefined;
     public url: string;
-    public constructor(id: any, _interface: any, region: any, regionId: any, url: any) { 
+    public constructor(id?: any, _interface?: any, region?: any, regionId?: any, url?: any) { 
         this['id'] = id;
         this['interface'] = _interface;
         this['region'] = region;

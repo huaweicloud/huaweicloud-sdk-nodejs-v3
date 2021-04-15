@@ -4,7 +4,7 @@ import { AgencyTokenAssumerole } from './AgencyTokenAssumerole';
 export class AgencyTokenIdentity {
     public methods: Array<AgencyTokenIdentityMethodsEnum>;
     private 'assume_role': AgencyTokenAssumerole | undefined;
-    public constructor(methods: any, assumeRole: any) { 
+    public constructor(methods?: any, assumeRole?: any) { 
         this['methods'] = methods;
         this['assume_role'] = assumeRole;
     }

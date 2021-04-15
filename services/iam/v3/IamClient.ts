@@ -3527,7 +3527,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let agencyId;let domainId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let agencyId;
+            let domainId;
+            let roleId;
 
             if (associateAgencyWithAllProjectsPermissionRequest !== null && associateAgencyWithAllProjectsPermissionRequest !== undefined) {
                 if (associateAgencyWithAllProjectsPermissionRequest instanceof AssociateAgencyWithAllProjectsPermissionRequest) {
@@ -3569,7 +3573,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let agencyId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let agencyId;
+            let roleId;
 
             if (associateAgencyWithDomainPermissionRequest !== null && associateAgencyWithDomainPermissionRequest !== undefined) {
                 if (associateAgencyWithDomainPermissionRequest instanceof AssociateAgencyWithDomainPermissionRequest) {
@@ -3611,7 +3619,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let agencyId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let agencyId;
+            let roleId;
 
             if (associateAgencyWithProjectPermissionRequest !== null && associateAgencyWithProjectPermissionRequest !== undefined) {
                 if (associateAgencyWithProjectPermissionRequest instanceof AssociateAgencyWithProjectPermissionRequest) {
@@ -3648,7 +3659,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let agencyId;let domainId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let agencyId;
+            let domainId;
+            let roleId;
 
             if (checkAllProjectsPermissionForAgencyRequest !== null && checkAllProjectsPermissionForAgencyRequest !== undefined) {
                 if (checkAllProjectsPermissionForAgencyRequest instanceof CheckAllProjectsPermissionForAgencyRequest) {
@@ -3690,7 +3705,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let agencyId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let agencyId;
+            let roleId;
 
             if (checkDomainPermissionForAgencyRequest !== null && checkDomainPermissionForAgencyRequest !== undefined) {
                 if (checkDomainPermissionForAgencyRequest instanceof CheckDomainPermissionForAgencyRequest) {
@@ -3732,7 +3751,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let agencyId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let agencyId;
+            let roleId;
 
             if (checkProjectPermissionForAgencyRequest !== null && checkProjectPermissionForAgencyRequest !== undefined) {
                 if (checkProjectPermissionForAgencyRequest instanceof CheckProjectPermissionForAgencyRequest) {
@@ -3770,6 +3792,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (createAgencyRequest !== null && createAgencyRequest !== undefined) {
@@ -3804,6 +3827,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (createAgencyCustomPolicyRequest !== null && createAgencyCustomPolicyRequest !== undefined) {
@@ -3838,6 +3862,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (createCloudServiceCustomPolicyRequest !== null && createCloudServiceCustomPolicyRequest !== undefined) {
@@ -3872,6 +3897,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (createLoginTokenRequest !== null && createLoginTokenRequest !== undefined) {
@@ -3906,7 +3932,10 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let idpId;let protocolId;
+
+            var body: any;
+            let idpId;
+            let protocolId;
 
             if (createMetadataRequest !== null && createMetadataRequest !== undefined) {
                 if (createMetadataRequest instanceof CreateMetadataRequest) {
@@ -3951,7 +3980,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let idpId;
+
+            var body: any;
+            let idpId;
 
             if (createOpenIdConnectConfigRequest !== null && createOpenIdConnectConfigRequest !== undefined) {
                 if (createOpenIdConnectConfigRequest instanceof CreateOpenIdConnectConfigRequest) {
@@ -3991,7 +4022,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let xIdpId;
+
+            var body: any;
+            let xIdpId;
 
             if (createTokenWithIdTokenRequest !== null && createTokenWithIdTokenRequest !== undefined) {
                 if (createTokenWithIdTokenRequest instanceof CreateTokenWithIdTokenRequest) {
@@ -4032,7 +4065,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let agencyId;
+            const localVarHeaderParameter = {} as any;
+
+            let agencyId;
 
             if (deleteAgencyRequest !== null && deleteAgencyRequest !== undefined) {
                 if (deleteAgencyRequest instanceof DeleteAgencyRequest) {
@@ -4064,7 +4099,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let roleId;
 
             if (deleteCustomPolicyRequest !== null && deleteCustomPolicyRequest !== undefined) {
                 if (deleteCustomPolicyRequest instanceof DeleteCustomPolicyRequest) {
@@ -4096,7 +4133,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let groupId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let groupId;
+            let roleId;
 
             if (deleteDomainGroupInheritedRoleRequest !== null && deleteDomainGroupInheritedRoleRequest !== undefined) {
                 if (deleteDomainGroupInheritedRoleRequest instanceof DeleteDomainGroupInheritedRoleRequest) {
@@ -4138,7 +4179,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let groupId;let userId;
+            const localVarHeaderParameter = {} as any;
+
+            let groupId;
+            let userId;
 
             if (keystoneAddUserToGroupRequest !== null && keystoneAddUserToGroupRequest !== undefined) {
                 if (keystoneAddUserToGroupRequest instanceof KeystoneAddUserToGroupRequest) {
@@ -4175,7 +4219,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let groupId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let groupId;
+            let roleId;
 
             if (keystoneAssociateGroupWithDomainPermissionRequest !== null && keystoneAssociateGroupWithDomainPermissionRequest !== undefined) {
                 if (keystoneAssociateGroupWithDomainPermissionRequest instanceof KeystoneAssociateGroupWithDomainPermissionRequest) {
@@ -4217,7 +4265,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let groupId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let groupId;
+            let roleId;
 
             if (keystoneAssociateGroupWithProjectPermissionRequest !== null && keystoneAssociateGroupWithProjectPermissionRequest !== undefined) {
                 if (keystoneAssociateGroupWithProjectPermissionRequest instanceof KeystoneAssociateGroupWithProjectPermissionRequest) {
@@ -4254,7 +4305,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let groupId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let groupId;
+            let roleId;
 
             if (keystoneCheckDomainPermissionForGroupRequest !== null && keystoneCheckDomainPermissionForGroupRequest !== undefined) {
                 if (keystoneCheckDomainPermissionForGroupRequest instanceof KeystoneCheckDomainPermissionForGroupRequest) {
@@ -4296,7 +4351,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let groupId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let groupId;
+            let roleId;
 
             if (keystoneCheckProjectPermissionForGroupRequest !== null && keystoneCheckProjectPermissionForGroupRequest !== undefined) {
                 if (keystoneCheckProjectPermissionForGroupRequest instanceof KeystoneCheckProjectPermissionForGroupRequest) {
@@ -4333,7 +4391,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let groupId;let userId;
+            const localVarHeaderParameter = {} as any;
+
+            let groupId;
+            let userId;
 
             if (keystoneCheckUserInGroupRequest !== null && keystoneCheckUserInGroupRequest !== undefined) {
                 if (keystoneCheckUserInGroupRequest instanceof KeystoneCheckUserInGroupRequest) {
@@ -4370,7 +4431,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let groupId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let groupId;
+            let roleId;
 
             if (keystoneCheckroleForGroupRequest !== null && keystoneCheckroleForGroupRequest !== undefined) {
                 if (keystoneCheckroleForGroupRequest instanceof KeystoneCheckroleForGroupRequest) {
@@ -4413,6 +4478,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (keystoneCreateGroupRequest !== null && keystoneCreateGroupRequest !== undefined) {
@@ -4447,7 +4513,10 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let contentType;let id;
+
+            var body: any;
+            let contentType;
+            let id;
 
             if (keystoneCreateIdentityProviderRequest !== null && keystoneCreateIdentityProviderRequest !== undefined) {
                 if (keystoneCreateIdentityProviderRequest instanceof KeystoneCreateIdentityProviderRequest) {
@@ -4495,7 +4564,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let id;
+
+            var body: any;
+            let id;
 
             if (keystoneCreateMappingRequest !== null && keystoneCreateMappingRequest !== undefined) {
                 if (keystoneCreateMappingRequest instanceof KeystoneCreateMappingRequest) {
@@ -4535,6 +4606,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (keystoneCreateProjectRequest !== null && keystoneCreateProjectRequest !== undefined) {
@@ -4569,7 +4641,10 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let idpId;let protocolId;
+
+            var body: any;
+            let idpId;
+            let protocolId;
 
             if (keystoneCreateProtocolRequest !== null && keystoneCreateProtocolRequest !== undefined) {
                 if (keystoneCreateProtocolRequest instanceof KeystoneCreateProtocolRequest) {
@@ -4614,6 +4689,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (keystoneCreateScopedTokenRequest !== null && keystoneCreateScopedTokenRequest !== undefined) {
@@ -4647,7 +4723,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let groupId;
+            const localVarHeaderParameter = {} as any;
+
+            let groupId;
 
             if (keystoneDeleteGroupRequest !== null && keystoneDeleteGroupRequest !== undefined) {
                 if (keystoneDeleteGroupRequest instanceof KeystoneDeleteGroupRequest) {
@@ -4679,7 +4757,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let id;
+            const localVarHeaderParameter = {} as any;
+
+            let id;
 
             if (keystoneDeleteIdentityProviderRequest !== null && keystoneDeleteIdentityProviderRequest !== undefined) {
                 if (keystoneDeleteIdentityProviderRequest instanceof KeystoneDeleteIdentityProviderRequest) {
@@ -4711,7 +4791,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let id;
+            const localVarHeaderParameter = {} as any;
+
+            let id;
 
             if (keystoneDeleteMappingRequest !== null && keystoneDeleteMappingRequest !== undefined) {
                 if (keystoneDeleteMappingRequest instanceof KeystoneDeleteMappingRequest) {
@@ -4743,7 +4825,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let idpId;let protocolId;
+            const localVarHeaderParameter = {} as any;
+
+            let idpId;
+            let protocolId;
 
             if (keystoneDeleteProtocolRequest !== null && keystoneDeleteProtocolRequest !== undefined) {
                 if (keystoneDeleteProtocolRequest instanceof KeystoneDeleteProtocolRequest) {
@@ -4780,7 +4865,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let groupId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let groupId;
 
             if (keystoneListAllProjectPermissionsForGroupRequest !== null && keystoneListAllProjectPermissionsForGroupRequest !== undefined) {
                 if (keystoneListAllProjectPermissionsForGroupRequest instanceof KeystoneListAllProjectPermissionsForGroupRequest) {
@@ -4819,6 +4907,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4838,6 +4927,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4855,7 +4945,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let groupId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let groupId;
 
             if (keystoneListDomainPermissionsForGroupRequest !== null && keystoneListDomainPermissionsForGroupRequest !== undefined) {
                 if (keystoneListDomainPermissionsForGroupRequest instanceof KeystoneListDomainPermissionsForGroupRequest) {
@@ -4893,7 +4986,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let _interface;let serviceId;
+            const localVarQueryParameter = {} as any;
+            let _interface;
+            let serviceId;
 
             if (keystoneListEndpointsRequest !== null && keystoneListEndpointsRequest !== undefined) {
                 if (keystoneListEndpointsRequest instanceof KeystoneListEndpointsRequest) {
@@ -4931,7 +5026,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let domainId;let name;
+            const localVarQueryParameter = {} as any;
+            let domainId;
+            let name;
 
             if (keystoneListGroupsRequest !== null && keystoneListGroupsRequest !== undefined) {
                 if (keystoneListGroupsRequest instanceof KeystoneListGroupsRequest) {
@@ -4970,6 +5067,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4989,6 +5087,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5007,7 +5106,11 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let name;let domainId;let page;let perPage;
+            const localVarQueryParameter = {} as any;
+            let name;
+            let domainId;
+            let page;
+            let perPage;
 
             if (keystoneListPermissionsRequest !== null && keystoneListPermissionsRequest !== undefined) {
                 if (keystoneListPermissionsRequest instanceof KeystoneListPermissionsRequest) {
@@ -5054,7 +5157,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let groupId;
+            const localVarHeaderParameter = {} as any;
+
+            let groupId;
 
             if (keystoneListProjectPermissionsForGroupRequest !== null && keystoneListProjectPermissionsForGroupRequest !== undefined) {
                 if (keystoneListProjectPermissionsForGroupRequest instanceof KeystoneListProjectPermissionsForGroupRequest) {
@@ -5087,7 +5192,14 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let domainId;let name;let parentId;let enabled;let isDomain;let page;let perPage;
+            const localVarQueryParameter = {} as any;
+            let domainId;
+            let name;
+            let parentId;
+            let enabled;
+            let isDomain;
+            let page;
+            let perPage;
 
             if (keystoneListProjectsRequest !== null && keystoneListProjectsRequest !== undefined) {
                 if (keystoneListProjectsRequest instanceof KeystoneListProjectsRequest) {
@@ -5149,7 +5261,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let userId;
+            const localVarHeaderParameter = {} as any;
+
+            let userId;
 
             if (keystoneListProjectsForUserRequest !== null && keystoneListProjectsForUserRequest !== undefined) {
                 if (keystoneListProjectsForUserRequest instanceof KeystoneListProjectsForUserRequest) {
@@ -5181,7 +5295,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let idpId;
+            const localVarHeaderParameter = {} as any;
+
+            let idpId;
 
             if (keystoneListProtocolsRequest !== null && keystoneListProtocolsRequest !== undefined) {
                 if (keystoneListProtocolsRequest instanceof KeystoneListProtocolsRequest) {
@@ -5215,6 +5331,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5233,7 +5350,8 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let type;
+            const localVarQueryParameter = {} as any;
+            let type;
 
             if (keystoneListServicesRequest !== null && keystoneListServicesRequest !== undefined) {
                 if (keystoneListServicesRequest instanceof KeystoneListServicesRequest) {
@@ -5265,7 +5383,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let groupId;
+            const localVarHeaderParameter = {} as any;
+
+            let groupId;
 
             if (keystoneListUsersForGroupByAdminRequest !== null && keystoneListUsersForGroupByAdminRequest !== undefined) {
                 if (keystoneListUsersForGroupByAdminRequest instanceof KeystoneListUsersForGroupByAdminRequest) {
@@ -5299,6 +5419,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5316,7 +5437,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let groupId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let groupId;
+            let roleId;
 
             if (keystoneRemoveDomainPermissionFromGroupRequest !== null && keystoneRemoveDomainPermissionFromGroupRequest !== undefined) {
                 if (keystoneRemoveDomainPermissionFromGroupRequest instanceof KeystoneRemoveDomainPermissionFromGroupRequest) {
@@ -5358,7 +5483,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let groupId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let groupId;
+            let roleId;
 
             if (keystoneRemoveProjectPermissionFromGroupRequest !== null && keystoneRemoveProjectPermissionFromGroupRequest !== undefined) {
                 if (keystoneRemoveProjectPermissionFromGroupRequest instanceof KeystoneRemoveProjectPermissionFromGroupRequest) {
@@ -5395,7 +5523,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let groupId;let userId;
+            const localVarHeaderParameter = {} as any;
+
+            let groupId;
+            let userId;
 
             if (keystoneRemoveUserFromGroupRequest !== null && keystoneRemoveUserFromGroupRequest !== undefined) {
                 if (keystoneRemoveUserFromGroupRequest instanceof KeystoneRemoveUserFromGroupRequest) {
@@ -5434,6 +5565,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5451,7 +5583,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let endpointId;
+            const localVarHeaderParameter = {} as any;
+
+            let endpointId;
 
             if (keystoneShowEndpointRequest !== null && keystoneShowEndpointRequest !== undefined) {
                 if (keystoneShowEndpointRequest instanceof KeystoneShowEndpointRequest) {
@@ -5483,7 +5617,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let groupId;
+            const localVarHeaderParameter = {} as any;
+
+            let groupId;
 
             if (keystoneShowGroupRequest !== null && keystoneShowGroupRequest !== undefined) {
                 if (keystoneShowGroupRequest instanceof KeystoneShowGroupRequest) {
@@ -5515,7 +5651,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let id;
+            const localVarHeaderParameter = {} as any;
+
+            let id;
 
             if (keystoneShowIdentityProviderRequest !== null && keystoneShowIdentityProviderRequest !== undefined) {
                 if (keystoneShowIdentityProviderRequest instanceof KeystoneShowIdentityProviderRequest) {
@@ -5547,7 +5685,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let id;
+            const localVarHeaderParameter = {} as any;
+
+            let id;
 
             if (keystoneShowMappingRequest !== null && keystoneShowMappingRequest !== undefined) {
                 if (keystoneShowMappingRequest instanceof KeystoneShowMappingRequest) {
@@ -5579,7 +5719,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let roleId;
 
             if (keystoneShowPermissionRequest !== null && keystoneShowPermissionRequest !== undefined) {
                 if (keystoneShowPermissionRequest instanceof KeystoneShowPermissionRequest) {
@@ -5613,6 +5755,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5630,7 +5773,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let idpId;let protocolId;
+            const localVarHeaderParameter = {} as any;
+
+            let idpId;
+            let protocolId;
 
             if (keystoneShowProtocolRequest !== null && keystoneShowProtocolRequest !== undefined) {
                 if (keystoneShowProtocolRequest instanceof KeystoneShowProtocolRequest) {
@@ -5667,7 +5813,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let regionId;
+            const localVarHeaderParameter = {} as any;
+
+            let regionId;
 
             if (keystoneShowRegionRequest !== null && keystoneShowRegionRequest !== undefined) {
                 if (keystoneShowRegionRequest instanceof KeystoneShowRegionRequest) {
@@ -5699,7 +5847,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
 
             if (keystoneShowSecurityComplianceRequest !== null && keystoneShowSecurityComplianceRequest !== undefined) {
                 if (keystoneShowSecurityComplianceRequest instanceof KeystoneShowSecurityComplianceRequest) {
@@ -5731,7 +5881,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let option;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let option;
 
             if (keystoneShowSecurityComplianceByOptionRequest !== null && keystoneShowSecurityComplianceByOptionRequest !== undefined) {
                 if (keystoneShowSecurityComplianceByOptionRequest instanceof KeystoneShowSecurityComplianceByOptionRequest) {
@@ -5768,7 +5921,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let serviceId;
+            const localVarHeaderParameter = {} as any;
+
+            let serviceId;
 
             if (keystoneShowServiceRequest !== null && keystoneShowServiceRequest !== undefined) {
                 if (keystoneShowServiceRequest instanceof KeystoneShowServiceRequest) {
@@ -5802,6 +5957,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5820,7 +5976,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let groupId;
+
+            var body: any;
+            let groupId;
 
             if (keystoneUpdateGroupRequest !== null && keystoneUpdateGroupRequest !== undefined) {
                 if (keystoneUpdateGroupRequest instanceof KeystoneUpdateGroupRequest) {
@@ -5860,7 +6018,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let id;
+
+            var body: any;
+            let id;
 
             if (keystoneUpdateIdentityProviderRequest !== null && keystoneUpdateIdentityProviderRequest !== undefined) {
                 if (keystoneUpdateIdentityProviderRequest instanceof KeystoneUpdateIdentityProviderRequest) {
@@ -5900,7 +6060,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let id;
+
+            var body: any;
+            let id;
 
             if (keystoneUpdateMappingRequest !== null && keystoneUpdateMappingRequest !== undefined) {
                 if (keystoneUpdateMappingRequest instanceof KeystoneUpdateMappingRequest) {
@@ -5940,6 +6102,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (keystoneUpdateProjectRequest !== null && keystoneUpdateProjectRequest !== undefined) {
@@ -5974,7 +6137,10 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let idpId;let protocolId;
+
+            var body: any;
+            let idpId;
+            let protocolId;
 
             if (keystoneUpdateProtocolRequest !== null && keystoneUpdateProtocolRequest !== undefined) {
                 if (keystoneUpdateProtocolRequest instanceof KeystoneUpdateProtocolRequest) {
@@ -6019,7 +6185,10 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let domainId;let trustDomainId;let name;
+            const localVarQueryParameter = {} as any;
+            let domainId;
+            let trustDomainId;
+            let name;
 
             if (listAgenciesRequest !== null && listAgenciesRequest !== undefined) {
                 if (listAgenciesRequest instanceof ListAgenciesRequest) {
@@ -6064,7 +6233,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let agencyId;let domainId;
+            const localVarHeaderParameter = {} as any;
+
+            let agencyId;
+            let domainId;
 
             if (listAllProjectsPermissionsForAgencyRequest !== null && listAllProjectsPermissionsForAgencyRequest !== undefined) {
                 if (listAllProjectsPermissionsForAgencyRequest instanceof ListAllProjectsPermissionsForAgencyRequest) {
@@ -6102,7 +6274,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let page;let perPage;
+            const localVarQueryParameter = {} as any;
+            let page;
+            let perPage;
 
             if (listCustomPoliciesRequest !== null && listCustomPoliciesRequest !== undefined) {
                 if (listCustomPoliciesRequest instanceof ListCustomPoliciesRequest) {
@@ -6139,7 +6313,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let agencyId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let agencyId;
 
             if (listDomainPermissionsForAgencyRequest !== null && listDomainPermissionsForAgencyRequest !== undefined) {
                 if (listDomainPermissionsForAgencyRequest instanceof ListDomainPermissionsForAgencyRequest) {
@@ -6176,7 +6353,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let agencyId;
+            const localVarHeaderParameter = {} as any;
+
+            let agencyId;
 
             if (listProjectPermissionsForAgencyRequest !== null && listProjectPermissionsForAgencyRequest !== undefined) {
                 if (listProjectPermissionsForAgencyRequest instanceof ListProjectPermissionsForAgencyRequest) {
@@ -6208,7 +6387,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let agencyId;let domainId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let agencyId;
+            let domainId;
+            let roleId;
 
             if (removeAllProjectsPermissionFromAgencyRequest !== null && removeAllProjectsPermissionFromAgencyRequest !== undefined) {
                 if (removeAllProjectsPermissionFromAgencyRequest instanceof RemoveAllProjectsPermissionFromAgencyRequest) {
@@ -6250,7 +6433,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let agencyId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let agencyId;
+            let roleId;
 
             if (removeDomainPermissionFromAgencyRequest !== null && removeDomainPermissionFromAgencyRequest !== undefined) {
                 if (removeDomainPermissionFromAgencyRequest instanceof RemoveDomainPermissionFromAgencyRequest) {
@@ -6292,7 +6479,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let agencyId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let agencyId;
+            let roleId;
 
             if (removeProjectPermissionFromAgencyRequest !== null && removeProjectPermissionFromAgencyRequest !== undefined) {
                 if (removeProjectPermissionFromAgencyRequest instanceof RemoveProjectPermissionFromAgencyRequest) {
@@ -6329,7 +6519,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let agencyId;
+            const localVarHeaderParameter = {} as any;
+
+            let agencyId;
 
             if (showAgencyRequest !== null && showAgencyRequest !== undefined) {
                 if (showAgencyRequest instanceof ShowAgencyRequest) {
@@ -6361,7 +6553,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let roleId;
 
             if (showCustomPolicyRequest !== null && showCustomPolicyRequest !== undefined) {
                 if (showCustomPolicyRequest instanceof ShowCustomPolicyRequest) {
@@ -6393,7 +6587,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
 
             if (showDomainApiAclPolicyRequest !== null && showDomainApiAclPolicyRequest !== undefined) {
                 if (showDomainApiAclPolicyRequest instanceof ShowDomainApiAclPolicyRequest) {
@@ -6425,7 +6621,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
 
             if (showDomainConsoleAclPolicyRequest !== null && showDomainConsoleAclPolicyRequest !== undefined) {
                 if (showDomainConsoleAclPolicyRequest instanceof ShowDomainConsoleAclPolicyRequest) {
@@ -6457,7 +6655,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
 
             if (showDomainLoginPolicyRequest !== null && showDomainLoginPolicyRequest !== undefined) {
                 if (showDomainLoginPolicyRequest instanceof ShowDomainLoginPolicyRequest) {
@@ -6489,7 +6689,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
 
             if (showDomainPasswordPolicyRequest !== null && showDomainPasswordPolicyRequest !== undefined) {
                 if (showDomainPasswordPolicyRequest instanceof ShowDomainPasswordPolicyRequest) {
@@ -6521,7 +6723,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
 
             if (showDomainProtectPolicyRequest !== null && showDomainProtectPolicyRequest !== undefined) {
                 if (showDomainProtectPolicyRequest instanceof ShowDomainProtectPolicyRequest) {
@@ -6554,7 +6758,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let domainId;let type;
+            const localVarQueryParameter = {} as any;
+            let domainId;
+            let type;
 
             if (showDomainQuotaRequest !== null && showDomainQuotaRequest !== undefined) {
                 if (showDomainQuotaRequest instanceof ShowDomainQuotaRequest) {
@@ -6592,7 +6798,10 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let idpId;let protocolId;
+            const localVarHeaderParameter = {} as any;
+
+            let idpId;
+            let protocolId;
 
             if (showMetadataRequest !== null && showMetadataRequest !== undefined) {
                 if (showMetadataRequest instanceof ShowMetadataRequest) {
@@ -6629,7 +6838,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let idpId;
+            const localVarHeaderParameter = {} as any;
+
+            let idpId;
 
             if (showOpenIdConnectConfigRequest !== null && showOpenIdConnectConfigRequest !== undefined) {
                 if (showOpenIdConnectConfigRequest instanceof ShowOpenIdConnectConfigRequest) {
@@ -6663,6 +6874,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6682,6 +6894,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6700,7 +6913,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let agencyId;
+
+            var body: any;
+            let agencyId;
 
             if (updateAgencyRequest !== null && updateAgencyRequest !== undefined) {
                 if (updateAgencyRequest instanceof UpdateAgencyRequest) {
@@ -6740,7 +6955,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let roleId;
+
+            var body: any;
+            let roleId;
 
             if (updateAgencyCustomPolicyRequest !== null && updateAgencyCustomPolicyRequest !== undefined) {
                 if (updateAgencyCustomPolicyRequest instanceof UpdateAgencyCustomPolicyRequest) {
@@ -6780,7 +6997,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let roleId;
+
+            var body: any;
+            let roleId;
 
             if (updateCloudServiceCustomPolicyRequest !== null && updateCloudServiceCustomPolicyRequest !== undefined) {
                 if (updateCloudServiceCustomPolicyRequest instanceof UpdateCloudServiceCustomPolicyRequest) {
@@ -6820,7 +7039,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let domainId;
+
+            var body: any;
+            let domainId;
 
             if (updateDomainApiAclPolicyRequest !== null && updateDomainApiAclPolicyRequest !== undefined) {
                 if (updateDomainApiAclPolicyRequest instanceof UpdateDomainApiAclPolicyRequest) {
@@ -6860,7 +7081,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let domainId;
+
+            var body: any;
+            let domainId;
 
             if (updateDomainConsoleAclPolicyRequest !== null && updateDomainConsoleAclPolicyRequest !== undefined) {
                 if (updateDomainConsoleAclPolicyRequest instanceof UpdateDomainConsoleAclPolicyRequest) {
@@ -6896,7 +7119,11 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let domainId;let groupId;let roleId;
+            const localVarHeaderParameter = {} as any;
+
+            let domainId;
+            let groupId;
+            let roleId;
 
             if (updateDomainGroupInheritRoleRequest !== null && updateDomainGroupInheritRoleRequest !== undefined) {
                 if (updateDomainGroupInheritRoleRequest instanceof UpdateDomainGroupInheritRoleRequest) {
@@ -6939,7 +7166,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let domainId;
+
+            var body: any;
+            let domainId;
 
             if (updateDomainLoginPolicyRequest !== null && updateDomainLoginPolicyRequest !== undefined) {
                 if (updateDomainLoginPolicyRequest instanceof UpdateDomainLoginPolicyRequest) {
@@ -6979,7 +7208,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let domainId;
+
+            var body: any;
+            let domainId;
 
             if (updateDomainPasswordPolicyRequest !== null && updateDomainPasswordPolicyRequest !== undefined) {
                 if (updateDomainPasswordPolicyRequest instanceof UpdateDomainPasswordPolicyRequest) {
@@ -7019,7 +7250,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let domainId;
+
+            var body: any;
+            let domainId;
 
             if (updateDomainProtectPolicyRequest !== null && updateDomainProtectPolicyRequest !== undefined) {
                 if (updateDomainProtectPolicyRequest instanceof UpdateDomainProtectPolicyRequest) {
@@ -7059,7 +7292,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let idpId;
+
+            var body: any;
+            let idpId;
 
             if (updateOpenIdConnectConfigRequest !== null && updateOpenIdConnectConfigRequest !== undefined) {
                 if (updateOpenIdConnectConfigRequest instanceof UpdateOpenIdConnectConfigRequest) {
@@ -7099,6 +7334,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (updateProjectStatusRequest !== null && updateProjectStatusRequest !== undefined) {
@@ -7133,6 +7369,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (createPermanentAccessKeyRequest !== null && createPermanentAccessKeyRequest !== undefined) {
@@ -7167,6 +7404,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (createTemporaryAccessKeyByAgencyRequest !== null && createTemporaryAccessKeyByAgencyRequest !== undefined) {
@@ -7201,6 +7439,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (createTemporaryAccessKeyByTokenRequest !== null && createTemporaryAccessKeyByTokenRequest !== undefined) {
@@ -7234,7 +7473,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let accessKey;
+            const localVarHeaderParameter = {} as any;
+
+            let accessKey;
 
             if (deletePermanentAccessKeyRequest !== null && deletePermanentAccessKeyRequest !== undefined) {
                 if (deletePermanentAccessKeyRequest instanceof DeletePermanentAccessKeyRequest) {
@@ -7267,7 +7508,8 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let userId;
+            const localVarQueryParameter = {} as any;
+            let userId;
 
             if (listPermanentAccessKeysRequest !== null && listPermanentAccessKeysRequest !== undefined) {
                 if (listPermanentAccessKeysRequest instanceof ListPermanentAccessKeysRequest) {
@@ -7299,7 +7541,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let accessKey;
+            const localVarHeaderParameter = {} as any;
+
+            let accessKey;
 
             if (showPermanentAccessKeyRequest !== null && showPermanentAccessKeyRequest !== undefined) {
                 if (showPermanentAccessKeyRequest instanceof ShowPermanentAccessKeyRequest) {
@@ -7332,7 +7576,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let accessKey;
+
+            var body: any;
+            let accessKey;
 
             if (updatePermanentAccessKeyRequest !== null && updatePermanentAccessKeyRequest !== undefined) {
                 if (updatePermanentAccessKeyRequest instanceof UpdatePermanentAccessKeyRequest) {
@@ -7372,6 +7618,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (createBindingDeviceRequest !== null && createBindingDeviceRequest !== undefined) {
@@ -7406,6 +7653,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (createMfaDeviceRequest !== null && createMfaDeviceRequest !== undefined) {
@@ -7440,6 +7688,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (createUserRequest !== null && createUserRequest !== undefined) {
@@ -7474,6 +7723,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (deleteBindingDeviceRequest !== null && deleteBindingDeviceRequest !== undefined) {
@@ -7508,7 +7758,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let userId;let serialNumber;
+            const localVarQueryParameter = {} as any;
+            let userId;
+            let serialNumber;
 
             if (deleteMfaDeviceRequest !== null && deleteMfaDeviceRequest !== undefined) {
                 if (deleteMfaDeviceRequest instanceof DeleteMfaDeviceRequest) {
@@ -7552,6 +7804,7 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+
             var body: any;
 
             if (keystoneCreateUserRequest !== null && keystoneCreateUserRequest !== undefined) {
@@ -7585,7 +7838,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let userId;
+            const localVarHeaderParameter = {} as any;
+
+            let userId;
 
             if (keystoneDeleteUserRequest !== null && keystoneDeleteUserRequest !== undefined) {
                 if (keystoneDeleteUserRequest instanceof KeystoneDeleteUserRequest) {
@@ -7617,7 +7872,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let userId;
+            const localVarHeaderParameter = {} as any;
+
+            let userId;
 
             if (keystoneListGroupsForUserRequest !== null && keystoneListGroupsForUserRequest !== undefined) {
                 if (keystoneListGroupsForUserRequest instanceof KeystoneListGroupsForUserRequest) {
@@ -7650,7 +7907,11 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let domainId;let enabled;let name;let passwordExpiresAt;
+            const localVarQueryParameter = {} as any;
+            let domainId;
+            let enabled;
+            let name;
+            let passwordExpiresAt;
 
             if (keystoneListUsersRequest !== null && keystoneListUsersRequest !== undefined) {
                 if (keystoneListUsersRequest instanceof KeystoneListUsersRequest) {
@@ -7697,7 +7958,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let userId;
+            const localVarHeaderParameter = {} as any;
+
+            let userId;
 
             if (keystoneShowUserRequest !== null && keystoneShowUserRequest !== undefined) {
                 if (keystoneShowUserRequest instanceof KeystoneShowUserRequest) {
@@ -7730,7 +7993,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let userId;
+
+            var body: any;
+            let userId;
 
             if (keystoneUpdateUserByAdminRequest !== null && keystoneUpdateUserByAdminRequest !== undefined) {
                 if (keystoneUpdateUserByAdminRequest instanceof KeystoneUpdateUserByAdminRequest) {
@@ -7770,7 +8035,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let userId;
+
+            var body: any;
+            let userId;
 
             if (keystoneUpdateUserPasswordRequest !== null && keystoneUpdateUserPasswordRequest !== undefined) {
                 if (keystoneUpdateUserPasswordRequest instanceof KeystoneUpdateUserPasswordRequest) {
@@ -7811,6 +8078,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7830,6 +8098,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7847,7 +8116,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let userId;
+            const localVarHeaderParameter = {} as any;
+
+            let userId;
 
             if (showUserRequest !== null && showUserRequest !== undefined) {
                 if (showUserRequest instanceof ShowUserRequest) {
@@ -7879,7 +8150,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let userId;
+            const localVarHeaderParameter = {} as any;
+
+            let userId;
 
             if (showUserLoginProtectRequest !== null && showUserLoginProtectRequest !== undefined) {
                 if (showUserLoginProtectRequest instanceof ShowUserLoginProtectRequest) {
@@ -7911,7 +8184,9 @@ export const ParamCreater = function () {
                 headers: {},
                 data: {}
             };
-            const localVarHeaderParameter = {} as any;let userId;
+            const localVarHeaderParameter = {} as any;
+
+            let userId;
 
             if (showUserMfaDeviceRequest !== null && showUserMfaDeviceRequest !== undefined) {
                 if (showUserMfaDeviceRequest instanceof ShowUserMfaDeviceRequest) {
@@ -7944,7 +8219,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let userId;
+
+            var body: any;
+            let userId;
 
             if (updateLoginProtectRequest !== null && updateLoginProtectRequest !== undefined) {
                 if (updateLoginProtectRequest instanceof UpdateLoginProtectRequest) {
@@ -7984,7 +8261,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let userId;
+
+            var body: any;
+            let userId;
 
             if (updateUserRequest !== null && updateUserRequest !== undefined) {
                 if (updateUserRequest instanceof UpdateUserRequest) {
@@ -8024,7 +8303,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            var body: any;let userId;
+
+            var body: any;
+            let userId;
 
             if (updateUserInformationRequest !== null && updateUserInformationRequest !== undefined) {
                 if (updateUserInformationRequest instanceof UpdateUserInformationRequest) {
@@ -8065,7 +8346,8 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-            var body: any;let nocatalog;
+            var body: any;
+            let nocatalog;
 
             if (keystoneCreateAgencyTokenRequest !== null && keystoneCreateAgencyTokenRequest !== undefined) {
                 if (keystoneCreateAgencyTokenRequest instanceof KeystoneCreateAgencyTokenRequest) {
@@ -8106,7 +8388,8 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-            var body: any;let nocatalog;
+            var body: any;
+            let nocatalog;
 
             if (keystoneCreateUserTokenByPasswordRequest !== null && keystoneCreateUserTokenByPasswordRequest !== undefined) {
                 if (keystoneCreateUserTokenByPasswordRequest instanceof KeystoneCreateUserTokenByPasswordRequest) {
@@ -8147,7 +8430,8 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-            var body: any;let nocatalog;
+            var body: any;
+            let nocatalog;
 
             if (keystoneCreateUserTokenByPasswordAndMfaRequest !== null && keystoneCreateUserTokenByPasswordAndMfaRequest !== undefined) {
                 if (keystoneCreateUserTokenByPasswordAndMfaRequest instanceof KeystoneCreateUserTokenByPasswordAndMfaRequest) {
@@ -8187,7 +8471,9 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;let xSubjectToken;let nocatalog;
+            const localVarQueryParameter = {} as any;
+            let xSubjectToken;
+            let nocatalog;
 
             if (keystoneValidateTokenRequest !== null && keystoneValidateTokenRequest !== undefined) {
                 if (keystoneValidateTokenRequest instanceof KeystoneValidateTokenRequest) {

@@ -3,7 +3,7 @@ import { AclPolicyOption } from './AclPolicyOption';
 
 export class UpdateDomainConsoleAclPolicyRequestBody {
     private 'console_acl_policy': AclPolicyOption | undefined;
-    public constructor(consoleAclPolicy: any) { 
+    public constructor(consoleAclPolicy?: any) { 
         this['console_acl_policy'] = consoleAclPolicy;
     }
     public withConsoleAclPolicy(consoleAclPolicy: AclPolicyOption): UpdateDomainConsoleAclPolicyRequestBody {

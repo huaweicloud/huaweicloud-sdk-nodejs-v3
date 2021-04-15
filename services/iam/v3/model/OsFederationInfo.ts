@@ -6,7 +6,7 @@ export class OsFederationInfo {
     private 'identity_provider': IdpIdInfo | undefined;
     public protocol: ProtocolIdInfo;
     public groups: Array<object>;
-    public constructor(identityProvider: any, protocol: any, groups: any) { 
+    public constructor(identityProvider?: any, protocol?: any, groups?: any) { 
         this['identity_provider'] = identityProvider;
         this['protocol'] = protocol;
         this['groups'] = groups;

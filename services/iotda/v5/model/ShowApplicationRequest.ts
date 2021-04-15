@@ -3,7 +3,7 @@
 export class ShowApplicationRequest {
     private 'Instance-Id'?: string | undefined;
     private 'app_id': string | undefined;
-    public constructor(appId: any) { 
+    public constructor(appId?: any) { 
         this['app_id'] = appId;
     }
     public withInstanceId(instanceId: string): ShowApplicationRequest {

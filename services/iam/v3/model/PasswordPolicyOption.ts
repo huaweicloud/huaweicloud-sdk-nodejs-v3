@@ -8,7 +8,7 @@ export class PasswordPolicyOption {
     private 'password_not_username_or_invert': boolean | undefined;
     private 'password_validity_period': number | undefined;
     private 'password_char_combination': number | undefined;
-    public constructor(maximumConsecutiveIdenticalChars: any, minimumPasswordAge: any, minimumPasswordLength: any, numberOfRecentPasswordsDisallowed: any, passwordNotUsernameOrInvert: any, passwordValidityPeriod: any, passwordCharCombination: any) { 
+    public constructor(maximumConsecutiveIdenticalChars?: any, minimumPasswordAge?: any, minimumPasswordLength?: any, numberOfRecentPasswordsDisallowed?: any, passwordNotUsernameOrInvert?: any, passwordValidityPeriod?: any, passwordCharCombination?: any) { 
         this['maximum_consecutive_identical_chars'] = maximumConsecutiveIdenticalChars;
         this['minimum_password_age'] = minimumPasswordAge;
         this['minimum_password_length'] = minimumPasswordLength;

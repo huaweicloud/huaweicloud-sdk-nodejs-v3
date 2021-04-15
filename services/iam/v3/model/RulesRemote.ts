@@ -4,7 +4,7 @@ export class RulesRemote {
     public type: string;
     private 'any_one_of'?: Array<string> | undefined;
     private 'not_any_of'?: Array<string> | undefined;
-    public constructor(type: any) { 
+    public constructor(type?: any) { 
         this['type'] = type;
     }
     public withType(type: string): RulesRemote {

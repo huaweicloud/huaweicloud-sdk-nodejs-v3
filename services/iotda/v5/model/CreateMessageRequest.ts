@@ -5,7 +5,7 @@ export class CreateMessageRequest {
     private 'device_id': string | undefined;
     private 'Instance-Id'?: string | undefined;
     public body?: DeviceMessageRequest;
-    public constructor(deviceId: any) { 
+    public constructor(deviceId?: any) { 
         this['device_id'] = deviceId;
     }
     public withDeviceId(deviceId: string): CreateMessageRequest {

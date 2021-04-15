@@ -3,7 +3,7 @@
 export class DeleteQueueRequest {
     private 'Instance-Id'?: string | undefined;
     private 'queue_id': string | undefined;
-    public constructor(queueId: any) { 
+    public constructor(queueId?: any) { 
         this['queue_id'] = queueId;
     }
     public withInstanceId(instanceId: string): DeleteQueueRequest {

@@ -4,7 +4,7 @@ export class Links {
     public self: string;
     public previous: string;
     public next: string;
-    public constructor(self: any, previous: any, next: any) { 
+    public constructor(self?: any, previous?: any, next?: any) { 
         this['self'] = self;
         this['previous'] = previous;
         this['next'] = next;

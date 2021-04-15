@@ -4,7 +4,7 @@ import { KeystoneUpdateGroupRequestBody } from './KeystoneUpdateGroupRequestBody
 export class KeystoneUpdateGroupRequest {
     private 'group_id': string | undefined;
     public body?: KeystoneUpdateGroupRequestBody;
-    public constructor(groupId: any) { 
+    public constructor(groupId?: any) { 
         this['group_id'] = groupId;
     }
     public withGroupId(groupId: string): KeystoneUpdateGroupRequest {

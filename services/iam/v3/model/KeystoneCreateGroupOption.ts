@@ -4,7 +4,7 @@ export class KeystoneCreateGroupOption {
     public description?: string;
     private 'domain_id'?: string | undefined;
     public name: string;
-    public constructor(name: any) { 
+    public constructor(name?: any) { 
         this['name'] = name;
     }
     public withDescription(description: string): KeystoneCreateGroupOption {

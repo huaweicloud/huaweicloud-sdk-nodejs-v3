@@ -3,7 +3,7 @@
 export class TemplateViewHistory {
     private 'template_id': string | undefined;
     private 'template_title': string | undefined;
-    public constructor(templateId: any, templateTitle: any) { 
+    public constructor(templateId?: any, templateTitle?: any) { 
         this['template_id'] = templateId;
         this['template_title'] = templateTitle;
     }

@@ -6,7 +6,7 @@ export class TokenCatalogEndpoint {
     private 'region_id': string | undefined;
     private 'interface': string | undefined;
     public id: string;
-    public constructor(url: any, region: any, regionId: any, _interface: any, id: any) { 
+    public constructor(url?: any, region?: any, regionId?: any, _interface?: any, id?: any) { 
         this['url'] = url;
         this['region'] = region;
         this['region_id'] = regionId;

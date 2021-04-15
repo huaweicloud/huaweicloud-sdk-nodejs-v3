@@ -3,7 +3,7 @@
 export class DeleteMfaDeviceRequest {
     private 'user_id': string | undefined;
     private 'serial_number': string | undefined;
-    public constructor(userId: any, serialNumber: any) { 
+    public constructor(userId?: any, serialNumber?: any) { 
         this['user_id'] = userId;
         this['serial_number'] = serialNumber;
     }

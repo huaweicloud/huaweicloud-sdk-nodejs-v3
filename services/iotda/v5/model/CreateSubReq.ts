@@ -6,7 +6,7 @@ export class CreateSubReq {
     public callbackurl: string;
     private 'app_id'?: string | undefined;
     public channel: string;
-    public constructor(subject: any, callbackurl: any, channel: any) { 
+    public constructor(subject?: any, callbackurl?: any, channel?: any) { 
         this['subject'] = subject;
         this['callbackurl'] = callbackurl;
         this['channel'] = channel;

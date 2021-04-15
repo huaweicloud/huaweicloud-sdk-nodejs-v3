@@ -3,7 +3,7 @@
 export class DailyTimerType {
     public time: string;
     private 'days_of_week'?: string | undefined;
-    public constructor(time: any) { 
+    public constructor(time?: any) { 
         this['time'] = time;
     }
     public withTime(time: string): DailyTimerType {

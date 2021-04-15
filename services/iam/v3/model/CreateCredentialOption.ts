@@ -3,7 +3,7 @@
 export class CreateCredentialOption {
     private 'user_id': string | undefined;
     public description?: string;
-    public constructor(userId: any) { 
+    public constructor(userId?: any) { 
         this['user_id'] = userId;
     }
     public withUserId(userId: string): CreateCredentialOption {

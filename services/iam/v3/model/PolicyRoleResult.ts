@@ -16,7 +16,7 @@ export class PolicyRoleResult {
     private 'display_name': string | undefined;
     public type: string;
     public policy: ServicePolicy;
-    public constructor(domainId: any, catalog: any, name: any, description: any, links: any, id: any, displayName: any, type: any, policy: any) { 
+    public constructor(domainId?: any, catalog?: any, name?: any, description?: any, links?: any, id?: any, displayName?: any, type?: any, policy?: any) { 
         this['domain_id'] = domainId;
         this['catalog'] = catalog;
         this['name'] = name;

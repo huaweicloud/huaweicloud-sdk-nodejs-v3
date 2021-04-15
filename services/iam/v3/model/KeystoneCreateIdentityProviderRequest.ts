@@ -5,7 +5,7 @@ export class KeystoneCreateIdentityProviderRequest {
     private 'Content-Type': string | undefined;
     public id: string;
     public body?: KeystoneCreateIdentityProviderRequestBody;
-    public constructor(contentType: any, id: any) { 
+    public constructor(contentType?: any, id?: any) { 
         this['Content-Type'] = contentType;
         this['id'] = id;
     }

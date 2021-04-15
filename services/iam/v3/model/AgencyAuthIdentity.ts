@@ -6,7 +6,7 @@ export class AgencyAuthIdentity {
     public methods: Array<AgencyAuthIdentityMethodsEnum>;
     private 'assume_role': IdentityAssumerole | undefined;
     public policy?: ServicePolicy;
-    public constructor(methods: any, assumeRole: any) { 
+    public constructor(methods?: any, assumeRole?: any) { 
         this['methods'] = methods;
         this['assume_role'] = assumeRole;
     }

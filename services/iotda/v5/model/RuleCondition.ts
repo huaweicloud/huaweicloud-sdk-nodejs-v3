@@ -12,7 +12,7 @@ export class RuleCondition {
     private 'daily_timer_condition'?: DailyTimerType | undefined;
     private 'device_message_condition'?: DeviceMessageCondition | undefined;
     private 'device_status_condition'?: DeviceStatusCondition | undefined;
-    public constructor(type: any) { 
+    public constructor(type?: any) { 
         this['type'] = type;
     }
     public withType(type: string): RuleCondition {

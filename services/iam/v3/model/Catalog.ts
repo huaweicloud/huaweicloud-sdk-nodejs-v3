@@ -6,7 +6,7 @@ export class Catalog {
     public id: string;
     public name: string;
     public type: string;
-    public constructor(endpoints: any, id: any, name: any, type: any) { 
+    public constructor(endpoints?: any, id?: any, name?: any, type?: any) { 
         this['endpoints'] = endpoints;
         this['id'] = id;
         this['name'] = name;

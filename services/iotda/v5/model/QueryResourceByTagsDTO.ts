@@ -4,7 +4,7 @@ import { TagV5DTO } from './TagV5DTO';
 export class QueryResourceByTagsDTO {
     private 'resource_type': string | undefined;
     public tags: Array<TagV5DTO>;
-    public constructor(resourceType: any, tags: any) { 
+    public constructor(resourceType?: any, tags?: any) { 
         this['resource_type'] = resourceType;
         this['tags'] = tags;
     }

@@ -5,7 +5,7 @@ export class KeystoneCreateProjectOption {
     private 'parent_id': string | undefined;
     private 'domain_id'?: string | undefined;
     public description?: string;
-    public constructor(name: any, parentId: any) { 
+    public constructor(name?: any, parentId?: any) { 
         this['name'] = name;
         this['parent_id'] = parentId;
     }

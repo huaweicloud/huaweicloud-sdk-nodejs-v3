@@ -5,7 +5,7 @@ export class LoginTokenSecurityToken {
     public secret: string;
     public id: string;
     private 'duration_seconds'?: number | undefined;
-    public constructor(access: any, secret: any, id: any) { 
+    public constructor(access?: any, secret?: any, id?: any) { 
         this['access'] = access;
         this['secret'] = secret;
         this['id'] = id;

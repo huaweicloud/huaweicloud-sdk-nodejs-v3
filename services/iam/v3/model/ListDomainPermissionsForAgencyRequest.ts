@@ -3,7 +3,7 @@
 export class ListDomainPermissionsForAgencyRequest {
     private 'domain_id': string | undefined;
     private 'agency_id': string | undefined;
-    public constructor(domainId: any, agencyId: any) { 
+    public constructor(domainId?: any, agencyId?: any) { 
         this['domain_id'] = domainId;
         this['agency_id'] = agencyId;
     }

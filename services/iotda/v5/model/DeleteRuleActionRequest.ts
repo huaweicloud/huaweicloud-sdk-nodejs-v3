@@ -3,7 +3,7 @@
 export class DeleteRuleActionRequest {
     private 'Instance-Id'?: string | undefined;
     private 'action_id': string | undefined;
-    public constructor(actionId: any) { 
+    public constructor(actionId?: any) { 
         this['action_id'] = actionId;
     }
     public withInstanceId(instanceId: string): DeleteRuleActionRequest {

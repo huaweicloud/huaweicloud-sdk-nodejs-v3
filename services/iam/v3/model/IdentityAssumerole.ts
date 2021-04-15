@@ -7,7 +7,7 @@ export class IdentityAssumerole {
     private 'domain_name'?: string | undefined;
     private 'duration_seconds'?: number | undefined;
     private 'session_user'?: AssumeroleSessionuser | undefined;
-    public constructor(agencyName: any) { 
+    public constructor(agencyName?: any) { 
         this['agency_name'] = agencyName;
     }
     public withAgencyName(agencyName: string): IdentityAssumerole {

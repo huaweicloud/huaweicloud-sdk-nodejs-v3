@@ -4,7 +4,7 @@ import { UpdateDomainPasswordPolicyRequestBody } from './UpdateDomainPasswordPol
 export class UpdateDomainPasswordPolicyRequest {
     private 'domain_id': string | undefined;
     public body?: UpdateDomainPasswordPolicyRequestBody;
-    public constructor(domainId: any) { 
+    public constructor(domainId?: any) { 
         this['domain_id'] = domainId;
     }
     public withDomainId(domainId: string): UpdateDomainPasswordPolicyRequest {

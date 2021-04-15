@@ -4,7 +4,7 @@ import { NetAddress } from './NetAddress';
 export class MrsKafkaForwarding {
     public addresses: Array<NetAddress>;
     public topic: string;
-    public constructor(addresses: any, topic: any) { 
+    public constructor(addresses?: any, topic?: any) { 
         this['addresses'] = addresses;
         this['topic'] = topic;
     }

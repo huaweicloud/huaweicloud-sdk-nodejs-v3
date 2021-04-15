@@ -3,7 +3,7 @@ import { UpdateLoginProject } from './UpdateLoginProject';
 
 export class UpdateLoginProjectReq {
     private 'login_protect': UpdateLoginProject | undefined;
-    public constructor(loginProtect: any) { 
+    public constructor(loginProtect?: any) { 
         this['login_protect'] = loginProtect;
     }
     public withLoginProtect(loginProtect: UpdateLoginProject): UpdateLoginProjectReq {

@@ -13,7 +13,7 @@ export class AddDevice {
     private 'app_id'?: string | undefined;
     private 'extension_info'?: object | undefined;
     public shadow?: Array<InitialDesired>;
-    public constructor(nodeId: any, productId: any) { 
+    public constructor(nodeId?: any, productId?: any) { 
         this['node_id'] = nodeId;
         this['product_id'] = productId;
     }

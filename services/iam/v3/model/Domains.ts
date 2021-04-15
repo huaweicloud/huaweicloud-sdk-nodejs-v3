@@ -7,7 +7,7 @@ export class Domains {
     public name: string;
     public links: LinksSelf;
     public description: string;
-    public constructor(enabled: any, id: any, name: any, links: any, description: any) { 
+    public constructor(enabled?: any, id?: any, name?: any, links?: any, description?: any) { 
         this['enabled'] = enabled;
         this['id'] = id;
         this['name'] = name;

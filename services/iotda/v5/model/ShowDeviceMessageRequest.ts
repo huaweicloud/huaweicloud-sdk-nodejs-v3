@@ -4,7 +4,7 @@ export class ShowDeviceMessageRequest {
     private 'device_id': string | undefined;
     private 'Instance-Id'?: string | undefined;
     private 'message_id': string | undefined;
-    public constructor(deviceId: any, messageId: any) { 
+    public constructor(deviceId?: any, messageId?: any) { 
         this['device_id'] = deviceId;
         this['message_id'] = messageId;
     }

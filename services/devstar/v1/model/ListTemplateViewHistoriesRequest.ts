@@ -3,7 +3,7 @@
 export class ListTemplateViewHistoriesRequest {
     private 'X-Language'?: ListTemplateViewHistoriesRequestXLanguageEnum | undefined;
     private 'platform_source': ListTemplateViewHistoriesRequestPlatformSourceEnum | undefined;
-    public constructor(platformSource: any) { 
+    public constructor(platformSource?: any) { 
         this['platform_source'] = platformSource;
     }
     public withXLanguage(xLanguage: ListTemplateViewHistoriesRequestXLanguageEnum): ListTemplateViewHistoriesRequest {

@@ -6,7 +6,7 @@ export class MfaIdentity {
     public methods: Array<MfaIdentityMethodsEnum>;
     public password: PwdPassword;
     public totp: MfaTotp;
-    public constructor(methods: any, password: any, totp: any) { 
+    public constructor(methods?: any, password?: any, totp?: any) { 
         this['methods'] = methods;
         this['password'] = password;
         this['totp'] = totp;

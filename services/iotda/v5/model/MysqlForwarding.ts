@@ -9,7 +9,7 @@ export class MysqlForwarding {
     public password: string;
     private 'table_name': string | undefined;
     private 'column_mappings': Array<ColumnMapping> | undefined;
-    public constructor(address: any, dbName: any, username: any, password: any, tableName: any, columnMappings: any) { 
+    public constructor(address?: any, dbName?: any, username?: any, password?: any, tableName?: any, columnMappings?: any) { 
         this['address'] = address;
         this['db_name'] = dbName;
         this['username'] = username;

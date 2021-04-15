@@ -3,7 +3,7 @@
 export class KeystoneListAllProjectPermissionsForGroupRequest {
     private 'domain_id': string | undefined;
     private 'group_id': string | undefined;
-    public constructor(domainId: any, groupId: any) { 
+    public constructor(domainId?: any, groupId?: any) { 
         this['domain_id'] = domainId;
         this['group_id'] = groupId;
     }

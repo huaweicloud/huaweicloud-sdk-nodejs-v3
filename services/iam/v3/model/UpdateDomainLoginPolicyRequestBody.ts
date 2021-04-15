@@ -3,7 +3,7 @@ import { LoginPolicyOption } from './LoginPolicyOption';
 
 export class UpdateDomainLoginPolicyRequestBody {
     private 'login_policy': LoginPolicyOption | undefined;
-    public constructor(loginPolicy: any) { 
+    public constructor(loginPolicy?: any) { 
         this['login_policy'] = loginPolicy;
     }
     public withLoginPolicy(loginPolicy: LoginPolicyOption): UpdateDomainLoginPolicyRequestBody {

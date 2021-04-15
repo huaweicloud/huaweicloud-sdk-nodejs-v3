@@ -3,7 +3,7 @@
 export class FunctionGraphForwarding {
     private 'func_urn': string | undefined;
     private 'func_name': string | undefined;
-    public constructor(funcUrn: any, funcName: any) { 
+    public constructor(funcUrn?: any, funcName?: any) { 
         this['func_urn'] = funcUrn;
         this['func_name'] = funcName;
     }

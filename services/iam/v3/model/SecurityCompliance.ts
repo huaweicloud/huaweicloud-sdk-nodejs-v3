@@ -3,7 +3,7 @@
 export class SecurityCompliance {
     private 'password_regex': string | undefined;
     private 'password_regex_description': string | undefined;
-    public constructor(passwordRegex: any, passwordRegexDescription: any) { 
+    public constructor(passwordRegex?: any, passwordRegexDescription?: any) { 
         this['password_regex'] = passwordRegex;
         this['password_regex_description'] = passwordRegexDescription;
     }

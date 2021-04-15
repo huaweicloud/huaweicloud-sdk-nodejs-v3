@@ -9,7 +9,7 @@ export class InfluxDBForwarding {
     public password: string;
     public measurement: string;
     private 'column_mappings': Array<ColumnMapping> | undefined;
-    public constructor(address: any, dbName: any, username: any, password: any, measurement: any, columnMappings: any) { 
+    public constructor(address?: any, dbName?: any, username?: any, password?: any, measurement?: any, columnMappings?: any) { 
         this['address'] = address;
         this['db_name'] = dbName;
         this['username'] = username;

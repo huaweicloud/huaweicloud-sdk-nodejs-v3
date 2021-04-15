@@ -2,7 +2,7 @@
 
 export class UpdateProjectOption {
     public status: UpdateProjectOptionStatusEnum;
-    public constructor(status: any) { 
+    public constructor(status?: any) { 
         this['status'] = status;
     }
     public withStatus(status: UpdateProjectOptionStatusEnum): UpdateProjectOption {

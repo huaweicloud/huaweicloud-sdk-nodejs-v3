@@ -3,7 +3,7 @@ import { KeystoneUpdateGroupOption } from './KeystoneUpdateGroupOption';
 
 export class KeystoneUpdateGroupRequestBody {
     public group: KeystoneUpdateGroupOption;
-    public constructor(group: any) { 
+    public constructor(group?: any) { 
         this['group'] = group;
     }
     public withGroup(group: KeystoneUpdateGroupOption): KeystoneUpdateGroupRequestBody {

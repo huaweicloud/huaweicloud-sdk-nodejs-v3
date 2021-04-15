@@ -7,7 +7,7 @@ export class FederationUserBody {
     public domain: DomainInfo;
     public id?: string;
     public name?: string;
-    public constructor(osFederation: any, domain: any) { 
+    public constructor(osFederation?: any, domain?: any) { 
         this['OS-FEDERATION'] = osFederation;
         this['domain'] = domain;
     }

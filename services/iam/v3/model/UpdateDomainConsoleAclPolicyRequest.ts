@@ -4,7 +4,7 @@ import { UpdateDomainConsoleAclPolicyRequestBody } from './UpdateDomainConsoleAc
 export class UpdateDomainConsoleAclPolicyRequest {
     private 'domain_id': string | undefined;
     public body?: UpdateDomainConsoleAclPolicyRequestBody;
-    public constructor(domainId: any) { 
+    public constructor(domainId?: any) { 
         this['domain_id'] = domainId;
     }
     public withDomainId(domainId: string): UpdateDomainConsoleAclPolicyRequest {

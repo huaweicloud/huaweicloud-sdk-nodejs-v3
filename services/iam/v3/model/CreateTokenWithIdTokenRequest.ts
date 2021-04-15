@@ -4,7 +4,7 @@ import { GetIdTokenRequestBody } from './GetIdTokenRequestBody';
 export class CreateTokenWithIdTokenRequest {
     private 'X-Idp-Id': string | undefined;
     public body?: GetIdTokenRequestBody;
-    public constructor(xIdpId: any) { 
+    public constructor(xIdpId?: any) { 
         this['X-Idp-Id'] = xIdpId;
     }
     public withXIdpId(xIdpId: string): CreateTokenWithIdTokenRequest {

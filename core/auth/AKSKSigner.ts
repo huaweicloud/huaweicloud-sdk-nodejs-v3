@@ -20,11 +20,9 @@
  */
 
 import * as crypto from "crypto";
-import { BasicCredentials } from "./BasicCredentials";
 import moment = require('moment');
 import extend = require("extend");
 import url = require('url')
-import querystring = require("querystring");
 import { IHttpRequest } from "../http/IHttpRequest";
 import * as _ from "lodash";
 import {ICredential} from "./ICredential";
@@ -35,7 +33,6 @@ export class AKSKSigner {
     private static BasicDateFormat = "YYYYMMDDTHHmmss";
     private static HeaderXDate = "X-Sdk-Date";
     private static HeaderHost = "host";
-    private static HeaderAuthorization = "Authorization";
     private static HeaderContentSha256 = "X-Sdk-Content-Sha256";
 
     private static hex: string[] = [];
@@ -82,9 +79,7 @@ export class AKSKSigner {
 
         let allHeaders = {};
         extend(allHeaders, request.headers, authenticationHeaders);
-        const canonicalURI = parsedUrl.pathname + "/";
-        let query = parsedUrl.query;
-        let queryParams = request.queryParams;
+        const canonicalURI = parsedUrl.pathname + "/"; 
         const canonicalQueryString = this.CanonicalQueryString(request);
 
         let sortedKeys = _.sortBy(Object.keys(allHeaders), (x: string) => {

@@ -4,7 +4,7 @@ export class CreateMetadataRequestBody {
     private 'domain_id': string | undefined;
     private 'xaccount_type': string | undefined;
     public metadata: string;
-    public constructor(domainId: any, xaccountType: any, metadata: any) { 
+    public constructor(domainId?: any, xaccountType?: any, metadata?: any) { 
         this['domain_id'] = domainId;
         this['xaccount_type'] = xaccountType;
         this['metadata'] = metadata;

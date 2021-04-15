@@ -7,7 +7,7 @@ export class IdentityprovidersResult {
     public enabled: boolean;
     private 'remote_ids': Array<string> | undefined;
     public links: IdentityprovidersLinks;
-    public constructor(id: any, description: any, enabled: any, remoteIds: any, links: any) { 
+    public constructor(id?: any, description?: any, enabled?: any, remoteIds?: any, links?: any) { 
         this['id'] = id;
         this['description'] = description;
         this['enabled'] = enabled;

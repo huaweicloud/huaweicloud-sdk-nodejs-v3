@@ -5,7 +5,7 @@ export class BindMfaDevice {
     private 'serial_number': string | undefined;
     private 'authentication_code_first': string | undefined;
     private 'authentication_code_second': string | undefined;
-    public constructor(userId: any, serialNumber: any, authenticationCodeFirst: any, authenticationCodeSecond: any) { 
+    public constructor(userId?: any, serialNumber?: any, authenticationCodeFirst?: any, authenticationCodeSecond?: any) { 
         this['user_id'] = userId;
         this['serial_number'] = serialNumber;
         this['authentication_code_first'] = authenticationCodeFirst;

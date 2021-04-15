@@ -6,7 +6,7 @@ export class ShowBatchTaskRequest {
     public limit?: number;
     public marker?: string;
     public offset?: number;
-    public constructor(taskId: any) { 
+    public constructor(taskId?: any) { 
         this['task_id'] = taskId;
     }
     public withInstanceId(instanceId: string): ShowBatchTaskRequest {

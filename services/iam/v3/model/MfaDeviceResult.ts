@@ -3,7 +3,7 @@
 export class MfaDeviceResult {
     private 'serial_number': string | undefined;
     private 'user_id': string | undefined;
-    public constructor(serialNumber: any, userId: any) { 
+    public constructor(serialNumber?: any, userId?: any) { 
         this['serial_number'] = serialNumber;
         this['user_id'] = userId;
     }

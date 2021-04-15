@@ -3,7 +3,7 @@
 export class ColumnMapping {
     private 'column_name': string | undefined;
     private 'json_key': string | undefined;
-    public constructor(columnName: any, jsonKey: any) { 
+    public constructor(columnName?: any, jsonKey?: any) { 
         this['column_name'] = columnName;
         this['json_key'] = jsonKey;
     }

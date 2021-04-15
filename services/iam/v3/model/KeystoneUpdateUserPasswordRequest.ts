@@ -4,7 +4,7 @@ import { KeystoneUpdateUserPasswordRequestBody } from './KeystoneUpdateUserPassw
 export class KeystoneUpdateUserPasswordRequest {
     private 'user_id': string | undefined;
     public body?: KeystoneUpdateUserPasswordRequestBody;
-    public constructor(userId: any) { 
+    public constructor(userId?: any) { 
         this['user_id'] = userId;
     }
     public withUserId(userId: string): KeystoneUpdateUserPasswordRequest {

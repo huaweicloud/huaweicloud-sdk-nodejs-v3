@@ -13,7 +13,7 @@ export class ServiceProperty {
     public method: string;
     public description?: string;
     private 'default_value'?: object | undefined;
-    public constructor(propertyName: any, dataType: any, method: any) { 
+    public constructor(propertyName?: any, dataType?: any, method?: any) { 
         this['property_name'] = propertyName;
         this['data_type'] = dataType;
         this['method'] = method;

@@ -4,7 +4,7 @@ import { AgencyPolicyStatement } from './AgencyPolicyStatement';
 export class AgencyPolicy {
     private 'Version': string | undefined;
     private 'Statement': Array<AgencyPolicyStatement> | undefined;
-    public constructor(version: any, statement: any) { 
+    public constructor(version?: any, statement?: any) { 
         this['Version'] = version;
         this['Statement'] = statement;
     }

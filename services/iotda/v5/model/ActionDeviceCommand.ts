@@ -4,7 +4,7 @@ import { Cmd } from './Cmd';
 export class ActionDeviceCommand {
     private 'device_id'?: string | undefined;
     public cmd: Cmd;
-    public constructor(cmd: any) { 
+    public constructor(cmd?: any) { 
         this['cmd'] = cmd;
     }
     public withDeviceId(deviceId: string): ActionDeviceCommand {

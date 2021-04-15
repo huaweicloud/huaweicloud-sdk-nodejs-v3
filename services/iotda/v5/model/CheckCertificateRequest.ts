@@ -6,7 +6,7 @@ export class CheckCertificateRequest {
     private 'certificate_id': string | undefined;
     private 'action_id': string | undefined;
     public body?: VerifyCertificateDTO;
-    public constructor(certificateId: any, actionId: any) { 
+    public constructor(certificateId?: any, actionId?: any) { 
         this['certificate_id'] = certificateId;
         this['action_id'] = actionId;
     }

@@ -3,7 +3,7 @@
 export class ShowTemplateV3Request {
     private 'X-Language'?: ShowTemplateV3RequestXLanguageEnum | undefined;
     private 'template_id': string | undefined;
-    public constructor(templateId: any) { 
+    public constructor(templateId?: any) { 
         this['template_id'] = templateId;
     }
     public withXLanguage(xLanguage: ShowTemplateV3RequestXLanguageEnum): ShowTemplateV3Request {

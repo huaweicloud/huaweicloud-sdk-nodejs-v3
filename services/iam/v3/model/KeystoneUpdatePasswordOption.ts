@@ -3,7 +3,7 @@
 export class KeystoneUpdatePasswordOption {
     public password: string;
     private 'original_password': string | undefined;
-    public constructor(password: any, originalPassword: any) { 
+    public constructor(password?: any, originalPassword?: any) { 
         this['password'] = password;
         this['original_password'] = originalPassword;
     }

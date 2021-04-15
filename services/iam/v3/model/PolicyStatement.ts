@@ -5,7 +5,7 @@ export class PolicyStatement {
     private 'Effect': PolicyStatementEffectEnum | undefined;
     private 'Condition'?: object | undefined;
     private 'Resource'?: Array<string> | undefined;
-    public constructor(action: any, effect: any) { 
+    public constructor(action?: any, effect?: any) { 
         this['Action'] = action;
         this['Effect'] = effect;
     }

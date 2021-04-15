@@ -12,7 +12,7 @@ export class CreateUserOption {
     private 'xuser_type'?: string | undefined;
     private 'xuser_id'?: string | undefined;
     public description?: string;
-    public constructor(name: any, domainId: any) { 
+    public constructor(name?: any, domainId?: any) { 
         this['name'] = name;
         this['domain_id'] = domainId;
     }

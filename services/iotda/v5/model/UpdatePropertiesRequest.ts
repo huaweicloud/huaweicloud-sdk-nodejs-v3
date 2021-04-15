@@ -6,7 +6,7 @@ export class UpdatePropertiesRequest {
     private 'Stage-Auth-Token'?: string | undefined;
     private 'Instance-Id'?: string | undefined;
     public body?: DevicePropertiesRequest;
-    public constructor(deviceId: any) { 
+    public constructor(deviceId?: any) { 
         this['device_id'] = deviceId;
     }
     public withDeviceId(deviceId: string): UpdatePropertiesRequest {

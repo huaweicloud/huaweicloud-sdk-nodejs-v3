@@ -2,7 +2,7 @@
 
 export class KeystoneShowEndpointRequest {
     private 'endpoint_id': string | undefined;
-    public constructor(endpointId: any) { 
+    public constructor(endpointId?: any) { 
         this['endpoint_id'] = endpointId;
     }
     public withEndpointId(endpointId: string): KeystoneShowEndpointRequest {

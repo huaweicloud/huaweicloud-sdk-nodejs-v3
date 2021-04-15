@@ -3,7 +3,7 @@
 export class KeystoneCheckProjectPermissionForGroupRequest {
     private 'group_id': string | undefined;
     private 'role_id': string | undefined;
-    public constructor(groupId: any, roleId: any) { 
+    public constructor(groupId?: any, roleId?: any) { 
         this['group_id'] = groupId;
         this['role_id'] = roleId;
     }

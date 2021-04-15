@@ -5,7 +5,7 @@ export class BindTagsDTO {
     private 'resource_type': string | undefined;
     private 'resource_id': string | undefined;
     public tags: Array<TagV5DTO>;
-    public constructor(resourceType: any, resourceId: any, tags: any) { 
+    public constructor(resourceType?: any, resourceId?: any, tags?: any) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
         this['tags'] = tags;

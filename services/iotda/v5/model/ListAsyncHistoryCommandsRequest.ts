@@ -11,7 +11,7 @@ export class ListAsyncHistoryCommandsRequest {
     public status?: string;
     private 'command_id'?: string | undefined;
     private 'command_name'?: string | undefined;
-    public constructor(deviceId: any) { 
+    public constructor(deviceId?: any) { 
         this['device_id'] = deviceId;
     }
     public withDeviceId(deviceId: string): ListAsyncHistoryCommandsRequest {

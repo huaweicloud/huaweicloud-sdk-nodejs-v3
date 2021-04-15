@@ -6,7 +6,7 @@ export class DeviceShadowData {
     public desired?: DeviceShadowProperties;
     public reported?: DeviceShadowProperties;
     public version?: number;
-    public constructor(serviceId: any) { 
+    public constructor(serviceId?: any) { 
         this['service_id'] = serviceId;
     }
     public withServiceId(serviceId: string): DeviceShadowData {

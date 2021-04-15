@@ -11,7 +11,7 @@ export class Rule {
     public status?: string;
     private 'app_id'?: string | undefined;
     private 'edge_node_ids'?: Array<string> | undefined;
-    public constructor(name: any, conditionGroup: any, actions: any, ruleType: any) { 
+    public constructor(name?: any, conditionGroup?: any, actions?: any, ruleType?: any) { 
         this['name'] = name;
         this['condition_group'] = conditionGroup;
         this['actions'] = actions;

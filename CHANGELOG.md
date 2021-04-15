@@ -1,3 +1,60 @@
+# 3.0.8-beta 2021-04-15
+
+### HuaweiCloud SDK Core
+
+- _Features_
+  - None
+- _Bug Fix_
+  - Optimize the log.
+  - Upgrade the `axios` version to solve security problem.
+- _Change_
+  - None
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - Support `Elastic Cloud Server` service.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - Support `Cloud Container Engine` service.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK EVS
+
+- _Features_
+  - Support `Elastic Volume Service`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK VPC
+
+- _Features_
+  - Support `Virtual Private Cloud` service.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - Support `Elastic IP` service.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.0.7-beta 2021-03-15
 
 ### HuaweiCloud SDK Core

@@ -6,7 +6,7 @@ export class ShowDevicesInGroupRequest {
     public limit?: number;
     public marker?: string;
     public offset?: number;
-    public constructor(groupId: any) { 
+    public constructor(groupId?: any) { 
         this['group_id'] = groupId;
     }
     public withInstanceId(instanceId: string): ShowDevicesInGroupRequest {

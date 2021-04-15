@@ -5,7 +5,7 @@ export class AgencyAllProjectRole {
     public id: string;
     public links: LinksSelf;
     public name: string;
-    public constructor(id: any, links: any, name: any) { 
+    public constructor(id?: any, links?: any, name?: any) { 
         this['id'] = id;
         this['links'] = links;
         this['name'] = name;

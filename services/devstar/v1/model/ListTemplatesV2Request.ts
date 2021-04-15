@@ -5,7 +5,7 @@ export class ListTemplatesV2Request {
     private 'X-Language'?: ListTemplatesV2RequestXLanguageEnum | undefined;
     private 'action_id': string | undefined;
     public body?: TemplateQueryV2;
-    public constructor(actionId: any) { 
+    public constructor(actionId?: any) { 
         this['action_id'] = actionId;
     }
     public withXLanguage(xLanguage: ListTemplatesV2RequestXLanguageEnum): ListTemplatesV2Request {

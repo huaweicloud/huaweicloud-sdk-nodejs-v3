@@ -4,7 +4,7 @@ export class LoginProtectResult {
     public enabled: boolean;
     private 'user_id': string | undefined;
     private 'verification_method': string | undefined;
-    public constructor(enabled: any, userId: any, verificationMethod: any) { 
+    public constructor(enabled?: any, userId?: any, verificationMethod?: any) { 
         this['enabled'] = enabled;
         this['user_id'] = userId;
         this['verification_method'] = verificationMethod;

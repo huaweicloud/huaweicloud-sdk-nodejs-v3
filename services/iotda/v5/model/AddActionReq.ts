@@ -6,7 +6,7 @@ export class AddActionReq {
     public channel: string;
     private 'channel_detail': ChannelDetail | undefined;
     public batch?: boolean;
-    public constructor(ruleId: any, channel: any, channelDetail: any) { 
+    public constructor(ruleId?: any, channel?: any, channelDetail?: any) { 
         this['rule_id'] = ruleId;
         this['channel'] = channel;
         this['channel_detail'] = channelDetail;

@@ -2,7 +2,7 @@
 
 export class ShowOpenIdConnectConfigRequest {
     private 'idp_id': string | undefined;
-    public constructor(idpId: any) { 
+    public constructor(idpId?: any) { 
         this['idp_id'] = idpId;
     }
     public withIdpId(idpId: string): ShowOpenIdConnectConfigRequest {

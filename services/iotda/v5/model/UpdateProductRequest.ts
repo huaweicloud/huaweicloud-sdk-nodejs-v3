@@ -5,7 +5,7 @@ export class UpdateProductRequest {
     private 'Instance-Id'?: string | undefined;
     private 'product_id': string | undefined;
     public body?: UpdateProduct;
-    public constructor(productId: any) { 
+    public constructor(productId?: any) { 
         this['product_id'] = productId;
     }
     public withInstanceId(instanceId: string): UpdateProductRequest {

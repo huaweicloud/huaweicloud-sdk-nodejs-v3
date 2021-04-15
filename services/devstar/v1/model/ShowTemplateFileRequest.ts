@@ -5,7 +5,7 @@ export class ShowTemplateFileRequest {
     private 'template_id': string | undefined;
     private 'file_path': string | undefined;
     public type?: ShowTemplateFileRequestTypeEnum;
-    public constructor(templateId: any, filePath: any) { 
+    public constructor(templateId?: any, filePath?: any) { 
         this['template_id'] = templateId;
         this['file_path'] = filePath;
     }

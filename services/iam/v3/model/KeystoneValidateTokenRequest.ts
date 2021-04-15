@@ -3,7 +3,7 @@
 export class KeystoneValidateTokenRequest {
     private 'X-Subject-Token': string | undefined;
     public nocatalog?: string;
-    public constructor(xSubjectToken: any) { 
+    public constructor(xSubjectToken?: any) { 
         this['X-Subject-Token'] = xSubjectToken;
     }
     public withXSubjectToken(xSubjectToken: string): KeystoneValidateTokenRequest {

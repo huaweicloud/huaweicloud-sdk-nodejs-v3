@@ -5,7 +5,7 @@ export class ObsForwarding {
     private 'project_id': string | undefined;
     private 'bucket_name': string | undefined;
     public location?: string;
-    public constructor(regionName: any, projectId: any, bucketName: any) { 
+    public constructor(regionName?: any, projectId?: any, bucketName?: any) { 
         this['region_name'] = regionName;
         this['project_id'] = projectId;
         this['bucket_name'] = bucketName;

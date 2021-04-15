@@ -11,7 +11,7 @@ export class ServiceCapability {
     public events?: Array<ServiceEvent>;
     public description?: string;
     public option?: string;
-    public constructor(serviceId: any, serviceType: any) { 
+    public constructor(serviceId?: any, serviceType?: any) { 
         this['service_id'] = serviceId;
         this['service_type'] = serviceType;
     }

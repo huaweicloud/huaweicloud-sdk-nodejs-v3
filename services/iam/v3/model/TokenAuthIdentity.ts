@@ -6,7 +6,7 @@ export class TokenAuthIdentity {
     public methods: Array<TokenAuthIdentityMethodsEnum>;
     public token?: IdentityToken;
     public policy?: ServicePolicy;
-    public constructor(methods: any) { 
+    public constructor(methods?: any) { 
         this['methods'] = methods;
     }
     public withMethods(methods: Array<TokenAuthIdentityMethodsEnum>): TokenAuthIdentity {

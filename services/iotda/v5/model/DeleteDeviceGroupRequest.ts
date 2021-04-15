@@ -3,7 +3,7 @@
 export class DeleteDeviceGroupRequest {
     private 'Instance-Id'?: string | undefined;
     private 'group_id': string | undefined;
-    public constructor(groupId: any) { 
+    public constructor(groupId?: any) { 
         this['group_id'] = groupId;
     }
     public withInstanceId(instanceId: string): DeleteDeviceGroupRequest {

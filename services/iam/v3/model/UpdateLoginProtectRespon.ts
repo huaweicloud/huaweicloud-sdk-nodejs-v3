@@ -4,7 +4,7 @@ export class UpdateLoginProtectRespon {
     private 'user_id': string | undefined;
     public enabled: boolean;
     private 'verification_method': string | undefined;
-    public constructor(userId: any, enabled: any, verificationMethod: any) { 
+    public constructor(userId?: any, enabled?: any, verificationMethod?: any) { 
         this['user_id'] = userId;
         this['enabled'] = enabled;
         this['verification_method'] = verificationMethod;

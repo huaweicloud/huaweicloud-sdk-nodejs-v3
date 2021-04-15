@@ -7,7 +7,7 @@ export class CreateAgencyOption {
     private 'trust_domain_name'?: string | undefined;
     public description?: string;
     public duration?: CreateAgencyOptionDurationEnum;
-    public constructor(name: any, domainId: any) { 
+    public constructor(name?: any, domainId?: any) { 
         this['name'] = name;
         this['domain_id'] = domainId;
     }

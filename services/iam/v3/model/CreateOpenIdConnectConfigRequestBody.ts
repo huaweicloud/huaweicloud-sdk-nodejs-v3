@@ -3,7 +3,7 @@ import { CreateOpenIdConnectConfig } from './CreateOpenIdConnectConfig';
 
 export class CreateOpenIdConnectConfigRequestBody {
     private 'openid_connect_config': CreateOpenIdConnectConfig | undefined;
-    public constructor(openidConnectConfig: any) { 
+    public constructor(openidConnectConfig?: any) { 
         this['openid_connect_config'] = openidConnectConfig;
     }
     public withOpenidConnectConfig(openidConnectConfig: CreateOpenIdConnectConfig): CreateOpenIdConnectConfigRequestBody {

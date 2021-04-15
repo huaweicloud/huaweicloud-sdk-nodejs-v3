@@ -5,7 +5,7 @@ export class UpdateDeviceShadowDesiredDataRequest {
     private 'Instance-Id'?: string | undefined;
     private 'device_id': string | undefined;
     public body?: UpdateDesireds;
-    public constructor(deviceId: any) { 
+    public constructor(deviceId?: any) { 
         this['device_id'] = deviceId;
     }
     public withInstanceId(instanceId: string): UpdateDeviceShadowDesiredDataRequest {

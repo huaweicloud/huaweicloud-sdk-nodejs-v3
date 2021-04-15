@@ -2,7 +2,7 @@
 
 export class VerifyCertificateDTO {
     private 'verify_content': string | undefined;
-    public constructor(verifyContent: any) { 
+    public constructor(verifyContent?: any) { 
         this['verify_content'] = verifyContent;
     }
     public withVerifyContent(verifyContent: string): VerifyCertificateDTO {

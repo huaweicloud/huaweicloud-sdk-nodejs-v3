@@ -3,7 +3,7 @@
 export class DeleteCertificateRequest {
     private 'Instance-Id'?: string | undefined;
     private 'certificate_id': string | undefined;
-    public constructor(certificateId: any) { 
+    public constructor(certificateId?: any) { 
         this['certificate_id'] = certificateId;
     }
     public withInstanceId(instanceId: string): DeleteCertificateRequest {

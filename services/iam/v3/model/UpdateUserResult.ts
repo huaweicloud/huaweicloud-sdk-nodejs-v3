@@ -15,7 +15,7 @@ export class UpdateUserResult {
     public id: string;
     public links: LinksSelf;
     private 'password_expires_at'?: string | undefined;
-    public constructor(name: any, domainId: any, enabled: any, id: any, links: any) { 
+    public constructor(name?: any, domainId?: any, enabled?: any, id?: any, links?: any) { 
         this['name'] = name;
         this['domain_id'] = domainId;
         this['enabled'] = enabled;

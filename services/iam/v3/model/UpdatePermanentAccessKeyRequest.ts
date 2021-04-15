@@ -4,7 +4,7 @@ import { UpdatePermanentAccessKeyRequestBody } from './UpdatePermanentAccessKeyR
 export class UpdatePermanentAccessKeyRequest {
     private 'access_key': string | undefined;
     public body?: UpdatePermanentAccessKeyRequestBody;
-    public constructor(accessKey: any) { 
+    public constructor(accessKey?: any) { 
         this['access_key'] = accessKey;
     }
     public withAccessKey(accessKey: string): UpdatePermanentAccessKeyRequest {

@@ -16,7 +16,7 @@ export class AgencyPolicyRoleResult {
     private 'updated_time'?: string | undefined;
     private 'created_time'?: string | undefined;
     public references?: string;
-    public constructor(catalog: any, displayName: any, description: any, links: any, policy: any, domainId: any, type: any, id: any, name: any) { 
+    public constructor(catalog?: any, displayName?: any, description?: any, links?: any, policy?: any, domainId?: any, type?: any, id?: any, name?: any) { 
         this['catalog'] = catalog;
         this['display_name'] = displayName;
         this['description'] = description;

@@ -18,7 +18,7 @@ export class CreateUserResult {
     private 'xdomain_type'?: string | undefined;
     public id: string;
     private 'password_expires_at'?: string | undefined;
-    public constructor(name: any, domainId: any, enabled: any, id: any) { 
+    public constructor(name?: any, domainId?: any, enabled?: any, id?: any) { 
         this['name'] = name;
         this['domain_id'] = domainId;
         this['enabled'] = enabled;

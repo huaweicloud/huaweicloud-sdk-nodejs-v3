@@ -4,7 +4,7 @@ export class UnbindTagsDTO {
     private 'resource_type': string | undefined;
     private 'resource_id': string | undefined;
     private 'tag_keys': Array<string> | undefined;
-    public constructor(resourceType: any, resourceId: any, tagKeys: any) { 
+    public constructor(resourceType?: any, resourceId?: any, tagKeys?: any) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
         this['tag_keys'] = tagKeys;

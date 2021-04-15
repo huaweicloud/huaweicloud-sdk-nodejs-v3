@@ -5,7 +5,7 @@ export class AgencyPolicyStatement {
     private 'Action': Array<AgencyPolicyStatementActionEnum> | undefined;
     private 'Effect': AgencyPolicyStatementEffectEnum | undefined;
     private 'Resource': AgencyPolicyResource | undefined;
-    public constructor(action: any, effect: any, resource: any) { 
+    public constructor(action?: any, effect?: any, resource?: any) { 
         this['Action'] = action;
         this['Effect'] = effect;
         this['Resource'] = resource;

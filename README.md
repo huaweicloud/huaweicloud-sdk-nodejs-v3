@@ -230,48 +230,4 @@ needed. The SDK provides a listener function to obtain the original encrypted ht
 
 > :warning:  Warning: The original http log information is used in debugging stage only, please do not print the original http header or body in the production environment. This log information is not encrypted and contains sensitive data such as the password of your ECS virtual machine, or the password of your IAM user account, etc. When the response body is binary content, the body will be printed as "***" without detailed information.
 
-Set the environment variable process.env.NODE_DEBUG or process.env.DEBUG to enable debug log printing.
-
-``` javascript
-if (process.env.NODE_DEBUG === 'axios' || process.env.DEBUG) {
-    this.axiosInstance.interceptors.request.use((config: any) => {
-        logger.debug('Request:');
-        try {
-            logger.debug(JSON.stringify(config, null, 2));
-        } catch {
-            logger.error(config)
-        }
-
-        return config;
-    }, (error: any) => {
-        logger.error('Error: ');
-        try {
-            logger.error(JSON.stringify(error, null, 2));
-        } catch {
-            logger.error(error);
-        }
-        // @ts-ignore
-        return Promise.reject(error);
-    });
-
-    this.axiosInstance.interceptors.response.use((response: any) => {
-        logger.debug('Response:');
-        try {
-            logger.debug(JSON.stringify(response, null, 2));
-        } catch {
-            logger.error(response);
-        }
-
-        return response;
-    }, (error: any) => {
-        logger.error('Error: ');
-        try {
-            logger.error(JSON.stringify(error, null, 2));
-        } catch {
-            logger.error(error);
-        }
-        // @ts-ignore
-        return Promise.reject(error);
-    });
-}
-```
+Set the environment variable __process.env.DEBUG__ to enable debug log printing.

@@ -5,7 +5,7 @@ export class UpdateSubscriptionRequest {
     private 'Instance-Id'?: string | undefined;
     private 'subscription_id': string | undefined;
     public body?: UpdateSubReq;
-    public constructor(subscriptionId: any) { 
+    public constructor(subscriptionId?: any) { 
         this['subscription_id'] = subscriptionId;
     }
     public withInstanceId(instanceId: string): UpdateSubscriptionRequest {

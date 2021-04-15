@@ -3,7 +3,7 @@
 export class ProtocolLinks {
     private 'identity_provider': string | undefined;
     public self: string;
-    public constructor(identityProvider: any, self: any) { 
+    public constructor(identityProvider?: any, self?: any) { 
         this['identity_provider'] = identityProvider;
         this['self'] = self;
     }

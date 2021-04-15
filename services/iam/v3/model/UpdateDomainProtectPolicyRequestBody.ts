@@ -3,7 +3,7 @@ import { ProtectPolicyOption } from './ProtectPolicyOption';
 
 export class UpdateDomainProtectPolicyRequestBody {
     private 'protect_policy': ProtectPolicyOption | undefined;
-    public constructor(protectPolicy: any) { 
+    public constructor(protectPolicy?: any) { 
         this['protect_policy'] = protectPolicy;
     }
     public withProtectPolicy(protectPolicy: ProtectPolicyOption): UpdateDomainProtectPolicyRequestBody {

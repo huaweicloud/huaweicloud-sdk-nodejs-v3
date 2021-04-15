@@ -6,7 +6,7 @@ export class RomaForwarding {
     public topic: string;
     public username: string;
     public password: string;
-    public constructor(addresses: any, topic: any, username: any, password: any) { 
+    public constructor(addresses?: any, topic?: any, username?: any, password?: any) { 
         this['addresses'] = addresses;
         this['topic'] = topic;
         this['username'] = username;

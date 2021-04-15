@@ -4,7 +4,7 @@ import { UpdateUserInformationRequestBody } from './UpdateUserInformationRequest
 export class UpdateUserInformationRequest {
     private 'user_id': string | undefined;
     public body?: UpdateUserInformationRequestBody;
-    public constructor(userId: any) { 
+    public constructor(userId?: any) { 
         this['user_id'] = userId;
     }
     public withUserId(userId: string): UpdateUserInformationRequest {

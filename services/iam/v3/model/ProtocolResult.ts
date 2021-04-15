@@ -5,7 +5,7 @@ export class ProtocolResult {
     public id: string;
     private 'mapping_id': string | undefined;
     public links: ProtocolLinks;
-    public constructor(id: any, mappingId: any, links: any) { 
+    public constructor(id?: any, mappingId?: any, links?: any) { 
         this['id'] = id;
         this['mapping_id'] = mappingId;
         this['links'] = links;

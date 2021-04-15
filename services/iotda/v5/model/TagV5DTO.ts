@@ -3,7 +3,7 @@
 export class TagV5DTO {
     private 'tag_key': string | undefined;
     private 'tag_value'?: string | undefined;
-    public constructor(tagKey: any) { 
+    public constructor(tagKey?: any) { 
         this['tag_key'] = tagKey;
     }
     public withTagKey(tagKey: string): TagV5DTO {

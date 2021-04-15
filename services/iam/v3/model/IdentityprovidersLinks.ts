@@ -3,7 +3,7 @@
 export class IdentityprovidersLinks {
     public self: string;
     public protocols: string;
-    public constructor(self: any, protocols: any) { 
+    public constructor(self?: any, protocols?: any) { 
         this['self'] = self;
         this['protocols'] = protocols;
     }

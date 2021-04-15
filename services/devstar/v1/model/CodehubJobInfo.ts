@@ -8,7 +8,7 @@ export class CodehubJobInfo {
     private 'repo_type': CodehubJobInfoRepoTypeEnum | undefined;
     public properties?: { [key: string]: string; };
     private 'repo_info'?: RepositoryInfo | undefined;
-    public constructor(applicationName: any, codeUrl: any, regionId: any, repoType: any) { 
+    public constructor(applicationName?: any, codeUrl?: any, regionId?: any, repoType?: any) { 
         this['application_name'] = applicationName;
         this['code_url'] = codeUrl;
         this['region_id'] = regionId;

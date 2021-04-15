@@ -3,7 +3,7 @@
 export class Subject {
     public resource: string;
     public event: string;
-    public constructor(resource: any, event: any) { 
+    public constructor(resource?: any, event?: any) { 
         this['resource'] = resource;
         this['event'] = event;
     }

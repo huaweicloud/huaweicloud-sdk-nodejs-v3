@@ -3,7 +3,7 @@
 export class CreateCertificateDTO {
     public content: string;
     private 'app_id'?: string | undefined;
-    public constructor(content: any) { 
+    public constructor(content?: any) { 
         this['content'] = content;
     }
     public withContent(content: string): CreateCertificateDTO {

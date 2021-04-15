@@ -4,7 +4,7 @@ import { KeystoneUpdateMappingRequestBody } from './KeystoneUpdateMappingRequest
 export class KeystoneUpdateMappingRequest {
     public id: string;
     public body?: KeystoneUpdateMappingRequestBody;
-    public constructor(id: any) { 
+    public constructor(id?: any) { 
         this['id'] = id;
     }
     public withId(id: string): KeystoneUpdateMappingRequest {

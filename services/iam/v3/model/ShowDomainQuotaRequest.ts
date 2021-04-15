@@ -3,7 +3,7 @@
 export class ShowDomainQuotaRequest {
     private 'domain_id': string | undefined;
     public type?: ShowDomainQuotaRequestTypeEnum;
-    public constructor(domainId: any) { 
+    public constructor(domainId?: any) { 
         this['domain_id'] = domainId;
     }
     public withDomainId(domainId: string): ShowDomainQuotaRequest {

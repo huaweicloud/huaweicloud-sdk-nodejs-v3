@@ -4,7 +4,7 @@ export class RemoveAllProjectsPermissionFromAgencyRequest {
     private 'agency_id': string | undefined;
     private 'domain_id': string | undefined;
     private 'role_id': string | undefined;
-    public constructor(agencyId: any, domainId: any, roleId: any) { 
+    public constructor(agencyId?: any, domainId?: any, roleId?: any) { 
         this['agency_id'] = agencyId;
         this['domain_id'] = domainId;
         this['role_id'] = roleId;

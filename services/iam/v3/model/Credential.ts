@@ -5,7 +5,7 @@ export class Credential {
     public access: string;
     public secret: string;
     public securitytoken: string;
-    public constructor(expiresAt: any, access: any, secret: any, securitytoken: any) { 
+    public constructor(expiresAt?: any, access?: any, secret?: any, securitytoken?: any) { 
         this['expires_at'] = expiresAt;
         this['access'] = access;
         this['secret'] = secret;

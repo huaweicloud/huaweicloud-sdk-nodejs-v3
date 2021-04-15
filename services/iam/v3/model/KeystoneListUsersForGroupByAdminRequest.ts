@@ -2,7 +2,7 @@
 
 export class KeystoneListUsersForGroupByAdminRequest {
     private 'group_id': string | undefined;
-    public constructor(groupId: any) { 
+    public constructor(groupId?: any) { 
         this['group_id'] = groupId;
     }
     public withGroupId(groupId: string): KeystoneListUsersForGroupByAdminRequest {

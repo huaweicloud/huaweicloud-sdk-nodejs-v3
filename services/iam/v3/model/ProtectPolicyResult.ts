@@ -2,7 +2,7 @@
 
 export class ProtectPolicyResult {
     private 'operation_protection': boolean | undefined;
-    public constructor(operationProtection: any) { 
+    public constructor(operationProtection?: any) { 
         this['operation_protection'] = operationProtection;
     }
     public withOperationProtection(operationProtection: boolean): ProtectPolicyResult {

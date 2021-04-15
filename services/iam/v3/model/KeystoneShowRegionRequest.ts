@@ -2,7 +2,7 @@
 
 export class KeystoneShowRegionRequest {
     private 'region_id': string | undefined;
-    public constructor(regionId: any) { 
+    public constructor(regionId?: any) { 
         this['region_id'] = regionId;
     }
     public withRegionId(regionId: string): KeystoneShowRegionRequest {

@@ -5,7 +5,7 @@ import { MfaIdentity } from './MfaIdentity';
 export class MfaAuth {
     public identity: MfaIdentity;
     public scope: AuthScope;
-    public constructor(identity: any, scope: any) { 
+    public constructor(identity?: any, scope?: any) { 
         this['identity'] = identity;
         this['scope'] = scope;
     }

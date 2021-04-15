@@ -3,7 +3,7 @@
 export class CreateMfaDeviceRespon {
     private 'serial_number': string | undefined;
     private 'base32_string_seed': string | undefined;
-    public constructor(serialNumber: any, base32StringSeed: any) { 
+    public constructor(serialNumber?: any, base32StringSeed?: any) { 
         this['serial_number'] = serialNumber;
         this['base32_string_seed'] = base32StringSeed;
     }

@@ -16,7 +16,7 @@ export class AgencyTokenResult {
     public project?: AgencyTokenProject;
     public roles: Array<TokenRole>;
     public user: AgencyTokenUser;
-    public constructor(methods: any, expiresAt: any, issuedAt: any, assumedBy: any, roles: any, user: any) { 
+    public constructor(methods?: any, expiresAt?: any, issuedAt?: any, assumedBy?: any, roles?: any, user?: any) { 
         this['methods'] = methods;
         this['expires_at'] = expiresAt;
         this['issued_at'] = issuedAt;

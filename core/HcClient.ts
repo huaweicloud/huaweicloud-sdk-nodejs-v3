@@ -19,21 +19,29 @@
  * under the License.
  */
 
-import {HttpClient} from "./http/HttpClient";
-import {ICredential} from "./auth/ICredential";
-import {IHttpRequest} from "./http/IHttpRequest";
-import {HttpRequestBuilder} from "./http/IHttpRequestBuilder";
-import {SdkResponse} from "./SdkResponse";
-import {ExceptionUtil} from "./exception/ExceptionUtil";
+import { HttpClient } from "./http/HttpClient";
+import { ICredential } from "./auth/ICredential";
+import { IHttpRequest } from "./http/IHttpRequest";
+import { HttpRequestBuilder } from "./http/IHttpRequestBuilder";
+import { SdkResponse } from "./SdkResponse";
+import { ExceptionUtil } from "./exception/ExceptionUtil";
+import { AxiosResponse } from "axios";
+import { getLogger, Logger, LogLevel } from './logger'
 
 export class HcClient {
     private httpClient: HttpClient;
     private endpoint: string | undefined;
     private credential: ICredential | undefined;
     private proxyAgent: string = '';
+    private static loggerName = 'HcClient';
+    private logger: Logger;
 
     public constructor(client: HttpClient) {
         this.httpClient = client;
+
+        // Logging
+        this.logger = getLogger(HcClient.loggerName, LogLevel.INFO);
+        this.logger.debug('initialized');
     }
 
     public withEndpoint(endpoint: string | undefined): HcClient {
@@ -52,6 +60,8 @@ export class HcClient {
     }
 
     public sendRequest<T>(options: any): Promise<T> {
+        this.logger.debug('send request');
+
         const request = this.buildRequest(options);
         // @ts-ignore
         return new Promise((resolve: any, reject: any) => {

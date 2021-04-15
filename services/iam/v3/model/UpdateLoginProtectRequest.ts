@@ -4,7 +4,7 @@ import { UpdateLoginProjectReq } from './UpdateLoginProjectReq';
 export class UpdateLoginProtectRequest {
     private 'user_id': string | undefined;
     public body?: UpdateLoginProjectReq;
-    public constructor(userId: any) { 
+    public constructor(userId?: any) { 
         this['user_id'] = userId;
     }
     public withUserId(userId: string): UpdateLoginProtectRequest {

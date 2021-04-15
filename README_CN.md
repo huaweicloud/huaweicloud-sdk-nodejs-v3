@@ -219,48 +219,4 @@ result.then(result => {
 > :warning:  Warning: 原始信息打印仅在 Debug 阶段使用，请不要在生产系统中将原始的 HTTP 头和 Body 信息打印到日志，这些信息并未加密且其中包含敏感数据，例如所创建虚拟机的密码，IAM 用户的密码等；当 Body 体为二进制内容，即 Content-Type 标识为二进制时，Body 为"***"，详细内容不输出。
 
 
-设置环境变量 process.env.NODE_DEBUG 或 process.env.DEBUG，开启Debug日志打印
-
-``` javascript
-if (process.env.NODE_DEBUG === 'axios' || process.env.DEBUG) {
-    this.axiosInstance.interceptors.request.use((config: any) => {
-        logger.debug('Request:');
-        try {
-            logger.debug(JSON.stringify(config, null, 2));
-        } catch {
-            logger.error(config)
-        }
-
-        return config;
-    }, (error: any) => {
-        logger.error('Error: ');
-        try {
-            logger.error(JSON.stringify(error, null, 2));
-        } catch {
-            logger.error(error);
-        }
-        // @ts-ignore
-        return Promise.reject(error);
-    });
-
-    this.axiosInstance.interceptors.response.use((response: any) => {
-        logger.debug('Response:');
-        try {
-            logger.debug(JSON.stringify(response, null, 2));
-        } catch {
-            logger.error(response);
-        }
-
-        return response;
-    }, (error: any) => {
-        logger.error('Error: ');
-        try {
-            logger.error(JSON.stringify(error, null, 2));
-        } catch {
-            logger.error(error);
-        }
-        // @ts-ignore
-        return Promise.reject(error);
-    });
-}
-```
+设置环境变量 __process.env.DEBUG__，开启Debug日志打印

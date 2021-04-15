@@ -3,7 +3,7 @@ import { IdentityproviderOption } from './IdentityproviderOption';
 
 export class KeystoneCreateIdentityProviderRequestBody {
     private 'identity_provider': IdentityproviderOption | undefined;
-    public constructor(identityProvider: any) { 
+    public constructor(identityProvider?: any) { 
         this['identity_provider'] = identityProvider;
     }
     public withIdentityProvider(identityProvider: IdentityproviderOption): KeystoneCreateIdentityProviderRequestBody {

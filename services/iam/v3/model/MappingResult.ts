@@ -6,7 +6,7 @@ export class MappingResult {
     public id: string;
     public links: LinksSelf;
     public rules: Array<MappingRules>;
-    public constructor(id: any, links: any, rules: any) { 
+    public constructor(id?: any, links?: any, rules?: any) { 
         this['id'] = id;
         this['links'] = links;
         this['rules'] = rules;

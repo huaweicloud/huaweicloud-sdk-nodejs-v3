@@ -4,7 +4,7 @@ import { CreateOpenIdConnectConfigRequestBody } from './CreateOpenIdConnectConfi
 export class CreateOpenIdConnectConfigRequest {
     private 'idp_id': string | undefined;
     public body?: CreateOpenIdConnectConfigRequestBody;
-    public constructor(idpId: any) { 
+    public constructor(idpId?: any) { 
         this['idp_id'] = idpId;
     }
     public withIdpId(idpId: string): CreateOpenIdConnectConfigRequest {

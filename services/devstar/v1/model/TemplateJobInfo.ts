@@ -7,7 +7,7 @@ export class TemplateJobInfo {
     private 'template_id': string | undefined;
     public properties?: { [key: string]: string; };
     private 'repo_info'?: RepositoryInfo | undefined;
-    public constructor(applicationName: any, repoType: any, templateId: any) { 
+    public constructor(applicationName?: any, repoType?: any, templateId?: any) { 
         this['application_name'] = applicationName;
         this['repo_type'] = repoType;
         this['template_id'] = templateId;

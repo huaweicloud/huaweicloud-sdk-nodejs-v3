@@ -4,7 +4,7 @@ import { KeystoneUpdateIdentityProviderRequestBody } from './KeystoneUpdateIdent
 export class KeystoneUpdateIdentityProviderRequest {
     public id: string;
     public body?: KeystoneUpdateIdentityProviderRequestBody;
-    public constructor(id: any) { 
+    public constructor(id?: any) { 
         this['id'] = id;
     }
     public withId(id: string): KeystoneUpdateIdentityProviderRequest {

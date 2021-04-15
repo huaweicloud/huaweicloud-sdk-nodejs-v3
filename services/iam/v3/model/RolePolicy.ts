@@ -6,7 +6,7 @@ export class RolePolicy {
     private 'Depends'?: Array<PolicyDepends> | undefined;
     private 'Statement': Array<PolicyStatement> | undefined;
     private 'Version': string | undefined;
-    public constructor(statement: any, version: any) { 
+    public constructor(statement?: any, version?: any) { 
         this['Statement'] = statement;
         this['Version'] = version;
     }

@@ -10,7 +10,7 @@ export class AddRuleReq {
     public select?: string;
     public where?: string;
     private 'data_version'?: string | undefined;
-    public constructor(subject: any) { 
+    public constructor(subject?: any) { 
         this['subject'] = subject;
     }
     public withRuleName(ruleName: string): AddRuleReq {

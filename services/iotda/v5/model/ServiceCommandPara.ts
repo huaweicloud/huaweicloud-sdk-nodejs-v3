@@ -11,7 +11,7 @@ export class ServiceCommandPara {
     public step?: number;
     public unit?: string;
     public description?: string;
-    public constructor(paraName: any, dataType: any) { 
+    public constructor(paraName?: any, dataType?: any) { 
         this['para_name'] = paraName;
         this['data_type'] = dataType;
     }

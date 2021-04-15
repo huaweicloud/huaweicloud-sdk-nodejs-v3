@@ -2,7 +2,7 @@
 
 export class QueueInfo {
     private 'queue_name': string | undefined;
-    public constructor(queueName: any) { 
+    public constructor(queueName?: any) { 
         this['queue_name'] = queueName;
     }
     public withQueueName(queueName: string): QueueInfo {

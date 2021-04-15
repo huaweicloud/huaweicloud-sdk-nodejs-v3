@@ -10,7 +10,7 @@ export class Endpoint {
     public region: string;
     public url: string;
     public enabled: boolean;
-    public constructor(serviceId: any, regionId: any, links: any, id: any, _interface: any, region: any, url: any, enabled: any) { 
+    public constructor(serviceId?: any, regionId?: any, links?: any, id?: any, _interface?: any, region?: any, url?: any, enabled?: any) { 
         this['service_id'] = serviceId;
         this['region_id'] = regionId;
         this['links'] = links;

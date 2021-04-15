@@ -5,7 +5,7 @@ export class HttpForwarding {
     private 'cert_id'?: string | undefined;
     private 'cn_name'?: string | undefined;
     private 'sni_enable'?: boolean | undefined;
-    public constructor(url: any) { 
+    public constructor(url?: any) { 
         this['url'] = url;
     }
     public withUrl(url: string): HttpForwarding {

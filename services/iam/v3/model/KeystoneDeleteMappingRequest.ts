@@ -2,7 +2,7 @@
 
 export class KeystoneDeleteMappingRequest {
     public id: string;
-    public constructor(id: any) { 
+    public constructor(id?: any) { 
         this['id'] = id;
     }
     public withId(id: string): KeystoneDeleteMappingRequest {

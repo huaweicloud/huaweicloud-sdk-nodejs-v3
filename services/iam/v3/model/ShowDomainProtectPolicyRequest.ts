@@ -2,7 +2,7 @@
 
 export class ShowDomainProtectPolicyRequest {
     private 'domain_id': string | undefined;
-    public constructor(domainId: any) { 
+    public constructor(domainId?: any) { 
         this['domain_id'] = domainId;
     }
     public withDomainId(domainId: string): ShowDomainProtectPolicyRequest {

@@ -5,7 +5,7 @@ export class ProjectInfo {
     public domain?: DomainInfo;
     public id?: string;
     public name: string;
-    public constructor(name: any) { 
+    public constructor(name?: any) { 
         this['name'] = name;
     }
     public withDomain(domain: DomainInfo): ProjectInfo {

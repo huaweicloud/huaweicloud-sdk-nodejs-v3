@@ -5,7 +5,7 @@ export class UpdateDeviceGroupRequest {
     private 'Instance-Id'?: string | undefined;
     private 'group_id': string | undefined;
     public body?: UpdateDeviceGroupDTO;
-    public constructor(groupId: any) { 
+    public constructor(groupId?: any) { 
         this['group_id'] = groupId;
     }
     public withInstanceId(instanceId: string): UpdateDeviceGroupRequest {

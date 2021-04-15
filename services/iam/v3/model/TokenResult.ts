@@ -14,7 +14,7 @@ export class TokenResult {
     public project?: TokenProjectResult;
     public roles: Array<TokenRole>;
     public user: TokenUserResult;
-    public constructor(catalog: any, expiresAt: any, issuedAt: any, methods: any, roles: any, user: any) { 
+    public constructor(catalog?: any, expiresAt?: any, issuedAt?: any, methods?: any, roles?: any, user?: any) { 
         this['catalog'] = catalog;
         this['expires_at'] = expiresAt;
         this['issued_at'] = issuedAt;

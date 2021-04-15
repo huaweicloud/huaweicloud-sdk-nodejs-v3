@@ -4,7 +4,7 @@ import { ServiceStatement } from './ServiceStatement';
 export class ServicePolicy {
     private 'Version': string | undefined;
     private 'Statement': Array<ServiceStatement> | undefined;
-    public constructor(version: any, statement: any) { 
+    public constructor(version?: any, statement?: any) { 
         this['Version'] = version;
         this['Statement'] = statement;
     }

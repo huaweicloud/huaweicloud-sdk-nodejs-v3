@@ -11,7 +11,7 @@ export class KeystoneUpdateProjectResult {
     private 'parent_id': string | undefined;
     private 'domain_id': string | undefined;
     public name: string;
-    public constructor(isDomain: any, description: any, links: any, enabled: any, id: any, parentId: any, domainId: any, name: any) { 
+    public constructor(isDomain?: any, description?: any, links?: any, enabled?: any, id?: any, parentId?: any, domainId?: any, name?: any) { 
         this['is_domain'] = isDomain;
         this['description'] = description;
         this['links'] = links;

@@ -5,7 +5,7 @@ export class ServiceStatement {
     private 'Effect': ServiceStatementEffectEnum | undefined;
     private 'Condition'?: { [key: string]: { [key: string]: Array; }; } | undefined;
     private 'Resource'?: Array<string> | undefined;
-    public constructor(action: any, effect: any) { 
+    public constructor(action?: any, effect?: any) { 
         this['Action'] = action;
         this['Effect'] = effect;
     }

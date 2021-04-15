@@ -4,7 +4,7 @@ export class TimeRange {
     private 'start_time': string | undefined;
     private 'end_time': string | undefined;
     private 'days_of_week'?: string | undefined;
-    public constructor(startTime: any, endTime: any) { 
+    public constructor(startTime?: any, endTime?: any) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
     }

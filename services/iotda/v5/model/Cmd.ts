@@ -7,7 +7,7 @@ export class Cmd {
     private 'buffer_timeout'?: number | undefined;
     private 'response_timeout'?: number | undefined;
     public mode?: string;
-    public constructor(commandName: any, commandBody: any, serviceId: any) { 
+    public constructor(commandName?: any, commandBody?: any, serviceId?: any) { 
         this['command_name'] = commandName;
         this['command_body'] = commandBody;
         this['service_id'] = serviceId;

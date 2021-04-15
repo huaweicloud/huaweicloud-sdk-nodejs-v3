@@ -8,7 +8,7 @@ export class ListBatchTasksRequest {
     public limit?: number;
     public marker?: string;
     public offset?: number;
-    public constructor(taskType: any) { 
+    public constructor(taskType?: any) { 
         this['task_type'] = taskType;
     }
     public withInstanceId(instanceId: string): ListBatchTasksRequest {

@@ -3,7 +3,7 @@
 export class AllowIpRangesOption {
     public description?: string;
     private 'ip_range': string | undefined;
-    public constructor(ipRange: any) { 
+    public constructor(ipRange?: any) { 
         this['ip_range'] = ipRange;
     }
     public withDescription(description: string): AllowIpRangesOption {

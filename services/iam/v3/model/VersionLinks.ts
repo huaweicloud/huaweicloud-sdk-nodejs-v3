@@ -3,7 +3,7 @@
 export class VersionLinks {
     public rel: string;
     public href: string;
-    public constructor(rel: any, href: any) { 
+    public constructor(rel?: any, href?: any) { 
         this['rel'] = rel;
         this['href'] = href;
     }

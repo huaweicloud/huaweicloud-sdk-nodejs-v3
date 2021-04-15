@@ -12,7 +12,7 @@ export class AddProduct {
     public industry?: string;
     public description?: string;
     private 'app_id'?: string | undefined;
-    public constructor(name: any, deviceType: any, protocolType: any, dataFormat: any, serviceCapabilities: any) { 
+    public constructor(name?: any, deviceType?: any, protocolType?: any, dataFormat?: any, serviceCapabilities?: any) { 
         this['name'] = name;
         this['device_type'] = deviceType;
         this['protocol_type'] = protocolType;

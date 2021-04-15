@@ -4,7 +4,7 @@ export class ShowProductRequest {
     private 'Instance-Id'?: string | undefined;
     private 'product_id': string | undefined;
     private 'app_id'?: string | undefined;
-    public constructor(productId: any) { 
+    public constructor(productId?: any) { 
         this['product_id'] = productId;
     }
     public withInstanceId(instanceId: string): ShowProductRequest {

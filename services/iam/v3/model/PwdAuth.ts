@@ -5,7 +5,7 @@ import { PwdIdentity } from './PwdIdentity';
 export class PwdAuth {
     public identity: PwdIdentity;
     public scope: AuthScope;
-    public constructor(identity: any, scope: any) { 
+    public constructor(identity?: any, scope?: any) { 
         this['identity'] = identity;
         this['scope'] = scope;
     }

@@ -6,7 +6,7 @@ export class ResetDeviceSecretRequest {
     private 'device_id': string | undefined;
     private 'action_id': string | undefined;
     public body?: ResetDeviceSecret;
-    public constructor(deviceId: any, actionId: any) { 
+    public constructor(deviceId?: any, actionId?: any) { 
         this['device_id'] = deviceId;
         this['action_id'] = actionId;
     }

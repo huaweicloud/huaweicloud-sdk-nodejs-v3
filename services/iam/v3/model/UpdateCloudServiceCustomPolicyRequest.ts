@@ -4,7 +4,7 @@ import { UpdateCloudServiceCustomPolicyRequestBody } from './UpdateCloudServiceC
 export class UpdateCloudServiceCustomPolicyRequest {
     private 'role_id': string | undefined;
     public body?: UpdateCloudServiceCustomPolicyRequestBody;
-    public constructor(roleId: any) { 
+    public constructor(roleId?: any) { 
         this['role_id'] = roleId;
     }
     public withRoleId(roleId: string): UpdateCloudServiceCustomPolicyRequest {

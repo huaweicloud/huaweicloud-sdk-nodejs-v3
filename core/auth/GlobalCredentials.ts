@@ -22,7 +22,6 @@
 import { ICredential } from "./ICredential";
 import { IHttpRequest } from "../http/IHttpRequest";
 import { AKSKSigner } from "./AKSKSigner";
-import { request } from "express";
 import { HttpRequestBuilder } from "../http/IHttpRequestBuilder";
 import extend from "extend";
 import { RequiredError } from "./AKSKSigner";

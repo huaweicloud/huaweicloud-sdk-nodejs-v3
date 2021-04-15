@@ -9,7 +9,7 @@ export class Region {
     public locales: RegionLocales;
     public id: string;
     public type: string;
-    public constructor(description: any, parentRegionId: any, links: any, locales: any, id: any, type: any) { 
+    public constructor(description?: any, parentRegionId?: any, links?: any, locales?: any, id?: any, type?: any) { 
         this['description'] = description;
         this['parent_region_id'] = parentRegionId;
         this['links'] = links;

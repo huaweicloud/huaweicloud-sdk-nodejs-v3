@@ -9,7 +9,7 @@ export class ProjectDetailsAndStatusResult {
     public id: string;
     public enabled: boolean;
     public status: string;
-    public constructor(domainId: any, isDomain: any, parentId: any, name: any, description: any, id: any, enabled: any, status: any) { 
+    public constructor(domainId?: any, isDomain?: any, parentId?: any, name?: any, description?: any, id?: any, enabled?: any, status?: any) { 
         this['domain_id'] = domainId;
         this['is_domain'] = isDomain;
         this['parent_id'] = parentId;

@@ -6,7 +6,7 @@ export class ServiceCommand {
     private 'command_name': string | undefined;
     public paras?: Array<ServiceCommandPara>;
     public responses?: Array<ServiceCommandResponse>;
-    public constructor(commandName: any) { 
+    public constructor(commandName?: any) { 
         this['command_name'] = commandName;
     }
     public withCommandName(commandName: string): ServiceCommand {

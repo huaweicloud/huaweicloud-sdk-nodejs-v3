@@ -4,7 +4,7 @@ export class AgencyTokenAssumerole {
     private 'domain_id'?: string | undefined;
     private 'domain_name'?: string | undefined;
     private 'agency_name': string | undefined;
-    public constructor(agencyName: any) { 
+    public constructor(agencyName?: any) { 
         this['agency_name'] = agencyName;
     }
     public withDomainId(domainId: string): AgencyTokenAssumerole {

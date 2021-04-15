@@ -4,7 +4,7 @@ export class SimpleTimerType {
     private 'start_time': string | undefined;
     private 'repeat_interval': number | undefined;
     private 'repeat_count': number | undefined;
-    public constructor(startTime: any, repeatInterval: any, repeatCount: any) { 
+    public constructor(startTime?: any, repeatInterval?: any, repeatCount?: any) { 
         this['start_time'] = startTime;
         this['repeat_interval'] = repeatInterval;
         this['repeat_count'] = repeatCount;

@@ -3,7 +3,7 @@
 export class DomainInfo {
     public id?: string;
     public name: string;
-    public constructor(name: any) { 
+    public constructor(name?: any) { 
         this['name'] = name;
     }
     public withId(id: string): DomainInfo {

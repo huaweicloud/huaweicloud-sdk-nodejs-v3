@@ -9,7 +9,7 @@ export class KeystoneCreateUserResult {
     public links: LinksSelf;
     public id: string;
     public enabled: boolean;
-    public constructor(domainId: any, name: any, passwordExpiresAt: any, links: any, id: any, enabled: any) { 
+    public constructor(domainId?: any, name?: any, passwordExpiresAt?: any, links?: any, id?: any, enabled?: any) { 
         this['domain_id'] = domainId;
         this['name'] = name;
         this['password_expires_at'] = passwordExpiresAt;

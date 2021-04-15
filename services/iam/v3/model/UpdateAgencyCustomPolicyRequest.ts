@@ -4,7 +4,7 @@ import { UpdateAgencyCustomPolicyRequestBody } from './UpdateAgencyCustomPolicyR
 export class UpdateAgencyCustomPolicyRequest {
     private 'role_id': string | undefined;
     public body?: UpdateAgencyCustomPolicyRequestBody;
-    public constructor(roleId: any) { 
+    public constructor(roleId?: any) { 
         this['role_id'] = roleId;
     }
     public withRoleId(roleId: string): UpdateAgencyCustomPolicyRequest {

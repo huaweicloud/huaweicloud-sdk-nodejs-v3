@@ -6,7 +6,7 @@ export class AgencyAssumedbyUser {
     public id: string;
     public domain: AgencyAssumedbyUserDomain;
     private 'password_expires_at': string | undefined;
-    public constructor(name: any, id: any, domain: any, passwordExpiresAt: any) { 
+    public constructor(name?: any, id?: any, domain?: any, passwordExpiresAt?: any) { 
         this['name'] = name;
         this['id'] = id;
         this['domain'] = domain;

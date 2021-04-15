@@ -6,7 +6,7 @@ export class MqsForwarding {
     public password: string;
     public topic: string;
     private 'encrypt_transport'?: boolean | undefined;
-    public constructor(url: any, userName: any, password: any, topic: any) { 
+    public constructor(url?: any, userName?: any, password?: any, topic?: any) { 
         this['url'] = url;
         this['user_name'] = userName;
         this['password'] = password;

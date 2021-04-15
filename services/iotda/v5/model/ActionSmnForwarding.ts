@@ -7,7 +7,7 @@ export class ActionSmnForwarding {
     private 'topic_urn': string | undefined;
     private 'message_content': string | undefined;
     private 'message_title': string | undefined;
-    public constructor(regionName: any, projectId: any, themeName: any, topicUrn: any, messageContent: any, messageTitle: any) { 
+    public constructor(regionName?: any, projectId?: any, themeName?: any, topicUrn?: any, messageContent?: any, messageTitle?: any) { 
         this['region_name'] = regionName;
         this['project_id'] = projectId;
         this['theme_name'] = themeName;

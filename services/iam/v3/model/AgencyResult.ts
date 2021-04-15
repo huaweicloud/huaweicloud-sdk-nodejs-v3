@@ -10,7 +10,7 @@ export class AgencyResult {
     public name: string;
     private 'trust_domain_id'?: string | undefined;
     private 'trust_domain_name'?: string | undefined;
-    public constructor(createTime: any, description: any, duration: any, expireTime: any, id: any, name: any) { 
+    public constructor(createTime?: any, description?: any, duration?: any, expireTime?: any, id?: any, name?: any) { 
         this['create_time'] = createTime;
         this['description'] = description;
         this['duration'] = duration;

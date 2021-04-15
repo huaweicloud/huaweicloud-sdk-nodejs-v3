@@ -8,7 +8,7 @@ export class KeystoneGroupResultWithLinksSelf {
     public name: string;
     public links: LinksSelf;
     private 'create_time': number | undefined;
-    public constructor(description: any, id: any, domainId: any, name: any, links: any, createTime: any) { 
+    public constructor(description?: any, id?: any, domainId?: any, name?: any, links?: any, createTime?: any) { 
         this['description'] = description;
         this['id'] = id;
         this['domain_id'] = domainId;

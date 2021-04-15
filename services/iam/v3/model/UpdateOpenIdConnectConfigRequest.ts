@@ -4,7 +4,7 @@ import { UpdateOpenIdConnectConfigRequestBody } from './UpdateOpenIdConnectConfi
 export class UpdateOpenIdConnectConfigRequest {
     private 'idp_id': string | undefined;
     public body?: UpdateOpenIdConnectConfigRequestBody;
-    public constructor(idpId: any) { 
+    public constructor(idpId?: any) { 
         this['idp_id'] = idpId;
     }
     public withIdpId(idpId: string): UpdateOpenIdConnectConfigRequest {

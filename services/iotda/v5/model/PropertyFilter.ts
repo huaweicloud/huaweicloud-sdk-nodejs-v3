@@ -6,7 +6,7 @@ export class PropertyFilter {
     public operator: string;
     public value: string;
     public strategy?: Strategy;
-    public constructor(path: any, operator: any, value: any) { 
+    public constructor(path?: any, operator?: any, value?: any) { 
         this['path'] = path;
         this['operator'] = operator;
         this['value'] = value;

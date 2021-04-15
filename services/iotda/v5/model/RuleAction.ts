@@ -19,7 +19,7 @@ export class RuleAction {
     private 'roma_forwarding'?: ActionRomaForwarding | undefined;
     private 'iota_forwarding'?: ActionIoTAForwarding | undefined;
     private 'kafka_forwarding'?: ActionKafkaForwarding | undefined;
-    public constructor(type: any) { 
+    public constructor(type?: any) { 
         this['type'] = type;
     }
     public withType(type: string): RuleAction {
