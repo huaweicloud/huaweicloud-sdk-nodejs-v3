@@ -7,6 +7,7 @@ import { CreateTemplateViewHistoriesRequest } from './model/CreateTemplateViewHi
 import { CreateTemplateViewHistoriesResponse } from './model/CreateTemplateViewHistoriesResponse';
 import { DownloadApplicationCodeRequest } from './model/DownloadApplicationCodeRequest';
 import { DownloadApplicationCodeResponse } from './model/DownloadApplicationCodeResponse';
+import { FileTreeNode } from './model/FileTreeNode';
 import { ListPublishedTemplatesRequest } from './model/ListPublishedTemplatesRequest';
 import { ListPublishedTemplatesResponse } from './model/ListPublishedTemplatesResponse';
 import { ListTemplateViewHistoriesRequest } from './model/ListTemplateViewHistoriesRequest';
@@ -14,7 +15,6 @@ import { ListTemplateViewHistoriesResponse } from './model/ListTemplateViewHisto
 import { ListTemplatesV2Request } from './model/ListTemplatesV2Request';
 import { ListTemplatesV2Response } from './model/ListTemplatesV2Response';
 import { PipelineTemplateInfo } from './model/PipelineTemplateInfo';
-import { PropertiesInfo } from './model/PropertiesInfo';
 import { Reference } from './model/Reference';
 import { RepositoryInfo } from './model/RepositoryInfo';
 import { RunCodehubTemplateJobRequest } from './model/RunCodehubTemplateJobRequest';
@@ -54,10 +54,10 @@ export class DevStarClient {
     }
 
     /**
-     * 通过任务ID下载ZIP格式的代码工程。
-     * @summary 下载代码工程
-     * @param {string} jobId 任务id
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * 下载模板产物。
+     * @summary 下载模板产物
+     * @param {string} jobId 任务id。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -77,10 +77,10 @@ export class DevStarClient {
         });
     }
     /**
-     * 通过 Codehub 的模板进行应用代码创建  通过 Codehub 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中或者生成代码压缩包，可以通过返回的任务 ID 查询相关任务状态  - 接口鉴权方式 通过华为云服务获取的用户token  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+     * 使用CodeHub模板创建应用代码。  通过 Codehub 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中或者生成代码压缩包，可以通过返回的任务 ID 查询相关任务状态。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
      * @summary CodeHub 模板生成代码
      * @param {CodehubJobInfo} runCodehubTemplateJobRequestBody 创建任务参数
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -100,10 +100,10 @@ export class DevStarClient {
         });
     }
     /**
-     * 通过DevStar的模板进行应用代码创建  通过 DevStar 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中，可以通过返回的任务 ID 查询相关任务状态  - 接口鉴权方式 通过华为云服务获取的用户token  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+     * 使用DevStar的模板创建应用代码。  通过 DevStar 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中，可以通过返回的任务 ID 查询相关任务状态。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
      * @summary Devstar 模板生成代码
      * @param {TemplateJobInfo} runDevstarTemplateJobRequestBody 创建任务参数
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -123,10 +123,10 @@ export class DevStarClient {
         });
     }
     /**
-     * 查询任务的详情  通过任务ID可以查看任务的状态 当任务结束时返回应用代码存放的位置  - 接口鉴权方式 通过华为云服务获取的用户token  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址
+     * 查询任务的详情。  通过任务ID可以查看任务的状态 当任务结束时返回应用代码存放的位置。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
      * @summary 查询任务详情
-     * @param {string} jobId 任务id
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * @param {string} jobId 任务id。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -146,12 +146,12 @@ export class DevStarClient {
         });
     }
     /**
-     * 读取模板文件
+     * 该接口可以用于模板作者或模板维护人读取模板文件内容。
      * @summary 读取模板文件
-     * @param {string} templateId 模板ID
-     * @param {string} filePath 文件相对路径
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
-     * @param {'source-package' | 'introduction'} [type] 读取文件来源. source-package: 源文件压缩包, introduction: 说明文件
+     * @param {string} templateId 模板ID，通过查询模板列表接口可获取相应的模板ID。
+     * @param {string} filePath 文件相对路径，基于当前根目录的相对文件路径，例如获取HELP.md文件内容，则文件相对路径为“template-resources/file/HELP.md”。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
+     * @param {'source-package' | 'introduction'} [type] 读取文件来源，缺省值为“source-pachage”。  枚举值： - source-package: 源文件压缩包 - introduction: 说明文件 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -171,10 +171,10 @@ export class DevStarClient {
         });
     }
     /**
-     * 生成模板浏览记录 
-     * @summary 生成模板浏览历史记录
+     * 未登录状态下，将用户浏览过的模板缓存在浏览器中，登录时，调用该接口同步模板浏览记录。 
+     * @summary 同步模板浏览记录
      * @param {TemplatesInfo} createTemplateViewHistoriesRequestBody 模板信息
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -194,12 +194,12 @@ export class DevStarClient {
         });
     }
     /**
-     * 查询模板列表
-     * @summary 查询模板列表
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
-     * @param {string} [keyword] 搜索关键字,支持按名称和描述搜索，默认null
-     * @param {number} [offset] 偏移量, 表示从此偏移量开始查询, offset大于等于0
-     * @param {number} [limit] 每页的模板条数, 默认10
+     * 查询模板列表，推荐使用V2版本接口。
+     * @summary 查询模板列表（V1）
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
+     * @param {string} [keyword] 搜索关键字，支持按名称和描述搜索，默认null。
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
+     * @param {number} [limit] 每页的模板条数，默认10。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -219,10 +219,10 @@ export class DevStarClient {
         });
     }
     /**
-     * 查询用户浏览过的模板(只返回最近浏览的5个模板) 
+     * 查询DevStar或者CodeLabs登录用户浏览过的模板（只返回最近浏览的5个模板）。 
      * @summary 我浏览的模板记录
-     * @param {0 | 1} platformSource 平台来源（0:codelabs、1:devstar）
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * @param {0 | 1} platformSource 平台来源： - 0：查询CodeLabs中用户浏览过的模板。 - 1：查询DevStar中用户浏览过的模板。 
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -242,10 +242,10 @@ export class DevStarClient {
         });
     }
     /**
-     * 查询模板列表
-     * @summary 查询模板列表
-     * @param {string} actionId query(查询)
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * 查询模板列表。
+     * @summary 查询模板列表（V2）
+     * @param {string} actionId 请填写固定值“query”。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {TemplateQueryV2} [listTemplatesV2RequestBody] 模板列表查询参数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -266,10 +266,10 @@ export class DevStarClient {
         });
     }
     /**
-     * 获取模板详情-模板id、名称、描述、作者、标签、上架时间等信息。 
-     * @summary 模板详情
-     * @param {string} templateId 模板ID
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * 获取指定模板详情，包括模板id、名称、描述、作者、标签、上架时间等信息。 
+     * @summary 查询模板详情（V3）
+     * @param {string} templateId 模板ID，通过查询模板列表接口可获取相应的模板ID。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -289,10 +289,10 @@ export class DevStarClient {
         });
     }
     /**
-     * 查询模板详情
-     * @summary 查询模板详情
-     * @param {string} templateId 模板id 说明：通过查询模板列表接口可获取相应模板 ID
-     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * 查询模板详情，推荐使用V3版本接口。
+     * @summary 查询模板详情（V1）
+     * @param {string} templateId 模板ID，通过查询模板列表接口可获取相应模板ID。
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -317,7 +317,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 通过任务ID下载ZIP格式的代码工程。
+         * 下载模板产物。
          */
         downloadApplicationCode(downloadApplicationCodeRequest?: DownloadApplicationCodeRequest) {
             const options = {
@@ -360,7 +360,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过 Codehub 的模板进行应用代码创建  通过 Codehub 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中或者生成代码压缩包，可以通过返回的任务 ID 查询相关任务状态  - 接口鉴权方式 通过华为云服务获取的用户token  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+         * 使用CodeHub模板创建应用代码。  通过 Codehub 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中或者生成代码压缩包，可以通过返回的任务 ID 查询相关任务状态。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
          */
         runCodehubTemplateJob(runCodehubTemplateJobRequest?: RunCodehubTemplateJobRequest) {
             const options = {
@@ -401,7 +401,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过DevStar的模板进行应用代码创建  通过 DevStar 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中，可以通过返回的任务 ID 查询相关任务状态  - 接口鉴权方式 通过华为云服务获取的用户token  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+         * 使用DevStar的模板创建应用代码。  通过 DevStar 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中，可以通过返回的任务 ID 查询相关任务状态。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
          */
         runDevstarTemplateJob(runDevstarTemplateJobRequest?: RunDevstarTemplateJobRequest) {
             const options = {
@@ -442,7 +442,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询任务的详情  通过任务ID可以查看任务的状态 当任务结束时返回应用代码存放的位置  - 接口鉴权方式 通过华为云服务获取的用户token  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址
+         * 查询任务的详情。  通过任务ID可以查看任务的状态 当任务结束时返回应用代码存放的位置。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
          */
         showJobDetail(showJobDetailRequest?: ShowJobDetailRequest) {
             const options = {
@@ -482,7 +482,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 读取模板文件
+         * 该接口可以用于模板作者或模板维护人读取模板文件内容。
          */
         showTemplateFile(showTemplateFileRequest?: ShowTemplateFileRequest) {
             const options = {
@@ -538,7 +538,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 生成模板浏览记录 
+         * 未登录状态下，将用户浏览过的模板缓存在浏览器中，登录时，调用该接口同步模板浏览记录。 
          */
         createTemplateViewHistories(createTemplateViewHistoriesRequest?: CreateTemplateViewHistoriesRequest) {
             const options = {
@@ -579,7 +579,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询模板列表
+         * 查询模板列表，推荐使用V2版本接口。
          */
         listPublishedTemplates(listPublishedTemplatesRequest?: ListPublishedTemplatesRequest) {
             const options = {
@@ -631,7 +631,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询用户浏览过的模板(只返回最近浏览的5个模板) 
+         * 查询DevStar或者CodeLabs登录用户浏览过的模板（只返回最近浏览的5个模板）。 
          */
         listTemplateViewHistories(listTemplateViewHistoriesRequest?: ListTemplateViewHistoriesRequest) {
             const options = {
@@ -674,7 +674,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询模板列表
+         * 查询模板列表。
          */
         listTemplatesV2(listTemplatesV2Request?: ListTemplatesV2Request) {
             const options = {
@@ -722,7 +722,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取模板详情-模板id、名称、描述、作者、标签、上架时间等信息。 
+         * 获取指定模板详情，包括模板id、名称、描述、作者、标签、上架时间等信息。 
          */
         showTemplateV3(showTemplateV3Request?: ShowTemplateV3Request) {
             const options = {
@@ -762,7 +762,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询模板详情
+         * 查询模板详情，推荐使用V3版本接口。
          */
         showTemplateDetail(showTemplateDetailRequest?: ShowTemplateDetailRequest) {
             const options = {

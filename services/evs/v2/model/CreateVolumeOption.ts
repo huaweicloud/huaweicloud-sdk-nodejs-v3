@@ -10,7 +10,6 @@ export class CreateVolumeOption {
     public metadata?: { [key: string]: string; };
     public multiattach?: boolean;
     public name?: string;
-    public shareable?: CreateVolumeOptionShareableEnum;
     public size?: number;
     private 'snapshot_id'?: string | undefined;
     private 'volume_type': CreateVolumeOptionVolumeTypeEnum | undefined;
@@ -73,10 +72,6 @@ export class CreateVolumeOption {
         this['name'] = name;
         return this;
     }
-    public withShareable(shareable: CreateVolumeOptionShareableEnum): CreateVolumeOption {
-        this['shareable'] = shareable;
-        return this;
-    }
     public withSize(size: number): CreateVolumeOption {
         this['size'] = size;
         return this;
@@ -107,14 +102,6 @@ export class CreateVolumeOption {
     }
 }
 
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateVolumeOptionShareableEnum {
-    TRUE = 'true',
-    FALSE = 'false'
-}
 /**
     * @export
     * @enum {string}

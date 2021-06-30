@@ -609,7 +609,6 @@ export class VpcClient {
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
      * @param {string} [fixedIps] 按照fixed_ips&#x3D;ip_address或者fixed_ips&#x3D;subnet_id过滤查询
      * @param {string} [enterpriseProjectId] 功能说明：企业项目ID，用于基于企业项目的权限管理。  取值范围：最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。“0”表示默认企业项目。  若需要查询当前用户所有企业项目绑定的端口，请传参all_granted_eps。
-     * @param {string} [zoneId] 功能说明：端口所属可用区
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -704,7 +703,6 @@ export class VpcClient {
      * @param {number} [limit] 每页返回的个数
      * @param {string} [marker] 分页查询起始的资源id，为空时查询第一页
      * @param {string} [vpcId] 按照vpc_id过滤查询  企业项目细粒度授权场景下，该字段必传
-     * @param {string} [scope] 功能说明：子网作用域
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2691,7 +2689,6 @@ export const ParamCreater = function () {
             let marker;
             let fixedIps;
             let enterpriseProjectId;
-            let zoneId;
 
             if (listPortsRequest !== null && listPortsRequest !== undefined) {
                 if (listPortsRequest instanceof ListPortsRequest) {
@@ -2707,7 +2704,6 @@ export const ParamCreater = function () {
                     marker = listPortsRequest.marker;
                     fixedIps = listPortsRequest.fixedIps;
                     enterpriseProjectId = listPortsRequest.enterpriseProjectId;
-                    zoneId = listPortsRequest.zoneId;
                 } else {
                     name = listPortsRequest['name'];
                     id = listPortsRequest['id'];
@@ -2721,7 +2717,6 @@ export const ParamCreater = function () {
                     marker = listPortsRequest['marker'];
                     fixedIps = listPortsRequest['fixed_ips'];
                     enterpriseProjectId = listPortsRequest['enterprise_project_id'];
-                    zoneId = listPortsRequest['zone_id'];
                 }
             }
         
@@ -2760,9 +2755,6 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (zoneId !== null && zoneId !== undefined) {
-                localVarQueryParameter['zone_id'] = zoneId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2906,19 +2898,16 @@ export const ParamCreater = function () {
             let limit;
             let marker;
             let vpcId;
-            let scope;
 
             if (listSubnetsRequest !== null && listSubnetsRequest !== undefined) {
                 if (listSubnetsRequest instanceof ListSubnetsRequest) {
                     limit = listSubnetsRequest.limit;
                     marker = listSubnetsRequest.marker;
                     vpcId = listSubnetsRequest.vpcId;
-                    scope = listSubnetsRequest.scope;
                 } else {
                     limit = listSubnetsRequest['limit'];
                     marker = listSubnetsRequest['marker'];
                     vpcId = listSubnetsRequest['vpc_id'];
-                    scope = listSubnetsRequest['scope'];
                 }
             }
         
@@ -2930,9 +2919,6 @@ export const ParamCreater = function () {
             }
             if (vpcId !== null && vpcId !== undefined) {
                 localVarQueryParameter['vpc_id'] = vpcId;
-            }
-            if (scope !== null && scope !== undefined) {
-                localVarQueryParameter['scope'] = scope;
             }
 
             options.queryParams = localVarQueryParameter;

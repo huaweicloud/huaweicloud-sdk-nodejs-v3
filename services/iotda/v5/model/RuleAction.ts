@@ -10,7 +10,6 @@ import { ActionSmnForwarding } from './ActionSmnForwarding';
 
 export class RuleAction {
     public type: string;
-    public addition?: Array<string>;
     private 'smn_forwarding'?: ActionSmnForwarding | undefined;
     private 'device_alarm'?: ActionDeviceAlarm | undefined;
     private 'device_command'?: ActionDeviceCommand | undefined;
@@ -24,10 +23,6 @@ export class RuleAction {
     }
     public withType(type: string): RuleAction {
         this['type'] = type;
-        return this;
-    }
-    public withAddition(addition: Array<string>): RuleAction {
-        this['addition'] = addition;
         return this;
     }
     public withSmnForwarding(smnForwarding: ActionSmnForwarding): RuleAction {

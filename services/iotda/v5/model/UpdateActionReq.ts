@@ -4,7 +4,6 @@ import { ChannelDetail } from './ChannelDetail';
 export class UpdateActionReq {
     public channel?: string;
     private 'channel_detail'?: ChannelDetail | undefined;
-    public batch?: boolean;
     public constructor() { 
     }
     public withChannel(channel: string): UpdateActionReq {
@@ -20,9 +19,5 @@ export class UpdateActionReq {
     }
     public get channelDetail() {
         return this['channel_detail'];
-    }
-    public withBatch(batch: boolean): UpdateActionReq {
-        this['batch'] = batch;
-        return this;
     }
 }

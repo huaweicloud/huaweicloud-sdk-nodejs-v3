@@ -9,7 +9,6 @@ export class AddRuleReq {
     private 'app_id'?: string | undefined;
     public select?: string;
     public where?: string;
-    private 'data_version'?: string | undefined;
     public constructor(subject?: any) { 
         this['subject'] = subject;
     }
@@ -58,15 +57,5 @@ export class AddRuleReq {
     public withWhere(where: string): AddRuleReq {
         this['where'] = where;
         return this;
-    }
-    public withDataVersion(dataVersion: string): AddRuleReq {
-        this['data_version'] = dataVersion;
-        return this;
-    }
-    public set dataVersion(dataVersion: string | undefined) {
-        this['data_version'] = dataVersion;
-    }
-    public get dataVersion() {
-        return this['data_version'];
     }
 }

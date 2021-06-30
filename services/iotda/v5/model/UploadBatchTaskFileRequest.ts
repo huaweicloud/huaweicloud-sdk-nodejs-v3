@@ -1,12 +1,12 @@
-import { CreateSubReq } from './CreateSubReq';
+import { UploadBatchTaskFileRequestBody } from './UploadBatchTaskFileRequestBody';
 
 
-export class CreateSubscriptionRequest {
+export class UploadBatchTaskFileRequest {
     private 'Instance-Id'?: string | undefined;
-    public body?: CreateSubReq;
+    public body?: UploadBatchTaskFileRequestBody;
     public constructor() { 
     }
-    public withInstanceId(instanceId: string): CreateSubscriptionRequest {
+    public withInstanceId(instanceId: string): UploadBatchTaskFileRequest {
         this['Instance-Id'] = instanceId;
         return this;
     }
@@ -16,7 +16,7 @@ export class CreateSubscriptionRequest {
     public get instanceId() {
         return this['Instance-Id'];
     }
-    public withBody(body: CreateSubReq): CreateSubscriptionRequest {
+    public withBody(body: UploadBatchTaskFileRequestBody): UploadBatchTaskFileRequest {
         this['body'] = body;
         return this;
     }

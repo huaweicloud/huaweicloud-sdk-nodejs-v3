@@ -4,7 +4,6 @@ export class ListSubnetsRequest {
     public limit?: number;
     public marker?: string;
     private 'vpc_id'?: string | undefined;
-    public scope?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListSubnetsRequest {
@@ -24,9 +23,5 @@ export class ListSubnetsRequest {
     }
     public get vpcId() {
         return this['vpc_id'];
-    }
-    public withScope(scope: string): ListSubnetsRequest {
-        this['scope'] = scope;
-        return this;
     }
 }

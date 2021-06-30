@@ -1,6 +1,7 @@
 
 
 export class CreateUserResult {
+    private 'access_mode'?: string | undefined;
     public status?: number;
     private 'pwd_status'?: boolean | undefined;
     private 'xuser_id'?: string | undefined;
@@ -23,6 +24,16 @@ export class CreateUserResult {
         this['domain_id'] = domainId;
         this['enabled'] = enabled;
         this['id'] = id;
+    }
+    public withAccessMode(accessMode: string): CreateUserResult {
+        this['access_mode'] = accessMode;
+        return this;
+    }
+    public set accessMode(accessMode: string | undefined) {
+        this['access_mode'] = accessMode;
+    }
+    public get accessMode() {
+        return this['access_mode'];
     }
     public withStatus(status: number): CreateUserResult {
         this['status'] = status;

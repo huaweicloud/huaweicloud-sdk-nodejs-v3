@@ -28,7 +28,6 @@ import { AddQueueResponse } from './model/AddQueueResponse';
 import { AddRuleReq } from './model/AddRuleReq';
 import { AmqpForwarding } from './model/AmqpForwarding';
 import { ApplicationDTO } from './model/ApplicationDTO';
-import { AsyncDeviceCommand } from './model/AsyncDeviceCommand';
 import { AsyncDeviceCommandRequest } from './model/AsyncDeviceCommandRequest';
 import { AuthInfo } from './model/AuthInfo';
 import { AuthInfoWithoutSecret } from './model/AuthInfoWithoutSecret';
@@ -68,9 +67,6 @@ import { CreateRuleActionRequest } from './model/CreateRuleActionRequest';
 import { CreateRuleActionResponse } from './model/CreateRuleActionResponse';
 import { CreateRuleRequest } from './model/CreateRuleRequest';
 import { CreateRuleResponse } from './model/CreateRuleResponse';
-import { CreateSubReq } from './model/CreateSubReq';
-import { CreateSubscriptionRequest } from './model/CreateSubscriptionRequest';
-import { CreateSubscriptionResponse } from './model/CreateSubscriptionResponse';
 import { DailyTimerType } from './model/DailyTimerType';
 import { DeleteApplicationRequest } from './model/DeleteApplicationRequest';
 import { DeleteApplicationResponse } from './model/DeleteApplicationResponse';
@@ -92,8 +88,6 @@ import { DeleteRuleActionRequest } from './model/DeleteRuleActionRequest';
 import { DeleteRuleActionResponse } from './model/DeleteRuleActionResponse';
 import { DeleteRuleRequest } from './model/DeleteRuleRequest';
 import { DeleteRuleResponse } from './model/DeleteRuleResponse';
-import { DeleteSubscriptionRequest } from './model/DeleteSubscriptionRequest';
-import { DeleteSubscriptionResponse } from './model/DeleteSubscriptionResponse';
 import { DeviceCommandRequest } from './model/DeviceCommandRequest';
 import { DeviceDataCondition } from './model/DeviceDataCondition';
 import { DeviceGroupResponseDTO } from './model/DeviceGroupResponseDTO';
@@ -114,10 +108,6 @@ import { HttpForwarding } from './model/HttpForwarding';
 import { InfluxDBForwarding } from './model/InfluxDBForwarding';
 import { InitialDesired } from './model/InitialDesired';
 import { IoTAForwarding } from './model/IoTAForwarding';
-import { ListAsyncCommandsRequest } from './model/ListAsyncCommandsRequest';
-import { ListAsyncCommandsResponse } from './model/ListAsyncCommandsResponse';
-import { ListAsyncHistoryCommandsRequest } from './model/ListAsyncHistoryCommandsRequest';
-import { ListAsyncHistoryCommandsResponse } from './model/ListAsyncHistoryCommandsResponse';
 import { ListBatchTaskFilesRequest } from './model/ListBatchTaskFilesRequest';
 import { ListBatchTaskFilesResponse } from './model/ListBatchTaskFilesResponse';
 import { ListBatchTasksRequest } from './model/ListBatchTasksRequest';
@@ -142,8 +132,6 @@ import { ListRuleActionsRequest } from './model/ListRuleActionsRequest';
 import { ListRuleActionsResponse } from './model/ListRuleActionsResponse';
 import { ListRulesRequest } from './model/ListRulesRequest';
 import { ListRulesResponse } from './model/ListRulesResponse';
-import { ListSubscriptionsRequest } from './model/ListSubscriptionsRequest';
-import { ListSubscriptionsResponse } from './model/ListSubscriptionsResponse';
 import { LtsForwarding } from './model/LtsForwarding';
 import { MessageResult } from './model/MessageResult';
 import { MqsForwarding } from './model/MqsForwarding';
@@ -155,6 +143,7 @@ import { ObsForwarding } from './model/ObsForwarding';
 import { Page } from './model/Page';
 import { ProductSummary } from './model/ProductSummary';
 import { PropertyFilter } from './model/PropertyFilter';
+import { PulsarForwarding } from './model/PulsarForwarding';
 import { QueryDeviceSimplify } from './model/QueryDeviceSimplify';
 import { QueryQueueBase } from './model/QueryQueueBase';
 import { QueryResourceByTagsDTO } from './model/QueryResourceByTagsDTO';
@@ -206,13 +195,9 @@ import { ShowRuleActionRequest } from './model/ShowRuleActionRequest';
 import { ShowRuleActionResponse } from './model/ShowRuleActionResponse';
 import { ShowRuleRequest } from './model/ShowRuleRequest';
 import { ShowRuleResponse } from './model/ShowRuleResponse';
-import { ShowSubscriptionRequest } from './model/ShowSubscriptionRequest';
-import { ShowSubscriptionResponse } from './model/ShowSubscriptionResponse';
 import { SimpleTimerType } from './model/SimpleTimerType';
 import { SimplifyDevice } from './model/SimplifyDevice';
 import { Strategy } from './model/Strategy';
-import { Subject } from './model/Subject';
-import { SubscriptionItem } from './model/SubscriptionItem';
 import { TagDeviceRequest } from './model/TagDeviceRequest';
 import { TagDeviceResponse } from './model/TagDeviceResponse';
 import { TagV5DTO } from './model/TagV5DTO';
@@ -249,9 +234,9 @@ import { UpdateRuleActionResponse } from './model/UpdateRuleActionResponse';
 import { UpdateRuleReq } from './model/UpdateRuleReq';
 import { UpdateRuleRequest } from './model/UpdateRuleRequest';
 import { UpdateRuleResponse } from './model/UpdateRuleResponse';
-import { UpdateSubReq } from './model/UpdateSubReq';
-import { UpdateSubscriptionRequest } from './model/UpdateSubscriptionRequest';
-import { UpdateSubscriptionResponse } from './model/UpdateSubscriptionResponse';
+import { UploadBatchTaskFileRequest } from './model/UploadBatchTaskFileRequest';
+import { UploadBatchTaskFileRequestBody } from './model/UploadBatchTaskFileRequestBody';
+import { UploadBatchTaskFileResponse } from './model/UploadBatchTaskFileResponse';
 import { VerifyCertificateDTO } from './model/VerifyCertificateDTO';
 
 export class IoTDAClient {
@@ -272,7 +257,7 @@ export class IoTDAClient {
      * 接入凭证是用于客户端使用AMQP等协议与平台建链的一个认证凭据。只保留一条记录，如果重复调用只会重置接入凭证，使得之前的失效。
      * @summary 生成接入凭证
      * @param {CreateAccessCodeRequestBody} createAccessCodeRequestBody 生成接入凭证的请求结构体
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -295,7 +280,7 @@ export class IoTDAClient {
      * 应用服务器可调用此接口在物联网平台创建一个AMQP队列。每个租户只能创建100个队列，若超过规格，则创建失败，若队列名称与已有的队列名称相同，则创建失败。
      * @summary 创建AMQP队列
      * @param {QueueInfo} addQueueReQuestBody request
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -317,11 +302,11 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中的AMQP队列信息列表。可通过队列名称作模糊查询，支持分页。
      * @summary 查询AMQP列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [queueName] amqp队列名称，支持模糊查询，为空查询所有的队列（当前规格单个用户最大100个队列）。
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [queueName] **参数说明**：amqp队列名称，支持模糊查询，为空查询所有的队列（当前规格单个用户最大100个队列）。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）、间隔号（.）、冒号（:）的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -343,8 +328,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口在物联网平台上删除指定AMQP队列。若当前队列正在使用，则会删除失败。
      * @summary 删除AMQP队列
-     * @param {string} queueId 队列ID，用于唯一标识一个队列。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} queueId **参数说明**：队列ID，用于唯一标识一个队列。 **取值范围**：长度36位，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -366,8 +351,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中指定队列的详细信息。
      * @summary 查询单个AMQP队列
-     * @param {string} queueId 队列ID，用于唯一标识一个队列。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} queueId **参数说明**：队列ID，用于唯一标识一个队列。 **取值范围**：长度36位，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -390,7 +375,7 @@ export class IoTDAClient {
      * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口创建资源空间。
      * @summary 创建资源空间
      * @param {AddApplication} addApplicationRequestBody 创建资源空间所携带的结构体
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -412,8 +397,8 @@ export class IoTDAClient {
     /**
      * 删除指定资源空间。删除资源空间属于高危操作，删除资源空间后，该空间下的产品、设备等资源将不可用，请谨慎操作！
      * @summary 删除资源空间
-     * @param {string} appId 资源空间ID，唯一标识一个资源空间，由物联网平台在创建资源空间时分配。资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} appId **参数说明**：资源空间ID，唯一标识一个资源空间，由物联网平台在创建资源空间时分配。资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -435,8 +420,8 @@ export class IoTDAClient {
     /**
      * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口查询指定资源空间详情。
      * @summary 查询资源空间
-     * @param {string} appId 资源空间ID，唯一标识一个资源空间，由物联网平台在创建资源空间时分配。资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} appId **参数说明**：资源空间ID，唯一标识一个资源空间，由物联网平台在创建资源空间时分配。资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -458,8 +443,8 @@ export class IoTDAClient {
     /**
      * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口查询资源空间列表。
      * @summary 查询资源空间列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {boolean} [defaultApp] 默认资源空间标识，不携带则查询所有资源空间。 - true：查询默认资源空间。 - false：查询非默认资源空间。 
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {boolean} [defaultApp] **参数说明**：默认资源空间标识，不携带则查询所有资源空间。 **取值范围**： - true：查询默认资源空间。 - false：查询非默认资源空间。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -481,9 +466,9 @@ export class IoTDAClient {
     /**
      * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)。注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。 
      * @summary 下发异步设备命令
-     * @param {string} deviceId 下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
      * @param {AsyncDeviceCommandRequest} createAsyncCommandRequestBody 请求结构体，见请求结构体说明
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -503,73 +488,11 @@ export class IoTDAClient {
         });
     }
     /**
-     * 查询设备下队列中的命（处理中的命令），包含PENDING,SENT,DELIVERED三种状态，注意：DELIVERED状态的命令经过系统设定的一段时间（具体以系统配置为准）仍然没有更新，就会从队列中移除，变为历史命令。 
-     * @summary 查询设备下队列中的命令
-     * @param {string} deviceId 下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
-     * @param {string} [startTime] 查询命令下发时间在startTime之后的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
-     * @param {string} [endTime] 查询命令下发时间在endTime之前的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
-     * @param {string} [status] 命令状态。
-     * @param {string} [commandId] 命令Id
-     * @param {string} [commandName] 命令名称
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAsyncCommands(listAsyncCommandsRequest?: ListAsyncCommandsRequest): Promise<ListAsyncCommandsResponse> {
-        // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listAsyncCommands(listAsyncCommandsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
-    }
-    /**
-     * 查询设备下发的历史异步命令。 
-     * @summary 查询设备下的历史命令
-     * @param {string} deviceId 下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
-     * @param {string} [startTime] 查询命令下发时间在startTime之后的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
-     * @param {string} [endTime] 查询命令下发时间在endTime之前的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
-     * @param {string} [status] 命令状态。
-     * @param {string} [commandId] 命令Id
-     * @param {string} [commandName] 命令名称
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listAsyncHistoryCommands(listAsyncHistoryCommandsRequest?: ListAsyncHistoryCommandsRequest): Promise<ListAsyncHistoryCommandsResponse> {
-        // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listAsyncHistoryCommands(listAsyncHistoryCommandsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
-    }
-    /**
      * 物联网平台可查询指定id的命令。 
      * @summary 查询指定id的命令
-     * @param {string} deviceId 下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
-     * @param {string} commandId 下发命令的命令id，用于唯一标识一个消息，在下发命令时由物联网平台分配获得。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} commandId **参数说明**：下发命令的命令id，用于唯一标识一个消息，在下发命令时由物联网平台分配获得。 **取值范围**：长度不超过100，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -592,7 +515,7 @@ export class IoTDAClient {
      * 应用服务器可调用此接口为创建批量处理任务，对多个设备进行批量操作。当前支持批量软固件升级、批量创建设备、批量删除设备、批量冻结设备、批量解冻设备、批量创建命令任务。
      * @summary 创建批量任务
      * @param {CreateBatchTask} createBatchTaskRequestBody request
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -614,13 +537,13 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中批量任务列表，每一个任务又包括具体的任务内容、任务状态、任务完成情况统计等。
      * @summary 查询批量任务列表
-     * @param {string} taskType 批量任务类型，取值范围：firmwareUpgrade，softwareUpgrade，createDevices，deleteDevices，freezeDevices，unfreezeDevices，createCommands，createAsyncCommands。 - softwareUpgrade: 软件升级任务 - firmwareUpgrade: 固件升级任务 - createDevices: 批量创建设备任务 - deleteDevices: 批量删除设备任务 - freezeDevices: 批量冻结设备任务 - unfreezeDevices: 批量解冻设备任务 - createCommands: 批量创建同步命令任务 - createAsyncCommands: 批量创建异步命令任务 
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的任务列表，不携带该参数则会查询该用户下所有任务列表。
-     * @param {string} [status] 批量任务的状态，可选参数，取值范围：Success|Fail|Processing|PartialSuccess|Stopped|Waitting|Initializing。 - Initializing: 初始化中。 - Waitting: 等待中。 - Processing: 执行中。 - Success: 成功。 - Fail: 失败。 - PartialSuccess: 部分成功。 - Stopped: 停止。 
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} taskType **参数说明**：批量任务类型。 **取值范围**： - softwareUpgrade: 软件升级任务 - firmwareUpgrade: 固件升级任务 - createDevices: 批量创建设备任务 - deleteDevices: 批量删除设备任务 - freezeDevices: 批量冻结设备任务 - unfreezeDevices: 批量解冻设备任务 - createCommands: 批量创建同步命令任务 - createAsyncCommands: 批量创建异步命令任务 - updateDeviceShadows：批量配置设备影子任务
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的任务列表，不携带该参数则会查询该用户下所有任务列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [status] **参数说明**：批量任务的状态，可选参数。 **取值范围**： - Initializing: 初始化中。 - Waitting: 等待中。 - Processing: 执行中。 - Success: 成功。 - Fail: 失败。 - PartialSuccess: 部分成功。 - Stopped: 停止。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。  **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -642,11 +565,11 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中指定批量任务的信息，包括任务内容、任务状态、任务完成情况统计以及子任务列表等。
      * @summary 查询批量任务
-     * @param {string} taskId 批量任务ID，创建批量任务时由物联网平台分配获得。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} taskId **参数说明**：批量任务ID，创建批量任务时由物联网平台分配获得。 **取值范围**：长度不超过24，只允许小写字母a到f、数字的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。  **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -668,8 +591,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口删除批量任务文件。
      * @summary 删除批量任务文件
-     * @param {string} fileId 要删除的批量任务文件ID。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} fileId **参数说明**：要删除的批量任务文件ID。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -691,7 +614,7 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询批量任务文件列表。
      * @summary 查询批量任务文件列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -711,10 +634,33 @@ export class IoTDAClient {
         });
     }
     /**
+     * 应用服务器可调用此接口上传批量任务文件，用于创建批量任务。当前支持批量创建设备任务、批量删除设备任务、批量冻结设备任务、批量解冻设备任务的文件上传。 - [批量注册设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchCreateDevices_Template.xlsx)   - [批量删除设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchDeleteDevices_Template.xlsx)   - [批量冻结设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchFreezeDevices_Template.xlsx)   - [批量解冻设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchUnfreezeDevices_Template.xlsx) 
+     * @summary 上传批量任务文件
+     * @param {any} file **参数说明**：上传批量任务文件。 **取值范围**：当前仅支持xlsx/xls文件格式，且文件最大行数为30000行。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public uploadBatchTaskFile(uploadBatchTaskFileRequest?: UploadBatchTaskFileRequest): Promise<UploadBatchTaskFileResponse> {
+        // @ts-ignore
+        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
+            const options = ParamCreater().uploadBatchTaskFile(uploadBatchTaskFileRequest);
+            options['responseHeaders'] = [''];
+
+            return this.hcClient.sendRequest(options).then(
+                (res: any) => {
+                    return resolve(res);
+                },
+                (err: any) => {
+                    return reject(err);
+                });
+        });
+    }
+    /**
      * 应用服务器可调用此接口在物联网平台上传设备的CA证书
      * @summary 上传设备CA证书
      * @param {CreateCertificateDTO} addCertificateRequestBody request
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -736,10 +682,10 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口在物联网平台验证设备的CA证书，目的是为了验证用户持有设备CA证书的私钥
      * @summary 验证设备CA证书
-     * @param {string} certificateId 设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
-     * @param {string} actionId 对证书执行的操作，当前仅支持verify:校验证书
-     * @param {VerifyCertificateDTO} checkCertificateRequestBody certificate
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} certificateId **参数说明**：设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
+     * @param {string} actionId **参数说明**：对证书执行的操作。 **取值范围**：当前仅支持verify:校验证书。
+     * @param {VerifyCertificateDTO} checkCertificateRequestBody **参数说明**：certificate
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -761,8 +707,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口在物联网平台删除设备的CA证书
      * @summary 删除设备CA证书
-     * @param {string} certificateId 设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} certificateId **参数说明**：设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -784,11 +730,11 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口在物联网平台获取设备的CA证书列表
      * @summary 获取设备CA证书列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的证书列表，不携带该参数则会查询该用户下所有证书列表。
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的证书列表，不携带该参数则会查询该用户下所有证书列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -808,11 +754,11 @@ export class IoTDAClient {
         });
     }
     /**
-     * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是25秒。注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。 
+     * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是20秒。注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。 
      * @summary 下发设备命令
-     * @param {string} deviceId 下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
      * @param {DeviceCommandRequest} createCommandRequestBody 请求结构体，见请求结构体说明
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -834,8 +780,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口新建设备组，一个华为云账号下最多可有1,000个分组，包括父分组和子分组。设备组的最大层级关系不超过5层，即群组形成的关系树最大深度不超过5。
      * @summary 添加设备组
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {AddDeviceGroupDTO} [addDeviceGroupRequestBody] 请求结构体，见请求结构体说明
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {AddDeviceGroupDTO} [addDeviceGroupRequestBody] **参数说明**：请求结构体，见请求结构体说明。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -857,10 +803,10 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口管理设备组中的设备。单个设备组内最多添加20,000个设备，一个设备最多可以被添加到10个设备组中。
      * @summary 管理设备组中的设备
-     * @param {string} groupId 设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。
-     * @param {string} actionId 操作类型，支持添加设备和删除设备。 - addDevice: 添加设备。添加已注册的设备到指定的设备组中。 - removeDevice: 删除设备。从指定的设备组中删除设备，只是解除了设备和设备组的关系，该设备在平台仍然存在。 
-     * @param {string} deviceId 设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} groupId **参数说明**：设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。 **取值范围**：长度不超过36，十六进制字符串和连接符（-）的组合
+     * @param {string} actionId **参数说明**：操作类型，支持添加设备和删除设备。 **取值范围**： - addDevice: 添加设备。添加已注册的设备到指定的设备组中。 - removeDevice: 删除设备。从指定的设备组中删除设备，只是解除了设备和设备组的关系，该设备在平台仍然存在。
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -882,8 +828,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口删除指定设备组，如果该设备组存在子设备组或者该设备组中存在设备，必须先删除子设备组并将设备从该设备组移除，才能删除该设备组。
      * @summary 删除设备组
-     * @param {string} groupId 设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} groupId **参数说明**：设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。 **取值范围**：长度不超过36，十六进制字符串和连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -905,12 +851,12 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中的设备组信息列表。
      * @summary 查询设备组列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
-     * @param {string} [lastModifiedTime] 查询设备组在last_modified_time之后修改的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的设备组列表，不携带该参数则会查询该用户下所有设备组列表。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {string} [lastModifiedTime] **参数说明**：查询设备组在last_modified_time之后修改的记录。 **取值范围**：格式为yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的产品列表，不携带该参数则会查询该用户下所有产品列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -932,8 +878,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询指定设备组详情。
      * @summary 查询设备组
-     * @param {string} groupId 设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} groupId **参数说明**：设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。 **取值范围**：长度不超过36，十六进制字符串和连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -955,11 +901,11 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询指定设备组下的设备列表。
      * @summary 查询设备组设备列表
-     * @param {string} groupId 设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} groupId **参数说明**：设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。 **取值范围**：长度不超过36，十六进制字符串和连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -981,9 +927,9 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口修改物联网平台中指定设备组。
      * @summary 修改设备组
-     * @param {string} groupId 设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。
+     * @param {string} groupId **参数说明**：设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。 **取值范围**：长度不超过36，十六进制字符串和连接符（-）的组合。
      * @param {UpdateDeviceGroupDTO} updateDeviceGroupRequestBody request
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1006,7 +952,7 @@ export class IoTDAClient {
      * 应用服务器可调用此接口在物联网平台创建一个设备，仅在创建后设备才可以接入物联网平台。  - 该接口支持使用gateway_id参数指定在父设备下创建一个子设备，并且支持多级子设备，当前最大支持二级子设备。 - 该接口同时还支持对设备进行初始配置，接口会读取创建设备请求参数product_id对应的产品详情，如果产品的属性有定义默认值，则会将该属性默认值写入该设备的设备影子中。 - 用户还可以使用创建设备请求参数shadow字段为设备指定初始配置，指定后将会根据service_id和desired设置的属性值与产品中对应属性的默认值比对，如果不同，则将以shadow字段中设置的属性值为准写入到设备影子中。
      * @summary 创建设备
      * @param {AddDevice} addDeviceRequestBody request
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1028,8 +974,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口在物联网平台上删除指定设备。若设备下连接了非直连设备，则必须把设备下的非直连设备都删除后，才能删除该设备。
      * @summary 删除设备
-     * @param {string} deviceId 设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1051,8 +997,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口冻结设备，设备冻结后不能再连接上线，可以通过解冻设备接口解除设备冻结。注意，当前仅支持冻结与平台直连的设备。
      * @summary 冻结设备
-     * @param {string} deviceId 设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1074,18 +1020,18 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中的设备信息列表。
      * @summary 查询设备列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [productId] 设备关联的产品ID，用于唯一标识一个产品模型，在管理门户导入产品模型后由平台分配获得。
-     * @param {string} [gatewayId] 网关ID，用于标识设备所属的父设备，即父设备的设备ID。携带该参数时，表示查询该设备下的子设备，默认查询下一级子设备，如果需要查询该设备下所有各级子设备，请同时携带is_cascade_query参数为true；不携带该参数时，表示查询用户下所有设备。
-     * @param {boolean} [isCascadeQuery] 是否级联查询，该参数仅在同时携带gateway_id时生效，默认值为false。 - true：表示查询设备ID等于gateway_id参数的设备下的所有各级子设备。 - false：表示查询设备ID等于gateway_id参数的设备下的一级子设备。 
-     * @param {string} [nodeId] 设备标识码，通常使用IMEI、MAC地址或Serial No作为node_id。
-     * @param {string} [deviceName] 设备名称。
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
-     * @param {string} [startTime] 查询设备注册时间在startTime之后的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
-     * @param {string} [endTime] 查询设备注册时间在endTime之前的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的设备列表，不携带该参数则会查询该用户下所有设备列表。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [productId] **参数说明**：设备关联的产品ID，用于唯一标识一个产品模型，在管理门户导入产品模型后由平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [gatewayId] **参数说明**：网关ID，用于标识设备所属的父设备，即父设备的设备ID。携带该参数时，表示查询该设备下的子设备，默认查询下一级子设备，如果需要查询该设备下所有各级子设备，请同时携带is_cascade_query参数为true；不携带该参数时，表示查询用户下所有设备。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {boolean} [isCascadeQuery] **参数说明**：是否级联查询，该参数仅在同时携带gateway_id时生效。默认值为false。 **取值范围**： - true：表示查询设备ID等于gateway_id参数的设备下的所有各级子设备。 - false：表示查询设备ID等于gateway_id参数的设备下的一级子设备。
+     * @param {string} [nodeId] **参数说明**：设备标识码，通常使用IMEI、MAC地址或Serial No作为node_id。 **取值范围**：长度不超过64，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [deviceName] **参数说明**：设备名称。 **取值范围**：长度不超过256，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {string} [startTime] **参数说明**：查询设备注册时间在startTime之后的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
+     * @param {string} [endTime] **参数说明**：查询设备注册时间在endTime之前的记录，格式：yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的设备列表，不携带该参数则会查询该用户下所有设备列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1107,10 +1053,10 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口重置设备密钥，携带指定密钥时平台将设备密钥重置为指定的密钥，不携带密钥时平台将自动生成一个新的随机密钥返回。
      * @summary 重置设备密钥
-     * @param {string} deviceId 设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。
-     * @param {string} actionId 对设备执行的操作，取值范围：resetSecret。 - resetSecret: 重置密钥。注意：NB设备密钥由于协议特殊性，只支持十六进制密钥接入。 
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} actionId **参数说明**：对设备执行的操作。 **取值范围**： - resetSecret: 重置密钥。注意：NB设备密钥由于协议特殊性，只支持十六进制密钥接入。
      * @param {ResetDeviceSecret} resetDeviceSecretRequestBody request
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1132,8 +1078,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中指定设备的详细信息。
      * @summary 查询设备
-     * @param {string} deviceId 设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1155,8 +1101,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口解冻设备，解除冻结后，设备可以连接上线。
      * @summary 解冻设备
-     * @param {string} deviceId 设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1178,9 +1124,9 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口修改物联网平台中指定设备的基本信息。
      * @summary 修改设备
-     * @param {string} deviceId 设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {UpdateDevice} updateDeviceRequestBody request
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1202,8 +1148,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询指定设备的设备影子信息，包括对设备的期望属性信息（desired区）和设备最新上报的属性信息（reported区）。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发 
      * @summary 查询设备影子数据
-     * @param {string} deviceId 设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1225,9 +1171,9 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口配置设备影子的预期属性（desired区），当设备上线或者设备上报属性时把属性下发给设备。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发 
      * @summary 配置设备影子预期数据
-     * @param {string} deviceId 设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {UpdateDesireds} updateDeviceShadowDesiredDataRequestBody request
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1249,9 +1195,9 @@ export class IoTDAClient {
     /**
      * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。 
      * @summary 下发设备消息
-     * @param {string} deviceId 下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
      * @param {DeviceMessageRequest} createMessageRequestBody 请求结构体，见请求结构体说明
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1273,8 +1219,8 @@ export class IoTDAClient {
     /**
      * 物联网平台可查询指定设备下的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。 
      * @summary 查询设备消息
-     * @param {string} deviceId 下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1296,9 +1242,9 @@ export class IoTDAClient {
     /**
      * 物联网平台可查询指定消息id的消息。 
      * @summary 查询指定消息id的消息
-     * @param {string} deviceId 下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
-     * @param {string} messageId 下发消息的消息ID，用于唯一标识一个消息，在消息下发时由物联网平台分配获得。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} messageId **参数说明**：下发消息的消息ID，用于唯一标识一个消息，在消息下发时由物联网平台分配获得。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1320,7 +1266,7 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口创建产品。
      * @summary 创建产品
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {AddProduct} [createProductRequestBody] request
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1343,9 +1289,9 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口删除已导入物联网平台的指定产品模型。
      * @summary 删除产品
-     * @param {string} productId 产品ID，用于唯一标识一个产品，在物联网平台创建产品后由平台分配获得。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，必须携带该参数指定要删除的产品属于哪个资源空间，否则接口会提示错误。如果用户存在多资源空间，同时又不想携带该参数，可以联系华为技术支持对用户数据做资源空间合并。
+     * @param {string} productId **参数说明**：产品ID，用于唯一标识一个产品，在物联网平台创建产品后由平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，必须携带该参数指定要删除的产品属于哪个资源空间，否则接口会提示错误。如果用户存在多资源空间，同时又不想携带该参数，可以联系华为技术支持对用户数据做资源空间合并。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1367,11 +1313,11 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询已导入物联网平台的产品模型信息列表，了解产品模型的概要信息。
      * @summary 查询产品列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的产品列表，不携带该参数则会查询该用户下所有产品列表。
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的产品列表，不携带该参数则会查询该用户下所有产品列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1393,9 +1339,9 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询已导入物联网平台的指定产品模型详细信息，包括产品模型的服务、属性、命令等。
      * @summary 查询产品
-     * @param {string} productId 产品ID，用于唯一标识一个产品，在物联网平台创建产品后由平台分配获得。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，必须携带该参数指定要查询的产品属于哪个资源空间，否则接口会提示错误。如果用户存在多资源空间，同时又不想携带该参数，可以联系华为技术支持对用户数据做资源空间合并。
+     * @param {string} productId **参数说明**：产品ID，用于唯一标识一个产品，在物联网平台创建产品后由平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，必须携带该参数指定要查询的产品属于哪个资源空间，否则接口会提示错误。如果用户存在多资源空间，同时又不想携带该参数，可以联系华为技术支持对用户数据做资源空间合并。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1417,9 +1363,9 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口修改已导入物联网平台的指定产品模型，包括产品模型的服务、属性、命令等。
      * @summary 修改产品
-     * @param {string} productId 产品ID，用于唯一标识一个产品，在物联网平台创建产品后由平台分配获得。
+     * @param {string} productId **参数说明**：产品ID，用于唯一标识一个产品，在物联网平台创建产品后由平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {UpdateProduct} updateProductRequestBody request
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1441,10 +1387,9 @@ export class IoTDAClient {
     /**
      * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口查询指定设备下属性。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。 
      * @summary 查询设备属性
-     * @param {string} deviceId 下发属性的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。
-     * @param {string} serviceId 设备的服务ID，在设备关联的产品模型中定义。
-     * @param {string} [stageAuthToken] Stage用户的Token, 仅提供给IoStage服务使用
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} deviceId **参数说明**：下发属性的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} serviceId **参数说明**：设备的服务ID，在设备关联的产品模型中定义。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1466,10 +1411,9 @@ export class IoTDAClient {
     /**
      * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向指定设备下属性。平台负责将属性以同步方式发送给设备，并将设备执行属性结果同步返回。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。 
      * @summary 修改设备属性
-     * @param {string} deviceId 下发属性的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。
+     * @param {string} deviceId **参数说明**：下发属性的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {DevicePropertiesRequest} updatePropertiesRequestBody 请求结构体，见请求结构体说明
-     * @param {string} [stageAuthToken] Stage用户的Token, 仅提供给IoStage服务使用
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1491,8 +1435,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口在物联网平台创建一条规则触发条件。
      * @summary 创建规则触发条件
-     * @param {AddRuleReq} createRoutingRuleRequestBody 请求的body对象，详细请看规则结构体
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {AddRuleReq} createRoutingRuleRequestBody **参数说明**：请求的body对象，详细请看规则结构体
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1514,9 +1458,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口在物联网平台创建一条规则动作。
      * @summary 创建规则动作
-     * @param {AddActionReq} createRuleActionRequestBody 请求的body对象，详细请看规则结构体
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [xLBService] 此参数定义了lbservice
+     * @param {AddActionReq} createRuleActionRequestBody **参数说明**：请求的body对象，详细请看规则结构体
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1538,8 +1481,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口删除物联网平台中的指定规则条件。
      * @summary 删除规则触发条件
-     * @param {string} ruleId 规则条件ID。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} ruleId **参数说明**：规则条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1561,8 +1504,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口删除物联网平台中的指定规则动作。
      * @summary 删除规则动作
-     * @param {string} actionId 规则动作ID。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} actionId **参数说明**：规则动作ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1584,15 +1527,15 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中设置的规则条件列表。
      * @summary 查询规则条件列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [resource] 订阅的资源名称： - device：设备。 - device.property：设备属性。 - device.message：设备消息。 - device.message.status：设备消息状态。 - device.status：设备状态。 - batchtask：批量任务。 - product：产品。 - device.command.status：设备异步命令状态。 
-     * @param {string} [event] 订阅的资源事件，取值范围：与资源有关，不同的资源，事件不同 event需要与resource关联使用，具体的“resource：event”映射关系如下： - device：create（设备添加） - device：delete（设备删除） - device：update（设备更新） - device.status：update （设备状态变更） - device.property：report（设备属性上报） - device.message：report（设备消息上报） - device.message.status：update（设备消息状态变更） - batchtask：update （批量任务状态变更） - product：create（产品添加） - product：delete（产品删除） - product：update（产品更新） - device.command.status：update（设备异步命令状态更新）。 
-     * @param {string} [appType] 租户规则的生效范围，取值如下： - GLOBAL：生效范围为租户级 - APP：生效范围为资源空间级。如果类型为APP，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则列表。 
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则动作列表。
-     * @param {string} [ruleName] 用户自定义的规则名称
-     * @param {number} [limit] 分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。 - 限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [resource] **参数说明**：订阅的资源名称。 **取值范围**： - device：设备。 - device.property：设备属性。 - device.message：设备消息。 - device.message.status：设备消息状态。 - device.status：设备状态。 - batchtask：批量任务。 - product：产品。 - device.command.status：设备异步命令状态。
+     * @param {string} [event] **参数说明**：订阅的资源事件。 **取值范围**：与资源有关，不同的资源，事件不同。 event需要与resource关联使用，具体的“resource：event”映射关系如下： - device：create（设备添加） - device：delete（设备删除） - device：update（设备更新） - device.status：update （设备状态变更） - device.property：report（设备属性上报） - device.message：report（设备消息上报） - device.message.status：update（设备消息状态变更） - batchtask：update （批量任务状态变更） - product：create（产品添加） - product：delete（产品删除） - product：update（产品更新） - device.command.status：update（设备异步命令状态更新）。
+     * @param {string} [appType] **参数说明**：租户规则的生效范围。 **取值范围**： - GLOBAL：生效范围为租户级。 - APP：生效范围为资源空间级。如果类型为APP，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则列表。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则动作列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [ruleName] **参数说明**：用户自定义的规则名称
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。 - 限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1614,14 +1557,14 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中设置的规则动作列表。
      * @summary 查询规则动作列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [ruleId] 规则触发条件ID。
-     * @param {string} [channel] 规则动作的类型，取值范围： - HTTP_FORWARDING：HTTP服务消息类型。 - DIS_FORWARDING：转发DIS服务消息类型。 - OBS_FORWARDING：转发OBS服务消息类型。 - AMQP_FORWARDING：转发AMQP服务消息类型。 - DMS_KAFKA_FORWARDING：转发kafka消息类型。 
-     * @param {string} [appType] 租户规则的生效范围，取值如下： - GLOBAL：生效范围为租户级 - APP：生效范围为资源空间级。如果类型为APP，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则动作列表。 
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，rule_id不携带且app_type为APP时，该参数生效，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则动作列表。
-     * @param {number} [limit] 分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。 - 限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [ruleId] **参数说明**：规则触发条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [channel] **参数说明**：规则动作的类型。 **取值范围**： - HTTP_FORWARDING：HTTP服务消息类型。 - DIS_FORWARDING：转发DIS服务消息类型。 - OBS_FORWARDING：转发OBS服务消息类型。 - AMQP_FORWARDING：转发AMQP服务消息类型。 - DMS_KAFKA_FORWARDING：转发kafka消息类型。
+     * @param {string} [appType] **参数说明**：租户规则的生效范围。 **取值范围**： - GLOBAL：生效范围为租户级。 - APP：生效范围为资源空间级。如果类型为APP，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则动作列表。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，rule_id不携带且app_type为APP时，该参数生效，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则动作列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。 - 限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1643,8 +1586,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中指定规则条件的配置信息。
      * @summary 查询规则条件
-     * @param {string} ruleId 规则条件ID。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} ruleId **参数说明**：规则条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1666,8 +1609,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中指定规则动作的配置信息。
      * @summary 查询规则动作
-     * @param {string} actionId 规则动作ID。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} actionId **参数说明**：规则动作ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1689,9 +1632,9 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则条件的配置参数。
      * @summary 修改规则触发条件
-     * @param {string} ruleId 规则条件ID。
-     * @param {UpdateRuleReq} updateRoutingRuleRequestBody 请求的body对象，详细请看规则结构体
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} ruleId **参数说明**：规则条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {UpdateRuleReq} updateRoutingRuleRequestBody **参数说明**：请求的body对象，详细请看规则结构体
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1713,9 +1656,9 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则动作的配置。
      * @summary 修改规则动作
-     * @param {string} actionId 规则动作ID。
-     * @param {UpdateActionReq} updateRuleActionRequestBody 请求的body对象，详细请看规则结构体
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} actionId **参数说明**：规则动作ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {UpdateActionReq} updateRuleActionRequestBody **参数说明**：请求的body对象，详细请看规则结构体
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1737,9 +1680,9 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则的状态，激活或者去激活规则。
      * @summary 修改规则状态
-     * @param {string} ruleId 规则Id
-     * @param {RuleStatus} changeRuleStatusRequestBody 请求的body对象，详细请看规则结构体
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} ruleId **参数说明**：规则Id。 **取值范围**：长度不超过32，只允许字母、数字的组合。
+     * @param {RuleStatus} changeRuleStatusRequestBody **参数说明**：请求的body对象，详细请看规则结构体。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1761,8 +1704,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口在物联网平台创建一条规则。
      * @summary 创建规则
-     * @param {Rule} createRuleRequestBody 请求的body对象，详细请看规则结构体
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {Rule} createRuleRequestBody **参数说明**：请求的body对象，详细请看规则结构体。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1784,8 +1727,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口删除物联网平台中的指定规则。
      * @summary 删除规则
-     * @param {string} ruleId 规则ID，用于唯一标识一条规则，在创建规则时由物联网平台分配获得。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} ruleId **参数说明**：规则ID，用于唯一标识一条规则，在创建规则时由物联网平台分配获得。 **取值范围**：长度不超过32，只允许字母、数字的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1807,12 +1750,12 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中设置的规则列表。
      * @summary 查询规则列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的规则列表，不携带该参数则会查询该用户下所有规则列表。
-     * @param {string} [ruleType] 规则类型。此参数为非必选参数，指定对应的规则类型结果进行返回，不携带该参数则会返回所有类型规则。
-     * @param {number} [limit] 分页查询时每页显示的记录数，查询结果根据limit进行分页，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的规则列表，不携带该参数则会查询该用户下所有规则列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [ruleType] **参数说明**：规则类型。此参数为非必选参数，指定对应的规则类型结果进行返回，不携带该参数则会返回所有类型规则。 **取值范围**： - DEVICE_LINKAGE - DATA_FORWARDING
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数，查询结果根据limit进行分页。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1834,8 +1777,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口查询物联网平台中指定规则的配置信息。
      * @summary 查询规则
-     * @param {string} ruleId 规则ID，用于唯一标识一条规则，在创建规则时由物联网平台分配获得。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} ruleId **参数说明**：规则ID，用于唯一标识一条规则，在创建规则时由物联网平台分配获得。 **取值范围**：长度不超过32，只允许字母、数字的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1857,9 +1800,9 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则的配置。
      * @summary 修改规则
-     * @param {string} ruleId 规则ID，用于唯一标识一条规则，在创建规则时由物联网平台分配获得。
-     * @param {Rule} updateRuleRequestBody 请求的body对象，详细请看规则结构体
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} ruleId **参数说明**：规则ID，用于唯一标识一条规则，在创建规则时由物联网平台分配获得。 **取值范围**：长度不超过32，只允许字母、数字的组合。
+     * @param {Rule} updateRuleRequestBody **参数说明**：请求的body对象，详细请看规则结构体。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1879,135 +1822,12 @@ export class IoTDAClient {
         });
     }
     /**
-     * 应用服务器可调用此接口订阅物联网平台资源的变化事件，当资源发生变化时（如设备激活，设备数据更新等），平台会向应用服务器发送通知消息。
-     * @summary 创建订阅
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {CreateSubReq} [createSubscriptionRequestBody] request
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest): Promise<CreateSubscriptionResponse> {
-        // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createSubscription(createSubscriptionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
-    }
-    /**
-     * 应用服务器可调用此接口删除物联网平台中的指定订阅配置。
-     * @summary 删除订阅
-     * @param {string} subscriptionId 订阅ID，用于唯一标识一个订阅，在创建订阅时由物联网平台分配获得。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteSubscription(deleteSubscriptionRequest?: DeleteSubscriptionRequest): Promise<string> {
-        // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteSubscription(deleteSubscriptionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
-    }
-    /**
-     * 应用服务器可调用此接口查询物联网平台中的订阅配置信息列表。
-     * @summary 查询订阅列表
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [resource] 订阅的资源名称。 - device：设备。 - device.message：设备消息。 - device.data：设备数据。 - device.message.status：设备消息状态。 - device.status：设备状态。 - batchtask.status：批量任务状态。 
-     * @param {string} [event] 订阅的资源事件，取值范围：activate、update。 event需要与resource关联使用，具体的“resource：event”映射关系如下： - device：activate（设备激活） - device.data：update（设备数据变化） - device.message.status：update（设备消息状态） - device.message：report（设备消息上报） - device.status：update （设备状态变化） - batchtask.status：update （批量任务状态变化） 
-     * @param {string} [callbackurl] 订阅的回调地址，用于接收对应资源事件的通知消息，例如：https://10.10.10.10:443/callbackurltest。
-     * @param {string} [appId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的消息订阅列表，不携带该参数则会查询该用户下所有消息订阅列表。
-     * @param {string} [channel] 物联网平台推送通知消息时使用的协议通道。使用“http”填充，表示该订阅推送协议通道为http(s)协议。
-     * @param {number} [limit] 分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。 - 限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listSubscriptions(listSubscriptionsRequest?: ListSubscriptionsRequest): Promise<ListSubscriptionsResponse> {
-        // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listSubscriptions(listSubscriptionsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
-    }
-    /**
-     * 应用服务器可调用此接口查询物联网平台中指定订阅的配置信息。
-     * @summary 查询订阅
-     * @param {string} subscriptionId 订阅ID，用于唯一标识一个订阅，在创建订阅时由物联网平台分配获得。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showSubscription(showSubscriptionRequest?: ShowSubscriptionRequest): Promise<ShowSubscriptionResponse> {
-        // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showSubscription(showSubscriptionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
-    }
-    /**
-     * 应用服务器可调用此接口修改物联网平台中的指定订阅配置，当前仅支持修改订阅回调地址（callbackurl）。
-     * @summary 修改订阅
-     * @param {string} subscriptionId 订阅ID，用于唯一标识一个订阅，在创建订阅时由物联网平台分配获得。
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {UpdateSubReq} [updateSubscriptionRequestBody] request
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateSubscription(updateSubscriptionRequest?: UpdateSubscriptionRequest): Promise<UpdateSubscriptionResponse> {
-        // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateSubscription(updateSubscriptionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
-    }
-    /**
      * 应用服务器可调用此接口查询绑定了指定标签的资源。当前支持标签的资源有Device(设备)。
      * @summary 按标签查询资源
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
-     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 
-     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {QueryResourceByTagsDTO} [listResourcesByTagsRequestBody] 请求结构体，见请求结构体说明
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2030,8 +1850,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口为指定资源绑定标签。当前支持标签的资源有Device(设备)。
      * @summary 绑定标签
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {BindTagsDTO} [tagDeviceRequestBody] 请求结构体，见请求结构体说明
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {BindTagsDTO} [tagDeviceRequestBody] **参数说明**：请求结构体，见请求结构体说明
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2053,8 +1873,8 @@ export class IoTDAClient {
     /**
      * 应用服务器可调用此接口为指定资源解绑标签。当前支持标签的资源有Device(设备)。
      * @summary 解绑标签
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {UnbindTagsDTO} [untagDeviceRequestBody] 请求结构体，见请求结构体说明
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {UnbindTagsDTO} [untagDeviceRequestBody] **参数说明**：请求结构体，见请求结构体说明
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2508,184 +2328,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询设备下队列中的命（处理中的命令），包含PENDING,SENT,DELIVERED三种状态，注意：DELIVERED状态的命令经过系统设定的一段时间（具体以系统配置为准）仍然没有更新，就会从队列中移除，变为历史命令。 
-         */
-        listAsyncCommands(listAsyncCommandsRequest?: ListAsyncCommandsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/iot/{project_id}/devices/{device_id}/async-commands",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let deviceId;
-            let instanceId;
-            let limit;
-            let marker;
-            let offset;
-            let startTime;
-            let endTime;
-            let status;
-            let commandId;
-            let commandName;
-
-            if (listAsyncCommandsRequest !== null && listAsyncCommandsRequest !== undefined) {
-                if (listAsyncCommandsRequest instanceof ListAsyncCommandsRequest) {
-                    deviceId = listAsyncCommandsRequest.deviceId;
-                    instanceId = listAsyncCommandsRequest.instanceId;
-                    limit = listAsyncCommandsRequest.limit;
-                    marker = listAsyncCommandsRequest.marker;
-                    offset = listAsyncCommandsRequest.offset;
-                    startTime = listAsyncCommandsRequest.startTime;
-                    endTime = listAsyncCommandsRequest.endTime;
-                    status = listAsyncCommandsRequest.status;
-                    commandId = listAsyncCommandsRequest.commandId;
-                    commandName = listAsyncCommandsRequest.commandName;
-                } else {
-                    deviceId = listAsyncCommandsRequest['device_id'];
-                    instanceId = listAsyncCommandsRequest['Instance-Id'];
-                    limit = listAsyncCommandsRequest['limit'];
-                    marker = listAsyncCommandsRequest['marker'];
-                    offset = listAsyncCommandsRequest['offset'];
-                    startTime = listAsyncCommandsRequest['start_time'];
-                    endTime = listAsyncCommandsRequest['end_time'];
-                    status = listAsyncCommandsRequest['status'];
-                    commandId = listAsyncCommandsRequest['command_id'];
-                    commandName = listAsyncCommandsRequest['command_name'];
-                }
-            }
-        
-            if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling listAsyncCommands.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (commandId !== null && commandId !== undefined) {
-                localVarQueryParameter['command_id'] = commandId;
-            }
-            if (commandName !== null && commandName !== undefined) {
-                localVarQueryParameter['command_name'] = commandName;
-            }
-            if (instanceId !== undefined && instanceId !== null) {
-                localVarHeaderParameter['Instance-Id'] = String(instanceId);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'device_id': deviceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询设备下发的历史异步命令。 
-         */
-        listAsyncHistoryCommands(listAsyncHistoryCommandsRequest?: ListAsyncHistoryCommandsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/iot/{project_id}/devices/{device_id}/async-commands-history",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let deviceId;
-            let instanceId;
-            let limit;
-            let marker;
-            let offset;
-            let startTime;
-            let endTime;
-            let status;
-            let commandId;
-            let commandName;
-
-            if (listAsyncHistoryCommandsRequest !== null && listAsyncHistoryCommandsRequest !== undefined) {
-                if (listAsyncHistoryCommandsRequest instanceof ListAsyncHistoryCommandsRequest) {
-                    deviceId = listAsyncHistoryCommandsRequest.deviceId;
-                    instanceId = listAsyncHistoryCommandsRequest.instanceId;
-                    limit = listAsyncHistoryCommandsRequest.limit;
-                    marker = listAsyncHistoryCommandsRequest.marker;
-                    offset = listAsyncHistoryCommandsRequest.offset;
-                    startTime = listAsyncHistoryCommandsRequest.startTime;
-                    endTime = listAsyncHistoryCommandsRequest.endTime;
-                    status = listAsyncHistoryCommandsRequest.status;
-                    commandId = listAsyncHistoryCommandsRequest.commandId;
-                    commandName = listAsyncHistoryCommandsRequest.commandName;
-                } else {
-                    deviceId = listAsyncHistoryCommandsRequest['device_id'];
-                    instanceId = listAsyncHistoryCommandsRequest['Instance-Id'];
-                    limit = listAsyncHistoryCommandsRequest['limit'];
-                    marker = listAsyncHistoryCommandsRequest['marker'];
-                    offset = listAsyncHistoryCommandsRequest['offset'];
-                    startTime = listAsyncHistoryCommandsRequest['start_time'];
-                    endTime = listAsyncHistoryCommandsRequest['end_time'];
-                    status = listAsyncHistoryCommandsRequest['status'];
-                    commandId = listAsyncHistoryCommandsRequest['command_id'];
-                    commandName = listAsyncHistoryCommandsRequest['command_name'];
-                }
-            }
-        
-            if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling listAsyncHistoryCommands.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (commandId !== null && commandId !== undefined) {
-                localVarQueryParameter['command_id'] = commandId;
-            }
-            if (commandName !== null && commandName !== undefined) {
-                localVarQueryParameter['command_name'] = commandName;
-            }
-            if (instanceId !== undefined && instanceId !== null) {
-                localVarHeaderParameter['Instance-Id'] = String(instanceId);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'device_id': deviceId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 物联网平台可查询指定id的命令。 
          */
         showAsyncDeviceCommand(showAsyncDeviceCommandRequest?: ShowAsyncDeviceCommandRequest) {
@@ -2978,6 +2620,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 应用服务器可调用此接口上传批量任务文件，用于创建批量任务。当前支持批量创建设备任务、批量删除设备任务、批量冻结设备任务、批量解冻设备任务的文件上传。 - [批量注册设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchCreateDevices_Template.xlsx)   - [批量删除设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchDeleteDevices_Template.xlsx)   - [批量冻结设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchFreezeDevices_Template.xlsx)   - [批量解冻设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchUnfreezeDevices_Template.xlsx) 
+         */
+        uploadBatchTaskFile(uploadBatchTaskFileRequest?: UploadBatchTaskFileRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/batchtask-files",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            var file;
+            let instanceId;
+
+            if (uploadBatchTaskFileRequest !== null && uploadBatchTaskFileRequest !== undefined) {
+                if (uploadBatchTaskFileRequest instanceof UploadBatchTaskFileRequest) {
+                    file = uploadBatchTaskFileRequest.body;
+                    instanceId = uploadBatchTaskFileRequest.instanceId;
+                } else {
+                    file = uploadBatchTaskFileRequest['body'];
+                    instanceId = uploadBatchTaskFileRequest['Instance-Id'];
+                }
+            }
+        
+            if (file === null || file === undefined) {
+                throw new RequiredError('file','Required parameter file was null or undefined when calling uploadBatchTaskFile.');
+            }
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            options.data = localVarFormParams;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 应用服务器可调用此接口在物联网平台上传设备的CA证书
          */
         addCertificate(addCertificateRequest?: AddCertificateRequest) {
@@ -3175,7 +2860,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是25秒。注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。 
+         * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是20秒。注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。 
          */
         createCommand(createCommandRequest?: CreateCommandRequest) {
             const options = {
@@ -4454,19 +4139,16 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let deviceId;
             let serviceId;
-            let stageAuthToken;
             let instanceId;
 
             if (listPropertiesRequest !== null && listPropertiesRequest !== undefined) {
                 if (listPropertiesRequest instanceof ListPropertiesRequest) {
                     deviceId = listPropertiesRequest.deviceId;
                     serviceId = listPropertiesRequest.serviceId;
-                    stageAuthToken = listPropertiesRequest.stageAuthToken;
                     instanceId = listPropertiesRequest.instanceId;
                 } else {
                     deviceId = listPropertiesRequest['device_id'];
                     serviceId = listPropertiesRequest['service_id'];
-                    stageAuthToken = listPropertiesRequest['Stage-Auth-Token'];
                     instanceId = listPropertiesRequest['Instance-Id'];
                 }
             }
@@ -4479,9 +4161,6 @@ export const ParamCreater = function () {
             }
             if (serviceId !== null && serviceId !== undefined) {
                 localVarQueryParameter['service_id'] = serviceId;
-            }
-            if (stageAuthToken !== undefined && stageAuthToken !== null) {
-                localVarHeaderParameter['Stage-Auth-Token'] = String(stageAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4510,19 +4189,16 @@ export const ParamCreater = function () {
 
             var body: any;
             let deviceId;
-            let stageAuthToken;
             let instanceId;
 
             if (updatePropertiesRequest !== null && updatePropertiesRequest !== undefined) {
                 if (updatePropertiesRequest instanceof UpdatePropertiesRequest) {
                     deviceId = updatePropertiesRequest.deviceId;
                     body = updatePropertiesRequest.body
-                    stageAuthToken = updatePropertiesRequest.stageAuthToken;
                     instanceId = updatePropertiesRequest.instanceId;
                 } else {
                     deviceId = updatePropertiesRequest['device_id'];
                     body = updatePropertiesRequest['body'];
-                    stageAuthToken = updatePropertiesRequest['Stage-Auth-Token'];
                     instanceId = updatePropertiesRequest['Instance-Id'];
                 }
             }
@@ -4532,9 +4208,6 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (stageAuthToken !== undefined && stageAuthToken !== null) {
-                localVarHeaderParameter['Stage-Auth-Token'] = String(stageAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4605,17 +4278,14 @@ export const ParamCreater = function () {
 
             var body: any;
             let instanceId;
-            let xLBService;
 
             if (createRuleActionRequest !== null && createRuleActionRequest !== undefined) {
                 if (createRuleActionRequest instanceof CreateRuleActionRequest) {
                     body = createRuleActionRequest.body
                     instanceId = createRuleActionRequest.instanceId;
-                    xLBService = createRuleActionRequest.xLBService;
                 } else {
                     body = createRuleActionRequest['body'];
                     instanceId = createRuleActionRequest['Instance-Id'];
-                    xLBService = createRuleActionRequest['x-LB-Service'];
                 }
             }
         
@@ -4624,9 +4294,6 @@ export const ParamCreater = function () {
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
-            }
-            if (xLBService !== undefined && xLBService !== null) {
-                localVarHeaderParameter['x-LB-Service'] = String(xLBService);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -5326,251 +4993,6 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'rule_id': ruleId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 应用服务器可调用此接口订阅物联网平台资源的变化事件，当资源发生变化时（如设备激活，设备数据更新等），平台会向应用服务器发送通知消息。
-         */
-        createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v5/iot/{project_id}/subscriptions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-            let instanceId;
-
-            if (createSubscriptionRequest !== null && createSubscriptionRequest !== undefined) {
-                if (createSubscriptionRequest instanceof CreateSubscriptionRequest) {
-                    instanceId = createSubscriptionRequest.instanceId;
-                    body = createSubscriptionRequest.body
-                } else {
-                    instanceId = createSubscriptionRequest['Instance-Id'];
-                    body = createSubscriptionRequest['body'];
-                }
-            }
-        
-            if (instanceId !== undefined && instanceId !== null) {
-                localVarHeaderParameter['Instance-Id'] = String(instanceId);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 应用服务器可调用此接口删除物联网平台中的指定订阅配置。
-         */
-        deleteSubscription(deleteSubscriptionRequest?: DeleteSubscriptionRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v5/iot/{project_id}/subscriptions/{subscription_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let subscriptionId;
-            let instanceId;
-
-            if (deleteSubscriptionRequest !== null && deleteSubscriptionRequest !== undefined) {
-                if (deleteSubscriptionRequest instanceof DeleteSubscriptionRequest) {
-                    subscriptionId = deleteSubscriptionRequest.subscriptionId;
-                    instanceId = deleteSubscriptionRequest.instanceId;
-                } else {
-                    subscriptionId = deleteSubscriptionRequest['subscription_id'];
-                    instanceId = deleteSubscriptionRequest['Instance-Id'];
-                }
-            }
-        
-            if (subscriptionId === null || subscriptionId === undefined) {
-                throw new RequiredError('subscriptionId','Required parameter subscriptionId was null or undefined when calling deleteSubscription.');
-            }
-            if (instanceId !== undefined && instanceId !== null) {
-                localVarHeaderParameter['Instance-Id'] = String(instanceId);
-            }
-
-            options.pathParams = { 'subscription_id': subscriptionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 应用服务器可调用此接口查询物联网平台中的订阅配置信息列表。
-         */
-        listSubscriptions(listSubscriptionsRequest?: ListSubscriptionsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/iot/{project_id}/subscriptions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let instanceId;
-            let resource;
-            let event;
-            let callbackurl;
-            let appId;
-            let channel;
-            let limit;
-            let marker;
-            let offset;
-
-            if (listSubscriptionsRequest !== null && listSubscriptionsRequest !== undefined) {
-                if (listSubscriptionsRequest instanceof ListSubscriptionsRequest) {
-                    instanceId = listSubscriptionsRequest.instanceId;
-                    resource = listSubscriptionsRequest.resource;
-                    event = listSubscriptionsRequest.event;
-                    callbackurl = listSubscriptionsRequest.callbackurl;
-                    appId = listSubscriptionsRequest.appId;
-                    channel = listSubscriptionsRequest.channel;
-                    limit = listSubscriptionsRequest.limit;
-                    marker = listSubscriptionsRequest.marker;
-                    offset = listSubscriptionsRequest.offset;
-                } else {
-                    instanceId = listSubscriptionsRequest['Instance-Id'];
-                    resource = listSubscriptionsRequest['resource'];
-                    event = listSubscriptionsRequest['event'];
-                    callbackurl = listSubscriptionsRequest['callbackurl'];
-                    appId = listSubscriptionsRequest['app_id'];
-                    channel = listSubscriptionsRequest['channel'];
-                    limit = listSubscriptionsRequest['limit'];
-                    marker = listSubscriptionsRequest['marker'];
-                    offset = listSubscriptionsRequest['offset'];
-                }
-            }
-        
-            if (resource !== null && resource !== undefined) {
-                localVarQueryParameter['resource'] = resource;
-            }
-            if (event !== null && event !== undefined) {
-                localVarQueryParameter['event'] = event;
-            }
-            if (callbackurl !== null && callbackurl !== undefined) {
-                localVarQueryParameter['callbackurl'] = callbackurl;
-            }
-            if (appId !== null && appId !== undefined) {
-                localVarQueryParameter['app_id'] = appId;
-            }
-            if (channel !== null && channel !== undefined) {
-                localVarQueryParameter['channel'] = channel;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (instanceId !== undefined && instanceId !== null) {
-                localVarHeaderParameter['Instance-Id'] = String(instanceId);
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 应用服务器可调用此接口查询物联网平台中指定订阅的配置信息。
-         */
-        showSubscription(showSubscriptionRequest?: ShowSubscriptionRequest) {
-            const options = {
-                method: "GET",
-                url: "/v5/iot/{project_id}/subscriptions/{subscription_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let subscriptionId;
-            let instanceId;
-
-            if (showSubscriptionRequest !== null && showSubscriptionRequest !== undefined) {
-                if (showSubscriptionRequest instanceof ShowSubscriptionRequest) {
-                    subscriptionId = showSubscriptionRequest.subscriptionId;
-                    instanceId = showSubscriptionRequest.instanceId;
-                } else {
-                    subscriptionId = showSubscriptionRequest['subscription_id'];
-                    instanceId = showSubscriptionRequest['Instance-Id'];
-                }
-            }
-        
-            if (subscriptionId === null || subscriptionId === undefined) {
-                throw new RequiredError('subscriptionId','Required parameter subscriptionId was null or undefined when calling showSubscription.');
-            }
-            if (instanceId !== undefined && instanceId !== null) {
-                localVarHeaderParameter['Instance-Id'] = String(instanceId);
-            }
-
-            options.pathParams = { 'subscription_id': subscriptionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 应用服务器可调用此接口修改物联网平台中的指定订阅配置，当前仅支持修改订阅回调地址（callbackurl）。
-         */
-        updateSubscription(updateSubscriptionRequest?: UpdateSubscriptionRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v5/iot/{project_id}/subscriptions/{subscription_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-            let subscriptionId;
-            let instanceId;
-
-            if (updateSubscriptionRequest !== null && updateSubscriptionRequest !== undefined) {
-                if (updateSubscriptionRequest instanceof UpdateSubscriptionRequest) {
-                    subscriptionId = updateSubscriptionRequest.subscriptionId;
-                    instanceId = updateSubscriptionRequest.instanceId;
-                    body = updateSubscriptionRequest.body
-                } else {
-                    subscriptionId = updateSubscriptionRequest['subscription_id'];
-                    instanceId = updateSubscriptionRequest['Instance-Id'];
-                    body = updateSubscriptionRequest['body'];
-                }
-            }
-        
-            if (subscriptionId === null || subscriptionId === undefined) {
-                throw new RequiredError('subscriptionId','Required parameter subscriptionId was null or undefined when calling updateSubscription.');
-            }
-            if (instanceId !== undefined && instanceId !== null) {
-                localVarHeaderParameter['Instance-Id'] = String(instanceId);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'subscription_id': subscriptionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

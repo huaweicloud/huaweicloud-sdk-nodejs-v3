@@ -5,20 +5,20 @@ import { V3NodeStatus } from './V3NodeStatus';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteNodeResponse extends SdkResponse {
-    public apiVersion?: string;
     public kind?: string;
+    public apiVersion?: string;
     public metadata?: NodeMetadata;
     public spec?: V3NodeSpec;
     public status?: V3NodeStatus;
     public constructor() { 
         super();
     }
-    public withApiVersion(apiVersion: string): DeleteNodeResponse {
-        this['apiVersion'] = apiVersion;
-        return this;
-    }
     public withKind(kind: string): DeleteNodeResponse {
         this['kind'] = kind;
+        return this;
+    }
+    public withApiVersion(apiVersion: string): DeleteNodeResponse {
+        this['apiVersion'] = apiVersion;
         return this;
     }
     public withMetadata(metadata: NodeMetadata): DeleteNodeResponse {

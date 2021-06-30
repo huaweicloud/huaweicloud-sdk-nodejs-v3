@@ -1,4 +1,3 @@
-import { PropertiesInfo } from './PropertiesInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -12,7 +11,10 @@ export class ShowTemplateDetailResponse extends SdkResponse {
     private 'ssh_url'?: string | undefined;
     private 'project_uuid'?: string | undefined;
     public status?: number;
-    public properties?: Array<PropertiesInfo>;
+    public properties?: Array<object>;
+    public dependencies?: Array<object>;
+    private 'dependency_type'?: string | undefined;
+    public deployment?: object;
     public constructor() { 
         super();
     }
@@ -82,8 +84,26 @@ export class ShowTemplateDetailResponse extends SdkResponse {
         this['status'] = status;
         return this;
     }
-    public withProperties(properties: Array<PropertiesInfo>): ShowTemplateDetailResponse {
+    public withProperties(properties: Array<object>): ShowTemplateDetailResponse {
         this['properties'] = properties;
+        return this;
+    }
+    public withDependencies(dependencies: Array<object>): ShowTemplateDetailResponse {
+        this['dependencies'] = dependencies;
+        return this;
+    }
+    public withDependencyType(dependencyType: string): ShowTemplateDetailResponse {
+        this['dependency_type'] = dependencyType;
+        return this;
+    }
+    public set dependencyType(dependencyType: string | undefined) {
+        this['dependency_type'] = dependencyType;
+    }
+    public get dependencyType() {
+        return this['dependency_type'];
+    }
+    public withDeployment(deployment: object): ShowTemplateDetailResponse {
+        this['deployment'] = deployment;
         return this;
     }
 }

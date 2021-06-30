@@ -4,23 +4,23 @@ import { NodePoolStatus } from './NodePoolStatus';
 
 
 export class NodePool {
-    public apiVersion: string;
     public kind: string;
+    public apiVersion: string;
     public metadata: NodePoolMetadata;
     public spec: NodePoolSpec;
     public status?: NodePoolStatus;
-    public constructor(apiVersion?: any, kind?: any, metadata?: any, spec?: any) { 
-        this['apiVersion'] = apiVersion;
+    public constructor(kind?: any, apiVersion?: any, metadata?: any, spec?: any) { 
         this['kind'] = kind;
+        this['apiVersion'] = apiVersion;
         this['metadata'] = metadata;
         this['spec'] = spec;
     }
-    public withApiVersion(apiVersion: string): NodePool {
-        this['apiVersion'] = apiVersion;
-        return this;
-    }
     public withKind(kind: string): NodePool {
         this['kind'] = kind;
+        return this;
+    }
+    public withApiVersion(apiVersion: string): NodePool {
+        this['apiVersion'] = apiVersion;
         return this;
     }
     public withMetadata(metadata: NodePoolMetadata): NodePool {

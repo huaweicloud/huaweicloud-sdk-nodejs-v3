@@ -3,9 +3,11 @@ import { RepositoryInfo } from './RepositoryInfo';
 
 export class CodehubJobInfo {
     private 'application_name': string | undefined;
+    public privately?: boolean;
+    private 'short_id'?: string | undefined;
     private 'code_url': string | undefined;
     private 'region_id': string | undefined;
-    private 'repo_type': CodehubJobInfoRepoTypeEnum | undefined;
+    private 'repo_type': number | undefined;
     public properties?: { [key: string]: string; };
     private 'repo_info'?: RepositoryInfo | undefined;
     public constructor(applicationName?: any, codeUrl?: any, regionId?: any, repoType?: any) { 
@@ -23,6 +25,20 @@ export class CodehubJobInfo {
     }
     public get applicationName() {
         return this['application_name'];
+    }
+    public withPrivately(privately: boolean): CodehubJobInfo {
+        this['privately'] = privately;
+        return this;
+    }
+    public withShortId(shortId: string): CodehubJobInfo {
+        this['short_id'] = shortId;
+        return this;
+    }
+    public set shortId(shortId: string | undefined) {
+        this['short_id'] = shortId;
+    }
+    public get shortId() {
+        return this['short_id'];
     }
     public withCodeUrl(codeUrl: string): CodehubJobInfo {
         this['code_url'] = codeUrl;
@@ -44,11 +60,11 @@ export class CodehubJobInfo {
     public get regionId() {
         return this['region_id'];
     }
-    public withRepoType(repoType: CodehubJobInfoRepoTypeEnum): CodehubJobInfo {
+    public withRepoType(repoType: number): CodehubJobInfo {
         this['repo_type'] = repoType;
         return this;
     }
-    public set repoType(repoType: CodehubJobInfoRepoTypeEnum | undefined) {
+    public set repoType(repoType: number | undefined) {
         this['repo_type'] = repoType;
     }
     public get repoType() {
@@ -68,13 +84,4 @@ export class CodehubJobInfo {
     public get repoInfo() {
         return this['repo_info'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CodehubJobInfoRepoTypeEnum {
-    NUMBER_0 = 0,
-    NUMBER_1 = 1
 }

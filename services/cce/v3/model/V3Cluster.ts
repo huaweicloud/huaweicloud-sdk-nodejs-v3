@@ -4,23 +4,23 @@ import { V3ClusterSpec } from './V3ClusterSpec';
 
 
 export class V3Cluster {
-    public apiVersion: string;
     public kind: string;
+    public apiVersion: string;
     public metadata: ClusterMetadata;
     public spec: V3ClusterSpec;
     public status?: ClusterStatus;
-    public constructor(apiVersion?: any, kind?: any, metadata?: any, spec?: any) { 
-        this['apiVersion'] = apiVersion;
+    public constructor(kind?: any, apiVersion?: any, metadata?: any, spec?: any) { 
         this['kind'] = kind;
+        this['apiVersion'] = apiVersion;
         this['metadata'] = metadata;
         this['spec'] = spec;
     }
-    public withApiVersion(apiVersion: string): V3Cluster {
-        this['apiVersion'] = apiVersion;
-        return this;
-    }
     public withKind(kind: string): V3Cluster {
         this['kind'] = kind;
+        return this;
+    }
+    public withApiVersion(apiVersion: string): V3Cluster {
+        this['apiVersion'] = apiVersion;
         return this;
     }
     public withMetadata(metadata: ClusterMetadata): V3Cluster {

@@ -1,17 +1,31 @@
+import { VolumeMetadata } from './VolumeMetadata';
 
 
-export class V3RootVolume {
-    private 'cluster_id'?: string | undefined;
-    private 'cluster_type'?: string | undefined;
-    public extendParam?: { [key: string]: object; };
-    private 'hw:passthrough'?: boolean | undefined;
+export class Volume {
     public size: number;
     public volumetype: string;
+    public extendParam?: { [key: string]: object; };
+    private 'cluster_id'?: string | undefined;
+    private 'cluster_type'?: string | undefined;
+    private 'hw:passthrough'?: boolean | undefined;
+    public metadata?: VolumeMetadata;
     public constructor(size?: any, volumetype?: any) { 
         this['size'] = size;
         this['volumetype'] = volumetype;
     }
-    public withClusterId(clusterId: string): V3RootVolume {
+    public withSize(size: number): Volume {
+        this['size'] = size;
+        return this;
+    }
+    public withVolumetype(volumetype: string): Volume {
+        this['volumetype'] = volumetype;
+        return this;
+    }
+    public withExtendParam(extendParam: { [key: string]: object; }): Volume {
+        this['extendParam'] = extendParam;
+        return this;
+    }
+    public withClusterId(clusterId: string): Volume {
         this['cluster_id'] = clusterId;
         return this;
     }
@@ -21,7 +35,7 @@ export class V3RootVolume {
     public get clusterId() {
         return this['cluster_id'];
     }
-    public withClusterType(clusterType: string): V3RootVolume {
+    public withClusterType(clusterType: string): Volume {
         this['cluster_type'] = clusterType;
         return this;
     }
@@ -31,11 +45,7 @@ export class V3RootVolume {
     public get clusterType() {
         return this['cluster_type'];
     }
-    public withExtendParam(extendParam: { [key: string]: object; }): V3RootVolume {
-        this['extendParam'] = extendParam;
-        return this;
-    }
-    public withHwPassthrough(hwPassthrough: boolean): V3RootVolume {
+    public withHwPassthrough(hwPassthrough: boolean): Volume {
         this['hw:passthrough'] = hwPassthrough;
         return this;
     }
@@ -45,12 +55,8 @@ export class V3RootVolume {
     public get hwPassthrough() {
         return this['hw:passthrough'];
     }
-    public withSize(size: number): V3RootVolume {
-        this['size'] = size;
-        return this;
-    }
-    public withVolumetype(volumetype: string): V3RootVolume {
-        this['volumetype'] = volumetype;
+    public withMetadata(metadata: VolumeMetadata): Volume {
+        this['metadata'] = metadata;
         return this;
     }
 }

@@ -2,23 +2,27 @@ import { Versions } from './Versions';
 
 
 export class Templatespec {
-    public description: string;
+    public type: string;
+    public require?: boolean;
     public labels: Array<string>;
     public logoURL: string;
     public readmeURL: string;
-    public require?: boolean;
-    public type: string;
+    public description: string;
     public versions: Array<Versions>;
-    public constructor(description?: any, labels?: any, logoURL?: any, readmeURL?: any, type?: any, versions?: any) { 
-        this['description'] = description;
+    public constructor(type?: any, labels?: any, logoURL?: any, readmeURL?: any, description?: any, versions?: any) { 
+        this['type'] = type;
         this['labels'] = labels;
         this['logoURL'] = logoURL;
         this['readmeURL'] = readmeURL;
-        this['type'] = type;
+        this['description'] = description;
         this['versions'] = versions;
     }
-    public withDescription(description: string): Templatespec {
-        this['description'] = description;
+    public withType(type: string): Templatespec {
+        this['type'] = type;
+        return this;
+    }
+    public withRequire(require: boolean): Templatespec {
+        this['require'] = require;
         return this;
     }
     public withLabels(labels: Array<string>): Templatespec {
@@ -33,12 +37,8 @@ export class Templatespec {
         this['readmeURL'] = readmeURL;
         return this;
     }
-    public withRequire(require: boolean): Templatespec {
-        this['require'] = require;
-        return this;
-    }
-    public withType(type: string): Templatespec {
-        this['type'] = type;
+    public withDescription(description: string): Templatespec {
+        this['description'] = description;
         return this;
     }
     public withVersions(versions: Array<Versions>): Templatespec {

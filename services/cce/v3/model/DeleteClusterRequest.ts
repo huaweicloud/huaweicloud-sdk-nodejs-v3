@@ -3,7 +3,6 @@
 export class DeleteClusterRequest {
     private 'cluster_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public errorStatus?: string;
     private 'delete_efs'?: DeleteClusterRequestDeleteEfsEnum | undefined;
     private 'delete_eni'?: DeleteClusterRequestDeleteEniEnum | undefined;
     private 'delete_evs'?: DeleteClusterRequestDeleteEvsEnum | undefined;
@@ -33,10 +32,6 @@ export class DeleteClusterRequest {
     }
     public get contentType() {
         return this['Content-Type'];
-    }
-    public withErrorStatus(errorStatus: string): DeleteClusterRequest {
-        this['errorStatus'] = errorStatus;
-        return this;
     }
     public withDeleteEfs(deleteEfs: DeleteClusterRequestDeleteEfsEnum): DeleteClusterRequest {
         this['delete_efs'] = deleteEfs;

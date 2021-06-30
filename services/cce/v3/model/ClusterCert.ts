@@ -1,10 +1,14 @@
 
 
 export class ClusterCert {
+    public server?: string;
     private 'certificate-authority-data'?: string | undefined;
     private 'insecure-skip-tls-verify'?: boolean | undefined;
-    public server?: string;
     public constructor() { 
+    }
+    public withServer(server: string): ClusterCert {
+        this['server'] = server;
+        return this;
     }
     public withCertificateAuthorityData(certificateAuthorityData: string): ClusterCert {
         this['certificate-authority-data'] = certificateAuthorityData;
@@ -25,9 +29,5 @@ export class ClusterCert {
     }
     public get insecureSkipTlsVerify() {
         return this['insecure-skip-tls-verify'];
-    }
-    public withServer(server: string): ClusterCert {
-        this['server'] = server;
-        return this;
     }
 }

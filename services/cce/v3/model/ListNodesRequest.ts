@@ -3,7 +3,6 @@
 export class ListNodesRequest {
     private 'cluster_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public errorStatus?: string;
     public constructor(clusterId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
         this['Content-Type'] = contentType;
@@ -27,9 +26,5 @@ export class ListNodesRequest {
     }
     public get contentType() {
         return this['Content-Type'];
-    }
-    public withErrorStatus(errorStatus: string): ListNodesRequest {
-        this['errorStatus'] = errorStatus;
-        return this;
     }
 }

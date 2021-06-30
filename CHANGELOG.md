@@ -1,3 +1,67 @@
+# 3.0.9-beta 2021-06-29
+
+### HuaweiCloud SDK Core
+- _feature_
+  - Support multipart/form-data
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+    - None
+- _Bug Fix_
+    - Solve the issue of abnormal parsing result when using interface `NovaShowKeypair` to obtain the secret key.
+- _Change_
+    - None
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+    - None
+- _Bug Fix_
+    - [Issue 20](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/issues/20): Fix the issue that the type of `extendParam`
+      is defined incorrectly.
+    - [Issue 22](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/issues/22): Modify the optional value of response parameter `status` of interface `ListAddonInstances`.
+- _Change_
+    - Add the request parameter `tobedeleted` to the interface `DeleteCluster`.
+    - Add a request parameter `storage` to interfaces `CreateNodePool`,`ShowNodePool`,`UpdateNodePool`,`DeleteNodePool`.
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - Support more interfaces:
+      - `UploadBatchTaskFile`
+      - `ListComplexQueryDevice`
+  - Remove interfaces:
+        - `ListSubscriptions`
+        - `CreateSubscription`
+        - `UpdateSubscription`
+        - `ShowSubscription`
+        - `DeleteSubscription`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK IAM
+
+- _Features_
+    - None
+- _Bug Fix_
+    - None
+- _Change_
+    - Add the parameter `access_mode` to interface `CreateUsers`.
+    - Change the parameter `authentication_code` of interface `DeleteBindingDevice` from required to optional.
+    - Add optional values to request parameter `type` of the interface `ShowDomainQuota`:
+        - `assigment_group_mp`
+        - `assigment_agency_mp`
+        - `assigment_group_ep`
+        - `assigment_user_ep`
+    - Add request parameters`permission_type`,`display_name`,`catalog`,`type` of interface `KeystoneListPermissions`.
+
 # 3.0.8-beta 2021-04-15
 
 ### HuaweiCloud SDK Core

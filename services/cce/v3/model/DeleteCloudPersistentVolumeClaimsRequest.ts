@@ -3,6 +3,8 @@
 export class DeleteCloudPersistentVolumeClaimsRequest {
     public name: string;
     public namespace: string;
+    public deleteVolume?: string;
+    public storageType?: string;
     private 'Content-Type': string | undefined;
     private 'X-Cluster-ID'?: string | undefined;
     public constructor(name?: any, namespace?: any, contentType?: any) { 
@@ -16,6 +18,14 @@ export class DeleteCloudPersistentVolumeClaimsRequest {
     }
     public withNamespace(namespace: string): DeleteCloudPersistentVolumeClaimsRequest {
         this['namespace'] = namespace;
+        return this;
+    }
+    public withDeleteVolume(deleteVolume: string): DeleteCloudPersistentVolumeClaimsRequest {
+        this['deleteVolume'] = deleteVolume;
+        return this;
+    }
+    public withStorageType(storageType: string): DeleteCloudPersistentVolumeClaimsRequest {
+        this['storageType'] = storageType;
         return this;
     }
     public withContentType(contentType: string): DeleteCloudPersistentVolumeClaimsRequest {

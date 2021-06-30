@@ -41,6 +41,7 @@ export class TemplateInfo {
     public deployment?: object;
     private 'update_id'?: string | undefined;
     private 'is_support_cloudide'?: boolean | undefined;
+    private 'has_notices'?: boolean | undefined;
     public constructor() { 
     }
     public withId(id: string): TemplateInfo {
@@ -278,5 +279,15 @@ export class TemplateInfo {
     }
     public get isSupportCloudide() {
         return this['is_support_cloudide'];
+    }
+    public withHasNotices(hasNotices: boolean): TemplateInfo {
+        this['has_notices'] = hasNotices;
+        return this;
+    }
+    public set hasNotices(hasNotices: boolean | undefined) {
+        this['has_notices'] = hasNotices;
+    }
+    public get hasNotices() {
+        return this['has_notices'];
     }
 }

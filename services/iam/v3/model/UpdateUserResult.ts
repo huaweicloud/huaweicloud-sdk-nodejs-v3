@@ -2,6 +2,7 @@ import { LinksSelf } from './LinksSelf';
 
 
 export class UpdateUserResult {
+    private 'access_mode'?: string | undefined;
     private 'pwd_status'?: boolean | undefined;
     private 'xuser_id'?: string | undefined;
     private 'xuser_type'?: string | undefined;
@@ -21,6 +22,16 @@ export class UpdateUserResult {
         this['enabled'] = enabled;
         this['id'] = id;
         this['links'] = links;
+    }
+    public withAccessMode(accessMode: string): UpdateUserResult {
+        this['access_mode'] = accessMode;
+        return this;
+    }
+    public set accessMode(accessMode: string | undefined) {
+        this['access_mode'] = accessMode;
+    }
+    public get accessMode() {
+        return this['access_mode'];
     }
     public withPwdStatus(pwdStatus: boolean): UpdateUserResult {
         this['pwd_status'] = pwdStatus;

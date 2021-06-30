@@ -1440,10 +1440,14 @@ export class IamClient {
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询权限列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
      * @summary 查询权限列表
-     * @param {string} [name] 权限名，获取方式请参见：[获取权限名、权限ID](https://support.huaweicloud.com/api-iam/iam_10_0001.html)。
-     * @param {string} [domainId] 账号ID，获取方式请参见：[获取账号ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。    &gt; - 如果填写此参数，则返回账号下所有自定义策略。 &gt; - 如果不填写此参数，则返回所有系统权限（包含系统策略和系统角色）。
-     * @param {number} [page] 分页查询时数据的页数，查询值最小为1，默认值为1。需要与per_page同时使用。
-     * @param {number} [perPage] 分页查询时每页的数据个数，取值范围为[1,300], 默认值为300。需要与page同时使用。
+     * @param {string} [name] 系统内部呈现的权限名称。如云目录服务CCS普通用户权限CCS User的name为ccs_user。 建议您传参display_name，不传name参数。
+     * @param {string} [domainId] 账号ID，获取方式请参见：[获取账号ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。 &gt; - 如果填写此参数，则返回账号下所有自定义策略。 &gt; - 如果不填写此参数，则返回所有系统权限（包含系统策略和系统角色）。
+     * @param {number} [page] 分页查询时数据的页数，查询值最小为1。需要与per_page同时存在。传入domain_id参数查询自定义策略时，可配套使用。
+     * @param {number} [perPage] 分页查询时每页的数据个数，取值范围为[1,300]，默认值为300。需要与page同时存在。不传page和per_page参数时，每页最多返回300个权限。
+     * @param {string} [permissionType] 区分系统权限类型的参数。当domain_id参数为空时生效。 &gt; - policy：返回系统策略。 &gt; - role：返回系统角色。
+     * @param {string} [displayName] 过滤权限名称。如传参为Administrator，则返回满足条件的所有管理员权限。
+     * @param {string} [type] 过滤权限的显示模式。取值范围：domain,project,all。type为domain时，返回type&#x3D;AA或AX的权限；type为project时，返回type&#x3D;AA或XA的权限；type为all时返回type为AA、AX、XA的权限。 &gt; - AX表示在domain层显示。 &gt; - XA表示在project层显示。 &gt; - AA表示在domain和project层均显示。 &gt; - XX表示在domain和project层均不显示。
+     * @param {string} [catalog] 权限所在目录。catalog值精确匹配策略的catalog字段(可以过滤服务的策略、或者自定义策略)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2456,7 +2460,7 @@ export class IamClient {
      * 该接口可以用于查询账号配额。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
      * @summary 查询账号配额
      * @param {string} domainId 待查询的账号ID，获取方式请参见：[获取账号、IAM用户、项目、用户组、委托的名称和ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
-     * @param {'user' | 'group' | 'idp' | 'agency' | 'policy'} [type] 查询配额的类型，取值范围为：user, group, idp, agency, policy。
+     * @param {'user' | 'group' | 'idp' | 'agency' | 'policy' | 'assigment_group_mp' | 'assigment_agency_mp' | 'assigment_group_ep' | 'assigment_user_ep'} [type] 查询配额的类型，取值范围为：user, group, idp, agency, policy, assigment_group_mp, assigment_agency_mp, assigment_group_ep, assigment_user_ep。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -5111,6 +5115,10 @@ export const ParamCreater = function () {
             let domainId;
             let page;
             let perPage;
+            let permissionType;
+            let displayName;
+            let type;
+            let catalog;
 
             if (keystoneListPermissionsRequest !== null && keystoneListPermissionsRequest !== undefined) {
                 if (keystoneListPermissionsRequest instanceof KeystoneListPermissionsRequest) {
@@ -5118,11 +5126,19 @@ export const ParamCreater = function () {
                     domainId = keystoneListPermissionsRequest.domainId;
                     page = keystoneListPermissionsRequest.page;
                     perPage = keystoneListPermissionsRequest.perPage;
+                    permissionType = keystoneListPermissionsRequest.permissionType;
+                    displayName = keystoneListPermissionsRequest.displayName;
+                    type = keystoneListPermissionsRequest.type;
+                    catalog = keystoneListPermissionsRequest.catalog;
                 } else {
                     name = keystoneListPermissionsRequest['name'];
                     domainId = keystoneListPermissionsRequest['domain_id'];
                     page = keystoneListPermissionsRequest['page'];
                     perPage = keystoneListPermissionsRequest['per_page'];
+                    permissionType = keystoneListPermissionsRequest['permission_type'];
+                    displayName = keystoneListPermissionsRequest['display_name'];
+                    type = keystoneListPermissionsRequest['type'];
+                    catalog = keystoneListPermissionsRequest['catalog'];
                 }
             }
         
@@ -5137,6 +5153,18 @@ export const ParamCreater = function () {
             }
             if (perPage !== null && perPage !== undefined) {
                 localVarQueryParameter['per_page'] = perPage;
+            }
+            if (permissionType !== null && permissionType !== undefined) {
+                localVarQueryParameter['permission_type'] = permissionType;
+            }
+            if (displayName !== null && displayName !== undefined) {
+                localVarQueryParameter['display_name'] = displayName;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (catalog !== null && catalog !== undefined) {
+                localVarQueryParameter['catalog'] = catalog;
             }
 
             options.queryParams = localVarQueryParameter;

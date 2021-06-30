@@ -13,7 +13,6 @@ export class ListPortsRequest {
     public marker?: string;
     private 'fixed_ips'?: string | undefined;
     private 'enterprise_project_id'?: string | undefined;
-    private 'zone_id'?: string | undefined;
     public constructor() { 
     }
     public withName(name: string): ListPortsRequest {
@@ -105,16 +104,6 @@ export class ListPortsRequest {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
-    }
-    public withZoneId(zoneId: string): ListPortsRequest {
-        this['zone_id'] = zoneId;
-        return this;
-    }
-    public set zoneId(zoneId: string | undefined) {
-        this['zone_id'] = zoneId;
-    }
-    public get zoneId() {
-        return this['zone_id'];
     }
 }
 

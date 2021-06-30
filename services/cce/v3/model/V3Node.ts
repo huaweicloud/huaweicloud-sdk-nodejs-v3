@@ -4,19 +4,19 @@ import { V3NodeStatus } from './V3NodeStatus';
 
 
 export class V3Node {
-    public apiVersion?: string;
     public kind?: string;
+    public apiVersion?: string;
     public metadata?: NodeMetadata;
     public spec?: V3NodeSpec;
     public status?: V3NodeStatus;
     public constructor() { 
     }
-    public withApiVersion(apiVersion: string): V3Node {
-        this['apiVersion'] = apiVersion;
-        return this;
-    }
     public withKind(kind: string): V3Node {
         this['kind'] = kind;
+        return this;
+    }
+    public withApiVersion(apiVersion: string): V3Node {
+        this['apiVersion'] = apiVersion;
         return this;
     }
     public withMetadata(metadata: NodeMetadata): V3Node {

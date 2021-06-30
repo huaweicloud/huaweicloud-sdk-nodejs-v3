@@ -5,7 +5,6 @@ export class UpdateNodePoolRequest {
     private 'cluster_id': string | undefined;
     private 'nodepool_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public errorStatus?: string;
     public body?: NodePool;
     public constructor(clusterId?: any, nodepoolId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
@@ -41,10 +40,6 @@ export class UpdateNodePoolRequest {
     }
     public get contentType() {
         return this['Content-Type'];
-    }
-    public withErrorStatus(errorStatus: string): UpdateNodePoolRequest {
-        this['errorStatus'] = errorStatus;
-        return this;
     }
     public withBody(body: NodePool): UpdateNodePoolRequest {
         this['body'] = body;

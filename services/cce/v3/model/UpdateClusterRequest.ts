@@ -4,7 +4,6 @@ import { ClusterInformation } from './ClusterInformation';
 export class UpdateClusterRequest {
     private 'cluster_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public errorStatus?: string;
     public body?: ClusterInformation;
     public constructor(clusterId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
@@ -29,10 +28,6 @@ export class UpdateClusterRequest {
     }
     public get contentType() {
         return this['Content-Type'];
-    }
-    public withErrorStatus(errorStatus: string): UpdateClusterRequest {
-        this['errorStatus'] = errorStatus;
-        return this;
     }
     public withBody(body: ClusterInformation): UpdateClusterRequest {
         this['body'] = body;

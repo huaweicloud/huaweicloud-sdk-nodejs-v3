@@ -2,35 +2,41 @@ import { Versions } from './Versions';
 
 
 export class AddonInstanceStatus {
-    public currentVersion: Versions;
-    public message: string;
-    public reason: string;
     public status: AddonInstanceStatusStatusEnum;
+    private 'Reason': string | undefined;
+    public message: string;
     public targetVersions?: Array<string>;
-    public constructor(currentVersion?: any, message?: any, reason?: any, status?: any) { 
-        this['currentVersion'] = currentVersion;
-        this['message'] = message;
-        this['reason'] = reason;
+    public currentVersion: Versions;
+    public constructor(status?: any, reason?: any, message?: any, currentVersion?: any) { 
         this['status'] = status;
-    }
-    public withCurrentVersion(currentVersion: Versions): AddonInstanceStatus {
-        this['currentVersion'] = currentVersion;
-        return this;
-    }
-    public withMessage(message: string): AddonInstanceStatus {
+        this['Reason'] = reason;
         this['message'] = message;
-        return this;
-    }
-    public withReason(reason: string): AddonInstanceStatus {
-        this['reason'] = reason;
-        return this;
+        this['currentVersion'] = currentVersion;
     }
     public withStatus(status: AddonInstanceStatusStatusEnum): AddonInstanceStatus {
         this['status'] = status;
         return this;
     }
+    public withReason(reason: string): AddonInstanceStatus {
+        this['Reason'] = reason;
+        return this;
+    }
+    public set reason(reason: string | undefined) {
+        this['Reason'] = reason;
+    }
+    public get reason() {
+        return this['Reason'];
+    }
+    public withMessage(message: string): AddonInstanceStatus {
+        this['message'] = message;
+        return this;
+    }
     public withTargetVersions(targetVersions: Array<string>): AddonInstanceStatus {
         this['targetVersions'] = targetVersions;
+        return this;
+    }
+    public withCurrentVersion(currentVersion: Versions): AddonInstanceStatus {
+        this['currentVersion'] = currentVersion;
         return this;
     }
 }
@@ -40,8 +46,15 @@ export class AddonInstanceStatus {
     * @enum {string}
     */
 export enum AddonInstanceStatusStatusEnum {
+    RUNNING = 'running',
+    ABNORMAL = 'abnormal',
     INSTALLING = 'installing',
+    INSTALLFAILED = 'installFailed',
     UPGRADING = 'upgrading',
-    FAILED = 'failed',
-    RUNNING = 'running'
+    UPGRADEFAILED = 'upgradeFailed',
+    DELETING = 'deleting',
+    DELETESUCCESS = 'deleteSuccess',
+    DELETEFAILED = 'deleteFailed',
+    AVAILABLE = 'available',
+    ROLLBACKING = 'rollbacking'
 }

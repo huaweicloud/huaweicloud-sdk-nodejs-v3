@@ -1,3 +1,66 @@
+# 3.0.9-beta 2021-06-29
+
+### HuaweiCloud SDK Core
+- _新增特性_
+  - 支持 multipart/form-data
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK ECS
+
+- _新增特性_
+    - 无
+- _解决问题_
+    - 解决了使用接口`NovaShowKeypair`获取秘钥，结果解析异常的问题
+- _特性变更_
+    - 无
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+    - 无
+- _解决问题_
+    - [Issue 20](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/issues/20): 修复`extendParam`类型定义错误的问题
+    - [Issue 22](https://github.com/huaweicloud/huaweicloud-sdk-go-v3/issues/22): 修正接口`ListAddonInstances`的响应参数`status`可选值
+- _特性变更_
+    - 接口`DeleteCluster`新增请求参数`tobedeleted`
+    - 接口`CreateNodePool`、`ShowNodePool`、`UpdateNodePool`、`DeleteNodePool`新增请求参数`storage`
+
+### HuaweiCloud SDK IoTDA
+
+- _新增特性_
+  - 新增支持接口:
+      - `ListComplexQueryDevice`
+      - `UploadBatchTaskFile`
+  - 下线订阅管理相关接口：
+        - `ListSubscriptions`
+        - `CreateSubscription`
+        - `UpdateSubscription`
+        - `ShowSubscription`
+        - `DeleteSubscription`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK IAM
+
+- _新增特性_
+    - 无
+- _解决问题_
+    - 无
+- _特性变更_
+    - 接口 `CreateUsers` 新增请求体参数和响应体参数 _access_mode_
+    - 接口 `DeleteBindingDevice` 将请求体参数 _authentication_code_ 设置为必填参数
+    - 查询账号配额接口`ShowDomainQuota`的请求参数`type`增加可选值：
+        - `assigment_group_mp`
+        - `assigment_agency_mp`
+        - `assigment_group_ep`
+        - `assigment_user_ep`
+    - 接口`KeystoneListPermissions`新增请求参数`permission_type`、`display_name`、`catalog`、`type`
+
 # 3.0.8-beta 2021-04-15
 
 ### HuaweiCloud SDK Core

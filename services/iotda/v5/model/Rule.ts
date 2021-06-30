@@ -10,7 +10,6 @@ export class Rule {
     private 'rule_type': string | undefined;
     public status?: string;
     private 'app_id'?: string | undefined;
-    private 'edge_node_ids'?: Array<string> | undefined;
     public constructor(name?: any, conditionGroup?: any, actions?: any, ruleType?: any) { 
         this['name'] = name;
         this['condition_group'] = conditionGroup;
@@ -62,15 +61,5 @@ export class Rule {
     }
     public get appId() {
         return this['app_id'];
-    }
-    public withEdgeNodeIds(edgeNodeIds: Array<string>): Rule {
-        this['edge_node_ids'] = edgeNodeIds;
-        return this;
-    }
-    public set edgeNodeIds(edgeNodeIds: Array<string> | undefined) {
-        this['edge_node_ids'] = edgeNodeIds;
-    }
-    public get edgeNodeIds() {
-        return this['edge_node_ids'];
     }
 }

@@ -1,18 +1,18 @@
 
 
 export class InstanceRequestSpec {
-    public addonTemplateName: string;
+    public version: string;
     public clusterID: string;
     public values: { [key: string]: object; };
-    public version: string;
-    public constructor(addonTemplateName?: any, clusterID?: any, values?: any, version?: any) { 
-        this['addonTemplateName'] = addonTemplateName;
+    public addonTemplateName: string;
+    public constructor(version?: any, clusterID?: any, values?: any, addonTemplateName?: any) { 
+        this['version'] = version;
         this['clusterID'] = clusterID;
         this['values'] = values;
-        this['version'] = version;
-    }
-    public withAddonTemplateName(addonTemplateName: string): InstanceRequestSpec {
         this['addonTemplateName'] = addonTemplateName;
+    }
+    public withVersion(version: string): InstanceRequestSpec {
+        this['version'] = version;
         return this;
     }
     public withClusterID(clusterID: string): InstanceRequestSpec {
@@ -23,8 +23,8 @@ export class InstanceRequestSpec {
         this['values'] = values;
         return this;
     }
-    public withVersion(version: string): InstanceRequestSpec {
-        this['version'] = version;
+    public withAddonTemplateName(addonTemplateName: string): InstanceRequestSpec {
+        this['addonTemplateName'] = addonTemplateName;
         return this;
     }
 }

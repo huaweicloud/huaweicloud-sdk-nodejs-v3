@@ -11,7 +11,7 @@ import { PostPaidServerTag } from './PostPaidServerTag';
 export class PostPaidServer {
     private 'auto_terminate_time'?: string | undefined;
     public adminPass?: string;
-    private 'availability_zone': string | undefined;
+    private 'availability_zone'?: string | undefined;
     public count?: number;
     private 'data_volumes'?: Array<PostPaidServerDataVolume> | undefined;
     public extendparam?: PostPaidServerExtendParam;
@@ -31,8 +31,7 @@ export class PostPaidServer {
     private 'user_data'?: string | undefined;
     public vpcid: string;
     public description?: string;
-    public constructor(availabilityZone?: any, flavorRef?: any, imageRef?: any, name?: any, nics?: any, rootVolume?: any, vpcid?: any) { 
-        this['availability_zone'] = availabilityZone;
+    public constructor(flavorRef?: any, imageRef?: any, name?: any, nics?: any, rootVolume?: any, vpcid?: any) { 
         this['flavorRef'] = flavorRef;
         this['imageRef'] = imageRef;
         this['name'] = name;

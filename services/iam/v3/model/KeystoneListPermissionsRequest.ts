@@ -5,6 +5,10 @@ export class KeystoneListPermissionsRequest {
     private 'domain_id'?: string | undefined;
     public page?: number;
     private 'per_page'?: number | undefined;
+    private 'permission_type'?: string | undefined;
+    private 'display_name'?: string | undefined;
+    public type?: string;
+    public catalog?: string;
     public constructor() { 
     }
     public withName(name: string): KeystoneListPermissionsRequest {
@@ -34,5 +38,33 @@ export class KeystoneListPermissionsRequest {
     }
     public get perPage() {
         return this['per_page'];
+    }
+    public withPermissionType(permissionType: string): KeystoneListPermissionsRequest {
+        this['permission_type'] = permissionType;
+        return this;
+    }
+    public set permissionType(permissionType: string | undefined) {
+        this['permission_type'] = permissionType;
+    }
+    public get permissionType() {
+        return this['permission_type'];
+    }
+    public withDisplayName(displayName: string): KeystoneListPermissionsRequest {
+        this['display_name'] = displayName;
+        return this;
+    }
+    public set displayName(displayName: string | undefined) {
+        this['display_name'] = displayName;
+    }
+    public get displayName() {
+        return this['display_name'];
+    }
+    public withType(type: string): KeystoneListPermissionsRequest {
+        this['type'] = type;
+        return this;
+    }
+    public withCatalog(catalog: string): KeystoneListPermissionsRequest {
+        this['catalog'] = catalog;
+        return this;
     }
 }

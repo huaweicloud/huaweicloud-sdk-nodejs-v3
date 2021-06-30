@@ -6,13 +6,6 @@ export class ShowApplicationResponse extends SdkResponse {
     private 'app_name'?: string | undefined;
     private 'create_time'?: string | undefined;
     private 'default_app'?: boolean | undefined;
-    private 'app_type'?: string | undefined;
-    public username?: string;
-    public permission?: string;
-    private 'last_instance_id'?: string | undefined;
-    private 'current_instance_id'?: string | undefined;
-    private 'service_name'?: string | undefined;
-    public freezed?: boolean;
     public constructor() { 
         super();
     }
@@ -55,57 +48,5 @@ export class ShowApplicationResponse extends SdkResponse {
     }
     public get defaultApp() {
         return this['default_app'];
-    }
-    public withAppType(appType: string): ShowApplicationResponse {
-        this['app_type'] = appType;
-        return this;
-    }
-    public set appType(appType: string | undefined) {
-        this['app_type'] = appType;
-    }
-    public get appType() {
-        return this['app_type'];
-    }
-    public withUsername(username: string): ShowApplicationResponse {
-        this['username'] = username;
-        return this;
-    }
-    public withPermission(permission: string): ShowApplicationResponse {
-        this['permission'] = permission;
-        return this;
-    }
-    public withLastInstanceId(lastInstanceId: string): ShowApplicationResponse {
-        this['last_instance_id'] = lastInstanceId;
-        return this;
-    }
-    public set lastInstanceId(lastInstanceId: string | undefined) {
-        this['last_instance_id'] = lastInstanceId;
-    }
-    public get lastInstanceId() {
-        return this['last_instance_id'];
-    }
-    public withCurrentInstanceId(currentInstanceId: string): ShowApplicationResponse {
-        this['current_instance_id'] = currentInstanceId;
-        return this;
-    }
-    public set currentInstanceId(currentInstanceId: string | undefined) {
-        this['current_instance_id'] = currentInstanceId;
-    }
-    public get currentInstanceId() {
-        return this['current_instance_id'];
-    }
-    public withServiceName(serviceName: string): ShowApplicationResponse {
-        this['service_name'] = serviceName;
-        return this;
-    }
-    public set serviceName(serviceName: string | undefined) {
-        this['service_name'] = serviceName;
-    }
-    public get serviceName() {
-        return this['service_name'];
-    }
-    public withFreezed(freezed: boolean): ShowApplicationResponse {
-        this['freezed'] = freezed;
-        return this;
     }
 }

@@ -24,21 +24,20 @@ export class PrePaidServer {
     private 'root_volume': PrePaidServerRootVolume | undefined;
     private 'data_volumes'?: Array<PrePaidServerDataVolume> | undefined;
     private 'security_groups'?: Array<PrePaidServerSecurityGroup> | undefined;
-    private 'availability_zone': string | undefined;
+    private 'availability_zone'?: string | undefined;
     public extendparam?: PrePaidServerExtendParam;
     public metadata?: { [key: string]: string; };
     private 'os:scheduler_hints'?: PrePaidServerSchedulerHints | undefined;
     public tags?: Array<string>;
     private 'server_tags'?: Array<PrePaidServerTag> | undefined;
     public description?: string;
-    public constructor(imageRef?: any, flavorRef?: any, name?: any, vpcid?: any, nics?: any, rootVolume?: any, availabilityZone?: any) { 
+    public constructor(imageRef?: any, flavorRef?: any, name?: any, vpcid?: any, nics?: any, rootVolume?: any) { 
         this['imageRef'] = imageRef;
         this['flavorRef'] = flavorRef;
         this['name'] = name;
         this['vpcid'] = vpcid;
         this['nics'] = nics;
         this['root_volume'] = rootVolume;
-        this['availability_zone'] = availabilityZone;
     }
     public withAutoTerminateTime(autoTerminateTime: string): PrePaidServer {
         this['auto_terminate_time'] = autoTerminateTime;

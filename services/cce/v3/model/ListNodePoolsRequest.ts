@@ -3,7 +3,6 @@
 export class ListNodePoolsRequest {
     private 'cluster_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public errorStatus?: string;
     public showDefaultNodePool?: string;
     public constructor(clusterId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
@@ -28,10 +27,6 @@ export class ListNodePoolsRequest {
     }
     public get contentType() {
         return this['Content-Type'];
-    }
-    public withErrorStatus(errorStatus: string): ListNodePoolsRequest {
-        this['errorStatus'] = errorStatus;
-        return this;
     }
     public withShowDefaultNodePool(showDefaultNodePool: string): ListNodePoolsRequest {
         this['showDefaultNodePool'] = showDefaultNodePool;

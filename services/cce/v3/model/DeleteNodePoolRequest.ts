@@ -4,7 +4,6 @@ export class DeleteNodePoolRequest {
     private 'cluster_id': string | undefined;
     private 'nodepool_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public errorStatus?: string;
     public constructor(clusterId?: any, nodepoolId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
         this['nodepool_id'] = nodepoolId;
@@ -39,9 +38,5 @@ export class DeleteNodePoolRequest {
     }
     public get contentType() {
         return this['Content-Type'];
-    }
-    public withErrorStatus(errorStatus: string): DeleteNodePoolRequest {
-        this['errorStatus'] = errorStatus;
-        return this;
     }
 }

@@ -2,25 +2,33 @@ import { ClusterEndpoints } from './ClusterEndpoints';
 
 
 export class ClusterStatus {
-    public deleteOption?: object;
-    public deleteStatus?: object;
+    public phase?: string;
+    public jobID?: string;
+    public reason?: string;
+    public message?: string;
     public endpoints?: Array<ClusterEndpoints>;
     public isLocked?: boolean;
-    public jobID?: string;
     public lockScene?: string;
     public lockSource?: string;
     public lockSourceId?: string;
-    public message?: string;
-    public phase?: string;
-    public reason?: string;
+    public deleteOption?: object;
+    public deleteStatus?: object;
     public constructor() { 
     }
-    public withDeleteOption(deleteOption: object): ClusterStatus {
-        this['deleteOption'] = deleteOption;
+    public withPhase(phase: string): ClusterStatus {
+        this['phase'] = phase;
         return this;
     }
-    public withDeleteStatus(deleteStatus: object): ClusterStatus {
-        this['deleteStatus'] = deleteStatus;
+    public withJobID(jobID: string): ClusterStatus {
+        this['jobID'] = jobID;
+        return this;
+    }
+    public withReason(reason: string): ClusterStatus {
+        this['reason'] = reason;
+        return this;
+    }
+    public withMessage(message: string): ClusterStatus {
+        this['message'] = message;
         return this;
     }
     public withEndpoints(endpoints: Array<ClusterEndpoints>): ClusterStatus {
@@ -29,10 +37,6 @@ export class ClusterStatus {
     }
     public withIsLocked(isLocked: boolean): ClusterStatus {
         this['isLocked'] = isLocked;
-        return this;
-    }
-    public withJobID(jobID: string): ClusterStatus {
-        this['jobID'] = jobID;
         return this;
     }
     public withLockScene(lockScene: string): ClusterStatus {
@@ -47,16 +51,12 @@ export class ClusterStatus {
         this['lockSourceId'] = lockSourceId;
         return this;
     }
-    public withMessage(message: string): ClusterStatus {
-        this['message'] = message;
+    public withDeleteOption(deleteOption: object): ClusterStatus {
+        this['deleteOption'] = deleteOption;
         return this;
     }
-    public withPhase(phase: string): ClusterStatus {
-        this['phase'] = phase;
-        return this;
-    }
-    public withReason(reason: string): ClusterStatus {
-        this['reason'] = reason;
+    public withDeleteStatus(deleteStatus: object): ClusterStatus {
+        this['deleteStatus'] = deleteStatus;
         return this;
     }
 }

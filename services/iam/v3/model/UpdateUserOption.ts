@@ -1,6 +1,7 @@
 
 
 export class UpdateUserOption {
+    private 'access_mode'?: string | undefined;
     public name?: string;
     public password?: string;
     public email?: string;
@@ -12,6 +13,16 @@ export class UpdateUserOption {
     private 'xuser_id'?: string | undefined;
     public description?: string;
     public constructor() { 
+    }
+    public withAccessMode(accessMode: string): UpdateUserOption {
+        this['access_mode'] = accessMode;
+        return this;
+    }
+    public set accessMode(accessMode: string | undefined) {
+        this['access_mode'] = accessMode;
+    }
+    public get accessMode() {
+        return this['access_mode'];
     }
     public withName(name: string): UpdateUserOption {
         this['name'] = name;

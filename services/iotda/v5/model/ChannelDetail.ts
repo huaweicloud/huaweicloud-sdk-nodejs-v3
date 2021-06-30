@@ -11,6 +11,7 @@ import { MqttForwarding } from './MqttForwarding';
 import { MrsKafkaForwarding } from './MrsKafkaForwarding';
 import { MysqlForwarding } from './MysqlForwarding';
 import { ObsForwarding } from './ObsForwarding';
+import { PulsarForwarding } from './PulsarForwarding';
 import { RomaForwarding } from './RomaForwarding';
 
 
@@ -29,6 +30,7 @@ export class ChannelDetail {
     private 'influxdb_forwarding'?: InfluxDBForwarding | undefined;
     private 'functiongraph_forwarding'?: FunctionGraphForwarding | undefined;
     private 'mrs_kafka_forwarding'?: MrsKafkaForwarding | undefined;
+    private 'pulsar_forwarding'?: PulsarForwarding | undefined;
     public constructor() { 
     }
     public withHttpForwarding(httpForwarding: HttpForwarding): ChannelDetail {
@@ -170,5 +172,15 @@ export class ChannelDetail {
     }
     public get mrsKafkaForwarding() {
         return this['mrs_kafka_forwarding'];
+    }
+    public withPulsarForwarding(pulsarForwarding: PulsarForwarding): ChannelDetail {
+        this['pulsar_forwarding'] = pulsarForwarding;
+        return this;
+    }
+    public set pulsarForwarding(pulsarForwarding: PulsarForwarding | undefined) {
+        this['pulsar_forwarding'] = pulsarForwarding;
+    }
+    public get pulsarForwarding() {
+        return this['pulsar_forwarding'];
     }
 }

@@ -8,6 +8,7 @@ export class TemplateQueryV2 {
     private 'my_templates'?: boolean | undefined;
     public status?: number;
     private 'status_array'?: Array<number> | undefined;
+    private 'has_notices'?: boolean | undefined;
     public productshorts?: Array<string>;
     public offset?: number;
     public limit?: number;
@@ -63,6 +64,16 @@ export class TemplateQueryV2 {
     }
     public get statusArray() {
         return this['status_array'];
+    }
+    public withHasNotices(hasNotices: boolean): TemplateQueryV2 {
+        this['has_notices'] = hasNotices;
+        return this;
+    }
+    public set hasNotices(hasNotices: boolean | undefined) {
+        this['has_notices'] = hasNotices;
+    }
+    public get hasNotices() {
+        return this['has_notices'];
     }
     public withProductshorts(productshorts: Array<string>): TemplateQueryV2 {
         this['productshorts'] = productshorts;

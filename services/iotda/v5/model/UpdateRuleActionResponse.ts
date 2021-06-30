@@ -8,7 +8,6 @@ export class UpdateRuleActionResponse extends SdkResponse {
     private 'app_id'?: string | undefined;
     public channel?: string;
     private 'channel_detail'?: ChannelDetail | undefined;
-    public batch?: boolean;
     public constructor() { 
         super();
     }
@@ -55,9 +54,5 @@ export class UpdateRuleActionResponse extends SdkResponse {
     }
     public get channelDetail() {
         return this['channel_detail'];
-    }
-    public withBatch(batch: boolean): UpdateRuleActionResponse {
-        this['batch'] = batch;
-        return this;
     }
 }

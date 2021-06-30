@@ -4,7 +4,6 @@ export class DeleteNodeRequest {
     private 'cluster_id': string | undefined;
     private 'node_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public errorStatus?: string;
     public nodepoolScaleDown?: DeleteNodeRequestNodepoolScaleDownEnum;
     public constructor(clusterId?: any, nodeId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
@@ -40,10 +39,6 @@ export class DeleteNodeRequest {
     }
     public get contentType() {
         return this['Content-Type'];
-    }
-    public withErrorStatus(errorStatus: string): DeleteNodeRequest {
-        this['errorStatus'] = errorStatus;
-        return this;
     }
     public withNodepoolScaleDown(nodepoolScaleDown: DeleteNodeRequestNodepoolScaleDownEnum): DeleteNodeRequest {
         this['nodepoolScaleDown'] = nodepoolScaleDown;

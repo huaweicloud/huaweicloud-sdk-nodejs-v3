@@ -14,6 +14,7 @@ export class ShowDeviceResponse extends SdkResponse {
     public description?: string;
     private 'fw_version'?: string | undefined;
     private 'sw_version'?: string | undefined;
+    private 'device_sdk_version'?: string | undefined;
     private 'auth_info'?: AuthInfo | undefined;
     private 'product_id'?: string | undefined;
     private 'product_name'?: string | undefined;
@@ -117,6 +118,16 @@ export class ShowDeviceResponse extends SdkResponse {
     }
     public get swVersion() {
         return this['sw_version'];
+    }
+    public withDeviceSdkVersion(deviceSdkVersion: string): ShowDeviceResponse {
+        this['device_sdk_version'] = deviceSdkVersion;
+        return this;
+    }
+    public set deviceSdkVersion(deviceSdkVersion: string | undefined) {
+        this['device_sdk_version'] = deviceSdkVersion;
+    }
+    public get deviceSdkVersion() {
+        return this['device_sdk_version'];
     }
     public withAuthInfo(authInfo: AuthInfo): ShowDeviceResponse {
         this['auth_info'] = authInfo;

@@ -92,7 +92,7 @@ export class GlobalCredentials implements ICredential {
             builder.addHeaders("X-Security-Token", this.securityToken);
         }
 
-        builder.addHeaders("Content-Type", "application/json");
+        // builder.addHeaders("Content-Type", "application/json");
         builder.addAllHeaders(httpRequest.headers);
         extend(httpRequest, builder.build());
         const headers = AKSKSigner.sign(httpRequest, this);

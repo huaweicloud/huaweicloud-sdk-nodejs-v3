@@ -2,24 +2,24 @@ import { DeleteStatus } from './DeleteStatus';
 
 
 export class V3NodeStatus {
-    public deleteStatus?: DeleteStatus;
-    public jobID?: string;
     public phase?: V3NodeStatusPhaseEnum;
+    public jobID?: string;
+    public serverId?: string;
     public privateIP?: string;
     public publicIP?: string;
-    public serverId?: string;
+    public deleteStatus?: DeleteStatus;
     public constructor() { 
     }
-    public withDeleteStatus(deleteStatus: DeleteStatus): V3NodeStatus {
-        this['deleteStatus'] = deleteStatus;
+    public withPhase(phase: V3NodeStatusPhaseEnum): V3NodeStatus {
+        this['phase'] = phase;
         return this;
     }
     public withJobID(jobID: string): V3NodeStatus {
         this['jobID'] = jobID;
         return this;
     }
-    public withPhase(phase: V3NodeStatusPhaseEnum): V3NodeStatus {
-        this['phase'] = phase;
+    public withServerId(serverId: string): V3NodeStatus {
+        this['serverId'] = serverId;
         return this;
     }
     public withPrivateIP(privateIP: string): V3NodeStatus {
@@ -30,8 +30,8 @@ export class V3NodeStatus {
         this['publicIP'] = publicIP;
         return this;
     }
-    public withServerId(serverId: string): V3NodeStatus {
-        this['serverId'] = serverId;
+    public withDeleteStatus(deleteStatus: DeleteStatus): V3NodeStatus {
+        this['deleteStatus'] = deleteStatus;
         return this;
     }
 }

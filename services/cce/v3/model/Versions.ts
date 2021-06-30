@@ -2,23 +2,23 @@ import { SupportVersions } from './SupportVersions';
 
 
 export class Versions {
-    public creationTimestamp?: string;
+    public version: string;
     public input: object;
     public stable: boolean;
-    public supportVersions: Array<SupportVersions>;
     public translate: object;
+    public supportVersions: Array<SupportVersions>;
+    public creationTimestamp?: string;
     public updateTimestamp: string;
-    public version: string;
-    public constructor(input?: any, stable?: any, supportVersions?: any, translate?: any, updateTimestamp?: any, version?: any) { 
+    public constructor(version?: any, input?: any, stable?: any, translate?: any, supportVersions?: any, updateTimestamp?: any) { 
+        this['version'] = version;
         this['input'] = input;
         this['stable'] = stable;
-        this['supportVersions'] = supportVersions;
         this['translate'] = translate;
+        this['supportVersions'] = supportVersions;
         this['updateTimestamp'] = updateTimestamp;
-        this['version'] = version;
     }
-    public withCreationTimestamp(creationTimestamp: string): Versions {
-        this['creationTimestamp'] = creationTimestamp;
+    public withVersion(version: string): Versions {
+        this['version'] = version;
         return this;
     }
     public withInput(input: object): Versions {
@@ -29,20 +29,20 @@ export class Versions {
         this['stable'] = stable;
         return this;
     }
-    public withSupportVersions(supportVersions: Array<SupportVersions>): Versions {
-        this['supportVersions'] = supportVersions;
-        return this;
-    }
     public withTranslate(translate: object): Versions {
         this['translate'] = translate;
         return this;
     }
-    public withUpdateTimestamp(updateTimestamp: string): Versions {
-        this['updateTimestamp'] = updateTimestamp;
+    public withSupportVersions(supportVersions: Array<SupportVersions>): Versions {
+        this['supportVersions'] = supportVersions;
         return this;
     }
-    public withVersion(version: string): Versions {
-        this['version'] = version;
+    public withCreationTimestamp(creationTimestamp: string): Versions {
+        this['creationTimestamp'] = creationTimestamp;
+        return this;
+    }
+    public withUpdateTimestamp(updateTimestamp: string): Versions {
+        this['updateTimestamp'] = updateTimestamp;
         return this;
     }
 }

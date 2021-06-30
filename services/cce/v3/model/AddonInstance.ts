@@ -4,23 +4,23 @@ import { Metadata } from './Metadata';
 
 
 export class AddonInstance {
-    public apiVersion: string;
     public kind: string;
+    public apiVersion: string;
     public metadata?: Metadata;
     public spec: InstanceSpec;
     public status: AddonInstanceStatus;
-    public constructor(apiVersion?: any, kind?: any, spec?: any, status?: any) { 
-        this['apiVersion'] = apiVersion;
+    public constructor(kind?: any, apiVersion?: any, spec?: any, status?: any) { 
         this['kind'] = kind;
+        this['apiVersion'] = apiVersion;
         this['spec'] = spec;
         this['status'] = status;
     }
-    public withApiVersion(apiVersion: string): AddonInstance {
-        this['apiVersion'] = apiVersion;
-        return this;
-    }
     public withKind(kind: string): AddonInstance {
         this['kind'] = kind;
+        return this;
+    }
+    public withApiVersion(apiVersion: string): AddonInstance {
+        this['apiVersion'] = apiVersion;
         return this;
     }
     public withMetadata(metadata: Metadata): AddonInstance {

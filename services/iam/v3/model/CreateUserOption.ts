@@ -1,6 +1,7 @@
 
 
 export class CreateUserOption {
+    private 'access_mode'?: string | undefined;
     public name: string;
     private 'domain_id': string | undefined;
     public password?: string;
@@ -15,6 +16,16 @@ export class CreateUserOption {
     public constructor(name?: any, domainId?: any) { 
         this['name'] = name;
         this['domain_id'] = domainId;
+    }
+    public withAccessMode(accessMode: string): CreateUserOption {
+        this['access_mode'] = accessMode;
+        return this;
+    }
+    public set accessMode(accessMode: string | undefined) {
+        this['access_mode'] = accessMode;
+    }
+    public get accessMode() {
+        return this['access_mode'];
     }
     public withName(name: string): CreateUserOption {
         this['name'] = name;

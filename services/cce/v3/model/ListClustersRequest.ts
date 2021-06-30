@@ -2,7 +2,6 @@
 
 export class ListClustersRequest {
     private 'Content-Type': string | undefined;
-    public errorStatus?: string;
     public detail?: string;
     public status?: ListClustersRequestStatusEnum;
     public type?: ListClustersRequestTypeEnum;
@@ -19,10 +18,6 @@ export class ListClustersRequest {
     }
     public get contentType() {
         return this['Content-Type'];
-    }
-    public withErrorStatus(errorStatus: string): ListClustersRequest {
-        this['errorStatus'] = errorStatus;
-        return this;
     }
     public withDetail(detail: string): ListClustersRequest {
         this['detail'] = detail;
@@ -63,6 +58,5 @@ export enum ListClustersRequestStatusEnum {
     */
 export enum ListClustersRequestTypeEnum {
     VIRTUALMACHINE = 'VirtualMachine',
-    BAREMETAL = 'BareMetal',
     ARM64 = 'ARM64'
 }

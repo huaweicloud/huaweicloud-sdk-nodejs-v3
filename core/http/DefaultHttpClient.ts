@@ -19,14 +19,13 @@
  * under the License.
  */
 
-import axios, { AxiosResponse } from 'axios';
-import extend from 'extend';
-import https = require('https');
+import axios from 'axios';
 import { IHttpRequest } from './IHttpRequest';
-import querystring = require('querystring');
+import { stringify as qsStringify } from 'querystring';
 import { HttpClient } from './HttpClient';
 import HttpsProxyAgent = require('https-proxy-agent');
-import { Logger, LogLevel, getLogger } from '../logger';
+import { Logger, LogLevel, getLogger } from '../logger'; 
+
 
 export class DefaultHttpClient implements HttpClient {
     private axiosInstance: any;
@@ -35,23 +34,24 @@ export class DefaultHttpClient implements HttpClient {
     private static loggerName = "DefaultHttpClient";
     private logger: Logger;
 
+    // A request header consists of its case-insensitive name followed by a colon ':'
+    // from: https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers
     private DEFAULT_HEADERS =
         {
             Accept: 'application/json',
-            'Content-Type': 'application/json',
+            'content-type': 'application/json'
         };
 
     public constructor({
-        disableSslVerification = true,
-        proxy = undefined,
+        proxy = '',
         logger = undefined,
         logLevel = LogLevel.INFO,
         headers = {}
     }: ClientOptions) {
 
         // proxy
-        let proxyAgent = undefined;
-        if (proxy) {
+        let proxyAgent;
+        if (proxy && proxy !== '') {
             proxyAgent = HttpsProxyAgent(proxy);
         }
 
@@ -65,11 +65,6 @@ export class DefaultHttpClient implements HttpClient {
             this.logger = getLogger(DefaultHttpClient.loggerName, logLevel, logger);
         }
 
-        // override several axios defaults
-        // axios sets the default Content-Type for `post`, `put`, and `patch` operations
-        // to 'application/x-www-form-urlencoded'. This causes problems, so overriding the
-        // defaults here
-
         this.axiosInstance = axios.create({
             maxContentLength: Infinity,
             headers: Object.assign(
@@ -81,61 +76,73 @@ export class DefaultHttpClient implements HttpClient {
             httpsAgent: proxyAgent
         });
 
-        this.axiosInstance.interceptors.request.use((config: any) => {
-            this.logger.debug('Request:', config);
+        this.axiosInstance.interceptors.request.use((request: any) => {
+            const { url, method, data, headers } = request;
 
-            return config;
-        }, (error: any) => {
-            this.logger.error('Error: ', error);
-            // @ts-ignore
-            return Promise.reject(error);
+            this.logger.debug(`Request: ${method.toUpperCase()} ${url} ${JSON.stringify(headers)} ${JSON.stringify(data)}`);
+
+            return request;
         });
 
         this.axiosInstance.interceptors.response.use((response: any) => {
-            this.logger.debug('Response:', response);
+            const { config: { url, method }, status, statusText, data, headers } = response;
+            let statusStr = '';
+            if (status && statusText) {
+                statusStr += `${status}:${statusText} `;
+            }
+            else if (status) {
+                statusStr += `${status} `;
+            } else if (statusText) {
+                statusStr += `${statusText} `;
+            }
+
+            let requestId = response.headers ? response.headers['x-request-id'] : undefined;
+            let reponseLength = response.result ? JSON.stringify(response.result).length : 1;
+
+            this.logger.debug(`Response: ${method.toUpperCase()} ${statusStr} ${url} ${JSON.stringify(headers)} ${JSON.stringify(data)} ${reponseLength} ${requestId}`);
 
             return response;
-        }, (error: any) => {
-            this.logger.error('Error: ', error);
-            // @ts-ignore
-            return Promise.reject(error);
         });
 
-
+        delete this.axiosInstance.defaults.headers.post['Content-Type'];
+        delete this.axiosInstance.defaults.headers.put['Content-Type'];
         this.logger.debug('initialized');
     }
 
     public sendRequest(httpRequest: IHttpRequest): Promise<any> {
-        const { endpoint, queryParams, method, data, headers } = httpRequest;
+        let { endpoint, queryParams, method, data, headers } = httpRequest;
+        headers = headers || {};
         this.logger.debug(`send request start: ${endpoint} `);
 
         // Path params
         let url = endpoint;//parsePath(endpoint, pathParams);
         url = stripTrailingSlash(url);
         headers['User-Agent'] = "huaweicloud-usdk-nodejs/3.0";
-        const requestParams = {
+        let requestParams = {
             url,
             method,
             headers,
             params: queryParams,
             data,
             paramsSerializer: (params: any) => {
-                return querystring.stringify(params);
+                return qsStringify(params);
             },
         };
+        const methods: string[] = ['PUT', 'POST', 'PATCH', 'DELETE'];
+        if (method && methods.indexOf(method.toUpperCase()) !== -1) {
+            requestParams = Object.assign(requestParams, {
+                transformRequest: [this.transformOptions.bind(this)]
+            })
+        }
         DefaultHttpClient.httpReqParam = requestParams;
         return this.axiosInstance(requestParams).then(
             (res: { config: any; request: any; result: any; data: any; status: string; headers: any }) => {
-                // sometimes error responses will still trigger the `then` block - escape that behavior here
                 DefaultHttpClient.httpResponse = res;
                 if (!res) { return };
 
-                // these objects contain circular json structures and are not always relevant to the user
-                // if the user wants them, they can be accessed through the debug properties
                 delete res.config;
                 delete res.request;
 
-                // the other sdks use the interface `result` for the body
                 res.result = res.data;
                 delete res.data;
 
@@ -148,39 +155,27 @@ export class DefaultHttpClient implements HttpClient {
                         }
                     }
                 }
-
-                let requestId = res.headers ? res.headers['x-request-id'] : undefined;
-                let reponseLength = res.result ? JSON.stringify(res.result).length : 1;
-                this.logger.info('"' + requestParams.method + ' ' + requestParams.url + '" ' + res.status + ' ' + reponseLength + ' ' + requestId);
-
-                this.logger.debug('request: ' + JSON.stringify(requestParams) + ". response: " + JSON.stringify(res));
-
-
                 return res;
             },
             (err: any) => {
-                this.logger.error('http reqeust failed', err.message);
-                let response = err.response;
                 DefaultHttpClient.httpResponse = err;
 
-                let requestId;
-                let reponseLength;
-                let status;
-                if (response) {
-                    requestId = response.headers ? response.headers['x-request-id'] : undefined;
-                    reponseLength = response.data ? JSON.stringify(response.data).length : 1;
-                    status = response.status;
-                }
-
-                this.logger.info('"' + requestParams.method + ' ' + requestParams.url + '" ' + status + ' ' + reponseLength + ' ' + requestId);
-
-                this.logger.debug('request: ' + JSON.stringify(requestParams) + ". response: " + JSON.stringify(err));
-
-
-                // return another promise that rejects with 'err' to be handled in generated code
                 throw this.formatError(err);
             }
         );
+    }
+
+    public transformOptions(data: any, headers: any) {
+        if (headers['content-type'] === 'multipart/form-data') {
+            // data is form-data object
+            for (const [header, value] of Object.entries(data.getHeaders())) {
+                headers[header] = value;
+            }
+            return data;
+        }
+
+        headers['content-type'] = 'application/json';
+        return JSON.stringify(data);
     }
 
     /**
@@ -251,28 +246,11 @@ export class DefaultHttpClient implements HttpClient {
             // Something happened in setting up the request that triggered an Error
             error.message = axiosError.message;
         }
-
+        this.logger.error("some error found:", error);
         return error;
     }
 }
 
-
-
-/**
- * @private
- * @param {string} path
- * @param {Object} params
- * @returns {string}
- */
-function parsePath(path: string, params: any): string {
-    if (!path || !params) {
-        return path;
-    }
-    return Object.keys(params).reduce((parsedPath, param) => {
-        const value = encodeURIComponent(params[param]);
-        return parsedPath.replace(new RegExp(`{${param}}`), value);
-    }, path);
-}
 
 function stripTrailingSlash(url: string | undefined): string {
     // Match a forward slash / at the end of the string ($)
@@ -322,7 +300,6 @@ function parseServiceErrorMessage(response: any): string | undefined {
         message = response.errorMessage;
     }
 
-    this.logger.info(`Parsing service error message: ${message}`);
     return message;
 }
 

@@ -2,10 +2,11 @@
 
 export class UnbindMfaDevice {
     private 'user_id': string | undefined;
-    private 'authentication_code'?: string | undefined;
+    private 'authentication_code': string | undefined;
     private 'serial_number': string | undefined;
-    public constructor(userId?: any, serialNumber?: any) { 
+    public constructor(userId?: any, authenticationCode?: any, serialNumber?: any) { 
         this['user_id'] = userId;
+        this['authentication_code'] = authenticationCode;
         this['serial_number'] = serialNumber;
     }
     public withUserId(userId: string): UnbindMfaDevice {

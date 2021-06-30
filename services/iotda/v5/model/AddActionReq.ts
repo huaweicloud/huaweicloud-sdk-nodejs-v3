@@ -5,7 +5,6 @@ export class AddActionReq {
     private 'rule_id': string | undefined;
     public channel: string;
     private 'channel_detail': ChannelDetail | undefined;
-    public batch?: boolean;
     public constructor(ruleId?: any, channel?: any, channelDetail?: any) { 
         this['rule_id'] = ruleId;
         this['channel'] = channel;
@@ -34,9 +33,5 @@ export class AddActionReq {
     }
     public get channelDetail() {
         return this['channel_detail'];
-    }
-    public withBatch(batch: boolean): AddActionReq {
-        this['batch'] = batch;
-        return this;
     }
 }

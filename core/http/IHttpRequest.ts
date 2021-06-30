@@ -31,6 +31,7 @@ export interface IHttpRequest {
     data: any;
 
     getPathParams: () => any;
+    responseHeaders: any;
 }
 
 export class HttpRequestImpl implements IHttpRequest {
@@ -42,6 +43,7 @@ export class HttpRequestImpl implements IHttpRequest {
     public pathParams: any;
     public headers: any;
     public data: any;
+    public responseHeaders: any;
 
     public getPathParams(): any {
         if (!this.pathParams) {

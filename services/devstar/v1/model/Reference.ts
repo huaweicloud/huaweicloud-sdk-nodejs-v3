@@ -5,6 +5,7 @@ export class Reference {
     public url?: string;
     public type?: number;
     public productshort?: string;
+    private 'is_valid'?: boolean | undefined;
     public constructor() { 
     }
     public withTitle(title: string): Reference {
@@ -22,5 +23,15 @@ export class Reference {
     public withProductshort(productshort: string): Reference {
         this['productshort'] = productshort;
         return this;
+    }
+    public withIsValid(isValid: boolean): Reference {
+        this['is_valid'] = isValid;
+        return this;
+    }
+    public set isValid(isValid: boolean | undefined) {
+        this['is_valid'] = isValid;
+    }
+    public get isValid() {
+        return this['is_valid'];
     }
 }

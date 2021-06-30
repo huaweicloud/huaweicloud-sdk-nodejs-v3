@@ -25,8 +25,7 @@ import { IHttpRequest } from "./http/IHttpRequest";
 import { HttpRequestBuilder } from "./http/IHttpRequestBuilder";
 import { SdkResponse } from "./SdkResponse";
 import { ExceptionUtil } from "./exception/ExceptionUtil";
-import { AxiosResponse } from "axios";
-import { getLogger, Logger, LogLevel } from './logger'
+import { getLogger, Logger, LogLevel } from './logger';
 
 export class HcClient {
     private httpClient: HttpClient;
@@ -64,14 +63,12 @@ export class HcClient {
 
         const request = this.buildRequest(options);
         // @ts-ignore
-        return new Promise((resolve: any, reject: any) => {
-            this.httpClient.sendRequest(request).then(res => {
-                return resolve(HcClient.extractResponse(res));
-            }, err => {
-                let error = err;
-                let statusCode = error.status;
-                return reject(ExceptionUtil.generalException(statusCode, error.body));
-            });
+        return this.httpClient.sendRequest(request).then(res => {
+            return this.extractResponse(res);
+        }, err => {
+            let error = err;
+            let statusCode = error.status;
+            return ExceptionUtil.generalException(statusCode, error.body);
         });
     }
 
@@ -100,7 +97,7 @@ export class HcClient {
         return httpRequest;
     }
 
-    private static extractResponse(result?: any) {
+    private extractResponse(result?: any) {
         const headers = result.headers;
         let contentType = headers['content-type'];
         contentType = contentType.toLowerCase();

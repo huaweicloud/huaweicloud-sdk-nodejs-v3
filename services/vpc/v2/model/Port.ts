@@ -26,8 +26,7 @@ export class Port {
     private 'instance_id': string | undefined;
     private 'instance_type': string | undefined;
     private 'port_security_enabled': boolean | undefined;
-    private 'zone_id': string | undefined;
-    public constructor(id?: any, name?: any, networkId?: any, adminStateUp?: any, macAddress?: any, fixedIps?: any, deviceId?: any, deviceOwner?: any, tenantId?: any, status?: any, securityGroups?: any, allowedAddressPairs?: any, extraDhcpOpts?: any, bindingVnicType?: any, dnsAssignment?: any, dnsName?: any, bindingVifDetails?: any, bindingProfile?: any, instanceId?: any, instanceType?: any, portSecurityEnabled?: any, zoneId?: any) { 
+    public constructor(id?: any, name?: any, networkId?: any, adminStateUp?: any, macAddress?: any, fixedIps?: any, deviceId?: any, deviceOwner?: any, tenantId?: any, status?: any, securityGroups?: any, allowedAddressPairs?: any, extraDhcpOpts?: any, bindingVnicType?: any, dnsAssignment?: any, dnsName?: any, bindingVifDetails?: any, bindingProfile?: any, instanceId?: any, instanceType?: any, portSecurityEnabled?: any) { 
         this['id'] = id;
         this['name'] = name;
         this['network_id'] = networkId;
@@ -49,7 +48,6 @@ export class Port {
         this['instance_id'] = instanceId;
         this['instance_type'] = instanceType;
         this['port_security_enabled'] = portSecurityEnabled;
-        this['zone_id'] = zoneId;
     }
     public withId(id: string): Port {
         this['id'] = id;
@@ -242,16 +240,6 @@ export class Port {
     }
     public get portSecurityEnabled() {
         return this['port_security_enabled'];
-    }
-    public withZoneId(zoneId: string): Port {
-        this['zone_id'] = zoneId;
-        return this;
-    }
-    public set zoneId(zoneId: string | undefined) {
-        this['zone_id'] = zoneId;
-    }
-    public get zoneId() {
-        return this['zone_id'];
     }
 }
 

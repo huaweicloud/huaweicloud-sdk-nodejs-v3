@@ -4,7 +4,6 @@ export class ShowNodeRequest {
     private 'cluster_id': string | undefined;
     private 'node_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public errorStatus?: string;
     public constructor(clusterId?: any, nodeId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
         this['node_id'] = nodeId;
@@ -39,9 +38,5 @@ export class ShowNodeRequest {
     }
     public get contentType() {
         return this['Content-Type'];
-    }
-    public withErrorStatus(errorStatus: string): ShowNodeRequest {
-        this['errorStatus'] = errorStatus;
-        return this;
     }
 }

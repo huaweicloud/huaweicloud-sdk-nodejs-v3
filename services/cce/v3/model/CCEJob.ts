@@ -4,19 +4,19 @@ import { CCEJobStatus } from './CCEJobStatus';
 
 
 export class CCEJob {
-    public apiVersion?: string;
     public kind?: string;
+    public apiVersion?: string;
     public metadata?: CCEJobMetadata;
     public spec?: CCEJobSpec;
     public status?: CCEJobStatus;
     public constructor() { 
     }
-    public withApiVersion(apiVersion: string): CCEJob {
-        this['apiVersion'] = apiVersion;
-        return this;
-    }
     public withKind(kind: string): CCEJob {
         this['kind'] = kind;
+        return this;
+    }
+    public withApiVersion(apiVersion: string): CCEJob {
+        this['apiVersion'] = apiVersion;
         return this;
     }
     public withMetadata(metadata: CCEJobMetadata): CCEJob {

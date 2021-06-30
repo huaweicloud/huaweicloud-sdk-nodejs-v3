@@ -12,6 +12,7 @@ export class QueryDeviceSimplify {
     public description?: string;
     private 'fw_version'?: string | undefined;
     private 'sw_version'?: string | undefined;
+    private 'device_sdk_version'?: string | undefined;
     private 'product_id'?: string | undefined;
     private 'product_name'?: string | undefined;
     public status?: string;
@@ -111,6 +112,16 @@ export class QueryDeviceSimplify {
     }
     public get swVersion() {
         return this['sw_version'];
+    }
+    public withDeviceSdkVersion(deviceSdkVersion: string): QueryDeviceSimplify {
+        this['device_sdk_version'] = deviceSdkVersion;
+        return this;
+    }
+    public set deviceSdkVersion(deviceSdkVersion: string | undefined) {
+        this['device_sdk_version'] = deviceSdkVersion;
+    }
+    public get deviceSdkVersion() {
+        return this['device_sdk_version'];
     }
     public withProductId(productId: string): QueryDeviceSimplify {
         this['product_id'] = productId;

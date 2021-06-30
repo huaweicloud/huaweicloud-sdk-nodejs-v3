@@ -2,7 +2,6 @@
 
 export class ListPropertiesRequest {
     private 'device_id': string | undefined;
-    private 'Stage-Auth-Token'?: string | undefined;
     private 'Instance-Id'?: string | undefined;
     private 'service_id': string | undefined;
     public constructor(deviceId?: any, serviceId?: any) { 
@@ -18,16 +17,6 @@ export class ListPropertiesRequest {
     }
     public get deviceId() {
         return this['device_id'];
-    }
-    public withStageAuthToken(stageAuthToken: string): ListPropertiesRequest {
-        this['Stage-Auth-Token'] = stageAuthToken;
-        return this;
-    }
-    public set stageAuthToken(stageAuthToken: string | undefined) {
-        this['Stage-Auth-Token'] = stageAuthToken;
-    }
-    public get stageAuthToken() {
-        return this['Stage-Auth-Token'];
     }
     public withInstanceId(instanceId: string): ListPropertiesRequest {
         this['Instance-Id'] = instanceId;

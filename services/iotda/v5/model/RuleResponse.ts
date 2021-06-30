@@ -11,8 +11,6 @@ export class RuleResponse {
     private 'rule_type': string | undefined;
     public status?: string;
     private 'app_id'?: string | undefined;
-    private 'edge_node_ids'?: Array<string> | undefined;
-    private 'last_update_time'?: string | undefined;
     public constructor(name?: any, conditionGroup?: any, actions?: any, ruleType?: any) { 
         this['name'] = name;
         this['condition_group'] = conditionGroup;
@@ -74,25 +72,5 @@ export class RuleResponse {
     }
     public get appId() {
         return this['app_id'];
-    }
-    public withEdgeNodeIds(edgeNodeIds: Array<string>): RuleResponse {
-        this['edge_node_ids'] = edgeNodeIds;
-        return this;
-    }
-    public set edgeNodeIds(edgeNodeIds: Array<string> | undefined) {
-        this['edge_node_ids'] = edgeNodeIds;
-    }
-    public get edgeNodeIds() {
-        return this['edge_node_ids'];
-    }
-    public withLastUpdateTime(lastUpdateTime: string): RuleResponse {
-        this['last_update_time'] = lastUpdateTime;
-        return this;
-    }
-    public set lastUpdateTime(lastUpdateTime: string | undefined) {
-        this['last_update_time'] = lastUpdateTime;
-    }
-    public get lastUpdateTime() {
-        return this['last_update_time'];
     }
 }

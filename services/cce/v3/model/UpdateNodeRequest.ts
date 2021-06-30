@@ -5,7 +5,6 @@ export class UpdateNodeRequest {
     private 'cluster_id': string | undefined;
     private 'node_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public errorStatus?: string;
     public body?: CCEClusterNodeInformation;
     public constructor(clusterId?: any, nodeId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
@@ -41,10 +40,6 @@ export class UpdateNodeRequest {
     }
     public get contentType() {
         return this['Content-Type'];
-    }
-    public withErrorStatus(errorStatus: string): UpdateNodeRequest {
-        this['errorStatus'] = errorStatus;
-        return this;
     }
     public withBody(body: CCEClusterNodeInformation): UpdateNodeRequest {
         this['body'] = body;

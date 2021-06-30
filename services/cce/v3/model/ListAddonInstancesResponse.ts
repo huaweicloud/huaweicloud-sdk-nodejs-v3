@@ -3,11 +3,15 @@ import { AddonInstance } from './AddonInstance';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAddonInstancesResponse extends SdkResponse {
+    public kind?: string;
     public apiVersion?: string;
     public items?: Array<AddonInstance>;
-    public kind?: string;
     public constructor() { 
         super();
+    }
+    public withKind(kind: string): ListAddonInstancesResponse {
+        this['kind'] = kind;
+        return this;
     }
     public withApiVersion(apiVersion: string): ListAddonInstancesResponse {
         this['apiVersion'] = apiVersion;
@@ -15,10 +19,6 @@ export class ListAddonInstancesResponse extends SdkResponse {
     }
     public withItems(items: Array<AddonInstance>): ListAddonInstancesResponse {
         this['items'] = items;
-        return this;
-    }
-    public withKind(kind: string): ListAddonInstancesResponse {
-        this['kind'] = kind;
         return this;
     }
 }

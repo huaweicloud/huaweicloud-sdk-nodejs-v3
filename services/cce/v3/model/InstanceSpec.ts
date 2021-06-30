@@ -1,28 +1,28 @@
 
 
 export class InstanceSpec {
-    public addonTemplateLabels?: Array<string>;
-    public addonTemplateLogo?: string;
+    public clusterID: string;
+    public version: string;
     public addonTemplateName: string;
     public addonTemplateType: string;
-    public clusterID: string;
+    public addonTemplateLogo?: string;
+    public addonTemplateLabels?: Array<string>;
     public description: string;
     public values: { [key: string]: object; };
-    public version: string;
-    public constructor(addonTemplateName?: any, addonTemplateType?: any, clusterID?: any, description?: any, values?: any, version?: any) { 
+    public constructor(clusterID?: any, version?: any, addonTemplateName?: any, addonTemplateType?: any, description?: any, values?: any) { 
+        this['clusterID'] = clusterID;
+        this['version'] = version;
         this['addonTemplateName'] = addonTemplateName;
         this['addonTemplateType'] = addonTemplateType;
-        this['clusterID'] = clusterID;
         this['description'] = description;
         this['values'] = values;
-        this['version'] = version;
     }
-    public withAddonTemplateLabels(addonTemplateLabels: Array<string>): InstanceSpec {
-        this['addonTemplateLabels'] = addonTemplateLabels;
+    public withClusterID(clusterID: string): InstanceSpec {
+        this['clusterID'] = clusterID;
         return this;
     }
-    public withAddonTemplateLogo(addonTemplateLogo: string): InstanceSpec {
-        this['addonTemplateLogo'] = addonTemplateLogo;
+    public withVersion(version: string): InstanceSpec {
+        this['version'] = version;
         return this;
     }
     public withAddonTemplateName(addonTemplateName: string): InstanceSpec {
@@ -33,8 +33,12 @@ export class InstanceSpec {
         this['addonTemplateType'] = addonTemplateType;
         return this;
     }
-    public withClusterID(clusterID: string): InstanceSpec {
-        this['clusterID'] = clusterID;
+    public withAddonTemplateLogo(addonTemplateLogo: string): InstanceSpec {
+        this['addonTemplateLogo'] = addonTemplateLogo;
+        return this;
+    }
+    public withAddonTemplateLabels(addonTemplateLabels: Array<string>): InstanceSpec {
+        this['addonTemplateLabels'] = addonTemplateLabels;
         return this;
     }
     public withDescription(description: string): InstanceSpec {
@@ -43,10 +47,6 @@ export class InstanceSpec {
     }
     public withValues(values: { [key: string]: object; }): InstanceSpec {
         this['values'] = values;
-        return this;
-    }
-    public withVersion(version: string): InstanceSpec {
-        this['version'] = version;
         return this;
     }
 }

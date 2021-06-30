@@ -17,7 +17,8 @@ export class ListResizeFlavorsResult {
     private 'os-flavor-access:is_public': boolean | undefined;
     public links: Array<FlavorLink>;
     private 'extra_specs': FlavorExtraSpec | undefined;
-    public constructor(id?: any, name?: any, vcpus?: any, ram?: any, disk?: any, swap?: any, oSFLVEXTDATAEphemeral?: any, oSFLVDISABLEDDisabled?: any, rxtxFactor?: any, rxtxQuota?: any, rxtxCap?: any, osFlavorAccessIsPublic?: any, links?: any, extraSpecs?: any) { 
+    private 'instance_quota': object | undefined;
+    public constructor(id?: any, name?: any, vcpus?: any, ram?: any, disk?: any, swap?: any, oSFLVEXTDATAEphemeral?: any, oSFLVDISABLEDDisabled?: any, rxtxFactor?: any, rxtxQuota?: any, rxtxCap?: any, osFlavorAccessIsPublic?: any, links?: any, extraSpecs?: any, instanceQuota?: any) { 
         this['id'] = id;
         this['name'] = name;
         this['vcpus'] = vcpus;
@@ -32,6 +33,7 @@ export class ListResizeFlavorsResult {
         this['os-flavor-access:is_public'] = osFlavorAccessIsPublic;
         this['links'] = links;
         this['extra_specs'] = extraSpecs;
+        this['instance_quota'] = instanceQuota;
     }
     public withId(id: string): ListResizeFlavorsResult {
         this['id'] = id;
@@ -130,5 +132,15 @@ export class ListResizeFlavorsResult {
     }
     public get extraSpecs() {
         return this['extra_specs'];
+    }
+    public withInstanceQuota(instanceQuota: object): ListResizeFlavorsResult {
+        this['instance_quota'] = instanceQuota;
+        return this;
+    }
+    public set instanceQuota(instanceQuota: object | undefined) {
+        this['instance_quota'] = instanceQuota;
+    }
+    public get instanceQuota() {
+        return this['instance_quota'];
     }
 }

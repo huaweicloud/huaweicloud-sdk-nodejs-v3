@@ -7,7 +7,7 @@ export class NovaKeypairDetail {
     private 'created_at': Date | undefined;
     public deleted: boolean;
     private 'deleted_at': Date | undefined;
-    public id: string;
+    public id: number;
     private 'updated_at': Date | undefined;
     private 'user_id': string | undefined;
     public type?: string;
@@ -64,7 +64,7 @@ export class NovaKeypairDetail {
     public get deletedAt() {
         return this['deleted_at'];
     }
-    public withId(id: string): NovaKeypairDetail {
+    public withId(id: number): NovaKeypairDetail {
         this['id'] = id;
         return this;
     }
