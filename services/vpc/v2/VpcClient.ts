@@ -267,19 +267,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public acceptVpcPeering(acceptVpcPeeringRequest?: AcceptVpcPeeringRequest): Promise<AcceptVpcPeeringResponse> {
+        const options = ParamCreater().acceptVpcPeering(acceptVpcPeeringRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().acceptVpcPeering(acceptVpcPeeringRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 为指定的子网资源实例批量添加标签。 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
@@ -290,19 +281,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public batchCreateSubnetTags(batchCreateSubnetTagsRequest?: BatchCreateSubnetTagsRequest): Promise<void> {
+        const options = ParamCreater().batchCreateSubnetTags(batchCreateSubnetTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchCreateSubnetTags(batchCreateSubnetTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 为指定的子网资源实例批量删除标签 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
@@ -313,19 +295,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public batchDeleteSubnetTags(batchDeleteSubnetTagsRequest?: BatchDeleteSubnetTagsRequest): Promise<void> {
+        const options = ParamCreater().batchDeleteSubnetTags(batchDeleteSubnetTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchDeleteSubnetTags(batchDeleteSubnetTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建端口。
@@ -335,19 +308,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createPort(createPortRequest?: CreatePortRequest): Promise<CreatePortResponse> {
+        const options = ParamCreater().createPort(createPortRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createPort(createPortRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建安全组。
@@ -357,19 +321,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createSecurityGroup(createSecurityGroupRequest?: CreateSecurityGroupRequest): Promise<CreateSecurityGroupResponse> {
+        const options = ParamCreater().createSecurityGroup(createSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createSecurityGroup(createSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建安全组规则。
@@ -379,19 +334,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createSecurityGroupRule(createSecurityGroupRuleRequest?: CreateSecurityGroupRuleRequest): Promise<CreateSecurityGroupRuleResponse> {
+        const options = ParamCreater().createSecurityGroupRule(createSecurityGroupRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createSecurityGroupRule(createSecurityGroupRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建子网。
@@ -401,19 +347,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createSubnet(createSubnetRequest?: CreateSubnetRequest): Promise<CreateSubnetResponse> {
+        const options = ParamCreater().createSubnet(createSubnetRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createSubnet(createSubnetRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 给指定子网资源实例增加标签信息。 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
@@ -424,19 +361,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createSubnetTag(createSubnetTagRequest?: CreateSubnetTagRequest): Promise<void> {
+        const options = ParamCreater().createSubnetTag(createSubnetTagRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createSubnetTag(createSubnetTagRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建对等连接。
@@ -446,19 +374,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createVpcPeering(createVpcPeeringRequest?: CreateVpcPeeringRequest): Promise<CreateVpcPeeringResponse> {
+        const options = ParamCreater().createVpcPeering(createVpcPeeringRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createVpcPeering(createVpcPeeringRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除端口。
@@ -468,19 +387,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deletePort(deletePortRequest?: DeletePortRequest): Promise<void> {
+        const options = ParamCreater().deletePort(deletePortRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deletePort(deletePortRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除安全组。
@@ -490,19 +400,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteSecurityGroup(deleteSecurityGroupRequest?: DeleteSecurityGroupRequest): Promise<void> {
+        const options = ParamCreater().deleteSecurityGroup(deleteSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteSecurityGroup(deleteSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除安全组规则。
@@ -512,19 +413,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteSecurityGroupRule(deleteSecurityGroupRuleRequest?: DeleteSecurityGroupRuleRequest): Promise<void> {
+        const options = ParamCreater().deleteSecurityGroupRule(deleteSecurityGroupRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteSecurityGroupRule(deleteSecurityGroupRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除子网
@@ -535,19 +427,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteSubnet(deleteSubnetRequest?: DeleteSubnetRequest): Promise<void> {
+        const options = ParamCreater().deleteSubnet(deleteSubnetRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteSubnet(deleteSubnetRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除指定子网资源实例的标签信息。 该接口为幂等接口：删除的key不存在报404，Key不能为空或者空字符串
@@ -558,19 +441,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteSubnetTag(deleteSubnetTagRequest?: DeleteSubnetTagRequest): Promise<void> {
+        const options = ParamCreater().deleteSubnetTag(deleteSubnetTagRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteSubnetTag(deleteSubnetTagRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除对等连接。 可以在在本端或对端任何一端删除对等连接。
@@ -580,19 +454,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteVpcPeering(deleteVpcPeeringRequest?: DeleteVpcPeeringRequest): Promise<void> {
+        const options = ParamCreater().deleteVpcPeering(deleteVpcPeeringRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteVpcPeering(deleteVpcPeeringRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询提交请求的租户的所有端口，单次查询最多返回2000条数据。
@@ -613,19 +478,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listPorts(listPortsRequest?: ListPortsRequest): Promise<ListPortsResponse> {
+        const options = ParamCreater().listPorts(listPortsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listPorts(listPortsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询安全组规则列表。
@@ -637,19 +493,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listSecurityGroupRules(listSecurityGroupRulesRequest?: ListSecurityGroupRulesRequest): Promise<ListSecurityGroupRulesResponse> {
+        const options = ParamCreater().listSecurityGroupRules(listSecurityGroupRulesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listSecurityGroupRules(listSecurityGroupRulesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询安全组列表
@@ -662,19 +509,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listSecurityGroups(listSecurityGroupsRequest?: ListSecurityGroupsRequest): Promise<ListSecurityGroupsResponse> {
+        const options = ParamCreater().listSecurityGroups(listSecurityGroupsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listSecurityGroups(listSecurityGroupsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询租户在指定区域和实例类型的所有标签集合
@@ -683,19 +521,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listSubnetTags(): Promise<ListSubnetTagsResponse> {
+        const options = ParamCreater().listSubnetTags();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listSubnetTags();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询子网列表
@@ -707,19 +536,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listSubnets(listSubnetsRequest?: ListSubnetsRequest): Promise<ListSubnetsResponse> {
+        const options = ParamCreater().listSubnets(listSubnetsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listSubnets(listSubnetsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 使用标签过滤实例
@@ -729,19 +549,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listSubnetsByTags(listSubnetsByTagsRequest?: ListSubnetsByTagsRequest): Promise<ListSubnetsByTagsResponse> {
+        const options = ParamCreater().listSubnetsByTags(listSubnetsByTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listSubnetsByTags(listSubnetsByTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询提交请求的租户的所有对等连接。根据过滤条件进行过滤。
@@ -757,19 +568,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listVpcPeerings(listVpcPeeringsRequest?: ListVpcPeeringsRequest): Promise<ListVpcPeeringsResponse> {
+        const options = ParamCreater().listVpcPeerings(listVpcPeeringsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listVpcPeerings(listVpcPeeringsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 租户A名下的VPC申请和租户B的VPC建立对等连接，需要等待租户B接受该请求。此接口用于租户拒绝其他租户发起的对等连接请求。
@@ -779,19 +581,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public rejectVpcPeering(rejectVpcPeeringRequest?: RejectVpcPeeringRequest): Promise<RejectVpcPeeringResponse> {
+        const options = ParamCreater().rejectVpcPeering(rejectVpcPeeringRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().rejectVpcPeering(rejectVpcPeeringRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询单个端口详情。
@@ -801,19 +594,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showPort(showPortRequest?: ShowPortRequest): Promise<ShowPortResponse> {
+        const options = ParamCreater().showPort(showPortRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showPort(showPortRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询单租户在VPC服务下的网络资源配额，包括vpc配额、子网配额、安全组配额、安全组规则配额、弹性公网IP配额，vpn配额等。
@@ -823,19 +607,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showQuota(showQuotaRequest?: ShowQuotaRequest): Promise<ShowQuotaResponse> {
+        const options = ParamCreater().showQuota(showQuotaRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showQuota(showQuotaRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询单个安全组详情。
@@ -845,19 +620,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showSecurityGroup(showSecurityGroupRequest?: ShowSecurityGroupRequest): Promise<ShowSecurityGroupResponse> {
+        const options = ParamCreater().showSecurityGroup(showSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showSecurityGroup(showSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询单个安全组规则详情
@@ -867,19 +633,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showSecurityGroupRule(showSecurityGroupRuleRequest?: ShowSecurityGroupRuleRequest): Promise<ShowSecurityGroupRuleResponse> {
+        const options = ParamCreater().showSecurityGroupRule(showSecurityGroupRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showSecurityGroupRule(showSecurityGroupRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询子网详情。
@@ -889,19 +646,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showSubnet(showSubnetRequest?: ShowSubnetRequest): Promise<ShowSubnetResponse> {
+        const options = ParamCreater().showSubnet(showSubnetRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showSubnet(showSubnetRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询指定子网实例的标签信息。
@@ -911,19 +659,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showSubnetTags(showSubnetTagsRequest?: ShowSubnetTagsRequest): Promise<ShowSubnetTagsResponse> {
+        const options = ParamCreater().showSubnetTags(showSubnetTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showSubnetTags(showSubnetTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询对等连接详情。
@@ -933,19 +672,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showVpcPeering(showVpcPeeringRequest?: ShowVpcPeeringRequest): Promise<ShowVpcPeeringResponse> {
+        const options = ParamCreater().showVpcPeering(showVpcPeeringRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showVpcPeering(showVpcPeeringRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新端口。
@@ -956,19 +686,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public updatePort(updatePortRequest?: UpdatePortRequest): Promise<UpdatePortResponse> {
+        const options = ParamCreater().updatePort(updatePortRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updatePort(updatePortRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新子网。
@@ -980,19 +701,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public updateSubnet(updateSubnetRequest?: UpdateSubnetRequest): Promise<UpdateSubnetResponse> {
+        const options = ParamCreater().updateSubnet(updateSubnetRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateSubnet(updateSubnetRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新对等连接。
@@ -1003,19 +715,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public updateVpcPeering(updateVpcPeeringRequest?: UpdateVpcPeeringRequest): Promise<UpdateVpcPeeringResponse> {
+        const options = ParamCreater().updateVpcPeering(updateVpcPeeringRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateVpcPeering(updateVpcPeeringRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 申请私有IP。
@@ -1025,19 +728,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createPrivateip(createPrivateipRequest?: CreatePrivateipRequest): Promise<CreatePrivateipResponse> {
+        const options = ParamCreater().createPrivateip(createPrivateipRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createPrivateip(createPrivateipRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除私有IP。
@@ -1047,19 +741,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deletePrivateip(deletePrivateipRequest?: DeletePrivateipRequest): Promise<void> {
+        const options = ParamCreater().deletePrivateip(deletePrivateipRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deletePrivateip(deletePrivateipRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询指定子网下的私有IP列表。
@@ -1071,19 +756,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listPrivateips(listPrivateipsRequest?: ListPrivateipsRequest): Promise<ListPrivateipsResponse> {
+        const options = ParamCreater().listPrivateips(listPrivateipsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listPrivateips(listPrivateipsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 显示一个指定网络中的IPv4地址使用情况。 包括此网络中的IP总数以及已用IP总数，以及网络下每一个子网的IP地址总数和可用IP地址总数。  > 须知  - 系统预留地址指的是子网的第1个以及最后4个地址，一般用于网关、DHCP等服务。 - 这里以及下文描述的IP地址总数、已用IP地址总数不包含系统预留地址。 - 在分配IP时，用户可以指定系统预留的IP地址。但是不论IP是如何分配的，只要是处于系统预留IP地址段的IP均不会被统计到已用IP地址数目和IP地址总数中。
@@ -1093,19 +769,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showNetworkIpAvailabilities(showNetworkIpAvailabilitiesRequest?: ShowNetworkIpAvailabilitiesRequest): Promise<ShowNetworkIpAvailabilitiesResponse> {
+        const options = ParamCreater().showNetworkIpAvailabilities(showNetworkIpAvailabilitiesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showNetworkIpAvailabilities(showNetworkIpAvailabilitiesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 指定ID查询私有IP。
@@ -1115,19 +782,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showPrivateip(showPrivateipRequest?: ShowPrivateipRequest): Promise<ShowPrivateipResponse> {
+        const options = ParamCreater().showPrivateip(showPrivateipRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showPrivateip(showPrivateipRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建安全组
@@ -1137,19 +795,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronCreateSecurityGroup(neutronCreateSecurityGroupRequest?: NeutronCreateSecurityGroupRequest): Promise<NeutronCreateSecurityGroupResponse> {
+        const options = ParamCreater().neutronCreateSecurityGroup(neutronCreateSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronCreateSecurityGroup(neutronCreateSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建安全组规则
@@ -1159,19 +808,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronCreateSecurityGroupRule(neutronCreateSecurityGroupRuleRequest?: NeutronCreateSecurityGroupRuleRequest): Promise<NeutronCreateSecurityGroupRuleResponse> {
+        const options = ParamCreater().neutronCreateSecurityGroupRule(neutronCreateSecurityGroupRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronCreateSecurityGroupRule(neutronCreateSecurityGroupRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除安全组
@@ -1181,19 +821,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronDeleteSecurityGroup(neutronDeleteSecurityGroupRequest?: NeutronDeleteSecurityGroupRequest): Promise<void> {
+        const options = ParamCreater().neutronDeleteSecurityGroup(neutronDeleteSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronDeleteSecurityGroup(neutronDeleteSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除安全组规则
@@ -1203,19 +834,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronDeleteSecurityGroupRule(neutronDeleteSecurityGroupRuleRequest?: NeutronDeleteSecurityGroupRuleRequest): Promise<void> {
+        const options = ParamCreater().neutronDeleteSecurityGroupRule(neutronDeleteSecurityGroupRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronDeleteSecurityGroupRule(neutronDeleteSecurityGroupRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询提交请求的租户有权限查看的所有安全组规则。单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询
@@ -1237,19 +859,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronListSecurityGroupRules(neutronListSecurityGroupRulesRequest?: NeutronListSecurityGroupRulesRequest): Promise<NeutronListSecurityGroupRulesResponse> {
+        const options = ParamCreater().neutronListSecurityGroupRules(neutronListSecurityGroupRulesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronListSecurityGroupRules(neutronListSecurityGroupRulesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询提交请求租户的所有安全组，单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询 。
@@ -1264,19 +877,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronListSecurityGroups(neutronListSecurityGroupsRequest?: NeutronListSecurityGroupsRequest): Promise<NeutronListSecurityGroupsResponse> {
+        const options = ParamCreater().neutronListSecurityGroups(neutronListSecurityGroupsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronListSecurityGroups(neutronListSecurityGroupsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询安全组详情
@@ -1286,19 +890,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronShowSecurityGroup(neutronShowSecurityGroupRequest?: NeutronShowSecurityGroupRequest): Promise<NeutronShowSecurityGroupResponse> {
+        const options = ParamCreater().neutronShowSecurityGroup(neutronShowSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronShowSecurityGroup(neutronShowSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询安全组规则详情。
@@ -1308,19 +903,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronShowSecurityGroupRule(neutronShowSecurityGroupRuleRequest?: NeutronShowSecurityGroupRuleRequest): Promise<NeutronShowSecurityGroupRuleResponse> {
+        const options = ParamCreater().neutronShowSecurityGroupRule(neutronShowSecurityGroupRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronShowSecurityGroupRule(neutronShowSecurityGroupRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新安全组
@@ -1331,19 +917,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronUpdateSecurityGroup(neutronUpdateSecurityGroupRequest?: NeutronUpdateSecurityGroupRequest): Promise<NeutronUpdateSecurityGroupResponse> {
+        const options = ParamCreater().neutronUpdateSecurityGroup(neutronUpdateSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronUpdateSecurityGroup(neutronUpdateSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 插入一条网络ACL规则到某一网络ACL策略中。
@@ -1354,19 +931,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronAddFirewallRule(neutronAddFirewallRuleRequest?: NeutronAddFirewallRuleRequest): Promise<NeutronAddFirewallRuleResponse> {
+        const options = ParamCreater().neutronAddFirewallRule(neutronAddFirewallRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronAddFirewallRule(neutronAddFirewallRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建网络ACL组
@@ -1376,19 +944,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronCreateFirewallGroup(neutronCreateFirewallGroupRequest?: NeutronCreateFirewallGroupRequest): Promise<NeutronCreateFirewallGroupResponse> {
+        const options = ParamCreater().neutronCreateFirewallGroup(neutronCreateFirewallGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronCreateFirewallGroup(neutronCreateFirewallGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建网络ACL策略。
@@ -1398,19 +957,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronCreateFirewallPolicy(neutronCreateFirewallPolicyRequest?: NeutronCreateFirewallPolicyRequest): Promise<NeutronCreateFirewallPolicyResponse> {
+        const options = ParamCreater().neutronCreateFirewallPolicy(neutronCreateFirewallPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronCreateFirewallPolicy(neutronCreateFirewallPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建网络ACL规则。
@@ -1420,19 +970,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronCreateFirewallRule(neutronCreateFirewallRuleRequest?: NeutronCreateFirewallRuleRequest): Promise<NeutronCreateFirewallRuleResponse> {
+        const options = ParamCreater().neutronCreateFirewallRule(neutronCreateFirewallRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronCreateFirewallRule(neutronCreateFirewallRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除网络ACL组
@@ -1442,19 +983,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronDeleteFirewallGroup(neutronDeleteFirewallGroupRequest?: NeutronDeleteFirewallGroupRequest): Promise<void> {
+        const options = ParamCreater().neutronDeleteFirewallGroup(neutronDeleteFirewallGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronDeleteFirewallGroup(neutronDeleteFirewallGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除网络ACL策略。
@@ -1464,19 +996,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronDeleteFirewallPolicy(neutronDeleteFirewallPolicyRequest?: NeutronDeleteFirewallPolicyRequest): Promise<void> {
+        const options = ParamCreater().neutronDeleteFirewallPolicy(neutronDeleteFirewallPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronDeleteFirewallPolicy(neutronDeleteFirewallPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除网络ACL规则。
@@ -1486,19 +1009,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronDeleteFirewallRule(neutronDeleteFirewallRuleRequest?: NeutronDeleteFirewallRuleRequest): Promise<void> {
+        const options = ParamCreater().neutronDeleteFirewallRule(neutronDeleteFirewallRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronDeleteFirewallRule(neutronDeleteFirewallRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询提交请求的租户有权限操作的所有网络ACL组信息。单次查询最多返回2000条数据，超过2000后会返回分页标记。
@@ -1514,19 +1028,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronListFirewallGroups(neutronListFirewallGroupsRequest?: NeutronListFirewallGroupsRequest): Promise<NeutronListFirewallGroupsResponse> {
+        const options = ParamCreater().neutronListFirewallGroups(neutronListFirewallGroupsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronListFirewallGroups(neutronListFirewallGroupsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询提交请求的租户有权限操作的所有网络ACL策略信息。单次查询最多返回2000条数据，超过2000后会返回分页标记。
@@ -1541,19 +1046,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronListFirewallPolicies(neutronListFirewallPoliciesRequest?: NeutronListFirewallPoliciesRequest): Promise<NeutronListFirewallPoliciesResponse> {
+        const options = ParamCreater().neutronListFirewallPolicies(neutronListFirewallPoliciesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronListFirewallPolicies(neutronListFirewallPoliciesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询提交请求的租户有权限操作的所有网络ACL规则信息。单次查询最多返回2000条数据，超过2000后会返回分页标记。
@@ -1569,19 +1065,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronListFirewallRules(neutronListFirewallRulesRequest?: NeutronListFirewallRulesRequest): Promise<NeutronListFirewallRulesResponse> {
+        const options = ParamCreater().neutronListFirewallRules(neutronListFirewallRulesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronListFirewallRules(neutronListFirewallRulesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 从某一网络ACL策略中移除一条网络ACL规则。
@@ -1592,19 +1079,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronRemoveFirewallRule(neutronRemoveFirewallRuleRequest?: NeutronRemoveFirewallRuleRequest): Promise<NeutronRemoveFirewallRuleResponse> {
+        const options = ParamCreater().neutronRemoveFirewallRule(neutronRemoveFirewallRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronRemoveFirewallRule(neutronRemoveFirewallRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询特定网络ACL组详情。
@@ -1614,19 +1092,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronShowFirewallGroup(neutronShowFirewallGroupRequest?: NeutronShowFirewallGroupRequest): Promise<NeutronShowFirewallGroupResponse> {
+        const options = ParamCreater().neutronShowFirewallGroup(neutronShowFirewallGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronShowFirewallGroup(neutronShowFirewallGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询特定网络ACL策略详情。
@@ -1636,19 +1105,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronShowFirewallPolicy(neutronShowFirewallPolicyRequest?: NeutronShowFirewallPolicyRequest): Promise<NeutronShowFirewallPolicyResponse> {
+        const options = ParamCreater().neutronShowFirewallPolicy(neutronShowFirewallPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronShowFirewallPolicy(neutronShowFirewallPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询特定网络ACL规则。
@@ -1658,19 +1118,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronShowFirewallRule(neutronShowFirewallRuleRequest?: NeutronShowFirewallRuleRequest): Promise<NeutronShowFirewallRuleResponse> {
+        const options = ParamCreater().neutronShowFirewallRule(neutronShowFirewallRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronShowFirewallRule(neutronShowFirewallRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新网络ACL组。
@@ -1681,19 +1132,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronUpdateFirewallGroup(neutronUpdateFirewallGroupRequest?: NeutronUpdateFirewallGroupRequest): Promise<NeutronUpdateFirewallGroupResponse> {
+        const options = ParamCreater().neutronUpdateFirewallGroup(neutronUpdateFirewallGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronUpdateFirewallGroup(neutronUpdateFirewallGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新网络ACL策略。
@@ -1704,19 +1146,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronUpdateFirewallPolicy(neutronUpdateFirewallPolicyRequest?: NeutronUpdateFirewallPolicyRequest): Promise<NeutronUpdateFirewallPolicyResponse> {
+        const options = ParamCreater().neutronUpdateFirewallPolicy(neutronUpdateFirewallPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronUpdateFirewallPolicy(neutronUpdateFirewallPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新网络ACL规则。
@@ -1727,19 +1160,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public neutronUpdateFirewallRule(neutronUpdateFirewallRuleRequest?: NeutronUpdateFirewallRuleRequest): Promise<NeutronUpdateFirewallRuleResponse> {
+        const options = ParamCreater().neutronUpdateFirewallRule(neutronUpdateFirewallRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronUpdateFirewallRule(neutronUpdateFirewallRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 为指定的VPC资源实例批量添加标签。 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
@@ -1750,19 +1174,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public batchCreateVpcTags(batchCreateVpcTagsRequest?: BatchCreateVpcTagsRequest): Promise<void> {
+        const options = ParamCreater().batchCreateVpcTags(batchCreateVpcTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchCreateVpcTags(batchCreateVpcTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 为指定的VPC资源实例批量删除标签。 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
@@ -1773,19 +1188,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public batchDeleteVpcTags(batchDeleteVpcTagsRequest?: BatchDeleteVpcTagsRequest): Promise<void> {
+        const options = ParamCreater().batchDeleteVpcTags(batchDeleteVpcTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchDeleteVpcTags(batchDeleteVpcTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建虚拟私有云。
@@ -1795,19 +1201,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createVpc(createVpcRequest?: CreateVpcRequest): Promise<CreateVpcResponse> {
+        const options = ParamCreater().createVpc(createVpcRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createVpc(createVpcRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 给指定VPC资源实例增加标签信息 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
@@ -1818,19 +1215,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createVpcResourceTag(createVpcResourceTagRequest?: CreateVpcResourceTagRequest): Promise<void> {
+        const options = ParamCreater().createVpcResourceTag(createVpcResourceTagRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createVpcResourceTag(createVpcResourceTagRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建路由
@@ -1840,19 +1228,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createVpcRoute(createVpcRouteRequest?: CreateVpcRouteRequest): Promise<CreateVpcRouteResponse> {
+        const options = ParamCreater().createVpcRoute(createVpcRouteRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createVpcRoute(createVpcRouteRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除虚拟私有云。
@@ -1862,19 +1241,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteVpc(deleteVpcRequest?: DeleteVpcRequest): Promise<void> {
+        const options = ParamCreater().deleteVpc(deleteVpcRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteVpc(deleteVpcRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除路由
@@ -1884,19 +1254,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteVpcRoute(deleteVpcRouteRequest?: DeleteVpcRouteRequest): Promise<void> {
+        const options = ParamCreater().deleteVpcRoute(deleteVpcRouteRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteVpcRoute(deleteVpcRouteRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除指定VPC资源实例的标签信息 该接口为幂等接口：删除的key不存在报404，Key不能为空或者空字符串
@@ -1907,19 +1268,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteVpcTag(deleteVpcTagRequest?: DeleteVpcTagRequest): Promise<void> {
+        const options = ParamCreater().deleteVpcTag(deleteVpcTagRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteVpcTag(deleteVpcTagRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询提交请求的租户的所有路由列表，并根据过滤条件进行过滤。
@@ -1935,19 +1287,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listVpcRoutes(listVpcRoutesRequest?: ListVpcRoutesRequest): Promise<ListVpcRoutesResponse> {
+        const options = ParamCreater().listVpcRoutes(listVpcRoutesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listVpcRoutes(listVpcRoutesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询租户在指定区域和实例类型的所有标签集合
@@ -1956,19 +1299,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listVpcTags(): Promise<ListVpcTagsResponse> {
+        const options = ParamCreater().listVpcTags();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listVpcTags();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询虚拟私有云列表。
@@ -1981,19 +1315,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listVpcs(listVpcsRequest?: ListVpcsRequest): Promise<ListVpcsResponse> {
+        const options = ParamCreater().listVpcs(listVpcsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listVpcs(listVpcsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 使用标签过滤实例。
@@ -2003,19 +1328,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listVpcsByTags(listVpcsByTagsRequest?: ListVpcsByTagsRequest): Promise<ListVpcsByTagsResponse> {
+        const options = ParamCreater().listVpcsByTags(listVpcsByTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listVpcsByTags(listVpcsByTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询虚拟私有云。
@@ -2025,19 +1341,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showVpc(showVpcRequest?: ShowVpcRequest): Promise<ShowVpcResponse> {
+        const options = ParamCreater().showVpc(showVpcRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showVpc(showVpcRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询路由详情
@@ -2047,19 +1354,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showVpcRoute(showVpcRouteRequest?: ShowVpcRouteRequest): Promise<ShowVpcRouteResponse> {
+        const options = ParamCreater().showVpcRoute(showVpcRouteRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showVpcRoute(showVpcRouteRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询指定VPC实例的标签信息
@@ -2069,19 +1367,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showVpcTags(showVpcTagsRequest?: ShowVpcTagsRequest): Promise<ShowVpcTagsResponse> {
+        const options = ParamCreater().showVpcTags(showVpcTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showVpcTags(showVpcTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新虚拟私有云。
@@ -2092,19 +1381,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public updateVpc(updateVpcRequest?: UpdateVpcRequest): Promise<UpdateVpcResponse> {
+        const options = ParamCreater().updateVpc(updateVpcRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateVpc(updateVpcRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
 }
 

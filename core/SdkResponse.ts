@@ -20,22 +20,5 @@
  */
 
 export class SdkResponse {
-    private httpStatusCode: number | undefined;
-    public result?: any;
-    public constructor(statusCode?: number) {
-        this.httpStatusCode = statusCode;
-    }
-
-    public getStatusCode(): number {
-        return <number>this.httpStatusCode;
-    }
-    public setStatusCode(code: number) {
-        this.httpStatusCode = code;
-    }
-    public setResult(result: any) {
-        this.result = result;
-    }
-    public getResult() {
-        return this.result;
-    }
+    httpStatusCode?: number;
 }

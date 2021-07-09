@@ -1,3 +1,63 @@
+# 3.0.10-beta 2021-07-09
+
+### HuaweiCloud SDK Core
+- _新增特性_
+  - 无
+- _解决问题_
+  - 修复 Response 返回层级错误
+- _特性变更_
+  - 优化异常信息
+
+  
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 支持接口`RemoveNode`、`MigrateNode`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`DeleteCluster`新增请求参数`tobedeleted`
+
+### HuaweiCloud SDK EIP
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`CreateSharedBandwidth`、`ListBandwidths`新增响应参数`publicip_border_group`
+
+### HuaweiCloud SDK IMS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`GlanceCreateImageMetadata`新增响应参数`__root_origin`、`checksum`、`size`
+  - 接口`GlanceAddImageMember`移除请求参数`deleted`、`deleted_at`,新增以下请求参数：
+    - `__lazyloading`
+    - `__os_feature_list`
+    - `__root_origin`
+    - `__sequence_num`
+    - `__support_agent_list`
+    - `__system__cmkid`
+    - `active_at`
+    - `hw_vif_multiqueue_enabled`
+    - `max_ram`
+    - `__image_location`
+    - `__is_config_init`
+    - `__account_code`
+
+### HuaweiCloud SDK IoTDA
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ListRules`新增响应参数`edge_node_ids`、`last_update_time`
+
 # 3.0.9-beta 2021-06-29
 
 ### HuaweiCloud SDK Core

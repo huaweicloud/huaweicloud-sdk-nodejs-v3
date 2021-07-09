@@ -29,6 +29,9 @@ export class GlanceCreateImageMetadataResponse extends SdkResponse {
     public owner?: string;
     private 'virtual_size'?: number | undefined;
     public properties?: object;
+    private '__root_origin'?: string | undefined;
+    public checksum?: string;
+    public size?: number;
     public constructor() { 
         super();
     }
@@ -240,6 +243,24 @@ export class GlanceCreateImageMetadataResponse extends SdkResponse {
     }
     public withProperties(properties: object): GlanceCreateImageMetadataResponse {
         this['properties'] = properties;
+        return this;
+    }
+    public withRootOrigin(rootOrigin: string): GlanceCreateImageMetadataResponse {
+        this['__root_origin'] = rootOrigin;
+        return this;
+    }
+    public set rootOrigin(rootOrigin: string | undefined) {
+        this['__root_origin'] = rootOrigin;
+    }
+    public get rootOrigin() {
+        return this['__root_origin'];
+    }
+    public withChecksum(checksum: string): GlanceCreateImageMetadataResponse {
+        this['checksum'] = checksum;
+        return this;
+    }
+    public withSize(size: number): GlanceCreateImageMetadataResponse {
+        this['size'] = size;
         return this;
     }
 }

@@ -74,19 +74,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public batchCreateSubNetworkInterface(batchCreateSubNetworkInterfaceRequest?: BatchCreateSubNetworkInterfaceRequest): Promise<BatchCreateSubNetworkInterfaceResponse> {
+        const options = ParamCreater().batchCreateSubNetworkInterface(batchCreateSubNetworkInterfaceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchCreateSubNetworkInterface(batchCreateSubNetworkInterfaceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建安全组
@@ -96,19 +87,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createSecurityGroup(createSecurityGroupRequest?: CreateSecurityGroupRequest): Promise<CreateSecurityGroupResponse> {
+        const options = ParamCreater().createSecurityGroup(createSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createSecurityGroup(createSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建安全组规则
@@ -118,19 +100,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createSecurityGroupRule(createSecurityGroupRuleRequest?: CreateSecurityGroupRuleRequest): Promise<CreateSecurityGroupRuleResponse> {
+        const options = ParamCreater().createSecurityGroupRule(createSecurityGroupRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createSecurityGroupRule(createSecurityGroupRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建辅助弹性网卡
@@ -140,19 +113,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public createSubNetworkInterface(createSubNetworkInterfaceRequest?: CreateSubNetworkInterfaceRequest): Promise<CreateSubNetworkInterfaceResponse> {
+        const options = ParamCreater().createSubNetworkInterface(createSubNetworkInterfaceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createSubNetworkInterface(createSubNetworkInterfaceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除安全组
@@ -162,19 +126,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteSecurityGroup(deleteSecurityGroupRequest?: DeleteSecurityGroupRequest): Promise<void> {
+        const options = ParamCreater().deleteSecurityGroup(deleteSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteSecurityGroup(deleteSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除安全组规则
@@ -184,19 +139,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteSecurityGroupRule(deleteSecurityGroupRuleRequest?: DeleteSecurityGroupRuleRequest): Promise<void> {
+        const options = ParamCreater().deleteSecurityGroupRule(deleteSecurityGroupRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteSecurityGroupRule(deleteSecurityGroupRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除辅助弹性网卡
@@ -206,19 +152,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public deleteSubNetworkInterface(deleteSubNetworkInterfaceRequest?: DeleteSubNetworkInterfaceRequest): Promise<void> {
+        const options = ParamCreater().deleteSubNetworkInterface(deleteSubNetworkInterfaceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteSubNetworkInterface(deleteSubNetworkInterfaceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询安全组规则列表
@@ -236,19 +173,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listSecurityGroupRules(listSecurityGroupRulesRequest?: ListSecurityGroupRulesRequest): Promise<ListSecurityGroupRulesResponse> {
+        const options = ParamCreater().listSecurityGroupRules(listSecurityGroupRulesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listSecurityGroupRules(listSecurityGroupRulesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询某租户下的安全组列表
@@ -263,19 +191,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listSecurityGroups(listSecurityGroupsRequest?: ListSecurityGroupsRequest): Promise<ListSecurityGroupsResponse> {
+        const options = ParamCreater().listSecurityGroups(listSecurityGroupsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listSecurityGroups(listSecurityGroupsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询辅助弹性网卡列表，单次查询最多返回2000条数据
@@ -293,19 +212,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public listSubNetworkInterfaces(listSubNetworkInterfacesRequest?: ListSubNetworkInterfacesRequest): Promise<ListSubNetworkInterfacesResponse> {
+        const options = ParamCreater().listSubNetworkInterfaces(listSubNetworkInterfacesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listSubNetworkInterfaces(listSubNetworkInterfacesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询单个安全组详情
@@ -315,19 +225,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showSecurityGroup(showSecurityGroupRequest?: ShowSecurityGroupRequest): Promise<ShowSecurityGroupResponse> {
+        const options = ParamCreater().showSecurityGroup(showSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showSecurityGroup(showSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询单个安全组规则
@@ -337,19 +238,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showSecurityGroupRule(showSecurityGroupRuleRequest?: ShowSecurityGroupRuleRequest): Promise<ShowSecurityGroupRuleResponse> {
+        const options = ParamCreater().showSecurityGroupRule(showSecurityGroupRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showSecurityGroupRule(showSecurityGroupRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询辅助弹性网卡详情
@@ -359,19 +251,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showSubNetworkInterface(showSubNetworkInterfaceRequest?: ShowSubNetworkInterfaceRequest): Promise<ShowSubNetworkInterfaceResponse> {
+        const options = ParamCreater().showSubNetworkInterface(showSubNetworkInterfaceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showSubNetworkInterface(showSubNetworkInterfaceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询辅助弹性网卡数目
@@ -380,19 +263,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public showSubNetworkInterfacesQuantity(): Promise<ShowSubNetworkInterfacesQuantityResponse> {
+        const options = ParamCreater().showSubNetworkInterfacesQuantity();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showSubNetworkInterfacesQuantity();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新安全组
@@ -403,19 +277,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public updateSecurityGroup(updateSecurityGroupRequest?: UpdateSecurityGroupRequest): Promise<UpdateSecurityGroupResponse> {
+        const options = ParamCreater().updateSecurityGroup(updateSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateSecurityGroup(updateSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新辅助弹性网卡
@@ -426,19 +291,10 @@ export class VpcClient {
      * @throws {RequiredError}
      */
     public updateSubNetworkInterface(updateSubNetworkInterfaceRequest?: UpdateSubNetworkInterfaceRequest): Promise<UpdateSubNetworkInterfaceResponse> {
+        const options = ParamCreater().updateSubNetworkInterface(updateSubNetworkInterfaceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateSubNetworkInterface(updateSubNetworkInterfaceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
 }
 

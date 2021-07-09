@@ -1,11 +1,11 @@
-import { CCEClusterNodeInformation } from './CCEClusterNodeInformation';
+import { ClusterNodeInformation } from './ClusterNodeInformation';
 
 
 export class UpdateNodeRequest {
     private 'cluster_id': string | undefined;
     private 'node_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public body?: CCEClusterNodeInformation;
+    public body?: ClusterNodeInformation;
     public constructor(clusterId?: any, nodeId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
         this['node_id'] = nodeId;
@@ -41,7 +41,7 @@ export class UpdateNodeRequest {
     public get contentType() {
         return this['Content-Type'];
     }
-    public withBody(body: CCEClusterNodeInformation): UpdateNodeRequest {
+    public withBody(body: ClusterNodeInformation): UpdateNodeRequest {
         this['body'] = body;
         return this;
     }

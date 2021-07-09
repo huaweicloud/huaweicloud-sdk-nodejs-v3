@@ -5,11 +5,9 @@ export class UpdateImageResponse extends SdkResponse {
     private '__backup_id'?: string | undefined;
     private '__data_origin'?: string | undefined;
     private '__description'?: string | undefined;
-    private '__image_location'?: string | undefined;
     private '__image_size'?: string | undefined;
     private '__image_source_type'?: UpdateImageResponseImageSourceTypeEnum | undefined;
     private '__imagetype'?: UpdateImageResponseImagetypeEnum | undefined;
-    private '__is_config_init'?: UpdateImageResponseIsConfigInitEnum | undefined;
     private '__isregistered'?: UpdateImageResponseIsregisteredEnum | undefined;
     private '__originalimagename'?: string | undefined;
     private '__os_bit'?: UpdateImageResponseOsBitEnum | undefined;
@@ -48,7 +46,6 @@ export class UpdateImageResponse extends SdkResponse {
     private 'virtual_env_type'?: UpdateImageResponseVirtualEnvTypeEnum | undefined;
     private 'virtual_size'?: number | undefined;
     public visibility?: UpdateImageResponseVisibilityEnum;
-    public architecture?: UpdateImageResponseArchitectureEnum;
     private '__support_fc_inject'?: UpdateImageResponseSupportFcInjectEnum | undefined;
     private 'hw_firmware_type'?: UpdateImageResponseHwFirmwareTypeEnum | undefined;
     private '__support_arm'?: UpdateImageResponseSupportArmEnum | undefined;
@@ -57,6 +54,12 @@ export class UpdateImageResponse extends SdkResponse {
     private '__os_feature_list'?: string | undefined;
     private '__account_code'?: string | undefined;
     private 'hw_vif_multiqueue_enabled'?: string | undefined;
+    private '__is_offshelved'?: string | undefined;
+    private '__lazyloading'?: boolean | undefined;
+    private '__root_origin'?: string | undefined;
+    private '__sequence_num'?: string | undefined;
+    private 'active_at'?: string | undefined;
+    private '__support_agent_list'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -90,16 +93,6 @@ export class UpdateImageResponse extends SdkResponse {
     public get description() {
         return this['__description'];
     }
-    public withImageLocation(imageLocation: string): UpdateImageResponse {
-        this['__image_location'] = imageLocation;
-        return this;
-    }
-    public set imageLocation(imageLocation: string | undefined) {
-        this['__image_location'] = imageLocation;
-    }
-    public get imageLocation() {
-        return this['__image_location'];
-    }
     public withImageSize(imageSize: string): UpdateImageResponse {
         this['__image_size'] = imageSize;
         return this;
@@ -129,16 +122,6 @@ export class UpdateImageResponse extends SdkResponse {
     }
     public get imagetype() {
         return this['__imagetype'];
-    }
-    public withIsConfigInit(isConfigInit: UpdateImageResponseIsConfigInitEnum): UpdateImageResponse {
-        this['__is_config_init'] = isConfigInit;
-        return this;
-    }
-    public set isConfigInit(isConfigInit: UpdateImageResponseIsConfigInitEnum | undefined) {
-        this['__is_config_init'] = isConfigInit;
-    }
-    public get isConfigInit() {
-        return this['__is_config_init'];
     }
     public withIsregistered(isregistered: UpdateImageResponseIsregisteredEnum): UpdateImageResponse {
         this['__isregistered'] = isregistered;
@@ -454,10 +437,6 @@ export class UpdateImageResponse extends SdkResponse {
         this['visibility'] = visibility;
         return this;
     }
-    public withArchitecture(architecture: UpdateImageResponseArchitectureEnum): UpdateImageResponse {
-        this['architecture'] = architecture;
-        return this;
-    }
     public withSupportFcInject(supportFcInject: UpdateImageResponseSupportFcInjectEnum): UpdateImageResponse {
         this['__support_fc_inject'] = supportFcInject;
         return this;
@@ -538,6 +517,66 @@ export class UpdateImageResponse extends SdkResponse {
     public get hwVifMultiqueueEnabled() {
         return this['hw_vif_multiqueue_enabled'];
     }
+    public withIsOffshelved(isOffshelved: string): UpdateImageResponse {
+        this['__is_offshelved'] = isOffshelved;
+        return this;
+    }
+    public set isOffshelved(isOffshelved: string | undefined) {
+        this['__is_offshelved'] = isOffshelved;
+    }
+    public get isOffshelved() {
+        return this['__is_offshelved'];
+    }
+    public withLazyloading(lazyloading: boolean): UpdateImageResponse {
+        this['__lazyloading'] = lazyloading;
+        return this;
+    }
+    public set lazyloading(lazyloading: boolean | undefined) {
+        this['__lazyloading'] = lazyloading;
+    }
+    public get lazyloading() {
+        return this['__lazyloading'];
+    }
+    public withRootOrigin(rootOrigin: string): UpdateImageResponse {
+        this['__root_origin'] = rootOrigin;
+        return this;
+    }
+    public set rootOrigin(rootOrigin: string | undefined) {
+        this['__root_origin'] = rootOrigin;
+    }
+    public get rootOrigin() {
+        return this['__root_origin'];
+    }
+    public withSequenceNum(sequenceNum: string): UpdateImageResponse {
+        this['__sequence_num'] = sequenceNum;
+        return this;
+    }
+    public set sequenceNum(sequenceNum: string | undefined) {
+        this['__sequence_num'] = sequenceNum;
+    }
+    public get sequenceNum() {
+        return this['__sequence_num'];
+    }
+    public withActiveAt(activeAt: string): UpdateImageResponse {
+        this['active_at'] = activeAt;
+        return this;
+    }
+    public set activeAt(activeAt: string | undefined) {
+        this['active_at'] = activeAt;
+    }
+    public get activeAt() {
+        return this['active_at'];
+    }
+    public withSupportAgentList(supportAgentList: string): UpdateImageResponse {
+        this['__support_agent_list'] = supportAgentList;
+        return this;
+    }
+    public set supportAgentList(supportAgentList: string | undefined) {
+        this['__support_agent_list'] = supportAgentList;
+    }
+    public get supportAgentList() {
+        return this['__support_agent_list'];
+    }
 }
 
 /**
@@ -556,14 +595,6 @@ export enum UpdateImageResponseImagetypeEnum {
     GOLD = 'gold',
     PRIVATE = 'private',
     SHARED = 'shared'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateImageResponseIsConfigInitEnum {
-    TRUE = 'true',
-    FALSE = 'false'
 }
 /**
     * @export
@@ -635,14 +666,6 @@ export enum UpdateImageResponseVirtualEnvTypeEnum {
 export enum UpdateImageResponseVisibilityEnum {
     PRIVATE = 'private',
     PUBLIC = 'public'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateImageResponseArchitectureEnum {
-    X86 = 'x86',
-    ARM = 'arm'
 }
 /**
     * @export

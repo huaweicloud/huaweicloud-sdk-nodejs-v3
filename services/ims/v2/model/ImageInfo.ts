@@ -4,11 +4,9 @@ export class ImageInfo {
     private '__backup_id': string | undefined;
     private '__data_origin': string | undefined;
     private '__description': string | undefined;
-    private '__image_location': string | undefined;
     private '__image_size': string | undefined;
     private '__image_source_type': ImageInfoImageSourceTypeEnum | undefined;
     private '__imagetype': ImageInfoImagetypeEnum | undefined;
-    private '__is_config_init': ImageInfoIsConfigInitEnum | undefined;
     private '__isregistered': ImageInfoIsregisteredEnum | undefined;
     private '__originalimagename': string | undefined;
     private '__os_bit': ImageInfoOsBitEnum | undefined;
@@ -47,7 +45,6 @@ export class ImageInfo {
     private 'virtual_env_type': ImageInfoVirtualEnvTypeEnum | undefined;
     private 'virtual_size': number | undefined;
     public visibility: ImageInfoVisibilityEnum;
-    public architecture: ImageInfoArchitectureEnum;
     private '__support_fc_inject'?: ImageInfoSupportFcInjectEnum | undefined;
     private 'hw_firmware_type'?: ImageInfoHwFirmwareTypeEnum | undefined;
     private '__support_arm'?: ImageInfoSupportArmEnum | undefined;
@@ -56,15 +53,19 @@ export class ImageInfo {
     private '__os_feature_list'?: string | undefined;
     private '__account_code'?: string | undefined;
     private 'hw_vif_multiqueue_enabled'?: string | undefined;
-    public constructor(backupId?: any, dataOrigin?: any, description?: any, imageLocation?: any, imageSize?: any, imageSourceType?: any, imagetype?: any, isConfigInit?: any, isregistered?: any, originalimagename?: any, osBit?: any, osType?: any, osVersion?: any, platform?: any, containerFormat?: any, createdAt?: any, enterpriseProjectId?: any, id?: any, minDisk?: any, minRam?: any, name?: any, owner?: any, _protected?: any, self?: any, status?: any, tags?: any, updatedAt?: any, virtualEnvType?: any, virtualSize?: any, visibility?: any, architecture?: any) { 
+    private '__is_offshelved': string | undefined;
+    private '__lazyloading': boolean | undefined;
+    private '__root_origin': string | undefined;
+    private '__sequence_num': string | undefined;
+    private 'active_at': string | undefined;
+    private '__support_agent_list': string | undefined;
+    public constructor(backupId?: any, dataOrigin?: any, description?: any, imageSize?: any, imageSourceType?: any, imagetype?: any, isregistered?: any, originalimagename?: any, osBit?: any, osType?: any, osVersion?: any, platform?: any, containerFormat?: any, createdAt?: any, enterpriseProjectId?: any, id?: any, minDisk?: any, minRam?: any, name?: any, owner?: any, _protected?: any, self?: any, status?: any, tags?: any, updatedAt?: any, virtualEnvType?: any, virtualSize?: any, visibility?: any, isOffshelved?: any, lazyloading?: any, rootOrigin?: any, sequenceNum?: any, activeAt?: any, supportAgentList?: any) { 
         this['__backup_id'] = backupId;
         this['__data_origin'] = dataOrigin;
         this['__description'] = description;
-        this['__image_location'] = imageLocation;
         this['__image_size'] = imageSize;
         this['__image_source_type'] = imageSourceType;
         this['__imagetype'] = imagetype;
-        this['__is_config_init'] = isConfigInit;
         this['__isregistered'] = isregistered;
         this['__originalimagename'] = originalimagename;
         this['__os_bit'] = osBit;
@@ -87,7 +88,12 @@ export class ImageInfo {
         this['virtual_env_type'] = virtualEnvType;
         this['virtual_size'] = virtualSize;
         this['visibility'] = visibility;
-        this['architecture'] = architecture;
+        this['__is_offshelved'] = isOffshelved;
+        this['__lazyloading'] = lazyloading;
+        this['__root_origin'] = rootOrigin;
+        this['__sequence_num'] = sequenceNum;
+        this['active_at'] = activeAt;
+        this['__support_agent_list'] = supportAgentList;
     }
     public withBackupId(backupId: string): ImageInfo {
         this['__backup_id'] = backupId;
@@ -119,16 +125,6 @@ export class ImageInfo {
     public get description() {
         return this['__description'];
     }
-    public withImageLocation(imageLocation: string): ImageInfo {
-        this['__image_location'] = imageLocation;
-        return this;
-    }
-    public set imageLocation(imageLocation: string | undefined) {
-        this['__image_location'] = imageLocation;
-    }
-    public get imageLocation() {
-        return this['__image_location'];
-    }
     public withImageSize(imageSize: string): ImageInfo {
         this['__image_size'] = imageSize;
         return this;
@@ -158,16 +154,6 @@ export class ImageInfo {
     }
     public get imagetype() {
         return this['__imagetype'];
-    }
-    public withIsConfigInit(isConfigInit: ImageInfoIsConfigInitEnum): ImageInfo {
-        this['__is_config_init'] = isConfigInit;
-        return this;
-    }
-    public set isConfigInit(isConfigInit: ImageInfoIsConfigInitEnum | undefined) {
-        this['__is_config_init'] = isConfigInit;
-    }
-    public get isConfigInit() {
-        return this['__is_config_init'];
     }
     public withIsregistered(isregistered: ImageInfoIsregisteredEnum): ImageInfo {
         this['__isregistered'] = isregistered;
@@ -483,10 +469,6 @@ export class ImageInfo {
         this['visibility'] = visibility;
         return this;
     }
-    public withArchitecture(architecture: ImageInfoArchitectureEnum): ImageInfo {
-        this['architecture'] = architecture;
-        return this;
-    }
     public withSupportFcInject(supportFcInject: ImageInfoSupportFcInjectEnum): ImageInfo {
         this['__support_fc_inject'] = supportFcInject;
         return this;
@@ -567,6 +549,66 @@ export class ImageInfo {
     public get hwVifMultiqueueEnabled() {
         return this['hw_vif_multiqueue_enabled'];
     }
+    public withIsOffshelved(isOffshelved: string): ImageInfo {
+        this['__is_offshelved'] = isOffshelved;
+        return this;
+    }
+    public set isOffshelved(isOffshelved: string | undefined) {
+        this['__is_offshelved'] = isOffshelved;
+    }
+    public get isOffshelved() {
+        return this['__is_offshelved'];
+    }
+    public withLazyloading(lazyloading: boolean): ImageInfo {
+        this['__lazyloading'] = lazyloading;
+        return this;
+    }
+    public set lazyloading(lazyloading: boolean | undefined) {
+        this['__lazyloading'] = lazyloading;
+    }
+    public get lazyloading() {
+        return this['__lazyloading'];
+    }
+    public withRootOrigin(rootOrigin: string): ImageInfo {
+        this['__root_origin'] = rootOrigin;
+        return this;
+    }
+    public set rootOrigin(rootOrigin: string | undefined) {
+        this['__root_origin'] = rootOrigin;
+    }
+    public get rootOrigin() {
+        return this['__root_origin'];
+    }
+    public withSequenceNum(sequenceNum: string): ImageInfo {
+        this['__sequence_num'] = sequenceNum;
+        return this;
+    }
+    public set sequenceNum(sequenceNum: string | undefined) {
+        this['__sequence_num'] = sequenceNum;
+    }
+    public get sequenceNum() {
+        return this['__sequence_num'];
+    }
+    public withActiveAt(activeAt: string): ImageInfo {
+        this['active_at'] = activeAt;
+        return this;
+    }
+    public set activeAt(activeAt: string | undefined) {
+        this['active_at'] = activeAt;
+    }
+    public get activeAt() {
+        return this['active_at'];
+    }
+    public withSupportAgentList(supportAgentList: string): ImageInfo {
+        this['__support_agent_list'] = supportAgentList;
+        return this;
+    }
+    public set supportAgentList(supportAgentList: string | undefined) {
+        this['__support_agent_list'] = supportAgentList;
+    }
+    public get supportAgentList() {
+        return this['__support_agent_list'];
+    }
 }
 
 /**
@@ -585,14 +627,6 @@ export enum ImageInfoImagetypeEnum {
     GOLD = 'gold',
     PRIVATE = 'private',
     SHARED = 'shared'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ImageInfoIsConfigInitEnum {
-    TRUE = 'true',
-    FALSE = 'false'
 }
 /**
     * @export
@@ -664,14 +698,6 @@ export enum ImageInfoVirtualEnvTypeEnum {
 export enum ImageInfoVisibilityEnum {
     PRIVATE = 'private',
     PUBLIC = 'public'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ImageInfoArchitectureEnum {
-    X86 = 'x86',
-    ARM = 'arm'
 }
 /**
     * @export

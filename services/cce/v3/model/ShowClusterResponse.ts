@@ -1,14 +1,14 @@
+import { ClusterMetadata } from './ClusterMetadata';
+import { ClusterSpec } from './ClusterSpec';
 import { ClusterStatus } from './ClusterStatus';
-import { ShowClusterMetadata } from './ShowClusterMetadata';
-import { V3ClusterSpec } from './V3ClusterSpec';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowClusterResponse extends SdkResponse {
     public kind?: string;
     public apiVersion?: string;
-    public metadata?: ShowClusterMetadata;
-    public spec?: V3ClusterSpec;
+    public metadata?: ClusterMetadata;
+    public spec?: ClusterSpec;
     public status?: ClusterStatus;
     public constructor() { 
         super();
@@ -21,11 +21,11 @@ export class ShowClusterResponse extends SdkResponse {
         this['apiVersion'] = apiVersion;
         return this;
     }
-    public withMetadata(metadata: ShowClusterMetadata): ShowClusterResponse {
+    public withMetadata(metadata: ClusterMetadata): ShowClusterResponse {
         this['metadata'] = metadata;
         return this;
     }
-    public withSpec(spec: V3ClusterSpec): ShowClusterResponse {
+    public withSpec(spec: ClusterSpec): ShowClusterResponse {
         this['spec'] = spec;
         return this;
     }

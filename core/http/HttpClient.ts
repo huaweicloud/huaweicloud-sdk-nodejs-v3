@@ -19,8 +19,9 @@
  * under the License.
  */
 
+import { DefaultHttpResponse } from "./DefaultHttpResponse";
 import { IHttpRequest } from "./IHttpRequest";
 
 export interface HttpClient {
-    sendRequest(httpRequest: IHttpRequest): Promise<any>;
+    sendRequest<T>(httpRequest: IHttpRequest): Promise<DefaultHttpResponse<T>>;
 }

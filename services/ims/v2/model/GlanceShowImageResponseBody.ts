@@ -26,8 +26,6 @@ export class GlanceShowImageResponseBody {
     public checksum: string;
     private 'container_format': string | undefined;
     private 'created_at': string | undefined;
-    public deleted: boolean;
-    private 'deleted_at': string | undefined;
     private 'disk_format': GlanceShowImageResponseBodyDiskFormatEnum | undefined;
     public file: string;
     public id: string;
@@ -50,7 +48,19 @@ export class GlanceShowImageResponseBody {
     private 'hw_firmware_type': GlanceShowImageResponseBodyHwFirmwareTypeEnum | undefined;
     private '__support_arm': GlanceShowImageResponseBodySupportArmEnum | undefined;
     private '__is_offshelved': GlanceShowImageResponseBodyIsOffshelvedEnum | undefined;
-    public constructor(backupId?: any, dataOrigin?: any, description?: any, imageSize?: any, imageSourceType?: any, imagetype?: any, isregistered?: any, originalimagename?: any, osBit?: any, osType?: any, osVersion?: any, platform?: any, productcode?: any, supportDiskintensive?: any, supportHighperformance?: any, supportKvm?: any, supportKvmGpuType?: any, supportKvmInfiniband?: any, supportLargememory?: any, supportXen?: any, supportXenGpuType?: any, supportXenHana?: any, checksum?: any, containerFormat?: any, createdAt?: any, deleted?: any, deletedAt?: any, diskFormat?: any, file?: any, id?: any, minDisk?: any, minRam?: any, name?: any, owner?: any, _protected?: any, schema?: any, self?: any, size?: any, status?: any, tags?: any, updatedAt?: any, virtualEnvType?: any, virtualSize?: any, visibility?: any, supportFcInject?: any, enterpriseProjectId?: any, hwFirmwareType?: any, supportArm?: any, isOffshelved?: any) { 
+    private '__lazyloading': boolean | undefined;
+    private '__os_feature_list': string | undefined;
+    private '__root_origin': string | undefined;
+    private '__sequence_num': string | undefined;
+    private '__support_agent_list': string | undefined;
+    private '__system__cmkid': string | undefined;
+    private 'active_at': string | undefined;
+    private 'hw_vif_multiqueue_enabled': string | undefined;
+    private 'max_ram': string | undefined;
+    private '__image_location': string | undefined;
+    private '__is_config_init': string | undefined;
+    private '__account_code': string | undefined;
+    public constructor(backupId?: any, dataOrigin?: any, description?: any, imageSize?: any, imageSourceType?: any, imagetype?: any, isregistered?: any, originalimagename?: any, osBit?: any, osType?: any, osVersion?: any, platform?: any, productcode?: any, supportDiskintensive?: any, supportHighperformance?: any, supportKvm?: any, supportKvmGpuType?: any, supportKvmInfiniband?: any, supportLargememory?: any, supportXen?: any, supportXenGpuType?: any, supportXenHana?: any, checksum?: any, containerFormat?: any, createdAt?: any, diskFormat?: any, file?: any, id?: any, minDisk?: any, minRam?: any, name?: any, owner?: any, _protected?: any, schema?: any, self?: any, size?: any, status?: any, tags?: any, updatedAt?: any, virtualEnvType?: any, virtualSize?: any, visibility?: any, supportFcInject?: any, enterpriseProjectId?: any, hwFirmwareType?: any, supportArm?: any, isOffshelved?: any, lazyloading?: any, osFeatureList?: any, rootOrigin?: any, sequenceNum?: any, supportAgentList?: any, systemCmkid?: any, activeAt?: any, hwVifMultiqueueEnabled?: any, maxRam?: any, imageLocation?: any, isConfigInit?: any, accountCode?: any) { 
         this['__backup_id'] = backupId;
         this['__data_origin'] = dataOrigin;
         this['__description'] = description;
@@ -76,8 +86,6 @@ export class GlanceShowImageResponseBody {
         this['checksum'] = checksum;
         this['container_format'] = containerFormat;
         this['created_at'] = createdAt;
-        this['deleted'] = deleted;
-        this['deleted_at'] = deletedAt;
         this['disk_format'] = diskFormat;
         this['file'] = file;
         this['id'] = id;
@@ -100,6 +108,18 @@ export class GlanceShowImageResponseBody {
         this['hw_firmware_type'] = hwFirmwareType;
         this['__support_arm'] = supportArm;
         this['__is_offshelved'] = isOffshelved;
+        this['__lazyloading'] = lazyloading;
+        this['__os_feature_list'] = osFeatureList;
+        this['__root_origin'] = rootOrigin;
+        this['__sequence_num'] = sequenceNum;
+        this['__support_agent_list'] = supportAgentList;
+        this['__system__cmkid'] = systemCmkid;
+        this['active_at'] = activeAt;
+        this['hw_vif_multiqueue_enabled'] = hwVifMultiqueueEnabled;
+        this['max_ram'] = maxRam;
+        this['__image_location'] = imageLocation;
+        this['__is_config_init'] = isConfigInit;
+        this['__account_code'] = accountCode;
     }
     public withBackupId(backupId: string): GlanceShowImageResponseBody {
         this['__backup_id'] = backupId;
@@ -345,20 +365,6 @@ export class GlanceShowImageResponseBody {
     public get createdAt() {
         return this['created_at'];
     }
-    public withDeleted(deleted: boolean): GlanceShowImageResponseBody {
-        this['deleted'] = deleted;
-        return this;
-    }
-    public withDeletedAt(deletedAt: string): GlanceShowImageResponseBody {
-        this['deleted_at'] = deletedAt;
-        return this;
-    }
-    public set deletedAt(deletedAt: string | undefined) {
-        this['deleted_at'] = deletedAt;
-    }
-    public get deletedAt() {
-        return this['deleted_at'];
-    }
     public withDiskFormat(diskFormat: GlanceShowImageResponseBodyDiskFormatEnum): GlanceShowImageResponseBody {
         this['disk_format'] = diskFormat;
         return this;
@@ -518,6 +524,126 @@ export class GlanceShowImageResponseBody {
     }
     public get isOffshelved() {
         return this['__is_offshelved'];
+    }
+    public withLazyloading(lazyloading: boolean): GlanceShowImageResponseBody {
+        this['__lazyloading'] = lazyloading;
+        return this;
+    }
+    public set lazyloading(lazyloading: boolean | undefined) {
+        this['__lazyloading'] = lazyloading;
+    }
+    public get lazyloading() {
+        return this['__lazyloading'];
+    }
+    public withOsFeatureList(osFeatureList: string): GlanceShowImageResponseBody {
+        this['__os_feature_list'] = osFeatureList;
+        return this;
+    }
+    public set osFeatureList(osFeatureList: string | undefined) {
+        this['__os_feature_list'] = osFeatureList;
+    }
+    public get osFeatureList() {
+        return this['__os_feature_list'];
+    }
+    public withRootOrigin(rootOrigin: string): GlanceShowImageResponseBody {
+        this['__root_origin'] = rootOrigin;
+        return this;
+    }
+    public set rootOrigin(rootOrigin: string | undefined) {
+        this['__root_origin'] = rootOrigin;
+    }
+    public get rootOrigin() {
+        return this['__root_origin'];
+    }
+    public withSequenceNum(sequenceNum: string): GlanceShowImageResponseBody {
+        this['__sequence_num'] = sequenceNum;
+        return this;
+    }
+    public set sequenceNum(sequenceNum: string | undefined) {
+        this['__sequence_num'] = sequenceNum;
+    }
+    public get sequenceNum() {
+        return this['__sequence_num'];
+    }
+    public withSupportAgentList(supportAgentList: string): GlanceShowImageResponseBody {
+        this['__support_agent_list'] = supportAgentList;
+        return this;
+    }
+    public set supportAgentList(supportAgentList: string | undefined) {
+        this['__support_agent_list'] = supportAgentList;
+    }
+    public get supportAgentList() {
+        return this['__support_agent_list'];
+    }
+    public withSystemCmkid(systemCmkid: string): GlanceShowImageResponseBody {
+        this['__system__cmkid'] = systemCmkid;
+        return this;
+    }
+    public set systemCmkid(systemCmkid: string | undefined) {
+        this['__system__cmkid'] = systemCmkid;
+    }
+    public get systemCmkid() {
+        return this['__system__cmkid'];
+    }
+    public withActiveAt(activeAt: string): GlanceShowImageResponseBody {
+        this['active_at'] = activeAt;
+        return this;
+    }
+    public set activeAt(activeAt: string | undefined) {
+        this['active_at'] = activeAt;
+    }
+    public get activeAt() {
+        return this['active_at'];
+    }
+    public withHwVifMultiqueueEnabled(hwVifMultiqueueEnabled: string): GlanceShowImageResponseBody {
+        this['hw_vif_multiqueue_enabled'] = hwVifMultiqueueEnabled;
+        return this;
+    }
+    public set hwVifMultiqueueEnabled(hwVifMultiqueueEnabled: string | undefined) {
+        this['hw_vif_multiqueue_enabled'] = hwVifMultiqueueEnabled;
+    }
+    public get hwVifMultiqueueEnabled() {
+        return this['hw_vif_multiqueue_enabled'];
+    }
+    public withMaxRam(maxRam: string): GlanceShowImageResponseBody {
+        this['max_ram'] = maxRam;
+        return this;
+    }
+    public set maxRam(maxRam: string | undefined) {
+        this['max_ram'] = maxRam;
+    }
+    public get maxRam() {
+        return this['max_ram'];
+    }
+    public withImageLocation(imageLocation: string): GlanceShowImageResponseBody {
+        this['__image_location'] = imageLocation;
+        return this;
+    }
+    public set imageLocation(imageLocation: string | undefined) {
+        this['__image_location'] = imageLocation;
+    }
+    public get imageLocation() {
+        return this['__image_location'];
+    }
+    public withIsConfigInit(isConfigInit: string): GlanceShowImageResponseBody {
+        this['__is_config_init'] = isConfigInit;
+        return this;
+    }
+    public set isConfigInit(isConfigInit: string | undefined) {
+        this['__is_config_init'] = isConfigInit;
+    }
+    public get isConfigInit() {
+        return this['__is_config_init'];
+    }
+    public withAccountCode(accountCode: string): GlanceShowImageResponseBody {
+        this['__account_code'] = accountCode;
+        return this;
+    }
+    public set accountCode(accountCode: string | undefined) {
+        this['__account_code'] = accountCode;
+    }
+    public get accountCode() {
+        return this['__account_code'];
     }
 }
 

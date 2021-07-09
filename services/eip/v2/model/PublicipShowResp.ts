@@ -18,6 +18,7 @@ export class PublicipShowResp {
     public type?: string;
     private 'public_ipv6_address'?: string | undefined;
     private 'ip_version'?: PublicipShowRespIpVersionEnum | undefined;
+    private 'publicip_border_group'?: string | undefined;
     public constructor() { 
     }
     public withBandwidthId(bandwidthId: string): PublicipShowResp {
@@ -155,6 +156,16 @@ export class PublicipShowResp {
     }
     public get ipVersion() {
         return this['ip_version'];
+    }
+    public withPublicipBorderGroup(publicipBorderGroup: string): PublicipShowResp {
+        this['publicip_border_group'] = publicipBorderGroup;
+        return this;
+    }
+    public set publicipBorderGroup(publicipBorderGroup: string | undefined) {
+        this['publicip_border_group'] = publicipBorderGroup;
+    }
+    public get publicipBorderGroup() {
+        return this['publicip_border_group'];
     }
 }
 

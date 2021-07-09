@@ -1,11 +1,11 @@
-import { V3Node } from './V3Node';
+import { Node } from './Node';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListNodesResponse extends SdkResponse {
     public kind?: string;
     public apiVersion?: string;
-    public items?: Array<V3Node>;
+    public items?: Array<Node>;
     public constructor() { 
         super();
     }
@@ -17,7 +17,7 @@ export class ListNodesResponse extends SdkResponse {
         this['apiVersion'] = apiVersion;
         return this;
     }
-    public withItems(items: Array<V3Node>): ListNodesResponse {
+    public withItems(items: Array<Node>): ListNodesResponse {
         this['items'] = items;
         return this;
     }

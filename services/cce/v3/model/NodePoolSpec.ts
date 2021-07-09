@@ -1,11 +1,11 @@
 import { NodeManagement } from './NodeManagement';
 import { NodePoolNodeAutoscaling } from './NodePoolNodeAutoscaling';
-import { V3NodeSpec } from './V3NodeSpec';
+import { NodeSpec } from './NodeSpec';
 
 
 export class NodePoolSpec {
     public type?: NodePoolSpecTypeEnum;
-    public nodeTemplate: V3NodeSpec;
+    public nodeTemplate: NodeSpec;
     public initialNodeCount?: number;
     public autoscaling?: NodePoolNodeAutoscaling;
     public nodeManagement?: NodeManagement;
@@ -16,7 +16,7 @@ export class NodePoolSpec {
         this['type'] = type;
         return this;
     }
-    public withNodeTemplate(nodeTemplate: V3NodeSpec): NodePoolSpec {
+    public withNodeTemplate(nodeTemplate: NodeSpec): NodePoolSpec {
         this['nodeTemplate'] = nodeTemplate;
         return this;
     }

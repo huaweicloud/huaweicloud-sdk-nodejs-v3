@@ -26,6 +26,7 @@ import { HttpRequestBuilder } from "./http/IHttpRequestBuilder";
 import { SdkResponse } from "./SdkResponse";
 import { ExceptionUtil } from "./exception/ExceptionUtil";
 import { getLogger, Logger, LogLevel } from './logger';
+import { DefaultHttpResponse } from "./http/DefaultHttpResponse";
 
 export class HcClient {
     private httpClient: HttpClient;
@@ -58,17 +59,15 @@ export class HcClient {
         return this;
     }
 
-    public sendRequest<T>(options: any): Promise<T> {
+    public sendRequest<T extends SdkResponse>(options: any): Promise<T> | Promise<any> {
         this.logger.debug('send request');
 
         const request = this.buildRequest(options);
         // @ts-ignore
-        return this.httpClient.sendRequest(request).then(res => {
-            return this.extractResponse(res);
+        return this.httpClient.sendRequest<T>(request).then(res => {
+            return this.extractResponse<T>(res);
         }, err => {
-            let error = err;
-            let statusCode = error.status;
-            return ExceptionUtil.generalException(statusCode, error.body);
+            return ExceptionUtil.generalException(err);
         });
     }
 
@@ -94,19 +93,21 @@ export class HcClient {
         if (options['responseHeaders']) {
             httpRequest['responseHeaders'] = options['responseHeaders'];
         }
+        httpRequest.proxy = this.proxyAgent;
         return httpRequest;
     }
 
-    private extractResponse(result?: any) {
+    private extractResponse<T extends SdkResponse>(result: DefaultHttpResponse<T>): T {
         const headers = result.headers;
         let contentType = headers['content-type'];
         contentType = contentType.toLowerCase();
         if (contentType && contentType == 'application/octet-stream') {
-            return result.result;
+            return result.data as T;
         } else {
-            let response = new SdkResponse();
-            response.setStatusCode(result.status);
-            response.setResult(result.result);
+            let response = result.data instanceof Object ? result.data : {} as T;
+            let sdkRespone = response as SdkResponse;
+            sdkRespone.httpStatusCode = result.statusCode;
+
             return response;
         }
     }

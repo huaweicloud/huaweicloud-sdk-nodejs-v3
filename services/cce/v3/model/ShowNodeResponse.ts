@@ -1,6 +1,6 @@
 import { NodeMetadata } from './NodeMetadata';
-import { V3NodeSpec } from './V3NodeSpec';
-import { V3NodeStatus } from './V3NodeStatus';
+import { NodeSpec } from './NodeSpec';
+import { NodeStatus } from './NodeStatus';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -8,8 +8,8 @@ export class ShowNodeResponse extends SdkResponse {
     public kind?: string;
     public apiVersion?: string;
     public metadata?: NodeMetadata;
-    public spec?: V3NodeSpec;
-    public status?: V3NodeStatus;
+    public spec?: NodeSpec;
+    public status?: NodeStatus;
     public constructor() { 
         super();
     }
@@ -25,11 +25,11 @@ export class ShowNodeResponse extends SdkResponse {
         this['metadata'] = metadata;
         return this;
     }
-    public withSpec(spec: V3NodeSpec): ShowNodeResponse {
+    public withSpec(spec: NodeSpec): ShowNodeResponse {
         this['spec'] = spec;
         return this;
     }
-    public withStatus(status: V3NodeStatus): ShowNodeResponse {
+    public withStatus(status: NodeStatus): ShowNodeResponse {
         this['status'] = status;
         return this;
     }

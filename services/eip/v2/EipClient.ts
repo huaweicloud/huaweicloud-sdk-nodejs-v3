@@ -132,19 +132,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public addPublicipsIntoSharedBandwidth(addPublicipsIntoSharedBandwidthRequest?: AddPublicipsIntoSharedBandwidthRequest): Promise<AddPublicipsIntoSharedBandwidthResponse> {
+        const options = ParamCreater().addPublicipsIntoSharedBandwidth(addPublicipsIntoSharedBandwidthRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().addPublicipsIntoSharedBandwidth(addPublicipsIntoSharedBandwidthRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 批量创建共享带宽。
@@ -154,19 +145,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public batchCreateSharedBandwidths(batchCreateSharedBandwidthsRequest?: BatchCreateSharedBandwidthsRequest): Promise<BatchCreateSharedBandwidthsResponse> {
+        const options = ParamCreater().batchCreateSharedBandwidths(batchCreateSharedBandwidthsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchCreateSharedBandwidths(batchCreateSharedBandwidthsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建共享带宽。
@@ -176,19 +158,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public createSharedBandwidth(createSharedBandwidthRequest?: CreateSharedBandwidthRequest): Promise<CreateSharedBandwidthResponse> {
+        const options = ParamCreater().createSharedBandwidth(createSharedBandwidthRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createSharedBandwidth(createSharedBandwidthRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除共享带宽。
@@ -198,19 +171,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public deleteSharedBandwidth(deleteSharedBandwidthRequest?: DeleteSharedBandwidthRequest): Promise<void> {
+        const options = ParamCreater().deleteSharedBandwidth(deleteSharedBandwidthRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteSharedBandwidth(deleteSharedBandwidthRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询带宽列表。
@@ -223,19 +187,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public listBandwidths(listBandwidthsRequest?: ListBandwidthsRequest): Promise<ListBandwidthsResponse> {
+        const options = ParamCreater().listBandwidths(listBandwidthsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listBandwidths(listBandwidthsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询配额
@@ -245,19 +200,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
+        const options = ParamCreater().listQuotas(listQuotasRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listQuotas(listQuotasRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 共享带宽移除弹性公网IP。
@@ -268,19 +214,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public removePublicipsFromSharedBandwidth(removePublicipsFromSharedBandwidthRequest?: RemovePublicipsFromSharedBandwidthRequest): Promise<void> {
+        const options = ParamCreater().removePublicipsFromSharedBandwidth(removePublicipsFromSharedBandwidthRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().removePublicipsFromSharedBandwidth(removePublicipsFromSharedBandwidthRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询带宽
@@ -290,19 +227,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public showBandwidth(showBandwidthRequest?: ShowBandwidthRequest): Promise<ShowBandwidthResponse> {
+        const options = ParamCreater().showBandwidth(showBandwidthRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showBandwidth(showBandwidthRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新带宽。
@@ -313,19 +241,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public updateBandwidth(updateBandwidthRequest?: UpdateBandwidthRequest): Promise<UpdateBandwidthResponse> {
+        const options = ParamCreater().updateBandwidth(updateBandwidthRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateBandwidth(updateBandwidthRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新带宽。
@@ -336,19 +255,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public updatePrePaidBandwidth(updatePrePaidBandwidthRequest?: UpdatePrePaidBandwidthRequest): Promise<UpdatePrePaidBandwidthResponse> {
+        const options = ParamCreater().updatePrePaidBandwidth(updatePrePaidBandwidthRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updatePrePaidBandwidth(updatePrePaidBandwidthRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 为指定的弹性公网IP资源实例批量添加标签。
@@ -359,19 +269,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public batchCreatePublicipTags(batchCreatePublicipTagsRequest?: BatchCreatePublicipTagsRequest): Promise<void> {
+        const options = ParamCreater().batchCreatePublicipTags(batchCreatePublicipTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchCreatePublicipTags(batchCreatePublicipTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 为指定的弹性公网IP资源实例批量删除标签。
@@ -382,19 +283,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public batchDeletePublicipTags(batchDeletePublicipTagsRequest?: BatchDeletePublicipTagsRequest): Promise<void> {
+        const options = ParamCreater().batchDeletePublicipTags(batchDeletePublicipTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchDeletePublicipTags(batchDeletePublicipTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 申请包年包月的弹性公网IP。
@@ -404,19 +296,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public createPrePaidPublicip(createPrePaidPublicipRequest?: CreatePrePaidPublicipRequest): Promise<CreatePrePaidPublicipResponse> {
+        const options = ParamCreater().createPrePaidPublicip(createPrePaidPublicipRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createPrePaidPublicip(createPrePaidPublicipRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 申请弹性公网IP，支持IPv4和IPv6。  弹性公网IP（Elastic IP）提供独立的公网IP资源，包括公网IP地址与公网出口带宽服务。可以与弹性云服务器、裸金属服务器、虚拟IP、弹性负载均衡、NAT网关等资源灵活地绑定及解绑。拥有多种灵活的计费方式，可以满足各种业务场景的需要。
@@ -426,19 +309,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public createPublicip(createPublicipRequest?: CreatePublicipRequest): Promise<CreatePublicipResponse> {
+        const options = ParamCreater().createPublicip(createPublicipRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createPublicip(createPublicipRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 给指定弹性IP资源实例增加标签信息。
@@ -449,19 +323,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public createPublicipTag(createPublicipTagRequest?: CreatePublicipTagRequest): Promise<void> {
+        const options = ParamCreater().createPublicipTag(createPublicipTagRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createPublicipTag(createPublicipTagRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除弹性公网IP,绑定状态eip不允许直接删除。
@@ -471,19 +336,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public deletePublicip(deletePublicipRequest?: DeletePublicipRequest): Promise<void> {
+        const options = ParamCreater().deletePublicip(deletePublicipRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deletePublicip(deletePublicipRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除指定弹性公网IP的标签信息。其中project_id是项目ID，publicip_id 是要操作的弹性公网IP的id。key是要删除标签的键。
@@ -494,19 +350,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public deletePublicipTag(deletePublicipTagRequest?: DeletePublicipTagRequest): Promise<void> {
+        const options = ParamCreater().deletePublicipTag(deletePublicipTagRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deletePublicipTag(deletePublicipTagRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询租户在指定区域和实例类型的所有标签集合。
@@ -515,19 +362,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public listPublicipTags(): Promise<ListPublicipTagsResponse> {
+        const options = ParamCreater().listPublicipTags();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listPublicipTags();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询弹性公网IP列表
@@ -544,19 +382,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public listPublicips(listPublicipsRequest?: ListPublicipsRequest): Promise<ListPublicipsResponse> {
+        const options = ParamCreater().listPublicips(listPublicipsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listPublicips(listPublicipsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 使用标签过滤弹性公网IP。
@@ -566,19 +395,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public listPublicipsByTags(listPublicipsByTagsRequest?: ListPublicipsByTagsRequest): Promise<ListPublicipsByTagsResponse> {
+        const options = ParamCreater().listPublicipsByTags(listPublicipsByTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listPublicipsByTags(listPublicipsByTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询指定的弹性公网IP。
@@ -588,19 +408,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public showPublicip(showPublicipRequest?: ShowPublicipRequest): Promise<ShowPublicipResponse> {
+        const options = ParamCreater().showPublicip(showPublicipRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showPublicip(showPublicipRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询指定弹性IP实例的标签信息。
@@ -610,19 +421,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public showPublicipTags(showPublicipTagsRequest?: ShowPublicipTagsRequest): Promise<ShowPublicipTagsResponse> {
+        const options = ParamCreater().showPublicipTags(showPublicipTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showPublicipTags(showPublicipTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新弹性公网IP，将弹性公网IP跟一个网卡绑定或者解绑定，转换IP地址版本类型。
@@ -633,19 +435,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public updatePublicip(updatePublicipRequest?: UpdatePublicipRequest): Promise<UpdatePublicipResponse> {
+        const options = ParamCreater().updatePublicip(updatePublicipRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updatePublicip(updatePublicipRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建浮动IP的外部网络UUID，请使用GET /v2.0/networks?router:external=True或neutron net-external-list方式获取。
@@ -655,19 +448,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public neutronCreateFloatingIp(neutronCreateFloatingIpRequest?: NeutronCreateFloatingIpRequest): Promise<NeutronCreateFloatingIpResponse> {
+        const options = ParamCreater().neutronCreateFloatingIp(neutronCreateFloatingIpRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronCreateFloatingIp(neutronCreateFloatingIpRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除指定的浮动IP。
@@ -677,19 +461,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public neutronDeleteFloatingIp(neutronDeleteFloatingIpRequest?: NeutronDeleteFloatingIpRequest): Promise<void> {
+        const options = ParamCreater().neutronDeleteFloatingIp(neutronDeleteFloatingIpRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronDeleteFloatingIp(neutronDeleteFloatingIpRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询提交请求的租户有权限操作的所有浮动IP地址。
@@ -708,19 +483,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public neutronListFloatingIps(neutronListFloatingIpsRequest?: NeutronListFloatingIpsRequest): Promise<NeutronListFloatingIpsResponse> {
+        const options = ParamCreater().neutronListFloatingIps(neutronListFloatingIpsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronListFloatingIps(neutronListFloatingIpsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询浮动IP详情，包括浮动IP状态，浮动IP所属路由器ID，浮动IP的外部网络ID等等。
@@ -730,19 +496,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public neutronShowFloatingIp(neutronShowFloatingIpRequest?: NeutronShowFloatingIpRequest): Promise<NeutronShowFloatingIpResponse> {
+        const options = ParamCreater().neutronShowFloatingIp(neutronShowFloatingIpRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronShowFloatingIp(neutronShowFloatingIpRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新浮动IP。  更新时需在URL中给出浮动IP地址的ID。  port_id 为空，则表示浮动IP从端口解绑。
@@ -753,19 +510,10 @@ export class EipClient {
      * @throws {RequiredError}
      */
     public neutronUpdateFloatingIp(neutronUpdateFloatingIpRequest?: NeutronUpdateFloatingIpRequest): Promise<NeutronUpdateFloatingIpResponse> {
+        const options = ParamCreater().neutronUpdateFloatingIp(neutronUpdateFloatingIpRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().neutronUpdateFloatingIp(neutronUpdateFloatingIpRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
 }
 

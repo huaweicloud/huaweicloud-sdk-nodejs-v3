@@ -3,6 +3,7 @@
 export class ExportImageRequestBody {
     private 'bucket_url': string | undefined;
     private 'file_format': ExportImageRequestBodyFileFormatEnum | undefined;
+    private 'is_quick_export'?: boolean | undefined;
     public constructor(bucketUrl?: any, fileFormat?: any) { 
         this['bucket_url'] = bucketUrl;
         this['file_format'] = fileFormat;
@@ -26,6 +27,16 @@ export class ExportImageRequestBody {
     }
     public get fileFormat() {
         return this['file_format'];
+    }
+    public withIsQuickExport(isQuickExport: boolean): ExportImageRequestBody {
+        this['is_quick_export'] = isQuickExport;
+        return this;
+    }
+    public set isQuickExport(isQuickExport: boolean | undefined) {
+        this['is_quick_export'] = isQuickExport;
+    }
+    public get isQuickExport() {
+        return this['is_quick_export'];
     }
 }
 

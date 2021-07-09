@@ -11,6 +11,7 @@ export class ListImageByTagsRequestBody {
     public limit?: string;
     public offset?: string;
     public matches?: Array<TagKeyValue>;
+    private 'without_any_tag'?: boolean | undefined;
     public constructor(action?: any) { 
         this['action'] = action;
     }
@@ -63,6 +64,16 @@ export class ListImageByTagsRequestBody {
     public withMatches(matches: Array<TagKeyValue>): ListImageByTagsRequestBody {
         this['matches'] = matches;
         return this;
+    }
+    public withWithoutAnyTag(withoutAnyTag: boolean): ListImageByTagsRequestBody {
+        this['without_any_tag'] = withoutAnyTag;
+        return this;
+    }
+    public set withoutAnyTag(withoutAnyTag: boolean | undefined) {
+        this['without_any_tag'] = withoutAnyTag;
+    }
+    public get withoutAnyTag() {
+        return this['without_any_tag'];
     }
 }
 

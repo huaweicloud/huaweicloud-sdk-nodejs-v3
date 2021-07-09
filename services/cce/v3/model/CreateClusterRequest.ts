@@ -1,9 +1,9 @@
-import { V3Cluster } from './V3Cluster';
+import { Cluster } from './Cluster';
 
 
 export class CreateClusterRequest {
     private 'Content-Type': string | undefined;
-    public body?: V3Cluster;
+    public body?: Cluster;
     public constructor(contentType?: any) { 
         this['Content-Type'] = contentType;
     }
@@ -17,7 +17,7 @@ export class CreateClusterRequest {
     public get contentType() {
         return this['Content-Type'];
     }
-    public withBody(body: V3Cluster): CreateClusterRequest {
+    public withBody(body: Cluster): CreateClusterRequest {
         this['body'] = body;
         return this;
     }

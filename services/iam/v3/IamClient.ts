@@ -513,19 +513,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public associateAgencyWithAllProjectsPermission(associateAgencyWithAllProjectsPermissionRequest?: AssociateAgencyWithAllProjectsPermissionRequest): Promise<void> {
+        const options = ParamCreater().associateAgencyWithAllProjectsPermission(associateAgencyWithAllProjectsPermissionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().associateAgencyWithAllProjectsPermission(associateAgencyWithAllProjectsPermissionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)为委托授予全局服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -537,19 +528,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public associateAgencyWithDomainPermission(associateAgencyWithDomainPermissionRequest?: AssociateAgencyWithDomainPermissionRequest): Promise<void> {
+        const options = ParamCreater().associateAgencyWithDomainPermission(associateAgencyWithDomainPermissionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().associateAgencyWithDomainPermission(associateAgencyWithDomainPermissionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)为委托授予项目服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -560,19 +542,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public associateAgencyWithProjectPermission(associateAgencyWithProjectPermissionRequest?: AssociateAgencyWithProjectPermissionRequest): Promise<void> {
+        const options = ParamCreater().associateAgencyWithProjectPermission(associateAgencyWithProjectPermissionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().associateAgencyWithProjectPermission(associateAgencyWithProjectPermissionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)检查委托是否具有所有项目服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -584,19 +557,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public checkAllProjectsPermissionForAgency(checkAllProjectsPermissionForAgencyRequest?: CheckAllProjectsPermissionForAgencyRequest): Promise<void> {
+        const options = ParamCreater().checkAllProjectsPermissionForAgency(checkAllProjectsPermissionForAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().checkAllProjectsPermissionForAgency(checkAllProjectsPermissionForAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询委托是否拥有全局服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -608,19 +572,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public checkDomainPermissionForAgency(checkDomainPermissionForAgencyRequest?: CheckDomainPermissionForAgencyRequest): Promise<void> {
+        const options = ParamCreater().checkDomainPermissionForAgency(checkDomainPermissionForAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().checkDomainPermissionForAgency(checkDomainPermissionForAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询委托是否拥有项目服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -631,19 +586,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public checkProjectPermissionForAgency(checkProjectPermissionForAgencyRequest?: CheckProjectPermissionForAgencyRequest): Promise<void> {
+        const options = ParamCreater().checkProjectPermissionForAgency(checkProjectPermissionForAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().checkProjectPermissionForAgency(checkProjectPermissionForAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建委托。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -653,19 +599,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createAgency(createAgencyRequest?: CreateAgencyRequest): Promise<CreateAgencyResponse> {
+        const options = ParamCreater().createAgency(createAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createAgency(createAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建委托自定义策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -675,19 +612,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createAgencyCustomPolicy(createAgencyCustomPolicyRequest?: CreateAgencyCustomPolicyRequest): Promise<CreateAgencyCustomPolicyResponse> {
+        const options = ParamCreater().createAgencyCustomPolicy(createAgencyCustomPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createAgencyCustomPolicy(createAgencyCustomPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建云服务自定义策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -697,19 +625,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createCloudServiceCustomPolicy(createCloudServiceCustomPolicyRequest?: CreateCloudServiceCustomPolicyRequest): Promise<CreateCloudServiceCustomPolicyResponse> {
+        const options = ParamCreater().createCloudServiceCustomPolicy(createCloudServiceCustomPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createCloudServiceCustomPolicy(createCloudServiceCustomPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口用于用于获取自定义代理登录票据logintoken。logintoken是系统颁发给自定义代理用户的登录票据，承载用户的身份、session等信息。调用自定义代理URL登录云服务控制台时，可以使用本接口获取的logintoken进行认证。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。    > - logintoken的有效期为10分钟。
@@ -719,19 +638,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createLoginToken(createLoginTokenRequest?: CreateLoginTokenRequest): Promise<CreateLoginTokenResponse> {
+        const options = ParamCreater().createLoginToken(createLoginTokenRequest);
+        options['responseHeaders'] = ['X-Subject-LoginToken'];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createLoginToken(createLoginTokenRequest);
-            options['responseHeaders'] = ['X-Subject-LoginToken'];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)导入Metadata文件。    账号在使用联邦认证功能前，需要先将Metadata文件导入到IAM中。Metadata文件是SAML 2.0协议约定的接口文件，包含访问接口地址和证书信息，请找企业管理员获取企业IdP的Metadata文件。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -743,19 +653,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createMetadata(createMetadataRequest?: CreateMetadataRequest): Promise<CreateMetadataResponse> {
+        const options = ParamCreater().createMetadata(createMetadataRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createMetadata(createMetadataRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建OpenId Connect身份提供商配置
@@ -766,19 +667,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createOpenIdConnectConfig(createOpenIdConnectConfigRequest?: CreateOpenIdConnectConfigRequest): Promise<CreateOpenIdConnectConfigResponse> {
+        const options = ParamCreater().createOpenIdConnectConfig(createOpenIdConnectConfigRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createOpenIdConnectConfig(createOpenIdConnectConfigRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 获取联邦认证token(OpenId Connect Id token方式)
@@ -789,19 +681,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createTokenWithIdToken(createTokenWithIdTokenRequest?: CreateTokenWithIdTokenRequest): Promise<CreateTokenWithIdTokenResponse> {
+        const options = ParamCreater().createTokenWithIdToken(createTokenWithIdTokenRequest);
+        options['responseHeaders'] = ['X-Subject-Token'];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createTokenWithIdToken(createTokenWithIdTokenRequest);
-            options['responseHeaders'] = ['X-Subject-Token'];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除委托。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -811,19 +694,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public deleteAgency(deleteAgencyRequest?: DeleteAgencyRequest): Promise<void> {
+        const options = ParamCreater().deleteAgency(deleteAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteAgency(deleteAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除自定义策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -833,19 +707,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public deleteCustomPolicy(deleteCustomPolicyRequest?: DeleteCustomPolicyRequest): Promise<void> {
+        const options = ParamCreater().deleteCustomPolicy(deleteCustomPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteCustomPolicy(deleteCustomPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于移除用户组的所有项目服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -857,19 +722,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public deleteDomainGroupInheritedRole(deleteDomainGroupInheritedRoleRequest?: DeleteDomainGroupInheritedRoleRequest): Promise<void> {
+        const options = ParamCreater().deleteDomainGroupInheritedRole(deleteDomainGroupInheritedRoleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteDomainGroupInheritedRole(deleteDomainGroupInheritedRoleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)添加IAM用户到用户组。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -880,19 +736,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneAddUserToGroup(keystoneAddUserToGroupRequest?: KeystoneAddUserToGroupRequest): Promise<void> {
+        const options = ParamCreater().keystoneAddUserToGroup(keystoneAddUserToGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneAddUserToGroup(keystoneAddUserToGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)为用户组授予全局服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -904,19 +751,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneAssociateGroupWithDomainPermission(keystoneAssociateGroupWithDomainPermissionRequest?: KeystoneAssociateGroupWithDomainPermissionRequest): Promise<void> {
+        const options = ParamCreater().keystoneAssociateGroupWithDomainPermission(keystoneAssociateGroupWithDomainPermissionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneAssociateGroupWithDomainPermission(keystoneAssociateGroupWithDomainPermissionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)为用户组授予项目服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -927,19 +765,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneAssociateGroupWithProjectPermission(keystoneAssociateGroupWithProjectPermissionRequest?: KeystoneAssociateGroupWithProjectPermissionRequest): Promise<void> {
+        const options = ParamCreater().keystoneAssociateGroupWithProjectPermission(keystoneAssociateGroupWithProjectPermissionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneAssociateGroupWithProjectPermission(keystoneAssociateGroupWithProjectPermissionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询用户组是否拥有全局服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -951,19 +780,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCheckDomainPermissionForGroup(keystoneCheckDomainPermissionForGroupRequest?: KeystoneCheckDomainPermissionForGroupRequest): Promise<void> {
+        const options = ParamCreater().keystoneCheckDomainPermissionForGroup(keystoneCheckDomainPermissionForGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCheckDomainPermissionForGroup(keystoneCheckDomainPermissionForGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询用户组是否拥有项目服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -974,19 +794,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCheckProjectPermissionForGroup(keystoneCheckProjectPermissionForGroupRequest?: KeystoneCheckProjectPermissionForGroupRequest): Promise<void> {
+        const options = ParamCreater().keystoneCheckProjectPermissionForGroup(keystoneCheckProjectPermissionForGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCheckProjectPermissionForGroup(keystoneCheckProjectPermissionForGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询IAM用户是否在用户组中。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -997,19 +808,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCheckUserInGroup(keystoneCheckUserInGroupRequest?: KeystoneCheckUserInGroupRequest): Promise<void> {
+        const options = ParamCreater().keystoneCheckUserInGroup(keystoneCheckUserInGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCheckUserInGroup(keystoneCheckUserInGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询用户组是否拥有所有项目指定权限。  该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1021,19 +823,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCheckroleForGroup(keystoneCheckroleForGroupRequest?: KeystoneCheckroleForGroupRequest): Promise<void> {
+        const options = ParamCreater().keystoneCheckroleForGroup(keystoneCheckroleForGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCheckroleForGroup(keystoneCheckroleForGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建用户组。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1043,19 +836,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCreateGroup(keystoneCreateGroupRequest?: KeystoneCreateGroupRequest): Promise<KeystoneCreateGroupResponse> {
+        const options = ParamCreater().keystoneCreateGroup(keystoneCreateGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCreateGroup(keystoneCreateGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)注册身份提供商。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1067,19 +851,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCreateIdentityProvider(keystoneCreateIdentityProviderRequest?: KeystoneCreateIdentityProviderRequest): Promise<KeystoneCreateIdentityProviderResponse> {
+        const options = ParamCreater().keystoneCreateIdentityProvider(keystoneCreateIdentityProviderRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCreateIdentityProvider(keystoneCreateIdentityProviderRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)注册映射。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1090,19 +865,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCreateMapping(keystoneCreateMappingRequest?: KeystoneCreateMappingRequest): Promise<KeystoneCreateMappingResponse> {
+        const options = ParamCreater().keystoneCreateMapping(keystoneCreateMappingRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCreateMapping(keystoneCreateMappingRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建项目。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1112,19 +878,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCreateProject(keystoneCreateProjectRequest?: KeystoneCreateProjectRequest): Promise<KeystoneCreateProjectResponse> {
+        const options = ParamCreater().keystoneCreateProject(keystoneCreateProjectRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCreateProject(keystoneCreateProjectRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)注册协议（将协议关联到某一身份提供商）。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1136,19 +893,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCreateProtocol(keystoneCreateProtocolRequest?: KeystoneCreateProtocolRequest): Promise<KeystoneCreateProtocolResponse> {
+        const options = ParamCreater().keystoneCreateProtocol(keystoneCreateProtocolRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCreateProtocol(keystoneCreateProtocolRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于通过联邦认证方式获取scoped token。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1158,19 +906,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCreateScopedToken(keystoneCreateScopedTokenRequest?: KeystoneCreateScopedTokenRequest): Promise<KeystoneCreateScopedTokenResponse> {
+        const options = ParamCreater().keystoneCreateScopedToken(keystoneCreateScopedTokenRequest);
+        options['responseHeaders'] = ['X-Subject-Token'];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCreateScopedToken(keystoneCreateScopedTokenRequest);
-            options['responseHeaders'] = ['X-Subject-Token'];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除用户组。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1180,19 +919,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneDeleteGroup(keystoneDeleteGroupRequest?: KeystoneDeleteGroupRequest): Promise<void> {
+        const options = ParamCreater().keystoneDeleteGroup(keystoneDeleteGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneDeleteGroup(keystoneDeleteGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html) 删除身份提供商。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1202,19 +932,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneDeleteIdentityProvider(keystoneDeleteIdentityProviderRequest?: KeystoneDeleteIdentityProviderRequest): Promise<void> {
+        const options = ParamCreater().keystoneDeleteIdentityProvider(keystoneDeleteIdentityProviderRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneDeleteIdentityProvider(keystoneDeleteIdentityProviderRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除映射。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1224,19 +945,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneDeleteMapping(keystoneDeleteMappingRequest?: KeystoneDeleteMappingRequest): Promise<void> {
+        const options = ParamCreater().keystoneDeleteMapping(keystoneDeleteMappingRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneDeleteMapping(keystoneDeleteMappingRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除协议。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1247,19 +959,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneDeleteProtocol(keystoneDeleteProtocolRequest?: KeystoneDeleteProtocolRequest): Promise<void> {
+        const options = ParamCreater().keystoneDeleteProtocol(keystoneDeleteProtocolRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneDeleteProtocol(keystoneDeleteProtocolRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于管理员查询用户组所有项目服务权限列表。  \\n\\n该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1270,19 +973,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListAllProjectPermissionsForGroup(keystoneListAllProjectPermissionsForGroupRequest?: KeystoneListAllProjectPermissionsForGroupRequest): Promise<KeystoneListAllProjectPermissionsForGroupResponse> {
+        const options = ParamCreater().keystoneListAllProjectPermissionsForGroup(keystoneListAllProjectPermissionsForGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListAllProjectPermissionsForGroup(keystoneListAllProjectPermissionsForGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询IAM用户可以用访问的账号详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1291,19 +985,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListAuthDomains(): Promise<KeystoneListAuthDomainsResponse> {
+        const options = ParamCreater().keystoneListAuthDomains();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListAuthDomains();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询IAM用户可以访问的项目列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1312,19 +997,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListAuthProjects(): Promise<KeystoneListAuthProjectsResponse> {
+        const options = ParamCreater().keystoneListAuthProjects();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListAuthProjects();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询全局服务中的用户组权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1335,19 +1011,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListDomainPermissionsForGroup(keystoneListDomainPermissionsForGroupRequest?: KeystoneListDomainPermissionsForGroupRequest): Promise<KeystoneListDomainPermissionsForGroupResponse> {
+        const options = ParamCreater().keystoneListDomainPermissionsForGroup(keystoneListDomainPermissionsForGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListDomainPermissionsForGroup(keystoneListDomainPermissionsForGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询终端节点列表。终端节点用来提供服务访问入口。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1358,19 +1025,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListEndpoints(keystoneListEndpointsRequest?: KeystoneListEndpointsRequest): Promise<KeystoneListEndpointsResponse> {
+        const options = ParamCreater().keystoneListEndpoints(keystoneListEndpointsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListEndpoints(keystoneListEndpointsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询用户组列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1381,19 +1039,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListGroups(keystoneListGroupsRequest?: KeystoneListGroupsRequest): Promise<KeystoneListGroupsResponse> {
+        const options = ParamCreater().keystoneListGroups(keystoneListGroupsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListGroups(keystoneListGroupsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询身份提供商列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1402,19 +1051,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListIdentityProviders(): Promise<KeystoneListIdentityProvidersResponse> {
+        const options = ParamCreater().keystoneListIdentityProviders();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListIdentityProviders();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询映射列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1423,19 +1063,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListMappings(): Promise<KeystoneListMappingsResponse> {
+        const options = ParamCreater().keystoneListMappings();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListMappings();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询权限列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1452,19 +1083,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListPermissions(keystoneListPermissionsRequest?: KeystoneListPermissionsRequest): Promise<KeystoneListPermissionsResponse> {
+        const options = ParamCreater().keystoneListPermissions(keystoneListPermissionsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListPermissions(keystoneListPermissionsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询项目服务中的用户组权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1474,19 +1096,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListProjectPermissionsForGroup(keystoneListProjectPermissionsForGroupRequest?: KeystoneListProjectPermissionsForGroupRequest): Promise<KeystoneListProjectPermissionsForGroupResponse> {
+        const options = ParamCreater().keystoneListProjectPermissionsForGroup(keystoneListProjectPermissionsForGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListProjectPermissionsForGroup(keystoneListProjectPermissionsForGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询指定条件下的项目列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1502,19 +1115,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListProjects(keystoneListProjectsRequest?: KeystoneListProjectsRequest): Promise<KeystoneListProjectsResponse> {
+        const options = ParamCreater().keystoneListProjects(keystoneListProjectsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListProjects(keystoneListProjectsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询指定IAM用户的项目列表，或IAM用户查询自己的项目列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1524,19 +1128,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListProjectsForUser(keystoneListProjectsForUserRequest?: KeystoneListProjectsForUserRequest): Promise<KeystoneListProjectsForUserResponse> {
+        const options = ParamCreater().keystoneListProjectsForUser(keystoneListProjectsForUserRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListProjectsForUser(keystoneListProjectsForUserRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询协议列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1546,19 +1141,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListProtocols(keystoneListProtocolsRequest?: KeystoneListProtocolsRequest): Promise<KeystoneListProtocolsResponse> {
+        const options = ParamCreater().keystoneListProtocols(keystoneListProtocolsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListProtocols(keystoneListProtocolsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询区域列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1567,19 +1153,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListRegions(): Promise<KeystoneListRegionsResponse> {
+        const options = ParamCreater().keystoneListRegions();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListRegions();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询服务列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1589,19 +1166,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListServices(keystoneListServicesRequest?: KeystoneListServicesRequest): Promise<KeystoneListServicesResponse> {
+        const options = ParamCreater().keystoneListServices(keystoneListServicesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListServices(keystoneListServicesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询用户组中所包含的IAM用户。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1611,19 +1179,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListUsersForGroupByAdmin(keystoneListUsersForGroupByAdminRequest?: KeystoneListUsersForGroupByAdminRequest): Promise<KeystoneListUsersForGroupByAdminResponse> {
+        const options = ParamCreater().keystoneListUsersForGroupByAdmin(keystoneListUsersForGroupByAdminRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListUsersForGroupByAdmin(keystoneListUsersForGroupByAdminRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口用于查询Keystone API的版本信息。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1632,19 +1191,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListVersions(): Promise<void> {
+        const options = ParamCreater().keystoneListVersions();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListVersions();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)移除用户组的全局服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1656,19 +1206,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneRemoveDomainPermissionFromGroup(keystoneRemoveDomainPermissionFromGroupRequest?: KeystoneRemoveDomainPermissionFromGroupRequest): Promise<void> {
+        const options = ParamCreater().keystoneRemoveDomainPermissionFromGroup(keystoneRemoveDomainPermissionFromGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneRemoveDomainPermissionFromGroup(keystoneRemoveDomainPermissionFromGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)移除用户组的项目服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1679,19 +1220,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneRemoveProjectPermissionFromGroup(keystoneRemoveProjectPermissionFromGroupRequest?: KeystoneRemoveProjectPermissionFromGroupRequest): Promise<void> {
+        const options = ParamCreater().keystoneRemoveProjectPermissionFromGroup(keystoneRemoveProjectPermissionFromGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneRemoveProjectPermissionFromGroup(keystoneRemoveProjectPermissionFromGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)移除用户组中的IAM用户。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1702,19 +1234,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneRemoveUserFromGroup(keystoneRemoveUserFromGroupRequest?: KeystoneRemoveUserFromGroupRequest): Promise<void> {
+        const options = ParamCreater().keystoneRemoveUserFromGroup(keystoneRemoveUserFromGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneRemoveUserFromGroup(keystoneRemoveUserFromGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询请求头中X-Auth-Token对应的服务目录。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1723,19 +1246,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowCatalog(): Promise<KeystoneShowCatalogResponse> {
+        const options = ParamCreater().keystoneShowCatalog();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowCatalog();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询终端节点详情。终端节点用来提供服务访问入口。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1745,19 +1259,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowEndpoint(keystoneShowEndpointRequest?: KeystoneShowEndpointRequest): Promise<KeystoneShowEndpointResponse> {
+        const options = ParamCreater().keystoneShowEndpoint(keystoneShowEndpointRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowEndpoint(keystoneShowEndpointRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询用户组详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1767,19 +1272,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowGroup(keystoneShowGroupRequest?: KeystoneShowGroupRequest): Promise<KeystoneShowGroupResponse> {
+        const options = ParamCreater().keystoneShowGroup(keystoneShowGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowGroup(keystoneShowGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询身份提供商详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1789,19 +1285,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowIdentityProvider(keystoneShowIdentityProviderRequest?: KeystoneShowIdentityProviderRequest): Promise<KeystoneShowIdentityProviderResponse> {
+        const options = ParamCreater().keystoneShowIdentityProvider(keystoneShowIdentityProviderRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowIdentityProvider(keystoneShowIdentityProviderRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询映射详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1811,19 +1298,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowMapping(keystoneShowMappingRequest?: KeystoneShowMappingRequest): Promise<KeystoneShowMappingResponse> {
+        const options = ParamCreater().keystoneShowMapping(keystoneShowMappingRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowMapping(keystoneShowMappingRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询权限详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1833,19 +1311,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowPermission(keystoneShowPermissionRequest?: KeystoneShowPermissionRequest): Promise<KeystoneShowPermissionResponse> {
+        const options = ParamCreater().keystoneShowPermission(keystoneShowPermissionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowPermission(keystoneShowPermissionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询项目详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1854,19 +1323,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowProject(): Promise<KeystoneShowProjectResponse> {
+        const options = ParamCreater().keystoneShowProject();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowProject();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询协议详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1877,19 +1337,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowProtocol(keystoneShowProtocolRequest?: KeystoneShowProtocolRequest): Promise<KeystoneShowProtocolResponse> {
+        const options = ParamCreater().keystoneShowProtocol(keystoneShowProtocolRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowProtocol(keystoneShowProtocolRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询区域详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1899,19 +1350,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowRegion(keystoneShowRegionRequest?: KeystoneShowRegionRequest): Promise<KeystoneShowRegionResponse> {
+        const options = ParamCreater().keystoneShowRegion(keystoneShowRegionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowRegion(keystoneShowRegionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询账号密码强度策略，查询结果包括密码强度策略的正则表达式及其描述。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1921,19 +1363,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowSecurityCompliance(keystoneShowSecurityComplianceRequest?: KeystoneShowSecurityComplianceRequest): Promise<KeystoneShowSecurityComplianceResponse> {
+        const options = ParamCreater().keystoneShowSecurityCompliance(keystoneShowSecurityComplianceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowSecurityCompliance(keystoneShowSecurityComplianceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于按条件查询账号密码强度策略，查询结果包括密码强度策略的正则表达式及其描述。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1944,19 +1377,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowSecurityComplianceByOption(keystoneShowSecurityComplianceByOptionRequest?: KeystoneShowSecurityComplianceByOptionRequest): Promise<KeystoneShowSecurityComplianceByOptionResponse> {
+        const options = ParamCreater().keystoneShowSecurityComplianceByOption(keystoneShowSecurityComplianceByOptionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowSecurityComplianceByOption(keystoneShowSecurityComplianceByOptionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询服务详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1966,19 +1390,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowService(keystoneShowServiceRequest?: KeystoneShowServiceRequest): Promise<KeystoneShowServiceResponse> {
+        const options = ParamCreater().keystoneShowService(keystoneShowServiceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowService(keystoneShowServiceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口用于查询Keystone API的3.0版本的信息。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -1987,19 +1402,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowVersion(): Promise<KeystoneShowVersionResponse> {
+        const options = ParamCreater().keystoneShowVersion();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowVersion();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)更新用户组信息。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2010,19 +1416,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneUpdateGroup(keystoneUpdateGroupRequest?: KeystoneUpdateGroupRequest): Promise<KeystoneUpdateGroupResponse> {
+        const options = ParamCreater().keystoneUpdateGroup(keystoneUpdateGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneUpdateGroup(keystoneUpdateGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)更新身份提供商。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2033,19 +1430,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneUpdateIdentityProvider(keystoneUpdateIdentityProviderRequest?: KeystoneUpdateIdentityProviderRequest): Promise<KeystoneUpdateIdentityProviderResponse> {
+        const options = ParamCreater().keystoneUpdateIdentityProvider(keystoneUpdateIdentityProviderRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneUpdateIdentityProvider(keystoneUpdateIdentityProviderRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)更新映射。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2056,19 +1444,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneUpdateMapping(keystoneUpdateMappingRequest?: KeystoneUpdateMappingRequest): Promise<KeystoneUpdateMappingResponse> {
+        const options = ParamCreater().keystoneUpdateMapping(keystoneUpdateMappingRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneUpdateMapping(keystoneUpdateMappingRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改项目信息。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2078,19 +1457,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneUpdateProject(keystoneUpdateProjectRequest?: KeystoneUpdateProjectRequest): Promise<KeystoneUpdateProjectResponse> {
+        const options = ParamCreater().keystoneUpdateProject(keystoneUpdateProjectRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneUpdateProject(keystoneUpdateProjectRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)更新协议。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2102,19 +1472,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneUpdateProtocol(keystoneUpdateProtocolRequest?: KeystoneUpdateProtocolRequest): Promise<KeystoneUpdateProtocolResponse> {
+        const options = ParamCreater().keystoneUpdateProtocol(keystoneUpdateProtocolRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneUpdateProtocol(keystoneUpdateProtocolRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询指定条件下的委托列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2126,19 +1487,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public listAgencies(listAgenciesRequest?: ListAgenciesRequest): Promise<ListAgenciesResponse> {
+        const options = ParamCreater().listAgencies(listAgenciesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listAgencies(listAgenciesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询委托所有项目服务权限列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2149,19 +1501,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public listAllProjectsPermissionsForAgency(listAllProjectsPermissionsForAgencyRequest?: ListAllProjectsPermissionsForAgencyRequest): Promise<ListAllProjectsPermissionsForAgencyResponse> {
+        const options = ParamCreater().listAllProjectsPermissionsForAgency(listAllProjectsPermissionsForAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listAllProjectsPermissionsForAgency(listAllProjectsPermissionsForAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询自定义策略列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2172,19 +1515,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public listCustomPolicies(listCustomPoliciesRequest?: ListCustomPoliciesRequest): Promise<ListCustomPoliciesResponse> {
+        const options = ParamCreater().listCustomPolicies(listCustomPoliciesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listCustomPolicies(listCustomPoliciesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询全局服务中的委托权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2195,19 +1529,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public listDomainPermissionsForAgency(listDomainPermissionsForAgencyRequest?: ListDomainPermissionsForAgencyRequest): Promise<ListDomainPermissionsForAgencyResponse> {
+        const options = ParamCreater().listDomainPermissionsForAgency(listDomainPermissionsForAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listDomainPermissionsForAgency(listDomainPermissionsForAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询项目服务中的委托权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2217,19 +1542,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public listProjectPermissionsForAgency(listProjectPermissionsForAgencyRequest?: ListProjectPermissionsForAgencyRequest): Promise<ListProjectPermissionsForAgencyResponse> {
+        const options = ParamCreater().listProjectPermissionsForAgency(listProjectPermissionsForAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listProjectPermissionsForAgency(listProjectPermissionsForAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)移除委托的所有项目服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2241,19 +1557,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public removeAllProjectsPermissionFromAgency(removeAllProjectsPermissionFromAgencyRequest?: RemoveAllProjectsPermissionFromAgencyRequest): Promise<void> {
+        const options = ParamCreater().removeAllProjectsPermissionFromAgency(removeAllProjectsPermissionFromAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().removeAllProjectsPermissionFromAgency(removeAllProjectsPermissionFromAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)移除委托的全局服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2265,19 +1572,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public removeDomainPermissionFromAgency(removeDomainPermissionFromAgencyRequest?: RemoveDomainPermissionFromAgencyRequest): Promise<void> {
+        const options = ParamCreater().removeDomainPermissionFromAgency(removeDomainPermissionFromAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().removeDomainPermissionFromAgency(removeDomainPermissionFromAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)移除委托的项目服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2288,19 +1586,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public removeProjectPermissionFromAgency(removeProjectPermissionFromAgencyRequest?: RemoveProjectPermissionFromAgencyRequest): Promise<void> {
+        const options = ParamCreater().removeProjectPermissionFromAgency(removeProjectPermissionFromAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().removeProjectPermissionFromAgency(removeProjectPermissionFromAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询委托详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2310,19 +1599,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showAgency(showAgencyRequest?: ShowAgencyRequest): Promise<ShowAgencyResponse> {
+        const options = ParamCreater().showAgency(showAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showAgency(showAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询自定义策略详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2332,19 +1612,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showCustomPolicy(showCustomPolicyRequest?: ShowCustomPolicyRequest): Promise<ShowCustomPolicyResponse> {
+        const options = ParamCreater().showCustomPolicy(showCustomPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showCustomPolicy(showCustomPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询账号接口访问控制策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2354,19 +1625,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showDomainApiAclPolicy(showDomainApiAclPolicyRequest?: ShowDomainApiAclPolicyRequest): Promise<ShowDomainApiAclPolicyResponse> {
+        const options = ParamCreater().showDomainApiAclPolicy(showDomainApiAclPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDomainApiAclPolicy(showDomainApiAclPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询账号控制台访问控制策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2376,19 +1638,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showDomainConsoleAclPolicy(showDomainConsoleAclPolicyRequest?: ShowDomainConsoleAclPolicyRequest): Promise<ShowDomainConsoleAclPolicyResponse> {
+        const options = ParamCreater().showDomainConsoleAclPolicy(showDomainConsoleAclPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDomainConsoleAclPolicy(showDomainConsoleAclPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询账号登录策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2398,19 +1651,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showDomainLoginPolicy(showDomainLoginPolicyRequest?: ShowDomainLoginPolicyRequest): Promise<ShowDomainLoginPolicyResponse> {
+        const options = ParamCreater().showDomainLoginPolicy(showDomainLoginPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDomainLoginPolicy(showDomainLoginPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询账号密码策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2420,19 +1664,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showDomainPasswordPolicy(showDomainPasswordPolicyRequest?: ShowDomainPasswordPolicyRequest): Promise<ShowDomainPasswordPolicyResponse> {
+        const options = ParamCreater().showDomainPasswordPolicy(showDomainPasswordPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDomainPasswordPolicy(showDomainPasswordPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询账号操作保护策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2442,19 +1677,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showDomainProtectPolicy(showDomainProtectPolicyRequest?: ShowDomainProtectPolicyRequest): Promise<ShowDomainProtectPolicyResponse> {
+        const options = ParamCreater().showDomainProtectPolicy(showDomainProtectPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDomainProtectPolicy(showDomainProtectPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询账号配额。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2465,19 +1691,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showDomainQuota(showDomainQuotaRequest?: ShowDomainQuotaRequest): Promise<ShowDomainQuotaResponse> {
+        const options = ParamCreater().showDomainQuota(showDomainQuotaRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDomainQuota(showDomainQuotaRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询身份提供商导入到IAM中的Metadata文件。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2488,19 +1705,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showMetadata(showMetadataRequest?: ShowMetadataRequest): Promise<ShowMetadataResponse> {
+        const options = ParamCreater().showMetadata(showMetadataRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showMetadata(showMetadataRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询OpenId Connect身份提供商配置
@@ -2510,19 +1718,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showOpenIdConnectConfig(showOpenIdConnectConfigRequest?: ShowOpenIdConnectConfigRequest): Promise<ShowOpenIdConnectConfigResponse> {
+        const options = ParamCreater().showOpenIdConnectConfig(showOpenIdConnectConfigRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showOpenIdConnectConfig(showOpenIdConnectConfigRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询项目详情与状态。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2531,19 +1730,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showProjectDetailsAndStatus(): Promise<ShowProjectDetailsAndStatusResponse> {
+        const options = ParamCreater().showProjectDetailsAndStatus();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showProjectDetailsAndStatus();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于查询项目配额。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2552,19 +1742,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showProjectQuota(): Promise<ShowProjectQuotaResponse> {
+        const options = ParamCreater().showProjectQuota();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showProjectQuota();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改委托。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2575,19 +1756,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateAgency(updateAgencyRequest?: UpdateAgencyRequest): Promise<UpdateAgencyResponse> {
+        const options = ParamCreater().updateAgency(updateAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateAgency(updateAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改委托自定义策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2598,19 +1770,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateAgencyCustomPolicy(updateAgencyCustomPolicyRequest?: UpdateAgencyCustomPolicyRequest): Promise<UpdateAgencyCustomPolicyResponse> {
+        const options = ParamCreater().updateAgencyCustomPolicy(updateAgencyCustomPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateAgencyCustomPolicy(updateAgencyCustomPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改云服务自定义策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2621,19 +1784,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateCloudServiceCustomPolicy(updateCloudServiceCustomPolicyRequest?: UpdateCloudServiceCustomPolicyRequest): Promise<UpdateCloudServiceCustomPolicyResponse> {
+        const options = ParamCreater().updateCloudServiceCustomPolicy(updateCloudServiceCustomPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateCloudServiceCustomPolicy(updateCloudServiceCustomPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改账号接口访问策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2644,19 +1798,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateDomainApiAclPolicy(updateDomainApiAclPolicyRequest?: UpdateDomainApiAclPolicyRequest): Promise<UpdateDomainApiAclPolicyResponse> {
+        const options = ParamCreater().updateDomainApiAclPolicy(updateDomainApiAclPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateDomainApiAclPolicy(updateDomainApiAclPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改账号控制台访问策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2667,19 +1812,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateDomainConsoleAclPolicy(updateDomainConsoleAclPolicyRequest?: UpdateDomainConsoleAclPolicyRequest): Promise<UpdateDomainConsoleAclPolicyResponse> {
+        const options = ParamCreater().updateDomainConsoleAclPolicy(updateDomainConsoleAclPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateDomainConsoleAclPolicy(updateDomainConsoleAclPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/zh-cn_topic_0079496985.html)为用户组授予所有项目服务权限。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2691,19 +1827,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateDomainGroupInheritRole(updateDomainGroupInheritRoleRequest?: UpdateDomainGroupInheritRoleRequest): Promise<void> {
+        const options = ParamCreater().updateDomainGroupInheritRole(updateDomainGroupInheritRoleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateDomainGroupInheritRole(updateDomainGroupInheritRoleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改账号登录策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2714,19 +1841,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateDomainLoginPolicy(updateDomainLoginPolicyRequest?: UpdateDomainLoginPolicyRequest): Promise<UpdateDomainLoginPolicyResponse> {
+        const options = ParamCreater().updateDomainLoginPolicy(updateDomainLoginPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateDomainLoginPolicy(updateDomainLoginPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改账号密码策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2737,19 +1855,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateDomainPasswordPolicy(updateDomainPasswordPolicyRequest?: UpdateDomainPasswordPolicyRequest): Promise<UpdateDomainPasswordPolicyResponse> {
+        const options = ParamCreater().updateDomainPasswordPolicy(updateDomainPasswordPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateDomainPasswordPolicy(updateDomainPasswordPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改账号操作保护策略。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2760,19 +1869,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateDomainProtectPolicy(updateDomainProtectPolicyRequest?: UpdateDomainProtectPolicyRequest): Promise<UpdateDomainProtectPolicyResponse> {
+        const options = ParamCreater().updateDomainProtectPolicy(updateDomainProtectPolicyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateDomainProtectPolicy(updateDomainProtectPolicyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 修改OpenId Connect身份提供商配置
@@ -2783,19 +1883,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateOpenIdConnectConfig(updateOpenIdConnectConfigRequest?: UpdateOpenIdConnectConfigRequest): Promise<UpdateOpenIdConnectConfigResponse> {
+        const options = ParamCreater().updateOpenIdConnectConfig(updateOpenIdConnectConfigRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateOpenIdConnectConfig(updateOpenIdConnectConfigRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)设置项目状态。项目状态包括：正常、冻结。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2805,19 +1896,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateProjectStatus(updateProjectStatusRequest?: UpdateProjectStatusRequest): Promise<void> {
+        const options = ParamCreater().updateProjectStatus(updateProjectStatusRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateProjectStatus(updateProjectStatusRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)给IAM用户创建永久访问密钥，或IAM用户给自己创建永久访问密钥。    访问密钥（Access Key ID/Secret Access Key，简称AK/SK），是您通过开发工具（API、CLI、SDK）访问华为云时的身份凭证，不用于登录控制台。系统通过AK识别访问用户的身份，通过SK进行签名验证，通过加密签名验证可以确保请求的机密性、完整性和请求者身份的正确性。在控制台创建访问密钥的方式请参见：[访问密钥](https://support.huaweicloud.com/usermanual-ca/zh-cn_topic_0046606340.html)  。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2827,19 +1909,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createPermanentAccessKey(createPermanentAccessKeyRequest?: CreatePermanentAccessKeyRequest): Promise<CreatePermanentAccessKeyResponse> {
+        const options = ParamCreater().createPermanentAccessKey(createPermanentAccessKeyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createPermanentAccessKey(createPermanentAccessKeyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于通过委托来获取临时访问密钥（临时AK/SK）和securitytoken。    临时AK/SK和securitytoken是系统颁发给IAM用户的临时访问令牌，有效期为15分钟至24小时，过期后需要重新获取。临时AK/SK和securitytoken遵循权限最小化原则。鉴权时，临时AK/SK和securitytoken必须同时使用，请求头中需要添加“x-security-token”字段，使用方法详情请参考：[API签名参考](https://support.huaweicloud.com/devg-apisign/api-sign-provide.html) 。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2849,19 +1922,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createTemporaryAccessKeyByAgency(createTemporaryAccessKeyByAgencyRequest?: CreateTemporaryAccessKeyByAgencyRequest): Promise<CreateTemporaryAccessKeyByAgencyResponse> {
+        const options = ParamCreater().createTemporaryAccessKeyByAgency(createTemporaryAccessKeyByAgencyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createTemporaryAccessKeyByAgency(createTemporaryAccessKeyByAgencyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于通过token来获取临时AK/SK和securitytoken。    临时AK/SK和securitytoken是系统颁发给IAM用户的临时访问令牌，有效期为15分钟至24小时，过期后需要重新获取。临时AK/SK和securitytoken遵循权限最小化原则。鉴权时，临时AK/SK和securitytoken必须同时使用，请求头中需要添加“x-security-token”字段，使用方法详情请参考：[API签名参考](https://support.huaweicloud.com/devg-apisign/api-sign-provide.html)。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2871,19 +1935,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createTemporaryAccessKeyByToken(createTemporaryAccessKeyByTokenRequest?: CreateTemporaryAccessKeyByTokenRequest): Promise<CreateTemporaryAccessKeyByTokenResponse> {
+        const options = ParamCreater().createTemporaryAccessKeyByToken(createTemporaryAccessKeyByTokenRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createTemporaryAccessKeyByToken(createTemporaryAccessKeyByTokenRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除IAM用户的指定永久访问密钥，或IAM用户删除自己的指定永久访问密钥。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2893,19 +1948,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public deletePermanentAccessKey(deletePermanentAccessKeyRequest?: DeletePermanentAccessKeyRequest): Promise<void> {
+        const options = ParamCreater().deletePermanentAccessKey(deletePermanentAccessKeyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deletePermanentAccessKey(deletePermanentAccessKeyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询IAM用户的所有永久访问密钥，或IAM用户查询自己的所有永久访问密钥。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2915,19 +1961,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public listPermanentAccessKeys(listPermanentAccessKeysRequest?: ListPermanentAccessKeysRequest): Promise<ListPermanentAccessKeysResponse> {
+        const options = ParamCreater().listPermanentAccessKeys(listPermanentAccessKeysRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listPermanentAccessKeys(listPermanentAccessKeysRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询IAM用户的指定永久访问密钥，或IAM用户查询自己的指定永久访问密钥。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2937,19 +1974,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showPermanentAccessKey(showPermanentAccessKeyRequest?: ShowPermanentAccessKeyRequest): Promise<ShowPermanentAccessKeyResponse> {
+        const options = ParamCreater().showPermanentAccessKey(showPermanentAccessKeyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showPermanentAccessKey(showPermanentAccessKeyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改IAM用户的指定永久访问密钥，或IAM用户修改自己的指定永久访问密钥。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2960,19 +1988,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updatePermanentAccessKey(updatePermanentAccessKeyRequest?: UpdatePermanentAccessKeyRequest): Promise<UpdatePermanentAccessKeyResponse> {
+        const options = ParamCreater().updatePermanentAccessKey(updatePermanentAccessKeyRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updatePermanentAccessKey(updatePermanentAccessKeyRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于绑定MFA设备。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -2982,19 +2001,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createBindingDevice(createBindingDeviceRequest?: CreateBindingDeviceRequest): Promise<void> {
+        const options = ParamCreater().createBindingDevice(createBindingDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createBindingDevice(createBindingDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于创建MFA设备。  该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3004,19 +2014,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createMfaDevice(createMfaDeviceRequest?: CreateMfaDeviceRequest): Promise<CreateMfaDeviceResponse> {
+        const options = ParamCreater().createMfaDevice(createMfaDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createMfaDevice(createMfaDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建IAM用户。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3026,19 +2027,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public createUser(createUserRequest?: CreateUserRequest): Promise<CreateUserResponse> {
+        const options = ParamCreater().createUser(createUserRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createUser(createUserRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于解绑MFA设备   该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3048,19 +2040,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public deleteBindingDevice(deleteBindingDeviceRequest?: DeleteBindingDeviceRequest): Promise<void> {
+        const options = ParamCreater().deleteBindingDevice(deleteBindingDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteBindingDevice(deleteBindingDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除MFA设备。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3071,19 +2054,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public deleteMfaDevice(deleteMfaDeviceRequest?: DeleteMfaDeviceRequest): Promise<void> {
+        const options = ParamCreater().deleteMfaDevice(deleteMfaDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteMfaDevice(deleteMfaDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)创建IAM用户。IAM用户首次登录时需要修改密码。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3093,19 +2067,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCreateUser(keystoneCreateUserRequest?: KeystoneCreateUserRequest): Promise<KeystoneCreateUserResponse> {
+        const options = ParamCreater().keystoneCreateUser(keystoneCreateUserRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCreateUser(keystoneCreateUserRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)删除指定IAM用户。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3115,19 +2080,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneDeleteUser(keystoneDeleteUserRequest?: KeystoneDeleteUserRequest): Promise<void> {
+        const options = ParamCreater().keystoneDeleteUser(keystoneDeleteUserRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneDeleteUser(keystoneDeleteUserRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询IAM用户所属用户组，或IAM用户查询自己所属用户组。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3137,19 +2093,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListGroupsForUser(keystoneListGroupsForUserRequest?: KeystoneListGroupsForUserRequest): Promise<KeystoneListGroupsForUserResponse> {
+        const options = ParamCreater().keystoneListGroupsForUser(keystoneListGroupsForUserRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListGroupsForUser(keystoneListGroupsForUserRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询IAM用户列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3162,19 +2109,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneListUsers(keystoneListUsersRequest?: KeystoneListUsersRequest): Promise<KeystoneListUsersResponse> {
+        const options = ParamCreater().keystoneListUsers(keystoneListUsersRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneListUsers(keystoneListUsersRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询IAM用户详情，或IAM用户查询自己的用户详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3184,19 +2122,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneShowUser(keystoneShowUserRequest?: KeystoneShowUserRequest): Promise<KeystoneShowUserResponse> {
+        const options = ParamCreater().keystoneShowUser(keystoneShowUserRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneShowUser(keystoneShowUserRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改IAM用户信息。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3207,19 +2136,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneUpdateUserByAdmin(keystoneUpdateUserByAdminRequest?: KeystoneUpdateUserByAdminRequest): Promise<KeystoneUpdateUserByAdminResponse> {
+        const options = ParamCreater().keystoneUpdateUserByAdmin(keystoneUpdateUserByAdminRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneUpdateUserByAdmin(keystoneUpdateUserByAdminRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于IAM用户修改自己的密码。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3230,19 +2150,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneUpdateUserPassword(keystoneUpdateUserPasswordRequest?: KeystoneUpdateUserPasswordRequest): Promise<void> {
+        const options = ParamCreater().keystoneUpdateUserPassword(keystoneUpdateUserPasswordRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneUpdateUserPassword(keystoneUpdateUserPasswordRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询IAM用户的登录保护状态列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3251,19 +2162,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public listUserLoginProtects(): Promise<ListUserLoginProtectsResponse> {
+        const options = ParamCreater().listUserLoginProtects();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listUserLoginProtects();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询IAM用户的MFA绑定信息列表。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3272,19 +2174,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public listUserMfaDevices(): Promise<ListUserMfaDevicesResponse> {
+        const options = ParamCreater().listUserMfaDevices();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listUserMfaDevices();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询IAM用户详情，或IAM用户查询自己的详情。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3294,19 +2187,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showUser(showUserRequest?: ShowUserRequest): Promise<ShowUserResponse> {
+        const options = ParamCreater().showUser(showUserRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showUser(showUserRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询指定IAM用户的登录保护状态信息，或IAM用户查询自己的登录保护状态信息。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3316,19 +2200,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showUserLoginProtect(showUserLoginProtectRequest?: ShowUserLoginProtectRequest): Promise<ShowUserLoginProtectResponse> {
+        const options = ParamCreater().showUserLoginProtect(showUserLoginProtectRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showUserLoginProtect(showUserLoginProtectRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)查询指定IAM用户的MFA绑定信息，或IAM用户查询自己的MFA绑定信息。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3338,19 +2213,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public showUserMfaDevice(showUserMfaDeviceRequest?: ShowUserMfaDeviceRequest): Promise<ShowUserMfaDeviceResponse> {
+        const options = ParamCreater().showUserMfaDevice(showUserMfaDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showUserMfaDevice(showUserMfaDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改账号操作保护。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3361,19 +2227,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateLoginProtect(updateLoginProtectRequest?: UpdateLoginProtectRequest): Promise<UpdateLoginProtectResponse> {
+        const options = ParamCreater().updateLoginProtect(updateLoginProtectRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateLoginProtect(updateLoginProtectRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)修改IAM用户信息 。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3384,19 +2241,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateUser(updateUserRequest?: UpdateUserRequest): Promise<UpdateUserResponse> {
+        const options = ParamCreater().updateUser(updateUserRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateUser(updateUserRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于IAM用户修改自己的用户信息。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3407,19 +2255,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public updateUserInformation(updateUserInformationRequest?: UpdateUserInformationRequest): Promise<void> {
+        const options = ParamCreater().updateUserInformation(updateUserInformationRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateUserInformation(updateUserInformationRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于获取委托方的token。    例如：A账号希望B账号管理自己的某些资源，所以A账号创建了委托给B账号，则A账号为委托方，B账号为被委托方。那么B账号可以通过该接口获取委托token。B账号仅能使用该token管理A账号的委托资源，不能管理自己账号中的资源。如果B账号需要管理自己账号中的资源，则需要获取自己的用户token。    token是系统颁发给用户的访问令牌，承载用户的身份、权限等信息。调用IAM以及其他云服务的接口时，可以使用本接口获取的token进行鉴权。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。如果使用全局区域的Endpoint调用，该token可以在所有区域使用；如果使用非全局区域的Endpoint调用，则该token仅在该区域生效，不能跨区域使用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。    > - token的有效期为24小时，建议进行缓存，避免频繁调用。
@@ -3430,19 +2269,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCreateAgencyToken(keystoneCreateAgencyTokenRequest?: KeystoneCreateAgencyTokenRequest): Promise<KeystoneCreateAgencyTokenResponse> {
+        const options = ParamCreater().keystoneCreateAgencyToken(keystoneCreateAgencyTokenRequest);
+        options['responseHeaders'] = ['X-Subject-Token'];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCreateAgencyToken(keystoneCreateAgencyTokenRequest);
-            options['responseHeaders'] = ['X-Subject-Token'];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于通过用户名/密码的方式进行认证来获取IAM用户token。    token是系统颁发给IAM用户的访问令牌，承载用户的身份、权限等信息。调用IAM以及其他云服务的接口时，可以使用本接口获取的IAM用户token进行鉴权。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。如果使用全局区域的Endpoint调用，该token可以在所有区域使用；如果使用非全局区域的Endpoint调用，则该token仅在该区域生效，不能跨区域使用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。   > - token的有效期为24小时，建议进行缓存，避免频繁调用。   > - 通过Postman获取用户token示例请参见：[如何通过Postman获取用户token](https://support.huaweicloud.com/iam_faq/iam_01_034.html)。   > - 如果需要获取具有Security Administrator权限的token，请参见：[IAM 常见问题](https://support.huaweicloud.com/iam_faq/iam_01_0608.html)。
@@ -3453,19 +2283,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCreateUserTokenByPassword(keystoneCreateUserTokenByPasswordRequest?: KeystoneCreateUserTokenByPasswordRequest): Promise<KeystoneCreateUserTokenByPasswordResponse> {
+        const options = ParamCreater().keystoneCreateUserTokenByPassword(keystoneCreateUserTokenByPasswordRequest);
+        options['responseHeaders'] = ['X-Subject-Token'];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCreateUserTokenByPassword(keystoneCreateUserTokenByPasswordRequest);
-            options['responseHeaders'] = ['X-Subject-Token'];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于通过用户名/密码+虚拟MFA的方式进行认证，在IAM用户开启了的登录保护功能，并选择通过虚拟MFA验证时获取IAM用户token。    token是系统颁发给用户的访问令牌，承载用户的身份、权限等信息。调用IAM以及其他云服务的接口时，可以使用本接口获取的token进行鉴权。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。如果使用全局区域的Endpoint调用，该token可以在所有区域使用；如果使用非全局区域的Endpoint调用，则该token仅在该区域生效，不能跨区域使用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。   > - token的有效期为24小时，建议进行缓存，避免频繁调用。   > - 通过Postman获取用户token示例请参见：[如何通过Postman获取用户token](https://support.huaweicloud.com/iam_faq/iam_01_034.html)。   > - 如果需要获取具有Security Administrator权限的token，请参见：[IAM 常见问题](https://support.huaweicloud.com/iam_faq/iam_01_0608.html)。
@@ -3476,19 +2297,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneCreateUserTokenByPasswordAndMfa(keystoneCreateUserTokenByPasswordAndMfaRequest?: KeystoneCreateUserTokenByPasswordAndMfaRequest): Promise<KeystoneCreateUserTokenByPasswordAndMfaResponse> {
+        const options = ParamCreater().keystoneCreateUserTokenByPasswordAndMfa(keystoneCreateUserTokenByPasswordAndMfaRequest);
+        options['responseHeaders'] = ['X-Subject-Token'];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneCreateUserTokenByPasswordAndMfa(keystoneCreateUserTokenByPasswordAndMfaRequest);
-            options['responseHeaders'] = ['X-Subject-Token'];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)校验本账号中IAM用户token的有效性，或IAM用户校验自己token的有效性。管理员仅能校验本账号中IAM用户token的有效性，不能校验其他账号中IAM用户token的有效性。如果被校验的token有效，则返回该token的详细信息。    该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3499,19 +2311,10 @@ export class IamClient {
      * @throws {RequiredError}
      */
     public keystoneValidateToken(keystoneValidateTokenRequest?: KeystoneValidateTokenRequest): Promise<KeystoneValidateTokenResponse> {
+        const options = ParamCreater().keystoneValidateToken(keystoneValidateTokenRequest);
+        options['responseHeaders'] = ['X-Subject-Token'];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().keystoneValidateToken(keystoneValidateTokenRequest);
-            options['responseHeaders'] = ['X-Subject-Token'];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
 }
 

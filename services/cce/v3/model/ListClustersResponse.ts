@@ -1,11 +1,11 @@
-import { V3Cluster } from './V3Cluster';
+import { Cluster } from './Cluster';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListClustersResponse extends SdkResponse {
     public kind?: string;
     public apiVersion?: string;
-    public items?: Array<V3Cluster>;
+    public items?: Array<Cluster>;
     public constructor() { 
         super();
     }
@@ -17,7 +17,7 @@ export class ListClustersResponse extends SdkResponse {
         this['apiVersion'] = apiVersion;
         return this;
     }
-    public withItems(items: Array<V3Cluster>): ListClustersResponse {
+    public withItems(items: Array<Cluster>): ListClustersResponse {
         this['items'] = items;
         return this;
     }

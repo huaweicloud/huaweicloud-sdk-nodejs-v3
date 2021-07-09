@@ -20,26 +20,18 @@
  */
 
 import { ClientRequestException } from "./ClientRequestException";
+import { ExceptionResponse } from "./ExceptionResponse";
 import { ServerResponseException } from "./ServerResponseException";
 import { ServiceResponseException } from "./ServiceResponseException";
 
 export class ExceptionUtil {
-    static generalException(httpStatusCode: string | number, errorData: { error_code: any; error_msg: any; request_id: any; code: any; message: any; } | null | undefined) {
-        let errorCode;
-        let errorMsg;
-        let requestId;
-        if (errorData !== null && errorData !== undefined) {
-            errorCode = errorData.error_code;
-            errorMsg = errorData.error_msg;
-            requestId = errorData.request_id;
-            if (errorCode === null || errorCode === undefined) {
-                errorCode = errorData.code;
-                errorMsg = errorData.message;
-                if (errorCode === null || errorCode === undefined) {
-                    errorMsg = errorData;
-                }               
-            }
-        }
+    static generalException(exception: ExceptionResponse) {
+        const data = exception.data || {};
+        let errorCode = data.error ? data.error.code : exception.status;
+        let errorMsg = data.error ? data.error.message : exception.message;
+        let requestId = exception.requestId;
+
+        const httpStatusCode = exception.status;
         if (httpStatusCode) {
             if (httpStatusCode >= 400 && httpStatusCode < 500) {
                 return new ClientRequestException(httpStatusCode, errorMsg, errorCode, requestId);

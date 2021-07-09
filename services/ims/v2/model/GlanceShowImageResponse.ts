@@ -27,8 +27,6 @@ export class GlanceShowImageResponse extends SdkResponse {
     public checksum?: string;
     private 'container_format'?: string | undefined;
     private 'created_at'?: string | undefined;
-    public deleted?: boolean;
-    private 'deleted_at'?: string | undefined;
     private 'disk_format'?: GlanceShowImageResponseDiskFormatEnum | undefined;
     public file?: string;
     public id?: string;
@@ -51,6 +49,18 @@ export class GlanceShowImageResponse extends SdkResponse {
     private 'hw_firmware_type'?: GlanceShowImageResponseHwFirmwareTypeEnum | undefined;
     private '__support_arm'?: GlanceShowImageResponseSupportArmEnum | undefined;
     private '__is_offshelved'?: GlanceShowImageResponseIsOffshelvedEnum | undefined;
+    private '__lazyloading'?: boolean | undefined;
+    private '__os_feature_list'?: string | undefined;
+    private '__root_origin'?: string | undefined;
+    private '__sequence_num'?: string | undefined;
+    private '__support_agent_list'?: string | undefined;
+    private '__system__cmkid'?: string | undefined;
+    private 'active_at'?: string | undefined;
+    private 'hw_vif_multiqueue_enabled'?: string | undefined;
+    private 'max_ram'?: string | undefined;
+    private '__image_location'?: string | undefined;
+    private '__is_config_init'?: string | undefined;
+    private '__account_code'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -298,20 +308,6 @@ export class GlanceShowImageResponse extends SdkResponse {
     public get createdAt() {
         return this['created_at'];
     }
-    public withDeleted(deleted: boolean): GlanceShowImageResponse {
-        this['deleted'] = deleted;
-        return this;
-    }
-    public withDeletedAt(deletedAt: string): GlanceShowImageResponse {
-        this['deleted_at'] = deletedAt;
-        return this;
-    }
-    public set deletedAt(deletedAt: string | undefined) {
-        this['deleted_at'] = deletedAt;
-    }
-    public get deletedAt() {
-        return this['deleted_at'];
-    }
     public withDiskFormat(diskFormat: GlanceShowImageResponseDiskFormatEnum): GlanceShowImageResponse {
         this['disk_format'] = diskFormat;
         return this;
@@ -471,6 +467,126 @@ export class GlanceShowImageResponse extends SdkResponse {
     }
     public get isOffshelved() {
         return this['__is_offshelved'];
+    }
+    public withLazyloading(lazyloading: boolean): GlanceShowImageResponse {
+        this['__lazyloading'] = lazyloading;
+        return this;
+    }
+    public set lazyloading(lazyloading: boolean | undefined) {
+        this['__lazyloading'] = lazyloading;
+    }
+    public get lazyloading() {
+        return this['__lazyloading'];
+    }
+    public withOsFeatureList(osFeatureList: string): GlanceShowImageResponse {
+        this['__os_feature_list'] = osFeatureList;
+        return this;
+    }
+    public set osFeatureList(osFeatureList: string | undefined) {
+        this['__os_feature_list'] = osFeatureList;
+    }
+    public get osFeatureList() {
+        return this['__os_feature_list'];
+    }
+    public withRootOrigin(rootOrigin: string): GlanceShowImageResponse {
+        this['__root_origin'] = rootOrigin;
+        return this;
+    }
+    public set rootOrigin(rootOrigin: string | undefined) {
+        this['__root_origin'] = rootOrigin;
+    }
+    public get rootOrigin() {
+        return this['__root_origin'];
+    }
+    public withSequenceNum(sequenceNum: string): GlanceShowImageResponse {
+        this['__sequence_num'] = sequenceNum;
+        return this;
+    }
+    public set sequenceNum(sequenceNum: string | undefined) {
+        this['__sequence_num'] = sequenceNum;
+    }
+    public get sequenceNum() {
+        return this['__sequence_num'];
+    }
+    public withSupportAgentList(supportAgentList: string): GlanceShowImageResponse {
+        this['__support_agent_list'] = supportAgentList;
+        return this;
+    }
+    public set supportAgentList(supportAgentList: string | undefined) {
+        this['__support_agent_list'] = supportAgentList;
+    }
+    public get supportAgentList() {
+        return this['__support_agent_list'];
+    }
+    public withSystemCmkid(systemCmkid: string): GlanceShowImageResponse {
+        this['__system__cmkid'] = systemCmkid;
+        return this;
+    }
+    public set systemCmkid(systemCmkid: string | undefined) {
+        this['__system__cmkid'] = systemCmkid;
+    }
+    public get systemCmkid() {
+        return this['__system__cmkid'];
+    }
+    public withActiveAt(activeAt: string): GlanceShowImageResponse {
+        this['active_at'] = activeAt;
+        return this;
+    }
+    public set activeAt(activeAt: string | undefined) {
+        this['active_at'] = activeAt;
+    }
+    public get activeAt() {
+        return this['active_at'];
+    }
+    public withHwVifMultiqueueEnabled(hwVifMultiqueueEnabled: string): GlanceShowImageResponse {
+        this['hw_vif_multiqueue_enabled'] = hwVifMultiqueueEnabled;
+        return this;
+    }
+    public set hwVifMultiqueueEnabled(hwVifMultiqueueEnabled: string | undefined) {
+        this['hw_vif_multiqueue_enabled'] = hwVifMultiqueueEnabled;
+    }
+    public get hwVifMultiqueueEnabled() {
+        return this['hw_vif_multiqueue_enabled'];
+    }
+    public withMaxRam(maxRam: string): GlanceShowImageResponse {
+        this['max_ram'] = maxRam;
+        return this;
+    }
+    public set maxRam(maxRam: string | undefined) {
+        this['max_ram'] = maxRam;
+    }
+    public get maxRam() {
+        return this['max_ram'];
+    }
+    public withImageLocation(imageLocation: string): GlanceShowImageResponse {
+        this['__image_location'] = imageLocation;
+        return this;
+    }
+    public set imageLocation(imageLocation: string | undefined) {
+        this['__image_location'] = imageLocation;
+    }
+    public get imageLocation() {
+        return this['__image_location'];
+    }
+    public withIsConfigInit(isConfigInit: string): GlanceShowImageResponse {
+        this['__is_config_init'] = isConfigInit;
+        return this;
+    }
+    public set isConfigInit(isConfigInit: string | undefined) {
+        this['__is_config_init'] = isConfigInit;
+    }
+    public get isConfigInit() {
+        return this['__is_config_init'];
+    }
+    public withAccountCode(accountCode: string): GlanceShowImageResponse {
+        this['__account_code'] = accountCode;
+        return this;
+    }
+    public set accountCode(accountCode: string | undefined) {
+        this['__account_code'] = accountCode;
+    }
+    public get accountCode() {
+        return this['__account_code'];
     }
 }
 

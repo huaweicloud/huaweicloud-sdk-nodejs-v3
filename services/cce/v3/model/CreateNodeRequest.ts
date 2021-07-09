@@ -1,11 +1,11 @@
-import { V3NodeCreateRequest } from './V3NodeCreateRequest';
+import { NodeCreateRequest } from './NodeCreateRequest';
 
 
 export class CreateNodeRequest {
     private 'cluster_id': string | undefined;
     private 'Content-Type': string | undefined;
     public nodepoolScaleUp?: CreateNodeRequestNodepoolScaleUpEnum;
-    public body?: V3NodeCreateRequest;
+    public body?: NodeCreateRequest;
     public constructor(clusterId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
         this['Content-Type'] = contentType;
@@ -34,7 +34,7 @@ export class CreateNodeRequest {
         this['nodepoolScaleUp'] = nodepoolScaleUp;
         return this;
     }
-    public withBody(body: V3NodeCreateRequest): CreateNodeRequest {
+    public withBody(body: NodeCreateRequest): CreateNodeRequest {
         this['body'] = body;
         return this;
     }

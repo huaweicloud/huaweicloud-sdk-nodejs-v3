@@ -266,19 +266,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public addServerGroupMember(addServerGroupMemberRequest?: AddServerGroupMemberRequest): Promise<void> {
+        const options = ParamCreater().addServerGroupMember(addServerGroupMemberRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().addServerGroupMember(addServerGroupMemberRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 把磁盘挂载到弹性云服务器上。
@@ -289,19 +280,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public attachServerVolume(attachServerVolumeRequest?: AttachServerVolumeRequest): Promise<AttachServerVolumeResponse> {
+        const options = ParamCreater().attachServerVolume(attachServerVolumeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().attachServerVolume(attachServerVolumeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 给云服务器添加一张或多张网卡。
@@ -312,19 +294,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public batchAddServerNics(batchAddServerNicsRequest?: BatchAddServerNicsRequest): Promise<BatchAddServerNicsResponse> {
+        const options = ParamCreater().batchAddServerNics(batchAddServerNicsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchAddServerNics(batchAddServerNicsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * - 为指定云服务器批量添加标签。  - 标签管理服务TMS使用该接口批量管理云服务器的标签。
@@ -335,19 +308,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public batchCreateServerTags(batchCreateServerTagsRequest?: BatchCreateServerTagsRequest): Promise<void> {
+        const options = ParamCreater().batchCreateServerTags(batchCreateServerTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchCreateServerTags(batchCreateServerTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 卸载并删除云服务器中的一张或多张网卡。
@@ -358,19 +322,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public batchDeleteServerNics(batchDeleteServerNicsRequest?: BatchDeleteServerNicsRequest): Promise<BatchDeleteServerNicsResponse> {
+        const options = ParamCreater().batchDeleteServerNics(batchDeleteServerNicsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchDeleteServerNics(batchDeleteServerNicsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * - 为指定云服务器批量删除标签。  - 标签管理服务TMS使用该接口批量管理云服务器的标签。
@@ -381,19 +336,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public batchDeleteServerTags(batchDeleteServerTagsRequest?: BatchDeleteServerTagsRequest): Promise<void> {
+        const options = ParamCreater().batchDeleteServerTags(batchDeleteServerTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchDeleteServerTags(batchDeleteServerTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 根据给定的云服务器ID列表，批量重启云服务器，一次最多可以重启1000台。
@@ -403,19 +349,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public batchRebootServers(batchRebootServersRequest?: BatchRebootServersRequest): Promise<BatchRebootServersResponse> {
+        const options = ParamCreater().batchRebootServers(batchRebootServersRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchRebootServers(batchRebootServersRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 根据给定的云服务器ID列表，批量启动云服务器，一次最多可以启动1000台。
@@ -425,19 +362,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public batchStartServers(batchStartServersRequest?: BatchStartServersRequest): Promise<BatchStartServersResponse> {
+        const options = ParamCreater().batchStartServers(batchStartServersRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchStartServers(batchStartServersRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 根据给定的云服务器ID列表，批量关闭云服务器，一次最多可以关闭1000台。
@@ -447,19 +375,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public batchStopServers(batchStopServersRequest?: BatchStopServersRequest): Promise<BatchStopServersResponse> {
+        const options = ParamCreater().batchStopServers(batchStopServersRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchStopServers(batchStopServersRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 切换弹性云服务器操作系统。支持弹性云服务器数据盘不变的情况下，使用新镜像重装系统盘。  调用该接口后，系统将卸载系统盘，然后使用新镜像重新创建系统盘，并挂载至弹性云服务器，实现切换操作系统功能。
@@ -470,19 +389,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public changeServerOsWithCloudInit(changeServerOsWithCloudInitRequest?: ChangeServerOsWithCloudInitRequest): Promise<ChangeServerOsWithCloudInitResponse> {
+        const options = ParamCreater().changeServerOsWithCloudInit(changeServerOsWithCloudInitRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().changeServerOsWithCloudInit(changeServerOsWithCloudInitRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建一台或多台[按需付费](https://support.huaweicloud.com/productdesc-ecs/ecs_01_0065.html)方式的云服务器。  弹性云服务器的登录鉴权方式包括两种：密钥对、密码。为安全起见，推荐使用密钥对方式。  - 密钥对 密钥对指使用密钥对作为弹性云服务器的鉴权方式。 接口调用方法：使用key_name字段，指定弹性云服务器登录时使用的密钥文件。  - 密码 密码指使用设置初始密码方式作为弹性云服务器的鉴权方式，此时，您可以通过用户名密码方式登录弹性云服务器，Linux操作系统时为root用户的初始密码，Windows操作系统时为Administrator用户的初始密码。  接口调用方法：使用adminPass字段，指定管理员帐号的初始登录密码。对于镜像已安装Cloud-init的Linux云服务器，如果需要使用密文密码，可以使用user_data字段进行密码注入。  > 对于安装Cloud-init镜像的Linux云服务器云主机，若指定user_data字段，则adminPass字段无效。
@@ -492,19 +402,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public createPostPaidServers(createPostPaidServersRequest?: CreatePostPaidServersRequest): Promise<CreatePostPaidServersResponse> {
+        const options = ParamCreater().createPostPaidServers(createPostPaidServersRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createPostPaidServers(createPostPaidServersRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建弹性云服务器组。  与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
@@ -514,19 +415,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public createServerGroup(createServerGroupRequest?: CreateServerGroupRequest): Promise<CreateServerGroupResponse> {
+        const options = ParamCreater().createServerGroup(createServerGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createServerGroup(createServerGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建一台或多台云服务器。  指该接口兼容《弹性云服务器接口参考》创建云服务器v1的功能，同时合入新功能，支持创建[包年/包月](https://support.huaweicloud.com/productdesc-ecs/ecs_01_0065.html)的弹性云服务器。  弹性云服务器的登录鉴权方式包括两种：密钥对、密码。为安全起见，推荐使用密钥对方式。  - 密钥对  指使用密钥对作为弹性云服务器的鉴权方式。  接口调用方法：使用key_name字段，指定弹性云服务器登录时使用的密钥文件。  - 密码  指使用设置初始密码方式作为弹性云服务器的鉴权方式，此时，您可以通过用户名密码方式登录弹性云服务器，Linux操作系统时为root用户的初始密码，Windows操作系统时为Administrator用户的初始密码。  接口调用方法：使用adminPass字段，指定管理员帐号的初始登录密码。对于镜像已安装Cloud-init的Linux云服务器，如果需要使用密文密码，可以使用user_data字段进行密码注入。  > 对于安装Cloud-init镜像的Linux云服务器云主机，若指定user_data字段，则adminPass字段无效。  购买操作示例： - [使用API购买ECS过程中常见问题及处理方法](https://support.huaweicloud.com/api-ecs/ecs_04_0007.html) - [获取Token并检验Token的有效期 ](https://support.huaweicloud.com/api-ecs/ecs_04_0008.html)
@@ -536,19 +428,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public createServers(createServersRequest?: CreateServersRequest): Promise<CreateServersResponse> {
+        const options = ParamCreater().createServers(createServersRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createServers(createServersRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除云服务器组。  与原生的删除云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
@@ -558,19 +441,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public deleteServerGroup(deleteServerGroupRequest?: DeleteServerGroupRequest): Promise<void> {
+        const options = ParamCreater().deleteServerGroup(deleteServerGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteServerGroup(deleteServerGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 将弹性云服务器移出云服务器组。移出后，该云服务器与云服务器组中的成员不再遵从反亲和策略。
@@ -581,19 +455,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public deleteServerGroupMember(deleteServerGroupMemberRequest?: DeleteServerGroupMemberRequest): Promise<void> {
+        const options = ParamCreater().deleteServerGroupMember(deleteServerGroupMemberRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteServerGroupMember(deleteServerGroupMemberRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除云服务器指定元数据。
@@ -604,19 +469,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public deleteServerMetadata(deleteServerMetadataRequest?: DeleteServerMetadataRequest): Promise<void> {
+        const options = ParamCreater().deleteServerMetadata(deleteServerMetadataRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteServerMetadata(deleteServerMetadataRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 根据指定的云服务器ID列表，删除云服务器。  系统支持删除单台云服务器和批量删除多台云服务器操作，批量删除云服务器时，一次最多可以删除1000台。
@@ -626,19 +482,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public deleteServers(deleteServersRequest?: DeleteServersRequest): Promise<DeleteServersResponse> {
+        const options = ParamCreater().deleteServers(deleteServersRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteServers(deleteServersRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 从弹性云服务器中卸载磁盘。
@@ -650,19 +497,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public detachServerVolume(detachServerVolumeRequest?: DetachServerVolumeRequest): Promise<DetachServerVolumeResponse> {
+        const options = ParamCreater().detachServerVolume(detachServerVolumeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().detachServerVolume(detachServerVolumeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询云服务器规格详情信息和规格扩展信息列表。
@@ -672,19 +510,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public listFlavors(listFlavorsRequest?: ListFlavorsRequest): Promise<ListFlavorsResponse> {
+        const options = ParamCreater().listFlavors(listFlavorsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listFlavors(listFlavorsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 变更规格时，部分规格的云服务器之间不能互相变更。您可以通过本接口，通过指定弹性云服务器规格，查询该规格可以变更的规格列表。
@@ -700,19 +529,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public listResizeFlavors(listResizeFlavorsRequest?: ListResizeFlavorsRequest): Promise<ListResizeFlavorsResponse> {
+        const options = ParamCreater().listResizeFlavors(listResizeFlavorsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listResizeFlavors(listResizeFlavorsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询弹性云服务器挂载的磁盘信息。
@@ -722,19 +542,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public listServerBlockDevices(listServerBlockDevicesRequest?: ListServerBlockDevicesRequest): Promise<ListServerBlockDevicesResponse> {
+        const options = ParamCreater().listServerBlockDevices(listServerBlockDevicesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listServerBlockDevices(listServerBlockDevicesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询弹性云服务器组。  与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
@@ -745,19 +556,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public listServerGroups(listServerGroupsRequest?: ListServerGroupsRequest): Promise<ListServerGroupsResponse> {
+        const options = ParamCreater().listServerGroups(listServerGroupsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listServerGroups(listServerGroupsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询云服务器网卡信息。
@@ -767,19 +569,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public listServerInterfaces(listServerInterfacesRequest?: ListServerInterfacesRequest): Promise<ListServerInterfacesResponse> {
+        const options = ParamCreater().listServerInterfaces(listServerInterfacesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listServerInterfaces(listServerInterfacesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 根据用户请求条件从数据库筛选、查询所有的弹性云服务器，并关联相关表获取到弹性云服务器的详细信息。  该接口支持查询弹性云服务器计费方式，以及是否被冻结。
@@ -798,19 +591,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public listServersDetails(listServersDetailsRequest?: ListServersDetailsRequest): Promise<ListServersDetailsResponse> {
+        const options = ParamCreater().listServersDetails(listServersDetailsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listServersDetails(listServersDetailsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 为弹性云服务器添加一个安全组。  添加多个安全组时，建议最多为弹性云服务器添加5个安全组。
@@ -821,19 +605,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest?: NovaAssociateSecurityGroupRequest): Promise<void> {
+        const options = ParamCreater().novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建SSH密钥，或把公钥导入系统，生成密钥对。  创建SSH密钥成功后，请把响应数据中的私钥内容保存到本地文件，用户使用该私钥登录云服务器云主机。为保证云服务器云主机器安全，私钥数据只能读取一次，请妥善保管。
@@ -844,19 +619,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaCreateKeypair(novaCreateKeypairRequest?: NovaCreateKeypairRequest): Promise<NovaCreateKeypairResponse> {
+        const options = ParamCreater().novaCreateKeypair(novaCreateKeypairRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaCreateKeypair(novaCreateKeypairRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建一台弹性云服务器。  弹性云服务器创建完成后，如需开启自动恢复功能，可以调用配置云服务器自动恢复的接口，具体使用请参见管理云服务器自动恢复动作。  该接口在云服务器创建失败后不支持自动回滚。若需要自动回滚能力，可以调用POST /v1/{project_id}/cloudservers接口，具体使用请参见创建云服务器（按需）。
@@ -867,19 +633,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaCreateServers(novaCreateServersRequest?: NovaCreateServersRequest): Promise<NovaCreateServersResponse> {
+        const options = ParamCreater().novaCreateServers(novaCreateServersRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaCreateServers(novaCreateServersRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 根据SSH密钥的名称，删除指定SSH密钥。
@@ -889,19 +646,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaDeleteKeypair(novaDeleteKeypairRequest?: NovaDeleteKeypairRequest): Promise<void> {
+        const options = ParamCreater().novaDeleteKeypair(novaDeleteKeypairRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaDeleteKeypair(novaDeleteKeypairRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除一台云服务器。
@@ -911,19 +659,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaDeleteServer(novaDeleteServerRequest?: NovaDeleteServerRequest): Promise<void> {
+        const options = ParamCreater().novaDeleteServer(novaDeleteServerRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaDeleteServer(novaDeleteServerRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 移除弹性云服务器中的安全组。
@@ -934,19 +673,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaDisassociateSecurityGroup(novaDisassociateSecurityGroupRequest?: NovaDisassociateSecurityGroupRequest): Promise<void> {
+        const options = ParamCreater().novaDisassociateSecurityGroup(novaDisassociateSecurityGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaDisassociateSecurityGroup(novaDisassociateSecurityGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询可用域列表。
@@ -955,19 +685,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaListAvailabilityZones(): Promise<NovaListAvailabilityZonesResponse> {
+        const options = ParamCreater().novaListAvailabilityZones();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaListAvailabilityZones();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询SSH密钥信息列表。
@@ -979,19 +700,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaListKeypairs(novaListKeypairsRequest?: NovaListKeypairsRequest): Promise<NovaListKeypairsResponse> {
+        const options = ParamCreater().novaListKeypairs(novaListKeypairsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaListKeypairs(novaListKeypairsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询指定弹性云服务器的安全组。
@@ -1001,19 +713,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaListServerSecurityGroups(novaListServerSecurityGroupsRequest?: NovaListServerSecurityGroupsRequest): Promise<NovaListServerSecurityGroupsResponse> {
+        const options = ParamCreater().novaListServerSecurityGroups(novaListServerSecurityGroupsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaListServerSecurityGroups(novaListServerSecurityGroupsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询云服务器详情信息列表。
@@ -1035,19 +738,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaListServersDetails(novaListServersDetailsRequest?: NovaListServersDetailsRequest): Promise<NovaListServersDetailsResponse> {
+        const options = ParamCreater().novaListServersDetails(novaListServersDetailsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaListServersDetails(novaListServersDetailsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 根据SSH密钥名称查询指定SSH密钥。
@@ -1058,19 +752,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaShowKeypair(novaShowKeypairRequest?: NovaShowKeypairRequest): Promise<NovaShowKeypairResponse> {
+        const options = ParamCreater().novaShowKeypair(novaShowKeypairRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaShowKeypair(novaShowKeypairRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 根据云服务器ID，查询云服务器的详细信息。
@@ -1081,19 +766,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public novaShowServer(novaShowServerRequest?: NovaShowServerRequest): Promise<NovaShowServerResponse> {
+        const options = ParamCreater().novaShowServer(novaShowServerRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().novaShowServer(novaShowServerRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 重装弹性云服务器的操作系统。支持弹性云服务器数据盘不变的情况下，使用原镜像重装系统盘。  调用该接口后，系统将卸载系统盘，然后使用原镜像重新创建系统盘，并挂载至弹性云服务器，实现重装操作系统功能。
@@ -1104,19 +780,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public reinstallServerWithCloudInit(reinstallServerWithCloudInitRequest?: ReinstallServerWithCloudInitRequest): Promise<ReinstallServerWithCloudInitResponse> {
+        const options = ParamCreater().reinstallServerWithCloudInit(reinstallServerWithCloudInitRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().reinstallServerWithCloudInit(reinstallServerWithCloudInitRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 重置弹性云服务器管理帐号（root用户或Administrator用户）的密码。
@@ -1127,19 +794,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public resetServerPassword(resetServerPasswordRequest?: ResetServerPasswordRequest): Promise<void> {
+        const options = ParamCreater().resetServerPassword(resetServerPasswordRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().resetServerPassword(resetServerPasswordRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 当您创建的弹性云服务器规格无法满足业务需要时，可以变更云服务器规格，升级vCPU、内存。具体接口的使用，请参见本节内容。  变更规格时，部分规格的云服务器之间不能互相变更。  您可以通过接口“/v1/{project_id}/cloudservers/resize_flavors?{instance_uuid,source_flavor_id,source_flavor_name}”查询支持列表。
@@ -1150,19 +808,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public resizePostPaidServer(resizePostPaidServerRequest?: ResizePostPaidServerRequest): Promise<ResizePostPaidServerResponse> {
+        const options = ParamCreater().resizePostPaidServer(resizePostPaidServerRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().resizePostPaidServer(resizePostPaidServerRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 变更云服务器规格。  v1.1版本：指该接口兼容v1接口的功能，同时合入新功能，支持变更包年/包月弹性云服务器的规格。  注意事项：  - 该接口可以使用合作伙伴自身的AK/SK或者token调用，也可以用合作伙伴子客户的AK/SK或者token来调用。 - 如果使用AK/SK认证方式，示例代码中region请参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)中“弹性云服务 ECS”下“区域”的内容，，serviceName（英文服务名称缩写）请指定为ECS。 - Endpoint请参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)中“弹性云服务 ECS”下“终端节点（Endpoint）”的内容。
@@ -1173,19 +822,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public resizeServer(resizeServerRequest?: ResizeServerRequest): Promise<ResizeServerResponse> {
+        const options = ParamCreater().resizeServer(resizeServerRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().resizeServer(resizeServerRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询弹性云服务器是否支持一键重置密码。
@@ -1195,19 +835,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public showResetPasswordFlag(showResetPasswordFlagRequest?: ShowResetPasswordFlagRequest): Promise<ShowResetPasswordFlagResponse> {
+        const options = ParamCreater().showResetPasswordFlag(showResetPasswordFlagRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showResetPasswordFlag(showResetPasswordFlagRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询弹性云服务器的详细信息。  该接口支持查询弹性云服务器的计费方式，以及是否被冻结。
@@ -1217,19 +848,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public showServer(showServerRequest?: ShowServerRequest): Promise<ShowServerResponse> {
+        const options = ParamCreater().showServer(showServerRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showServer(showServerRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询弹性云服务器组详情。  与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
@@ -1239,19 +861,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public showServerGroup(showServerGroupRequest?: ShowServerGroupRequest): Promise<ShowServerGroupResponse> {
+        const options = ParamCreater().showServerGroup(showServerGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showServerGroup(showServerGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询租户配额信息。
@@ -1260,19 +873,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public showServerLimits(): Promise<ShowServerLimitsResponse> {
+        const options = ParamCreater().showServerLimits();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showServerLimits();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 获取弹性云服务器VNC远程登录地址。
@@ -1283,19 +887,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public showServerRemoteConsole(showServerRemoteConsoleRequest?: ShowServerRemoteConsoleRequest): Promise<ShowServerRemoteConsoleResponse> {
+        const options = ParamCreater().showServerRemoteConsole(showServerRemoteConsoleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showServerRemoteConsole(showServerRemoteConsoleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * - 查询指定云服务器的标签信息。  - 标签管理服务TMS使用该接口查询指定云服务器的全部标签数据。
@@ -1305,19 +900,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public showServerTags(showServerTagsRequest?: ShowServerTagsRequest): Promise<ShowServerTagsResponse> {
+        const options = ParamCreater().showServerTags(showServerTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showServerTags(showServerTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 修改云服务器信息，目前支持修改云服务器名称及描述和hostname。
@@ -1328,19 +914,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public updateServer(updateServerRequest?: UpdateServerRequest): Promise<UpdateServerResponse> {
+        const options = ParamCreater().updateServer(updateServerRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateServer(updateServerRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 修改按需服务器，设置定时销毁时间。如果设置的销毁时间为空，表示取消销毁时间。  该接口支持企业项目细粒度权限的校验，具体细粒度请参见 ecs:cloudServers:put。
@@ -1351,19 +928,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest?: UpdateServerAutoTerminateTimeRequest): Promise<void> {
+        const options = ParamCreater().updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新云服务器元数据。  - 如果元数据中没有待更新字段，则自动添加该字段。  - 如果元数据中已存在待更新字段，则直接更新字段值。  - 如果元数据中的字段不再请求参数中，则保持不变
@@ -1374,19 +942,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public updateServerMetadata(updateServerMetadataRequest?: UpdateServerMetadataRequest): Promise<UpdateServerMetadataResponse> {
+        const options = ParamCreater().updateServerMetadata(updateServerMetadataRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateServerMetadata(updateServerMetadataRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询Job的执行状态。  对于创建云服务器、删除云服务器、云服务器批量操作和网卡操作等异步API，命令下发后，会返回job_id，通过job_id可以查询任务的执行状态。
@@ -1396,19 +955,10 @@ export class EcsClient {
      * @throws {RequiredError}
      */
     public showJob(showJobRequest?: ShowJobRequest): Promise<ShowJobResponse> {
+        const options = ParamCreater().showJob(showJobRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showJob(showJobRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
 }
 

@@ -21,17 +21,18 @@
 
 
 export interface IHttpRequest {
-    params: any;
-    endpoint: string | undefined;
-    contentType: string | undefined;
-    method: string | undefined;
-    queryParams: any;
-    pathParams: any;
-    headers: any;
-    data: any;
+    params?: any;
+    endpoint?: string | undefined;
+    contentType?: string | undefined;
+    method?: string | undefined;
+    queryParams?: any;
+    pathParams?: any;
+    headers?: any;
+    data?: any;
+    proxy?: any;
 
-    getPathParams: () => any;
-    responseHeaders: any;
+    getPathParams?: () => any;
+    responseHeaders?: any;
 }
 
 export class HttpRequestImpl implements IHttpRequest {

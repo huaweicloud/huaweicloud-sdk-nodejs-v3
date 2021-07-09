@@ -131,19 +131,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public batchCreateVolumeTags(batchCreateVolumeTagsRequest?: BatchCreateVolumeTagsRequest): Promise<void> {
+        const options = ParamCreater().batchCreateVolumeTags(batchCreateVolumeTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchCreateVolumeTags(batchCreateVolumeTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 为指定云硬盘批量删除标签。
@@ -154,19 +145,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public batchDeleteVolumeTags(batchDeleteVolumeTagsRequest?: BatchDeleteVolumeTagsRequest): Promise<void> {
+        const options = ParamCreater().batchDeleteVolumeTags(batchDeleteVolumeTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchDeleteVolumeTags(batchDeleteVolumeTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 将系统盘或数据盘的数据导出为IMS镜像，导出的镜像在IMS的私有镜像列表中可以查 看并使用。
@@ -177,19 +159,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public cinderExportToImage(cinderExportToImageRequest?: CinderExportToImageRequest): Promise<CinderExportToImageResponse> {
+        const options = ParamCreater().cinderExportToImage(cinderExportToImageRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().cinderExportToImage(cinderExportToImageRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询所有的可用分区信息。
@@ -198,19 +171,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public cinderListAvailabilityZones(): Promise<CinderListAvailabilityZonesResponse> {
+        const options = ParamCreater().cinderListAvailabilityZones();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().cinderListAvailabilityZones();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询租户的详细配额。
@@ -221,19 +185,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public cinderListQuotas(cinderListQuotasRequest?: CinderListQuotasRequest): Promise<CinderListQuotasResponse> {
+        const options = ParamCreater().cinderListQuotas(cinderListQuotasRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().cinderListQuotas(cinderListQuotasRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询云硬盘类型列表。
@@ -242,19 +197,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public cinderListVolumeTypes(): Promise<CinderListVolumeTypesResponse> {
+        const options = ParamCreater().cinderListVolumeTypes();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().cinderListVolumeTypes();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建云硬盘快照。
@@ -264,19 +210,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public createSnapshot(createSnapshotRequest?: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
+        const options = ParamCreater().createSnapshot(createSnapshotRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createSnapshot(createSnapshotRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 创建按需或包周期云硬盘。 在创建包周期云硬盘的场景下： - 如果您需要查看订单可用的优惠券，请参考\"[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\"。 - 如果您需要支付订单，请参考\"[支付包周期产品订单](https://support.huaweicloud.com/api-oce/zh-cn_topic_0075746561.html)\"。 - 如果您需要查询订单的资源开通详情，请参考\"[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\"。 - 如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。
@@ -286,19 +223,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public createVolume(createVolumeRequest?: CreateVolumeRequest): Promise<CreateVolumeResponse> {
+        const options = ParamCreater().createVolume(createVolumeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createVolume(createVolumeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除云硬盘快照。
@@ -308,19 +236,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public deleteSnapshot(deleteSnapshotRequest?: DeleteSnapshotRequest): Promise<void> {
+        const options = ParamCreater().deleteSnapshot(deleteSnapshotRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteSnapshot(deleteSnapshotRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除一个云硬盘。
@@ -330,19 +249,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public deleteVolume(deleteVolumeRequest?: DeleteVolumeRequest): Promise<DeleteVolumeResponse> {
+        const options = ParamCreater().deleteVolume(deleteVolumeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteVolume(deleteVolumeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询云硬盘快照详细列表信息。
@@ -362,19 +272,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public listSnapshots(listSnapshotsRequest?: ListSnapshotsRequest): Promise<ListSnapshotsResponse> {
+        const options = ParamCreater().listSnapshots(listSnapshotsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listSnapshots(listSnapshotsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 获取某个租户的所有云硬盘资源的标签信息。
@@ -383,19 +284,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public listVolumeTags(): Promise<ListVolumeTagsResponse> {
+        const options = ParamCreater().listVolumeTags();
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listVolumeTags();
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询所有云硬盘的详细信息。
@@ -421,19 +313,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public listVolumes(listVolumesRequest?: ListVolumesRequest): Promise<ListVolumesResponse> {
+        const options = ParamCreater().listVolumes(listVolumesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listVolumes(listVolumesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 通过标签查询云硬盘资源实例详情。
@@ -443,19 +326,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public listVolumesByTags(listVolumesByTagsRequest?: ListVolumesByTagsRequest): Promise<ListVolumesByTagsResponse> {
+        const options = ParamCreater().listVolumesByTags(listVolumesByTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listVolumesByTags(listVolumesByTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 对按需或者包周期云硬盘进行扩容。 在扩容包周期云硬盘的场景下： - 如果您需要查看订单可用的优惠券，请参考\"[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\"。 - 如果您需要支付订单，请参考\"[支付包周期产品订单](https://support.huaweicloud.com/api-oce/zh-cn_topic_0075746561.html)\"。 - 如果您需要查询订单的资源开通详情，请参考\"[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\"。 - 如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。
@@ -466,19 +340,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public resizeVolume(resizeVolumeRequest?: ResizeVolumeRequest): Promise<ResizeVolumeResponse> {
+        const options = ParamCreater().resizeVolume(resizeVolumeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().resizeVolume(resizeVolumeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 将快照数据回滚到云硬盘。支持企业项目授权功能。
@@ -489,19 +354,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public rollbackSnapshot(rollbackSnapshotRequest?: RollbackSnapshotRequest): Promise<RollbackSnapshotResponse> {
+        const options = ParamCreater().rollbackSnapshot(rollbackSnapshotRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().rollbackSnapshot(rollbackSnapshotRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询Job的执行状态。 可用于查询创建云硬盘，扩容云硬盘，删除云硬盘等API的执行状态。
@@ -511,19 +367,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public showJob(showJobRequest?: ShowJobRequest): Promise<ShowJobResponse> {
+        const options = ParamCreater().showJob(showJobRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showJob(showJobRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询单个云硬盘快照信息。支持企业项目授权功能。
@@ -533,19 +380,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public showSnapshot(showSnapshotRequest?: ShowSnapshotRequest): Promise<ShowSnapshotResponse> {
+        const options = ParamCreater().showSnapshot(showSnapshotRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showSnapshot(showSnapshotRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询单个云硬盘的详细信息。支持企业项目授权功能。
@@ -555,19 +393,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public showVolume(showVolumeRequest?: ShowVolumeRequest): Promise<ShowVolumeResponse> {
+        const options = ParamCreater().showVolume(showVolumeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showVolume(showVolumeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 查询指定云硬盘的标签信息。
@@ -577,19 +406,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public showVolumeTags(showVolumeTagsRequest?: ShowVolumeTagsRequest): Promise<ShowVolumeTagsResponse> {
+        const options = ParamCreater().showVolumeTags(showVolumeTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showVolumeTags(showVolumeTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新云硬盘快照。支持企业项目授权功能。
@@ -600,19 +420,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public updateSnapshot(updateSnapshotRequest?: UpdateSnapshotRequest): Promise<UpdateSnapshotResponse> {
+        const options = ParamCreater().updateSnapshot(updateSnapshotRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateSnapshot(updateSnapshotRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 更新一个云硬盘的名称和描述。
@@ -623,19 +434,10 @@ export class EvsClient {
      * @throws {RequiredError}
      */
     public updateVolume(updateVolumeRequest?: UpdateVolumeRequest): Promise<UpdateVolumeResponse> {
+        const options = ParamCreater().updateVolume(updateVolumeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateVolume(updateVolumeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
 }
 

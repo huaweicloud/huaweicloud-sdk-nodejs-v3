@@ -1,15 +1,15 @@
-import { CCEJobMetadata } from './CCEJobMetadata';
-import { CCEJobSpec } from './CCEJobSpec';
-import { CCEJobStatus } from './CCEJobStatus';
+import { JobMetadata } from './JobMetadata';
+import { JobSpec } from './JobSpec';
+import { JobStatus } from './JobStatus';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowJobResponse extends SdkResponse {
     public kind?: string;
     public apiVersion?: string;
-    public metadata?: CCEJobMetadata;
-    public spec?: CCEJobSpec;
-    public status?: CCEJobStatus;
+    public metadata?: JobMetadata;
+    public spec?: JobSpec;
+    public status?: JobStatus;
     public constructor() { 
         super();
     }
@@ -21,15 +21,15 @@ export class ShowJobResponse extends SdkResponse {
         this['apiVersion'] = apiVersion;
         return this;
     }
-    public withMetadata(metadata: CCEJobMetadata): ShowJobResponse {
+    public withMetadata(metadata: JobMetadata): ShowJobResponse {
         this['metadata'] = metadata;
         return this;
     }
-    public withSpec(spec: CCEJobSpec): ShowJobResponse {
+    public withSpec(spec: JobSpec): ShowJobResponse {
         this['spec'] = spec;
         return this;
     }
-    public withStatus(status: CCEJobStatus): ShowJobResponse {
+    public withStatus(status: JobStatus): ShowJobResponse {
         this['status'] = status;
         return this;
     }

@@ -19,6 +19,7 @@ export class BandwidthResp {
     private 'bandwidth_rules'?: Array<BandWidthRules> | undefined;
     private 'created_at'?: string | undefined;
     private 'updated_at'?: string | undefined;
+    private 'publicip_border_group'?: string | undefined;
     public constructor() { 
     }
     public withBandwidthType(bandwidthType: string): BandwidthResp {
@@ -156,6 +157,16 @@ export class BandwidthResp {
     }
     public get updatedAt() {
         return this['updated_at'];
+    }
+    public withPublicipBorderGroup(publicipBorderGroup: string): BandwidthResp {
+        this['publicip_border_group'] = publicipBorderGroup;
+        return this;
+    }
+    public set publicipBorderGroup(publicipBorderGroup: string | undefined) {
+        this['publicip_border_group'] = publicipBorderGroup;
+    }
+    public get publicipBorderGroup() {
+        return this['publicip_border_group'];
     }
 }
 

@@ -11,7 +11,6 @@ export class NodeExtendParam {
     public isAutoPay?: string;
     private 'DockerLVMConfigOverride'?: string | undefined;
     public dockerBaseSize?: number;
-    public offloadNode?: string;
     public publicKey?: string;
     private 'alpha.cce/preInstall'?: string | undefined;
     private 'alpha.cce/postInstall'?: string | undefined;
@@ -70,10 +69,6 @@ export class NodeExtendParam {
     }
     public withDockerBaseSize(dockerBaseSize: number): NodeExtendParam {
         this['dockerBaseSize'] = dockerBaseSize;
-        return this;
-    }
-    public withOffloadNode(offloadNode: string): NodeExtendParam {
-        this['offloadNode'] = offloadNode;
         return this;
     }
     public withPublicKey(publicKey: string): NodeExtendParam {

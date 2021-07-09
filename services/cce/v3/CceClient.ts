@@ -9,19 +9,17 @@ import { AuthenticatingProxy } from './model/AuthenticatingProxy';
 import { Authentication } from './model/Authentication';
 import { AwakeClusterRequest } from './model/AwakeClusterRequest';
 import { AwakeClusterResponse } from './model/AwakeClusterResponse';
-import { CCEClusterNodeInformation } from './model/CCEClusterNodeInformation';
-import { CCEClusterNodeInformationMetadata } from './model/CCEClusterNodeInformationMetadata';
-import { CCEJob } from './model/CCEJob';
-import { CCEJobMetadata } from './model/CCEJobMetadata';
-import { CCEJobSpec } from './model/CCEJobSpec';
-import { CCEJobStatus } from './model/CCEJobStatus';
 import { CertDuration } from './model/CertDuration';
+import { Cluster } from './model/Cluster';
 import { ClusterCert } from './model/ClusterCert';
 import { ClusterEndpoints } from './model/ClusterEndpoints';
 import { ClusterExtendParam } from './model/ClusterExtendParam';
 import { ClusterInformation } from './model/ClusterInformation';
 import { ClusterInformationSpec } from './model/ClusterInformationSpec';
 import { ClusterMetadata } from './model/ClusterMetadata';
+import { ClusterNodeInformation } from './model/ClusterNodeInformation';
+import { ClusterNodeInformationMetadata } from './model/ClusterNodeInformationMetadata';
+import { ClusterSpec } from './model/ClusterSpec';
 import { ClusterStatus } from './model/ClusterStatus';
 import { Clusters } from './model/Clusters';
 import { ContainerNetwork } from './model/ContainerNetwork';
@@ -57,6 +55,11 @@ import { HostNetwork } from './model/HostNetwork';
 import { InstanceRequest } from './model/InstanceRequest';
 import { InstanceRequestSpec } from './model/InstanceRequestSpec';
 import { InstanceSpec } from './model/InstanceSpec';
+import { Job } from './model/Job';
+import { JobMetadata } from './model/JobMetadata';
+import { JobSpec } from './model/JobSpec';
+import { JobStatus } from './model/JobStatus';
+import { LVMConfig } from './model/LVMConfig';
 import { ListAddonInstancesRequest } from './model/ListAddonInstancesRequest';
 import { ListAddonInstancesResponse } from './model/ListAddonInstancesResponse';
 import { ListAddonTemplatesRequest } from './model/ListAddonTemplatesRequest';
@@ -70,8 +73,19 @@ import { ListNodesResponse } from './model/ListNodesResponse';
 import { Login } from './model/Login';
 import { MasterSpec } from './model/MasterSpec';
 import { Metadata } from './model/Metadata';
+import { MigrateNodeExtendParam } from './model/MigrateNodeExtendParam';
+import { MigrateNodeRequest } from './model/MigrateNodeRequest';
+import { MigrateNodeResponse } from './model/MigrateNodeResponse';
+import { MigrateNodesSpec } from './model/MigrateNodesSpec';
+import { MigrateNodesTask } from './model/MigrateNodesTask';
+import { NetworkSubnet } from './model/NetworkSubnet';
 import { NicSpec } from './model/NicSpec';
+import { Node } from './model/Node';
+import { NodeBandwidth } from './model/NodeBandwidth';
+import { NodeCreateRequest } from './model/NodeCreateRequest';
+import { NodeEIPSpec } from './model/NodeEIPSpec';
 import { NodeExtendParam } from './model/NodeExtendParam';
+import { NodeItem } from './model/NodeItem';
 import { NodeManagement } from './model/NodeManagement';
 import { NodeMetadata } from './model/NodeMetadata';
 import { NodeNicSpec } from './model/NodeNicSpec';
@@ -80,16 +94,23 @@ import { NodePoolMetadata } from './model/NodePoolMetadata';
 import { NodePoolNodeAutoscaling } from './model/NodePoolNodeAutoscaling';
 import { NodePoolSpec } from './model/NodePoolSpec';
 import { NodePoolStatus } from './model/NodePoolStatus';
+import { NodePublicIP } from './model/NodePublicIP';
+import { NodeSpec } from './model/NodeSpec';
+import { NodeStatus } from './model/NodeStatus';
 import { PersistentVolumeClaim } from './model/PersistentVolumeClaim';
 import { PersistentVolumeClaimMetadata } from './model/PersistentVolumeClaimMetadata';
 import { PersistentVolumeClaimSpec } from './model/PersistentVolumeClaimSpec';
 import { PersistentVolumeClaimStatus } from './model/PersistentVolumeClaimStatus';
+import { RemoveNodeRequest } from './model/RemoveNodeRequest';
+import { RemoveNodeResponse } from './model/RemoveNodeResponse';
+import { RemoveNodesSpec } from './model/RemoveNodesSpec';
+import { RemoveNodesTask } from './model/RemoveNodesTask';
 import { ResourceRequirements } from './model/ResourceRequirements';
 import { ResourceTag } from './model/ResourceTag';
 import { Runtime } from './model/Runtime';
+import { RuntimeConfig } from './model/RuntimeConfig';
 import { ShowAddonInstanceRequest } from './model/ShowAddonInstanceRequest';
 import { ShowAddonInstanceResponse } from './model/ShowAddonInstanceResponse';
-import { ShowClusterMetadata } from './model/ShowClusterMetadata';
 import { ShowClusterRequest } from './model/ShowClusterRequest';
 import { ShowClusterResponse } from './model/ShowClusterResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
@@ -98,8 +119,13 @@ import { ShowNodePoolRequest } from './model/ShowNodePoolRequest';
 import { ShowNodePoolResponse } from './model/ShowNodePoolResponse';
 import { ShowNodeRequest } from './model/ShowNodeRequest';
 import { ShowNodeResponse } from './model/ShowNodeResponse';
+import { Storage } from './model/Storage';
+import { StorageGroups } from './model/StorageGroups';
+import { StorageSelectors } from './model/StorageSelectors';
+import { StorageSelectorsMatchLabels } from './model/StorageSelectorsMatchLabels';
 import { SupportVersions } from './model/SupportVersions';
 import { Taint } from './model/Taint';
+import { TaskStatus } from './model/TaskStatus';
 import { Templatespec } from './model/Templatespec';
 import { UpdateAddonInstanceRequest } from './model/UpdateAddonInstanceRequest';
 import { UpdateAddonInstanceResponse } from './model/UpdateAddonInstanceResponse';
@@ -113,16 +139,8 @@ import { User } from './model/User';
 import { UserPassword } from './model/UserPassword';
 import { UserTag } from './model/UserTag';
 import { Users } from './model/Users';
-import { V3Cluster } from './model/V3Cluster';
-import { V3ClusterSpec } from './model/V3ClusterSpec';
-import { V3Node } from './model/V3Node';
-import { V3NodeBandwidth } from './model/V3NodeBandwidth';
-import { V3NodeCreateRequest } from './model/V3NodeCreateRequest';
-import { V3NodeEIPSpec } from './model/V3NodeEIPSpec';
-import { V3NodePublicIP } from './model/V3NodePublicIP';
-import { V3NodeSpec } from './model/V3NodeSpec';
-import { V3NodeStatus } from './model/V3NodeStatus';
 import { Versions } from './model/Versions';
+import { VirtualSpace } from './model/VirtualSpace';
 import { Volume } from './model/Volume';
 import { VolumeMetadata } from './model/VolumeMetadata';
 
@@ -149,22 +167,13 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public awakeCluster(awakeClusterRequest?: AwakeClusterRequest): Promise<void> {
+        const options = ParamCreater().awakeCluster(awakeClusterRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().awakeCluster(awakeClusterRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 根据提供的插件模板，安装插件实例。 >插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+     * 根据提供的插件模板，安装插件实例。 
      * @summary 创建AddonInstance
      * @param {string} contentType 消息体的类型（格式）
      * @param {InstanceRequest} createAddonInstanceRequestBody 请求body体
@@ -172,19 +181,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public createAddonInstance(createAddonInstanceRequest?: CreateAddonInstanceRequest): Promise<CreateAddonInstanceResponse> {
+        const options = ParamCreater().createAddonInstance(createAddonInstanceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createAddonInstance(createAddonInstanceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于在指定的Namespace下通过云存储服务中的云存储（EVS、SFS、OBS）去创建PVC（PersistentVolumeClaim）。  >存储管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。如果使用https://Endpoint/uri，则必须指定请求header中的X-Cluster-ID参数。 
@@ -197,42 +197,24 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public createCloudPersistentVolumeClaims(createCloudPersistentVolumeClaimsRequest?: CreateCloudPersistentVolumeClaimsRequest): Promise<CreateCloudPersistentVolumeClaimsResponse> {
+        const options = ParamCreater().createCloudPersistentVolumeClaims(createCloudPersistentVolumeClaimsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createCloudPersistentVolumeClaims(createCloudPersistentVolumeClaimsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于创建一个空集群（即只有控制节点Master，没有工作节点Node）。请在调用本接口完成集群创建之后，通过[[创建节点](https://support.huaweicloud.com/api-cce/cce_02_0242.html)](tag:hws)[[创建节点](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0242.html)](tag:hws_hk)添加节点。 >   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 >   - 调用该接口创建集群时，默认不安装ICAgent。ICAgent是应用性能管理APM的采集代理，运行在应用所在的服务器上，用于实时采集探针所获取的数据，安装ICAgent是使用应用性能管理APM的前提。若需安装ICAgent，请参照[[安装ICAgent](https://support.huaweicloud.com/usermanual-apm/apm_02_0013.html)](tag:hws)[[安装ICAgent](https://support.huaweicloud.com/intl/zh-cn/usermanual-apm/apm_02_0013.html)](tag:hws_hk)。 >   - 默认情况下，一个帐户只能创建 5 个集群（每个Region下），如果您需要创建更多的集群，请[[提交工单](https://console.huaweicloud.com/console/#/quota)](tag:hws)[[提交工单](https://console-intl.huaweicloud.com/console/?locale=zh-cn#/quota)](tag:hws_hk)申请增加配额。
+     * 该API用于创建一个空集群（即只有控制节点Master，没有工作节点Node）。请在调用本接口完成集群创建之后，通过[[创建节点](https://support.huaweicloud.com/api-cce/cce_02_0242.html)](tag:hws)[[创建节点](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0242.html)](tag:hws_hk)添加节点。  >   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 >   - 调用该接口创建集群时，默认不安装ICAgent。ICAgent是应用性能管理APM的采集代理，运行在应用所在的服务器上，用于实时采集探针所获取的数据，安装ICAgent是使用应用性能管理APM的前提。若需安装ICAgent，请参照[[安装ICAgent](https://support.huaweicloud.com/usermanual-apm/apm_02_0013.html)](tag:hws)[[安装ICAgent](https://support.huaweicloud.com/intl/zh-cn/usermanual-apm/apm_02_0013.html)](tag:hws_hk)。 >   - 默认情况下，一个帐户只能创建5个集群（每个Region下），如果您需要创建更多的集群，请[[提交工单](https://console.huaweicloud.com/console/#/quota)](tag:hws)[[提交工单](https://console-intl.huaweicloud.com/console/?locale=zh-cn#/quota)](tag:hws_hk)申请增加配额。
      * @summary 创建集群
      * @param {string} contentType 消息体的类型（格式）
-     * @param {V3Cluster} createClusterRequestBody 集群规格信息请求体
+     * @param {Cluster} createClusterRequestBody 集群规格信息请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public createCluster(createClusterRequest?: CreateClusterRequest): Promise<CreateClusterResponse> {
+        const options = ParamCreater().createCluster(createClusterRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createCluster(createClusterRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于获取指定集群的证书信息。
@@ -244,47 +226,29 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public createKubernetesClusterCert(createKubernetesClusterCertRequest?: CreateKubernetesClusterCertRequest): Promise<CreateKubernetesClusterCertResponse> {
+        const options = ParamCreater().createKubernetesClusterCert(createKubernetesClusterCertRequest);
+        options['responseHeaders'] = ['Port-ID'];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createKubernetesClusterCert(createKubernetesClusterCertRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下创建节点。 > 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下创建节点。  > 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 创建节点
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
-     * @param {V3NodeCreateRequest} createNodeRequestBody 创建节点的请求体
+     * @param {NodeCreateRequest} createNodeRequestBody 创建节点的请求体
      * @param {'NodepoolScaleUp'} [nodepoolScaleUp] 标明是否为nodepool下发的请求。若不为“NodepoolScaleUp”将自动更新对应节点池的实例数
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public createNode(createNodeRequest?: CreateNodeRequest): Promise<CreateNodeResponse> {
+        const options = ParamCreater().createNode(createNodeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createNode(createNodeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。 > 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
+     * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。  > 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
      * @summary 创建节点池
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
@@ -293,22 +257,13 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public createNodePool(createNodePoolRequest?: CreateNodePoolRequest): Promise<CreateNodePoolResponse> {
+        const options = ParamCreater().createNodePool(createNodePoolRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createNodePool(createNodePoolRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 删除插件实例的功能。 >插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+     * 删除插件实例的功能。 
      * @summary 删除AddonInstance
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} id 插件实例id
@@ -317,22 +272,13 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public deleteAddonInstance(deleteAddonInstanceRequest?: DeleteAddonInstanceRequest): Promise<string> {
+        const options = ParamCreater().deleteAddonInstance(deleteAddonInstanceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteAddonInstance(deleteAddonInstanceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于删除指定Namespace下的PVC（PersistentVolumeClaim）对象，并可以选择保留后端的云存储。 >存储管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。如果使用https://Endpoint/uri，则必须指定请求header中的X-Cluster-ID参数。 
+     * 该API用于删除指定Namespace下的PVC（PersistentVolumeClaim）对象，并可以选择保留后端的云存储。  >存储管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。如果使用https://Endpoint/uri，则必须指定请求header中的X-Cluster-ID参数。 
      * @summary 删除PVC
      * @param {string} name 需要删除的PersistentVolumClaim的名称。 
      * @param {string} namespace 指定PersistentVolumeClaim所在的命名空间。 
@@ -344,19 +290,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public deleteCloudPersistentVolumeClaims(deleteCloudPersistentVolumeClaimsRequest?: DeleteCloudPersistentVolumeClaimsRequest): Promise<DeleteCloudPersistentVolumeClaimsResponse> {
+        const options = ParamCreater().deleteCloudPersistentVolumeClaims(deleteCloudPersistentVolumeClaimsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteCloudPersistentVolumeClaims(deleteCloudPersistentVolumeClaimsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于删除一个指定的集群。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -364,28 +301,20 @@ export class CceClient {
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEfs] 是否删除SFS Turbo（极速文件存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
-     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEni] 是否删除eni ports（原生弹性网卡）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
+     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEni] 是否删除eni ports（原生弹性网卡）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程，默认选项) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEvs] 是否删除evs（云硬盘）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
-     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteNet] 是否删除elb（弹性负载均衡）等集群Service/Ingress相关资源。 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
+     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteNet] 是否删除elb（弹性负载均衡）等集群Service/Ingress相关资源。 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程，默认选项) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteObs] 是否删除obs（对象存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteSfs] 是否删除sfs（文件存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
+     * @param {'true'} [tobedeleted] 是否使用包周期集群删除参数预置模式（仅对包周期集群生效）。 需要和其他删除选项参数一起使用，未指定的参数，则使用默认值。 使用该参数，集群不执行真正的删除，仅将本次请求的全部query参数都预置到集群数据库中，用于包周期集群退订时识别用户要删除的资源。 允许重复执行，覆盖预置的删除参数。 枚举取值： - true  (预置模式，仅预置query参数，不执行删除)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public deleteCluster(deleteClusterRequest?: DeleteClusterRequest): Promise<DeleteClusterResponse> {
+        const options = ParamCreater().deleteCluster(deleteClusterRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteCluster(deleteClusterRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于删除指定的节点。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
@@ -398,19 +327,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public deleteNode(deleteNodeRequest?: DeleteNodeRequest): Promise<DeleteNodeResponse> {
+        const options = ParamCreater().deleteNode(deleteNodeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteNode(deleteNodeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于删除指定的节点池。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
@@ -422,19 +342,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public deleteNodePool(deleteNodePoolRequest?: DeleteNodePoolRequest): Promise<DeleteNodePoolResponse> {
+        const options = ParamCreater().deleteNodePool(deleteNodePoolRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteNodePool(deleteNodePoolRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 集群休眠用于将运行中的集群置于休眠状态，休眠后，将不再收取控制节点资源费用。
@@ -445,22 +356,13 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public hibernateCluster(hibernateClusterRequest?: HibernateClusterRequest): Promise<void> {
+        const options = ParamCreater().hibernateCluster(hibernateClusterRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().hibernateCluster(hibernateClusterRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 获取集群所有已安装插件实例 >插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+     * 获取集群所有已安装插件实例 
      * @summary 获取AddonInstance列表
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
@@ -468,22 +370,13 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public listAddonInstances(listAddonInstancesRequest?: ListAddonInstancesRequest): Promise<ListAddonInstancesResponse> {
+        const options = ParamCreater().listAddonInstances(listAddonInstancesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listAddonInstances(listAddonInstancesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 插件模板查询接口，查询插件信息。 >插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+     * 插件模板查询接口，查询插件信息。 
      * @summary 查询AddonTemplates列表
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} [addonTemplateName] 指定的模板名称，不填写则查询列表。
@@ -491,19 +384,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public listAddonTemplates(listAddonTemplatesRequest?: ListAddonTemplatesRequest): Promise<ListAddonTemplatesResponse> {
+        const options = ParamCreater().listAddonTemplates(listAddonTemplatesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listAddonTemplates(listAddonTemplatesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于获取指定项目下所有集群的详细信息。
@@ -517,19 +401,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public listClusters(listClustersRequest?: ListClustersRequest): Promise<ListClustersResponse> {
+        const options = ParamCreater().listClusters(listClustersRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listClusters(listClustersRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于获取集群下所有节点池。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 > - nodepool是集群中具有相同配置的节点实例的子集。 
@@ -541,19 +416,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public listNodePools(listNodePoolsRequest?: ListNodePoolsRequest): Promise<ListNodePoolsResponse> {
+        const options = ParamCreater().listNodePools(listNodePoolsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listNodePools(listNodePoolsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于通过集群ID获取指定集群下所有节点的详细信息。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -564,22 +430,44 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public listNodes(listNodesRequest?: ListNodesRequest): Promise<ListNodesResponse> {
+        const options = ParamCreater().listNodes(listNodesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listNodes(listNodesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 获取插件实例详情。 >插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+     * 该API用于在指定集群下迁移节点到另一集群。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * @summary 节点迁移
+     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} targetClusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {MigrateNodesTask} migrateNodesTask 迁移节点的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public migrateNode(migrateNodeRequest?: MigrateNodeRequest): Promise<MigrateNodeResponse> {
+        const options = ParamCreater().migrateNode(migrateNodeRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 该API用于在指定集群下移除节点。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * @summary 节点移除
+     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {RemoveNodesTask} removeNodesTask 移除节点的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeNode(removeNodeRequest?: RemoveNodeRequest): Promise<RemoveNodeResponse> {
+        const options = ParamCreater().removeNode(removeNodeRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 获取插件实例详情。 
      * @summary 获取AddonInstance详情
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} id 插件实例id
@@ -588,19 +476,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public showAddonInstance(showAddonInstanceRequest?: ShowAddonInstanceRequest): Promise<ShowAddonInstanceResponse> {
+        const options = ParamCreater().showAddonInstance(showAddonInstanceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showAddonInstance(showAddonInstanceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于获取指定集群的详细信息。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -612,19 +491,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public showCluster(showClusterRequest?: ShowClusterRequest): Promise<ShowClusterResponse> {
+        const options = ParamCreater().showCluster(showClusterRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showCluster(showClusterRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于获取任务信息。通过某一任务请求下发后返回的jobID来查询指定任务的进度。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 > - 该接口通常使用场景为： >   - 创建、删除集群时，查询相应任务的进度。 >   - 创建、删除节点时，查询相应任务的进度。 
@@ -635,19 +505,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public showJob(showJobRequest?: ShowJobRequest): Promise<ShowJobResponse> {
+        const options = ParamCreater().showJob(showJobRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showJob(showJobRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于通过节点ID获取指定节点的详细信息。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -659,19 +520,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public showNode(showNodeRequest?: ShowNodeRequest): Promise<ShowNodeResponse> {
+        const options = ParamCreater().showNode(showNodeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showNode(showNodeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于获取指定节点池的详细信息。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
@@ -683,22 +535,13 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public showNodePool(showNodePoolRequest?: ShowNodePoolRequest): Promise<ShowNodePoolResponse> {
+        const options = ParamCreater().showNodePool(showNodePoolRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showNodePool(showNodePoolRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 更新插件实例的功能。 >插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+     * 更新插件实例的功能。 
      * @summary 更新AddonInstance
      * @param {string} id 插件实例id
      * @param {string} contentType 消息体的类型（格式）
@@ -707,19 +550,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public updateAddonInstance(updateAddonInstanceRequest?: UpdateAddonInstanceRequest): Promise<UpdateAddonInstanceResponse> {
+        const options = ParamCreater().updateAddonInstance(updateAddonInstanceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateAddonInstance(updateAddonInstanceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于更新指定的集群。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -731,19 +565,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public updateCluster(updateClusterRequest?: UpdateClusterRequest): Promise<UpdateClusterResponse> {
+        const options = ParamCreater().updateCluster(updateClusterRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateCluster(updateClusterRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 该API用于更新指定的节点。 > - 当前仅支持更新metadata下的name字段，即节点的名字。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 
@@ -751,27 +576,18 @@ export class CceClient {
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} nodeId 节点ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
-     * @param {CCEClusterNodeInformation} updateNodeRequestBody metadata是节点对象的元数据定义，是集合类的元素类型，包含一组由不同名称定义的属性。
+     * @param {ClusterNodeInformation} updateNodeRequestBody metadata是节点对象的元数据定义，是集合类的元素类型，包含一组由不同名称定义的属性。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public updateNode(updateNodeRequest?: UpdateNodeRequest): Promise<UpdateNodeResponse> {
+        const options = ParamCreater().updateNode(updateNodeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateNode(updateNodeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于更新指定的节点池。仅支持集群在处于可用、扩容、缩容状态时调用。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 > - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags， taints，login，userTags与节点池的扩缩容配置相关字段。
+     * 该API用于更新指定的节点池。仅支持集群在处于可用、扩容、缩容状态时调用。  > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径  > - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags， taints，login，userTags与节点池的扩缩容配置相关字段。
      * @summary 更新指定节点池
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} nodepoolId 节点池ID
@@ -781,19 +597,10 @@ export class CceClient {
      * @throws {RequiredError}
      */
     public updateNodePool(updateNodePoolRequest?: UpdateNodePoolRequest): Promise<UpdateNodePoolResponse> {
+        const options = ParamCreater().updateNodePool(updateNodePoolRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateNodePool(updateNodePoolRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
 }
 
@@ -844,7 +651,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据提供的插件模板，安装插件实例。 &gt;插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+         * 根据提供的插件模板，安装插件实例。 
          */
         createAddonInstance(createAddonInstanceRequest?: CreateAddonInstanceRequest) {
             const options = {
@@ -945,7 +752,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于创建一个空集群（即只有控制节点Master，没有工作节点Node）。请在调用本接口完成集群创建之后，通过[[创建节点](https://support.huaweicloud.com/api-cce/cce_02_0242.html)](tag:hws)[[创建节点](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0242.html)](tag:hws_hk)添加节点。 &gt;   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 &gt;   - 调用该接口创建集群时，默认不安装ICAgent。ICAgent是应用性能管理APM的采集代理，运行在应用所在的服务器上，用于实时采集探针所获取的数据，安装ICAgent是使用应用性能管理APM的前提。若需安装ICAgent，请参照[[安装ICAgent](https://support.huaweicloud.com/usermanual-apm/apm_02_0013.html)](tag:hws)[[安装ICAgent](https://support.huaweicloud.com/intl/zh-cn/usermanual-apm/apm_02_0013.html)](tag:hws_hk)。 &gt;   - 默认情况下，一个帐户只能创建 5 个集群（每个Region下），如果您需要创建更多的集群，请[[提交工单](https://console.huaweicloud.com/console/#/quota)](tag:hws)[[提交工单](https://console-intl.huaweicloud.com/console/?locale&#x3D;zh-cn#/quota)](tag:hws_hk)申请增加配额。
+         * 该API用于创建一个空集群（即只有控制节点Master，没有工作节点Node）。请在调用本接口完成集群创建之后，通过[[创建节点](https://support.huaweicloud.com/api-cce/cce_02_0242.html)](tag:hws)[[创建节点](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0242.html)](tag:hws_hk)添加节点。  &gt;   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 &gt;   - 调用该接口创建集群时，默认不安装ICAgent。ICAgent是应用性能管理APM的采集代理，运行在应用所在的服务器上，用于实时采集探针所获取的数据，安装ICAgent是使用应用性能管理APM的前提。若需安装ICAgent，请参照[[安装ICAgent](https://support.huaweicloud.com/usermanual-apm/apm_02_0013.html)](tag:hws)[[安装ICAgent](https://support.huaweicloud.com/intl/zh-cn/usermanual-apm/apm_02_0013.html)](tag:hws_hk)。 &gt;   - 默认情况下，一个帐户只能创建5个集群（每个Region下），如果您需要创建更多的集群，请[[提交工单](https://console.huaweicloud.com/console/#/quota)](tag:hws)[[提交工单](https://console-intl.huaweicloud.com/console/?locale&#x3D;zh-cn#/quota)](tag:hws_hk)申请增加配额。
          */
         createCluster(createClusterRequest?: CreateClusterRequest) {
             const options = {
@@ -1040,7 +847,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下创建节点。 &gt; 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下创建节点。  &gt; 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         createNode(createNodeRequest?: CreateNodeRequest) {
             const options = {
@@ -1098,7 +905,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。 &gt; 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
+         * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。  &gt; 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
          */
         createNodePool(createNodePoolRequest?: CreateNodePoolRequest) {
             const options = {
@@ -1149,7 +956,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除插件实例的功能。 &gt;插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+         * 删除插件实例的功能。 
          */
         deleteAddonInstance(deleteAddonInstanceRequest?: DeleteAddonInstanceRequest) {
             const options = {
@@ -1202,7 +1009,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于删除指定Namespace下的PVC（PersistentVolumeClaim）对象，并可以选择保留后端的云存储。 &gt;存储管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。如果使用https://Endpoint/uri，则必须指定请求header中的X-Cluster-ID参数。 
+         * 该API用于删除指定Namespace下的PVC（PersistentVolumeClaim）对象，并可以选择保留后端的云存储。  &gt;存储管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。如果使用https://Endpoint/uri，则必须指定请求header中的X-Cluster-ID参数。 
          */
         deleteCloudPersistentVolumeClaims(deleteCloudPersistentVolumeClaimsRequest?: DeleteCloudPersistentVolumeClaimsRequest) {
             const options = {
@@ -1292,6 +1099,7 @@ export const ParamCreater = function () {
             let deleteNet;
             let deleteObs;
             let deleteSfs;
+            let tobedeleted;
 
             if (deleteClusterRequest !== null && deleteClusterRequest !== undefined) {
                 if (deleteClusterRequest instanceof DeleteClusterRequest) {
@@ -1303,6 +1111,7 @@ export const ParamCreater = function () {
                     deleteNet = deleteClusterRequest.deleteNet;
                     deleteObs = deleteClusterRequest.deleteObs;
                     deleteSfs = deleteClusterRequest.deleteSfs;
+                    tobedeleted = deleteClusterRequest.tobedeleted;
                 } else {
                     clusterId = deleteClusterRequest['cluster_id'];
                     contentType = deleteClusterRequest['Content-Type'];
@@ -1312,6 +1121,7 @@ export const ParamCreater = function () {
                     deleteNet = deleteClusterRequest['delete_net'];
                     deleteObs = deleteClusterRequest['delete_obs'];
                     deleteSfs = deleteClusterRequest['delete_sfs'];
+                    tobedeleted = deleteClusterRequest['tobedeleted'];
                 }
             }
         
@@ -1338,6 +1148,9 @@ export const ParamCreater = function () {
             }
             if (deleteSfs !== null && deleteSfs !== undefined) {
                 localVarQueryParameter['delete_sfs'] = deleteSfs;
+            }
+            if (tobedeleted !== null && tobedeleted !== undefined) {
+                localVarQueryParameter['tobedeleted'] = tobedeleted;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -1498,7 +1311,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取集群所有已安装插件实例 &gt;插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+         * 获取集群所有已安装插件实例 
          */
         listAddonInstances(listAddonInstancesRequest?: ListAddonInstancesRequest) {
             const options = {
@@ -1544,7 +1357,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 插件模板查询接口，查询插件信息。 &gt;插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+         * 插件模板查询接口，查询插件信息。 
          */
         listAddonTemplates(listAddonTemplatesRequest?: ListAddonTemplatesRequest) {
             const options = {
@@ -1741,7 +1554,115 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取插件实例详情。 &gt;插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+         * 该API用于在指定集群下迁移节点到另一集群。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         */
+        migrateNode(migrateNodeRequest?: MigrateNodeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodes/operation/migrateto/{target_cluster_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let clusterId;
+            let targetClusterId;
+            let contentType;
+
+            if (migrateNodeRequest !== null && migrateNodeRequest !== undefined) {
+                if (migrateNodeRequest instanceof MigrateNodeRequest) {
+                    clusterId = migrateNodeRequest.clusterId;
+                    targetClusterId = migrateNodeRequest.targetClusterId;
+                    contentType = migrateNodeRequest.contentType;
+                    body = migrateNodeRequest.body
+                } else {
+                    clusterId = migrateNodeRequest['cluster_id'];
+                    targetClusterId = migrateNodeRequest['target_cluster_id'];
+                    contentType = migrateNodeRequest['Content-Type'];
+                    body = migrateNodeRequest['body'];
+                }
+            }
+        
+            if (clusterId === null || clusterId === undefined) {
+                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling migrateNode.');
+            }
+            if (targetClusterId === null || targetClusterId === undefined) {
+                throw new RequiredError('targetClusterId','Required parameter targetClusterId was null or undefined when calling migrateNode.');
+            }
+            if (contentType === null || contentType === undefined) {
+                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling migrateNode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId,'target_cluster_id': targetClusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于在指定集群下移除节点。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         */
+        removeNode(removeNodeRequest?: RemoveNodeRequest) {
+            const options = {
+                method: "PUT",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodes/operation/remove",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let clusterId;
+            let contentType;
+
+            if (removeNodeRequest !== null && removeNodeRequest !== undefined) {
+                if (removeNodeRequest instanceof RemoveNodeRequest) {
+                    clusterId = removeNodeRequest.clusterId;
+                    contentType = removeNodeRequest.contentType;
+                    body = removeNodeRequest.body
+                } else {
+                    clusterId = removeNodeRequest['cluster_id'];
+                    contentType = removeNodeRequest['Content-Type'];
+                    body = removeNodeRequest['body'];
+                }
+            }
+        
+            if (clusterId === null || clusterId === undefined) {
+                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling removeNode.');
+            }
+            if (contentType === null || contentType === undefined) {
+                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling removeNode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取插件实例详情。 
          */
         showAddonInstance(showAddonInstanceRequest?: ShowAddonInstanceRequest) {
             const options = {
@@ -1982,7 +1903,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新插件实例的功能。 &gt;插件管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。 
+         * 更新插件实例的功能。 
          */
         updateAddonInstance(updateAddonInstanceRequest?: UpdateAddonInstanceRequest) {
             const options = {
@@ -2141,7 +2062,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于更新指定的节点池。仅支持集群在处于可用、扩容、缩容状态时调用。 &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags， taints，login，userTags与节点池的扩缩容配置相关字段。
+         * 该API用于更新指定的节点池。仅支持集群在处于可用、扩容、缩容状态时调用。  &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径  &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags， taints，login，userTags与节点池的扩缩容配置相关字段。
          */
         updateNodePool(updateNodePoolRequest?: UpdateNodePoolRequest) {
             const options = {

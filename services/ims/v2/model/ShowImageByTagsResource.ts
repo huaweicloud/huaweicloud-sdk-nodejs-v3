@@ -4,12 +4,12 @@ import { TagKeyValue } from './TagKeyValue';
 
 export class ShowImageByTagsResource {
     private 'resource_id': string | undefined;
-    private 'resouce_detail': QueryImageByTagsResourceDetail | undefined;
+    private 'resource_detail': QueryImageByTagsResourceDetail | undefined;
     public tags: Array<TagKeyValue>;
     private 'resource_name': string | undefined;
-    public constructor(resourceId?: any, resouceDetail?: any, tags?: any, resourceName?: any) { 
+    public constructor(resourceId?: any, resourceDetail?: any, tags?: any, resourceName?: any) { 
         this['resource_id'] = resourceId;
-        this['resouce_detail'] = resouceDetail;
+        this['resource_detail'] = resourceDetail;
         this['tags'] = tags;
         this['resource_name'] = resourceName;
     }
@@ -23,15 +23,15 @@ export class ShowImageByTagsResource {
     public get resourceId() {
         return this['resource_id'];
     }
-    public withResouceDetail(resouceDetail: QueryImageByTagsResourceDetail): ShowImageByTagsResource {
-        this['resouce_detail'] = resouceDetail;
+    public withResourceDetail(resourceDetail: QueryImageByTagsResourceDetail): ShowImageByTagsResource {
+        this['resource_detail'] = resourceDetail;
         return this;
     }
-    public set resouceDetail(resouceDetail: QueryImageByTagsResourceDetail | undefined) {
-        this['resouce_detail'] = resouceDetail;
+    public set resourceDetail(resourceDetail: QueryImageByTagsResourceDetail | undefined) {
+        this['resource_detail'] = resourceDetail;
     }
-    public get resouceDetail() {
-        return this['resouce_detail'];
+    public get resourceDetail() {
+        return this['resource_detail'];
     }
     public withTags(tags: Array<TagKeyValue>): ShowImageByTagsResource {
         this['tags'] = tags;

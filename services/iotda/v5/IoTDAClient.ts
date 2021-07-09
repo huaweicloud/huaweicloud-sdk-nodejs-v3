@@ -4,11 +4,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionDeviceAlarm } from './model/ActionDeviceAlarm';
 import { ActionDeviceCommand } from './model/ActionDeviceCommand';
-import { ActionDisForwarding } from './model/ActionDisForwarding';
-import { ActionIoTAForwarding } from './model/ActionIoTAForwarding';
-import { ActionKafkaForwarding } from './model/ActionKafkaForwarding';
-import { ActionObsForwarding } from './model/ActionObsForwarding';
-import { ActionRomaForwarding } from './model/ActionRomaForwarding';
 import { ActionSmnForwarding } from './model/ActionSmnForwarding';
 import { AddActionReq } from './model/AddActionReq';
 import { AddApplication } from './model/AddApplication';
@@ -42,7 +37,6 @@ import { ChannelDetail } from './model/ChannelDetail';
 import { CheckCertificateRequest } from './model/CheckCertificateRequest';
 import { CheckCertificateResponse } from './model/CheckCertificateResponse';
 import { Cmd } from './model/Cmd';
-import { ColumnMapping } from './model/ColumnMapping';
 import { ConditionGroup } from './model/ConditionGroup';
 import { CreateAccessCodeRequest } from './model/CreateAccessCodeRequest';
 import { CreateAccessCodeRequestBody } from './model/CreateAccessCodeRequestBody';
@@ -92,22 +86,17 @@ import { DeviceCommandRequest } from './model/DeviceCommandRequest';
 import { DeviceDataCondition } from './model/DeviceDataCondition';
 import { DeviceGroupResponseDTO } from './model/DeviceGroupResponseDTO';
 import { DeviceMessage } from './model/DeviceMessage';
-import { DeviceMessageCondition } from './model/DeviceMessageCondition';
 import { DeviceMessageRequest } from './model/DeviceMessageRequest';
 import { DevicePropertiesRequest } from './model/DevicePropertiesRequest';
 import { DeviceShadowData } from './model/DeviceShadowData';
 import { DeviceShadowProperties } from './model/DeviceShadowProperties';
-import { DeviceStatusCondition } from './model/DeviceStatusCondition';
 import { DisForwarding } from './model/DisForwarding';
 import { DmsKafkaForwarding } from './model/DmsKafkaForwarding';
 import { ErrorInfo } from './model/ErrorInfo';
 import { FreezeDeviceRequest } from './model/FreezeDeviceRequest';
 import { FreezeDeviceResponse } from './model/FreezeDeviceResponse';
-import { FunctionGraphForwarding } from './model/FunctionGraphForwarding';
 import { HttpForwarding } from './model/HttpForwarding';
-import { InfluxDBForwarding } from './model/InfluxDBForwarding';
 import { InitialDesired } from './model/InitialDesired';
-import { IoTAForwarding } from './model/IoTAForwarding';
 import { ListBatchTaskFilesRequest } from './model/ListBatchTaskFilesRequest';
 import { ListBatchTaskFilesResponse } from './model/ListBatchTaskFilesResponse';
 import { ListBatchTasksRequest } from './model/ListBatchTasksRequest';
@@ -132,18 +121,12 @@ import { ListRuleActionsRequest } from './model/ListRuleActionsRequest';
 import { ListRuleActionsResponse } from './model/ListRuleActionsResponse';
 import { ListRulesRequest } from './model/ListRulesRequest';
 import { ListRulesResponse } from './model/ListRulesResponse';
-import { LtsForwarding } from './model/LtsForwarding';
 import { MessageResult } from './model/MessageResult';
-import { MqsForwarding } from './model/MqsForwarding';
-import { MqttForwarding } from './model/MqttForwarding';
-import { MrsKafkaForwarding } from './model/MrsKafkaForwarding';
-import { MysqlForwarding } from './model/MysqlForwarding';
 import { NetAddress } from './model/NetAddress';
 import { ObsForwarding } from './model/ObsForwarding';
 import { Page } from './model/Page';
 import { ProductSummary } from './model/ProductSummary';
 import { PropertyFilter } from './model/PropertyFilter';
-import { PulsarForwarding } from './model/PulsarForwarding';
 import { QueryDeviceSimplify } from './model/QueryDeviceSimplify';
 import { QueryQueueBase } from './model/QueryQueueBase';
 import { QueryResourceByTagsDTO } from './model/QueryResourceByTagsDTO';
@@ -152,7 +135,6 @@ import { ResetDeviceSecret } from './model/ResetDeviceSecret';
 import { ResetDeviceSecretRequest } from './model/ResetDeviceSecretRequest';
 import { ResetDeviceSecretResponse } from './model/ResetDeviceSecretResponse';
 import { ResourceDTO } from './model/ResourceDTO';
-import { RomaForwarding } from './model/RomaForwarding';
 import { RoutingRule } from './model/RoutingRule';
 import { RoutingRuleAction } from './model/RoutingRuleAction';
 import { RoutingRuleSubject } from './model/RoutingRuleSubject';
@@ -262,19 +244,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public createAccessCode(createAccessCodeRequest?: CreateAccessCodeRequest): Promise<CreateAccessCodeResponse> {
+        const options = ParamCreater().createAccessCode(createAccessCodeRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createAccessCode(createAccessCodeRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台创建一个AMQP队列。每个租户只能创建100个队列，若超过规格，则创建失败，若队列名称与已有的队列名称相同，则创建失败。
@@ -285,19 +258,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public addQueue(addQueueRequest?: AddQueueRequest): Promise<AddQueueResponse> {
+        const options = ParamCreater().addQueue(addQueueRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().addQueue(addQueueRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中的AMQP队列信息列表。可通过队列名称作模糊查询，支持分页。
@@ -311,19 +275,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public batchShowQueue(batchShowQueueRequest?: BatchShowQueueRequest): Promise<BatchShowQueueResponse> {
+        const options = ParamCreater().batchShowQueue(batchShowQueueRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().batchShowQueue(batchShowQueueRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台上删除指定AMQP队列。若当前队列正在使用，则会删除失败。
@@ -334,19 +289,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public deleteQueue(deleteQueueRequest?: DeleteQueueRequest): Promise<string> {
+        const options = ParamCreater().deleteQueue(deleteQueueRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteQueue(deleteQueueRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中指定队列的详细信息。
@@ -357,19 +303,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showQueue(showQueueRequest?: ShowQueueRequest): Promise<ShowQueueResponse> {
+        const options = ParamCreater().showQueue(showQueueRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showQueue(showQueueRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口创建资源空间。
@@ -380,19 +317,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public addApplication(addApplicationRequest?: AddApplicationRequest): Promise<AddApplicationResponse> {
+        const options = ParamCreater().addApplication(addApplicationRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().addApplication(addApplicationRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 删除指定资源空间。删除资源空间属于高危操作，删除资源空间后，该空间下的产品、设备等资源将不可用，请谨慎操作！
@@ -403,19 +331,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public deleteApplication(deleteApplicationRequest?: DeleteApplicationRequest): Promise<string> {
+        const options = ParamCreater().deleteApplication(deleteApplicationRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteApplication(deleteApplicationRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口查询指定资源空间详情。
@@ -426,19 +345,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showApplication(showApplicationRequest?: ShowApplicationRequest): Promise<ShowApplicationResponse> {
+        const options = ParamCreater().showApplication(showApplicationRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showApplication(showApplicationRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口查询资源空间列表。
@@ -449,19 +359,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showApplications(showApplicationsRequest?: ShowApplicationsRequest): Promise<ShowApplicationsResponse> {
+        const options = ParamCreater().showApplications(showApplicationsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showApplications(showApplicationsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)。注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。 
@@ -473,19 +374,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public createAsyncCommand(createAsyncCommandRequest?: CreateAsyncCommandRequest): Promise<CreateAsyncCommandResponse> {
+        const options = ParamCreater().createAsyncCommand(createAsyncCommandRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createAsyncCommand(createAsyncCommandRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 物联网平台可查询指定id的命令。 
@@ -497,19 +389,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showAsyncDeviceCommand(showAsyncDeviceCommandRequest?: ShowAsyncDeviceCommandRequest): Promise<ShowAsyncDeviceCommandResponse> {
+        const options = ParamCreater().showAsyncDeviceCommand(showAsyncDeviceCommandRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showAsyncDeviceCommand(showAsyncDeviceCommandRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口为创建批量处理任务，对多个设备进行批量操作。当前支持批量软固件升级、批量创建设备、批量删除设备、批量冻结设备、批量解冻设备、批量创建命令任务。
@@ -520,19 +403,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public createBatchTask(createBatchTaskRequest?: CreateBatchTaskRequest): Promise<CreateBatchTaskResponse> {
+        const options = ParamCreater().createBatchTask(createBatchTaskRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createBatchTask(createBatchTaskRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中批量任务列表，每一个任务又包括具体的任务内容、任务状态、任务完成情况统计等。
@@ -548,19 +422,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listBatchTasks(listBatchTasksRequest?: ListBatchTasksRequest): Promise<ListBatchTasksResponse> {
+        const options = ParamCreater().listBatchTasks(listBatchTasksRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listBatchTasks(listBatchTasksRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中指定批量任务的信息，包括任务内容、任务状态、任务完成情况统计以及子任务列表等。
@@ -574,19 +439,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showBatchTask(showBatchTaskRequest?: ShowBatchTaskRequest): Promise<ShowBatchTaskResponse> {
+        const options = ParamCreater().showBatchTask(showBatchTaskRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showBatchTask(showBatchTaskRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口删除批量任务文件。
@@ -597,19 +453,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public deleteBatchTaskFile(deleteBatchTaskFileRequest?: DeleteBatchTaskFileRequest): Promise<string> {
+        const options = ParamCreater().deleteBatchTaskFile(deleteBatchTaskFileRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteBatchTaskFile(deleteBatchTaskFileRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询批量任务文件列表。
@@ -619,19 +466,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listBatchTaskFiles(listBatchTaskFilesRequest?: ListBatchTaskFilesRequest): Promise<ListBatchTaskFilesResponse> {
+        const options = ParamCreater().listBatchTaskFiles(listBatchTaskFilesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listBatchTaskFiles(listBatchTaskFilesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口上传批量任务文件，用于创建批量任务。当前支持批量创建设备任务、批量删除设备任务、批量冻结设备任务、批量解冻设备任务的文件上传。 - [批量注册设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchCreateDevices_Template.xlsx)   - [批量删除设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchDeleteDevices_Template.xlsx)   - [批量冻结设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchFreezeDevices_Template.xlsx)   - [批量解冻设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchUnfreezeDevices_Template.xlsx) 
@@ -642,19 +480,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public uploadBatchTaskFile(uploadBatchTaskFileRequest?: UploadBatchTaskFileRequest): Promise<UploadBatchTaskFileResponse> {
+        const options = ParamCreater().uploadBatchTaskFile(uploadBatchTaskFileRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().uploadBatchTaskFile(uploadBatchTaskFileRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台上传设备的CA证书
@@ -665,19 +494,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public addCertificate(addCertificateRequest?: AddCertificateRequest): Promise<AddCertificateResponse> {
+        const options = ParamCreater().addCertificate(addCertificateRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().addCertificate(addCertificateRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台验证设备的CA证书，目的是为了验证用户持有设备CA证书的私钥
@@ -690,19 +510,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public checkCertificate(checkCertificateRequest?: CheckCertificateRequest): Promise<string> {
+        const options = ParamCreater().checkCertificate(checkCertificateRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().checkCertificate(checkCertificateRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台删除设备的CA证书
@@ -713,19 +524,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest): Promise<string> {
+        const options = ParamCreater().deleteCertificate(deleteCertificateRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteCertificate(deleteCertificateRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台获取设备的CA证书列表
@@ -739,19 +541,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listCertificates(listCertificatesRequest?: ListCertificatesRequest): Promise<ListCertificatesResponse> {
+        const options = ParamCreater().listCertificates(listCertificatesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listCertificates(listCertificatesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是20秒。注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。 
@@ -763,19 +556,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public createCommand(createCommandRequest?: CreateCommandRequest): Promise<CreateCommandResponse> {
+        const options = ParamCreater().createCommand(createCommandRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createCommand(createCommandRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口新建设备组，一个华为云账号下最多可有1,000个分组，包括父分组和子分组。设备组的最大层级关系不超过5层，即群组形成的关系树最大深度不超过5。
@@ -786,19 +570,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public addDeviceGroup(addDeviceGroupRequest?: AddDeviceGroupRequest): Promise<AddDeviceGroupResponse> {
+        const options = ParamCreater().addDeviceGroup(addDeviceGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().addDeviceGroup(addDeviceGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口管理设备组中的设备。单个设备组内最多添加20,000个设备，一个设备最多可以被添加到10个设备组中。
@@ -811,19 +586,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public createOrDeleteDeviceInGroup(createOrDeleteDeviceInGroupRequest?: CreateOrDeleteDeviceInGroupRequest): Promise<string> {
+        const options = ParamCreater().createOrDeleteDeviceInGroup(createOrDeleteDeviceInGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createOrDeleteDeviceInGroup(createOrDeleteDeviceInGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口删除指定设备组，如果该设备组存在子设备组或者该设备组中存在设备，必须先删除子设备组并将设备从该设备组移除，才能删除该设备组。
@@ -834,19 +600,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public deleteDeviceGroup(deleteDeviceGroupRequest?: DeleteDeviceGroupRequest): Promise<string> {
+        const options = ParamCreater().deleteDeviceGroup(deleteDeviceGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteDeviceGroup(deleteDeviceGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中的设备组信息列表。
@@ -861,19 +618,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listDeviceGroups(listDeviceGroupsRequest?: ListDeviceGroupsRequest): Promise<ListDeviceGroupsResponse> {
+        const options = ParamCreater().listDeviceGroups(listDeviceGroupsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listDeviceGroups(listDeviceGroupsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询指定设备组详情。
@@ -884,19 +632,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showDeviceGroup(showDeviceGroupRequest?: ShowDeviceGroupRequest): Promise<ShowDeviceGroupResponse> {
+        const options = ParamCreater().showDeviceGroup(showDeviceGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDeviceGroup(showDeviceGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询指定设备组下的设备列表。
@@ -910,19 +649,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showDevicesInGroup(showDevicesInGroupRequest?: ShowDevicesInGroupRequest): Promise<ShowDevicesInGroupResponse> {
+        const options = ParamCreater().showDevicesInGroup(showDevicesInGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDevicesInGroup(showDevicesInGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口修改物联网平台中指定设备组。
@@ -934,19 +664,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public updateDeviceGroup(updateDeviceGroupRequest?: UpdateDeviceGroupRequest): Promise<UpdateDeviceGroupResponse> {
+        const options = ParamCreater().updateDeviceGroup(updateDeviceGroupRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateDeviceGroup(updateDeviceGroupRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台创建一个设备，仅在创建后设备才可以接入物联网平台。  - 该接口支持使用gateway_id参数指定在父设备下创建一个子设备，并且支持多级子设备，当前最大支持二级子设备。 - 该接口同时还支持对设备进行初始配置，接口会读取创建设备请求参数product_id对应的产品详情，如果产品的属性有定义默认值，则会将该属性默认值写入该设备的设备影子中。 - 用户还可以使用创建设备请求参数shadow字段为设备指定初始配置，指定后将会根据service_id和desired设置的属性值与产品中对应属性的默认值比对，如果不同，则将以shadow字段中设置的属性值为准写入到设备影子中。
@@ -957,19 +678,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public addDevice(addDeviceRequest?: AddDeviceRequest): Promise<AddDeviceResponse> {
+        const options = ParamCreater().addDevice(addDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().addDevice(addDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台上删除指定设备。若设备下连接了非直连设备，则必须把设备下的非直连设备都删除后，才能删除该设备。
@@ -980,19 +692,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public deleteDevice(deleteDeviceRequest?: DeleteDeviceRequest): Promise<string> {
+        const options = ParamCreater().deleteDevice(deleteDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteDevice(deleteDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口冻结设备，设备冻结后不能再连接上线，可以通过解冻设备接口解除设备冻结。注意，当前仅支持冻结与平台直连的设备。
@@ -1003,19 +706,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public freezeDevice(freezeDeviceRequest?: FreezeDeviceRequest): Promise<string> {
+        const options = ParamCreater().freezeDevice(freezeDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().freezeDevice(freezeDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中的设备信息列表。
@@ -1036,19 +730,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listDevices(listDevicesRequest?: ListDevicesRequest): Promise<ListDevicesResponse> {
+        const options = ParamCreater().listDevices(listDevicesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listDevices(listDevicesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口重置设备密钥，携带指定密钥时平台将设备密钥重置为指定的密钥，不携带密钥时平台将自动生成一个新的随机密钥返回。
@@ -1061,19 +746,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public resetDeviceSecret(resetDeviceSecretRequest?: ResetDeviceSecretRequest): Promise<ResetDeviceSecretResponse> {
+        const options = ParamCreater().resetDeviceSecret(resetDeviceSecretRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().resetDeviceSecret(resetDeviceSecretRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中指定设备的详细信息。
@@ -1084,19 +760,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showDevice(showDeviceRequest?: ShowDeviceRequest): Promise<ShowDeviceResponse> {
+        const options = ParamCreater().showDevice(showDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDevice(showDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口解冻设备，解除冻结后，设备可以连接上线。
@@ -1107,19 +774,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public unfreezeDevice(unfreezeDeviceRequest?: UnfreezeDeviceRequest): Promise<string> {
+        const options = ParamCreater().unfreezeDevice(unfreezeDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().unfreezeDevice(unfreezeDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口修改物联网平台中指定设备的基本信息。
@@ -1131,19 +789,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public updateDevice(updateDeviceRequest?: UpdateDeviceRequest): Promise<UpdateDeviceResponse> {
+        const options = ParamCreater().updateDevice(updateDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateDevice(updateDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询指定设备的设备影子信息，包括对设备的期望属性信息（desired区）和设备最新上报的属性信息（reported区）。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发 
@@ -1154,19 +803,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showDeviceShadow(showDeviceShadowRequest?: ShowDeviceShadowRequest): Promise<ShowDeviceShadowResponse> {
+        const options = ParamCreater().showDeviceShadow(showDeviceShadowRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDeviceShadow(showDeviceShadowRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口配置设备影子的预期属性（desired区），当设备上线或者设备上报属性时把属性下发给设备。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发 
@@ -1178,19 +818,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public updateDeviceShadowDesiredData(updateDeviceShadowDesiredDataRequest?: UpdateDeviceShadowDesiredDataRequest): Promise<UpdateDeviceShadowDesiredDataResponse> {
+        const options = ParamCreater().updateDeviceShadowDesiredData(updateDeviceShadowDesiredDataRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateDeviceShadowDesiredData(updateDeviceShadowDesiredDataRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。 
@@ -1202,19 +833,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public createMessage(createMessageRequest?: CreateMessageRequest): Promise<CreateMessageResponse> {
+        const options = ParamCreater().createMessage(createMessageRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createMessage(createMessageRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 物联网平台可查询指定设备下的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。 
@@ -1225,19 +847,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listDeviceMessages(listDeviceMessagesRequest?: ListDeviceMessagesRequest): Promise<ListDeviceMessagesResponse> {
+        const options = ParamCreater().listDeviceMessages(listDeviceMessagesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listDeviceMessages(listDeviceMessagesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 物联网平台可查询指定消息id的消息。 
@@ -1249,19 +862,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showDeviceMessage(showDeviceMessageRequest?: ShowDeviceMessageRequest): Promise<ShowDeviceMessageResponse> {
+        const options = ParamCreater().showDeviceMessage(showDeviceMessageRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showDeviceMessage(showDeviceMessageRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口创建产品。
@@ -1272,19 +876,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public createProduct(createProductRequest?: CreateProductRequest): Promise<CreateProductResponse> {
+        const options = ParamCreater().createProduct(createProductRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createProduct(createProductRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口删除已导入物联网平台的指定产品模型。
@@ -1296,19 +891,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public deleteProduct(deleteProductRequest?: DeleteProductRequest): Promise<string> {
+        const options = ParamCreater().deleteProduct(deleteProductRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteProduct(deleteProductRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询已导入物联网平台的产品模型信息列表，了解产品模型的概要信息。
@@ -1322,19 +908,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listProducts(listProductsRequest?: ListProductsRequest): Promise<ListProductsResponse> {
+        const options = ParamCreater().listProducts(listProductsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listProducts(listProductsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询已导入物联网平台的指定产品模型详细信息，包括产品模型的服务、属性、命令等。
@@ -1346,19 +923,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showProduct(showProductRequest?: ShowProductRequest): Promise<ShowProductResponse> {
+        const options = ParamCreater().showProduct(showProductRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showProduct(showProductRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口修改已导入物联网平台的指定产品模型，包括产品模型的服务、属性、命令等。
@@ -1370,19 +938,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public updateProduct(updateProductRequest?: UpdateProductRequest): Promise<UpdateProductResponse> {
+        const options = ParamCreater().updateProduct(updateProductRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateProduct(updateProductRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口查询指定设备下属性。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。 
@@ -1394,19 +953,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listProperties(listPropertiesRequest?: ListPropertiesRequest): Promise<ListPropertiesResponse> {
+        const options = ParamCreater().listProperties(listPropertiesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listProperties(listPropertiesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向指定设备下属性。平台负责将属性以同步方式发送给设备，并将设备执行属性结果同步返回。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。 
@@ -1418,19 +968,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public updateProperties(updatePropertiesRequest?: UpdatePropertiesRequest): Promise<UpdatePropertiesResponse> {
+        const options = ParamCreater().updateProperties(updatePropertiesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateProperties(updatePropertiesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台创建一条规则触发条件。
@@ -1441,19 +982,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public createRoutingRule(createRoutingRuleRequest?: CreateRoutingRuleRequest): Promise<CreateRoutingRuleResponse> {
+        const options = ParamCreater().createRoutingRule(createRoutingRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createRoutingRule(createRoutingRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台创建一条规则动作。
@@ -1464,19 +996,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public createRuleAction(createRuleActionRequest?: CreateRuleActionRequest): Promise<CreateRuleActionResponse> {
+        const options = ParamCreater().createRuleAction(createRuleActionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createRuleAction(createRuleActionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口删除物联网平台中的指定规则条件。
@@ -1487,19 +1010,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public deleteRoutingRule(deleteRoutingRuleRequest?: DeleteRoutingRuleRequest): Promise<string> {
+        const options = ParamCreater().deleteRoutingRule(deleteRoutingRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteRoutingRule(deleteRoutingRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口删除物联网平台中的指定规则动作。
@@ -1510,19 +1024,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public deleteRuleAction(deleteRuleActionRequest?: DeleteRuleActionRequest): Promise<string> {
+        const options = ParamCreater().deleteRuleAction(deleteRuleActionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteRuleAction(deleteRuleActionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中设置的规则条件列表。
@@ -1540,19 +1045,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listRoutingRules(listRoutingRulesRequest?: ListRoutingRulesRequest): Promise<ListRoutingRulesResponse> {
+        const options = ParamCreater().listRoutingRules(listRoutingRulesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listRoutingRules(listRoutingRulesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中设置的规则动作列表。
@@ -1569,19 +1065,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listRuleActions(listRuleActionsRequest?: ListRuleActionsRequest): Promise<ListRuleActionsResponse> {
+        const options = ParamCreater().listRuleActions(listRuleActionsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listRuleActions(listRuleActionsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中指定规则条件的配置信息。
@@ -1592,19 +1079,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showRoutingRule(showRoutingRuleRequest?: ShowRoutingRuleRequest): Promise<ShowRoutingRuleResponse> {
+        const options = ParamCreater().showRoutingRule(showRoutingRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showRoutingRule(showRoutingRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中指定规则动作的配置信息。
@@ -1615,19 +1093,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showRuleAction(showRuleActionRequest?: ShowRuleActionRequest): Promise<ShowRuleActionResponse> {
+        const options = ParamCreater().showRuleAction(showRuleActionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showRuleAction(showRuleActionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则条件的配置参数。
@@ -1639,19 +1108,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public updateRoutingRule(updateRoutingRuleRequest?: UpdateRoutingRuleRequest): Promise<UpdateRoutingRuleResponse> {
+        const options = ParamCreater().updateRoutingRule(updateRoutingRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateRoutingRule(updateRoutingRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则动作的配置。
@@ -1663,19 +1123,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public updateRuleAction(updateRuleActionRequest?: UpdateRuleActionRequest): Promise<UpdateRuleActionResponse> {
+        const options = ParamCreater().updateRuleAction(updateRuleActionRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateRuleAction(updateRuleActionRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则的状态，激活或者去激活规则。
@@ -1687,19 +1138,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public changeRuleStatus(changeRuleStatusRequest?: ChangeRuleStatusRequest): Promise<ChangeRuleStatusResponse> {
+        const options = ParamCreater().changeRuleStatus(changeRuleStatusRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().changeRuleStatus(changeRuleStatusRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口在物联网平台创建一条规则。
@@ -1710,19 +1152,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public createRule(createRuleRequest?: CreateRuleRequest): Promise<CreateRuleResponse> {
+        const options = ParamCreater().createRule(createRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().createRule(createRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口删除物联网平台中的指定规则。
@@ -1733,19 +1166,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public deleteRule(deleteRuleRequest?: DeleteRuleRequest): Promise<string> {
+        const options = ParamCreater().deleteRule(deleteRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().deleteRule(deleteRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中设置的规则列表。
@@ -1760,19 +1184,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listRules(listRulesRequest?: ListRulesRequest): Promise<ListRulesResponse> {
+        const options = ParamCreater().listRules(listRulesRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listRules(listRulesRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询物联网平台中指定规则的配置信息。
@@ -1783,19 +1198,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public showRule(showRuleRequest?: ShowRuleRequest): Promise<ShowRuleResponse> {
+        const options = ParamCreater().showRule(showRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().showRule(showRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则的配置。
@@ -1807,19 +1213,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public updateRule(updateRuleRequest?: UpdateRuleRequest): Promise<UpdateRuleResponse> {
+        const options = ParamCreater().updateRule(updateRuleRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().updateRule(updateRuleRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口查询绑定了指定标签的资源。当前支持标签的资源有Device(设备)。
@@ -1833,19 +1230,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public listResourcesByTags(listResourcesByTagsRequest?: ListResourcesByTagsRequest): Promise<ListResourcesByTagsResponse> {
+        const options = ParamCreater().listResourcesByTags(listResourcesByTagsRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().listResourcesByTags(listResourcesByTagsRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口为指定资源绑定标签。当前支持标签的资源有Device(设备)。
@@ -1856,19 +1244,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public tagDevice(tagDeviceRequest?: TagDeviceRequest): Promise<string> {
+        const options = ParamCreater().tagDevice(tagDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().tagDevice(tagDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
     /**
      * 应用服务器可调用此接口为指定资源解绑标签。当前支持标签的资源有Device(设备)。
@@ -1879,19 +1258,10 @@ export class IoTDAClient {
      * @throws {RequiredError}
      */
     public untagDevice(untagDeviceRequest?: UntagDeviceRequest): Promise<string> {
+        const options = ParamCreater().untagDevice(untagDeviceRequest);
+        options['responseHeaders'] = [''];
         // @ts-ignore
-        return new Promise((resolve: (arg0: any) => any, reject: (arg0: any) => any) => {
-            const options = ParamCreater().untagDevice(untagDeviceRequest);
-            options['responseHeaders'] = [''];
-
-            return this.hcClient.sendRequest(options).then(
-                (res: any) => {
-                    return resolve(res);
-                },
-                (err: any) => {
-                    return reject(err);
-                });
-        });
+        return this.hcClient.sendRequest(options);
     }
 }
 

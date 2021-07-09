@@ -9,6 +9,7 @@ export class DeleteClusterRequest {
     private 'delete_net'?: DeleteClusterRequestDeleteNetEnum | undefined;
     private 'delete_obs'?: DeleteClusterRequestDeleteObsEnum | undefined;
     private 'delete_sfs'?: DeleteClusterRequestDeleteSfsEnum | undefined;
+    public tobedeleted?: DeleteClusterRequestTobedeletedEnum;
     public constructor(clusterId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
         this['Content-Type'] = contentType;
@@ -93,6 +94,10 @@ export class DeleteClusterRequest {
     public get deleteSfs() {
         return this['delete_sfs'];
     }
+    public withTobedeleted(tobedeleted: DeleteClusterRequestTobedeletedEnum): DeleteClusterRequest {
+        this['tobedeleted'] = tobedeleted;
+        return this;
+    }
 }
 
 /**
@@ -160,4 +165,11 @@ export enum DeleteClusterRequestDeleteSfsEnum {
     TRY = 'try',
     FALSE = 'false',
     SKIP = 'skip'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeleteClusterRequestTobedeletedEnum {
+    TRUE = 'true'
 }
