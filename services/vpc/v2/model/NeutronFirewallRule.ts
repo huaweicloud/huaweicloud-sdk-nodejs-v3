@@ -8,13 +8,14 @@ export class NeutronFirewallRule {
     public protocol: string;
     private 'ip_version': number | undefined;
     public enabled: boolean;
+    private 'public': boolean | undefined;
     private 'destination_ip_address': string | undefined;
     private 'destination_port': string | undefined;
     private 'source_ip_address': string | undefined;
     private 'source_port': string | undefined;
     private 'tenant_id': string | undefined;
     private 'project_id': string | undefined;
-    public constructor(id?: any, name?: any, description?: any, action?: any, protocol?: any, ipVersion?: any, enabled?: any, destinationIpAddress?: any, destinationPort?: any, sourceIpAddress?: any, sourcePort?: any, tenantId?: any, projectId?: any) { 
+    public constructor(id?: any, name?: any, description?: any, action?: any, protocol?: any, ipVersion?: any, enabled?: any, _public?: any, destinationIpAddress?: any, destinationPort?: any, sourceIpAddress?: any, sourcePort?: any, tenantId?: any, projectId?: any) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -22,6 +23,7 @@ export class NeutronFirewallRule {
         this['protocol'] = protocol;
         this['ip_version'] = ipVersion;
         this['enabled'] = enabled;
+        this['public'] = _public;
         this['destination_ip_address'] = destinationIpAddress;
         this['destination_port'] = destinationPort;
         this['source_ip_address'] = sourceIpAddress;
@@ -62,6 +64,16 @@ export class NeutronFirewallRule {
     public withEnabled(enabled: boolean): NeutronFirewallRule {
         this['enabled'] = enabled;
         return this;
+    }
+    public withPublic(_public: boolean): NeutronFirewallRule {
+        this['public'] = _public;
+        return this;
+    }
+    public set _public(_public: boolean | undefined) {
+        this['public'] = _public;
+    }
+    public get _public() {
+        return this['public'];
     }
     public withDestinationIpAddress(destinationIpAddress: string): NeutronFirewallRule {
         this['destination_ip_address'] = destinationIpAddress;

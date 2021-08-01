@@ -1,3 +1,14 @@
+# 3.0.11-beta 2021-7-30
+               
+### HuaweiCloud SDK IMS
+
+- _新增特性_
+    - 无
+- _解决问题_
+    - [Issue 40](https://github.com/huaweicloud/huaweicloud-sdk-java-v3/issues/40): 修复响应参数`__lazyloading`类型定义错误的问题
+- _特性变更_
+    - 无
+
 # 3.0.10-beta 2021-07-09
 
 ### HuaweiCloud SDK Core

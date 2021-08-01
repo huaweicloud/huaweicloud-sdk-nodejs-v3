@@ -408,7 +408,7 @@ export enum ListImagesRequestPlatformEnum {
     FEDORA = 'Fedora',
     OTHER = 'Other',
     COREOS = 'CoreOS',
-    EULEOS = 'EuleOS'
+    EULEROS = 'EulerOS'
 }
 /**
     * @export

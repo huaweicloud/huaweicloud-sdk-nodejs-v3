@@ -74,14 +74,8 @@ export class ClientBuilder<T> {
 
         if (this.credential === null || this.credential === undefined) {
             this.credential = this.getCredentialFromEnvironment();
-        }
-
-        if (this.credential !== null && this.credential !== undefined) {
-            if (this.credentialType.indexOf(this.credential.constructor.name) < 0) {
-                throw new RequiredError('credentialType', "This client need input " + this.credentialType.toString() + " credential object");
-            }
-        }
-
+        } 
+        
         const client = new DefaultHttpClient(axiosOptions);
         const hcClient = new HcClient(client);
         hcClient.withEndpoint(this.endpoint).withCredential(this.credential);

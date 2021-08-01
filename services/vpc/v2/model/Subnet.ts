@@ -21,6 +21,7 @@ export class Subnet {
     private 'neutron_subnet_id': string | undefined;
     private 'neutron_subnet_id_v6': string | undefined;
     private 'extra_dhcp_opts': Array<ExtraDhcpOption> | undefined;
+    public scope?: string;
     public constructor(id?: any, name?: any, description?: any, cidr?: any, gatewayIp?: any, ipv6Enable?: any, cidrV6?: any, gatewayIpV6?: any, dhcpEnable?: any, primaryDns?: any, secondaryDns?: any, dnsList?: any, availabilityZone?: any, vpcId?: any, status?: any, neutronNetworkId?: any, neutronSubnetId?: any, neutronSubnetIdV6?: any, extraDhcpOpts?: any) { 
         this['id'] = id;
         this['name'] = name;
@@ -195,6 +196,10 @@ export class Subnet {
     }
     public get extraDhcpOpts() {
         return this['extra_dhcp_opts'];
+    }
+    public withScope(scope: string): Subnet {
+        this['scope'] = scope;
+        return this;
     }
 }
 

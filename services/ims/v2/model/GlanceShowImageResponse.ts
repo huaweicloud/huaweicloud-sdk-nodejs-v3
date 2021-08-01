@@ -49,7 +49,7 @@ export class GlanceShowImageResponse extends SdkResponse {
     private 'hw_firmware_type'?: GlanceShowImageResponseHwFirmwareTypeEnum | undefined;
     private '__support_arm'?: GlanceShowImageResponseSupportArmEnum | undefined;
     private '__is_offshelved'?: GlanceShowImageResponseIsOffshelvedEnum | undefined;
-    private '__lazyloading'?: boolean | undefined;
+    private '__lazyloading'?: string | undefined;
     private '__os_feature_list'?: string | undefined;
     private '__root_origin'?: string | undefined;
     private '__sequence_num'?: string | undefined;
@@ -468,11 +468,11 @@ export class GlanceShowImageResponse extends SdkResponse {
     public get isOffshelved() {
         return this['__is_offshelved'];
     }
-    public withLazyloading(lazyloading: boolean): GlanceShowImageResponse {
+    public withLazyloading(lazyloading: string): GlanceShowImageResponse {
         this['__lazyloading'] = lazyloading;
         return this;
     }
-    public set lazyloading(lazyloading: boolean | undefined) {
+    public set lazyloading(lazyloading: string | undefined) {
         this['__lazyloading'] = lazyloading;
     }
     public get lazyloading() {

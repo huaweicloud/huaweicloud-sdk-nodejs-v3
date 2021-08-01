@@ -505,7 +505,7 @@ export class EcsClient {
     /**
      * 查询云服务器规格详情信息和规格扩展信息列表。
      * @summary 查询规格详情和规格扩展信息列表
-     * @param {string} [availabilityZone] 可用区，需要指定可用区（AZ）的名称或者ID或者code。
+     * @param {string} [availabilityZone] 可用区，需要指定可用区（AZ）的名称或者ID或者code。  可通过接口 [查询可用区列表接口](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;ECS&amp;api&#x3D;NovaListAvailabilityZones) 获取，也可参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)获取。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -585,7 +585,7 @@ export class EcsClient {
      * @param {string} [notTags] 查询tag字段中不包含该值的云服务器。
      * @param {number} [offset] 页码。 当前页面数，默认为1。  取值大于等于0，取值为0时返回第1页。
      * @param {string} [reservationId] 批量创建弹性云服务器时，指定返回的ID，用于查询本次批量创建的弹性云服务器。
-     * @param {string} [status] 云服务器状态。  取值范围：  ACTIVE， BUILD，DELETED，ERROR，HARD_REBOOT，MIGRATING，REBOOT，RESIZE，REVERT_RESIZE，SHELVED，SHELVED_OFFLOADED，SHUTOFF，UNKNOWN，VERIFY_RESIZE  只有管理员可以使用“deleted”状态过滤查询已经删除的弹性云服务器。
+     * @param {string} [status] 云服务器状态。  取值范围：  ACTIVE， BUILD，DELETED，ERROR，HARD_REBOOT，MIGRATING，REBOOT，RESIZE，REVERT_RESIZE，SHELVED，SHELVED_OFFLOADED，SHUTOFF，UNKNOWN，VERIFY_RESIZE  只有管理员可以使用“deleted”状态过滤查询已经删除的弹性云服务器。  弹性云服务器状态说明请参考[云服务器状态](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)
      * @param {string} [tags] 查询tag字段中包含该值的云服务器。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -731,7 +731,7 @@ export class EcsClient {
      * @param {string} [notTags] 查询tag字段中不包含该值的云服务器，值为标签的Key。  &gt; 说明： &gt;  &gt; 系统近期对标签功能进行了升级。如果之前添加的Tag为“Key.Value”的形式，则查询的时候需要使用“Key”来查询。 &gt;  &gt; 例如：之前添加的tag为“a.b”,则升级后，查询时需使用“not-tags&#x3D;a”。
      * @param {string} [reservationId] 批量创建弹性云服务器时，指定返回的ID，用于查询本次批量创建的弹性云服务器。
      * @param {'created_at' | 'availability_zone' | 'display_name' | 'host' | 'instance_type_id' | 'key_name' | 'project_id' | 'user_id' | 'updated_at' | 'uuid' | 'vm_state'} [sortKey] 查询结果按弹性云服务器属性排序，默认排序顺序为created_at逆序。
-     * @param {'ACTIVE' | 'BUILD' | 'DELETED' | 'ERROR' | 'HARD_REBOOT' | 'MIGRATING' | 'REBOOT' | 'RESIZE' | 'REVERT_RESIZE' | 'SHELVED' | 'SHELVED_OFFLOADED' | 'SHUTOFF' | 'UNKNOWN' | 'VERIFY_RESIZE'} [status] 云服务器状态。   取值范围： ACTIVE， BUILD，DELETED，ERROR，HARD_REBOOT，MIGRATING，REBOOT，RESIZE，REVERT_RESIZE，SHELVED，SHELVED_OFFLOADED，SHUTOFF，UNKNOWN，VERIFY_RESIZE  直到2.37微版本，非上面范围的status字段将返回空列表，2.38之后的微版本，将返回400错误。
+     * @param {'ACTIVE' | 'BUILD' | 'DELETED' | 'ERROR' | 'HARD_REBOOT' | 'MIGRATING' | 'REBOOT' | 'RESIZE' | 'REVERT_RESIZE' | 'SHELVED' | 'SHELVED_OFFLOADED' | 'SHUTOFF' | 'UNKNOWN' | 'VERIFY_RESIZE'} [status] 云服务器状态。  取值范围： ACTIVE， BUILD，DELETED，ERROR，HARD_REBOOT，MIGRATING，REBOOT，RESIZE，REVERT_RESIZE，SHELVED，SHELVED_OFFLOADED，SHUTOFF，UNKNOWN，VERIFY_RESIZE  直到2.37微版本，非上面范围的status字段将返回空列表，2.38之后的微版本，将返回400错误。  云服务器状态说明请参考[云服务器状态](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)。
      * @param {string} [tags] 查询tag字段中包含该值的云服务器。
      * @param {string} [openStackAPIVersion] 微版本头
      * @param {*} [options] Override http request option.

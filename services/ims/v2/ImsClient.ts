@@ -355,7 +355,7 @@ export class ImsClient {
      * @param {'true' | 'false'} [isregistered] 镜像是否可用，取值为true，扩展接口会默认为true，普通用户只能查询取值为true的镜像。
      * @param {'32' | '64'} [osBit] 操作系统位数，一般取值为32或者64。
      * @param {'Linux' | 'Windows' | 'Other'} [osType] 镜像系统类型，取值为Linux，Windows，Other。
-     * @param {'Windows' | 'Ubuntu' | 'RedHat' | 'SUSE' | 'CentOS' | 'Debian' | 'OpenSUSE' | 'Oracle Linux' | 'Fedora' | 'Other' | 'CoreOS' | 'EuleOS'} [platform] 镜像平台分类
+     * @param {'Windows' | 'Ubuntu' | 'RedHat' | 'SUSE' | 'CentOS' | 'Debian' | 'OpenSUSE' | 'Oracle Linux' | 'Fedora' | 'Other' | 'CoreOS' | 'EulerOS'} [platform] 镜像平台分类
      * @param {string} [supportDiskintensive] 表示该镜像支持密集存储。如果镜像支持密集存储性能，则值为true，否则无需增加该属性。
      * @param {string} [supportHighperformance] 表示该镜像支持高计算性能。如果镜像支持高计算性能，则值为true，否则无需增加该属性。
      * @param {string} [supportKvm] 如果镜像支持KVM，取值为true，否则无需增加该属性。
@@ -629,7 +629,7 @@ export class ImsClient {
      * @param {boolean} [isregistered] 镜像是否是受保护，取值为true/false。一般查询公共镜像时候取值为true，查询私有镜像可以不指定。
      * @param {'32' | '64'} [osBit] 操作系统位数，一般取值为32或者64
      * @param {'Linux' | 'Windows' | 'Other'} [osType] 镜像系统类型，取值为Linux，Windows，Other
-     * @param {'Windows' | 'Ubuntu' | 'RedHat' | 'SUSE' | 'CentOS' | 'Debian' | 'OpenSUSE' | 'Oracle Linux' | 'Fedora' | 'Other' | 'CoreOS' | 'EuleOS'} [platform] 镜像平台分类，取值为Windows，Ubuntu，RedHat，SUSE，CentOS，Debian，OpenSUSE, Oracle Linux，Fedora，Other，CoreOS和EuleOS
+     * @param {'Windows' | 'Ubuntu' | 'RedHat' | 'SUSE' | 'CentOS' | 'Debian' | 'OpenSUSE' | 'Oracle Linux' | 'Fedora' | 'Other' | 'CoreOS' | 'EulerOS'} [platform] 镜像平台分类，取值为Windows，Ubuntu，RedHat，SUSE，CentOS，Debian，OpenSUSE, Oracle Linux，Fedora，Other，CoreOS和EulerOS
      * @param {string} [supportDiskintensive] 表示该镜像支持密集存储。如果镜像支持密集存储性能，则值为true，否则无需增加该属性
      * @param {string} [supportHighperformance] 表示该镜像支持高计算性能。如果镜像支持高计算性能，则值为true，否则无需增加该属性
      * @param {string} [supportKvm] 如果镜像支持KVM，取值为true，否则无需增加该属性

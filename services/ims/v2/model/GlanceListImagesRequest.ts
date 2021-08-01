@@ -351,7 +351,7 @@ export enum GlanceListImagesRequestPlatformEnum {
     FEDORA = 'Fedora',
     OTHER = 'Other',
     COREOS = 'CoreOS',
-    EULEOS = 'EuleOS'
+    EULEROS = 'EulerOS'
 }
 /**
     * @export

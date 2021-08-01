@@ -54,7 +54,7 @@ export class ImageInfo {
     private '__account_code'?: string | undefined;
     private 'hw_vif_multiqueue_enabled'?: string | undefined;
     private '__is_offshelved': string | undefined;
-    private '__lazyloading': boolean | undefined;
+    private '__lazyloading': string | undefined;
     private '__root_origin': string | undefined;
     private '__sequence_num': string | undefined;
     private 'active_at': string | undefined;
@@ -559,11 +559,11 @@ export class ImageInfo {
     public get isOffshelved() {
         return this['__is_offshelved'];
     }
-    public withLazyloading(lazyloading: boolean): ImageInfo {
+    public withLazyloading(lazyloading: string): ImageInfo {
         this['__lazyloading'] = lazyloading;
         return this;
     }
-    public set lazyloading(lazyloading: boolean | undefined) {
+    public set lazyloading(lazyloading: string | undefined) {
         this['__lazyloading'] = lazyloading;
     }
     public get lazyloading() {
