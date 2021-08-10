@@ -1,9 +1,8 @@
 
 
 export class ProtocolOption {
-    private 'mapping_id': string | undefined;
-    public constructor(mappingId?: any) { 
-        this['mapping_id'] = mappingId;
+    private 'mapping_id'?: string | undefined;
+    public constructor() { 
     }
     public withMappingId(mappingId: string): ProtocolOption {
         this['mapping_id'] = mappingId;

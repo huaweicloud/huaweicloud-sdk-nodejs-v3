@@ -1,4 +1,5 @@
 import { AllowedAddressPair } from './AllowedAddressPair';
+import { BindingVifDetails } from './BindingVifDetails';
 import { DnsAssignMent } from './DnsAssignMent';
 import { ExtraDhcpOpt } from './ExtraDhcpOpt';
 import { FixedIp } from './FixedIp';
@@ -21,7 +22,7 @@ export class Port {
     private 'binding:vnic_type': string | undefined;
     private 'dns_assignment': Array<DnsAssignMent> | undefined;
     private 'dns_name': string | undefined;
-    private 'binding:vif_details': object | undefined;
+    private 'binding:vif_details': BindingVifDetails | undefined;
     private 'binding:profile': object | undefined;
     private 'instance_id': string | undefined;
     private 'instance_type': string | undefined;
@@ -193,11 +194,11 @@ export class Port {
     public get dnsName() {
         return this['dns_name'];
     }
-    public withBindingVifDetails(bindingVifDetails: object): Port {
+    public withBindingVifDetails(bindingVifDetails: BindingVifDetails): Port {
         this['binding:vif_details'] = bindingVifDetails;
         return this;
     }
-    public set bindingVifDetails(bindingVifDetails: object | undefined) {
+    public set bindingVifDetails(bindingVifDetails: BindingVifDetails | undefined) {
         this['binding:vif_details'] = bindingVifDetails;
     }
     public get bindingVifDetails() {

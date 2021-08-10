@@ -457,6 +457,7 @@ export * from './model/UpdateDomainPasswordPolicyResponse';
 export * from './model/UpdateDomainProtectPolicyRequest';
 export * from './model/UpdateDomainProtectPolicyRequestBody';
 export * from './model/UpdateDomainProtectPolicyResponse';
+export * from './model/UpdateIdentityproviderOption';
 export * from './model/UpdateLoginProject';
 export * from './model/UpdateLoginProjectReq';
 export * from './model/UpdateLoginProtectRequest';

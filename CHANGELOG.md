@@ -1,3 +1,46 @@
+# 3.0.12-beta 2021-08-10
+
+### HuaweiCloud SDK EIP
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Modify the name of the response parameter of the interfaces `ListBandwidths` and `ShowPublicip`: `publicip_border_group` -> `public_border_group`
+
+### HuaweiCloud SDK EVS
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `server_id` to the interface `ListVolumes`.
+
+### HuaweiCloud SDK IAM
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the response parameter `order_id` from the interface `CreateDeployment`.
+
+### HuaweiCloud SDK IMS
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Modify the request parameter `value` of the interface `UpdateImage` as a required parameter.
+
+### HuaweiCloud SDK VPC
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `enable_dhcp` to the interface `NeutronListSubnets`.
+  - Add the response parameter `security_groups_links` to the interface `NeutronListSecurityGroups`.
+
 # 3.0.11-beta 2021-7-30
 
 ### HuaweiCloud SDK IMS

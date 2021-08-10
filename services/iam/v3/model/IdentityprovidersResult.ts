@@ -2,17 +2,29 @@ import { IdentityprovidersLinks } from './IdentityprovidersLinks';
 
 
 export class IdentityprovidersResult {
+    private 'sso_type': string | undefined;
     public id: string;
     public description: string;
     public enabled: boolean;
     private 'remote_ids': Array<string> | undefined;
     public links: IdentityprovidersLinks;
-    public constructor(id?: any, description?: any, enabled?: any, remoteIds?: any, links?: any) { 
+    public constructor(ssoType?: any, id?: any, description?: any, enabled?: any, remoteIds?: any, links?: any) { 
+        this['sso_type'] = ssoType;
         this['id'] = id;
         this['description'] = description;
         this['enabled'] = enabled;
         this['remote_ids'] = remoteIds;
         this['links'] = links;
+    }
+    public withSsoType(ssoType: string): IdentityprovidersResult {
+        this['sso_type'] = ssoType;
+        return this;
+    }
+    public set ssoType(ssoType: string | undefined) {
+        this['sso_type'] = ssoType;
+    }
+    public get ssoType() {
+        return this['sso_type'];
     }
     public withId(id: string): IdentityprovidersResult {
         this['id'] = id;

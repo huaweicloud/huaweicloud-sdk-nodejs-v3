@@ -459,6 +459,7 @@ import { UpdateDomainPasswordPolicyResponse } from './model/UpdateDomainPassword
 import { UpdateDomainProtectPolicyRequest } from './model/UpdateDomainProtectPolicyRequest';
 import { UpdateDomainProtectPolicyRequestBody } from './model/UpdateDomainProtectPolicyRequestBody';
 import { UpdateDomainProtectPolicyResponse } from './model/UpdateDomainProtectPolicyResponse';
+import { UpdateIdentityproviderOption } from './model/UpdateIdentityproviderOption';
 import { UpdateLoginProject } from './model/UpdateLoginProject';
 import { UpdateLoginProjectReq } from './model/UpdateLoginProjectReq';
 import { UpdateLoginProtectRequest } from './model/UpdateLoginProtectRequest';

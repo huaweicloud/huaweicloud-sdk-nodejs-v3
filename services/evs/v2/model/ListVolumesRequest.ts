@@ -18,6 +18,7 @@ export class ListVolumesRequest {
     public id?: string;
     public ids?: string;
     private 'enterprise_project_id'?: string | undefined;
+    private 'server_id'?: string | undefined;
     public constructor() { 
     }
     public withMarker(marker: string): ListVolumesRequest {
@@ -135,5 +136,15 @@ export class ListVolumesRequest {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withServerId(serverId: string): ListVolumesRequest {
+        this['server_id'] = serverId;
+        return this;
+    }
+    public set serverId(serverId: string | undefined) {
+        this['server_id'] = serverId;
+    }
+    public get serverId() {
+        return this['server_id'];
     }
 }

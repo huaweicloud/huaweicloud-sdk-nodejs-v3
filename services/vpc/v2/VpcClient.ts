@@ -5,6 +5,10 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AcceptVpcPeeringRequest } from './model/AcceptVpcPeeringRequest';
 import { AcceptVpcPeeringResponse } from './model/AcceptVpcPeeringResponse';
 import { AllowedAddressPair } from './model/AllowedAddressPair';
+import { AsscoiateReq } from './model/AsscoiateReq';
+import { AssociateRouteTableAndSubnetReq } from './model/AssociateRouteTableAndSubnetReq';
+import { AssociateRouteTableRequest } from './model/AssociateRouteTableRequest';
+import { AssociateRouteTableResponse } from './model/AssociateRouteTableResponse';
 import { BatchCreateSubnetTagsRequest } from './model/BatchCreateSubnetTagsRequest';
 import { BatchCreateSubnetTagsRequestBody } from './model/BatchCreateSubnetTagsRequestBody';
 import { BatchCreateSubnetTagsResponse } from './model/BatchCreateSubnetTagsResponse';
@@ -17,6 +21,7 @@ import { BatchDeleteSubnetTagsResponse } from './model/BatchDeleteSubnetTagsResp
 import { BatchDeleteVpcTagsRequest } from './model/BatchDeleteVpcTagsRequest';
 import { BatchDeleteVpcTagsRequestBody } from './model/BatchDeleteVpcTagsRequestBody';
 import { BatchDeleteVpcTagsResponse } from './model/BatchDeleteVpcTagsResponse';
+import { BindingVifDetails } from './model/BindingVifDetails';
 import { CreatePortOption } from './model/CreatePortOption';
 import { CreatePortRequest } from './model/CreatePortRequest';
 import { CreatePortRequestBody } from './model/CreatePortRequestBody';
@@ -25,6 +30,10 @@ import { CreatePrivateipOption } from './model/CreatePrivateipOption';
 import { CreatePrivateipRequest } from './model/CreatePrivateipRequest';
 import { CreatePrivateipRequestBody } from './model/CreatePrivateipRequestBody';
 import { CreatePrivateipResponse } from './model/CreatePrivateipResponse';
+import { CreateRouteTableReq } from './model/CreateRouteTableReq';
+import { CreateRouteTableRequest } from './model/CreateRouteTableRequest';
+import { CreateRouteTableResponse } from './model/CreateRouteTableResponse';
+import { CreateRoutetableReqBody } from './model/CreateRoutetableReqBody';
 import { CreateSecurityGroupOption } from './model/CreateSecurityGroupOption';
 import { CreateSecurityGroupRequest } from './model/CreateSecurityGroupRequest';
 import { CreateSecurityGroupRequestBody } from './model/CreateSecurityGroupRequestBody';
@@ -59,6 +68,8 @@ import { DeletePortRequest } from './model/DeletePortRequest';
 import { DeletePortResponse } from './model/DeletePortResponse';
 import { DeletePrivateipRequest } from './model/DeletePrivateipRequest';
 import { DeletePrivateipResponse } from './model/DeletePrivateipResponse';
+import { DeleteRouteTableRequest } from './model/DeleteRouteTableRequest';
+import { DeleteRouteTableResponse } from './model/DeleteRouteTableResponse';
 import { DeleteSecurityGroupRequest } from './model/DeleteSecurityGroupRequest';
 import { DeleteSecurityGroupResponse } from './model/DeleteSecurityGroupResponse';
 import { DeleteSecurityGroupRuleRequest } from './model/DeleteSecurityGroupRuleRequest';
@@ -75,6 +86,8 @@ import { DeleteVpcRouteRequest } from './model/DeleteVpcRouteRequest';
 import { DeleteVpcRouteResponse } from './model/DeleteVpcRouteResponse';
 import { DeleteVpcTagRequest } from './model/DeleteVpcTagRequest';
 import { DeleteVpcTagResponse } from './model/DeleteVpcTagResponse';
+import { DisassociateRouteTableRequest } from './model/DisassociateRouteTableRequest';
+import { DisassociateRouteTableResponse } from './model/DisassociateRouteTableResponse';
 import { DnsAssignMent } from './model/DnsAssignMent';
 import { ExtraDhcpOpt } from './model/ExtraDhcpOpt';
 import { ExtraDhcpOption } from './model/ExtraDhcpOption';
@@ -84,6 +97,8 @@ import { ListPortsResponse } from './model/ListPortsResponse';
 import { ListPrivateipsRequest } from './model/ListPrivateipsRequest';
 import { ListPrivateipsResponse } from './model/ListPrivateipsResponse';
 import { ListResourceResp } from './model/ListResourceResp';
+import { ListRouteTablesRequest } from './model/ListRouteTablesRequest';
+import { ListRouteTablesResponse } from './model/ListRouteTablesResponse';
 import { ListSecurityGroupRulesRequest } from './model/ListSecurityGroupRulesRequest';
 import { ListSecurityGroupRulesResponse } from './model/ListSecurityGroupRulesResponse';
 import { ListSecurityGroupsRequest } from './model/ListSecurityGroupsRequest';
@@ -195,6 +210,9 @@ import { RejectVpcPeeringResponse } from './model/RejectVpcPeeringResponse';
 import { ResourceResult } from './model/ResourceResult';
 import { ResourceTag } from './model/ResourceTag';
 import { Route } from './model/Route';
+import { RouteTableListResp } from './model/RouteTableListResp';
+import { RouteTableResp } from './model/RouteTableResp';
+import { RoutetableAssociateReqbody } from './model/RoutetableAssociateReqbody';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityGroupRule } from './model/SecurityGroupRule';
 import { ShowNetworkIpAvailabilitiesRequest } from './model/ShowNetworkIpAvailabilitiesRequest';
@@ -205,6 +223,8 @@ import { ShowPrivateipRequest } from './model/ShowPrivateipRequest';
 import { ShowPrivateipResponse } from './model/ShowPrivateipResponse';
 import { ShowQuotaRequest } from './model/ShowQuotaRequest';
 import { ShowQuotaResponse } from './model/ShowQuotaResponse';
+import { ShowRouteTableRequest } from './model/ShowRouteTableRequest';
+import { ShowRouteTableResponse } from './model/ShowRouteTableResponse';
 import { ShowSecurityGroupRequest } from './model/ShowSecurityGroupRequest';
 import { ShowSecurityGroupResponse } from './model/ShowSecurityGroupResponse';
 import { ShowSecurityGroupRuleRequest } from './model/ShowSecurityGroupRuleRequest';
@@ -223,11 +243,16 @@ import { ShowVpcTagsRequest } from './model/ShowVpcTagsRequest';
 import { ShowVpcTagsResponse } from './model/ShowVpcTagsResponse';
 import { Subnet } from './model/Subnet';
 import { SubnetIpAvailability } from './model/SubnetIpAvailability';
+import { SubnetList } from './model/SubnetList';
 import { SubnetResult } from './model/SubnetResult';
 import { UpdatePortOption } from './model/UpdatePortOption';
 import { UpdatePortRequest } from './model/UpdatePortRequest';
 import { UpdatePortRequestBody } from './model/UpdatePortRequestBody';
 import { UpdatePortResponse } from './model/UpdatePortResponse';
+import { UpdateRouteTableReq } from './model/UpdateRouteTableReq';
+import { UpdateRouteTableRequest } from './model/UpdateRouteTableRequest';
+import { UpdateRouteTableResponse } from './model/UpdateRouteTableResponse';
+import { UpdateRoutetableReqBody } from './model/UpdateRoutetableReqBody';
 import { UpdateSubnetOption } from './model/UpdateSubnetOption';
 import { UpdateSubnetRequest } from './model/UpdateSubnetRequest';
 import { UpdateSubnetRequestBody } from './model/UpdateSubnetRequestBody';
@@ -273,6 +298,20 @@ export class VpcClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 路由表关联子网。子网关联路由表A后，再关联B，不需要先跟路由表A解关联再关联路由表B
+     * @summary 子网关联路由表
+     * @param {string} routetableId 路由表ID
+     * @param {RoutetableAssociateReqbody} routetableAssociate 关联路由表与子网请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateRouteTable(associateRouteTableRequest?: AssociateRouteTableRequest): Promise<AssociateRouteTableResponse> {
+        const options = ParamCreater().associateRouteTable(associateRouteTableRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 为指定的子网资源实例批量添加标签。 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
      * @summary 批量创建子网资源标签
      * @param {string} subnetId 子网ID
@@ -309,6 +348,19 @@ export class VpcClient {
      */
     public createPort(createPortRequest?: CreatePortRequest): Promise<CreatePortResponse> {
         const options = ParamCreater().createPort(createPortRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 创建路由表
+     * @summary 创建路由表
+     * @param {CreateRoutetableReqBody} routetable 创建路由表对象，参见CreateRouteTableReq对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createRouteTable(createRouteTableRequest?: CreateRouteTableRequest): Promise<CreateRouteTableResponse> {
+        const options = ParamCreater().createRouteTable(createRouteTableRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -393,6 +445,19 @@ export class VpcClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 删除路由表
+     * @summary 删除路由表
+     * @param {string} routetableId 路由表ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteRouteTable(deleteRouteTableRequest?: DeleteRouteTableRequest): Promise<void> {
+        const options = ParamCreater().deleteRouteTable(deleteRouteTableRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 删除安全组。
      * @summary 删除安全组
      * @param {string} securityGroupId 安全组ID
@@ -460,6 +525,20 @@ export class VpcClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 子网解关联路由表
+     * @summary 子网解关联路由表
+     * @param {string} routetableId 路由表ID
+     * @param {RoutetableAssociateReqbody} routetableAssociate 关联路由表与子网请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateRouteTable(disassociateRouteTableRequest?: DisassociateRouteTableRequest): Promise<DisassociateRouteTableResponse> {
+        const options = ParamCreater().disassociateRouteTable(disassociateRouteTableRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 查询提交请求的租户的所有端口，单次查询最多返回2000条数据。
      * @summary 查询端口列表
      * @param {string} [name] 功能说明：按照name过滤查询  取值范围：最大长度不超过255
@@ -479,6 +558,23 @@ export class VpcClient {
      */
     public listPorts(listPortsRequest?: ListPortsRequest): Promise<ListPortsResponse> {
         const options = ParamCreater().listPorts(listPortsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 查询提交请求的帐户的所有路由表列表，并根据过滤条件进行过滤
+     * @summary 查询路由表列表
+     * @param {number} [limit] 每页返回的个数
+     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
+     * @param {string} [id] 路由表ID，可过滤对应ID的路由表
+     * @param {string} [vpcId] 虚拟私有云ID，可过滤对应虚拟私有云包含的路由表
+     * @param {string} [subnetId] 子网ID，可过滤对应子网关联的路由表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listRouteTables(listRouteTablesRequest?: ListRouteTablesRequest): Promise<ListRouteTablesResponse> {
+        const options = ParamCreater().listRouteTables(listRouteTablesRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -613,6 +709,19 @@ export class VpcClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 查询路由表详情
+     * @summary 查询路由表
+     * @param {string} routetableId 路由表ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRouteTable(showRouteTableRequest?: ShowRouteTableRequest): Promise<ShowRouteTableResponse> {
+        const options = ParamCreater().showRouteTable(showRouteTableRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 查询单个安全组详情。
      * @summary 查询安全组
      * @param {string} securityGroupId 安全组ID
@@ -687,6 +796,20 @@ export class VpcClient {
      */
     public updatePort(updatePortRequest?: UpdatePortRequest): Promise<UpdatePortResponse> {
         const options = ParamCreater().updatePort(updatePortRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 更新路由表，包括可以更新路由表的名称，描述，以及新增、更新、删除路由条目
+     * @summary 更新路由表
+     * @param {string} routetableId 路由表ID
+     * @param {UpdateRoutetableReqBody} routetable 更新路由表对象，参见UpdateRouteTableReq对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateRouteTable(updateRouteTableRequest?: UpdateRouteTableRequest): Promise<UpdateRouteTableResponse> {
+        const options = ParamCreater().updateRouteTable(updateRouteTableRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1426,6 +1549,48 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 路由表关联子网。子网关联路由表A后，再关联B，不需要先跟路由表A解关联再关联路由表B
+         */
+        associateRouteTable(associateRouteTableRequest?: AssociateRouteTableRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/routetables/{routetable_id}/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let routetableId;
+
+            if (associateRouteTableRequest !== null && associateRouteTableRequest !== undefined) {
+                if (associateRouteTableRequest instanceof AssociateRouteTableRequest) {
+                    routetableId = associateRouteTableRequest.routetableId;
+                    body = associateRouteTableRequest.body
+                } else {
+                    routetableId = associateRouteTableRequest['routetable_id'];
+                    body = associateRouteTableRequest['body'];
+                }
+            }
+        
+            if (routetableId === null || routetableId === undefined) {
+                throw new RequiredError('routetableId','Required parameter routetableId was null or undefined when calling associateRouteTable.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'routetable_id': routetableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为指定的子网资源实例批量添加标签。 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
          */
         batchCreateSubnetTags(batchCreateSubnetTagsRequest?: BatchCreateSubnetTagsRequest) {
@@ -1531,6 +1696,41 @@ export const ParamCreater = function () {
                     body = createPortRequest.body
                 } else {
                     body = createPortRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建路由表
+         */
+        createRouteTable(createRouteTableRequest?: CreateRouteTableRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/routetables",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createRouteTableRequest !== null && createRouteTableRequest !== undefined) {
+                if (createRouteTableRequest instanceof CreateRouteTableRequest) {
+                    body = createRouteTableRequest.body
+                } else {
+                    body = createRouteTableRequest['body'];
                 }
             }
         
@@ -1761,6 +1961,40 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除路由表
+         */
+        deleteRouteTable(deleteRouteTableRequest?: DeleteRouteTableRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/routetables/{routetable_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let routetableId;
+
+            if (deleteRouteTableRequest !== null && deleteRouteTableRequest !== undefined) {
+                if (deleteRouteTableRequest instanceof DeleteRouteTableRequest) {
+                    routetableId = deleteRouteTableRequest.routetableId;
+                } else {
+                    routetableId = deleteRouteTableRequest['routetable_id'];
+                }
+            }
+        
+            if (routetableId === null || routetableId === undefined) {
+                throw new RequiredError('routetableId','Required parameter routetableId was null or undefined when calling deleteRouteTable.');
+            }
+
+            options.pathParams = { 'routetable_id': routetableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除安全组。
          */
         deleteSecurityGroup(deleteSecurityGroupRequest?: DeleteSecurityGroupRequest) {
@@ -1943,6 +2177,48 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 子网解关联路由表
+         */
+        disassociateRouteTable(disassociateRouteTableRequest?: DisassociateRouteTableRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/routetables/{routetable_id}/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let routetableId;
+
+            if (disassociateRouteTableRequest !== null && disassociateRouteTableRequest !== undefined) {
+                if (disassociateRouteTableRequest instanceof DisassociateRouteTableRequest) {
+                    routetableId = disassociateRouteTableRequest.routetableId;
+                    body = disassociateRouteTableRequest.body
+                } else {
+                    routetableId = disassociateRouteTableRequest['routetable_id'];
+                    body = disassociateRouteTableRequest['body'];
+                }
+            }
+        
+            if (routetableId === null || routetableId === undefined) {
+                throw new RequiredError('routetableId','Required parameter routetableId was null or undefined when calling disassociateRouteTable.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'routetable_id': routetableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询提交请求的租户的所有端口，单次查询最多返回2000条数据。
          */
         listPorts(listPortsRequest?: ListPortsRequest) {
@@ -2035,6 +2311,64 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询提交请求的帐户的所有路由表列表，并根据过滤条件进行过滤
+         */
+        listRouteTables(listRouteTablesRequest?: ListRouteTablesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/routetables",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let limit;
+            let marker;
+            let id;
+            let vpcId;
+            let subnetId;
+
+            if (listRouteTablesRequest !== null && listRouteTablesRequest !== undefined) {
+                if (listRouteTablesRequest instanceof ListRouteTablesRequest) {
+                    limit = listRouteTablesRequest.limit;
+                    marker = listRouteTablesRequest.marker;
+                    id = listRouteTablesRequest.id;
+                    vpcId = listRouteTablesRequest.vpcId;
+                    subnetId = listRouteTablesRequest.subnetId;
+                } else {
+                    limit = listRouteTablesRequest['limit'];
+                    marker = listRouteTablesRequest['marker'];
+                    id = listRouteTablesRequest['id'];
+                    vpcId = listRouteTablesRequest['vpc_id'];
+                    subnetId = listRouteTablesRequest['subnet_id'];
+                }
+            }
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (vpcId !== null && vpcId !== undefined) {
+                localVarQueryParameter['vpc_id'] = vpcId;
+            }
+            if (subnetId !== null && subnetId !== undefined) {
+                localVarQueryParameter['subnet_id'] = subnetId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2414,6 +2748,40 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询路由表详情
+         */
+        showRouteTable(showRouteTableRequest?: ShowRouteTableRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/routetables/{routetable_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let routetableId;
+
+            if (showRouteTableRequest !== null && showRouteTableRequest !== undefined) {
+                if (showRouteTableRequest instanceof ShowRouteTableRequest) {
+                    routetableId = showRouteTableRequest.routetableId;
+                } else {
+                    routetableId = showRouteTableRequest['routetable_id'];
+                }
+            }
+        
+            if (routetableId === null || routetableId === undefined) {
+                throw new RequiredError('routetableId','Required parameter routetableId was null or undefined when calling showRouteTable.');
+            }
+
+            options.pathParams = { 'routetable_id': routetableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单个安全组详情。
          */
         showSecurityGroup(showSecurityGroupRequest?: ShowSecurityGroupRequest) {
@@ -2621,6 +2989,48 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'port_id': portId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新路由表，包括可以更新路由表的名称，描述，以及新增、更新、删除路由条目
+         */
+        updateRouteTable(updateRouteTableRequest?: UpdateRouteTableRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/routetables/{routetable_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let routetableId;
+
+            if (updateRouteTableRequest !== null && updateRouteTableRequest !== undefined) {
+                if (updateRouteTableRequest instanceof UpdateRouteTableRequest) {
+                    routetableId = updateRouteTableRequest.routetableId;
+                    body = updateRouteTableRequest.body
+                } else {
+                    routetableId = updateRouteTableRequest['routetable_id'];
+                    body = updateRouteTableRequest['body'];
+                }
+            }
+        
+            if (routetableId === null || routetableId === undefined) {
+                throw new RequiredError('routetableId','Required parameter routetableId was null or undefined when calling updateRouteTable.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'routetable_id': routetableId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

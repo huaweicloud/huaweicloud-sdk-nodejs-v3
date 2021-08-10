@@ -1,9 +1,20 @@
 
 
 export class IdentityproviderOption {
+    private 'sso_type'?: string | undefined;
     public description?: string;
     public enabled?: boolean;
     public constructor() { 
+    }
+    public withSsoType(ssoType: string): IdentityproviderOption {
+        this['sso_type'] = ssoType;
+        return this;
+    }
+    public set ssoType(ssoType: string | undefined) {
+        this['sso_type'] = ssoType;
+    }
+    public get ssoType() {
+        return this['sso_type'];
     }
     public withDescription(description: string): IdentityproviderOption {
         this['description'] = description;
