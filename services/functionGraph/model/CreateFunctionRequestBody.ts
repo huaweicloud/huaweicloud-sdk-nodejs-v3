@@ -21,7 +21,7 @@ export interface InputProps {
     handler: string;
     memory_size: number;
     timeout: number;
-    runtiome: string;
+    runtime: string;
     pkg: string;
     code_type: string;
 }
@@ -31,10 +31,10 @@ export class CreateFunctionRequestBody {
     public memory_size: number;
     public timeout: number;
     public runtime: string;
-    public pkg: string;
+    public package: string;
     public code_type: string;
     public code_filename?: string;
-    public func_code?: string;
+    public func_code?: any;
     public description?: string;
     public enterprise_project_id?: string;
     public app_xrole?: string;
@@ -45,8 +45,8 @@ export class CreateFunctionRequestBody {
         this['handler'] = input.handler;
         this['memory_size'] = input.memory_size;
         this['timeout'] = input.timeout;
-        this['runtime'] = input.runtiome;
-        this['pkg'] = input.pkg;
+        this['runtime'] = input.runtime;
+        this['package'] = input.pkg;
         this['code_type'] = input.code_type;
     }
     public withFunctionName(func_name: string): CreateFunctionRequestBody{
@@ -70,7 +70,7 @@ export class CreateFunctionRequestBody {
         return this;
     }
     public withpkg(pkg: string): CreateFunctionRequestBody{
-        this['pkg'] = pkg;
+        this['package'] = pkg;
         return this;
     }
     public withCodeType(code_type: string): CreateFunctionRequestBody{
@@ -79,6 +79,10 @@ export class CreateFunctionRequestBody {
     }
     public withCodeFileName(code_filename: string): CreateFunctionRequestBody{
         this['code_filename'] = code_filename;
+        return this;
+    }
+    public withFunctionCode(functionCode: string): CreateFunctionRequestBody{
+        this['func_code'] = {file:functionCode};
         return this;
     }
     public withEnterpriseProjectId(enterprise_project_id: string): CreateFunctionRequestBody{

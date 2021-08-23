@@ -1,0 +1,1496 @@
+[2021-08-23T19:29:03.482] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: undefined,
+  status: undefined,
+  headers: undefined,
+  message: 'connect ECONNREFUSED 127.0.0.1:80',
+  config: {
+    url: 'functiongraph.cn-north-4.myhuaweicloud.com/v2/{project_id}/fgs/functions',
+    method: 'post',
+    data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'X-Domain-Id': '\t0bbeba4f1080f3560fe8c011e1ec4960',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Sdk-Date': '20210823T112903Z',
+      host: null,
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-domain-id;x-sdk-date, Signature=17103d1add8f2187c94bd59d21fcb2803ce2b2536f845b0fc457ebb23d6bb2b7',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Length': 189
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: bound ] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: connect ECONNREFUSED 127.0.0.1:80
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1133:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 80,
+    config: {
+      url: 'functiongraph.cn-north-4.myhuaweicloud.com/v2/{project_id}/fgs/functions',
+      method: 'post',
+      data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: Writable {
+      _writableState: [WritableState],
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: false,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 189,
+      _requestBodyBuffers: [Array],
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [ClientRequest],
+      _currentUrl: 'http:functiongraph.cn-north-4.myhuaweicloud.com/v2/%7Bproject_id%7D/fgs/functions',
+      [Symbol(kCapture)]: false
+    },
+    response: undefined,
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: undefined
+}
+
+[2021-08-23T19:38:34.017] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: undefined,
+  status: undefined,
+  headers: undefined,
+  message: 'connect ECONNREFUSED 127.0.0.1:80',
+  config: {
+    url: 'functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+    method: 'post',
+    data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'X-Project-Id': '0bcc05efb100f2a92f53c011f262dfa0',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Sdk-Date': '20210823T113833Z',
+      host: null,
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=73995880c486a1c9381881c970cba6063371a2e9fe864167b4543195b96261b5',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Length': 189
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: bound ] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: connect ECONNREFUSED 127.0.0.1:80
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1133:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 80,
+    config: {
+      url: 'functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      method: 'post',
+      data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: Writable {
+      _writableState: [WritableState],
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: false,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 189,
+      _requestBodyBuffers: [Array],
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [ClientRequest],
+      _currentUrl: 'http:functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      [Symbol(kCapture)]: false
+    },
+    response: undefined,
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: undefined
+}
+
+[2021-08-23T19:55:48.259] [ERROR] - 91 nodesdk:DefaultHttpClient:2 some error found: {
+  data: undefined,
+  status: undefined,
+  headers: undefined,
+  message: 'connect ECONNREFUSED 127.0.0.1:80',
+  config: {
+    url: 'functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+    method: 'post',
+    data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'X-Project-Id': '0bcc05efb100f2a92f53c011f262dfa0',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Sdk-Date': '20210823T115548Z',
+      host: null,
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=05b4f6e987cec647e32c33f5a525997d6629674aa321502f7557d79d038b597e',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Length': 189
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: bound ] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: connect ECONNREFUSED 127.0.0.1:80
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1133:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 80,
+    config: {
+      url: 'functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      method: 'post',
+      data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: Writable {
+      _writableState: [WritableState],
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: false,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 189,
+      _requestBodyBuffers: [Array],
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [ClientRequest],
+      _currentUrl: 'http:functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      [Symbol(kCapture)]: false
+    },
+    response: undefined,
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: undefined
+}
+
+[2021-08-23T19:55:56.600] [ERROR] - 91 nodesdk:DefaultHttpClient:4 some error found: {
+  data: undefined,
+  status: undefined,
+  headers: undefined,
+  message: 'connect ECONNREFUSED 127.0.0.1:80',
+  config: {
+    url: 'functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+    method: 'post',
+    data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'X-Project-Id': '0bcc05efb100f2a92f53c011f262dfa0',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Sdk-Date': '20210823T115556Z',
+      host: null,
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=c607cb9793a44823ce66517121ec94d2337429fa9b62c9dc92fb7b906c5800f8',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Length': 189
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: bound ] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: connect ECONNREFUSED 127.0.0.1:80
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1133:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 80,
+    config: {
+      url: 'functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      method: 'post',
+      data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: Writable {
+      _writableState: [WritableState],
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: false,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 189,
+      _requestBodyBuffers: [Array],
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [ClientRequest],
+      _currentUrl: 'http:functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      [Symbol(kCapture)]: false
+    },
+    response: undefined,
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: undefined
+}
+
+[2021-08-23T19:57:35.085] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: undefined,
+  status: undefined,
+  headers: undefined,
+  message: 'connect ECONNREFUSED 127.0.0.1:80',
+  config: {
+    url: '{your endpoint}/v1/jobs/{your job id}',
+    method: 'get',
+    data: '{}',
+    headers: {
+      Accept: 'application/json',
+      'X-Domain-Id': '{your domain id}',
+      'X-Sdk-Date': '20210823T115735Z',
+      host: null,
+      Authorization: 'SDK-HMAC-SHA256 Access={your ak string}, SignedHeaders=host;x-domain-id;x-sdk-date, Signature=10b27f87dde19d9f469d9d1eb8e193fe587beca2c67b2e46704a95e1dd5eeaa1',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Type': 'application/json',
+      'Content-Length': 2
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: connect ECONNREFUSED 127.0.0.1:80
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1133:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 80,
+    config: {
+      url: '{your endpoint}/v1/jobs/{your job id}',
+      method: 'get',
+      data: '{}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: Writable {
+      _writableState: [WritableState],
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: false,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 2,
+      _requestBodyBuffers: [Array],
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [ClientRequest],
+      _currentUrl: 'http:%7Byour%20endpoint%7D/v1/jobs/%7Byour%20job%20id%7D',
+      [Symbol(kCapture)]: false
+    },
+    response: undefined,
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: undefined
+}
+
+[2021-08-23T20:01:02.688] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: undefined,
+  status: undefined,
+  headers: undefined,
+  message: 'connect ECONNREFUSED 127.0.0.1:80',
+  config: {
+    url: '{your endpoint}/v1/jobs/{your job id}',
+    method: 'get',
+    data: '{}',
+    headers: {
+      Accept: 'application/json',
+      'X-Domain-Id': '{your domain id}',
+      'X-Sdk-Date': '20210823T120102Z',
+      host: null,
+      Authorization: 'SDK-HMAC-SHA256 Access={your ak string}, SignedHeaders=host;x-domain-id;x-sdk-date, Signature=e34bfec02091bd2a6304f8814d4397d9619d6c29a66b1f69f452d56265f06368',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Type': 'application/json',
+      'Content-Length': 2
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: connect ECONNREFUSED 127.0.0.1:80
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1133:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 80,
+    config: {
+      url: '{your endpoint}/v1/jobs/{your job id}',
+      method: 'get',
+      data: '{}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: Writable {
+      _writableState: [WritableState],
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: false,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 2,
+      _requestBodyBuffers: [Array],
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [ClientRequest],
+      _currentUrl: 'http:%7Byour%20endpoint%7D/v1/jobs/%7Byour%20job%20id%7D',
+      [Symbol(kCapture)]: false
+    },
+    response: undefined,
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: undefined
+}
+
+[2021-08-23T20:01:52.236] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: undefined,
+  status: undefined,
+  headers: undefined,
+  message: 'connect ECONNREFUSED 127.0.0.1:80',
+  config: {
+    url: 'functiongraph.cn-north-4.myhuaweicloud.com/v1/jobs/{your job id}',
+    method: 'get',
+    data: '{}',
+    headers: {
+      Accept: 'application/json',
+      'X-Domain-Id': '0bbeba4f1080f3560fe8c011e1ec4960',
+      'X-Sdk-Date': '20210823T120152Z',
+      host: null,
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=host;x-domain-id;x-sdk-date, Signature=69d44ac41acf90b9a0d35405c2f24fe55a0c0fd41b06b5e820ed627bd378cd3e',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Type': 'application/json',
+      'Content-Length': 2
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: connect ECONNREFUSED 127.0.0.1:80
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1133:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 80,
+    config: {
+      url: 'functiongraph.cn-north-4.myhuaweicloud.com/v1/jobs/{your job id}',
+      method: 'get',
+      data: '{}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: Writable {
+      _writableState: [WritableState],
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: false,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 2,
+      _requestBodyBuffers: [Array],
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [ClientRequest],
+      _currentUrl: 'http:functiongraph.cn-north-4.myhuaweicloud.com/v1/jobs/%7Byour%20job%20id%7D',
+      [Symbol(kCapture)]: false
+    },
+    response: undefined,
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: undefined
+}
+
+[2021-08-23T20:05:41.580] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: {
+    error_msg: 'The API does not exist or has not been published in the environment',
+    error_code: 'APIGW.0101',
+    request_id: 'c525c11d47cf8dd119ed81bc756d143b'
+  },
+  status: 404,
+  headers: {
+    date: 'Mon, 23 Aug 2021 12:05:41 GMT',
+    'content-type': 'application/json',
+    'transfer-encoding': 'chunked',
+    connection: 'close',
+    server: 'api-gateway',
+    'x-request-id': 'c525c11d47cf8dd119ed81bc756d143b'
+  },
+  message: 'Request failed with status code 404',
+  config: {
+    url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v1/jobs/{your job id}',
+    method: 'get',
+    data: '{}',
+    headers: {
+      Accept: 'application/json',
+      'X-Domain-Id': '0bbeba4f1080f3560fe8c011e1ec4960',
+      'X-Sdk-Date': '20210823T120541Z',
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=host;x-domain-id;x-sdk-date, Signature=61f54169515204a8e0374f5ef21af16fe0167db59668a9f157b98c73e0949351',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Type': 'application/json',
+      'Content-Length': 2
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: Request failed with status code 404
+      at createError (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/createError.js:16:15)
+      at settle (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/settle.js:17:12)
+      at IncomingMessage.handleStreamEnd (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/adapters/http.js:260:11)
+      at IncomingMessage.emit (node:events:377:35)
+      at endReadableNT (node:internal/streams/readable:1312:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+    config: {
+      url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v1/jobs/{your job id}',
+      method: 'get',
+      data: '{}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      _contentLength: null,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: [TLSSocket],
+      _header: 'GET /v1/jobs/%7Byour%20job%20id%7D HTTP/1.1\r\n' +
+        'Accept: application/json\r\n' +
+        'X-Domain-Id: 0bbeba4f1080f3560fe8c011e1ec4960\r\n' +
+        'X-Sdk-Date: 20210823T120541Z\r\n' +
+        'host: functiongraph.cn-north-4.myhuaweicloud.com\r\n' +
+        'Authorization: SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=host;x-domain-id;x-sdk-date, Signature=61f54169515204a8e0374f5ef21af16fe0167db59668a9f157b98c73e0949351\r\n' +
+        'User-Agent: huaweicloud-usdk-nodejs/3.0\r\n' +
+        'Content-Type: application/json\r\n' +
+        'Content-Length: 2\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      path: '/v1/jobs/%7Byour%20job%20id%7D',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      [Symbol(kCapture)]: false,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype]
+    },
+    response: {
+      status: 404,
+      statusText: 'Not Found',
+      headers: [Object],
+      config: [Object],
+      request: [ClientRequest],
+      data: [Object]
+    },
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: 'c525c11d47cf8dd119ed81bc756d143b'
+}
+
+[2021-08-23T20:06:01.142] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: undefined,
+  status: undefined,
+  headers: undefined,
+  message: 'connect ECONNREFUSED 127.0.0.1:80',
+  config: {
+    url: 'functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+    method: 'post',
+    data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'X-Project-Id': '0bcc05efb100f2a92f53c011f262dfa0',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Sdk-Date': '20210823T120601Z',
+      host: null,
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=2fb13dcb231de8bf407eb506327bc735a0ab806e30d6d805a98aeefc536e37cb',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Length': 189
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: bound ] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: connect ECONNREFUSED 127.0.0.1:80
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1133:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 80,
+    config: {
+      url: 'functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      method: 'post',
+      data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: Writable {
+      _writableState: [WritableState],
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: false,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 189,
+      _requestBodyBuffers: [Array],
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [ClientRequest],
+      _currentUrl: 'http:functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      [Symbol(kCapture)]: false
+    },
+    response: undefined,
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: undefined
+}
+
+[2021-08-23T20:06:13.154] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: {
+    error_code: 'FSS.1027',
+    error_msg: 'Invalid packageName (app name).'
+  },
+  status: 400,
+  headers: {
+    date: 'Mon, 23 Aug 2021 12:06:13 GMT',
+    'content-type': 'application/json',
+    'content-length': '78',
+    connection: 'close',
+    server: 'api-gateway',
+    'x-request-id': '2ba8f89ac4812fe6cde69ad42994a3f3'
+  },
+  message: 'Request failed with status code 400',
+  config: {
+    url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+    method: 'post',
+    data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'X-Project-Id': '0bcc05efb100f2a92f53c011f262dfa0',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Sdk-Date': '20210823T120612Z',
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=b954c6247b5829ac42aa542a8bb01bdaa34af0f1896d7563a959df9388d1a1c7',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Length': 189
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: bound ] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: Request failed with status code 400
+      at createError (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/createError.js:16:15)
+      at settle (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/settle.js:17:12)
+      at IncomingMessage.handleStreamEnd (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/adapters/http.js:260:11)
+      at IncomingMessage.emit (node:events:377:35)
+      at endReadableNT (node:internal/streams/readable:1312:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+    config: {
+      url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      method: 'post',
+      data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      _contentLength: null,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: [TLSSocket],
+      _header: 'POST /v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions HTTP/1.1\r\n' +
+        'Accept: application/json\r\n' +
+        'Content-Type: application/json;charset=UTF-8\r\n' +
+        'X-Project-Id: 0bcc05efb100f2a92f53c011f262dfa0\r\n' +
+        'X-Sdk-Date: 20210823T120612Z\r\n' +
+        'host: functiongraph.cn-north-4.myhuaweicloud.com\r\n' +
+        'Authorization: SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=b954c6247b5829ac42aa542a8bb01bdaa34af0f1896d7563a959df9388d1a1c7\r\n' +
+        'User-Agent: huaweicloud-usdk-nodejs/3.0\r\n' +
+        'Content-Length: 189\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      path: '/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      [Symbol(kCapture)]: false,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype]
+    },
+    response: {
+      status: 400,
+      statusText: 'Bad Request',
+      headers: [Object],
+      config: [Object],
+      request: [ClientRequest],
+      data: [Object]
+    },
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: '2ba8f89ac4812fe6cde69ad42994a3f3'
+}
+
+[2021-08-23T20:08:54.716] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: {
+    error_code: 'FSS.1027',
+    error_msg: 'Invalid packageName (app name).'
+  },
+  status: 400,
+  headers: {
+    date: 'Mon, 23 Aug 2021 12:08:54 GMT',
+    'content-type': 'application/json',
+    'content-length': '78',
+    connection: 'close',
+    server: 'api-gateway',
+    'x-request-id': '609e696627bfd609a0b9f4556b69061b'
+  },
+  message: 'Request failed with status code 400',
+  config: {
+    url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+    method: 'post',
+    data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'X-Project-Id': '0bcc05efb100f2a92f53c011f262dfa0',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Sdk-Date': '20210823T120854Z',
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=00cd001e7fc2aee8802e6bca8715fbc480d53bc0effcae7352b70466394dc903',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Length': 189
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: bound ] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: Request failed with status code 400
+      at createError (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/createError.js:16:15)
+      at settle (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/settle.js:17:12)
+      at IncomingMessage.handleStreamEnd (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/adapters/http.js:260:11)
+      at IncomingMessage.emit (node:events:377:35)
+      at endReadableNT (node:internal/streams/readable:1312:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+    config: {
+      url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      method: 'post',
+      data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      _contentLength: null,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: [TLSSocket],
+      _header: 'POST /v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions HTTP/1.1\r\n' +
+        'Accept: application/json\r\n' +
+        'Content-Type: application/json;charset=UTF-8\r\n' +
+        'X-Project-Id: 0bcc05efb100f2a92f53c011f262dfa0\r\n' +
+        'X-Sdk-Date: 20210823T120854Z\r\n' +
+        'host: functiongraph.cn-north-4.myhuaweicloud.com\r\n' +
+        'Authorization: SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=00cd001e7fc2aee8802e6bca8715fbc480d53bc0effcae7352b70466394dc903\r\n' +
+        'User-Agent: huaweicloud-usdk-nodejs/3.0\r\n' +
+        'Content-Length: 189\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      path: '/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      [Symbol(kCapture)]: false,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype]
+    },
+    response: {
+      status: 400,
+      statusText: 'Bad Request',
+      headers: [Object],
+      config: [Object],
+      request: [ClientRequest],
+      data: [Object]
+    },
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: '609e696627bfd609a0b9f4556b69061b'
+}
+
+[2021-08-23T20:16:59.832] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: {
+    error_code: 'FSS.1027',
+    error_msg: 'Invalid packageName (app name).'
+  },
+  status: 400,
+  headers: {
+    date: 'Mon, 23 Aug 2021 12:16:59 GMT',
+    'content-type': 'application/json',
+    'content-length': '78',
+    connection: 'close',
+    server: 'api-gateway',
+    'x-request-id': '2ec87c48aaee6cc9bf7e45fb9ecb569c'
+  },
+  message: 'Request failed with status code 400',
+  config: {
+    url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+    method: 'post',
+    data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'X-Project-Id': '0bcc05efb100f2a92f53c011f262dfa0',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Sdk-Date': '20210823T121659Z',
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=a2d5007a147997a1b359409a9dc1a787468ae458494a2982cd19e9261b36b891',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Length': 189
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: bound ] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: Request failed with status code 400
+      at createError (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/createError.js:16:15)
+      at settle (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/settle.js:17:12)
+      at IncomingMessage.handleStreamEnd (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/adapters/http.js:260:11)
+      at IncomingMessage.emit (node:events:377:35)
+      at endReadableNT (node:internal/streams/readable:1312:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+    config: {
+      url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      method: 'post',
+      data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","pkg":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      _contentLength: null,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: [TLSSocket],
+      _header: 'POST /v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions HTTP/1.1\r\n' +
+        'Accept: application/json\r\n' +
+        'Content-Type: application/json;charset=UTF-8\r\n' +
+        'X-Project-Id: 0bcc05efb100f2a92f53c011f262dfa0\r\n' +
+        'X-Sdk-Date: 20210823T121659Z\r\n' +
+        'host: functiongraph.cn-north-4.myhuaweicloud.com\r\n' +
+        'Authorization: SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=a2d5007a147997a1b359409a9dc1a787468ae458494a2982cd19e9261b36b891\r\n' +
+        'User-Agent: huaweicloud-usdk-nodejs/3.0\r\n' +
+        'Content-Length: 189\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      path: '/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      [Symbol(kCapture)]: false,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype]
+    },
+    response: {
+      status: 400,
+      statusText: 'Bad Request',
+      headers: [Object],
+      config: [Object],
+      request: [ClientRequest],
+      data: [Object]
+    },
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: '2ec87c48aaee6cc9bf7e45fb9ecb569c'
+}
+
+[2021-08-23T20:19:13.044] [ERROR] - 91 nodesdk:DefaultHttpClient:0 some error found: {
+  data: {
+    error_code: 'FSS.1012',
+    error_msg: 'The function code must be configured.'
+  },
+  status: 400,
+  headers: {
+    date: 'Mon, 23 Aug 2021 12:19:13 GMT',
+    'content-type': 'application/json',
+    'content-length': '84',
+    connection: 'close',
+    server: 'api-gateway',
+    'x-request-id': '1524158dc030b2edec235a147d2f6608'
+  },
+  message: 'Request failed with status code 400',
+  config: {
+    url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+    method: 'post',
+    data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","package":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'X-Project-Id': '0bcc05efb100f2a92f53c011f262dfa0',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Sdk-Date': '20210823T121912Z',
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=39e808f684ac5dc073e465a9ca839dfb06cb9e1bbed7b436c0f90b22873acad4',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Length': 193
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: bound ] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: Request failed with status code 400
+      at createError (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/createError.js:16:15)
+      at settle (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/settle.js:17:12)
+      at IncomingMessage.handleStreamEnd (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/adapters/http.js:260:11)
+      at IncomingMessage.emit (node:events:377:35)
+      at endReadableNT (node:internal/streams/readable:1312:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+    config: {
+      url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      method: 'post',
+      data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","package":"default","code_type":"zip","func_code":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      _contentLength: null,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: [TLSSocket],
+      _header: 'POST /v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions HTTP/1.1\r\n' +
+        'Accept: application/json\r\n' +
+        'Content-Type: application/json;charset=UTF-8\r\n' +
+        'X-Project-Id: 0bcc05efb100f2a92f53c011f262dfa0\r\n' +
+        'X-Sdk-Date: 20210823T121912Z\r\n' +
+        'host: functiongraph.cn-north-4.myhuaweicloud.com\r\n' +
+        'Authorization: SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=39e808f684ac5dc073e465a9ca839dfb06cb9e1bbed7b436c0f90b22873acad4\r\n' +
+        'User-Agent: huaweicloud-usdk-nodejs/3.0\r\n' +
+        'Content-Length: 193\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      path: '/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      [Symbol(kCapture)]: false,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype]
+    },
+    response: {
+      status: 400,
+      statusText: 'Bad Request',
+      headers: [Object],
+      config: [Object],
+      request: [ClientRequest],
+      data: [Object]
+    },
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: '1524158dc030b2edec235a147d2f6608'
+}
+
+[2021-08-23T20:25:16.468] [ERROR] - 91 nodesdk:DefaultHttpClient:2 some error found: {
+  data: { error_code: 'FSS.1061', error_msg: 'The function already exists.' },
+  status: 409,
+  headers: {
+    date: 'Mon, 23 Aug 2021 12:25:16 GMT',
+    'content-type': 'application/json',
+    'content-length': '75',
+    connection: 'close',
+    server: 'api-gateway',
+    'x-request-id': 'b4a572a6858a09fae22afa122bdd0f77'
+  },
+  message: 'Request failed with status code 409',
+  config: {
+    url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+    method: 'post',
+    data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","package":"default","code_type":"zip","func_code":{"file":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}}',
+    headers: {
+      Accept: 'application/json',
+      'content-type': 'application/json',
+      'X-Project-Id': '0bcc05efb100f2a92f53c011f262dfa0',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'X-Sdk-Date': '20210823T122516Z',
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      Authorization: 'SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=5e1f96dc77d8a373e800bd49e6a3735911ac33b7470b4f503de7328d5e08a969',
+      'User-Agent': 'huaweicloud-usdk-nodejs/3.0',
+      'Content-Length': 202
+    },
+    proxy: false,
+    params: {},
+    transformRequest: [ [Function: bound ] ],
+    transformResponse: [ [Function: transformResponse] ],
+    paramsSerializer: [Function: paramsSerializer],
+    timeout: 0,
+    adapter: [Function: httpAdapter],
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: Infinity,
+    maxBodyLength: -1,
+    validateStatus: [Function: validateStatus]
+  },
+  originalError: Error: Request failed with status code 409
+      at createError (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/createError.js:16:15)
+      at settle (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/core/settle.js:17:12)
+      at IncomingMessage.handleStreamEnd (/run/media/wzr/00096FB8000E4FAF/huaweicloud-sdk-nodejs-v3/node_modules/axios/lib/adapters/http.js:260:11)
+      at IncomingMessage.emit (node:events:377:35)
+      at endReadableNT (node:internal/streams/readable:1312:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+    config: {
+      url: 'https://functiongraph.cn-north-4.myhuaweicloud.com/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      method: 'post',
+      data: '{"func_name":"function_test","handler":"index.handler","memory_size":128,"timeout":30,"runtime":"Python3.6","package":"default","code_type":"zip","func_code":{"file":"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA=="}}',
+      headers: [Object],
+      proxy: false,
+      params: {},
+      transformRequest: [Array],
+      transformResponse: [Array],
+      paramsSerializer: [Function: paramsSerializer],
+      timeout: 0,
+      adapter: [Function: httpAdapter],
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: Infinity,
+      maxBodyLength: -1,
+      validateStatus: [Function: validateStatus]
+    },
+    request: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      _contentLength: null,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: [TLSSocket],
+      _header: 'POST /v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions HTTP/1.1\r\n' +
+        'Accept: application/json\r\n' +
+        'Content-Type: application/json;charset=UTF-8\r\n' +
+        'X-Project-Id: 0bcc05efb100f2a92f53c011f262dfa0\r\n' +
+        'X-Sdk-Date: 20210823T122516Z\r\n' +
+        'host: functiongraph.cn-north-4.myhuaweicloud.com\r\n' +
+        'Authorization: SDK-HMAC-SHA256 Access=6T9ZUN0WWK4SDIAWJVOJ, SignedHeaders=content-type;host;x-project-id;x-sdk-date, Signature=5e1f96dc77d8a373e800bd49e6a3735911ac33b7470b4f503de7328d5e08a969\r\n' +
+        'User-Agent: huaweicloud-usdk-nodejs/3.0\r\n' +
+        'Content-Length: 202\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      path: '/v2/0bcc05efb100f2a92f53c011f262dfa0/fgs/functions',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'functiongraph.cn-north-4.myhuaweicloud.com',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      [Symbol(kCapture)]: false,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype]
+    },
+    response: {
+      status: 409,
+      statusText: 'Conflict',
+      headers: [Object],
+      config: [Object],
+      request: [ClientRequest],
+      data: [Object]
+    },
+    isAxiosError: true,
+    toJSON: [Function: toJSON]
+  },
+  requestId: 'b4a572a6858a09fae22afa122bdd0f77'
+}
+
