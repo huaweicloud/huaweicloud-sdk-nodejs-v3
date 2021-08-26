@@ -1,3 +1,5 @@
+import { CpuOptions } from './CpuOptions';
+import { Hypervisor } from './Hypervisor';
 import { ServerAddress } from './ServerAddress';
 import { ServerExtendVolumeAttachment } from './ServerExtendVolumeAttachment';
 import { ServerFault } from './ServerFault';
@@ -54,6 +56,8 @@ export class ServerDetail {
     private 'os:scheduler_hints'?: ServerSchedulerHints | undefined;
     private 'enterprise_project_id'?: string | undefined;
     private 'sys_tags'?: Array<ServerSystemTag> | undefined;
+    private 'cpu_options'?: CpuOptions | undefined;
+    public hypervisor?: Hypervisor;
     public constructor(status?: any, updated?: any, autoTerminateTime?: any, hostId?: any, oSEXTSRVATTRHost?: any, addresses?: any, keyName?: any, image?: any, oSEXTSTSTaskState?: any, oSEXTSTSVmState?: any, oSEXTSRVATTRInstanceName?: any, oSEXTSRVATTRHypervisorHostname?: any, flavor?: any, id?: any, securityGroups?: any, oSEXTAZAvailabilityZone?: any, userId?: any, name?: any, created?: any, tenantId?: any, accessIPv4?: any, accessIPv6?: any, oSEXTSTSPowerState?: any, configDrive?: any, metadata?: any, oSSRVUSGLaunchedAt?: any, oSSRVUSGTerminatedAt?: any, osExtendedVolumesVolumesAttached?: any, hostStatus?: any, oSEXTSRVATTRHostname?: any, oSEXTSRVATTRLaunchIndex?: any, oSEXTSRVATTRKernelId?: any, oSEXTSRVATTRRamdiskId?: any, oSEXTSRVATTRRootDeviceName?: any, locked?: any) { 
         this['status'] = status;
         this['updated'] = updated;
@@ -438,5 +442,19 @@ export class ServerDetail {
     }
     public get sysTags() {
         return this['sys_tags'];
+    }
+    public withCpuOptions(cpuOptions: CpuOptions): ServerDetail {
+        this['cpu_options'] = cpuOptions;
+        return this;
+    }
+    public set cpuOptions(cpuOptions: CpuOptions | undefined) {
+        this['cpu_options'] = cpuOptions;
+    }
+    public get cpuOptions() {
+        return this['cpu_options'];
+    }
+    public withHypervisor(hypervisor: Hypervisor): ServerDetail {
+        this['hypervisor'] = hypervisor;
+        return this;
     }
 }

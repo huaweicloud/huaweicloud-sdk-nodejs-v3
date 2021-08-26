@@ -1,21 +1,21 @@
 
 
 export class FlavorExtraSpec {
-    private 'ecs:performancetype': string | undefined;
-    private 'hw:numa_nodes': string | undefined;
-    private 'resource_type': string | undefined;
-    private 'hpet_support': string | undefined;
-    private 'instance_vnic:type': string | undefined;
-    private 'instance_vnic:instance_bandwidth': string | undefined;
-    private 'instance_vnic:max_count': string | undefined;
+    private 'ecs:performancetype'?: string | undefined;
+    private 'hw:numa_nodes'?: string | undefined;
+    private 'resource_type'?: string | undefined;
+    private 'hpet_support'?: string | undefined;
+    private 'instance_vnic:type'?: string | undefined;
+    private 'instance_vnic:instance_bandwidth'?: string | undefined;
+    private 'instance_vnic:max_count'?: string | undefined;
     private 'quota:local_disk'?: string | undefined;
     private 'quota:nvme_ssd'?: string | undefined;
     private 'extra_spec:io:persistent_grant'?: string | undefined;
     private 'ecs:generation'?: string | undefined;
     private 'ecs:virtualization_env_types'?: string | undefined;
-    private 'pci_passthrough:enable_gpu': string | undefined;
-    private 'pci_passthrough:gpu_specs': string | undefined;
-    private 'pci_passthrough:alias': string | undefined;
+    private 'pci_passthrough:enable_gpu'?: string | undefined;
+    private 'pci_passthrough:gpu_specs'?: string | undefined;
+    private 'pci_passthrough:alias'?: string | undefined;
     private 'cond:operation:status'?: string | undefined;
     private 'cond:operation:az'?: string | undefined;
     private 'quota:max_rate'?: string | undefined;
@@ -33,17 +33,8 @@ export class FlavorExtraSpec {
     private 'info:gpu:name'?: string | undefined;
     private 'info:cpu:name'?: string | undefined;
     private 'quota:gpu'?: string | undefined;
-    public constructor(ecsPerformancetype?: any, hwNumaNodes?: any, resourceType?: any, hpetSupport?: any, instanceVnicType?: any, instanceVnicInstanceBandwidth?: any, instanceVnicMaxCount?: any, pciPassthroughEnableGpu?: any, pciPassthroughGpuSpecs?: any, pciPassthroughAlias?: any) { 
-        this['ecs:performancetype'] = ecsPerformancetype;
-        this['hw:numa_nodes'] = hwNumaNodes;
-        this['resource_type'] = resourceType;
-        this['hpet_support'] = hpetSupport;
-        this['instance_vnic:type'] = instanceVnicType;
-        this['instance_vnic:instance_bandwidth'] = instanceVnicInstanceBandwidth;
-        this['instance_vnic:max_count'] = instanceVnicMaxCount;
-        this['pci_passthrough:enable_gpu'] = pciPassthroughEnableGpu;
-        this['pci_passthrough:gpu_specs'] = pciPassthroughGpuSpecs;
-        this['pci_passthrough:alias'] = pciPassthroughAlias;
+    private 'ecs:instance_architecture'?: string | undefined;
+    public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): FlavorExtraSpec {
         this['ecs:performancetype'] = ecsPerformancetype;
@@ -364,5 +355,15 @@ export class FlavorExtraSpec {
     }
     public get quotaGpu() {
         return this['quota:gpu'];
+    }
+    public withEcsInstanceArchitecture(ecsInstanceArchitecture: string): FlavorExtraSpec {
+        this['ecs:instance_architecture'] = ecsInstanceArchitecture;
+        return this;
+    }
+    public set ecsInstanceArchitecture(ecsInstanceArchitecture: string | undefined) {
+        this['ecs:instance_architecture'] = ecsInstanceArchitecture;
+    }
+    public get ecsInstanceArchitecture() {
+        return this['ecs:instance_architecture'];
     }
 }

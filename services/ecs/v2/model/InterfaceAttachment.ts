@@ -7,6 +7,11 @@ export class InterfaceAttachment {
     private 'net_id'?: string | undefined;
     private 'port_id'?: string | undefined;
     private 'port_state'?: string | undefined;
+    private 'delete_on_termination'?: boolean | undefined;
+    private 'driver_mode'?: string | undefined;
+    private 'min_rate'?: number | undefined;
+    private 'multiqueue_num'?: number | undefined;
+    private 'pci_address'?: string | undefined;
     public constructor() { 
     }
     public withFixedIps(fixedIps: Array<ServerInterfaceFixedIp>): InterfaceAttachment {
@@ -58,5 +63,55 @@ export class InterfaceAttachment {
     }
     public get portState() {
         return this['port_state'];
+    }
+    public withDeleteOnTermination(deleteOnTermination: boolean): InterfaceAttachment {
+        this['delete_on_termination'] = deleteOnTermination;
+        return this;
+    }
+    public set deleteOnTermination(deleteOnTermination: boolean | undefined) {
+        this['delete_on_termination'] = deleteOnTermination;
+    }
+    public get deleteOnTermination() {
+        return this['delete_on_termination'];
+    }
+    public withDriverMode(driverMode: string): InterfaceAttachment {
+        this['driver_mode'] = driverMode;
+        return this;
+    }
+    public set driverMode(driverMode: string | undefined) {
+        this['driver_mode'] = driverMode;
+    }
+    public get driverMode() {
+        return this['driver_mode'];
+    }
+    public withMinRate(minRate: number): InterfaceAttachment {
+        this['min_rate'] = minRate;
+        return this;
+    }
+    public set minRate(minRate: number | undefined) {
+        this['min_rate'] = minRate;
+    }
+    public get minRate() {
+        return this['min_rate'];
+    }
+    public withMultiqueueNum(multiqueueNum: number): InterfaceAttachment {
+        this['multiqueue_num'] = multiqueueNum;
+        return this;
+    }
+    public set multiqueueNum(multiqueueNum: number | undefined) {
+        this['multiqueue_num'] = multiqueueNum;
+    }
+    public get multiqueueNum() {
+        return this['multiqueue_num'];
+    }
+    public withPciAddress(pciAddress: string): InterfaceAttachment {
+        this['pci_address'] = pciAddress;
+        return this;
+    }
+    public set pciAddress(pciAddress: string | undefined) {
+        this['pci_address'] = pciAddress;
+    }
+    public get pciAddress() {
+        return this['pci_address'];
     }
 }

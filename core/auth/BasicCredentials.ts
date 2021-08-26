@@ -23,7 +23,6 @@ import { ICredential } from "./ICredential";
 import { IHttpRequest } from "../http/IHttpRequest";
 import { AKSKSigner } from "./AKSKSigner"; 
 import { HttpRequestBuilder } from "../http/IHttpRequestBuilder";
-import extend from "extend";
 import { RequiredError } from "./AKSKSigner";
 
 export class BasicCredentials implements ICredential {
@@ -62,7 +61,7 @@ export class BasicCredentials implements ICredential {
     public getPathParams() {
         const pathParams = {};
         if (this.projectId) {
-            extend(pathParams, { project_id: this.projectId });
+            Object.assign(pathParams, { project_id: this.projectId });
         }
         return pathParams;
     }
@@ -94,12 +93,12 @@ export class BasicCredentials implements ICredential {
 
         // builder.addHeaders("Content-Type", "application/json");
         builder.addAllHeaders(httpRequest.headers);
-        extend(httpRequest, builder.build());
+        Object.assign(httpRequest, builder.build());
         const headers = AKSKSigner.sign(httpRequest, this);
 
         builder.addAllHeaders(headers);
 
-        return extend(httpRequest, builder.build());
+        return Object.assign(httpRequest, builder.build());
     }
 }
 

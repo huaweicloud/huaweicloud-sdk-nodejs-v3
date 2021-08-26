@@ -4,8 +4,8 @@ import { Match } from './Match';
 
 export class ListVpcsByTagsRequestBody {
     public action: ListVpcsByTagsRequestBodyActionEnum;
-    public limit?: string;
-    public offset?: string;
+    public limit?: number;
+    public offset?: number;
     public matches?: Array<Match>;
     public tags?: Array<ListTag>;
     public constructor(action?: any) { 
@@ -15,11 +15,11 @@ export class ListVpcsByTagsRequestBody {
         this['action'] = action;
         return this;
     }
-    public withLimit(limit: string): ListVpcsByTagsRequestBody {
+    public withLimit(limit: number): ListVpcsByTagsRequestBody {
         this['limit'] = limit;
         return this;
     }
-    public withOffset(offset: string): ListVpcsByTagsRequestBody {
+    public withOffset(offset: number): ListVpcsByTagsRequestBody {
         this['offset'] = offset;
         return this;
     }

@@ -1,4 +1,4 @@
-import { Route } from './Route';
+import { RouteTableRoute } from './RouteTableRoute';
 import { SubnetList } from './SubnetList';
 
 
@@ -6,7 +6,7 @@ export class RouteTableResp {
     public id: string;
     public name: string;
     private 'default': boolean | undefined;
-    public routes: Array<Route>;
+    public routes: Array<RouteTableRoute>;
     public subnets: Array<SubnetList>;
     private 'tenant_id': string | undefined;
     private 'vpc_id': string | undefined;
@@ -39,7 +39,7 @@ export class RouteTableResp {
     public get _default() {
         return this['default'];
     }
-    public withRoutes(routes: Array<Route>): RouteTableResp {
+    public withRoutes(routes: Array<RouteTableRoute>): RouteTableResp {
         this['routes'] = routes;
         return this;
     }

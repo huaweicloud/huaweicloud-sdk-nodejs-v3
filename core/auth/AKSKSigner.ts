@@ -21,11 +21,10 @@
 
 import * as crypto from "crypto";
 import moment = require('moment');
-import extend = require("extend");
 import url = require('url')
 import { IHttpRequest } from "../http/IHttpRequest";
 import * as _ from "lodash";
-import {ICredential} from "./ICredential";
+import { ICredential } from "./ICredential";
 
 export class AKSKSigner {
     private static EMPTY_BODY_SHA256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
@@ -36,7 +35,7 @@ export class AKSKSigner {
     private static HeaderContentSha256 = "X-Sdk-Content-Sha256";
 
     private static hex: string[] = [];
-    private static hexTable(): string[]{
+    private static hexTable(): string[] {
         if (this.hex.length <= 0) {
             for (var i = 0; i < 256; ++i) {
                 this.hex[i] = '%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase();
@@ -65,7 +64,7 @@ export class AKSKSigner {
         else {
             dateTimeStamp = moment().utcOffset(0).format(this.BasicDateFormat);
             dateTimeStamp = dateTimeStamp + "Z";
-            extend(true, authenticationHeaders, { "X-Sdk-Date": dateTimeStamp });
+            Object.assign(authenticationHeaders, { "X-Sdk-Date": dateTimeStamp })
         }
         // @ts-ignore
         const parsedUrl = url.parse(request.endpoint, true);
@@ -75,11 +74,11 @@ export class AKSKSigner {
         if (reqUrlHostAndPort) {
             host = reqUrlHostAndPort;
         }
-        extend(true, authenticationHeaders, { "host": host });
+        Object.assign(authenticationHeaders, { "host": host });
 
         let allHeaders = {};
-        extend(allHeaders, request.headers, authenticationHeaders);
-        const canonicalURI = parsedUrl.pathname + "/"; 
+        Object.assign(allHeaders, request.headers, authenticationHeaders);
+        const canonicalURI = parsedUrl.pathname + "/";
         const canonicalQueryString = this.CanonicalQueryString(request);
 
         let sortedKeys = _.sortBy(Object.keys(allHeaders), (x: string) => {
@@ -98,8 +97,8 @@ export class AKSKSigner {
         const authorization = {
             Authorization: `${this.SDK_SIGNING_ALGORITHM} Access=${credential.getAk()}, SignedHeaders=${signedHeaderNames}, Signature=${signatureString}`
         };
-
-        extend(allHeaders, authorization);
+ 
+        Object.assign(allHeaders,authorization);
         return allHeaders;
     }
 

@@ -37,6 +37,7 @@ export class VolumeDetail {
     public tags: { [key: string]: string; };
     public wwn?: string;
     private 'enterprise_project_id'?: string | undefined;
+    private 'serial_number'?: string | undefined;
     public constructor(id?: any, links?: any, name?: any, status?: any, attachments?: any, availabilityZone?: any, osVolHostAttrHost?: any, snapshotId?: any, description?: any, createdAt?: any, osVolTenantAttrTenantId?: any, volumeImageMetadata?: any, volumeType?: any, size?: any, bootable?: any, metadata?: any, updatedAt?: any, replicationStatus?: any, osVolumeReplicationExtendedStatus?: any, osVolMigStatusAttrMigstat?: any, osVolMigStatusAttrNameId?: any, shareable?: any, userId?: any, serviceType?: any, multiattach?: any, tags?: any) { 
         this['id'] = id;
         this['links'] = links;
@@ -310,5 +311,15 @@ export class VolumeDetail {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withSerialNumber(serialNumber: string): VolumeDetail {
+        this['serial_number'] = serialNumber;
+        return this;
+    }
+    public set serialNumber(serialNumber: string | undefined) {
+        this['serial_number'] = serialNumber;
+    }
+    public get serialNumber() {
+        return this['serial_number'];
     }
 }

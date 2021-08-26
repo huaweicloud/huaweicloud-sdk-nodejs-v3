@@ -90,6 +90,7 @@ import { NodeManagement } from './model/NodeManagement';
 import { NodeMetadata } from './model/NodeMetadata';
 import { NodeNicSpec } from './model/NodeNicSpec';
 import { NodePool } from './model/NodePool';
+import { NodePoolCondition } from './model/NodePoolCondition';
 import { NodePoolMetadata } from './model/NodePoolMetadata';
 import { NodePoolNodeAutoscaling } from './model/NodePoolNodeAutoscaling';
 import { NodePoolSpec } from './model/NodePoolSpec';

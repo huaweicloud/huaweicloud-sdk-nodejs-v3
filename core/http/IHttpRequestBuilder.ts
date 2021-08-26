@@ -20,7 +20,6 @@
  */
 
 import { IHttpRequest, HttpRequestImpl } from "./IHttpRequest";
-import extend from "extend";
 
 export class HttpRequestBuilder {
   private httpRequest: HttpRequestImpl;
@@ -67,11 +66,11 @@ export class HttpRequestBuilder {
     return this;
   }
   public addPathParams(pathParams: {}) {
-    extend(this.httpRequest.getPathParams(), pathParams);
+    Object.assign(this.httpRequest.getPathParams(), pathParams);
     return this;
   }
   public addQueryParams(queryParams: {}) {
-    extend(this.httpRequest.getQueryParams, queryParams);
+    Object.assign(this.httpRequest.getQueryParams, queryParams);
     return this;
   }
 
@@ -82,8 +81,8 @@ export class HttpRequestBuilder {
     }
     return this;
   }
-  public addAllHeaders(header: any) { 
-    extend(this.httpRequest.getHeaders(), header);
+  public addAllHeaders(header: any) {
+    Object.assign(this.httpRequest.getHeaders(), header);
     return this;
   }
 }

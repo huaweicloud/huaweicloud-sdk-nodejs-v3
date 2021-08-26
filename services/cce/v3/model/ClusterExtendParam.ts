@@ -10,10 +10,12 @@ export class ClusterExtendParam {
     public decMasterFlavor?: string;
     public dockerUmaskMode?: string;
     private 'kubernetes.io/cpuManagerPolicy'?: string | undefined;
+    public orderID?: string;
     public periodType?: string;
     public periodNum?: number;
     public isAutoRenew?: string;
     public isAutoPay?: string;
+    public upgradefrom?: string;
     public constructor() { 
     }
     public withClusterAZ(clusterAZ: string): ClusterExtendParam {
@@ -64,6 +66,10 @@ export class ClusterExtendParam {
     public get kubernetesIoCpuManagerPolicy() {
         return this['kubernetes.io/cpuManagerPolicy'];
     }
+    public withOrderID(orderID: string): ClusterExtendParam {
+        this['orderID'] = orderID;
+        return this;
+    }
     public withPeriodType(periodType: string): ClusterExtendParam {
         this['periodType'] = periodType;
         return this;
@@ -78,6 +84,10 @@ export class ClusterExtendParam {
     }
     public withIsAutoPay(isAutoPay: string): ClusterExtendParam {
         this['isAutoPay'] = isAutoPay;
+        return this;
+    }
+    public withUpgradefrom(upgradefrom: string): ClusterExtendParam {
+        this['upgradefrom'] = upgradefrom;
         return this;
     }
 }

@@ -22,7 +22,6 @@
 import { HcClient } from "./HcClient";
 import { ICredential } from "./auth/ICredential";
 import { DefaultHttpClient } from "./http/DefaultHttpClient";
-import extend from 'extend';
 import { RequiredError } from "./auth/AKSKSigner";
 import { BasicCredentials } from "./auth/BasicCredentials";
 import { GlobalCredentials } from "./auth/GlobalCredentials";
@@ -69,13 +68,13 @@ export class ClientBuilder<T> {
             disableSslVerification: true
         };
         if (this.proxyAgent) {
-            extend(axiosOptions, { proxyAgent: this.proxyAgent });
+            Object.assign(axiosOptions, { proxyAgent: this.proxyAgent });
         }
 
         if (this.credential === null || this.credential === undefined) {
             this.credential = this.getCredentialFromEnvironment();
-        } 
-        
+        }
+
         const client = new DefaultHttpClient(axiosOptions);
         const hcClient = new HcClient(client);
         hcClient.withEndpoint(this.endpoint).withCredential(this.credential);
@@ -104,7 +103,7 @@ export class ClientBuilder<T> {
                     credentialTYPE = new GlobalCredentials();
                     break;
                 default:
-                    const obj = {}; 
+                    const obj = {};
                     const definedCredPath = path.join(this.init().getPath(), `${sdkType}`);
                     if (!obj[sdkType]) {
                         credentialTYPE = require(definedCredPath);

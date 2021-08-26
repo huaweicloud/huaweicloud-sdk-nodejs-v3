@@ -19,7 +19,7 @@ export class NodeSpec {
     public storage?: Storage;
     public publicIP?: NodePublicIP;
     public nodeNicSpec?: NodeNicSpec;
-    public count: number;
+    public count?: number;
     public billingMode?: number;
     public taints?: Array<Taint>;
     public k8sTags?: { [key: string]: string; };
@@ -28,13 +28,12 @@ export class NodeSpec {
     public userTags?: Array<UserTag>;
     public runtime?: Runtime;
     public extendParam?: NodeExtendParam;
-    public constructor(flavor?: any, az?: any, login?: any, rootVolume?: any, dataVolumes?: any, count?: any) { 
+    public constructor(flavor?: any, az?: any, login?: any, rootVolume?: any, dataVolumes?: any) { 
         this['flavor'] = flavor;
         this['az'] = az;
         this['login'] = login;
         this['rootVolume'] = rootVolume;
         this['dataVolumes'] = dataVolumes;
-        this['count'] = count;
     }
     public withFlavor(flavor: string): NodeSpec {
         this['flavor'] = flavor;

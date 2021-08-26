@@ -1,9 +1,9 @@
-import { Route } from './Route';
+import { RouteTableRoute } from './RouteTableRoute';
 
 
 export class CreateRouteTableReq {
     public name?: string;
-    public routes?: Array<Route>;
+    public routes?: Array<RouteTableRoute>;
     private 'vpc_id': string | undefined;
     public description?: string;
     public constructor(vpcId?: any) { 
@@ -13,7 +13,7 @@ export class CreateRouteTableReq {
         this['name'] = name;
         return this;
     }
-    public withRoutes(routes: Array<Route>): CreateRouteTableReq {
+    public withRoutes(routes: Array<RouteTableRoute>): CreateRouteTableReq {
         this['routes'] = routes;
         return this;
     }

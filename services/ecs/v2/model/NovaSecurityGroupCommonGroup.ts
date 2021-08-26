@@ -1,11 +1,9 @@
 
 
 export class NovaSecurityGroupCommonGroup {
-    public name: string;
-    private 'tenant_id': string | undefined;
-    public constructor(name?: any, tenantId?: any) { 
-        this['name'] = name;
-        this['tenant_id'] = tenantId;
+    public name?: string;
+    private 'tenant_id'?: string | undefined;
+    public constructor() { 
     }
     public withName(name: string): NovaSecurityGroupCommonGroup {
         this['name'] = name;

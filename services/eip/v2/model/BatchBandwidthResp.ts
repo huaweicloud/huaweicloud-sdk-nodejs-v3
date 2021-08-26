@@ -12,6 +12,7 @@ export class BatchBandwidthResp {
     public size?: number;
     private 'tenant_id'?: string | undefined;
     public status?: BatchBandwidthRespStatusEnum;
+    private 'public_border_group'?: string | undefined;
     public constructor() { 
     }
     public withBandwidthType(bandwidthType: string): BatchBandwidthResp {
@@ -89,6 +90,16 @@ export class BatchBandwidthResp {
     public withStatus(status: BatchBandwidthRespStatusEnum): BatchBandwidthResp {
         this['status'] = status;
         return this;
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): BatchBandwidthResp {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup() {
+        return this['public_border_group'];
     }
 }
 

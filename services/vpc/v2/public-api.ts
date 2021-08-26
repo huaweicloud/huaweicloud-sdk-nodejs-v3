@@ -210,6 +210,7 @@ export * from './model/ResourceTag';
 export * from './model/Route';
 export * from './model/RouteTableListResp';
 export * from './model/RouteTableResp';
+export * from './model/RouteTableRoute';
 export * from './model/RoutetableAssociateReqbody';
 export * from './model/SecurityGroup';
 export * from './model/SecurityGroupRule';

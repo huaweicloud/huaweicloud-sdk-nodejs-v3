@@ -5,6 +5,7 @@ export class CreateSharedBandwidthOption {
     public name: string;
     public size: number;
     private 'charge_mode'?: CreateSharedBandwidthOptionChargeModeEnum | undefined;
+    private 'public_border_group'?: string | undefined;
     public constructor(name?: any, size?: any) { 
         this['name'] = name;
         this['size'] = size;
@@ -36,6 +37,16 @@ export class CreateSharedBandwidthOption {
     }
     public get chargeMode() {
         return this['charge_mode'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): CreateSharedBandwidthOption {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup() {
+        return this['public_border_group'];
     }
 }
 

@@ -41,6 +41,7 @@ import { ChangeServerOsWithCloudInitRequest } from './model/ChangeServerOsWithCl
 import { ChangeServerOsWithCloudInitRequestBody } from './model/ChangeServerOsWithCloudInitRequestBody';
 import { ChangeServerOsWithCloudInitResponse } from './model/ChangeServerOsWithCloudInitResponse';
 import { ChangeSeversOsMetadata } from './model/ChangeSeversOsMetadata';
+import { CpuOptions } from './model/CpuOptions';
 import { CreatePostPaidServersRequest } from './model/CreatePostPaidServersRequest';
 import { CreatePostPaidServersRequestBody } from './model/CreatePostPaidServersRequestBody';
 import { CreatePostPaidServersResponse } from './model/CreatePostPaidServersResponse';
@@ -68,6 +69,8 @@ import { Flavor } from './model/Flavor';
 import { FlavorExtraSpec } from './model/FlavorExtraSpec';
 import { FlavorLink } from './model/FlavorLink';
 import { GetServerRemoteConsoleOption } from './model/GetServerRemoteConsoleOption';
+import { Hypervisor } from './model/Hypervisor';
+import { InterfaceAttachableQuantity } from './model/InterfaceAttachableQuantity';
 import { InterfaceAttachment } from './model/InterfaceAttachment';
 import { Ipv6Bandwidth } from './model/Ipv6Bandwidth';
 import { JobEntities } from './model/JobEntities';

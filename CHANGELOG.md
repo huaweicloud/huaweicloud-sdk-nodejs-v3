@@ -1,3 +1,30 @@
+# 3.0.13-beta 2021-08-25
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the following response parameters to the interface `ListServerInterfaces`:
+    - `delete_on_termination`
+    - `driver_mode`
+    - `min_rate`
+    - `multiqueue_num`
+    - `pci_address`
+  - Add the response parameters `cpu_options` and `hypervisor` to the interface `ListServersDetails`.
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request and response parameter `public_border_group` to the interface `BatchCreateSharedBandwidths`.
+  - Add the response parameter `public_border_group` to the interface `AddPublicipsIntoSharedBandwidth`.
+
 # 3.0.12-beta 2021-08-10
 
 ### HuaweiCloud SDK EIP

@@ -88,6 +88,7 @@ export * from './model/NodeManagement';
 export * from './model/NodeMetadata';
 export * from './model/NodeNicSpec';
 export * from './model/NodePool';
+export * from './model/NodePoolCondition';
 export * from './model/NodePoolMetadata';
 export * from './model/NodePoolNodeAutoscaling';
 export * from './model/NodePoolSpec';

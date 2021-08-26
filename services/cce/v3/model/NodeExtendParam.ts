@@ -17,6 +17,8 @@ export class NodeExtendParam {
     private 'alpha.cce/NodeImageID'?: string | undefined;
     public nicMultiqueue?: string;
     public nicThreshold?: string;
+    private 'enterprise_project_id'?: string | undefined;
+    public chargingMode?: number;
     public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): NodeExtendParam {
@@ -111,6 +113,20 @@ export class NodeExtendParam {
     }
     public withNicThreshold(nicThreshold: string): NodeExtendParam {
         this['nicThreshold'] = nicThreshold;
+        return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): NodeExtendParam {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
+    }
+    public withChargingMode(chargingMode: number): NodeExtendParam {
+        this['chargingMode'] = chargingMode;
         return this;
     }
 }

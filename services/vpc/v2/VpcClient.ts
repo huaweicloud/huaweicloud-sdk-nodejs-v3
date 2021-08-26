@@ -212,6 +212,7 @@ import { ResourceTag } from './model/ResourceTag';
 import { Route } from './model/Route';
 import { RouteTableListResp } from './model/RouteTableListResp';
 import { RouteTableResp } from './model/RouteTableResp';
+import { RouteTableRoute } from './model/RouteTableRoute';
 import { RoutetableAssociateReqbody } from './model/RoutetableAssociateReqbody';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityGroupRule } from './model/SecurityGroupRule';
