@@ -27,6 +27,7 @@ import { SdkResponse } from "./SdkResponse";
 import { ExceptionUtil } from "./exception/ExceptionUtil";
 import { getLogger, Logger, LogLevel } from './logger';
 import { DefaultHttpResponse } from "./http/DefaultHttpResponse";
+import { Region } from "./region/region";
 
 export class HcClient {
     private httpClient: HttpClient;
@@ -35,6 +36,7 @@ export class HcClient {
     private proxyAgent: string = '';
     private static loggerName = 'HcClient';
     private logger: Logger;
+    region?: Region;
 
     public constructor(client: HttpClient) {
         this.httpClient = client;
@@ -44,13 +46,18 @@ export class HcClient {
         this.logger.debug('initialized');
     }
 
-    public withEndpoint(endpoint: string | undefined): HcClient {
+    public withEndpoint(endpoint?: string): HcClient {
         this.endpoint = endpoint;
         return this;
     }
 
-    public withCredential(credential: ICredential | undefined): HcClient {
+    public withCredential(credential?: ICredential): HcClient {
         this.credential = credential;
+        return this;
+    }
+
+    public withRegion(region?: Region) {
+        this.region = region;
         return this;
     }
 
@@ -58,11 +65,10 @@ export class HcClient {
         this.proxyAgent = proxyAgent;
         return this;
     }
-
-    public sendRequest<T extends SdkResponse>(options: any): Promise<T> | Promise<any> {
+    public async sendRequest<T extends SdkResponse>(options: any): Promise<any> {
         this.logger.debug('send request');
 
-        const request = this.buildRequest(options);
+        const request = await this.buildRequest(options);
         // @ts-ignore
         return this.httpClient.sendRequest<T>(request).then(res => {
             return this.extractResponse<T>(res);
@@ -71,7 +77,12 @@ export class HcClient {
         });
     }
 
-    private buildRequest(options: any): IHttpRequest {
+    private async buildRequest(options: any): Promise<IHttpRequest> {
+        if (this.region) {
+            this.endpoint = this.region.endpoint;
+            this.credential = await this.credential!.processAuthParams(this, this.region.id);
+        }
+
         let url = this.endpoint + options.url;
         const pathParams = options.pathParams;
         Object.keys(pathParams).forEach(x => {

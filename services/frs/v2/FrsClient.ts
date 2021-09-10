@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { ActionsList } from './model/ActionsList';
 import { AddFacesBase64Req } from './model/AddFacesBase64Req';
 import { AddFacesByBase64Request } from './model/AddFacesByBase64Request';
 import { AddFacesByBase64Response } from './model/AddFacesByBase64Response';
@@ -42,6 +43,20 @@ import { DetectFaceByFileRequestBody } from './model/DetectFaceByFileRequestBody
 import { DetectFaceByFileResponse } from './model/DetectFaceByFileResponse';
 import { DetectFaceByUrlRequest } from './model/DetectFaceByUrlRequest';
 import { DetectFaceByUrlResponse } from './model/DetectFaceByUrlResponse';
+import { DetectLiveByBase64Request } from './model/DetectLiveByBase64Request';
+import { DetectLiveByBase64Response } from './model/DetectLiveByBase64Response';
+import { DetectLiveByFileRequest } from './model/DetectLiveByFileRequest';
+import { DetectLiveByFileRequestBody } from './model/DetectLiveByFileRequestBody';
+import { DetectLiveByFileResponse } from './model/DetectLiveByFileResponse';
+import { DetectLiveByUrlRequest } from './model/DetectLiveByUrlRequest';
+import { DetectLiveByUrlResponse } from './model/DetectLiveByUrlResponse';
+import { DetectLiveFaceByBase64Request } from './model/DetectLiveFaceByBase64Request';
+import { DetectLiveFaceByBase64Response } from './model/DetectLiveFaceByBase64Response';
+import { DetectLiveFaceByFileRequest } from './model/DetectLiveFaceByFileRequest';
+import { DetectLiveFaceByFileRequestBody } from './model/DetectLiveFaceByFileRequestBody';
+import { DetectLiveFaceByFileResponse } from './model/DetectLiveFaceByFileResponse';
+import { DetectLiveFaceByUrlRequest } from './model/DetectLiveFaceByUrlRequest';
+import { DetectLiveFaceByUrlResponse } from './model/DetectLiveFaceByUrlResponse';
 import { Dress } from './model/Dress';
 import { FaceCompareBase64Req } from './model/FaceCompareBase64Req';
 import { FaceCompareUrlReq } from './model/FaceCompareUrlReq';
@@ -54,6 +69,12 @@ import { FaceSearchUrlReq } from './model/FaceSearchUrlReq';
 import { FaceSetFace } from './model/FaceSetFace';
 import { FaceSetInfo } from './model/FaceSetInfo';
 import { Landmark } from './model/Landmark';
+import { LiveDetectBase64Req } from './model/LiveDetectBase64Req';
+import { LiveDetectFaceBase64Req } from './model/LiveDetectFaceBase64Req';
+import { LiveDetectFaceRespResult } from './model/LiveDetectFaceRespResult';
+import { LiveDetectFaceUrlReq } from './model/LiveDetectFaceUrlReq';
+import { LiveDetectRespVideoresult } from './model/LiveDetectRespVideoresult';
+import { LiveDetectUrlReq } from './model/LiveDetectUrlReq';
 import { Point } from './model/Point';
 import { SearchFace } from './model/SearchFace';
 import { SearchFaceByBase64Request } from './model/SearchFaceByBase64Request';
@@ -77,6 +98,7 @@ import { TypeInfo } from './model/TypeInfo';
 import { UpdateFaceReq } from './model/UpdateFaceReq';
 import { UpdateFaceRequest } from './model/UpdateFaceRequest';
 import { UpdateFaceResponse } from './model/UpdateFaceResponse';
+import { WarningList } from './model/WarningList';
 
 export class FrsClient {
     public static newBuilder(): ClientBuilder<FrsClient> {
@@ -110,7 +132,7 @@ export class FrsClient {
      * 添加人脸到人脸库中，检测到传入的单张图片中存在多少张人脸，则增加多少张人脸到人脸库当中。
      * @summary 添加人脸
      * @param {string} faceSetName 人脸库名称。
-     * @param {any} [imageFile] 本地图片文件，图片不能超过8MB，建议小于1MB。上传文件时，请求格式为multipart。
+     * @param {any} imageFile 本地图片文件，图片不能超过8MB，建议小于1MB。上传文件时，请求格式为multipart。
      * @param {string} [externalImageId] 用户指定的图片外部ID，与当前图像绑定。用户没提供，系统会生成一个。 该ID长度范围为1～36位，可以包含字母、数字、中划线或者下划线，不包含其他的特殊字符。
      * @param {string} [externalFields] 根据用户自定义数据类型，填入相应的数值。 创建faceset时定义该字段，Json字符串不校验重复性，参考[自定义字段](zh-cn_topic_0130807044.xml)。
      * @param {*} [options] Override http request option.
@@ -280,6 +302,86 @@ export class FrsClient {
      */
     public detectFaceByUrl(detectFaceByUrlRequest?: DetectFaceByUrlRequest): Promise<DetectFaceByUrlResponse> {
         const options = ParamCreater().detectFaceByUrl(detectFaceByUrlRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+     * @summary 动作活体检测
+     * @param {LiveDetectBase64Req} liveDetectBase64Req This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectLiveByBase64(detectLiveByBase64Request?: DetectLiveByBase64Request): Promise<DetectLiveByBase64Response> {
+        const options = ParamCreater().detectLiveByBase64(detectLiveByBase64Request);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+     * @summary 动作活体检测
+     * @param {any} videoFile 本地视频文件。上传文件时，请求格式为multipart。 视频要求： • 视频文件大小不超过8MB，建议客户端压缩到200KB~2MB。 • 限制视频时长1～15秒。 • 建议帧率10fps～30fps。 • 封装格式：mp4、avi、flv、webm、asf、mov。 • 视频编码格式： h261、h263、h264、hevc、vc1、vp8、vp9、wmv3。
+     * @param {string} actions 动作代码顺序列表，英文逗号（,）分隔。建议单动作，目前支持的动作有： • 1：左摇头 • 2：右摇头 • 3：点头 • 4：嘴部动作
+     * @param {string} [actionTime] 该参数为动作时间数组拼接的字符串，数组的长度和actions的数量一致，每一项代表了对应次序动作的起始时间和结束时间，单位为距视频开始的毫秒数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectLiveByFile(detectLiveByFileRequest?: DetectLiveByFileRequest): Promise<DetectLiveByFileResponse> {
+        const options = ParamCreater().detectLiveByFile(detectLiveByFileRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+     * @summary 动作活体检测
+     * @param {LiveDetectUrlReq} liveDetectUrlReq This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectLiveByUrl(detectLiveByUrlRequest?: DetectLiveByUrlRequest): Promise<DetectLiveByUrlResponse> {
+        const options = ParamCreater().detectLiveByUrl(detectLiveByUrlRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+     * @summary 静默活体检测
+     * @param {LiveDetectFaceBase64Req} liveDetectFaceBase64Req This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectLiveFaceByBase64(detectLiveFaceByBase64Request?: DetectLiveFaceByBase64Request): Promise<DetectLiveFaceByBase64Response> {
+        const options = ParamCreater().detectLiveFaceByBase64(detectLiveFaceByBase64Request);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+     * @summary 静默活体检测
+     * @param {any} imageFile 本地图片文件。上传文件时，请求格式为multipart。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectLiveFaceByFile(detectLiveFaceByFileRequest?: DetectLiveFaceByFileRequest): Promise<DetectLiveFaceByFileResponse> {
+        const options = ParamCreater().detectLiveFaceByFile(detectLiveFaceByFileRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+     * @summary 静默活体检测
+     * @param {LiveDetectFaceUrlReq} liveDetectFaceUrlReq This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectLiveFaceByUrl(detectLiveFaceByUrlRequest?: DetectLiveFaceByUrlRequest): Promise<DetectLiveFaceByUrlResponse> {
+        const options = ParamCreater().detectLiveFaceByUrl(detectLiveFaceByUrlRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -495,6 +597,9 @@ export const ParamCreater = function () {
         
             if (faceSetName === null || faceSetName === undefined) {
                 throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling addFacesByFile.');
+            }
+            if (imageFile === null || imageFile === undefined) {
+                throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling addFacesByFile.');
             }
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
@@ -967,6 +1072,233 @@ export const ParamCreater = function () {
                     body = detectFaceByUrlRequest.body
                 } else {
                     body = detectFaceByUrlRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+         */
+        detectLiveByBase64(detectLiveByBase64Request?: DetectLiveByBase64Request) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/live-detect",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (detectLiveByBase64Request !== null && detectLiveByBase64Request !== undefined) {
+                if (detectLiveByBase64Request instanceof DetectLiveByBase64Request) {
+                    body = detectLiveByBase64Request.body
+                } else {
+                    body = detectLiveByBase64Request['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+         */
+        detectLiveByFile(detectLiveByFileRequest?: DetectLiveByFileRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/live-detect",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            var videoFile;var actions;var actionTime;
+
+            if (detectLiveByFileRequest !== null && detectLiveByFileRequest !== undefined) {
+                if (detectLiveByFileRequest instanceof DetectLiveByFileRequest) {
+                    videoFile = detectLiveByFileRequest.body;
+                    actions = detectLiveByFileRequest.body;
+                    actionTime = detectLiveByFileRequest.body;
+                } else {
+                    videoFile = detectLiveByFileRequest['body'];
+                    actions = detectLiveByFileRequest['body'];
+                    actionTime = detectLiveByFileRequest['body'];
+                }
+            }
+        
+            if (videoFile === null || videoFile === undefined) {
+                throw new RequiredError('videoFile','Required parameter videoFile was null or undefined when calling detectLiveByFile.');
+            }
+            if (actions === null || actions === undefined) {
+                throw new RequiredError('actions','Required parameter actions was null or undefined when calling detectLiveByFile.');
+            }
+            if (videoFile !== undefined) { 
+                localVarFormParams.append('video_file', videoFile as any);
+            }
+            if (actions !== undefined) { 
+                localVarFormParams.append('actions', actions as any);
+            }
+            if (actionTime !== undefined) { 
+                localVarFormParams.append('action_time', actionTime as any);
+            }
+            options.data = localVarFormParams;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+         */
+        detectLiveByUrl(detectLiveByUrlRequest?: DetectLiveByUrlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/live-detect",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (detectLiveByUrlRequest !== null && detectLiveByUrlRequest !== undefined) {
+                if (detectLiveByUrlRequest instanceof DetectLiveByUrlRequest) {
+                    body = detectLiveByUrlRequest.body
+                } else {
+                    body = detectLiveByUrlRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+         */
+        detectLiveFaceByBase64(detectLiveFaceByBase64Request?: DetectLiveFaceByBase64Request) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/live-detect-face",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (detectLiveFaceByBase64Request !== null && detectLiveFaceByBase64Request !== undefined) {
+                if (detectLiveFaceByBase64Request instanceof DetectLiveFaceByBase64Request) {
+                    body = detectLiveFaceByBase64Request.body
+                } else {
+                    body = detectLiveFaceByBase64Request['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+         */
+        detectLiveFaceByFile(detectLiveFaceByFileRequest?: DetectLiveFaceByFileRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/live-detect-face",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            var imageFile;
+
+            if (detectLiveFaceByFileRequest !== null && detectLiveFaceByFileRequest !== undefined) {
+                if (detectLiveFaceByFileRequest instanceof DetectLiveFaceByFileRequest) {
+                    imageFile = detectLiveFaceByFileRequest.body;
+                } else {
+                    imageFile = detectLiveFaceByFileRequest['body'];
+                }
+            }
+        
+            if (imageFile === null || imageFile === undefined) {
+                throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling detectLiveFaceByFile.');
+            }
+            if (imageFile !== undefined) { 
+                localVarFormParams.append('image_file', imageFile as any);
+            }
+            options.data = localVarFormParams;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+         */
+        detectLiveFaceByUrl(detectLiveFaceByUrlRequest?: DetectLiveFaceByUrlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/live-detect-face",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (detectLiveFaceByUrlRequest !== null && detectLiveFaceByUrlRequest !== undefined) {
+                if (detectLiveFaceByUrlRequest instanceof DetectLiveFaceByUrlRequest) {
+                    body = detectLiveFaceByUrlRequest.body
+                } else {
+                    body = detectLiveFaceByUrlRequest['body'];
                 }
             }
         

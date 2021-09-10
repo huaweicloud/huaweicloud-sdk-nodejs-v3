@@ -21,33 +21,49 @@
 
 import { ICredential } from "./ICredential";
 import { IHttpRequest } from "../http/IHttpRequest";
-import { AKSKSigner } from "./AKSKSigner"; 
+import { AKSKSigner } from "./AKSKSigner";
 import { HttpRequestBuilder } from "../http/IHttpRequestBuilder";
 import { RequiredError } from "./AKSKSigner";
-
+import { HcClient } from "../HcClient";
+import { IamService } from "../internal/services/iam.service";
+import { AuthCache } from "../internal/services/authcache";
 export class BasicCredentials implements ICredential {
-    private ak: string | undefined;
-    private sk: string | undefined;
-    private securityToken: string | undefined;
-    private projectId: string | undefined;
+    ak?: string;
+    sk?: string;
+    securityToken?: string;
+    projectId?: string;
+    iamEndpoint?: string;
 
-    public withAk(ak: string | undefined): BasicCredentials {
+    constructor(data?: Partial<BasicCredentials>) {
+        this.ak = data?.ak;
+        this.sk = data?.sk;
+        this.securityToken = data?.securityToken;
+        this.projectId = data?.projectId;
+        this.iamEndpoint = data?.iamEndpoint;
+    }
+
+    public withAk(ak?: string): BasicCredentials {
         this.ak = ak;
         return this;
     }
 
-    public withSk(sk: string | undefined): BasicCredentials {
+    public withSk(sk?: string): BasicCredentials {
         this.sk = sk;
         return this;
     }
 
-    public withProjectId(projectId: string | undefined): BasicCredentials {
+    public withProjectId(projectId?: string): BasicCredentials {
         this.projectId = projectId;
         return this;
     }
 
-    public withSecurityToken(securityToken: string | undefined): BasicCredentials {
+    public withSecurityToken(securityToken?: string): BasicCredentials {
         this.securityToken = securityToken;
+        return this;
+    }
+
+    public withIamEndpoint(iamEndpoint: string) {
+        this.iamEndpoint = iamEndpoint;
         return this;
     }
 
@@ -58,6 +74,10 @@ export class BasicCredentials implements ICredential {
         return this.sk;
     }
 
+    public setProjectId(value: string) {
+        this.projectId = value;
+    }
+
     public getPathParams() {
         const pathParams = {};
         if (this.projectId) {
@@ -65,12 +85,13 @@ export class BasicCredentials implements ICredential {
         }
         return pathParams;
     }
+
     public processAuthRequest(httpRequest: IHttpRequest): IHttpRequest {
 
-        if (this.ak === null || this.ak === undefined) {
+        if (!this.ak) {
             throw new RequiredError('AK cannot be empty or undefined.');
         }
-        if (this.sk === null || this.sk === undefined) {
+        if (!this.sk) {
             throw new RequiredError('SK cannot be empty or undefined.');
         }
 
@@ -79,7 +100,7 @@ export class BasicCredentials implements ICredential {
 
         // 替换所有的path参数
         if (this.projectId) {
-            let url = parsePath(httpRequest.endpoint, this.getPathParams());
+            let url = this.parsePath(httpRequest.endpoint, this.getPathParams());
             builder.withEndpoint(url);
         }
 
@@ -91,7 +112,6 @@ export class BasicCredentials implements ICredential {
             builder.addHeaders("X-Security-Token", this.securityToken);
         }
 
-        // builder.addHeaders("Content-Type", "application/json");
         builder.addAllHeaders(httpRequest.headers);
         Object.assign(httpRequest, builder.build());
         const headers = AKSKSigner.sign(httpRequest, this);
@@ -100,14 +120,33 @@ export class BasicCredentials implements ICredential {
 
         return Object.assign(httpRequest, builder.build());
     }
-}
 
-function parsePath(path: string | undefined, params: any): string {
-    if (!path || !params) {
-        return <string>path;
+    processAuthParams(hcClient: HcClient, region: string): Promise<ICredential> {
+        if (this.projectId) {
+            return Promise.resolve(this);
+        }
+        
+        const authCacheInstance = AuthCache.instance();
+        const akWithName = this.getAk() + region;
+        if (authCacheInstance.getCache(akWithName)) {
+            this.projectId = authCacheInstance.getCache(akWithName);
+            return Promise.resolve(this);
+        }
+
+        return new IamService(hcClient, this.iamEndpoint).getProjecId(region).then(projectId => {
+            authCacheInstance.putCache(akWithName, projectId);
+            this.projectId = projectId;
+            return this;
+        });
     }
-    return Object.keys(params).reduce((parsedPath, param) => {
-        const value = encodeURIComponent(params[param]);
-        return parsedPath.replace(new RegExp(`{${param}}`), value);
-    }, path);
+
+    parsePath(path: string | undefined, params: any): string {
+        if (!path || !params) {
+            return <string>path;
+        }
+        return Object.keys(params).reduce((parsedPath, param) => {
+            const value = encodeURIComponent(params[param]);
+            return parsedPath.replace(new RegExp(`{${param}}`), value);
+        }, path);
+    }
 }

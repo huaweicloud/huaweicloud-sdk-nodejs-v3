@@ -1,10 +1,11 @@
 
 
 export class AddFacesByFileRequestBody {
-    private 'image_file'?: any | undefined;
+    private 'image_file': any | undefined;
     private 'external_image_id'?: string | undefined;
     private 'external_fields'?: string | undefined;
-    public constructor() { 
+    public constructor(imageFile?: any) { 
+        this['image_file'] = imageFile;
     }
     public withImageFile(imageFile: any): AddFacesByFileRequestBody {
         this['image_file'] = imageFile;

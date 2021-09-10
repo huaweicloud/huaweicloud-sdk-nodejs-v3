@@ -10,12 +10,13 @@ export class CreateVolumeOption {
     public metadata?: { [key: string]: string; };
     public multiattach?: boolean;
     public name?: string;
-    public size?: number;
+    public size: number;
     private 'snapshot_id'?: string | undefined;
     private 'volume_type': CreateVolumeOptionVolumeTypeEnum | undefined;
     public tags?: { [key: string]: string; };
-    public constructor(availabilityZone?: any, volumeType?: any) { 
+    public constructor(availabilityZone?: any, size?: any, volumeType?: any) { 
         this['availability_zone'] = availabilityZone;
+        this['size'] = size;
         this['volume_type'] = volumeType;
     }
     public withAvailabilityZone(availabilityZone: string): CreateVolumeOption {

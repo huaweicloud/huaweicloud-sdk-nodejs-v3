@@ -25,6 +25,8 @@ import { DefaultHttpClient } from "./http/DefaultHttpClient";
 import { RequiredError } from "./auth/AKSKSigner";
 import { BasicCredentials } from "./auth/BasicCredentials";
 import { GlobalCredentials } from "./auth/GlobalCredentials";
+import { SdkException } from "./exception/SdkException";
+import { Region } from "./region/region";
 const path = require('path');
 
 interface CredParams {
@@ -35,15 +37,16 @@ interface CredParams {
 }
 export class ClientBuilder<T> {
     private init: Function;
-    private endpoint: string | undefined;
-    private credential: ICredential | undefined;
-    private proxyAgent: string | undefined;
-    public credentialType: string[] = ["BasicCredentials", "GlobalCredentials"];
-    public envParams: CredParams = process.env;
+    private endpoint?: string;
+    private credential?: ICredential;
+    private proxyAgent?: string;
+    private credentialType: string[] = ["BasicCredentials", "GlobalCredentials"];
+    private envParams: CredParams = process.env;
+    private region?: Region;
 
     public constructor(init: (hcClient: HcClient) => T, credentialType?: string) {
         this.init = init;
-        if (credentialType !== null && credentialType !== undefined) {
+        if (credentialType) {
             this.credentialType = credentialType.split(",");
         }
     }
@@ -63,6 +66,11 @@ export class ClientBuilder<T> {
         return this;
     }
 
+    public withRegion(region: Region) {
+        this.region = region;
+        return this;
+    }
+
     public build(): T {
         const axiosOptions = {
             disableSslVerification: true
@@ -71,25 +79,34 @@ export class ClientBuilder<T> {
             Object.assign(axiosOptions, { proxyAgent: this.proxyAgent });
         }
 
-        if (this.credential === null || this.credential === undefined) {
+        if (!this.credential) {
             this.credential = this.getCredentialFromEnvironment();
+        }
+
+        if (!this.credential) {
+            throw new SdkException(`credential can not be null, ${this.credentialType}Credential objects are required`);
         }
 
         const client = new DefaultHttpClient(axiosOptions);
         const hcClient = new HcClient(client);
         hcClient.withEndpoint(this.endpoint).withCredential(this.credential);
+        if (this.region) {
+            hcClient.withRegion(this.region);
+        }
         return this.init(hcClient);
     }
 
+    /**
+     * 从环境变量获取 HUAWEICLOUD_SDK_TYPE 
+     * 环境变量里没有则使用 credentialType[0]
+     * 生成credential实体
+     * 从环境变量获取 AK SK projectId/domainId 进行赋值， 如果环境变量是GlobalCredentials，则赋值domainId
+     * @returns Credentials
+     */
     public getCredentialFromEnvironment(): ICredential {
         const sdkType: any = process.env.HUAWEICLOUD_SDK_TYPE;
         const credentialTYPE = this.whichCredential(sdkType)
         return this.getInputParamCredential(credentialTYPE, this.envParams);
-        // 从环境变量获取 HUAWEICLOUD_SDK_TYPE 
-        // 环境变量里没有则使用 credentialType[0]
-        // 生成credential实体
-        // 从环境变量获取 AK SK projectId/domainId 进行赋值， 如果环境变量是GlobalCredentials，则赋值domainId
-        // 返回Credentials
     }
 
     public whichCredential(sdkType: string) {

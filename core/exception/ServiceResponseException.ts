@@ -22,13 +22,12 @@
 import { SdkException } from "./SdkException";
 
 export class ServiceResponseException extends SdkException {
-    private httpStatusCode: string | number;
-    private errorMsg: string;
-    private errorCode: string;
-    private requestId: string;
-
-    constructor(httpStatusCode: string | number, errorMsg: string, errorCode: string, requestId: string) {
-        super();
+    httpStatusCode?: string | number; 
+    errorMsg?: string;
+    errorCode?: string;
+    requestId?: string;
+    constructor(httpStatusCode?: string | number, errorMsg?: string, errorCode?: string, requestId?: string) {
+        super(errorMsg);
         this.name = 'ServiceResponseException';
         this.httpStatusCode = httpStatusCode;
         this.errorMsg = errorMsg;

@@ -24,12 +24,24 @@ import { IHttpRequest } from "../http/IHttpRequest";
 import { AKSKSigner } from "./AKSKSigner";
 import { HttpRequestBuilder } from "../http/IHttpRequestBuilder";
 import { RequiredError } from "./AKSKSigner";
+import { HcClient } from "../HcClient";
+import { IamService } from "../internal/services/iam.service";
+import { AuthCache } from "../internal/services/authcache";
 
 export class GlobalCredentials implements ICredential {
-    private ak: string | undefined;
-    private sk: string | undefined;
-    private securityToken: string | undefined;
-    private domainId: string | undefined;
+    ak?: string;
+    sk?: string;
+    securityToken: string | undefined;
+    domainId: string | undefined;
+    iamEndpoint?: string;
+
+    constructor(data: Partial<GlobalCredentials> = {}) {
+        this.ak = data?.ak;
+        this.sk = data?.sk;
+        this.securityToken = data?.securityToken;
+        this.domainId = data?.domainId;
+        this.iamEndpoint = data?.iamEndpoint;
+    }
 
     public withAk(ak: string | undefined): GlobalCredentials {
         this.ak = ak;
@@ -51,11 +63,27 @@ export class GlobalCredentials implements ICredential {
         return this;
     }
 
-    public getAk(): string | undefined {
+    public withIamEndpoint(iamEndpoint: string) {
+        this.iamEndpoint = iamEndpoint;
+        return this;
+    }
+
+    public getAk(): string {
+        if (!this.ak) {
+            throw new RequiredError('AK cannot be empty or undefined.');
+        }
+
         return this.ak;
     }
-    public getSk(): string | undefined {
+    public getSk(): string {
+        if (!this.sk) {
+            throw new RequiredError('SK cannot be empty or undefined.');
+        }
         return this.sk;
+    }
+
+    public setDomainId(value: string) {
+        this.domainId = value;
     }
 
     public getPathParams() {
@@ -99,6 +127,25 @@ export class GlobalCredentials implements ICredential {
         builder.addAllHeaders(headers);
 
         return Object.assign(httpRequest, builder.build());
+    }
+
+    public processAuthParams(hcClient: HcClient): Promise<ICredential> {
+        if (this.domainId) {
+            return Promise.resolve(this);
+        }
+
+        const authCacheInstance = AuthCache.instance();
+        const akWithName = this.getAk();
+        if (authCacheInstance.getCache(akWithName)) {
+            this.domainId = authCacheInstance.getCache(akWithName);
+            return Promise.resolve(this);
+        }
+
+        return new IamService(hcClient, this.iamEndpoint).getDomainId().then(domainId => {
+            authCacheInstance.putCache(akWithName, domainId);
+            this.domainId = domainId;
+            return this;
+        });
     }
 }
 

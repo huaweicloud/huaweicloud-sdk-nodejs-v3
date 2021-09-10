@@ -20,8 +20,8 @@
  */
 
 export class SdkException extends Error {
-    constructor() {
-        super();
+    constructor(message?: string) {
+        super(message);
         this.name = 'SdkException';
     }
 }

@@ -1,3 +1,31 @@
+# 3.0.14-beta 2021-09-10
+
+### HuaweiCloud SDK Core
+
+- _Features_
+    - Support Region Management
+- _Bug Fix_
+    - None
+- _Change_
+    - None
+
+### HuaweiCloud SDK CCE
+- _Features_
+  - Support the interfaces `AddNode` and `ResetNode`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK EVS
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Set the request parameter `size` of the interface `CreateVolume` to `required`.
+
+
 # 3.0.13-beta 2021-08-25
 
 ### HuaweiCloud SDK ECS

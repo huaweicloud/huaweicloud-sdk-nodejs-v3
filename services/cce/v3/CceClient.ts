@@ -2,6 +2,10 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddNode } from './model/AddNode';
+import { AddNodeList } from './model/AddNodeList';
+import { AddNodeRequest } from './model/AddNodeRequest';
+import { AddNodeResponse } from './model/AddNodeResponse';
 import { AddonInstance } from './model/AddonInstance';
 import { AddonInstanceStatus } from './model/AddonInstanceStatus';
 import { AddonTemplate } from './model/AddonTemplate';
@@ -86,6 +90,7 @@ import { NodeCreateRequest } from './model/NodeCreateRequest';
 import { NodeEIPSpec } from './model/NodeEIPSpec';
 import { NodeExtendParam } from './model/NodeExtendParam';
 import { NodeItem } from './model/NodeItem';
+import { NodeLifecycleConfig } from './model/NodeLifecycleConfig';
 import { NodeManagement } from './model/NodeManagement';
 import { NodeMetadata } from './model/NodeMetadata';
 import { NodeNicSpec } from './model/NodeNicSpec';
@@ -102,10 +107,21 @@ import { PersistentVolumeClaim } from './model/PersistentVolumeClaim';
 import { PersistentVolumeClaimMetadata } from './model/PersistentVolumeClaimMetadata';
 import { PersistentVolumeClaimSpec } from './model/PersistentVolumeClaimSpec';
 import { PersistentVolumeClaimStatus } from './model/PersistentVolumeClaimStatus';
+import { ReinstallExtendParam } from './model/ReinstallExtendParam';
+import { ReinstallK8sOptionsConfig } from './model/ReinstallK8sOptionsConfig';
+import { ReinstallNodeSpec } from './model/ReinstallNodeSpec';
+import { ReinstallRuntimeConfig } from './model/ReinstallRuntimeConfig';
+import { ReinstallServerConfig } from './model/ReinstallServerConfig';
+import { ReinstallVolumeConfig } from './model/ReinstallVolumeConfig';
+import { ReinstallVolumeSpec } from './model/ReinstallVolumeSpec';
 import { RemoveNodeRequest } from './model/RemoveNodeRequest';
 import { RemoveNodeResponse } from './model/RemoveNodeResponse';
 import { RemoveNodesSpec } from './model/RemoveNodesSpec';
 import { RemoveNodesTask } from './model/RemoveNodesTask';
+import { ResetNode } from './model/ResetNode';
+import { ResetNodeList } from './model/ResetNodeList';
+import { ResetNodeRequest } from './model/ResetNodeRequest';
+import { ResetNodeResponse } from './model/ResetNodeResponse';
 import { ResourceRequirements } from './model/ResourceRequirements';
 import { ResourceTag } from './model/ResourceTag';
 import { Runtime } from './model/Runtime';
@@ -159,6 +175,21 @@ export class CceClient {
         return __dirname;
     }
 
+    /**
+     * 该API用于在指定集群下纳管节点。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * @summary 纳管节点
+     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {AddNodeList} addNodeList 纳管节点的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addNode(addNodeRequest?: AddNodeRequest): Promise<AddNodeResponse> {
+        const options = ParamCreater().addNode(addNodeRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
     /**
      * 集群唤醒用于唤醒已休眠的集群，唤醒后，将继续收取控制节点资源费用。
      * @summary 集群唤醒
@@ -468,6 +499,21 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 该API用于在指定集群下重置节点。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * @summary 重置节点
+     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {ResetNodeList} resetNodeList 重置节点的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetNode(resetNodeRequest?: ResetNodeRequest): Promise<ResetNodeResponse> {
+        const options = ParamCreater().resetNode(resetNodeRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 获取插件实例详情。 
      * @summary 获取AddonInstance详情
      * @param {string} contentType 消息体的类型（格式）
@@ -607,6 +653,57 @@ export class CceClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 该API用于在指定集群下纳管节点。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         */
+        addNode(addNodeRequest?: AddNodeRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodes/add",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let clusterId;
+            let contentType;
+
+            if (addNodeRequest !== null && addNodeRequest !== undefined) {
+                if (addNodeRequest instanceof AddNodeRequest) {
+                    clusterId = addNodeRequest.clusterId;
+                    contentType = addNodeRequest.contentType;
+                    body = addNodeRequest.body
+                } else {
+                    clusterId = addNodeRequest['cluster_id'];
+                    contentType = addNodeRequest['Content-Type'];
+                    body = addNodeRequest['body'];
+                }
+            }
+        
+            if (clusterId === null || clusterId === undefined) {
+                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling addNode.');
+            }
+            if (contentType === null || contentType === undefined) {
+                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling addNode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 集群唤醒用于唤醒已休眠的集群，唤醒后，将继续收取控制节点资源费用。
@@ -1647,6 +1744,57 @@ export const ParamCreater = function () {
             }
             if (contentType === null || contentType === undefined) {
                 throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling removeNode.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于在指定集群下重置节点。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         */
+        resetNode(resetNodeRequest?: ResetNodeRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/nodes/reset",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let clusterId;
+            let contentType;
+
+            if (resetNodeRequest !== null && resetNodeRequest !== undefined) {
+                if (resetNodeRequest instanceof ResetNodeRequest) {
+                    clusterId = resetNodeRequest.clusterId;
+                    contentType = resetNodeRequest.contentType;
+                    body = resetNodeRequest.body
+                } else {
+                    clusterId = resetNodeRequest['cluster_id'];
+                    contentType = resetNodeRequest['Content-Type'];
+                    body = resetNodeRequest['body'];
+                }
+            }
+        
+            if (clusterId === null || clusterId === undefined) {
+                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling resetNode.');
+            }
+            if (contentType === null || contentType === undefined) {
+                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling resetNode.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

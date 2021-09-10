@@ -2561,7 +2561,7 @@ export const ParamCreater = function () {
             const options = {
                 method: "PATCH",
                 url: "/v2/images/{image_id}",
-                contentType: "application/json;charset=UTF-8",
+                contentType: "application/openstack-images-v2.1-json-patch",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -2588,7 +2588,7 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+            localVarHeaderParameter['Content-Type'] = 'application/openstack-images-v2.1-json-patch';
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'image_id': imageId, };

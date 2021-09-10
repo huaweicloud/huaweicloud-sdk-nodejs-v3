@@ -1,11 +1,14 @@
 
 
 export class RouteTableRoute {
-    public type?: string;
-    public destination?: string;
-    public nexthop?: string;
+    public type: string;
+    public destination: string;
+    public nexthop: string;
     public description?: string;
-    public constructor() { 
+    public constructor(type?: any, destination?: any, nexthop?: any) { 
+        this['type'] = type;
+        this['destination'] = destination;
+        this['nexthop'] = nexthop;
     }
     public withType(type: string): RouteTableRoute {
         this['type'] = type;

@@ -19,10 +19,12 @@
  * under the License.
  */
 
+import { HcClient } from "../HcClient";
 import { IHttpRequest } from "../http/IHttpRequest";
 
 export interface ICredential {
     getAk: () => string | undefined;
     getSk: () => string | undefined;
     processAuthRequest: (httpRequest: IHttpRequest) => IHttpRequest;
+    processAuthParams: (hcClient: HcClient, region: string) => Promise<ICredential>;
 }

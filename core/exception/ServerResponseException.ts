@@ -22,7 +22,7 @@
 import { ServiceResponseException } from "./ServiceResponseException";
 
 export class ServerResponseException extends ServiceResponseException {
-    constructor(httpStatusCode: string | number, errorMsg: string, errorCode: string, requestId: string) {
+    constructor(httpStatusCode: string | number, errorMsg: string, errorCode: string, requestId?: string) {
         super(httpStatusCode, errorMsg, errorCode, requestId);
         this.name = 'ServerResponseException';
     }
