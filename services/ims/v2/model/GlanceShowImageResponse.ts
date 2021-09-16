@@ -61,6 +61,7 @@ export class GlanceShowImageResponse extends SdkResponse {
     private '__image_location'?: string | undefined;
     private '__is_config_init'?: string | undefined;
     private '__account_code'?: string | undefined;
+    private '__support_amd'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -587,6 +588,16 @@ export class GlanceShowImageResponse extends SdkResponse {
     }
     public get accountCode() {
         return this['__account_code'];
+    }
+    public withSupportAmd(supportAmd: string): GlanceShowImageResponse {
+        this['__support_amd'] = supportAmd;
+        return this;
+    }
+    public set supportAmd(supportAmd: string | undefined) {
+        this['__support_amd'] = supportAmd;
+    }
+    public get supportAmd() {
+        return this['__support_amd'];
     }
 }
 

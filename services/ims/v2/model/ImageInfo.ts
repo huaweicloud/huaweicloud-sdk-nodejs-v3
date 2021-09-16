@@ -59,6 +59,7 @@ export class ImageInfo {
     private '__sequence_num': string | undefined;
     private 'active_at': string | undefined;
     private '__support_agent_list': string | undefined;
+    private '__support_amd'?: string | undefined;
     public constructor(backupId?: any, dataOrigin?: any, description?: any, imageSize?: any, imageSourceType?: any, imagetype?: any, isregistered?: any, originalimagename?: any, osBit?: any, osType?: any, osVersion?: any, platform?: any, containerFormat?: any, createdAt?: any, enterpriseProjectId?: any, id?: any, minDisk?: any, minRam?: any, name?: any, owner?: any, _protected?: any, self?: any, status?: any, tags?: any, updatedAt?: any, virtualEnvType?: any, virtualSize?: any, visibility?: any, isOffshelved?: any, lazyloading?: any, rootOrigin?: any, sequenceNum?: any, activeAt?: any, supportAgentList?: any) { 
         this['__backup_id'] = backupId;
         this['__data_origin'] = dataOrigin;
@@ -608,6 +609,16 @@ export class ImageInfo {
     }
     public get supportAgentList() {
         return this['__support_agent_list'];
+    }
+    public withSupportAmd(supportAmd: string): ImageInfo {
+        this['__support_amd'] = supportAmd;
+        return this;
+    }
+    public set supportAmd(supportAmd: string | undefined) {
+        this['__support_amd'] = supportAmd;
+    }
+    public get supportAmd() {
+        return this['__support_amd'];
     }
 }
 

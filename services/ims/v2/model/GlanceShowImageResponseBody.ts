@@ -60,6 +60,7 @@ export class GlanceShowImageResponseBody {
     private '__image_location': string | undefined;
     private '__is_config_init': string | undefined;
     private '__account_code': string | undefined;
+    private '__support_amd'?: string | undefined;
     public constructor(backupId?: any, dataOrigin?: any, description?: any, imageSize?: any, imageSourceType?: any, imagetype?: any, isregistered?: any, originalimagename?: any, osBit?: any, osType?: any, osVersion?: any, platform?: any, productcode?: any, supportDiskintensive?: any, supportHighperformance?: any, supportKvm?: any, supportKvmGpuType?: any, supportKvmInfiniband?: any, supportLargememory?: any, supportXen?: any, supportXenGpuType?: any, supportXenHana?: any, checksum?: any, containerFormat?: any, createdAt?: any, diskFormat?: any, file?: any, id?: any, minDisk?: any, minRam?: any, name?: any, owner?: any, _protected?: any, schema?: any, self?: any, size?: any, status?: any, tags?: any, updatedAt?: any, virtualEnvType?: any, virtualSize?: any, visibility?: any, supportFcInject?: any, enterpriseProjectId?: any, hwFirmwareType?: any, supportArm?: any, isOffshelved?: any, lazyloading?: any, osFeatureList?: any, rootOrigin?: any, sequenceNum?: any, supportAgentList?: any, systemCmkid?: any, activeAt?: any, hwVifMultiqueueEnabled?: any, maxRam?: any, imageLocation?: any, isConfigInit?: any, accountCode?: any) { 
         this['__backup_id'] = backupId;
         this['__data_origin'] = dataOrigin;
@@ -644,6 +645,16 @@ export class GlanceShowImageResponseBody {
     }
     public get accountCode() {
         return this['__account_code'];
+    }
+    public withSupportAmd(supportAmd: string): GlanceShowImageResponseBody {
+        this['__support_amd'] = supportAmd;
+        return this;
+    }
+    public set supportAmd(supportAmd: string | undefined) {
+        this['__support_amd'] = supportAmd;
+    }
+    public get supportAmd() {
+        return this['__support_amd'];
     }
 }
 

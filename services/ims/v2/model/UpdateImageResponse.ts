@@ -60,6 +60,7 @@ export class UpdateImageResponse extends SdkResponse {
     private '__sequence_num'?: string | undefined;
     private 'active_at'?: string | undefined;
     private '__support_agent_list'?: string | undefined;
+    private '__support_amd'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -576,6 +577,16 @@ export class UpdateImageResponse extends SdkResponse {
     }
     public get supportAgentList() {
         return this['__support_agent_list'];
+    }
+    public withSupportAmd(supportAmd: string): UpdateImageResponse {
+        this['__support_amd'] = supportAmd;
+        return this;
+    }
+    public set supportAmd(supportAmd: string | undefined) {
+        this['__support_amd'] = supportAmd;
+    }
+    public get supportAmd() {
+        return this['__support_amd'];
     }
 }
 
