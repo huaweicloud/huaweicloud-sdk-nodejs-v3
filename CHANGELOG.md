@@ -1,3 +1,23 @@
+# 3.0.16-beta 2021-09-24
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - Support the interface `ShowQuotas`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK IVS
+
+- _Features_
+  - Support the service `Identity Verification Solution`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.0.15-beta 2021-09-16
 
 ### HuaweiCloud SDK CCE

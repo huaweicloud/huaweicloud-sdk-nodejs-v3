@@ -1,3 +1,23 @@
+# 3.0.16-beta 2021-09-24
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 支持接口`ShowQuotas`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK IVS
+
+- _新增特性_
+  - 支持人证核身服务
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
 # 3.0.15-beta 2021-09-16
 
 ### HuaweiCloud SDK CCE

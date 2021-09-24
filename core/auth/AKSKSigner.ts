@@ -78,7 +78,7 @@ export class AKSKSigner {
 
         let allHeaders = {};
         Object.assign(allHeaders, request.headers, authenticationHeaders);
-        const canonicalURI = parsedUrl.pathname + "/";
+        const canonicalURI = this.CanonicalURI(parsedUrl.pathname!);
         const canonicalQueryString = this.CanonicalQueryString(request);
 
         let sortedKeys = _.sortBy(Object.keys(allHeaders), (x: string) => {
@@ -97,9 +97,26 @@ export class AKSKSigner {
         const authorization = {
             Authorization: `${this.SDK_SIGNING_ALGORITHM} Access=${credential.getAk()}, SignedHeaders=${signedHeaderNames}, Signature=${signatureString}`
         };
- 
-        Object.assign(allHeaders,authorization);
+
+        Object.assign(allHeaders, authorization);
         return allHeaders;
+    }
+
+    private static CanonicalURI(inputUri?: string) {
+        if (!inputUri) {
+            return inputUri;
+        }
+        var uriList = inputUri.split('/');
+        var uri = [];
+        for (var item in uriList) {
+            var uriValue = uriList[item];
+            uri.push(encodeURIComponent(uriValue))
+        }
+        var urlpath = uri.join('/');
+        if (urlpath[urlpath.length - 1] !== '/') {
+            urlpath = urlpath + '/'
+        }
+        return urlpath;
     }
 
     private static Hex = (str: string) => {
@@ -125,7 +142,7 @@ export class AKSKSigner {
     }
 
     // eslint-disable-next-line max-params
-    private static buildCanonicalRequest(method: string | undefined, canonicalURI: string | null, canonicalQueryString: string, canonicalHeaders: string, signedHeaderNames: string, payloadHash: string | undefined) {
+    private static buildCanonicalRequest(method: string | undefined, canonicalURI: string | undefined, canonicalQueryString: string, canonicalHeaders: string, signedHeaderNames: string, payloadHash: string | undefined) {
         const arr = [method, canonicalURI, canonicalQueryString, canonicalHeaders, signedHeaderNames, payloadHash];
 
         return arr.join("\n");

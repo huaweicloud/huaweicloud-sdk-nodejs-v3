@@ -176,7 +176,7 @@ export class CceClient {
     }
 
     /**
-     * 该API用于在指定集群下纳管节点。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下纳管节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 纳管节点
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
@@ -264,7 +264,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下创建节点。  > 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下创建节点。 > - 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 创建节点
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
@@ -328,7 +328,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于删除一个指定的集群。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于删除一个指定的集群。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 删除集群
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
@@ -349,7 +349,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于删除指定的节点。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
+     * 该API用于删除指定的节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
      * @summary 删除节点
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} nodeId 节点ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
@@ -454,7 +454,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于通过集群ID获取指定集群下所有节点的详细信息。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于通过集群ID获取指定集群下所有节点的详细信息。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 获取集群下所有节点
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
@@ -468,7 +468,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下迁移节点到另一集群。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下迁移节点到另一集群。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 节点迁移
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} targetClusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
@@ -484,7 +484,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下移除节点。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下移除节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 节点移除
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
@@ -499,7 +499,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下重置节点。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下重置节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 重置节点
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
@@ -529,7 +529,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于获取指定集群的详细信息。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于获取指定集群的详细信息。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 获取指定的集群
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
@@ -558,7 +558,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于通过节点ID获取指定节点的详细信息。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于通过节点ID获取指定节点的详细信息。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 获取指定的节点
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} nodeId 节点ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
@@ -603,7 +603,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于更新指定的集群。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于更新指定的集群。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 更新指定的集群
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
@@ -655,7 +655,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 该API用于在指定集群下纳管节点。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下纳管节点。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         addNode(addNodeRequest?: AddNodeRequest) {
             const options = {
@@ -945,7 +945,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下创建节点。  &gt; 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下创建节点。 &gt; - 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。 &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         createNode(createNodeRequest?: CreateNodeRequest) {
             const options = {
@@ -1175,7 +1175,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于删除一个指定的集群。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于删除一个指定的集群。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         deleteCluster(deleteClusterRequest?: DeleteClusterRequest) {
             const options = {
@@ -1261,7 +1261,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于删除指定的节点。 &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
+         * 该API用于删除指定的节点。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
          */
         deleteNode(deleteNodeRequest?: DeleteNodeRequest) {
             const options = {
@@ -1609,7 +1609,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于通过集群ID获取指定集群下所有节点的详细信息。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于通过集群ID获取指定集群下所有节点的详细信息。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         listNodes(listNodesRequest?: ListNodesRequest) {
             const options = {
@@ -1652,7 +1652,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下迁移节点到另一集群。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下迁移节点到另一集群。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         migrateNode(migrateNodeRequest?: MigrateNodeRequest) {
             const options = {
@@ -1709,7 +1709,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下移除节点。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下移除节点。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         removeNode(removeNodeRequest?: RemoveNodeRequest) {
             const options = {
@@ -1760,7 +1760,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下重置节点。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下重置节点。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         resetNode(resetNodeRequest?: ResetNodeRequest) {
             const options = {
@@ -1861,7 +1861,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于获取指定集群的详细信息。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于获取指定集群的详细信息。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         showCluster(showClusterRequest?: ShowClusterRequest) {
             const options = {
@@ -1954,7 +1954,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于通过节点ID获取指定节点的详细信息。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于通过节点ID获取指定节点的详细信息。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         showNode(showNodeRequest?: ShowNodeRequest) {
             const options = {
@@ -2103,7 +2103,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于更新指定的集群。 &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于更新指定的集群。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         updateCluster(updateClusterRequest?: UpdateClusterRequest) {
             const options = {
