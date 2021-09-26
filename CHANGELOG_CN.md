@@ -1,3 +1,14 @@
+# 3.0.17-beta 2021-09-26
+
+### HuaweiCloud SDK FunctionGraph
+
+- _新增特性_
+  - 支持函数工作流服务
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
 # 3.0.16-beta 2021-09-24
 
 ### HuaweiCloud SDK CCE

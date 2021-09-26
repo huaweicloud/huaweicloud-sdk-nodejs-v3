@@ -1,3 +1,14 @@
+# 3.0.17-beta 2021-09-26
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - Support the service `FunctionGraph`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.0.16-beta 2021-09-24
 
 ### HuaweiCloud SDK CCE
