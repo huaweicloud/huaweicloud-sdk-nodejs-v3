@@ -5,6 +5,10 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AddServerGroupMemberRequest } from './model/AddServerGroupMemberRequest';
 import { AddServerGroupMemberRequestBody } from './model/AddServerGroupMemberRequestBody';
 import { AddServerGroupMemberResponse } from './model/AddServerGroupMemberResponse';
+import { AssociateServerVirtualIpOption } from './model/AssociateServerVirtualIpOption';
+import { AssociateServerVirtualIpRequest } from './model/AssociateServerVirtualIpRequest';
+import { AssociateServerVirtualIpRequestBody } from './model/AssociateServerVirtualIpRequestBody';
+import { AssociateServerVirtualIpResponse } from './model/AssociateServerVirtualIpResponse';
 import { AttachServerVolumeOption } from './model/AttachServerVolumeOption';
 import { AttachServerVolumeRequest } from './model/AttachServerVolumeRequest';
 import { AttachServerVolumeRequestBody } from './model/AttachServerVolumeRequestBody';
@@ -13,6 +17,10 @@ import { BatchAddServerNicOption } from './model/BatchAddServerNicOption';
 import { BatchAddServerNicsRequest } from './model/BatchAddServerNicsRequest';
 import { BatchAddServerNicsRequestBody } from './model/BatchAddServerNicsRequestBody';
 import { BatchAddServerNicsResponse } from './model/BatchAddServerNicsResponse';
+import { BatchAttachSharableVolumesOption } from './model/BatchAttachSharableVolumesOption';
+import { BatchAttachSharableVolumesRequest } from './model/BatchAttachSharableVolumesRequest';
+import { BatchAttachSharableVolumesRequestBody } from './model/BatchAttachSharableVolumesRequestBody';
+import { BatchAttachSharableVolumesResponse } from './model/BatchAttachSharableVolumesResponse';
 import { BatchCreateServerTagsRequest } from './model/BatchCreateServerTagsRequest';
 import { BatchCreateServerTagsRequestBody } from './model/BatchCreateServerTagsRequestBody';
 import { BatchCreateServerTagsResponse } from './model/BatchCreateServerTagsResponse';
@@ -27,6 +35,9 @@ import { BatchRebootServersRequest } from './model/BatchRebootServersRequest';
 import { BatchRebootServersRequestBody } from './model/BatchRebootServersRequestBody';
 import { BatchRebootServersResponse } from './model/BatchRebootServersResponse';
 import { BatchRebootSeversOption } from './model/BatchRebootSeversOption';
+import { BatchResetServersPasswordRequest } from './model/BatchResetServersPasswordRequest';
+import { BatchResetServersPasswordRequestBody } from './model/BatchResetServersPasswordRequestBody';
+import { BatchResetServersPasswordResponse } from './model/BatchResetServersPasswordResponse';
 import { BatchStartServersOption } from './model/BatchStartServersOption';
 import { BatchStartServersRequest } from './model/BatchStartServersRequest';
 import { BatchStartServersRequestBody } from './model/BatchStartServersRequestBody';
@@ -35,11 +46,18 @@ import { BatchStopServersOption } from './model/BatchStopServersOption';
 import { BatchStopServersRequest } from './model/BatchStopServersRequest';
 import { BatchStopServersRequestBody } from './model/BatchStopServersRequestBody';
 import { BatchStopServersResponse } from './model/BatchStopServersResponse';
+import { BatchUpdateServersNameRequest } from './model/BatchUpdateServersNameRequest';
+import { BatchUpdateServersNameRequestBody } from './model/BatchUpdateServersNameRequestBody';
+import { BatchUpdateServersNameResponse } from './model/BatchUpdateServersNameResponse';
 import { BlockDeviceAttachableQuantity } from './model/BlockDeviceAttachableQuantity';
 import { ChangeServerOsWithCloudInitOption } from './model/ChangeServerOsWithCloudInitOption';
 import { ChangeServerOsWithCloudInitRequest } from './model/ChangeServerOsWithCloudInitRequest';
 import { ChangeServerOsWithCloudInitRequestBody } from './model/ChangeServerOsWithCloudInitRequestBody';
 import { ChangeServerOsWithCloudInitResponse } from './model/ChangeServerOsWithCloudInitResponse';
+import { ChangeServerOsWithoutCloudInitOption } from './model/ChangeServerOsWithoutCloudInitOption';
+import { ChangeServerOsWithoutCloudInitRequest } from './model/ChangeServerOsWithoutCloudInitRequest';
+import { ChangeServerOsWithoutCloudInitRequestBody } from './model/ChangeServerOsWithoutCloudInitRequestBody';
+import { ChangeServerOsWithoutCloudInitResponse } from './model/ChangeServerOsWithoutCloudInitResponse';
 import { ChangeSeversOsMetadata } from './model/ChangeSeversOsMetadata';
 import { CpuOptions } from './model/CpuOptions';
 import { CreatePostPaidServersRequest } from './model/CreatePostPaidServersRequest';
@@ -60,11 +78,17 @@ import { DeleteServerGroupRequest } from './model/DeleteServerGroupRequest';
 import { DeleteServerGroupResponse } from './model/DeleteServerGroupResponse';
 import { DeleteServerMetadataRequest } from './model/DeleteServerMetadataRequest';
 import { DeleteServerMetadataResponse } from './model/DeleteServerMetadataResponse';
+import { DeleteServerPasswordRequest } from './model/DeleteServerPasswordRequest';
+import { DeleteServerPasswordResponse } from './model/DeleteServerPasswordResponse';
 import { DeleteServersRequest } from './model/DeleteServersRequest';
 import { DeleteServersRequestBody } from './model/DeleteServersRequestBody';
 import { DeleteServersResponse } from './model/DeleteServersResponse';
 import { DetachServerVolumeRequest } from './model/DetachServerVolumeRequest';
 import { DetachServerVolumeResponse } from './model/DetachServerVolumeResponse';
+import { DisassociateServerVirtualIpOption } from './model/DisassociateServerVirtualIpOption';
+import { DisassociateServerVirtualIpRequest } from './model/DisassociateServerVirtualIpRequest';
+import { DisassociateServerVirtualIpRequestBody } from './model/DisassociateServerVirtualIpRequestBody';
+import { DisassociateServerVirtualIpResponse } from './model/DisassociateServerVirtualIpResponse';
 import { Flavor } from './model/Flavor';
 import { FlavorExtraSpec } from './model/FlavorExtraSpec';
 import { FlavorLink } from './model/FlavorLink';
@@ -88,8 +112,14 @@ import { ListServerGroupsResponse } from './model/ListServerGroupsResponse';
 import { ListServerGroupsResult } from './model/ListServerGroupsResult';
 import { ListServerInterfacesRequest } from './model/ListServerInterfacesRequest';
 import { ListServerInterfacesResponse } from './model/ListServerInterfacesResponse';
+import { ListServerTagsRequest } from './model/ListServerTagsRequest';
+import { ListServerTagsResponse } from './model/ListServerTagsResponse';
 import { ListServersDetailsRequest } from './model/ListServersDetailsRequest';
 import { ListServersDetailsResponse } from './model/ListServersDetailsResponse';
+import { MigrateServerOption } from './model/MigrateServerOption';
+import { MigrateServerRequest } from './model/MigrateServerRequest';
+import { MigrateServerRequestBody } from './model/MigrateServerRequestBody';
+import { MigrateServerResponse } from './model/MigrateServerResponse';
 import { NovaAddSecurityGroupOption } from './model/NovaAddSecurityGroupOption';
 import { NovaAssociateSecurityGroupRequest } from './model/NovaAssociateSecurityGroupRequest';
 import { NovaAssociateSecurityGroupRequestBody } from './model/NovaAssociateSecurityGroupRequestBody';
@@ -178,10 +208,18 @@ import { PrePaidServerSchedulerHints } from './model/PrePaidServerSchedulerHints
 import { PrePaidServerSecurityGroup } from './model/PrePaidServerSecurityGroup';
 import { PrePaidServerTag } from './model/PrePaidServerTag';
 import { ProjectFlavorLimit } from './model/ProjectFlavorLimit';
+import { ProjectTag } from './model/ProjectTag';
+import { RegisterServerAutoRecoveryRequest } from './model/RegisterServerAutoRecoveryRequest';
+import { RegisterServerAutoRecoveryRequestBody } from './model/RegisterServerAutoRecoveryRequestBody';
+import { RegisterServerAutoRecoveryResponse } from './model/RegisterServerAutoRecoveryResponse';
 import { ReinstallServerWithCloudInitOption } from './model/ReinstallServerWithCloudInitOption';
 import { ReinstallServerWithCloudInitRequest } from './model/ReinstallServerWithCloudInitRequest';
 import { ReinstallServerWithCloudInitRequestBody } from './model/ReinstallServerWithCloudInitRequestBody';
 import { ReinstallServerWithCloudInitResponse } from './model/ReinstallServerWithCloudInitResponse';
+import { ReinstallServerWithoutCloudInitOption } from './model/ReinstallServerWithoutCloudInitOption';
+import { ReinstallServerWithoutCloudInitRequest } from './model/ReinstallServerWithoutCloudInitRequest';
+import { ReinstallServerWithoutCloudInitRequestBody } from './model/ReinstallServerWithoutCloudInitRequestBody';
+import { ReinstallServerWithoutCloudInitResponse } from './model/ReinstallServerWithoutCloudInitResponse';
 import { ReinstallSeverMetadata } from './model/ReinstallSeverMetadata';
 import { ResetServerPasswordOption } from './model/ResetServerPasswordOption';
 import { ResetServerPasswordRequest } from './model/ResetServerPasswordRequest';
@@ -218,11 +256,17 @@ import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowResetPasswordFlagRequest } from './model/ShowResetPasswordFlagRequest';
 import { ShowResetPasswordFlagResponse } from './model/ShowResetPasswordFlagResponse';
+import { ShowServerAutoRecoveryRequest } from './model/ShowServerAutoRecoveryRequest';
+import { ShowServerAutoRecoveryResponse } from './model/ShowServerAutoRecoveryResponse';
+import { ShowServerBlockDeviceRequest } from './model/ShowServerBlockDeviceRequest';
+import { ShowServerBlockDeviceResponse } from './model/ShowServerBlockDeviceResponse';
 import { ShowServerGroupRequest } from './model/ShowServerGroupRequest';
 import { ShowServerGroupResponse } from './model/ShowServerGroupResponse';
 import { ShowServerGroupResult } from './model/ShowServerGroupResult';
 import { ShowServerLimitsRequest } from './model/ShowServerLimitsRequest';
 import { ShowServerLimitsResponse } from './model/ShowServerLimitsResponse';
+import { ShowServerPasswordRequest } from './model/ShowServerPasswordRequest';
+import { ShowServerPasswordResponse } from './model/ShowServerPasswordResponse';
 import { ShowServerRemoteConsoleRequest } from './model/ShowServerRemoteConsoleRequest';
 import { ShowServerRemoteConsoleRequestBody } from './model/ShowServerRemoteConsoleRequestBody';
 import { ShowServerRemoteConsoleResponse } from './model/ShowServerRemoteConsoleResponse';
@@ -275,6 +319,20 @@ export class EcsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 虚拟IP地址用于为网卡提供第二个IP地址，同时支持与多个弹性云服务器的网卡绑定，从而实现多个弹性云服务器之间的高可用性。  该接口用于给云服务器网卡配置虚拟IP地址：  - 当指定的IP地址是一个不存在的虚拟IP地址时，系统会创建该虚拟IP，并绑定至对应网卡。  - 当指定的IP地址是一个已经创建好的私有IP时，系统会将指定的网卡和虚拟IP绑定。如果该IP的device_owner为空，则仅支持VPC内二三层通信；如果该IP的device_owner为neutron:VIP_PORT，则支持VPC内二三层通信、VPC之间对等连接访问，以及弹性公网IP、VPN、云专线等Internet接入。
+     * @summary 云服务器网卡配置虚拟IP地址
+     * @param {string} nicId 云服务器网卡ID。
+     * @param {AssociateServerVirtualIpRequestBody} associateServerVirtualIpRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateServerVirtualIp(associateServerVirtualIpRequest?: AssociateServerVirtualIpRequest): Promise<AssociateServerVirtualIpResponse> {
+        const options = ParamCreater().associateServerVirtualIp(associateServerVirtualIpRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 把磁盘挂载到弹性云服务器上。
      * @summary 弹性云服务器挂载磁盘
      * @param {string} serverId 云服务器ID。
@@ -298,6 +356,20 @@ export class EcsClient {
      */
     public batchAddServerNics(batchAddServerNicsRequest?: BatchAddServerNicsRequest): Promise<BatchAddServerNicsResponse> {
         const options = ParamCreater().batchAddServerNics(batchAddServerNicsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 将指定的共享磁盘一次性挂载到多个弹性云服务器，实现批量挂载。
+     * @summary 批量挂载指定共享盘
+     * @param {string} volumeId 共享磁盘ID。
+     * @param {BatchAttachSharableVolumesRequestBody} batchAttachSharableVolumesRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchAttachSharableVolumes(batchAttachSharableVolumesRequest?: BatchAttachSharableVolumesRequest): Promise<BatchAttachSharableVolumesResponse> {
+        const options = ParamCreater().batchAttachSharableVolumes(batchAttachSharableVolumesRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -358,6 +430,19 @@ export class EcsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 批量重置弹性云服务器管理帐号（root用户或Administrator用户）的密码。
+     * @summary 批量重置弹性云服务器密码
+     * @param {BatchResetServersPasswordRequestBody} batchResetServersPasswordRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchResetServersPassword(batchResetServersPasswordRequest?: BatchResetServersPasswordRequest): Promise<BatchResetServersPasswordResponse> {
+        const options = ParamCreater().batchResetServersPassword(batchResetServersPasswordRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 根据给定的云服务器ID列表，批量启动云服务器，一次最多可以启动1000台。
      * @summary 批量启动云服务器
      * @param {BatchStartServersRequestBody} batchStartServersRequestBody This is a auto create Body Object
@@ -384,6 +469,19 @@ export class EcsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 批量修改弹性云服务器信息。 当前仅支持批量修改云服务器名称，一次最多可以修改1000台。
+     * @summary 批量修改弹性云服务器
+     * @param {BatchUpdateServersNameRequestBody} batchUpdateServersNameRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateServersName(batchUpdateServersNameRequest?: BatchUpdateServersNameRequest): Promise<BatchUpdateServersNameResponse> {
+        const options = ParamCreater().batchUpdateServersName(batchUpdateServersNameRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 切换弹性云服务器操作系统。支持弹性云服务器数据盘不变的情况下，使用新镜像重装系统盘。  调用该接口后，系统将卸载系统盘，然后使用新镜像重新创建系统盘，并挂载至弹性云服务器，实现切换操作系统功能。
      * @summary 切换弹性云服务器操作系统(安装Cloud init)
      * @param {string} serverId 云服务器ID。
@@ -393,6 +491,20 @@ export class EcsClient {
      */
     public changeServerOsWithCloudInit(changeServerOsWithCloudInitRequest?: ChangeServerOsWithCloudInitRequest): Promise<ChangeServerOsWithCloudInitResponse> {
         const options = ParamCreater().changeServerOsWithCloudInit(changeServerOsWithCloudInitRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 切换弹性云服务器操作系统。  该接口支持未安装Cloud-init或Cloudbase-init的镜像使用。
+     * @summary 切换弹性云服务器操作系统(未安装Cloud init)
+     * @param {string} serverId 云服务器ID。
+     * @param {ChangeServerOsWithoutCloudInitRequestBody} changeServerOsWithoutCloudInitRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeServerOsWithoutCloudInit(changeServerOsWithoutCloudInitRequest?: ChangeServerOsWithoutCloudInitRequest): Promise<ChangeServerOsWithoutCloudInitResponse> {
+        const options = ParamCreater().changeServerOsWithoutCloudInit(changeServerOsWithoutCloudInitRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -478,6 +590,19 @@ export class EcsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 清除Windows云服务器初始安装时系统生成的密码记录。清除密码后，不影响云服务器密码登录功能，但不能再使用获取密码功能来查询该云服务器密码。
+     * @summary 云服务器清除密码(企业项目)
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteServerPassword(deleteServerPasswordRequest?: DeleteServerPasswordRequest): Promise<void> {
+        const options = ParamCreater().deleteServerPassword(deleteServerPasswordRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 根据指定的云服务器ID列表，删除云服务器。  系统支持删除单台云服务器和批量删除多台云服务器操作，批量删除云服务器时，一次最多可以删除1000台。
      * @summary 删除云服务器
      * @param {DeleteServersRequestBody} deleteServersRequestBody This is a auto create Body Object
@@ -501,6 +626,20 @@ export class EcsClient {
      */
     public detachServerVolume(detachServerVolumeRequest?: DetachServerVolumeRequest): Promise<DetachServerVolumeResponse> {
         const options = ParamCreater().detachServerVolume(detachServerVolumeRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 虚拟IP地址用于为网卡提供第二个IP地址，同时支持与多个弹性云服务器的网卡绑定，从而实现多个弹性云服务器之间的高可用性。  该接口用于解绑定弹性云服务器网卡的虚拟IP地址。解绑后，网卡不会被删除。
+     * @summary 云服务器网卡解绑虚拟IP地址
+     * @param {string} nicId 云服务器网卡ID。
+     * @param {DisassociateServerVirtualIpRequestBody} disassociateServerVirtualIpRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateServerVirtualIp(disassociateServerVirtualIpRequest?: DisassociateServerVirtualIpRequest): Promise<DisassociateServerVirtualIpResponse> {
+        const options = ParamCreater().disassociateServerVirtualIp(disassociateServerVirtualIpRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -578,6 +717,18 @@ export class EcsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 项目（Project）用于将OpenStack的资源（计算资源、存储资源和网络资源）进行分组和隔离。项目可以是一个部门或者一个项目组。一个帐户中可以创建多个项目。  该接口用于查询用户在指定项目所使用的全部标签。
+     * @summary 查询项目标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listServerTags(): Promise<ListServerTagsResponse> {
+        const options = ParamCreater().listServerTags();
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 根据用户请求条件从数据库筛选、查询所有的弹性云服务器，并关联相关表获取到弹性云服务器的详细信息。  该接口支持查询弹性云服务器计费方式，以及是否被冻结。
      * @summary 查询云服务器详情列表
      * @param {string} [enterpriseProjectId] 查询绑定某个企业项目的弹性云服务器。  若需要查询当前用户所有企业项目绑定的弹性云服务，请传参all_granted_eps。
@@ -595,6 +746,20 @@ export class EcsClient {
      */
     public listServersDetails(listServersDetailsRequest?: ListServersDetailsRequest): Promise<ListServersDetailsResponse> {
         const options = ParamCreater().listServersDetails(listServersDetailsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * - 将部署在专属主机上的弹性云服务器迁移至其他专属主机。 - 将部署在专属主机上的弹性云服务器迁移至公共资源池，即不再部署在专属主机上。 - 将公共资源池的弹性云服务器迁移至专属主机上，成为专属主机上部署的弹性云服务器。
+     * @summary 冷迁移云服务器
+     * @param {string} serverId 云服务器ID。
+     * @param {MigrateServerRequestBody} migrateServerRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public migrateServer(migrateServerRequest?: MigrateServerRequest): Promise<MigrateServerResponse> {
+        const options = ParamCreater().migrateServer(migrateServerRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -775,6 +940,20 @@ export class EcsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 配置、删除云服务器自动恢复动作。
+     * @summary 管理云服务器自动恢复动作
+     * @param {string} serverId 云服务器ID。
+     * @param {RegisterServerAutoRecoveryRequestBody} registerServerAutoRecoveryRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public registerServerAutoRecovery(registerServerAutoRecoveryRequest?: RegisterServerAutoRecoveryRequest): Promise<void> {
+        const options = ParamCreater().registerServerAutoRecovery(registerServerAutoRecoveryRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 重装弹性云服务器的操作系统。支持弹性云服务器数据盘不变的情况下，使用原镜像重装系统盘。  调用该接口后，系统将卸载系统盘，然后使用原镜像重新创建系统盘，并挂载至弹性云服务器，实现重装操作系统功能。
      * @summary 重装弹性云服务器操作系统(安装Cloud-init)
      * @param {string} serverId 云服务器ID。
@@ -784,6 +963,20 @@ export class EcsClient {
      */
     public reinstallServerWithCloudInit(reinstallServerWithCloudInitRequest?: ReinstallServerWithCloudInitRequest): Promise<ReinstallServerWithCloudInitResponse> {
         const options = ParamCreater().reinstallServerWithCloudInit(reinstallServerWithCloudInitRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 重装弹性云服务器的操作系统。  该接口支持未安装Cloud-init或Cloudbase-init的镜像。
+     * @summary 重装弹性云服务器操作系统(未安装Cloud init)
+     * @param {string} serverId 云服务器ID。
+     * @param {ReinstallServerWithoutCloudInitRequestBody} reinstallServerWithoutCloudInitRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public reinstallServerWithoutCloudInit(reinstallServerWithoutCloudInitRequest?: ReinstallServerWithoutCloudInitRequest): Promise<ReinstallServerWithoutCloudInitResponse> {
+        const options = ParamCreater().reinstallServerWithoutCloudInit(reinstallServerWithoutCloudInitRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -857,6 +1050,33 @@ export class EcsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 查询云服务器是否配置了自动恢复动作。
+     * @summary 查询云服务器是否配置了自动恢复动作
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showServerAutoRecovery(showServerAutoRecoveryRequest?: ShowServerAutoRecoveryRequest): Promise<ShowServerAutoRecoveryResponse> {
+        const options = ParamCreater().showServerAutoRecovery(showServerAutoRecoveryRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 查询弹性云服务器挂载的单个磁盘信息。
+     * @summary 查询弹性云服务器单个磁盘信息
+     * @param {string} serverId 云服务器ID。
+     * @param {string} volumeId 云硬盘ID，UUID格式。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showServerBlockDevice(showServerBlockDeviceRequest?: ShowServerBlockDeviceRequest): Promise<ShowServerBlockDeviceResponse> {
+        const options = ParamCreater().showServerBlockDevice(showServerBlockDeviceRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 查询弹性云服务器组详情。  与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
      * @summary 查询云服务器组详情
      * @param {string} serverGroupId 弹性云服务器组UUID。
@@ -877,6 +1097,19 @@ export class EcsClient {
      */
     public showServerLimits(): Promise<ShowServerLimitsResponse> {
         const options = ParamCreater().showServerLimits();
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 当通过支持Cloudbase-init功能的镜像创建Windows云服务器时，获取云服务器初始安装时系统生成的管理员帐户（Administrator帐户或Cloudbase-init设置的帐户）随机密码。
+     * @summary 云服务器获取密码(企业项目)
+     * @param {string} serverId 云服务器ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showServerPassword(showServerPasswordRequest?: ShowServerPasswordRequest): Promise<ShowServerPasswordResponse> {
+        const options = ParamCreater().showServerPassword(showServerPasswordRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1011,6 +1244,48 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 虚拟IP地址用于为网卡提供第二个IP地址，同时支持与多个弹性云服务器的网卡绑定，从而实现多个弹性云服务器之间的高可用性。  该接口用于给云服务器网卡配置虚拟IP地址：  - 当指定的IP地址是一个不存在的虚拟IP地址时，系统会创建该虚拟IP，并绑定至对应网卡。  - 当指定的IP地址是一个已经创建好的私有IP时，系统会将指定的网卡和虚拟IP绑定。如果该IP的device_owner为空，则仅支持VPC内二三层通信；如果该IP的device_owner为neutron:VIP_PORT，则支持VPC内二三层通信、VPC之间对等连接访问，以及弹性公网IP、VPN、云专线等Internet接入。
+         */
+        associateServerVirtualIp(associateServerVirtualIpRequest?: AssociateServerVirtualIpRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloudservers/nics/{nic_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let nicId;
+
+            if (associateServerVirtualIpRequest !== null && associateServerVirtualIpRequest !== undefined) {
+                if (associateServerVirtualIpRequest instanceof AssociateServerVirtualIpRequest) {
+                    nicId = associateServerVirtualIpRequest.nicId;
+                    body = associateServerVirtualIpRequest.body
+                } else {
+                    nicId = associateServerVirtualIpRequest['nic_id'];
+                    body = associateServerVirtualIpRequest['body'];
+                }
+            }
+        
+            if (nicId === null || nicId === undefined) {
+                throw new RequiredError('nicId','Required parameter nicId was null or undefined when calling associateServerVirtualIp.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'nic_id': nicId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 把磁盘挂载到弹性云服务器上。
          */
         attachServerVolume(attachServerVolumeRequest?: AttachServerVolumeRequest) {
@@ -1090,6 +1365,48 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将指定的共享磁盘一次性挂载到多个弹性云服务器，实现批量挂载。
+         */
+        batchAttachSharableVolumes(batchAttachSharableVolumesRequest?: BatchAttachSharableVolumesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/batchaction/attachvolumes/{volume_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let volumeId;
+
+            if (batchAttachSharableVolumesRequest !== null && batchAttachSharableVolumesRequest !== undefined) {
+                if (batchAttachSharableVolumesRequest instanceof BatchAttachSharableVolumesRequest) {
+                    volumeId = batchAttachSharableVolumesRequest.volumeId;
+                    body = batchAttachSharableVolumesRequest.body
+                } else {
+                    volumeId = batchAttachSharableVolumesRequest['volume_id'];
+                    body = batchAttachSharableVolumesRequest['body'];
+                }
+            }
+        
+            if (volumeId === null || volumeId === undefined) {
+                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling batchAttachSharableVolumes.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'volume_id': volumeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1256,6 +1573,41 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量重置弹性云服务器管理帐号（root用户或Administrator用户）的密码。
+         */
+        batchResetServersPassword(batchResetServersPasswordRequest?: BatchResetServersPasswordRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloudservers/os-reset-passwords",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (batchResetServersPasswordRequest !== null && batchResetServersPasswordRequest !== undefined) {
+                if (batchResetServersPasswordRequest instanceof BatchResetServersPasswordRequest) {
+                    body = batchResetServersPasswordRequest.body
+                } else {
+                    body = batchResetServersPasswordRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据给定的云服务器ID列表，批量启动云服务器，一次最多可以启动1000台。
          */
         batchStartServers(batchStartServersRequest?: BatchStartServersRequest) {
@@ -1326,6 +1678,41 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量修改弹性云服务器信息。 当前仅支持批量修改云服务器名称，一次最多可以修改1000台。
+         */
+        batchUpdateServersName(batchUpdateServersNameRequest?: BatchUpdateServersNameRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloudservers/server-name",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (batchUpdateServersNameRequest !== null && batchUpdateServersNameRequest !== undefined) {
+                if (batchUpdateServersNameRequest instanceof BatchUpdateServersNameRequest) {
+                    body = batchUpdateServersNameRequest.body
+                } else {
+                    body = batchUpdateServersNameRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 切换弹性云服务器操作系统。支持弹性云服务器数据盘不变的情况下，使用新镜像重装系统盘。  调用该接口后，系统将卸载系统盘，然后使用新镜像重新创建系统盘，并挂载至弹性云服务器，实现切换操作系统功能。
          */
         changeServerOsWithCloudInit(changeServerOsWithCloudInitRequest?: ChangeServerOsWithCloudInitRequest) {
@@ -1355,6 +1742,48 @@ export const ParamCreater = function () {
         
             if (serverId === null || serverId === undefined) {
                 throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling changeServerOsWithCloudInit.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 切换弹性云服务器操作系统。  该接口支持未安装Cloud-init或Cloudbase-init的镜像使用。
+         */
+        changeServerOsWithoutCloudInit(changeServerOsWithoutCloudInitRequest?: ChangeServerOsWithoutCloudInitRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/{server_id}/changeos",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let serverId;
+
+            if (changeServerOsWithoutCloudInitRequest !== null && changeServerOsWithoutCloudInitRequest !== undefined) {
+                if (changeServerOsWithoutCloudInitRequest instanceof ChangeServerOsWithoutCloudInitRequest) {
+                    serverId = changeServerOsWithoutCloudInitRequest.serverId;
+                    body = changeServerOsWithoutCloudInitRequest.body
+                } else {
+                    serverId = changeServerOsWithoutCloudInitRequest['server_id'];
+                    body = changeServerOsWithoutCloudInitRequest['body'];
+                }
+            }
+        
+            if (serverId === null || serverId === undefined) {
+                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling changeServerOsWithoutCloudInit.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1589,6 +2018,40 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 清除Windows云服务器初始安装时系统生成的密码记录。清除密码后，不影响云服务器密码登录功能，但不能再使用获取密码功能来查询该云服务器密码。
+         */
+        deleteServerPassword(deleteServerPasswordRequest?: DeleteServerPasswordRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/cloudservers/{server_id}/os-server-password",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let serverId;
+
+            if (deleteServerPasswordRequest !== null && deleteServerPasswordRequest !== undefined) {
+                if (deleteServerPasswordRequest instanceof DeleteServerPasswordRequest) {
+                    serverId = deleteServerPasswordRequest.serverId;
+                } else {
+                    serverId = deleteServerPasswordRequest['server_id'];
+                }
+            }
+        
+            if (serverId === null || serverId === undefined) {
+                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling deleteServerPassword.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据指定的云服务器ID列表，删除云服务器。  系统支持删除单台云服务器和批量删除多台云服务器操作，批量删除云服务器时，一次最多可以删除1000台。
          */
         deleteServers(deleteServersRequest?: DeleteServersRequest) {
@@ -1666,6 +2129,48 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'server_id': serverId,'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 虚拟IP地址用于为网卡提供第二个IP地址，同时支持与多个弹性云服务器的网卡绑定，从而实现多个弹性云服务器之间的高可用性。  该接口用于解绑定弹性云服务器网卡的虚拟IP地址。解绑后，网卡不会被删除。
+         */
+        disassociateServerVirtualIp(disassociateServerVirtualIpRequest?: DisassociateServerVirtualIpRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloudservers/nics/{nic_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let nicId;
+
+            if (disassociateServerVirtualIpRequest !== null && disassociateServerVirtualIpRequest !== undefined) {
+                if (disassociateServerVirtualIpRequest instanceof DisassociateServerVirtualIpRequest) {
+                    nicId = disassociateServerVirtualIpRequest.nicId;
+                    body = disassociateServerVirtualIpRequest.body
+                } else {
+                    nicId = disassociateServerVirtualIpRequest['nic_id'];
+                    body = disassociateServerVirtualIpRequest['body'];
+                }
+            }
+        
+            if (nicId === null || nicId === undefined) {
+                throw new RequiredError('nicId','Required parameter nicId was null or undefined when calling disassociateServerVirtualIp.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'nic_id': nicId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1883,6 +2388,26 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 项目（Project）用于将OpenStack的资源（计算资源、存储资源和网络资源）进行分组和隔离。项目可以是一个部门或者一个项目组。一个帐户中可以创建多个项目。  该接口用于查询用户在指定项目所使用的全部标签。
+         */
+        listServerTags() {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据用户请求条件从数据库筛选、查询所有的弹性云服务器，并关联相关表获取到弹性云服务器的详细信息。  该接口支持查询弹性云服务器计费方式，以及是否被冻结。
          */
         listServersDetails(listServersDetailsRequest?: ListServersDetailsRequest) {
@@ -1966,6 +2491,48 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * - 将部署在专属主机上的弹性云服务器迁移至其他专属主机。 - 将部署在专属主机上的弹性云服务器迁移至公共资源池，即不再部署在专属主机上。 - 将公共资源池的弹性云服务器迁移至专属主机上，成为专属主机上部署的弹性云服务器。
+         */
+        migrateServer(migrateServerRequest?: MigrateServerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/{server_id}/migrate",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let serverId;
+
+            if (migrateServerRequest !== null && migrateServerRequest !== undefined) {
+                if (migrateServerRequest instanceof MigrateServerRequest) {
+                    serverId = migrateServerRequest.serverId;
+                    body = migrateServerRequest.body
+                } else {
+                    serverId = migrateServerRequest['server_id'];
+                    body = migrateServerRequest['body'];
+                }
+            }
+        
+            if (serverId === null || serverId === undefined) {
+                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling migrateServer.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2491,6 +3058,48 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 配置、删除云服务器自动恢复动作。
+         */
+        registerServerAutoRecovery(registerServerAutoRecoveryRequest?: RegisterServerAutoRecoveryRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloudservers/{server_id}/autorecovery",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let serverId;
+
+            if (registerServerAutoRecoveryRequest !== null && registerServerAutoRecoveryRequest !== undefined) {
+                if (registerServerAutoRecoveryRequest instanceof RegisterServerAutoRecoveryRequest) {
+                    serverId = registerServerAutoRecoveryRequest.serverId;
+                    body = registerServerAutoRecoveryRequest.body
+                } else {
+                    serverId = registerServerAutoRecoveryRequest['server_id'];
+                    body = registerServerAutoRecoveryRequest['body'];
+                }
+            }
+        
+            if (serverId === null || serverId === undefined) {
+                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling registerServerAutoRecovery.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重装弹性云服务器的操作系统。支持弹性云服务器数据盘不变的情况下，使用原镜像重装系统盘。  调用该接口后，系统将卸载系统盘，然后使用原镜像重新创建系统盘，并挂载至弹性云服务器，实现重装操作系统功能。
          */
         reinstallServerWithCloudInit(reinstallServerWithCloudInitRequest?: ReinstallServerWithCloudInitRequest) {
@@ -2520,6 +3129,48 @@ export const ParamCreater = function () {
         
             if (serverId === null || serverId === undefined) {
                 throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling reinstallServerWithCloudInit.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重装弹性云服务器的操作系统。  该接口支持未安装Cloud-init或Cloudbase-init的镜像。
+         */
+        reinstallServerWithoutCloudInit(reinstallServerWithoutCloudInitRequest?: ReinstallServerWithoutCloudInitRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/{server_id}/reinstallos",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let serverId;
+
+            if (reinstallServerWithoutCloudInitRequest !== null && reinstallServerWithoutCloudInitRequest !== undefined) {
+                if (reinstallServerWithoutCloudInitRequest instanceof ReinstallServerWithoutCloudInitRequest) {
+                    serverId = reinstallServerWithoutCloudInitRequest.serverId;
+                    body = reinstallServerWithoutCloudInitRequest.body
+                } else {
+                    serverId = reinstallServerWithoutCloudInitRequest['server_id'];
+                    body = reinstallServerWithoutCloudInitRequest['body'];
+                }
+            }
+        
+            if (serverId === null || serverId === undefined) {
+                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling reinstallServerWithoutCloudInit.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2727,6 +3378,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询云服务器是否配置了自动恢复动作。
+         */
+        showServerAutoRecovery(showServerAutoRecoveryRequest?: ShowServerAutoRecoveryRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/{server_id}/autorecovery",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let serverId;
+
+            if (showServerAutoRecoveryRequest !== null && showServerAutoRecoveryRequest !== undefined) {
+                if (showServerAutoRecoveryRequest instanceof ShowServerAutoRecoveryRequest) {
+                    serverId = showServerAutoRecoveryRequest.serverId;
+                } else {
+                    serverId = showServerAutoRecoveryRequest['server_id'];
+                }
+            }
+        
+            if (serverId === null || serverId === undefined) {
+                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerAutoRecovery.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询弹性云服务器挂载的单个磁盘信息。
+         */
+        showServerBlockDevice(showServerBlockDeviceRequest?: ShowServerBlockDeviceRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/{server_id}/block_device/{volume_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let serverId;
+            let volumeId;
+
+            if (showServerBlockDeviceRequest !== null && showServerBlockDeviceRequest !== undefined) {
+                if (showServerBlockDeviceRequest instanceof ShowServerBlockDeviceRequest) {
+                    serverId = showServerBlockDeviceRequest.serverId;
+                    volumeId = showServerBlockDeviceRequest.volumeId;
+                } else {
+                    serverId = showServerBlockDeviceRequest['server_id'];
+                    volumeId = showServerBlockDeviceRequest['volume_id'];
+                }
+            }
+        
+            if (serverId === null || serverId === undefined) {
+                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerBlockDevice.');
+            }
+            if (volumeId === null || volumeId === undefined) {
+                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling showServerBlockDevice.');
+            }
+
+            options.pathParams = { 'server_id': serverId,'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询弹性云服务器组详情。  与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
          */
         showServerGroup(showServerGroupRequest?: ShowServerGroupRequest) {
@@ -2776,6 +3501,40 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当通过支持Cloudbase-init功能的镜像创建Windows云服务器时，获取云服务器初始安装时系统生成的管理员帐户（Administrator帐户或Cloudbase-init设置的帐户）随机密码。
+         */
+        showServerPassword(showServerPasswordRequest?: ShowServerPasswordRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/{server_id}/os-server-password",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let serverId;
+
+            if (showServerPasswordRequest !== null && showServerPasswordRequest !== undefined) {
+                if (showServerPasswordRequest instanceof ShowServerPasswordRequest) {
+                    serverId = showServerPasswordRequest.serverId;
+                } else {
+                    serverId = showServerPasswordRequest['server_id'];
+                }
+            }
+        
+            if (serverId === null || serverId === undefined) {
+                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerPassword.');
+            }
+
+            options.pathParams = { 'server_id': serverId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

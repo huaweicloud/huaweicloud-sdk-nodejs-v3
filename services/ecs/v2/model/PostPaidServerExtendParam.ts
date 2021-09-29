@@ -11,6 +11,7 @@ export class PostPaidServerExtendParam {
     private 'spot_duration_hours'?: number | undefined;
     private 'interruption_policy'?: PostPaidServerExtendParamInterruptionPolicyEnum | undefined;
     private 'spot_duration_count'?: number | undefined;
+    private 'CB_CSBS_BACKUP'?: string | undefined;
     public constructor() { 
     }
     public withChargingMode(chargingMode: number): PostPaidServerExtendParam {
@@ -82,6 +83,16 @@ export class PostPaidServerExtendParam {
     }
     public get spotDurationCount() {
         return this['spot_duration_count'];
+    }
+    public withCbCsbsBackup(cbCsbsBackup: string): PostPaidServerExtendParam {
+        this['CB_CSBS_BACKUP'] = cbCsbsBackup;
+        return this;
+    }
+    public set cbCsbsBackup(cbCsbsBackup: string | undefined) {
+        this['CB_CSBS_BACKUP'] = cbCsbsBackup;
+    }
+    public get cbCsbsBackup() {
+        return this['CB_CSBS_BACKUP'];
     }
 }
 
