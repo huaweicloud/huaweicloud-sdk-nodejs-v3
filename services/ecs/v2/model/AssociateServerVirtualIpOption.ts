@@ -3,11 +3,10 @@
 export class AssociateServerVirtualIpOption {
     private 'subnet_id': string | undefined;
     private 'ip_address': string | undefined;
-    private 'reverse_binding': boolean | undefined;
-    public constructor(subnetId?: any, ipAddress?: any, reverseBinding?: any) { 
+    private 'reverse_binding'?: boolean | undefined;
+    public constructor(subnetId?: any, ipAddress?: any) { 
         this['subnet_id'] = subnetId;
         this['ip_address'] = ipAddress;
-        this['reverse_binding'] = reverseBinding;
     }
     public withSubnetId(subnetId: string): AssociateServerVirtualIpOption {
         this['subnet_id'] = subnetId;
