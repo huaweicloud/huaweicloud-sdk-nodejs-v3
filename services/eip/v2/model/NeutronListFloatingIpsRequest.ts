@@ -1,7 +1,7 @@
 
 
 export class NeutronListFloatingIpsRequest {
-    public limit?: string;
+    public limit?: number;
     public marker?: string;
     private 'page_reverse'?: boolean | undefined;
     public id?: string;
@@ -13,7 +13,7 @@ export class NeutronListFloatingIpsRequest {
     private 'floating_network_id'?: string | undefined;
     public constructor() { 
     }
-    public withLimit(limit: string): NeutronListFloatingIpsRequest {
+    public withLimit(limit: number): NeutronListFloatingIpsRequest {
         this['limit'] = limit;
         return this;
     }

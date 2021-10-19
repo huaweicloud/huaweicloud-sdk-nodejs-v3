@@ -1,10 +1,10 @@
 import { ProfileResp } from './ProfileResp';
 
 
-export class PublicipShowResp {
+export class PublicipUpdateResp {
     private 'bandwidth_id'?: string | undefined;
     private 'bandwidth_name'?: string | undefined;
-    private 'bandwidth_share_type'?: PublicipShowRespBandwidthShareTypeEnum | undefined;
+    private 'bandwidth_share_type'?: PublicipUpdateRespBandwidthShareTypeEnum | undefined;
     private 'bandwidth_size'?: number | undefined;
     private 'create_time'?: Date | undefined;
     private 'enterprise_project_id'?: string | undefined;
@@ -13,16 +13,14 @@ export class PublicipShowResp {
     private 'private_ip_address'?: string | undefined;
     public profile?: ProfileResp;
     private 'public_ip_address'?: string | undefined;
-    public status?: PublicipShowRespStatusEnum;
+    public status?: PublicipUpdateRespStatusEnum;
     private 'tenant_id'?: string | undefined;
     public type?: string;
     private 'public_ipv6_address'?: string | undefined;
-    private 'ip_version'?: PublicipShowRespIpVersionEnum | undefined;
-    private 'public_border_group'?: string | undefined;
-    private 'allow_share_bandwidth_types'?: Array<string> | undefined;
+    private 'ip_version'?: PublicipUpdateRespIpVersionEnum | undefined;
     public constructor() { 
     }
-    public withBandwidthId(bandwidthId: string): PublicipShowResp {
+    public withBandwidthId(bandwidthId: string): PublicipUpdateResp {
         this['bandwidth_id'] = bandwidthId;
         return this;
     }
@@ -32,7 +30,7 @@ export class PublicipShowResp {
     public get bandwidthId() {
         return this['bandwidth_id'];
     }
-    public withBandwidthName(bandwidthName: string): PublicipShowResp {
+    public withBandwidthName(bandwidthName: string): PublicipUpdateResp {
         this['bandwidth_name'] = bandwidthName;
         return this;
     }
@@ -42,17 +40,17 @@ export class PublicipShowResp {
     public get bandwidthName() {
         return this['bandwidth_name'];
     }
-    public withBandwidthShareType(bandwidthShareType: PublicipShowRespBandwidthShareTypeEnum): PublicipShowResp {
+    public withBandwidthShareType(bandwidthShareType: PublicipUpdateRespBandwidthShareTypeEnum): PublicipUpdateResp {
         this['bandwidth_share_type'] = bandwidthShareType;
         return this;
     }
-    public set bandwidthShareType(bandwidthShareType: PublicipShowRespBandwidthShareTypeEnum | undefined) {
+    public set bandwidthShareType(bandwidthShareType: PublicipUpdateRespBandwidthShareTypeEnum | undefined) {
         this['bandwidth_share_type'] = bandwidthShareType;
     }
     public get bandwidthShareType() {
         return this['bandwidth_share_type'];
     }
-    public withBandwidthSize(bandwidthSize: number): PublicipShowResp {
+    public withBandwidthSize(bandwidthSize: number): PublicipUpdateResp {
         this['bandwidth_size'] = bandwidthSize;
         return this;
     }
@@ -62,7 +60,7 @@ export class PublicipShowResp {
     public get bandwidthSize() {
         return this['bandwidth_size'];
     }
-    public withCreateTime(createTime: Date): PublicipShowResp {
+    public withCreateTime(createTime: Date): PublicipUpdateResp {
         this['create_time'] = createTime;
         return this;
     }
@@ -72,7 +70,7 @@ export class PublicipShowResp {
     public get createTime() {
         return this['create_time'];
     }
-    public withEnterpriseProjectId(enterpriseProjectId: string): PublicipShowResp {
+    public withEnterpriseProjectId(enterpriseProjectId: string): PublicipUpdateResp {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
@@ -82,11 +80,11 @@ export class PublicipShowResp {
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
     }
-    public withId(id: string): PublicipShowResp {
+    public withId(id: string): PublicipUpdateResp {
         this['id'] = id;
         return this;
     }
-    public withPortId(portId: string): PublicipShowResp {
+    public withPortId(portId: string): PublicipUpdateResp {
         this['port_id'] = portId;
         return this;
     }
@@ -96,7 +94,7 @@ export class PublicipShowResp {
     public get portId() {
         return this['port_id'];
     }
-    public withPrivateIpAddress(privateIpAddress: string): PublicipShowResp {
+    public withPrivateIpAddress(privateIpAddress: string): PublicipUpdateResp {
         this['private_ip_address'] = privateIpAddress;
         return this;
     }
@@ -106,11 +104,11 @@ export class PublicipShowResp {
     public get privateIpAddress() {
         return this['private_ip_address'];
     }
-    public withProfile(profile: ProfileResp): PublicipShowResp {
+    public withProfile(profile: ProfileResp): PublicipUpdateResp {
         this['profile'] = profile;
         return this;
     }
-    public withPublicIpAddress(publicIpAddress: string): PublicipShowResp {
+    public withPublicIpAddress(publicIpAddress: string): PublicipUpdateResp {
         this['public_ip_address'] = publicIpAddress;
         return this;
     }
@@ -120,11 +118,11 @@ export class PublicipShowResp {
     public get publicIpAddress() {
         return this['public_ip_address'];
     }
-    public withStatus(status: PublicipShowRespStatusEnum): PublicipShowResp {
+    public withStatus(status: PublicipUpdateRespStatusEnum): PublicipUpdateResp {
         this['status'] = status;
         return this;
     }
-    public withTenantId(tenantId: string): PublicipShowResp {
+    public withTenantId(tenantId: string): PublicipUpdateResp {
         this['tenant_id'] = tenantId;
         return this;
     }
@@ -134,11 +132,11 @@ export class PublicipShowResp {
     public get tenantId() {
         return this['tenant_id'];
     }
-    public withType(type: string): PublicipShowResp {
+    public withType(type: string): PublicipUpdateResp {
         this['type'] = type;
         return this;
     }
-    public withPublicIpv6Address(publicIpv6Address: string): PublicipShowResp {
+    public withPublicIpv6Address(publicIpv6Address: string): PublicipUpdateResp {
         this['public_ipv6_address'] = publicIpv6Address;
         return this;
     }
@@ -148,35 +146,15 @@ export class PublicipShowResp {
     public get publicIpv6Address() {
         return this['public_ipv6_address'];
     }
-    public withIpVersion(ipVersion: PublicipShowRespIpVersionEnum): PublicipShowResp {
+    public withIpVersion(ipVersion: PublicipUpdateRespIpVersionEnum): PublicipUpdateResp {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: PublicipShowRespIpVersionEnum | undefined) {
+    public set ipVersion(ipVersion: PublicipUpdateRespIpVersionEnum | undefined) {
         this['ip_version'] = ipVersion;
     }
     public get ipVersion() {
         return this['ip_version'];
-    }
-    public withPublicBorderGroup(publicBorderGroup: string): PublicipShowResp {
-        this['public_border_group'] = publicBorderGroup;
-        return this;
-    }
-    public set publicBorderGroup(publicBorderGroup: string | undefined) {
-        this['public_border_group'] = publicBorderGroup;
-    }
-    public get publicBorderGroup() {
-        return this['public_border_group'];
-    }
-    public withAllowShareBandwidthTypes(allowShareBandwidthTypes: Array<string>): PublicipShowResp {
-        this['allow_share_bandwidth_types'] = allowShareBandwidthTypes;
-        return this;
-    }
-    public set allowShareBandwidthTypes(allowShareBandwidthTypes: Array<string> | undefined) {
-        this['allow_share_bandwidth_types'] = allowShareBandwidthTypes;
-    }
-    public get allowShareBandwidthTypes() {
-        return this['allow_share_bandwidth_types'];
     }
 }
 
@@ -184,7 +162,7 @@ export class PublicipShowResp {
     * @export
     * @enum {string}
     */
-export enum PublicipShowRespBandwidthShareTypeEnum {
+export enum PublicipUpdateRespBandwidthShareTypeEnum {
     WHOLE = 'WHOLE',
     PER = 'PER'
 }
@@ -192,7 +170,7 @@ export enum PublicipShowRespBandwidthShareTypeEnum {
     * @export
     * @enum {string}
     */
-export enum PublicipShowRespStatusEnum {
+export enum PublicipUpdateRespStatusEnum {
     FREEZED = 'FREEZED',
     BIND_ERROR = 'BIND_ERROR',
     BINDING = 'BINDING',
@@ -211,7 +189,7 @@ export enum PublicipShowRespStatusEnum {
     * @export
     * @enum {string}
     */
-export enum PublicipShowRespIpVersionEnum {
+export enum PublicipUpdateRespIpVersionEnum {
     NUMBER_4 = 4,
     NUMBER_6 = 6
 }

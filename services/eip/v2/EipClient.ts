@@ -77,6 +77,7 @@ import { ProfileResp } from './model/ProfileResp';
 import { PublicipCreateResp } from './model/PublicipCreateResp';
 import { PublicipInfoResp } from './model/PublicipInfoResp';
 import { PublicipShowResp } from './model/PublicipShowResp';
+import { PublicipUpdateResp } from './model/PublicipUpdateResp';
 import { QuotaShowResp } from './model/QuotaShowResp';
 import { RemoveFromSharedBandwidthOption } from './model/RemoveFromSharedBandwidthOption';
 import { RemovePublicipInfo } from './model/RemovePublicipInfo';
@@ -378,6 +379,7 @@ export class EipClient {
      * @param {Array<string>} [publicIpAddress] IPv4时是申请到的弹性公网IP地址，IPv6时是IPv6地址对应的IPv4地址
      * @param {Array<string>} [privateIpAddress] 关联端口的私有IP地址
      * @param {Array<string>} [id] 弹性公网IP唯一标识
+     * @param {Array<string>} [allowShareBandwidthTypeAny] 共享带宽类型，根据任一共享带宽类型过滤EIP列表。 可以指定多个带宽类型，不同的带宽类型间用逗号分隔。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -469,7 +471,7 @@ export class EipClient {
     /**
      * 查询提交请求的租户有权限操作的所有浮动IP地址。
      * @summary 查询浮动IP列表
-     * @param {string} [limit] 每页显示的条目数量。
+     * @param {number} [limit] 每页显示的条目数量。
      * @param {string} [marker] 取值为上一页数据的最后一条记录的id，当marker参数为无效id时，response将响应错误码400
      * @param {boolean} [pageReverse] False/True，是否设置分页的顺序。
      * @param {string} [id] 浮动IP的id。
@@ -505,7 +507,7 @@ export class EipClient {
      * 更新浮动IP。  更新时需在URL中给出浮动IP地址的ID。  port_id 为空，则表示浮动IP从端口解绑。
      * @summary 更新浮动IP
      * @param {string} floatingipId floatingip的ID
-     * @param {NeutronUpdateFloatingIpRequestBody} floatingip 更新floatingip对象
+     * @param {NeutronUpdateFloatingIpRequestBody} neutronUpdateFloatingIpRequestBody 更新floatingip对象
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1225,6 +1227,7 @@ export const ParamCreater = function () {
             let publicIpAddress;
             let privateIpAddress;
             let id;
+            let allowShareBandwidthTypeAny;
 
             if (listPublicipsRequest !== null && listPublicipsRequest !== undefined) {
                 if (listPublicipsRequest instanceof ListPublicipsRequest) {
@@ -1236,6 +1239,7 @@ export const ParamCreater = function () {
                     publicIpAddress = listPublicipsRequest.publicIpAddress;
                     privateIpAddress = listPublicipsRequest.privateIpAddress;
                     id = listPublicipsRequest.id;
+                    allowShareBandwidthTypeAny = listPublicipsRequest.allowShareBandwidthTypeAny;
                 } else {
                     marker = listPublicipsRequest['marker'];
                     limit = listPublicipsRequest['limit'];
@@ -1245,6 +1249,7 @@ export const ParamCreater = function () {
                     publicIpAddress = listPublicipsRequest['public_ip_address'];
                     privateIpAddress = listPublicipsRequest['private_ip_address'];
                     id = listPublicipsRequest['id'];
+                    allowShareBandwidthTypeAny = listPublicipsRequest['allow_share_bandwidth_type_any'];
                 }
             }
         
@@ -1271,6 +1276,9 @@ export const ParamCreater = function () {
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
+            }
+            if (allowShareBandwidthTypeAny !== null && allowShareBandwidthTypeAny !== undefined) {
+                localVarQueryParameter['allow_share_bandwidth_type_any'] = allowShareBandwidthTypeAny;
             }
 
             options.queryParams = localVarQueryParameter;

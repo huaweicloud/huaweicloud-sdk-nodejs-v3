@@ -9,6 +9,7 @@ export class ListPublicipsRequest {
     private 'public_ip_address'?: Array<string> | undefined;
     private 'private_ip_address'?: Array<string> | undefined;
     public id?: Array<string>;
+    private 'allow_share_bandwidth_type_any'?: Array<string> | undefined;
     public constructor() { 
     }
     public withMarker(marker: string): ListPublicipsRequest {
@@ -72,6 +73,16 @@ export class ListPublicipsRequest {
     public withId(id: Array<string>): ListPublicipsRequest {
         this['id'] = id;
         return this;
+    }
+    public withAllowShareBandwidthTypeAny(allowShareBandwidthTypeAny: Array<string>): ListPublicipsRequest {
+        this['allow_share_bandwidth_type_any'] = allowShareBandwidthTypeAny;
+        return this;
+    }
+    public set allowShareBandwidthTypeAny(allowShareBandwidthTypeAny: Array<string> | undefined) {
+        this['allow_share_bandwidth_type_any'] = allowShareBandwidthTypeAny;
+    }
+    public get allowShareBandwidthTypeAny() {
+        return this['allow_share_bandwidth_type_any'];
     }
 }
 

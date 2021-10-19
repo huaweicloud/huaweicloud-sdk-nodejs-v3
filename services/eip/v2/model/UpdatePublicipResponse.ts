@@ -1,13 +1,13 @@
-import { PublicipShowResp } from './PublicipShowResp';
+import { PublicipUpdateResp } from './PublicipUpdateResp';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdatePublicipResponse extends SdkResponse {
-    public publicip?: PublicipShowResp;
+    public publicip?: PublicipUpdateResp;
     public constructor() { 
         super();
     }
-    public withPublicip(publicip: PublicipShowResp): UpdatePublicipResponse {
+    public withPublicip(publicip: PublicipUpdateResp): UpdatePublicipResponse {
         this['publicip'] = publicip;
         return this;
     }

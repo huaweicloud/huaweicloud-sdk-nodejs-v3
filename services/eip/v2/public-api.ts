@@ -75,6 +75,7 @@ export * from './model/ProfileResp';
 export * from './model/PublicipCreateResp';
 export * from './model/PublicipInfoResp';
 export * from './model/PublicipShowResp';
+export * from './model/PublicipUpdateResp';
 export * from './model/QuotaShowResp';
 export * from './model/RemoveFromSharedBandwidthOption';
 export * from './model/RemovePublicipInfo';
