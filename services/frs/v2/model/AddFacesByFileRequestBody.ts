@@ -4,6 +4,7 @@ export class AddFacesByFileRequestBody {
     private 'image_file': any | undefined;
     private 'external_image_id'?: string | undefined;
     private 'external_fields'?: string | undefined;
+    public single?: boolean;
     public constructor(imageFile?: any) { 
         this['image_file'] = imageFile;
     }
@@ -36,5 +37,9 @@ export class AddFacesByFileRequestBody {
     }
     public get externalFields() {
         return this['external_fields'];
+    }
+    public withSingle(single: boolean): AddFacesByFileRequestBody {
+        this['single'] = single;
+        return this;
     }
 }

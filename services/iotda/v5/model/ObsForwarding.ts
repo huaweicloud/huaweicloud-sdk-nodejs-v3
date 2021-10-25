@@ -5,6 +5,7 @@ export class ObsForwarding {
     private 'project_id': string | undefined;
     private 'bucket_name': string | undefined;
     public location?: string;
+    private 'file_path'?: string | undefined;
     public constructor(regionName?: any, projectId?: any, bucketName?: any) { 
         this['region_name'] = regionName;
         this['project_id'] = projectId;
@@ -43,5 +44,15 @@ export class ObsForwarding {
     public withLocation(location: string): ObsForwarding {
         this['location'] = location;
         return this;
+    }
+    public withFilePath(filePath: string): ObsForwarding {
+        this['file_path'] = filePath;
+        return this;
+    }
+    public set filePath(filePath: string | undefined) {
+        this['file_path'] = filePath;
+    }
+    public get filePath() {
+        return this['file_path'];
     }
 }

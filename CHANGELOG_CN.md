@@ -1,3 +1,51 @@
+# 3.0.21-beta 2021-10-25
+
+### HuaweiCloud SDK EIP
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`CreateSharedBandwidth`新增请求参数`bandwidth_type`
+
+### HuaweiCloud SDK FRS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`AddFacesByFile`、`AddFacesByBase64`、`AddFacesByUrl`新增请求参数`single`
+
+### HuaweiCloud SDK IMS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ShowJob`新增响应参数`current_task`、`image_name`、`process_percent`
+
+### HuaweiCloud SDK IoTDA
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ListDevices`新增请求参数`status`
+  - 接口`CreateRuleAction`新增请求参数`file_path`
+
+### HuaweiCloud SDK OCR
+
+- _新增特性_
+  - 新增接口`RecognizeInsurancePolicy`、`RecognizeFinancialStatement`、`RecognizeQualificationCertificate`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
 # 3.0.20-beta 2021-10-19
 
 ### HuaweiCloud SDK EIP

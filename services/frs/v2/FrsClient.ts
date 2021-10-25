@@ -115,7 +115,7 @@ export class FrsClient {
     }
 
     /**
-     * 添加人脸到人脸库中，检测到传入的单张图片中存在多少张人脸，则增加多少张人脸到人脸库当中。
+     * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
      * @summary 添加人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {AddFacesBase64Req} addFacesBase64Req This is a auto create Body Object
@@ -129,12 +129,13 @@ export class FrsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 添加人脸到人脸库中，检测到传入的单张图片中存在多少张人脸，则增加多少张人脸到人脸库当中。
+     * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
      * @summary 添加人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {any} imageFile 本地图片文件，图片不能超过8MB，建议小于1MB。上传文件时，请求格式为multipart。
      * @param {string} [externalImageId] 用户指定的图片外部ID，与当前图像绑定。用户没提供，系统会生成一个。 该ID长度范围为1～36位，可以包含字母、数字、中划线或者下划线，不包含其他的特殊字符。
      * @param {string} [externalFields] 根据用户自定义数据类型，填入相应的数值。 创建faceset时定义该字段，Json字符串不校验重复性，参考[自定义字段](https://support.huaweicloud.com/api-face/face_02_0012.html)。
+     * @param {boolean} [single] 是否将图片中的最大人脸添加至人脸库。可选值包括: • true: 传入的单张图片中如果包含多张人脸，则只将最大人脸添加到人脸库中。 • false: 默认为false。传入的单张图片中如果包含多张人脸，则将所有人脸添加至人脸库中。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -145,7 +146,7 @@ export class FrsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 添加人脸到人脸库中，检测到传入的单张图片中存在多少张人脸，则增加多少张人脸到人脸库当中。
+     * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
      * @summary 添加人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {AddFacesUrlReq} addFacesUrlReq This is a auto create Body Object
@@ -521,7 +522,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 添加人脸到人脸库中，检测到传入的单张图片中存在多少张人脸，则增加多少张人脸到人脸库当中。
+         * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
          */
         addFacesByBase64(addFacesByBase64Request?: AddFacesByBase64Request) {
             const options = {
@@ -563,7 +564,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 添加人脸到人脸库中，检测到传入的单张图片中存在多少张人脸，则增加多少张人脸到人脸库当中。
+         * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
          */
         addFacesByFile(addFacesByFileRequest?: AddFacesByFileRequest) {
             const options = {
@@ -579,7 +580,7 @@ export const ParamCreater = function () {
 
             const localVarFormParams = new FormData();
             let faceSetName;
-            var imageFile;var externalImageId;var externalFields;
+            var imageFile;var externalImageId;var externalFields;var single;
 
             if (addFacesByFileRequest !== null && addFacesByFileRequest !== undefined) {
                 if (addFacesByFileRequest instanceof AddFacesByFileRequest) {
@@ -587,11 +588,13 @@ export const ParamCreater = function () {
                     imageFile = addFacesByFileRequest.body;
                     externalImageId = addFacesByFileRequest.body;
                     externalFields = addFacesByFileRequest.body;
+                    single = addFacesByFileRequest.body;
                 } else {
                     faceSetName = addFacesByFileRequest['face_set_name'];
                     imageFile = addFacesByFileRequest['body'];
                     externalImageId = addFacesByFileRequest['body'];
                     externalFields = addFacesByFileRequest['body'];
+                    single = addFacesByFileRequest['body'];
                 }
             }
         
@@ -610,6 +613,9 @@ export const ParamCreater = function () {
             if (externalFields !== undefined) { 
                 localVarFormParams.append('external_fields', externalFields as any);
             }
+            if (single !== undefined) { 
+                localVarFormParams.append('single', single as any);
+            }
             options.data = localVarFormParams;
             options.pathParams = { 'face_set_name': faceSetName, };
             options.headers = localVarHeaderParameter;
@@ -617,7 +623,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 添加人脸到人脸库中，检测到传入的单张图片中存在多少张人脸，则增加多少张人脸到人脸库当中。
+         * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
          */
         addFacesByUrl(addFacesByUrlRequest?: AddFacesByUrlRequest) {
             const options = {

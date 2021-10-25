@@ -4,6 +4,7 @@ export class AddFacesUrlReq {
     private 'image_url': string | undefined;
     private 'external_fields'?: object | undefined;
     private 'external_image_id'?: string | undefined;
+    public single?: boolean;
     public constructor(imageUrl?: any) { 
         this['image_url'] = imageUrl;
     }
@@ -36,5 +37,9 @@ export class AddFacesUrlReq {
     }
     public get externalImageId() {
         return this['external_image_id'];
+    }
+    public withSingle(single: boolean): AddFacesUrlReq {
+        this['single'] = single;
+        return this;
     }
 }

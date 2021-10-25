@@ -4,6 +4,7 @@ export class AddFacesBase64Req {
     private 'image_base64': string | undefined;
     private 'external_fields'?: object | undefined;
     private 'external_image_id'?: string | undefined;
+    public single?: boolean;
     public constructor(imageBase64?: any) { 
         this['image_base64'] = imageBase64;
     }
@@ -36,5 +37,9 @@ export class AddFacesBase64Req {
     }
     public get externalImageId() {
         return this['external_image_id'];
+    }
+    public withSingle(single: boolean): AddFacesBase64Req {
+        this['single'] = single;
+        return this;
     }
 }

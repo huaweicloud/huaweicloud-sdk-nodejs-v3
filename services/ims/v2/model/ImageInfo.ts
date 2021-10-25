@@ -1,18 +1,18 @@
 
 
 export class ImageInfo {
-    private '__backup_id': string | undefined;
-    private '__data_origin': string | undefined;
-    private '__description': string | undefined;
+    private '__backup_id'?: string | undefined;
+    private '__data_origin'?: string | undefined;
+    private '__description'?: string | undefined;
     private '__image_size': string | undefined;
     private '__image_source_type': ImageInfoImageSourceTypeEnum | undefined;
     private '__imagetype': ImageInfoImagetypeEnum | undefined;
     private '__isregistered': ImageInfoIsregisteredEnum | undefined;
-    private '__originalimagename': string | undefined;
-    private '__os_bit': ImageInfoOsBitEnum | undefined;
+    private '__originalimagename'?: string | undefined;
+    private '__os_bit'?: ImageInfoOsBitEnum | undefined;
     private '__os_type': ImageInfoOsTypeEnum | undefined;
-    private '__os_version': string | undefined;
-    private '__platform': ImageInfoPlatformEnum | undefined;
+    private '__os_version'?: string | undefined;
+    private '__platform'?: ImageInfoPlatformEnum | undefined;
     private '__productcode'?: string | undefined;
     private '__support_diskintensive'?: string | undefined;
     private '__support_highperformance'?: string | undefined;
@@ -28,7 +28,7 @@ export class ImageInfo {
     private 'container_format': string | undefined;
     private 'created_at': string | undefined;
     private 'disk_format'?: string | undefined;
-    private 'enterprise_project_id': string | undefined;
+    private 'enterprise_project_id'?: string | undefined;
     public file?: string;
     public id: string;
     private 'min_disk': number | undefined;
@@ -43,7 +43,7 @@ export class ImageInfo {
     public tags: Array<string>;
     private 'updated_at': string | undefined;
     private 'virtual_env_type': ImageInfoVirtualEnvTypeEnum | undefined;
-    private 'virtual_size': number | undefined;
+    private 'virtual_size'?: number | undefined;
     public visibility: ImageInfoVisibilityEnum;
     private '__support_fc_inject'?: ImageInfoSupportFcInjectEnum | undefined;
     private 'hw_firmware_type'?: ImageInfoHwFirmwareTypeEnum | undefined;
@@ -53,29 +53,21 @@ export class ImageInfo {
     private '__os_feature_list'?: string | undefined;
     private '__account_code'?: string | undefined;
     private 'hw_vif_multiqueue_enabled'?: string | undefined;
-    private '__is_offshelved': string | undefined;
-    private '__lazyloading': string | undefined;
-    private '__root_origin': string | undefined;
-    private '__sequence_num': string | undefined;
+    private '__is_offshelved'?: string | undefined;
+    private '__lazyloading'?: string | undefined;
+    private '__root_origin'?: string | undefined;
+    private '__sequence_num'?: string | undefined;
     private 'active_at': string | undefined;
-    private '__support_agent_list': string | undefined;
+    private '__support_agent_list'?: string | undefined;
     private '__support_amd'?: string | undefined;
-    public constructor(backupId?: any, dataOrigin?: any, description?: any, imageSize?: any, imageSourceType?: any, imagetype?: any, isregistered?: any, originalimagename?: any, osBit?: any, osType?: any, osVersion?: any, platform?: any, containerFormat?: any, createdAt?: any, enterpriseProjectId?: any, id?: any, minDisk?: any, minRam?: any, name?: any, owner?: any, _protected?: any, self?: any, status?: any, tags?: any, updatedAt?: any, virtualEnvType?: any, virtualSize?: any, visibility?: any, isOffshelved?: any, lazyloading?: any, rootOrigin?: any, sequenceNum?: any, activeAt?: any, supportAgentList?: any) { 
-        this['__backup_id'] = backupId;
-        this['__data_origin'] = dataOrigin;
-        this['__description'] = description;
+    public constructor(imageSize?: any, imageSourceType?: any, imagetype?: any, isregistered?: any, osType?: any, containerFormat?: any, createdAt?: any, id?: any, minDisk?: any, minRam?: any, name?: any, owner?: any, _protected?: any, self?: any, status?: any, tags?: any, updatedAt?: any, virtualEnvType?: any, visibility?: any, activeAt?: any) { 
         this['__image_size'] = imageSize;
         this['__image_source_type'] = imageSourceType;
         this['__imagetype'] = imagetype;
         this['__isregistered'] = isregistered;
-        this['__originalimagename'] = originalimagename;
-        this['__os_bit'] = osBit;
         this['__os_type'] = osType;
-        this['__os_version'] = osVersion;
-        this['__platform'] = platform;
         this['container_format'] = containerFormat;
         this['created_at'] = createdAt;
-        this['enterprise_project_id'] = enterpriseProjectId;
         this['id'] = id;
         this['min_disk'] = minDisk;
         this['min_ram'] = minRam;
@@ -87,14 +79,8 @@ export class ImageInfo {
         this['tags'] = tags;
         this['updated_at'] = updatedAt;
         this['virtual_env_type'] = virtualEnvType;
-        this['virtual_size'] = virtualSize;
         this['visibility'] = visibility;
-        this['__is_offshelved'] = isOffshelved;
-        this['__lazyloading'] = lazyloading;
-        this['__root_origin'] = rootOrigin;
-        this['__sequence_num'] = sequenceNum;
         this['active_at'] = activeAt;
-        this['__support_agent_list'] = supportAgentList;
     }
     public withBackupId(backupId: string): ImageInfo {
         this['__backup_id'] = backupId;
