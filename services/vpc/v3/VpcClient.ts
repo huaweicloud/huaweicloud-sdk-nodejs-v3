@@ -2,10 +2,20 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddExtendCidrOption } from './model/AddExtendCidrOption';
+import { AddVpcExtendCidrRequest } from './model/AddVpcExtendCidrRequest';
+import { AddVpcExtendCidrRequestBody } from './model/AddVpcExtendCidrRequestBody';
+import { AddVpcExtendCidrResponse } from './model/AddVpcExtendCidrResponse';
+import { AddressGroup } from './model/AddressGroup';
 import { BatchCreateSubNetworkInterfaceOption } from './model/BatchCreateSubNetworkInterfaceOption';
 import { BatchCreateSubNetworkInterfaceRequest } from './model/BatchCreateSubNetworkInterfaceRequest';
 import { BatchCreateSubNetworkInterfaceRequestBody } from './model/BatchCreateSubNetworkInterfaceRequestBody';
 import { BatchCreateSubNetworkInterfaceResponse } from './model/BatchCreateSubNetworkInterfaceResponse';
+import { CloudResource } from './model/CloudResource';
+import { CreateAddressGroupOption } from './model/CreateAddressGroupOption';
+import { CreateAddressGroupRequest } from './model/CreateAddressGroupRequest';
+import { CreateAddressGroupRequestBody } from './model/CreateAddressGroupRequestBody';
+import { CreateAddressGroupResponse } from './model/CreateAddressGroupResponse';
 import { CreateSecurityGroupOption } from './model/CreateSecurityGroupOption';
 import { CreateSecurityGroupRequest } from './model/CreateSecurityGroupRequest';
 import { CreateSecurityGroupRequestBody } from './model/CreateSecurityGroupRequestBody';
@@ -18,22 +28,46 @@ import { CreateSubNetworkInterfaceOption } from './model/CreateSubNetworkInterfa
 import { CreateSubNetworkInterfaceRequest } from './model/CreateSubNetworkInterfaceRequest';
 import { CreateSubNetworkInterfaceRequestBody } from './model/CreateSubNetworkInterfaceRequestBody';
 import { CreateSubNetworkInterfaceResponse } from './model/CreateSubNetworkInterfaceResponse';
+import { CreateVpcOption } from './model/CreateVpcOption';
+import { CreateVpcRequest } from './model/CreateVpcRequest';
+import { CreateVpcRequestBody } from './model/CreateVpcRequestBody';
+import { CreateVpcResponse } from './model/CreateVpcResponse';
+import { DeleteAddressGroupRequest } from './model/DeleteAddressGroupRequest';
+import { DeleteAddressGroupResponse } from './model/DeleteAddressGroupResponse';
+import { DeleteIpAddressGroupForceRequest } from './model/DeleteIpAddressGroupForceRequest';
+import { DeleteIpAddressGroupForceResponse } from './model/DeleteIpAddressGroupForceResponse';
 import { DeleteSecurityGroupRequest } from './model/DeleteSecurityGroupRequest';
 import { DeleteSecurityGroupResponse } from './model/DeleteSecurityGroupResponse';
 import { DeleteSecurityGroupRuleRequest } from './model/DeleteSecurityGroupRuleRequest';
 import { DeleteSecurityGroupRuleResponse } from './model/DeleteSecurityGroupRuleResponse';
 import { DeleteSubNetworkInterfaceRequest } from './model/DeleteSubNetworkInterfaceRequest';
 import { DeleteSubNetworkInterfaceResponse } from './model/DeleteSubNetworkInterfaceResponse';
+import { DeleteVpcRequest } from './model/DeleteVpcRequest';
+import { DeleteVpcResponse } from './model/DeleteVpcResponse';
+import { ListAddressGroupRequest } from './model/ListAddressGroupRequest';
+import { ListAddressGroupResponse } from './model/ListAddressGroupResponse';
 import { ListSecurityGroupRulesRequest } from './model/ListSecurityGroupRulesRequest';
 import { ListSecurityGroupRulesResponse } from './model/ListSecurityGroupRulesResponse';
 import { ListSecurityGroupsRequest } from './model/ListSecurityGroupsRequest';
 import { ListSecurityGroupsResponse } from './model/ListSecurityGroupsResponse';
 import { ListSubNetworkInterfacesRequest } from './model/ListSubNetworkInterfacesRequest';
 import { ListSubNetworkInterfacesResponse } from './model/ListSubNetworkInterfacesResponse';
+import { ListVpcsRequest } from './model/ListVpcsRequest';
+import { ListVpcsResponse } from './model/ListVpcsResponse';
+import { MigrateSubNetworkInterfaceOption } from './model/MigrateSubNetworkInterfaceOption';
+import { MigrateSubNetworkInterfaceRequest } from './model/MigrateSubNetworkInterfaceRequest';
+import { MigrateSubNetworkInterfaceRequestBody } from './model/MigrateSubNetworkInterfaceRequestBody';
+import { MigrateSubNetworkInterfaceResponse } from './model/MigrateSubNetworkInterfaceResponse';
 import { PageInfo } from './model/PageInfo';
+import { RemoveExtendCidrOption } from './model/RemoveExtendCidrOption';
+import { RemoveVpcExtendCidrRequest } from './model/RemoveVpcExtendCidrRequest';
+import { RemoveVpcExtendCidrRequestBody } from './model/RemoveVpcExtendCidrRequestBody';
+import { RemoveVpcExtendCidrResponse } from './model/RemoveVpcExtendCidrResponse';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityGroupInfo } from './model/SecurityGroupInfo';
 import { SecurityGroupRule } from './model/SecurityGroupRule';
+import { ShowAddressGroupRequest } from './model/ShowAddressGroupRequest';
+import { ShowAddressGroupResponse } from './model/ShowAddressGroupResponse';
 import { ShowSecurityGroupRequest } from './model/ShowSecurityGroupRequest';
 import { ShowSecurityGroupResponse } from './model/ShowSecurityGroupResponse';
 import { ShowSecurityGroupRuleRequest } from './model/ShowSecurityGroupRuleRequest';
@@ -42,7 +76,14 @@ import { ShowSubNetworkInterfaceRequest } from './model/ShowSubNetworkInterfaceR
 import { ShowSubNetworkInterfaceResponse } from './model/ShowSubNetworkInterfaceResponse';
 import { ShowSubNetworkInterfacesQuantityRequest } from './model/ShowSubNetworkInterfacesQuantityRequest';
 import { ShowSubNetworkInterfacesQuantityResponse } from './model/ShowSubNetworkInterfacesQuantityResponse';
+import { ShowVpcRequest } from './model/ShowVpcRequest';
+import { ShowVpcResponse } from './model/ShowVpcResponse';
 import { SubNetworkInterface } from './model/SubNetworkInterface';
+import { Tag } from './model/Tag';
+import { UpdateAddressGroupOption } from './model/UpdateAddressGroupOption';
+import { UpdateAddressGroupRequest } from './model/UpdateAddressGroupRequest';
+import { UpdateAddressGroupRequestBody } from './model/UpdateAddressGroupRequestBody';
+import { UpdateAddressGroupResponse } from './model/UpdateAddressGroupResponse';
 import { UpdateSecurityGroupOption } from './model/UpdateSecurityGroupOption';
 import { UpdateSecurityGroupRequest } from './model/UpdateSecurityGroupRequest';
 import { UpdateSecurityGroupRequestBody } from './model/UpdateSecurityGroupRequestBody';
@@ -51,6 +92,11 @@ import { UpdateSubNetworkInterfaceOption } from './model/UpdateSubNetworkInterfa
 import { UpdateSubNetworkInterfaceRequest } from './model/UpdateSubNetworkInterfaceRequest';
 import { UpdateSubNetworkInterfaceRequestBody } from './model/UpdateSubNetworkInterfaceRequestBody';
 import { UpdateSubNetworkInterfaceResponse } from './model/UpdateSubNetworkInterfaceResponse';
+import { UpdateVpcOption } from './model/UpdateVpcOption';
+import { UpdateVpcRequest } from './model/UpdateVpcRequest';
+import { UpdateVpcRequestBody } from './model/UpdateVpcRequestBody';
+import { UpdateVpcResponse } from './model/UpdateVpcResponse';
+import { Vpc } from './model/Vpc';
 
 export class VpcClient {
     public static newBuilder(): ClientBuilder<VpcClient> {
@@ -218,6 +264,19 @@ export class VpcClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 批量迁移辅助弹性网卡
+     * @summary 迁移辅助弹性网卡
+     * @param {MigrateSubNetworkInterfaceRequestBody} migrateSubNetworkInterfaceRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public migrateSubNetworkInterface(migrateSubNetworkInterfaceRequest?: MigrateSubNetworkInterfaceRequest): Promise<MigrateSubNetworkInterfaceResponse> {
+        const options = ParamCreater().migrateSubNetworkInterface(migrateSubNetworkInterfaceRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 查询单个安全组详情
      * @summary 查询安全组
      * @param {string} securityGroupId 安全组资源ID
@@ -292,6 +351,189 @@ export class VpcClient {
      */
     public updateSubNetworkInterface(updateSubNetworkInterfaceRequest?: UpdateSubNetworkInterfaceRequest): Promise<UpdateSubNetworkInterfaceResponse> {
         const options = ParamCreater().updateSubNetworkInterface(updateSubNetworkInterfaceRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 创建地址组
+     * @summary 创建地址组
+     * @param {CreateAddressGroupRequestBody} createAddressGroupRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAddressGroup(createAddressGroupRequest?: CreateAddressGroupRequest): Promise<CreateAddressGroupResponse> {
+        const options = ParamCreater().createAddressGroup(createAddressGroupRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 删除地址组，非强制删除，删除前请确保未被其他资源引用
+     * @summary 删除地址组
+     * @param {string} addressGroupId 地址组的唯一标识
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteAddressGroup(deleteAddressGroupRequest?: DeleteAddressGroupRequest): Promise<void> {
+        const options = ParamCreater().deleteAddressGroup(deleteAddressGroupRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 强制删除地址组，删除的地址组与安全组规则关联时，会删除地址组与关联的安全组规则。
+     * @summary 强制删除地址组
+     * @param {string} addressGroupId IP地址组的唯一标识，要删除的IP地址组ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteIpAddressGroupForce(deleteIpAddressGroupForceRequest?: DeleteIpAddressGroupForceRequest): Promise<void> {
+        const options = ParamCreater().deleteIpAddressGroupForce(deleteIpAddressGroupForceRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 查询地址组列表，根据过滤条件进行过滤。
+     * @summary 查询地址组列表
+     * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0~2000
+     * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
+     * @param {Array<string>} [id] 地址组唯一标识，填写后接口按照id进行过滤，支持多ID同时过滤
+     * @param {Array<string>} [name] 地址组名称，填写后按照名称进行过滤，支持多名称同时过滤
+     * @param {number} [ipVersion] IP地址组ip版本，当前只支持ipv4，填写后按照ip版本进行过滤
+     * @param {Array<string>} [description] 地址组描述信息，填写后按照地址组描述信息过滤，支持多描述同时过滤
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAddressGroup(listAddressGroupRequest?: ListAddressGroupRequest): Promise<ListAddressGroupResponse> {
+        const options = ParamCreater().listAddressGroup(listAddressGroupRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 查询地址组详情。
+     * @summary 查询地址组
+     * @param {string} addressGroupId 地址组的唯一标识
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAddressGroup(showAddressGroupRequest?: ShowAddressGroupRequest): Promise<ShowAddressGroupResponse> {
+        const options = ParamCreater().showAddressGroup(showAddressGroupRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 更新地址组。
+     * @summary 更新地址组
+     * @param {string} addressGroupId 地址组的唯一标识
+     * @param {UpdateAddressGroupRequestBody} updateAddressGroupRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAddressGroup(updateAddressGroupRequest?: UpdateAddressGroupRequest): Promise<UpdateAddressGroupResponse> {
+        const options = ParamCreater().updateAddressGroup(updateAddressGroupRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 添加VPC的扩展网段
+     * @summary 添加VPC扩展网段
+     * @param {string} vpcId VPC资源ID
+     * @param {AddVpcExtendCidrRequestBody} addVpcExtendCidrRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addVpcExtendCidr(addVpcExtendCidrRequest?: AddVpcExtendCidrRequest): Promise<AddVpcExtendCidrResponse> {
+        const options = ParamCreater().addVpcExtendCidr(addVpcExtendCidrRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 创建虚拟私有云
+     * @summary 创建VPC
+     * @param {CreateVpcRequestBody} createVpcRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVpc(createVpcRequest?: CreateVpcRequest): Promise<CreateVpcResponse> {
+        const options = ParamCreater().createVpc(createVpcRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 删除VPC
+     * @summary 删除VPC
+     * @param {string} vpcId VPC的资源ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVpc(deleteVpcRequest?: DeleteVpcRequest): Promise<void> {
+        const options = ParamCreater().deleteVpc(deleteVpcRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 查询vpc列表
+     * @summary 查询VPC列表
+     * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0-2000
+     * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
+     * @param {Array<string>} [id] VPC资源ID。可以使用该字段过滤VPC
+     * @param {Array<string>} [name] VPC的name信息，可以使用该字段过滤VPC
+     * @param {Array<string>} [description] VPC的描述信息。可以使用该字段过滤VPC
+     * @param {Array<string>} [cidr] VPC的CIDR。可以使用该字段过滤VPC
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVpcs(listVpcsRequest?: ListVpcsRequest): Promise<ListVpcsResponse> {
+        const options = ParamCreater().listVpcs(listVpcsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 移除VPC扩展网段
+     * @summary 移除VPC扩展网段
+     * @param {string} vpcId VPC资源ID
+     * @param {RemoveVpcExtendCidrRequestBody} removeVpcExtendCidrRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeVpcExtendCidr(removeVpcExtendCidrRequest?: RemoveVpcExtendCidrRequest): Promise<RemoveVpcExtendCidrResponse> {
+        const options = ParamCreater().removeVpcExtendCidr(removeVpcExtendCidrRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 查询vpc详情
+     * @summary 查询VPC详情
+     * @param {string} vpcId VPC资源ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVpc(showVpcRequest?: ShowVpcRequest): Promise<ShowVpcResponse> {
+        const options = ParamCreater().showVpc(showVpcRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 更新vpc
+     * @summary 更新VPC
+     * @param {string} vpcId VPC资源ID
+     * @param {UpdateVpcRequestBody} updateVpcRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateVpc(updateVpcRequest?: UpdateVpcRequest): Promise<UpdateVpcResponse> {
+        const options = ParamCreater().updateVpc(updateVpcRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -772,6 +1014,41 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量迁移辅助弹性网卡
+         */
+        migrateSubNetworkInterface(migrateSubNetworkInterfaceRequest?: MigrateSubNetworkInterfaceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/sub-network-interfaces/migrate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (migrateSubNetworkInterfaceRequest !== null && migrateSubNetworkInterfaceRequest !== undefined) {
+                if (migrateSubNetworkInterfaceRequest instanceof MigrateSubNetworkInterfaceRequest) {
+                    body = migrateSubNetworkInterfaceRequest.body
+                } else {
+                    body = migrateSubNetworkInterfaceRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单个安全组详情
          */
         showSecurityGroup(showSecurityGroupRequest?: ShowSecurityGroupRequest) {
@@ -973,6 +1250,542 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建地址组
+         */
+        createAddressGroup(createAddressGroupRequest?: CreateAddressGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vpc/address_groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createAddressGroupRequest !== null && createAddressGroupRequest !== undefined) {
+                if (createAddressGroupRequest instanceof CreateAddressGroupRequest) {
+                    body = createAddressGroupRequest.body
+                } else {
+                    body = createAddressGroupRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除地址组，非强制删除，删除前请确保未被其他资源引用
+         */
+        deleteAddressGroup(deleteAddressGroupRequest?: DeleteAddressGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/vpc/address_groups/{address_group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let addressGroupId;
+
+            if (deleteAddressGroupRequest !== null && deleteAddressGroupRequest !== undefined) {
+                if (deleteAddressGroupRequest instanceof DeleteAddressGroupRequest) {
+                    addressGroupId = deleteAddressGroupRequest.addressGroupId;
+                } else {
+                    addressGroupId = deleteAddressGroupRequest['address_group_id'];
+                }
+            }
+        
+            if (addressGroupId === null || addressGroupId === undefined) {
+                throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling deleteAddressGroup.');
+            }
+
+            options.pathParams = { 'address_group_id': addressGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 强制删除地址组，删除的地址组与安全组规则关联时，会删除地址组与关联的安全组规则。
+         */
+        deleteIpAddressGroupForce(deleteIpAddressGroupForceRequest?: DeleteIpAddressGroupForceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/vpc/address_groups/{address_group_id}/force",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let addressGroupId;
+
+            if (deleteIpAddressGroupForceRequest !== null && deleteIpAddressGroupForceRequest !== undefined) {
+                if (deleteIpAddressGroupForceRequest instanceof DeleteIpAddressGroupForceRequest) {
+                    addressGroupId = deleteIpAddressGroupForceRequest.addressGroupId;
+                } else {
+                    addressGroupId = deleteIpAddressGroupForceRequest['address_group_id'];
+                }
+            }
+        
+            if (addressGroupId === null || addressGroupId === undefined) {
+                throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling deleteIpAddressGroupForce.');
+            }
+
+            options.pathParams = { 'address_group_id': addressGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询地址组列表，根据过滤条件进行过滤。
+         */
+        listAddressGroup(listAddressGroupRequest?: ListAddressGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/address_groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let limit;
+            let marker;
+            let id;
+            let name;
+            let ipVersion;
+            let description;
+
+            if (listAddressGroupRequest !== null && listAddressGroupRequest !== undefined) {
+                if (listAddressGroupRequest instanceof ListAddressGroupRequest) {
+                    limit = listAddressGroupRequest.limit;
+                    marker = listAddressGroupRequest.marker;
+                    id = listAddressGroupRequest.id;
+                    name = listAddressGroupRequest.name;
+                    ipVersion = listAddressGroupRequest.ipVersion;
+                    description = listAddressGroupRequest.description;
+                } else {
+                    limit = listAddressGroupRequest['limit'];
+                    marker = listAddressGroupRequest['marker'];
+                    id = listAddressGroupRequest['id'];
+                    name = listAddressGroupRequest['name'];
+                    ipVersion = listAddressGroupRequest['ip_version'];
+                    description = listAddressGroupRequest['description'];
+                }
+            }
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (ipVersion !== null && ipVersion !== undefined) {
+                localVarQueryParameter['ip_version'] = ipVersion;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询地址组详情。
+         */
+        showAddressGroup(showAddressGroupRequest?: ShowAddressGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/address_groups/{address_group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let addressGroupId;
+
+            if (showAddressGroupRequest !== null && showAddressGroupRequest !== undefined) {
+                if (showAddressGroupRequest instanceof ShowAddressGroupRequest) {
+                    addressGroupId = showAddressGroupRequest.addressGroupId;
+                } else {
+                    addressGroupId = showAddressGroupRequest['address_group_id'];
+                }
+            }
+        
+            if (addressGroupId === null || addressGroupId === undefined) {
+                throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling showAddressGroup.');
+            }
+
+            options.pathParams = { 'address_group_id': addressGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新地址组。
+         */
+        updateAddressGroup(updateAddressGroupRequest?: UpdateAddressGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/address_groups/{address_group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let addressGroupId;
+
+            if (updateAddressGroupRequest !== null && updateAddressGroupRequest !== undefined) {
+                if (updateAddressGroupRequest instanceof UpdateAddressGroupRequest) {
+                    addressGroupId = updateAddressGroupRequest.addressGroupId;
+                    body = updateAddressGroupRequest.body
+                } else {
+                    addressGroupId = updateAddressGroupRequest['address_group_id'];
+                    body = updateAddressGroupRequest['body'];
+                }
+            }
+        
+            if (addressGroupId === null || addressGroupId === undefined) {
+                throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling updateAddressGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'address_group_id': addressGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加VPC的扩展网段
+         */
+        addVpcExtendCidr(addVpcExtendCidrRequest?: AddVpcExtendCidrRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/vpcs/{vpc_id}/add-extend-cidr",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let vpcId;
+
+            if (addVpcExtendCidrRequest !== null && addVpcExtendCidrRequest !== undefined) {
+                if (addVpcExtendCidrRequest instanceof AddVpcExtendCidrRequest) {
+                    vpcId = addVpcExtendCidrRequest.vpcId;
+                    body = addVpcExtendCidrRequest.body
+                } else {
+                    vpcId = addVpcExtendCidrRequest['vpc_id'];
+                    body = addVpcExtendCidrRequest['body'];
+                }
+            }
+        
+            if (vpcId === null || vpcId === undefined) {
+                throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling addVpcExtendCidr.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vpc_id': vpcId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建虚拟私有云
+         */
+        createVpc(createVpcRequest?: CreateVpcRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vpc/vpcs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createVpcRequest !== null && createVpcRequest !== undefined) {
+                if (createVpcRequest instanceof CreateVpcRequest) {
+                    body = createVpcRequest.body
+                } else {
+                    body = createVpcRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除VPC
+         */
+        deleteVpc(deleteVpcRequest?: DeleteVpcRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/vpc/vpcs/{vpc_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let vpcId;
+
+            if (deleteVpcRequest !== null && deleteVpcRequest !== undefined) {
+                if (deleteVpcRequest instanceof DeleteVpcRequest) {
+                    vpcId = deleteVpcRequest.vpcId;
+                } else {
+                    vpcId = deleteVpcRequest['vpc_id'];
+                }
+            }
+        
+            if (vpcId === null || vpcId === undefined) {
+                throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling deleteVpc.');
+            }
+
+            options.pathParams = { 'vpc_id': vpcId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询vpc列表
+         */
+        listVpcs(listVpcsRequest?: ListVpcsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/vpcs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let limit;
+            let marker;
+            let id;
+            let name;
+            let description;
+            let cidr;
+
+            if (listVpcsRequest !== null && listVpcsRequest !== undefined) {
+                if (listVpcsRequest instanceof ListVpcsRequest) {
+                    limit = listVpcsRequest.limit;
+                    marker = listVpcsRequest.marker;
+                    id = listVpcsRequest.id;
+                    name = listVpcsRequest.name;
+                    description = listVpcsRequest.description;
+                    cidr = listVpcsRequest.cidr;
+                } else {
+                    limit = listVpcsRequest['limit'];
+                    marker = listVpcsRequest['marker'];
+                    id = listVpcsRequest['id'];
+                    name = listVpcsRequest['name'];
+                    description = listVpcsRequest['description'];
+                    cidr = listVpcsRequest['cidr'];
+                }
+            }
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+            if (cidr !== null && cidr !== undefined) {
+                localVarQueryParameter['cidr'] = cidr;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 移除VPC扩展网段
+         */
+        removeVpcExtendCidr(removeVpcExtendCidrRequest?: RemoveVpcExtendCidrRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/vpcs/{vpc_id}/remove-extend-cidr",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let vpcId;
+
+            if (removeVpcExtendCidrRequest !== null && removeVpcExtendCidrRequest !== undefined) {
+                if (removeVpcExtendCidrRequest instanceof RemoveVpcExtendCidrRequest) {
+                    vpcId = removeVpcExtendCidrRequest.vpcId;
+                    body = removeVpcExtendCidrRequest.body
+                } else {
+                    vpcId = removeVpcExtendCidrRequest['vpc_id'];
+                    body = removeVpcExtendCidrRequest['body'];
+                }
+            }
+        
+            if (vpcId === null || vpcId === undefined) {
+                throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling removeVpcExtendCidr.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vpc_id': vpcId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询vpc详情
+         */
+        showVpc(showVpcRequest?: ShowVpcRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vpc/vpcs/{vpc_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let vpcId;
+
+            if (showVpcRequest !== null && showVpcRequest !== undefined) {
+                if (showVpcRequest instanceof ShowVpcRequest) {
+                    vpcId = showVpcRequest.vpcId;
+                } else {
+                    vpcId = showVpcRequest['vpc_id'];
+                }
+            }
+        
+            if (vpcId === null || vpcId === undefined) {
+                throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling showVpc.');
+            }
+
+            options.pathParams = { 'vpc_id': vpcId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新vpc
+         */
+        updateVpc(updateVpcRequest?: UpdateVpcRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vpc/vpcs/{vpc_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let vpcId;
+
+            if (updateVpcRequest !== null && updateVpcRequest !== undefined) {
+                if (updateVpcRequest instanceof UpdateVpcRequest) {
+                    vpcId = updateVpcRequest.vpcId;
+                    body = updateVpcRequest.body
+                } else {
+                    vpcId = updateVpcRequest['vpc_id'];
+                    body = updateVpcRequest['body'];
+                }
+            }
+        
+            if (vpcId === null || vpcId === undefined) {
+                throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling updateVpc.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vpc_id': vpcId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

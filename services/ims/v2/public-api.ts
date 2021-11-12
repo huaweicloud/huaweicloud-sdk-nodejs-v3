@@ -83,6 +83,7 @@ export * from './model/ImageTag';
 export * from './model/ImportImageQuickRequest';
 export * from './model/ImportImageQuickResponse';
 export * from './model/JobEntities';
+export * from './model/JobEntitiesResult';
 export * from './model/Links';
 export * from './model/ListImageByTagsRequest';
 export * from './model/ListImageByTagsRequestBody';

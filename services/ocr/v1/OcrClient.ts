@@ -127,6 +127,7 @@ import { VinRequestBody } from './model/VinRequestBody';
 import { WebImageRequestBody } from './model/WebImageRequestBody';
 import { WebImageResult } from './model/WebImageResult';
 import { WebImageWordsBlockList } from './model/WebImageWordsBlockList';
+import { WordsListIem } from './model/WordsListIem';
 import { WordsRegionList } from './model/WordsRegionList';
 
 export class OcrClient {

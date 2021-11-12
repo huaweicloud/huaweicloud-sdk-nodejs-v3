@@ -1,3 +1,32 @@
+# 3.0.22-beta 2021-11-12
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `customSan` to the interface `UpdateNode`.
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `confidence` to the interface `RecognizeGeneralTable`.
+
+### HuaweiCloud SDK VPC
+
+- _Features_
+  - Support interfaces(V3): `AddVpcExtendCidr`��`RemoveVpcExtendCidr`��`ListVpcs`��`ShowVpc`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.0.21-beta 2021-10-25
 
 ### HuaweiCloud SDK EIP

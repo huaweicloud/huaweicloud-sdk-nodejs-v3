@@ -1,28 +1,33 @@
+import { WordsListIem } from './WordsListIem';
 
 
 export class GeneralTableWordsBlockList {
-    public words: string;
-    private 'words_list'?: Array<object> | undefined;
-    public rows: Array<number>;
-    public columns: Array<number>;
-    public location?: Array<Array<number>>;
-    private 'cell_location'?: Array<Array<number>> | undefined;
+    public words?: string;
     public confidence?: number;
-    public excel?: string;
-    public constructor(words?: any, rows?: any, columns?: any) { 
-        this['words'] = words;
-        this['rows'] = rows;
-        this['columns'] = columns;
+    public location?: Array<Array<number>>;
+    private 'words_list'?: Array<WordsListIem> | undefined;
+    public rows?: Array<number>;
+    public columns?: Array<number>;
+    private 'cell_location'?: Array<Array<number>> | undefined;
+    public constructor() { 
     }
     public withWords(words: string): GeneralTableWordsBlockList {
         this['words'] = words;
         return this;
     }
-    public withWordsList(wordsList: Array<object>): GeneralTableWordsBlockList {
+    public withConfidence(confidence: number): GeneralTableWordsBlockList {
+        this['confidence'] = confidence;
+        return this;
+    }
+    public withLocation(location: Array<Array<number>>): GeneralTableWordsBlockList {
+        this['location'] = location;
+        return this;
+    }
+    public withWordsList(wordsList: Array<WordsListIem>): GeneralTableWordsBlockList {
         this['words_list'] = wordsList;
         return this;
     }
-    public set wordsList(wordsList: Array<object> | undefined) {
+    public set wordsList(wordsList: Array<WordsListIem> | undefined) {
         this['words_list'] = wordsList;
     }
     public get wordsList() {
@@ -36,10 +41,6 @@ export class GeneralTableWordsBlockList {
         this['columns'] = columns;
         return this;
     }
-    public withLocation(location: Array<Array<number>>): GeneralTableWordsBlockList {
-        this['location'] = location;
-        return this;
-    }
     public withCellLocation(cellLocation: Array<Array<number>>): GeneralTableWordsBlockList {
         this['cell_location'] = cellLocation;
         return this;
@@ -49,13 +50,5 @@ export class GeneralTableWordsBlockList {
     }
     public get cellLocation() {
         return this['cell_location'];
-    }
-    public withConfidence(confidence: number): GeneralTableWordsBlockList {
-        this['confidence'] = confidence;
-        return this;
-    }
-    public withExcel(excel: string): GeneralTableWordsBlockList {
-        this['excel'] = excel;
-        return this;
     }
 }

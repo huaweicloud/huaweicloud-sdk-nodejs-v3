@@ -125,4 +125,5 @@ export * from './model/VinRequestBody';
 export * from './model/WebImageRequestBody';
 export * from './model/WebImageResult';
 export * from './model/WebImageWordsBlockList';
+export * from './model/WordsListIem';
 export * from './model/WordsRegionList';

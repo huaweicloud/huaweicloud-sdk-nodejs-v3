@@ -36,8 +36,6 @@ import { DeleteFunctionRequest } from './model/DeleteFunctionRequest';
 import { DeleteFunctionResponse } from './model/DeleteFunctionResponse';
 import { DeleteFunctionTriggerRequest } from './model/DeleteFunctionTriggerRequest';
 import { DeleteFunctionTriggerResponse } from './model/DeleteFunctionTriggerResponse';
-import { DeleteReservedInstanceByIdRequest } from './model/DeleteReservedInstanceByIdRequest';
-import { DeleteReservedInstanceByIdResponse } from './model/DeleteReservedInstanceByIdResponse';
 import { DeleteVersionAliasRequest } from './model/DeleteVersionAliasRequest';
 import { DeleteVersionAliasResponse } from './model/DeleteVersionAliasResponse';
 import { Dependency } from './model/Dependency';
@@ -50,6 +48,7 @@ import { FuncCode } from './model/FuncCode';
 import { FuncDestinationConfig } from './model/FuncDestinationConfig';
 import { FuncMount } from './model/FuncMount';
 import { FuncVpc } from './model/FuncVpc';
+import { FunctionAsyncConfig } from './model/FunctionAsyncConfig';
 import { ImportFunctionRequest } from './model/ImportFunctionRequest';
 import { ImportFunctionRequestBody } from './model/ImportFunctionRequestBody';
 import { ImportFunctionResponse } from './model/ImportFunctionResponse';
@@ -103,6 +102,8 @@ import { ShowFunctionTriggerRequest } from './model/ShowFunctionTriggerRequest';
 import { ShowFunctionTriggerResponse } from './model/ShowFunctionTriggerResponse';
 import { ShowLtsLogDetailsRequest } from './model/ShowLtsLogDetailsRequest';
 import { ShowLtsLogDetailsResponse } from './model/ShowLtsLogDetailsResponse';
+import { ShowTracingRequest } from './model/ShowTracingRequest';
+import { ShowTracingResponse } from './model/ShowTracingResponse';
 import { ShowVersionAliasRequest } from './model/ShowVersionAliasRequest';
 import { ShowVersionAliasResponse } from './model/ShowVersionAliasResponse';
 import { SlaReportsValue } from './model/SlaReportsValue';
@@ -125,6 +126,9 @@ import { UpdateFunctionConfigResponse } from './model/UpdateFunctionConfigRespon
 import { UpdateFunctionReservedInstancesRequest } from './model/UpdateFunctionReservedInstancesRequest';
 import { UpdateFunctionReservedInstancesRequestBody } from './model/UpdateFunctionReservedInstancesRequestBody';
 import { UpdateFunctionReservedInstancesResponse } from './model/UpdateFunctionReservedInstancesResponse';
+import { UpdateTracingRequest } from './model/UpdateTracingRequest';
+import { UpdateTracingRequestBody } from './model/UpdateTracingRequestBody';
+import { UpdateTracingResponse } from './model/UpdateTracingResponse';
 import { UpdateTriggerRequest } from './model/UpdateTriggerRequest';
 import { UpdateTriggerRequestBody } from './model/UpdateTriggerRequestBody';
 import { UpdateTriggerResponse } from './model/UpdateTriggerResponse';
@@ -291,20 +295,6 @@ export class FunctionGraphClient {
      */
     public deleteFunctionAsyncInvokeConfig(deleteFunctionAsyncInvokeConfigRequest?: DeleteFunctionAsyncInvokeConfigRequest): Promise<void> {
         const options = ParamCreater().deleteFunctionAsyncInvokeConfig(deleteFunctionAsyncInvokeConfigRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-    /**
-     * 预留实例异常时，可以根据预留实例ID删除该预留实例，注意：删除成功之后重新会重新拉起一个新的预留实例，业务高峰期可以更好的工作（该接口主要针对白名单用户）
-     * @summary 根据预留实例ID删除对应预留实例
-     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
-     * @param {string} instanceId 预留实例id。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteReservedInstanceById(deleteReservedInstanceByIdRequest?: DeleteReservedInstanceByIdRequest): Promise<void> {
-        const options = ParamCreater().deleteReservedInstanceById(deleteReservedInstanceByIdRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -588,6 +578,19 @@ export class FunctionGraphClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 获取函数调用链配置
+     * @summary 获取函数调用链配置
+     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTracing(showTracingRequest?: ShowTracingRequest): Promise<ShowTracingResponse> {
+        const options = ParamCreater().showTracing(showTracingRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 获取函数指定的版本别名信息。
      * @summary 获取函数版本的指定别名信息。
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -682,6 +685,20 @@ export class FunctionGraphClient {
      */
     public updateFunctionReservedInstances(updateFunctionReservedInstancesRequest?: UpdateFunctionReservedInstancesRequest): Promise<UpdateFunctionReservedInstancesResponse> {
         const options = ParamCreater().updateFunctionReservedInstances(updateFunctionReservedInstancesRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 修改函数调用链配置,开通/修改传入aksk，关闭aksk传空
+     * @summary 修改函数调用链配置
+     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
+     * @param {UpdateTracingRequestBody} updateTracingRequestBody 请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTracing(updateTracingRequest?: UpdateTracingRequest): Promise<void> {
+        const options = ParamCreater().updateTracing(updateTracingRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1210,46 +1227,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 预留实例异常时，可以根据预留实例ID删除该预留实例，注意：删除成功之后重新会重新拉起一个新的预留实例，业务高峰期可以更好的工作（该接口主要针对白名单用户）
-         */
-        deleteReservedInstanceById(deleteReservedInstanceByIdRequest?: DeleteReservedInstanceByIdRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/fgs/functions/{function_urn}/reservedinstances/{instance_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let functionUrn;
-            let instanceId;
-
-            if (deleteReservedInstanceByIdRequest !== null && deleteReservedInstanceByIdRequest !== undefined) {
-                if (deleteReservedInstanceByIdRequest instanceof DeleteReservedInstanceByIdRequest) {
-                    functionUrn = deleteReservedInstanceByIdRequest.functionUrn;
-                    instanceId = deleteReservedInstanceByIdRequest.instanceId;
-                } else {
-                    functionUrn = deleteReservedInstanceByIdRequest['function_urn'];
-                    instanceId = deleteReservedInstanceByIdRequest['instance_id'];
-                }
-            }
-        
-            if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteReservedInstanceById.');
-            }
-            if (instanceId === null || instanceId === undefined) {
-                throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling deleteReservedInstanceById.');
-            }
-
-            options.pathParams = { 'function_urn': functionUrn,'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2036,6 +2013,40 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取函数调用链配置
+         */
+        showTracing(showTracingRequest?: ShowTracingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/functions/{function_urn}/tracing",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let functionUrn;
+
+            if (showTracingRequest !== null && showTracingRequest !== undefined) {
+                if (showTracingRequest instanceof ShowTracingRequest) {
+                    functionUrn = showTracingRequest.functionUrn;
+                } else {
+                    functionUrn = showTracingRequest['function_urn'];
+                }
+            }
+        
+            if (functionUrn === null || functionUrn === undefined) {
+                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showTracing.');
+            }
+
+            options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取函数指定的版本别名信息。
          */
         showVersionAlias(showVersionAliasRequest?: ShowVersionAliasRequest) {
@@ -2321,6 +2332,48 @@ export const ParamCreater = function () {
         
             if (functionUrn === null || functionUrn === undefined) {
                 throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionReservedInstances.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改函数调用链配置,开通/修改传入aksk，关闭aksk传空
+         */
+        updateTracing(updateTracingRequest?: UpdateTracingRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/fgs/functions/{function_urn}/tracing",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let functionUrn;
+
+            if (updateTracingRequest !== null && updateTracingRequest !== undefined) {
+                if (updateTracingRequest instanceof UpdateTracingRequest) {
+                    functionUrn = updateTracingRequest.functionUrn;
+                    body = updateTracingRequest.body
+                } else {
+                    functionUrn = updateTracingRequest['function_urn'];
+                    body = updateTracingRequest['body'];
+                }
+            }
+        
+            if (functionUrn === null || functionUrn === undefined) {
+                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateTracing.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

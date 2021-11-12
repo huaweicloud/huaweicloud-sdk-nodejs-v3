@@ -1,6 +1,4 @@
-import { Dependency } from './Dependency';
-import { FuncVpc } from './FuncVpc';
-import { MountConfig } from './MountConfig';
+import { FunctionAsyncConfig } from './FunctionAsyncConfig';
 import { StrategyConfig } from './StrategyConfig';
 
 
@@ -21,23 +19,26 @@ export class ListFunctionVersionResult {
     private 'code_filename'?: string | undefined;
     private 'code_size': number | undefined;
     private 'user_data'?: string | undefined;
+    private 'encrypted_user_data'?: string | undefined;
     public digest: string;
     public version: string;
     private 'image_name': string | undefined;
     public xrole?: string;
     private 'app_xrole'?: string | undefined;
-    public description?: string;
-    private 'version_description'?: string | undefined;
     private 'last_modified': Date | undefined;
-    private 'func_vpc'?: FuncVpc | undefined;
-    private 'mount_config'?: MountConfig | undefined;
+    private 'func_vpc_id'?: string | undefined;
     public concurrency?: number;
-    private 'depend_list'?: Array<string> | undefined;
+    private 'concurrent_num'?: number | undefined;
     private 'strategy_config'?: StrategyConfig | undefined;
-    private 'extend_config'?: string | undefined;
-    public dependencies?: Array<Dependency>;
     private 'initializer_handler'?: string | undefined;
     private 'initializer_timeout'?: number | undefined;
+    private 'long_time'?: boolean | undefined;
+    private 'log_group_id'?: string | undefined;
+    private 'log_stream_id'?: string | undefined;
+    private 'function_async_config'?: FunctionAsyncConfig | undefined;
+    public type?: string;
+    private 'enable_cloud_debug'?: string | undefined;
+    private 'enable_dynamic_memory'?: boolean | undefined;
     private 'enterprise_project_id'?: string | undefined;
     public constructor(funcUrn?: any, funcName?: any, domainId?: any, namespace?: any, projectName?: any, _package?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any, cpu?: any, codeType?: any, codeSize?: any, digest?: any, version?: any, imageName?: any, lastModified?: any) { 
         this['func_urn'] = funcUrn;
@@ -188,6 +189,16 @@ export class ListFunctionVersionResult {
     public get userData() {
         return this['user_data'];
     }
+    public withEncryptedUserData(encryptedUserData: string): ListFunctionVersionResult {
+        this['encrypted_user_data'] = encryptedUserData;
+        return this;
+    }
+    public set encryptedUserData(encryptedUserData: string | undefined) {
+        this['encrypted_user_data'] = encryptedUserData;
+    }
+    public get encryptedUserData() {
+        return this['encrypted_user_data'];
+    }
     public withDigest(digest: string): ListFunctionVersionResult {
         this['digest'] = digest;
         return this;
@@ -220,20 +231,6 @@ export class ListFunctionVersionResult {
     public get appXrole() {
         return this['app_xrole'];
     }
-    public withDescription(description: string): ListFunctionVersionResult {
-        this['description'] = description;
-        return this;
-    }
-    public withVersionDescription(versionDescription: string): ListFunctionVersionResult {
-        this['version_description'] = versionDescription;
-        return this;
-    }
-    public set versionDescription(versionDescription: string | undefined) {
-        this['version_description'] = versionDescription;
-    }
-    public get versionDescription() {
-        return this['version_description'];
-    }
     public withLastModified(lastModified: Date): ListFunctionVersionResult {
         this['last_modified'] = lastModified;
         return this;
@@ -244,39 +241,29 @@ export class ListFunctionVersionResult {
     public get lastModified() {
         return this['last_modified'];
     }
-    public withFuncVpc(funcVpc: FuncVpc): ListFunctionVersionResult {
-        this['func_vpc'] = funcVpc;
+    public withFuncVpcId(funcVpcId: string): ListFunctionVersionResult {
+        this['func_vpc_id'] = funcVpcId;
         return this;
     }
-    public set funcVpc(funcVpc: FuncVpc | undefined) {
-        this['func_vpc'] = funcVpc;
+    public set funcVpcId(funcVpcId: string | undefined) {
+        this['func_vpc_id'] = funcVpcId;
     }
-    public get funcVpc() {
-        return this['func_vpc'];
-    }
-    public withMountConfig(mountConfig: MountConfig): ListFunctionVersionResult {
-        this['mount_config'] = mountConfig;
-        return this;
-    }
-    public set mountConfig(mountConfig: MountConfig | undefined) {
-        this['mount_config'] = mountConfig;
-    }
-    public get mountConfig() {
-        return this['mount_config'];
+    public get funcVpcId() {
+        return this['func_vpc_id'];
     }
     public withConcurrency(concurrency: number): ListFunctionVersionResult {
         this['concurrency'] = concurrency;
         return this;
     }
-    public withDependList(dependList: Array<string>): ListFunctionVersionResult {
-        this['depend_list'] = dependList;
+    public withConcurrentNum(concurrentNum: number): ListFunctionVersionResult {
+        this['concurrent_num'] = concurrentNum;
         return this;
     }
-    public set dependList(dependList: Array<string> | undefined) {
-        this['depend_list'] = dependList;
+    public set concurrentNum(concurrentNum: number | undefined) {
+        this['concurrent_num'] = concurrentNum;
     }
-    public get dependList() {
-        return this['depend_list'];
+    public get concurrentNum() {
+        return this['concurrent_num'];
     }
     public withStrategyConfig(strategyConfig: StrategyConfig): ListFunctionVersionResult {
         this['strategy_config'] = strategyConfig;
@@ -287,20 +274,6 @@ export class ListFunctionVersionResult {
     }
     public get strategyConfig() {
         return this['strategy_config'];
-    }
-    public withExtendConfig(extendConfig: string): ListFunctionVersionResult {
-        this['extend_config'] = extendConfig;
-        return this;
-    }
-    public set extendConfig(extendConfig: string | undefined) {
-        this['extend_config'] = extendConfig;
-    }
-    public get extendConfig() {
-        return this['extend_config'];
-    }
-    public withDependencies(dependencies: Array<Dependency>): ListFunctionVersionResult {
-        this['dependencies'] = dependencies;
-        return this;
     }
     public withInitializerHandler(initializerHandler: string): ListFunctionVersionResult {
         this['initializer_handler'] = initializerHandler;
@@ -321,6 +294,70 @@ export class ListFunctionVersionResult {
     }
     public get initializerTimeout() {
         return this['initializer_timeout'];
+    }
+    public withLongTime(longTime: boolean): ListFunctionVersionResult {
+        this['long_time'] = longTime;
+        return this;
+    }
+    public set longTime(longTime: boolean | undefined) {
+        this['long_time'] = longTime;
+    }
+    public get longTime() {
+        return this['long_time'];
+    }
+    public withLogGroupId(logGroupId: string): ListFunctionVersionResult {
+        this['log_group_id'] = logGroupId;
+        return this;
+    }
+    public set logGroupId(logGroupId: string | undefined) {
+        this['log_group_id'] = logGroupId;
+    }
+    public get logGroupId() {
+        return this['log_group_id'];
+    }
+    public withLogStreamId(logStreamId: string): ListFunctionVersionResult {
+        this['log_stream_id'] = logStreamId;
+        return this;
+    }
+    public set logStreamId(logStreamId: string | undefined) {
+        this['log_stream_id'] = logStreamId;
+    }
+    public get logStreamId() {
+        return this['log_stream_id'];
+    }
+    public withFunctionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig): ListFunctionVersionResult {
+        this['function_async_config'] = functionAsyncConfig;
+        return this;
+    }
+    public set functionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig | undefined) {
+        this['function_async_config'] = functionAsyncConfig;
+    }
+    public get functionAsyncConfig() {
+        return this['function_async_config'];
+    }
+    public withType(type: string): ListFunctionVersionResult {
+        this['type'] = type;
+        return this;
+    }
+    public withEnableCloudDebug(enableCloudDebug: string): ListFunctionVersionResult {
+        this['enable_cloud_debug'] = enableCloudDebug;
+        return this;
+    }
+    public set enableCloudDebug(enableCloudDebug: string | undefined) {
+        this['enable_cloud_debug'] = enableCloudDebug;
+    }
+    public get enableCloudDebug() {
+        return this['enable_cloud_debug'];
+    }
+    public withEnableDynamicMemory(enableDynamicMemory: boolean): ListFunctionVersionResult {
+        this['enable_dynamic_memory'] = enableDynamicMemory;
+        return this;
+    }
+    public set enableDynamicMemory(enableDynamicMemory: boolean | undefined) {
+        this['enable_dynamic_memory'] = enableDynamicMemory;
+    }
+    public get enableDynamicMemory() {
+        return this['enable_dynamic_memory'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListFunctionVersionResult {
         this['enterprise_project_id'] = enterpriseProjectId;

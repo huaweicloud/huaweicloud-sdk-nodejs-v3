@@ -4,6 +4,7 @@ import { WordsRegionList } from './WordsRegionList';
 export class GeneralTableResult {
     private 'words_region_count': number | undefined;
     private 'words_region_list': Array<WordsRegionList> | undefined;
+    public excel?: string;
     public constructor(wordsRegionCount?: any, wordsRegionList?: any) { 
         this['words_region_count'] = wordsRegionCount;
         this['words_region_list'] = wordsRegionList;
@@ -27,5 +28,9 @@ export class GeneralTableResult {
     }
     public get wordsRegionList() {
         return this['words_region_list'];
+    }
+    public withExcel(excel: string): GeneralTableResult {
+        this['excel'] = excel;
+        return this;
     }
 }

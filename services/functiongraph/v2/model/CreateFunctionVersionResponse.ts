@@ -1,5 +1,6 @@
 import { Dependency } from './Dependency';
 import { FuncVpc } from './FuncVpc';
+import { FunctionAsyncConfig } from './FunctionAsyncConfig';
 import { MountConfig } from './MountConfig';
 import { StrategyConfig } from './StrategyConfig';
 
@@ -33,9 +34,7 @@ export class CreateFunctionVersionResponse extends SdkResponse {
     private 'last_modified'?: Date | undefined;
     private 'func_vpc'?: FuncVpc | undefined;
     private 'mount_config'?: MountConfig | undefined;
-    private 'depend_list'?: Array<string> | undefined;
     private 'strategy_config'?: StrategyConfig | undefined;
-    private 'extend_config'?: string | undefined;
     public dependencies?: Array<Dependency>;
     private 'initializer_handler'?: string | undefined;
     private 'initializer_timeout'?: number | undefined;
@@ -44,6 +43,8 @@ export class CreateFunctionVersionResponse extends SdkResponse {
     private 'log_group_id'?: string | undefined;
     private 'log_stream_id'?: string | undefined;
     public type?: CreateFunctionVersionResponseTypeEnum;
+    private 'enable_dynamic_memory'?: boolean | undefined;
+    private 'function_async_config'?: FunctionAsyncConfig | undefined;
     public constructor() { 
         super();
     }
@@ -263,16 +264,6 @@ export class CreateFunctionVersionResponse extends SdkResponse {
     public get mountConfig() {
         return this['mount_config'];
     }
-    public withDependList(dependList: Array<string>): CreateFunctionVersionResponse {
-        this['depend_list'] = dependList;
-        return this;
-    }
-    public set dependList(dependList: Array<string> | undefined) {
-        this['depend_list'] = dependList;
-    }
-    public get dependList() {
-        return this['depend_list'];
-    }
     public withStrategyConfig(strategyConfig: StrategyConfig): CreateFunctionVersionResponse {
         this['strategy_config'] = strategyConfig;
         return this;
@@ -282,16 +273,6 @@ export class CreateFunctionVersionResponse extends SdkResponse {
     }
     public get strategyConfig() {
         return this['strategy_config'];
-    }
-    public withExtendConfig(extendConfig: string): CreateFunctionVersionResponse {
-        this['extend_config'] = extendConfig;
-        return this;
-    }
-    public set extendConfig(extendConfig: string | undefined) {
-        this['extend_config'] = extendConfig;
-    }
-    public get extendConfig() {
-        return this['extend_config'];
     }
     public withDependencies(dependencies: Array<Dependency>): CreateFunctionVersionResponse {
         this['dependencies'] = dependencies;
@@ -360,6 +341,26 @@ export class CreateFunctionVersionResponse extends SdkResponse {
     public withType(type: CreateFunctionVersionResponseTypeEnum): CreateFunctionVersionResponse {
         this['type'] = type;
         return this;
+    }
+    public withEnableDynamicMemory(enableDynamicMemory: boolean): CreateFunctionVersionResponse {
+        this['enable_dynamic_memory'] = enableDynamicMemory;
+        return this;
+    }
+    public set enableDynamicMemory(enableDynamicMemory: boolean | undefined) {
+        this['enable_dynamic_memory'] = enableDynamicMemory;
+    }
+    public get enableDynamicMemory() {
+        return this['enable_dynamic_memory'];
+    }
+    public withFunctionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig): CreateFunctionVersionResponse {
+        this['function_async_config'] = functionAsyncConfig;
+        return this;
+    }
+    public set functionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig | undefined) {
+        this['function_async_config'] = functionAsyncConfig;
+    }
+    public get functionAsyncConfig() {
+        return this['function_async_config'];
     }
 }
 

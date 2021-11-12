@@ -1,3 +1,4 @@
+import { JobEntitiesResult } from './JobEntitiesResult';
 
 
 export class JobEntities {
@@ -5,6 +6,7 @@ export class JobEntities {
     private 'current_task'?: string | undefined;
     private 'image_name'?: string | undefined;
     private 'process_percent'?: number | undefined;
+    public results?: Array<JobEntitiesResult>;
     public constructor() { 
     }
     public withImageId(imageId: string): JobEntities {
@@ -46,5 +48,9 @@ export class JobEntities {
     }
     public get processPercent() {
         return this['process_percent'];
+    }
+    public withResults(results: Array<JobEntitiesResult>): JobEntities {
+        this['results'] = results;
+        return this;
     }
 }

@@ -33,7 +33,6 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     private 'func_vpc'?: FuncVpc | undefined;
     private 'mount_config'?: MountConfig | undefined;
     private 'strategy_config'?: StrategyConfig | undefined;
-    private 'extend_config'?: string | undefined;
     public dependencies?: Array<Dependency>;
     private 'initializer_handler'?: string | undefined;
     private 'initializer_timeout'?: number | undefined;
@@ -42,6 +41,7 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     private 'log_group_id'?: string | undefined;
     private 'log_stream_id'?: string | undefined;
     public type?: UpdateFunctionConfigResponseTypeEnum;
+    private 'enable_dynamic_memory'?: boolean | undefined;
     public constructor() { 
         super();
     }
@@ -261,16 +261,6 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     public get strategyConfig() {
         return this['strategy_config'];
     }
-    public withExtendConfig(extendConfig: string): UpdateFunctionConfigResponse {
-        this['extend_config'] = extendConfig;
-        return this;
-    }
-    public set extendConfig(extendConfig: string | undefined) {
-        this['extend_config'] = extendConfig;
-    }
-    public get extendConfig() {
-        return this['extend_config'];
-    }
     public withDependencies(dependencies: Array<Dependency>): UpdateFunctionConfigResponse {
         this['dependencies'] = dependencies;
         return this;
@@ -338,6 +328,16 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     public withType(type: UpdateFunctionConfigResponseTypeEnum): UpdateFunctionConfigResponse {
         this['type'] = type;
         return this;
+    }
+    public withEnableDynamicMemory(enableDynamicMemory: boolean): UpdateFunctionConfigResponse {
+        this['enable_dynamic_memory'] = enableDynamicMemory;
+        return this;
+    }
+    public set enableDynamicMemory(enableDynamicMemory: boolean | undefined) {
+        this['enable_dynamic_memory'] = enableDynamicMemory;
+    }
+    public get enableDynamicMemory() {
+        return this['enable_dynamic_memory'];
     }
 }
 

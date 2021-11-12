@@ -1,8 +1,8 @@
 import { DomainInfo } from './DomainInfo';
 import { FederationUserBody } from './FederationUserBody';
 import { ProjectInfo } from './ProjectInfo';
+import { ScopedTokenInfoRoles } from './ScopedTokenInfoRoles';
 import { UnscopedTokenInfoCatalog } from './UnscopedTokenInfoCatalog';
-import { UnscopedTokenInfoRoles } from './UnscopedTokenInfoRoles';
 
 
 export class ScopedTokenInfo {
@@ -12,7 +12,7 @@ export class ScopedTokenInfo {
     public user: FederationUserBody;
     public domain?: DomainInfo;
     public project?: ProjectInfo;
-    public roles: Array<UnscopedTokenInfoRoles>;
+    public roles: Array<ScopedTokenInfoRoles>;
     public catalog: Array<UnscopedTokenInfoCatalog>;
     public constructor(expiresAt?: any, methods?: any, issuedAt?: any, user?: any, roles?: any, catalog?: any) { 
         this['expires_at'] = expiresAt;
@@ -58,7 +58,7 @@ export class ScopedTokenInfo {
         this['project'] = project;
         return this;
     }
-    public withRoles(roles: Array<UnscopedTokenInfoRoles>): ScopedTokenInfo {
+    public withRoles(roles: Array<ScopedTokenInfoRoles>): ScopedTokenInfo {
         this['roles'] = roles;
         return this;
     }

@@ -3,11 +3,12 @@
 export class FuncMount {
     private 'mount_type': string | undefined;
     private 'mount_resource': string | undefined;
-    private 'mount_share_path'?: string | undefined;
+    private 'mount_share_path': string | undefined;
     private 'local_mount_path': string | undefined;
-    public constructor(mountType?: any, mountResource?: any, localMountPath?: any) { 
+    public constructor(mountType?: any, mountResource?: any, mountSharePath?: any, localMountPath?: any) { 
         this['mount_type'] = mountType;
         this['mount_resource'] = mountResource;
+        this['mount_share_path'] = mountSharePath;
         this['local_mount_path'] = localMountPath;
     }
     public withMountType(mountType: string): FuncMount {

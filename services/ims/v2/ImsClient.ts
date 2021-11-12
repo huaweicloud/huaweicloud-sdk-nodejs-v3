@@ -85,6 +85,7 @@ import { ImageTag } from './model/ImageTag';
 import { ImportImageQuickRequest } from './model/ImportImageQuickRequest';
 import { ImportImageQuickResponse } from './model/ImportImageQuickResponse';
 import { JobEntities } from './model/JobEntities';
+import { JobEntitiesResult } from './model/JobEntitiesResult';
 import { Links } from './model/Links';
 import { ListImageByTagsRequest } from './model/ListImageByTagsRequest';
 import { ListImageByTagsRequestBody } from './model/ListImageByTagsRequestBody';
