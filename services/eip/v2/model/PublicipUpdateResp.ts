@@ -18,6 +18,7 @@ export class PublicipUpdateResp {
     public type?: string;
     private 'public_ipv6_address'?: string | undefined;
     private 'ip_version'?: PublicipUpdateRespIpVersionEnum | undefined;
+    public alias?: string;
     public constructor() { 
     }
     public withBandwidthId(bandwidthId: string): PublicipUpdateResp {
@@ -155,6 +156,10 @@ export class PublicipUpdateResp {
     }
     public get ipVersion() {
         return this['ip_version'];
+    }
+    public withAlias(alias: string): PublicipUpdateResp {
+        this['alias'] = alias;
+        return this;
     }
 }
 

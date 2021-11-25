@@ -1260,7 +1260,7 @@ export const ParamCreater = function () {
         createAddressGroup(createAddressGroupRequest?: CreateAddressGroupRequest) {
             const options = {
                 method: "POST",
-                url: "/v3/{project_id}/vpc/address_groups",
+                url: "/v3/{project_id}/vpc/address-groups",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -1295,7 +1295,7 @@ export const ParamCreater = function () {
         deleteAddressGroup(deleteAddressGroupRequest?: DeleteAddressGroupRequest) {
             const options = {
                 method: "DELETE",
-                url: "/v3/{project_id}/vpc/address_groups/{address_group_id}",
+                url: "/v3/{project_id}/vpc/address-groups/{address_group_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -1329,7 +1329,7 @@ export const ParamCreater = function () {
         deleteIpAddressGroupForce(deleteIpAddressGroupForceRequest?: DeleteIpAddressGroupForceRequest) {
             const options = {
                 method: "DELETE",
-                url: "/v3/{project_id}/vpc/address_groups/{address_group_id}/force",
+                url: "/v3/{project_id}/vpc/address-groups/{address_group_id}/force",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -1363,7 +1363,7 @@ export const ParamCreater = function () {
         listAddressGroup(listAddressGroupRequest?: ListAddressGroupRequest) {
             const options = {
                 method: "GET",
-                url: "/v3/{project_id}/vpc/address_groups",
+                url: "/v3/{project_id}/vpc/address-groups",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -1427,7 +1427,7 @@ export const ParamCreater = function () {
         showAddressGroup(showAddressGroupRequest?: ShowAddressGroupRequest) {
             const options = {
                 method: "GET",
-                url: "/v3/{project_id}/vpc/address_groups/{address_group_id}",
+                url: "/v3/{project_id}/vpc/address-groups/{address_group_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -1461,7 +1461,7 @@ export const ParamCreater = function () {
         updateAddressGroup(updateAddressGroupRequest?: UpdateAddressGroupRequest) {
             const options = {
                 method: "PUT",
-                url: "/v3/{project_id}/vpc/address_groups/{address_group_id}",
+                url: "/v3/{project_id}/vpc/address-groups/{address_group_id}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},

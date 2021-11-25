@@ -1,3 +1,34 @@
+# 3.0.23-beta 2021-11-25
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `platformVersion` to the interface `ShowCluster`.
+  - Add the enumeration values `RollingBack` and `RollbackFailed` to the request parameter `status` of the interface `ListClusters`.
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request and response parameter `alias` to the interfaces `CreatePrePaidPublicip` and `CreatePublicip`.
+  - Add the response parameter `alias` to the interfaces `ShowPublicip` and `UpdatePublicip`.
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the response parameter `extracted_data` of the interface `RecognizeHandwriting`.
+
 # 3.0.22-beta 2021-11-12
 
 ### HuaweiCloud SDK CCE

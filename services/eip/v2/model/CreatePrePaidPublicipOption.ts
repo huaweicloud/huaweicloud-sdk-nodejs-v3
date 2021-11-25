@@ -3,6 +3,7 @@
 export class CreatePrePaidPublicipOption {
     public type: string;
     private 'ip_version'?: number | undefined;
+    public alias?: string;
     public constructor(type?: any) { 
         this['type'] = type;
     }
@@ -19,5 +20,9 @@ export class CreatePrePaidPublicipOption {
     }
     public get ipVersion() {
         return this['ip_version'];
+    }
+    public withAlias(alias: string): CreatePrePaidPublicipOption {
+        this['alias'] = alias;
+        return this;
     }
 }

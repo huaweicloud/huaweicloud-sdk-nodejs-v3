@@ -50,6 +50,8 @@ export enum ListClustersRequestStatusEnum {
     DELETING = 'Deleting',
     UPGRADING = 'Upgrading',
     RESIZING = 'Resizing',
+    ROLLINGBACK = 'RollingBack',
+    ROLLBACKFAILED = 'RollbackFailed',
     EMPTY = 'Empty'
 }
 /**

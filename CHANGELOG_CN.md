@@ -1,3 +1,34 @@
+# 3.0.23-beta 2021-11-25
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ShowCluster`新增响应参数`platformVersion`
+  - 接口`ListClusters`的请求参数`status`新增枚举值`RollingBack`和`RollbackFailed`
+
+### HuaweiCloud SDK EIP
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`CreatePrePaidPublicip`、`CreatePublicip`新增请求和响应参数`alias`
+  - 接口`ShowPublicip`、`UpdatePublicip`新增响应参数`alias`
+
+### HuaweiCloud SDK OCR
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`RecognizeHandwriting`移除响应参数`extracted_data`
+
 # 3.0.22-beta 2021-11-12
 
 ### HuaweiCloud SDK CCE

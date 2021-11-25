@@ -1,11 +1,9 @@
-import { ExtractedData } from './ExtractedData';
 import { HandwritingWordsBlockList } from './HandwritingWordsBlockList';
 
 
 export class HandwritingResult {
     private 'words_block_count': number | undefined;
     private 'words_block_list': Array<HandwritingWordsBlockList> | undefined;
-    private 'extracted_data'?: ExtractedData | undefined;
     public constructor(wordsBlockCount?: any, wordsBlockList?: any) { 
         this['words_block_count'] = wordsBlockCount;
         this['words_block_list'] = wordsBlockList;
@@ -29,15 +27,5 @@ export class HandwritingResult {
     }
     public get wordsBlockList() {
         return this['words_block_list'];
-    }
-    public withExtractedData(extractedData: ExtractedData): HandwritingResult {
-        this['extracted_data'] = extractedData;
-        return this;
-    }
-    public set extractedData(extractedData: ExtractedData | undefined) {
-        this['extracted_data'] = extractedData;
-    }
-    public get extractedData() {
-        return this['extracted_data'];
     }
 }

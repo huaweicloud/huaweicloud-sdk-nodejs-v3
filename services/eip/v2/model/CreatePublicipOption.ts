@@ -4,6 +4,7 @@ export class CreatePublicipOption {
     private 'ip_address'?: string | undefined;
     public type: string;
     private 'ip_version'?: CreatePublicipOptionIpVersionEnum | undefined;
+    public alias?: string;
     public constructor(type?: any) { 
         this['type'] = type;
     }
@@ -30,6 +31,10 @@ export class CreatePublicipOption {
     }
     public get ipVersion() {
         return this['ip_version'];
+    }
+    public withAlias(alias: string): CreatePublicipOption {
+        this['alias'] = alias;
+        return this;
     }
 }
 

@@ -11,6 +11,7 @@ export class PublicipCreateResp {
     private 'public_ipv6_address'?: string | undefined;
     private 'ip_version'?: PublicipCreateRespIpVersionEnum | undefined;
     private 'enterprise_project_id'?: string | undefined;
+    public alias?: string;
     public constructor() { 
     }
     public withBandwidthSize(bandwidthSize: number): PublicipCreateResp {
@@ -94,6 +95,10 @@ export class PublicipCreateResp {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withAlias(alias: string): PublicipCreateResp {
+        this['alias'] = alias;
+        return this;
     }
 }
 

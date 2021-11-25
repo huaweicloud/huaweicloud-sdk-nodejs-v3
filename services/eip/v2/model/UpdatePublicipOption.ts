@@ -3,6 +3,7 @@
 export class UpdatePublicipOption {
     private 'port_id'?: string | undefined;
     private 'ip_version'?: UpdatePublicipOptionIpVersionEnum | undefined;
+    public alias?: string;
     public constructor() { 
     }
     public withPortId(portId: string): UpdatePublicipOption {
@@ -24,6 +25,10 @@ export class UpdatePublicipOption {
     }
     public get ipVersion() {
         return this['ip_version'];
+    }
+    public withAlias(alias: string): UpdatePublicipOption {
+        this['alias'] = alias;
+        return this;
     }
 }
 

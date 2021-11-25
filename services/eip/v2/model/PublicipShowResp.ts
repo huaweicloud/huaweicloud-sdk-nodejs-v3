@@ -20,6 +20,7 @@ export class PublicipShowResp {
     private 'ip_version'?: PublicipShowRespIpVersionEnum | undefined;
     private 'public_border_group'?: string | undefined;
     private 'allow_share_bandwidth_types'?: Array<string> | undefined;
+    public alias?: string;
     public constructor() { 
     }
     public withBandwidthId(bandwidthId: string): PublicipShowResp {
@@ -177,6 +178,10 @@ export class PublicipShowResp {
     }
     public get allowShareBandwidthTypes() {
         return this['allow_share_bandwidth_types'];
+    }
+    public withAlias(alias: string): PublicipShowResp {
+        this['alias'] = alias;
+        return this;
     }
 }
 

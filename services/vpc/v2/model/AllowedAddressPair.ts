@@ -1,9 +1,10 @@
 
 
 export class AllowedAddressPair {
-    private 'ip_address'?: string | undefined;
+    private 'ip_address': string | undefined;
     private 'mac_address'?: string | undefined;
-    public constructor() { 
+    public constructor(ipAddress?: any) { 
+        this['ip_address'] = ipAddress;
     }
     public withIpAddress(ipAddress: string): AllowedAddressPair {
         this['ip_address'] = ipAddress;

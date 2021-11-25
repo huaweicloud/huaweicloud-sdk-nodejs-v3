@@ -7,7 +7,7 @@ export class UpdateFunctionConfigRequestBody {
     private 'func_name': string | undefined;
     public runtime: UpdateFunctionConfigRequestBodyRuntimeEnum;
     public timeout: number;
-    public handler?: string;
+    public handler: string;
     private 'memory_size': number | undefined;
     private 'user_data'?: string | undefined;
     public xrole?: string;
@@ -20,10 +20,11 @@ export class UpdateFunctionConfigRequestBody {
     private 'initializer_handler'?: string | undefined;
     private 'initializer_timeout'?: number | undefined;
     private 'enterprise_project_id'?: string | undefined;
-    public constructor(funcName?: any, runtime?: any, timeout?: any, memorySize?: any) { 
+    public constructor(funcName?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any) { 
         this['func_name'] = funcName;
         this['runtime'] = runtime;
         this['timeout'] = timeout;
+        this['handler'] = handler;
         this['memory_size'] = memorySize;
     }
     public withFuncName(funcName: string): UpdateFunctionConfigRequestBody {

@@ -1,6 +1,5 @@
 export * from './OcrClient';
 
-export * from './model/AnswerBlockList';
 export * from './model/AutoClassificationRequestBody';
 export * from './model/AutoClassificationResult';
 export * from './model/AutoClassificationResultStatus';
@@ -14,7 +13,6 @@ export * from './model/BusinessLicenseResult';
 export * from './model/DriverLicenseRequestBody';
 export * from './model/DriverLicenseResult';
 export * from './model/ExtraInfoList';
-export * from './model/ExtractedData';
 export * from './model/FinancialStatementRequestBody';
 export * from './model/FinancialStatementResult';
 export * from './model/FinancialStatementResultImageSize';
@@ -44,7 +42,6 @@ export * from './model/ItemList';
 export * from './model/ItineraryList';
 export * from './model/LicensePlateRequestBody';
 export * from './model/LicensePlateResult';
-export * from './model/MathInfo';
 export * from './model/MvsInvoiceRequestBody';
 export * from './model/MvsInvoiceResult';
 export * from './model/PassportRequestBody';

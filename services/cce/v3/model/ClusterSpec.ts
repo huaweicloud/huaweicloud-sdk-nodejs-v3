@@ -12,6 +12,7 @@ export class ClusterSpec {
     public type?: ClusterSpecTypeEnum;
     public flavor: string;
     public version?: string;
+    public platformVersion?: string;
     public description?: string;
     public ipv6enable?: boolean;
     public hostNetwork: HostNetwork;
@@ -45,6 +46,10 @@ export class ClusterSpec {
     }
     public withVersion(version: string): ClusterSpec {
         this['version'] = version;
+        return this;
+    }
+    public withPlatformVersion(platformVersion: string): ClusterSpec {
+        this['platformVersion'] = platformVersion;
         return this;
     }
     public withDescription(description: string): ClusterSpec {

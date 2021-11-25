@@ -4,7 +4,7 @@ import { InsurancePolicyDetail } from './InsurancePolicyDetail';
 export class BeneficiaryItem {
     private 'beneficiary_name'?: InsurancePolicyDetail | undefined;
     private 'beneficiary_type'?: InsurancePolicyDetail | undefined;
-    private 'beneficiary_order'?: object | undefined;
+    private 'beneficiary_order'?: InsurancePolicyDetail | undefined;
     private 'beneficiary_share'?: InsurancePolicyDetail | undefined;
     public constructor() { 
     }
@@ -28,11 +28,11 @@ export class BeneficiaryItem {
     public get beneficiaryType() {
         return this['beneficiary_type'];
     }
-    public withBeneficiaryOrder(beneficiaryOrder: object): BeneficiaryItem {
+    public withBeneficiaryOrder(beneficiaryOrder: InsurancePolicyDetail): BeneficiaryItem {
         this['beneficiary_order'] = beneficiaryOrder;
         return this;
     }
-    public set beneficiaryOrder(beneficiaryOrder: object | undefined) {
+    public set beneficiaryOrder(beneficiaryOrder: InsurancePolicyDetail | undefined) {
         this['beneficiary_order'] = beneficiaryOrder;
     }
     public get beneficiaryOrder() {
