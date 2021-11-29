@@ -1,3 +1,43 @@
+# 3.0.24-beta 2021-11-29
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ShowCluster`新增响应参数`cidrs`
+
+### HuaweiCloud SDK EVS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 移除接口`CinderExportToImage`
+
+### HuaweiCloud SDK ECS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`NovaShowServer`和`NovaListServersDetails`新增响应参数`os:scheduler_hints`
+
+### HuaweiCloud SDK FunctionGraph
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ListVersionAliases`新增响应参数`ListVersionAliases`
+  - 接口`CreateDependency`和`UpdateDependency`的请求参数`name`改为必填
+  - 接口`CreateEvent`的请求参数`name`和`content`改为必填
+
 # 3.0.23-beta 2021-11-25
 
 ### HuaweiCloud SDK CCE

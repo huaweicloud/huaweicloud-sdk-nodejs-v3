@@ -28,5 +28,5 @@ export class CinderListQuotasRequest {
     * @enum {string}
     */
 export enum CinderListQuotasRequestUsageEnum {
-    TRUE = 'true'
+    TRUE = 'True'
 }

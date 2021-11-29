@@ -3,6 +3,7 @@ import { NovaNetwork } from './NovaNetwork';
 import { NovaServerFault } from './NovaServerFault';
 import { NovaServerFlavor } from './NovaServerFlavor';
 import { NovaServerImage } from './NovaServerImage';
+import { NovaServerSchedulerHints } from './NovaServerSchedulerHints';
 import { NovaServerSecurityGroup } from './NovaServerSecurityGroup';
 import { NovaServerVolume } from './NovaServerVolume';
 
@@ -50,6 +51,7 @@ export class NovaServer {
     public accessIPv6: string;
     private 'config_drive': string | undefined;
     public progress: number;
+    private 'os:scheduler_hints'?: NovaServerSchedulerHints | undefined;
     public constructor(name?: any, id?: any, status?: any, created?: any, updated?: any, flavor?: any, image?: any, tenantId?: any, keyName?: any, userId?: any, metadata?: any, hostId?: any, addresses?: any, securityGroups?: any, links?: any, oSDCFDiskConfig?: any, oSEXTAZAvailabilityZone?: any, oSEXTSRVATTRHost?: any, oSEXTSRVATTRHypervisorHostname?: any, oSEXTSRVATTRInstanceName?: any, oSEXTSTSPowerState?: any, oSEXTSTSTaskState?: any, oSEXTSTSVmState?: any, oSSRVUSGLaunchedAt?: any, oSSRVUSGTerminatedAt?: any, osExtendedVolumesVolumesAttached?: any, hostStatus?: any, tags?: any, accessIPv4?: any, accessIPv6?: any, configDrive?: any, progress?: any) { 
         this['name'] = name;
         this['id'] = id;
@@ -395,6 +397,16 @@ export class NovaServer {
     public withProgress(progress: number): NovaServer {
         this['progress'] = progress;
         return this;
+    }
+    public withOsSchedulerHints(osSchedulerHints: NovaServerSchedulerHints): NovaServer {
+        this['os:scheduler_hints'] = osSchedulerHints;
+        return this;
+    }
+    public set osSchedulerHints(osSchedulerHints: NovaServerSchedulerHints | undefined) {
+        this['os:scheduler_hints'] = osSchedulerHints;
+    }
+    public get osSchedulerHints() {
+        return this['os:scheduler_hints'];
     }
 }
 

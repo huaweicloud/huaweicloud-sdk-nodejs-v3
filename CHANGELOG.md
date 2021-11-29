@@ -1,3 +1,43 @@
+# 3.0.24-beta 2021-11-29
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `cidrs` to the interface `ShowCluster`.
+
+### HuaweiCloud SDK EVS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the interface `CinderExportToImage`.
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `os:scheduler_hints` to the interfaces `NovaShowServer` and `NovaListServersDetails`.
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `ListVersionAliases` to the interface `ListVersionAliases`.
+  - Update the request parameter `name` to required of the interfaces  `CreateDependency` and `UpdateDependency`.
+  - Update the request parameters `name` and `content` to required of the interface `CreateEvent`.
+
 # 3.0.23-beta 2021-11-25
 
 ### HuaweiCloud SDK CCE

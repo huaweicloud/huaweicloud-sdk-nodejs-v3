@@ -165,6 +165,7 @@ export * from './model/NovaServerFault';
 export * from './model/NovaServerFlavor';
 export * from './model/NovaServerImage';
 export * from './model/NovaServerNetwork';
+export * from './model/NovaServerSchedulerHints';
 export * from './model/NovaServerSecurityGroup';
 export * from './model/NovaServerVolume';
 export * from './model/NovaShowKeypairRequest';

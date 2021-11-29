@@ -12,10 +12,6 @@ import { BatchDeleteVolumeTagsRequestBody } from './model/BatchDeleteVolumeTagsR
 import { BatchDeleteVolumeTagsResponse } from './model/BatchDeleteVolumeTagsResponse';
 import { BssParamForCreateVolume } from './model/BssParamForCreateVolume';
 import { BssParamForResizeVolume } from './model/BssParamForResizeVolume';
-import { CinderExportToImageOption } from './model/CinderExportToImageOption';
-import { CinderExportToImageRequest } from './model/CinderExportToImageRequest';
-import { CinderExportToImageRequestBody } from './model/CinderExportToImageRequestBody';
-import { CinderExportToImageResponse } from './model/CinderExportToImageResponse';
 import { CinderListAvailabilityZonesRequest } from './model/CinderListAvailabilityZonesRequest';
 import { CinderListAvailabilityZonesResponse } from './model/CinderListAvailabilityZonesResponse';
 import { CinderListQuotasRequest } from './model/CinderListQuotasRequest';
@@ -36,7 +32,6 @@ import { DeleteSnapshotResponse } from './model/DeleteSnapshotResponse';
 import { DeleteTagsOption } from './model/DeleteTagsOption';
 import { DeleteVolumeRequest } from './model/DeleteVolumeRequest';
 import { DeleteVolumeResponse } from './model/DeleteVolumeResponse';
-import { Image } from './model/Image';
 import { JobEntities } from './model/JobEntities';
 import { Link } from './model/Link';
 import { ListSnapshotsRequest } from './model/ListSnapshotsRequest';
@@ -151,20 +146,6 @@ export class EvsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 将系统盘或数据盘的数据导出为IMS镜像，导出的镜像在IMS的私有镜像列表中可以查 看并使用。
-     * @summary 将云硬盘导出为镜像
-     * @param {string} volumeId 云硬盘ID。
-     * @param {CinderExportToImageRequestBody} cinderExportToImageRequestBody This is a auto create Body Object
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public cinderExportToImage(cinderExportToImageRequest?: CinderExportToImageRequest): Promise<CinderExportToImageResponse> {
-        const options = ParamCreater().cinderExportToImage(cinderExportToImageRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-    /**
      * 查询所有的可用分区信息。
      * @summary 查询所有的可用分区信息
      * @param {*} [options] Override http request option.
@@ -180,7 +161,7 @@ export class EvsClient {
      * 查询租户的详细配额。
      * @summary 查询租户的详细配额
      * @param {string} targetProjectId 目标的项目ID。与project_id保持一致即可。
-     * @param {'true'} usage 是否查询配额详细信息。当前只支持传true。
+     * @param {'True'} usage 是否查询配额详细信息。当前只支持传true。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -517,48 +498,6 @@ export const ParamCreater = function () {
         
             if (volumeId === null || volumeId === undefined) {
                 throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling batchDeleteVolumeTags.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'volume_id': volumeId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 将系统盘或数据盘的数据导出为IMS镜像，导出的镜像在IMS的私有镜像列表中可以查 看并使用。
-         */
-        cinderExportToImage(cinderExportToImageRequest?: CinderExportToImageRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/volumes/{volume_id}/action",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-            let volumeId;
-
-            if (cinderExportToImageRequest !== null && cinderExportToImageRequest !== undefined) {
-                if (cinderExportToImageRequest instanceof CinderExportToImageRequest) {
-                    volumeId = cinderExportToImageRequest.volumeId;
-                    body = cinderExportToImageRequest.body
-                } else {
-                    volumeId = cinderExportToImageRequest['volume_id'];
-                    body = cinderExportToImageRequest['body'];
-                }
-            }
-        
-            if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling cinderExportToImage.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

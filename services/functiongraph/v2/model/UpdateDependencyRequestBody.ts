@@ -5,11 +5,12 @@ export class UpdateDependencyRequestBody {
     private 'depend_link'?: string | undefined;
     private 'depend_type': string | undefined;
     public runtime: UpdateDependencyRequestBodyRuntimeEnum;
-    public name?: string;
+    public name: string;
     public description?: string;
-    public constructor(dependType?: any, runtime?: any) { 
+    public constructor(dependType?: any, runtime?: any, name?: any) { 
         this['depend_type'] = dependType;
         this['runtime'] = runtime;
+        this['name'] = name;
     }
     public withDependFile(dependFile: string): UpdateDependencyRequestBody {
         this['depend_file'] = dependFile;

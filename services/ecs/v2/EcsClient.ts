@@ -167,6 +167,7 @@ import { NovaServerFault } from './model/NovaServerFault';
 import { NovaServerFlavor } from './model/NovaServerFlavor';
 import { NovaServerImage } from './model/NovaServerImage';
 import { NovaServerNetwork } from './model/NovaServerNetwork';
+import { NovaServerSchedulerHints } from './model/NovaServerSchedulerHints';
 import { NovaServerSecurityGroup } from './model/NovaServerSecurityGroup';
 import { NovaServerVolume } from './model/NovaServerVolume';
 import { NovaShowKeypairRequest } from './model/NovaShowKeypairRequest';

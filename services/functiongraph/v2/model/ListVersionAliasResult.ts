@@ -6,6 +6,7 @@ export class ListVersionAliasResult {
     public description?: string;
     private 'last_modified': Date | undefined;
     private 'alias_urn': string | undefined;
+    private 'additional_version_weights'?: { [key: string]: number; } | undefined;
     public constructor(name?: any, version?: any, lastModified?: any, aliasUrn?: any) { 
         this['name'] = name;
         this['version'] = version;
@@ -43,5 +44,15 @@ export class ListVersionAliasResult {
     }
     public get aliasUrn() {
         return this['alias_urn'];
+    }
+    public withAdditionalVersionWeights(additionalVersionWeights: { [key: string]: number; }): ListVersionAliasResult {
+        this['additional_version_weights'] = additionalVersionWeights;
+        return this;
+    }
+    public set additionalVersionWeights(additionalVersionWeights: { [key: string]: number; } | undefined) {
+        this['additional_version_weights'] = additionalVersionWeights;
+    }
+    public get additionalVersionWeights() {
+        return this['additional_version_weights'];
     }
 }
