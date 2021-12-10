@@ -1,12 +1,10 @@
 import { Attributes } from './Attributes';
 import { BoundingBox } from './BoundingBox';
-import { Landmark } from './Landmark';
 
 
 export class DetectFace {
     private 'bounding_box': BoundingBox | undefined;
     public attributes?: Attributes;
-    public landmark?: Landmark;
     public constructor(boundingBox?: any) { 
         this['bounding_box'] = boundingBox;
     }
@@ -22,10 +20,6 @@ export class DetectFace {
     }
     public withAttributes(attributes: Attributes): DetectFace {
         this['attributes'] = attributes;
-        return this;
-    }
-    public withLandmark(landmark: Landmark): DetectFace {
-        this['landmark'] = landmark;
         return this;
     }
 }
