@@ -1,3 +1,28 @@
+# 3.0.26-beta 2021-12-17
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 支持接口`ShowVersion`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK OCR
+
+- _新增特性_
+  - 支持以下接口：
+    - `RecognizeThailandIdcard`
+    - `RecognizeMyanmarIdcard`
+    - `RecognizeMyanmarDriverLicense`
+    - `RecognizeChileIdCard`
+    - `RecognizeThailandLicensePlate`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
 # 3.0.25-beta 2021-12-10
 
 ### HuaweiCloud SDK FRS

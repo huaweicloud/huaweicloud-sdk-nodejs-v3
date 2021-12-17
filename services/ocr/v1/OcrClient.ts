@@ -12,6 +12,9 @@ import { BusinessCardRequestBody } from './model/BusinessCardRequestBody';
 import { BusinessCardResult } from './model/BusinessCardResult';
 import { BusinessLicenseRequestBody } from './model/BusinessLicenseRequestBody';
 import { BusinessLicenseResult } from './model/BusinessLicenseResult';
+import { ChileIdCardConfidence } from './model/ChileIdCardConfidence';
+import { ChileIdCardRequestBody } from './model/ChileIdCardRequestBody';
+import { ChileIdCardResult } from './model/ChileIdCardResult';
 import { DriverLicenseRequestBody } from './model/DriverLicenseRequestBody';
 import { DriverLicenseResult } from './model/DriverLicenseResult';
 import { ExtraInfoList } from './model/ExtraInfoList';
@@ -46,6 +49,12 @@ import { LicensePlateRequestBody } from './model/LicensePlateRequestBody';
 import { LicensePlateResult } from './model/LicensePlateResult';
 import { MvsInvoiceRequestBody } from './model/MvsInvoiceRequestBody';
 import { MvsInvoiceResult } from './model/MvsInvoiceResult';
+import { MyanmarDriverLicenseConfidence } from './model/MyanmarDriverLicenseConfidence';
+import { MyanmarDriverLicenseRequestBody } from './model/MyanmarDriverLicenseRequestBody';
+import { MyanmarDriverLicenseResult } from './model/MyanmarDriverLicenseResult';
+import { MyanmarIdcardConfidence } from './model/MyanmarIdcardConfidence';
+import { MyanmarIdcardRequestBody } from './model/MyanmarIdcardRequestBody';
+import { MyanmarIdcardResult } from './model/MyanmarIdcardResult';
 import { PassportRequestBody } from './model/PassportRequestBody';
 import { PassportResult } from './model/PassportResult';
 import { QualificationCategory } from './model/QualificationCategory';
@@ -63,6 +72,8 @@ import { RecognizeBusinessCardRequest } from './model/RecognizeBusinessCardReque
 import { RecognizeBusinessCardResponse } from './model/RecognizeBusinessCardResponse';
 import { RecognizeBusinessLicenseRequest } from './model/RecognizeBusinessLicenseRequest';
 import { RecognizeBusinessLicenseResponse } from './model/RecognizeBusinessLicenseResponse';
+import { RecognizeChileIdCardRequest } from './model/RecognizeChileIdCardRequest';
+import { RecognizeChileIdCardResponse } from './model/RecognizeChileIdCardResponse';
 import { RecognizeDriverLicenseRequest } from './model/RecognizeDriverLicenseRequest';
 import { RecognizeDriverLicenseResponse } from './model/RecognizeDriverLicenseResponse';
 import { RecognizeFinancialStatementRequest } from './model/RecognizeFinancialStatementRequest';
@@ -85,6 +96,10 @@ import { RecognizeLicensePlateRequest } from './model/RecognizeLicensePlateReque
 import { RecognizeLicensePlateResponse } from './model/RecognizeLicensePlateResponse';
 import { RecognizeMvsInvoiceRequest } from './model/RecognizeMvsInvoiceRequest';
 import { RecognizeMvsInvoiceResponse } from './model/RecognizeMvsInvoiceResponse';
+import { RecognizeMyanmarDriverLicenseRequest } from './model/RecognizeMyanmarDriverLicenseRequest';
+import { RecognizeMyanmarDriverLicenseResponse } from './model/RecognizeMyanmarDriverLicenseResponse';
+import { RecognizeMyanmarIdcardRequest } from './model/RecognizeMyanmarIdcardRequest';
+import { RecognizeMyanmarIdcardResponse } from './model/RecognizeMyanmarIdcardResponse';
 import { RecognizePassportRequest } from './model/RecognizePassportRequest';
 import { RecognizePassportResponse } from './model/RecognizePassportResponse';
 import { RecognizeQualificationCertificateRequest } from './model/RecognizeQualificationCertificateRequest';
@@ -93,6 +108,10 @@ import { RecognizeQuotaInvoiceRequest } from './model/RecognizeQuotaInvoiceReque
 import { RecognizeQuotaInvoiceResponse } from './model/RecognizeQuotaInvoiceResponse';
 import { RecognizeTaxiInvoiceRequest } from './model/RecognizeTaxiInvoiceRequest';
 import { RecognizeTaxiInvoiceResponse } from './model/RecognizeTaxiInvoiceResponse';
+import { RecognizeThailandIdcardRequest } from './model/RecognizeThailandIdcardRequest';
+import { RecognizeThailandIdcardResponse } from './model/RecognizeThailandIdcardResponse';
+import { RecognizeThailandLicensePlateRequest } from './model/RecognizeThailandLicensePlateRequest';
+import { RecognizeThailandLicensePlateResponse } from './model/RecognizeThailandLicensePlateResponse';
 import { RecognizeTollInvoiceRequest } from './model/RecognizeTollInvoiceRequest';
 import { RecognizeTollInvoiceResponse } from './model/RecognizeTollInvoiceResponse';
 import { RecognizeTrainTicketRequest } from './model/RecognizeTrainTicketRequest';
@@ -109,6 +128,11 @@ import { RecognizeWebImageRequest } from './model/RecognizeWebImageRequest';
 import { RecognizeWebImageResponse } from './model/RecognizeWebImageResponse';
 import { TaxiInvoiceRequestBody } from './model/TaxiInvoiceRequestBody';
 import { TaxiInvoiceResult } from './model/TaxiInvoiceResult';
+import { ThailandIdcardConfidence } from './model/ThailandIdcardConfidence';
+import { ThailandIdcardRequestBody } from './model/ThailandIdcardRequestBody';
+import { ThailandIdcardResult } from './model/ThailandIdcardResult';
+import { ThailandLicensePlateItem } from './model/ThailandLicensePlateItem';
+import { ThailandLicensePlateRequestBody } from './model/ThailandLicensePlateRequestBody';
 import { TollInvoiceRequestBody } from './model/TollInvoiceRequestBody';
 import { TollInvoiceResult } from './model/TollInvoiceResult';
 import { TrainTicketRequestBody } from './model/TrainTicketRequestBody';
@@ -189,6 +213,19 @@ export class OcrClient {
      */
     public recognizeBusinessLicense(recognizeBusinessLicenseRequest?: RecognizeBusinessLicenseRequest): Promise<RecognizeBusinessLicenseResponse> {
         const options = ParamCreater().recognizeBusinessLicense(recognizeBusinessLicenseRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 识别智利身份证图片中的文字内容，并返回识别的结构化结果。
+     * @summary 智利身份证识别
+     * @param {ChileIdCardRequestBody} chileIdCardRequestBody This is a chile id-card Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeChileIdCard(recognizeChileIdCardRequest?: RecognizeChileIdCardRequest): Promise<RecognizeChileIdCardResponse> {
+        const options = ParamCreater().recognizeChileIdCard(recognizeChileIdCardRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -337,6 +374,32 @@ export class OcrClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 识别缅甸驾驶证中的文字信息，并返回识别的结构化结果。
+     * @summary 缅文驾驶证识别
+     * @param {MyanmarDriverLicenseRequestBody} myanmarDriverLicenseRequestBody This is a Myanmar driver license Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeMyanmarDriverLicense(recognizeMyanmarDriverLicenseRequest?: RecognizeMyanmarDriverLicenseRequest): Promise<RecognizeMyanmarDriverLicenseResponse> {
+        const options = ParamCreater().recognizeMyanmarDriverLicense(recognizeMyanmarDriverLicenseRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 识别缅文身份证中的文字信息，并返回识别的结构化结果。
+     * @summary 缅文身份证识别
+     * @param {MyanmarIdcardRequestBody} myanmarIdcardRequestBody This is a Myanmar Idcard Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeMyanmarIdcard(recognizeMyanmarIdcardRequest?: RecognizeMyanmarIdcardRequest): Promise<RecognizeMyanmarIdcardResponse> {
+        const options = ParamCreater().recognizeMyanmarIdcard(recognizeMyanmarIdcardRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 识别用户上传的护照首页图片中的文字信息，并返回识别的结构化结果。当前版本支持中国护照的全字段识别。外国护照支持护照下方两行国际标准化的机读码识别，并可从中提取6-7个关键字段信息。  说明：  如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product=OCR&api=AutoClassification)服务。 
      * @summary 护照识别
      * @param {PassportRequestBody} passportRequestBody This is a Passport Body Object
@@ -384,6 +447,32 @@ export class OcrClient {
      */
     public recognizeTaxiInvoice(recognizeTaxiInvoiceRequest?: RecognizeTaxiInvoiceRequest): Promise<RecognizeTaxiInvoiceResponse> {
         const options = ParamCreater().recognizeTaxiInvoice(recognizeTaxiInvoiceRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 识别泰国身份证中的文字信息，并返回识别的结构化结果。
+     * @summary 泰文身份证识别
+     * @param {ThailandIdcardRequestBody} thailandIdcardRequestBody This is a Thailand Idcard Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeThailandIdcard(recognizeThailandIdcardRequest?: RecognizeThailandIdcardRequest): Promise<RecognizeThailandIdcardResponse> {
+        const options = ParamCreater().recognizeThailandIdcard(recognizeThailandIdcardRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 识别泰国车牌图片中的车牌信息，并返回识别的结构化结果。
+     * @summary 泰国车牌识别
+     * @param {ThailandLicensePlateRequestBody} thailandLicensePlateRequestBody This is a thailand license plate Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeThailandLicensePlate(recognizeThailandLicensePlateRequest?: RecognizeThailandLicensePlateRequest): Promise<RecognizeThailandLicensePlateResponse> {
+        const options = ParamCreater().recognizeThailandLicensePlate(recognizeThailandLicensePlateRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -611,6 +700,41 @@ export const ParamCreater = function () {
                     body = recognizeBusinessLicenseRequest.body
                 } else {
                     body = recognizeBusinessLicenseRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别智利身份证图片中的文字内容，并返回识别的结构化结果。
+         */
+        recognizeChileIdCard(recognizeChileIdCardRequest?: RecognizeChileIdCardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/chile-id-card",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeChileIdCardRequest !== null && recognizeChileIdCardRequest !== undefined) {
+                if (recognizeChileIdCardRequest instanceof RecognizeChileIdCardRequest) {
+                    body = recognizeChileIdCardRequest.body
+                } else {
+                    body = recognizeChileIdCardRequest['body'];
                 }
             }
         
@@ -1001,6 +1125,76 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 识别缅甸驾驶证中的文字信息，并返回识别的结构化结果。
+         */
+        recognizeMyanmarDriverLicense(recognizeMyanmarDriverLicenseRequest?: RecognizeMyanmarDriverLicenseRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/myanmar-driver-license",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeMyanmarDriverLicenseRequest !== null && recognizeMyanmarDriverLicenseRequest !== undefined) {
+                if (recognizeMyanmarDriverLicenseRequest instanceof RecognizeMyanmarDriverLicenseRequest) {
+                    body = recognizeMyanmarDriverLicenseRequest.body
+                } else {
+                    body = recognizeMyanmarDriverLicenseRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别缅文身份证中的文字信息，并返回识别的结构化结果。
+         */
+        recognizeMyanmarIdcard(recognizeMyanmarIdcardRequest?: RecognizeMyanmarIdcardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/myanmar-id-card",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeMyanmarIdcardRequest !== null && recognizeMyanmarIdcardRequest !== undefined) {
+                if (recognizeMyanmarIdcardRequest instanceof RecognizeMyanmarIdcardRequest) {
+                    body = recognizeMyanmarIdcardRequest.body
+                } else {
+                    body = recognizeMyanmarIdcardRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 识别用户上传的护照首页图片中的文字信息，并返回识别的结构化结果。当前版本支持中国护照的全字段识别。外国护照支持护照下方两行国际标准化的机读码识别，并可从中提取6-7个关键字段信息。  说明：  如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。 
          */
         recognizePassport(recognizePassportRequest?: RecognizePassportRequest) {
@@ -1127,6 +1321,76 @@ export const ParamCreater = function () {
                     body = recognizeTaxiInvoiceRequest.body
                 } else {
                     body = recognizeTaxiInvoiceRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别泰国身份证中的文字信息，并返回识别的结构化结果。
+         */
+        recognizeThailandIdcard(recognizeThailandIdcardRequest?: RecognizeThailandIdcardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/thailand-id-card",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeThailandIdcardRequest !== null && recognizeThailandIdcardRequest !== undefined) {
+                if (recognizeThailandIdcardRequest instanceof RecognizeThailandIdcardRequest) {
+                    body = recognizeThailandIdcardRequest.body
+                } else {
+                    body = recognizeThailandIdcardRequest['body'];
+                }
+            }
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别泰国车牌图片中的车牌信息，并返回识别的结构化结果。
+         */
+        recognizeThailandLicensePlate(recognizeThailandLicensePlateRequest?: RecognizeThailandLicensePlateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/thailand-license-plate",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeThailandLicensePlateRequest !== null && recognizeThailandLicensePlateRequest !== undefined) {
+                if (recognizeThailandLicensePlateRequest instanceof RecognizeThailandLicensePlateRequest) {
+                    body = recognizeThailandLicensePlateRequest.body
+                } else {
+                    body = recognizeThailandLicensePlateRequest['body'];
                 }
             }
         

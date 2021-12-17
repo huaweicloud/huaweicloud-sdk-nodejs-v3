@@ -1,3 +1,28 @@
+# 3.0.26-beta 2021-12-17
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - Support the interface `ShowVersion`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - Support the following interfaces��
+    - `RecognizeThailandIdcard`
+    - `RecognizeMyanmarIdcard`
+    - `RecognizeMyanmarDriverLicense`
+    - `RecognizeChileIdCard`
+    - `RecognizeThailandLicensePlate`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.0.25-beta 2021-12-10
 
 ### HuaweiCloud SDK FRS
@@ -105,7 +130,7 @@
 ### HuaweiCloud SDK VPC
 
 - _Features_
-  - Support interfaces(V3): `AddVpcExtendCidr`��`RemoveVpcExtendCidr`��`ListVpcs`��`ShowVpc`
+  - Support interfaces(V3): `AddVpcExtendCidr`,`RemoveVpcExtendCidr`,`ListVpcs`,`ShowVpc`
 - _Bug Fix_
   - None
 - _Change_
