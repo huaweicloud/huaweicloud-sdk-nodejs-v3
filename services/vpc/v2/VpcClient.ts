@@ -422,7 +422,7 @@ export class VpcClient {
     /**
      * 创建对等连接。
      * @summary 创建对等连接
-     * @param {CreateVpcPeeringRequestBody} peering peering对象列表
+     * @param {CreateVpcPeeringRequestBody} peering peering对象
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1347,7 +1347,7 @@ export class VpcClient {
     /**
      * 创建路由
      * @summary 创建VPC路由
-     * @param {CreateVpcRouteRequestBody} route 创建vpc路由请求体
+     * @param {CreateVpcRouteRequestBody} route route对象，必选字段：destination、nexthop、type、vpc_id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

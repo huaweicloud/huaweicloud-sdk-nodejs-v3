@@ -1,13 +1,17 @@
 
 
 export class InsurancePolicyRequestBody {
-    public image: string;
+    public image?: string;
+    public url?: string;
     private 'detect_direction'?: boolean | undefined;
-    public constructor(image?: any) { 
-        this['image'] = image;
+    public constructor() { 
     }
     public withImage(image: string): InsurancePolicyRequestBody {
         this['image'] = image;
+        return this;
+    }
+    public withUrl(url: string): InsurancePolicyRequestBody {
+        this['url'] = url;
         return this;
     }
     public withDetectDirection(detectDirection: boolean): InsurancePolicyRequestBody {

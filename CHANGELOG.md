@@ -1,3 +1,40 @@
+# 3.0.27-beta 2021-12-25
+
+### HuaweiCloud SDK DevStar
+
+- _Features_
+  - Support the following interfaces��
+    - `ShowApplicationV3`
+    - `UpdateApplication`
+    - `ShowApplicationDependentResources`
+    - `DeleteApplicationV4`
+    - `ShowApplicationResDeleteStatus`
+    - `ListApplicationsV6`
+    - `ShowDeploymentJobs`
+    - `CreateDeploymentJobs`
+    - `ShowPipelineLastStatusV2`
+    - `ListPipelineTemplates`
+    - `StartPipeline`
+    - `ListProjectsV4`
+    - `ShowRepositoryStatisticalDataV2`
+    - `CheckRepositoryDuplicateName`
+    - `ShowApplicationReleaseRepositories`
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `dependents` to the interface `ShowTemplateV3`
+  - Add the response parameters `dependents`, `dependent_services` to the interface `ListTemplatesV2`
+  - Add the response parameter `show_type` to the interface `ShowJobDetail`
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the response parameter `updated_at` from the interface `NovaListServerActions`
+
 # 3.0.26-beta 2021-12-17
 
 ### HuaweiCloud SDK CCE

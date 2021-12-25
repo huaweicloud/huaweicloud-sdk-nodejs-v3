@@ -6,6 +6,7 @@ export class ShowJobDetailResponse extends SdkResponse {
     public name?: string;
     private 'job_status'?: object | undefined;
     private 'job_result'?: string | undefined;
+    private 'show_type'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -36,5 +37,15 @@ export class ShowJobDetailResponse extends SdkResponse {
     }
     public get jobResult() {
         return this['job_result'];
+    }
+    public withShowType(showType: string): ShowJobDetailResponse {
+        this['show_type'] = showType;
+        return this;
+    }
+    public set showType(showType: string | undefined) {
+        this['show_type'] = showType;
+    }
+    public get showType() {
+        return this['show_type'];
     }
 }

@@ -1,3 +1,40 @@
+# 3.0.27-beta 2021-12-25
+
+### HuaweiCloud SDK DevStar
+
+- _新增特性_
+  - 支持以下接口：
+    - `ShowApplicationV3`
+    - `UpdateApplication`
+    - `ShowApplicationDependentResources`
+    - `DeleteApplicationV4`
+    - `ShowApplicationResDeleteStatus`
+    - `ListApplicationsV6`
+    - `ShowDeploymentJobs`
+    - `CreateDeploymentJobs`
+    - `ShowPipelineLastStatusV2`
+    - `ListPipelineTemplates`
+    - `StartPipeline`
+    - `ListProjectsV4`
+    - `ShowRepositoryStatisticalDataV2`
+    - `CheckRepositoryDuplicateName`
+    - `ShowApplicationReleaseRepositories`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ShowTemplateV3`新增响应参数 `dependents`
+  - 接口`ListTemplatesV2`新增响应参数 `dependents`、`dependent_services`
+  - 接口`ShowJobDetail`新增响应参数 `show_type`
+
+### HuaweiCloud SDK ECS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`NovaListServerActions`移除响应参数`updated_at`
+
 # 3.0.26-beta 2021-12-17
 
 ### HuaweiCloud SDK CCE

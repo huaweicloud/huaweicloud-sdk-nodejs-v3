@@ -1,3 +1,4 @@
+import { Dependent } from './Dependent';
 import { TagInfo } from './TagInfo';
 import { TopicCategory } from './TopicCategory';
 
@@ -31,6 +32,7 @@ export class ShowTemplateV3Response extends SdkResponse {
     private 'update_id'?: string | undefined;
     public topic?: Array<TopicCategory>;
     public tags?: Array<TagInfo>;
+    public dependents?: Array<Dependent>;
     public constructor() { 
         super();
     }
@@ -218,6 +220,10 @@ export class ShowTemplateV3Response extends SdkResponse {
     }
     public withTags(tags: Array<TagInfo>): ShowTemplateV3Response {
         this['tags'] = tags;
+        return this;
+    }
+    public withDependents(dependents: Array<Dependent>): ShowTemplateV3Response {
+        this['dependents'] = dependents;
         return this;
     }
 }

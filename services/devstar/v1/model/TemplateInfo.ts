@@ -1,3 +1,4 @@
+import { Dependent } from './Dependent';
 import { PipelineTemplateInfo } from './PipelineTemplateInfo';
 import { Reference } from './Reference';
 import { TagInfo } from './TagInfo';
@@ -42,6 +43,8 @@ export class TemplateInfo {
     private 'update_id'?: string | undefined;
     private 'is_support_cloudide'?: boolean | undefined;
     private 'has_notices'?: boolean | undefined;
+    public dependents?: Array<Dependent>;
+    private 'dependent_services'?: string | undefined;
     public constructor() { 
     }
     public withId(id: string): TemplateInfo {
@@ -289,5 +292,19 @@ export class TemplateInfo {
     }
     public get hasNotices() {
         return this['has_notices'];
+    }
+    public withDependents(dependents: Array<Dependent>): TemplateInfo {
+        this['dependents'] = dependents;
+        return this;
+    }
+    public withDependentServices(dependentServices: string): TemplateInfo {
+        this['dependent_services'] = dependentServices;
+        return this;
+    }
+    public set dependentServices(dependentServices: string | undefined) {
+        this['dependent_services'] = dependentServices;
+    }
+    public get dependentServices() {
+        return this['dependent_services'];
     }
 }
