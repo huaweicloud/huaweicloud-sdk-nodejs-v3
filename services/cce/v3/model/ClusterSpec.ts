@@ -14,6 +14,7 @@ export class ClusterSpec {
     public version?: string;
     public platformVersion?: string;
     public description?: string;
+    public customSan?: Array<string>;
     public ipv6enable?: boolean;
     public hostNetwork: HostNetwork;
     public containerNetwork: ContainerNetwork;
@@ -54,6 +55,10 @@ export class ClusterSpec {
     }
     public withDescription(description: string): ClusterSpec {
         this['description'] = description;
+        return this;
+    }
+    public withCustomSan(customSan: Array<string>): ClusterSpec {
+        this['customSan'] = customSan;
         return this;
     }
     public withIpv6enable(ipv6enable: boolean): ClusterSpec {

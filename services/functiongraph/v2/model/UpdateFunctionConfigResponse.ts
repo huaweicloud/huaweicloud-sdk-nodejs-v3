@@ -42,6 +42,7 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     private 'log_stream_id'?: string | undefined;
     public type?: UpdateFunctionConfigResponseTypeEnum;
     private 'enable_dynamic_memory'?: boolean | undefined;
+    private 'is_stateful_function'?: boolean | undefined;
     public constructor() { 
         super();
     }
@@ -338,6 +339,16 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     }
     public get enableDynamicMemory() {
         return this['enable_dynamic_memory'];
+    }
+    public withIsStatefulFunction(isStatefulFunction: boolean): UpdateFunctionConfigResponse {
+        this['is_stateful_function'] = isStatefulFunction;
+        return this;
+    }
+    public set isStatefulFunction(isStatefulFunction: boolean | undefined) {
+        this['is_stateful_function'] = isStatefulFunction;
+    }
+    public get isStatefulFunction() {
+        return this['is_stateful_function'];
     }
 }
 

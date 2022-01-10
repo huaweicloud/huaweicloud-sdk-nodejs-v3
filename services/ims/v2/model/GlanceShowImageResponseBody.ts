@@ -54,14 +54,14 @@ export class GlanceShowImageResponseBody {
     private '__sequence_num'?: string | undefined;
     private '__support_agent_list'?: string | undefined;
     private '__system__cmkid'?: string | undefined;
-    private 'active_at': string | undefined;
+    private 'active_at'?: string | undefined;
     private 'hw_vif_multiqueue_enabled'?: string | undefined;
     private 'max_ram'?: string | undefined;
     private '__image_location'?: string | undefined;
     private '__is_config_init'?: string | undefined;
     private '__account_code'?: string | undefined;
     private '__support_amd'?: string | undefined;
-    public constructor(imageSize?: any, imageSourceType?: any, imagetype?: any, isregistered?: any, osType?: any, containerFormat?: any, createdAt?: any, diskFormat?: any, file?: any, id?: any, minDisk?: any, minRam?: any, name?: any, owner?: any, _protected?: any, schema?: any, self?: any, status?: any, tags?: any, updatedAt?: any, virtualEnvType?: any, visibility?: any, activeAt?: any) { 
+    public constructor(imageSize?: any, imageSourceType?: any, imagetype?: any, isregistered?: any, osType?: any, containerFormat?: any, createdAt?: any, diskFormat?: any, file?: any, id?: any, minDisk?: any, minRam?: any, name?: any, owner?: any, _protected?: any, schema?: any, self?: any, status?: any, tags?: any, updatedAt?: any, virtualEnvType?: any, visibility?: any) { 
         this['__image_size'] = imageSize;
         this['__image_source_type'] = imageSourceType;
         this['__imagetype'] = imagetype;
@@ -84,7 +84,6 @@ export class GlanceShowImageResponseBody {
         this['updated_at'] = updatedAt;
         this['virtual_env_type'] = virtualEnvType;
         this['visibility'] = visibility;
-        this['active_at'] = activeAt;
     }
     public withBackupId(backupId: string): GlanceShowImageResponseBody {
         this['__backup_id'] = backupId;

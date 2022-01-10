@@ -1,3 +1,63 @@
+# 3.0.28-beta 2022-01-10
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - Support the interface `ShowQuotas`
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameters `customSan`, `offloadCluster`, `cidrs`, `flavor`, `faultDomain` to the interface `CreateCluster`
+  - Add the response parameters `customSan`, `offloadCluster`, `cidrs`, `flavor`, `faultDomain` to the interface `ListClusters`
+  - Changes of the interface `UpdateCluster`:
+    - Add the request parameters `customSan`, `containerNetwork`
+    - Add the response parameters `customSan`, `offloadCluster`, `cidrs`, `flavor`, `faultDomain`
+  - Add the response parameters `customSan`, `offloadCluster`, `cidrs`, `flavor`, `faultDomain` to the interface `ShowCluster`
+  - Add the response parameters `customSan`, `offloadCluster`, `cidrs`, `flavor`, `faultDomain` to the interface `DeleteCluster`
+  - Add the request parameters `faultDomain`, `offloadNode`, `offloadNode` to the interface `CreateNode`
+  - Add the response parameters `faultDomain`, `offloadNode`, `offloadNode` to the interface `ListNodes`
+  - Add the response parameters `faultDomain`, `offloadNode`, `offloadNode` to the interface `UpdateNode`
+  - Add the response parameters `faultDomain`, `offloadNode`, `offloadNode` to the interface `ShowNode`
+  - Add the response parameters `faultDomain`, `offloadNode`, `offloadNode` to the interface `DeleteNode`
+  - Add the request parameters `podSecurityGroups`, `faultDomain`, `offloadNode`, `offloadNode` to the interface `CreateNodePool`
+  - Add the response parameters `podSecurityGroups`, `faultDomain`, `offloadNode`, `offloadNode` to the interface `ListNodePools`
+  - Changes of the interface `UpdateNodePool`:
+    - Add the request parameters `podSecurityGroups`, `faultDomain`, `offloadNode`, `offloadNode`
+    - Add the response parameters `podSecurityGroups`, `faultDomain`, `offloadNode`, `offloadNode`
+  - Add the response parameters `podSecurityGroups`, `faultDomain`, `offloadNode`, `offloadNode` to the interface `ShowNodePool`
+  - Add the response parameters `podSecurityGroups`, `faultDomain`, `offloadNode`, `offloadNode` to the interface `DeleteNodePool`
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `delete_on_termination` to the interface `CreateServers`
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Changes of the interface `UpdateFunctionConfig`:
+    - Add the request parameter `is_stateful_function`
+    - Add the response parameter `is_stateful_function`
+
+### HuaweiCloud SDK IMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - The response parameter `active_at` changed to not required of the interface `GlanceListImages`
+  - The response parameter `active_at` changed to not required of the interface `GlanceShowImage`
+  - The response parameter `active_at` changed to not required of the interface `GlanceUpdateImage`
+
 # 3.0.27-beta 2021-12-25
 
 ### HuaweiCloud SDK DevStar

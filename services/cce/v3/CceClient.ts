@@ -26,7 +26,9 @@ import { ClusterNodeInformationMetadata } from './model/ClusterNodeInformationMe
 import { ClusterSpec } from './model/ClusterSpec';
 import { ClusterStatus } from './model/ClusterStatus';
 import { Clusters } from './model/Clusters';
+import { ContainerCIDR } from './model/ContainerCIDR';
 import { ContainerNetwork } from './model/ContainerNetwork';
+import { ContainerNetworkUpdate } from './model/ContainerNetworkUpdate';
 import { Context } from './model/Context';
 import { Contexts } from './model/Contexts';
 import { CreateAddonInstanceRequest } from './model/CreateAddonInstanceRequest';
@@ -107,6 +109,7 @@ import { PersistentVolumeClaim } from './model/PersistentVolumeClaim';
 import { PersistentVolumeClaimMetadata } from './model/PersistentVolumeClaimMetadata';
 import { PersistentVolumeClaimSpec } from './model/PersistentVolumeClaimSpec';
 import { PersistentVolumeClaimStatus } from './model/PersistentVolumeClaimStatus';
+import { QuotaResource } from './model/QuotaResource';
 import { ReinstallExtendParam } from './model/ReinstallExtendParam';
 import { ReinstallK8sOptionsConfig } from './model/ReinstallK8sOptionsConfig';
 import { ReinstallNodeSpec } from './model/ReinstallNodeSpec';
@@ -136,6 +139,8 @@ import { ShowNodePoolRequest } from './model/ShowNodePoolRequest';
 import { ShowNodePoolResponse } from './model/ShowNodePoolResponse';
 import { ShowNodeRequest } from './model/ShowNodeRequest';
 import { ShowNodeResponse } from './model/ShowNodeResponse';
+import { ShowQuotasRequest } from './model/ShowQuotasRequest';
+import { ShowQuotasResponse } from './model/ShowQuotasResponse';
 import { Storage } from './model/Storage';
 import { StorageGroups } from './model/StorageGroups';
 import { StorageSelectors } from './model/StorageSelectors';
@@ -280,7 +285,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。  > 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
+     * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。1.21版本的集群创建节点池时支持绑定安全组，每个节点池最多绑定五个安全组。更新节点池的安全组后，只针对新创的pod生效，建议驱逐节点上原有的pod。  > 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
      * @summary 创建节点池
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
@@ -546,7 +551,7 @@ export class CceClient {
     /**
      * 该API用于获取任务信息。通过某一任务请求下发后返回的jobID来查询指定任务的进度。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 > - 该接口通常使用场景为： >   - 创建、删除集群时，查询相应任务的进度。 >   - 创建、删除节点时，查询相应任务的进度。 
      * @summary 获取任务信息
-     * @param {string} jobId 作业ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} jobId 任务ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -583,6 +588,19 @@ export class CceClient {
      */
     public showNodePool(showNodePoolRequest?: ShowNodePoolRequest): Promise<ShowNodePoolResponse> {
         const options = ParamCreater().showNodePool(showNodePoolRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 该API用于查询CCE服务下的资源配额。
+     * @summary 查询CCE服务下的资源配额。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showQuotas(showQuotasRequest?: ShowQuotasRequest): Promise<ShowQuotasResponse> {
+        const options = ParamCreater().showQuotas(showQuotasRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1003,7 +1021,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。  &gt; 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
+         * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。1.21版本的集群创建节点池时支持绑定安全组，每个节点池最多绑定五个安全组。更新节点池的安全组后，只针对新创的pod生效，建议驱逐节点上原有的pod。  &gt; 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
          */
         createNodePool(createNodePoolRequest?: CreateNodePoolRequest) {
             const options = {
@@ -2047,6 +2065,42 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'cluster_id': clusterId,'nodepool_id': nodepoolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于查询CCE服务下的资源配额。
+         */
+        showQuotas(showQuotasRequest?: ShowQuotasRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let contentType;
+
+            if (showQuotasRequest !== null && showQuotasRequest !== undefined) {
+                if (showQuotasRequest instanceof ShowQuotasRequest) {
+                    contentType = showQuotasRequest.contentType;
+                } else {
+                    contentType = showQuotasRequest['Content-Type'];
+                }
+            }
+        
+            if (contentType === null || contentType === undefined) {
+                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling showQuotas.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
             options.headers = localVarHeaderParameter;
             return options;
         },

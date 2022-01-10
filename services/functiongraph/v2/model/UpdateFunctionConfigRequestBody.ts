@@ -20,6 +20,7 @@ export class UpdateFunctionConfigRequestBody {
     private 'initializer_handler'?: string | undefined;
     private 'initializer_timeout'?: number | undefined;
     private 'enterprise_project_id'?: string | undefined;
+    private 'is_stateful_function'?: boolean | undefined;
     public constructor(funcName?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any) { 
         this['func_name'] = funcName;
         this['runtime'] = runtime;
@@ -156,6 +157,16 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withIsStatefulFunction(isStatefulFunction: boolean): UpdateFunctionConfigRequestBody {
+        this['is_stateful_function'] = isStatefulFunction;
+        return this;
+    }
+    public set isStatefulFunction(isStatefulFunction: boolean | undefined) {
+        this['is_stateful_function'] = isStatefulFunction;
+    }
+    public get isStatefulFunction() {
+        return this['is_stateful_function'];
     }
 }
 

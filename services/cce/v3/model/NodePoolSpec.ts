@@ -9,6 +9,7 @@ export class NodePoolSpec {
     public initialNodeCount?: number;
     public autoscaling?: NodePoolNodeAutoscaling;
     public nodeManagement?: NodeManagement;
+    public podSecurityGroups?: Array<object>;
     public constructor(nodeTemplate?: any) { 
         this['nodeTemplate'] = nodeTemplate;
     }
@@ -30,6 +31,10 @@ export class NodePoolSpec {
     }
     public withNodeManagement(nodeManagement: NodeManagement): NodePoolSpec {
         this['nodeManagement'] = nodeManagement;
+        return this;
+    }
+    public withPodSecurityGroups(podSecurityGroups: Array<object>): NodePoolSpec {
+        this['podSecurityGroups'] = podSecurityGroups;
         return this;
     }
 }

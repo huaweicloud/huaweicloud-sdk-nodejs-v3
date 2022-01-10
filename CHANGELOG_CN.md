@@ -1,3 +1,63 @@
+# 3.0.28-beta 2022-01-10
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 支持接口`ShowQuotas`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`CreateCluster`新增请求参数 `customSan`、`offloadCluster`、`cidrs`、`flavor`、`faultDomain`
+  - 接口`ListClusters`新增响应参数 `customSan`、`offloadCluster`、`cidrs`、`flavor`、`faultDomain`
+  - 接口`UpdateCluster`:
+    - 新增请求参数 `customSan`、`containerNetwork`
+    - 新增响应参数 `customSan`、`offloadCluster`、`cidrs`、`flavor`、`faultDomain`
+  - 接口`ShowCluster`新增响应参数 `customSan`、`offloadCluster`、`cidrs`、`flavor`、`faultDomain`
+  - 接口`DeleteCluster`新增响应参数 `customSan`、`offloadCluster`、`cidrs`、`flavor`、`faultDomain`
+  - 接口`CreateNode`新增请求参数 `faultDomain`、`offloadNode`、`offloadNode`
+  - 接口`ListNodes`新增响应参数 `faultDomain`、`offloadNode`、`offloadNode`
+  - 接口`UpdateNode`新增响应参数 `faultDomain`、`offloadNode`、`offloadNode`
+  - 接口`ShowNode`新增响应参数 `faultDomain`、`offloadNode`、`offloadNode`
+  - 接口`DeleteNode`新增响应参数 `faultDomain`、`offloadNode`、`offloadNode`
+  - 接口`CreateNodePool`新增请求参数 `podSecurityGroups`、`faultDomain`、`offloadNode`、`offloadNode`
+  - 接口`ListNodePools`新增响应参数 `podSecurityGroups`、`faultDomain`、`offloadNode`、`offloadNode`
+  - 接口`UpdateNodePool`:
+    - 新增请求参数 `podSecurityGroups`、`faultDomain`、`offloadNode`、`offloadNode`
+    - 新增响应参数 `podSecurityGroups`、`faultDomain`、`offloadNode`、`offloadNode`
+  - 接口`ShowNodePool`新增响应参数 `podSecurityGroups`、`faultDomain`、`offloadNode`、`offloadNode`
+  - 接口`DeleteNodePool`新增响应参数 `podSecurityGroups`、`faultDomain`、`offloadNode`、`offloadNode`
+
+### HuaweiCloud SDK ECS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`CreateServers`新增请求参数 `delete_on_termination`
+
+### HuaweiCloud SDK FunctionGraph
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`UpdateFunctionConfig`:
+    - 新增请求参数 `is_stateful_function`
+    - 新增响应参数 `is_stateful_function`
+
+### HuaweiCloud SDK IMS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`GlanceListImages`响应参数`active_at`改为非必填
+  - 接口`GlanceShowImage`响应参数`active_at`改为非必填
+  - 接口`GlanceUpdateImage`响应参数`active_at`改为非必填
+
 # 3.0.27-beta 2021-12-25
 
 ### HuaweiCloud SDK DevStar

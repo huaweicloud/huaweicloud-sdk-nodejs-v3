@@ -1,8 +1,10 @@
+import { ContainerCIDR } from './ContainerCIDR';
 
 
 export class ContainerNetwork {
     public mode: ContainerNetworkModeEnum;
     public cidr?: string;
+    public cidrs?: Array<ContainerCIDR>;
     public constructor(mode?: any) { 
         this['mode'] = mode;
     }
@@ -12,6 +14,10 @@ export class ContainerNetwork {
     }
     public withCidr(cidr: string): ContainerNetwork {
         this['cidr'] = cidr;
+        return this;
+    }
+    public withCidrs(cidrs: Array<ContainerCIDR>): ContainerNetwork {
+        this['cidrs'] = cidrs;
         return this;
     }
 }
