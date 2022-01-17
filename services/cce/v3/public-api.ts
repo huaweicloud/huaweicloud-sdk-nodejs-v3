@@ -127,6 +127,7 @@ export * from './model/ResourceRequirements';
 export * from './model/ResourceTag';
 export * from './model/Runtime';
 export * from './model/RuntimeConfig';
+export * from './model/SecurityID';
 export * from './model/ShowAddonInstanceRequest';
 export * from './model/ShowAddonInstanceResponse';
 export * from './model/ShowClusterRequest';

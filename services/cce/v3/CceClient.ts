@@ -129,6 +129,7 @@ import { ResourceRequirements } from './model/ResourceRequirements';
 import { ResourceTag } from './model/ResourceTag';
 import { Runtime } from './model/Runtime';
 import { RuntimeConfig } from './model/RuntimeConfig';
+import { SecurityID } from './model/SecurityID';
 import { ShowAddonInstanceRequest } from './model/ShowAddonInstanceRequest';
 import { ShowAddonInstanceResponse } from './model/ShowAddonInstanceResponse';
 import { ShowClusterRequest } from './model/ShowClusterRequest';

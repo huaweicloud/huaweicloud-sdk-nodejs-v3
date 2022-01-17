@@ -60,6 +60,9 @@ import { ListDependenciesResult } from './model/ListDependenciesResult';
 import { ListEventsRequest } from './model/ListEventsRequest';
 import { ListEventsResponse } from './model/ListEventsResponse';
 import { ListEventsResult } from './model/ListEventsResult';
+import { ListFunctionAsyncInvocationsRequest } from './model/ListFunctionAsyncInvocationsRequest';
+import { ListFunctionAsyncInvocationsResponse } from './model/ListFunctionAsyncInvocationsResponse';
+import { ListFunctionAsyncInvocationsResult } from './model/ListFunctionAsyncInvocationsResult';
 import { ListFunctionAsyncInvokeConfigRequest } from './model/ListFunctionAsyncInvokeConfigRequest';
 import { ListFunctionAsyncInvokeConfigResponse } from './model/ListFunctionAsyncInvokeConfigResponse';
 import { ListFunctionAsyncInvokeConfigResult } from './model/ListFunctionAsyncInvokeConfigResult';
@@ -396,6 +399,24 @@ export class FunctionGraphClient {
      */
     public listEvents(listEventsRequest?: ListEventsRequest): Promise<ListEventsResponse> {
         const options = ParamCreater().listEvents(listEventsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 获取函数异步调用请求列表
+     * @summary 获取函数异步调用请求列表
+     * @param {string} functionUrn 函数URN
+     * @param {string} [requestId] 需要查询的异步请求ID。如果不指定，默认查询所有异步调用记录
+     * @param {string} [limit] 本次查询最大返回的数据条数，最大值500，默认值100
+     * @param {'WAIT' | 'RUNNING' | 'SUCCESS' | 'FAIL' | 'DISCARD'} [status] 本次查询指定的异步调用状态，支持5种状态，如果不指定，则查询所有状态的调用记录 WAIT: 等待 RUNNING: 执行中 SUCCESS: 执行成功 FAIL: 执行失败 DISCARD: 请求丢弃
+     * @param {Date} [queryBeginTime] 搜索起始时间（格式为YYYY-MM-DD\&#39;T\&#39;HH:mm:ss,UTC时间）。如果不指定默认为当前时间前1小时
+     * @param {Date} [queryEndTime] 搜索结束时间（格式为YYYY-MM-DD\&#39;T\&#39;HH:mm:ss,UTC时间）。如果不指定默认为当前时间
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionAsyncInvocations(listFunctionAsyncInvocationsRequest?: ListFunctionAsyncInvocationsRequest): Promise<ListFunctionAsyncInvocationsResponse> {
+        const options = ParamCreater().listFunctionAsyncInvocations(listFunctionAsyncInvocationsRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1520,6 +1541,71 @@ export const ParamCreater = function () {
                 throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listEvents.');
             }
 
+            options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取函数异步调用请求列表
+         */
+        listFunctionAsyncInvocations(listFunctionAsyncInvocationsRequest?: ListFunctionAsyncInvocationsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/functions/{function_urn}/async-invocations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let functionUrn;
+            let requestId;
+            let limit;
+            let status;
+            let queryBeginTime;
+            let queryEndTime;
+
+            if (listFunctionAsyncInvocationsRequest !== null && listFunctionAsyncInvocationsRequest !== undefined) {
+                if (listFunctionAsyncInvocationsRequest instanceof ListFunctionAsyncInvocationsRequest) {
+                    functionUrn = listFunctionAsyncInvocationsRequest.functionUrn;
+                    requestId = listFunctionAsyncInvocationsRequest.requestId;
+                    limit = listFunctionAsyncInvocationsRequest.limit;
+                    status = listFunctionAsyncInvocationsRequest.status;
+                    queryBeginTime = listFunctionAsyncInvocationsRequest.queryBeginTime;
+                    queryEndTime = listFunctionAsyncInvocationsRequest.queryEndTime;
+                } else {
+                    functionUrn = listFunctionAsyncInvocationsRequest['function_urn'];
+                    requestId = listFunctionAsyncInvocationsRequest['request_id'];
+                    limit = listFunctionAsyncInvocationsRequest['limit'];
+                    status = listFunctionAsyncInvocationsRequest['status'];
+                    queryBeginTime = listFunctionAsyncInvocationsRequest['query_begin_time'];
+                    queryEndTime = listFunctionAsyncInvocationsRequest['query_end_time'];
+                }
+            }
+        
+            if (functionUrn === null || functionUrn === undefined) {
+                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionAsyncInvocations.');
+            }
+            if (requestId !== null && requestId !== undefined) {
+                localVarQueryParameter['request_id'] = requestId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (queryBeginTime !== null && queryBeginTime !== undefined) {
+                localVarQueryParameter['query_begin_time'] = queryBeginTime;
+            }
+            if (queryEndTime !== null && queryEndTime !== undefined) {
+                localVarQueryParameter['query_end_time'] = queryEndTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'function_urn': functionUrn, };
             options.headers = localVarHeaderParameter;
             return options;
