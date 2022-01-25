@@ -8,6 +8,7 @@ export class LoginToken {
     private 'user_id': string | undefined;
     private 'user_name': string | undefined;
     private 'session_id': string | undefined;
+    private 'session_user_id'?: string | undefined;
     private 'session_name'?: string | undefined;
     private 'assumed_by'?: LoginTokenAssumedBy | undefined;
     public constructor(domainId?: any, expiresAt?: any, method?: any, userId?: any, userName?: any, sessionId?: any) { 
@@ -71,6 +72,16 @@ export class LoginToken {
     }
     public get sessionId() {
         return this['session_id'];
+    }
+    public withSessionUserId(sessionUserId: string): LoginToken {
+        this['session_user_id'] = sessionUserId;
+        return this;
+    }
+    public set sessionUserId(sessionUserId: string | undefined) {
+        this['session_user_id'] = sessionUserId;
+    }
+    public get sessionUserId() {
+        return this['session_user_id'];
     }
     public withSessionName(sessionName: string): LoginToken {
         this['session_name'] = sessionName;

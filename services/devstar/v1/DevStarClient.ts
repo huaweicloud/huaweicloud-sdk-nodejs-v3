@@ -30,6 +30,8 @@ import { ListPublishedTemplatesRequest } from './model/ListPublishedTemplatesReq
 import { ListPublishedTemplatesResponse } from './model/ListPublishedTemplatesResponse';
 import { ListTemplateViewHistoriesRequest } from './model/ListTemplateViewHistoriesRequest';
 import { ListTemplateViewHistoriesResponse } from './model/ListTemplateViewHistoriesResponse';
+import { ListTemplatesRequest } from './model/ListTemplatesRequest';
+import { ListTemplatesResponse } from './model/ListTemplatesResponse';
 import { ListTemplatesV2Request } from './model/ListTemplatesV2Request';
 import { ListTemplatesV2Response } from './model/ListTemplatesV2Response';
 import { PipelineBasic } from './model/PipelineBasic';
@@ -63,6 +65,8 @@ import { ShowJobDetailRequest } from './model/ShowJobDetailRequest';
 import { ShowJobDetailResponse } from './model/ShowJobDetailResponse';
 import { ShowPipelineLastStatusV2Request } from './model/ShowPipelineLastStatusV2Request';
 import { ShowPipelineLastStatusV2Response } from './model/ShowPipelineLastStatusV2Response';
+import { ShowRepositoryByCloudIdeRequest } from './model/ShowRepositoryByCloudIdeRequest';
+import { ShowRepositoryByCloudIdeResponse } from './model/ShowRepositoryByCloudIdeResponse';
 import { ShowRepositoryStatisticalDataV2Request } from './model/ShowRepositoryStatisticalDataV2Request';
 import { ShowRepositoryStatisticalDataV2Response } from './model/ShowRepositoryStatisticalDataV2Response';
 import { ShowTemplateDetailRequest } from './model/ShowTemplateDetailRequest';
@@ -77,6 +81,7 @@ import { TagInfo } from './model/TagInfo';
 import { TemplateInfo } from './model/TemplateInfo';
 import { TemplateJobInfo } from './model/TemplateJobInfo';
 import { TemplateProductExt } from './model/TemplateProductExt';
+import { TemplateQuery } from './model/TemplateQuery';
 import { TemplateQueryV2 } from './model/TemplateQueryV2';
 import { TemplateSimpleInfo } from './model/TemplateSimpleInfo';
 import { TemplateType } from './model/TemplateType';
@@ -377,6 +382,25 @@ export class DevStarClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 使用 CloudIDE 实例打开应用代码。CloudIDE会保存用户项目数据，相同用户使用同一个CloudIDE 使用要求：1.用户需为登录状态； 2.拥有仓库权限 
+     * @summary 使用 CloudIDE 实例打开应用代码
+     * @param {string} repositoryId 仓库id
+     * @param {string} repositorySshUrl 仓库下载地址
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * @param {string} [regionId] 区域ID
+     * @param {string} [spacePrefix] 工作空间名称前缀
+     * @param {boolean} [isOpenLast] 是否打开上一次的工作空间
+     * @param {boolean} [isFree] 是否创建免费实例链接
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showRepositoryByCloudIde(showRepositoryByCloudIdeRequest?: ShowRepositoryByCloudIdeRequest): Promise<ShowRepositoryByCloudIdeResponse> {
+        const options = ParamCreater().showRepositoryByCloudIde(showRepositoryByCloudIdeRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 查询代码仓库的统计信息,包括代码仓的名称,代码行数等信息
      * @summary 应用代码仓库统计信息
      * @param {string} repositoryId 代码仓库id
@@ -446,6 +470,20 @@ export class DevStarClient {
      */
     public listTemplateViewHistories(listTemplateViewHistoriesRequest?: ListTemplateViewHistoriesRequest): Promise<ListTemplateViewHistoriesResponse> {
         const options = ParamCreater().listTemplateViewHistories(listTemplateViewHistoriesRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 查询模板列表。
+     * @summary 查询模板列表
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
+     * @param {TemplateQuery} [listTemplatesRequestBody] 模板列表查询参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTemplates(listTemplatesRequest?: ListTemplatesRequest): Promise<ListTemplatesResponse> {
+        const options = ParamCreater().listTemplates(listTemplatesRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1386,6 +1424,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 使用 CloudIDE 实例打开应用代码。CloudIDE会保存用户项目数据，相同用户使用同一个CloudIDE 使用要求：1.用户需为登录状态； 2.拥有仓库权限 
+         */
+        showRepositoryByCloudIde(showRepositoryByCloudIdeRequest?: ShowRepositoryByCloudIdeRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/repositories/{repository_id}/show/cloudide",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let repositoryId;
+            let repositorySshUrl;
+            let xLanguage;
+            let regionId;
+            let spacePrefix;
+            let isOpenLast;
+            let isFree;
+
+            if (showRepositoryByCloudIdeRequest !== null && showRepositoryByCloudIdeRequest !== undefined) {
+                if (showRepositoryByCloudIdeRequest instanceof ShowRepositoryByCloudIdeRequest) {
+                    repositoryId = showRepositoryByCloudIdeRequest.repositoryId;
+                    repositorySshUrl = showRepositoryByCloudIdeRequest.repositorySshUrl;
+                    xLanguage = showRepositoryByCloudIdeRequest.xLanguage;
+                    regionId = showRepositoryByCloudIdeRequest.regionId;
+                    spacePrefix = showRepositoryByCloudIdeRequest.spacePrefix;
+                    isOpenLast = showRepositoryByCloudIdeRequest.isOpenLast;
+                    isFree = showRepositoryByCloudIdeRequest.isFree;
+                } else {
+                    repositoryId = showRepositoryByCloudIdeRequest['repository_id'];
+                    repositorySshUrl = showRepositoryByCloudIdeRequest['repository_ssh_url'];
+                    xLanguage = showRepositoryByCloudIdeRequest['X-Language'];
+                    regionId = showRepositoryByCloudIdeRequest['region_id'];
+                    spacePrefix = showRepositoryByCloudIdeRequest['space_prefix'];
+                    isOpenLast = showRepositoryByCloudIdeRequest['is_open_last'];
+                    isFree = showRepositoryByCloudIdeRequest['is_free'];
+                }
+            }
+        
+            if (repositoryId === null || repositoryId === undefined) {
+                throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryByCloudIde.');
+            }
+            if (repositorySshUrl === null || repositorySshUrl === undefined) {
+                throw new RequiredError('repositorySshUrl','Required parameter repositorySshUrl was null or undefined when calling showRepositoryByCloudIde.');
+            }
+            if (repositorySshUrl !== null && repositorySshUrl !== undefined) {
+                localVarQueryParameter['repository_ssh_url'] = repositorySshUrl;
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (spacePrefix !== null && spacePrefix !== undefined) {
+                localVarQueryParameter['space_prefix'] = spacePrefix;
+            }
+            if (isOpenLast !== null && isOpenLast !== undefined) {
+                localVarQueryParameter['is_open_last'] = isOpenLast;
+            }
+            if (isFree !== null && isFree !== undefined) {
+                localVarQueryParameter['is_free'] = isFree;
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'repository_id': repositoryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询代码仓库的统计信息,包括代码仓的名称,代码行数等信息
          */
         showRepositoryStatisticalDataV2(showRepositoryStatisticalDataV2Request?: ShowRepositoryStatisticalDataV2Request) {
@@ -1613,6 +1725,44 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询模板列表。
+         */
+        listTemplates(listTemplatesRequest?: ListTemplatesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/templates/query",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let xLanguage;
+
+            if (listTemplatesRequest !== null && listTemplatesRequest !== undefined) {
+                if (listTemplatesRequest instanceof ListTemplatesRequest) {
+                    xLanguage = listTemplatesRequest.xLanguage;
+                    body = listTemplatesRequest.body
+                } else {
+                    xLanguage = listTemplatesRequest['X-Language'];
+                    body = listTemplatesRequest['body'];
+                }
+            }
+        
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

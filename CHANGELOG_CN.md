@@ -1,3 +1,23 @@
+# 3.0.30-rc 2022-01-25
+
+### HuaweiCloud SDK DevStar
+
+- _新增特性_
+  - 支持接口`ShowRepositoryByCloudIde`、`ListTemplates`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK IAM
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`CreateLoginToken`新增响应参数`session_user_id`
+
 # 3.0.29-beta 2022-01-17
 
 ### HuaweiCloud SDK CCE

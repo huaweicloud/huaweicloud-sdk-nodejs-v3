@@ -1,3 +1,23 @@
+# 3.0.30-rc 2022-01-25
+
+### HuaweiCloud SDK DevStar
+
+- _Features_
+  - Support the interfaces `ShowRepositoryByCloudIde`, `ListTemplates`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK IAM
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `session_user_id` to the interface `CreateLoginToken`
+
 # 3.0.29-beta 2022-01-17
 
 ### HuaweiCloud SDK CCE
