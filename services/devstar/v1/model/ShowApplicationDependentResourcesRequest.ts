@@ -3,6 +3,8 @@
 export class ShowApplicationDependentResourcesRequest {
     private 'X-Language'?: ShowApplicationDependentResourcesRequestXLanguageEnum | undefined;
     private 'application_id': string | undefined;
+    public limit?: number;
+    public offset?: number;
     public constructor(applicationId?: any) { 
         this['application_id'] = applicationId;
     }
@@ -25,6 +27,14 @@ export class ShowApplicationDependentResourcesRequest {
     }
     public get applicationId() {
         return this['application_id'];
+    }
+    public withLimit(limit: number): ShowApplicationDependentResourcesRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ShowApplicationDependentResourcesRequest {
+        this['offset'] = offset;
+        return this;
     }
 }
 

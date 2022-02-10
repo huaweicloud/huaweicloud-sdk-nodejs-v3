@@ -58,6 +58,7 @@ export enum ListDependenciesRequestRuntimeEnum {
     PYTHON_2_7 = 'Python 2.7',
     PYTHON_3_6 = 'Python 3.6',
     GO_1_8 = 'Go 1.8',
+    GO_1_X = 'Go 1.x',
     C__NET_CORE_2_0 = 'C#(.NET Core 2.0)',
     C__NET_CORE_2_1 = 'C#(.NET Core 2.1)',
     C__NET_CORE_3_1 = 'C#(.NET Core 3.1)',

@@ -4,6 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowApplicationDependentResourcesResponse extends SdkResponse {
     private 'dependent_services'?: Array<ResouceInfo> | undefined;
+    public count?: number;
     public constructor() { 
         super();
     }
@@ -16,5 +17,9 @@ export class ShowApplicationDependentResourcesResponse extends SdkResponse {
     }
     public get dependentServices() {
         return this['dependent_services'];
+    }
+    public withCount(count: number): ShowApplicationDependentResourcesResponse {
+        this['count'] = count;
+        return this;
     }
 }

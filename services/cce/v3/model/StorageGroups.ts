@@ -5,7 +5,7 @@ export class StorageGroups {
     public name: string;
     public cceManaged?: boolean;
     public selectorNames: Array<string>;
-    public virtualSpaces: VirtualSpace;
+    public virtualSpaces: Array<VirtualSpace>;
     public constructor(name?: any, selectorNames?: any, virtualSpaces?: any) { 
         this['name'] = name;
         this['selectorNames'] = selectorNames;
@@ -23,7 +23,7 @@ export class StorageGroups {
         this['selectorNames'] = selectorNames;
         return this;
     }
-    public withVirtualSpaces(virtualSpaces: VirtualSpace): StorageGroups {
+    public withVirtualSpaces(virtualSpaces: Array<VirtualSpace>): StorageGroups {
         this['virtualSpaces'] = virtualSpaces;
         return this;
     }

@@ -142,6 +142,8 @@ export class DevStarClient {
      * @summary 获取应用依赖元数据资源
      * @param {string} applicationId 应用id
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * @param {number} [limit] 每页显示的条目数量
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -382,15 +384,15 @@ export class DevStarClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 使用 CloudIDE 实例打开应用代码。CloudIDE会保存用户项目数据，相同用户使用同一个CloudIDE 使用要求：1.用户需为登录状态； 2.拥有仓库权限 
+     * 使用 CloudIDE 实例打开应用代码。CloudIDE会保存用户项目数据，相同用户使用同一个CloudIDE，使用要求： - 用户需为登录状态。 - 拥有仓库权限。 
      * @summary 使用 CloudIDE 实例打开应用代码
-     * @param {string} repositoryId 仓库id
-     * @param {string} repositorySshUrl 仓库下载地址
+     * @param {string} repositoryId 仓库id。
+     * @param {string} repositorySshUrl 仓库下载地址。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
-     * @param {string} [regionId] 区域ID
-     * @param {string} [spacePrefix] 工作空间名称前缀
-     * @param {boolean} [isOpenLast] 是否打开上一次的工作空间
-     * @param {boolean} [isFree] 是否创建免费实例链接
+     * @param {string} [regionId] 区域ID，目前仅支持北京四：cn-north-4及北京一：cn-north-1。
+     * @param {string} [spacePrefix] 工作空间名称前缀，仅在is_open_last为false时生效，由用户自定义，支持大小写字母、中文、_、-，长度1-256。
+     * @param {boolean} [isOpenLast] 是否打开上一次的工作空间，true表示打开上一次工作空间，如果没有上一次工作空间会返回空，false代表打开一个全新的工作空间。
+     * @param {boolean} [isFree] 是否创建 CloudIDE 免费实例链接，true表示创建一个 CloudIDE 免费实例链接，false表示创建一个 CloudIDE 收费实例链接。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -445,7 +447,7 @@ export class DevStarClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 查询模板列表，推荐使用V2版本接口。
+     * 查询模板列表，推荐使用/v1/templates/query接口。
      * @summary 查询模板列表（V1）
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {string} [keyword] 搜索关键字，支持按名称和描述搜索，默认null。
@@ -655,27 +657,40 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let applicationId;
             let xLanguage;
+            let limit;
+            let offset;
 
             if (showApplicationDependentResourcesRequest !== null && showApplicationDependentResourcesRequest !== undefined) {
                 if (showApplicationDependentResourcesRequest instanceof ShowApplicationDependentResourcesRequest) {
                     applicationId = showApplicationDependentResourcesRequest.applicationId;
                     xLanguage = showApplicationDependentResourcesRequest.xLanguage;
+                    limit = showApplicationDependentResourcesRequest.limit;
+                    offset = showApplicationDependentResourcesRequest.offset;
                 } else {
                     applicationId = showApplicationDependentResourcesRequest['application_id'];
                     xLanguage = showApplicationDependentResourcesRequest['X-Language'];
+                    limit = showApplicationDependentResourcesRequest['limit'];
+                    offset = showApplicationDependentResourcesRequest['offset'];
                 }
             }
         
             if (applicationId === null || applicationId === undefined) {
                 throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showApplicationDependentResources.');
             }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'application_id': applicationId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1424,7 +1439,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 使用 CloudIDE 实例打开应用代码。CloudIDE会保存用户项目数据，相同用户使用同一个CloudIDE 使用要求：1.用户需为登录状态； 2.拥有仓库权限 
+         * 使用 CloudIDE 实例打开应用代码。CloudIDE会保存用户项目数据，相同用户使用同一个CloudIDE，使用要求： - 用户需为登录状态。 - 拥有仓库权限。 
          */
         showRepositoryByCloudIde(showRepositoryByCloudIdeRequest?: ShowRepositoryByCloudIdeRequest) {
             const options = {
@@ -1635,7 +1650,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询模板列表，推荐使用V2版本接口。
+         * 查询模板列表，推荐使用/v1/templates/query接口。
          */
         listPublishedTemplates(listPublishedTemplatesRequest?: ListPublishedTemplatesRequest) {
             const options = {

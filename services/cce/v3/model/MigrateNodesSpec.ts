@@ -7,10 +7,11 @@ export class MigrateNodesSpec {
     public os: string;
     public extendParam?: MigrateNodeExtendParam;
     public login: Login;
-    public nodes?: Array<NodeItem>;
-    public constructor(os?: any, login?: any) { 
+    public nodes: Array<NodeItem>;
+    public constructor(os?: any, login?: any, nodes?: any) { 
         this['os'] = os;
         this['login'] = login;
+        this['nodes'] = nodes;
     }
     public withOs(os: string): MigrateNodesSpec {
         this['os'] = os;

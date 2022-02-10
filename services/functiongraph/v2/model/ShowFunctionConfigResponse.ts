@@ -357,17 +357,19 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     * @enum {string}
     */
 export enum ShowFunctionConfigResponseRuntimeEnum {
-    PYTHON2_7 = 'Python2.7',
-    PYTHON3_6 = 'Python3.6',
-    GO1_8 = 'Go1.8',
-    JAVA8 = 'Java8',
-    NODE_JS6_10 = 'Node.js6.10',
-    NODE_JS8_10 = 'Node.js8.10',
+    JAVA_8 = 'Java 8',
+    NODE_JS_6_10 = 'Node.js 6.10',
+    NODE_JS_8_10 = 'Node.js 8.10',
+    NODE_JS_10_16 = 'Node.js 10.16',
+    NODE_JS_12_13 = 'Node.js 12.13',
+    PYTHON_2_7 = 'Python 2.7',
+    PYTHON_3_6 = 'Python 3.6',
+    GO_1_8 = 'Go 1.8',
+    GO_1_X = 'Go 1.x',
     C__NET_CORE_2_0 = 'C#(.NET Core 2.0)',
     C__NET_CORE_2_1 = 'C#(.NET Core 2.1)',
     C__NET_CORE_3_1 = 'C#(.NET Core 3.1)',
-    CUSTOM = 'Custom',
-    PHP7_3 = 'PHP7.3'
+    PHP_7_3 = 'PHP 7.3'
 }
 /**
     * @export
