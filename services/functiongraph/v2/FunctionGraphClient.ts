@@ -377,7 +377,7 @@ export class FunctionGraphClient {
      * 获取依赖包列表。
      * @summary 获取依赖包列表
      * @param {'public' | 'private' | 'all'} [dependencyType] 依赖包类型public：公开,private:私有，all：全部。缺省时查询全量。
-     * @param {'Java 8' | 'Node.js 6.10' | 'Node.js 8.10' | 'Node.js 10.16' | 'Node.js 12.13' | 'Python 2.7' | 'Python 3.6' | 'Go 1.8' | 'Go 1.x' | 'C#(.NET Core 2.0)' | 'C#(.NET Core 2.1)' | 'C#(.NET Core 3.1)' | 'PHP 7.3'} [runtime] 运行时语言
+     * @param {'Java8' | 'Java11' | 'Node.js6.10' | 'Node.js8.10' | 'Node.js10.16' | 'Node.js12.13' | 'Node.js14.18' | 'Python2.7' | 'Python3.6' | 'Python3.9' | 'Go1.8' | 'Go1.x' | 'C#(.NET Core 2.0)' | 'C#(.NET Core 2.1)' | 'C#(.NET Core 3.1)' | 'PHP7.3'} [runtime] 运行时语言 Java11、Nodejs14.18、Python3.9在type为v2时支持
      * @param {string} [name] 依赖包名称。
      * @param {string} [marker] 上一次查询依赖包的最后记录位置，默认为\&quot;0\&quot;。
      * @param {string} [limit] 本次查询可获取的依赖包的最大数目，默认为\&quot;400\&quot;。

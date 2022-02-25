@@ -62,12 +62,15 @@ export class CreateDependencyRequestBody {
     */
 export enum CreateDependencyRequestBodyRuntimeEnum {
     JAVA8 = 'Java8',
+    JAVA11 = 'Java11',
     NODE_JS6_10 = 'Node.js6.10',
     NODE_JS8_10 = 'Node.js8.10',
     NODE_JS10_16 = 'Node.js10.16',
     NODE_JS12_13 = 'Node.js12.13',
+    NODE_JS14_18 = 'Node.js14.18',
     PYTHON2_7 = 'Python2.7',
     PYTHON3_6 = 'Python3.6',
+    PYTHON3_9 = 'Python3.9',
     GO1_8 = 'Go1.8',
     GO1_X = 'Go1.x',
     C__NET_CORE_2_0 = 'C#(.NET Core 2.0)',

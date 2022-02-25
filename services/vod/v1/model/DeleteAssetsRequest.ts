@@ -4,6 +4,7 @@ export class DeleteAssetsRequest {
     private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     private 'asset_id': Array<string> | undefined;
+    private 'delete_type'?: string | undefined;
     public constructor(assetId?: any) { 
         this['asset_id'] = assetId;
     }
@@ -36,5 +37,15 @@ export class DeleteAssetsRequest {
     }
     public get assetId() {
         return this['asset_id'];
+    }
+    public withDeleteType(deleteType: string): DeleteAssetsRequest {
+        this['delete_type'] = deleteType;
+        return this;
+    }
+    public set deleteType(deleteType: string | undefined) {
+        this['delete_type'] = deleteType;
+    }
+    public get deleteType() {
+        return this['delete_type'];
     }
 }

@@ -13,6 +13,7 @@ import { CancelAssetTranscodeTaskRequest } from './model/CancelAssetTranscodeTas
 import { CancelAssetTranscodeTaskResponse } from './model/CancelAssetTranscodeTaskResponse';
 import { CancelExtractAudioTaskRequest } from './model/CancelExtractAudioTaskRequest';
 import { CancelExtractAudioTaskResponse } from './model/CancelExtractAudioTaskResponse';
+import { CdnLog } from './model/CdnLog';
 import { CheckMd5DuplicationRequest } from './model/CheckMd5DuplicationRequest';
 import { CheckMd5DuplicationResponse } from './model/CheckMd5DuplicationResponse';
 import { Common } from './model/Common';
@@ -61,6 +62,8 @@ import { ListAssetCategoryRequest } from './model/ListAssetCategoryRequest';
 import { ListAssetCategoryResponse } from './model/ListAssetCategoryResponse';
 import { ListAssetListRequest } from './model/ListAssetListRequest';
 import { ListAssetListResponse } from './model/ListAssetListResponse';
+import { ListDomainLogsRequest } from './model/ListDomainLogsRequest';
+import { ListDomainLogsResponse } from './model/ListDomainLogsResponse';
 import { ListTakeOverTaskRequest } from './model/ListTakeOverTaskRequest';
 import { ListTakeOverTaskResponse } from './model/ListTakeOverTaskResponse';
 import { ListTemplateGroupRequest } from './model/ListTemplateGroupRequest';
@@ -394,6 +397,7 @@ export class VodClient {
      * @param {Array<string>} assetId 媒资ID，支持一次删除多个媒资，批量删除时以逗号分隔。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {string} [deleteType] 删除类型，当值为origin时只删除源文件，保留转码后文件。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -469,6 +473,24 @@ export class VodClient {
      */
     public listAssetList(listAssetListRequest?: ListAssetListRequest): Promise<ListAssetListResponse> {
         const options = ParamCreater().listAssetList(listAssetListRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 查询指定点播域名某段时间内在CDN的相关日志。
+     * @summary 查询域名播放日志
+     * @param {string} domainName 加速域名，参考格式：www.test1.com。
+     * @param {string} queryDate 查询日期，格式为yyyymmdd。 - 查询结果为开始时间之后24小时内的日志数据 - 只能查最近一个月内的数据
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {number} [pageSize] 每页显示日志数量。 
+     * @param {number} [pageNumber] 当前页数。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDomainLogs(listDomainLogsRequest?: ListDomainLogsRequest): Promise<ListDomainLogsResponse> {
+        const options = ParamCreater().listDomainLogs(listDomainLogsRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1610,16 +1632,19 @@ export const ParamCreater = function () {
             let assetId;
             let authorization;
             let xSdkDate;
+            let deleteType;
 
             if (deleteAssetsRequest !== null && deleteAssetsRequest !== undefined) {
                 if (deleteAssetsRequest instanceof DeleteAssetsRequest) {
                     assetId = deleteAssetsRequest.assetId;
                     authorization = deleteAssetsRequest.authorization;
                     xSdkDate = deleteAssetsRequest.xSdkDate;
+                    deleteType = deleteAssetsRequest.deleteType;
                 } else {
                     assetId = deleteAssetsRequest['asset_id'];
                     authorization = deleteAssetsRequest['Authorization'];
                     xSdkDate = deleteAssetsRequest['X-Sdk-Date'];
+                    deleteType = deleteAssetsRequest['delete_type'];
                 }
             }
         
@@ -1628,6 +1653,9 @@ export const ParamCreater = function () {
             }
             if (assetId !== null && assetId !== undefined) {
                 localVarQueryParameter['asset_id'] = assetId;
+            }
+            if (deleteType !== null && deleteType !== undefined) {
+                localVarQueryParameter['delete_type'] = deleteType;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -1881,6 +1909,76 @@ export const ParamCreater = function () {
             }
             if (order !== null && order !== undefined) {
                 localVarQueryParameter['order'] = order;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定点播域名某段时间内在CDN的相关日志。
+         */
+        listDomainLogs(listDomainLogsRequest?: ListDomainLogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/vod/cdn/logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let domainName;
+            let queryDate;
+            let authorization;
+            let xSdkDate;
+            let pageSize;
+            let pageNumber;
+
+            if (listDomainLogsRequest !== null && listDomainLogsRequest !== undefined) {
+                if (listDomainLogsRequest instanceof ListDomainLogsRequest) {
+                    domainName = listDomainLogsRequest.domainName;
+                    queryDate = listDomainLogsRequest.queryDate;
+                    authorization = listDomainLogsRequest.authorization;
+                    xSdkDate = listDomainLogsRequest.xSdkDate;
+                    pageSize = listDomainLogsRequest.pageSize;
+                    pageNumber = listDomainLogsRequest.pageNumber;
+                } else {
+                    domainName = listDomainLogsRequest['domain_name'];
+                    queryDate = listDomainLogsRequest['query_date'];
+                    authorization = listDomainLogsRequest['Authorization'];
+                    xSdkDate = listDomainLogsRequest['X-Sdk-Date'];
+                    pageSize = listDomainLogsRequest['page_size'];
+                    pageNumber = listDomainLogsRequest['page_number'];
+                }
+            }
+        
+            if (domainName === null || domainName === undefined) {
+                throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listDomainLogs.');
+            }
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (queryDate === null || queryDate === undefined) {
+                throw new RequiredError('queryDate','Required parameter queryDate was null or undefined when calling listDomainLogs.');
+            }
+            if (queryDate !== null && queryDate !== undefined) {
+                localVarQueryParameter['query_date'] = queryDate;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNumber !== null && pageNumber !== undefined) {
+                localVarQueryParameter['page_number'] = pageNumber;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
