@@ -1,3 +1,23 @@
+# 3.0.33-rc 2022-03-07
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - Support the interfaces `UpdateClusterEip`, `ShowClusterEndpoints`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Modify the type of the request parameter `ip_version` of the interface `CreatePrePaidPublicip`: `integer` -> `enum`
+
 # 3.0.32-rc 2022-02-25
 
 ### HuaweiCloud SDK FunctionGraph

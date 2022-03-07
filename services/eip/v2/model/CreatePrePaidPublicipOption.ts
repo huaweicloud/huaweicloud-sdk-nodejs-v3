@@ -2,7 +2,7 @@
 
 export class CreatePrePaidPublicipOption {
     public type: string;
-    private 'ip_version'?: number | undefined;
+    private 'ip_version'?: CreatePrePaidPublicipOptionIpVersionEnum | undefined;
     public alias?: string;
     public constructor(type?: any) { 
         this['type'] = type;
@@ -11,11 +11,11 @@ export class CreatePrePaidPublicipOption {
         this['type'] = type;
         return this;
     }
-    public withIpVersion(ipVersion: number): CreatePrePaidPublicipOption {
+    public withIpVersion(ipVersion: CreatePrePaidPublicipOptionIpVersionEnum): CreatePrePaidPublicipOption {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number | undefined) {
+    public set ipVersion(ipVersion: CreatePrePaidPublicipOptionIpVersionEnum | undefined) {
         this['ip_version'] = ipVersion;
     }
     public get ipVersion() {
@@ -25,4 +25,13 @@ export class CreatePrePaidPublicipOption {
         this['alias'] = alias;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreatePrePaidPublicipOptionIpVersionEnum {
+    NUMBER_4 = 4,
+    NUMBER_6 = 6
 }
