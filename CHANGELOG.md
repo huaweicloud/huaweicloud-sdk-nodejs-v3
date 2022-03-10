@@ -1,3 +1,14 @@
+# 3.0.34-rc 2022-03-10
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - The request parameter `cluster_id` changed to not required of the interface `DeleteAddonInstance`
+
 # 3.0.33-rc 2022-03-07
 
 ### HuaweiCloud SDK CCE

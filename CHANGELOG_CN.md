@@ -1,3 +1,14 @@
+# 3.0.34-rc 2022-03-10
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`DeleteAddonInstance`请求参数`cluster_id`改为非必填
+
 # 3.0.33-rc 2022-03-07
 
 ### HuaweiCloud SDK CCE

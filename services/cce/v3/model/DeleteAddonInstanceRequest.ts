@@ -3,11 +3,10 @@
 export class DeleteAddonInstanceRequest {
     private 'Content-Type': string | undefined;
     public id: string;
-    private 'cluster_id': string | undefined;
-    public constructor(contentType?: any, id?: any, clusterId?: any) { 
+    private 'cluster_id'?: string | undefined;
+    public constructor(contentType?: any, id?: any) { 
         this['Content-Type'] = contentType;
         this['id'] = id;
-        this['cluster_id'] = clusterId;
     }
     public withContentType(contentType: string): DeleteAddonInstanceRequest {
         this['Content-Type'] = contentType;
