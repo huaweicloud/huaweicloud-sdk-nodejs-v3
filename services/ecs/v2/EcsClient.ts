@@ -1229,9 +1229,10 @@ export const ParamCreater = function () {
                     body = addServerGroupMemberRequest['body'];
                 }
             }
+
         
             if (serverGroupId === null || serverGroupId === undefined) {
-                throw new RequiredError('serverGroupId','Required parameter serverGroupId was null or undefined when calling addServerGroupMember.');
+            throw new RequiredError('serverGroupId','Required parameter serverGroupId was null or undefined when calling addServerGroupMember.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1271,9 +1272,10 @@ export const ParamCreater = function () {
                     body = associateServerVirtualIpRequest['body'];
                 }
             }
+
         
             if (nicId === null || nicId === undefined) {
-                throw new RequiredError('nicId','Required parameter nicId was null or undefined when calling associateServerVirtualIp.');
+            throw new RequiredError('nicId','Required parameter nicId was null or undefined when calling associateServerVirtualIp.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1313,9 +1315,10 @@ export const ParamCreater = function () {
                     body = attachServerVolumeRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling attachServerVolume.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling attachServerVolume.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1355,9 +1358,10 @@ export const ParamCreater = function () {
                     body = batchAddServerNicsRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling batchAddServerNics.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling batchAddServerNics.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1397,9 +1401,10 @@ export const ParamCreater = function () {
                     body = batchAttachSharableVolumesRequest['body'];
                 }
             }
+
         
             if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling batchAttachSharableVolumes.');
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling batchAttachSharableVolumes.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1439,9 +1444,10 @@ export const ParamCreater = function () {
                     body = batchCreateServerTagsRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling batchCreateServerTags.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling batchCreateServerTags.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1481,9 +1487,10 @@ export const ParamCreater = function () {
                     body = batchDeleteServerNicsRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling batchDeleteServerNics.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling batchDeleteServerNics.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1523,9 +1530,10 @@ export const ParamCreater = function () {
                     body = batchDeleteServerTagsRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling batchDeleteServerTags.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling batchDeleteServerTags.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1562,6 +1570,7 @@ export const ParamCreater = function () {
                     body = batchRebootServersRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1597,6 +1606,7 @@ export const ParamCreater = function () {
                     body = batchResetServersPasswordRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1632,6 +1642,7 @@ export const ParamCreater = function () {
                     body = batchStartServersRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1667,6 +1678,7 @@ export const ParamCreater = function () {
                     body = batchStopServersRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1702,6 +1714,7 @@ export const ParamCreater = function () {
                     body = batchUpdateServersNameRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1740,9 +1753,10 @@ export const ParamCreater = function () {
                     body = changeServerOsWithCloudInitRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling changeServerOsWithCloudInit.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling changeServerOsWithCloudInit.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1782,9 +1796,10 @@ export const ParamCreater = function () {
                     body = changeServerOsWithoutCloudInitRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling changeServerOsWithoutCloudInit.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling changeServerOsWithoutCloudInit.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1821,6 +1836,7 @@ export const ParamCreater = function () {
                     body = createPostPaidServersRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1856,6 +1872,7 @@ export const ParamCreater = function () {
                     body = createServerGroupRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1891,6 +1908,7 @@ export const ParamCreater = function () {
                     body = createServersRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1926,9 +1944,10 @@ export const ParamCreater = function () {
                     serverGroupId = deleteServerGroupRequest['server_group_id'];
                 }
             }
+
         
             if (serverGroupId === null || serverGroupId === undefined) {
-                throw new RequiredError('serverGroupId','Required parameter serverGroupId was null or undefined when calling deleteServerGroup.');
+            throw new RequiredError('serverGroupId','Required parameter serverGroupId was null or undefined when calling deleteServerGroup.');
             }
 
             options.pathParams = { 'server_group_id': serverGroupId, };
@@ -1963,9 +1982,10 @@ export const ParamCreater = function () {
                     body = deleteServerGroupMemberRequest['body'];
                 }
             }
+
         
             if (serverGroupId === null || serverGroupId === undefined) {
-                throw new RequiredError('serverGroupId','Required parameter serverGroupId was null or undefined when calling deleteServerGroupMember.');
+            throw new RequiredError('serverGroupId','Required parameter serverGroupId was null or undefined when calling deleteServerGroupMember.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2005,12 +2025,13 @@ export const ParamCreater = function () {
                     serverId = deleteServerMetadataRequest['server_id'];
                 }
             }
+
         
             if (key === null || key === undefined) {
-                throw new RequiredError('key','Required parameter key was null or undefined when calling deleteServerMetadata.');
+            throw new RequiredError('key','Required parameter key was null or undefined when calling deleteServerMetadata.');
             }
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling deleteServerMetadata.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling deleteServerMetadata.');
             }
 
             options.pathParams = { 'key': key,'server_id': serverId, };
@@ -2042,9 +2063,10 @@ export const ParamCreater = function () {
                     serverId = deleteServerPasswordRequest['server_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling deleteServerPassword.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling deleteServerPassword.');
             }
 
             options.pathParams = { 'server_id': serverId, };
@@ -2076,6 +2098,7 @@ export const ParamCreater = function () {
                     body = deleteServersRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2117,12 +2140,13 @@ export const ParamCreater = function () {
                     deleteFlag = detachServerVolumeRequest['delete_flag'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling detachServerVolume.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling detachServerVolume.');
             }
             if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling detachServerVolume.');
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling detachServerVolume.');
             }
             if (deleteFlag !== null && deleteFlag !== undefined) {
                 localVarQueryParameter['delete_flag'] = deleteFlag;
@@ -2161,9 +2185,10 @@ export const ParamCreater = function () {
                     body = disassociateServerVirtualIpRequest['body'];
                 }
             }
+
         
             if (nicId === null || nicId === undefined) {
-                throw new RequiredError('nicId','Required parameter nicId was null or undefined when calling disassociateServerVirtualIp.');
+            throw new RequiredError('nicId','Required parameter nicId was null or undefined when calling disassociateServerVirtualIp.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2200,6 +2225,7 @@ export const ParamCreater = function () {
                     availabilityZone = listFlavorsRequest['availability_zone'];
                 }
             }
+
         
             if (availabilityZone !== null && availabilityZone !== undefined) {
                 localVarQueryParameter['availability_zone'] = availabilityZone;
@@ -2252,6 +2278,7 @@ export const ParamCreater = function () {
                     sourceFlavorName = listResizeFlavorsRequest['source_flavor_name'];
                 }
             }
+
         
             if (instanceUuid !== null && instanceUuid !== undefined) {
                 localVarQueryParameter['instance_uuid'] = instanceUuid;
@@ -2304,9 +2331,10 @@ export const ParamCreater = function () {
                     serverId = listServerBlockDevicesRequest['server_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling listServerBlockDevices.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling listServerBlockDevices.');
             }
 
             options.pathParams = { 'server_id': serverId, };
@@ -2341,6 +2369,7 @@ export const ParamCreater = function () {
                     marker = listServerGroupsRequest['marker'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -2378,9 +2407,10 @@ export const ParamCreater = function () {
                     serverId = listServerInterfacesRequest['server_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling listServerInterfaces.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling listServerInterfaces.');
             }
 
             options.pathParams = { 'server_id': serverId, };
@@ -2459,6 +2489,7 @@ export const ParamCreater = function () {
                     tags = listServersDetailsRequest['tags'];
                 }
             }
+
         
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
@@ -2523,9 +2554,10 @@ export const ParamCreater = function () {
                     body = migrateServerRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling migrateServer.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling migrateServer.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2565,9 +2597,10 @@ export const ParamCreater = function () {
                     body = novaAssociateSecurityGroupRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaAssociateSecurityGroup.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaAssociateSecurityGroup.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2607,6 +2640,7 @@ export const ParamCreater = function () {
                     openStackAPIVersion = novaCreateKeypairRequest['OpenStack-API-Version'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2648,6 +2682,7 @@ export const ParamCreater = function () {
                     openStackAPIVersion = novaCreateServersRequest['OpenStack-API-Version'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2686,9 +2721,10 @@ export const ParamCreater = function () {
                     keypairName = novaDeleteKeypairRequest['keypair_name'];
                 }
             }
+
         
             if (keypairName === null || keypairName === undefined) {
-                throw new RequiredError('keypairName','Required parameter keypairName was null or undefined when calling novaDeleteKeypair.');
+            throw new RequiredError('keypairName','Required parameter keypairName was null or undefined when calling novaDeleteKeypair.');
             }
 
             options.pathParams = { 'keypair_name': keypairName, };
@@ -2720,9 +2756,10 @@ export const ParamCreater = function () {
                     serverId = novaDeleteServerRequest['server_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaDeleteServer.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaDeleteServer.');
             }
 
             options.pathParams = { 'server_id': serverId, };
@@ -2757,9 +2794,10 @@ export const ParamCreater = function () {
                     body = novaDisassociateSecurityGroupRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaDisassociateSecurityGroup.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaDisassociateSecurityGroup.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2822,6 +2860,7 @@ export const ParamCreater = function () {
                     openStackAPIVersion = novaListKeypairsRequest['OpenStack-API-Version'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -2862,9 +2901,10 @@ export const ParamCreater = function () {
                     serverId = novaListServerSecurityGroupsRequest['server_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaListServerSecurityGroups.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaListServerSecurityGroups.');
             }
 
             options.pathParams = { 'server_id': serverId, };
@@ -2932,6 +2972,7 @@ export const ParamCreater = function () {
                     openStackAPIVersion = novaListServersDetailsRequest['OpenStack-API-Version'];
                 }
             }
+
         
             if (changesSince !== null && changesSince !== undefined) {
                 localVarQueryParameter['changes-since'] = changesSince;
@@ -3005,9 +3046,10 @@ export const ParamCreater = function () {
                     openStackAPIVersion = novaShowKeypairRequest['OpenStack-API-Version'];
                 }
             }
+
         
             if (keypairName === null || keypairName === undefined) {
-                throw new RequiredError('keypairName','Required parameter keypairName was null or undefined when calling novaShowKeypair.');
+            throw new RequiredError('keypairName','Required parameter keypairName was null or undefined when calling novaShowKeypair.');
             }
             if (openStackAPIVersion !== undefined && openStackAPIVersion !== null) {
                 localVarHeaderParameter['OpenStack-API-Version'] = String(openStackAPIVersion);
@@ -3045,9 +3087,10 @@ export const ParamCreater = function () {
                     openStackAPIVersion = novaShowServerRequest['OpenStack-API-Version'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaShowServer.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaShowServer.');
             }
             if (openStackAPIVersion !== undefined && openStackAPIVersion !== null) {
                 localVarHeaderParameter['OpenStack-API-Version'] = String(openStackAPIVersion);
@@ -3085,9 +3128,10 @@ export const ParamCreater = function () {
                     body = registerServerAutoRecoveryRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling registerServerAutoRecovery.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling registerServerAutoRecovery.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3127,9 +3171,10 @@ export const ParamCreater = function () {
                     body = reinstallServerWithCloudInitRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling reinstallServerWithCloudInit.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling reinstallServerWithCloudInit.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3169,9 +3214,10 @@ export const ParamCreater = function () {
                     body = reinstallServerWithoutCloudInitRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling reinstallServerWithoutCloudInit.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling reinstallServerWithoutCloudInit.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3211,9 +3257,10 @@ export const ParamCreater = function () {
                     body = resetServerPasswordRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling resetServerPassword.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling resetServerPassword.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3253,9 +3300,10 @@ export const ParamCreater = function () {
                     body = resizePostPaidServerRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling resizePostPaidServer.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling resizePostPaidServer.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3295,9 +3343,10 @@ export const ParamCreater = function () {
                     body = resizeServerRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling resizeServer.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling resizeServer.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3334,9 +3383,10 @@ export const ParamCreater = function () {
                     serverId = showResetPasswordFlagRequest['server_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showResetPasswordFlag.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showResetPasswordFlag.');
             }
 
             options.pathParams = { 'server_id': serverId, };
@@ -3368,9 +3418,10 @@ export const ParamCreater = function () {
                     serverId = showServerRequest['server_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServer.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServer.');
             }
 
             options.pathParams = { 'server_id': serverId, };
@@ -3402,9 +3453,10 @@ export const ParamCreater = function () {
                     serverId = showServerAutoRecoveryRequest['server_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerAutoRecovery.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerAutoRecovery.');
             }
 
             options.pathParams = { 'server_id': serverId, };
@@ -3439,12 +3491,13 @@ export const ParamCreater = function () {
                     volumeId = showServerBlockDeviceRequest['volume_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerBlockDevice.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerBlockDevice.');
             }
             if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling showServerBlockDevice.');
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling showServerBlockDevice.');
             }
 
             options.pathParams = { 'server_id': serverId,'volume_id': volumeId, };
@@ -3476,9 +3529,10 @@ export const ParamCreater = function () {
                     serverGroupId = showServerGroupRequest['server_group_id'];
                 }
             }
+
         
             if (serverGroupId === null || serverGroupId === undefined) {
-                throw new RequiredError('serverGroupId','Required parameter serverGroupId was null or undefined when calling showServerGroup.');
+            throw new RequiredError('serverGroupId','Required parameter serverGroupId was null or undefined when calling showServerGroup.');
             }
 
             options.pathParams = { 'server_group_id': serverGroupId, };
@@ -3530,9 +3584,10 @@ export const ParamCreater = function () {
                     serverId = showServerPasswordRequest['server_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerPassword.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerPassword.');
             }
 
             options.pathParams = { 'server_id': serverId, };
@@ -3567,9 +3622,10 @@ export const ParamCreater = function () {
                     body = showServerRemoteConsoleRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerRemoteConsole.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerRemoteConsole.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3606,9 +3662,10 @@ export const ParamCreater = function () {
                     serverId = showServerTagsRequest['server_id'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerTags.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling showServerTags.');
             }
 
             options.pathParams = { 'server_id': serverId, };
@@ -3643,9 +3700,10 @@ export const ParamCreater = function () {
                     body = updateServerRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServer.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServer.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3685,9 +3743,10 @@ export const ParamCreater = function () {
                     body = updateServerAutoTerminateTimeRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServerAutoTerminateTime.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServerAutoTerminateTime.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3727,9 +3786,10 @@ export const ParamCreater = function () {
                     body = updateServerMetadataRequest['body'];
                 }
             }
+
         
             if (serverId === null || serverId === undefined) {
-                throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServerMetadata.');
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServerMetadata.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3766,9 +3826,10 @@ export const ParamCreater = function () {
                     jobId = showJobRequest['job_id'];
                 }
             }
+
         
             if (jobId === null || jobId === undefined) {
-                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJob.');
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJob.');
             }
 
             options.pathParams = { 'job_id': jobId, };

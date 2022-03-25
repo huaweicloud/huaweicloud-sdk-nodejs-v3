@@ -5,6 +5,7 @@ export class DriverLicenseRequestBody {
     public url?: string;
     public side?: string;
     private 'return_issuing_authority'?: boolean | undefined;
+    private 'return_text_location'?: boolean | undefined;
     public constructor() { 
     }
     public withImage(image: string): DriverLicenseRequestBody {
@@ -28,5 +29,15 @@ export class DriverLicenseRequestBody {
     }
     public get returnIssuingAuthority() {
         return this['return_issuing_authority'];
+    }
+    public withReturnTextLocation(returnTextLocation: boolean): DriverLicenseRequestBody {
+        this['return_text_location'] = returnTextLocation;
+        return this;
+    }
+    public set returnTextLocation(returnTextLocation: boolean | undefined) {
+        this['return_text_location'] = returnTextLocation;
+    }
+    public get returnTextLocation() {
+        return this['return_text_location'];
     }
 }

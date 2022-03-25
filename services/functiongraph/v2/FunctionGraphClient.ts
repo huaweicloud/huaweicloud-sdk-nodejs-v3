@@ -2,12 +2,16 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { Action } from './model/Action';
 import { AsyncInvokeFunctionRequest } from './model/AsyncInvokeFunctionRequest';
 import { AsyncInvokeFunctionResponse } from './model/AsyncInvokeFunctionResponse';
 import { AsyncInvokeReservedFunctionRequest } from './model/AsyncInvokeReservedFunctionRequest';
 import { AsyncInvokeReservedFunctionResponse } from './model/AsyncInvokeReservedFunctionResponse';
 import { BatchDeleteFunctionTriggersRequest } from './model/BatchDeleteFunctionTriggersRequest';
 import { BatchDeleteFunctionTriggersResponse } from './model/BatchDeleteFunctionTriggersResponse';
+import { BatchDeleteWorkflowsRequest } from './model/BatchDeleteWorkflowsRequest';
+import { BatchDeleteWorkflowsRequestBody } from './model/BatchDeleteWorkflowsRequestBody';
+import { BatchDeleteWorkflowsResponse } from './model/BatchDeleteWorkflowsResponse';
 import { CreateDependencyRequest } from './model/CreateDependencyRequest';
 import { CreateDependencyRequestBody } from './model/CreateDependencyRequestBody';
 import { CreateDependencyResponse } from './model/CreateDependencyResponse';
@@ -26,6 +30,9 @@ import { CreateFunctionVersionResponse } from './model/CreateFunctionVersionResp
 import { CreateVersionAliasRequest } from './model/CreateVersionAliasRequest';
 import { CreateVersionAliasRequestBody } from './model/CreateVersionAliasRequestBody';
 import { CreateVersionAliasResponse } from './model/CreateVersionAliasResponse';
+import { CreateWorkflowRequest } from './model/CreateWorkflowRequest';
+import { CreateWorkflowRequestBody } from './model/CreateWorkflowRequestBody';
+import { CreateWorkflowResponse } from './model/CreateWorkflowResponse';
 import { DeleteDependencyRequest } from './model/DeleteDependencyRequest';
 import { DeleteDependencyResponse } from './model/DeleteDependencyResponse';
 import { DeleteEventRequest } from './model/DeleteEventRequest';
@@ -48,7 +55,9 @@ import { FuncCode } from './model/FuncCode';
 import { FuncDestinationConfig } from './model/FuncDestinationConfig';
 import { FuncMount } from './model/FuncMount';
 import { FuncVpc } from './model/FuncVpc';
+import { Function } from './model/Function';
 import { FunctionAsyncConfig } from './model/FunctionAsyncConfig';
+import { FunctionRef } from './model/FunctionRef';
 import { ImportFunctionRequest } from './model/ImportFunctionRequest';
 import { ImportFunctionRequestBody } from './model/ImportFunctionRequestBody';
 import { ImportFunctionResponse } from './model/ImportFunctionResponse';
@@ -86,11 +95,26 @@ import { ListStatisticsResponse } from './model/ListStatisticsResponse';
 import { ListVersionAliasResult } from './model/ListVersionAliasResult';
 import { ListVersionAliasesRequest } from './model/ListVersionAliasesRequest';
 import { ListVersionAliasesResponse } from './model/ListVersionAliasesResponse';
+import { ListWorkflowExecutionResult } from './model/ListWorkflowExecutionResult';
+import { ListWorkflowExecutionsRequest } from './model/ListWorkflowExecutionsRequest';
+import { ListWorkflowExecutionsResponse } from './model/ListWorkflowExecutionsResponse';
+import { ListWorkflowsRequest } from './model/ListWorkflowsRequest';
+import { ListWorkflowsResponse } from './model/ListWorkflowsResponse';
+import { ListWorkflowsResult } from './model/ListWorkflowsResult';
 import { MonthUsed } from './model/MonthUsed';
 import { MountConfig } from './model/MountConfig';
 import { MountUser } from './model/MountUser';
+import { NodeExecution } from './model/NodeExecution';
+import { NodeExecutionDetail } from './model/NodeExecutionDetail';
+import { OBSTriggerConfig } from './model/OBSTriggerConfig';
+import { OnError } from './model/OnError';
+import { OperateErrorInfo } from './model/OperateErrorInfo';
+import { OperationState } from './model/OperationState';
 import { PageInfo } from './model/PageInfo';
 import { Resources } from './model/Resources';
+import { Retry } from './model/Retry';
+import { RetryWorkFlowRequest } from './model/RetryWorkFlowRequest';
+import { RetryWorkFlowResponse } from './model/RetryWorkFlowResponse';
 import { ShowDependencyRequest } from './model/ShowDependencyRequest';
 import { ShowDependencyResponse } from './model/ShowDependencyResponse';
 import { ShowEventRequest } from './model/ShowEventRequest';
@@ -105,12 +129,27 @@ import { ShowFunctionTriggerRequest } from './model/ShowFunctionTriggerRequest';
 import { ShowFunctionTriggerResponse } from './model/ShowFunctionTriggerResponse';
 import { ShowLtsLogDetailsRequest } from './model/ShowLtsLogDetailsRequest';
 import { ShowLtsLogDetailsResponse } from './model/ShowLtsLogDetailsResponse';
+import { ShowTenantMetricRequest } from './model/ShowTenantMetricRequest';
+import { ShowTenantMetricResponse } from './model/ShowTenantMetricResponse';
 import { ShowTracingRequest } from './model/ShowTracingRequest';
 import { ShowTracingResponse } from './model/ShowTracingResponse';
 import { ShowVersionAliasRequest } from './model/ShowVersionAliasRequest';
 import { ShowVersionAliasResponse } from './model/ShowVersionAliasResponse';
+import { ShowWorkFlowMetricRequest } from './model/ShowWorkFlowMetricRequest';
+import { ShowWorkFlowMetricResponse } from './model/ShowWorkFlowMetricResponse';
+import { ShowWorkFlowRequest } from './model/ShowWorkFlowRequest';
+import { ShowWorkFlowResponse } from './model/ShowWorkFlowResponse';
+import { ShowWorkflowExecutionRequest } from './model/ShowWorkflowExecutionRequest';
+import { ShowWorkflowExecutionResponse } from './model/ShowWorkflowExecutionResponse';
 import { SlaReportsValue } from './model/SlaReportsValue';
+import { StartWorkflowExecutionRequest } from './model/StartWorkflowExecutionRequest';
+import { StartWorkflowExecutionRequestBody } from './model/StartWorkflowExecutionRequestBody';
+import { StartWorkflowExecutionResponse } from './model/StartWorkflowExecutionResponse';
+import { StateDataFilter } from './model/StateDataFilter';
+import { StopWorkFlowRequest } from './model/StopWorkFlowRequest';
+import { StopWorkFlowResponse } from './model/StopWorkFlowResponse';
 import { StrategyConfig } from './model/StrategyConfig';
+import { Trigger } from './model/Trigger';
 import { UpdateDependencyRequest } from './model/UpdateDependencyRequest';
 import { UpdateDependencyRequestBody } from './model/UpdateDependencyRequestBody';
 import { UpdateDependencyResponse } from './model/UpdateDependencyResponse';
@@ -138,6 +177,9 @@ import { UpdateTriggerResponse } from './model/UpdateTriggerResponse';
 import { UpdateVersionAliasRequest } from './model/UpdateVersionAliasRequest';
 import { UpdateVersionAliasRequestBody } from './model/UpdateVersionAliasRequestBody';
 import { UpdateVersionAliasResponse } from './model/UpdateVersionAliasResponse';
+import { UpdateWorkFlowRequest } from './model/UpdateWorkFlowRequest';
+import { UpdateWorkFlowResponse } from './model/UpdateWorkFlowResponse';
+import { UpdateWorkflowRequestBody } from './model/UpdateWorkflowRequestBody';
 
 export class FunctionGraphClient {
     public static newBuilder(): ClientBuilder<FunctionGraphClient> {
@@ -825,6 +867,176 @@ export class FunctionGraphClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+    /**
+     * 删除工作流列表
+     * @summary 删除工作流列表
+     * @param {BatchDeleteWorkflowsRequestBody} batchDeleteWorkflowsRequestBody 函数流批量操作body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteWorkflows(batchDeleteWorkflowsRequest?: BatchDeleteWorkflowsRequest): Promise<BatchDeleteWorkflowsResponse> {
+        const options = ParamCreater().batchDeleteWorkflows(batchDeleteWorkflowsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 创建工作流列表
+     * @summary 创建工作流列表
+     * @param {CreateWorkflowRequestBody} createWorkflowRequestBody 函数流创建body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createWorkflow(createWorkflowRequest?: CreateWorkflowRequest): Promise<CreateWorkflowResponse> {
+        const options = ParamCreater().createWorkflow(createWorkflowRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 获取指定函数流执行实例列表
+     * @summary 获取指定函数流执行实例列表
+     * @param {string} workflowId 函数工作流ID
+     * @param {number} [limit] 分页查询，每页显示的条目数量，最大数量200，超过200后只返回200
+     * @param {'success' | 'fail' | 'running' | 'timeout' | 'cancel'} [status] 需要过滤的流程实例状态
+     * @param {string} [startTime] 查询开始时间，UTC时间。若起始时间未填写，以终止时间前推3天为起始时间
+     * @param {string} [endTime] 查询开始时间，UTC时间。若终止时间未填写，以起始时间后退3天未终止时间。若均未填写，默认查询最近3天数据。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWorkflowExecutions(listWorkflowExecutionsRequest?: ListWorkflowExecutionsRequest): Promise<ListWorkflowExecutionsResponse> {
+        const options = ParamCreater().listWorkflowExecutions(listWorkflowExecutionsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 查询工作流列表
+     * @summary 查询工作流列表
+     * @param {string} [workflowName] 函数流名称
+     * @param {number} [limit] 分页查询，每页显示的条目数量，最大数量200，超过200后只返回200
+     * @param {number} [offset] 分页查询，分页的偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWorkflows(listWorkflowsRequest?: ListWorkflowsRequest): Promise<ListWorkflowsResponse> {
+        const options = ParamCreater().listWorkflows(listWorkflowsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 重试工作流
+     * @summary 重试工作流
+     * @param {string} workflowId 函数工作流ID
+     * @param {string} executionId 函数流执行实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryWorkFlow(retryWorkFlowRequest?: RetryWorkFlowRequest): Promise<void> {
+        const options = ParamCreater().retryWorkFlow(retryWorkFlowRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 获取函数流指标
+     * @summary 获取函数流指标
+     * @param {string} [period] 时间段，单位为分钟
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTenantMetric(showTenantMetricRequest?: ShowTenantMetricRequest): Promise<ShowTenantMetricResponse> {
+        const options = ParamCreater().showTenantMetric(showTenantMetricRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 获取指定函数流实例
+     * @summary 获取指定函数流实例
+     * @param {string} workflowId 函数工作流ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkFlow(showWorkFlowRequest?: ShowWorkFlowRequest): Promise<ShowWorkFlowResponse> {
+        const options = ParamCreater().showWorkFlow(showWorkFlowRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 获取指定工作流指标
+     * @summary 获取指定工作流指标
+     * @param {string} workflowUrn 函数工作流URN, 格式为： urn:fss:&lt;region_id&gt;:&lt;project_id&gt;:workflow:\\&lt;package\\&gt;:&lt;workflow_name&gt;:\\&lt;version\\&gt; 注意： package当前只支持default version当前只支持latest
+     * @param {string} [period] 时间段，单位为分钟
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkFlowMetric(showWorkFlowMetricRequest?: ShowWorkFlowMetricRequest): Promise<ShowWorkFlowMetricResponse> {
+        const options = ParamCreater().showWorkFlowMetric(showWorkFlowMetricRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 获取指定函数流执行实例。
+     * @summary 获取指定函数流执行实例
+     * @param {string} workflowId 函数工作流ID
+     * @param {string} executionId 函数流执行实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkflowExecution(showWorkflowExecutionRequest?: ShowWorkflowExecutionRequest): Promise<ShowWorkflowExecutionResponse> {
+        const options = ParamCreater().showWorkflowExecution(showWorkflowExecutionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 开始执行函数流
+     * @summary 开始执行函数流
+     * @param {string} workflowId 函数工作流ID
+     * @param {StartWorkflowExecutionRequestBody} startWorkflowExecutionRequestBody 函数流创建body体
+     * @param {string} [xCreateTime] workflowRun task create time
+     * @param {string} [xWorkflowRunID] workflowRun id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startWorkflowExecution(startWorkflowExecutionRequest?: StartWorkflowExecutionRequest): Promise<StartWorkflowExecutionResponse> {
+        const options = ParamCreater().startWorkflowExecution(startWorkflowExecutionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 停止工作流
+     * @summary 停止工作流
+     * @param {string} workflowId 函数工作流ID
+     * @param {string} executionId 函数流执行实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopWorkFlow(stopWorkFlowRequest?: StopWorkFlowRequest): Promise<void> {
+        const options = ParamCreater().stopWorkFlow(stopWorkFlowRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 修改指定函数流实例
+     * @summary 修改指定函数流实例
+     * @param {string} workflowId 函数工作流ID
+     * @param {UpdateWorkflowRequestBody} updateWorkflowRequestBody 函数流创建body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateWorkFlow(updateWorkFlowRequest?: UpdateWorkFlowRequest): Promise<UpdateWorkFlowResponse> {
+        const options = ParamCreater().updateWorkFlow(updateWorkFlowRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -857,9 +1069,10 @@ export const ParamCreater = function () {
                     body = asyncInvokeFunctionRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling asyncInvokeFunction.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling asyncInvokeFunction.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -899,9 +1112,10 @@ export const ParamCreater = function () {
                     body = asyncInvokeReservedFunctionRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling asyncInvokeReservedFunction.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling asyncInvokeReservedFunction.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -938,6 +1152,7 @@ export const ParamCreater = function () {
                     body = createDependencyRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -976,9 +1191,10 @@ export const ParamCreater = function () {
                     body = createEventRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createEvent.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createEvent.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1015,6 +1231,7 @@ export const ParamCreater = function () {
                     body = createFunctionRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1053,9 +1270,10 @@ export const ParamCreater = function () {
                     body = createFunctionVersionRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createFunctionVersion.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createFunctionVersion.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1095,9 +1313,10 @@ export const ParamCreater = function () {
                     body = createVersionAliasRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createVersionAlias.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createVersionAlias.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1134,9 +1353,10 @@ export const ParamCreater = function () {
                     dependId = deleteDependencyRequest['depend_id'];
                 }
             }
+
         
             if (dependId === null || dependId === undefined) {
-                throw new RequiredError('dependId','Required parameter dependId was null or undefined when calling deleteDependency.');
+            throw new RequiredError('dependId','Required parameter dependId was null or undefined when calling deleteDependency.');
             }
 
             options.pathParams = { 'depend_id': dependId, };
@@ -1171,12 +1391,13 @@ export const ParamCreater = function () {
                     functionUrn = deleteEventRequest['function_urn'];
                 }
             }
+
         
             if (eventId === null || eventId === undefined) {
-                throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling deleteEvent.');
+            throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling deleteEvent.');
             }
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteEvent.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteEvent.');
             }
 
             options.pathParams = { 'event_id': eventId,'function_urn': functionUrn, };
@@ -1208,9 +1429,10 @@ export const ParamCreater = function () {
                     functionUrn = deleteFunctionRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunction.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunction.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -1242,9 +1464,10 @@ export const ParamCreater = function () {
                     functionUrn = deleteFunctionAsyncInvokeConfigRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunctionAsyncInvokeConfig.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunctionAsyncInvokeConfig.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -1279,12 +1502,13 @@ export const ParamCreater = function () {
                     aliasName = deleteVersionAliasRequest['alias_name'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteVersionAlias.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteVersionAlias.');
             }
             if (aliasName === null || aliasName === undefined) {
-                throw new RequiredError('aliasName','Required parameter aliasName was null or undefined when calling deleteVersionAlias.');
+            throw new RequiredError('aliasName','Required parameter aliasName was null or undefined when calling deleteVersionAlias.');
             }
 
             options.pathParams = { 'function_urn': functionUrn,'alias_name': aliasName, };
@@ -1345,9 +1569,10 @@ export const ParamCreater = function () {
                     type = exportFunctionRequest['type'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling exportFunction.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling exportFunction.');
             }
             if (config !== null && config !== undefined) {
                 localVarQueryParameter['config'] = config;
@@ -1389,6 +1614,7 @@ export const ParamCreater = function () {
                     body = importFunctionRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1433,9 +1659,10 @@ export const ParamCreater = function () {
                     xCFFRequestVersion = invokeFunctionRequest['X-CFF-Request-Version'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling invokeFunction.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling invokeFunction.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1490,6 +1717,7 @@ export const ParamCreater = function () {
                     limit = listDependenciesRequest['limit'];
                 }
             }
+
         
             if (dependencyType !== null && dependencyType !== undefined) {
                 localVarQueryParameter['dependency_type'] = dependencyType;
@@ -1536,9 +1764,10 @@ export const ParamCreater = function () {
                     functionUrn = listEventsRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listEvents.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listEvents.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -1585,9 +1814,10 @@ export const ParamCreater = function () {
                     queryEndTime = listFunctionAsyncInvocationsRequest['query_end_time'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionAsyncInvocations.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionAsyncInvocations.');
             }
             if (requestId !== null && requestId !== undefined) {
                 localVarQueryParameter['request_id'] = requestId;
@@ -1641,9 +1871,10 @@ export const ParamCreater = function () {
                     limit = listFunctionAsyncInvokeConfigRequest['limit'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionAsyncInvokeConfig.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionAsyncInvokeConfig.');
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
@@ -1685,12 +1916,13 @@ export const ParamCreater = function () {
                     period = listFunctionStatisticsRequest['period'];
                 }
             }
+
         
             if (funcUrn === null || funcUrn === undefined) {
-                throw new RequiredError('funcUrn','Required parameter funcUrn was null or undefined when calling listFunctionStatistics.');
+            throw new RequiredError('funcUrn','Required parameter funcUrn was null or undefined when calling listFunctionStatistics.');
             }
             if (period === null || period === undefined) {
-                throw new RequiredError('period','Required parameter period was null or undefined when calling listFunctionStatistics.');
+            throw new RequiredError('period','Required parameter period was null or undefined when calling listFunctionStatistics.');
             }
 
             options.pathParams = { 'func_urn': funcUrn,'period': period, };
@@ -1728,9 +1960,10 @@ export const ParamCreater = function () {
                     maxitems = listFunctionVersionsRequest['maxitems'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionVersions.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionVersions.');
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
@@ -1775,6 +2008,7 @@ export const ParamCreater = function () {
                     packageName = listFunctionsRequest['package_name'];
                 }
             }
+
         
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
@@ -1838,6 +2072,7 @@ export const ParamCreater = function () {
                     period = listStatisticsRequest['period'];
                 }
             }
+
         
             if (filter === null || filter === undefined) {
                 throw new RequiredError('filter','Required parameter filter was null or undefined when calling listStatistics.');
@@ -1878,9 +2113,10 @@ export const ParamCreater = function () {
                     functionUrn = listVersionAliasesRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listVersionAliases.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listVersionAliases.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -1912,9 +2148,10 @@ export const ParamCreater = function () {
                     dependId = showDependencyRequest['depend_id'];
                 }
             }
+
         
             if (dependId === null || dependId === undefined) {
-                throw new RequiredError('dependId','Required parameter dependId was null or undefined when calling showDependency.');
+            throw new RequiredError('dependId','Required parameter dependId was null or undefined when calling showDependency.');
             }
 
             options.pathParams = { 'depend_id': dependId, };
@@ -1949,12 +2186,13 @@ export const ParamCreater = function () {
                     functionUrn = showEventRequest['function_urn'];
                 }
             }
+
         
             if (eventId === null || eventId === undefined) {
-                throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling showEvent.');
+            throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling showEvent.');
             }
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showEvent.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showEvent.');
             }
 
             options.pathParams = { 'event_id': eventId,'function_urn': functionUrn, };
@@ -1986,9 +2224,10 @@ export const ParamCreater = function () {
                     functionUrn = showFunctionAsyncInvokeConfigRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionAsyncInvokeConfig.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionAsyncInvokeConfig.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -2020,9 +2259,10 @@ export const ParamCreater = function () {
                     functionUrn = showFunctionCodeRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionCode.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionCode.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -2054,9 +2294,10 @@ export const ParamCreater = function () {
                     functionUrn = showFunctionConfigRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionConfig.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionConfig.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -2088,9 +2329,10 @@ export const ParamCreater = function () {
                     functionUrn = showLtsLogDetailsRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showLtsLogDetails.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showLtsLogDetails.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -2122,9 +2364,10 @@ export const ParamCreater = function () {
                     functionUrn = showTracingRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showTracing.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showTracing.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -2159,12 +2402,13 @@ export const ParamCreater = function () {
                     aliasName = showVersionAliasRequest['alias_name'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showVersionAlias.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showVersionAlias.');
             }
             if (aliasName === null || aliasName === undefined) {
-                throw new RequiredError('aliasName','Required parameter aliasName was null or undefined when calling showVersionAlias.');
+            throw new RequiredError('aliasName','Required parameter aliasName was null or undefined when calling showVersionAlias.');
             }
 
             options.pathParams = { 'function_urn': functionUrn,'alias_name': aliasName, };
@@ -2199,9 +2443,10 @@ export const ParamCreater = function () {
                     body = updateDependencyRequest['body'];
                 }
             }
+
         
             if (dependId === null || dependId === undefined) {
-                throw new RequiredError('dependId','Required parameter dependId was null or undefined when calling updateDependency.');
+            throw new RequiredError('dependId','Required parameter dependId was null or undefined when calling updateDependency.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2244,12 +2489,13 @@ export const ParamCreater = function () {
                     body = updateEventRequest['body'];
                 }
             }
+
         
             if (eventId === null || eventId === undefined) {
-                throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling updateEvent.');
+            throw new RequiredError('eventId','Required parameter eventId was null or undefined when calling updateEvent.');
             }
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateEvent.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateEvent.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2289,9 +2535,10 @@ export const ParamCreater = function () {
                     body = updateFunctionAsyncInvokeConfigRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionAsyncInvokeConfig.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionAsyncInvokeConfig.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2331,9 +2578,10 @@ export const ParamCreater = function () {
                     body = updateFunctionCodeRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionCode.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionCode.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2373,9 +2621,10 @@ export const ParamCreater = function () {
                     body = updateFunctionConfigRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionConfig.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionConfig.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2415,9 +2664,10 @@ export const ParamCreater = function () {
                     body = updateFunctionReservedInstancesRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionReservedInstances.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionReservedInstances.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2457,9 +2707,10 @@ export const ParamCreater = function () {
                     body = updateTracingRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateTracing.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateTracing.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2502,12 +2753,13 @@ export const ParamCreater = function () {
                     body = updateVersionAliasRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateVersionAlias.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateVersionAlias.');
             }
             if (aliasName === null || aliasName === undefined) {
-                throw new RequiredError('aliasName','Required parameter aliasName was null or undefined when calling updateVersionAlias.');
+            throw new RequiredError('aliasName','Required parameter aliasName was null or undefined when calling updateVersionAlias.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2544,9 +2796,10 @@ export const ParamCreater = function () {
                     functionUrn = batchDeleteFunctionTriggersRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling batchDeleteFunctionTriggers.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling batchDeleteFunctionTriggers.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -2581,9 +2834,10 @@ export const ParamCreater = function () {
                     body = createFunctionTriggerRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createFunctionTrigger.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createFunctionTrigger.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2626,15 +2880,16 @@ export const ParamCreater = function () {
                     triggerId = deleteFunctionTriggerRequest['trigger_id'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunctionTrigger.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunctionTrigger.');
             }
             if (triggerTypeCode === null || triggerTypeCode === undefined) {
-                throw new RequiredError('triggerTypeCode','Required parameter triggerTypeCode was null or undefined when calling deleteFunctionTrigger.');
+            throw new RequiredError('triggerTypeCode','Required parameter triggerTypeCode was null or undefined when calling deleteFunctionTrigger.');
             }
             if (triggerId === null || triggerId === undefined) {
-                throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling deleteFunctionTrigger.');
+            throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling deleteFunctionTrigger.');
             }
 
             options.pathParams = { 'function_urn': functionUrn,'trigger_type_code': triggerTypeCode,'trigger_id': triggerId, };
@@ -2666,9 +2921,10 @@ export const ParamCreater = function () {
                     functionUrn = listFunctionTriggersRequest['function_urn'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionTriggers.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionTriggers.');
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
@@ -2706,15 +2962,16 @@ export const ParamCreater = function () {
                     triggerId = showFunctionTriggerRequest['trigger_id'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionTrigger.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionTrigger.');
             }
             if (triggerTypeCode === null || triggerTypeCode === undefined) {
-                throw new RequiredError('triggerTypeCode','Required parameter triggerTypeCode was null or undefined when calling showFunctionTrigger.');
+            throw new RequiredError('triggerTypeCode','Required parameter triggerTypeCode was null or undefined when calling showFunctionTrigger.');
             }
             if (triggerId === null || triggerId === undefined) {
-                throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling showFunctionTrigger.');
+            throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling showFunctionTrigger.');
             }
 
             options.pathParams = { 'function_urn': functionUrn,'trigger_type_code': triggerTypeCode,'trigger_id': triggerId, };
@@ -2755,15 +3012,16 @@ export const ParamCreater = function () {
                     body = updateTriggerRequest['body'];
                 }
             }
+
         
             if (functionUrn === null || functionUrn === undefined) {
-                throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateTrigger.');
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateTrigger.');
             }
             if (triggerTypeCode === null || triggerTypeCode === undefined) {
-                throw new RequiredError('triggerTypeCode','Required parameter triggerTypeCode was null or undefined when calling updateTrigger.');
+            throw new RequiredError('triggerTypeCode','Required parameter triggerTypeCode was null or undefined when calling updateTrigger.');
             }
             if (triggerId === null || triggerId === undefined) {
-                throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling updateTrigger.');
+            throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling updateTrigger.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2772,6 +3030,518 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'function_urn': functionUrn,'trigger_type_code': triggerTypeCode,'trigger_id': triggerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除工作流列表
+         */
+        batchDeleteWorkflows(batchDeleteWorkflowsRequest?: BatchDeleteWorkflowsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/fgs/workflows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (batchDeleteWorkflowsRequest !== null && batchDeleteWorkflowsRequest !== undefined) {
+                if (batchDeleteWorkflowsRequest instanceof BatchDeleteWorkflowsRequest) {
+                    body = batchDeleteWorkflowsRequest.body
+                } else {
+                    body = batchDeleteWorkflowsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建工作流列表
+         */
+        createWorkflow(createWorkflowRequest?: CreateWorkflowRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/workflows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createWorkflowRequest !== null && createWorkflowRequest !== undefined) {
+                if (createWorkflowRequest instanceof CreateWorkflowRequest) {
+                    body = createWorkflowRequest.body
+                } else {
+                    body = createWorkflowRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定函数流执行实例列表
+         */
+        listWorkflowExecutions(listWorkflowExecutionsRequest?: ListWorkflowExecutionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let workflowId;
+            let limit;
+            let status;
+            let startTime;
+            let endTime;
+
+            if (listWorkflowExecutionsRequest !== null && listWorkflowExecutionsRequest !== undefined) {
+                if (listWorkflowExecutionsRequest instanceof ListWorkflowExecutionsRequest) {
+                    workflowId = listWorkflowExecutionsRequest.workflowId;
+                    limit = listWorkflowExecutionsRequest.limit;
+                    status = listWorkflowExecutionsRequest.status;
+                    startTime = listWorkflowExecutionsRequest.startTime;
+                    endTime = listWorkflowExecutionsRequest.endTime;
+                } else {
+                    workflowId = listWorkflowExecutionsRequest['workflow_id'];
+                    limit = listWorkflowExecutionsRequest['limit'];
+                    status = listWorkflowExecutionsRequest['status'];
+                    startTime = listWorkflowExecutionsRequest['start_time'];
+                    endTime = listWorkflowExecutionsRequest['end_time'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling listWorkflowExecutions.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workflow_id': workflowId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询工作流列表
+         */
+        listWorkflows(listWorkflowsRequest?: ListWorkflowsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let workflowName;
+            let limit;
+            let offset;
+
+            if (listWorkflowsRequest !== null && listWorkflowsRequest !== undefined) {
+                if (listWorkflowsRequest instanceof ListWorkflowsRequest) {
+                    workflowName = listWorkflowsRequest.workflowName;
+                    limit = listWorkflowsRequest.limit;
+                    offset = listWorkflowsRequest.offset;
+                } else {
+                    workflowName = listWorkflowsRequest['workflow_name'];
+                    limit = listWorkflowsRequest['limit'];
+                    offset = listWorkflowsRequest['offset'];
+                }
+            }
+
+        
+            if (workflowName !== null && workflowName !== undefined) {
+                localVarQueryParameter['workflow_name'] = workflowName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重试工作流
+         */
+        retryWorkFlow(retryWorkFlowRequest?: RetryWorkFlowRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions/{execution_id}/retry",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let workflowId;
+            let executionId;
+
+            if (retryWorkFlowRequest !== null && retryWorkFlowRequest !== undefined) {
+                if (retryWorkFlowRequest instanceof RetryWorkFlowRequest) {
+                    workflowId = retryWorkFlowRequest.workflowId;
+                    executionId = retryWorkFlowRequest.executionId;
+                } else {
+                    workflowId = retryWorkFlowRequest['workflow_id'];
+                    executionId = retryWorkFlowRequest['execution_id'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling retryWorkFlow.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling retryWorkFlow.');
+            }
+
+            options.pathParams = { 'workflow_id': workflowId,'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取函数流指标
+         */
+        showTenantMetric(showTenantMetricRequest?: ShowTenantMetricRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflow-statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let period;
+
+            if (showTenantMetricRequest !== null && showTenantMetricRequest !== undefined) {
+                if (showTenantMetricRequest instanceof ShowTenantMetricRequest) {
+                    period = showTenantMetricRequest.period;
+                } else {
+                    period = showTenantMetricRequest['period'];
+                }
+            }
+
+        
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定函数流实例
+         */
+        showWorkFlow(showWorkFlowRequest?: ShowWorkFlowRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let workflowId;
+
+            if (showWorkFlowRequest !== null && showWorkFlowRequest !== undefined) {
+                if (showWorkFlowRequest instanceof ShowWorkFlowRequest) {
+                    workflowId = showWorkFlowRequest.workflowId;
+                } else {
+                    workflowId = showWorkFlowRequest['workflow_id'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling showWorkFlow.');
+            }
+
+            options.pathParams = { 'workflow_id': workflowId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定工作流指标
+         */
+        showWorkFlowMetric(showWorkFlowMetricRequest?: ShowWorkFlowMetricRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflow-statistic/{workflow_urn}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let workflowUrn;
+            let period;
+
+            if (showWorkFlowMetricRequest !== null && showWorkFlowMetricRequest !== undefined) {
+                if (showWorkFlowMetricRequest instanceof ShowWorkFlowMetricRequest) {
+                    workflowUrn = showWorkFlowMetricRequest.workflowUrn;
+                    period = showWorkFlowMetricRequest.period;
+                } else {
+                    workflowUrn = showWorkFlowMetricRequest['workflow_urn'];
+                    period = showWorkFlowMetricRequest['period'];
+                }
+            }
+
+        
+            if (workflowUrn === null || workflowUrn === undefined) {
+            throw new RequiredError('workflowUrn','Required parameter workflowUrn was null or undefined when calling showWorkFlowMetric.');
+            }
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workflow_urn': workflowUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定函数流执行实例。
+         */
+        showWorkflowExecution(showWorkflowExecutionRequest?: ShowWorkflowExecutionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions/{execution_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let workflowId;
+            let executionId;
+
+            if (showWorkflowExecutionRequest !== null && showWorkflowExecutionRequest !== undefined) {
+                if (showWorkflowExecutionRequest instanceof ShowWorkflowExecutionRequest) {
+                    workflowId = showWorkflowExecutionRequest.workflowId;
+                    executionId = showWorkflowExecutionRequest.executionId;
+                } else {
+                    workflowId = showWorkflowExecutionRequest['workflow_id'];
+                    executionId = showWorkflowExecutionRequest['execution_id'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling showWorkflowExecution.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling showWorkflowExecution.');
+            }
+
+            options.pathParams = { 'workflow_id': workflowId,'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开始执行函数流
+         */
+        startWorkflowExecution(startWorkflowExecutionRequest?: StartWorkflowExecutionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let workflowId;
+            let xCreateTime;
+            let xWorkflowRunID;
+
+            if (startWorkflowExecutionRequest !== null && startWorkflowExecutionRequest !== undefined) {
+                if (startWorkflowExecutionRequest instanceof StartWorkflowExecutionRequest) {
+                    workflowId = startWorkflowExecutionRequest.workflowId;
+                    body = startWorkflowExecutionRequest.body
+                    xCreateTime = startWorkflowExecutionRequest.xCreateTime;
+                    xWorkflowRunID = startWorkflowExecutionRequest.xWorkflowRunID;
+                } else {
+                    workflowId = startWorkflowExecutionRequest['workflow_id'];
+                    body = startWorkflowExecutionRequest['body'];
+                    xCreateTime = startWorkflowExecutionRequest['X-Create-Time'];
+                    xWorkflowRunID = startWorkflowExecutionRequest['X-WorkflowRun-ID'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling startWorkflowExecution.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xCreateTime !== undefined && xCreateTime !== null) {
+                localVarHeaderParameter['X-Create-Time'] = String(xCreateTime);
+            }
+            if (xWorkflowRunID !== undefined && xWorkflowRunID !== null) {
+                localVarHeaderParameter['X-WorkflowRun-ID'] = String(xWorkflowRunID);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workflow_id': workflowId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止工作流
+         */
+        stopWorkFlow(stopWorkFlowRequest?: StopWorkFlowRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions/{execution_id}/terminate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let workflowId;
+            let executionId;
+
+            if (stopWorkFlowRequest !== null && stopWorkFlowRequest !== undefined) {
+                if (stopWorkFlowRequest instanceof StopWorkFlowRequest) {
+                    workflowId = stopWorkFlowRequest.workflowId;
+                    executionId = stopWorkFlowRequest.executionId;
+                } else {
+                    workflowId = stopWorkFlowRequest['workflow_id'];
+                    executionId = stopWorkFlowRequest['execution_id'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling stopWorkFlow.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling stopWorkFlow.');
+            }
+
+            options.pathParams = { 'workflow_id': workflowId,'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改指定函数流实例
+         */
+        updateWorkFlow(updateWorkFlowRequest?: UpdateWorkFlowRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let workflowId;
+
+            if (updateWorkFlowRequest !== null && updateWorkFlowRequest !== undefined) {
+                if (updateWorkFlowRequest instanceof UpdateWorkFlowRequest) {
+                    workflowId = updateWorkFlowRequest.workflowId;
+                    body = updateWorkFlowRequest.body
+                } else {
+                    workflowId = updateWorkFlowRequest['workflow_id'];
+                    body = updateWorkFlowRequest['body'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling updateWorkFlow.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workflow_id': workflowId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

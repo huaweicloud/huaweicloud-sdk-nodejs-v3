@@ -128,6 +128,7 @@ export const ParamCreater = function () {
                     body = detectExtentionByIdCardImageRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -163,6 +164,7 @@ export const ParamCreater = function () {
                     body = detectExtentionByNameAndIdRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -198,6 +200,7 @@ export const ParamCreater = function () {
                     body = detectStandardByIdCardImageRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -233,6 +236,7 @@ export const ParamCreater = function () {
                     body = detectStandardByNameAndIdRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

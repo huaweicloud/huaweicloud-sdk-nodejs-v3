@@ -155,6 +155,7 @@ export const ParamCreater = function () {
                     jobId = runCheckResultRequest['job_id'];
                 }
             }
+
         
             if (jobId === null || jobId === undefined) {
                 throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling runCheckResult.');
@@ -198,6 +199,7 @@ export const ParamCreater = function () {
                     limit = runCheckTaskJobsRequest['limit'];
                 }
             }
+
         
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
@@ -238,6 +240,7 @@ export const ParamCreater = function () {
                     body = runImageBatchModerationRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -273,6 +276,7 @@ export const ParamCreater = function () {
                     body = runImageModerationRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -308,6 +312,7 @@ export const ParamCreater = function () {
                     body = runTaskSumbitRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -343,6 +348,7 @@ export const ParamCreater = function () {
                     body = runTextModerationRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

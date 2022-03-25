@@ -12,6 +12,7 @@ export class IdCardResult {
     private 'valid_from'?: string | undefined;
     private 'valid_to'?: string | undefined;
     private 'verification_result'?: IdcardVerificationResult | undefined;
+    private 'text_location'?: object | undefined;
     public constructor() { 
     }
     public withName(name: string): IdCardResult {
@@ -77,5 +78,15 @@ export class IdCardResult {
     }
     public get verificationResult() {
         return this['verification_result'];
+    }
+    public withTextLocation(textLocation: object): IdCardResult {
+        this['text_location'] = textLocation;
+        return this;
+    }
+    public set textLocation(textLocation: object | undefined) {
+        this['text_location'] = textLocation;
+    }
+    public get textLocation() {
+        return this['text_location'];
     }
 }

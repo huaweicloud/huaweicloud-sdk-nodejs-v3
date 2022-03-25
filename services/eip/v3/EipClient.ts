@@ -269,6 +269,7 @@ export const ParamCreater = function () {
                     publicBorderGroup = listCommonPoolsRequest['public_border_group'];
                 }
             }
+
         
             if (fields !== null && fields !== undefined) {
                 localVarQueryParameter['fields'] = fields;
@@ -309,6 +310,7 @@ export const ParamCreater = function () {
                     fields = listPublicBorderGroupsRequest['fields'];
                 }
             }
+
         
             if (fields !== null && fields !== undefined) {
                 localVarQueryParameter['fields'] = fields;
@@ -367,6 +369,7 @@ export const ParamCreater = function () {
                     limit = listShareBandwidthTypesRequest['limit'];
                 }
             }
+
         
             if (fields !== null && fields !== undefined) {
                 localVarQueryParameter['fields'] = fields;
@@ -428,9 +431,10 @@ export const ParamCreater = function () {
                     body = associatePublicipsRequest['body'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling associatePublicips.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling associatePublicips.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -470,9 +474,10 @@ export const ParamCreater = function () {
                     body = disassociatePublicipsRequest['body'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling disassociatePublicips.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling disassociatePublicips.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -542,6 +547,7 @@ export const ParamCreater = function () {
                     publicBorderGroup = listPublicipPoolRequest['public_border_group'];
                 }
             }
+
         
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
@@ -729,6 +735,7 @@ export const ParamCreater = function () {
                     allowShareBandwidthTypeAny = listPublicipsRequest['allow_share_bandwidth_type_any'];
                 }
             }
+
         
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
@@ -886,9 +893,10 @@ export const ParamCreater = function () {
                     fields = showPublicipRequest['fields'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling showPublicip.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling showPublicip.');
             }
             if (fields !== null && fields !== undefined) {
                 localVarQueryParameter['fields'] = fields;
@@ -927,9 +935,10 @@ export const ParamCreater = function () {
                     fields = showPublicipPoolRequest['fields'];
                 }
             }
+
         
             if (publicipPoolId === null || publicipPoolId === undefined) {
-                throw new RequiredError('publicipPoolId','Required parameter publicipPoolId was null or undefined when calling showPublicipPool.');
+            throw new RequiredError('publicipPoolId','Required parameter publicipPoolId was null or undefined when calling showPublicipPool.');
             }
             if (fields !== null && fields !== undefined) {
                 localVarQueryParameter['fields'] = fields;

@@ -453,9 +453,10 @@ export const ParamCreater = function () {
                     body = batchCreateVolumeTagsRequest['body'];
                 }
             }
+
         
             if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling batchCreateVolumeTags.');
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling batchCreateVolumeTags.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -495,9 +496,10 @@ export const ParamCreater = function () {
                     body = batchDeleteVolumeTagsRequest['body'];
                 }
             }
+
         
             if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling batchDeleteVolumeTags.');
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling batchDeleteVolumeTags.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -557,9 +559,10 @@ export const ParamCreater = function () {
                     usage = cinderListQuotasRequest['usage'];
                 }
             }
+
         
             if (targetProjectId === null || targetProjectId === undefined) {
-                throw new RequiredError('targetProjectId','Required parameter targetProjectId was null or undefined when calling cinderListQuotas.');
+            throw new RequiredError('targetProjectId','Required parameter targetProjectId was null or undefined when calling cinderListQuotas.');
             }
             if (usage === null || usage === undefined) {
                 throw new RequiredError('usage','Required parameter usage was null or undefined when calling cinderListQuotas.');
@@ -618,6 +621,7 @@ export const ParamCreater = function () {
                     body = createSnapshotRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -653,6 +657,7 @@ export const ParamCreater = function () {
                     body = createVolumeRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -688,9 +693,10 @@ export const ParamCreater = function () {
                     snapshotId = deleteSnapshotRequest['snapshot_id'];
                 }
             }
+
         
             if (snapshotId === null || snapshotId === undefined) {
-                throw new RequiredError('snapshotId','Required parameter snapshotId was null or undefined when calling deleteSnapshot.');
+            throw new RequiredError('snapshotId','Required parameter snapshotId was null or undefined when calling deleteSnapshot.');
             }
 
             options.pathParams = { 'snapshot_id': snapshotId, };
@@ -722,9 +728,10 @@ export const ParamCreater = function () {
                     volumeId = deleteVolumeRequest['volume_id'];
                 }
             }
+
         
             if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling deleteVolume.');
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling deleteVolume.');
             }
 
             options.pathParams = { 'volume_id': volumeId, };
@@ -786,6 +793,7 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listSnapshotsRequest['enterprise_project_id'];
                 }
             }
+
         
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
@@ -921,6 +929,7 @@ export const ParamCreater = function () {
                     serverId = listVolumesRequest['server_id'];
                 }
             }
+
         
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
@@ -1006,6 +1015,7 @@ export const ParamCreater = function () {
                     body = listVolumesByTagsRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1044,9 +1054,10 @@ export const ParamCreater = function () {
                     body = resizeVolumeRequest['body'];
                 }
             }
+
         
             if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling resizeVolume.');
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling resizeVolume.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1086,9 +1097,10 @@ export const ParamCreater = function () {
                     body = rollbackSnapshotRequest['body'];
                 }
             }
+
         
             if (snapshotId === null || snapshotId === undefined) {
-                throw new RequiredError('snapshotId','Required parameter snapshotId was null or undefined when calling rollbackSnapshot.');
+            throw new RequiredError('snapshotId','Required parameter snapshotId was null or undefined when calling rollbackSnapshot.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1125,9 +1137,10 @@ export const ParamCreater = function () {
                     jobId = showJobRequest['job_id'];
                 }
             }
+
         
             if (jobId === null || jobId === undefined) {
-                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJob.');
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJob.');
             }
 
             options.pathParams = { 'job_id': jobId, };
@@ -1159,9 +1172,10 @@ export const ParamCreater = function () {
                     snapshotId = showSnapshotRequest['snapshot_id'];
                 }
             }
+
         
             if (snapshotId === null || snapshotId === undefined) {
-                throw new RequiredError('snapshotId','Required parameter snapshotId was null or undefined when calling showSnapshot.');
+            throw new RequiredError('snapshotId','Required parameter snapshotId was null or undefined when calling showSnapshot.');
             }
 
             options.pathParams = { 'snapshot_id': snapshotId, };
@@ -1193,9 +1207,10 @@ export const ParamCreater = function () {
                     volumeId = showVolumeRequest['volume_id'];
                 }
             }
+
         
             if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling showVolume.');
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling showVolume.');
             }
 
             options.pathParams = { 'volume_id': volumeId, };
@@ -1227,9 +1242,10 @@ export const ParamCreater = function () {
                     volumeId = showVolumeTagsRequest['volume_id'];
                 }
             }
+
         
             if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling showVolumeTags.');
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling showVolumeTags.');
             }
 
             options.pathParams = { 'volume_id': volumeId, };
@@ -1264,9 +1280,10 @@ export const ParamCreater = function () {
                     body = updateSnapshotRequest['body'];
                 }
             }
+
         
             if (snapshotId === null || snapshotId === undefined) {
-                throw new RequiredError('snapshotId','Required parameter snapshotId was null or undefined when calling updateSnapshot.');
+            throw new RequiredError('snapshotId','Required parameter snapshotId was null or undefined when calling updateSnapshot.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1306,9 +1323,10 @@ export const ParamCreater = function () {
                     body = updateVolumeRequest['body'];
                 }
             }
+
         
             if (volumeId === null || volumeId === undefined) {
-                throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling updateVolume.');
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling updateVolume.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

@@ -134,6 +134,9 @@ import { QueueInfo } from './model/QueueInfo';
 import { ResetDeviceSecret } from './model/ResetDeviceSecret';
 import { ResetDeviceSecretRequest } from './model/ResetDeviceSecretRequest';
 import { ResetDeviceSecretResponse } from './model/ResetDeviceSecretResponse';
+import { ResetFingerprint } from './model/ResetFingerprint';
+import { ResetFingerprintRequest } from './model/ResetFingerprintRequest';
+import { ResetFingerprintResponse } from './model/ResetFingerprintResponse';
 import { ResourceDTO } from './model/ResourceDTO';
 import { RoutingRule } from './model/RoutingRule';
 import { RoutingRuleAction } from './model/RoutingRuleAction';
@@ -752,6 +755,21 @@ export class IoTDAClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 应用服务器可调用此接口重置设备指纹。携带指定设备指纹时将之重置为指定值；不携带时将之置空，后续设备第一次接入时，该设备指纹的值将设置为第一次接入时的证书指纹。
+     * @summary 重置设备指纹
+     * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {ResetFingerprint} resetFingerprintRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetFingerprint(resetFingerprintRequest?: ResetFingerprintRequest): Promise<ResetFingerprintResponse> {
+        const options = ParamCreater().resetFingerprint(resetFingerprintRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 应用服务器可调用此接口查询物联网平台中指定设备的详细信息。
      * @summary 查询设备
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
@@ -1295,6 +1313,7 @@ export const ParamCreater = function () {
                     instanceId = createAccessCodeRequest['Instance-Id'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1336,6 +1355,7 @@ export const ParamCreater = function () {
                     instanceId = addQueueRequest['Instance-Id'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1386,6 +1406,7 @@ export const ParamCreater = function () {
                     offset = batchShowQueueRequest['offset'];
                 }
             }
+
         
             if (queueName !== null && queueName !== undefined) {
                 localVarQueryParameter['queue_name'] = queueName;
@@ -1435,9 +1456,10 @@ export const ParamCreater = function () {
                     instanceId = deleteQueueRequest['Instance-Id'];
                 }
             }
+
         
             if (queueId === null || queueId === undefined) {
-                throw new RequiredError('queueId','Required parameter queueId was null or undefined when calling deleteQueue.');
+            throw new RequiredError('queueId','Required parameter queueId was null or undefined when calling deleteQueue.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -1475,9 +1497,10 @@ export const ParamCreater = function () {
                     instanceId = showQueueRequest['Instance-Id'];
                 }
             }
+
         
             if (queueId === null || queueId === undefined) {
-                throw new RequiredError('queueId','Required parameter queueId was null or undefined when calling showQueue.');
+            throw new RequiredError('queueId','Required parameter queueId was null or undefined when calling showQueue.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -1515,6 +1538,7 @@ export const ParamCreater = function () {
                     instanceId = addApplicationRequest['Instance-Id'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1556,9 +1580,10 @@ export const ParamCreater = function () {
                     instanceId = deleteApplicationRequest['Instance-Id'];
                 }
             }
+
         
             if (appId === null || appId === undefined) {
-                throw new RequiredError('appId','Required parameter appId was null or undefined when calling deleteApplication.');
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling deleteApplication.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -1596,9 +1621,10 @@ export const ParamCreater = function () {
                     instanceId = showApplicationRequest['Instance-Id'];
                 }
             }
+
         
             if (appId === null || appId === undefined) {
-                throw new RequiredError('appId','Required parameter appId was null or undefined when calling showApplication.');
+            throw new RequiredError('appId','Required parameter appId was null or undefined when calling showApplication.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -1636,6 +1662,7 @@ export const ParamCreater = function () {
                     defaultApp = showApplicationsRequest['default_app'];
                 }
             }
+
         
             if (defaultApp !== null && defaultApp !== undefined) {
                 localVarQueryParameter['default_app'] = defaultApp;
@@ -1679,9 +1706,10 @@ export const ParamCreater = function () {
                     instanceId = createAsyncCommandRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling createAsyncCommand.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling createAsyncCommand.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1727,12 +1755,13 @@ export const ParamCreater = function () {
                     instanceId = showAsyncDeviceCommandRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling showAsyncDeviceCommand.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling showAsyncDeviceCommand.');
             }
             if (commandId === null || commandId === undefined) {
-                throw new RequiredError('commandId','Required parameter commandId was null or undefined when calling showAsyncDeviceCommand.');
+            throw new RequiredError('commandId','Required parameter commandId was null or undefined when calling showAsyncDeviceCommand.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -1770,6 +1799,7 @@ export const ParamCreater = function () {
                     instanceId = createBatchTaskRequest['Instance-Id'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1826,6 +1856,7 @@ export const ParamCreater = function () {
                     offset = listBatchTasksRequest['offset'];
                 }
             }
+
         
             if (taskType === null || taskType === undefined) {
                 throw new RequiredError('taskType','Required parameter taskType was null or undefined when calling listBatchTasks.');
@@ -1893,9 +1924,10 @@ export const ParamCreater = function () {
                     offset = showBatchTaskRequest['offset'];
                 }
             }
+
         
             if (taskId === null || taskId === undefined) {
-                throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showBatchTask.');
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showBatchTask.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -1943,9 +1975,10 @@ export const ParamCreater = function () {
                     instanceId = deleteBatchTaskFileRequest['Instance-Id'];
                 }
             }
+
         
             if (fileId === null || fileId === undefined) {
-                throw new RequiredError('fileId','Required parameter fileId was null or undefined when calling deleteBatchTaskFile.');
+            throw new RequiredError('fileId','Required parameter fileId was null or undefined when calling deleteBatchTaskFile.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -1980,6 +2013,7 @@ export const ParamCreater = function () {
                     instanceId = listBatchTaskFilesRequest['Instance-Id'];
                 }
             }
+
         
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2017,9 +2051,10 @@ export const ParamCreater = function () {
                     instanceId = uploadBatchTaskFileRequest['Instance-Id'];
                 }
             }
+
         
             if (file === null || file === undefined) {
-                throw new RequiredError('file','Required parameter file was null or undefined when calling uploadBatchTaskFile.');
+            throw new RequiredError('file','Required parameter file was null or undefined when calling uploadBatchTaskFile.');
             }
             if (file !== undefined) { 
                 localVarFormParams.append('file', file as any);
@@ -2059,6 +2094,7 @@ export const ParamCreater = function () {
                     instanceId = addCertificateRequest['Instance-Id'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2106,9 +2142,10 @@ export const ParamCreater = function () {
                     instanceId = checkCertificateRequest['Instance-Id'];
                 }
             }
+
         
             if (certificateId === null || certificateId === undefined) {
-                throw new RequiredError('certificateId','Required parameter certificateId was null or undefined when calling checkCertificate.');
+            throw new RequiredError('certificateId','Required parameter certificateId was null or undefined when calling checkCertificate.');
             }
             if (actionId === null || actionId === undefined) {
                 throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling checkCertificate.');
@@ -2158,9 +2195,10 @@ export const ParamCreater = function () {
                     instanceId = deleteCertificateRequest['Instance-Id'];
                 }
             }
+
         
             if (certificateId === null || certificateId === undefined) {
-                throw new RequiredError('certificateId','Required parameter certificateId was null or undefined when calling deleteCertificate.');
+            throw new RequiredError('certificateId','Required parameter certificateId was null or undefined when calling deleteCertificate.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2207,6 +2245,7 @@ export const ParamCreater = function () {
                     offset = listCertificatesRequest['offset'];
                 }
             }
+
         
             if (appId !== null && appId !== undefined) {
                 localVarQueryParameter['app_id'] = appId;
@@ -2259,9 +2298,10 @@ export const ParamCreater = function () {
                     instanceId = createCommandRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling createCommand.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling createCommand.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2304,6 +2344,7 @@ export const ParamCreater = function () {
                     body = addDeviceGroupRequest['body'];
                 }
             }
+
         
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2348,9 +2389,10 @@ export const ParamCreater = function () {
                     instanceId = createOrDeleteDeviceInGroupRequest['Instance-Id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling createOrDeleteDeviceInGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling createOrDeleteDeviceInGroup.');
             }
             if (actionId === null || actionId === undefined) {
                 throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling createOrDeleteDeviceInGroup.');
@@ -2401,9 +2443,10 @@ export const ParamCreater = function () {
                     instanceId = deleteDeviceGroupRequest['Instance-Id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteDeviceGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteDeviceGroup.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2453,6 +2496,7 @@ export const ParamCreater = function () {
                     appId = listDeviceGroupsRequest['app_id'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -2505,9 +2549,10 @@ export const ParamCreater = function () {
                     instanceId = showDeviceGroupRequest['Instance-Id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showDeviceGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showDeviceGroup.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2554,9 +2599,10 @@ export const ParamCreater = function () {
                     offset = showDevicesInGroupRequest['offset'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showDevicesInGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling showDevicesInGroup.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -2607,9 +2653,10 @@ export const ParamCreater = function () {
                     instanceId = updateDeviceGroupRequest['Instance-Id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateDeviceGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateDeviceGroup.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2652,6 +2699,7 @@ export const ParamCreater = function () {
                     instanceId = addDeviceRequest['Instance-Id'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2693,9 +2741,10 @@ export const ParamCreater = function () {
                     instanceId = deleteDeviceRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling deleteDevice.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling deleteDevice.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2733,9 +2782,10 @@ export const ParamCreater = function () {
                     instanceId = freezeDeviceRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling freezeDevice.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling freezeDevice.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2803,6 +2853,7 @@ export const ParamCreater = function () {
                     appId = listDevicesRequest['app_id'];
                 }
             }
+
         
             if (productId !== null && productId !== undefined) {
                 localVarQueryParameter['product_id'] = productId;
@@ -2879,9 +2930,10 @@ export const ParamCreater = function () {
                     instanceId = resetDeviceSecretRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling resetDeviceSecret.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling resetDeviceSecret.');
             }
             if (actionId === null || actionId === undefined) {
                 throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling resetDeviceSecret.');
@@ -2899,6 +2951,55 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'device_id': deviceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口重置设备指纹。携带指定设备指纹时将之重置为指定值；不携带时将之置空，后续设备第一次接入时，该设备指纹的值将设置为第一次接入时的证书指纹。
+         */
+        resetFingerprint(resetFingerprintRequest?: ResetFingerprintRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/devices/{device_id}/reset-fingerprint",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let deviceId;
+            let instanceId;
+
+            if (resetFingerprintRequest !== null && resetFingerprintRequest !== undefined) {
+                if (resetFingerprintRequest instanceof ResetFingerprintRequest) {
+                    deviceId = resetFingerprintRequest.deviceId;
+                    body = resetFingerprintRequest.body
+                    instanceId = resetFingerprintRequest.instanceId;
+                } else {
+                    deviceId = resetFingerprintRequest['device_id'];
+                    body = resetFingerprintRequest['body'];
+                    instanceId = resetFingerprintRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (deviceId === null || deviceId === undefined) {
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling resetFingerprint.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'device_id': deviceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2931,9 +3032,10 @@ export const ParamCreater = function () {
                     instanceId = showDeviceRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling showDevice.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling showDevice.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2971,9 +3073,10 @@ export const ParamCreater = function () {
                     instanceId = unfreezeDeviceRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling unfreezeDevice.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling unfreezeDevice.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3014,9 +3117,10 @@ export const ParamCreater = function () {
                     instanceId = updateDeviceRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling updateDevice.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling updateDevice.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3059,9 +3163,10 @@ export const ParamCreater = function () {
                     instanceId = showDeviceShadowRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling showDeviceShadow.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling showDeviceShadow.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3102,9 +3207,10 @@ export const ParamCreater = function () {
                     instanceId = updateDeviceShadowDesiredDataRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling updateDeviceShadowDesiredData.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling updateDeviceShadowDesiredData.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3150,9 +3256,10 @@ export const ParamCreater = function () {
                     instanceId = createMessageRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling createMessage.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling createMessage.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3195,9 +3302,10 @@ export const ParamCreater = function () {
                     instanceId = listDeviceMessagesRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling listDeviceMessages.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling listDeviceMessages.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3238,12 +3346,13 @@ export const ParamCreater = function () {
                     instanceId = showDeviceMessageRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling showDeviceMessage.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling showDeviceMessage.');
             }
             if (messageId === null || messageId === undefined) {
-                throw new RequiredError('messageId','Required parameter messageId was null or undefined when calling showDeviceMessage.');
+            throw new RequiredError('messageId','Required parameter messageId was null or undefined when calling showDeviceMessage.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3281,6 +3390,7 @@ export const ParamCreater = function () {
                     body = createProductRequest['body'];
                 }
             }
+
         
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3322,9 +3432,10 @@ export const ParamCreater = function () {
                     appId = deleteProductRequest['app_id'];
                 }
             }
+
         
             if (productId === null || productId === undefined) {
-                throw new RequiredError('productId','Required parameter productId was null or undefined when calling deleteProduct.');
+            throw new RequiredError('productId','Required parameter productId was null or undefined when calling deleteProduct.');
             }
             if (appId !== null && appId !== undefined) {
                 localVarQueryParameter['app_id'] = appId;
@@ -3375,6 +3486,7 @@ export const ParamCreater = function () {
                     offset = listProductsRequest['offset'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -3427,9 +3539,10 @@ export const ParamCreater = function () {
                     appId = showProductRequest['app_id'];
                 }
             }
+
         
             if (productId === null || productId === undefined) {
-                throw new RequiredError('productId','Required parameter productId was null or undefined when calling showProduct.');
+            throw new RequiredError('productId','Required parameter productId was null or undefined when calling showProduct.');
             }
             if (appId !== null && appId !== undefined) {
                 localVarQueryParameter['app_id'] = appId;
@@ -3474,9 +3587,10 @@ export const ParamCreater = function () {
                     instanceId = updateProductRequest['Instance-Id'];
                 }
             }
+
         
             if (productId === null || productId === undefined) {
-                throw new RequiredError('productId','Required parameter productId was null or undefined when calling updateProduct.');
+            throw new RequiredError('productId','Required parameter productId was null or undefined when calling updateProduct.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3522,9 +3636,10 @@ export const ParamCreater = function () {
                     instanceId = listPropertiesRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling listProperties.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling listProperties.');
             }
             if (serviceId === null || serviceId === undefined) {
                 throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling listProperties.');
@@ -3572,9 +3687,10 @@ export const ParamCreater = function () {
                     instanceId = updatePropertiesRequest['Instance-Id'];
                 }
             }
+
         
             if (deviceId === null || deviceId === undefined) {
-                throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling updateProperties.');
+            throw new RequiredError('deviceId','Required parameter deviceId was null or undefined when calling updateProperties.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3617,6 +3733,7 @@ export const ParamCreater = function () {
                     instanceId = createRoutingRuleRequest['Instance-Id'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3658,6 +3775,7 @@ export const ParamCreater = function () {
                     instanceId = createRuleActionRequest['Instance-Id'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3699,9 +3817,10 @@ export const ParamCreater = function () {
                     instanceId = deleteRoutingRuleRequest['Instance-Id'];
                 }
             }
+
         
             if (ruleId === null || ruleId === undefined) {
-                throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling deleteRoutingRule.');
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling deleteRoutingRule.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3739,9 +3858,10 @@ export const ParamCreater = function () {
                     instanceId = deleteRuleActionRequest['Instance-Id'];
                 }
             }
+
         
             if (actionId === null || actionId === undefined) {
-                throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling deleteRuleAction.');
+            throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling deleteRuleAction.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3800,6 +3920,7 @@ export const ParamCreater = function () {
                     offset = listRoutingRulesRequest['offset'];
                 }
             }
+
         
             if (resource !== null && resource !== undefined) {
                 localVarQueryParameter['resource'] = resource;
@@ -3879,6 +4000,7 @@ export const ParamCreater = function () {
                     offset = listRuleActionsRequest['offset'];
                 }
             }
+
         
             if (ruleId !== null && ruleId !== undefined) {
                 localVarQueryParameter['rule_id'] = ruleId;
@@ -3937,9 +4059,10 @@ export const ParamCreater = function () {
                     instanceId = showRoutingRuleRequest['Instance-Id'];
                 }
             }
+
         
             if (ruleId === null || ruleId === undefined) {
-                throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showRoutingRule.');
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showRoutingRule.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3977,9 +4100,10 @@ export const ParamCreater = function () {
                     instanceId = showRuleActionRequest['Instance-Id'];
                 }
             }
+
         
             if (actionId === null || actionId === undefined) {
-                throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling showRuleAction.');
+            throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling showRuleAction.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4020,9 +4144,10 @@ export const ParamCreater = function () {
                     instanceId = updateRoutingRuleRequest['Instance-Id'];
                 }
             }
+
         
             if (ruleId === null || ruleId === undefined) {
-                throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling updateRoutingRule.');
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling updateRoutingRule.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -4068,9 +4193,10 @@ export const ParamCreater = function () {
                     instanceId = updateRuleActionRequest['Instance-Id'];
                 }
             }
+
         
             if (actionId === null || actionId === undefined) {
-                throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling updateRuleAction.');
+            throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling updateRuleAction.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -4116,9 +4242,10 @@ export const ParamCreater = function () {
                     instanceId = changeRuleStatusRequest['Instance-Id'];
                 }
             }
+
         
             if (ruleId === null || ruleId === undefined) {
-                throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling changeRuleStatus.');
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling changeRuleStatus.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -4161,6 +4288,7 @@ export const ParamCreater = function () {
                     instanceId = createRuleRequest['Instance-Id'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -4202,9 +4330,10 @@ export const ParamCreater = function () {
                     instanceId = deleteRuleRequest['Instance-Id'];
                 }
             }
+
         
             if (ruleId === null || ruleId === undefined) {
-                throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling deleteRule.');
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling deleteRule.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4254,6 +4383,7 @@ export const ParamCreater = function () {
                     offset = listRulesRequest['offset'];
                 }
             }
+
         
             if (appId !== null && appId !== undefined) {
                 localVarQueryParameter['app_id'] = appId;
@@ -4306,9 +4436,10 @@ export const ParamCreater = function () {
                     instanceId = showRuleRequest['Instance-Id'];
                 }
             }
+
         
             if (ruleId === null || ruleId === undefined) {
-                throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showRule.');
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showRule.');
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4349,9 +4480,10 @@ export const ParamCreater = function () {
                     instanceId = updateRuleRequest['Instance-Id'];
                 }
             }
+
         
             if (ruleId === null || ruleId === undefined) {
-                throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling updateRule.');
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling updateRule.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -4403,6 +4535,7 @@ export const ParamCreater = function () {
                     body = listResourcesByTagsRequest['body'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -4451,6 +4584,7 @@ export const ParamCreater = function () {
                     body = tagDeviceRequest['body'];
                 }
             }
+
         
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4489,6 +4623,7 @@ export const ParamCreater = function () {
                     body = untagDeviceRequest['body'];
                 }
             }
+
         
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);

@@ -2549,15 +2549,16 @@ export const ParamCreater = function () {
                     roleId = associateAgencyWithAllProjectsPermissionRequest['role_id'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling associateAgencyWithAllProjectsPermission.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling associateAgencyWithAllProjectsPermission.');
             }
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling associateAgencyWithAllProjectsPermission.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling associateAgencyWithAllProjectsPermission.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateAgencyWithAllProjectsPermission.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateAgencyWithAllProjectsPermission.');
             }
 
             options.pathParams = { 'agency_id': agencyId,'domain_id': domainId,'role_id': roleId, };
@@ -2595,15 +2596,16 @@ export const ParamCreater = function () {
                     roleId = associateAgencyWithDomainPermissionRequest['role_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling associateAgencyWithDomainPermission.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling associateAgencyWithDomainPermission.');
             }
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling associateAgencyWithDomainPermission.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling associateAgencyWithDomainPermission.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateAgencyWithDomainPermission.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateAgencyWithDomainPermission.');
             }
 
             options.pathParams = { 'domain_id': domainId,'agency_id': agencyId,'role_id': roleId, };
@@ -2638,12 +2640,13 @@ export const ParamCreater = function () {
                     roleId = associateAgencyWithProjectPermissionRequest['role_id'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling associateAgencyWithProjectPermission.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling associateAgencyWithProjectPermission.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateAgencyWithProjectPermission.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateAgencyWithProjectPermission.');
             }
 
             options.pathParams = { 'agency_id': agencyId,'role_id': roleId, };
@@ -2681,15 +2684,16 @@ export const ParamCreater = function () {
                     roleId = associateRoleToGroupOnEnterpriseProjectRequest['role_id'];
                 }
             }
+
         
             if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
-                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling associateRoleToGroupOnEnterpriseProject.');
+            throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling associateRoleToGroupOnEnterpriseProject.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling associateRoleToGroupOnEnterpriseProject.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling associateRoleToGroupOnEnterpriseProject.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateRoleToGroupOnEnterpriseProject.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateRoleToGroupOnEnterpriseProject.');
             }
 
             options.pathParams = { 'enterprise_project_id': enterpriseProjectId,'group_id': groupId,'role_id': roleId, };
@@ -2727,15 +2731,16 @@ export const ParamCreater = function () {
                     roleId = associateRoleToUserOnEnterpriseProjectRequest['role_id'];
                 }
             }
+
         
             if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
-                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling associateRoleToUserOnEnterpriseProject.');
+            throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling associateRoleToUserOnEnterpriseProject.');
             }
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling associateRoleToUserOnEnterpriseProject.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling associateRoleToUserOnEnterpriseProject.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateRoleToUserOnEnterpriseProject.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling associateRoleToUserOnEnterpriseProject.');
             }
 
             options.pathParams = { 'enterprise_project_id': enterpriseProjectId,'user_id': userId,'role_id': roleId, };
@@ -2773,15 +2778,16 @@ export const ParamCreater = function () {
                     roleId = checkAllProjectsPermissionForAgencyRequest['role_id'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling checkAllProjectsPermissionForAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling checkAllProjectsPermissionForAgency.');
             }
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling checkAllProjectsPermissionForAgency.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling checkAllProjectsPermissionForAgency.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling checkAllProjectsPermissionForAgency.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling checkAllProjectsPermissionForAgency.');
             }
 
             options.pathParams = { 'agency_id': agencyId,'domain_id': domainId,'role_id': roleId, };
@@ -2819,15 +2825,16 @@ export const ParamCreater = function () {
                     roleId = checkDomainPermissionForAgencyRequest['role_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling checkDomainPermissionForAgency.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling checkDomainPermissionForAgency.');
             }
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling checkDomainPermissionForAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling checkDomainPermissionForAgency.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling checkDomainPermissionForAgency.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling checkDomainPermissionForAgency.');
             }
 
             options.pathParams = { 'domain_id': domainId,'agency_id': agencyId,'role_id': roleId, };
@@ -2862,12 +2869,13 @@ export const ParamCreater = function () {
                     roleId = checkProjectPermissionForAgencyRequest['role_id'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling checkProjectPermissionForAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling checkProjectPermissionForAgency.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling checkProjectPermissionForAgency.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling checkProjectPermissionForAgency.');
             }
 
             options.pathParams = { 'agency_id': agencyId,'role_id': roleId, };
@@ -2899,6 +2907,7 @@ export const ParamCreater = function () {
                     body = createAgencyRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2934,6 +2943,7 @@ export const ParamCreater = function () {
                     body = createAgencyCustomPolicyRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2969,6 +2979,7 @@ export const ParamCreater = function () {
                     body = createCloudServiceCustomPolicyRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3004,6 +3015,7 @@ export const ParamCreater = function () {
                     body = createLoginTokenRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3045,12 +3057,13 @@ export const ParamCreater = function () {
                     body = createMetadataRequest['body'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling createMetadata.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling createMetadata.');
             }
             if (protocolId === null || protocolId === undefined) {
-                throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling createMetadata.');
+            throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling createMetadata.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3090,9 +3103,10 @@ export const ParamCreater = function () {
                     body = createOpenIdConnectConfigRequest['body'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling createOpenIdConnectConfig.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling createOpenIdConnectConfig.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3132,10 +3146,8 @@ export const ParamCreater = function () {
                     body = createTokenWithIdTokenRequest['body'];
                 }
             }
+
         
-            if (xIdpId === null || xIdpId === undefined) {
-                throw new RequiredError('xIdpId','Required parameter xIdpId was null or undefined when calling createTokenWithIdToken.');
-            }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
@@ -3179,15 +3191,13 @@ export const ParamCreater = function () {
                     authorization = createUnscopedTokenWithIdTokenRequest['Authorization'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling createUnscopedTokenWithIdToken.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling createUnscopedTokenWithIdToken.');
             }
             if (protocolId === null || protocolId === undefined) {
-                throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling createUnscopedTokenWithIdToken.');
-            }
-            if (authorization === null || authorization === undefined) {
-                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling createUnscopedTokenWithIdToken.');
+            throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling createUnscopedTokenWithIdToken.');
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -3222,9 +3232,10 @@ export const ParamCreater = function () {
                     agencyId = deleteAgencyRequest['agency_id'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling deleteAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling deleteAgency.');
             }
 
             options.pathParams = { 'agency_id': agencyId, };
@@ -3256,9 +3267,10 @@ export const ParamCreater = function () {
                     roleId = deleteCustomPolicyRequest['role_id'];
                 }
             }
+
         
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling deleteCustomPolicy.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling deleteCustomPolicy.');
             }
 
             options.pathParams = { 'role_id': roleId, };
@@ -3296,15 +3308,16 @@ export const ParamCreater = function () {
                     roleId = deleteDomainGroupInheritedRoleRequest['role_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling deleteDomainGroupInheritedRole.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling deleteDomainGroupInheritedRole.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteDomainGroupInheritedRole.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteDomainGroupInheritedRole.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling deleteDomainGroupInheritedRole.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling deleteDomainGroupInheritedRole.');
             }
 
             options.pathParams = { 'domain_id': domainId,'group_id': groupId,'role_id': roleId, };
@@ -3339,12 +3352,13 @@ export const ParamCreater = function () {
                     userId = keystoneAddUserToGroupRequest['user_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneAddUserToGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneAddUserToGroup.');
             }
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneAddUserToGroup.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneAddUserToGroup.');
             }
 
             options.pathParams = { 'group_id': groupId,'user_id': userId, };
@@ -3382,15 +3396,16 @@ export const ParamCreater = function () {
                     roleId = keystoneAssociateGroupWithDomainPermissionRequest['role_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneAssociateGroupWithDomainPermission.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneAssociateGroupWithDomainPermission.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneAssociateGroupWithDomainPermission.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneAssociateGroupWithDomainPermission.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneAssociateGroupWithDomainPermission.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneAssociateGroupWithDomainPermission.');
             }
 
             options.pathParams = { 'domain_id': domainId,'group_id': groupId,'role_id': roleId, };
@@ -3425,12 +3440,13 @@ export const ParamCreater = function () {
                     roleId = keystoneAssociateGroupWithProjectPermissionRequest['role_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneAssociateGroupWithProjectPermission.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneAssociateGroupWithProjectPermission.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneAssociateGroupWithProjectPermission.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneAssociateGroupWithProjectPermission.');
             }
 
             options.pathParams = { 'group_id': groupId,'role_id': roleId, };
@@ -3468,15 +3484,16 @@ export const ParamCreater = function () {
                     roleId = keystoneCheckDomainPermissionForGroupRequest['role_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneCheckDomainPermissionForGroup.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneCheckDomainPermissionForGroup.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneCheckDomainPermissionForGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneCheckDomainPermissionForGroup.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneCheckDomainPermissionForGroup.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneCheckDomainPermissionForGroup.');
             }
 
             options.pathParams = { 'domain_id': domainId,'group_id': groupId,'role_id': roleId, };
@@ -3511,12 +3528,13 @@ export const ParamCreater = function () {
                     roleId = keystoneCheckProjectPermissionForGroupRequest['role_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneCheckProjectPermissionForGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneCheckProjectPermissionForGroup.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneCheckProjectPermissionForGroup.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneCheckProjectPermissionForGroup.');
             }
 
             options.pathParams = { 'group_id': groupId,'role_id': roleId, };
@@ -3551,12 +3569,13 @@ export const ParamCreater = function () {
                     userId = keystoneCheckUserInGroupRequest['user_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneCheckUserInGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneCheckUserInGroup.');
             }
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneCheckUserInGroup.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneCheckUserInGroup.');
             }
 
             options.pathParams = { 'group_id': groupId,'user_id': userId, };
@@ -3594,15 +3613,16 @@ export const ParamCreater = function () {
                     roleId = keystoneCheckroleForGroupRequest['role_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneCheckroleForGroup.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneCheckroleForGroup.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneCheckroleForGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneCheckroleForGroup.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneCheckroleForGroup.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneCheckroleForGroup.');
             }
 
             options.pathParams = { 'domain_id': domainId,'group_id': groupId,'role_id': roleId, };
@@ -3634,6 +3654,7 @@ export const ParamCreater = function () {
                     body = keystoneCreateGroupRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3675,12 +3696,10 @@ export const ParamCreater = function () {
                     body = keystoneCreateIdentityProviderRequest['body'];
                 }
             }
+
         
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling keystoneCreateIdentityProvider.');
-            }
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneCreateIdentityProvider.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneCreateIdentityProvider.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3723,9 +3742,10 @@ export const ParamCreater = function () {
                     body = keystoneCreateMappingRequest['body'];
                 }
             }
+
         
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneCreateMapping.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneCreateMapping.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3762,6 +3782,7 @@ export const ParamCreater = function () {
                     body = keystoneCreateProjectRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3803,12 +3824,13 @@ export const ParamCreater = function () {
                     body = keystoneCreateProtocolRequest['body'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling keystoneCreateProtocol.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling keystoneCreateProtocol.');
             }
             if (protocolId === null || protocolId === undefined) {
-                throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling keystoneCreateProtocol.');
+            throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling keystoneCreateProtocol.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3845,6 +3867,7 @@ export const ParamCreater = function () {
                     body = keystoneCreateScopedTokenRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3880,9 +3903,10 @@ export const ParamCreater = function () {
                     groupId = keystoneDeleteGroupRequest['group_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneDeleteGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneDeleteGroup.');
             }
 
             options.pathParams = { 'group_id': groupId, };
@@ -3914,9 +3938,10 @@ export const ParamCreater = function () {
                     id = keystoneDeleteIdentityProviderRequest['id'];
                 }
             }
+
         
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneDeleteIdentityProvider.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneDeleteIdentityProvider.');
             }
 
             options.pathParams = { 'id': id, };
@@ -3948,9 +3973,10 @@ export const ParamCreater = function () {
                     id = keystoneDeleteMappingRequest['id'];
                 }
             }
+
         
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneDeleteMapping.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneDeleteMapping.');
             }
 
             options.pathParams = { 'id': id, };
@@ -3985,12 +4011,13 @@ export const ParamCreater = function () {
                     protocolId = keystoneDeleteProtocolRequest['protocol_id'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling keystoneDeleteProtocol.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling keystoneDeleteProtocol.');
             }
             if (protocolId === null || protocolId === undefined) {
-                throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling keystoneDeleteProtocol.');
+            throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling keystoneDeleteProtocol.');
             }
 
             options.pathParams = { 'idp_id': idpId,'protocol_id': protocolId, };
@@ -4025,12 +4052,13 @@ export const ParamCreater = function () {
                     groupId = keystoneListAllProjectPermissionsForGroupRequest['group_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneListAllProjectPermissionsForGroup.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneListAllProjectPermissionsForGroup.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListAllProjectPermissionsForGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListAllProjectPermissionsForGroup.');
             }
 
             options.pathParams = { 'domain_id': domainId,'group_id': groupId, };
@@ -4105,12 +4133,13 @@ export const ParamCreater = function () {
                     groupId = keystoneListDomainPermissionsForGroupRequest['group_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneListDomainPermissionsForGroup.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneListDomainPermissionsForGroup.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListDomainPermissionsForGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListDomainPermissionsForGroup.');
             }
 
             options.pathParams = { 'domain_id': domainId,'group_id': groupId, };
@@ -4145,6 +4174,7 @@ export const ParamCreater = function () {
                     serviceId = keystoneListEndpointsRequest['service_id'];
                 }
             }
+
         
             if (_interface !== null && _interface !== undefined) {
                 localVarQueryParameter['interface'] = _interface;
@@ -4205,6 +4235,7 @@ export const ParamCreater = function () {
                     name = keystoneListGroupsRequest['name'];
                 }
             }
+
         
             if (domainId !== null && domainId !== undefined) {
                 localVarQueryParameter['domain_id'] = domainId;
@@ -4303,6 +4334,7 @@ export const ParamCreater = function () {
                     catalog = keystoneListPermissionsRequest['catalog'];
                 }
             }
+
         
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
@@ -4358,9 +4390,10 @@ export const ParamCreater = function () {
                     groupId = keystoneListProjectPermissionsForGroupRequest['group_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListProjectPermissionsForGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListProjectPermissionsForGroup.');
             }
 
             options.pathParams = { 'group_id': groupId, };
@@ -4410,6 +4443,7 @@ export const ParamCreater = function () {
                     perPage = keystoneListProjectsRequest['per_page'];
                 }
             }
+
         
             if (domainId !== null && domainId !== undefined) {
                 localVarQueryParameter['domain_id'] = domainId;
@@ -4462,9 +4496,10 @@ export const ParamCreater = function () {
                     userId = keystoneListProjectsForUserRequest['user_id'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneListProjectsForUser.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneListProjectsForUser.');
             }
 
             options.pathParams = { 'user_id': userId, };
@@ -4496,9 +4531,10 @@ export const ParamCreater = function () {
                     idpId = keystoneListProtocolsRequest['idp_id'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling keystoneListProtocols.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling keystoneListProtocols.');
             }
 
             options.pathParams = { 'idp_id': idpId, };
@@ -4550,6 +4586,7 @@ export const ParamCreater = function () {
                     type = keystoneListServicesRequest['type'];
                 }
             }
+
         
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
@@ -4584,9 +4621,10 @@ export const ParamCreater = function () {
                     groupId = keystoneListUsersForGroupByAdminRequest['group_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListUsersForGroupByAdmin.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneListUsersForGroupByAdmin.');
             }
 
             options.pathParams = { 'group_id': groupId, };
@@ -4644,15 +4682,16 @@ export const ParamCreater = function () {
                     roleId = keystoneRemoveDomainPermissionFromGroupRequest['role_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneRemoveDomainPermissionFromGroup.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneRemoveDomainPermissionFromGroup.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneRemoveDomainPermissionFromGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneRemoveDomainPermissionFromGroup.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneRemoveDomainPermissionFromGroup.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneRemoveDomainPermissionFromGroup.');
             }
 
             options.pathParams = { 'domain_id': domainId,'group_id': groupId,'role_id': roleId, };
@@ -4687,12 +4726,13 @@ export const ParamCreater = function () {
                     roleId = keystoneRemoveProjectPermissionFromGroupRequest['role_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneRemoveProjectPermissionFromGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneRemoveProjectPermissionFromGroup.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneRemoveProjectPermissionFromGroup.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneRemoveProjectPermissionFromGroup.');
             }
 
             options.pathParams = { 'group_id': groupId,'role_id': roleId, };
@@ -4727,12 +4767,13 @@ export const ParamCreater = function () {
                     userId = keystoneRemoveUserFromGroupRequest['user_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneRemoveUserFromGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneRemoveUserFromGroup.');
             }
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneRemoveUserFromGroup.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneRemoveUserFromGroup.');
             }
 
             options.pathParams = { 'group_id': groupId,'user_id': userId, };
@@ -4784,9 +4825,10 @@ export const ParamCreater = function () {
                     endpointId = keystoneShowEndpointRequest['endpoint_id'];
                 }
             }
+
         
             if (endpointId === null || endpointId === undefined) {
-                throw new RequiredError('endpointId','Required parameter endpointId was null or undefined when calling keystoneShowEndpoint.');
+            throw new RequiredError('endpointId','Required parameter endpointId was null or undefined when calling keystoneShowEndpoint.');
             }
 
             options.pathParams = { 'endpoint_id': endpointId, };
@@ -4818,9 +4860,10 @@ export const ParamCreater = function () {
                     groupId = keystoneShowGroupRequest['group_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneShowGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneShowGroup.');
             }
 
             options.pathParams = { 'group_id': groupId, };
@@ -4852,9 +4895,10 @@ export const ParamCreater = function () {
                     id = keystoneShowIdentityProviderRequest['id'];
                 }
             }
+
         
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneShowIdentityProvider.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneShowIdentityProvider.');
             }
 
             options.pathParams = { 'id': id, };
@@ -4886,9 +4930,10 @@ export const ParamCreater = function () {
                     id = keystoneShowMappingRequest['id'];
                 }
             }
+
         
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneShowMapping.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneShowMapping.');
             }
 
             options.pathParams = { 'id': id, };
@@ -4920,9 +4965,10 @@ export const ParamCreater = function () {
                     roleId = keystoneShowPermissionRequest['role_id'];
                 }
             }
+
         
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneShowPermission.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling keystoneShowPermission.');
             }
 
             options.pathParams = { 'role_id': roleId, };
@@ -4977,12 +5023,13 @@ export const ParamCreater = function () {
                     protocolId = keystoneShowProtocolRequest['protocol_id'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling keystoneShowProtocol.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling keystoneShowProtocol.');
             }
             if (protocolId === null || protocolId === undefined) {
-                throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling keystoneShowProtocol.');
+            throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling keystoneShowProtocol.');
             }
 
             options.pathParams = { 'idp_id': idpId,'protocol_id': protocolId, };
@@ -5014,9 +5061,10 @@ export const ParamCreater = function () {
                     regionId = keystoneShowRegionRequest['region_id'];
                 }
             }
+
         
             if (regionId === null || regionId === undefined) {
-                throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling keystoneShowRegion.');
+            throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling keystoneShowRegion.');
             }
 
             options.pathParams = { 'region_id': regionId, };
@@ -5048,9 +5096,10 @@ export const ParamCreater = function () {
                     domainId = keystoneShowSecurityComplianceRequest['domain_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneShowSecurityCompliance.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneShowSecurityCompliance.');
             }
 
             options.pathParams = { 'domain_id': domainId, };
@@ -5085,12 +5134,13 @@ export const ParamCreater = function () {
                     option = keystoneShowSecurityComplianceByOptionRequest['option'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneShowSecurityComplianceByOption.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling keystoneShowSecurityComplianceByOption.');
             }
             if (option === null || option === undefined) {
-                throw new RequiredError('option','Required parameter option was null or undefined when calling keystoneShowSecurityComplianceByOption.');
+            throw new RequiredError('option','Required parameter option was null or undefined when calling keystoneShowSecurityComplianceByOption.');
             }
 
             options.pathParams = { 'domain_id': domainId,'option': option, };
@@ -5122,9 +5172,10 @@ export const ParamCreater = function () {
                     serviceId = keystoneShowServiceRequest['service_id'];
                 }
             }
+
         
             if (serviceId === null || serviceId === undefined) {
-                throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling keystoneShowService.');
+            throw new RequiredError('serviceId','Required parameter serviceId was null or undefined when calling keystoneShowService.');
             }
 
             options.pathParams = { 'service_id': serviceId, };
@@ -5179,9 +5230,10 @@ export const ParamCreater = function () {
                     body = keystoneUpdateGroupRequest['body'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneUpdateGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling keystoneUpdateGroup.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5221,9 +5273,10 @@ export const ParamCreater = function () {
                     body = keystoneUpdateIdentityProviderRequest['body'];
                 }
             }
+
         
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneUpdateIdentityProvider.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneUpdateIdentityProvider.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5263,9 +5316,10 @@ export const ParamCreater = function () {
                     body = keystoneUpdateMappingRequest['body'];
                 }
             }
+
         
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneUpdateMapping.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling keystoneUpdateMapping.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5302,6 +5356,7 @@ export const ParamCreater = function () {
                     body = keystoneUpdateProjectRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5343,12 +5398,13 @@ export const ParamCreater = function () {
                     body = keystoneUpdateProtocolRequest['body'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling keystoneUpdateProtocol.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling keystoneUpdateProtocol.');
             }
             if (protocolId === null || protocolId === undefined) {
-                throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling keystoneUpdateProtocol.');
+            throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling keystoneUpdateProtocol.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -5391,6 +5447,7 @@ export const ParamCreater = function () {
                     name = listAgenciesRequest['name'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
                 throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listAgencies.');
@@ -5437,12 +5494,13 @@ export const ParamCreater = function () {
                     domainId = listAllProjectsPermissionsForAgencyRequest['domain_id'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling listAllProjectsPermissionsForAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling listAllProjectsPermissionsForAgency.');
             }
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listAllProjectsPermissionsForAgency.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listAllProjectsPermissionsForAgency.');
             }
 
             options.pathParams = { 'agency_id': agencyId,'domain_id': domainId, };
@@ -5477,6 +5535,7 @@ export const ParamCreater = function () {
                     perPage = listCustomPoliciesRequest['per_page'];
                 }
             }
+
         
             if (page !== null && page !== undefined) {
                 localVarQueryParameter['page'] = page;
@@ -5517,12 +5576,13 @@ export const ParamCreater = function () {
                     agencyId = listDomainPermissionsForAgencyRequest['agency_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listDomainPermissionsForAgency.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling listDomainPermissionsForAgency.');
             }
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling listDomainPermissionsForAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling listDomainPermissionsForAgency.');
             }
 
             options.pathParams = { 'domain_id': domainId,'agency_id': agencyId, };
@@ -5554,9 +5614,10 @@ export const ParamCreater = function () {
                     groupId = listEnterpriseProjectsForGroupRequest['group_id'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listEnterpriseProjectsForGroup.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listEnterpriseProjectsForGroup.');
             }
 
             options.pathParams = { 'group_id': groupId, };
@@ -5588,9 +5649,10 @@ export const ParamCreater = function () {
                     userId = listEnterpriseProjectsForUserRequest['user_id'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling listEnterpriseProjectsForUser.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling listEnterpriseProjectsForUser.');
             }
 
             options.pathParams = { 'user_id': userId, };
@@ -5622,9 +5684,10 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listGroupsForEnterpriseProjectRequest['enterprise_project_id'];
                 }
             }
+
         
             if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
-                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling listGroupsForEnterpriseProject.');
+            throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling listGroupsForEnterpriseProject.');
             }
 
             options.pathParams = { 'enterprise_project_id': enterpriseProjectId, };
@@ -5656,9 +5719,10 @@ export const ParamCreater = function () {
                     agencyId = listProjectPermissionsForAgencyRequest['agency_id'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling listProjectPermissionsForAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling listProjectPermissionsForAgency.');
             }
 
             options.pathParams = { 'agency_id': agencyId, };
@@ -5693,12 +5757,13 @@ export const ParamCreater = function () {
                     groupId = listRolesForGroupOnEnterpriseProjectRequest['group_id'];
                 }
             }
+
         
             if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
-                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling listRolesForGroupOnEnterpriseProject.');
+            throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling listRolesForGroupOnEnterpriseProject.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listRolesForGroupOnEnterpriseProject.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling listRolesForGroupOnEnterpriseProject.');
             }
 
             options.pathParams = { 'enterprise_project_id': enterpriseProjectId,'group_id': groupId, };
@@ -5733,12 +5798,13 @@ export const ParamCreater = function () {
                     userId = listRolesForUserOnEnterpriseProjectRequest['user_id'];
                 }
             }
+
         
             if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
-                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling listRolesForUserOnEnterpriseProject.');
+            throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling listRolesForUserOnEnterpriseProject.');
             }
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling listRolesForUserOnEnterpriseProject.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling listRolesForUserOnEnterpriseProject.');
             }
 
             options.pathParams = { 'enterprise_project_id': enterpriseProjectId,'user_id': userId, };
@@ -5770,9 +5836,10 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listUsersForEnterpriseProjectRequest['enterprise_project_id'];
                 }
             }
+
         
             if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
-                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling listUsersForEnterpriseProject.');
+            throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling listUsersForEnterpriseProject.');
             }
 
             options.pathParams = { 'enterprise_project_id': enterpriseProjectId, };
@@ -5810,15 +5877,16 @@ export const ParamCreater = function () {
                     roleId = removeAllProjectsPermissionFromAgencyRequest['role_id'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling removeAllProjectsPermissionFromAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling removeAllProjectsPermissionFromAgency.');
             }
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling removeAllProjectsPermissionFromAgency.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling removeAllProjectsPermissionFromAgency.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling removeAllProjectsPermissionFromAgency.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling removeAllProjectsPermissionFromAgency.');
             }
 
             options.pathParams = { 'agency_id': agencyId,'domain_id': domainId,'role_id': roleId, };
@@ -5856,15 +5924,16 @@ export const ParamCreater = function () {
                     roleId = removeDomainPermissionFromAgencyRequest['role_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling removeDomainPermissionFromAgency.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling removeDomainPermissionFromAgency.');
             }
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling removeDomainPermissionFromAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling removeDomainPermissionFromAgency.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling removeDomainPermissionFromAgency.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling removeDomainPermissionFromAgency.');
             }
 
             options.pathParams = { 'domain_id': domainId,'agency_id': agencyId,'role_id': roleId, };
@@ -5899,12 +5968,13 @@ export const ParamCreater = function () {
                     roleId = removeProjectPermissionFromAgencyRequest['role_id'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling removeProjectPermissionFromAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling removeProjectPermissionFromAgency.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling removeProjectPermissionFromAgency.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling removeProjectPermissionFromAgency.');
             }
 
             options.pathParams = { 'agency_id': agencyId,'role_id': roleId, };
@@ -5942,15 +6012,16 @@ export const ParamCreater = function () {
                     roleId = revokeRoleFromGroupOnEnterpriseProjectRequest['role_id'];
                 }
             }
+
         
             if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
-                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling revokeRoleFromGroupOnEnterpriseProject.');
+            throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling revokeRoleFromGroupOnEnterpriseProject.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling revokeRoleFromGroupOnEnterpriseProject.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling revokeRoleFromGroupOnEnterpriseProject.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling revokeRoleFromGroupOnEnterpriseProject.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling revokeRoleFromGroupOnEnterpriseProject.');
             }
 
             options.pathParams = { 'enterprise_project_id': enterpriseProjectId,'group_id': groupId,'role_id': roleId, };
@@ -5988,15 +6059,16 @@ export const ParamCreater = function () {
                     roleId = revokeRoleFromUserOnEnterpriseProjectRequest['role_id'];
                 }
             }
+
         
             if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
-                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling revokeRoleFromUserOnEnterpriseProject.');
+            throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling revokeRoleFromUserOnEnterpriseProject.');
             }
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling revokeRoleFromUserOnEnterpriseProject.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling revokeRoleFromUserOnEnterpriseProject.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling revokeRoleFromUserOnEnterpriseProject.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling revokeRoleFromUserOnEnterpriseProject.');
             }
 
             options.pathParams = { 'enterprise_project_id': enterpriseProjectId,'user_id': userId,'role_id': roleId, };
@@ -6028,9 +6100,10 @@ export const ParamCreater = function () {
                     agencyId = showAgencyRequest['agency_id'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling showAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling showAgency.');
             }
 
             options.pathParams = { 'agency_id': agencyId, };
@@ -6062,9 +6135,10 @@ export const ParamCreater = function () {
                     roleId = showCustomPolicyRequest['role_id'];
                 }
             }
+
         
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling showCustomPolicy.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling showCustomPolicy.');
             }
 
             options.pathParams = { 'role_id': roleId, };
@@ -6096,9 +6170,10 @@ export const ParamCreater = function () {
                     domainId = showDomainApiAclPolicyRequest['domain_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainApiAclPolicy.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainApiAclPolicy.');
             }
 
             options.pathParams = { 'domain_id': domainId, };
@@ -6130,9 +6205,10 @@ export const ParamCreater = function () {
                     domainId = showDomainConsoleAclPolicyRequest['domain_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainConsoleAclPolicy.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainConsoleAclPolicy.');
             }
 
             options.pathParams = { 'domain_id': domainId, };
@@ -6164,9 +6240,10 @@ export const ParamCreater = function () {
                     domainId = showDomainLoginPolicyRequest['domain_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainLoginPolicy.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainLoginPolicy.');
             }
 
             options.pathParams = { 'domain_id': domainId, };
@@ -6198,9 +6275,10 @@ export const ParamCreater = function () {
                     domainId = showDomainPasswordPolicyRequest['domain_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainPasswordPolicy.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainPasswordPolicy.');
             }
 
             options.pathParams = { 'domain_id': domainId, };
@@ -6232,9 +6310,10 @@ export const ParamCreater = function () {
                     domainId = showDomainProtectPolicyRequest['domain_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainProtectPolicy.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainProtectPolicy.');
             }
 
             options.pathParams = { 'domain_id': domainId, };
@@ -6269,9 +6348,10 @@ export const ParamCreater = function () {
                     type = showDomainQuotaRequest['type'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainQuota.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainQuota.');
             }
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
@@ -6310,12 +6390,13 @@ export const ParamCreater = function () {
                     protocolId = showMetadataRequest['protocol_id'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling showMetadata.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling showMetadata.');
             }
             if (protocolId === null || protocolId === undefined) {
-                throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling showMetadata.');
+            throw new RequiredError('protocolId','Required parameter protocolId was null or undefined when calling showMetadata.');
             }
 
             options.pathParams = { 'idp_id': idpId,'protocol_id': protocolId, };
@@ -6347,9 +6428,10 @@ export const ParamCreater = function () {
                     idpId = showOpenIdConnectConfigRequest['idp_id'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling showOpenIdConnectConfig.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling showOpenIdConnectConfig.');
             }
 
             options.pathParams = { 'idp_id': idpId, };
@@ -6424,9 +6506,10 @@ export const ParamCreater = function () {
                     body = updateAgencyRequest['body'];
                 }
             }
+
         
             if (agencyId === null || agencyId === undefined) {
-                throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling updateAgency.');
+            throw new RequiredError('agencyId','Required parameter agencyId was null or undefined when calling updateAgency.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6466,9 +6549,10 @@ export const ParamCreater = function () {
                     body = updateAgencyCustomPolicyRequest['body'];
                 }
             }
+
         
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling updateAgencyCustomPolicy.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling updateAgencyCustomPolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6508,9 +6592,10 @@ export const ParamCreater = function () {
                     body = updateCloudServiceCustomPolicyRequest['body'];
                 }
             }
+
         
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling updateCloudServiceCustomPolicy.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling updateCloudServiceCustomPolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6550,9 +6635,10 @@ export const ParamCreater = function () {
                     body = updateDomainApiAclPolicyRequest['body'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainApiAclPolicy.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainApiAclPolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6592,9 +6678,10 @@ export const ParamCreater = function () {
                     body = updateDomainConsoleAclPolicyRequest['body'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainConsoleAclPolicy.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainConsoleAclPolicy.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -6634,15 +6721,16 @@ export const ParamCreater = function () {
                     roleId = updateDomainGroupInheritRoleRequest['role_id'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainGroupInheritRole.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainGroupInheritRole.');
             }
             if (groupId === null || groupId === undefined) {
-                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateDomainGroupInheritRole.');
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling updateDomainGroupInheritRole.');
             }
             if (roleId === null || roleId === undefined) {
-                throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling updateDomainGroupInheritRole.');
+            throw new RequiredError('roleId','Required parameter roleId was null or undefined when calling updateDomainGroupInheritRole.');
             }
 
             options.pathParams = { 'domain_id': domainId,'group_id': groupId,'role_id': roleId, };
@@ -6677,9 +6765,10 @@ export const ParamCreater = function () {
                     body = updateDomainLoginPolicyRequest['body'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainLoginPolicy.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainLoginPolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6719,9 +6808,10 @@ export const ParamCreater = function () {
                     body = updateDomainPasswordPolicyRequest['body'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainPasswordPolicy.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainPasswordPolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6761,9 +6851,10 @@ export const ParamCreater = function () {
                     body = updateDomainProtectPolicyRequest['body'];
                 }
             }
+
         
             if (domainId === null || domainId === undefined) {
-                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainProtectPolicy.');
+            throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling updateDomainProtectPolicy.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6803,9 +6894,10 @@ export const ParamCreater = function () {
                     body = updateOpenIdConnectConfigRequest['body'];
                 }
             }
+
         
             if (idpId === null || idpId === undefined) {
-                throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling updateOpenIdConnectConfig.');
+            throw new RequiredError('idpId','Required parameter idpId was null or undefined when calling updateOpenIdConnectConfig.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6842,6 +6934,7 @@ export const ParamCreater = function () {
                     body = updateProjectStatusRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6877,6 +6970,7 @@ export const ParamCreater = function () {
                     body = createPermanentAccessKeyRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6912,6 +7006,7 @@ export const ParamCreater = function () {
                     body = createTemporaryAccessKeyByAgencyRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6947,6 +7042,7 @@ export const ParamCreater = function () {
                     body = createTemporaryAccessKeyByTokenRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -6982,9 +7078,10 @@ export const ParamCreater = function () {
                     accessKey = deletePermanentAccessKeyRequest['access_key'];
                 }
             }
+
         
             if (accessKey === null || accessKey === undefined) {
-                throw new RequiredError('accessKey','Required parameter accessKey was null or undefined when calling deletePermanentAccessKey.');
+            throw new RequiredError('accessKey','Required parameter accessKey was null or undefined when calling deletePermanentAccessKey.');
             }
 
             options.pathParams = { 'access_key': accessKey, };
@@ -7016,6 +7113,7 @@ export const ParamCreater = function () {
                     userId = listPermanentAccessKeysRequest['user_id'];
                 }
             }
+
         
             if (userId !== null && userId !== undefined) {
                 localVarQueryParameter['user_id'] = userId;
@@ -7050,9 +7148,10 @@ export const ParamCreater = function () {
                     accessKey = showPermanentAccessKeyRequest['access_key'];
                 }
             }
+
         
             if (accessKey === null || accessKey === undefined) {
-                throw new RequiredError('accessKey','Required parameter accessKey was null or undefined when calling showPermanentAccessKey.');
+            throw new RequiredError('accessKey','Required parameter accessKey was null or undefined when calling showPermanentAccessKey.');
             }
 
             options.pathParams = { 'access_key': accessKey, };
@@ -7087,9 +7186,10 @@ export const ParamCreater = function () {
                     body = updatePermanentAccessKeyRequest['body'];
                 }
             }
+
         
             if (accessKey === null || accessKey === undefined) {
-                throw new RequiredError('accessKey','Required parameter accessKey was null or undefined when calling updatePermanentAccessKey.');
+            throw new RequiredError('accessKey','Required parameter accessKey was null or undefined when calling updatePermanentAccessKey.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7126,6 +7226,7 @@ export const ParamCreater = function () {
                     body = createBindingDeviceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7161,6 +7262,7 @@ export const ParamCreater = function () {
                     body = createMfaDeviceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7196,6 +7298,7 @@ export const ParamCreater = function () {
                     body = createUserRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7231,6 +7334,7 @@ export const ParamCreater = function () {
                     body = deleteBindingDeviceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7269,6 +7373,7 @@ export const ParamCreater = function () {
                     serialNumber = deleteMfaDeviceRequest['serial_number'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling deleteMfaDevice.');
@@ -7312,6 +7417,7 @@ export const ParamCreater = function () {
                     body = keystoneCreateUserRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7347,9 +7453,10 @@ export const ParamCreater = function () {
                     userId = keystoneDeleteUserRequest['user_id'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneDeleteUser.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneDeleteUser.');
             }
 
             options.pathParams = { 'user_id': userId, };
@@ -7381,9 +7488,10 @@ export const ParamCreater = function () {
                     userId = keystoneListGroupsForUserRequest['user_id'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneListGroupsForUser.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneListGroupsForUser.');
             }
 
             options.pathParams = { 'user_id': userId, };
@@ -7424,6 +7532,7 @@ export const ParamCreater = function () {
                     passwordExpiresAt = keystoneListUsersRequest['password_expires_at'];
                 }
             }
+
         
             if (domainId !== null && domainId !== undefined) {
                 localVarQueryParameter['domain_id'] = domainId;
@@ -7467,9 +7576,10 @@ export const ParamCreater = function () {
                     userId = keystoneShowUserRequest['user_id'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneShowUser.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneShowUser.');
             }
 
             options.pathParams = { 'user_id': userId, };
@@ -7504,9 +7614,10 @@ export const ParamCreater = function () {
                     body = keystoneUpdateUserByAdminRequest['body'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneUpdateUserByAdmin.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneUpdateUserByAdmin.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7546,9 +7657,10 @@ export const ParamCreater = function () {
                     body = keystoneUpdateUserPasswordRequest['body'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneUpdateUserPassword.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling keystoneUpdateUserPassword.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7625,9 +7737,10 @@ export const ParamCreater = function () {
                     userId = showUserRequest['user_id'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling showUser.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling showUser.');
             }
 
             options.pathParams = { 'user_id': userId, };
@@ -7659,9 +7772,10 @@ export const ParamCreater = function () {
                     userId = showUserLoginProtectRequest['user_id'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling showUserLoginProtect.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling showUserLoginProtect.');
             }
 
             options.pathParams = { 'user_id': userId, };
@@ -7693,9 +7807,10 @@ export const ParamCreater = function () {
                     userId = showUserMfaDeviceRequest['user_id'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling showUserMfaDevice.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling showUserMfaDevice.');
             }
 
             options.pathParams = { 'user_id': userId, };
@@ -7730,9 +7845,10 @@ export const ParamCreater = function () {
                     body = updateLoginProtectRequest['body'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateLoginProtect.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateLoginProtect.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7772,9 +7888,10 @@ export const ParamCreater = function () {
                     body = updateUserRequest['body'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateUser.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateUser.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7814,9 +7931,10 @@ export const ParamCreater = function () {
                     body = updateUserInformationRequest['body'];
                 }
             }
+
         
             if (userId === null || userId === undefined) {
-                throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateUserInformation.');
+            throw new RequiredError('userId','Required parameter userId was null or undefined when calling updateUserInformation.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7856,6 +7974,7 @@ export const ParamCreater = function () {
                     nocatalog = keystoneCreateAgencyTokenRequest['nocatalog'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7898,6 +8017,7 @@ export const ParamCreater = function () {
                     nocatalog = keystoneCreateUserTokenByPasswordRequest['nocatalog'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7940,6 +8060,7 @@ export const ParamCreater = function () {
                     nocatalog = keystoneCreateUserTokenByPasswordAndMfaRequest['nocatalog'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -7982,10 +8103,8 @@ export const ParamCreater = function () {
                     nocatalog = keystoneValidateTokenRequest['nocatalog'];
                 }
             }
+
         
-            if (xSubjectToken === null || xSubjectToken === undefined) {
-                throw new RequiredError('xSubjectToken','Required parameter xSubjectToken was null or undefined when calling keystoneValidateToken.');
-            }
             if (nocatalog !== null && nocatalog !== undefined) {
                 localVarQueryParameter['nocatalog'] = nocatalog;
             }

@@ -1,3 +1,70 @@
+# 3.0.35-rc 2022-03-25
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - Support the following interfaces��
+    - `ListWorkflows`
+    - `CreateWorkflow`
+    - `BatchDeleteWorkflows`
+    - `ListWorkflowExecutions`
+    - `StartWorkflowExecution`
+    - `ShowWorkflowExecution`
+    - `ShowWorkFlow`
+    - `UpdateWorkFlow`
+    - `ShowTenantMetric`
+    - `ShowWorkFlowMetric`
+    - `RetryWorkFlow`
+    - `StopWorkFlow`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK IMS
+
+- _Features_
+  - Support the interfaces `ListVersions`, `ShowVersion`
+- _Bug Fix_
+  - None
+- _Change_
+  - The request parameter `os_type` changed to not required of the interface `CreateDataImage`
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - Support the interface `ResetFingerprint`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Changes of the interface `RecognizeVatInvoice`:
+    - Add the request parameter `return_text_location`
+    - Add the response parameter `text_location`
+  - Changes of the interface `RecognizeIdCard`:
+    - Add the request parameter `return_text_location`
+    - Add the response parameter `text_location`
+  - Changes of the interface `RecognizeDriverLicense`:
+    - Add the request parameter `return_text_location`
+    - Add the response parameter `text_location`
+
+### HuaweiCloud SDK SWR
+
+- _Features_
+  - Support `Software Repository for Container` service.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.0.34-rc 2022-03-10
 
 ### HuaweiCloud SDK CCE

@@ -703,12 +703,10 @@ export const ParamCreater = function () {
                     body = addNodeRequest['body'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling addNode.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling addNode.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling addNode.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -751,12 +749,10 @@ export const ParamCreater = function () {
                     contentType = awakeClusterRequest['Content-Type'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling awakeCluster.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling awakeCluster.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling awakeCluster.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -794,10 +790,8 @@ export const ParamCreater = function () {
                     body = createAddonInstanceRequest['body'];
                 }
             }
+
         
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling createAddonInstance.');
-            }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
@@ -844,12 +838,10 @@ export const ParamCreater = function () {
                     xClusterID = createCloudPersistentVolumeClaimsRequest['X-Cluster-ID'];
                 }
             }
+
         
             if (namespace === null || namespace === undefined) {
-                throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling createCloudPersistentVolumeClaims.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling createCloudPersistentVolumeClaims.');
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling createCloudPersistentVolumeClaims.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -895,10 +887,8 @@ export const ParamCreater = function () {
                     body = createClusterRequest['body'];
                 }
             }
+
         
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling createCluster.');
-            }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
@@ -942,12 +932,10 @@ export const ParamCreater = function () {
                     body = createKubernetesClusterCertRequest['body'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createKubernetesClusterCert.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling createKubernetesClusterCert.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createKubernetesClusterCert.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -996,12 +984,10 @@ export const ParamCreater = function () {
                     nodepoolScaleUp = createNodeRequest['nodepoolScaleUp'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createNode.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling createNode.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createNode.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1051,12 +1037,10 @@ export const ParamCreater = function () {
                     body = createNodePoolRequest['body'];
                 }
             }
+
         
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling createNodePool.');
-            }
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createNodePool.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling createNodePool.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1102,12 +1086,10 @@ export const ParamCreater = function () {
                     clusterId = deleteAddonInstanceRequest['cluster_id'];
                 }
             }
+
         
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling deleteAddonInstance.');
-            }
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling deleteAddonInstance.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling deleteAddonInstance.');
             }
             if (clusterId !== null && clusterId !== undefined) {
                 localVarQueryParameter['cluster_id'] = clusterId;
@@ -1161,15 +1143,13 @@ export const ParamCreater = function () {
                     xClusterID = deleteCloudPersistentVolumeClaimsRequest['X-Cluster-ID'];
                 }
             }
+
         
             if (name === null || name === undefined) {
-                throw new RequiredError('name','Required parameter name was null or undefined when calling deleteCloudPersistentVolumeClaims.');
+            throw new RequiredError('name','Required parameter name was null or undefined when calling deleteCloudPersistentVolumeClaims.');
             }
             if (namespace === null || namespace === undefined) {
-                throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling deleteCloudPersistentVolumeClaims.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling deleteCloudPersistentVolumeClaims.');
+            throw new RequiredError('namespace','Required parameter namespace was null or undefined when calling deleteCloudPersistentVolumeClaims.');
             }
             if (deleteVolume !== null && deleteVolume !== undefined) {
                 localVarQueryParameter['deleteVolume'] = deleteVolume;
@@ -1238,12 +1218,10 @@ export const ParamCreater = function () {
                     tobedeleted = deleteClusterRequest['tobedeleted'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteCluster.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling deleteCluster.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteCluster.');
             }
             if (deleteEfs !== null && deleteEfs !== undefined) {
                 localVarQueryParameter['delete_efs'] = deleteEfs;
@@ -1309,15 +1287,13 @@ export const ParamCreater = function () {
                     nodepoolScaleDown = deleteNodeRequest['nodepoolScaleDown'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteNode.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteNode.');
             }
             if (nodeId === null || nodeId === undefined) {
-                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling deleteNode.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling deleteNode.');
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling deleteNode.');
             }
             if (nodepoolScaleDown !== null && nodepoolScaleDown !== undefined) {
                 localVarQueryParameter['nodepoolScaleDown'] = nodepoolScaleDown;
@@ -1362,15 +1338,13 @@ export const ParamCreater = function () {
                     contentType = deleteNodePoolRequest['Content-Type'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteNodePool.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling deleteNodePool.');
             }
             if (nodepoolId === null || nodepoolId === undefined) {
-                throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling deleteNodePool.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling deleteNodePool.');
+            throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling deleteNodePool.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -1408,12 +1382,10 @@ export const ParamCreater = function () {
                     contentType = hibernateClusterRequest['Content-Type'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling hibernateCluster.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling hibernateCluster.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling hibernateCluster.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -1451,10 +1423,8 @@ export const ParamCreater = function () {
                     clusterId = listAddonInstancesRequest['cluster_id'];
                 }
             }
+
         
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling listAddonInstances.');
-            }
             if (clusterId === null || clusterId === undefined) {
                 throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listAddonInstances.');
             }
@@ -1497,10 +1467,8 @@ export const ParamCreater = function () {
                     addonTemplateName = listAddonTemplatesRequest['addon_template_name'];
                 }
             }
+
         
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling listAddonTemplates.');
-            }
             if (addonTemplateName !== null && addonTemplateName !== undefined) {
                 localVarQueryParameter['addon_template_name'] = addonTemplateName;
             }
@@ -1549,10 +1517,8 @@ export const ParamCreater = function () {
                     version = listClustersRequest['version'];
                 }
             }
+
         
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling listClusters.');
-            }
             if (detail !== null && detail !== undefined) {
                 localVarQueryParameter['detail'] = detail;
             }
@@ -1604,12 +1570,10 @@ export const ParamCreater = function () {
                     showDefaultNodePool = listNodePoolsRequest['showDefaultNodePool'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listNodePools.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling listNodePools.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listNodePools.');
             }
             if (showDefaultNodePool !== null && showDefaultNodePool !== undefined) {
                 localVarQueryParameter['showDefaultNodePool'] = showDefaultNodePool;
@@ -1651,12 +1615,10 @@ export const ParamCreater = function () {
                     contentType = listNodesRequest['Content-Type'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listNodes.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling listNodes.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling listNodes.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -1700,15 +1662,13 @@ export const ParamCreater = function () {
                     body = migrateNodeRequest['body'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling migrateNode.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling migrateNode.');
             }
             if (targetClusterId === null || targetClusterId === undefined) {
-                throw new RequiredError('targetClusterId','Required parameter targetClusterId was null or undefined when calling migrateNode.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling migrateNode.');
+            throw new RequiredError('targetClusterId','Required parameter targetClusterId was null or undefined when calling migrateNode.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1754,12 +1714,10 @@ export const ParamCreater = function () {
                     body = removeNodeRequest['body'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling removeNode.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling removeNode.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling removeNode.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1805,12 +1763,10 @@ export const ParamCreater = function () {
                     body = resetNodeRequest['body'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling resetNode.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling resetNode.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling resetNode.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1856,12 +1812,10 @@ export const ParamCreater = function () {
                     clusterId = showAddonInstanceRequest['cluster_id'];
                 }
             }
+
         
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling showAddonInstance.');
-            }
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling showAddonInstance.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling showAddonInstance.');
             }
             if (clusterId !== null && clusterId !== undefined) {
                 localVarQueryParameter['cluster_id'] = clusterId;
@@ -1906,12 +1860,10 @@ export const ParamCreater = function () {
                     detail = showClusterRequest['detail'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showCluster.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling showCluster.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showCluster.');
             }
             if (detail !== null && detail !== undefined) {
                 localVarQueryParameter['detail'] = detail;
@@ -1953,12 +1905,10 @@ export const ParamCreater = function () {
                     contentType = showJobRequest['Content-Type'];
                 }
             }
+
         
             if (jobId === null || jobId === undefined) {
-                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJob.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling showJob.');
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJob.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -1999,15 +1949,13 @@ export const ParamCreater = function () {
                     contentType = showNodeRequest['Content-Type'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showNode.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showNode.');
             }
             if (nodeId === null || nodeId === undefined) {
-                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling showNode.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling showNode.');
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling showNode.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -2048,15 +1996,13 @@ export const ParamCreater = function () {
                     contentType = showNodePoolRequest['Content-Type'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showNodePool.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showNodePool.');
             }
             if (nodepoolId === null || nodepoolId === undefined) {
-                throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling showNodePool.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling showNodePool.');
+            throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling showNodePool.');
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -2091,10 +2037,8 @@ export const ParamCreater = function () {
                     contentType = showQuotasRequest['Content-Type'];
                 }
             }
+
         
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling showQuotas.');
-            }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
@@ -2133,12 +2077,10 @@ export const ParamCreater = function () {
                     body = updateAddonInstanceRequest['body'];
                 }
             }
+
         
             if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling updateAddonInstance.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling updateAddonInstance.');
+            throw new RequiredError('id','Required parameter id was null or undefined when calling updateAddonInstance.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2184,12 +2126,10 @@ export const ParamCreater = function () {
                     body = updateClusterRequest['body'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateCluster.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling updateCluster.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateCluster.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2238,15 +2178,13 @@ export const ParamCreater = function () {
                     body = updateNodeRequest['body'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateNode.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateNode.');
             }
             if (nodeId === null || nodeId === undefined) {
-                throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling updateNode.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling updateNode.');
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling updateNode.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2295,15 +2233,13 @@ export const ParamCreater = function () {
                     body = updateNodePoolRequest['body'];
                 }
             }
+
         
             if (clusterId === null || clusterId === undefined) {
-                throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateNodePool.');
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateNodePool.');
             }
             if (nodepoolId === null || nodepoolId === undefined) {
-                throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling updateNodePool.');
-            }
-            if (contentType === null || contentType === undefined) {
-                throw new RequiredError('contentType','Required parameter contentType was null or undefined when calling updateNodePool.');
+            throw new RequiredError('nodepoolId','Required parameter nodepoolId was null or undefined when calling updateNodePool.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

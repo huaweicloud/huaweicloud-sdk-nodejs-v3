@@ -101,7 +101,10 @@ import { ListOsVersionsResponse } from './model/ListOsVersionsResponse';
 import { ListOsVersionsResponseBody } from './model/ListOsVersionsResponseBody';
 import { ListTagsRequest } from './model/ListTagsRequest';
 import { ListTagsResponse } from './model/ListTagsResponse';
+import { ListVersionsRequest } from './model/ListVersionsRequest';
+import { ListVersionsResponse } from './model/ListVersionsResponse';
 import { OsVersionInfo } from './model/OsVersionInfo';
+import { OsVersionResponse } from './model/OsVersionResponse';
 import { QueryImageByTagsResourceDetail } from './model/QueryImageByTagsResourceDetail';
 import { QuickImportImageByFileRequestBody } from './model/QuickImportImageByFileRequestBody';
 import { Quota } from './model/Quota';
@@ -115,6 +118,8 @@ import { ShowImageQuotaRequest } from './model/ShowImageQuotaRequest';
 import { ShowImageQuotaResponse } from './model/ShowImageQuotaResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
+import { ShowVersionRequest } from './model/ShowVersionRequest';
+import { ShowVersionResponse } from './model/ShowVersionResponse';
 import { TagKeyValue } from './model/TagKeyValue';
 import { Tags } from './model/Tags';
 import { UpdateImageRequest } from './model/UpdateImageRequest';
@@ -491,6 +496,31 @@ export class ImsClient {
         return this.hcClient.sendRequest(options);
     }
     /**
+     * 查询API的版本信息列表，包括API的版本兼容性、域名信息等。
+     * @summary 查询版本列表（OpenStack原生）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVersions(): Promise<ListVersionsResponse> {
+        const options = ParamCreater().listVersions();
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 查询API的版本信息列表，包括API的版本兼容性、域名信息等。
+     * @summary 查询版本列表（OpenStack原生）
+     * @param {string} version API版本号。例如：v2.0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVersion(showVersionRequest?: ShowVersionRequest): Promise<ShowVersionResponse> {
+        const options = ParamCreater().showVersion(showVersionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
      * 该接口为扩展接口，主要用于查询异步接口执行情况，比如查询导出镜像任务的执行状态。
      * @summary 查询job状态
      * @param {string} jobId 异步任务ID
@@ -779,9 +809,10 @@ export const ParamCreater = function () {
                     body = addImageTagRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling addImageTag.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling addImageTag.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -818,6 +849,7 @@ export const ParamCreater = function () {
                     body = batchAddMembersRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -856,9 +888,10 @@ export const ParamCreater = function () {
                     body = batchAddOrDeleteTagsRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling batchAddOrDeleteTags.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling batchAddOrDeleteTags.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -895,6 +928,7 @@ export const ParamCreater = function () {
                     body = batchDeleteMembersRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -930,6 +964,7 @@ export const ParamCreater = function () {
                     body = batchUpdateMembersRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -968,9 +1003,10 @@ export const ParamCreater = function () {
                     body = copyImageCrossRegionRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling copyImageCrossRegion.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling copyImageCrossRegion.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1010,9 +1046,10 @@ export const ParamCreater = function () {
                     body = copyImageInRegionRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling copyImageInRegion.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling copyImageInRegion.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1049,6 +1086,7 @@ export const ParamCreater = function () {
                     body = createDataImageRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1084,6 +1122,7 @@ export const ParamCreater = function () {
                     body = createImageRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1119,6 +1158,7 @@ export const ParamCreater = function () {
                     body = createOrUpdateTagsRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1154,6 +1194,7 @@ export const ParamCreater = function () {
                     body = createWholeImageRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1192,12 +1233,13 @@ export const ParamCreater = function () {
                     key = deleteImageTagRequest['key'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling deleteImageTag.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling deleteImageTag.');
             }
             if (key === null || key === undefined) {
-                throw new RequiredError('key','Required parameter key was null or undefined when calling deleteImageTag.');
+            throw new RequiredError('key','Required parameter key was null or undefined when calling deleteImageTag.');
             }
 
             options.pathParams = { 'image_id': imageId,'key': key, };
@@ -1232,9 +1274,10 @@ export const ParamCreater = function () {
                     body = exportImageRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling exportImage.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling exportImage.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1271,6 +1314,7 @@ export const ParamCreater = function () {
                     body = importImageQuickRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1306,6 +1350,7 @@ export const ParamCreater = function () {
                     body = listImageByTagsRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1341,9 +1386,10 @@ export const ParamCreater = function () {
                     imageId = listImageTagsRequest['image_id'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling listImageTags.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling listImageTags.');
             }
 
             options.pathParams = { 'image_id': imageId, };
@@ -1483,6 +1529,7 @@ export const ParamCreater = function () {
                     architecture = listImagesRequest['architecture'];
                 }
             }
+
         
             if (imagetype !== null && imagetype !== undefined) {
                 localVarQueryParameter['__imagetype'] = imagetype;
@@ -1645,6 +1692,7 @@ export const ParamCreater = function () {
                     tag = listOsVersionsRequest['tag'];
                 }
             }
+
         
             if (tag !== null && tag !== undefined) {
                 localVarQueryParameter['tag'] = tag;
@@ -1721,6 +1769,7 @@ export const ParamCreater = function () {
                     updatedAt = listTagsRequest['updated_at'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -1800,9 +1849,10 @@ export const ParamCreater = function () {
                     body = registerImageRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling registerImage.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling registerImage.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1862,9 +1912,10 @@ export const ParamCreater = function () {
                     body = updateImageRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling updateImage.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling updateImage.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1873,6 +1924,61 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'image_id': imageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询API的版本信息列表，包括API的版本兼容性、域名信息等。
+         */
+        listVersions() {
+            const options = {
+                method: "GET",
+                url: "/",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询API的版本信息列表，包括API的版本兼容性、域名信息等。
+         */
+        showVersion(showVersionRequest?: ShowVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/{version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let version;
+
+            if (showVersionRequest !== null && showVersionRequest !== undefined) {
+                if (showVersionRequest instanceof ShowVersionRequest) {
+                    version = showVersionRequest.version;
+                } else {
+                    version = showVersionRequest['version'];
+                }
+            }
+
+        
+            if (version === null || version === undefined) {
+            throw new RequiredError('version','Required parameter version was null or undefined when calling showVersion.');
+            }
+
+            options.pathParams = { 'version': version, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1901,9 +2007,10 @@ export const ParamCreater = function () {
                     jobId = showJobRequest['job_id'];
                 }
             }
+
         
             if (jobId === null || jobId === undefined) {
-                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJob.');
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJob.');
             }
 
             options.pathParams = { 'job_id': jobId, };
@@ -1938,9 +2045,10 @@ export const ParamCreater = function () {
                     body = glanceAddImageMemberRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceAddImageMember.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceAddImageMember.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1977,6 +2085,7 @@ export const ParamCreater = function () {
                     body = glanceCreateImageMetadataRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2015,12 +2124,13 @@ export const ParamCreater = function () {
                     tag = glanceCreateTagRequest['tag'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceCreateTag.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceCreateTag.');
             }
             if (tag === null || tag === undefined) {
-                throw new RequiredError('tag','Required parameter tag was null or undefined when calling glanceCreateTag.');
+            throw new RequiredError('tag','Required parameter tag was null or undefined when calling glanceCreateTag.');
             }
 
             options.pathParams = { 'image_id': imageId,'tag': tag, };
@@ -2055,9 +2165,10 @@ export const ParamCreater = function () {
                     body = glanceDeleteImageRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceDeleteImage.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceDeleteImage.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2094,12 +2205,13 @@ export const ParamCreater = function () {
                     memberId = glanceDeleteImageMemberRequest['member_id'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceDeleteImageMember.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceDeleteImageMember.');
             }
             if (memberId === null || memberId === undefined) {
-                throw new RequiredError('memberId','Required parameter memberId was null or undefined when calling glanceDeleteImageMember.');
+            throw new RequiredError('memberId','Required parameter memberId was null or undefined when calling glanceDeleteImageMember.');
             }
 
             options.pathParams = { 'image_id': imageId,'member_id': memberId, };
@@ -2134,12 +2246,13 @@ export const ParamCreater = function () {
                     tag = glanceDeleteTagRequest['tag'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceDeleteTag.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceDeleteTag.');
             }
             if (tag === null || tag === undefined) {
-                throw new RequiredError('tag','Required parameter tag was null or undefined when calling glanceDeleteTag.');
+            throw new RequiredError('tag','Required parameter tag was null or undefined when calling glanceDeleteTag.');
             }
 
             options.pathParams = { 'image_id': imageId,'tag': tag, };
@@ -2191,9 +2304,10 @@ export const ParamCreater = function () {
                     imageId = glanceListImageMembersRequest['image_id'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceListImageMembers.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceListImageMembers.');
             }
 
             options.pathParams = { 'image_id': imageId, };
@@ -2338,6 +2452,7 @@ export const ParamCreater = function () {
                     updatedAt = glanceListImagesRequest['updated_at'];
                 }
             }
+
         
             if (imagetype !== null && imagetype !== undefined) {
                 localVarQueryParameter['__imagetype'] = imagetype;
@@ -2465,9 +2580,10 @@ export const ParamCreater = function () {
                     imageId = glanceShowImageRequest['image_id'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceShowImage.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceShowImage.');
             }
 
             options.pathParams = { 'image_id': imageId, };
@@ -2502,12 +2618,13 @@ export const ParamCreater = function () {
                     memberId = glanceShowImageMemberRequest['member_id'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceShowImageMember.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceShowImageMember.');
             }
             if (memberId === null || memberId === undefined) {
-                throw new RequiredError('memberId','Required parameter memberId was null or undefined when calling glanceShowImageMember.');
+            throw new RequiredError('memberId','Required parameter memberId was null or undefined when calling glanceShowImageMember.');
             }
 
             options.pathParams = { 'image_id': imageId,'member_id': memberId, };
@@ -2582,9 +2699,10 @@ export const ParamCreater = function () {
                     body = glanceUpdateImageRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceUpdateImage.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceUpdateImage.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2627,12 +2745,13 @@ export const ParamCreater = function () {
                     body = glanceUpdateImageMemberRequest['body'];
                 }
             }
+
         
             if (imageId === null || imageId === undefined) {
-                throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceUpdateImageMember.');
+            throw new RequiredError('imageId','Required parameter imageId was null or undefined when calling glanceUpdateImageMember.');
             }
             if (memberId === null || memberId === undefined) {
-                throw new RequiredError('memberId','Required parameter memberId was null or undefined when calling glanceUpdateImageMember.');
+            throw new RequiredError('memberId','Required parameter memberId was null or undefined when calling glanceUpdateImageMember.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

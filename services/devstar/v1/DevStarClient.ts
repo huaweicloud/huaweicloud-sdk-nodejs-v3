@@ -577,9 +577,10 @@ export const ParamCreater = function () {
                     offset = showApplicationReleaseRepositoriesRequest['offset'];
                 }
             }
+
         
             if (applicationId === null || applicationId === undefined) {
-                throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showApplicationReleaseRepositories.');
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showApplicationReleaseRepositories.');
             }
             if (parentId !== null && parentId !== undefined) {
                 localVarQueryParameter['parent_id'] = parentId;
@@ -630,9 +631,10 @@ export const ParamCreater = function () {
                     xLanguage = showApplicationResDeleteStatusRequest['X-Language'];
                 }
             }
+
         
             if (applicationId === null || applicationId === undefined) {
-                throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showApplicationResDeleteStatus.');
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showApplicationResDeleteStatus.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -676,9 +678,10 @@ export const ParamCreater = function () {
                     offset = showApplicationDependentResourcesRequest['offset'];
                 }
             }
+
         
             if (applicationId === null || applicationId === undefined) {
-                throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showApplicationDependentResources.');
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showApplicationDependentResources.');
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -723,9 +726,10 @@ export const ParamCreater = function () {
                     xLanguage = showApplicationV3Request['X-Language'];
                 }
             }
+
         
             if (applicationId === null || applicationId === undefined) {
-                throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showApplicationV3.');
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showApplicationV3.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -766,9 +770,10 @@ export const ParamCreater = function () {
                     xLanguage = updateApplicationRequest['X-Language'];
                 }
             }
+
         
             if (applicationId === null || applicationId === undefined) {
-                throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling updateApplication.');
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling updateApplication.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -814,9 +819,10 @@ export const ParamCreater = function () {
                     pipelineIds = deleteApplicationV4Request['pipeline_ids'];
                 }
             }
+
         
             if (applicationId === null || applicationId === undefined) {
-                throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling deleteApplicationV4.');
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling deleteApplicationV4.');
             }
             if (isDeleteRepository !== null && isDeleteRepository !== undefined) {
                 localVarQueryParameter['is_delete_repository'] = isDeleteRepository;
@@ -885,6 +891,7 @@ export const ParamCreater = function () {
                     offset = listApplicationsV6Request['offset'];
                 }
             }
+
         
             if (attention !== null && attention !== undefined) {
                 localVarQueryParameter['attention'] = attention;
@@ -952,6 +959,7 @@ export const ParamCreater = function () {
                     xLanguage = downloadApplicationCodeRequest['X-Language'];
                 }
             }
+
         
             if (jobId === null || jobId === undefined) {
                 throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling downloadApplicationCode.');
@@ -1001,12 +1009,13 @@ export const ParamCreater = function () {
                     xLanguage = createDeploymentJobsRequest['X-Language'];
                 }
             }
+
         
             if (applicationId === null || applicationId === undefined) {
-                throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling createDeploymentJobs.');
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling createDeploymentJobs.');
             }
             if (environmentTag === null || environmentTag === undefined) {
-                throw new RequiredError('environmentTag','Required parameter environmentTag was null or undefined when calling createDeploymentJobs.');
+            throw new RequiredError('environmentTag','Required parameter environmentTag was null or undefined when calling createDeploymentJobs.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1052,12 +1061,13 @@ export const ParamCreater = function () {
                     xLanguage = showDeploymentJobsRequest['X-Language'];
                 }
             }
+
         
             if (applicationId === null || applicationId === undefined) {
-                throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showDeploymentJobs.');
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling showDeploymentJobs.');
             }
             if (environmentTag === null || environmentTag === undefined) {
-                throw new RequiredError('environmentTag','Required parameter environmentTag was null or undefined when calling showDeploymentJobs.');
+            throw new RequiredError('environmentTag','Required parameter environmentTag was null or undefined when calling showDeploymentJobs.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -1095,6 +1105,7 @@ export const ParamCreater = function () {
                     xLanguage = runCodehubTemplateJobRequest['X-Language'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1136,6 +1147,7 @@ export const ParamCreater = function () {
                     xLanguage = runDevstarTemplateJobRequest['X-Language'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1177,9 +1189,10 @@ export const ParamCreater = function () {
                     xLanguage = showJobDetailRequest['X-Language'];
                 }
             }
+
         
             if (jobId === null || jobId === undefined) {
-                throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobDetail.');
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobDetail.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -1223,6 +1236,7 @@ export const ParamCreater = function () {
                     limit = listPipelineTemplatesRequest['limit'];
                 }
             }
+
         
             if (regionId === null || regionId === undefined) {
                 throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling listPipelineTemplates.');
@@ -1272,9 +1286,10 @@ export const ParamCreater = function () {
                     xLanguage = showPipelineLastStatusV2Request['X-Language'];
                 }
             }
+
         
             if (pipelineId === null || pipelineId === undefined) {
-                throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling showPipelineLastStatusV2.');
+            throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling showPipelineLastStatusV2.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -1312,9 +1327,10 @@ export const ParamCreater = function () {
                     xLanguage = startPipelineRequest['X-Language'];
                 }
             }
+
         
             if (pipelineId === null || pipelineId === undefined) {
-                throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling startPipeline.');
+            throw new RequiredError('pipelineId','Required parameter pipelineId was null or undefined when calling startPipeline.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -1358,6 +1374,7 @@ export const ParamCreater = function () {
                     offset = listProjectsV4Request['offset'];
                 }
             }
+
         
             if (keyword !== null && keyword !== undefined) {
                 localVarQueryParameter['keyword'] = keyword;
@@ -1410,6 +1427,7 @@ export const ParamCreater = function () {
                     xLanguage = checkRepositoryDuplicateNameRequest['X-Language'];
                 }
             }
+
         
             if (projectId === null || projectId === undefined) {
                 throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling checkRepositoryDuplicateName.');
@@ -1480,9 +1498,10 @@ export const ParamCreater = function () {
                     isFree = showRepositoryByCloudIdeRequest['is_free'];
                 }
             }
+
         
             if (repositoryId === null || repositoryId === undefined) {
-                throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryByCloudIde.');
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryByCloudIde.');
             }
             if (repositorySshUrl === null || repositorySshUrl === undefined) {
                 throw new RequiredError('repositorySshUrl','Required parameter repositorySshUrl was null or undefined when calling showRepositoryByCloudIde.');
@@ -1539,9 +1558,10 @@ export const ParamCreater = function () {
                     xLanguage = showRepositoryStatisticalDataV2Request['X-Language'];
                 }
             }
+
         
             if (repositoryId === null || repositoryId === undefined) {
-                throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryStatisticalDataV2.');
+            throw new RequiredError('repositoryId','Required parameter repositoryId was null or undefined when calling showRepositoryStatisticalDataV2.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -1585,9 +1605,10 @@ export const ParamCreater = function () {
                     type = showTemplateFileRequest['type'];
                 }
             }
+
         
             if (templateId === null || templateId === undefined) {
-                throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showTemplateFile.');
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showTemplateFile.');
             }
             if (filePath === null || filePath === undefined) {
                 throw new RequiredError('filePath','Required parameter filePath was null or undefined when calling showTemplateFile.');
@@ -1635,6 +1656,7 @@ export const ParamCreater = function () {
                     xLanguage = createTemplateViewHistoriesRequest['X-Language'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1682,6 +1704,7 @@ export const ParamCreater = function () {
                     limit = listPublishedTemplatesRequest['limit'];
                 }
             }
+
         
             if (keyword !== null && keyword !== undefined) {
                 localVarQueryParameter['keyword'] = keyword;
@@ -1728,6 +1751,7 @@ export const ParamCreater = function () {
                     xLanguage = listTemplateViewHistoriesRequest['X-Language'];
                 }
             }
+
         
             if (platformSource === null || platformSource === undefined) {
                 throw new RequiredError('platformSource','Required parameter platformSource was null or undefined when calling listTemplateViewHistories.');
@@ -1771,6 +1795,7 @@ export const ParamCreater = function () {
                     body = listTemplatesRequest['body'];
                 }
             }
+
         
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -1812,6 +1837,7 @@ export const ParamCreater = function () {
                     body = listTemplatesV2Request['body'];
                 }
             }
+
         
             if (actionId === null || actionId === undefined) {
                 throw new RequiredError('actionId','Required parameter actionId was null or undefined when calling listTemplatesV2.');
@@ -1857,9 +1883,10 @@ export const ParamCreater = function () {
                     xLanguage = showTemplateV3Request['X-Language'];
                 }
             }
+
         
             if (templateId === null || templateId === undefined) {
-                throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showTemplateV3.');
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showTemplateV3.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
@@ -1897,9 +1924,10 @@ export const ParamCreater = function () {
                     xLanguage = showTemplateDetailRequest['X-Language'];
                 }
             }
+
         
             if (templateId === null || templateId === undefined) {
-                throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showTemplateDetail.');
+            throw new RequiredError('templateId','Required parameter templateId was null or undefined when calling showTemplateDetail.');
             }
             if (xLanguage !== undefined && xLanguage !== null) {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);

@@ -9,13 +9,12 @@ export class CreateDataImageRequestBody {
     private 'image_url': string | undefined;
     private 'min_disk': number | undefined;
     public name: string;
-    private 'os_type': CreateDataImageRequestBodyOsTypeEnum | undefined;
+    private 'os_type'?: CreateDataImageRequestBodyOsTypeEnum | undefined;
     public tags?: Array<string>;
-    public constructor(imageUrl?: any, minDisk?: any, name?: any, osType?: any) { 
+    public constructor(imageUrl?: any, minDisk?: any, name?: any) { 
         this['image_url'] = imageUrl;
         this['min_disk'] = minDisk;
         this['name'] = name;
-        this['os_type'] = osType;
     }
     public withCmkId(cmkId: string): CreateDataImageRequestBody {
         this['cmk_id'] = cmkId;

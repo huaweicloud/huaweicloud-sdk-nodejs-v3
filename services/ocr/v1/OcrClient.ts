@@ -309,7 +309,7 @@ export class OcrClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 识别身份证图片中的文字内容，并将识别的结果返回给用户。  说明：   身份证识别只支持中国大陆汉族身份证识别。  如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product=OCR&api=AutoClassification)服务。 
+     * 识别身份证图片中的文字内容，并将识别的结果返回给用户。  说明：   身份证识别支持中华人民共和国居民身份证识别。  如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product=OCR&api=AutoClassification)服务。 
      * @summary 身份证识别
      * @param {IdCardRequestBody} idCardRequestBody This is a idcard Body Object
      * @param {*} [options] Override http request option.
@@ -597,6 +597,7 @@ export const ParamCreater = function () {
                     body = recognizeAutoClassificationRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -632,6 +633,7 @@ export const ParamCreater = function () {
                     body = recognizeBankcardRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -667,6 +669,7 @@ export const ParamCreater = function () {
                     body = recognizeBusinessCardRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -702,6 +705,7 @@ export const ParamCreater = function () {
                     body = recognizeBusinessLicenseRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -737,6 +741,7 @@ export const ParamCreater = function () {
                     body = recognizeChileIdCardRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -772,6 +777,7 @@ export const ParamCreater = function () {
                     body = recognizeDriverLicenseRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -807,6 +813,7 @@ export const ParamCreater = function () {
                     body = recognizeFinancialStatementRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -842,6 +849,7 @@ export const ParamCreater = function () {
                     body = recognizeFlightItineraryRequest['body'];
                 }
             }
+
         
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -874,6 +882,7 @@ export const ParamCreater = function () {
                     body = recognizeGeneralTableRequest['body'];
                 }
             }
+
         
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -906,6 +915,7 @@ export const ParamCreater = function () {
                     body = recognizeGeneralTextRequest['body'];
                 }
             }
+
         
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -938,6 +948,7 @@ export const ParamCreater = function () {
                     body = recognizeHandwritingRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -950,7 +961,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 识别身份证图片中的文字内容，并将识别的结果返回给用户。  说明：   身份证识别只支持中国大陆汉族身份证识别。  如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。 
+         * 识别身份证图片中的文字内容，并将识别的结果返回给用户。  说明：   身份证识别支持中华人民共和国居民身份证识别。  如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。 
          */
         recognizeIdCard(recognizeIdCardRequest?: RecognizeIdCardRequest) {
             const options = {
@@ -973,6 +984,7 @@ export const ParamCreater = function () {
                     body = recognizeIdCardRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1008,6 +1020,7 @@ export const ParamCreater = function () {
                     body = recognizeInsurancePolicyRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1043,6 +1056,7 @@ export const ParamCreater = function () {
                     body = recognizeInvoiceVerificationRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1078,6 +1092,7 @@ export const ParamCreater = function () {
                     body = recognizeLicensePlateRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1113,6 +1128,7 @@ export const ParamCreater = function () {
                     body = recognizeMvsInvoiceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1148,6 +1164,7 @@ export const ParamCreater = function () {
                     body = recognizeMyanmarDriverLicenseRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1183,6 +1200,7 @@ export const ParamCreater = function () {
                     body = recognizeMyanmarIdcardRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1218,6 +1236,7 @@ export const ParamCreater = function () {
                     body = recognizePassportRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1253,6 +1272,7 @@ export const ParamCreater = function () {
                     body = recognizeQualificationCertificateRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1288,6 +1308,7 @@ export const ParamCreater = function () {
                     body = recognizeQuotaInvoiceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1323,6 +1344,7 @@ export const ParamCreater = function () {
                     body = recognizeTaxiInvoiceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1358,6 +1380,7 @@ export const ParamCreater = function () {
                     body = recognizeThailandIdcardRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1393,6 +1416,7 @@ export const ParamCreater = function () {
                     body = recognizeThailandLicensePlateRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1428,6 +1452,7 @@ export const ParamCreater = function () {
                     body = recognizeTollInvoiceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1463,6 +1488,7 @@ export const ParamCreater = function () {
                     body = recognizeTrainTicketRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1498,6 +1524,7 @@ export const ParamCreater = function () {
                     body = recognizeTransportationLicenseRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1533,6 +1560,7 @@ export const ParamCreater = function () {
                     body = recognizeVatInvoiceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1568,6 +1596,7 @@ export const ParamCreater = function () {
                     body = recognizeVehicleLicenseRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1603,6 +1632,7 @@ export const ParamCreater = function () {
                     body = recognizeWebImageRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1638,6 +1668,7 @@ export const ParamCreater = function () {
                     body = recognizeVinRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

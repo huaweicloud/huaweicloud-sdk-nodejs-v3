@@ -14,6 +14,7 @@ export class DriverLicenseResult {
     private 'issuing_authority'?: string | undefined;
     private 'file_number'?: string | undefined;
     public record?: string;
+    private 'text_location'?: object | undefined;
     public constructor() { 
     }
     public withModelNumber(modelNumber: string): DriverLicenseResult {
@@ -109,5 +110,15 @@ export class DriverLicenseResult {
     public withRecord(record: string): DriverLicenseResult {
         this['record'] = record;
         return this;
+    }
+    public withTextLocation(textLocation: object): DriverLicenseResult {
+        this['text_location'] = textLocation;
+        return this;
+    }
+    public set textLocation(textLocation: object | undefined) {
+        this['text_location'] = textLocation;
+    }
+    public get textLocation() {
+        return this['text_location'];
     }
 }

@@ -32,6 +32,7 @@ export class VatInvoiceResult {
     private 'seller_seal'?: Array<string> | undefined;
     private 'item_list'?: Array<ItemList> | undefined;
     public confidence?: object;
+    private 'text_location'?: object | undefined;
     public constructor() { 
     }
     public withType(type: string): VatInvoiceResult {
@@ -279,5 +280,15 @@ export class VatInvoiceResult {
     public withConfidence(confidence: object): VatInvoiceResult {
         this['confidence'] = confidence;
         return this;
+    }
+    public withTextLocation(textLocation: object): VatInvoiceResult {
+        this['text_location'] = textLocation;
+        return this;
+    }
+    public set textLocation(textLocation: object | undefined) {
+        this['text_location'] = textLocation;
+    }
+    public get textLocation() {
+        return this['text_location'];
     }
 }

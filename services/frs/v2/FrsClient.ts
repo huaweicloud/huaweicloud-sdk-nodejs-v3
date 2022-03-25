@@ -546,9 +546,10 @@ export const ParamCreater = function () {
                     body = addFacesByBase64Request['body'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling addFacesByBase64.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling addFacesByBase64.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -595,12 +596,13 @@ export const ParamCreater = function () {
                     single = addFacesByFileRequest['body'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling addFacesByFile.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling addFacesByFile.');
             }
             if (imageFile === null || imageFile === undefined) {
-                throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling addFacesByFile.');
+            throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling addFacesByFile.');
             }
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
@@ -647,9 +649,10 @@ export const ParamCreater = function () {
                     body = addFacesByUrlRequest['body'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling addFacesByUrl.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling addFacesByUrl.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -689,9 +692,10 @@ export const ParamCreater = function () {
                     body = batchDeleteFacesRequest['body'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling batchDeleteFaces.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling batchDeleteFaces.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -728,6 +732,7 @@ export const ParamCreater = function () {
                     body = compareFaceByBase64Request['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -767,12 +772,13 @@ export const ParamCreater = function () {
                     image2File = compareFaceByFileRequest['body'];
                 }
             }
+
         
             if (image1File === null || image1File === undefined) {
-                throw new RequiredError('image1File','Required parameter image1File was null or undefined when calling compareFaceByFile.');
+            throw new RequiredError('image1File','Required parameter image1File was null or undefined when calling compareFaceByFile.');
             }
             if (image2File === null || image2File === undefined) {
-                throw new RequiredError('image2File','Required parameter image2File was null or undefined when calling compareFaceByFile.');
+            throw new RequiredError('image2File','Required parameter image2File was null or undefined when calling compareFaceByFile.');
             }
             if (image1File !== undefined) { 
                 localVarFormParams.append('image1_file', image1File as any);
@@ -809,6 +815,7 @@ export const ParamCreater = function () {
                     body = compareFaceByUrlRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -844,6 +851,7 @@ export const ParamCreater = function () {
                     body = createFaceSetRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -882,9 +890,10 @@ export const ParamCreater = function () {
                     externalImageId = deleteFaceByExternalImageIdRequest['external_image_id'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling deleteFaceByExternalImageId.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling deleteFaceByExternalImageId.');
             }
             if (externalImageId === null || externalImageId === undefined) {
                 throw new RequiredError('externalImageId','Required parameter externalImageId was null or undefined when calling deleteFaceByExternalImageId.');
@@ -926,9 +935,10 @@ export const ParamCreater = function () {
                     faceId = deleteFaceByFaceIdRequest['face_id'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling deleteFaceByFaceId.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling deleteFaceByFaceId.');
             }
             if (faceId === null || faceId === undefined) {
                 throw new RequiredError('faceId','Required parameter faceId was null or undefined when calling deleteFaceByFaceId.');
@@ -967,9 +977,10 @@ export const ParamCreater = function () {
                     faceSetName = deleteFaceSetRequest['face_set_name'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling deleteFaceSet.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling deleteFaceSet.');
             }
 
             options.pathParams = { 'face_set_name': faceSetName, };
@@ -1001,6 +1012,7 @@ export const ParamCreater = function () {
                     body = detectFaceByBase64Request['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1039,9 +1051,10 @@ export const ParamCreater = function () {
                     attributes = detectFaceByFileRequest['body'];
                 }
             }
+
         
             if (imageFile === null || imageFile === undefined) {
-                throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling detectFaceByFile.');
+            throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling detectFaceByFile.');
             }
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
@@ -1078,6 +1091,7 @@ export const ParamCreater = function () {
                     body = detectFaceByUrlRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1113,6 +1127,7 @@ export const ParamCreater = function () {
                     body = detectLiveByBase64Request['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1153,12 +1168,13 @@ export const ParamCreater = function () {
                     actionTime = detectLiveByFileRequest['body'];
                 }
             }
+
         
             if (videoFile === null || videoFile === undefined) {
-                throw new RequiredError('videoFile','Required parameter videoFile was null or undefined when calling detectLiveByFile.');
+            throw new RequiredError('videoFile','Required parameter videoFile was null or undefined when calling detectLiveByFile.');
             }
             if (actions === null || actions === undefined) {
-                throw new RequiredError('actions','Required parameter actions was null or undefined when calling detectLiveByFile.');
+            throw new RequiredError('actions','Required parameter actions was null or undefined when calling detectLiveByFile.');
             }
             if (videoFile !== undefined) { 
                 localVarFormParams.append('video_file', videoFile as any);
@@ -1198,6 +1214,7 @@ export const ParamCreater = function () {
                     body = detectLiveByUrlRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1233,6 +1250,7 @@ export const ParamCreater = function () {
                     body = detectLiveFaceByBase64Request['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1269,9 +1287,10 @@ export const ParamCreater = function () {
                     imageFile = detectLiveFaceByFileRequest['body'];
                 }
             }
+
         
             if (imageFile === null || imageFile === undefined) {
-                throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling detectLiveFaceByFile.');
+            throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling detectLiveFaceByFile.');
             }
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
@@ -1305,6 +1324,7 @@ export const ParamCreater = function () {
                     body = detectLiveFaceByUrlRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1343,9 +1363,10 @@ export const ParamCreater = function () {
                     body = searchFaceByBase64Request['body'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling searchFaceByBase64.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling searchFaceByBase64.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1385,9 +1406,10 @@ export const ParamCreater = function () {
                     body = searchFaceByFaceIdRequest['body'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling searchFaceByFaceId.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling searchFaceByFaceId.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1438,12 +1460,13 @@ export const ParamCreater = function () {
                     returnFields = searchFaceByFileRequest['body'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling searchFaceByFile.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling searchFaceByFile.');
             }
             if (imageFile === null || imageFile === undefined) {
-                throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling searchFaceByFile.');
+            throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling searchFaceByFile.');
             }
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
@@ -1496,9 +1519,10 @@ export const ParamCreater = function () {
                     body = searchFaceByUrlRequest['body'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling searchFaceByUrl.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling searchFaceByUrl.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1555,9 +1579,10 @@ export const ParamCreater = function () {
                     faceSetName = showFaceSetRequest['face_set_name'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling showFaceSet.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling showFaceSet.');
             }
 
             options.pathParams = { 'face_set_name': faceSetName, };
@@ -1592,9 +1617,10 @@ export const ParamCreater = function () {
                     faceId = showFacesByFaceIdRequest['face_id'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling showFacesByFaceId.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling showFacesByFaceId.');
             }
             if (faceId === null || faceId === undefined) {
                 throw new RequiredError('faceId','Required parameter faceId was null or undefined when calling showFacesByFaceId.');
@@ -1639,9 +1665,10 @@ export const ParamCreater = function () {
                     limit = showFacesByLimitRequest['limit'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling showFacesByLimit.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling showFacesByLimit.');
             }
             if (offset === null || offset === undefined) {
                 throw new RequiredError('offset','Required parameter offset was null or undefined when calling showFacesByLimit.');
@@ -1689,9 +1716,10 @@ export const ParamCreater = function () {
                     body = updateFaceRequest['body'];
                 }
             }
+
         
             if (faceSetName === null || faceSetName === undefined) {
-                throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling updateFace.');
+            throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling updateFace.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

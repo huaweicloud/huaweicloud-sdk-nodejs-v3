@@ -567,6 +567,7 @@ export const ParamCreater = function () {
                     body = batchCreateSubNetworkInterfaceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -602,6 +603,7 @@ export const ParamCreater = function () {
                     body = createSecurityGroupRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -637,6 +639,7 @@ export const ParamCreater = function () {
                     body = createSecurityGroupRuleRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -672,6 +675,7 @@ export const ParamCreater = function () {
                     body = createSubNetworkInterfaceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -707,9 +711,10 @@ export const ParamCreater = function () {
                     securityGroupId = deleteSecurityGroupRequest['security_group_id'];
                 }
             }
+
         
             if (securityGroupId === null || securityGroupId === undefined) {
-                throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling deleteSecurityGroup.');
+            throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling deleteSecurityGroup.');
             }
 
             options.pathParams = { 'security_group_id': securityGroupId, };
@@ -741,9 +746,10 @@ export const ParamCreater = function () {
                     securityGroupRuleId = deleteSecurityGroupRuleRequest['security_group_rule_id'];
                 }
             }
+
         
             if (securityGroupRuleId === null || securityGroupRuleId === undefined) {
-                throw new RequiredError('securityGroupRuleId','Required parameter securityGroupRuleId was null or undefined when calling deleteSecurityGroupRule.');
+            throw new RequiredError('securityGroupRuleId','Required parameter securityGroupRuleId was null or undefined when calling deleteSecurityGroupRule.');
             }
 
             options.pathParams = { 'security_group_rule_id': securityGroupRuleId, };
@@ -775,9 +781,10 @@ export const ParamCreater = function () {
                     subNetworkInterfaceId = deleteSubNetworkInterfaceRequest['sub_network_interface_id'];
                 }
             }
+
         
             if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
-                throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling deleteSubNetworkInterface.');
+            throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling deleteSubNetworkInterface.');
             }
 
             options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };
@@ -833,6 +840,7 @@ export const ParamCreater = function () {
                     action = listSecurityGroupRulesRequest['action'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -906,6 +914,7 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listSecurityGroupsRequest['enterprise_project_id'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -979,6 +988,7 @@ export const ParamCreater = function () {
                     parentId = listSubNetworkInterfacesRequest['parent_id'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -1037,6 +1047,7 @@ export const ParamCreater = function () {
                     body = migrateSubNetworkInterfaceRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1072,9 +1083,10 @@ export const ParamCreater = function () {
                     securityGroupId = showSecurityGroupRequest['security_group_id'];
                 }
             }
+
         
             if (securityGroupId === null || securityGroupId === undefined) {
-                throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling showSecurityGroup.');
+            throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling showSecurityGroup.');
             }
 
             options.pathParams = { 'security_group_id': securityGroupId, };
@@ -1106,9 +1118,10 @@ export const ParamCreater = function () {
                     securityGroupRuleId = showSecurityGroupRuleRequest['security_group_rule_id'];
                 }
             }
+
         
             if (securityGroupRuleId === null || securityGroupRuleId === undefined) {
-                throw new RequiredError('securityGroupRuleId','Required parameter securityGroupRuleId was null or undefined when calling showSecurityGroupRule.');
+            throw new RequiredError('securityGroupRuleId','Required parameter securityGroupRuleId was null or undefined when calling showSecurityGroupRule.');
             }
 
             options.pathParams = { 'security_group_rule_id': securityGroupRuleId, };
@@ -1140,9 +1153,10 @@ export const ParamCreater = function () {
                     subNetworkInterfaceId = showSubNetworkInterfaceRequest['sub_network_interface_id'];
                 }
             }
+
         
             if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
-                throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling showSubNetworkInterface.');
+            throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling showSubNetworkInterface.');
             }
 
             options.pathParams = { 'sub_network_interface_id': subNetworkInterfaceId, };
@@ -1197,9 +1211,10 @@ export const ParamCreater = function () {
                     body = updateSecurityGroupRequest['body'];
                 }
             }
+
         
             if (securityGroupId === null || securityGroupId === undefined) {
-                throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling updateSecurityGroup.');
+            throw new RequiredError('securityGroupId','Required parameter securityGroupId was null or undefined when calling updateSecurityGroup.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1239,9 +1254,10 @@ export const ParamCreater = function () {
                     body = updateSubNetworkInterfaceRequest['body'];
                 }
             }
+
         
             if (subNetworkInterfaceId === null || subNetworkInterfaceId === undefined) {
-                throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling updateSubNetworkInterface.');
+            throw new RequiredError('subNetworkInterfaceId','Required parameter subNetworkInterfaceId was null or undefined when calling updateSubNetworkInterface.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1278,6 +1294,7 @@ export const ParamCreater = function () {
                     body = createAddressGroupRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1313,9 +1330,10 @@ export const ParamCreater = function () {
                     addressGroupId = deleteAddressGroupRequest['address_group_id'];
                 }
             }
+
         
             if (addressGroupId === null || addressGroupId === undefined) {
-                throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling deleteAddressGroup.');
+            throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling deleteAddressGroup.');
             }
 
             options.pathParams = { 'address_group_id': addressGroupId, };
@@ -1347,9 +1365,10 @@ export const ParamCreater = function () {
                     addressGroupId = deleteIpAddressGroupForceRequest['address_group_id'];
                 }
             }
+
         
             if (addressGroupId === null || addressGroupId === undefined) {
-                throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling deleteIpAddressGroupForce.');
+            throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling deleteIpAddressGroupForce.');
             }
 
             options.pathParams = { 'address_group_id': addressGroupId, };
@@ -1396,6 +1415,7 @@ export const ParamCreater = function () {
                     description = listAddressGroupRequest['description'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -1445,9 +1465,10 @@ export const ParamCreater = function () {
                     addressGroupId = showAddressGroupRequest['address_group_id'];
                 }
             }
+
         
             if (addressGroupId === null || addressGroupId === undefined) {
-                throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling showAddressGroup.');
+            throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling showAddressGroup.');
             }
 
             options.pathParams = { 'address_group_id': addressGroupId, };
@@ -1482,9 +1503,10 @@ export const ParamCreater = function () {
                     body = updateAddressGroupRequest['body'];
                 }
             }
+
         
             if (addressGroupId === null || addressGroupId === undefined) {
-                throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling updateAddressGroup.');
+            throw new RequiredError('addressGroupId','Required parameter addressGroupId was null or undefined when calling updateAddressGroup.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1524,9 +1546,10 @@ export const ParamCreater = function () {
                     body = addVpcExtendCidrRequest['body'];
                 }
             }
+
         
             if (vpcId === null || vpcId === undefined) {
-                throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling addVpcExtendCidr.');
+            throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling addVpcExtendCidr.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1563,6 +1586,7 @@ export const ParamCreater = function () {
                     body = createVpcRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1598,9 +1622,10 @@ export const ParamCreater = function () {
                     vpcId = deleteVpcRequest['vpc_id'];
                 }
             }
+
         
             if (vpcId === null || vpcId === undefined) {
-                throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling deleteVpc.');
+            throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling deleteVpc.');
             }
 
             options.pathParams = { 'vpc_id': vpcId, };
@@ -1647,6 +1672,7 @@ export const ParamCreater = function () {
                     cidr = listVpcsRequest['cidr'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -1699,9 +1725,10 @@ export const ParamCreater = function () {
                     body = removeVpcExtendCidrRequest['body'];
                 }
             }
+
         
             if (vpcId === null || vpcId === undefined) {
-                throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling removeVpcExtendCidr.');
+            throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling removeVpcExtendCidr.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1738,9 +1765,10 @@ export const ParamCreater = function () {
                     vpcId = showVpcRequest['vpc_id'];
                 }
             }
+
         
             if (vpcId === null || vpcId === undefined) {
-                throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling showVpc.');
+            throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling showVpc.');
             }
 
             options.pathParams = { 'vpc_id': vpcId, };
@@ -1775,9 +1803,10 @@ export const ParamCreater = function () {
                     body = updateVpcRequest['body'];
                 }
             }
+
         
             if (vpcId === null || vpcId === undefined) {
-                throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling updateVpc.');
+            throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling updateVpc.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

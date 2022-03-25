@@ -549,9 +549,10 @@ export const ParamCreater = function () {
                     body = addPublicipsIntoSharedBandwidthRequest['body'];
                 }
             }
+
         
             if (bandwidthId === null || bandwidthId === undefined) {
-                throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling addPublicipsIntoSharedBandwidth.');
+            throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling addPublicipsIntoSharedBandwidth.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -588,6 +589,7 @@ export const ParamCreater = function () {
                     body = batchCreateSharedBandwidthsRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -623,6 +625,7 @@ export const ParamCreater = function () {
                     body = createSharedBandwidthRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -658,9 +661,10 @@ export const ParamCreater = function () {
                     bandwidthId = deleteSharedBandwidthRequest['bandwidth_id'];
                 }
             }
+
         
             if (bandwidthId === null || bandwidthId === undefined) {
-                throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling deleteSharedBandwidth.');
+            throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling deleteSharedBandwidth.');
             }
 
             options.pathParams = { 'bandwidth_id': bandwidthId, };
@@ -701,6 +705,7 @@ export const ParamCreater = function () {
                     shareType = listBandwidthsRequest['share_type'];
                 }
             }
+
         
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
@@ -744,6 +749,7 @@ export const ParamCreater = function () {
                     type = listQuotasRequest['type'];
                 }
             }
+
         
             if (type !== null && type !== undefined) {
                 localVarQueryParameter['type'] = type;
@@ -781,9 +787,10 @@ export const ParamCreater = function () {
                     body = removePublicipsFromSharedBandwidthRequest['body'];
                 }
             }
+
         
             if (bandwidthId === null || bandwidthId === undefined) {
-                throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling removePublicipsFromSharedBandwidth.');
+            throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling removePublicipsFromSharedBandwidth.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -820,9 +827,10 @@ export const ParamCreater = function () {
                     bandwidthId = showBandwidthRequest['bandwidth_id'];
                 }
             }
+
         
             if (bandwidthId === null || bandwidthId === undefined) {
-                throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling showBandwidth.');
+            throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling showBandwidth.');
             }
 
             options.pathParams = { 'bandwidth_id': bandwidthId, };
@@ -857,9 +865,10 @@ export const ParamCreater = function () {
                     body = updateBandwidthRequest['body'];
                 }
             }
+
         
             if (bandwidthId === null || bandwidthId === undefined) {
-                throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling updateBandwidth.');
+            throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling updateBandwidth.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -899,9 +908,10 @@ export const ParamCreater = function () {
                     body = updatePrePaidBandwidthRequest['body'];
                 }
             }
+
         
             if (bandwidthId === null || bandwidthId === undefined) {
-                throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling updatePrePaidBandwidth.');
+            throw new RequiredError('bandwidthId','Required parameter bandwidthId was null or undefined when calling updatePrePaidBandwidth.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -941,9 +951,10 @@ export const ParamCreater = function () {
                     body = batchCreatePublicipTagsRequest['body'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling batchCreatePublicipTags.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling batchCreatePublicipTags.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -983,9 +994,10 @@ export const ParamCreater = function () {
                     body = batchDeletePublicipTagsRequest['body'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling batchDeletePublicipTags.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling batchDeletePublicipTags.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1022,6 +1034,7 @@ export const ParamCreater = function () {
                     body = createPrePaidPublicipRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1057,6 +1070,7 @@ export const ParamCreater = function () {
                     body = createPublicipRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1095,9 +1109,10 @@ export const ParamCreater = function () {
                     body = createPublicipTagRequest['body'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling createPublicipTag.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling createPublicipTag.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1134,9 +1149,10 @@ export const ParamCreater = function () {
                     publicipId = deletePublicipRequest['publicip_id'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling deletePublicip.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling deletePublicip.');
             }
 
             options.pathParams = { 'publicip_id': publicipId, };
@@ -1171,12 +1187,13 @@ export const ParamCreater = function () {
                     key = deletePublicipTagRequest['key'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling deletePublicipTag.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling deletePublicipTag.');
             }
             if (key === null || key === undefined) {
-                throw new RequiredError('key','Required parameter key was null or undefined when calling deletePublicipTag.');
+            throw new RequiredError('key','Required parameter key was null or undefined when calling deletePublicipTag.');
             }
 
             options.pathParams = { 'publicip_id': publicipId,'key': key, };
@@ -1252,6 +1269,7 @@ export const ParamCreater = function () {
                     allowShareBandwidthTypeAny = listPublicipsRequest['allow_share_bandwidth_type_any'];
                 }
             }
+
         
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
@@ -1310,6 +1328,7 @@ export const ParamCreater = function () {
                     body = listPublicipsByTagsRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1345,9 +1364,10 @@ export const ParamCreater = function () {
                     publicipId = showPublicipRequest['publicip_id'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling showPublicip.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling showPublicip.');
             }
 
             options.pathParams = { 'publicip_id': publicipId, };
@@ -1379,9 +1399,10 @@ export const ParamCreater = function () {
                     publicipId = showPublicipTagsRequest['publicip_id'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling showPublicipTags.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling showPublicipTags.');
             }
 
             options.pathParams = { 'publicip_id': publicipId, };
@@ -1416,9 +1437,10 @@ export const ParamCreater = function () {
                     body = updatePublicipRequest['body'];
                 }
             }
+
         
             if (publicipId === null || publicipId === undefined) {
-                throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling updatePublicip.');
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling updatePublicip.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1455,6 +1477,7 @@ export const ParamCreater = function () {
                     body = neutronCreateFloatingIpRequest['body'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1490,9 +1513,10 @@ export const ParamCreater = function () {
                     floatingipId = neutronDeleteFloatingIpRequest['floatingip_id'];
                 }
             }
+
         
             if (floatingipId === null || floatingipId === undefined) {
-                throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling neutronDeleteFloatingIp.');
+            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling neutronDeleteFloatingIp.');
             }
 
             options.pathParams = { 'floatingip_id': floatingipId, };
@@ -1551,6 +1575,7 @@ export const ParamCreater = function () {
                     floatingNetworkId = neutronListFloatingIpsRequest['floating_network_id'];
                 }
             }
+
         
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -1612,9 +1637,10 @@ export const ParamCreater = function () {
                     floatingipId = neutronShowFloatingIpRequest['floatingip_id'];
                 }
             }
+
         
             if (floatingipId === null || floatingipId === undefined) {
-                throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling neutronShowFloatingIp.');
+            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling neutronShowFloatingIp.');
             }
 
             options.pathParams = { 'floatingip_id': floatingipId, };
@@ -1649,9 +1675,10 @@ export const ParamCreater = function () {
                     body = neutronUpdateFloatingIpRequest['body'];
                 }
             }
+
         
             if (floatingipId === null || floatingipId === undefined) {
-                throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling neutronUpdateFloatingIp.');
+            throw new RequiredError('floatingipId','Required parameter floatingipId was null or undefined when calling neutronUpdateFloatingIp.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

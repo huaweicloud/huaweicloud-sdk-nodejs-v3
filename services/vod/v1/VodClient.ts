@@ -925,6 +925,7 @@ export const ParamCreater = function () {
                     xSdkDate = cancelAssetTranscodeTaskRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (assetId === null || assetId === undefined) {
                 throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling cancelAssetTranscodeTask.');
@@ -974,6 +975,7 @@ export const ParamCreater = function () {
                     xSdkDate = cancelExtractAudioTaskRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (assetId === null || assetId === undefined) {
                 throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling cancelExtractAudioTask.');
@@ -1026,6 +1028,7 @@ export const ParamCreater = function () {
                     xSdkDate = checkMd5DuplicationRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (size === null || size === undefined) {
                 throw new RequiredError('size','Required parameter size was null or undefined when calling checkMd5Duplication.');
@@ -1081,6 +1084,7 @@ export const ParamCreater = function () {
                     xSdkDate = confirmAssetUploadRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1128,6 +1132,7 @@ export const ParamCreater = function () {
                     xSdkDate = confirmImageUploadRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1175,6 +1180,7 @@ export const ParamCreater = function () {
                     xSdkDate = createAssetByFileUploadRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1222,6 +1228,7 @@ export const ParamCreater = function () {
                     xSdkDate = createAssetCategoryRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1269,6 +1276,7 @@ export const ParamCreater = function () {
                     body = createAssetProcessTaskRequest['body'];
                 }
             }
+
         
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -1313,6 +1321,7 @@ export const ParamCreater = function () {
                     xSdkDate = createAssetReviewTaskRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1360,6 +1369,7 @@ export const ParamCreater = function () {
                     xSdkDate = createExtractAudioTaskRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1407,6 +1417,7 @@ export const ParamCreater = function () {
                     xSdkDate = createPreheatingAssetRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1454,6 +1465,7 @@ export const ParamCreater = function () {
                     xSdkDate = createTakeOverTaskRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1501,6 +1513,7 @@ export const ParamCreater = function () {
                     xSdkDate = createTemplateGroupRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1548,6 +1561,7 @@ export const ParamCreater = function () {
                     xSdkDate = createWatermarkTemplateRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -1595,6 +1609,7 @@ export const ParamCreater = function () {
                     xSdkDate = deleteAssetCategoryRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (id === null || id === undefined) {
                 throw new RequiredError('id','Required parameter id was null or undefined when calling deleteAssetCategory.');
@@ -1647,6 +1662,7 @@ export const ParamCreater = function () {
                     deleteType = deleteAssetsRequest['delete_type'];
                 }
             }
+
         
             if (assetId === null || assetId === undefined) {
                 throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling deleteAssets.');
@@ -1699,6 +1715,7 @@ export const ParamCreater = function () {
                     xSdkDate = deleteTemplateGroupRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (groupId === null || groupId === undefined) {
                 throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteTemplateGroup.');
@@ -1748,6 +1765,7 @@ export const ParamCreater = function () {
                     xSdkDate = deleteWatermarkTemplateRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (id === null || id === undefined) {
                 throw new RequiredError('id','Required parameter id was null or undefined when calling deleteWatermarkTemplate.');
@@ -1797,6 +1815,7 @@ export const ParamCreater = function () {
                     xSdkDate = listAssetCategoryRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (id === null || id === undefined) {
                 throw new RequiredError('id','Required parameter id was null or undefined when calling listAssetCategory.');
@@ -1876,6 +1895,7 @@ export const ParamCreater = function () {
                     order = listAssetListRequest['order'];
                 }
             }
+
         
             if (assetId !== null && assetId !== undefined) {
                 localVarQueryParameter['asset_id'] = assetId;
@@ -1961,6 +1981,7 @@ export const ParamCreater = function () {
                     pageNumber = listDomainLogsRequest['page_number'];
                 }
             }
+
         
             if (domainName === null || domainName === undefined) {
                 throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listDomainLogs.');
@@ -2031,6 +2052,7 @@ export const ParamCreater = function () {
                     size = listTemplateGroupRequest['size'];
                 }
             }
+
         
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
@@ -2089,6 +2111,7 @@ export const ParamCreater = function () {
                     xSdkDate = listTopStatisticsRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (domain === null || domain === undefined) {
                 throw new RequiredError('domain','Required parameter domain was null or undefined when calling listTopStatistics.');
@@ -2150,6 +2173,7 @@ export const ParamCreater = function () {
                     size = listWatermarkTemplateRequest['size'];
                 }
             }
+
         
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
@@ -2202,6 +2226,7 @@ export const ParamCreater = function () {
                     xSdkDate = publishAssetFromObsRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2249,6 +2274,7 @@ export const ParamCreater = function () {
                     xSdkDate = publishAssetsRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2296,6 +2322,7 @@ export const ParamCreater = function () {
                     xSdkDate = showAssetCipherRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (assetId === null || assetId === undefined) {
                 throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling showAssetCipher.');
@@ -2348,6 +2375,7 @@ export const ParamCreater = function () {
                     categories = showAssetDetailRequest['categories'];
                 }
             }
+
         
             if (assetId === null || assetId === undefined) {
                 throw new RequiredError('assetId','Required parameter assetId was null or undefined when calling showAssetDetail.');
@@ -2430,6 +2458,7 @@ export const ParamCreater = function () {
                     size = showAssetMetaRequest['size'];
                 }
             }
+
         
             if (assetId !== null && assetId !== undefined) {
                 localVarQueryParameter['asset_id'] = assetId;
@@ -2524,6 +2553,7 @@ export const ParamCreater = function () {
                     partNumber = showAssetTempAuthorityRequest['part_number'];
                 }
             }
+
         
             if (httpVerb === null || httpVerb === undefined) {
                 throw new RequiredError('httpVerb','Required parameter httpVerb was null or undefined when calling showAssetTempAuthority.');
@@ -2609,6 +2639,7 @@ export const ParamCreater = function () {
                     interval = showCdnStatisticsRequest['interval'];
                 }
             }
+
         
             if (statType === null || statType === undefined) {
                 throw new RequiredError('statType','Required parameter statType was null or undefined when calling showCdnStatistics.');
@@ -2673,6 +2704,7 @@ export const ParamCreater = function () {
                     xSdkDate = showPreheatingAssetRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (taskId === null || taskId === undefined) {
                 throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showPreheatingAsset.');
@@ -2728,6 +2760,7 @@ export const ParamCreater = function () {
                     interval = showVodStatisticsRequest['interval'];
                 }
             }
+
         
             if (startTime !== null && startTime !== undefined) {
                 localVarQueryParameter['start_time'] = startTime;
@@ -2780,6 +2813,7 @@ export const ParamCreater = function () {
                     xSdkDate = unpublishAssetsRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2827,6 +2861,7 @@ export const ParamCreater = function () {
                     xSdkDate = updateAssetRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2874,6 +2909,7 @@ export const ParamCreater = function () {
                     xSdkDate = updateAssetCategoryRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -2921,6 +2957,7 @@ export const ParamCreater = function () {
                     body = updateAssetMetaRequest['body'];
                 }
             }
+
         
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -2965,6 +3002,7 @@ export const ParamCreater = function () {
                     xSdkDate = updateBucketAuthorizedRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3012,6 +3050,7 @@ export const ParamCreater = function () {
                     xSdkDate = updateCoverByThumbnailRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3059,6 +3098,7 @@ export const ParamCreater = function () {
                     xSdkDate = updateTemplateGroupRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3106,6 +3146,7 @@ export const ParamCreater = function () {
                     body = updateWatermarkTemplateRequest['body'];
                 }
             }
+
         
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -3150,6 +3191,7 @@ export const ParamCreater = function () {
                     xSdkDate = uploadMetaDataByUrlRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -3206,6 +3248,7 @@ export const ParamCreater = function () {
                     size = listTakeOverTaskRequest['size'];
                 }
             }
+
         
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
@@ -3264,6 +3307,7 @@ export const ParamCreater = function () {
                     xSdkDate = showTakeOverAssetDetailsRequest['X-Sdk-Date'];
                 }
             }
+
         
             if (sourceBucket === null || sourceBucket === undefined) {
                 throw new RequiredError('sourceBucket','Required parameter sourceBucket was null or undefined when calling showTakeOverAssetDetails.');
@@ -3325,6 +3369,7 @@ export const ParamCreater = function () {
                     size = showTakeOverTaskDetailsRequest['size'];
                 }
             }
+
         
             if (taskId === null || taskId === undefined) {
                 throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showTakeOverTaskDetails.');
