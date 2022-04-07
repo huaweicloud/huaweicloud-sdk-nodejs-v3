@@ -7,6 +7,7 @@ export class BankcardResult {
     private 'expiry_date'?: string | undefined;
     public type?: string;
     public confidence?: object;
+    private 'text_location'?: object | undefined;
     public constructor() { 
     }
     public withBankName(bankName: string): BankcardResult {
@@ -56,5 +57,15 @@ export class BankcardResult {
     public withConfidence(confidence: object): BankcardResult {
         this['confidence'] = confidence;
         return this;
+    }
+    public withTextLocation(textLocation: object): BankcardResult {
+        this['text_location'] = textLocation;
+        return this;
+    }
+    public set textLocation(textLocation: object | undefined) {
+        this['text_location'] = textLocation;
+    }
+    public get textLocation() {
+        return this['text_location'];
     }
 }

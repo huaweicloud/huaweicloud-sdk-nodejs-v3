@@ -111,5 +111,6 @@ export enum CreateVolumeOptionVolumeTypeEnum {
     SSD = 'SSD',
     GPSSD = 'GPSSD',
     SAS = 'SAS',
-    SATA = 'SATA'
+    SATA = 'SATA',
+    ESSD = 'ESSD'
 }

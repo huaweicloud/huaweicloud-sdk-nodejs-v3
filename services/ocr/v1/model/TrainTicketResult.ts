@@ -19,6 +19,7 @@ export class TrainTicketResult {
     private 'log_id'?: string | undefined;
     private 'sale_location'?: string | undefined;
     public confidence?: object;
+    private 'text_location'?: object | undefined;
     public constructor() { 
     }
     public withTicketId(ticketId: string): TrainTicketResult {
@@ -188,5 +189,15 @@ export class TrainTicketResult {
     public withConfidence(confidence: object): TrainTicketResult {
         this['confidence'] = confidence;
         return this;
+    }
+    public withTextLocation(textLocation: object): TrainTicketResult {
+        this['text_location'] = textLocation;
+        return this;
+    }
+    public set textLocation(textLocation: object | undefined) {
+        this['text_location'] = textLocation;
+    }
+    public get textLocation() {
+        return this['text_location'];
     }
 }

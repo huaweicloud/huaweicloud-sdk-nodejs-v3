@@ -1,11 +1,11 @@
-import { NodePool } from './NodePool';
+import { NodePoolUpdate } from './NodePoolUpdate';
 
 
 export class UpdateNodePoolRequest {
     private 'cluster_id': string | undefined;
     private 'nodepool_id': string | undefined;
     private 'Content-Type': string | undefined;
-    public body?: NodePool;
+    public body?: NodePoolUpdate;
     public constructor(clusterId?: any, nodepoolId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
         this['nodepool_id'] = nodepoolId;
@@ -41,7 +41,7 @@ export class UpdateNodePoolRequest {
     public get contentType() {
         return this['Content-Type'];
     }
-    public withBody(body: NodePool): UpdateNodePoolRequest {
+    public withBody(body: NodePoolUpdate): UpdateNodePoolRequest {
         this['body'] = body;
         return this;
     }

@@ -21,6 +21,7 @@ export class TaxiInvoiceResult {
     private 'call_service_surcharge'?: string | undefined;
     public total?: string;
     public confidence?: object;
+    private 'text_location'?: object | undefined;
     public constructor() { 
     }
     public withLocation(location: string): TaxiInvoiceResult {
@@ -168,5 +169,15 @@ export class TaxiInvoiceResult {
     public withConfidence(confidence: object): TaxiInvoiceResult {
         this['confidence'] = confidence;
         return this;
+    }
+    public withTextLocation(textLocation: object): TaxiInvoiceResult {
+        this['text_location'] = textLocation;
+        return this;
+    }
+    public set textLocation(textLocation: object | undefined) {
+        this['text_location'] = textLocation;
+    }
+    public get textLocation() {
+        return this['text_location'];
     }
 }

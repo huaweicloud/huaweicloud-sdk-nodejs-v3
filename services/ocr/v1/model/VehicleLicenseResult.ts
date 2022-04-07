@@ -22,6 +22,7 @@ export class VehicleLicenseResult {
     public remarks?: string;
     private 'inspection_record'?: string | undefined;
     private 'code_number'?: string | undefined;
+    private 'text_location'?: object | undefined;
     public constructor() { 
     }
     public withModelNumber(modelNumber: string): VehicleLicenseResult {
@@ -197,5 +198,15 @@ export class VehicleLicenseResult {
     }
     public get codeNumber() {
         return this['code_number'];
+    }
+    public withTextLocation(textLocation: object): VehicleLicenseResult {
+        this['text_location'] = textLocation;
+        return this;
+    }
+    public set textLocation(textLocation: object | undefined) {
+        this['text_location'] = textLocation;
+    }
+    public get textLocation() {
+        return this['text_location'];
     }
 }

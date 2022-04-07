@@ -93,7 +93,8 @@ export enum PrePaidServerDataVolumeVolumetypeEnum {
     SSD = 'SSD',
     GPSSD = 'GPSSD',
     CO_P1 = 'co-p1',
-    UH_L1 = 'uh-l1'
+    UH_L1 = 'uh-l1',
+    ESSD = 'ESSD'
 }
 /**
     * @export

@@ -5,12 +5,10 @@ export class QuotaDetailVolumesGPSSD {
     private 'in_use': number | undefined;
     public limit: number;
     public reserved: number;
-    public allocated: number;
-    public constructor(inUse?: any, limit?: any, reserved?: any, allocated?: any) { 
+    public constructor(inUse?: any, limit?: any, reserved?: any) { 
         this['in_use'] = inUse;
         this['limit'] = limit;
         this['reserved'] = reserved;
-        this['allocated'] = allocated;
     }
     public withInUse(inUse: number): QuotaDetailVolumesGPSSD {
         this['in_use'] = inUse;
@@ -28,10 +26,6 @@ export class QuotaDetailVolumesGPSSD {
     }
     public withReserved(reserved: number): QuotaDetailVolumesGPSSD {
         this['reserved'] = reserved;
-        return this;
-    }
-    public withAllocated(allocated: number): QuotaDetailVolumesGPSSD {
-        this['allocated'] = allocated;
         return this;
     }
 }

@@ -5,12 +5,10 @@ export class QuotaDetailGigabytesSAS {
     private 'in_use': number | undefined;
     public limit: number;
     public reserved: number;
-    public allocated: number;
-    public constructor(inUse?: any, limit?: any, reserved?: any, allocated?: any) { 
+    public constructor(inUse?: any, limit?: any, reserved?: any) { 
         this['in_use'] = inUse;
         this['limit'] = limit;
         this['reserved'] = reserved;
-        this['allocated'] = allocated;
     }
     public withInUse(inUse: number): QuotaDetailGigabytesSAS {
         this['in_use'] = inUse;
@@ -28,10 +26,6 @@ export class QuotaDetailGigabytesSAS {
     }
     public withReserved(reserved: number): QuotaDetailGigabytesSAS {
         this['reserved'] = reserved;
-        return this;
-    }
-    public withAllocated(allocated: number): QuotaDetailGigabytesSAS {
-        this['allocated'] = allocated;
         return this;
     }
 }

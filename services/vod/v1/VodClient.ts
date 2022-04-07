@@ -481,7 +481,7 @@ export class VodClient {
      * 查询指定点播域名某段时间内在CDN的相关日志。
      * @summary 查询域名播放日志
      * @param {string} domainName 加速域名，参考格式：www.test1.com。
-     * @param {string} queryDate 查询日期，格式为yyyymmdd。 - 查询结果为开始时间之后24小时内的日志数据 - 只能查最近一个月内的数据
+     * @param {string} queryDate 查询日期，yyyyMMddHHmmss。 - 查询结果为开始时间之后24小时内的日志数据 - 只能查最近一个月内的数据
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {number} [pageSize] 每页显示日志数量。 

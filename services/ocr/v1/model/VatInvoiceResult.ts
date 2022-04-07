@@ -7,6 +7,7 @@ export class VatInvoiceResult {
     public attribution?: string;
     private 'supervision_seal'?: Array<string> | undefined;
     public code?: string;
+    private 'print_code'?: string | undefined;
     private 'machine_number'?: string | undefined;
     private 'print_number'?: string | undefined;
     private 'check_code'?: string | undefined;
@@ -66,6 +67,16 @@ export class VatInvoiceResult {
     public withCode(code: string): VatInvoiceResult {
         this['code'] = code;
         return this;
+    }
+    public withPrintCode(printCode: string): VatInvoiceResult {
+        this['print_code'] = printCode;
+        return this;
+    }
+    public set printCode(printCode: string | undefined) {
+        this['print_code'] = printCode;
+    }
+    public get printCode() {
+        return this['print_code'];
     }
     public withMachineNumber(machineNumber: string): VatInvoiceResult {
         this['machine_number'] = machineNumber;

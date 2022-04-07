@@ -1,6 +1,8 @@
+import { DriverLicenseResultStatus } from './DriverLicenseResultStatus';
 
 
 export class DriverLicenseResult {
+    public type?: string;
     private 'number'?: string | undefined;
     public name?: string;
     public sex?: string;
@@ -14,8 +16,16 @@ export class DriverLicenseResult {
     private 'issuing_authority'?: string | undefined;
     private 'file_number'?: string | undefined;
     public record?: string;
+    private 'accumulated_scores'?: string | undefined;
+    public status?: Array<DriverLicenseResultStatus>;
+    private 'generation_date'?: string | undefined;
+    private 'current_time'?: string | undefined;
     private 'text_location'?: object | undefined;
     public constructor() { 
+    }
+    public withType(type: string): DriverLicenseResult {
+        this['type'] = type;
+        return this;
     }
     public withModelNumber(modelNumber: string): DriverLicenseResult {
         this['number'] = modelNumber;
@@ -110,6 +120,40 @@ export class DriverLicenseResult {
     public withRecord(record: string): DriverLicenseResult {
         this['record'] = record;
         return this;
+    }
+    public withAccumulatedScores(accumulatedScores: string): DriverLicenseResult {
+        this['accumulated_scores'] = accumulatedScores;
+        return this;
+    }
+    public set accumulatedScores(accumulatedScores: string | undefined) {
+        this['accumulated_scores'] = accumulatedScores;
+    }
+    public get accumulatedScores() {
+        return this['accumulated_scores'];
+    }
+    public withStatus(status: Array<DriverLicenseResultStatus>): DriverLicenseResult {
+        this['status'] = status;
+        return this;
+    }
+    public withGenerationDate(generationDate: string): DriverLicenseResult {
+        this['generation_date'] = generationDate;
+        return this;
+    }
+    public set generationDate(generationDate: string | undefined) {
+        this['generation_date'] = generationDate;
+    }
+    public get generationDate() {
+        return this['generation_date'];
+    }
+    public withCurrentTime(currentTime: string): DriverLicenseResult {
+        this['current_time'] = currentTime;
+        return this;
+    }
+    public set currentTime(currentTime: string | undefined) {
+        this['current_time'] = currentTime;
+    }
+    public get currentTime() {
+        return this['current_time'];
     }
     public withTextLocation(textLocation: object): DriverLicenseResult {
         this['text_location'] = textLocation;

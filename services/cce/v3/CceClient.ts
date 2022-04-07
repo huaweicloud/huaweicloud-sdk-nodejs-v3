@@ -99,11 +99,15 @@ import { NodeNicSpec } from './model/NodeNicSpec';
 import { NodePool } from './model/NodePool';
 import { NodePoolCondition } from './model/NodePoolCondition';
 import { NodePoolMetadata } from './model/NodePoolMetadata';
+import { NodePoolMetadataUpdate } from './model/NodePoolMetadataUpdate';
 import { NodePoolNodeAutoscaling } from './model/NodePoolNodeAutoscaling';
 import { NodePoolSpec } from './model/NodePoolSpec';
+import { NodePoolSpecUpdate } from './model/NodePoolSpecUpdate';
 import { NodePoolStatus } from './model/NodePoolStatus';
+import { NodePoolUpdate } from './model/NodePoolUpdate';
 import { NodePublicIP } from './model/NodePublicIP';
 import { NodeSpec } from './model/NodeSpec';
+import { NodeSpecUpdate } from './model/NodeSpecUpdate';
 import { NodeStatus } from './model/NodeStatus';
 import { PersistentVolumeClaim } from './model/PersistentVolumeClaim';
 import { PersistentVolumeClaimMetadata } from './model/PersistentVolumeClaimMetadata';
@@ -182,9 +186,9 @@ export class CceClient {
     }
 
     /**
-     * 该API用于在指定集群下纳管节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下纳管节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 
      * @summary 纳管节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {AddNodeList} addNodeList 纳管节点的请求体
      * @param {*} [options] Override http request option.
@@ -199,7 +203,7 @@ export class CceClient {
     /**
      * 集群唤醒用于唤醒已休眠的集群，唤醒后，将继续收取控制节点资源费用。
      * @summary 集群唤醒
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -227,10 +231,10 @@ export class CceClient {
     /**
      * 该API用于在指定的Namespace下通过云存储服务中的云存储（EVS、SFS、OBS）去创建PVC（PersistentVolumeClaim）。  >存储管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。如果使用https://Endpoint/uri，则必须指定请求header中的X-Cluster-ID参数。 
      * @summary 创建PVC
-     * @param {string} namespace Namespace是对一组资源和对象的抽象集合，用来将系统内部的对象划分为不同的项目组或用户组。以小写字母开头，由小写字母、数字、中划线（-）组成，且不能以中划线（-）结尾。  使用namespace有如下约束：  - 用户自定义的namespace，使用前必须先[[创建Namespace](https://support.huaweicloud.com/api-cce/cce_02_0050.html)](tag:hws)[[创建Namespace](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0050.html)](tag:hws_hk)  - 系统自带的namespace：default  - 不能使用kube-system与kube-public 
+     * @param {string} namespace Namespace是对一组资源和对象的抽象集合，用来将系统内部的对象划分为不同的项目组或用户组。以小写字母开头，由小写字母、数字、中划线（-）组成，且不能以中划线（-）结尾。  使用namespace有如下约束：  - 用户自定义的namespace，使用前必须先[创建Namespace](cce_02_0050.xml)  - 系统自带的namespace：default  - 不能使用kube-system与kube-public 
      * @param {string} contentType 消息体的类型（格式）
      * @param {PersistentVolumeClaim} createCloudPersistentVolumeClaimsRequestBody 请求body参数说明；非单个参数名称
-     * @param {string} [xClusterID] 集群ID，使用**https://Endpoint/uri**这种URL格式时必须指定此参数。获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} [xClusterID] 集群ID，使用**https://Endpoint/uri**这种URL格式时必须指定此参数。获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -241,7 +245,7 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于创建一个空集群（即只有控制节点Master，没有工作节点Node）。请在调用本接口完成集群创建之后，通过[[创建节点](https://support.huaweicloud.com/api-cce/cce_02_0242.html)](tag:hws)[[创建节点](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0242.html)](tag:hws_hk)添加节点。  >   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 >   - 调用该接口创建集群时，默认不安装ICAgent，若需安装ICAgent，可在请求Body参数的annotations中加入\"cluster.install.addons.external/install\": \"[{\"addonTemplateName\":\"icagent\"}]\"的集群注解，将在创建集群时自动安装ICAgent。ICAgent是应用性能管理APM的采集代理，运行在应用所在的服务器上，用于实时采集探针所获取的数据，安装ICAgent是使用应用性能管理APM的前提。若需安装ICAgent，请参照[[安装ICAgent](https://support.huaweicloud.com/usermanual-apm/apm_02_0013.html)](tag:hws)[[安装ICAgent](https://support.huaweicloud.com/intl/zh-cn/usermanual-apm/apm_02_0013.html)](tag:hws_hk)。 >   - 默认情况下，一个帐户只能创建5个集群（每个Region下），如果您需要创建更多的集群，请[[提交工单](https://console.huaweicloud.com/console/#/quota)](tag:hws)[[提交工单](https://console-intl.huaweicloud.com/console/?locale=zh-cn#/quota)](tag:hws_hk)申请增加配额。
+     * 该API用于创建一个空集群（即只有控制节点Master，没有工作节点Node）。请在调用本接口完成集群创建之后，通过[创建节点](cce_02_0242.xml)添加节点。  >   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 >   - 调用该接口创建集群时，默认不安装ICAgent，若需安装ICAgent，可在请求Body参数的annotations中加入\"cluster.install.addons.external/install\": \"[{\"addonTemplateName\":\"icagent\"}]\"的集群注解，将在创建集群时自动安装ICAgent。ICAgent是应用性能管理APM的采集代理，运行在应用所在的服务器上，用于实时采集探针所获取的数据，安装ICAgent是使用应用性能管理APM的前提。
      * @summary 创建集群
      * @param {string} contentType 消息体的类型（格式）
      * @param {Cluster} createClusterRequestBody 集群规格信息请求体
@@ -257,7 +261,7 @@ export class CceClient {
     /**
      * 该API用于获取指定集群的证书信息。
      * @summary 获取集群证书
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {CertDuration} createKubernetesClusterCertRequestBody 创建集群证书的请求Body。
      * @param {*} [options] Override http request option.
@@ -270,9 +274,9 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下创建节点。 > - 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下创建节点。 > - 若无集群，请先[创建集群](cce_02_0236.xml)。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 创建节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {NodeCreateRequest} createNodeRequestBody 创建节点的请求体
      * @param {'NodepoolScaleUp'} [nodepoolScaleUp] 标明是否为nodepool下发的请求。若不为“NodepoolScaleUp”将自动更新对应节点池的实例数
@@ -286,10 +290,10 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。1.21版本的集群创建节点池时支持绑定安全组，每个节点池最多绑定五个安全组。更新节点池的安全组后，只针对新创的pod生效，建议驱逐节点上原有的pod。  > 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
+     * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。1.21版本的集群创建节点池时支持绑定安全组，每个节点池最多绑定五个安全组。更新节点池的安全组后，只针对新创的pod生效，建议驱逐节点上原有的pod。  > 若无集群，请先[创建集群](cce_02_0236.xml)。  > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
      * @summary 创建节点池
      * @param {string} contentType 消息体的类型（格式）
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {NodePool} createNodePoolRequestBody 创建节点池的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -305,7 +309,7 @@ export class CceClient {
      * @summary 删除AddonInstance
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} id 插件实例id
-     * @param {string} [clusterId] 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} [clusterId] 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -322,8 +326,8 @@ export class CceClient {
      * @param {string} namespace 指定PersistentVolumeClaim所在的命名空间。 
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} [deleteVolume] 删除PersistentVolumeClaim后是否保留后端关联的云存储。false表示不删除，true表示删除，默认为false。 
-     * @param {string} [storageType] 删除PersistentVolumeClaim后是否保留后端关联的云存储。false表示不删除，true表示删除，默认为false。 云存储的类型，和deleteVolume搭配使用。即deleteVolume和storageType必须同时配置。     - bs：EVS云硬盘存储     - nfs：SFS弹性文件存储     - obs：OBS对象存储     [- efs：SFS Turbo极速文件存储](tag:hws) 
-     * @param {string} [xClusterID] 集群ID，使用**https://Endpoint/uri**这种URL格式时必须指定此参数。获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} [storageType] 删除PersistentVolumeClaim后是否保留后端关联的云存储。false表示不删除，true表示删除，默认为false。 云存储的类型，和deleteVolume搭配使用。即deleteVolume和storageType必须同时配置。     - bs：EVS云硬盘存储     - nfs：SFS弹性文件存储     - obs：OBS对象存储     - efs：SFS Turbo极速文件存储 
+     * @param {string} [xClusterID] 集群ID，使用**https://Endpoint/uri**这种URL格式时必须指定此参数。获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -336,7 +340,7 @@ export class CceClient {
     /**
      * 该API用于删除一个指定的集群。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 删除集群
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEfs] 是否删除SFS Turbo（极速文件存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEni] 是否删除eni ports（原生弹性网卡）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程，默认选项) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程)
@@ -357,8 +361,8 @@ export class CceClient {
     /**
      * 该API用于删除指定的节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
      * @summary 删除节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
-     * @param {string} nodeId 节点ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {'NoScaleDown'} [nodepoolScaleDown] 标明是否为nodepool下发的请求。若不为“NoScaleDown”将自动更新对应节点池的实例数
      * @param {*} [options] Override http request option.
@@ -373,7 +377,7 @@ export class CceClient {
     /**
      * 该API用于删除指定的节点池。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
      * @summary 删除节点池
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
@@ -388,7 +392,7 @@ export class CceClient {
     /**
      * 集群休眠用于将运行中的集群置于休眠状态，休眠后，将不再收取控制节点资源费用。
      * @summary 集群休眠
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -403,7 +407,7 @@ export class CceClient {
      * 获取集群所有已安装插件实例 
      * @summary 获取AddonInstance列表
      * @param {string} contentType 消息体的类型（格式）
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -447,7 +451,7 @@ export class CceClient {
     /**
      * 该API用于获取集群下所有节点池。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 > - nodepool是集群中具有相同配置的节点实例的子集。 
      * @summary 获取集群下所有节点池
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} [showDefaultNodePool] 是否展示默认节点池。默认不展示，指定为“true”时展示默认节点池。
      * @param {*} [options] Override http request option.
@@ -462,7 +466,7 @@ export class CceClient {
     /**
      * 该API用于通过集群ID获取指定集群下所有节点的详细信息。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 获取集群下所有节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -474,10 +478,10 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下迁移节点到另一集群。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下迁移节点到另一集群。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 
      * @summary 节点迁移
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
-     * @param {string} targetClusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} targetClusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {MigrateNodesTask} migrateNodesTask 迁移节点的请求体
      * @param {*} [options] Override http request option.
@@ -490,9 +494,9 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下移除节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下移除节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 
      * @summary 节点移除
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {RemoveNodesTask} removeNodesTask 移除节点的请求体
      * @param {*} [options] Override http request option.
@@ -505,9 +509,9 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于在指定集群下重置节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 该API用于在指定集群下重置节点。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 
      * @summary 重置节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {ResetNodeList} resetNodeList 重置节点的请求体
      * @param {*} [options] Override http request option.
@@ -524,7 +528,7 @@ export class CceClient {
      * @summary 获取AddonInstance详情
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} id 插件实例id
-     * @param {string} [clusterId] 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} [clusterId] 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -537,7 +541,7 @@ export class CceClient {
     /**
      * 该API用于获取指定集群的详细信息。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 获取指定的集群
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} [detail] 查询集群详细信息。若设置为true，获取集群下节点总数(totalNodesNumber)、正常节点数(activeNodesNumber)、CPU总量(totalNodesCPU)、内存总量(totalNodesMemory)和已安装插件列表(installedAddonInstances)，已安装插件列表中包含名称(addonTemplateName)、版本号(version)、插件的状态信息(status)，放入到annotation中。
      * @param {*} [options] Override http request option.
@@ -552,7 +556,7 @@ export class CceClient {
     /**
      * 该API用于获取任务信息。通过某一任务请求下发后返回的jobID来查询指定任务的进度。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 > - 该接口通常使用场景为： >   - 创建、删除集群时，查询相应任务的进度。 >   - 创建、删除节点时，查询相应任务的进度。 
      * @summary 获取任务信息
-     * @param {string} jobId 任务ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} jobId 任务ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -566,8 +570,8 @@ export class CceClient {
     /**
      * 该API用于通过节点ID获取指定节点的详细信息。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 获取指定的节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
-     * @param {string} nodeId 节点ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -581,7 +585,7 @@ export class CceClient {
     /**
      * 该API用于获取指定节点池的详细信息。 > 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
      * @summary 获取指定的节点池
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
@@ -624,7 +628,7 @@ export class CceClient {
     /**
      * 该API用于更新指定的集群。 >集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * @summary 更新指定的集群
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {ClusterInformation} updateClusterRequestBody spec是集合类的元素类型，用户对需要管理的集群对象进行详细描述的主体部分都在spec中给出。系统通过spec的描述来创建或更新对象。
      * @param {*} [options] Override http request option.
@@ -639,8 +643,8 @@ export class CceClient {
     /**
      * 该API用于更新指定的节点。 > - 当前仅支持更新metadata下的name字段，即节点的名字。 > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 
      * @summary 更新指定的节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
-     * @param {string} nodeId 节点ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {ClusterNodeInformation} updateNodeRequestBody metadata是节点对象的元数据定义，是集合类的元素类型，包含一组由不同名称定义的属性。
      * @param {*} [options] Override http request option.
@@ -653,12 +657,12 @@ export class CceClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 该API用于更新指定的节点池。仅支持集群在处于可用、扩容、缩容状态时调用。  > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径  > - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags， taints，login，userTags与节点池的扩缩容配置相关字段。
+     * 该API用于更新指定的节点池。仅支持集群在处于可用、扩容、缩容状态时调用。  > - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径  > - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags， taints，login，userTags与节点池的扩缩容配置相关字段。若此次更新未设置相关值，默认更新为初始值。
      * @summary 更新指定节点池
-     * @param {string} clusterId 集群 ID，获取方式请参见[[如何获取接口URI中参数](https://support.huaweicloud.com/api-cce/cce_02_0271.html)](tag:hws)[[如何获取接口URI中参数](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0271.html)](tag:hws_hk)
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
      * @param {string} contentType 消息体的类型（格式）
-     * @param {NodePool} updateNodePoolRequestBody 更新节点池的请求体
+     * @param {NodePoolUpdate} updateNodePoolRequestBody 更新节点池的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -674,7 +678,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 该API用于在指定集群下纳管节点。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下纳管节点。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 
          */
         addNode(addNodeRequest?: AddNodeRequest) {
             const options = {
@@ -861,7 +865,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于创建一个空集群（即只有控制节点Master，没有工作节点Node）。请在调用本接口完成集群创建之后，通过[[创建节点](https://support.huaweicloud.com/api-cce/cce_02_0242.html)](tag:hws)[[创建节点](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0242.html)](tag:hws_hk)添加节点。  &gt;   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 &gt;   - 调用该接口创建集群时，默认不安装ICAgent，若需安装ICAgent，可在请求Body参数的annotations中加入\&quot;cluster.install.addons.external/install\&quot;: \&quot;[{\&quot;addonTemplateName\&quot;:\&quot;icagent\&quot;}]\&quot;的集群注解，将在创建集群时自动安装ICAgent。ICAgent是应用性能管理APM的采集代理，运行在应用所在的服务器上，用于实时采集探针所获取的数据，安装ICAgent是使用应用性能管理APM的前提。若需安装ICAgent，请参照[[安装ICAgent](https://support.huaweicloud.com/usermanual-apm/apm_02_0013.html)](tag:hws)[[安装ICAgent](https://support.huaweicloud.com/intl/zh-cn/usermanual-apm/apm_02_0013.html)](tag:hws_hk)。 &gt;   - 默认情况下，一个帐户只能创建5个集群（每个Region下），如果您需要创建更多的集群，请[[提交工单](https://console.huaweicloud.com/console/#/quota)](tag:hws)[[提交工单](https://console-intl.huaweicloud.com/console/?locale&#x3D;zh-cn#/quota)](tag:hws_hk)申请增加配额。
+         * 该API用于创建一个空集群（即只有控制节点Master，没有工作节点Node）。请在调用本接口完成集群创建之后，通过[创建节点](cce_02_0242.xml)添加节点。  &gt;   - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 &gt;   - 调用该接口创建集群时，默认不安装ICAgent，若需安装ICAgent，可在请求Body参数的annotations中加入\&quot;cluster.install.addons.external/install\&quot;: \&quot;[{\&quot;addonTemplateName\&quot;:\&quot;icagent\&quot;}]\&quot;的集群注解，将在创建集群时自动安装ICAgent。ICAgent是应用性能管理APM的采集代理，运行在应用所在的服务器上，用于实时采集探针所获取的数据，安装ICAgent是使用应用性能管理APM的前提。
          */
         createCluster(createClusterRequest?: CreateClusterRequest) {
             const options = {
@@ -952,7 +956,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下创建节点。 &gt; - 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。 &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下创建节点。 &gt; - 若无集群，请先[创建集群](cce_02_0236.xml)。 &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          */
         createNode(createNodeRequest?: CreateNodeRequest) {
             const options = {
@@ -1008,7 +1012,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。1.21版本的集群创建节点池时支持绑定安全组，每个节点池最多绑定五个安全组。更新节点池的安全组后，只针对新创的pod生效，建议驱逐节点上原有的pod。  &gt; 若无集群，请先[[创建集群](https://support.huaweicloud.com/api-cce/cce_02_0236.html)](tag:hws)[[创建集群](https://support.huaweicloud.com/intl/zh-cn/api-cce/cce_02_0236.html)](tag:hws_hk)。  &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
+         * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。1.21版本的集群创建节点池时支持绑定安全组，每个节点池最多绑定五个安全组。更新节点池的安全组后，只针对新创的pod生效，建议驱逐节点上原有的pod。  &gt; 若无集群，请先[创建集群](cce_02_0236.xml)。  &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径 
          */
         createNodePool(createNodePoolRequest?: CreateNodePoolRequest) {
             const options = {
@@ -1630,7 +1634,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下迁移节点到另一集群。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下迁移节点到另一集群。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 
          */
         migrateNode(migrateNodeRequest?: MigrateNodeRequest) {
             const options = {
@@ -1685,7 +1689,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下移除节点。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下移除节点。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 
          */
         removeNode(removeNodeRequest?: RemoveNodeRequest) {
             const options = {
@@ -1734,7 +1738,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下重置节点。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 该API用于在指定集群下重置节点。 &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。 
          */
         resetNode(resetNodeRequest?: ResetNodeRequest) {
             const options = {
@@ -2201,7 +2205,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于更新指定的节点池。仅支持集群在处于可用、扩容、缩容状态时调用。  &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径  &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags， taints，login，userTags与节点池的扩缩容配置相关字段。
+         * 该API用于更新指定的节点池。仅支持集群在处于可用、扩容、缩容状态时调用。  &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径  &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags， taints，login，userTags与节点池的扩缩容配置相关字段。若此次更新未设置相关值，默认更新为初始值。
          */
         updateNodePool(updateNodePoolRequest?: UpdateNodePoolRequest) {
             const options = {

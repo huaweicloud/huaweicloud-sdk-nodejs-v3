@@ -17,6 +17,7 @@ import { ChileIdCardRequestBody } from './model/ChileIdCardRequestBody';
 import { ChileIdCardResult } from './model/ChileIdCardResult';
 import { DriverLicenseRequestBody } from './model/DriverLicenseRequestBody';
 import { DriverLicenseResult } from './model/DriverLicenseResult';
+import { DriverLicenseResultStatus } from './model/DriverLicenseResultStatus';
 import { ExtraInfoList } from './model/ExtraInfoList';
 import { FinancialStatementRequestBody } from './model/FinancialStatementRequestBody';
 import { FinancialStatementResult } from './model/FinancialStatementResult';
@@ -124,6 +125,8 @@ import { RecognizeVehicleLicenseRequest } from './model/RecognizeVehicleLicenseR
 import { RecognizeVehicleLicenseResponse } from './model/RecognizeVehicleLicenseResponse';
 import { RecognizeVinRequest } from './model/RecognizeVinRequest';
 import { RecognizeVinResponse } from './model/RecognizeVinResponse';
+import { RecognizeWaybillElectronicRequest } from './model/RecognizeWaybillElectronicRequest';
+import { RecognizeWaybillElectronicResponse } from './model/RecognizeWaybillElectronicResponse';
 import { RecognizeWebImageRequest } from './model/RecognizeWebImageRequest';
 import { RecognizeWebImageResponse } from './model/RecognizeWebImageResponse';
 import { TaxiInvoiceRequestBody } from './model/TaxiInvoiceRequestBody';
@@ -145,6 +148,8 @@ import { VatInvoiceResult } from './model/VatInvoiceResult';
 import { VehicleLicenseRequestBody } from './model/VehicleLicenseRequestBody';
 import { VehicleLicenseResult } from './model/VehicleLicenseResult';
 import { VinRequestBody } from './model/VinRequestBody';
+import { WaybillElectronicRequestBody } from './model/WaybillElectronicRequestBody';
+import { WaybillElectronicResult } from './model/WaybillElectronicResult';
 import { WebImageRequestBody } from './model/WebImageRequestBody';
 import { WebImageResult } from './model/WebImageResult';
 import { WebImageWordsBlockList } from './model/WebImageWordsBlockList';
@@ -538,6 +543,19 @@ export class OcrClient {
      */
     public recognizeVehicleLicense(recognizeVehicleLicenseRequest?: RecognizeVehicleLicenseRequest): Promise<RecognizeVehicleLicenseResponse> {
         const options = ParamCreater().recognizeVehicleLicense(recognizeVehicleLicenseRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 识别用户上传的韵达电子面单图片中的文字内容，并将识别的结果以json格式返回给用户。
+     * @summary 电子面单识别
+     * @param {WaybillElectronicRequestBody} waybillElectronicRequestBody This is a thailand license plate Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeWaybillElectronic(recognizeWaybillElectronicRequest?: RecognizeWaybillElectronicRequest): Promise<RecognizeWaybillElectronicResponse> {
+        const options = ParamCreater().recognizeWaybillElectronic(recognizeWaybillElectronicRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1594,6 +1612,42 @@ export const ParamCreater = function () {
                     body = recognizeVehicleLicenseRequest.body
                 } else {
                     body = recognizeVehicleLicenseRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别用户上传的韵达电子面单图片中的文字内容，并将识别的结果以json格式返回给用户。
+         */
+        recognizeWaybillElectronic(recognizeWaybillElectronicRequest?: RecognizeWaybillElectronicRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/waybill-electronic",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeWaybillElectronicRequest !== null && recognizeWaybillElectronicRequest !== undefined) {
+                if (recognizeWaybillElectronicRequest instanceof RecognizeWaybillElectronicRequest) {
+                    body = recognizeWaybillElectronicRequest.body
+                } else {
+                    body = recognizeWaybillElectronicRequest['body'];
                 }
             }
 
