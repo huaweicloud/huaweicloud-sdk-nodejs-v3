@@ -1,3 +1,32 @@
+# 3.0.37-rc 2022-04-14
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `ip_eq` to the interface `ListServersDetails`
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `encrypted_user_data` to the interface `UpdateFunctionConfig`
+
+### HuaweiCloud SDK Moderation
+
+- _Features_
+  - Support the interface `RunModerationAudio`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.0.36-rc 2022-04-07
 
 ### HuaweiCloud SDK CCE

@@ -11,6 +11,7 @@ export class ListServersDetailsRequest {
     private 'reservation_id'?: string | undefined;
     public status?: string;
     public tags?: string;
+    private 'ip_eq'?: string | undefined;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListServersDetailsRequest {
@@ -70,5 +71,15 @@ export class ListServersDetailsRequest {
     public withTags(tags: string): ListServersDetailsRequest {
         this['tags'] = tags;
         return this;
+    }
+    public withIpEq(ipEq: string): ListServersDetailsRequest {
+        this['ip_eq'] = ipEq;
+        return this;
+    }
+    public set ipEq(ipEq: string | undefined) {
+        this['ip_eq'] = ipEq;
+    }
+    public get ipEq() {
+        return this['ip_eq'];
     }
 }

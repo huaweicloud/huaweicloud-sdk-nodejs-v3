@@ -742,6 +742,7 @@ export class EcsClient {
      * @param {string} [reservationId] 批量创建弹性云服务器时，指定返回的ID，用于查询本次批量创建的弹性云服务器。
      * @param {string} [status] 云服务器状态。  取值范围：  ACTIVE， BUILD，DELETED，ERROR，HARD_REBOOT，MIGRATING，REBOOT，RESIZE，REVERT_RESIZE，SHELVED，SHELVED_OFFLOADED，SHUTOFF，UNKNOWN，VERIFY_RESIZE  只有管理员可以使用“deleted”状态过滤查询已经删除的弹性云服务器。  弹性云服务器状态说明请参考[云服务器状态](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)
      * @param {string} [tags] 查询tag字段中包含该值的云服务器。
+     * @param {string} [ipEq] IPv4地址过滤结果，匹配规则为精确匹配。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2463,6 +2464,7 @@ export const ParamCreater = function () {
             let reservationId;
             let status;
             let tags;
+            let ipEq;
 
             if (listServersDetailsRequest !== null && listServersDetailsRequest !== undefined) {
                 if (listServersDetailsRequest instanceof ListServersDetailsRequest) {
@@ -2476,6 +2478,7 @@ export const ParamCreater = function () {
                     reservationId = listServersDetailsRequest.reservationId;
                     status = listServersDetailsRequest.status;
                     tags = listServersDetailsRequest.tags;
+                    ipEq = listServersDetailsRequest.ipEq;
                 } else {
                     enterpriseProjectId = listServersDetailsRequest['enterprise_project_id'];
                     flavor = listServersDetailsRequest['flavor'];
@@ -2487,6 +2490,7 @@ export const ParamCreater = function () {
                     reservationId = listServersDetailsRequest['reservation_id'];
                     status = listServersDetailsRequest['status'];
                     tags = listServersDetailsRequest['tags'];
+                    ipEq = listServersDetailsRequest['ip_eq'];
                 }
             }
 
@@ -2520,6 +2524,9 @@ export const ParamCreater = function () {
             }
             if (tags !== null && tags !== undefined) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (ipEq !== null && ipEq !== undefined) {
+                localVarQueryParameter['ip_eq'] = ipEq;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -14,6 +14,7 @@ import { ImageDetectionResultDetail } from './model/ImageDetectionResultDetail';
 import { ImageDetectionResultDetailFaceDetail } from './model/ImageDetectionResultDetailFaceDetail';
 import { ImageDetectionResultDetailPolitics } from './model/ImageDetectionResultDetailPolitics';
 import { ImageDetectionResultSimpleDetail } from './model/ImageDetectionResultSimpleDetail';
+import { PornModerationResultDetail } from './model/PornModerationResultDetail';
 import { RunCheckResultRequest } from './model/RunCheckResultRequest';
 import { RunCheckResultResponse } from './model/RunCheckResultResponse';
 import { RunCheckTaskJobsRequest } from './model/RunCheckTaskJobsRequest';
@@ -22,6 +23,13 @@ import { RunImageBatchModerationRequest } from './model/RunImageBatchModerationR
 import { RunImageBatchModerationResponse } from './model/RunImageBatchModerationResponse';
 import { RunImageModerationRequest } from './model/RunImageModerationRequest';
 import { RunImageModerationResponse } from './model/RunImageModerationResponse';
+import { RunModerationAudioRequest } from './model/RunModerationAudioRequest';
+import { RunModerationAudioRequestBody } from './model/RunModerationAudioRequestBody';
+import { RunModerationAudioRequestBodyConfig } from './model/RunModerationAudioRequestBodyConfig';
+import { RunModerationAudioResponse } from './model/RunModerationAudioResponse';
+import { RunModerationAudioResponseBodyResult } from './model/RunModerationAudioResponseBodyResult';
+import { RunModerationAudioResponseBodyResultDetail } from './model/RunModerationAudioResponseBodyResultDetail';
+import { RunModerationAudioResponseBodyResultDetailAudio } from './model/RunModerationAudioResponseBodyResultDetailAudio';
 import { RunTaskSumbitRequest } from './model/RunTaskSumbitRequest';
 import { RunTaskSumbitResponse } from './model/RunTaskSumbitResponse';
 import { RunTextModerationRequest } from './model/RunTextModerationRequest';
@@ -96,6 +104,19 @@ export class ModerationClient {
      */
     public runImageModeration(runImageModerationRequest?: RunImageModerationRequest): Promise<RunImageModerationResponse> {
         const options = ParamCreater().runImageModeration(runImageModerationRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+    /**
+     * 分析并识别用户上传的语音内容是否有敏感内容（如色情、政治等），并将识别结果 返回给用户。
+     * @summary 语音内容审核
+     * @param {RunModerationAudioRequestBody} runModerationAudioRequestBody 请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runModerationAudio(runModerationAudioRequest?: RunModerationAudioRequest): Promise<RunModerationAudioResponse> {
+        const options = ParamCreater().runModerationAudio(runModerationAudioRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -274,6 +295,42 @@ export const ParamCreater = function () {
                     body = runImageModerationRequest.body
                 } else {
                     body = runImageModerationRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分析并识别用户上传的语音内容是否有敏感内容（如色情、政治等），并将识别结果 返回给用户。
+         */
+        runModerationAudio(runModerationAudioRequest?: RunModerationAudioRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/moderation/voice",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (runModerationAudioRequest !== null && runModerationAudioRequest !== undefined) {
+                if (runModerationAudioRequest instanceof RunModerationAudioRequest) {
+                    body = runModerationAudioRequest.body
+                } else {
+                    body = runModerationAudioRequest['body'];
                 }
             }
 

@@ -2,6 +2,7 @@
 
 export class ShowAsyncDeviceCommandRequest {
     private 'device_id': string | undefined;
+    private 'Sp-Auth-Token'?: string | undefined;
     private 'Instance-Id'?: string | undefined;
     private 'command_id': string | undefined;
     public constructor(deviceId?: any, commandId?: any) { 
@@ -17,6 +18,16 @@ export class ShowAsyncDeviceCommandRequest {
     }
     public get deviceId() {
         return this['device_id'];
+    }
+    public withSpAuthToken(spAuthToken: string): ShowAsyncDeviceCommandRequest {
+        this['Sp-Auth-Token'] = spAuthToken;
+        return this;
+    }
+    public set spAuthToken(spAuthToken: string | undefined) {
+        this['Sp-Auth-Token'] = spAuthToken;
+    }
+    public get spAuthToken() {
+        return this['Sp-Auth-Token'];
     }
     public withInstanceId(instanceId: string): ShowAsyncDeviceCommandRequest {
         this['Instance-Id'] = instanceId;

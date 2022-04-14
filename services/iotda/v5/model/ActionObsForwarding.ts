@@ -1,19 +1,16 @@
-import { FileMapping } from './FileMapping';
 
 
-export class ObsForwarding {
+export class ActionObsForwarding {
     private 'region_name': string | undefined;
     private 'project_id': string | undefined;
     private 'bucket_name': string | undefined;
     public location?: string;
-    private 'file_path'?: string | undefined;
-    private 'file_mapping'?: FileMapping | undefined;
     public constructor(regionName?: any, projectId?: any, bucketName?: any) { 
         this['region_name'] = regionName;
         this['project_id'] = projectId;
         this['bucket_name'] = bucketName;
     }
-    public withRegionName(regionName: string): ObsForwarding {
+    public withRegionName(regionName: string): ActionObsForwarding {
         this['region_name'] = regionName;
         return this;
     }
@@ -23,7 +20,7 @@ export class ObsForwarding {
     public get regionName() {
         return this['region_name'];
     }
-    public withProjectId(projectId: string): ObsForwarding {
+    public withProjectId(projectId: string): ActionObsForwarding {
         this['project_id'] = projectId;
         return this;
     }
@@ -33,7 +30,7 @@ export class ObsForwarding {
     public get projectId() {
         return this['project_id'];
     }
-    public withBucketName(bucketName: string): ObsForwarding {
+    public withBucketName(bucketName: string): ActionObsForwarding {
         this['bucket_name'] = bucketName;
         return this;
     }
@@ -43,28 +40,8 @@ export class ObsForwarding {
     public get bucketName() {
         return this['bucket_name'];
     }
-    public withLocation(location: string): ObsForwarding {
+    public withLocation(location: string): ActionObsForwarding {
         this['location'] = location;
         return this;
-    }
-    public withFilePath(filePath: string): ObsForwarding {
-        this['file_path'] = filePath;
-        return this;
-    }
-    public set filePath(filePath: string | undefined) {
-        this['file_path'] = filePath;
-    }
-    public get filePath() {
-        return this['file_path'];
-    }
-    public withFileMapping(fileMapping: FileMapping): ObsForwarding {
-        this['file_mapping'] = fileMapping;
-        return this;
-    }
-    public set fileMapping(fileMapping: FileMapping | undefined) {
-        this['file_mapping'] = fileMapping;
-    }
-    public get fileMapping() {
-        return this['file_mapping'];
     }
 }

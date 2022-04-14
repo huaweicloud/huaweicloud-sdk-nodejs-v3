@@ -4,6 +4,11 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionDeviceAlarm } from './model/ActionDeviceAlarm';
 import { ActionDeviceCommand } from './model/ActionDeviceCommand';
+import { ActionDisForwarding } from './model/ActionDisForwarding';
+import { ActionIoTAForwarding } from './model/ActionIoTAForwarding';
+import { ActionKafkaForwarding } from './model/ActionKafkaForwarding';
+import { ActionObsForwarding } from './model/ActionObsForwarding';
+import { ActionRomaForwarding } from './model/ActionRomaForwarding';
 import { ActionSmnForwarding } from './model/ActionSmnForwarding';
 import { AddActionReq } from './model/AddActionReq';
 import { AddApplication } from './model/AddApplication';
@@ -37,6 +42,7 @@ import { ChannelDetail } from './model/ChannelDetail';
 import { CheckCertificateRequest } from './model/CheckCertificateRequest';
 import { CheckCertificateResponse } from './model/CheckCertificateResponse';
 import { Cmd } from './model/Cmd';
+import { ColumnMapping } from './model/ColumnMapping';
 import { ConditionGroup } from './model/ConditionGroup';
 import { CreateAccessCodeRequest } from './model/CreateAccessCodeRequest';
 import { CreateAccessCodeRequestBody } from './model/CreateAccessCodeRequestBody';
@@ -61,6 +67,7 @@ import { CreateRuleActionRequest } from './model/CreateRuleActionRequest';
 import { CreateRuleActionResponse } from './model/CreateRuleActionResponse';
 import { CreateRuleRequest } from './model/CreateRuleRequest';
 import { CreateRuleResponse } from './model/CreateRuleResponse';
+import { CsvMappings } from './model/CsvMappings';
 import { DailyTimerType } from './model/DailyTimerType';
 import { DeleteApplicationRequest } from './model/DeleteApplicationRequest';
 import { DeleteApplicationResponse } from './model/DeleteApplicationResponse';
@@ -86,17 +93,23 @@ import { DeviceCommandRequest } from './model/DeviceCommandRequest';
 import { DeviceDataCondition } from './model/DeviceDataCondition';
 import { DeviceGroupResponseDTO } from './model/DeviceGroupResponseDTO';
 import { DeviceMessage } from './model/DeviceMessage';
+import { DeviceMessageCondition } from './model/DeviceMessageCondition';
 import { DeviceMessageRequest } from './model/DeviceMessageRequest';
 import { DevicePropertiesRequest } from './model/DevicePropertiesRequest';
 import { DeviceShadowData } from './model/DeviceShadowData';
 import { DeviceShadowProperties } from './model/DeviceShadowProperties';
+import { DeviceStatusCondition } from './model/DeviceStatusCondition';
 import { DisForwarding } from './model/DisForwarding';
 import { DmsKafkaForwarding } from './model/DmsKafkaForwarding';
 import { ErrorInfo } from './model/ErrorInfo';
+import { FileMapping } from './model/FileMapping';
 import { FreezeDeviceRequest } from './model/FreezeDeviceRequest';
 import { FreezeDeviceResponse } from './model/FreezeDeviceResponse';
+import { FunctionGraphForwarding } from './model/FunctionGraphForwarding';
 import { HttpForwarding } from './model/HttpForwarding';
+import { InfluxDBForwarding } from './model/InfluxDBForwarding';
 import { InitialDesired } from './model/InitialDesired';
+import { IoTAForwarding } from './model/IoTAForwarding';
 import { ListBatchTaskFilesRequest } from './model/ListBatchTaskFilesRequest';
 import { ListBatchTaskFilesResponse } from './model/ListBatchTaskFilesResponse';
 import { ListBatchTasksRequest } from './model/ListBatchTasksRequest';
@@ -121,12 +134,18 @@ import { ListRuleActionsRequest } from './model/ListRuleActionsRequest';
 import { ListRuleActionsResponse } from './model/ListRuleActionsResponse';
 import { ListRulesRequest } from './model/ListRulesRequest';
 import { ListRulesResponse } from './model/ListRulesResponse';
+import { LtsForwarding } from './model/LtsForwarding';
 import { MessageResult } from './model/MessageResult';
+import { MqsForwarding } from './model/MqsForwarding';
+import { MqttForwarding } from './model/MqttForwarding';
+import { MrsKafkaForwarding } from './model/MrsKafkaForwarding';
+import { MysqlForwarding } from './model/MysqlForwarding';
 import { NetAddress } from './model/NetAddress';
 import { ObsForwarding } from './model/ObsForwarding';
 import { Page } from './model/Page';
 import { ProductSummary } from './model/ProductSummary';
 import { PropertyFilter } from './model/PropertyFilter';
+import { PulsarForwarding } from './model/PulsarForwarding';
 import { QueryDeviceSimplify } from './model/QueryDeviceSimplify';
 import { QueryQueueBase } from './model/QueryQueueBase';
 import { QueryResourceByTagsDTO } from './model/QueryResourceByTagsDTO';
@@ -138,6 +157,7 @@ import { ResetFingerprint } from './model/ResetFingerprint';
 import { ResetFingerprintRequest } from './model/ResetFingerprintRequest';
 import { ResetFingerprintResponse } from './model/ResetFingerprintResponse';
 import { ResourceDTO } from './model/ResourceDTO';
+import { RomaForwarding } from './model/RomaForwarding';
 import { RoutingRule } from './model/RoutingRule';
 import { RoutingRuleAction } from './model/RoutingRuleAction';
 import { RoutingRuleSubject } from './model/RoutingRuleSubject';
@@ -370,8 +390,9 @@ export class IoTDAClient {
     /**
      * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)。注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。 
      * @summary 下发异步设备命令
-     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {AsyncDeviceCommandRequest} createAsyncCommandRequestBody 请求结构体，见请求结构体说明
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -383,10 +404,11 @@ export class IoTDAClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 物联网平台可查询指定id的命令。 
+     * 物联网平台可查询指定id的命令。  
      * @summary 查询指定id的命令
-     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} commandId **参数说明**：下发命令的命令id，用于唯一标识一个消息，在下发命令时由物联网平台分配获得。 **取值范围**：长度不超过100，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -552,8 +574,9 @@ export class IoTDAClient {
     /**
      * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是20秒。注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。 
      * @summary 下发设备命令
-     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {DeviceCommandRequest} createCommandRequestBody 请求结构体，见请求结构体说明
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -813,7 +836,7 @@ export class IoTDAClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 应用服务器可调用此接口查询指定设备的设备影子信息，包括对设备的期望属性信息（desired区）和设备最新上报的属性信息（reported区）。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发 
+     * 应用服务器可调用此接口查询指定设备的设备影子信息，包括对设备的期望属性信息（desired区）和设备最新上报的属性信息（reported区）。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发  限制： 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。 
      * @summary 查询设备影子数据
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -827,7 +850,7 @@ export class IoTDAClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 应用服务器可调用此接口配置设备影子的预期属性（desired区），当设备上线或者设备上报属性时把属性下发给设备。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发 
+     * 应用服务器可调用此接口配置设备影子的预期属性（desired区），当设备上线或者设备上报属性时把属性下发给设备。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发  限制： 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。 
      * @summary 配置设备影子预期数据
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {UpdateDesireds} updateDeviceShadowDesiredDataRequestBody request
@@ -844,7 +867,7 @@ export class IoTDAClient {
     /**
      * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。 
      * @summary 下发设备消息
-     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {DeviceMessageRequest} createMessageRequestBody 请求结构体，见请求结构体说明
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
@@ -857,9 +880,9 @@ export class IoTDAClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 物联网平台可查询指定设备下发的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。 
+     * 应用服务器可调用此接口查询平台下发给设备的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。  
      * @summary 查询设备消息
-     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -871,9 +894,9 @@ export class IoTDAClient {
         return this.hcClient.sendRequest(options);
     }
     /**
-     * 物联网平台可查询设备下发的指定消息id的消息。 
+     * 应用服务器可调用此接口查询平台下发给设备的指定消息id的消息。  
      * @summary 查询指定消息id的消息
-     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获。
+     * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} messageId **参数说明**：下发消息的消息ID，用于唯一标识一个消息，在消息下发时由物联网平台分配获得。 **取值范围**：长度不超过100，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
@@ -966,6 +989,7 @@ export class IoTDAClient {
      * @summary 查询设备属性
      * @param {string} deviceId **参数说明**：下发属性的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} serviceId **参数说明**：设备的服务ID，在设备关联的产品模型中定义。
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -981,6 +1005,7 @@ export class IoTDAClient {
      * @summary 修改设备属性
      * @param {string} deviceId **参数说明**：下发属性的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {DevicePropertiesRequest} updatePropertiesRequestBody 请求结构体，见请求结构体说明
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1693,16 +1718,19 @@ export const ParamCreater = function () {
 
             var body: any;
             let deviceId;
+            let spAuthToken;
             let instanceId;
 
             if (createAsyncCommandRequest !== null && createAsyncCommandRequest !== undefined) {
                 if (createAsyncCommandRequest instanceof CreateAsyncCommandRequest) {
                     deviceId = createAsyncCommandRequest.deviceId;
                     body = createAsyncCommandRequest.body
+                    spAuthToken = createAsyncCommandRequest.spAuthToken;
                     instanceId = createAsyncCommandRequest.instanceId;
                 } else {
                     deviceId = createAsyncCommandRequest['device_id'];
                     body = createAsyncCommandRequest['body'];
+                    spAuthToken = createAsyncCommandRequest['Sp-Auth-Token'];
                     instanceId = createAsyncCommandRequest['Instance-Id'];
                 }
             }
@@ -1713,6 +1741,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -1726,7 +1757,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 物联网平台可查询指定id的命令。 
+         * 物联网平台可查询指定id的命令。  
          */
         showAsyncDeviceCommand(showAsyncDeviceCommandRequest?: ShowAsyncDeviceCommandRequest) {
             const options = {
@@ -1742,16 +1773,19 @@ export const ParamCreater = function () {
 
             let deviceId;
             let commandId;
+            let spAuthToken;
             let instanceId;
 
             if (showAsyncDeviceCommandRequest !== null && showAsyncDeviceCommandRequest !== undefined) {
                 if (showAsyncDeviceCommandRequest instanceof ShowAsyncDeviceCommandRequest) {
                     deviceId = showAsyncDeviceCommandRequest.deviceId;
                     commandId = showAsyncDeviceCommandRequest.commandId;
+                    spAuthToken = showAsyncDeviceCommandRequest.spAuthToken;
                     instanceId = showAsyncDeviceCommandRequest.instanceId;
                 } else {
                     deviceId = showAsyncDeviceCommandRequest['device_id'];
                     commandId = showAsyncDeviceCommandRequest['command_id'];
+                    spAuthToken = showAsyncDeviceCommandRequest['Sp-Auth-Token'];
                     instanceId = showAsyncDeviceCommandRequest['Instance-Id'];
                 }
             }
@@ -1762,6 +1796,9 @@ export const ParamCreater = function () {
             }
             if (commandId === null || commandId === undefined) {
             throw new RequiredError('commandId','Required parameter commandId was null or undefined when calling showAsyncDeviceCommand.');
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2285,16 +2322,19 @@ export const ParamCreater = function () {
 
             var body: any;
             let deviceId;
+            let spAuthToken;
             let instanceId;
 
             if (createCommandRequest !== null && createCommandRequest !== undefined) {
                 if (createCommandRequest instanceof CreateCommandRequest) {
                     deviceId = createCommandRequest.deviceId;
                     body = createCommandRequest.body
+                    spAuthToken = createCommandRequest.spAuthToken;
                     instanceId = createCommandRequest.instanceId;
                 } else {
                     deviceId = createCommandRequest['device_id'];
                     body = createCommandRequest['body'];
+                    spAuthToken = createCommandRequest['Sp-Auth-Token'];
                     instanceId = createCommandRequest['Instance-Id'];
                 }
             }
@@ -2305,6 +2345,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3137,7 +3180,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口查询指定设备的设备影子信息，包括对设备的期望属性信息（desired区）和设备最新上报的属性信息（reported区）。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发 
+         * 应用服务器可调用此接口查询指定设备的设备影子信息，包括对设备的期望属性信息（desired区）和设备最新上报的属性信息（reported区）。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发  限制： 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。 
          */
         showDeviceShadow(showDeviceShadowRequest?: ShowDeviceShadowRequest) {
             const options = {
@@ -3178,7 +3221,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口配置设备影子的预期属性（desired区），当设备上线或者设备上报属性时把属性下发给设备。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发 
+         * 应用服务器可调用此接口配置设备影子的预期属性（desired区），当设备上线或者设备上报属性时把属性下发给设备。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发  限制： 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。 
          */
         updateDeviceShadowDesiredData(updateDeviceShadowDesiredDataRequest?: UpdateDeviceShadowDesiredDataRequest) {
             const options = {
@@ -3276,7 +3319,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 物联网平台可查询指定设备下发的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。 
+         * 应用服务器可调用此接口查询平台下发给设备的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。  
          */
         listDeviceMessages(listDeviceMessagesRequest?: ListDeviceMessagesRequest) {
             const options = {
@@ -3317,7 +3360,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 物联网平台可查询设备下发的指定消息id的消息。 
+         * 应用服务器可调用此接口查询平台下发给设备的指定消息id的消息。  
          */
         showDeviceMessage(showDeviceMessageRequest?: ShowDeviceMessageRequest) {
             const options = {
@@ -3623,16 +3666,19 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let deviceId;
             let serviceId;
+            let spAuthToken;
             let instanceId;
 
             if (listPropertiesRequest !== null && listPropertiesRequest !== undefined) {
                 if (listPropertiesRequest instanceof ListPropertiesRequest) {
                     deviceId = listPropertiesRequest.deviceId;
                     serviceId = listPropertiesRequest.serviceId;
+                    spAuthToken = listPropertiesRequest.spAuthToken;
                     instanceId = listPropertiesRequest.instanceId;
                 } else {
                     deviceId = listPropertiesRequest['device_id'];
                     serviceId = listPropertiesRequest['service_id'];
+                    spAuthToken = listPropertiesRequest['Sp-Auth-Token'];
                     instanceId = listPropertiesRequest['Instance-Id'];
                 }
             }
@@ -3646,6 +3692,9 @@ export const ParamCreater = function () {
             }
             if (serviceId !== null && serviceId !== undefined) {
                 localVarQueryParameter['service_id'] = serviceId;
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3674,16 +3723,19 @@ export const ParamCreater = function () {
 
             var body: any;
             let deviceId;
+            let spAuthToken;
             let instanceId;
 
             if (updatePropertiesRequest !== null && updatePropertiesRequest !== undefined) {
                 if (updatePropertiesRequest instanceof UpdatePropertiesRequest) {
                     deviceId = updatePropertiesRequest.deviceId;
                     body = updatePropertiesRequest.body
+                    spAuthToken = updatePropertiesRequest.spAuthToken;
                     instanceId = updatePropertiesRequest.instanceId;
                 } else {
                     deviceId = updatePropertiesRequest['device_id'];
                     body = updatePropertiesRequest['body'];
+                    spAuthToken = updatePropertiesRequest['Sp-Auth-Token'];
                     instanceId = updatePropertiesRequest['Instance-Id'];
                 }
             }
@@ -3694,6 +3746,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);

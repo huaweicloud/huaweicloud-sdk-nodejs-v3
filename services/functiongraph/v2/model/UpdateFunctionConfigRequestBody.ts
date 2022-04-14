@@ -10,6 +10,7 @@ export class UpdateFunctionConfigRequestBody {
     public handler: string;
     private 'memory_size': number | undefined;
     private 'user_data'?: string | undefined;
+    private 'encrypted_user_data'?: string | undefined;
     public xrole?: string;
     private 'app_xrole'?: string | undefined;
     public description?: string;
@@ -69,6 +70,16 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get userData() {
         return this['user_data'];
+    }
+    public withEncryptedUserData(encryptedUserData: string): UpdateFunctionConfigRequestBody {
+        this['encrypted_user_data'] = encryptedUserData;
+        return this;
+    }
+    public set encryptedUserData(encryptedUserData: string | undefined) {
+        this['encrypted_user_data'] = encryptedUserData;
+    }
+    public get encryptedUserData() {
+        return this['encrypted_user_data'];
     }
     public withXrole(xrole: string): UpdateFunctionConfigRequestBody {
         this['xrole'] = xrole;
