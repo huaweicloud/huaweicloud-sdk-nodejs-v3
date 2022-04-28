@@ -517,3 +517,4 @@ export * from './model/Version';
 export * from './model/VersionLinks';
 export * from './model/VersionMediatypes';
 export * from './model/Versions';
+export * from './IamRegion';

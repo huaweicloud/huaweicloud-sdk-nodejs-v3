@@ -1,4 +1,3 @@
-import { DriverLicenseResultStatus } from './DriverLicenseResultStatus';
 
 
 export class DriverLicenseResult {
@@ -17,7 +16,7 @@ export class DriverLicenseResult {
     private 'file_number'?: string | undefined;
     public record?: string;
     private 'accumulated_scores'?: string | undefined;
-    public status?: Array<DriverLicenseResultStatus>;
+    public status?: Array<string>;
     private 'generation_date'?: string | undefined;
     private 'current_time'?: string | undefined;
     private 'text_location'?: object | undefined;
@@ -131,7 +130,7 @@ export class DriverLicenseResult {
     public get accumulatedScores() {
         return this['accumulated_scores'];
     }
-    public withStatus(status: Array<DriverLicenseResultStatus>): DriverLicenseResult {
+    public withStatus(status: Array<string>): DriverLicenseResult {
         this['status'] = status;
         return this;
     }

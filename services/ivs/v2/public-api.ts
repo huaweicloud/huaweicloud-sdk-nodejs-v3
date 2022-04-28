@@ -30,3 +30,4 @@ export * from './model/ReqDataByIdCardImage';
 export * from './model/RespDataByIdCardImage';
 export * from './model/StandardReqDataByNameAndId';
 export * from './model/StandardRespDataByNameAndId';
+export * from './IvsRegion';

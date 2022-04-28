@@ -77,7 +77,8 @@ export class OperationState {
     */
 export enum OperationStateTypeEnum {
     OPERATION = 'Operation',
-    SLEEP = 'Sleep'
+    SLEEP = 'Sleep',
+    END = 'End'
 }
 /**
     * @export

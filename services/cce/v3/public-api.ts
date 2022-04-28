@@ -168,3 +168,4 @@ export * from './model/Versions';
 export * from './model/VirtualSpace';
 export * from './model/Volume';
 export * from './model/VolumeMetadata';
+export * from './CceRegion';

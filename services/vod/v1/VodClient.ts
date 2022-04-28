@@ -165,8 +165,13 @@ export class VodClient {
         return __dirname;
     }
 
+
     /**
      * 取消媒资转码任务，只能取消排队中的转码任务。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 取消媒资转码任务
      * @param {string} assetId 媒资ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -180,8 +185,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 取消提取音频任务，只有排队中的提取音频任务才可以取消。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 取消提取音频任务
      * @param {string} assetId 媒资ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -195,8 +205,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 校验媒资文件是否已存储于视频点播服务中。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 上传检验
      * @param {number} size 文件大小
      * @param {string} md5 文件MD5。  建议参考[上传校验](https://support.huaweicloud.com/api-vod/vod_04_0212.html#vod_04_0212__section575102165412)生成对应的MD5值。
@@ -211,8 +226,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 媒资分段上传完成后，需要调用此接口通知点播服务媒资上传的状态，表示媒资上传创建完成。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 确认媒资上传
      * @param {ConfirmAssetUploadReq} confirmAssetUploadReq 确认媒资上传
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -226,8 +246,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 确认水印图片上传状态。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 确认水印图片上传
      * @param {ConfirmImageUploadReq} confirmImageUploadReq 上传方式创建媒资
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -241,8 +266,17 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 调用该接口创建媒资时，需要将对应的媒资文件上传到点播服务的OBS桶中。  若上传的单媒资文件大小小于20M，则可以直接用PUT方法对该接口返回的地址进行上传。具体使用方法请参考[示例1：媒资上传（20M以下）](https://support.huaweicloud.com/api-vod/vod_04_0195.html)。  若上传的单个媒资大小大于20M，则需要进行二进制流分割后上传，该接口的具体使用方法请参考[示例2：媒资分段上传（20M以上）](https://support.huaweicloud.com/api-vod/vod_04_0216.html)。
+     * 调用该接口创建媒资时，需要将对应的媒资文件上传到点播服务的OBS桶中。
+     * 
+     * 若上传的单媒资文件大小小于20M，则可以直接用PUT方法对该接口返回的地址进行上传。具体使用方法请参考[示例1：媒资上传（20M以下）](https://support.huaweicloud.com/api-vod/vod_04_0195.html)。
+     * 
+     * 若上传的单个媒资大小大于20M，则需要进行二进制流分割后上传，该接口的具体使用方法请参考[示例2：媒资分段上传（20M以上）](https://support.huaweicloud.com/api-vod/vod_04_0216.html)。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建媒资：上传方式
      * @param {CreateAssetByFileUploadReq} createAssetByFileReq 上传方式创建媒资
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -256,8 +290,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 创建媒资分类。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建媒资分类
      * @param {CreateCategoryReq} createCategoryReq 创建媒资分类
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -271,8 +310,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 实现视频转码、截图、加密等处理。既可以同时启动多种操作，也可以只启动一种操作。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 媒资处理
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
@@ -286,8 +330,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 对上传的媒资进行审核。审核后，可以调用[查询媒资详细信息](https://support.huaweicloud.com/api-vod/vod_04_0202.html)接口查看审核结果。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建审核媒资任务
      * @param {AssetReviewReq} assetReviewReq 
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -301,8 +350,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 用于从已有视频文件中提取音频。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 音频提取
      * @param {ExtractAudioTaskReq} extractAudioTaskReq 创建提取音频请求体
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -316,8 +370,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 媒资发布后，可通过指定媒资ID或URL向CDN预热。用户初次请求时，将由CDN节点提供请求媒资，加快用户下载缓存时间，提高用户体验。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary CDN预热
      * @param {CreatePreheatingAssetReq} createPreheatingAssetReq CDN预热
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -331,8 +390,15 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 通过存量托管的方式，将已存储在OBS桶中的音视频文件同步到点播服务。  OBS托管方式分为增量托管和存量托管，增量托管暂只支持通过视频点播控制台配置，配置后，若OBS有新增音视频文件，则会自动同步到点播服务中，具体请参见[增量托管](https://support.huaweicloud.com/usermanual-vod/vod010032.html)。两个托管方式都需要先将对应的OBS桶授权给点播服务，具体请参见[桶授权](https://support.huaweicloud.com/usermanual-vod/vod010031.html)。
+     * 通过存量托管的方式，将已存储在OBS桶中的音视频文件同步到点播服务。
+     * 
+     * OBS托管方式分为增量托管和存量托管，增量托管暂只支持通过视频点播控制台配置，配置后，若OBS有新增音视频文件，则会自动同步到点播服务中，具体请参见[增量托管](https://support.huaweicloud.com/usermanual-vod/vod010032.html)。两个托管方式都需要先将对应的OBS桶授权给点播服务，具体请参见[桶授权](https://support.huaweicloud.com/usermanual-vod/vod010031.html)。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建媒资：OBS托管方式
      * @param {CreateTakeOverTaskReq} createTakeOverTaskReq 
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -346,8 +412,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 创建自定义转码模板组。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建自定义转码模板组
      * @param {TransTemplateGroup} transTemplateGroup 创建自定义模板组
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -361,8 +432,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 创建水印模板。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建水印模板
      * @param {CreateWatermarkTemplateReq} createWatermarkTemplateReq 创建水印模板请求体
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -376,8 +452,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除媒资分类。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除媒资分类
      * @param {number} id 视频分类ID
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -391,8 +472,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除媒资。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除媒资
      * @param {Array<string>} assetId 媒资ID，支持一次删除多个媒资，批量删除时以逗号分隔。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -407,8 +493,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除自定义转码模板组。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除自定义转码模板组
      * @param {string} groupId 模板组id
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -422,8 +513,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 删除水印模板 
+     * 删除水印模板
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除水印模板
      * @param {string} id 水印模板配置id 
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -437,8 +533,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询指定分类信息，及其子分类（即下一级分类）的列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询指定分类信息
      * @param {number} id 视频分类ID。  若设置为0，则查询所有一级分类。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -452,8 +553,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询媒资列表，列表中的每一条记录包含媒资的概要信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询媒资列表
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
@@ -477,8 +583,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询指定点播域名某段时间内在CDN的相关日志。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询域名播放日志
      * @param {string} domainName 加速域名，参考格式：www.test1.com。
      * @param {string} queryDate 查询日期，yyyyMMddHHmmss。 - 查询结果为开始时间之后24小时内的日志数据 - 只能查最近一个月内的数据
@@ -495,8 +606,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询转码模板组列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询转码模板组列表
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
@@ -513,8 +629,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询指定域名在指定日期播放次数排名Top 100的媒资统计数据。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询TopN媒资信息
      * @param {string} domain 查询域名，暂只支持查询单个或者全部域名。  取值如下： - 单个加速域名，格式：example.test1.com。 - ALL：表示查询名下全部域名。
      * @param {string} date 查询日期，格式为yyyymmdd - date必须为昨天或之前的日期。 - 最多只能查最近一个月内的数据。
@@ -529,8 +650,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询水印模板
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询水印列表
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
@@ -546,8 +672,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 若您在使用点播服务前，已经在OBS桶中存储了音视频文件，您可以使用该接口将存储在OBS桶中的音视频文件转存到点播服务中，使用点播服务的音视频管理功能。调用该接口前，您需要调用[桶授权](https://support.huaweicloud.com/api-vod/vod_04_0199.html)接口，将存储音视频文件的OBS桶授权给点播服务。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建媒资：OBS转存方式
      * @param {PublishAssetFromObsReq} publishAssetFromObsReq 从OBS一键发布媒资
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -561,8 +692,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 将媒资设置为发布状态。支持批量发布。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 媒资发布
      * @param {PublishAssetReq} publishAssetReq 媒资发布
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -576,8 +712,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 终端播放HLS加密视频时，向租户管理系统请求密钥，租户管理系统先查询其本地有没有已缓存的密钥，没有时则调用此接口向VOD查询。该接口的具体使用场景请参见[通过HLS加密防止视频泄露](https://support.huaweicloud.com/bestpractice-vod/vod_10_0004.html)。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 密钥查询
      * @param {string} assetId 媒资ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -591,8 +732,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询指定媒资的详细信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询指定媒资的详细信息
      * @param {string} assetId 媒资ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -607,8 +753,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询媒资信息，支持指定媒资ID、分类、状态、起止时间查询。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询媒资信息
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
@@ -632,8 +783,19 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 客户端请求创建媒资时，如果媒资文件超过20MB，需采用分段的方式向OBS上传，在每次与OBS交互前，客户端需通过此接口获取到授权方可与OBS交互。  该接口可以获取[初始化多段上传任务](https://support.huaweicloud.com/api-obs/obs_04_0098.html)、[上传段](https://support.huaweicloud.com/api-obs/obs_04_0099.html)、[合并段](https://support.huaweicloud.com/api-obs/obs_04_0102.html)、[列举已上传段](https://support.huaweicloud.com/api-obs/obs_04_0101.html)、[取消段合并](https://support.huaweicloud.com/api-obs/obs_04_0103.html)的带有临时授权的URL，用户需要根据OBS的接口文档配置相应请求的HTTP请求方法、请求头、请求体，然后请求对应的带有临时授权的URL。  视频分段上传方式和OBS的接口文档保持一致，包括HTTP请求方法、请求头、请求体等各种入参，此接口的作用是为用户生成带有鉴权信息的URL（鉴权信息即query_str），用来替换OBS接口中对应的URL，临时给用户开通向点播服务的桶上传文件的权限。  调用获取授权接口时需要传入bucket、object_key、http_verb，其中bucket和object_key是由[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的bucket和object，http_verb需要根据指定的操作选择。
+     * 客户端请求创建媒资时，如果媒资文件超过20MB，需采用分段的方式向OBS上传，在每次与OBS交互前，客户端需通过此接口获取到授权方可与OBS交互。
+     * 
+     * 该接口可以获取[初始化多段上传任务](https://support.huaweicloud.com/api-obs/obs_04_0098.html)、[上传段](https://support.huaweicloud.com/api-obs/obs_04_0099.html)、[合并段](https://support.huaweicloud.com/api-obs/obs_04_0102.html)、[列举已上传段](https://support.huaweicloud.com/api-obs/obs_04_0101.html)、[取消段合并](https://support.huaweicloud.com/api-obs/obs_04_0103.html)的带有临时授权的URL，用户需要根据OBS的接口文档配置相应请求的HTTP请求方法、请求头、请求体，然后请求对应的带有临时授权的URL。
+     * 
+     * 视频分段上传方式和OBS的接口文档保持一致，包括HTTP请求方法、请求头、请求体等各种入参，此接口的作用是为用户生成带有鉴权信息的URL（鉴权信息即query_str），用来替换OBS接口中对应的URL，临时给用户开通向点播服务的桶上传文件的权限。
+     * 
+     * 调用获取授权接口时需要传入bucket、object_key、http_verb，其中bucket和object_key是由[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的bucket和object，http_verb需要根据指定的操作选择。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 获取分段上传授权
      * @param {string} httpVerb 分段上传时调用OBS接口的HTTP方法，具体操作需要的HTTP方法请参考OBS的接口文档。  - 初始化上传任务：POST - 上传段：PUT - 合并段：POST - 取消段：DELETE - 列举已上传段：GET
      * @param {string} bucket 桶名。  调用[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的bucket值。
@@ -653,8 +815,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询CDN的统计数据，包括流量、峰值带宽、请求总数、请求命中率、流量命中率。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询CDN统计信息
      * @param {string} statType 统计数据类型。  取值如下： - cdn_bw：CDN峰值带宽 - cdn_flux：CDN流量 - req_num：请求总数 - req_hit_rate：请求命中率 - flux_hit_rate：流量命中率  每次只能查询一种统计数据。
      * @param {string} domain 域名列表，多个域名以逗号（半角）分隔。  示例：example.test1.com,example.test2.com。  ALL表示查询名下全部域名。一次最多查询100个域名。
@@ -672,8 +839,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询预热结果。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询CDN预热
      * @param {string} taskId 任务ID
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -687,8 +859,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询点播源站的统计数据，包括流量、存储空间、转码时长。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询源站统计信息
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
@@ -704,8 +881,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 将媒资设置为未发布状态。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 媒资发布取消
      * @param {PublishAssetReq} unpublishAssetReq 媒资取消发布
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -719,8 +901,19 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 媒资创建后，单独上传封面、更新视频文件或更新已有封面。  如果是更新视频文件，更新完后要通过[确认媒资上传](https://support.huaweicloud.com/api-vod/vod_04_0198.html)接口通知点播服务。  如果是更新封面或单独上传封面，则不需通知。  更新视频可以使用分段上传，具体方式可以参考[示例2：媒资分段上传（20M以上）](https://support.huaweicloud.com/api-vod/vod_04_0216.html)。
+     * 媒资创建后，单独上传封面、更新视频文件或更新已有封面。
+     * 
+     * 如果是更新视频文件，更新完后要通过[确认媒资上传](https://support.huaweicloud.com/api-vod/vod_04_0198.html)接口通知点播服务。
+     * 
+     * 如果是更新封面或单独上传封面，则不需通知。
+     * 
+     * 更新视频可以使用分段上传，具体方式可以参考[示例2：媒资分段上传（20M以上）](https://support.huaweicloud.com/api-vod/vod_04_0216.html)。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 视频更新
      * @param {UploadAssetReq} uploadAssetReq 更新媒资文件或封面
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -734,8 +927,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 修改媒资分类。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改媒资分类
      * @param {UpdateCategoryReq} updateCategoryReq 修改媒资分类
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -749,8 +947,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 修改媒资属性。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改媒资属性
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
@@ -764,8 +967,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 用户可以通过该接口将OBS桶授权给点播服务或取消点播服务的授权。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 桶授权
      * @param {UpdateBucketAuthorizedReq} updateBucketAuthorizedReq 桶策略授权
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -779,8 +987,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 将视频截图生成的某张图片设置成封面。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 设置封面
      * @param {UpdateCoverByThumbnailReq} updateCoverByThumbnailReq 截图文件的URL。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -794,8 +1007,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 修改自定义转码模板组。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改自定义转码模板组
      * @param {ModifyTransTemplateGroup} transTemplateGroup 修改模板组
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -809,8 +1027,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 修改水印模板 
+     * 修改水印模板
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改水印模板
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
@@ -824,8 +1047,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 基于音视频源文件URL，将音视频文件离线拉取上传到点播服务。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建媒资：URL拉取注入
      * @param {UploadMetaDataByUrlReq} uploadMetaDataByUrlReq 创建媒资：URL拉取注入
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -839,8 +1067,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询OBS存量托管任务列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询托管任务
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
@@ -857,8 +1090,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询OBS托管媒资的详细信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询托管媒资详情
      * @param {string} sourceBucket 媒资原始输入存放的桶。
      * @param {string} sourceObject 媒资原始输入的objectKey。
@@ -873,8 +1111,13 @@ export class VodClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询OBS存量托管任务详情。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询托管任务详情
      * @param {string} taskId 任务ID。
      * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
@@ -897,6 +1140,9 @@ export const ParamCreater = function () {
     
         /**
          * 取消媒资转码任务，只能取消排队中的转码任务。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         cancelAssetTranscodeTask(cancelAssetTranscodeTaskRequest?: CancelAssetTranscodeTaskRequest) {
             const options = {
@@ -947,6 +1193,9 @@ export const ParamCreater = function () {
     
         /**
          * 取消提取音频任务，只有排队中的提取音频任务才可以取消。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         cancelExtractAudioTask(cancelExtractAudioTaskRequest?: CancelExtractAudioTaskRequest) {
             const options = {
@@ -997,6 +1246,9 @@ export const ParamCreater = function () {
     
         /**
          * 校验媒资文件是否已存储于视频点播服务中。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         checkMd5Duplication(checkMd5DuplicationRequest?: CheckMd5DuplicationRequest) {
             const options = {
@@ -1056,6 +1308,9 @@ export const ParamCreater = function () {
     
         /**
          * 媒资分段上传完成后，需要调用此接口通知点播服务媒资上传的状态，表示媒资上传创建完成。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         confirmAssetUpload(confirmAssetUploadRequest?: ConfirmAssetUploadRequest) {
             const options = {
@@ -1104,6 +1359,9 @@ export const ParamCreater = function () {
     
         /**
          * 确认水印图片上传状态。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         confirmImageUpload(confirmImageUploadRequest?: ConfirmImageUploadRequest) {
             const options = {
@@ -1151,7 +1409,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 调用该接口创建媒资时，需要将对应的媒资文件上传到点播服务的OBS桶中。  若上传的单媒资文件大小小于20M，则可以直接用PUT方法对该接口返回的地址进行上传。具体使用方法请参考[示例1：媒资上传（20M以下）](https://support.huaweicloud.com/api-vod/vod_04_0195.html)。  若上传的单个媒资大小大于20M，则需要进行二进制流分割后上传，该接口的具体使用方法请参考[示例2：媒资分段上传（20M以上）](https://support.huaweicloud.com/api-vod/vod_04_0216.html)。
+         * 调用该接口创建媒资时，需要将对应的媒资文件上传到点播服务的OBS桶中。
+         * 
+         * 若上传的单媒资文件大小小于20M，则可以直接用PUT方法对该接口返回的地址进行上传。具体使用方法请参考[示例1：媒资上传（20M以下）](https://support.huaweicloud.com/api-vod/vod_04_0195.html)。
+         * 
+         * 若上传的单个媒资大小大于20M，则需要进行二进制流分割后上传，该接口的具体使用方法请参考[示例2：媒资分段上传（20M以上）](https://support.huaweicloud.com/api-vod/vod_04_0216.html)。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createAssetByFileUpload(createAssetByFileUploadRequest?: CreateAssetByFileUploadRequest) {
             const options = {
@@ -1200,6 +1465,9 @@ export const ParamCreater = function () {
     
         /**
          * 创建媒资分类。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createAssetCategory(createAssetCategoryRequest?: CreateAssetCategoryRequest) {
             const options = {
@@ -1248,6 +1516,9 @@ export const ParamCreater = function () {
     
         /**
          * 实现视频转码、截图、加密等处理。既可以同时启动多种操作，也可以只启动一种操作。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createAssetProcessTask(createAssetProcessTaskRequest?: CreateAssetProcessTaskRequest) {
             const options = {
@@ -1293,6 +1564,9 @@ export const ParamCreater = function () {
     
         /**
          * 对上传的媒资进行审核。审核后，可以调用[查询媒资详细信息](https://support.huaweicloud.com/api-vod/vod_04_0202.html)接口查看审核结果。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createAssetReviewTask(createAssetReviewTaskRequest?: CreateAssetReviewTaskRequest) {
             const options = {
@@ -1341,6 +1615,9 @@ export const ParamCreater = function () {
     
         /**
          * 用于从已有视频文件中提取音频。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createExtractAudioTask(createExtractAudioTaskRequest?: CreateExtractAudioTaskRequest) {
             const options = {
@@ -1389,6 +1666,9 @@ export const ParamCreater = function () {
     
         /**
          * 媒资发布后，可通过指定媒资ID或URL向CDN预热。用户初次请求时，将由CDN节点提供请求媒资，加快用户下载缓存时间，提高用户体验。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createPreheatingAsset(createPreheatingAssetRequest?: CreatePreheatingAssetRequest) {
             const options = {
@@ -1436,7 +1716,12 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 通过存量托管的方式，将已存储在OBS桶中的音视频文件同步到点播服务。  OBS托管方式分为增量托管和存量托管，增量托管暂只支持通过视频点播控制台配置，配置后，若OBS有新增音视频文件，则会自动同步到点播服务中，具体请参见[增量托管](https://support.huaweicloud.com/usermanual-vod/vod010032.html)。两个托管方式都需要先将对应的OBS桶授权给点播服务，具体请参见[桶授权](https://support.huaweicloud.com/usermanual-vod/vod010031.html)。
+         * 通过存量托管的方式，将已存储在OBS桶中的音视频文件同步到点播服务。
+         * 
+         * OBS托管方式分为增量托管和存量托管，增量托管暂只支持通过视频点播控制台配置，配置后，若OBS有新增音视频文件，则会自动同步到点播服务中，具体请参见[增量托管](https://support.huaweicloud.com/usermanual-vod/vod010032.html)。两个托管方式都需要先将对应的OBS桶授权给点播服务，具体请参见[桶授权](https://support.huaweicloud.com/usermanual-vod/vod010031.html)。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createTakeOverTask(createTakeOverTaskRequest?: CreateTakeOverTaskRequest) {
             const options = {
@@ -1485,6 +1770,9 @@ export const ParamCreater = function () {
     
         /**
          * 创建自定义转码模板组。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createTemplateGroup(createTemplateGroupRequest?: CreateTemplateGroupRequest) {
             const options = {
@@ -1533,6 +1821,9 @@ export const ParamCreater = function () {
     
         /**
          * 创建水印模板。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createWatermarkTemplate(createWatermarkTemplateRequest?: CreateWatermarkTemplateRequest) {
             const options = {
@@ -1581,6 +1872,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除媒资分类。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteAssetCategory(deleteAssetCategoryRequest?: DeleteAssetCategoryRequest) {
             const options = {
@@ -1631,6 +1925,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除媒资。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteAssets(deleteAssetsRequest?: DeleteAssetsRequest) {
             const options = {
@@ -1687,6 +1984,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除自定义转码模板组。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteTemplateGroup(deleteTemplateGroupRequest?: DeleteTemplateGroupRequest) {
             const options = {
@@ -1736,7 +2036,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除水印模板 
+         * 删除水印模板
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteWatermarkTemplate(deleteWatermarkTemplateRequest?: DeleteWatermarkTemplateRequest) {
             const options = {
@@ -1787,6 +2090,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询指定分类信息，及其子分类（即下一级分类）的列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listAssetCategory(listAssetCategoryRequest?: ListAssetCategoryRequest) {
             const options = {
@@ -1837,6 +2143,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询媒资列表，列表中的每一条记录包含媒资的概要信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listAssetList(listAssetListRequest?: ListAssetListRequest) {
             const options = {
@@ -1944,6 +2253,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询指定点播域名某段时间内在CDN的相关日志。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listDomainLogs(listDomainLogsRequest?: ListDomainLogsRequest) {
             const options = {
@@ -2015,6 +2327,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询转码模板组列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listTemplateGroup(listTemplateGroupRequest?: ListTemplateGroupRequest) {
             const options = {
@@ -2080,6 +2395,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询指定域名在指定日期播放次数排名Top 100的媒资统计数据。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listTopStatistics(listTopStatisticsRequest?: ListTopStatisticsRequest) {
             const options = {
@@ -2139,6 +2457,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询水印模板
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listWatermarkTemplate(listWatermarkTemplateRequest?: ListWatermarkTemplateRequest) {
             const options = {
@@ -2198,6 +2519,9 @@ export const ParamCreater = function () {
     
         /**
          * 若您在使用点播服务前，已经在OBS桶中存储了音视频文件，您可以使用该接口将存储在OBS桶中的音视频文件转存到点播服务中，使用点播服务的音视频管理功能。调用该接口前，您需要调用[桶授权](https://support.huaweicloud.com/api-vod/vod_04_0199.html)接口，将存储音视频文件的OBS桶授权给点播服务。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         publishAssetFromObs(publishAssetFromObsRequest?: PublishAssetFromObsRequest) {
             const options = {
@@ -2246,6 +2570,9 @@ export const ParamCreater = function () {
     
         /**
          * 将媒资设置为发布状态。支持批量发布。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         publishAssets(publishAssetsRequest?: PublishAssetsRequest) {
             const options = {
@@ -2294,6 +2621,9 @@ export const ParamCreater = function () {
     
         /**
          * 终端播放HLS加密视频时，向租户管理系统请求密钥，租户管理系统先查询其本地有没有已缓存的密钥，没有时则调用此接口向VOD查询。该接口的具体使用场景请参见[通过HLS加密防止视频泄露](https://support.huaweicloud.com/bestpractice-vod/vod_10_0004.html)。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showAssetCipher(showAssetCipherRequest?: ShowAssetCipherRequest) {
             const options = {
@@ -2344,6 +2674,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询指定媒资的详细信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showAssetDetail(showAssetDetailRequest?: ShowAssetDetailRequest) {
             const options = {
@@ -2400,6 +2733,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询媒资信息，支持指定媒资ID、分类、状态、起止时间查询。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showAssetMeta(showAssetMetaRequest?: ShowAssetMetaRequest) {
             const options = {
@@ -2506,7 +2842,16 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 客户端请求创建媒资时，如果媒资文件超过20MB，需采用分段的方式向OBS上传，在每次与OBS交互前，客户端需通过此接口获取到授权方可与OBS交互。  该接口可以获取[初始化多段上传任务](https://support.huaweicloud.com/api-obs/obs_04_0098.html)、[上传段](https://support.huaweicloud.com/api-obs/obs_04_0099.html)、[合并段](https://support.huaweicloud.com/api-obs/obs_04_0102.html)、[列举已上传段](https://support.huaweicloud.com/api-obs/obs_04_0101.html)、[取消段合并](https://support.huaweicloud.com/api-obs/obs_04_0103.html)的带有临时授权的URL，用户需要根据OBS的接口文档配置相应请求的HTTP请求方法、请求头、请求体，然后请求对应的带有临时授权的URL。  视频分段上传方式和OBS的接口文档保持一致，包括HTTP请求方法、请求头、请求体等各种入参，此接口的作用是为用户生成带有鉴权信息的URL（鉴权信息即query_str），用来替换OBS接口中对应的URL，临时给用户开通向点播服务的桶上传文件的权限。  调用获取授权接口时需要传入bucket、object_key、http_verb，其中bucket和object_key是由[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的bucket和object，http_verb需要根据指定的操作选择。
+         * 客户端请求创建媒资时，如果媒资文件超过20MB，需采用分段的方式向OBS上传，在每次与OBS交互前，客户端需通过此接口获取到授权方可与OBS交互。
+         * 
+         * 该接口可以获取[初始化多段上传任务](https://support.huaweicloud.com/api-obs/obs_04_0098.html)、[上传段](https://support.huaweicloud.com/api-obs/obs_04_0099.html)、[合并段](https://support.huaweicloud.com/api-obs/obs_04_0102.html)、[列举已上传段](https://support.huaweicloud.com/api-obs/obs_04_0101.html)、[取消段合并](https://support.huaweicloud.com/api-obs/obs_04_0103.html)的带有临时授权的URL，用户需要根据OBS的接口文档配置相应请求的HTTP请求方法、请求头、请求体，然后请求对应的带有临时授权的URL。
+         * 
+         * 视频分段上传方式和OBS的接口文档保持一致，包括HTTP请求方法、请求头、请求体等各种入参，此接口的作用是为用户生成带有鉴权信息的URL（鉴权信息即query_str），用来替换OBS接口中对应的URL，临时给用户开通向点播服务的桶上传文件的权限。
+         * 
+         * 调用获取授权接口时需要传入bucket、object_key、http_verb，其中bucket和object_key是由[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的bucket和object，http_verb需要根据指定的操作选择。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showAssetTempAuthority(showAssetTempAuthorityRequest?: ShowAssetTempAuthorityRequest) {
             const options = {
@@ -2599,6 +2944,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询CDN的统计数据，包括流量、峰值带宽、请求总数、请求命中率、流量命中率。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showCdnStatistics(showCdnStatisticsRequest?: ShowCdnStatisticsRequest) {
             const options = {
@@ -2676,6 +3024,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询预热结果。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showPreheatingAsset(showPreheatingAssetRequest?: ShowPreheatingAssetRequest) {
             const options = {
@@ -2726,6 +3077,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询点播源站的统计数据，包括流量、存储空间、转码时长。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showVodStatistics(showVodStatisticsRequest?: ShowVodStatisticsRequest) {
             const options = {
@@ -2785,6 +3139,9 @@ export const ParamCreater = function () {
     
         /**
          * 将媒资设置为未发布状态。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         unpublishAssets(unpublishAssetsRequest?: UnpublishAssetsRequest) {
             const options = {
@@ -2832,7 +3189,16 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 媒资创建后，单独上传封面、更新视频文件或更新已有封面。  如果是更新视频文件，更新完后要通过[确认媒资上传](https://support.huaweicloud.com/api-vod/vod_04_0198.html)接口通知点播服务。  如果是更新封面或单独上传封面，则不需通知。  更新视频可以使用分段上传，具体方式可以参考[示例2：媒资分段上传（20M以上）](https://support.huaweicloud.com/api-vod/vod_04_0216.html)。
+         * 媒资创建后，单独上传封面、更新视频文件或更新已有封面。
+         * 
+         * 如果是更新视频文件，更新完后要通过[确认媒资上传](https://support.huaweicloud.com/api-vod/vod_04_0198.html)接口通知点播服务。
+         * 
+         * 如果是更新封面或单独上传封面，则不需通知。
+         * 
+         * 更新视频可以使用分段上传，具体方式可以参考[示例2：媒资分段上传（20M以上）](https://support.huaweicloud.com/api-vod/vod_04_0216.html)。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateAsset(updateAssetRequest?: UpdateAssetRequest) {
             const options = {
@@ -2881,6 +3247,9 @@ export const ParamCreater = function () {
     
         /**
          * 修改媒资分类。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateAssetCategory(updateAssetCategoryRequest?: UpdateAssetCategoryRequest) {
             const options = {
@@ -2929,6 +3298,9 @@ export const ParamCreater = function () {
     
         /**
          * 修改媒资属性。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateAssetMeta(updateAssetMetaRequest?: UpdateAssetMetaRequest) {
             const options = {
@@ -2974,6 +3346,9 @@ export const ParamCreater = function () {
     
         /**
          * 用户可以通过该接口将OBS桶授权给点播服务或取消点播服务的授权。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateBucketAuthorized(updateBucketAuthorizedRequest?: UpdateBucketAuthorizedRequest) {
             const options = {
@@ -3022,6 +3397,9 @@ export const ParamCreater = function () {
     
         /**
          * 将视频截图生成的某张图片设置成封面。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateCoverByThumbnail(updateCoverByThumbnailRequest?: UpdateCoverByThumbnailRequest) {
             const options = {
@@ -3070,6 +3448,9 @@ export const ParamCreater = function () {
     
         /**
          * 修改自定义转码模板组。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateTemplateGroup(updateTemplateGroupRequest?: UpdateTemplateGroupRequest) {
             const options = {
@@ -3117,7 +3498,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改水印模板 
+         * 修改水印模板
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateWatermarkTemplate(updateWatermarkTemplateRequest?: UpdateWatermarkTemplateRequest) {
             const options = {
@@ -3163,6 +3547,9 @@ export const ParamCreater = function () {
     
         /**
          * 基于音视频源文件URL，将音视频文件离线拉取上传到点播服务。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         uploadMetaDataByUrl(uploadMetaDataByUrlRequest?: UploadMetaDataByUrlRequest) {
             const options = {
@@ -3211,6 +3598,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询OBS存量托管任务列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listTakeOverTask(listTakeOverTaskRequest?: ListTakeOverTaskRequest) {
             const options = {
@@ -3276,6 +3666,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询OBS托管媒资的详细信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showTakeOverAssetDetails(showTakeOverAssetDetailsRequest?: ShowTakeOverAssetDetailsRequest) {
             const options = {
@@ -3335,6 +3728,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询OBS存量托管任务详情。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showTakeOverTaskDetails(showTakeOverTaskDetailsRequest?: ShowTakeOverTaskDetailsRequest) {
             const options = {

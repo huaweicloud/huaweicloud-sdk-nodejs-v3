@@ -95,3 +95,4 @@ export * from './model/UpdateFaceReq';
 export * from './model/UpdateFaceRequest';
 export * from './model/UpdateFaceResponse';
 export * from './model/WarningList';
+export * from './FrsRegion';

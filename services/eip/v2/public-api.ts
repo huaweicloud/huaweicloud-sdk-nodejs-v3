@@ -107,3 +107,4 @@ export * from './model/UpdatePublicipOption';
 export * from './model/UpdatePublicipRequest';
 export * from './model/UpdatePublicipResponse';
 export * from './model/UpdatePublicipsRequestBody';
+export * from './EipRegion';

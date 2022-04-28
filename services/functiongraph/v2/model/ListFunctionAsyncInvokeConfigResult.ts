@@ -8,6 +8,7 @@ export class ListFunctionAsyncInvokeConfigResult {
     private 'destination_config': FuncAsyncDestinationConfig | undefined;
     private 'created_time'?: string | undefined;
     private 'last_modified'?: string | undefined;
+    private 'enable_async_status_log'?: boolean | undefined;
     public constructor(funcUrn?: any, maxAsyncEventAgeInSeconds?: any, maxAsyncRetryAttempts?: any, destinationConfig?: any) { 
         this['func_urn'] = funcUrn;
         this['max_async_event_age_in_seconds'] = maxAsyncEventAgeInSeconds;
@@ -73,5 +74,15 @@ export class ListFunctionAsyncInvokeConfigResult {
     }
     public get lastModified() {
         return this['last_modified'];
+    }
+    public withEnableAsyncStatusLog(enableAsyncStatusLog: boolean): ListFunctionAsyncInvokeConfigResult {
+        this['enable_async_status_log'] = enableAsyncStatusLog;
+        return this;
+    }
+    public set enableAsyncStatusLog(enableAsyncStatusLog: boolean | undefined) {
+        this['enable_async_status_log'] = enableAsyncStatusLog;
+    }
+    public get enableAsyncStatusLog() {
+        return this['enable_async_status_log'];
     }
 }

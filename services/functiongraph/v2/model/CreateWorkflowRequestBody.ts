@@ -1,3 +1,4 @@
+import { ExpressConfig } from './ExpressConfig';
 import { Function } from './Function';
 import { OperationState } from './OperationState';
 import { Retry } from './Retry';
@@ -13,6 +14,8 @@ export class CreateWorkflowRequestBody {
     public states?: Array<OperationState>;
     public constants?: object;
     public retries?: Array<Retry>;
+    public mode?: CreateWorkflowRequestBodyModeEnum;
+    private 'express_config'?: ExpressConfig | undefined;
     private 'enterprise_project_id'?: string | undefined;
     public constructor() { 
     }
@@ -48,6 +51,20 @@ export class CreateWorkflowRequestBody {
         this['retries'] = retries;
         return this;
     }
+    public withMode(mode: CreateWorkflowRequestBodyModeEnum): CreateWorkflowRequestBody {
+        this['mode'] = mode;
+        return this;
+    }
+    public withExpressConfig(expressConfig: ExpressConfig): CreateWorkflowRequestBody {
+        this['express_config'] = expressConfig;
+        return this;
+    }
+    public set expressConfig(expressConfig: ExpressConfig | undefined) {
+        this['express_config'] = expressConfig;
+    }
+    public get expressConfig() {
+        return this['express_config'];
+    }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreateWorkflowRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
@@ -58,4 +75,13 @@ export class CreateWorkflowRequestBody {
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateWorkflowRequestBodyModeEnum {
+    NORMAL = 'NORMAL',
+    EXPRESS = 'EXPRESS'
 }

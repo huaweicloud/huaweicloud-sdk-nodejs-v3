@@ -4,11 +4,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { ActionDeviceAlarm } from './model/ActionDeviceAlarm';
 import { ActionDeviceCommand } from './model/ActionDeviceCommand';
-import { ActionDisForwarding } from './model/ActionDisForwarding';
-import { ActionIoTAForwarding } from './model/ActionIoTAForwarding';
-import { ActionKafkaForwarding } from './model/ActionKafkaForwarding';
-import { ActionObsForwarding } from './model/ActionObsForwarding';
-import { ActionRomaForwarding } from './model/ActionRomaForwarding';
 import { ActionSmnForwarding } from './model/ActionSmnForwarding';
 import { AddActionReq } from './model/AddActionReq';
 import { AddApplication } from './model/AddApplication';
@@ -42,7 +37,6 @@ import { ChannelDetail } from './model/ChannelDetail';
 import { CheckCertificateRequest } from './model/CheckCertificateRequest';
 import { CheckCertificateResponse } from './model/CheckCertificateResponse';
 import { Cmd } from './model/Cmd';
-import { ColumnMapping } from './model/ColumnMapping';
 import { ConditionGroup } from './model/ConditionGroup';
 import { CreateAccessCodeRequest } from './model/CreateAccessCodeRequest';
 import { CreateAccessCodeRequestBody } from './model/CreateAccessCodeRequestBody';
@@ -93,23 +87,18 @@ import { DeviceCommandRequest } from './model/DeviceCommandRequest';
 import { DeviceDataCondition } from './model/DeviceDataCondition';
 import { DeviceGroupResponseDTO } from './model/DeviceGroupResponseDTO';
 import { DeviceMessage } from './model/DeviceMessage';
-import { DeviceMessageCondition } from './model/DeviceMessageCondition';
 import { DeviceMessageRequest } from './model/DeviceMessageRequest';
 import { DevicePropertiesRequest } from './model/DevicePropertiesRequest';
 import { DeviceShadowData } from './model/DeviceShadowData';
 import { DeviceShadowProperties } from './model/DeviceShadowProperties';
-import { DeviceStatusCondition } from './model/DeviceStatusCondition';
 import { DisForwarding } from './model/DisForwarding';
 import { DmsKafkaForwarding } from './model/DmsKafkaForwarding';
 import { ErrorInfo } from './model/ErrorInfo';
 import { FileMapping } from './model/FileMapping';
 import { FreezeDeviceRequest } from './model/FreezeDeviceRequest';
 import { FreezeDeviceResponse } from './model/FreezeDeviceResponse';
-import { FunctionGraphForwarding } from './model/FunctionGraphForwarding';
 import { HttpForwarding } from './model/HttpForwarding';
-import { InfluxDBForwarding } from './model/InfluxDBForwarding';
 import { InitialDesired } from './model/InitialDesired';
-import { IoTAForwarding } from './model/IoTAForwarding';
 import { ListBatchTaskFilesRequest } from './model/ListBatchTaskFilesRequest';
 import { ListBatchTaskFilesResponse } from './model/ListBatchTaskFilesResponse';
 import { ListBatchTasksRequest } from './model/ListBatchTasksRequest';
@@ -134,18 +123,12 @@ import { ListRuleActionsRequest } from './model/ListRuleActionsRequest';
 import { ListRuleActionsResponse } from './model/ListRuleActionsResponse';
 import { ListRulesRequest } from './model/ListRulesRequest';
 import { ListRulesResponse } from './model/ListRulesResponse';
-import { LtsForwarding } from './model/LtsForwarding';
 import { MessageResult } from './model/MessageResult';
-import { MqsForwarding } from './model/MqsForwarding';
-import { MqttForwarding } from './model/MqttForwarding';
-import { MrsKafkaForwarding } from './model/MrsKafkaForwarding';
-import { MysqlForwarding } from './model/MysqlForwarding';
 import { NetAddress } from './model/NetAddress';
 import { ObsForwarding } from './model/ObsForwarding';
 import { Page } from './model/Page';
 import { ProductSummary } from './model/ProductSummary';
 import { PropertyFilter } from './model/PropertyFilter';
-import { PulsarForwarding } from './model/PulsarForwarding';
 import { QueryDeviceSimplify } from './model/QueryDeviceSimplify';
 import { QueryQueueBase } from './model/QueryQueueBase';
 import { QueryResourceByTagsDTO } from './model/QueryResourceByTagsDTO';
@@ -157,7 +140,6 @@ import { ResetFingerprint } from './model/ResetFingerprint';
 import { ResetFingerprintRequest } from './model/ResetFingerprintRequest';
 import { ResetFingerprintResponse } from './model/ResetFingerprintResponse';
 import { ResourceDTO } from './model/ResourceDTO';
-import { RomaForwarding } from './model/RomaForwarding';
 import { RoutingRule } from './model/RoutingRule';
 import { RoutingRuleAction } from './model/RoutingRuleAction';
 import { RoutingRuleSubject } from './model/RoutingRuleSubject';
@@ -258,8 +240,13 @@ export class IoTDAClient {
         return __dirname;
     }
 
+
     /**
      * 接入凭证是用于客户端使用AMQP等协议与平台建链的一个认证凭据。只保留一条记录，如果重复调用只会重置接入凭证，使得之前的失效。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 生成接入凭证
      * @param {CreateAccessCodeRequestBody} createAccessCodeRequestBody 生成接入凭证的请求结构体
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -272,8 +259,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口在物联网平台创建一个AMQP队列。每个租户只能创建100个队列，若超过规格，则创建失败，若队列名称与已有的队列名称相同，则创建失败。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建AMQP队列
      * @param {QueueInfo} addQueueReQuestBody request
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -286,8 +278,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中的AMQP队列信息列表。可通过队列名称作模糊查询，支持分页。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询AMQP列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [queueName] **参数说明**：amqp队列名称，支持模糊查询，为空查询所有的队列（当前规格单个用户最大100个队列）。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）、间隔号（.）、冒号（:）的组合。
@@ -303,8 +300,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口在物联网平台上删除指定AMQP队列。若当前队列正在使用，则会删除失败。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除AMQP队列
      * @param {string} queueId **参数说明**：队列ID，用于唯一标识一个队列。 **取值范围**：长度36位，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -317,8 +319,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中指定队列的详细信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询单个AMQP队列
      * @param {string} queueId **参数说明**：队列ID，用于唯一标识一个队列。 **取值范围**：长度36位，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -331,8 +338,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口创建资源空间。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建资源空间
      * @param {AddApplication} addApplicationRequestBody 创建资源空间所携带的结构体
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -345,8 +357,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除指定资源空间。删除资源空间属于高危操作，删除资源空间后，该空间下的产品、设备等资源将不可用，请谨慎操作！
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除资源空间
      * @param {string} appId **参数说明**：资源空间ID，唯一标识一个资源空间，由物联网平台在创建资源空间时分配。资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -359,8 +376,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口查询指定资源空间详情。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询资源空间
      * @param {string} appId **参数说明**：资源空间ID，唯一标识一个资源空间，由物联网平台在创建资源空间时分配。资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -373,8 +395,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口查询资源空间列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询资源空间列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {boolean} [defaultApp] **参数说明**：默认资源空间标识，不携带则查询所有资源空间。 **取值范围**： - true：查询默认资源空间。 - false：查询非默认资源空间。
@@ -387,8 +414,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)。注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。 
+     * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)。注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 下发异步设备命令
      * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {AsyncDeviceCommandRequest} createAsyncCommandRequestBody 请求结构体，见请求结构体说明
@@ -403,8 +435,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 物联网平台可查询指定id的命令。  
+     * 物联网平台可查询指定id的命令。 
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询指定id的命令
      * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} commandId **参数说明**：下发命令的命令id，用于唯一标识一个消息，在下发命令时由物联网平台分配获得。 **取值范围**：长度不超过100，只允许字母、数字、下划线（_）、连接符（-）的组合。
@@ -419,8 +456,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口为创建批量处理任务，对多个设备进行批量操作。当前支持批量软固件升级、批量创建设备、批量删除设备、批量冻结设备、批量解冻设备、批量创建命令、批量创建消息任务。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建批量任务
      * @param {CreateBatchTask} createBatchTaskRequestBody request
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -433,8 +475,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中批量任务列表，每一个任务又包括具体的任务内容、任务状态、任务完成情况统计等。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询批量任务列表
      * @param {string} taskType **参数说明**：批量任务类型。 **取值范围**： - softwareUpgrade: 软件升级任务 - firmwareUpgrade: 固件升级任务 - createDevices: 批量创建设备任务 - deleteDevices: 批量删除设备任务 - freezeDevices: 批量冻结设备任务 - unfreezeDevices: 批量解冻设备任务 - createCommands: 批量创建同步命令任务 - createAsyncCommands: 批量创建异步命令任务 - createMessages: 批量创建消息任务 - updateDeviceShadows：批量配置设备影子任务
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -452,8 +499,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中指定批量任务的信息，包括任务内容、任务状态、任务完成情况统计以及子任务列表等。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询批量任务
      * @param {string} taskId **参数说明**：批量任务ID，创建批量任务时由物联网平台分配获得。 **取值范围**：长度不超过24，只允许小写字母a到f、数字的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -469,8 +521,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口删除批量任务文件。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除批量任务文件
      * @param {string} fileId **参数说明**：要删除的批量任务文件ID。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -483,8 +540,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询批量任务文件列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询批量任务文件列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
@@ -496,8 +558,23 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 应用服务器可调用此接口上传批量任务文件，用于创建批量任务。当前支持批量创建设备任务、批量删除设备任务、批量冻结设备任务、批量解冻设备任务的文件上传。 - [批量注册设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchCreateDevices_Template.xlsx)   - [批量删除设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchDeleteDevices_Template.xlsx)   - [批量冻结设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchFreezeDevices_Template.xlsx)   - [批量解冻设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchUnfreezeDevices_Template.xlsx) 
+     * 应用服务器可调用此接口上传批量任务文件，用于创建批量任务。当前支持批量创建设备任务、批量删除设备任务、批量冻结设备任务、批量解冻设备任务的文件上传。
+     * - [批量注册设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchCreateDevices_Template.xlsx)
+     * 
+     * 
+     * - [批量删除设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchDeleteDevices_Template.xlsx)
+     * 
+     * 
+     * - [批量冻结设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchFreezeDevices_Template.xlsx)
+     * 
+     * 
+     * - [批量解冻设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchUnfreezeDevices_Template.xlsx)
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 上传批量任务文件
      * @param {any} file **参数说明**：上传批量任务文件。 **取值范围**：当前仅支持xlsx/xls文件格式，且文件最大行数为30000行。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -510,8 +587,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口在物联网平台上传设备的CA证书
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 上传设备CA证书
      * @param {CreateCertificateDTO} addCertificateRequestBody request
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -524,8 +606,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口在物联网平台验证设备的CA证书，目的是为了验证用户持有设备CA证书的私钥
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 验证设备CA证书
      * @param {string} certificateId **参数说明**：设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
      * @param {string} actionId **参数说明**：对证书执行的操作。 **取值范围**：当前仅支持verify:校验证书。
@@ -540,8 +627,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口在物联网平台删除设备的CA证书
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除设备CA证书
      * @param {string} certificateId **参数说明**：设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -554,8 +646,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口在物联网平台获取设备的CA证书列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 获取设备CA证书列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的证书列表，不携带该参数则会查询该用户下所有证书列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
@@ -571,8 +668,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是20秒。注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。 
+     * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是20秒。注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 下发设备命令
      * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {DeviceCommandRequest} createCommandRequestBody 请求结构体，见请求结构体说明
@@ -587,8 +689,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口新建设备组，一个华为云账号下最多可有1,000个分组，包括父分组和子分组。设备组的最大层级关系不超过5层，即群组形成的关系树最大深度不超过5。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 添加设备组
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {AddDeviceGroupDTO} [addDeviceGroupRequestBody] **参数说明**：请求结构体，见请求结构体说明。
@@ -601,8 +708,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口管理设备组中的设备。单个设备组内最多添加20,000个设备，一个设备最多可以被添加到10个设备组中。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 管理设备组中的设备
      * @param {string} groupId **参数说明**：设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。 **取值范围**：长度不超过36，十六进制字符串和连接符（-）的组合
      * @param {string} actionId **参数说明**：操作类型，支持添加设备和删除设备。 **取值范围**： - addDevice: 添加设备。添加已注册的设备到指定的设备组中。 - removeDevice: 删除设备。从指定的设备组中删除设备，只是解除了设备和设备组的关系，该设备在平台仍然存在。
@@ -617,8 +729,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口删除指定设备组，如果该设备组存在子设备组或者该设备组中存在设备，必须先删除子设备组并将设备从该设备组移除，才能删除该设备组。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除设备组
      * @param {string} groupId **参数说明**：设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。 **取值范围**：长度不超过36，十六进制字符串和连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -631,8 +748,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中的设备组信息列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询设备组列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
@@ -649,8 +771,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询指定设备组详情。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询设备组
      * @param {string} groupId **参数说明**：设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。 **取值范围**：长度不超过36，十六进制字符串和连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -663,8 +790,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询指定设备组下的设备列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询设备组设备列表
      * @param {string} groupId **参数说明**：设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。 **取值范围**：长度不超过36，十六进制字符串和连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -680,8 +812,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口修改物联网平台中指定设备组。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改设备组
      * @param {string} groupId **参数说明**：设备组ID，用于唯一标识一个设备组，在创建设备组时由物联网平台分配。 **取值范围**：长度不超过36，十六进制字符串和连接符（-）的组合。
      * @param {UpdateDeviceGroupDTO} updateDeviceGroupRequestBody request
@@ -695,8 +832,17 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 应用服务器可调用此接口在物联网平台创建一个设备，仅在创建后设备才可以接入物联网平台。  - 该接口支持使用gateway_id参数指定在父设备下创建一个子设备，并且支持多级子设备，当前最大支持二级子设备。 - 该接口同时还支持对设备进行初始配置，接口会读取创建设备请求参数product_id对应的产品详情，如果产品的属性有定义默认值，则会将该属性默认值写入该设备的设备影子中。 - 用户还可以使用创建设备请求参数shadow字段为设备指定初始配置，指定后将会根据service_id和desired设置的属性值与产品中对应属性的默认值比对，如果不同，则将以shadow字段中设置的属性值为准写入到设备影子中。
+     * 应用服务器可调用此接口在物联网平台创建一个设备，仅在创建后设备才可以接入物联网平台。
+     * 
+     * - 该接口支持使用gateway_id参数指定在父设备下创建一个子设备，并且支持多级子设备，当前最大支持二级子设备。
+     * - 该接口同时还支持对设备进行初始配置，接口会读取创建设备请求参数product_id对应的产品详情，如果产品的属性有定义默认值，则会将该属性默认值写入该设备的设备影子中。
+     * - 用户还可以使用创建设备请求参数shadow字段为设备指定初始配置，指定后将会根据service_id和desired设置的属性值与产品中对应属性的默认值比对，如果不同，则将以shadow字段中设置的属性值为准写入到设备影子中。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建设备
      * @param {AddDevice} addDeviceRequestBody request
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -709,8 +855,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口在物联网平台上删除指定设备。若设备下连接了非直连设备，则必须把设备下的非直连设备都删除后，才能删除该设备。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除设备
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -723,8 +874,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口冻结设备，设备冻结后不能再连接上线，可以通过解冻设备接口解除设备冻结。注意，当前仅支持冻结与平台直连的设备。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 冻结设备
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -737,8 +893,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中的设备信息列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询设备列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [productId] **参数说明**：设备关联的产品ID，用于唯一标识一个产品模型，创建产品后获得。方法请参见 [创建产品](https://support.huaweicloud.com/api-iothub/iot_06_v5_0050.html)。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
@@ -761,8 +922,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口重置设备密钥，携带指定密钥时平台将设备密钥重置为指定的密钥，不携带密钥时平台将自动生成一个新的随机密钥返回。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 重置设备密钥
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} actionId **参数说明**：对设备执行的操作。 **取值范围**： - resetSecret: 重置密钥。注意：NB设备密钥由于协议特殊性，只支持十六进制密钥接入。
@@ -777,8 +943,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口重置设备指纹。携带指定设备指纹时将之重置为指定值；不携带时将之置空，后续设备第一次接入时，该设备指纹的值将设置为第一次接入时的证书指纹。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 重置设备指纹
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {ResetFingerprint} resetFingerprintRequestBody request
@@ -792,8 +963,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中指定设备的详细信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询设备
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -806,8 +982,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口解冻设备，解除冻结后，设备可以连接上线。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 解冻设备
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -820,8 +1001,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口修改物联网平台中指定设备的基本信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改设备
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {UpdateDevice} updateDeviceRequestBody request
@@ -835,8 +1021,23 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 应用服务器可调用此接口查询指定设备的设备影子信息，包括对设备的期望属性信息（desired区）和设备最新上报的属性信息（reported区）。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发  限制： 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。 
+     * 应用服务器可调用此接口查询指定设备的设备影子信息，包括对设备的期望属性信息（desired区）和设备最新上报的属性信息（reported区）。
+     * 
+     * 设备影子介绍：
+     * 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。
+     * - 每个设备有且只有一个设备影子，由设备ID唯一标识
+     * - 设备影子仅保存最近一次设备的上报数据和预期数据
+     * - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性
+     * - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发
+     * 
+     * 限制：
+     * 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询设备影子数据
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -849,8 +1050,23 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 应用服务器可调用此接口配置设备影子的预期属性（desired区），当设备上线或者设备上报属性时把属性下发给设备。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发  限制： 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。 
+     * 应用服务器可调用此接口配置设备影子的预期属性（desired区），当设备上线或者设备上报属性时把属性下发给设备。
+     * 
+     * 设备影子介绍：
+     * 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。
+     * - 每个设备有且只有一个设备影子，由设备ID唯一标识
+     * - 设备影子仅保存最近一次设备的上报数据和预期数据
+     * - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性
+     * - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发
+     * 
+     * 限制：
+     * 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 配置设备影子预期数据
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {UpdateDesireds} updateDeviceShadowDesiredDataRequestBody request
@@ -864,8 +1080,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。 
+     * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 下发设备消息
      * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {DeviceMessageRequest} createMessageRequestBody 请求结构体，见请求结构体说明
@@ -879,8 +1100,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 应用服务器可调用此接口查询平台下发给设备的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。  
+     * 应用服务器可调用此接口查询平台下发给设备的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。 
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询设备消息
      * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -893,8 +1119,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 应用服务器可调用此接口查询平台下发给设备的指定消息id的消息。  
+     * 应用服务器可调用此接口查询平台下发给设备的指定消息id的消息。 
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询指定消息id的消息
      * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} messageId **参数说明**：下发消息的消息ID，用于唯一标识一个消息，在消息下发时由物联网平台分配获得。 **取值范围**：长度不超过100，只允许字母、数字、下划线（_）、连接符（-）的组合。
@@ -908,8 +1139,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口创建产品。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建产品
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {AddProduct} [createProductRequestBody] request
@@ -922,8 +1158,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口删除已导入物联网平台的指定产品模型。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除产品
      * @param {string} productId **参数说明**：产品ID，用于唯一标识一个产品，在物联网平台创建产品后由平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -937,8 +1178,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询已导入物联网平台的产品模型信息列表，了解产品模型的概要信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询产品列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
@@ -954,8 +1200,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询已导入物联网平台的指定产品模型详细信息，包括产品模型的服务、属性、命令等。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询产品
      * @param {string} productId **参数说明**：产品ID，用于唯一标识一个产品，在物联网平台创建产品后由平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -969,8 +1220,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口修改已导入物联网平台的指定产品模型，包括产品模型的服务、属性、命令等。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改产品
      * @param {string} productId **参数说明**：产品ID，用于唯一标识一个产品，在物联网平台创建产品后由平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {UpdateProduct} updateProductRequestBody request
@@ -984,8 +1240,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向设备发送指令用以查询设备的实时属性, 并由设备将属性查询的结果同步返回给应用服务器。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。 
+     * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向设备发送指令用以查询设备的实时属性, 并由设备将属性查询的结果同步返回给应用服务器。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询设备属性
      * @param {string} deviceId **参数说明**：下发属性的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} serviceId **参数说明**：设备的服务ID，在设备关联的产品模型中定义。
@@ -1000,8 +1261,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向指定设备下属性。平台负责将属性以同步方式发送给设备，并将设备执行属性结果同步返回。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。 
+     * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向指定设备下属性。平台负责将属性以同步方式发送给设备，并将设备执行属性结果同步返回。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改设备属性
      * @param {string} deviceId **参数说明**：下发属性的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {DevicePropertiesRequest} updatePropertiesRequestBody 请求结构体，见请求结构体说明
@@ -1016,8 +1282,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口在物联网平台创建一条规则触发条件。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建规则触发条件
      * @param {AddRuleReq} createRoutingRuleRequestBody **参数说明**：请求的body对象，详细请看规则结构体
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -1030,8 +1301,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口在物联网平台创建一条规则动作。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建规则动作
      * @param {AddActionReq} createRuleActionRequestBody **参数说明**：请求的body对象，详细请看规则结构体
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -1044,8 +1320,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口删除物联网平台中的指定规则条件。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除规则触发条件
      * @param {string} ruleId **参数说明**：规则条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -1058,8 +1339,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口删除物联网平台中的指定规则动作。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除规则动作
      * @param {string} actionId **参数说明**：规则动作ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -1072,8 +1358,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中设置的规则条件列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询规则条件列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [resource] **参数说明**：订阅的资源名称。 **取值范围**： - device：设备。 - device.property：设备属性。 - device.message：设备消息。 - device.message.status：设备消息状态。 - device.status：设备状态。 - batchtask：批量任务。 - product：产品。 - device.command.status：设备异步命令状态。
@@ -1093,8 +1384,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中设置的规则动作列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询规则动作列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [ruleId] **参数说明**：规则触发条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
@@ -1113,8 +1409,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中指定规则条件的配置信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询规则条件
      * @param {string} ruleId **参数说明**：规则条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -1127,8 +1428,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中指定规则动作的配置信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询规则动作
      * @param {string} actionId **参数说明**：规则动作ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -1141,8 +1447,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则条件的配置参数。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改规则触发条件
      * @param {string} ruleId **参数说明**：规则条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {UpdateRuleReq} updateRoutingRuleRequestBody **参数说明**：请求的body对象，详细请看规则结构体
@@ -1156,8 +1467,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则动作的配置。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改规则动作
      * @param {string} actionId **参数说明**：规则动作ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {UpdateActionReq} updateRuleActionRequestBody **参数说明**：请求的body对象，详细请看规则结构体
@@ -1171,8 +1487,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则的状态，激活或者去激活规则。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改规则状态
      * @param {string} ruleId **参数说明**：规则Id。 **取值范围**：长度不超过32，只允许字母、数字的组合。
      * @param {RuleStatus} changeRuleStatusRequestBody **参数说明**：请求的body对象，详细请看规则结构体。
@@ -1186,8 +1507,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口在物联网平台创建一条规则。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建规则
      * @param {Rule} createRuleRequestBody **参数说明**：请求的body对象，详细请看规则结构体。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -1200,8 +1526,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口删除物联网平台中的指定规则。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除规则
      * @param {string} ruleId **参数说明**：规则ID，用于唯一标识一条规则，在创建规则时由物联网平台分配获得。 **取值范围**：长度不超过32，只允许字母、数字的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -1214,8 +1545,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中设置的规则列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询规则列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的规则列表，不携带该参数则会查询该用户下所有规则列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
@@ -1232,8 +1568,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询物联网平台中指定规则的配置信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询规则
      * @param {string} ruleId **参数说明**：规则ID，用于唯一标识一条规则，在创建规则时由物联网平台分配获得。 **取值范围**：长度不超过32，只允许字母、数字的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
@@ -1246,8 +1587,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口修改物联网平台中指定规则的配置。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 修改规则
      * @param {string} ruleId **参数说明**：规则ID，用于唯一标识一条规则，在创建规则时由物联网平台分配获得。 **取值范围**：长度不超过32，只允许字母、数字的组合。
      * @param {Rule} updateRuleRequestBody **参数说明**：请求的body对象，详细请看规则结构体。
@@ -1261,8 +1607,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口查询绑定了指定标签的资源。当前支持标签的资源有Device(设备)。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 按标签查询资源
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
@@ -1278,8 +1629,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口为指定资源绑定标签。当前支持标签的资源有Device(设备)。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 绑定标签
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {BindTagsDTO} [tagDeviceRequestBody] **参数说明**：请求结构体，见请求结构体说明
@@ -1292,8 +1648,13 @@ export class IoTDAClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 应用服务器可调用此接口为指定资源解绑标签。当前支持标签的资源有Device(设备)。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 解绑标签
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {UnbindTagsDTO} [untagDeviceRequestBody] **参数说明**：请求结构体，见请求结构体说明
@@ -1313,6 +1674,9 @@ export const ParamCreater = function () {
     
         /**
          * 接入凭证是用于客户端使用AMQP等协议与平台建链的一个认证凭据。只保留一条记录，如果重复调用只会重置接入凭证，使得之前的失效。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createAccessCode(createAccessCodeRequest?: CreateAccessCodeRequest) {
             const options = {
@@ -1355,6 +1719,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口在物联网平台创建一个AMQP队列。每个租户只能创建100个队列，若超过规格，则创建失败，若队列名称与已有的队列名称相同，则创建失败。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         addQueue(addQueueRequest?: AddQueueRequest) {
             const options = {
@@ -1397,6 +1764,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中的AMQP队列信息列表。可通过队列名称作模糊查询，支持分页。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         batchShowQueue(batchShowQueueRequest?: BatchShowQueueRequest) {
             const options = {
@@ -1456,6 +1826,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口在物联网平台上删除指定AMQP队列。若当前队列正在使用，则会删除失败。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteQueue(deleteQueueRequest?: DeleteQueueRequest) {
             const options = {
@@ -1497,6 +1870,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中指定队列的详细信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showQueue(showQueueRequest?: ShowQueueRequest) {
             const options = {
@@ -1538,6 +1914,9 @@ export const ParamCreater = function () {
     
         /**
          * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口创建资源空间。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         addApplication(addApplicationRequest?: AddApplicationRequest) {
             const options = {
@@ -1580,6 +1959,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除指定资源空间。删除资源空间属于高危操作，删除资源空间后，该空间下的产品、设备等资源将不可用，请谨慎操作！
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteApplication(deleteApplicationRequest?: DeleteApplicationRequest) {
             const options = {
@@ -1621,6 +2003,9 @@ export const ParamCreater = function () {
     
         /**
          * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口查询指定资源空间详情。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showApplication(showApplicationRequest?: ShowApplicationRequest) {
             const options = {
@@ -1662,6 +2047,9 @@ export const ParamCreater = function () {
     
         /**
          * 资源空间对应的是物联网平台原有的应用，在物联网平台的含义与应用一致，只是变更了名称。应用服务器可以调用此接口查询资源空间列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showApplications(showApplicationsRequest?: ShowApplicationsRequest) {
             const options = {
@@ -1702,7 +2090,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)。注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。 
+         * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)。注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createAsyncCommand(createAsyncCommandRequest?: CreateAsyncCommandRequest) {
             const options = {
@@ -1757,7 +2148,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 物联网平台可查询指定id的命令。  
+         * 物联网平台可查询指定id的命令。 
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showAsyncDeviceCommand(showAsyncDeviceCommandRequest?: ShowAsyncDeviceCommandRequest) {
             const options = {
@@ -1811,6 +2205,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口为创建批量处理任务，对多个设备进行批量操作。当前支持批量软固件升级、批量创建设备、批量删除设备、批量冻结设备、批量解冻设备、批量创建命令、批量创建消息任务。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createBatchTask(createBatchTaskRequest?: CreateBatchTaskRequest) {
             const options = {
@@ -1853,6 +2250,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中批量任务列表，每一个任务又包括具体的任务内容、任务状态、任务完成情况统计等。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listBatchTasks(listBatchTasksRequest?: ListBatchTasksRequest) {
             const options = {
@@ -1927,6 +2327,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中指定批量任务的信息，包括任务内容、任务状态、任务完成情况统计以及子任务列表等。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showBatchTask(showBatchTaskRequest?: ShowBatchTaskRequest) {
             const options = {
@@ -1987,6 +2390,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口删除批量任务文件。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteBatchTaskFile(deleteBatchTaskFileRequest?: DeleteBatchTaskFileRequest) {
             const options = {
@@ -2028,6 +2434,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询批量任务文件列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listBatchTaskFiles(listBatchTaskFilesRequest?: ListBatchTaskFilesRequest) {
             const options = {
@@ -2061,7 +2470,20 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口上传批量任务文件，用于创建批量任务。当前支持批量创建设备任务、批量删除设备任务、批量冻结设备任务、批量解冻设备任务的文件上传。 - [批量注册设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchCreateDevices_Template.xlsx)   - [批量删除设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchDeleteDevices_Template.xlsx)   - [批量冻结设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchFreezeDevices_Template.xlsx)   - [批量解冻设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchUnfreezeDevices_Template.xlsx) 
+         * 应用服务器可调用此接口上传批量任务文件，用于创建批量任务。当前支持批量创建设备任务、批量删除设备任务、批量冻结设备任务、批量解冻设备任务的文件上传。
+         * - [批量注册设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchCreateDevices_Template.xlsx)
+         * 
+         * 
+         * - [批量删除设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchDeleteDevices_Template.xlsx)
+         * 
+         * 
+         * - [批量冻结设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchFreezeDevices_Template.xlsx)
+         * 
+         * 
+         * - [批量解冻设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchUnfreezeDevices_Template.xlsx)
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         uploadBatchTaskFile(uploadBatchTaskFileRequest?: UploadBatchTaskFileRequest) {
             const options = {
@@ -2106,6 +2528,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口在物联网平台上传设备的CA证书
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         addCertificate(addCertificateRequest?: AddCertificateRequest) {
             const options = {
@@ -2148,6 +2573,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口在物联网平台验证设备的CA证书，目的是为了验证用户持有设备CA证书的私钥
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         checkCertificate(checkCertificateRequest?: CheckCertificateRequest) {
             const options = {
@@ -2207,6 +2635,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口在物联网平台删除设备的CA证书
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest) {
             const options = {
@@ -2248,6 +2679,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口在物联网平台获取设备的CA证书列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listCertificates(listCertificatesRequest?: ListCertificatesRequest) {
             const options = {
@@ -2306,7 +2740,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是20秒。注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。 
+         * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是20秒。注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createCommand(createCommandRequest?: CreateCommandRequest) {
             const options = {
@@ -2362,6 +2799,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口新建设备组，一个华为云账号下最多可有1,000个分组，包括父分组和子分组。设备组的最大层级关系不超过5层，即群组形成的关系树最大深度不超过5。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         addDeviceGroup(addDeviceGroupRequest?: AddDeviceGroupRequest) {
             const options = {
@@ -2401,6 +2841,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口管理设备组中的设备。单个设备组内最多添加20,000个设备，一个设备最多可以被添加到10个设备组中。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createOrDeleteDeviceInGroup(createOrDeleteDeviceInGroupRequest?: CreateOrDeleteDeviceInGroupRequest) {
             const options = {
@@ -2461,6 +2904,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口删除指定设备组，如果该设备组存在子设备组或者该设备组中存在设备，必须先删除子设备组并将设备从该设备组移除，才能删除该设备组。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteDeviceGroup(deleteDeviceGroupRequest?: DeleteDeviceGroupRequest) {
             const options = {
@@ -2502,6 +2948,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中的设备组信息列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listDeviceGroups(listDeviceGroupsRequest?: ListDeviceGroupsRequest) {
             const options = {
@@ -2567,6 +3016,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询指定设备组详情。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showDeviceGroup(showDeviceGroupRequest?: ShowDeviceGroupRequest) {
             const options = {
@@ -2608,6 +3060,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询指定设备组下的设备列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showDevicesInGroup(showDevicesInGroupRequest?: ShowDevicesInGroupRequest) {
             const options = {
@@ -2668,6 +3123,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口修改物联网平台中指定设备组。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateDeviceGroup(updateDeviceGroupRequest?: UpdateDeviceGroupRequest) {
             const options = {
@@ -2716,7 +3174,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口在物联网平台创建一个设备，仅在创建后设备才可以接入物联网平台。  - 该接口支持使用gateway_id参数指定在父设备下创建一个子设备，并且支持多级子设备，当前最大支持二级子设备。 - 该接口同时还支持对设备进行初始配置，接口会读取创建设备请求参数product_id对应的产品详情，如果产品的属性有定义默认值，则会将该属性默认值写入该设备的设备影子中。 - 用户还可以使用创建设备请求参数shadow字段为设备指定初始配置，指定后将会根据service_id和desired设置的属性值与产品中对应属性的默认值比对，如果不同，则将以shadow字段中设置的属性值为准写入到设备影子中。
+         * 应用服务器可调用此接口在物联网平台创建一个设备，仅在创建后设备才可以接入物联网平台。
+         * 
+         * - 该接口支持使用gateway_id参数指定在父设备下创建一个子设备，并且支持多级子设备，当前最大支持二级子设备。
+         * - 该接口同时还支持对设备进行初始配置，接口会读取创建设备请求参数product_id对应的产品详情，如果产品的属性有定义默认值，则会将该属性默认值写入该设备的设备影子中。
+         * - 用户还可以使用创建设备请求参数shadow字段为设备指定初始配置，指定后将会根据service_id和desired设置的属性值与产品中对应属性的默认值比对，如果不同，则将以shadow字段中设置的属性值为准写入到设备影子中。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         addDevice(addDeviceRequest?: AddDeviceRequest) {
             const options = {
@@ -2759,6 +3224,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口在物联网平台上删除指定设备。若设备下连接了非直连设备，则必须把设备下的非直连设备都删除后，才能删除该设备。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteDevice(deleteDeviceRequest?: DeleteDeviceRequest) {
             const options = {
@@ -2800,6 +3268,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口冻结设备，设备冻结后不能再连接上线，可以通过解冻设备接口解除设备冻结。注意，当前仅支持冻结与平台直连的设备。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         freezeDevice(freezeDeviceRequest?: FreezeDeviceRequest) {
             const options = {
@@ -2841,6 +3312,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中的设备信息列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listDevices(listDevicesRequest?: ListDevicesRequest) {
             const options = {
@@ -2942,6 +3416,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口重置设备密钥，携带指定密钥时平台将设备密钥重置为指定的密钥，不携带密钥时平台将自动生成一个新的随机密钥返回。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         resetDeviceSecret(resetDeviceSecretRequest?: ResetDeviceSecretRequest) {
             const options = {
@@ -3001,6 +3478,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口重置设备指纹。携带指定设备指纹时将之重置为指定值；不携带时将之置空，后续设备第一次接入时，该设备指纹的值将设置为第一次接入时的证书指纹。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         resetFingerprint(resetFingerprintRequest?: ResetFingerprintRequest) {
             const options = {
@@ -3050,6 +3530,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中指定设备的详细信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showDevice(showDeviceRequest?: ShowDeviceRequest) {
             const options = {
@@ -3091,6 +3574,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口解冻设备，解除冻结后，设备可以连接上线。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         unfreezeDevice(unfreezeDeviceRequest?: UnfreezeDeviceRequest) {
             const options = {
@@ -3132,6 +3618,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口修改物联网平台中指定设备的基本信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateDevice(updateDeviceRequest?: UpdateDeviceRequest) {
             const options = {
@@ -3180,7 +3669,20 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口查询指定设备的设备影子信息，包括对设备的期望属性信息（desired区）和设备最新上报的属性信息（reported区）。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发  限制： 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。 
+         * 应用服务器可调用此接口查询指定设备的设备影子信息，包括对设备的期望属性信息（desired区）和设备最新上报的属性信息（reported区）。
+         * 
+         * 设备影子介绍：
+         * 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。
+         * - 每个设备有且只有一个设备影子，由设备ID唯一标识
+         * - 设备影子仅保存最近一次设备的上报数据和预期数据
+         * - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性
+         * - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发
+         * 
+         * 限制：
+         * 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showDeviceShadow(showDeviceShadowRequest?: ShowDeviceShadowRequest) {
             const options = {
@@ -3221,7 +3723,20 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口配置设备影子的预期属性（desired区），当设备上线或者设备上报属性时把属性下发给设备。  设备影子介绍： 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。 - 每个设备有且只有一个设备影子，由设备ID唯一标识 - 设备影子仅保存最近一次设备的上报数据和预期数据 - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性 - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发  限制： 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。 
+         * 应用服务器可调用此接口配置设备影子的预期属性（desired区），当设备上线或者设备上报属性时把属性下发给设备。
+         * 
+         * 设备影子介绍：
+         * 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。
+         * - 每个设备有且只有一个设备影子，由设备ID唯一标识
+         * - 设备影子仅保存最近一次设备的上报数据和预期数据
+         * - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性
+         * - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发
+         * 
+         * 限制：
+         * 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateDeviceShadowDesiredData(updateDeviceShadowDesiredDataRequest?: UpdateDeviceShadowDesiredDataRequest) {
             const options = {
@@ -3270,7 +3785,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。 
+         * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createMessage(createMessageRequest?: CreateMessageRequest) {
             const options = {
@@ -3319,7 +3837,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口查询平台下发给设备的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。  
+         * 应用服务器可调用此接口查询平台下发给设备的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。 
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listDeviceMessages(listDeviceMessagesRequest?: ListDeviceMessagesRequest) {
             const options = {
@@ -3360,7 +3881,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口查询平台下发给设备的指定消息id的消息。  
+         * 应用服务器可调用此接口查询平台下发给设备的指定消息id的消息。 
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showDeviceMessage(showDeviceMessageRequest?: ShowDeviceMessageRequest) {
             const options = {
@@ -3408,6 +3932,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口创建产品。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createProduct(createProductRequest?: CreateProductRequest) {
             const options = {
@@ -3447,6 +3974,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口删除已导入物联网平台的指定产品模型。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteProduct(deleteProductRequest?: DeleteProductRequest) {
             const options = {
@@ -3495,6 +4025,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询已导入物联网平台的产品模型信息列表，了解产品模型的概要信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listProducts(listProductsRequest?: ListProductsRequest) {
             const options = {
@@ -3554,6 +4087,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询已导入物联网平台的指定产品模型详细信息，包括产品模型的服务、属性、命令等。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showProduct(showProductRequest?: ShowProductRequest) {
             const options = {
@@ -3602,6 +4138,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口修改已导入物联网平台的指定产品模型，包括产品模型的服务、属性、命令等。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateProduct(updateProductRequest?: UpdateProductRequest) {
             const options = {
@@ -3650,7 +4189,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向设备发送指令用以查询设备的实时属性, 并由设备将属性查询的结果同步返回给应用服务器。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。 
+         * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向设备发送指令用以查询设备的实时属性, 并由设备将属性查询的结果同步返回给应用服务器。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listProperties(listPropertiesRequest?: ListPropertiesRequest) {
             const options = {
@@ -3707,7 +4249,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向指定设备下属性。平台负责将属性以同步方式发送给设备，并将设备执行属性结果同步返回。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。 
+         * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向指定设备下属性。平台负责将属性以同步方式发送给设备，并将设备执行属性结果同步返回。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateProperties(updatePropertiesRequest?: UpdatePropertiesRequest) {
             const options = {
@@ -3763,6 +4308,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口在物联网平台创建一条规则触发条件。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createRoutingRule(createRoutingRuleRequest?: CreateRoutingRuleRequest) {
             const options = {
@@ -3805,6 +4353,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口在物联网平台创建一条规则动作。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createRuleAction(createRuleActionRequest?: CreateRuleActionRequest) {
             const options = {
@@ -3847,6 +4398,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口删除物联网平台中的指定规则条件。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteRoutingRule(deleteRoutingRuleRequest?: DeleteRoutingRuleRequest) {
             const options = {
@@ -3888,6 +4442,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口删除物联网平台中的指定规则动作。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteRuleAction(deleteRuleActionRequest?: DeleteRuleActionRequest) {
             const options = {
@@ -3929,6 +4486,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中设置的规则条件列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listRoutingRules(listRoutingRulesRequest?: ListRoutingRulesRequest) {
             const options = {
@@ -4012,6 +4572,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中设置的规则动作列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listRuleActions(listRuleActionsRequest?: ListRuleActionsRequest) {
             const options = {
@@ -4089,6 +4652,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中指定规则条件的配置信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showRoutingRule(showRoutingRuleRequest?: ShowRoutingRuleRequest) {
             const options = {
@@ -4130,6 +4696,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中指定规则动作的配置信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showRuleAction(showRuleActionRequest?: ShowRuleActionRequest) {
             const options = {
@@ -4171,6 +4740,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口修改物联网平台中指定规则条件的配置参数。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateRoutingRule(updateRoutingRuleRequest?: UpdateRoutingRuleRequest) {
             const options = {
@@ -4220,6 +4792,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口修改物联网平台中指定规则动作的配置。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateRuleAction(updateRuleActionRequest?: UpdateRuleActionRequest) {
             const options = {
@@ -4269,6 +4844,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口修改物联网平台中指定规则的状态，激活或者去激活规则。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         changeRuleStatus(changeRuleStatusRequest?: ChangeRuleStatusRequest) {
             const options = {
@@ -4318,6 +4896,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口在物联网平台创建一条规则。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createRule(createRuleRequest?: CreateRuleRequest) {
             const options = {
@@ -4360,6 +4941,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口删除物联网平台中的指定规则。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteRule(deleteRuleRequest?: DeleteRuleRequest) {
             const options = {
@@ -4401,6 +4985,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中设置的规则列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listRules(listRulesRequest?: ListRulesRequest) {
             const options = {
@@ -4466,6 +5053,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询物联网平台中指定规则的配置信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showRule(showRuleRequest?: ShowRuleRequest) {
             const options = {
@@ -4507,6 +5097,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口修改物联网平台中指定规则的配置。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateRule(updateRuleRequest?: UpdateRuleRequest) {
             const options = {
@@ -4556,6 +5149,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口查询绑定了指定标签的资源。当前支持标签的资源有Device(设备)。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listResourcesByTags(listResourcesByTagsRequest?: ListResourcesByTagsRequest) {
             const options = {
@@ -4614,6 +5210,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口为指定资源绑定标签。当前支持标签的资源有Device(设备)。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         tagDevice(tagDeviceRequest?: TagDeviceRequest) {
             const options = {
@@ -4653,6 +5252,9 @@ export const ParamCreater = function () {
     
         /**
          * 应用服务器可调用此接口为指定资源解绑标签。当前支持标签的资源有Device(设备)。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         untagDevice(untagDeviceRequest?: UntagDeviceRequest) {
             const options = {

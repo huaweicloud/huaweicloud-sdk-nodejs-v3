@@ -112,8 +112,13 @@ export class VpcClient {
         return __dirname;
     }
 
+
     /**
      * 批量创建辅助弹性网卡
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 批量创建辅助弹性网卡
      * @param {BatchCreateSubNetworkInterfaceRequestBody} batchCreateSubNetworkInterfaceRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -125,8 +130,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 创建安全组
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建安全组
      * @param {CreateSecurityGroupRequestBody} createSecurityGroupRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -138,8 +148,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 创建安全组规则
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建安全组规则
      * @param {CreateSecurityGroupRuleRequestBody} createSecurityGroupRuleRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -151,8 +166,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 创建辅助弹性网卡
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建辅助弹性网卡
      * @param {CreateSubNetworkInterfaceRequestBody} createSubNetworkInterfaceRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -164,8 +184,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除安全组
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除安全组
      * @param {string} securityGroupId 安全组资源ID
      * @param {*} [options] Override http request option.
@@ -177,8 +202,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除安全组规则
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除安全组规则
      * @param {string} securityGroupRuleId 安全组规则ID
      * @param {*} [options] Override http request option.
@@ -190,8 +220,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除辅助弹性网卡
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除辅助弹性网卡
      * @param {string} subNetworkInterfaceId 弹性辅助网卡唯一标识
      * @param {*} [options] Override http request option.
@@ -203,8 +238,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询安全组规则列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询安全组规则列表
      * @param {number} [limit] 功能说明：每页返回个数 取值范围：0-2000
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
@@ -224,8 +264,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询某租户下的安全组列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询安全组列表
      * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0-2000
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
@@ -242,8 +287,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询辅助弹性网卡列表，单次查询最多返回2000条数据
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询租户下辅助弹性网卡列表
      * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0-2000
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
@@ -263,8 +313,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 批量迁移辅助弹性网卡
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 迁移辅助弹性网卡
      * @param {MigrateSubNetworkInterfaceRequestBody} migrateSubNetworkInterfaceRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -276,8 +331,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询单个安全组详情
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询安全组
      * @param {string} securityGroupId 安全组资源ID
      * @param {*} [options] Override http request option.
@@ -289,8 +349,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询单个安全组规则
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询安全组规则
      * @param {string} securityGroupRuleId 安全组规则ID
      * @param {*} [options] Override http request option.
@@ -302,8 +367,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询辅助弹性网卡详情
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询租户下辅助弹性网卡
      * @param {string} subNetworkInterfaceId 辅助弹性网卡的唯一标识
      * @param {*} [options] Override http request option.
@@ -315,8 +385,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询辅助弹性网卡数目
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询租户下辅助弹性网卡数目
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -327,8 +402,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 更新安全组
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 更新安全组
      * @param {string} securityGroupId 安全组ID
      * @param {UpdateSecurityGroupRequestBody} updateSecurityGroupRequestBody This is a auto create Body Object
@@ -341,8 +421,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 更新辅助弹性网卡
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 更新辅助弹性网卡
      * @param {string} subNetworkInterfaceId 辅助弹性网卡的唯一标识
      * @param {UpdateSubNetworkInterfaceRequestBody} updateSubNetworkInterfaceRequestBody This is a auto create Body Object
@@ -355,8 +440,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 创建地址组
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建地址组
      * @param {CreateAddressGroupRequestBody} createAddressGroupRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -368,8 +458,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除地址组，非强制删除，删除前请确保未被其他资源引用
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除地址组
      * @param {string} addressGroupId 地址组的唯一标识
      * @param {*} [options] Override http request option.
@@ -381,8 +476,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 强制删除地址组，删除的地址组与安全组规则关联时，会删除地址组与关联的安全组规则。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 强制删除地址组
      * @param {string} addressGroupId IP地址组的唯一标识，要删除的IP地址组ID
      * @param {*} [options] Override http request option.
@@ -394,8 +494,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询地址组列表，根据过滤条件进行过滤。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询地址组列表
      * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0~2000
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
@@ -412,8 +517,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询地址组详情。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询地址组
      * @param {string} addressGroupId 地址组的唯一标识
      * @param {*} [options] Override http request option.
@@ -425,8 +535,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 更新地址组。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 更新地址组
      * @param {string} addressGroupId 地址组的唯一标识
      * @param {UpdateAddressGroupRequestBody} updateAddressGroupRequestBody This is a auto create Body Object
@@ -439,8 +554,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 添加VPC的扩展网段
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 添加VPC扩展网段
      * @param {string} vpcId VPC资源ID
      * @param {AddVpcExtendCidrRequestBody} addVpcExtendCidrRequestBody This is a auto create Body Object
@@ -453,8 +573,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 创建虚拟私有云
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建VPC
      * @param {CreateVpcRequestBody} createVpcRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -466,8 +591,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除VPC
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除VPC
      * @param {string} vpcId VPC的资源ID
      * @param {*} [options] Override http request option.
@@ -479,8 +609,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询vpc列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询VPC列表
      * @param {number} [limit] 功能说明：每页返回的个数 取值范围：0-2000
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
@@ -497,8 +632,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 移除VPC扩展网段
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 移除VPC扩展网段
      * @param {string} vpcId VPC资源ID
      * @param {RemoveVpcExtendCidrRequestBody} removeVpcExtendCidrRequestBody This is a auto create Body Object
@@ -511,8 +651,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询vpc详情
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询VPC详情
      * @param {string} vpcId VPC资源ID
      * @param {*} [options] Override http request option.
@@ -524,8 +669,13 @@ export class VpcClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 更新vpc
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 更新VPC
      * @param {string} vpcId VPC资源ID
      * @param {UpdateVpcRequestBody} updateVpcRequestBody This is a auto create Body Object
@@ -545,6 +695,9 @@ export const ParamCreater = function () {
     
         /**
          * 批量创建辅助弹性网卡
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         batchCreateSubNetworkInterface(batchCreateSubNetworkInterfaceRequest?: BatchCreateSubNetworkInterfaceRequest) {
             const options = {
@@ -581,6 +734,9 @@ export const ParamCreater = function () {
     
         /**
          * 创建安全组
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createSecurityGroup(createSecurityGroupRequest?: CreateSecurityGroupRequest) {
             const options = {
@@ -617,6 +773,9 @@ export const ParamCreater = function () {
     
         /**
          * 创建安全组规则
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createSecurityGroupRule(createSecurityGroupRuleRequest?: CreateSecurityGroupRuleRequest) {
             const options = {
@@ -653,6 +812,9 @@ export const ParamCreater = function () {
     
         /**
          * 创建辅助弹性网卡
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createSubNetworkInterface(createSubNetworkInterfaceRequest?: CreateSubNetworkInterfaceRequest) {
             const options = {
@@ -689,6 +851,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除安全组
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteSecurityGroup(deleteSecurityGroupRequest?: DeleteSecurityGroupRequest) {
             const options = {
@@ -724,6 +889,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除安全组规则
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteSecurityGroupRule(deleteSecurityGroupRuleRequest?: DeleteSecurityGroupRuleRequest) {
             const options = {
@@ -759,6 +927,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除辅助弹性网卡
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteSubNetworkInterface(deleteSubNetworkInterfaceRequest?: DeleteSubNetworkInterfaceRequest) {
             const options = {
@@ -794,6 +965,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询安全组规则列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listSecurityGroupRules(listSecurityGroupRulesRequest?: ListSecurityGroupRulesRequest) {
             const options = {
@@ -877,6 +1051,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询某租户下的安全组列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listSecurityGroups(listSecurityGroupsRequest?: ListSecurityGroupsRequest) {
             const options = {
@@ -942,6 +1119,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询辅助弹性网卡列表，单次查询最多返回2000条数据
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listSubNetworkInterfaces(listSubNetworkInterfacesRequest?: ListSubNetworkInterfacesRequest) {
             const options = {
@@ -1025,6 +1205,9 @@ export const ParamCreater = function () {
     
         /**
          * 批量迁移辅助弹性网卡
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         migrateSubNetworkInterface(migrateSubNetworkInterfaceRequest?: MigrateSubNetworkInterfaceRequest) {
             const options = {
@@ -1061,6 +1244,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询单个安全组详情
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showSecurityGroup(showSecurityGroupRequest?: ShowSecurityGroupRequest) {
             const options = {
@@ -1096,6 +1282,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询单个安全组规则
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showSecurityGroupRule(showSecurityGroupRuleRequest?: ShowSecurityGroupRuleRequest) {
             const options = {
@@ -1131,6 +1320,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询辅助弹性网卡详情
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showSubNetworkInterface(showSubNetworkInterfaceRequest?: ShowSubNetworkInterfaceRequest) {
             const options = {
@@ -1166,6 +1358,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询辅助弹性网卡数目
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showSubNetworkInterfacesQuantity() {
             const options = {
@@ -1186,6 +1381,9 @@ export const ParamCreater = function () {
     
         /**
          * 更新安全组
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateSecurityGroup(updateSecurityGroupRequest?: UpdateSecurityGroupRequest) {
             const options = {
@@ -1229,6 +1427,9 @@ export const ParamCreater = function () {
     
         /**
          * 更新辅助弹性网卡
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateSubNetworkInterface(updateSubNetworkInterfaceRequest?: UpdateSubNetworkInterfaceRequest) {
             const options = {
@@ -1272,6 +1473,9 @@ export const ParamCreater = function () {
     
         /**
          * 创建地址组
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createAddressGroup(createAddressGroupRequest?: CreateAddressGroupRequest) {
             const options = {
@@ -1308,6 +1512,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除地址组，非强制删除，删除前请确保未被其他资源引用
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteAddressGroup(deleteAddressGroupRequest?: DeleteAddressGroupRequest) {
             const options = {
@@ -1343,6 +1550,9 @@ export const ParamCreater = function () {
     
         /**
          * 强制删除地址组，删除的地址组与安全组规则关联时，会删除地址组与关联的安全组规则。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteIpAddressGroupForce(deleteIpAddressGroupForceRequest?: DeleteIpAddressGroupForceRequest) {
             const options = {
@@ -1378,6 +1588,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询地址组列表，根据过滤条件进行过滤。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listAddressGroup(listAddressGroupRequest?: ListAddressGroupRequest) {
             const options = {
@@ -1443,6 +1656,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询地址组详情。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showAddressGroup(showAddressGroupRequest?: ShowAddressGroupRequest) {
             const options = {
@@ -1478,6 +1694,9 @@ export const ParamCreater = function () {
     
         /**
          * 更新地址组。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateAddressGroup(updateAddressGroupRequest?: UpdateAddressGroupRequest) {
             const options = {
@@ -1521,6 +1740,9 @@ export const ParamCreater = function () {
     
         /**
          * 添加VPC的扩展网段
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         addVpcExtendCidr(addVpcExtendCidrRequest?: AddVpcExtendCidrRequest) {
             const options = {
@@ -1564,6 +1786,9 @@ export const ParamCreater = function () {
     
         /**
          * 创建虚拟私有云
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createVpc(createVpcRequest?: CreateVpcRequest) {
             const options = {
@@ -1600,6 +1825,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除VPC
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteVpc(deleteVpcRequest?: DeleteVpcRequest) {
             const options = {
@@ -1635,6 +1863,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询vpc列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listVpcs(listVpcsRequest?: ListVpcsRequest) {
             const options = {
@@ -1700,6 +1931,9 @@ export const ParamCreater = function () {
     
         /**
          * 移除VPC扩展网段
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         removeVpcExtendCidr(removeVpcExtendCidrRequest?: RemoveVpcExtendCidrRequest) {
             const options = {
@@ -1743,6 +1977,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询vpc详情
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showVpc(showVpcRequest?: ShowVpcRequest) {
             const options = {
@@ -1778,6 +2015,9 @@ export const ParamCreater = function () {
     
         /**
          * 更新vpc
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateVpc(updateVpcRequest?: UpdateVpcRequest) {
             const options = {

@@ -117,8 +117,16 @@ export class EvsClient {
         return __dirname;
     }
 
+
     /**
-     * 为指定云硬盘批量添加标签。  添加标签时，如果云硬盘的标签已存在相同key，则会覆盖已有标签。 单个云硬盘最多支持创建10个标签。
+     * 为指定云硬盘批量添加标签。
+     * 
+     * 添加标签时，如果云硬盘的标签已存在相同key，则会覆盖已有标签。
+     * 单个云硬盘最多支持创建10个标签。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 为指定云硬盘批量添加标签
      * @param {string} volumeId 云硬盘ID。
      * @param {BatchCreateVolumeTagsRequestBody} batchCreateVolumeTagsRequestBody This is a auto create Body Object
@@ -131,8 +139,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 为指定云硬盘批量删除标签。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 为指定云硬盘批量删除标签
      * @param {string} volumeId 磁盘ID。
      * @param {BatchDeleteVolumeTagsRequestBody} batchDeleteVolumeTagsRequestBody This is a auto create Body Object
@@ -145,8 +158,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询所有的可用分区信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询所有的可用分区信息
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -157,8 +175,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询租户的详细配额。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询租户的详细配额
      * @param {string} targetProjectId 目标的项目ID。与project_id保持一致即可。
      * @param {'True'} usage 是否查询配额详细信息。当前只支持传true。
@@ -171,8 +194,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询云硬盘类型列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询云硬盘类型列表
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -183,8 +211,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 创建云硬盘快照。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建云硬盘快照
      * @param {CreateSnapshotRequestBody} createSnapshotRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -196,8 +229,18 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 创建按需或包周期云硬盘。 在创建包周期云硬盘的场景下： - 如果您需要查看订单可用的优惠券，请参考\"[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\"。 - 如果您需要支付订单，请参考\"[支付包周期产品订单](https://support.huaweicloud.com/api-oce/zh-cn_topic_0075746561.html)\"。 - 如果您需要查询订单的资源开通详情，请参考\"[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\"。 - 如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。
+     * 创建按需或包周期云硬盘。
+     * 在创建包周期云硬盘的场景下：
+     * - 如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。
+     * - 如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/zh-cn_topic_0075746561.html)\&quot;。
+     * - 如果您需要查询订单的资源开通详情，请参考\&quot;[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\&quot;。
+     * - 如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建云硬盘
      * @param {CreateVolumeRequestBody} createVolumeRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -209,8 +252,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除云硬盘快照。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除云硬盘快照
      * @param {string} snapshotId 快照ID。
      * @param {*} [options] Override http request option.
@@ -222,8 +270,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除一个云硬盘。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除云硬盘
      * @param {string} volumeId 云硬盘ID。
      * @param {*} [options] Override http request option.
@@ -235,8 +288,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询云硬盘快照详细列表信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询云硬盘快照详细列表信息
      * @param {number} [offset] 偏移量。 说明:分页查询快照时使用，与limit配合使用。假如共有30个快照，设置offset为11，limit为10，即为从第12个快照开始查询，一次最多可读取10个快照。
      * @param {number} [limit] 返回结果个数限制，值为大于0的整数。默认值为1000。
@@ -258,8 +316,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 获取某个租户的所有云硬盘资源的标签信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 获取云硬盘资源的所有标签
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -270,8 +333,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询所有云硬盘的详细信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询所有云硬盘详情
      * @param {string} [marker] 通过云硬盘ID进行分页查询。默认为查询第一页数据。
      * @param {string} [name] 磁盘名称。
@@ -300,8 +368,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 通过标签查询云硬盘资源实例详情。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 通过标签查询云硬盘资源实例详情
      * @param {ListVolumesByTagsRequestBody} listVolumesByTagsRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -313,8 +386,18 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 对按需或者包周期云硬盘进行扩容。 在扩容包周期云硬盘的场景下： - 如果您需要查看订单可用的优惠券，请参考\"[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\"。 - 如果您需要支付订单，请参考\"[支付包周期产品订单](https://support.huaweicloud.com/api-oce/zh-cn_topic_0075746561.html)\"。 - 如果您需要查询订单的资源开通详情，请参考\"[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\"。 - 如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。
+     * 对按需或者包周期云硬盘进行扩容。
+     * 在扩容包周期云硬盘的场景下：
+     * - 如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。
+     * - 如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/zh-cn_topic_0075746561.html)\&quot;。
+     * - 如果您需要查询订单的资源开通详情，请参考\&quot;[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\&quot;。
+     * - 如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 扩容云硬盘
      * @param {string} volumeId 云硬盘ID。
      * @param {ResizeVolumeRequestBody} resizeVolumeRequestBody This is a auto create Body Object
@@ -327,8 +410,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 将快照数据回滚到云硬盘。支持企业项目授权功能。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 回滚快照到云硬盘
      * @param {string} snapshotId 快照ID
      * @param {RollbackSnapshotRequestBody} rollbackSnapshotRequestBody This is a auto create Body Object
@@ -341,8 +429,14 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 查询Job的执行状态。 可用于查询创建云硬盘，扩容云硬盘，删除云硬盘等API的执行状态。
+     * 查询Job的执行状态。
+     * 可用于查询创建云硬盘，扩容云硬盘，删除云硬盘等API的执行状态。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询job的状态
      * @param {string} jobId job ID。
      * @param {*} [options] Override http request option.
@@ -354,8 +448,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询单个云硬盘快照信息。支持企业项目授权功能。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询单个云硬盘快照详细信息
      * @param {string} snapshotId 快照ID。
      * @param {*} [options] Override http request option.
@@ -367,8 +466,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询单个云硬盘的详细信息。支持企业项目授权功能。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询单个云硬盘详情
      * @param {string} volumeId 云硬盘ID。
      * @param {*} [options] Override http request option.
@@ -380,8 +484,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询指定云硬盘的标签信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询云硬盘标签
      * @param {string} volumeId 云硬盘ID
      * @param {*} [options] Override http request option.
@@ -393,8 +502,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 更新云硬盘快照。支持企业项目授权功能。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 更新云硬盘快照
      * @param {string} snapshotId 快照ID
      * @param {UpdateSnapshotRequestBody} updateSnapshotRequestBody This is a auto create Body Object
@@ -407,8 +521,13 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 更新一个云硬盘的名称和描述。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 更新云硬盘
      * @param {string} volumeId 云硬盘ID。
      * @param {UpdateVolumeRequestBody} updateVolumeRequestBody This is a auto create Body Object
@@ -427,7 +546,13 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 为指定云硬盘批量添加标签。  添加标签时，如果云硬盘的标签已存在相同key，则会覆盖已有标签。 单个云硬盘最多支持创建10个标签。
+         * 为指定云硬盘批量添加标签。
+         * 
+         * 添加标签时，如果云硬盘的标签已存在相同key，则会覆盖已有标签。
+         * 单个云硬盘最多支持创建10个标签。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         batchCreateVolumeTags(batchCreateVolumeTagsRequest?: BatchCreateVolumeTagsRequest) {
             const options = {
@@ -471,6 +596,9 @@ export const ParamCreater = function () {
     
         /**
          * 为指定云硬盘批量删除标签。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         batchDeleteVolumeTags(batchDeleteVolumeTagsRequest?: BatchDeleteVolumeTagsRequest) {
             const options = {
@@ -514,6 +642,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询所有的可用分区信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         cinderListAvailabilityZones() {
             const options = {
@@ -534,6 +665,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询租户的详细配额。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         cinderListQuotas(cinderListQuotasRequest?: CinderListQuotasRequest) {
             const options = {
@@ -579,6 +713,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询云硬盘类型列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         cinderListVolumeTypes() {
             const options = {
@@ -599,6 +736,9 @@ export const ParamCreater = function () {
     
         /**
          * 创建云硬盘快照。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createSnapshot(createSnapshotRequest?: CreateSnapshotRequest) {
             const options = {
@@ -634,7 +774,15 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建按需或包周期云硬盘。 在创建包周期云硬盘的场景下： - 如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。 - 如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/zh-cn_topic_0075746561.html)\&quot;。 - 如果您需要查询订单的资源开通详情，请参考\&quot;[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\&quot;。 - 如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。
+         * 创建按需或包周期云硬盘。
+         * 在创建包周期云硬盘的场景下：
+         * - 如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。
+         * - 如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/zh-cn_topic_0075746561.html)\&quot;。
+         * - 如果您需要查询订单的资源开通详情，请参考\&quot;[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\&quot;。
+         * - 如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createVolume(createVolumeRequest?: CreateVolumeRequest) {
             const options = {
@@ -671,6 +819,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除云硬盘快照。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteSnapshot(deleteSnapshotRequest?: DeleteSnapshotRequest) {
             const options = {
@@ -706,6 +857,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除一个云硬盘。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteVolume(deleteVolumeRequest?: DeleteVolumeRequest) {
             const options = {
@@ -741,6 +895,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询云硬盘快照详细列表信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listSnapshots(listSnapshotsRequest?: ListSnapshotsRequest) {
             const options = {
@@ -836,6 +993,9 @@ export const ParamCreater = function () {
     
         /**
          * 获取某个租户的所有云硬盘资源的标签信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listVolumeTags() {
             const options = {
@@ -856,6 +1016,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询所有云硬盘的详细信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listVolumes(listVolumesRequest?: ListVolumesRequest) {
             const options = {
@@ -993,6 +1156,9 @@ export const ParamCreater = function () {
     
         /**
          * 通过标签查询云硬盘资源实例详情。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listVolumesByTags(listVolumesByTagsRequest?: ListVolumesByTagsRequest) {
             const options = {
@@ -1028,7 +1194,15 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 对按需或者包周期云硬盘进行扩容。 在扩容包周期云硬盘的场景下： - 如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。 - 如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/zh-cn_topic_0075746561.html)\&quot;。 - 如果您需要查询订单的资源开通详情，请参考\&quot;[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\&quot;。 - 如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。
+         * 对按需或者包周期云硬盘进行扩容。
+         * 在扩容包周期云硬盘的场景下：
+         * - 如果您需要查看订单可用的优惠券，请参考\&quot;[查询订单可用优惠券](https://support.huaweicloud.com/api-oce/zh-cn_topic_0092953630.html)\&quot;。
+         * - 如果您需要支付订单，请参考\&quot;[支付包周期产品订单](https://support.huaweicloud.com/api-oce/zh-cn_topic_0075746561.html)\&quot;。
+         * - 如果您需要查询订单的资源开通详情，请参考\&quot;[查询订单的资源开通详情](https://support.huaweicloud.com/api-oce/api_order_00001.html)\&quot;。
+         * - 如果您需要退订该包周期资源，请参考“[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html)”。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         resizeVolume(resizeVolumeRequest?: ResizeVolumeRequest) {
             const options = {
@@ -1072,6 +1246,9 @@ export const ParamCreater = function () {
     
         /**
          * 将快照数据回滚到云硬盘。支持企业项目授权功能。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         rollbackSnapshot(rollbackSnapshotRequest?: RollbackSnapshotRequest) {
             const options = {
@@ -1114,7 +1291,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询Job的执行状态。 可用于查询创建云硬盘，扩容云硬盘，删除云硬盘等API的执行状态。
+         * 查询Job的执行状态。
+         * 可用于查询创建云硬盘，扩容云硬盘，删除云硬盘等API的执行状态。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showJob(showJobRequest?: ShowJobRequest) {
             const options = {
@@ -1150,6 +1331,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询单个云硬盘快照信息。支持企业项目授权功能。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showSnapshot(showSnapshotRequest?: ShowSnapshotRequest) {
             const options = {
@@ -1185,6 +1369,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询单个云硬盘的详细信息。支持企业项目授权功能。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showVolume(showVolumeRequest?: ShowVolumeRequest) {
             const options = {
@@ -1220,6 +1407,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询指定云硬盘的标签信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showVolumeTags(showVolumeTagsRequest?: ShowVolumeTagsRequest) {
             const options = {
@@ -1255,6 +1445,9 @@ export const ParamCreater = function () {
     
         /**
          * 更新云硬盘快照。支持企业项目授权功能。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateSnapshot(updateSnapshotRequest?: UpdateSnapshotRequest) {
             const options = {
@@ -1298,6 +1491,9 @@ export const ParamCreater = function () {
     
         /**
          * 更新一个云硬盘的名称和描述。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateVolume(updateVolumeRequest?: UpdateVolumeRequest) {
             const options = {

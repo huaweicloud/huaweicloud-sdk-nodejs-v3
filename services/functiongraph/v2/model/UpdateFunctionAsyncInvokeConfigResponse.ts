@@ -9,6 +9,7 @@ export class UpdateFunctionAsyncInvokeConfigResponse extends SdkResponse {
     private 'destination_config'?: FuncAsyncDestinationConfig | undefined;
     private 'created_time'?: string | undefined;
     private 'last_modified'?: string | undefined;
+    private 'enable_async_status_log'?: boolean | undefined;
     public constructor() { 
         super();
     }
@@ -71,5 +72,15 @@ export class UpdateFunctionAsyncInvokeConfigResponse extends SdkResponse {
     }
     public get lastModified() {
         return this['last_modified'];
+    }
+    public withEnableAsyncStatusLog(enableAsyncStatusLog: boolean): UpdateFunctionAsyncInvokeConfigResponse {
+        this['enable_async_status_log'] = enableAsyncStatusLog;
+        return this;
+    }
+    public set enableAsyncStatusLog(enableAsyncStatusLog: boolean | undefined) {
+        this['enable_async_status_log'] = enableAsyncStatusLog;
+    }
+    public get enableAsyncStatusLog() {
+        return this['enable_async_status_log'];
     }
 }

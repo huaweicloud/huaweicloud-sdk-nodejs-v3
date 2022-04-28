@@ -268,3 +268,4 @@ export * from './model/Vpc';
 export * from './model/VpcInfo';
 export * from './model/VpcPeering';
 export * from './model/VpcRoute';
+export * from './VpcRegion';

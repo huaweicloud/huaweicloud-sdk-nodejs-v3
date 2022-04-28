@@ -52,8 +52,13 @@ export class EipClient {
         return __dirname;
     }
 
+
     /**
      * 查询公共池列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询公共池列表
      * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/status/type/used/allow_share_bandwidth_types/public_border_group
      * @param {string} [name] 公共池名称
@@ -67,8 +72,13 @@ export class EipClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询公共池分组列表，包含名称和位置信息
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询公共池分组列表
      * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：publicip_pools/public_border_group
      * @param {*} [options] Override http request option.
@@ -80,8 +90,13 @@ export class EipClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询指定租户下的共享带宽类型列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询指定租户下的共享带宽类型列表
      * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;bandwidth_type&amp;...\\\&quot;，支持字段：id/bandwidth_type/name_en/name_zh/created_at/update_at/public_border_group/description
      * @param {string} [id] 支持带宽类型的id
@@ -101,8 +116,13 @@ export class EipClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 绑定弹性公网IP
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 绑定弹性公网IP
      * @param {string} publicipId 弹性公网IP的ID
      * @param {AssociatePublicipsRequestBody} associatePublicipsRequestBody 弹性公网ip对象
@@ -115,8 +135,13 @@ export class EipClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 解绑弹性公网IP
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 解绑弹性公网IP
      * @param {string} publicipId 弹性公网IP的ID
      * @param {DisassociatePublicipsRequestBody} disassociatePublicipsRequestBody 弹性公网ip对象
@@ -129,8 +154,13 @@ export class EipClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 全量查询公网IP池列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询公网IP池列表
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
      * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
@@ -153,8 +183,13 @@ export class EipClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询弹性公网IP列表信息
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 全量查询弹性公网IP列表
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
      * @param {number} [offset] 分页查询起始的资源序号
@@ -206,8 +241,13 @@ export class EipClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询弹性公网IP详情
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询弹性公网IP详情
      * @param {string} publicipId 弹性公网IP的ID
      * @param {Array<string>} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;owner&amp;...\&quot;  支持字段：id/project_id/ip_version/type/public_ip_address/public_ipv6_address/network_type/status/description/created_at/updated_at/vnic/bandwidth/associate_instance_type/associate_instance_id/lock_status/billing_info/tags/enterprise_project_id/publicip_pool_name/allow_share_bandwidth_types/alias/publicip_pool_id/public_border_group
@@ -220,8 +260,13 @@ export class EipClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询公网IP池详情
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询公网IP池详情
      * @param {string} publicipPoolId 公网IP池ID唯一标识
      * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/size/used/project_id/status/billing_info/created_at/updated_at/type/shared/is_common/description/tags/enterprise_project_id/allow_share_bandwidth_types/public_border_group
@@ -241,6 +286,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询公共池列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listCommonPools(listCommonPoolsRequest?: ListCommonPoolsRequest) {
             const options = {
@@ -288,6 +336,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询公共池分组列表，包含名称和位置信息
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listPublicBorderGroups(listPublicBorderGroupsRequest?: ListPublicBorderGroupsRequest) {
             const options = {
@@ -323,6 +374,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询指定租户下的共享带宽类型列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listShareBandwidthTypes(listShareBandwidthTypesRequest?: ListShareBandwidthTypesRequest) {
             const options = {
@@ -406,6 +460,9 @@ export const ParamCreater = function () {
     
         /**
          * 绑定弹性公网IP
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         associatePublicips(associatePublicipsRequest?: AssociatePublicipsRequest) {
             const options = {
@@ -449,6 +506,9 @@ export const ParamCreater = function () {
     
         /**
          * 解绑弹性公网IP
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         disassociatePublicips(disassociatePublicipsRequest?: DisassociatePublicipsRequest) {
             const options = {
@@ -492,6 +552,9 @@ export const ParamCreater = function () {
     
         /**
          * 全量查询公网IP池列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listPublicipPool(listPublicipPoolRequest?: ListPublicipPoolRequest) {
             const options = {
@@ -593,6 +656,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询弹性公网IP列表信息
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listPublicips(listPublicipsRequest?: ListPublicipsRequest) {
             const options = {
@@ -868,6 +934,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询弹性公网IP详情
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showPublicip(showPublicipRequest?: ShowPublicipRequest) {
             const options = {
@@ -910,6 +979,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询公网IP池详情
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showPublicipPool(showPublicipPoolRequest?: ShowPublicipPoolRequest) {
             const options = {

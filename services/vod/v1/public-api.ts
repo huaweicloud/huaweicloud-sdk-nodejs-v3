@@ -148,3 +148,4 @@ export * from './model/VideoTemplateInfo';
 export * from './model/VideoTypeRef';
 export * from './model/VodSampleData';
 export * from './model/WatermarkTemplate';
+export * from './VodRegion';

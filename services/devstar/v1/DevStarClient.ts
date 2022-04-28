@@ -5,9 +5,12 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { ApplicationBaseV3 } from './model/ApplicationBaseV3';
 import { ApplicationModifyInfo } from './model/ApplicationModifyInfo';
 import { ApplicationV3 } from './model/ApplicationV3';
+import { CciDeploymentJobsParam } from './model/CciDeploymentJobsParam';
 import { CheckRepositoryDuplicateNameRequest } from './model/CheckRepositoryDuplicateNameRequest';
 import { CheckRepositoryDuplicateNameResponse } from './model/CheckRepositoryDuplicateNameResponse';
 import { CodehubJobInfo } from './model/CodehubJobInfo';
+import { ConfirmDeploymentJobRequest } from './model/ConfirmDeploymentJobRequest';
+import { ConfirmDeploymentJobResponse } from './model/ConfirmDeploymentJobResponse';
 import { CreateDeploymentJobsParams } from './model/CreateDeploymentJobsParams';
 import { CreateDeploymentJobsRequest } from './model/CreateDeploymentJobsRequest';
 import { CreateDeploymentJobsResponse } from './model/CreateDeploymentJobsResponse';
@@ -16,6 +19,7 @@ import { CreateTemplateViewHistoriesResponse } from './model/CreateTemplateViewH
 import { DeleteApplicationV4Request } from './model/DeleteApplicationV4Request';
 import { DeleteApplicationV4Response } from './model/DeleteApplicationV4Response';
 import { Dependent } from './model/Dependent';
+import { DeploymentJobConfirmType } from './model/DeploymentJobConfirmType';
 import { DownloadApplicationCodeRequest } from './model/DownloadApplicationCodeRequest';
 import { DownloadApplicationCodeResponse } from './model/DownloadApplicationCodeResponse';
 import { FGSDeploymentJobsParam } from './model/FGSDeploymentJobsParam';
@@ -105,8 +109,13 @@ export class DevStarClient {
         return __dirname;
     }
 
+
     /**
      * 通过应用Id获取软件发布仓库列表 
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 通过应用Id获取软件发布仓库列表 
      * @param {string} applicationId 应用id
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
@@ -123,8 +132,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 根据应用Id查询应用关联的代码仓、流水线删除状态 使用场景：用户删除应用关联的资源（如代码仓、流水线...）后，通过该接口实时查询代码仓、流水线删除状态
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询应用关联资源删除状态
      * @param {string} applicationId 应用id
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
@@ -137,8 +151,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 根据应用Id获取依赖元数据资源
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 获取应用依赖元数据资源
      * @param {string} applicationId 应用id
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
@@ -153,8 +172,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 根据应用Id获取应用详情
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 获取应用详情
      * @param {string} applicationId 应用id
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
@@ -167,8 +191,15 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 根据应用Id更新对应有权限的应用信息 - 允许更新信息的信息包含 name,description,icon
+     * 根据应用Id更新对应有权限的应用信息
+     * - 允许更新信息的信息包含
+     * name,description,icon
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 更新应用信息
      * @param {string} applicationId 应用id
      * @param {ApplicationModifyInfo} updateApplicationRequestBody 应用信息
@@ -182,8 +213,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 根据应用Id删除应用，并可以选择删除其关联的代码仓、流水线资源
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除应用信息
      * @param {string} applicationId 应用id
      * @param {boolean} [isDeleteRepository] 是否删除代码仓
@@ -197,8 +233,14 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 获取我创建的应用列表 当前只支持查询我创建的应用，其中请求参数is_created_by_self需为true
+     * 获取我创建的应用列表
+     * 当前只支持查询我创建的应用，其中请求参数is_created_by_self需为true
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 获取应用列表
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
      * @param {boolean} [attention] 是否查询我关注的应用
@@ -220,8 +262,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 下载模板产物。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 下载模板产物
      * @param {string} jobId 任务id。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
@@ -234,8 +281,37 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 创建部署任务，并触发任务执行，当前只支持函数部署。 其中，报文中file_id为查询软件版本包接口返回版本包id; handler为在函数部署方式下，入口函数名称，从应用代码中获取，格式为“包名.类名.函数名称”，例如：com.example.demo.APIGTrigger.handler。 也可以从应用详情接口返回结构template_deployment中直接获取。
+     * 部署任务执行变更人工审核，终止或者继续部署任务
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 部署任务执行变更人工审核
+     * @param {string} applicationId 应用id
+     * @param {string} environmentTag 环境标识
+     * @param {DeploymentJobConfirmType} confirmDeploymentJobRequestBody 更新环境网络信息
+     * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public confirmDeploymentJob(confirmDeploymentJobRequest?: ConfirmDeploymentJobRequest): Promise<void> {
+        const options = ParamCreater().confirmDeploymentJob(confirmDeploymentJobRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建部署任务，并触发任务执行，当前只支持函数部署。
+     * 其中，报文中file_id为查询软件版本包接口返回版本包id;
+     * handler为在函数部署方式下，入口函数名称，从应用代码中获取，格式为“包名.类名.函数名称”，例如：com.example.demo.APIGTrigger.handler。
+     * 也可以从应用详情接口返回结构template_deployment中直接获取。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建部署任务
      * @param {string} applicationId 应用id
      * @param {string} environmentTag 环境标识，从 [应用详情接口](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;DevStar&amp;api&#x3D;ShowApplication) 返回报文中的环境信息获取。
@@ -250,8 +326,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询应用环境部署任务详情
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询应用环境部署任务详情
      * @param {string} applicationId 应用id
      * @param {string} environmentTag 环境标识，从 [应用详情接口](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;DevStar&amp;api&#x3D;ShowApplication) 返回报文中的环境信息获取。
@@ -265,8 +346,21 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 使用CodeHub模板创建应用代码。  通过 Codehub 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中或者生成代码压缩包，可以通过返回的任务 ID 查询相关任务状态。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+     * 使用CodeHub模板创建应用代码。
+     * 
+     * 通过 Codehub 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中或者生成代码压缩包，可以通过返回的任务 ID 查询相关任务状态。
+     * 
+     * - 接口鉴权方式
+     * 通过华为云服务获取的用户token。
+     * 
+     * - 代码生成位置
+     * 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary CodeHub 模板生成代码
      * @param {CodehubJobInfo} runCodehubTemplateJobRequestBody 创建任务参数
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
@@ -279,8 +373,21 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 使用DevStar的模板创建应用代码。  通过 DevStar 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中，可以通过返回的任务 ID 查询相关任务状态。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+     * 使用DevStar的模板创建应用代码。
+     * 
+     * 通过 DevStar 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中，可以通过返回的任务 ID 查询相关任务状态。
+     * 
+     * - 接口鉴权方式
+     * 通过华为云服务获取的用户token。
+     * 
+     * - 代码生成位置
+     * 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary Devstar 模板生成代码
      * @param {TemplateJobInfo} runDevstarTemplateJobRequestBody 创建任务参数
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
@@ -293,8 +400,22 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 查询任务的详情。  通过任务ID可以查看任务的状态 当任务结束时返回应用代码存放的位置。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+     * 查询任务的详情。
+     * 
+     * 通过任务ID可以查看任务的状态
+     * 当任务结束时返回应用代码存放的位置。
+     * 
+     * - 接口鉴权方式
+     * 通过华为云服务获取的用户token。
+     * 
+     * - 代码生成位置
+     * 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询任务详情
      * @param {string} jobId 任务 ID: 可以通过调用 RunDevstarTemplateJob 返回结果获取
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
@@ -307,8 +428,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 流水线模板列表查询
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 流水线模板列表查询
      * @param {string} regionId 区域id
      * @param {string} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
@@ -323,8 +449,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询应用流水线最近一次运行状态查询接口
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询流水线最近一次运行状态查询接口
      * @param {string} pipelineId 流水线ID
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
@@ -337,8 +468,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 根据流水线Id操作流水线启动
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 根据流水线Id操作流水线启动
      * @param {string} pipelineId 流水线ID
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
@@ -351,8 +487,14 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 获取用户有权限的DevStar存量DevCloud项目列表。 来源包括：1.DevStar创建的DevCloud项目；2.DevStar应用有关联DevCloud项目。
+     * 获取用户有权限的DevStar存量DevCloud项目列表。
+     * 来源包括：1.DevStar创建的DevCloud项目；2.DevStar应用有关联DevCloud项目。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 获取用户有权限的DevStar存量DevCloud项目列表
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
      * @param {string} [keyword] 搜索关键字,支持按名称和描述搜索，默认null
@@ -367,8 +509,17 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 检查仓库名称是否重名 - 校验规则     同一个项目下的仓库名称不能存在重复,当结果为true时,校验通过,仓库名称可用,否则,校验不通过,当前项目下的仓库名称已存在,不可用 - 必传参数     project_id,name,region_id
+     * 检查仓库名称是否重名
+     * - 校验规则
+     *     同一个项目下的仓库名称不能存在重复,当结果为true时,校验通过,仓库名称可用,否则,校验不通过,当前项目下的仓库名称已存在,不可用
+     * - 必传参数
+     *     project_id,name,region_id
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 检查仓库名称是否重名
      * @param {string} projectId 项目id
      * @param {string} name 仓库名称
@@ -383,8 +534,15 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 使用 CloudIDE 实例打开应用代码。CloudIDE会保存用户项目数据，相同用户使用同一个CloudIDE，使用要求： - 用户需为登录状态。 - 拥有仓库权限。 
+     * 使用 CloudIDE 实例打开应用代码。CloudIDE会保存用户项目数据，相同用户使用同一个CloudIDE，使用要求：
+     * - 用户需为登录状态。
+     * - 拥有仓库权限。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 使用 CloudIDE 实例打开应用代码
      * @param {string} repositoryId 仓库id。
      * @param {string} repositorySshUrl 仓库下载地址。
@@ -402,8 +560,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询代码仓库的统计信息,包括代码仓的名称,代码行数等信息
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 应用代码仓库统计信息
      * @param {string} repositoryId 代码仓库id
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型 中文:zh-cn 英文:en-us
@@ -416,8 +579,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 该接口可以用于模板作者或模板维护人读取模板文件内容。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 读取模板文件
      * @param {string} templateId 模板ID，通过查询模板列表接口可获取相应的模板ID。
      * @param {string} filePath 文件相对路径，基于当前根目录的相对文件路径，例如获取HELP.md文件内容，则文件相对路径为“template-resources/file/HELP.md”。
@@ -432,8 +600,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 未登录状态下，将用户浏览过的模板缓存在浏览器中，登录时，调用该接口同步模板浏览记录。 
+     * 未登录状态下，将用户浏览过的模板缓存在浏览器中，登录时，调用该接口同步模板浏览记录。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 同步模板浏览记录
      * @param {TemplatesInfo} createTemplateViewHistoriesRequestBody 模板信息
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
@@ -446,8 +619,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询模板列表，推荐使用/v1/templates/query接口。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询模板列表（V1）
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {string} [keyword] 搜索关键字，支持按名称和描述搜索，默认null。
@@ -462,8 +640,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 查询DevStar或者CodeLabs登录用户浏览过的模板（只返回最近浏览的5个模板）。 
+     * 查询DevStar或者CodeLabs登录用户浏览过的模板（只返回最近浏览的5个模板）。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 我浏览的模板记录
      * @param {0 | 1} platformSource 平台来源： - 0：查询CodeLabs中用户浏览过的模板。 - 1：查询DevStar中用户浏览过的模板。 
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
@@ -476,8 +659,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询模板列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询模板列表
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
      * @param {TemplateQuery} [listTemplatesRequestBody] 模板列表查询参数
@@ -490,8 +678,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询模板列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询模板列表（V2）
      * @param {string} actionId 请填写固定值“query”。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
@@ -505,8 +698,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 获取指定模板详情，包括模板id、名称、描述、作者、标签、上架时间等信息。 
+     * 获取指定模板详情，包括模板id、名称、描述、作者、标签、上架时间等信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询模板详情（V3）
      * @param {string} templateId 模板ID，通过查询模板列表接口可获取相应的模板ID。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
@@ -519,8 +717,13 @@ export class DevStarClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询模板详情，推荐使用V3版本接口。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询模板详情（V1）
      * @param {string} templateId 模板ID，通过查询模板列表接口可获取相应模板ID。
      * @param {'zh-cn' | 'en-us'} [xLanguage] 语言类型，缺省值为“zh-cn”。  枚举值： - zh-cn：中文 - en-us：英文 
@@ -540,6 +743,9 @@ export const ParamCreater = function () {
     
         /**
          * 通过应用Id获取软件发布仓库列表 
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showApplicationReleaseRepositories(showApplicationReleaseRepositoriesRequest?: ShowApplicationReleaseRepositoriesRequest) {
             const options = {
@@ -606,6 +812,9 @@ export const ParamCreater = function () {
     
         /**
          * 根据应用Id查询应用关联的代码仓、流水线删除状态 使用场景：用户删除应用关联的资源（如代码仓、流水线...）后，通过该接口实时查询代码仓、流水线删除状态
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showApplicationResDeleteStatus(showApplicationResDeleteStatusRequest?: ShowApplicationResDeleteStatusRequest) {
             const options = {
@@ -647,6 +856,9 @@ export const ParamCreater = function () {
     
         /**
          * 根据应用Id获取依赖元数据资源
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showApplicationDependentResources(showApplicationDependentResourcesRequest?: ShowApplicationDependentResourcesRequest) {
             const options = {
@@ -701,6 +913,9 @@ export const ParamCreater = function () {
     
         /**
          * 根据应用Id获取应用详情
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showApplicationV3(showApplicationV3Request?: ShowApplicationV3Request) {
             const options = {
@@ -741,7 +956,12 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据应用Id更新对应有权限的应用信息 - 允许更新信息的信息包含 name,description,icon
+         * 根据应用Id更新对应有权限的应用信息
+         * - 允许更新信息的信息包含
+         * name,description,icon
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateApplication(updateApplicationRequest?: UpdateApplicationRequest) {
             const options = {
@@ -791,6 +1011,9 @@ export const ParamCreater = function () {
     
         /**
          * 根据应用Id删除应用，并可以选择删除其关联的代码仓、流水线资源
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteApplicationV4(deleteApplicationV4Request?: DeleteApplicationV4Request) {
             const options = {
@@ -838,7 +1061,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取我创建的应用列表 当前只支持查询我创建的应用，其中请求参数is_created_by_self需为true
+         * 获取我创建的应用列表
+         * 当前只支持查询我创建的应用，其中请求参数is_created_by_self需为true
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listApplicationsV6(listApplicationsV6Request?: ListApplicationsV6Request) {
             const options = {
@@ -934,6 +1161,9 @@ export const ParamCreater = function () {
     
         /**
          * 下载模板产物。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         downloadApplicationCode(downloadApplicationCodeRequest?: DownloadApplicationCodeRequest) {
             const options = {
@@ -977,7 +1207,71 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建部署任务，并触发任务执行，当前只支持函数部署。 其中，报文中file_id为查询软件版本包接口返回版本包id; handler为在函数部署方式下，入口函数名称，从应用代码中获取，格式为“包名.类名.函数名称”，例如：com.example.demo.APIGTrigger.handler。 也可以从应用详情接口返回结构template_deployment中直接获取。
+         * 部署任务执行变更人工审核，终止或者继续部署任务
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        confirmDeploymentJob(confirmDeploymentJobRequest?: ConfirmDeploymentJobRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/applications/{application_id}/environments/{environment_tag}/confirm",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let applicationId;
+            let environmentTag;
+            let xLanguage;
+
+            if (confirmDeploymentJobRequest !== null && confirmDeploymentJobRequest !== undefined) {
+                if (confirmDeploymentJobRequest instanceof ConfirmDeploymentJobRequest) {
+                    applicationId = confirmDeploymentJobRequest.applicationId;
+                    environmentTag = confirmDeploymentJobRequest.environmentTag;
+                    body = confirmDeploymentJobRequest.body
+                    xLanguage = confirmDeploymentJobRequest.xLanguage;
+                } else {
+                    applicationId = confirmDeploymentJobRequest['application_id'];
+                    environmentTag = confirmDeploymentJobRequest['environment_tag'];
+                    body = confirmDeploymentJobRequest['body'];
+                    xLanguage = confirmDeploymentJobRequest['X-Language'];
+                }
+            }
+
+        
+            if (applicationId === null || applicationId === undefined) {
+            throw new RequiredError('applicationId','Required parameter applicationId was null or undefined when calling confirmDeploymentJob.');
+            }
+            if (environmentTag === null || environmentTag === undefined) {
+            throw new RequiredError('environmentTag','Required parameter environmentTag was null or undefined when calling confirmDeploymentJob.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'application_id': applicationId,'environment_tag': environmentTag, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建部署任务，并触发任务执行，当前只支持函数部署。
+         * 其中，报文中file_id为查询软件版本包接口返回版本包id;
+         * handler为在函数部署方式下，入口函数名称，从应用代码中获取，格式为“包名.类名.函数名称”，例如：com.example.demo.APIGTrigger.handler。
+         * 也可以从应用详情接口返回结构template_deployment中直接获取。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createDeploymentJobs(createDeploymentJobsRequest?: CreateDeploymentJobsRequest) {
             const options = {
@@ -1033,6 +1327,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询应用环境部署任务详情
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showDeploymentJobs(showDeploymentJobsRequest?: ShowDeploymentJobsRequest) {
             const options = {
@@ -1079,7 +1376,18 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 使用CodeHub模板创建应用代码。  通过 Codehub 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中或者生成代码压缩包，可以通过返回的任务 ID 查询相关任务状态。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+         * 使用CodeHub模板创建应用代码。
+         * 
+         * 通过 Codehub 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中或者生成代码压缩包，可以通过返回的任务 ID 查询相关任务状态。
+         * 
+         * - 接口鉴权方式
+         * 通过华为云服务获取的用户token。
+         * 
+         * - 代码生成位置
+         * 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         runCodehubTemplateJob(runCodehubTemplateJobRequest?: RunCodehubTemplateJobRequest) {
             const options = {
@@ -1121,7 +1429,18 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 使用DevStar的模板创建应用代码。  通过 DevStar 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中，可以通过返回的任务 ID 查询相关任务状态。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+         * 使用DevStar的模板创建应用代码。
+         * 
+         * 通过 DevStar 模板创建生成应用代码的任务，并将应用代码存储于指定的 CodeHub 仓库中，可以通过返回的任务 ID 查询相关任务状态。
+         * 
+         * - 接口鉴权方式
+         * 通过华为云服务获取的用户token。
+         * 
+         * - 代码生成位置
+         * 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         runDevstarTemplateJob(runDevstarTemplateJobRequest?: RunDevstarTemplateJobRequest) {
             const options = {
@@ -1163,7 +1482,19 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询任务的详情。  通过任务ID可以查看任务的状态 当任务结束时返回应用代码存放的位置。  - 接口鉴权方式 通过华为云服务获取的用户token。  - 代码生成位置 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+         * 查询任务的详情。
+         * 
+         * 通过任务ID可以查看任务的状态
+         * 当任务结束时返回应用代码存放的位置。
+         * 
+         * - 接口鉴权方式
+         * 通过华为云服务获取的用户token。
+         * 
+         * - 代码生成位置
+         * 应用代码生成后的地址，目前支持codehub地址和压缩包下载地址。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showJobDetail(showJobDetailRequest?: ShowJobDetailRequest) {
             const options = {
@@ -1205,6 +1536,9 @@ export const ParamCreater = function () {
     
         /**
          * 流水线模板列表查询
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listPipelineTemplates(listPipelineTemplatesRequest?: ListPipelineTemplatesRequest) {
             const options = {
@@ -1261,6 +1595,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询应用流水线最近一次运行状态查询接口
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showPipelineLastStatusV2(showPipelineLastStatusV2Request?: ShowPipelineLastStatusV2Request) {
             const options = {
@@ -1302,6 +1639,9 @@ export const ParamCreater = function () {
     
         /**
          * 根据流水线Id操作流水线启动
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         startPipeline(startPipelineRequest?: StartPipelineRequest) {
             const options = {
@@ -1342,7 +1682,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取用户有权限的DevStar存量DevCloud项目列表。 来源包括：1.DevStar创建的DevCloud项目；2.DevStar应用有关联DevCloud项目。
+         * 获取用户有权限的DevStar存量DevCloud项目列表。
+         * 来源包括：1.DevStar创建的DevCloud项目；2.DevStar应用有关联DevCloud项目。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listProjectsV4(listProjectsV4Request?: ListProjectsV4Request) {
             const options = {
@@ -1395,7 +1739,14 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 检查仓库名称是否重名 - 校验规则     同一个项目下的仓库名称不能存在重复,当结果为true时,校验通过,仓库名称可用,否则,校验不通过,当前项目下的仓库名称已存在,不可用 - 必传参数     project_id,name,region_id
+         * 检查仓库名称是否重名
+         * - 校验规则
+         *     同一个项目下的仓库名称不能存在重复,当结果为true时,校验通过,仓库名称可用,否则,校验不通过,当前项目下的仓库名称已存在,不可用
+         * - 必传参数
+         *     project_id,name,region_id
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         checkRepositoryDuplicateName(checkRepositoryDuplicateNameRequest?: CheckRepositoryDuplicateNameRequest) {
             const options = {
@@ -1457,7 +1808,12 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 使用 CloudIDE 实例打开应用代码。CloudIDE会保存用户项目数据，相同用户使用同一个CloudIDE，使用要求： - 用户需为登录状态。 - 拥有仓库权限。 
+         * 使用 CloudIDE 实例打开应用代码。CloudIDE会保存用户项目数据，相同用户使用同一个CloudIDE，使用要求：
+         * - 用户需为登录状态。
+         * - 拥有仓库权限。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showRepositoryByCloudIde(showRepositoryByCloudIdeRequest?: ShowRepositoryByCloudIdeRequest) {
             const options = {
@@ -1533,6 +1889,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询代码仓库的统计信息,包括代码仓的名称,代码行数等信息
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showRepositoryStatisticalDataV2(showRepositoryStatisticalDataV2Request?: ShowRepositoryStatisticalDataV2Request) {
             const options = {
@@ -1574,6 +1933,9 @@ export const ParamCreater = function () {
     
         /**
          * 该接口可以用于模板作者或模板维护人读取模板文件内容。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showTemplateFile(showTemplateFileRequest?: ShowTemplateFileRequest) {
             const options = {
@@ -1630,7 +1992,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 未登录状态下，将用户浏览过的模板缓存在浏览器中，登录时，调用该接口同步模板浏览记录。 
+         * 未登录状态下，将用户浏览过的模板缓存在浏览器中，登录时，调用该接口同步模板浏览记录。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createTemplateViewHistories(createTemplateViewHistoriesRequest?: CreateTemplateViewHistoriesRequest) {
             const options = {
@@ -1673,6 +2038,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询模板列表，推荐使用/v1/templates/query接口。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listPublishedTemplates(listPublishedTemplatesRequest?: ListPublishedTemplatesRequest) {
             const options = {
@@ -1725,7 +2093,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询DevStar或者CodeLabs登录用户浏览过的模板（只返回最近浏览的5个模板）。 
+         * 查询DevStar或者CodeLabs登录用户浏览过的模板（只返回最近浏览的5个模板）。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listTemplateViewHistories(listTemplateViewHistoriesRequest?: ListTemplateViewHistoriesRequest) {
             const options = {
@@ -1770,6 +2141,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询模板列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listTemplates(listTemplatesRequest?: ListTemplatesRequest) {
             const options = {
@@ -1809,6 +2183,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询模板列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         listTemplatesV2(listTemplatesV2Request?: ListTemplatesV2Request) {
             const options = {
@@ -1857,7 +2234,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取指定模板详情，包括模板id、名称、描述、作者、标签、上架时间等信息。 
+         * 获取指定模板详情，包括模板id、名称、描述、作者、标签、上架时间等信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showTemplateV3(showTemplateV3Request?: ShowTemplateV3Request) {
             const options = {
@@ -1899,6 +2279,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询模板详情，推荐使用V3版本接口。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showTemplateDetail(showTemplateDetailRequest?: ShowTemplateDetailRequest) {
             const options = {

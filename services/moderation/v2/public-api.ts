@@ -37,3 +37,4 @@ export * from './model/TaskSumbitResponseResult';
 export * from './model/TextDetectionItemsReq';
 export * from './model/TextDetectionReq';
 export * from './model/TextDetectionResponseResult';
+export * from './ModerationRegion';

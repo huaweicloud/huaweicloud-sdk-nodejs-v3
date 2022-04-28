@@ -95,3 +95,4 @@ export * from './model/UpdateVpcRequest';
 export * from './model/UpdateVpcRequestBody';
 export * from './model/UpdateVpcResponse';
 export * from './model/Vpc';
+export * from './VpcRegion';

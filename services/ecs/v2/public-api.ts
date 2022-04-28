@@ -288,3 +288,4 @@ export * from './model/UpdateServerRequest';
 export * from './model/UpdateServerRequestBody';
 export * from './model/UpdateServerResponse';
 export * from './model/UpdateServerResult';
+export * from './EcsRegion';

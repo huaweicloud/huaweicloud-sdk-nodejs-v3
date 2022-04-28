@@ -100,3 +100,4 @@ export * from './model/VolumeMetadata';
 export * from './model/VolumeType';
 export * from './model/VolumeTypeExtraSpecs';
 export * from './model/ZoneState';
+export * from './EvsRegion';

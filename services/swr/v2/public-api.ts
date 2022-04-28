@@ -120,3 +120,4 @@ export * from './model/UpdateUserRepositoryAuthRequest';
 export * from './model/UpdateUserRepositoryAuthResponse';
 export * from './model/UserAuth';
 export * from './model/VersionDetail';
+export * from './SwrRegion';

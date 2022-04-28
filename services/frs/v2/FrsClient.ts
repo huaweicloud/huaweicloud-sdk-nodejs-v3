@@ -112,8 +112,13 @@ export class FrsClient {
         return __dirname;
     }
 
+
     /**
      * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 添加人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {AddFacesBase64Req} addFacesBase64Req This is a auto create Body Object
@@ -126,8 +131,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 添加人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {any} imageFile 本地图片文件，图片不能超过8MB，建议小于1MB。上传文件时，请求格式为multipart。
@@ -143,8 +153,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 添加人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {AddFacesUrlReq} addFacesUrlReq This is a auto create Body Object
@@ -157,8 +172,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 自定义筛选条件，批量删除人脸库中的符合指定条件的多张人脸。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 批量删除人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {DeleteFacesBatchReq} deleteFacesBatchReq This is a auto create Body Object
@@ -171,8 +191,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 人脸比对是将两个人脸进行比对，来判断是否为同一个人，返回比对置信度。如果传入的图片中包含多个人脸，选取最大的人脸进行比对。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 人脸比对
      * @param {FaceCompareBase64Req} faceCompareBase64Req This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -184,8 +209,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 人脸比对是将两个人脸进行比对，来判断是否为同一个人，返回比对置信度。如果传入的图片中包含多个人脸，选取最大的人脸进行比对。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 人脸比对
      * @param {any} image1File 本地图片文件，图片不能超过8MB。上传文件时，请求格式为multipart。
      * @param {any} image2File 本地图片文件，图片不能超过8MB。上传文件时，请求格式为multipart。
@@ -198,8 +228,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 人脸比对是将两个人脸进行比对，来判断是否为同一个人，返回比对置信度。如果传入的图片中包含多个人脸，选取最大的人脸进行比对。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 人脸比对
      * @param {FaceCompareUrlReq} faceCompareUrlReq This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -211,8 +246,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 创建用于存储人脸特征的人脸库。您最多可以创建10个人脸库，每个人脸库最大容量为10万个人脸特征。如有更大规格的需求请联系客服。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 创建人脸库
      * @param {CreateFaceSetReq} createFaceSetReq This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -224,8 +264,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 根据external_image_id删除人脸。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {string} externalImageId external_image_id。
@@ -238,8 +283,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 根据face_id删除人脸。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {string} faceId 人脸ID。
@@ -252,8 +302,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 删除人脸库以及其中所有的人脸。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 删除人脸库
      * @param {string} faceSetName 人脸库名称。
      * @param {*} [options] Override http request option.
@@ -265,8 +320,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 人脸检测
      * @param {FaceDetectBase64Req} faceDetectBase64Req This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -278,8 +338,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 人脸检测
      * @param {any} imageFile 本地图片文件，图片不能超过8MB。上传文件时，请求格式为multipart。
      * @param {string} [attributes] 是否返回人脸属性，希望获取的属性列表，多个属性间使用逗号（,）隔开。目前支持的属性有： • 2：年龄 • 4：装束（帽子、眼镜） • 6：口罩 • 7：发型 • 8：胡须 • 11：图片类型 • 12：质量 • 13：表情 • 21：人脸图片旋转角（顺时针偏转角度），支持0°、90°、180°和270°图片旋转
@@ -292,8 +357,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 人脸检测
      * @param {FaceDetectUrlReq} faceDetectUrlReq This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -305,8 +375,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 动作活体检测
      * @param {LiveDetectBase64Req} liveDetectBase64Req This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -318,8 +393,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 动作活体检测
      * @param {any} videoFile 本地视频文件。上传文件时，请求格式为multipart。 视频要求： • 视频文件大小不超过8MB，建议客户端压缩到200KB~2MB。 • 限制视频时长1～15秒。 • 建议帧率10fps～30fps。 • 封装格式：mp4、avi、flv、webm、asf、mov。 • 视频编码格式： h261、h263、h264、hevc、vc1、vp8、vp9、wmv3。
      * @param {string} actions 动作代码顺序列表，英文逗号（,）分隔。建议单动作，目前支持的动作有： • 1：左摇头 • 2：右摇头 • 3：点头 • 4：嘴部动作
@@ -333,8 +413,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 动作活体检测
      * @param {LiveDetectUrlReq} liveDetectUrlReq This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -346,8 +431,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 静默活体检测
      * @param {LiveDetectFaceBase64Req} liveDetectFaceBase64Req This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -359,8 +449,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 静默活体检测
      * @param {any} imageFile 本地图片文件。上传文件时，请求格式为multipart。
      * @param {*} [options] Override http request option.
@@ -372,8 +467,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 静默活体检测
      * @param {LiveDetectFaceUrlReq} liveDetectFaceUrlReq This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -385,8 +485,14 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+     * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。
+     * 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 人脸搜索
      * @param {string} faceSetName 人脸库名称。
      * @param {FaceSearchBase64Req} faceSearchBase64Req This is a auto create Body Object
@@ -399,8 +505,14 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+     * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。
+     * 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 人脸搜索
      * @param {string} faceSetName 人脸库名称。
      * @param {FaceSearchFaceIdReq} faceSearchFaceIdReq This is a auto create Body Object
@@ -413,8 +525,14 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+     * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。
+     * 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 人脸搜索
      * @param {string} faceSetName 人脸库名称。
      * @param {any} imageFile 本地图片文件，图片不能超过8MB,建议小于1MB。上传文件时，请求格式为multipart。  必选，与image_url、image_base64、face_id四选一。
@@ -432,8 +550,14 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
-     * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+     * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。
+     * 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 人脸搜索
      * @param {string} faceSetName 人脸库名称。
      * @param {FaceSearchUrlReq} faceSearchUrlReq This is a auto create Body Object
@@ -446,8 +570,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询当前用户所有人脸库的状态信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询所有人脸库
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -458,8 +587,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询人脸库当前的状态。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询人脸库
      * @param {string} faceSetName 人脸库名称。
      * @param {*} [options] Override http request option.
@@ -471,8 +605,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询指定人脸库中人脸信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {string} faceId 人脸ID。
@@ -485,8 +624,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 查询指定人脸库中人脸信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 查询人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {number} offset 从第几条数据读起，默认为0。
@@ -500,8 +644,13 @@ export class FrsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
     /**
      * 根据人脸ID（face_id）更新单张人脸信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
      * @summary 更新人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {UpdateFaceReq} updateFaceReq This is a auto create Body Object
@@ -521,6 +670,9 @@ export const ParamCreater = function () {
     
         /**
          * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         addFacesByBase64(addFacesByBase64Request?: AddFacesByBase64Request) {
             const options = {
@@ -564,6 +716,9 @@ export const ParamCreater = function () {
     
         /**
          * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         addFacesByFile(addFacesByFileRequest?: AddFacesByFileRequest) {
             const options = {
@@ -624,6 +779,9 @@ export const ParamCreater = function () {
     
         /**
          * 添加人脸到人脸库中。将单张图片中的人脸添加至人脸库中，支持添加最大人脸或所有人脸。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         addFacesByUrl(addFacesByUrlRequest?: AddFacesByUrlRequest) {
             const options = {
@@ -667,6 +825,9 @@ export const ParamCreater = function () {
     
         /**
          * 自定义筛选条件，批量删除人脸库中的符合指定条件的多张人脸。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         batchDeleteFaces(batchDeleteFacesRequest?: BatchDeleteFacesRequest) {
             const options = {
@@ -710,6 +871,9 @@ export const ParamCreater = function () {
     
         /**
          * 人脸比对是将两个人脸进行比对，来判断是否为同一个人，返回比对置信度。如果传入的图片中包含多个人脸，选取最大的人脸进行比对。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         compareFaceByBase64(compareFaceByBase64Request?: CompareFaceByBase64Request) {
             const options = {
@@ -746,6 +910,9 @@ export const ParamCreater = function () {
     
         /**
          * 人脸比对是将两个人脸进行比对，来判断是否为同一个人，返回比对置信度。如果传入的图片中包含多个人脸，选取最大的人脸进行比对。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         compareFaceByFile(compareFaceByFileRequest?: CompareFaceByFileRequest) {
             const options = {
@@ -793,6 +960,9 @@ export const ParamCreater = function () {
     
         /**
          * 人脸比对是将两个人脸进行比对，来判断是否为同一个人，返回比对置信度。如果传入的图片中包含多个人脸，选取最大的人脸进行比对。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         compareFaceByUrl(compareFaceByUrlRequest?: CompareFaceByUrlRequest) {
             const options = {
@@ -829,6 +999,9 @@ export const ParamCreater = function () {
     
         /**
          * 创建用于存储人脸特征的人脸库。您最多可以创建10个人脸库，每个人脸库最大容量为10万个人脸特征。如有更大规格的需求请联系客服。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         createFaceSet(createFaceSetRequest?: CreateFaceSetRequest) {
             const options = {
@@ -865,6 +1038,9 @@ export const ParamCreater = function () {
     
         /**
          * 根据external_image_id删除人脸。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteFaceByExternalImageId(deleteFaceByExternalImageIdRequest?: DeleteFaceByExternalImageIdRequest) {
             const options = {
@@ -910,6 +1086,9 @@ export const ParamCreater = function () {
     
         /**
          * 根据face_id删除人脸。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteFaceByFaceId(deleteFaceByFaceIdRequest?: DeleteFaceByFaceIdRequest) {
             const options = {
@@ -955,6 +1134,9 @@ export const ParamCreater = function () {
     
         /**
          * 删除人脸库以及其中所有的人脸。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         deleteFaceSet(deleteFaceSetRequest?: DeleteFaceSetRequest) {
             const options = {
@@ -990,6 +1172,9 @@ export const ParamCreater = function () {
     
         /**
          * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         detectFaceByBase64(detectFaceByBase64Request?: DetectFaceByBase64Request) {
             const options = {
@@ -1026,6 +1211,9 @@ export const ParamCreater = function () {
     
         /**
          * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         detectFaceByFile(detectFaceByFileRequest?: DetectFaceByFileRequest) {
             const options = {
@@ -1069,6 +1257,9 @@ export const ParamCreater = function () {
     
         /**
          * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         detectFaceByUrl(detectFaceByUrlRequest?: DetectFaceByUrlRequest) {
             const options = {
@@ -1105,6 +1296,9 @@ export const ParamCreater = function () {
     
         /**
          * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         detectLiveByBase64(detectLiveByBase64Request?: DetectLiveByBase64Request) {
             const options = {
@@ -1141,6 +1335,9 @@ export const ParamCreater = function () {
     
         /**
          * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         detectLiveByFile(detectLiveByFileRequest?: DetectLiveByFileRequest) {
             const options = {
@@ -1192,6 +1389,9 @@ export const ParamCreater = function () {
     
         /**
          * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         detectLiveByUrl(detectLiveByUrlRequest?: DetectLiveByUrlRequest) {
             const options = {
@@ -1228,6 +1428,9 @@ export const ParamCreater = function () {
     
         /**
          * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         detectLiveFaceByBase64(detectLiveFaceByBase64Request?: DetectLiveFaceByBase64Request) {
             const options = {
@@ -1264,6 +1467,9 @@ export const ParamCreater = function () {
     
         /**
          * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         detectLiveFaceByFile(detectLiveFaceByFileRequest?: DetectLiveFaceByFileRequest) {
             const options = {
@@ -1302,6 +1508,9 @@ export const ParamCreater = function () {
     
         /**
          * 静默活体检测是基于人脸图片中可能存在的畸变、摩尔纹、反光、倒影、边框等信息，判断图片中的人脸是否来自于真人活体，有效抵御纸质翻拍照、电子翻拍照以及视频翻拍等各种攻击方式。静默活体检测支持单张图片，不支持多人脸图片。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         detectLiveFaceByUrl(detectLiveFaceByUrlRequest?: DetectLiveFaceByUrlRequest) {
             const options = {
@@ -1337,7 +1546,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+         * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。
+         * 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         searchFaceByBase64(searchFaceByBase64Request?: SearchFaceByBase64Request) {
             const options = {
@@ -1380,7 +1593,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+         * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。
+         * 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         searchFaceByFaceId(searchFaceByFaceIdRequest?: SearchFaceByFaceIdRequest) {
             const options = {
@@ -1423,7 +1640,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+         * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。
+         * 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         searchFaceByFile(searchFaceByFileRequest?: SearchFaceByFileRequest) {
             const options = {
@@ -1493,7 +1714,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+         * 人脸搜索是指在已有的人脸库中，查询与目标人脸相似的一张或者多张人脸，并返回相应的置信度。
+         * 支持传入图片或者faceID进行人脸搜索，如果传入的是多张人脸图片，选取图片中检测到的最大尺寸人脸作为检索的输入。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         searchFaceByUrl(searchFaceByUrlRequest?: SearchFaceByUrlRequest) {
             const options = {
@@ -1537,6 +1762,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询当前用户所有人脸库的状态信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showAllFaceSets() {
             const options = {
@@ -1557,6 +1785,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询人脸库当前的状态。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showFaceSet(showFaceSetRequest?: ShowFaceSetRequest) {
             const options = {
@@ -1592,6 +1823,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询指定人脸库中人脸信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showFacesByFaceId(showFacesByFaceIdRequest?: ShowFacesByFaceIdRequest) {
             const options = {
@@ -1637,6 +1871,9 @@ export const ParamCreater = function () {
     
         /**
          * 查询指定人脸库中人脸信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         showFacesByLimit(showFacesByLimitRequest?: ShowFacesByLimitRequest) {
             const options = {
@@ -1691,6 +1928,9 @@ export const ParamCreater = function () {
     
         /**
          * 根据人脸ID（face_id）更新单张人脸信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
          */
         updateFace(updateFaceRequest?: UpdateFaceRequest) {
             const options = {

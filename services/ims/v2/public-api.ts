@@ -123,3 +123,4 @@ export * from './model/Tags';
 export * from './model/UpdateImageRequest';
 export * from './model/UpdateImageRequestBody';
 export * from './model/UpdateImageResponse';
+export * from './ImsRegion';

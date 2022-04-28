@@ -35,3 +35,4 @@ export * from './model/ShowPublicipRequest';
 export * from './model/ShowPublicipResponse';
 export * from './model/TagsInfo';
 export * from './model/VnicInfo';
+export * from './EipRegion';
