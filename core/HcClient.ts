@@ -112,7 +112,7 @@ export class HcClient {
         const headers = result.headers;
         let contentType = headers['content-type'];
         contentType = contentType.toLowerCase();
-        if (contentType && contentType == 'application/octet-stream') {
+        if (contentType && (contentType.startsWith('application/octet-stream') || contentType.startsWith("image"))) {
             return result.data as T;
         } else {
             let response = result.data instanceof Object ? result.data : {} as T;
