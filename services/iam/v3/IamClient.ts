@@ -389,8 +389,17 @@ import { RevokeRoleFromGroupOnEnterpriseProjectRequest } from './model/RevokeRol
 import { RevokeRoleFromGroupOnEnterpriseProjectResponse } from './model/RevokeRoleFromGroupOnEnterpriseProjectResponse';
 import { RevokeRoleFromUserOnEnterpriseProjectRequest } from './model/RevokeRoleFromUserOnEnterpriseProjectRequest';
 import { RevokeRoleFromUserOnEnterpriseProjectResponse } from './model/RevokeRoleFromUserOnEnterpriseProjectResponse';
+import { RoleAgencyAssignmentId } from './model/RoleAgencyAssignmentId';
+import { RoleAssignmentBody } from './model/RoleAssignmentBody';
+import { RoleAssignmentId } from './model/RoleAssignmentId';
+import { RoleAssignmentScope } from './model/RoleAssignmentScope';
+import { RoleDomainAssignmentId } from './model/RoleDomainAssignmentId';
+import { RoleEnterpriseProjectAssignmentId } from './model/RoleEnterpriseProjectAssignmentId';
+import { RoleGroupAssignmentId } from './model/RoleGroupAssignmentId';
 import { RolePolicy } from './model/RolePolicy';
+import { RoleProjectAssignmentId } from './model/RoleProjectAssignmentId';
 import { RoleResult } from './model/RoleResult';
+import { RoleUserAssignmentId } from './model/RoleUserAssignmentId';
 import { RolesItem } from './model/RolesItem';
 import { RulesLocalAdditional } from './model/RulesLocalAdditional';
 import { RulesRemote } from './model/RulesRemote';
@@ -426,6 +435,8 @@ import { ShowDomainProtectPolicyRequest } from './model/ShowDomainProtectPolicyR
 import { ShowDomainProtectPolicyResponse } from './model/ShowDomainProtectPolicyResponse';
 import { ShowDomainQuotaRequest } from './model/ShowDomainQuotaRequest';
 import { ShowDomainQuotaResponse } from './model/ShowDomainQuotaResponse';
+import { ShowDomainRoleAssignmentsRequest } from './model/ShowDomainRoleAssignmentsRequest';
+import { ShowDomainRoleAssignmentsResponse } from './model/ShowDomainRoleAssignmentsResponse';
 import { ShowMetadataRequest } from './model/ShowMetadataRequest';
 import { ShowMetadataResponse } from './model/ShowMetadataResponse';
 import { ShowOpenIdConnectConfigRequest } from './model/ShowOpenIdConnectConfigRequest';
@@ -2576,6 +2587,38 @@ export class IamClient {
      */
     public showDomainQuota(showDomainQuotaRequest?: ShowDomainQuotaRequest): Promise<ShowDomainQuotaResponse> {
         const options = ParamCreater().showDomainQuota(showDomainQuotaRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口用于查询指定账号中的授权记录。
+     * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询指定账号中的授权记录
+     * @param {string} domainId 待查询账号ID。
+     * @param {string} [roleId] 策略ID。
+     * @param {string} [subject] 授权主体,取值范围：user、group、agency。该参数与subject.user_id、subject.group_id、subject.agency_id只能选择一个。
+     * @param {string} [subjectUserId] 授权的IAM用户ID。
+     * @param {string} [subjectGroupId] 授权的用户组ID。
+     * @param {string} [subjectAgencyId] 授权的委托ID。
+     * @param {string} [scope] 授权范围，取值范围：project、domain、enterprise_project。该参数与scope.project_id、scope.domain_id、scope.enterprise_projects_id只能选择一个。 &gt; - 如需查看全局服务授权记录，scope取值domain或填写scope.domain_id。 &gt; - 如需查看基于所有资源的授权记录，scope取值为domain，且is_inherited取值为true &gt; - 如需查看基于项目的授权记录，scope取值为project或填写scope.project_id。 &gt; - 如需查看基于企业项目的授权记录，scope取值为enterprise_project或填写scope.enterprise_project_id。
+     * @param {string} [scopeProjectId] 授权的项目ID。
+     * @param {string} [scopeDomainId] 待查询账号ID。
+     * @param {string} [scopeEnterpriseProjectsId] 授权的企业项目ID。
+     * @param {boolean} [isInherited] 是否包含基于所有项目授权的记录，默认为false。当参数scope&#x3D;domain或者scope.domain_id存在时生效。true：查询基于所有项目授权的记录。 false：查询基于全局服务授权的记录。
+     * @param {boolean} [includeGroup] 是否包含基于IAM用户所属用户组授权的记录，默认为true。当参数subject&#x3D;user或者subject.user_id存在时生效。true：查询基于IAM用户授权、IAM用户所属用户组授权的记录。 false：仅查询基于IAM用户授权的记录。
+     * @param {string} [page] 分页查询时数据的页数，查询值最小为1。需要与per_page同时存在。
+     * @param {string} [perPage] 分页查询时每页的数据个数，取值范围为[1,50]。需要与page同时存在。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainRoleAssignments(showDomainRoleAssignmentsRequest?: ShowDomainRoleAssignmentsRequest): Promise<ShowDomainRoleAssignmentsResponse> {
+        const options = ParamCreater().showDomainRoleAssignments(showDomainRoleAssignmentsRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -7873,6 +7916,126 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'domain_id': domainId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口用于查询指定账号中的授权记录。
+         * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showDomainRoleAssignments(showDomainRoleAssignmentsRequest?: ShowDomainRoleAssignmentsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3.0/OS-PERMISSION/role-assignments",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let domainId;
+            let roleId;
+            let subject;
+            let subjectUserId;
+            let subjectGroupId;
+            let subjectAgencyId;
+            let scope;
+            let scopeProjectId;
+            let scopeDomainId;
+            let scopeEnterpriseProjectsId;
+            let isInherited;
+            let includeGroup;
+            let page;
+            let perPage;
+
+            if (showDomainRoleAssignmentsRequest !== null && showDomainRoleAssignmentsRequest !== undefined) {
+                if (showDomainRoleAssignmentsRequest instanceof ShowDomainRoleAssignmentsRequest) {
+                    domainId = showDomainRoleAssignmentsRequest.domainId;
+                    roleId = showDomainRoleAssignmentsRequest.roleId;
+                    subject = showDomainRoleAssignmentsRequest.subject;
+                    subjectUserId = showDomainRoleAssignmentsRequest.subjectUserId;
+                    subjectGroupId = showDomainRoleAssignmentsRequest.subjectGroupId;
+                    subjectAgencyId = showDomainRoleAssignmentsRequest.subjectAgencyId;
+                    scope = showDomainRoleAssignmentsRequest.scope;
+                    scopeProjectId = showDomainRoleAssignmentsRequest.scopeProjectId;
+                    scopeDomainId = showDomainRoleAssignmentsRequest.scopeDomainId;
+                    scopeEnterpriseProjectsId = showDomainRoleAssignmentsRequest.scopeEnterpriseProjectsId;
+                    isInherited = showDomainRoleAssignmentsRequest.isInherited;
+                    includeGroup = showDomainRoleAssignmentsRequest.includeGroup;
+                    page = showDomainRoleAssignmentsRequest.page;
+                    perPage = showDomainRoleAssignmentsRequest.perPage;
+                } else {
+                    domainId = showDomainRoleAssignmentsRequest['domain_id'];
+                    roleId = showDomainRoleAssignmentsRequest['role_id'];
+                    subject = showDomainRoleAssignmentsRequest['subject'];
+                    subjectUserId = showDomainRoleAssignmentsRequest['subject.user_id'];
+                    subjectGroupId = showDomainRoleAssignmentsRequest['subject.group_id'];
+                    subjectAgencyId = showDomainRoleAssignmentsRequest['subject.agency_id'];
+                    scope = showDomainRoleAssignmentsRequest['scope'];
+                    scopeProjectId = showDomainRoleAssignmentsRequest['scope.project_id'];
+                    scopeDomainId = showDomainRoleAssignmentsRequest['scope.domain_id'];
+                    scopeEnterpriseProjectsId = showDomainRoleAssignmentsRequest['scope.enterprise_projects_id'];
+                    isInherited = showDomainRoleAssignmentsRequest['is_inherited'];
+                    includeGroup = showDomainRoleAssignmentsRequest['include_group'];
+                    page = showDomainRoleAssignmentsRequest['page'];
+                    perPage = showDomainRoleAssignmentsRequest['per_page'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainRoleAssignments.');
+            }
+            if (domainId !== null && domainId !== undefined) {
+                localVarQueryParameter['domain_id'] = domainId;
+            }
+            if (roleId !== null && roleId !== undefined) {
+                localVarQueryParameter['role_id'] = roleId;
+            }
+            if (subject !== null && subject !== undefined) {
+                localVarQueryParameter['subject'] = subject;
+            }
+            if (subjectUserId !== null && subjectUserId !== undefined) {
+                localVarQueryParameter['subject.user_id'] = subjectUserId;
+            }
+            if (subjectGroupId !== null && subjectGroupId !== undefined) {
+                localVarQueryParameter['subject.group_id'] = subjectGroupId;
+            }
+            if (subjectAgencyId !== null && subjectAgencyId !== undefined) {
+                localVarQueryParameter['subject.agency_id'] = subjectAgencyId;
+            }
+            if (scope !== null && scope !== undefined) {
+                localVarQueryParameter['scope'] = scope;
+            }
+            if (scopeProjectId !== null && scopeProjectId !== undefined) {
+                localVarQueryParameter['scope.project_id'] = scopeProjectId;
+            }
+            if (scopeDomainId !== null && scopeDomainId !== undefined) {
+                localVarQueryParameter['scope.domain_id'] = scopeDomainId;
+            }
+            if (scopeEnterpriseProjectsId !== null && scopeEnterpriseProjectsId !== undefined) {
+                localVarQueryParameter['scope.enterprise_projects_id'] = scopeEnterpriseProjectsId;
+            }
+            if (isInherited !== null && isInherited !== undefined) {
+                localVarQueryParameter['is_inherited'] = isInherited;
+            }
+            if (includeGroup !== null && includeGroup !== undefined) {
+                localVarQueryParameter['include_group'] = includeGroup;
+            }
+            if (page !== null && page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (perPage !== null && perPage !== undefined) {
+                localVarQueryParameter['per_page'] = perPage;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

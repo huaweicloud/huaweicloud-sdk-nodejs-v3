@@ -5,6 +5,7 @@ export class ImageDetectionResultBody {
     public detail?: ImageDetectionResultDetail;
     public suggestion?: string;
     private 'category_suggestions'?: { [key: string]: string; } | undefined;
+    private 'ocr_text'?: string | undefined;
     public constructor() { 
     }
     public withDetail(detail: ImageDetectionResultDetail): ImageDetectionResultBody {
@@ -24,5 +25,15 @@ export class ImageDetectionResultBody {
     }
     public get categorySuggestions() {
         return this['category_suggestions'];
+    }
+    public withOcrText(ocrText: string): ImageDetectionResultBody {
+        this['ocr_text'] = ocrText;
+        return this;
+    }
+    public set ocrText(ocrText: string | undefined) {
+        this['ocr_text'] = ocrText;
+    }
+    public get ocrText() {
+        return this['ocr_text'];
     }
 }

@@ -34,6 +34,8 @@ import { GeneralTextWordsBlockList } from './model/GeneralTextWordsBlockList';
 import { HandwritingRequestBody } from './model/HandwritingRequestBody';
 import { HandwritingResult } from './model/HandwritingResult';
 import { HandwritingWordsBlockList } from './model/HandwritingWordsBlockList';
+import { HealthCodeRequestBody } from './model/HealthCodeRequestBody';
+import { HealthCodeResult } from './model/HealthCodeResult';
 import { IdCardRequestBody } from './model/IdCardRequestBody';
 import { IdCardResult } from './model/IdCardResult';
 import { IdcardVerificationResult } from './model/IdcardVerificationResult';
@@ -86,6 +88,8 @@ import { RecognizeGeneralTextRequest } from './model/RecognizeGeneralTextRequest
 import { RecognizeGeneralTextResponse } from './model/RecognizeGeneralTextResponse';
 import { RecognizeHandwritingRequest } from './model/RecognizeHandwritingRequest';
 import { RecognizeHandwritingResponse } from './model/RecognizeHandwritingResponse';
+import { RecognizeHealthCodeRequest } from './model/RecognizeHealthCodeRequest';
+import { RecognizeHealthCodeResponse } from './model/RecognizeHealthCodeResponse';
 import { RecognizeIdCardRequest } from './model/RecognizeIdCardRequest';
 import { RecognizeIdCardResponse } from './model/RecognizeIdCardResponse';
 import { RecognizeInsurancePolicyRequest } from './model/RecognizeInsurancePolicyRequest';
@@ -383,6 +387,24 @@ export class OcrClient {
      */
     public recognizeHandwriting(recognizeHandwritingRequest?: RecognizeHandwritingRequest): Promise<RecognizeHandwritingResponse> {
         const options = ParamCreater().recognizeHandwriting(recognizeHandwritingRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 识别防疫健康码中的文字信息，并将识别的结构化结果返回给用户。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 防疫健康码识别
+     * @param {HealthCodeRequestBody} [healthCodeRequestBody] This is a healthcode Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeHealthCode(recognizeHealthCodeRequest?: RecognizeHealthCodeRequest): Promise<RecognizeHealthCodeResponse> {
+        const options = ParamCreater().recognizeHealthCode(recognizeHealthCodeRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1251,6 +1273,42 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别防疫健康码中的文字信息，并将识别的结构化结果返回给用户。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        recognizeHealthCode(recognizeHealthCodeRequest?: RecognizeHealthCodeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/health-code",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeHealthCodeRequest !== null && recognizeHealthCodeRequest !== undefined) {
+                if (recognizeHealthCodeRequest instanceof RecognizeHealthCodeRequest) {
+                    body = recognizeHealthCodeRequest.body
+                } else {
+                    body = recognizeHealthCodeRequest['body'];
+                }
+            }
+
+        
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};

@@ -8,6 +8,7 @@ export class ImageDetectionReq {
     private 'ad_glossaries'?: Array<string> | undefined;
     private 'ad_categories'?: Array<string> | undefined;
     public threshold?: number;
+    private 'show_ocr_text'?: boolean | undefined;
     public constructor() { 
     }
     public withUrl(url: string): ImageDetectionReq {
@@ -55,6 +56,16 @@ export class ImageDetectionReq {
     public withThreshold(threshold: number): ImageDetectionReq {
         this['threshold'] = threshold;
         return this;
+    }
+    public withShowOcrText(showOcrText: boolean): ImageDetectionReq {
+        this['show_ocr_text'] = showOcrText;
+        return this;
+    }
+    public set showOcrText(showOcrText: boolean | undefined) {
+        this['show_ocr_text'] = showOcrText;
+    }
+    public get showOcrText() {
+        return this['show_ocr_text'];
     }
 }
 

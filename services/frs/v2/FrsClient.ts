@@ -36,18 +36,32 @@ import { DeleteFaceSetRequest } from './model/DeleteFaceSetRequest';
 import { DeleteFaceSetResponse } from './model/DeleteFaceSetResponse';
 import { DeleteFacesBatchReq } from './model/DeleteFacesBatchReq';
 import { DetectFace } from './model/DetectFace';
+import { DetectFaceByBase64IntlRequest } from './model/DetectFaceByBase64IntlRequest';
+import { DetectFaceByBase64IntlResponse } from './model/DetectFaceByBase64IntlResponse';
 import { DetectFaceByBase64Request } from './model/DetectFaceByBase64Request';
 import { DetectFaceByBase64Response } from './model/DetectFaceByBase64Response';
+import { DetectFaceByFileIntlRequest } from './model/DetectFaceByFileIntlRequest';
+import { DetectFaceByFileIntlRequestBody } from './model/DetectFaceByFileIntlRequestBody';
+import { DetectFaceByFileIntlResponse } from './model/DetectFaceByFileIntlResponse';
 import { DetectFaceByFileRequest } from './model/DetectFaceByFileRequest';
 import { DetectFaceByFileRequestBody } from './model/DetectFaceByFileRequestBody';
 import { DetectFaceByFileResponse } from './model/DetectFaceByFileResponse';
+import { DetectFaceByUrlIntlRequest } from './model/DetectFaceByUrlIntlRequest';
+import { DetectFaceByUrlIntlResponse } from './model/DetectFaceByUrlIntlResponse';
 import { DetectFaceByUrlRequest } from './model/DetectFaceByUrlRequest';
 import { DetectFaceByUrlResponse } from './model/DetectFaceByUrlResponse';
+import { DetectLiveByBase64IntlRequest } from './model/DetectLiveByBase64IntlRequest';
+import { DetectLiveByBase64IntlResponse } from './model/DetectLiveByBase64IntlResponse';
 import { DetectLiveByBase64Request } from './model/DetectLiveByBase64Request';
 import { DetectLiveByBase64Response } from './model/DetectLiveByBase64Response';
+import { DetectLiveByFileIntlRequest } from './model/DetectLiveByFileIntlRequest';
+import { DetectLiveByFileIntlRequestBody } from './model/DetectLiveByFileIntlRequestBody';
+import { DetectLiveByFileIntlResponse } from './model/DetectLiveByFileIntlResponse';
 import { DetectLiveByFileRequest } from './model/DetectLiveByFileRequest';
 import { DetectLiveByFileRequestBody } from './model/DetectLiveByFileRequestBody';
 import { DetectLiveByFileResponse } from './model/DetectLiveByFileResponse';
+import { DetectLiveByUrlIntlRequest } from './model/DetectLiveByUrlIntlRequest';
+import { DetectLiveByUrlIntlResponse } from './model/DetectLiveByUrlIntlResponse';
 import { DetectLiveByUrlRequest } from './model/DetectLiveByUrlRequest';
 import { DetectLiveByUrlResponse } from './model/DetectLiveByUrlResponse';
 import { DetectLiveFaceByBase64Request } from './model/DetectLiveFaceByBase64Request';
@@ -142,7 +156,7 @@ export class FrsClient {
      * @param {string} faceSetName 人脸库名称。
      * @param {any} imageFile 本地图片文件，图片不能超过8MB，建议小于1MB。上传文件时，请求格式为multipart。
      * @param {string} [externalImageId] 用户指定的图片外部ID，与当前图像绑定。用户没提供，系统会生成一个。 该ID长度范围为1～36位，可以包含字母、数字、中划线或者下划线，不包含其他的特殊字符。
-     * @param {string} [externalFields] 根据用户自定义数据类型，填入相应的数值。 创建faceset时定义该字段，Json字符串不校验重复性，参考[自定义字段](https://support.huaweicloud.com/api-face/face_02_0012.html)。
+     * @param {string} [externalFields] [根据用户自定义数据类型，填入相应的数值。 创建faceset时定义该字段，Json字符串不校验重复性，参考[自定义字段](https://support.huaweicloud.com/api-face/face_02_0012.html)。](tag:hc) [根据用户自定义数据类型，填入相应的数值。 创建faceset时定义该字段，Json字符串不校验重复性，参考[自定义字段](https://support.huaweicloud.com/intl/zh-cn/api-face/face_02_0012.html)。](tag:hk)
      * @param {boolean} [single] 是否将图片中的最大人脸添加至人脸库。可选值包括: • true: 传入的单张图片中如果包含多张人脸，则只将最大人脸添加到人脸库中。 • false: 默认为false。传入的单张图片中如果包含多张人脸，则将所有人脸添加至人脸库中。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -346,6 +360,24 @@ export class FrsClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 人脸检测
+     * @param {FaceDetectBase64Req} faceDetectBase64Req This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectFaceByBase64Intl(detectFaceByBase64IntlRequest?: DetectFaceByBase64IntlRequest): Promise<DetectFaceByBase64IntlResponse> {
+        const options = ParamCreater().detectFaceByBase64Intl(detectFaceByBase64IntlRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 人脸检测
      * @param {any} imageFile 本地图片文件，图片不能超过8MB。上传文件时，请求格式为multipart。
      * @param {string} [attributes] 是否返回人脸属性，希望获取的属性列表，多个属性间使用逗号（,）隔开。目前支持的属性有： • 2：年龄 • 4：装束（帽子、眼镜） • 6：口罩 • 7：发型 • 8：胡须 • 11：图片类型 • 12：质量 • 13：表情 • 21：人脸图片旋转角（顺时针偏转角度），支持0°、90°、180°和270°图片旋转
      * @param {*} [options] Override http request option.
@@ -353,6 +385,24 @@ export class FrsClient {
      */
     public detectFaceByFile(detectFaceByFileRequest?: DetectFaceByFileRequest): Promise<DetectFaceByFileResponse> {
         const options = ParamCreater().detectFaceByFile(detectFaceByFileRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 人脸检测
+     * @param {any} imageFile 本地图片文件，图片不能超过8MB。上传文件时，请求格式为multipart。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectFaceByFileIntl(detectFaceByFileIntlRequest?: DetectFaceByFileIntlRequest): Promise<DetectFaceByFileIntlResponse> {
+        const options = ParamCreater().detectFaceByFileIntl(detectFaceByFileIntlRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -377,6 +427,24 @@ export class FrsClient {
     }
 
     /**
+     * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 人脸检测
+     * @param {FaceDetectUrlReq} faceDetectUrlReq This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectFaceByUrlIntl(detectFaceByUrlIntlRequest?: DetectFaceByUrlIntlRequest): Promise<DetectFaceByUrlIntlResponse> {
+        const options = ParamCreater().detectFaceByUrlIntl(detectFaceByUrlIntlRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -389,6 +457,24 @@ export class FrsClient {
      */
     public detectLiveByBase64(detectLiveByBase64Request?: DetectLiveByBase64Request): Promise<DetectLiveByBase64Response> {
         const options = ParamCreater().detectLiveByBase64(detectLiveByBase64Request);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 动作活体检测
+     * @param {LiveDetectBase64Req} liveDetectBase64Req This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectLiveByBase64Intl(detectLiveByBase64IntlRequest?: DetectLiveByBase64IntlRequest): Promise<DetectLiveByBase64IntlResponse> {
+        const options = ParamCreater().detectLiveByBase64Intl(detectLiveByBase64IntlRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -421,12 +507,50 @@ export class FrsClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 动作活体检测
+     * @param {any} videoFile 本地视频文件。上传文件时，请求格式为multipart。 视频要求： • 视频文件大小不超过8MB，建议客户端压缩到200KB~2MB。 • 限制视频时长1～15秒。 • 建议帧率10fps～30fps。 • 封装格式：mp4、avi、flv、webm、asf、mov。 • 视频编码格式： h261、h263、h264、hevc、vc1、vp8、vp9、wmv3。
+     * @param {string} actions 动作代码顺序列表，英文逗号（,）分隔。建议单动作，目前支持的动作有： • 1：左摇头 • 2：右摇头 • 3：点头 • 4：嘴部动作
+     * @param {string} [actionTime] 该参数为动作时间数组拼接的字符串，数组的长度和actions的数量一致，每一项代表了对应次序动作的起始时间和结束时间，单位为距视频开始的毫秒数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectLiveByFileIntl(detectLiveByFileIntlRequest?: DetectLiveByFileIntlRequest): Promise<DetectLiveByFileIntlResponse> {
+        const options = ParamCreater().detectLiveByFileIntl(detectLiveByFileIntlRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 动作活体检测
      * @param {LiveDetectUrlReq} liveDetectUrlReq This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public detectLiveByUrl(detectLiveByUrlRequest?: DetectLiveByUrlRequest): Promise<DetectLiveByUrlResponse> {
         const options = ParamCreater().detectLiveByUrl(detectLiveByUrlRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 动作活体检测
+     * @param {LiveDetectUrlReq} liveDetectUrlReq This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detectLiveByUrlIntl(detectLiveByUrlIntlRequest?: DetectLiveByUrlIntlRequest): Promise<DetectLiveByUrlIntlResponse> {
+        const options = ParamCreater().detectLiveByUrlIntl(detectLiveByUrlIntlRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -538,8 +662,8 @@ export class FrsClient {
      * @param {any} imageFile 本地图片文件，图片不能超过8MB,建议小于1MB。上传文件时，请求格式为multipart。  必选，与image_url、image_base64、face_id四选一。
      * @param {number} [topN] 返回查询到的最相似的N张人脸，N默认为10。
      * @param {number} [threshold] 人脸相似度阈值，低于这个阈值则不返回，取值范围0~1，一般情况下建议取值0.93，默认为0。
-     * @param {string} [sort] 支持字段排序，参考[sort语法](https://support.huaweicloud.com/api-face/face_02_0013.html)。
-     * @param {string} [filter] 过滤条件，参考[filter语法](https://support.huaweicloud.com/api-face/face_02_0014.html)。
+     * @param {string} [sort] [支持字段排序，参考[sort语法](https://support.huaweicloud.com/api-face/face_02_0013.html)。](tag:hc)[支持字段排序，参考[sort语法](https://support.huaweicloud.com/intl/zh-cn/api-face/face_02_0013.html)。](tag:hk)
+     * @param {string} [filter] [过滤条件，参考[filter语法](https://support.huaweicloud.com/api-face/face_02_0014.html)。](tag:hc)[过滤条件，参考[filter语法](https://support.huaweicloud.com/intl/zh-cn/api-face/face_02_0014.html)。](tag:hk)
      * @param {string} [returnFields] 指定返回的自定义字段。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1215,6 +1339,45 @@ export const ParamCreater = function () {
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
          */
+        detectFaceByBase64Intl(detectFaceByBase64IntlRequest?: DetectFaceByBase64IntlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/face-detect",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (detectFaceByBase64IntlRequest !== null && detectFaceByBase64IntlRequest !== undefined) {
+                if (detectFaceByBase64IntlRequest instanceof DetectFaceByBase64IntlRequest) {
+                    body = detectFaceByBase64IntlRequest.body
+                } else {
+                    body = detectFaceByBase64IntlRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
         detectFaceByFile(detectFaceByFileRequest?: DetectFaceByFileRequest) {
             const options = {
                 method: "POST",
@@ -1261,6 +1424,47 @@ export const ParamCreater = function () {
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
          */
+        detectFaceByFileIntl(detectFaceByFileIntlRequest?: DetectFaceByFileIntlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/face-detect",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            var imageFile;
+
+            if (detectFaceByFileIntlRequest !== null && detectFaceByFileIntlRequest !== undefined) {
+                if (detectFaceByFileIntlRequest instanceof DetectFaceByFileIntlRequest) {
+                    imageFile = detectFaceByFileIntlRequest.body;
+                } else {
+                    imageFile = detectFaceByFileIntlRequest['body'];
+                }
+            }
+
+        
+            if (imageFile === null || imageFile === undefined) {
+            throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling detectFaceByFileIntl.');
+            }
+            if (imageFile !== undefined) { 
+                localVarFormParams.append('image_file', imageFile as any);
+            }
+            options.data = localVarFormParams;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
         detectFaceByUrl(detectFaceByUrlRequest?: DetectFaceByUrlRequest) {
             const options = {
                 method: "POST",
@@ -1280,6 +1484,45 @@ export const ParamCreater = function () {
                     body = detectFaceByUrlRequest.body
                 } else {
                     body = detectFaceByUrlRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 人脸检测是对输入图片进行人脸检测和分析，输出人脸在图像中的位置、人脸关键点位置和人脸关键属性。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        detectFaceByUrlIntl(detectFaceByUrlIntlRequest?: DetectFaceByUrlIntlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/face-detect",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (detectFaceByUrlIntlRequest !== null && detectFaceByUrlIntlRequest !== undefined) {
+                if (detectFaceByUrlIntlRequest instanceof DetectFaceByUrlIntlRequest) {
+                    body = detectFaceByUrlIntlRequest.body
+                } else {
+                    body = detectFaceByUrlIntlRequest['body'];
                 }
             }
 
@@ -1319,6 +1562,45 @@ export const ParamCreater = function () {
                     body = detectLiveByBase64Request.body
                 } else {
                     body = detectLiveByBase64Request['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        detectLiveByBase64Intl(detectLiveByBase64IntlRequest?: DetectLiveByBase64IntlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/live-detect",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (detectLiveByBase64IntlRequest !== null && detectLiveByBase64IntlRequest !== undefined) {
+                if (detectLiveByBase64IntlRequest instanceof DetectLiveByBase64IntlRequest) {
+                    body = detectLiveByBase64IntlRequest.body
+                } else {
+                    body = detectLiveByBase64IntlRequest['body'];
                 }
             }
 
@@ -1393,6 +1675,60 @@ export const ParamCreater = function () {
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
          */
+        detectLiveByFileIntl(detectLiveByFileIntlRequest?: DetectLiveByFileIntlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/live-detect",
+                contentType: "multipart/form-data",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            const localVarFormParams = new FormData();
+            var videoFile;var actions;var actionTime;
+
+            if (detectLiveByFileIntlRequest !== null && detectLiveByFileIntlRequest !== undefined) {
+                if (detectLiveByFileIntlRequest instanceof DetectLiveByFileIntlRequest) {
+                    videoFile = detectLiveByFileIntlRequest.body;
+                    actions = detectLiveByFileIntlRequest.body;
+                    actionTime = detectLiveByFileIntlRequest.body;
+                } else {
+                    videoFile = detectLiveByFileIntlRequest['body'];
+                    actions = detectLiveByFileIntlRequest['body'];
+                    actionTime = detectLiveByFileIntlRequest['body'];
+                }
+            }
+
+        
+            if (videoFile === null || videoFile === undefined) {
+            throw new RequiredError('videoFile','Required parameter videoFile was null or undefined when calling detectLiveByFileIntl.');
+            }
+            if (actions === null || actions === undefined) {
+            throw new RequiredError('actions','Required parameter actions was null or undefined when calling detectLiveByFileIntl.');
+            }
+            if (videoFile !== undefined) { 
+                localVarFormParams.append('video_file', videoFile as any);
+            }
+            if (actions !== undefined) { 
+                localVarFormParams.append('actions', actions as any);
+            }
+            if (actionTime !== undefined) { 
+                localVarFormParams.append('action_time', actionTime as any);
+            }
+            options.data = localVarFormParams;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
         detectLiveByUrl(detectLiveByUrlRequest?: DetectLiveByUrlRequest) {
             const options = {
                 method: "POST",
@@ -1412,6 +1748,45 @@ export const ParamCreater = function () {
                     body = detectLiveByUrlRequest.body
                 } else {
                     body = detectLiveByUrlRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 动作活体检测是通过判断视频中的人物动作与传入动作列表是否一致来识别视频中人物是否为活体。如果有多张人脸出现，则选取最大的人脸进行判定。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        detectLiveByUrlIntl(detectLiveByUrlIntlRequest?: DetectLiveByUrlIntlRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/live-detect",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (detectLiveByUrlIntlRequest !== null && detectLiveByUrlIntlRequest !== undefined) {
+                if (detectLiveByUrlIntlRequest instanceof DetectLiveByUrlIntlRequest) {
+                    body = detectLiveByUrlIntlRequest.body
+                } else {
+                    body = detectLiveByUrlIntlRequest['body'];
                 }
             }
 
