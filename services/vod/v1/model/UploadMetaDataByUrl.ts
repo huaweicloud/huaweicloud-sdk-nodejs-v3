@@ -149,5 +149,6 @@ export enum UploadMetaDataByUrlVideoTypeEnum {
     M4A = 'M4A',
     M4R = 'M4R',
     WV = 'WV',
-    MP2 = 'MP2'
+    MP2 = 'MP2',
+    M3U8 = 'M3U8'
 }

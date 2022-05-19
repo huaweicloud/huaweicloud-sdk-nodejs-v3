@@ -59,6 +59,9 @@ import { MyanmarIdcardRequestBody } from './model/MyanmarIdcardRequestBody';
 import { MyanmarIdcardResult } from './model/MyanmarIdcardResult';
 import { PassportRequestBody } from './model/PassportRequestBody';
 import { PassportResult } from './model/PassportResult';
+import { PcrTestRecordRequestBody } from './model/PcrTestRecordRequestBody';
+import { PcrTestRecordResult } from './model/PcrTestRecordResult';
+import { PcrTestRecordWordsBlockList } from './model/PcrTestRecordWordsBlockList';
 import { QualificationCategory } from './model/QualificationCategory';
 import { QualificationCategoryConfidence } from './model/QualificationCategoryConfidence';
 import { QualificationCertificateRequestBody } from './model/QualificationCertificateRequestBody';
@@ -106,6 +109,8 @@ import { RecognizeMyanmarIdcardRequest } from './model/RecognizeMyanmarIdcardReq
 import { RecognizeMyanmarIdcardResponse } from './model/RecognizeMyanmarIdcardResponse';
 import { RecognizePassportRequest } from './model/RecognizePassportRequest';
 import { RecognizePassportResponse } from './model/RecognizePassportResponse';
+import { RecognizePcrTestRecordRequest } from './model/RecognizePcrTestRecordRequest';
+import { RecognizePcrTestRecordResponse } from './model/RecognizePcrTestRecordResponse';
 import { RecognizeQualificationCertificateRequest } from './model/RecognizeQualificationCertificateRequest';
 import { RecognizeQualificationCertificateResponse } from './model/RecognizeQualificationCertificateResponse';
 import { RecognizeQuotaInvoiceRequest } from './model/RecognizeQuotaInvoiceRequest';
@@ -565,6 +570,24 @@ export class OcrClient {
      */
     public recognizePassport(recognizePassportRequest?: RecognizePassportRequest): Promise<RecognizePassportResponse> {
         const options = ParamCreater().recognizePassport(recognizePassportRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 识别核酸检测记录中的文字信息，并将识别的结构化结果返回给用户。PCR，全称Polymerase chain reaction,即聚合酶链式反应.PCR-test也为大众所认知为新型冠状病毒核酸检测测试。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 核酸检测记录
+     * @param {PcrTestRecordRequestBody} [pcrTestRecordRequestBody] This is a pcr test record Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizePcrTestRecord(recognizePcrTestRecordRequest?: RecognizePcrTestRecordRequest): Promise<RecognizePcrTestRecordResponse> {
+        const options = ParamCreater().recognizePcrTestRecord(recognizePcrTestRecordRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1637,6 +1660,42 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别核酸检测记录中的文字信息，并将识别的结构化结果返回给用户。PCR，全称Polymerase chain reaction,即聚合酶链式反应.PCR-test也为大众所认知为新型冠状病毒核酸检测测试。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        recognizePcrTestRecord(recognizePcrTestRecordRequest?: RecognizePcrTestRecordRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/pcr-test-record",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizePcrTestRecordRequest !== null && recognizePcrTestRecordRequest !== undefined) {
+                if (recognizePcrTestRecordRequest instanceof RecognizePcrTestRecordRequest) {
+                    body = recognizePcrTestRecordRequest.body
+                } else {
+                    body = recognizePcrTestRecordRequest['body'];
+                }
+            }
+
+        
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};

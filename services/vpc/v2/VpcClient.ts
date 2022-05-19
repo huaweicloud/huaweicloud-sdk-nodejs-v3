@@ -654,7 +654,7 @@ export class VpcClient {
      * @param {string} [networkId] 按照network_id过滤查询
      * @param {string} [macAddress] 按照mac_address过滤查询
      * @param {string} [deviceId] 按照device_id过滤查询
-     * @param {'network:dhcp' | 'network:VIP_PORT' | 'network:router_interface_distributed' | 'network:router_centralized_snat'} [deviceOwner] 按照device_owner过滤查询
+     * @param {'network:dhcp' | 'neutron:VIP_PORT' | 'network:router_interface_distributed' | 'network:router_centralized_snat'} [deviceOwner] 按照device_owner过滤查询
      * @param {'ACTIVE' | 'BUILD' | 'DOWN'} [status] 功能说明：按照status过滤查询  取值范围：ACTIVE、BUILD、DOWN
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
      * @param {string} [fixedIps] 按照fixed_ips&#x3D;ip_address或者fixed_ips&#x3D;subnet_id过滤查询

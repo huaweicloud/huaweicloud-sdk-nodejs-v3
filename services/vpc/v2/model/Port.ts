@@ -262,7 +262,7 @@ export class Port {
     */
 export enum PortDeviceOwnerEnum {
     NETWORKDHCP = 'network:dhcp',
-    NETWORKVIP_PORT = 'network:VIP_PORT',
+    NEUTRONVIP_PORT = 'neutron:VIP_PORT',
     NETWORKROUTER_INTERFACE_DISTRIBUTED = 'network:router_interface_distributed',
     NETWORKROUTER_CENTRALIZED_SNAT = 'network:router_centralized_snat'
 }

@@ -5,7 +5,7 @@ export class TransportationLicenseResult {
     private 'license_number'?: string | undefined;
     private 'vehicle_number'?: string | undefined;
     private 'vehicle_type'?: string | undefined;
-    private 'vehicle_weight'?: string | undefined;
+    private 'maximum_capacity'?: string | undefined;
     private 'vehicle_size'?: string | undefined;
     private 'issuing_authority'?: string | undefined;
     private 'issue_date'?: string | undefined;
@@ -56,15 +56,15 @@ export class TransportationLicenseResult {
     public get vehicleType() {
         return this['vehicle_type'];
     }
-    public withVehicleWeight(vehicleWeight: string): TransportationLicenseResult {
-        this['vehicle_weight'] = vehicleWeight;
+    public withMaximumCapacity(maximumCapacity: string): TransportationLicenseResult {
+        this['maximum_capacity'] = maximumCapacity;
         return this;
     }
-    public set vehicleWeight(vehicleWeight: string | undefined) {
-        this['vehicle_weight'] = vehicleWeight;
+    public set maximumCapacity(maximumCapacity: string | undefined) {
+        this['maximum_capacity'] = maximumCapacity;
     }
-    public get vehicleWeight() {
-        return this['vehicle_weight'];
+    public get maximumCapacity() {
+        return this['maximum_capacity'];
     }
     public withVehicleSize(vehicleSize: string): TransportationLicenseResult {
         this['vehicle_size'] = vehicleSize;

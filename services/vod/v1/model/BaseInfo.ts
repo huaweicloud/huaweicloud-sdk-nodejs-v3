@@ -16,6 +16,7 @@ export class BaseInfo {
     public tags?: string;
     private 'meta_data'?: MetaData | undefined;
     private 'video_url'?: string | undefined;
+    private 'sign_url'?: string | undefined;
     private 'cover_info_array'?: Array<CoverInfo> | undefined;
     private 'subtitle_info'?: Array<SubtitleInfo> | undefined;
     private 'source_path'?: FileAddr | undefined;
@@ -113,6 +114,16 @@ export class BaseInfo {
     }
     public get videoUrl() {
         return this['video_url'];
+    }
+    public withSignUrl(signUrl: string): BaseInfo {
+        this['sign_url'] = signUrl;
+        return this;
+    }
+    public set signUrl(signUrl: string | undefined) {
+        this['sign_url'] = signUrl;
+    }
+    public get signUrl() {
+        return this['sign_url'];
     }
     public withCoverInfoArray(coverInfoArray: Array<CoverInfo>): BaseInfo {
         this['cover_info_array'] = coverInfoArray;
