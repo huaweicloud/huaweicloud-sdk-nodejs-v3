@@ -1,3 +1,27 @@
+# 3.0.42-rc 2022-05-26
+
+### HuaweiCloud SDK ECS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`AttachServerVolume`新增请求参数 `volume_type`、`hw:passthrough`
+
+### HuaweiCloud SDK Moderation
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`RunCheckResult`新增响应参数 `ocr_text`、`error_code`、`error_msg`
+  - 接口`RunImageBatchModeration`:
+    - 新增请求参数 `moderation_rule`、`ad_categories`、`show_ocr_text`
+    - 新增响应参数 `ocr_text`、`error_code`、`error_msg`
+  - 接口`RunTaskSumbit`新增请求参数 `moderation_rule`、`ad_categories`、`show_ocr_text`
+
 # 3.0.41-rc 2022-05-19
 
 ### HuaweiCloud SDK ECS

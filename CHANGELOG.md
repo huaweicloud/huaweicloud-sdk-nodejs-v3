@@ -1,3 +1,27 @@
+# 3.0.42-rc 2022-05-26
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameters `volume_type`, `hw:passthrough` to the interface `AttachServerVolume`
+
+### HuaweiCloud SDK Moderation
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameters `ocr_text`, `error_code`, `error_msg` to the interface `RunCheckResult`
+  - Changes of the interface `RunImageBatchModeration`:
+    - Add the request parameters `moderation_rule`, `ad_categories`, `show_ocr_text`
+    - Add the response parameters `ocr_text`, `error_code`, `error_msg`
+  - Add the request parameters `moderation_rule`, `ad_categories`, `show_ocr_text` to the interface `RunTaskSumbit`
+
 # 3.0.41-rc 2022-05-19
 
 ### HuaweiCloud SDK ECS
@@ -42,7 +66,7 @@
 ### HuaweiCloud SDK FRS
 
 - _Features_
-  - Support the following interfaces��
+  - Support the following interfaces:
     - `DetectLiveByUrlIntl`
     - `DetectLiveByFileIntl`
     - `DetectLiveByBase64Intl`
@@ -217,7 +241,7 @@
 ### HuaweiCloud SDK FunctionGraph
 
 - _Features_
-  - Support the following interfaces��
+  - Support the following interfaces:
     - `ListWorkflows`
     - `CreateWorkflow`
     - `BatchDeleteWorkflows`
@@ -521,7 +545,7 @@
 ### HuaweiCloud SDK DevStar
 
 - _Features_
-  - Support the following interfaces��
+  - Support the following interfaces:
     - `ShowApplicationV3`
     - `UpdateApplication`
     - `ShowApplicationDependentResources`
@@ -567,7 +591,7 @@
 ### HuaweiCloud SDK OCR
 
 - _Features_
-  - Support the following interfaces��
+  - Support the following interfaces:
     - `RecognizeThailandIdcard`
     - `RecognizeMyanmarIdcard`
     - `RecognizeMyanmarDriverLicense`
