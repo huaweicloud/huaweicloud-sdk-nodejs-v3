@@ -23,11 +23,6 @@ export class SignerUtil {
     constructor() { } 
     // 返回请求的绝对路径
     static checkUrl(method: string, url: string) {
-        // if (method === "GET") {
-        //     return this.getUrl(url) + "/";
-        // } else {
-        //     return this.getUrl(url) + "/";
-        // }
         return this.getUrl(url) + "/";
     }
     static getUrl(url: string) {

@@ -36,6 +36,7 @@ import { HandwritingResult } from './model/HandwritingResult';
 import { HandwritingWordsBlockList } from './model/HandwritingWordsBlockList';
 import { HealthCodeRequestBody } from './model/HealthCodeRequestBody';
 import { HealthCodeResult } from './model/HealthCodeResult';
+import { HealthCodeWordsBlockList } from './model/HealthCodeWordsBlockList';
 import { IdCardRequestBody } from './model/IdCardRequestBody';
 import { IdCardResult } from './model/IdCardResult';
 import { IdcardVerificationResult } from './model/IdcardVerificationResult';
@@ -59,6 +60,7 @@ import { MyanmarIdcardRequestBody } from './model/MyanmarIdcardRequestBody';
 import { MyanmarIdcardResult } from './model/MyanmarIdcardResult';
 import { PassportRequestBody } from './model/PassportRequestBody';
 import { PassportResult } from './model/PassportResult';
+import { PcrTestRecordConfidence } from './model/PcrTestRecordConfidence';
 import { PcrTestRecordRequestBody } from './model/PcrTestRecordRequestBody';
 import { PcrTestRecordResult } from './model/PcrTestRecordResult';
 import { PcrTestRecordWordsBlockList } from './model/PcrTestRecordWordsBlockList';
@@ -581,7 +583,7 @@ export class OcrClient {
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 核酸检测记录
+     * @summary 核酸检测记录识别
      * @param {PcrTestRecordRequestBody} [pcrTestRecordRequestBody] This is a pcr test record Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

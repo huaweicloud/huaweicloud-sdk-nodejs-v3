@@ -139,7 +139,7 @@ export class SwrClient {
 
 
     /**
-     * 创建镜像自动同步任务
+     * 创建镜像自动同步任务，帮助您把最新推送的镜像自动同步到其他区域镜像仓库内。 镜像自动同步帮助您把最新推送的镜像自动同步到其他区域镜像仓库内，后期镜像有更新时，目标仓库的镜像也会自动更新，但已有的镜像不会自动同步。已有镜像的同步需要手动操作，详情请参见手动同步镜像。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -160,7 +160,7 @@ export class SwrClient {
     }
 
     /**
-     * 手动同步镜像
+     * 对于镜像仓库已有的镜像，如果想在其他区域使用，需要手动触发镜像同步。 判断是否同步成功的方法如下：响应状态码为200，无报错信息，表示同步成功。通过SWR管理控制台或调用查询镜像仓库概要信息接口，在目标区域的目标组织下，若存在所同步的镜像版本表示同步成功。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -343,7 +343,7 @@ export class SwrClient {
     }
 
     /**
-     * 删除镜像自动同步任务
+     * 根据目标区域、目标组织删除指定的镜像自动同步任务。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -528,12 +528,12 @@ export class SwrClient {
     }
 
     /**
-     * 获取镜像自动同步任务列表
+     * 获取为当前镜像仓库所创建的所有自动同步任务。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 获取镜像自动同步任务信息
+     * @summary 获取镜像自动同步任务列表
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
@@ -615,7 +615,7 @@ export class SwrClient {
      * @param {string} [namespace] 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} [name] 镜像仓库名称
      * @param {string} [category] 镜像仓库分类，可设置为app_server, linux, framework_app, database, lang, other, windows, arm。
-     * @param {string} [filter] 应填写 center::{center}|limit::{limit}|offset::{offset}|order_column::{order_column}|order_type::{order_type} , 其中{center}为self或thirdparty，自己的镜像或第三方镜像，默认值为self,{limit}为返回条数,{offset}为起始索引, {order_column}为按列排序，可设置为name、updated_time、tag_count,{order_type}为排序类型，可设置为desc（降序）、asc（升序）
+     * @param {string} [filter] 注意：至少要传递一个filter参数。其中{center}为self或thirdparty，自己的镜像或第三方镜像，默认值为self。{namespace}为组织名称，模糊匹配。 {name}为镜像仓库名称，模糊匹配。{category}为镜像仓库分类，可设置为app_server、linux、framework_app、database、lang、other、windows、arm。 {limit}为返回条数,{offset}为起始索引，注意：offset和limit参数需要配套使用。{order_column}为按列排序，可设置为name、updated_time、tag_count,{order_type}为排序类型， 可设置为desc（降序）、asc（升序），注意：order_column和order_type参数需要配套使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -833,12 +833,12 @@ export class SwrClient {
     }
 
     /**
-     * 获取镜像同步任务信息
+     * 创建镜像自动同步任务后，可以通过此接口查询该任务的状态，以判断是否同步成功。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 获取镜像同步任务信息
+     * @summary 获取镜像自动同步任务信息
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
@@ -1064,7 +1064,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 创建镜像自动同步任务
+         * 创建镜像自动同步任务，帮助您把最新推送的镜像自动同步到其他区域镜像仓库内。 镜像自动同步帮助您把最新推送的镜像自动同步到其他区域镜像仓库内，后期镜像有更新时，目标仓库的镜像也会自动更新，但已有的镜像不会自动同步。已有镜像的同步需要手动操作，详情请参见手动同步镜像。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -1122,7 +1122,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 手动同步镜像
+         * 对于镜像仓库已有的镜像，如果想在其他区域使用，需要手动触发镜像同步。 判断是否同步成功的方法如下：响应状态码为200，无报错信息，表示同步成功。通过SWR管理控制台或调用查询镜像仓库概要信息接口，在目标区域的目标组织下，若存在所同步的镜像版本表示同步成功。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -1605,7 +1605,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除镜像自动同步任务
+         * 根据目标区域、目标组织删除指定的镜像自动同步任务。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2091,7 +2091,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取镜像自动同步任务列表
+         * 获取为当前镜像仓库所创建的所有自动同步任务。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2872,7 +2872,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取镜像同步任务信息
+         * 创建镜像自动同步任务后，可以通过此接口查询该任务的状态，以判断是否同步成功。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.

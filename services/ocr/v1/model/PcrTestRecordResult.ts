@@ -1,3 +1,4 @@
+import { PcrTestRecordConfidence } from './PcrTestRecordConfidence';
 import { PcrTestRecordWordsBlockList } from './PcrTestRecordWordsBlockList';
 
 
@@ -6,7 +7,7 @@ export class PcrTestRecordResult {
     private 'sampling_time': string | undefined;
     private 'test_time': string | undefined;
     private 'test_result': string | undefined;
-    public confidence: number;
+    public confidence: PcrTestRecordConfidence;
     private 'words_block_count': number | undefined;
     private 'words_block_list': Array<PcrTestRecordWordsBlockList> | undefined;
     public constructor(name?: any, samplingTime?: any, testTime?: any, testResult?: any, confidence?: any, wordsBlockCount?: any, wordsBlockList?: any) { 
@@ -52,7 +53,7 @@ export class PcrTestRecordResult {
     public get testResult() {
         return this['test_result'];
     }
-    public withConfidence(confidence: number): PcrTestRecordResult {
+    public withConfidence(confidence: PcrTestRecordConfidence): PcrTestRecordResult {
         this['confidence'] = confidence;
         return this;
     }
