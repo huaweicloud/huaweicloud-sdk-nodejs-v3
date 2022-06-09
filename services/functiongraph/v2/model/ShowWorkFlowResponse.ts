@@ -8,6 +8,8 @@ export class ShowWorkFlowResponse extends SdkResponse {
     private 'created_time'?: string | undefined;
     private 'updated_time'?: string | undefined;
     private 'created_by'?: string | undefined;
+    private 'lts_group_id'?: string | undefined;
+    private 'lts_stream_id'?: string | undefined;
     public definition?: CreateWorkflowRequestBody;
     public constructor() { 
         super();
@@ -55,6 +57,26 @@ export class ShowWorkFlowResponse extends SdkResponse {
     }
     public get createdBy() {
         return this['created_by'];
+    }
+    public withLtsGroupId(ltsGroupId: string): ShowWorkFlowResponse {
+        this['lts_group_id'] = ltsGroupId;
+        return this;
+    }
+    public set ltsGroupId(ltsGroupId: string | undefined) {
+        this['lts_group_id'] = ltsGroupId;
+    }
+    public get ltsGroupId() {
+        return this['lts_group_id'];
+    }
+    public withLtsStreamId(ltsStreamId: string): ShowWorkFlowResponse {
+        this['lts_stream_id'] = ltsStreamId;
+        return this;
+    }
+    public set ltsStreamId(ltsStreamId: string | undefined) {
+        this['lts_stream_id'] = ltsStreamId;
+    }
+    public get ltsStreamId() {
+        return this['lts_stream_id'];
     }
     public withDefinition(definition: CreateWorkflowRequestBody): ShowWorkFlowResponse {
         this['definition'] = definition;

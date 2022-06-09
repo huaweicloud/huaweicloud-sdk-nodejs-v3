@@ -1,8 +1,9 @@
 
 
 export class BatchDeleteWorkflowsRequestBody {
-    private 'workflow_urns'?: Array<string> | undefined;
-    public constructor() { 
+    private 'workflow_urns': Array<string> | undefined;
+    public constructor(workflowUrns?: any) { 
+        this['workflow_urns'] = workflowUrns;
     }
     public withWorkflowUrns(workflowUrns: Array<string>): BatchDeleteWorkflowsRequestBody {
         this['workflow_urns'] = workflowUrns;

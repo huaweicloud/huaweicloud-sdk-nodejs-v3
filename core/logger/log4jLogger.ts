@@ -37,7 +37,7 @@ configure({
         },
     },
     categories: {
-        default: { appenders: ['dateFile', 'console'], level: 'debug', enableCallStack: true }
+        default: { appenders: ['console'], level: 'debug', enableCallStack: true }
     }
 });
 

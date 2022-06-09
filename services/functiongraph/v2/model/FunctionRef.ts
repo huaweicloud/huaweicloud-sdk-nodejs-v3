@@ -1,10 +1,12 @@
 
 
 export class FunctionRef {
-    private 'ref_name'?: string | undefined;
+    private 'ref_name': string | undefined;
     private 'invoke_mode'?: FunctionRefInvokeModeEnum | undefined;
-    public arguments?: object;
-    public constructor() { 
+    public arguments: object;
+    public constructor(refName?: any, arguments?: any) { 
+        this['ref_name'] = refName;
+        this['arguments'] = arguments;
     }
     public withRefName(refName: string): FunctionRef {
         this['ref_name'] = refName;

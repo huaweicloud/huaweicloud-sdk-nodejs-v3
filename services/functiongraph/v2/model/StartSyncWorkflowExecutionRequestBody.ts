@@ -2,8 +2,9 @@
 
 export class StartSyncWorkflowExecutionRequestBody {
     public headers?: object;
-    public input?: object;
-    public constructor() { 
+    public input: object;
+    public constructor(input?: any) { 
+        this['input'] = input;
     }
     public withHeaders(headers: object): StartSyncWorkflowExecutionRequestBody {
         this['headers'] = headers;

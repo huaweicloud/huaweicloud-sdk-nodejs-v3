@@ -140,6 +140,7 @@ export class DefaultHttpClient implements HttpClient {
         let url = endpoint;
         url = stripTrailingSlash(url);
         headers['User-Agent'] = "huaweicloud-usdk-nodejs/3.0";
+        
         let requestParams = {
             url,
             method,

@@ -1,10 +1,12 @@
 
 
 export class Function {
-    public name?: string;
-    public operation?: string;
+    public name: string;
+    public operation: string;
     public metadata?: object;
-    public constructor() { 
+    public constructor(name?: any, operation?: any) { 
+        this['name'] = name;
+        this['operation'] = operation;
     }
     public withName(name: string): Function {
         this['name'] = name;

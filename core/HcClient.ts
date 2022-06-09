@@ -89,6 +89,10 @@ export class HcClient {
             url = url.replace("{" + x + "}", pathParams[x]);
         });
 
+        if (options.method === 'DELETE' && (options.data && (Object.keys(options.data).length <= 0 || options.data.length <= 0))) {
+            delete options.data;
+        }
+
         const builder = new HttpRequestBuilder();
         let httpRequest = builder
             .withEndpoint(url)

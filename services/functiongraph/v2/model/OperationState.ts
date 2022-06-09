@@ -4,16 +4,22 @@ import { StateDataFilter } from './StateDataFilter';
 
 
 export class OperationState {
-    public id?: string;
-    public name?: string;
-    public type?: OperationStateTypeEnum;
-    public end?: boolean;
-    public transition?: string;
+    public id: string;
+    public name: string;
+    public type: OperationStateTypeEnum;
+    public end: boolean;
+    public transition: string;
     private 'state_data_filter'?: StateDataFilter | undefined;
     private 'action_mode'?: OperationStateActionModeEnum | undefined;
-    public actions?: Array<Action>;
+    public actions: Array<Action>;
     private 'on_errors'?: Array<OnError> | undefined;
-    public constructor() { 
+    public constructor(id?: any, name?: any, type?: any, end?: any, transition?: any, actions?: any) { 
+        this['id'] = id;
+        this['name'] = name;
+        this['type'] = type;
+        this['end'] = end;
+        this['transition'] = transition;
+        this['actions'] = actions;
     }
     public withId(id: string): OperationState {
         this['id'] = id;

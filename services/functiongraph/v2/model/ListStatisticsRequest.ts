@@ -3,6 +3,7 @@
 export class ListStatisticsRequest {
     public filter: ListStatisticsRequestFilterEnum;
     public period?: string;
+    public option?: ListStatisticsRequestOptionEnum;
     public constructor(filter?: any) { 
         this['filter'] = filter;
     }
@@ -14,6 +15,10 @@ export class ListStatisticsRequest {
         this['period'] = period;
         return this;
     }
+    public withOption(option: ListStatisticsRequestOptionEnum): ListStatisticsRequest {
+        this['option'] = option;
+        return this;
+    }
 }
 
 /**
@@ -23,4 +28,14 @@ export class ListStatisticsRequest {
 export enum ListStatisticsRequestFilterEnum {
     MONITOR_DATA = 'monitor_data',
     MONTHLY_REPORT = 'monthly_report'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListStatisticsRequestOptionEnum {
+    E_0 = '0',
+    E_1 = '1',
+    E_2 = '2',
+    E_3 = '3'
 }

@@ -535,7 +535,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取依赖包列表
      * @param {'public' | 'private' | 'all'} [dependencyType] 依赖包类型public：公开,private:私有，all：全部。缺省时查询全量。
-     * @param {'Java8' | 'Java11' | 'Node.js6.10' | 'Node.js8.10' | 'Node.js10.16' | 'Node.js12.13' | 'Node.js14.18' | 'Python2.7' | 'Python3.6' | 'Python3.9' | 'Go1.8' | 'Go1.x' | 'C#(.NET Core 2.0)' | 'C#(.NET Core 2.1)' | 'C#(.NET Core 3.1)' | 'PHP7.3'} [runtime] 运行时语言 Java11、Nodejs14.18、Python3.9在type为v2时支持
+     * @param {'Java8' | 'Java11' | 'Node.js6.10' | 'Node.js8.10' | 'Node.js10.16' | 'Node.js12.13' | 'Node.js14.18' | 'Python2.7' | 'Python3.6' | 'Go1.8' | 'Go1.x' | 'C#(.NET Core 2.0)' | 'C#(.NET Core 2.1)' | 'C#(.NET Core 3.1)' | 'PHP7.3' | 'Python3.9'} [runtime] FunctionGraph函数的执行环境 Python2.7: Python语言2.7版本。 Python3.6: Pyton语言3.6版本。 Python3.9: Python语言3.9版本。 Go1.8: Go语言1.8版本。 Go1.x: Go语言1.x版本。 Java8: Java语言8版本。 Java11: Java语言11版本。 Node.js6.10: Nodejs语言6.10版本。 Node.js8.10: Nodejs语言8.10版本。 Node.js10.16: Nodejs语言10.16版本。 Node.js12.13: Nodejs语言12.13版本。 Node.js14.18: Nodejs语言14.18版本。 C#(.NET Core 2.0): C#语言2.0版本。 C#(.NET Core 2.1): C#语言2.1版本。 C#(.NET Core 3.1): C#语言3.1版本。 Custom: 自定义运行时。 PHP7.3: Php语言7.3版本
      * @param {string} [name] 依赖包名称。
      * @param {string} [marker] 上一次查询依赖包的最后记录位置，默认为\&quot;0\&quot;。
      * @param {string} [limit] 本次查询可获取的依赖包的最大数目，默认为\&quot;400\&quot;。
@@ -577,6 +577,7 @@ export class FunctionGraphClient {
      * @param {string} functionUrn 函数URN
      * @param {string} [requestId] 需要查询的异步请求ID。如果不指定，默认查询所有异步调用记录
      * @param {string} [limit] 本次查询最大返回的数据条数，最大值500，默认值100
+     * @param {string} [marker] 本次查询起始位置，默认值0
      * @param {'WAIT' | 'RUNNING' | 'SUCCESS' | 'FAIL' | 'DISCARD'} [status] 本次查询指定的异步调用状态，支持5种状态，如果不指定，则查询所有状态的调用记录 WAIT: 等待 RUNNING: 执行中 SUCCESS: 执行成功 FAIL: 执行失败 DISCARD: 请求丢弃
      * @param {Date} [queryBeginTime] 搜索起始时间（格式为YYYY-MM-DD\&#39;T\&#39;HH:mm:ss,UTC时间）。如果不指定默认为当前时间前1小时
      * @param {Date} [queryEndTime] 搜索结束时间（格式为YYYY-MM-DD\&#39;T\&#39;HH:mm:ss,UTC时间）。如果不指定默认为当前时间
@@ -618,7 +619,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取指定时间段的函数运行指标
      * @param {string} funcUrn 函数的URN（Uniform Resource Name），唯一标识函数。
-     * @param {string} period 获取最近多少分钟内函数执行的指标。
+     * @param {'5' | '15' | '60'} period 获取最近多少分钟内函数执行的指标。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -698,6 +699,7 @@ export class FunctionGraphClient {
      * @summary 租户函数统计信息
      * @param {'monitor_data' | 'monthly_report'} filter 参数过滤器。
      * @param {string} [period] 时间段单位为分钟，与filter参数配合使用。
+     * @param {'0' | '1' | '2' | '3'} [option] 月度统计的维度，filter参数取值为monthly_report时才生效。 - \&quot;0\&quot;:表示统计本月。 - \&quot;1\&quot;:表示统计上月。 - \&quot;2\&quot;:表示统计最近三个月。 - \&quot;3\&quot;:表示统计最近六个月。 - 当取值不在以上范围时，默认取\&quot;0”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2265,6 +2267,7 @@ export const ParamCreater = function () {
             let functionUrn;
             let requestId;
             let limit;
+            let marker;
             let status;
             let queryBeginTime;
             let queryEndTime;
@@ -2274,6 +2277,7 @@ export const ParamCreater = function () {
                     functionUrn = listFunctionAsyncInvocationsRequest.functionUrn;
                     requestId = listFunctionAsyncInvocationsRequest.requestId;
                     limit = listFunctionAsyncInvocationsRequest.limit;
+                    marker = listFunctionAsyncInvocationsRequest.marker;
                     status = listFunctionAsyncInvocationsRequest.status;
                     queryBeginTime = listFunctionAsyncInvocationsRequest.queryBeginTime;
                     queryEndTime = listFunctionAsyncInvocationsRequest.queryEndTime;
@@ -2281,6 +2285,7 @@ export const ParamCreater = function () {
                     functionUrn = listFunctionAsyncInvocationsRequest['function_urn'];
                     requestId = listFunctionAsyncInvocationsRequest['request_id'];
                     limit = listFunctionAsyncInvocationsRequest['limit'];
+                    marker = listFunctionAsyncInvocationsRequest['marker'];
                     status = listFunctionAsyncInvocationsRequest['status'];
                     queryBeginTime = listFunctionAsyncInvocationsRequest['query_begin_time'];
                     queryEndTime = listFunctionAsyncInvocationsRequest['query_end_time'];
@@ -2296,6 +2301,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
@@ -2555,14 +2563,17 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let filter;
             let period;
+            let option;
 
             if (listStatisticsRequest !== null && listStatisticsRequest !== undefined) {
                 if (listStatisticsRequest instanceof ListStatisticsRequest) {
                     filter = listStatisticsRequest.filter;
                     period = listStatisticsRequest.period;
+                    option = listStatisticsRequest.option;
                 } else {
                     filter = listStatisticsRequest['filter'];
                     period = listStatisticsRequest['period'];
+                    option = listStatisticsRequest['option'];
                 }
             }
 
@@ -2575,6 +2586,9 @@ export const ParamCreater = function () {
             }
             if (period !== null && period !== undefined) {
                 localVarQueryParameter['period'] = period;
+            }
+            if (option !== null && option !== undefined) {
+                localVarQueryParameter['option'] = option;
             }
 
             options.queryParams = localVarQueryParameter;

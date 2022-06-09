@@ -7,6 +7,7 @@ export class NodeExecution {
     private 'begin_time'?: number | undefined;
     private 'end_time'?: number | undefined;
     private 'error_message'?: object | undefined;
+    private 'request_id'?: string | undefined;
     public constructor() { 
     }
     public withStatus(status: NodeExecutionStatusEnum): NodeExecution {
@@ -50,6 +51,16 @@ export class NodeExecution {
     }
     public get errorMessage() {
         return this['error_message'];
+    }
+    public withRequestId(requestId: string): NodeExecution {
+        this['request_id'] = requestId;
+        return this;
+    }
+    public set requestId(requestId: string | undefined) {
+        this['request_id'] = requestId;
+    }
+    public get requestId() {
+        return this['request_id'];
     }
 }
 

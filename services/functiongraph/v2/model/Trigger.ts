@@ -2,11 +2,13 @@ import { OBSTriggerConfig } from './OBSTriggerConfig';
 
 
 export class Trigger {
-    private 'trigger_name'?: string | undefined;
-    private 'trigger_type'?: TriggerTriggerTypeEnum | undefined;
+    private 'trigger_name': string | undefined;
+    private 'trigger_type': TriggerTriggerTypeEnum | undefined;
     public enabled?: boolean;
     private 'trigger_config'?: OBSTriggerConfig | undefined;
-    public constructor() { 
+    public constructor(triggerName?: any, triggerType?: any) { 
+        this['trigger_name'] = triggerName;
+        this['trigger_type'] = triggerType;
     }
     public withTriggerName(triggerName: string): Trigger {
         this['trigger_name'] = triggerName;

@@ -1,10 +1,11 @@
 
 
 export class Retry {
-    public name?: string;
+    public name: string;
     public delay?: number;
     private 'max_attempts'?: number | undefined;
-    public constructor() { 
+    public constructor(name?: any) { 
+        this['name'] = name;
     }
     public withName(name: string): Retry {
         this['name'] = name;

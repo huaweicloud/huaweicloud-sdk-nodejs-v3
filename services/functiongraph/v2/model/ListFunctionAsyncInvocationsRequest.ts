@@ -4,6 +4,7 @@ export class ListFunctionAsyncInvocationsRequest {
     private 'function_urn': string | undefined;
     private 'request_id'?: string | undefined;
     public limit?: string;
+    public marker?: string;
     public status?: ListFunctionAsyncInvocationsRequestStatusEnum;
     private 'query_begin_time'?: Date | undefined;
     private 'query_end_time'?: Date | undefined;
@@ -32,6 +33,10 @@ export class ListFunctionAsyncInvocationsRequest {
     }
     public withLimit(limit: string): ListFunctionAsyncInvocationsRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListFunctionAsyncInvocationsRequest {
+        this['marker'] = marker;
         return this;
     }
     public withStatus(status: ListFunctionAsyncInvocationsRequestStatusEnum): ListFunctionAsyncInvocationsRequest {

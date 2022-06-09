@@ -6,18 +6,24 @@ import { Trigger } from './Trigger';
 
 
 export class UpdateWorkflowRequestBody {
-    public name?: string;
+    public name: string;
     public description?: string;
     public triggers?: Array<Trigger>;
-    public start?: string;
-    public functions?: Array<Function>;
-    public states?: Array<OperationState>;
-    public constants?: object;
-    public retries?: Array<Retry>;
+    public start: string;
+    public functions: Array<Function>;
+    public states: Array<OperationState>;
+    public constants: object;
+    public retries: Array<Retry>;
     public mode?: UpdateWorkflowRequestBodyModeEnum;
     private 'express_config'?: ExpressConfig | undefined;
     private 'enterprise_project_id'?: string | undefined;
-    public constructor() { 
+    public constructor(name?: any, start?: any, functions?: any, states?: any, constants?: any, retries?: any) { 
+        this['name'] = name;
+        this['start'] = start;
+        this['functions'] = functions;
+        this['states'] = states;
+        this['constants'] = constants;
+        this['retries'] = retries;
     }
     public withName(name: string): UpdateWorkflowRequestBody {
         this['name'] = name;

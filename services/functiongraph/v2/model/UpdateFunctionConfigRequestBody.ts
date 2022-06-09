@@ -22,6 +22,7 @@ export class UpdateFunctionConfigRequestBody {
     private 'initializer_timeout'?: number | undefined;
     private 'enterprise_project_id'?: string | undefined;
     private 'is_stateful_function'?: boolean | undefined;
+    private 'domain_names'?: string | undefined;
     public constructor(funcName?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any) { 
         this['func_name'] = funcName;
         this['runtime'] = runtime;
@@ -179,6 +180,16 @@ export class UpdateFunctionConfigRequestBody {
     public get isStatefulFunction() {
         return this['is_stateful_function'];
     }
+    public withDomainNames(domainNames: string): UpdateFunctionConfigRequestBody {
+        this['domain_names'] = domainNames;
+        return this;
+    }
+    public set domainNames(domainNames: string | undefined) {
+        this['domain_names'] = domainNames;
+    }
+    public get domainNames() {
+        return this['domain_names'];
+    }
 }
 
 /**
@@ -195,11 +206,11 @@ export enum UpdateFunctionConfigRequestBodyRuntimeEnum {
     NODE_JS14_18 = 'Node.js14.18',
     PYTHON2_7 = 'Python2.7',
     PYTHON3_6 = 'Python3.6',
-    PYTHON3_9 = 'Python3.9',
     GO1_8 = 'Go1.8',
     GO1_X = 'Go1.x',
     C__NET_CORE_2_0 = 'C#(.NET Core 2.0)',
     C__NET_CORE_2_1 = 'C#(.NET Core 2.1)',
     C__NET_CORE_3_1 = 'C#(.NET Core 3.1)',
-    PHP7_3 = 'PHP7.3'
+    PHP7_3 = 'PHP7.3',
+    PYTHON3_9 = 'Python3.9'
 }
