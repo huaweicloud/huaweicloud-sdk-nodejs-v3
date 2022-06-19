@@ -39,6 +39,7 @@ import { HealthCodeResult } from './model/HealthCodeResult';
 import { HealthCodeWordsBlockList } from './model/HealthCodeWordsBlockList';
 import { IdCardRequestBody } from './model/IdCardRequestBody';
 import { IdCardResult } from './model/IdCardResult';
+import { IdDocumentRequestBody } from './model/IdDocumentRequestBody';
 import { IdcardVerificationResult } from './model/IdcardVerificationResult';
 import { InsuranceItem } from './model/InsuranceItem';
 import { InsurancePolicyDetail } from './model/InsurancePolicyDetail';
@@ -97,6 +98,8 @@ import { RecognizeHealthCodeRequest } from './model/RecognizeHealthCodeRequest';
 import { RecognizeHealthCodeResponse } from './model/RecognizeHealthCodeResponse';
 import { RecognizeIdCardRequest } from './model/RecognizeIdCardRequest';
 import { RecognizeIdCardResponse } from './model/RecognizeIdCardResponse';
+import { RecognizeIdDocumentRequest } from './model/RecognizeIdDocumentRequest';
+import { RecognizeIdDocumentResponse } from './model/RecognizeIdDocumentResponse';
 import { RecognizeInsurancePolicyRequest } from './model/RecognizeInsurancePolicyRequest';
 import { RecognizeInsurancePolicyResponse } from './model/RecognizeInsurancePolicyResponse';
 import { RecognizeInvoiceVerificationRequest } from './model/RecognizeInvoiceVerificationRequest';
@@ -436,6 +439,41 @@ export class OcrClient {
      */
     public recognizeIdCard(recognizeIdCardRequest?: RecognizeIdCardRequest): Promise<RecognizeIdCardResponse> {
         const options = ParamCreater().recognizeIdCard(recognizeIdCardRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 识别身份证件图像，并将识别的结构化结果返回给用户。支持多个国家的身份证、驾驶证和护照，具体国家和证件列表详见表1。
+     * 
+     * **表1支持国家列表**
+     * 
+     * | 国家/地区  | 英文名称    | 国家代码  country_region | 支持证件类型  id_type   |
+     * | ---------- | ----------- | ------------------------ | ----------------------- |
+     * | 越南       | Vietnam     | VNM                      | PP、DL、ID              |
+     * | 印度       | India       | IND                      | PP                      |
+     * | 菲律宾     | Philippines | PHL                      | PP、DL、ID(仅支持UUMID) |
+     * | 阿尔巴尼亚 | Albania     | ALB                      | PP、DL、ID              |
+     * | 巴西       | BRAZIL      | BRA                      | PP                      |
+     * | 印度尼西亚 | INDONESIA   | IDN                      | PP                      |
+     * | 马来西亚   | MALAYSIA    | MYS                      | PP                      |
+     * | 尼日利亚   | NIGERIA     | NGA                      | PP                      |
+     * | 巴基斯坦   | PAKISTAN    | PAK                      | PP                      |
+     * | 俄罗斯     | RUSSIA      | RUS                      | PP(仅支持国际标准版本)  |
+     * | 中国台湾   | TAIWAN      | TWN                      | PP                      |
+     * | 乌克兰     | UKRAINE     | UKR                      | PP                      |
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 通用证件识别
+     * @param {IdDocumentRequestBody} idDocumentRequestBody This is a General Identity Document Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeIdDocument(recognizeIdDocumentRequest?: RecognizeIdDocumentRequest): Promise<RecognizeIdDocumentResponse> {
+        const options = ParamCreater().recognizeIdDocument(recognizeIdDocumentRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1372,6 +1410,62 @@ export const ParamCreater = function () {
                     body = recognizeIdCardRequest.body
                 } else {
                     body = recognizeIdCardRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别身份证件图像，并将识别的结构化结果返回给用户。支持多个国家的身份证、驾驶证和护照，具体国家和证件列表详见表1。
+         * 
+         * **表1支持国家列表**
+         * 
+         * | 国家/地区  | 英文名称    | 国家代码  country_region | 支持证件类型  id_type   |
+         * | ---------- | ----------- | ------------------------ | ----------------------- |
+         * | 越南       | Vietnam     | VNM                      | PP、DL、ID              |
+         * | 印度       | India       | IND                      | PP                      |
+         * | 菲律宾     | Philippines | PHL                      | PP、DL、ID(仅支持UUMID) |
+         * | 阿尔巴尼亚 | Albania     | ALB                      | PP、DL、ID              |
+         * | 巴西       | BRAZIL      | BRA                      | PP                      |
+         * | 印度尼西亚 | INDONESIA   | IDN                      | PP                      |
+         * | 马来西亚   | MALAYSIA    | MYS                      | PP                      |
+         * | 尼日利亚   | NIGERIA     | NGA                      | PP                      |
+         * | 巴基斯坦   | PAKISTAN    | PAK                      | PP                      |
+         * | 俄罗斯     | RUSSIA      | RUS                      | PP(仅支持国际标准版本)  |
+         * | 中国台湾   | TAIWAN      | TWN                      | PP                      |
+         * | 乌克兰     | UKRAINE     | UKR                      | PP                      |
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        recognizeIdDocument(recognizeIdDocumentRequest?: RecognizeIdDocumentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/id-document",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeIdDocumentRequest !== null && recognizeIdDocumentRequest !== undefined) {
+                if (recognizeIdDocumentRequest instanceof RecognizeIdDocumentRequest) {
+                    body = recognizeIdDocumentRequest.body
+                } else {
+                    body = recognizeIdDocumentRequest['body'];
                 }
             }
 

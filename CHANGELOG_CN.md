@@ -1,3 +1,14 @@
+# 3.0.45-rc 2022-06-19
+
+### HuaweiCloud SDK OCR
+
+- _新增特性_
+  - 支持接口`RecognizeIdDocument`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
 # 3.0.44-rc 2022-06-09
 
 ### HuaweiCloud SDK ELB
