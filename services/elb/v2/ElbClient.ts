@@ -776,16 +776,18 @@ export class ElbClient {
      * @param {string} [id] 监听器ID。
      * @param {string} [name] 监听器名称。
      * @param {string} [description] 监听器的描述信息。
+     * @param {string} [loadbalancerId] 监听器所在的负载均衡器ID。
+     * @param {number} [connectionLimit] 监听器的最大连接数。
+     * @param {boolean} [adminStateUp] 监听器的管理状态。该字段为预留字段，暂未启用。默认为true。
      * @param {string} [defaultPoolId] 监听器的默认后端云服务器组ID。
      * @param {string} [defaultTlsContainerRef] 监听器使用的服务器证书ID。
      * @param {string} [clientCaTlsContainerRef] 监听器使用的CA证书ID。
      * @param {string} [protocol] 监听器的监听协议。取值范围：TCP、HTTP、UDP、TERMINATED_HTTPS。
      * @param {number} [protocolPort] 监听器的监听端口。
      * @param {string} [tlsCiphersPolicy] 监听器使用的安全策略，仅对TERMINATED_HTTPS协议类型的监听器有效，且默认值为tls-1-0。取值包括：tls-1-0, tls-1-1, tls-1-2, tls-1-2-strict四种安全策略。
-     * @param {number} [memberTimeout] 等待后端服务器请求超时时间，协议为HTTP， TERMINATED_HTTPS时才有意义。取值范围 1-300
-     * @param {number} [clientTimeout] 等待客户端请求超时时间，协议为HTTP， TERMINATED_HTTPS的监听器才有意义。取值范围 1-60
-     * @param {number} [keepaliveTimeout] TCP监听器配置空闲超时时间，取值范围为（10-900s）默认值为300s，TCP监听器配置空闲超时时间，取值范围为（10-900s）默认值为300s，HTTP/TERMINATED_HTTPS监听器为客户端连接空闲超时时间，取值范围为（1-300s）默认值为15s。 UDP此字段无意义
      * @param {string} [tlsContainerId] 查询证书所关联的监听器
+     * @param {boolean} [http2Enable] HTTP2功能的开启状态。取值范围：true/false。true：开启。false：关闭。
+     * @param {string} [enterpriseProjectId] 企业项目ID，仅用于基于企业项目的细粒度鉴权使用。 - 如果参数传递default_pool_id，则以pool对应的企业项目ID鉴权。 - 如果default_pool_id和enterprise_project_id都没有传递 ，则进行细粒度鉴权 ，必须在用户
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2838,16 +2840,18 @@ export const ParamCreater = function () {
             let id;
             let name;
             let description;
+            let loadbalancerId;
+            let connectionLimit;
+            let adminStateUp;
             let defaultPoolId;
             let defaultTlsContainerRef;
             let clientCaTlsContainerRef;
             let protocol;
             let protocolPort;
             let tlsCiphersPolicy;
-            let memberTimeout;
-            let clientTimeout;
-            let keepaliveTimeout;
             let tlsContainerId;
+            let http2Enable;
+            let enterpriseProjectId;
 
             if (listListenersRequest !== null && listListenersRequest !== undefined) {
                 if (listListenersRequest instanceof ListListenersRequest) {
@@ -2857,16 +2861,18 @@ export const ParamCreater = function () {
                     id = listListenersRequest.id;
                     name = listListenersRequest.name;
                     description = listListenersRequest.description;
+                    loadbalancerId = listListenersRequest.loadbalancerId;
+                    connectionLimit = listListenersRequest.connectionLimit;
+                    adminStateUp = listListenersRequest.adminStateUp;
                     defaultPoolId = listListenersRequest.defaultPoolId;
                     defaultTlsContainerRef = listListenersRequest.defaultTlsContainerRef;
                     clientCaTlsContainerRef = listListenersRequest.clientCaTlsContainerRef;
                     protocol = listListenersRequest.protocol;
                     protocolPort = listListenersRequest.protocolPort;
                     tlsCiphersPolicy = listListenersRequest.tlsCiphersPolicy;
-                    memberTimeout = listListenersRequest.memberTimeout;
-                    clientTimeout = listListenersRequest.clientTimeout;
-                    keepaliveTimeout = listListenersRequest.keepaliveTimeout;
                     tlsContainerId = listListenersRequest.tlsContainerId;
+                    http2Enable = listListenersRequest.http2Enable;
+                    enterpriseProjectId = listListenersRequest.enterpriseProjectId;
                 } else {
                     limit = listListenersRequest['limit'];
                     marker = listListenersRequest['marker'];
@@ -2874,16 +2880,18 @@ export const ParamCreater = function () {
                     id = listListenersRequest['id'];
                     name = listListenersRequest['name'];
                     description = listListenersRequest['description'];
+                    loadbalancerId = listListenersRequest['loadbalancer_id'];
+                    connectionLimit = listListenersRequest['connection_limit'];
+                    adminStateUp = listListenersRequest['admin_state_up'];
                     defaultPoolId = listListenersRequest['default_pool_id'];
                     defaultTlsContainerRef = listListenersRequest['default_tls_container_ref'];
                     clientCaTlsContainerRef = listListenersRequest['client_ca_tls_container_ref'];
                     protocol = listListenersRequest['protocol'];
                     protocolPort = listListenersRequest['protocol_port'];
                     tlsCiphersPolicy = listListenersRequest['tls_ciphers_policy'];
-                    memberTimeout = listListenersRequest['member_timeout'];
-                    clientTimeout = listListenersRequest['client_timeout'];
-                    keepaliveTimeout = listListenersRequest['keepalive_timeout'];
                     tlsContainerId = listListenersRequest['tls_container_id'];
+                    http2Enable = listListenersRequest['http2_enable'];
+                    enterpriseProjectId = listListenersRequest['enterprise_project_id'];
                 }
             }
 
@@ -2906,6 +2914,15 @@ export const ParamCreater = function () {
             if (description !== null && description !== undefined) {
                 localVarQueryParameter['description'] = description;
             }
+            if (loadbalancerId !== null && loadbalancerId !== undefined) {
+                localVarQueryParameter['loadbalancer_id'] = loadbalancerId;
+            }
+            if (connectionLimit !== null && connectionLimit !== undefined) {
+                localVarQueryParameter['connection_limit'] = connectionLimit;
+            }
+            if (adminStateUp !== null && adminStateUp !== undefined) {
+                localVarQueryParameter['admin_state_up'] = adminStateUp;
+            }
             if (defaultPoolId !== null && defaultPoolId !== undefined) {
                 localVarQueryParameter['default_pool_id'] = defaultPoolId;
             }
@@ -2924,17 +2941,14 @@ export const ParamCreater = function () {
             if (tlsCiphersPolicy !== null && tlsCiphersPolicy !== undefined) {
                 localVarQueryParameter['tls_ciphers_policy'] = tlsCiphersPolicy;
             }
-            if (memberTimeout !== null && memberTimeout !== undefined) {
-                localVarQueryParameter['member_timeout'] = memberTimeout;
-            }
-            if (clientTimeout !== null && clientTimeout !== undefined) {
-                localVarQueryParameter['client_timeout'] = clientTimeout;
-            }
-            if (keepaliveTimeout !== null && keepaliveTimeout !== undefined) {
-                localVarQueryParameter['keepalive_timeout'] = keepaliveTimeout;
-            }
             if (tlsContainerId !== null && tlsContainerId !== undefined) {
                 localVarQueryParameter['tls_container_id'] = tlsContainerId;
+            }
+            if (http2Enable !== null && http2Enable !== undefined) {
+                localVarQueryParameter['http2_enable'] = http2Enable;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;

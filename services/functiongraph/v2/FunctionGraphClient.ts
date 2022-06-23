@@ -244,6 +244,46 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 删除指定函数所有触发器设置。
+     * 
+     * 在提供函数版本且非latest的情况下，删除对应函数版本的触发器。
+     * 在提供函数别名的情况下，删除对应函数别名的触发器。
+     * 在不提供函数版本（也不提供别名）或版本为latest的情况下，删除该函数所有的触发器（包括所有版本和别名）。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 删除指定函数的所有触发器。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest?: BatchDeleteFunctionTriggersRequest): Promise<void> {
+        const options = ParamCreater().batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除工作流列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 删除工作流列表
+     * @param {BatchDeleteWorkflowsRequestBody} batchDeleteWorkflowsRequestBody 函数流批量操作body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeleteWorkflows(batchDeleteWorkflowsRequest?: BatchDeleteWorkflowsRequest): Promise<BatchDeleteWorkflowsResponse> {
+        const options = ParamCreater().batchDeleteWorkflows(batchDeleteWorkflowsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 停止函数异步调用请求
      * 
      * 详细说明请参考华为云API Explorer。
@@ -318,6 +358,29 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 创建触发器。
+     * 
+     * - 可以创建的触发器类型包括TIMER、APIG、CTS、DDS、DMS、DIS、LTS、OBS、SMN、KAFKA。
+     * - DDS和KAFKA触发器创建时默认为DISABLED状态，其他触发器默认为ACTIVE状态。
+     * - TIMER、DDS、DMS、KAFKA、LTS触发器支持禁用，其他触发器不支持。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 创建触发器。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {CreateFunctionTriggerRequestBody} createFunctionTriggerRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFunctionTrigger(createFunctionTriggerRequest?: CreateFunctionTriggerRequest): Promise<CreateFunctionTriggerResponse> {
+        const options = ParamCreater().createFunctionTrigger(createFunctionTriggerRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 发布函数版本。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -350,6 +413,24 @@ export class FunctionGraphClient {
      */
     public createVersionAlias(createVersionAliasRequest?: CreateVersionAliasRequest): Promise<CreateVersionAliasResponse> {
         const options = ParamCreater().createVersionAlias(createVersionAliasRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建工作流列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 创建工作流列表
+     * @param {CreateWorkflowRequestBody} createWorkflowRequestBody 函数流创建body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createWorkflow(createWorkflowRequest?: CreateWorkflowRequest): Promise<CreateWorkflowResponse> {
+        const options = ParamCreater().createWorkflow(createWorkflowRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -426,6 +507,26 @@ export class FunctionGraphClient {
      */
     public deleteFunctionAsyncInvokeConfig(deleteFunctionAsyncInvokeConfigRequest?: DeleteFunctionAsyncInvokeConfigRequest): Promise<void> {
         const options = ParamCreater().deleteFunctionAsyncInvokeConfig(deleteFunctionAsyncInvokeConfigRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除触发器。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 删除触发器。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {'TIMER' | 'APIG' | 'CTS' | 'DDS' | 'DMS' | 'DIS' | 'LTS' | 'OBS' | 'SMN' | 'KAFKA'} triggerTypeCode 触发器类型代码。
+     * @param {string} triggerId 触发器编码。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteFunctionTrigger(deleteFunctionTriggerRequest?: DeleteFunctionTriggerRequest): Promise<void> {
+        const options = ParamCreater().deleteFunctionTrigger(deleteFunctionTriggerRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -631,6 +732,24 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 获取指定函数的所有触发器设置。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取指定函数的所有触发器。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionTriggers(listFunctionTriggersRequest?: ListFunctionTriggersRequest): Promise<Array<ListFunctionTriggerResult>> {
+        const options = ParamCreater().listFunctionTriggers(listFunctionTriggersRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定函数的版本列表。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -729,6 +848,67 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 获取指定函数流执行实例列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取指定函数流执行实例列表
+     * @param {string} workflowId 函数工作流ID
+     * @param {number} [limit] 分页查询，每页显示的条目数量，最大数量200，超过200后只返回200
+     * @param {'success' | 'fail' | 'running' | 'timeout' | 'cancel'} [status] 需要过滤的流程实例状态
+     * @param {string} [startTime] 查询开始时间，UTC时间。若起始时间未填写，以终止时间前推3天为起始时间
+     * @param {string} [endTime] 查询开始时间，UTC时间。若终止时间未填写，以起始时间后退3天未终止时间。若均未填写，默认查询最近3天数据。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWorkflowExecutions(listWorkflowExecutionsRequest?: ListWorkflowExecutionsRequest): Promise<ListWorkflowExecutionsResponse> {
+        const options = ParamCreater().listWorkflowExecutions(listWorkflowExecutionsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询工作流列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询工作流列表
+     * @param {string} [workflowName] 函数流名称
+     * @param {number} [limit] 分页查询，每页显示的条目数量，最大数量200，超过200后只返回200
+     * @param {number} [offset] 分页查询，分页的偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listWorkflows(listWorkflowsRequest?: ListWorkflowsRequest): Promise<ListWorkflowsResponse> {
+        const options = ParamCreater().listWorkflows(listWorkflowsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重试工作流
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 重试工作流
+     * @param {string} workflowId 函数工作流ID
+     * @param {string} executionId 函数流执行实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryWorkFlow(retryWorkFlowRequest?: RetryWorkFlowRequest): Promise<void> {
+        const options = ParamCreater().retryWorkFlow(retryWorkFlowRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定依赖包。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -820,6 +1000,26 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 获取特定触发器的信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取指定触发器的信息。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {'TIMER' | 'APIG' | 'CTS' | 'DDS' | 'DMS' | 'DIS' | 'LTS' | 'OBS' | 'SMN' | 'KAFKA'} triggerTypeCode 
+     * @param {string} triggerId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFunctionTrigger(showFunctionTriggerRequest?: ShowFunctionTriggerRequest): Promise<ShowFunctionTriggerResponse> {
+        const options = ParamCreater().showFunctionTrigger(showFunctionTriggerRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定函数的lts日志组日志流配置。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -832,6 +1032,26 @@ export class FunctionGraphClient {
      */
     public showLtsLogDetails(showLtsLogDetailsRequest?: ShowLtsLogDetailsRequest): Promise<ShowLtsLogDetailsResponse> {
         const options = ParamCreater().showLtsLogDetails(showLtsLogDetailsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取函数流指标
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取函数流指标
+     * @param {string} [period] 时间段，单位为分钟
+     * @param {string} [startTime] 开始时间，精确到ms的时间戳
+     * @param {string} [endTime] 结束时间，精确到ms的时间戳
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTenantMetric(showTenantMetricRequest?: ShowTenantMetricRequest): Promise<ShowTenantMetricResponse> {
+        const options = ParamCreater().showTenantMetric(showTenantMetricRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -869,6 +1089,123 @@ export class FunctionGraphClient {
      */
     public showVersionAlias(showVersionAliasRequest?: ShowVersionAliasRequest): Promise<ShowVersionAliasResponse> {
         const options = ParamCreater().showVersionAlias(showVersionAliasRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定函数流实例
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取指定函数流实例
+     * @param {string} workflowId 函数工作流ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkFlow(showWorkFlowRequest?: ShowWorkFlowRequest): Promise<ShowWorkFlowResponse> {
+        const options = ParamCreater().showWorkFlow(showWorkFlowRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定工作流指标
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取指定工作流指标
+     * @param {string} workflowUrn 函数工作流URN, 格式为： urn:fss:&lt;region_id&gt;:&lt;project_id&gt;:workflow:\\&lt;package\\&gt;:&lt;workflow_name&gt;:\\&lt;version\\&gt; 注意： package当前只支持default version当前只支持latest
+     * @param {string} [period] 时间段，单位为分钟
+     * @param {string} [startTime] 开始时间，精确到ms的时间戳
+     * @param {string} [endTime] 结束时间，精确到ms的时间戳
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkFlowMetric(showWorkFlowMetricRequest?: ShowWorkFlowMetricRequest): Promise<ShowWorkFlowMetricResponse> {
+        const options = ParamCreater().showWorkFlowMetric(showWorkFlowMetricRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取指定函数流执行实例。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取指定函数流执行实例
+     * @param {string} workflowId 函数工作流ID
+     * @param {string} executionId 函数流执行实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkflowExecution(showWorkflowExecutionRequest?: ShowWorkflowExecutionRequest): Promise<ShowWorkflowExecutionResponse> {
+        const options = ParamCreater().showWorkflowExecution(showWorkflowExecutionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 同步执行函数流
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 同步执行函数流
+     * @param {string} workflowId 函数工作流ID
+     * @param {StartSyncWorkflowExecutionRequestBody} startSyncWorkflowExecutionRequestBody 函数流执行body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startSyncWorkflowExecution(startSyncWorkflowExecutionRequest?: StartSyncWorkflowExecutionRequest): Promise<StartSyncWorkflowExecutionResponse> {
+        const options = ParamCreater().startSyncWorkflowExecution(startSyncWorkflowExecutionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 开始执行函数流
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 开始执行函数流
+     * @param {string} workflowId 函数工作流ID
+     * @param {StartWorkflowExecutionRequestBody} startWorkflowExecutionRequestBody 函数流创建body体
+     * @param {string} [xCreateTime] workflowRun task create time
+     * @param {string} [xWorkflowRunID] workflowRun id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public startWorkflowExecution(startWorkflowExecutionRequest?: StartWorkflowExecutionRequest): Promise<StartWorkflowExecutionResponse> {
+        const options = ParamCreater().startWorkflowExecution(startWorkflowExecutionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 停止工作流
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 停止工作流
+     * @param {string} workflowId 函数工作流ID
+     * @param {string} executionId 函数流执行实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopWorkFlow(stopWorkFlowRequest?: StopWorkFlowRequest): Promise<void> {
+        const options = ParamCreater().stopWorkFlow(stopWorkFlowRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1009,129 +1346,6 @@ export class FunctionGraphClient {
     }
 
     /**
-     * 修改函数版本别名信息。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 修改函数版本别名信息。
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {string} aliasName 要更新的别名名称。
-     * @param {UpdateVersionAliasRequestBody} updateVersionAliasRequestBody 创建函数请求body体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public updateVersionAlias(updateVersionAliasRequest?: UpdateVersionAliasRequest): Promise<UpdateVersionAliasResponse> {
-        const options = ParamCreater().updateVersionAlias(updateVersionAliasRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除指定函数所有触发器设置。
-     * 
-     * 在提供函数版本且非latest的情况下，删除对应函数版本的触发器。
-     * 在提供函数别名的情况下，删除对应函数别名的触发器。
-     * 在不提供函数版本（也不提供别名）或版本为latest的情况下，删除该函数所有的触发器（包括所有版本和别名）。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 删除指定函数的所有触发器。
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest?: BatchDeleteFunctionTriggersRequest): Promise<void> {
-        const options = ParamCreater().batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建触发器。
-     * 
-     * - 可以创建的触发器类型包括TIMER、APIG、CTS、DDS、DMS、DIS、LTS、OBS、SMN、KAFKA。
-     * - DDS和KAFKA触发器创建时默认为DISABLED状态，其他触发器默认为ACTIVE状态。
-     * - TIMER、DDS、DMS、KAFKA、LTS触发器支持禁用，其他触发器不支持。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 创建触发器。
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {CreateFunctionTriggerRequestBody} createFunctionTriggerRequestBody 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createFunctionTrigger(createFunctionTriggerRequest?: CreateFunctionTriggerRequest): Promise<CreateFunctionTriggerResponse> {
-        const options = ParamCreater().createFunctionTrigger(createFunctionTriggerRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除触发器。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 删除触发器。
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {'TIMER' | 'APIG' | 'CTS' | 'DDS' | 'DMS' | 'DIS' | 'LTS' | 'OBS' | 'SMN' | 'KAFKA'} triggerTypeCode 触发器类型代码。
-     * @param {string} triggerId 触发器编码。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteFunctionTrigger(deleteFunctionTriggerRequest?: DeleteFunctionTriggerRequest): Promise<void> {
-        const options = ParamCreater().deleteFunctionTrigger(deleteFunctionTriggerRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取指定函数的所有触发器设置。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 获取指定函数的所有触发器。
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listFunctionTriggers(listFunctionTriggersRequest?: ListFunctionTriggersRequest): Promise<Array<ListFunctionTriggerResult>> {
-        const options = ParamCreater().listFunctionTriggers(listFunctionTriggersRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取特定触发器的信息。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 获取指定触发器的信息。
-     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {'TIMER' | 'APIG' | 'CTS' | 'DDS' | 'DMS' | 'DIS' | 'LTS' | 'OBS' | 'SMN' | 'KAFKA'} triggerTypeCode 
-     * @param {string} triggerId 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showFunctionTrigger(showFunctionTriggerRequest?: ShowFunctionTriggerRequest): Promise<ShowFunctionTriggerResponse> {
-        const options = ParamCreater().showFunctionTrigger(showFunctionTriggerRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 更新触发器
      * 
      * 详细说明请参考华为云API Explorer。
@@ -1153,234 +1367,20 @@ export class FunctionGraphClient {
     }
 
     /**
-     * 删除工作流列表
+     * 修改函数版本别名信息。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 删除工作流列表
-     * @param {BatchDeleteWorkflowsRequestBody} batchDeleteWorkflowsRequestBody 函数流批量操作body体
+     * @summary 修改函数版本别名信息。
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} aliasName 要更新的别名名称。
+     * @param {UpdateVersionAliasRequestBody} updateVersionAliasRequestBody 创建函数请求body体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchDeleteWorkflows(batchDeleteWorkflowsRequest?: BatchDeleteWorkflowsRequest): Promise<BatchDeleteWorkflowsResponse> {
-        const options = ParamCreater().batchDeleteWorkflows(batchDeleteWorkflowsRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建工作流列表
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 创建工作流列表
-     * @param {CreateWorkflowRequestBody} createWorkflowRequestBody 函数流创建body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createWorkflow(createWorkflowRequest?: CreateWorkflowRequest): Promise<CreateWorkflowResponse> {
-        const options = ParamCreater().createWorkflow(createWorkflowRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取指定函数流执行实例列表
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 获取指定函数流执行实例列表
-     * @param {string} workflowId 函数工作流ID
-     * @param {number} [limit] 分页查询，每页显示的条目数量，最大数量200，超过200后只返回200
-     * @param {'success' | 'fail' | 'running' | 'timeout' | 'cancel'} [status] 需要过滤的流程实例状态
-     * @param {string} [startTime] 查询开始时间，UTC时间。若起始时间未填写，以终止时间前推3天为起始时间
-     * @param {string} [endTime] 查询开始时间，UTC时间。若终止时间未填写，以起始时间后退3天未终止时间。若均未填写，默认查询最近3天数据。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWorkflowExecutions(listWorkflowExecutionsRequest?: ListWorkflowExecutionsRequest): Promise<ListWorkflowExecutionsResponse> {
-        const options = ParamCreater().listWorkflowExecutions(listWorkflowExecutionsRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询工作流列表
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 查询工作流列表
-     * @param {string} [workflowName] 函数流名称
-     * @param {number} [limit] 分页查询，每页显示的条目数量，最大数量200，超过200后只返回200
-     * @param {number} [offset] 分页查询，分页的偏移量，表示从此偏移量开始查询，偏移量小于0时，自动转换为0
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listWorkflows(listWorkflowsRequest?: ListWorkflowsRequest): Promise<ListWorkflowsResponse> {
-        const options = ParamCreater().listWorkflows(listWorkflowsRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 重试工作流
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 重试工作流
-     * @param {string} workflowId 函数工作流ID
-     * @param {string} executionId 函数流执行实例ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public retryWorkFlow(retryWorkFlowRequest?: RetryWorkFlowRequest): Promise<void> {
-        const options = ParamCreater().retryWorkFlow(retryWorkFlowRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取函数流指标
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 获取函数流指标
-     * @param {string} [period] 时间段，单位为分钟
-     * @param {string} [startTime] 开始时间，精确到ms的时间戳
-     * @param {string} [endTime] 结束时间，精确到ms的时间戳
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showTenantMetric(showTenantMetricRequest?: ShowTenantMetricRequest): Promise<ShowTenantMetricResponse> {
-        const options = ParamCreater().showTenantMetric(showTenantMetricRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取指定函数流实例
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 获取指定函数流实例
-     * @param {string} workflowId 函数工作流ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showWorkFlow(showWorkFlowRequest?: ShowWorkFlowRequest): Promise<ShowWorkFlowResponse> {
-        const options = ParamCreater().showWorkFlow(showWorkFlowRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取指定工作流指标
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 获取指定工作流指标
-     * @param {string} workflowUrn 函数工作流URN, 格式为： urn:fss:&lt;region_id&gt;:&lt;project_id&gt;:workflow:\\&lt;package\\&gt;:&lt;workflow_name&gt;:\\&lt;version\\&gt; 注意： package当前只支持default version当前只支持latest
-     * @param {string} [period] 时间段，单位为分钟
-     * @param {string} [startTime] 开始时间，精确到ms的时间戳
-     * @param {string} [endTime] 结束时间，精确到ms的时间戳
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showWorkFlowMetric(showWorkFlowMetricRequest?: ShowWorkFlowMetricRequest): Promise<ShowWorkFlowMetricResponse> {
-        const options = ParamCreater().showWorkFlowMetric(showWorkFlowMetricRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 获取指定函数流执行实例。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 获取指定函数流执行实例
-     * @param {string} workflowId 函数工作流ID
-     * @param {string} executionId 函数流执行实例ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showWorkflowExecution(showWorkflowExecutionRequest?: ShowWorkflowExecutionRequest): Promise<ShowWorkflowExecutionResponse> {
-        const options = ParamCreater().showWorkflowExecution(showWorkflowExecutionRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 同步执行函数流
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 同步执行函数流
-     * @param {string} workflowId 函数工作流ID
-     * @param {StartSyncWorkflowExecutionRequestBody} startSyncWorkflowExecutionRequestBody 函数流执行body体
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public startSyncWorkflowExecution(startSyncWorkflowExecutionRequest?: StartSyncWorkflowExecutionRequest): Promise<StartSyncWorkflowExecutionResponse> {
-        const options = ParamCreater().startSyncWorkflowExecution(startSyncWorkflowExecutionRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 开始执行函数流
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 开始执行函数流
-     * @param {string} workflowId 函数工作流ID
-     * @param {StartWorkflowExecutionRequestBody} startWorkflowExecutionRequestBody 函数流创建body体
-     * @param {string} [xCreateTime] workflowRun task create time
-     * @param {string} [xWorkflowRunID] workflowRun id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public startWorkflowExecution(startWorkflowExecutionRequest?: StartWorkflowExecutionRequest): Promise<StartWorkflowExecutionResponse> {
-        const options = ParamCreater().startWorkflowExecution(startWorkflowExecutionRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 停止工作流
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 停止工作流
-     * @param {string} workflowId 函数工作流ID
-     * @param {string} executionId 函数流执行实例ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public stopWorkFlow(stopWorkFlowRequest?: StopWorkFlowRequest): Promise<void> {
-        const options = ParamCreater().stopWorkFlow(stopWorkFlowRequest);
+    public updateVersionAlias(updateVersionAliasRequest?: UpdateVersionAliasRequest): Promise<UpdateVersionAliasResponse> {
+        const options = ParamCreater().updateVersionAlias(updateVersionAliasRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1498,6 +1498,87 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除指定函数所有触发器设置。
+         * 
+         * 在提供函数版本且非latest的情况下，删除对应函数版本的触发器。
+         * 在提供函数别名的情况下，删除对应函数别名的触发器。
+         * 在不提供函数版本（也不提供别名）或版本为latest的情况下，删除该函数所有的触发器（包括所有版本和别名）。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest?: BatchDeleteFunctionTriggersRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/fgs/triggers/{function_urn}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let functionUrn;
+
+            if (batchDeleteFunctionTriggersRequest !== null && batchDeleteFunctionTriggersRequest !== undefined) {
+                if (batchDeleteFunctionTriggersRequest instanceof BatchDeleteFunctionTriggersRequest) {
+                    functionUrn = batchDeleteFunctionTriggersRequest.functionUrn;
+                } else {
+                    functionUrn = batchDeleteFunctionTriggersRequest['function_urn'];
+                }
+            }
+
+        
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling batchDeleteFunctionTriggers.');
+            }
+
+            options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除工作流列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        batchDeleteWorkflows(batchDeleteWorkflowsRequest?: BatchDeleteWorkflowsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/fgs/workflows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (batchDeleteWorkflowsRequest !== null && batchDeleteWorkflowsRequest !== undefined) {
+                if (batchDeleteWorkflowsRequest instanceof BatchDeleteWorkflowsRequest) {
+                    body = batchDeleteWorkflowsRequest.body
+                } else {
+                    body = batchDeleteWorkflowsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1673,6 +1754,56 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建触发器。
+         * 
+         * - 可以创建的触发器类型包括TIMER、APIG、CTS、DDS、DMS、DIS、LTS、OBS、SMN、KAFKA。
+         * - DDS和KAFKA触发器创建时默认为DISABLED状态，其他触发器默认为ACTIVE状态。
+         * - TIMER、DDS、DMS、KAFKA、LTS触发器支持禁用，其他触发器不支持。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        createFunctionTrigger(createFunctionTriggerRequest?: CreateFunctionTriggerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/triggers/{function_urn}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let functionUrn;
+
+            if (createFunctionTriggerRequest !== null && createFunctionTriggerRequest !== undefined) {
+                if (createFunctionTriggerRequest instanceof CreateFunctionTriggerRequest) {
+                    functionUrn = createFunctionTriggerRequest.functionUrn;
+                    body = createFunctionTriggerRequest.body
+                } else {
+                    functionUrn = createFunctionTriggerRequest['function_urn'];
+                    body = createFunctionTriggerRequest['body'];
+                }
+            }
+
+        
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createFunctionTrigger.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 发布函数版本。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -1760,6 +1891,45 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建工作流列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        createWorkflow(createWorkflowRequest?: CreateWorkflowRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/workflows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createWorkflowRequest !== null && createWorkflowRequest !== undefined) {
+                if (createWorkflowRequest instanceof CreateWorkflowRequest) {
+                    body = createWorkflowRequest.body
+                } else {
+                    body = createWorkflowRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1921,6 +2091,56 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除触发器。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        deleteFunctionTrigger(deleteFunctionTriggerRequest?: DeleteFunctionTriggerRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/fgs/triggers/{function_urn}/{trigger_type_code}/{trigger_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let functionUrn;
+            let triggerTypeCode;
+            let triggerId;
+
+            if (deleteFunctionTriggerRequest !== null && deleteFunctionTriggerRequest !== undefined) {
+                if (deleteFunctionTriggerRequest instanceof DeleteFunctionTriggerRequest) {
+                    functionUrn = deleteFunctionTriggerRequest.functionUrn;
+                    triggerTypeCode = deleteFunctionTriggerRequest.triggerTypeCode;
+                    triggerId = deleteFunctionTriggerRequest.triggerId;
+                } else {
+                    functionUrn = deleteFunctionTriggerRequest['function_urn'];
+                    triggerTypeCode = deleteFunctionTriggerRequest['trigger_type_code'];
+                    triggerId = deleteFunctionTriggerRequest['trigger_id'];
+                }
+            }
+
+        
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunctionTrigger.');
+            }
+            if (triggerTypeCode === null || triggerTypeCode === undefined) {
+            throw new RequiredError('triggerTypeCode','Required parameter triggerTypeCode was null or undefined when calling deleteFunctionTrigger.');
+            }
+            if (triggerId === null || triggerId === undefined) {
+            throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling deleteFunctionTrigger.');
+            }
+
+            options.pathParams = { 'function_urn': functionUrn,'trigger_type_code': triggerTypeCode,'trigger_id': triggerId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2417,6 +2637,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取指定函数的所有触发器设置。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listFunctionTriggers(listFunctionTriggersRequest?: ListFunctionTriggersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/triggers/{function_urn}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let functionUrn;
+
+            if (listFunctionTriggersRequest !== null && listFunctionTriggersRequest !== undefined) {
+                if (listFunctionTriggersRequest instanceof ListFunctionTriggersRequest) {
+                    functionUrn = listFunctionTriggersRequest.functionUrn;
+                } else {
+                    functionUrn = listFunctionTriggersRequest['function_urn'];
+                }
+            }
+
+        
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionTriggers.');
+            }
+
+            options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定函数的版本列表。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2635,6 +2893,163 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取指定函数流执行实例列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listWorkflowExecutions(listWorkflowExecutionsRequest?: ListWorkflowExecutionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let workflowId;
+            let limit;
+            let status;
+            let startTime;
+            let endTime;
+
+            if (listWorkflowExecutionsRequest !== null && listWorkflowExecutionsRequest !== undefined) {
+                if (listWorkflowExecutionsRequest instanceof ListWorkflowExecutionsRequest) {
+                    workflowId = listWorkflowExecutionsRequest.workflowId;
+                    limit = listWorkflowExecutionsRequest.limit;
+                    status = listWorkflowExecutionsRequest.status;
+                    startTime = listWorkflowExecutionsRequest.startTime;
+                    endTime = listWorkflowExecutionsRequest.endTime;
+                } else {
+                    workflowId = listWorkflowExecutionsRequest['workflow_id'];
+                    limit = listWorkflowExecutionsRequest['limit'];
+                    status = listWorkflowExecutionsRequest['status'];
+                    startTime = listWorkflowExecutionsRequest['start_time'];
+                    endTime = listWorkflowExecutionsRequest['end_time'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling listWorkflowExecutions.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workflow_id': workflowId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询工作流列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listWorkflows(listWorkflowsRequest?: ListWorkflowsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflows",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let workflowName;
+            let limit;
+            let offset;
+
+            if (listWorkflowsRequest !== null && listWorkflowsRequest !== undefined) {
+                if (listWorkflowsRequest instanceof ListWorkflowsRequest) {
+                    workflowName = listWorkflowsRequest.workflowName;
+                    limit = listWorkflowsRequest.limit;
+                    offset = listWorkflowsRequest.offset;
+                } else {
+                    workflowName = listWorkflowsRequest['workflow_name'];
+                    limit = listWorkflowsRequest['limit'];
+                    offset = listWorkflowsRequest['offset'];
+                }
+            }
+
+        
+            if (workflowName !== null && workflowName !== undefined) {
+                localVarQueryParameter['workflow_name'] = workflowName;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重试工作流
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        retryWorkFlow(retryWorkFlowRequest?: RetryWorkFlowRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions/{execution_id}/retry",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let workflowId;
+            let executionId;
+
+            if (retryWorkFlowRequest !== null && retryWorkFlowRequest !== undefined) {
+                if (retryWorkFlowRequest instanceof RetryWorkFlowRequest) {
+                    workflowId = retryWorkFlowRequest.workflowId;
+                    executionId = retryWorkFlowRequest.executionId;
+                } else {
+                    workflowId = retryWorkFlowRequest['workflow_id'];
+                    executionId = retryWorkFlowRequest['execution_id'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling retryWorkFlow.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling retryWorkFlow.');
+            }
+
+            options.pathParams = { 'workflow_id': workflowId,'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定依赖包。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2831,6 +3246,56 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取特定触发器的信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showFunctionTrigger(showFunctionTriggerRequest?: ShowFunctionTriggerRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/triggers/{function_urn}/{trigger_type_code}/{trigger_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let functionUrn;
+            let triggerTypeCode;
+            let triggerId;
+
+            if (showFunctionTriggerRequest !== null && showFunctionTriggerRequest !== undefined) {
+                if (showFunctionTriggerRequest instanceof ShowFunctionTriggerRequest) {
+                    functionUrn = showFunctionTriggerRequest.functionUrn;
+                    triggerTypeCode = showFunctionTriggerRequest.triggerTypeCode;
+                    triggerId = showFunctionTriggerRequest.triggerId;
+                } else {
+                    functionUrn = showFunctionTriggerRequest['function_urn'];
+                    triggerTypeCode = showFunctionTriggerRequest['trigger_type_code'];
+                    triggerId = showFunctionTriggerRequest['trigger_id'];
+                }
+            }
+
+        
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionTrigger.');
+            }
+            if (triggerTypeCode === null || triggerTypeCode === undefined) {
+            throw new RequiredError('triggerTypeCode','Required parameter triggerTypeCode was null or undefined when calling showFunctionTrigger.');
+            }
+            if (triggerId === null || triggerId === undefined) {
+            throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling showFunctionTrigger.');
+            }
+
+            options.pathParams = { 'function_urn': functionUrn,'trigger_type_code': triggerTypeCode,'trigger_id': triggerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定函数的lts日志组日志流配置。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2864,6 +3329,56 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取函数流指标
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showTenantMetric(showTenantMetricRequest?: ShowTenantMetricRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflow-statistic",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let period;
+            let startTime;
+            let endTime;
+
+            if (showTenantMetricRequest !== null && showTenantMetricRequest !== undefined) {
+                if (showTenantMetricRequest instanceof ShowTenantMetricRequest) {
+                    period = showTenantMetricRequest.period;
+                    startTime = showTenantMetricRequest.startTime;
+                    endTime = showTenantMetricRequest.endTime;
+                } else {
+                    period = showTenantMetricRequest['period'];
+                    startTime = showTenantMetricRequest['start_time'];
+                    endTime = showTenantMetricRequest['end_time'];
+                }
+            }
+
+        
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2946,6 +3461,293 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn,'alias_name': aliasName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定函数流实例
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showWorkFlow(showWorkFlowRequest?: ShowWorkFlowRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let workflowId;
+
+            if (showWorkFlowRequest !== null && showWorkFlowRequest !== undefined) {
+                if (showWorkFlowRequest instanceof ShowWorkFlowRequest) {
+                    workflowId = showWorkFlowRequest.workflowId;
+                } else {
+                    workflowId = showWorkFlowRequest['workflow_id'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling showWorkFlow.');
+            }
+
+            options.pathParams = { 'workflow_id': workflowId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定工作流指标
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showWorkFlowMetric(showWorkFlowMetricRequest?: ShowWorkFlowMetricRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflow-statistic/{workflow_urn}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let workflowUrn;
+            let period;
+            let startTime;
+            let endTime;
+
+            if (showWorkFlowMetricRequest !== null && showWorkFlowMetricRequest !== undefined) {
+                if (showWorkFlowMetricRequest instanceof ShowWorkFlowMetricRequest) {
+                    workflowUrn = showWorkFlowMetricRequest.workflowUrn;
+                    period = showWorkFlowMetricRequest.period;
+                    startTime = showWorkFlowMetricRequest.startTime;
+                    endTime = showWorkFlowMetricRequest.endTime;
+                } else {
+                    workflowUrn = showWorkFlowMetricRequest['workflow_urn'];
+                    period = showWorkFlowMetricRequest['period'];
+                    startTime = showWorkFlowMetricRequest['start_time'];
+                    endTime = showWorkFlowMetricRequest['end_time'];
+                }
+            }
+
+        
+            if (workflowUrn === null || workflowUrn === undefined) {
+            throw new RequiredError('workflowUrn','Required parameter workflowUrn was null or undefined when calling showWorkFlowMetric.');
+            }
+            if (period !== null && period !== undefined) {
+                localVarQueryParameter['period'] = period;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'workflow_urn': workflowUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取指定函数流执行实例。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showWorkflowExecution(showWorkflowExecutionRequest?: ShowWorkflowExecutionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions/{execution_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let workflowId;
+            let executionId;
+
+            if (showWorkflowExecutionRequest !== null && showWorkflowExecutionRequest !== undefined) {
+                if (showWorkflowExecutionRequest instanceof ShowWorkflowExecutionRequest) {
+                    workflowId = showWorkflowExecutionRequest.workflowId;
+                    executionId = showWorkflowExecutionRequest.executionId;
+                } else {
+                    workflowId = showWorkflowExecutionRequest['workflow_id'];
+                    executionId = showWorkflowExecutionRequest['execution_id'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling showWorkflowExecution.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling showWorkflowExecution.');
+            }
+
+            options.pathParams = { 'workflow_id': workflowId,'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 同步执行函数流
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        startSyncWorkflowExecution(startSyncWorkflowExecutionRequest?: StartSyncWorkflowExecutionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/sync-executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let workflowId;
+
+            if (startSyncWorkflowExecutionRequest !== null && startSyncWorkflowExecutionRequest !== undefined) {
+                if (startSyncWorkflowExecutionRequest instanceof StartSyncWorkflowExecutionRequest) {
+                    workflowId = startSyncWorkflowExecutionRequest.workflowId;
+                    body = startSyncWorkflowExecutionRequest.body
+                } else {
+                    workflowId = startSyncWorkflowExecutionRequest['workflow_id'];
+                    body = startSyncWorkflowExecutionRequest['body'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling startSyncWorkflowExecution.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workflow_id': workflowId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 开始执行函数流
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        startWorkflowExecution(startWorkflowExecutionRequest?: StartWorkflowExecutionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let workflowId;
+            let xCreateTime;
+            let xWorkflowRunID;
+
+            if (startWorkflowExecutionRequest !== null && startWorkflowExecutionRequest !== undefined) {
+                if (startWorkflowExecutionRequest instanceof StartWorkflowExecutionRequest) {
+                    workflowId = startWorkflowExecutionRequest.workflowId;
+                    body = startWorkflowExecutionRequest.body
+                    xCreateTime = startWorkflowExecutionRequest.xCreateTime;
+                    xWorkflowRunID = startWorkflowExecutionRequest.xWorkflowRunID;
+                } else {
+                    workflowId = startWorkflowExecutionRequest['workflow_id'];
+                    body = startWorkflowExecutionRequest['body'];
+                    xCreateTime = startWorkflowExecutionRequest['X-Create-Time'];
+                    xWorkflowRunID = startWorkflowExecutionRequest['X-WorkflowRun-ID'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling startWorkflowExecution.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xCreateTime !== undefined && xCreateTime !== null) {
+                localVarHeaderParameter['X-Create-Time'] = String(xCreateTime);
+            }
+            if (xWorkflowRunID !== undefined && xWorkflowRunID !== null) {
+                localVarHeaderParameter['X-WorkflowRun-ID'] = String(xWorkflowRunID);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workflow_id': workflowId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 停止工作流
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        stopWorkFlow(stopWorkFlowRequest?: StopWorkFlowRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions/{execution_id}/terminate",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let workflowId;
+            let executionId;
+
+            if (stopWorkFlowRequest !== null && stopWorkFlowRequest !== undefined) {
+                if (stopWorkFlowRequest instanceof StopWorkFlowRequest) {
+                    workflowId = stopWorkFlowRequest.workflowId;
+                    executionId = stopWorkFlowRequest.executionId;
+                } else {
+                    workflowId = stopWorkFlowRequest['workflow_id'];
+                    executionId = stopWorkFlowRequest['execution_id'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling stopWorkFlow.');
+            }
+            if (executionId === null || executionId === undefined) {
+            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling stopWorkFlow.');
+            }
+
+            options.pathParams = { 'workflow_id': workflowId,'execution_id': executionId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3279,288 +4081,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改函数版本别名信息。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        updateVersionAlias(updateVersionAliasRequest?: UpdateVersionAliasRequest) {
-            const options = {
-                method: "PUT",
-                url: "/v2/{project_id}/fgs/functions/{function_urn}/aliases/{alias_name}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-            let functionUrn;
-            let aliasName;
-
-            if (updateVersionAliasRequest !== null && updateVersionAliasRequest !== undefined) {
-                if (updateVersionAliasRequest instanceof UpdateVersionAliasRequest) {
-                    functionUrn = updateVersionAliasRequest.functionUrn;
-                    aliasName = updateVersionAliasRequest.aliasName;
-                    body = updateVersionAliasRequest.body
-                } else {
-                    functionUrn = updateVersionAliasRequest['function_urn'];
-                    aliasName = updateVersionAliasRequest['alias_name'];
-                    body = updateVersionAliasRequest['body'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateVersionAlias.');
-            }
-            if (aliasName === null || aliasName === undefined) {
-            throw new RequiredError('aliasName','Required parameter aliasName was null or undefined when calling updateVersionAlias.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'function_urn': functionUrn,'alias_name': aliasName, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除指定函数所有触发器设置。
-         * 
-         * 在提供函数版本且非latest的情况下，删除对应函数版本的触发器。
-         * 在提供函数别名的情况下，删除对应函数别名的触发器。
-         * 在不提供函数版本（也不提供别名）或版本为latest的情况下，删除该函数所有的触发器（包括所有版本和别名）。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest?: BatchDeleteFunctionTriggersRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/fgs/triggers/{function_urn}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let functionUrn;
-
-            if (batchDeleteFunctionTriggersRequest !== null && batchDeleteFunctionTriggersRequest !== undefined) {
-                if (batchDeleteFunctionTriggersRequest instanceof BatchDeleteFunctionTriggersRequest) {
-                    functionUrn = batchDeleteFunctionTriggersRequest.functionUrn;
-                } else {
-                    functionUrn = batchDeleteFunctionTriggersRequest['function_urn'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling batchDeleteFunctionTriggers.');
-            }
-
-            options.pathParams = { 'function_urn': functionUrn, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建触发器。
-         * 
-         * - 可以创建的触发器类型包括TIMER、APIG、CTS、DDS、DMS、DIS、LTS、OBS、SMN、KAFKA。
-         * - DDS和KAFKA触发器创建时默认为DISABLED状态，其他触发器默认为ACTIVE状态。
-         * - TIMER、DDS、DMS、KAFKA、LTS触发器支持禁用，其他触发器不支持。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        createFunctionTrigger(createFunctionTriggerRequest?: CreateFunctionTriggerRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/fgs/triggers/{function_urn}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-            let functionUrn;
-
-            if (createFunctionTriggerRequest !== null && createFunctionTriggerRequest !== undefined) {
-                if (createFunctionTriggerRequest instanceof CreateFunctionTriggerRequest) {
-                    functionUrn = createFunctionTriggerRequest.functionUrn;
-                    body = createFunctionTriggerRequest.body
-                } else {
-                    functionUrn = createFunctionTriggerRequest['function_urn'];
-                    body = createFunctionTriggerRequest['body'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling createFunctionTrigger.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'function_urn': functionUrn, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除触发器。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        deleteFunctionTrigger(deleteFunctionTriggerRequest?: DeleteFunctionTriggerRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/fgs/triggers/{function_urn}/{trigger_type_code}/{trigger_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let functionUrn;
-            let triggerTypeCode;
-            let triggerId;
-
-            if (deleteFunctionTriggerRequest !== null && deleteFunctionTriggerRequest !== undefined) {
-                if (deleteFunctionTriggerRequest instanceof DeleteFunctionTriggerRequest) {
-                    functionUrn = deleteFunctionTriggerRequest.functionUrn;
-                    triggerTypeCode = deleteFunctionTriggerRequest.triggerTypeCode;
-                    triggerId = deleteFunctionTriggerRequest.triggerId;
-                } else {
-                    functionUrn = deleteFunctionTriggerRequest['function_urn'];
-                    triggerTypeCode = deleteFunctionTriggerRequest['trigger_type_code'];
-                    triggerId = deleteFunctionTriggerRequest['trigger_id'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling deleteFunctionTrigger.');
-            }
-            if (triggerTypeCode === null || triggerTypeCode === undefined) {
-            throw new RequiredError('triggerTypeCode','Required parameter triggerTypeCode was null or undefined when calling deleteFunctionTrigger.');
-            }
-            if (triggerId === null || triggerId === undefined) {
-            throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling deleteFunctionTrigger.');
-            }
-
-            options.pathParams = { 'function_urn': functionUrn,'trigger_type_code': triggerTypeCode,'trigger_id': triggerId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取指定函数的所有触发器设置。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        listFunctionTriggers(listFunctionTriggersRequest?: ListFunctionTriggersRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/fgs/triggers/{function_urn}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let functionUrn;
-
-            if (listFunctionTriggersRequest !== null && listFunctionTriggersRequest !== undefined) {
-                if (listFunctionTriggersRequest instanceof ListFunctionTriggersRequest) {
-                    functionUrn = listFunctionTriggersRequest.functionUrn;
-                } else {
-                    functionUrn = listFunctionTriggersRequest['function_urn'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling listFunctionTriggers.');
-            }
-
-            options.pathParams = { 'function_urn': functionUrn, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取特定触发器的信息。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        showFunctionTrigger(showFunctionTriggerRequest?: ShowFunctionTriggerRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/fgs/triggers/{function_urn}/{trigger_type_code}/{trigger_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let functionUrn;
-            let triggerTypeCode;
-            let triggerId;
-
-            if (showFunctionTriggerRequest !== null && showFunctionTriggerRequest !== undefined) {
-                if (showFunctionTriggerRequest instanceof ShowFunctionTriggerRequest) {
-                    functionUrn = showFunctionTriggerRequest.functionUrn;
-                    triggerTypeCode = showFunctionTriggerRequest.triggerTypeCode;
-                    triggerId = showFunctionTriggerRequest.triggerId;
-                } else {
-                    functionUrn = showFunctionTriggerRequest['function_urn'];
-                    triggerTypeCode = showFunctionTriggerRequest['trigger_type_code'];
-                    triggerId = showFunctionTriggerRequest['trigger_id'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFunctionTrigger.');
-            }
-            if (triggerTypeCode === null || triggerTypeCode === undefined) {
-            throw new RequiredError('triggerTypeCode','Required parameter triggerTypeCode was null or undefined when calling showFunctionTrigger.');
-            }
-            if (triggerId === null || triggerId === undefined) {
-            throw new RequiredError('triggerId','Required parameter triggerId was null or undefined when calling showFunctionTrigger.');
-            }
-
-            options.pathParams = { 'function_urn': functionUrn,'trigger_type_code': triggerTypeCode,'trigger_id': triggerId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 更新触发器
          * 
          * 详细说明请参考华为云API Explorer。
@@ -3619,15 +4139,15 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除工作流列表
+         * 修改函数版本别名信息。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
          */
-        batchDeleteWorkflows(batchDeleteWorkflowsRequest?: BatchDeleteWorkflowsRequest) {
+        updateVersionAlias(updateVersionAliasRequest?: UpdateVersionAliasRequest) {
             const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/fgs/workflows",
+                method: "PUT",
+                url: "/v2/{project_id}/fgs/functions/{function_urn}/aliases/{alias_name}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -3637,445 +4157,27 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let functionUrn;
+            let aliasName;
 
-            if (batchDeleteWorkflowsRequest !== null && batchDeleteWorkflowsRequest !== undefined) {
-                if (batchDeleteWorkflowsRequest instanceof BatchDeleteWorkflowsRequest) {
-                    body = batchDeleteWorkflowsRequest.body
+            if (updateVersionAliasRequest !== null && updateVersionAliasRequest !== undefined) {
+                if (updateVersionAliasRequest instanceof UpdateVersionAliasRequest) {
+                    functionUrn = updateVersionAliasRequest.functionUrn;
+                    aliasName = updateVersionAliasRequest.aliasName;
+                    body = updateVersionAliasRequest.body
                 } else {
-                    body = batchDeleteWorkflowsRequest['body'];
+                    functionUrn = updateVersionAliasRequest['function_urn'];
+                    aliasName = updateVersionAliasRequest['alias_name'];
+                    body = updateVersionAliasRequest['body'];
                 }
             }
 
         
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateVersionAlias.');
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建工作流列表
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        createWorkflow(createWorkflowRequest?: CreateWorkflowRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/fgs/workflows",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-
-            if (createWorkflowRequest !== null && createWorkflowRequest !== undefined) {
-                if (createWorkflowRequest instanceof CreateWorkflowRequest) {
-                    body = createWorkflowRequest.body
-                } else {
-                    body = createWorkflowRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取指定函数流执行实例列表
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        listWorkflowExecutions(listWorkflowExecutionsRequest?: ListWorkflowExecutionsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let workflowId;
-            let limit;
-            let status;
-            let startTime;
-            let endTime;
-
-            if (listWorkflowExecutionsRequest !== null && listWorkflowExecutionsRequest !== undefined) {
-                if (listWorkflowExecutionsRequest instanceof ListWorkflowExecutionsRequest) {
-                    workflowId = listWorkflowExecutionsRequest.workflowId;
-                    limit = listWorkflowExecutionsRequest.limit;
-                    status = listWorkflowExecutionsRequest.status;
-                    startTime = listWorkflowExecutionsRequest.startTime;
-                    endTime = listWorkflowExecutionsRequest.endTime;
-                } else {
-                    workflowId = listWorkflowExecutionsRequest['workflow_id'];
-                    limit = listWorkflowExecutionsRequest['limit'];
-                    status = listWorkflowExecutionsRequest['status'];
-                    startTime = listWorkflowExecutionsRequest['start_time'];
-                    endTime = listWorkflowExecutionsRequest['end_time'];
-                }
-            }
-
-        
-            if (workflowId === null || workflowId === undefined) {
-            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling listWorkflowExecutions.');
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (status !== null && status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workflow_id': workflowId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询工作流列表
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        listWorkflows(listWorkflowsRequest?: ListWorkflowsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/fgs/workflows",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let workflowName;
-            let limit;
-            let offset;
-
-            if (listWorkflowsRequest !== null && listWorkflowsRequest !== undefined) {
-                if (listWorkflowsRequest instanceof ListWorkflowsRequest) {
-                    workflowName = listWorkflowsRequest.workflowName;
-                    limit = listWorkflowsRequest.limit;
-                    offset = listWorkflowsRequest.offset;
-                } else {
-                    workflowName = listWorkflowsRequest['workflow_name'];
-                    limit = listWorkflowsRequest['limit'];
-                    offset = listWorkflowsRequest['offset'];
-                }
-            }
-
-        
-            if (workflowName !== null && workflowName !== undefined) {
-                localVarQueryParameter['workflow_name'] = workflowName;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 重试工作流
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        retryWorkFlow(retryWorkFlowRequest?: RetryWorkFlowRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions/{execution_id}/retry",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let workflowId;
-            let executionId;
-
-            if (retryWorkFlowRequest !== null && retryWorkFlowRequest !== undefined) {
-                if (retryWorkFlowRequest instanceof RetryWorkFlowRequest) {
-                    workflowId = retryWorkFlowRequest.workflowId;
-                    executionId = retryWorkFlowRequest.executionId;
-                } else {
-                    workflowId = retryWorkFlowRequest['workflow_id'];
-                    executionId = retryWorkFlowRequest['execution_id'];
-                }
-            }
-
-        
-            if (workflowId === null || workflowId === undefined) {
-            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling retryWorkFlow.');
-            }
-            if (executionId === null || executionId === undefined) {
-            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling retryWorkFlow.');
-            }
-
-            options.pathParams = { 'workflow_id': workflowId,'execution_id': executionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取函数流指标
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        showTenantMetric(showTenantMetricRequest?: ShowTenantMetricRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/fgs/workflow-statistic",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let period;
-            let startTime;
-            let endTime;
-
-            if (showTenantMetricRequest !== null && showTenantMetricRequest !== undefined) {
-                if (showTenantMetricRequest instanceof ShowTenantMetricRequest) {
-                    period = showTenantMetricRequest.period;
-                    startTime = showTenantMetricRequest.startTime;
-                    endTime = showTenantMetricRequest.endTime;
-                } else {
-                    period = showTenantMetricRequest['period'];
-                    startTime = showTenantMetricRequest['start_time'];
-                    endTime = showTenantMetricRequest['end_time'];
-                }
-            }
-
-        
-            if (period !== null && period !== undefined) {
-                localVarQueryParameter['period'] = period;
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取指定函数流实例
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        showWorkFlow(showWorkFlowRequest?: ShowWorkFlowRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/fgs/workflows/{workflow_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let workflowId;
-
-            if (showWorkFlowRequest !== null && showWorkFlowRequest !== undefined) {
-                if (showWorkFlowRequest instanceof ShowWorkFlowRequest) {
-                    workflowId = showWorkFlowRequest.workflowId;
-                } else {
-                    workflowId = showWorkFlowRequest['workflow_id'];
-                }
-            }
-
-        
-            if (workflowId === null || workflowId === undefined) {
-            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling showWorkFlow.');
-            }
-
-            options.pathParams = { 'workflow_id': workflowId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取指定工作流指标
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        showWorkFlowMetric(showWorkFlowMetricRequest?: ShowWorkFlowMetricRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/fgs/workflow-statistic/{workflow_urn}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let workflowUrn;
-            let period;
-            let startTime;
-            let endTime;
-
-            if (showWorkFlowMetricRequest !== null && showWorkFlowMetricRequest !== undefined) {
-                if (showWorkFlowMetricRequest instanceof ShowWorkFlowMetricRequest) {
-                    workflowUrn = showWorkFlowMetricRequest.workflowUrn;
-                    period = showWorkFlowMetricRequest.period;
-                    startTime = showWorkFlowMetricRequest.startTime;
-                    endTime = showWorkFlowMetricRequest.endTime;
-                } else {
-                    workflowUrn = showWorkFlowMetricRequest['workflow_urn'];
-                    period = showWorkFlowMetricRequest['period'];
-                    startTime = showWorkFlowMetricRequest['start_time'];
-                    endTime = showWorkFlowMetricRequest['end_time'];
-                }
-            }
-
-        
-            if (workflowUrn === null || workflowUrn === undefined) {
-            throw new RequiredError('workflowUrn','Required parameter workflowUrn was null or undefined when calling showWorkFlowMetric.');
-            }
-            if (period !== null && period !== undefined) {
-                localVarQueryParameter['period'] = period;
-            }
-            if (startTime !== null && startTime !== undefined) {
-                localVarQueryParameter['start_time'] = startTime;
-            }
-            if (endTime !== null && endTime !== undefined) {
-                localVarQueryParameter['end_time'] = endTime;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'workflow_urn': workflowUrn, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 获取指定函数流执行实例。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        showWorkflowExecution(showWorkflowExecutionRequest?: ShowWorkflowExecutionRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions/{execution_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let workflowId;
-            let executionId;
-
-            if (showWorkflowExecutionRequest !== null && showWorkflowExecutionRequest !== undefined) {
-                if (showWorkflowExecutionRequest instanceof ShowWorkflowExecutionRequest) {
-                    workflowId = showWorkflowExecutionRequest.workflowId;
-                    executionId = showWorkflowExecutionRequest.executionId;
-                } else {
-                    workflowId = showWorkflowExecutionRequest['workflow_id'];
-                    executionId = showWorkflowExecutionRequest['execution_id'];
-                }
-            }
-
-        
-            if (workflowId === null || workflowId === undefined) {
-            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling showWorkflowExecution.');
-            }
-            if (executionId === null || executionId === undefined) {
-            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling showWorkflowExecution.');
-            }
-
-            options.pathParams = { 'workflow_id': workflowId,'execution_id': executionId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 同步执行函数流
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        startSyncWorkflowExecution(startSyncWorkflowExecutionRequest?: StartSyncWorkflowExecutionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/sync-executions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-            let workflowId;
-
-            if (startSyncWorkflowExecutionRequest !== null && startSyncWorkflowExecutionRequest !== undefined) {
-                if (startSyncWorkflowExecutionRequest instanceof StartSyncWorkflowExecutionRequest) {
-                    workflowId = startSyncWorkflowExecutionRequest.workflowId;
-                    body = startSyncWorkflowExecutionRequest.body
-                } else {
-                    workflowId = startSyncWorkflowExecutionRequest['workflow_id'];
-                    body = startSyncWorkflowExecutionRequest['body'];
-                }
-            }
-
-        
-            if (workflowId === null || workflowId === undefined) {
-            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling startSyncWorkflowExecution.');
+            if (aliasName === null || aliasName === undefined) {
+            throw new RequiredError('aliasName','Required parameter aliasName was null or undefined when calling updateVersionAlias.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
@@ -4083,109 +4185,7 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workflow_id': workflowId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 开始执行函数流
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        startWorkflowExecution(startWorkflowExecutionRequest?: StartWorkflowExecutionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-            let workflowId;
-            let xCreateTime;
-            let xWorkflowRunID;
-
-            if (startWorkflowExecutionRequest !== null && startWorkflowExecutionRequest !== undefined) {
-                if (startWorkflowExecutionRequest instanceof StartWorkflowExecutionRequest) {
-                    workflowId = startWorkflowExecutionRequest.workflowId;
-                    body = startWorkflowExecutionRequest.body
-                    xCreateTime = startWorkflowExecutionRequest.xCreateTime;
-                    xWorkflowRunID = startWorkflowExecutionRequest.xWorkflowRunID;
-                } else {
-                    workflowId = startWorkflowExecutionRequest['workflow_id'];
-                    body = startWorkflowExecutionRequest['body'];
-                    xCreateTime = startWorkflowExecutionRequest['X-Create-Time'];
-                    xWorkflowRunID = startWorkflowExecutionRequest['X-WorkflowRun-ID'];
-                }
-            }
-
-        
-            if (workflowId === null || workflowId === undefined) {
-            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling startWorkflowExecution.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (xCreateTime !== undefined && xCreateTime !== null) {
-                localVarHeaderParameter['X-Create-Time'] = String(xCreateTime);
-            }
-            if (xWorkflowRunID !== undefined && xWorkflowRunID !== null) {
-                localVarHeaderParameter['X-WorkflowRun-ID'] = String(xWorkflowRunID);
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'workflow_id': workflowId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 停止工作流
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        stopWorkFlow(stopWorkFlowRequest?: StopWorkFlowRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions/{execution_id}/terminate",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let workflowId;
-            let executionId;
-
-            if (stopWorkFlowRequest !== null && stopWorkFlowRequest !== undefined) {
-                if (stopWorkFlowRequest instanceof StopWorkFlowRequest) {
-                    workflowId = stopWorkFlowRequest.workflowId;
-                    executionId = stopWorkFlowRequest.executionId;
-                } else {
-                    workflowId = stopWorkFlowRequest['workflow_id'];
-                    executionId = stopWorkFlowRequest['execution_id'];
-                }
-            }
-
-        
-            if (workflowId === null || workflowId === undefined) {
-            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling stopWorkFlow.');
-            }
-            if (executionId === null || executionId === undefined) {
-            throw new RequiredError('executionId','Required parameter executionId was null or undefined when calling stopWorkFlow.');
-            }
-
-            options.pathParams = { 'workflow_id': workflowId,'execution_id': executionId, };
+            options.pathParams = { 'function_urn': functionUrn,'alias_name': aliasName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

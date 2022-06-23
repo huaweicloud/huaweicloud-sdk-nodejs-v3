@@ -3,10 +3,10 @@
 export class FunctionRef {
     private 'ref_name': string | undefined;
     private 'invoke_mode'?: FunctionRefInvokeModeEnum | undefined;
-    public arguments: object;
-    public constructor(refName?: any, arguments?: any) { 
+    private 'arguments': object | undefined;
+    public constructor(refName?: any, _arguments?: any) { 
         this['ref_name'] = refName;
-        this['arguments'] = arguments;
+        this['arguments'] = _arguments;
     }
     public withRefName(refName: string): FunctionRef {
         this['ref_name'] = refName;
@@ -28,9 +28,15 @@ export class FunctionRef {
     public get invokeMode() {
         return this['invoke_mode'];
     }
-    public withArguments(arguments: object): FunctionRef {
-        this['arguments'] = arguments;
+    public withArguments(_arguments: object): FunctionRef {
+        this['arguments'] = _arguments;
         return this;
+    }
+    public set _arguments(_arguments: object | undefined) {
+        this['arguments'] = _arguments;
+    }
+    public get _arguments() {
+        return this['arguments'];
     }
 }
 

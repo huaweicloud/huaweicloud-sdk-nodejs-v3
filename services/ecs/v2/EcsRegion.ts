@@ -16,6 +16,8 @@ export class EcsRegion {
     public static CN_SOUTH_4 = new Region("cn-south-4", "https://ecs.cn-south-4.myhuaweicloud.com");
     public static NA_MEXICO_1 = new Region("na-mexico-1", "https://ecs.na-mexico-1.myhuaweicloud.com");
     public static LA_SOUTH_2 = new Region("la-south-2", "https://ecs.la-south-2.myhuaweicloud.com");
+    public static CN_SOUTH_2 = new Region("cn-south-2", "https://ecs.cn-south-2.myhuaweicloud.com");
+    public static CN_NORTH_9 = new Region("cn-north-9", "https://ecs.cn-north-9.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = EcsRegion.createStaticFields();
@@ -36,6 +38,8 @@ export class EcsRegion {
         map.set("cn-south-4", EcsRegion.CN_SOUTH_4);
         map.set("na-mexico-1", EcsRegion.NA_MEXICO_1);
         map.set("la-south-2", EcsRegion.LA_SOUTH_2);
+        map.set("cn-south-2", EcsRegion.CN_SOUTH_2);
+        map.set("cn-north-9", EcsRegion.CN_NORTH_9);
         return map;
     }
     public static valueOf(regionId: String) {

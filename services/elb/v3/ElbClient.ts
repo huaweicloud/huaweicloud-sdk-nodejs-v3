@@ -1131,7 +1131,7 @@ export class ElbClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 查询配额使用详情
-     * @param {string} [type] 资源类型，取值：loadbalancer、listener、ipgroup、pool、member、members_per_pool、healthmonitor、l7policy、certificate、security_policy，其中members_per_pool表示一个pool下最多可关联的member数量。
+     * @param {Array<string>} [quotaKey] 资源类型，取值：loadbalancer、listener、ipgroup、pool、member、members_per_pool、healthmonitor、l7policy、certificate、security_policy，其中members_per_pool表示一个pool下最多可关联的member数量。 支持多值查询，查询条件格式：quota_key&#x3D;xxx&amp;quota_key&#x3D;xxx。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -4244,19 +4244,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-            let type;
+            let quotaKey;
 
             if (listQuotaDetailsRequest !== null && listQuotaDetailsRequest !== undefined) {
                 if (listQuotaDetailsRequest instanceof ListQuotaDetailsRequest) {
-                    type = listQuotaDetailsRequest.type;
+                    quotaKey = listQuotaDetailsRequest.quotaKey;
                 } else {
-                    type = listQuotaDetailsRequest['type'];
+                    quotaKey = listQuotaDetailsRequest['quota_key'];
                 }
             }
 
         
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
+            if (quotaKey !== null && quotaKey !== undefined) {
+                localVarQueryParameter['quota_key'] = quotaKey;
             }
 
             options.queryParams = localVarQueryParameter;

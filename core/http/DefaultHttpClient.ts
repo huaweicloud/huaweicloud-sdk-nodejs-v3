@@ -139,8 +139,16 @@ export class DefaultHttpClient implements HttpClient {
 
         let url = endpoint;
         url = stripTrailingSlash(url);
-        headers['User-Agent'] = "huaweicloud-usdk-nodejs/3.0";
-        
+
+        if (this.defaultOption.headers) {
+            const customUserAgent = this.defaultOption.headers['User-Agent'];
+            if (customUserAgent) {
+                headers['User-Agent'] = ["huaweicloud-usdk-nodejs/3.0",customUserAgent].join(" ");
+            } else {
+                headers['User-Agent'] = "huaweicloud-usdk-nodejs/3.0"
+            }
+        }
+
         let requestParams = {
             url,
             method,
@@ -214,7 +222,7 @@ function stripTrailingSlash(url: string | undefined): string {
 export interface ClientOptions {
     disableSslVerification?: boolean,
     proxy?: string,
-    headers?: object,
+    headers?: any,
     logger?: Logger,
     logLevel?: LogLevel;
 }

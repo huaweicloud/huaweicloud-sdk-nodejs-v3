@@ -7,16 +7,18 @@ export class ListListenersRequest {
     public id?: string;
     public name?: string;
     public description?: string;
+    private 'loadbalancer_id'?: string | undefined;
+    private 'connection_limit'?: number | undefined;
+    private 'admin_state_up'?: boolean | undefined;
     private 'default_pool_id'?: string | undefined;
     private 'default_tls_container_ref'?: string | undefined;
     private 'client_ca_tls_container_ref'?: string | undefined;
     public protocol?: string;
     private 'protocol_port'?: number | undefined;
     private 'tls_ciphers_policy'?: string | undefined;
-    private 'member_timeout'?: number | undefined;
-    private 'client_timeout'?: number | undefined;
-    private 'keepalive_timeout'?: number | undefined;
     private 'tls_container_id'?: string | undefined;
+    private 'http2_enable'?: boolean | undefined;
+    private 'enterprise_project_id'?: string | undefined;
     public constructor() { 
     }
     public withLimit(limit: number): ListListenersRequest {
@@ -48,6 +50,36 @@ export class ListListenersRequest {
     public withDescription(description: string): ListListenersRequest {
         this['description'] = description;
         return this;
+    }
+    public withLoadbalancerId(loadbalancerId: string): ListListenersRequest {
+        this['loadbalancer_id'] = loadbalancerId;
+        return this;
+    }
+    public set loadbalancerId(loadbalancerId: string | undefined) {
+        this['loadbalancer_id'] = loadbalancerId;
+    }
+    public get loadbalancerId() {
+        return this['loadbalancer_id'];
+    }
+    public withConnectionLimit(connectionLimit: number): ListListenersRequest {
+        this['connection_limit'] = connectionLimit;
+        return this;
+    }
+    public set connectionLimit(connectionLimit: number | undefined) {
+        this['connection_limit'] = connectionLimit;
+    }
+    public get connectionLimit() {
+        return this['connection_limit'];
+    }
+    public withAdminStateUp(adminStateUp: boolean): ListListenersRequest {
+        this['admin_state_up'] = adminStateUp;
+        return this;
+    }
+    public set adminStateUp(adminStateUp: boolean | undefined) {
+        this['admin_state_up'] = adminStateUp;
+    }
+    public get adminStateUp() {
+        return this['admin_state_up'];
     }
     public withDefaultPoolId(defaultPoolId: string): ListListenersRequest {
         this['default_pool_id'] = defaultPoolId;
@@ -103,36 +135,6 @@ export class ListListenersRequest {
     public get tlsCiphersPolicy() {
         return this['tls_ciphers_policy'];
     }
-    public withMemberTimeout(memberTimeout: number): ListListenersRequest {
-        this['member_timeout'] = memberTimeout;
-        return this;
-    }
-    public set memberTimeout(memberTimeout: number | undefined) {
-        this['member_timeout'] = memberTimeout;
-    }
-    public get memberTimeout() {
-        return this['member_timeout'];
-    }
-    public withClientTimeout(clientTimeout: number): ListListenersRequest {
-        this['client_timeout'] = clientTimeout;
-        return this;
-    }
-    public set clientTimeout(clientTimeout: number | undefined) {
-        this['client_timeout'] = clientTimeout;
-    }
-    public get clientTimeout() {
-        return this['client_timeout'];
-    }
-    public withKeepaliveTimeout(keepaliveTimeout: number): ListListenersRequest {
-        this['keepalive_timeout'] = keepaliveTimeout;
-        return this;
-    }
-    public set keepaliveTimeout(keepaliveTimeout: number | undefined) {
-        this['keepalive_timeout'] = keepaliveTimeout;
-    }
-    public get keepaliveTimeout() {
-        return this['keepalive_timeout'];
-    }
     public withTlsContainerId(tlsContainerId: string): ListListenersRequest {
         this['tls_container_id'] = tlsContainerId;
         return this;
@@ -142,5 +144,25 @@ export class ListListenersRequest {
     }
     public get tlsContainerId() {
         return this['tls_container_id'];
+    }
+    public withHttp2Enable(http2Enable: boolean): ListListenersRequest {
+        this['http2_enable'] = http2Enable;
+        return this;
+    }
+    public set http2Enable(http2Enable: boolean | undefined) {
+        this['http2_enable'] = http2Enable;
+    }
+    public get http2Enable() {
+        return this['http2_enable'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListListenersRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
     }
 }

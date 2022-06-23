@@ -21,12 +21,13 @@
 
 import { HcClient } from "./HcClient";
 import { ICredential } from "./auth/ICredential";
-import { DefaultHttpClient } from "./http/DefaultHttpClient";
+import { ClientOptions, DefaultHttpClient } from "./http/DefaultHttpClient";
 import { RequiredError } from "./auth/AKSKSigner";
 import { BasicCredentials } from "./auth/BasicCredentials";
 import { GlobalCredentials } from "./auth/GlobalCredentials";
 import { SdkException } from "./exception/SdkException";
 import { Region } from "./region/region";
+import { UserOptions } from "./UserOptions";
 const path = require('path');
 
 interface CredParams {
@@ -43,6 +44,7 @@ export class ClientBuilder<T> {
     private credentialType: string[] = ["BasicCredentials", "GlobalCredentials"];
     private envParams: CredParams = process.env;
     private region?: Region;
+    private userOptions?: UserOptions;
 
     public constructor(init: (hcClient: HcClient) => T, credentialType?: string) {
         this.init = init;
@@ -66,17 +68,26 @@ export class ClientBuilder<T> {
         return this;
     }
 
-    public withRegion(region: Region) {
+    public withRegion(region: Region): ClientBuilder<T> {
         this.region = region;
         return this;
     }
 
+    public withOptions(options: UserOptions): ClientBuilder<T> {
+        this.userOptions = options;
+        return this;
+    }
+
     public build(): T {
-        const axiosOptions = {
+        const axiosOptions: ClientOptions = {
             disableSslVerification: true
         };
         if (this.proxyAgent) {
             Object.assign(axiosOptions, { proxyAgent: this.proxyAgent });
+        }
+        if (this.userOptions?.customUserAgent) {
+            axiosOptions.headers = axiosOptions.headers || {};
+            axiosOptions.headers["User-Agent"] = this.userOptions.customUserAgent;
         }
 
         if (!this.credential) {
