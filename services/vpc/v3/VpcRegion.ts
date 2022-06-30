@@ -14,6 +14,8 @@ export class VpcRegion {
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", "https://vpc.ap-southeast-3.myhuaweicloud.com");
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", "https://vpc.sa-brazil-1.myhuaweicloud.com");
     public static LA_NORTH_2 = new Region("la-north-2", "https://vpc.la-north-2.myhuaweicloud.com");
+    public static CN_SOUTH_2 = new Region("cn-south-2", "https://vpc.cn-south-2.myhuaweicloud.com");
+    public static CN_NORTH_2 = new Region("cn-north-2", "https://vpc.cn-north-2.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = VpcRegion.createStaticFields();
@@ -32,6 +34,8 @@ export class VpcRegion {
         map.set("ap-southeast-3", VpcRegion.AP_SOUTHEAST_3);
         map.set("sa-brazil-1", VpcRegion.SA_BRAZIL_1);
         map.set("la-north-2", VpcRegion.LA_NORTH_2);
+        map.set("cn-south-2", VpcRegion.CN_SOUTH_2);
+        map.set("cn-north-2", VpcRegion.CN_NORTH_2);
         return map;
     }
     public static valueOf(regionId: String) {

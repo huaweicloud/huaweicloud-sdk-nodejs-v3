@@ -1,3 +1,23 @@
+# 3.0.47-rc 2022-06-30
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - Support the interface `UpdateFunctionMaxInstanceConfig`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - Support the interfaces `RecognizeHkIdCard`, `RecognizeCambodianIdCard`, `RecognizeExitEntryPermit`, `RecognizeMainlandTravelPermit`
+- _Bug Fix_
+  - None
+- _Change_
+  - Modify the type `int32` -> `float` of the response parameter `direction` of the interface `RecognizeGeneralText`
+
 # 3.0.46-rc 2022-06-23
 
 ### HuaweiCloud SDK ELB

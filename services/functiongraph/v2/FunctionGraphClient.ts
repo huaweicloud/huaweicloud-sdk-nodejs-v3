@@ -173,6 +173,9 @@ import { UpdateFunctionCodeResponse } from './model/UpdateFunctionCodeResponse';
 import { UpdateFunctionConfigRequest } from './model/UpdateFunctionConfigRequest';
 import { UpdateFunctionConfigRequestBody } from './model/UpdateFunctionConfigRequestBody';
 import { UpdateFunctionConfigResponse } from './model/UpdateFunctionConfigResponse';
+import { UpdateFunctionMaxInstanceConfigRequest } from './model/UpdateFunctionMaxInstanceConfigRequest';
+import { UpdateFunctionMaxInstanceConfigRequestBody } from './model/UpdateFunctionMaxInstanceConfigRequestBody';
+import { UpdateFunctionMaxInstanceConfigResponse } from './model/UpdateFunctionMaxInstanceConfigResponse';
 import { UpdateFunctionReservedInstancesRequest } from './model/UpdateFunctionReservedInstancesRequest';
 import { UpdateFunctionReservedInstancesRequestBody } from './model/UpdateFunctionReservedInstancesRequestBody';
 import { UpdateFunctionReservedInstancesResponse } from './model/UpdateFunctionReservedInstancesResponse';
@@ -617,7 +620,7 @@ export class FunctionGraphClient {
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
      * @param {{ [key: string]: object; }} invokeFunctionRequestBody 
      * @param {string} [xCffLogType] 取值为：tail（返回函数执行后的4K日志），或者为空（不返回日志）。
-     * @param {string} [xCFFRequestVersion] 返回体格式，取值v0,v1。
+     * @param {string} [xCFFRequestVersion] 返回体格式，取值v0,v1。 v0:默认返回文本格式 v1:默认返回json格式，sdk需要使用此值。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1302,6 +1305,25 @@ export class FunctionGraphClient {
      */
     public updateFunctionConfig(updateFunctionConfigRequest?: UpdateFunctionConfigRequest): Promise<UpdateFunctionConfigResponse> {
         const options = ParamCreater().updateFunctionConfig(updateFunctionConfigRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新函数最大实例数
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 更新函数最大实例数
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型。
+     * @param {UpdateFunctionMaxInstanceConfigRequestBody} updateFunctionMaxInstanceConfigRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateFunctionMaxInstanceConfig(updateFunctionMaxInstanceConfigRequest?: UpdateFunctionMaxInstanceConfigRequest): Promise<UpdateFunctionMaxInstanceConfigResponse> {
+        const options = ParamCreater().updateFunctionMaxInstanceConfig(updateFunctionMaxInstanceConfigRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -3976,6 +3998,52 @@ export const ParamCreater = function () {
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新函数最大实例数
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        updateFunctionMaxInstanceConfig(updateFunctionMaxInstanceConfigRequest?: UpdateFunctionMaxInstanceConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/fgs/functions/{function_urn}/config-max-instance",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let functionUrn;
+
+            if (updateFunctionMaxInstanceConfigRequest !== null && updateFunctionMaxInstanceConfigRequest !== undefined) {
+                if (updateFunctionMaxInstanceConfigRequest instanceof UpdateFunctionMaxInstanceConfigRequest) {
+                    functionUrn = updateFunctionMaxInstanceConfigRequest.functionUrn;
+                    body = updateFunctionMaxInstanceConfigRequest.body
+                } else {
+                    functionUrn = updateFunctionMaxInstanceConfigRequest['function_urn'];
+                    body = updateFunctionMaxInstanceConfigRequest['body'];
+                }
+            }
+
+        
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFunctionMaxInstanceConfig.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

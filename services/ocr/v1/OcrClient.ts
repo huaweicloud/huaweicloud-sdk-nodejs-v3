@@ -12,11 +12,13 @@ import { BusinessCardRequestBody } from './model/BusinessCardRequestBody';
 import { BusinessCardResult } from './model/BusinessCardResult';
 import { BusinessLicenseRequestBody } from './model/BusinessLicenseRequestBody';
 import { BusinessLicenseResult } from './model/BusinessLicenseResult';
+import { CambodianIdCardRequestBody } from './model/CambodianIdCardRequestBody';
 import { ChileIdCardConfidence } from './model/ChileIdCardConfidence';
 import { ChileIdCardRequestBody } from './model/ChileIdCardRequestBody';
 import { ChileIdCardResult } from './model/ChileIdCardResult';
 import { DriverLicenseRequestBody } from './model/DriverLicenseRequestBody';
 import { DriverLicenseResult } from './model/DriverLicenseResult';
+import { ExitEntryPermitRequestBody } from './model/ExitEntryPermitRequestBody';
 import { ExtraInfoList } from './model/ExtraInfoList';
 import { FinancialStatementRequestBody } from './model/FinancialStatementRequestBody';
 import { FinancialStatementResult } from './model/FinancialStatementResult';
@@ -37,6 +39,7 @@ import { HandwritingWordsBlockList } from './model/HandwritingWordsBlockList';
 import { HealthCodeRequestBody } from './model/HealthCodeRequestBody';
 import { HealthCodeResult } from './model/HealthCodeResult';
 import { HealthCodeWordsBlockList } from './model/HealthCodeWordsBlockList';
+import { HkIdCardRequestBody } from './model/HkIdCardRequestBody';
 import { IdCardRequestBody } from './model/IdCardRequestBody';
 import { IdCardResult } from './model/IdCardResult';
 import { IdDocumentRequestBody } from './model/IdDocumentRequestBody';
@@ -51,6 +54,7 @@ import { ItemList } from './model/ItemList';
 import { ItineraryList } from './model/ItineraryList';
 import { LicensePlateRequestBody } from './model/LicensePlateRequestBody';
 import { LicensePlateResult } from './model/LicensePlateResult';
+import { MainlandTravelPermitRequestBody } from './model/MainlandTravelPermitRequestBody';
 import { MvsInvoiceRequestBody } from './model/MvsInvoiceRequestBody';
 import { MvsInvoiceResult } from './model/MvsInvoiceResult';
 import { MyanmarDriverLicenseConfidence } from './model/MyanmarDriverLicenseConfidence';
@@ -80,10 +84,14 @@ import { RecognizeBusinessCardRequest } from './model/RecognizeBusinessCardReque
 import { RecognizeBusinessCardResponse } from './model/RecognizeBusinessCardResponse';
 import { RecognizeBusinessLicenseRequest } from './model/RecognizeBusinessLicenseRequest';
 import { RecognizeBusinessLicenseResponse } from './model/RecognizeBusinessLicenseResponse';
+import { RecognizeCambodianIdCardRequest } from './model/RecognizeCambodianIdCardRequest';
+import { RecognizeCambodianIdCardResponse } from './model/RecognizeCambodianIdCardResponse';
 import { RecognizeChileIdCardRequest } from './model/RecognizeChileIdCardRequest';
 import { RecognizeChileIdCardResponse } from './model/RecognizeChileIdCardResponse';
 import { RecognizeDriverLicenseRequest } from './model/RecognizeDriverLicenseRequest';
 import { RecognizeDriverLicenseResponse } from './model/RecognizeDriverLicenseResponse';
+import { RecognizeExitEntryPermitRequest } from './model/RecognizeExitEntryPermitRequest';
+import { RecognizeExitEntryPermitResponse } from './model/RecognizeExitEntryPermitResponse';
 import { RecognizeFinancialStatementRequest } from './model/RecognizeFinancialStatementRequest';
 import { RecognizeFinancialStatementResponse } from './model/RecognizeFinancialStatementResponse';
 import { RecognizeFlightItineraryRequest } from './model/RecognizeFlightItineraryRequest';
@@ -96,6 +104,8 @@ import { RecognizeHandwritingRequest } from './model/RecognizeHandwritingRequest
 import { RecognizeHandwritingResponse } from './model/RecognizeHandwritingResponse';
 import { RecognizeHealthCodeRequest } from './model/RecognizeHealthCodeRequest';
 import { RecognizeHealthCodeResponse } from './model/RecognizeHealthCodeResponse';
+import { RecognizeHkIdCardRequest } from './model/RecognizeHkIdCardRequest';
+import { RecognizeHkIdCardResponse } from './model/RecognizeHkIdCardResponse';
 import { RecognizeIdCardRequest } from './model/RecognizeIdCardRequest';
 import { RecognizeIdCardResponse } from './model/RecognizeIdCardResponse';
 import { RecognizeIdDocumentRequest } from './model/RecognizeIdDocumentRequest';
@@ -106,6 +116,8 @@ import { RecognizeInvoiceVerificationRequest } from './model/RecognizeInvoiceVer
 import { RecognizeInvoiceVerificationResponse } from './model/RecognizeInvoiceVerificationResponse';
 import { RecognizeLicensePlateRequest } from './model/RecognizeLicensePlateRequest';
 import { RecognizeLicensePlateResponse } from './model/RecognizeLicensePlateResponse';
+import { RecognizeMainlandTravelPermitRequest } from './model/RecognizeMainlandTravelPermitRequest';
+import { RecognizeMainlandTravelPermitResponse } from './model/RecognizeMainlandTravelPermitResponse';
 import { RecognizeMvsInvoiceRequest } from './model/RecognizeMvsInvoiceRequest';
 import { RecognizeMvsInvoiceResponse } from './model/RecognizeMvsInvoiceResponse';
 import { RecognizeMyanmarDriverLicenseRequest } from './model/RecognizeMyanmarDriverLicenseRequest';
@@ -269,6 +281,24 @@ export class OcrClient {
     }
 
     /**
+     * 识别柬文身份证图片中的文字内容，并将识别的结构化结果返回给用户。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 柬文身份证识别
+     * @param {CambodianIdCardRequestBody} cambodianIdCardRequestBody This is a Cambodian ID Card OCR Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeCambodianIdCard(recognizeCambodianIdCardRequest?: RecognizeCambodianIdCardRequest): Promise<RecognizeCambodianIdCardResponse> {
+        const options = ParamCreater().recognizeCambodianIdCard(recognizeCambodianIdCardRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 识别智利身份证图片中的文字内容，并返回识别的结构化结果。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -303,6 +333,24 @@ export class OcrClient {
      */
     public recognizeDriverLicense(recognizeDriverLicenseRequest?: RecognizeDriverLicenseRequest): Promise<RecognizeDriverLicenseResponse> {
         const options = ParamCreater().recognizeDriverLicense(recognizeDriverLicenseRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 识别往来港澳台证件图片中的文字内容，并将识别的结构化结果返回给用户。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 往来港澳台通行证识别
+     * @param {ExitEntryPermitRequestBody} exitEntryPermitRequestBody This is a Exit-Entry Permit for Traveling to and from Hong Kong, Macao, and Taiwan Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeExitEntryPermit(recognizeExitEntryPermitRequest?: RecognizeExitEntryPermitRequest): Promise<RecognizeExitEntryPermitResponse> {
+        const options = ParamCreater().recognizeExitEntryPermit(recognizeExitEntryPermitRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -421,6 +469,24 @@ export class OcrClient {
     }
 
     /**
+     * 识别香港身份证中的文字内容，并将识别的结果返回给用户。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 香港身份证识别
+     * @param {HkIdCardRequestBody} hkIdCardRequestBody This is a hk id card Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeHkIdCard(recognizeHkIdCardRequest?: RecognizeHkIdCardRequest): Promise<RecognizeHkIdCardResponse> {
+        const options = ParamCreater().recognizeHkIdCard(recognizeHkIdCardRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 识别身份证图片中的文字内容，并将识别的结果返回给用户。
      * 
      * 说明： 
@@ -528,6 +594,24 @@ export class OcrClient {
      */
     public recognizeLicensePlate(recognizeLicensePlateRequest?: RecognizeLicensePlateRequest): Promise<RecognizeLicensePlateResponse> {
         const options = ParamCreater().recognizeLicensePlate(recognizeLicensePlateRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 识别港澳居民来往内地通行证上的文字内容，并将识别的结构化结果返回给用户。支持港澳居民来往内地通行证和台湾居民来往内地通行证两种卡证。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 港澳台居民来往内地通行证识别
+     * @param {MainlandTravelPermitRequestBody} mainlandTravelPermitRequestBody This is a Mainland Travel Permit for Hong Kong, Macao, and Taiwan Residents Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeMainlandTravelPermit(recognizeMainlandTravelPermitRequest?: RecognizeMainlandTravelPermitRequest): Promise<RecognizeMainlandTravelPermitResponse> {
+        const options = ParamCreater().recognizeMainlandTravelPermit(recognizeMainlandTravelPermitRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1072,6 +1156,45 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 识别柬文身份证图片中的文字内容，并将识别的结构化结果返回给用户。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        recognizeCambodianIdCard(recognizeCambodianIdCardRequest?: RecognizeCambodianIdCardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/cambodian-idcard",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeCambodianIdCardRequest !== null && recognizeCambodianIdCardRequest !== undefined) {
+                if (recognizeCambodianIdCardRequest instanceof RecognizeCambodianIdCardRequest) {
+                    body = recognizeCambodianIdCardRequest.body
+                } else {
+                    body = recognizeCambodianIdCardRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 识别智利身份证图片中的文字内容，并返回识别的结构化结果。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -1139,6 +1262,45 @@ export const ParamCreater = function () {
                     body = recognizeDriverLicenseRequest.body
                 } else {
                     body = recognizeDriverLicenseRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别往来港澳台证件图片中的文字内容，并将识别的结构化结果返回给用户。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        recognizeExitEntryPermit(recognizeExitEntryPermitRequest?: RecognizeExitEntryPermitRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/exit-entry-permit",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeExitEntryPermitRequest !== null && recognizeExitEntryPermitRequest !== undefined) {
+                if (recognizeExitEntryPermitRequest instanceof RecognizeExitEntryPermitRequest) {
+                    body = recognizeExitEntryPermitRequest.body
+                } else {
+                    body = recognizeExitEntryPermitRequest['body'];
                 }
             }
 
@@ -1380,6 +1542,45 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 识别香港身份证中的文字内容，并将识别的结果返回给用户。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        recognizeHkIdCard(recognizeHkIdCardRequest?: RecognizeHkIdCardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/hk-id-card",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeHkIdCardRequest !== null && recognizeHkIdCardRequest !== undefined) {
+                if (recognizeHkIdCardRequest instanceof RecognizeHkIdCardRequest) {
+                    body = recognizeHkIdCardRequest.body
+                } else {
+                    body = recognizeHkIdCardRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 识别身份证图片中的文字内容，并将识别的结果返回给用户。
          * 
          * 说明： 
@@ -1583,6 +1784,45 @@ export const ParamCreater = function () {
                     body = recognizeLicensePlateRequest.body
                 } else {
                     body = recognizeLicensePlateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别港澳居民来往内地通行证上的文字内容，并将识别的结构化结果返回给用户。支持港澳居民来往内地通行证和台湾居民来往内地通行证两种卡证。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        recognizeMainlandTravelPermit(recognizeMainlandTravelPermitRequest?: RecognizeMainlandTravelPermitRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/mainland-travel-permit",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeMainlandTravelPermitRequest !== null && recognizeMainlandTravelPermitRequest !== undefined) {
+                if (recognizeMainlandTravelPermitRequest instanceof RecognizeMainlandTravelPermitRequest) {
+                    body = recognizeMainlandTravelPermitRequest.body
+                } else {
+                    body = recognizeMainlandTravelPermitRequest['body'];
                 }
             }
 
