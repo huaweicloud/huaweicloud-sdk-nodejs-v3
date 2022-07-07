@@ -1,5 +1,6 @@
 import { ListenerInsertHeaders } from './ListenerInsertHeaders';
 import { UpdateListenerIpGroupOption } from './UpdateListenerIpGroupOption';
+import { UpdateListenerQuicConfigOption } from './UpdateListenerQuicConfigOption';
 
 
 export class UpdateListenerOption {
@@ -21,6 +22,7 @@ export class UpdateListenerOption {
     public ipgroup?: UpdateListenerIpGroupOption;
     private 'transparent_client_ip_enable'?: boolean | undefined;
     private 'enhance_l7policy_enable'?: boolean | undefined;
+    private 'quic_config'?: UpdateListenerQuicConfigOption | undefined;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdateListenerOption {
@@ -184,5 +186,15 @@ export class UpdateListenerOption {
     }
     public get enhanceL7policyEnable() {
         return this['enhance_l7policy_enable'];
+    }
+    public withQuicConfig(quicConfig: UpdateListenerQuicConfigOption): UpdateListenerOption {
+        this['quic_config'] = quicConfig;
+        return this;
+    }
+    public set quicConfig(quicConfig: UpdateListenerQuicConfigOption | undefined) {
+        this['quic_config'] = quicConfig;
+    }
+    public get quicConfig() {
+        return this['quic_config'];
     }
 }

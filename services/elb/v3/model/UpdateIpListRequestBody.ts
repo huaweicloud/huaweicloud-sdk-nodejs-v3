@@ -1,11 +1,11 @@
-import { UpdateIpGroupIpListOption } from './UpdateIpGroupIpListOption';
+import { UpdateIpListOption } from './UpdateIpListOption';
 
 
 export class UpdateIpListRequestBody {
-    public ipgroup?: UpdateIpGroupIpListOption;
+    public ipgroup?: UpdateIpListOption;
     public constructor() { 
     }
-    public withIpgroup(ipgroup: UpdateIpGroupIpListOption): UpdateIpListRequestBody {
+    public withIpgroup(ipgroup: UpdateIpListOption): UpdateIpListRequestBody {
         this['ipgroup'] = ipgroup;
         return this;
     }

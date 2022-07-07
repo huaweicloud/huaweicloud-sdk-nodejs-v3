@@ -14,6 +14,8 @@ export class CreatePoolOption {
     private 'session_persistence'?: CreatePoolSessionPersistenceOption | undefined;
     private 'slow_start'?: CreatePoolSlowStartOption | undefined;
     private 'member_deletion_protection_enable'?: boolean | undefined;
+    private 'vpc_id'?: string | undefined;
+    public type?: string;
     public constructor(lbAlgorithm?: any, protocol?: any) { 
         this['lb_algorithm'] = lbAlgorithm;
         this['protocol'] = protocol;
@@ -109,5 +111,19 @@ export class CreatePoolOption {
     }
     public get memberDeletionProtectionEnable() {
         return this['member_deletion_protection_enable'];
+    }
+    public withVpcId(vpcId: string): CreatePoolOption {
+        this['vpc_id'] = vpcId;
+        return this;
+    }
+    public set vpcId(vpcId: string | undefined) {
+        this['vpc_id'] = vpcId;
+    }
+    public get vpcId() {
+        return this['vpc_id'];
+    }
+    public withType(type: string): CreatePoolOption {
+        this['type'] = type;
+        return this;
     }
 }

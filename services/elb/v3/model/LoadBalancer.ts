@@ -1,6 +1,7 @@
 import { AutoscalingRef } from './AutoscalingRef';
 import { BandwidthRef } from './BandwidthRef';
 import { EipInfo } from './EipInfo';
+import { GlobalEipInfo } from './GlobalEipInfo';
 import { ListenerRef } from './ListenerRef';
 import { PoolRef } from './PoolRef';
 import { PublicIpInfo } from './PublicIpInfo';
@@ -32,12 +33,12 @@ export class LoadBalancer {
     private 'ipv6_vip_port_id': string | undefined;
     private 'availability_zone_list': Array<string> | undefined;
     private 'enterprise_project_id': string | undefined;
-    private 'billing_info': string | undefined;
     private 'l4_flavor_id': string | undefined;
     private 'l4_scale_flavor_id': string | undefined;
     private 'l7_flavor_id': string | undefined;
     private 'l7_scale_flavor_id': string | undefined;
     public publicips: Array<PublicIpInfo>;
+    private 'global_eips': Array<GlobalEipInfo> | undefined;
     private 'elb_virsubnet_ids': Array<string> | undefined;
     private 'elb_virsubnet_type': LoadBalancerElbVirsubnetTypeEnum | undefined;
     private 'ip_target_enable': boolean | undefined;
@@ -45,7 +46,8 @@ export class LoadBalancer {
     private 'ipv6_bandwidth': BandwidthRef | undefined;
     private 'deletion_protection_enable'?: boolean | undefined;
     public autoscaling?: AutoscalingRef;
-    public constructor(id?: any, description?: any, provisioningStatus?: any, adminStateUp?: any, provider?: any, pools?: any, listeners?: any, operatingStatus?: any, name?: any, projectId?: any, vipSubnetCidrId?: any, vipAddress?: any, vipPortId?: any, tags?: any, createdAt?: any, updatedAt?: any, guaranteed?: any, vpcId?: any, eips?: any, ipv6VipAddress?: any, ipv6VipVirsubnetId?: any, ipv6VipPortId?: any, availabilityZoneList?: any, enterpriseProjectId?: any, billingInfo?: any, l4FlavorId?: any, l4ScaleFlavorId?: any, l7FlavorId?: any, l7ScaleFlavorId?: any, publicips?: any, elbVirsubnetIds?: any, elbVirsubnetType?: any, ipTargetEnable?: any, frozenScene?: any, ipv6Bandwidth?: any) { 
+    private 'public_border_group'?: string | undefined;
+    public constructor(id?: any, description?: any, provisioningStatus?: any, adminStateUp?: any, provider?: any, pools?: any, listeners?: any, operatingStatus?: any, name?: any, projectId?: any, vipSubnetCidrId?: any, vipAddress?: any, vipPortId?: any, tags?: any, createdAt?: any, updatedAt?: any, guaranteed?: any, vpcId?: any, eips?: any, ipv6VipAddress?: any, ipv6VipVirsubnetId?: any, ipv6VipPortId?: any, availabilityZoneList?: any, enterpriseProjectId?: any, l4FlavorId?: any, l4ScaleFlavorId?: any, l7FlavorId?: any, l7ScaleFlavorId?: any, publicips?: any, globalEips?: any, elbVirsubnetIds?: any, elbVirsubnetType?: any, ipTargetEnable?: any, frozenScene?: any, ipv6Bandwidth?: any) { 
         this['id'] = id;
         this['description'] = description;
         this['provisioning_status'] = provisioningStatus;
@@ -70,12 +72,12 @@ export class LoadBalancer {
         this['ipv6_vip_port_id'] = ipv6VipPortId;
         this['availability_zone_list'] = availabilityZoneList;
         this['enterprise_project_id'] = enterpriseProjectId;
-        this['billing_info'] = billingInfo;
         this['l4_flavor_id'] = l4FlavorId;
         this['l4_scale_flavor_id'] = l4ScaleFlavorId;
         this['l7_flavor_id'] = l7FlavorId;
         this['l7_scale_flavor_id'] = l7ScaleFlavorId;
         this['publicips'] = publicips;
+        this['global_eips'] = globalEips;
         this['elb_virsubnet_ids'] = elbVirsubnetIds;
         this['elb_virsubnet_type'] = elbVirsubnetType;
         this['ip_target_enable'] = ipTargetEnable;
@@ -268,16 +270,6 @@ export class LoadBalancer {
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
     }
-    public withBillingInfo(billingInfo: string): LoadBalancer {
-        this['billing_info'] = billingInfo;
-        return this;
-    }
-    public set billingInfo(billingInfo: string | undefined) {
-        this['billing_info'] = billingInfo;
-    }
-    public get billingInfo() {
-        return this['billing_info'];
-    }
     public withL4FlavorId(l4FlavorId: string): LoadBalancer {
         this['l4_flavor_id'] = l4FlavorId;
         return this;
@@ -321,6 +313,16 @@ export class LoadBalancer {
     public withPublicips(publicips: Array<PublicIpInfo>): LoadBalancer {
         this['publicips'] = publicips;
         return this;
+    }
+    public withGlobalEips(globalEips: Array<GlobalEipInfo>): LoadBalancer {
+        this['global_eips'] = globalEips;
+        return this;
+    }
+    public set globalEips(globalEips: Array<GlobalEipInfo> | undefined) {
+        this['global_eips'] = globalEips;
+    }
+    public get globalEips() {
+        return this['global_eips'];
     }
     public withElbVirsubnetIds(elbVirsubnetIds: Array<string>): LoadBalancer {
         this['elb_virsubnet_ids'] = elbVirsubnetIds;
@@ -385,6 +387,16 @@ export class LoadBalancer {
     public withAutoscaling(autoscaling: AutoscalingRef): LoadBalancer {
         this['autoscaling'] = autoscaling;
         return this;
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): LoadBalancer {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup() {
+        return this['public_border_group'];
     }
 }
 

@@ -1,9 +1,9 @@
-import { BatchDeleteIpListRequestBody } from './BatchDeleteIpListRequestBody';
+import { BatchDeleteIpGroupIpListRequestBody } from './BatchDeleteIpGroupIpListRequestBody';
 
 
 export class BatchDeleteIpListRequest {
     private 'ipgroup_id': string | undefined;
-    public body?: BatchDeleteIpListRequestBody;
+    public body?: BatchDeleteIpGroupIpListRequestBody;
     public constructor(ipgroupId?: any) { 
         this['ipgroup_id'] = ipgroupId;
     }
@@ -17,7 +17,7 @@ export class BatchDeleteIpListRequest {
     public get ipgroupId() {
         return this['ipgroup_id'];
     }
-    public withBody(body: BatchDeleteIpListRequestBody): BatchDeleteIpListRequest {
+    public withBody(body: BatchDeleteIpGroupIpListRequestBody): BatchDeleteIpListRequest {
         this['body'] = body;
         return this;
     }

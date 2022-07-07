@@ -1,9 +1,9 @@
-import { BatchDeleteMemberRequestBody } from './BatchDeleteMemberRequestBody';
+import { BatchDeleteMembersRequestBody } from './BatchDeleteMembersRequestBody';
 
 
 export class BatchDeleteMembersRequest {
     private 'pool_id': string | undefined;
-    public body?: BatchDeleteMemberRequestBody;
+    public body?: BatchDeleteMembersRequestBody;
     public constructor(poolId?: any) { 
         this['pool_id'] = poolId;
     }
@@ -17,7 +17,7 @@ export class BatchDeleteMembersRequest {
     public get poolId() {
         return this['pool_id'];
     }
-    public withBody(body: BatchDeleteMemberRequestBody): BatchDeleteMembersRequest {
+    public withBody(body: BatchDeleteMembersRequestBody): BatchDeleteMembersRequest {
         this['body'] = body;
         return this;
     }

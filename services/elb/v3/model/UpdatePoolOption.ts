@@ -10,6 +10,8 @@ export class UpdatePoolOption {
     private 'session_persistence'?: UpdatePoolSessionPersistenceOption | undefined;
     private 'slow_start'?: UpdatePoolSlowStartOption | undefined;
     private 'member_deletion_protection_enable'?: boolean | undefined;
+    private 'vpc_id'?: string | undefined;
+    public type?: string;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdatePoolOption {
@@ -69,5 +71,19 @@ export class UpdatePoolOption {
     }
     public get memberDeletionProtectionEnable() {
         return this['member_deletion_protection_enable'];
+    }
+    public withVpcId(vpcId: string): UpdatePoolOption {
+        this['vpc_id'] = vpcId;
+        return this;
+    }
+    public set vpcId(vpcId: string | undefined) {
+        this['vpc_id'] = vpcId;
+    }
+    public get vpcId() {
+        return this['vpc_id'];
+    }
+    public withType(type: string): UpdatePoolOption {
+        this['type'] = type;
+        return this;
     }
 }

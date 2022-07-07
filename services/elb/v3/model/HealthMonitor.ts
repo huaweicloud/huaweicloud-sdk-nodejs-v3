@@ -17,6 +17,8 @@ export class HealthMonitor {
     public timeout: number;
     public type: string;
     private 'url_path': string | undefined;
+    private 'created_at'?: string | undefined;
+    private 'updated_at'?: string | undefined;
     public constructor(adminStateUp?: any, delay?: any, domainName?: any, expectedCodes?: any, httpMethod?: any, id?: any, maxRetries?: any, maxRetriesDown?: any, monitorPort?: any, name?: any, pools?: any, projectId?: any, timeout?: any, type?: any, urlPath?: any) { 
         this['admin_state_up'] = adminStateUp;
         this['delay'] = delay;
@@ -147,5 +149,25 @@ export class HealthMonitor {
     }
     public get urlPath() {
         return this['url_path'];
+    }
+    public withCreatedAt(createdAt: string): HealthMonitor {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: string | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt() {
+        return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: string): HealthMonitor {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: string | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt() {
+        return this['updated_at'];
     }
 }

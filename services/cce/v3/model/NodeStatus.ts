@@ -6,6 +6,7 @@ export class NodeStatus {
     public jobID?: string;
     public serverId?: string;
     public privateIP?: string;
+    public privateIPv6IP?: string;
     public publicIP?: string;
     public deleteStatus?: DeleteStatus;
     public constructor() { 
@@ -24,6 +25,10 @@ export class NodeStatus {
     }
     public withPrivateIP(privateIP: string): NodeStatus {
         this['privateIP'] = privateIP;
+        return this;
+    }
+    public withPrivateIPv6IP(privateIPv6IP: string): NodeStatus {
+        this['privateIPv6IP'] = privateIPv6IP;
         return this;
     }
     public withPublicIP(publicIP: string): NodeStatus {

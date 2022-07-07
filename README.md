@@ -13,7 +13,7 @@ This document introduces how to obtain and use Huawei Cloud Node.js SDK.
 
 ## Requirements
 
-- To use Huawei Cloud Node.js SDK, you must have Huawei Cloud account as well as the Access Key and Secret key of the
+- To use Huawei Cloud Node.js SDK, you must have Huawei Cloud account as well as the Access Key (AK) and Secret key (SK) of the
   Huawei Cloud account. You can create an Access Key in the Huawei Cloud console. For more information,
   see [My Credentials](https://support.huaweicloud.com/en-us/usermanual-ca/en-us_topic_0046606340.html).
 
@@ -85,6 +85,10 @@ npm run dev
 # After commands above completed, you could enter `http://localhost:3000/` in your broswer to check the response
 ```
 
+## Online Debugging
+
+[API Explorer](https://apiexplorer.developer.intl.huaweicloud.com/apiexplorer/overview) provides api retrieval and online debugging, supports full fast retrieval, visual debugging, help document viewing, and online consultation.
+
 ## Changelog
 
 Detailed changes for each released version are documented in
@@ -124,7 +128,7 @@ client.withProxyAgent("http://username:password@proxy.huaweicloud.com:8080")
 #### 1.3 SSL Certification [:top:](#user-manual-top)
 
 ``` javascript
-// Skip ssl certification checking while using https protocol if needed
+// Skip SSL certification checking while using https protocol if needed
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 ```
 
@@ -134,8 +138,9 @@ There are two types of Huawei Cloud services, `regional` services and `global` s
 
 Global services contain DevStar, IAM.
 
-For `Regional` services' authentication, projectId is required. For `global` services' authentication, domainId is
-required.
+For `Regional` services' authentication, projectId is required. 
+
+For `global` services' authentication, domainId is required.
 
 `Parameter description`:
 
@@ -166,14 +171,14 @@ const globalCredentials = new GlobalCredentials()
 
 #### 2.2 Use Temporary AK&SK [:top:](#user-manual-top)
 
-It's required to obtain temporary access key, security key and security token first, which could be obtained through
-permanent access key and security key or through an agency.
+It's required to obtain temporary AK&SK and security token first, which could be obtained through
+permanent AK&SK or through an agency.
 
-Obtaining a temporary access key token through permanent access key and security key, you could refer to
+- Obtaining a temporary access key and security token through token, you could refer to
 document: https://support.huaweicloud.com/en-us/api-iam/iam_04_0002.html . The API mentioned in the document above
 corresponds to the method of `CreateTemporaryAccessKeyByToken` in IAM SDK.
 
-Obtaining a temporary access key and security token through an agency, you could refer to
+- Obtaining a temporary access key and security token through an agency, you could refer to
 document: https://support.huaweicloud.com/en-us/api-iam/iam_04_0101.html . The API mentioned in the document above
 corresponds to the method of `CreateTemporaryAccessKeyByAgency` in IAM SDK.
 

@@ -6,7 +6,7 @@ export class SecurityPolicy {
     private 'project_id': string | undefined;
     public name: string;
     public description: string;
-    public listeners: ListenerRef;
+    public listeners: Array<ListenerRef>;
     public protocols: Array<string>;
     public ciphers: Array<string>;
     private 'created_at': string | undefined;
@@ -44,7 +44,7 @@ export class SecurityPolicy {
         this['description'] = description;
         return this;
     }
-    public withListeners(listeners: ListenerRef): SecurityPolicy {
+    public withListeners(listeners: Array<ListenerRef>): SecurityPolicy {
         this['listeners'] = listeners;
         return this;
     }

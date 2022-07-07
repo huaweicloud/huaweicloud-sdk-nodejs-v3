@@ -1,3 +1,5 @@
+import { MemberStatus } from './MemberStatus';
+import { ResourceID } from './ResourceID';
 
 
 export class Member {
@@ -14,10 +16,14 @@ export class Member {
     private 'device_owner'?: string | undefined;
     private 'device_id'?: string | undefined;
     private 'operating_status': string | undefined;
+    public status: Array<MemberStatus>;
     private 'loadbalancer_id'?: string | undefined;
+    public loadbalancers?: Array<ResourceID>;
+    private 'created_at'?: string | undefined;
+    private 'updated_at'?: string | undefined;
     private 'member_type'?: string | undefined;
     private 'instance_id'?: string | undefined;
-    public constructor(id?: any, name?: any, projectId?: any, adminStateUp?: any, protocolPort?: any, weight?: any, address?: any, ipVersion?: any, operatingStatus?: any) { 
+    public constructor(id?: any, name?: any, projectId?: any, adminStateUp?: any, protocolPort?: any, weight?: any, address?: any, ipVersion?: any, operatingStatus?: any, status?: any) { 
         this['id'] = id;
         this['name'] = name;
         this['project_id'] = projectId;
@@ -27,6 +33,7 @@ export class Member {
         this['address'] = address;
         this['ip_version'] = ipVersion;
         this['operating_status'] = operatingStatus;
+        this['status'] = status;
     }
     public withId(id: string): Member {
         this['id'] = id;
@@ -134,6 +141,10 @@ export class Member {
     public get operatingStatus() {
         return this['operating_status'];
     }
+    public withStatus(status: Array<MemberStatus>): Member {
+        this['status'] = status;
+        return this;
+    }
     public withLoadbalancerId(loadbalancerId: string): Member {
         this['loadbalancer_id'] = loadbalancerId;
         return this;
@@ -143,6 +154,30 @@ export class Member {
     }
     public get loadbalancerId() {
         return this['loadbalancer_id'];
+    }
+    public withLoadbalancers(loadbalancers: Array<ResourceID>): Member {
+        this['loadbalancers'] = loadbalancers;
+        return this;
+    }
+    public withCreatedAt(createdAt: string): Member {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: string | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt() {
+        return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: string): Member {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: string | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt() {
+        return this['updated_at'];
     }
     public withMemberType(memberType: string): Member {
         this['member_type'] = memberType;

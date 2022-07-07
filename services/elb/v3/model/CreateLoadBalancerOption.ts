@@ -6,6 +6,8 @@ import { Tag } from './Tag';
 
 
 export class CreateLoadBalancerOption {
+    public id?: string;
+    private 'project_id'?: string | undefined;
     public name?: string;
     public description?: string;
     private 'vip_address'?: string | undefined;
@@ -13,16 +15,16 @@ export class CreateLoadBalancerOption {
     private 'ipv6_vip_virsubnet_id'?: string | undefined;
     public provider?: string;
     private 'l4_flavor_id'?: string | undefined;
-    private 'project_id'?: string | undefined;
+    private 'l7_flavor_id'?: string | undefined;
     public guaranteed?: boolean;
     private 'vpc_id'?: string | undefined;
     private 'availability_zone_list': Array<string> | undefined;
     private 'enterprise_project_id'?: string | undefined;
     public tags?: Array<Tag>;
     private 'admin_state_up'?: boolean | undefined;
-    private 'l7_flavor_id'?: string | undefined;
     private 'billing_info'?: string | undefined;
     private 'ipv6_bandwidth'?: BandwidthRef | undefined;
+    private 'global_eip_ids'?: Array<string> | undefined;
     private 'publicip_ids'?: Array<string> | undefined;
     public publicip?: CreateLoadBalancerPublicIpOption;
     private 'elb_virsubnet_ids'?: Array<string> | undefined;
@@ -32,6 +34,20 @@ export class CreateLoadBalancerOption {
     public autoscaling?: CreateLoadbalancerAutoscalingOption;
     public constructor(availabilityZoneList?: any) { 
         this['availability_zone_list'] = availabilityZoneList;
+    }
+    public withId(id: string): CreateLoadBalancerOption {
+        this['id'] = id;
+        return this;
+    }
+    public withProjectId(projectId: string): CreateLoadBalancerOption {
+        this['project_id'] = projectId;
+        return this;
+    }
+    public set projectId(projectId: string | undefined) {
+        this['project_id'] = projectId;
+    }
+    public get projectId() {
+        return this['project_id'];
     }
     public withName(name: string): CreateLoadBalancerOption {
         this['name'] = name;
@@ -85,15 +101,15 @@ export class CreateLoadBalancerOption {
     public get l4FlavorId() {
         return this['l4_flavor_id'];
     }
-    public withProjectId(projectId: string): CreateLoadBalancerOption {
-        this['project_id'] = projectId;
+    public withL7FlavorId(l7FlavorId: string): CreateLoadBalancerOption {
+        this['l7_flavor_id'] = l7FlavorId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
-        this['project_id'] = projectId;
+    public set l7FlavorId(l7FlavorId: string | undefined) {
+        this['l7_flavor_id'] = l7FlavorId;
     }
-    public get projectId() {
-        return this['project_id'];
+    public get l7FlavorId() {
+        return this['l7_flavor_id'];
     }
     public withGuaranteed(guaranteed: boolean): CreateLoadBalancerOption {
         this['guaranteed'] = guaranteed;
@@ -143,16 +159,6 @@ export class CreateLoadBalancerOption {
     public get adminStateUp() {
         return this['admin_state_up'];
     }
-    public withL7FlavorId(l7FlavorId: string): CreateLoadBalancerOption {
-        this['l7_flavor_id'] = l7FlavorId;
-        return this;
-    }
-    public set l7FlavorId(l7FlavorId: string | undefined) {
-        this['l7_flavor_id'] = l7FlavorId;
-    }
-    public get l7FlavorId() {
-        return this['l7_flavor_id'];
-    }
     public withBillingInfo(billingInfo: string): CreateLoadBalancerOption {
         this['billing_info'] = billingInfo;
         return this;
@@ -172,6 +178,16 @@ export class CreateLoadBalancerOption {
     }
     public get ipv6Bandwidth() {
         return this['ipv6_bandwidth'];
+    }
+    public withGlobalEipIds(globalEipIds: Array<string>): CreateLoadBalancerOption {
+        this['global_eip_ids'] = globalEipIds;
+        return this;
+    }
+    public set globalEipIds(globalEipIds: Array<string> | undefined) {
+        this['global_eip_ids'] = globalEipIds;
+    }
+    public get globalEipIds() {
+        return this['global_eip_ids'];
     }
     public withPublicipIds(publicipIds: Array<string>): CreateLoadBalancerOption {
         this['publicip_ids'] = publicipIds;

@@ -1,3 +1,4 @@
+import { MemberStatus } from './MemberStatus';
 
 
 export class BatchMember {
@@ -10,6 +11,7 @@ export class BatchMember {
     public weight: number;
     public address: string;
     private 'operating_status': string | undefined;
+    public status?: Array<MemberStatus>;
     private 'member_type'?: string | undefined;
     private 'instance_id'?: string | undefined;
     private 'port_id': string | undefined;
@@ -91,6 +93,10 @@ export class BatchMember {
     }
     public get operatingStatus() {
         return this['operating_status'];
+    }
+    public withStatus(status: Array<MemberStatus>): BatchMember {
+        this['status'] = status;
+        return this;
     }
     public withMemberType(memberType: string): BatchMember {
         this['member_type'] = memberType;

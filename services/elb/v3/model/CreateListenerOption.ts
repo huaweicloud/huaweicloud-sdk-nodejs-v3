@@ -1,4 +1,5 @@
 import { CreateListenerIpGroupOption } from './CreateListenerIpGroupOption';
+import { CreateListenerQuicConfigOption } from './CreateListenerQuicConfigOption';
 import { ListenerInsertHeaders } from './ListenerInsertHeaders';
 import { Tag } from './Tag';
 
@@ -27,6 +28,7 @@ export class CreateListenerOption {
     public ipgroup?: CreateListenerIpGroupOption;
     private 'transparent_client_ip_enable'?: boolean | undefined;
     private 'enhance_l7policy_enable'?: boolean | undefined;
+    private 'quic_config'?: CreateListenerQuicConfigOption | undefined;
     public constructor(loadbalancerId?: any, protocol?: any, protocolPort?: any) { 
         this['loadbalancer_id'] = loadbalancerId;
         this['protocol'] = protocol;
@@ -231,5 +233,15 @@ export class CreateListenerOption {
     }
     public get enhanceL7policyEnable() {
         return this['enhance_l7policy_enable'];
+    }
+    public withQuicConfig(quicConfig: CreateListenerQuicConfigOption): CreateListenerOption {
+        this['quic_config'] = quicConfig;
+        return this;
+    }
+    public set quicConfig(quicConfig: CreateListenerQuicConfigOption | undefined) {
+        this['quic_config'] = quicConfig;
+    }
+    public get quicConfig() {
+        return this['quic_config'];
     }
 }

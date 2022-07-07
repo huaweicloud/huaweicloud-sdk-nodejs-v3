@@ -1,5 +1,6 @@
 import { CreateFixtedResponseConfig } from './CreateFixtedResponseConfig';
 import { CreateL7PolicyRuleOption } from './CreateL7PolicyRuleOption';
+import { CreateRedirectPoolsConfig } from './CreateRedirectPoolsConfig';
 import { CreateRedirectUrlConfig } from './CreateRedirectUrlConfig';
 
 
@@ -14,6 +15,7 @@ export class CreateL7PolicyOption {
     private 'project_id'?: string | undefined;
     private 'redirect_listener_id'?: string | undefined;
     private 'redirect_pool_id'?: string | undefined;
+    private 'redirect_pools_config'?: Array<CreateRedirectPoolsConfig> | undefined;
     private 'redirect_url'?: string | undefined;
     private 'redirect_url_config'?: CreateRedirectUrlConfig | undefined;
     private 'fixed_response_config'?: CreateFixtedResponseConfig | undefined;
@@ -91,6 +93,16 @@ export class CreateL7PolicyOption {
     }
     public get redirectPoolId() {
         return this['redirect_pool_id'];
+    }
+    public withRedirectPoolsConfig(redirectPoolsConfig: Array<CreateRedirectPoolsConfig>): CreateL7PolicyOption {
+        this['redirect_pools_config'] = redirectPoolsConfig;
+        return this;
+    }
+    public set redirectPoolsConfig(redirectPoolsConfig: Array<CreateRedirectPoolsConfig> | undefined) {
+        this['redirect_pools_config'] = redirectPoolsConfig;
+    }
+    public get redirectPoolsConfig() {
+        return this['redirect_pools_config'];
     }
     public withRedirectUrl(redirectUrl: string): CreateL7PolicyOption {
         this['redirect_url'] = redirectUrl;

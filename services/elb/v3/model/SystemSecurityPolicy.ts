@@ -2,8 +2,8 @@
 
 export class SystemSecurityPolicy {
     public name: string;
-    public protocols: Array<string>;
-    public ciphers: Array<string>;
+    public protocols: string;
+    public ciphers: string;
     private 'project_id': string | undefined;
     public constructor(name?: any, protocols?: any, ciphers?: any, projectId?: any) { 
         this['name'] = name;
@@ -15,11 +15,11 @@ export class SystemSecurityPolicy {
         this['name'] = name;
         return this;
     }
-    public withProtocols(protocols: Array<string>): SystemSecurityPolicy {
+    public withProtocols(protocols: string): SystemSecurityPolicy {
         this['protocols'] = protocols;
         return this;
     }
-    public withCiphers(ciphers: Array<string>): SystemSecurityPolicy {
+    public withCiphers(ciphers: string): SystemSecurityPolicy {
         this['ciphers'] = ciphers;
         return this;
     }

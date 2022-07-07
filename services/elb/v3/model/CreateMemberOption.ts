@@ -4,7 +4,7 @@ export class CreateMemberOption {
     public address: string;
     private 'admin_state_up'?: boolean | undefined;
     public name?: string;
-    private 'project_id'?: CreateMemberOptionProjectIdEnum | undefined;
+    private 'project_id'?: string | undefined;
     private 'protocol_port': number | undefined;
     private 'subnet_cidr_id'?: string | undefined;
     public weight?: number;
@@ -30,11 +30,11 @@ export class CreateMemberOption {
         this['name'] = name;
         return this;
     }
-    public withProjectId(projectId: CreateMemberOptionProjectIdEnum): CreateMemberOption {
+    public withProjectId(projectId: string): CreateMemberOption {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: CreateMemberOptionProjectIdEnum | undefined) {
+    public set projectId(projectId: string | undefined) {
         this['project_id'] = projectId;
     }
     public get projectId() {
@@ -64,12 +64,4 @@ export class CreateMemberOption {
         this['weight'] = weight;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateMemberOptionProjectIdEnum {
-    E_0_9A_FA_F32 = '[0-9a-fA-F]{32}'
 }

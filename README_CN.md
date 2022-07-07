@@ -8,7 +8,7 @@
 
 欢迎使用华为云 Node.js SDK 。
 
-华为云 Node.js SDK 让您无需关心请求细节即可快速使用弹性云服务器、虚拟私有云等多个华为云服务。
+华为云 Node.js SDK 让您无需关心请求细节即可快速使用弹性云服务器（ECS）、虚拟私有云（VPC）等多个华为云服务。
 
 这里将向您介绍如何获取并使用华为云 Node.js SDK 。
 
@@ -88,7 +88,7 @@ npm run dev
     * [1.1 默认配置](#11-默认配置-top)
     * [1.2 网络代理](#12-网络代理-top)
     * [1.3 SSL 配置](#13-ssl-配置-top)
-* [2. 客户端认证信息](#2-客户端认证信息-top)
+* [2. 认证信息配置](#2-认证信息配置-top)
     * [2.1 使用永久 AK 和 SK](#21-使用永久-ak-和-sk-top)
     * [2.2 使用临时 AK 和 SK](#22-使用临时-ak-和-sk-top)
 * [3. 客户端初始化](#3-客户端初始化-top)
@@ -126,7 +126,9 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
 Global 级服务有 DevStar、IAM 。
 
-Region 级服务需要提供 projectId 。Global 级服务需要提供 domainId 。
+Region 级服务需要提供 projectId 。
+
+Global 级服务需要提供 domainId 。
 
 **认证参数说明**：
 

@@ -16,7 +16,6 @@ export class ListMembersRequest {
     private 'enterprise_project_id'?: Array<string> | undefined;
     private 'ip_version'?: Array<string> | undefined;
     private 'member_type'?: Array<string> | undefined;
-    private 'instance_id'?: Array<string> | undefined;
     public constructor(poolId?: any) { 
         this['pool_id'] = poolId;
     }
@@ -133,15 +132,5 @@ export class ListMembersRequest {
     }
     public get memberType() {
         return this['member_type'];
-    }
-    public withInstanceId(instanceId: Array<string>): ListMembersRequest {
-        this['instance_id'] = instanceId;
-        return this;
-    }
-    public set instanceId(instanceId: Array<string> | undefined) {
-        this['instance_id'] = instanceId;
-    }
-    public get instanceId() {
-        return this['instance_id'];
     }
 }

@@ -2,7 +2,7 @@
 
 export class HealthCodeWordsBlockList {
     public words?: string;
-    public location?: Array<number>;
+    public location?: Array<Array<number>>;
     public confidence?: number;
     public constructor() { 
     }
@@ -10,7 +10,7 @@ export class HealthCodeWordsBlockList {
         this['words'] = words;
         return this;
     }
-    public withLocation(location: Array<number>): HealthCodeWordsBlockList {
+    public withLocation(location: Array<Array<number>>): HealthCodeWordsBlockList {
         this['location'] = location;
         return this;
     }

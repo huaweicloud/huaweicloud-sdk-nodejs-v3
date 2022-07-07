@@ -4,7 +4,7 @@ export class ListListenersRequest {
     public limit?: number;
     public marker?: string;
     private 'page_reverse'?: boolean | undefined;
-    private 'protocol_port'?: Array<number> | undefined;
+    private 'protocol_port'?: Array<string> | undefined;
     public protocol?: Array<string>;
     public description?: Array<string>;
     private 'default_tls_container_ref'?: Array<string> | undefined;
@@ -47,11 +47,11 @@ export class ListListenersRequest {
     public get pageReverse() {
         return this['page_reverse'];
     }
-    public withProtocolPort(protocolPort: Array<number>): ListListenersRequest {
+    public withProtocolPort(protocolPort: Array<string>): ListListenersRequest {
         this['protocol_port'] = protocolPort;
         return this;
     }
-    public set protocolPort(protocolPort: Array<number> | undefined) {
+    public set protocolPort(protocolPort: Array<string> | undefined) {
         this['protocol_port'] = protocolPort;
     }
     public get protocolPort() {

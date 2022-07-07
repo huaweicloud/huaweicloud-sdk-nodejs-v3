@@ -2,6 +2,7 @@ import { ItemList } from './ItemList';
 
 
 export class VatInvoiceResult {
+    public title?: string;
     public type?: string;
     private 'serial_number'?: string | undefined;
     public attribution?: string;
@@ -35,6 +36,10 @@ export class VatInvoiceResult {
     public confidence?: object;
     private 'text_location'?: object | undefined;
     public constructor() { 
+    }
+    public withTitle(title: string): VatInvoiceResult {
+        this['title'] = title;
+        return this;
     }
     public withType(type: string): VatInvoiceResult {
         this['type'] = type;

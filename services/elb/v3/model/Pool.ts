@@ -21,7 +21,11 @@ export class Pool {
     private 'ip_version': string | undefined;
     private 'slow_start': SlowStart | undefined;
     private 'member_deletion_protection_enable': boolean | undefined;
-    public constructor(adminStateUp?: any, description?: any, healthmonitorId?: any, id?: any, lbAlgorithm?: any, listeners?: any, loadbalancers?: any, members?: any, name?: any, projectId?: any, protocol?: any, sessionPersistence?: any, ipVersion?: any, slowStart?: any, memberDeletionProtectionEnable?: any) { 
+    private 'created_at'?: string | undefined;
+    private 'updated_at'?: string | undefined;
+    private 'vpc_id': string | undefined;
+    public type: string;
+    public constructor(adminStateUp?: any, description?: any, healthmonitorId?: any, id?: any, lbAlgorithm?: any, listeners?: any, loadbalancers?: any, members?: any, name?: any, projectId?: any, protocol?: any, sessionPersistence?: any, ipVersion?: any, slowStart?: any, memberDeletionProtectionEnable?: any, vpcId?: any, type?: any) { 
         this['admin_state_up'] = adminStateUp;
         this['description'] = description;
         this['healthmonitor_id'] = healthmonitorId;
@@ -37,6 +41,8 @@ export class Pool {
         this['ip_version'] = ipVersion;
         this['slow_start'] = slowStart;
         this['member_deletion_protection_enable'] = memberDeletionProtectionEnable;
+        this['vpc_id'] = vpcId;
+        this['type'] = type;
     }
     public withAdminStateUp(adminStateUp: boolean): Pool {
         this['admin_state_up'] = adminStateUp;
@@ -145,5 +151,39 @@ export class Pool {
     }
     public get memberDeletionProtectionEnable() {
         return this['member_deletion_protection_enable'];
+    }
+    public withCreatedAt(createdAt: string): Pool {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: string | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt() {
+        return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: string): Pool {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: string | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt() {
+        return this['updated_at'];
+    }
+    public withVpcId(vpcId: string): Pool {
+        this['vpc_id'] = vpcId;
+        return this;
+    }
+    public set vpcId(vpcId: string | undefined) {
+        this['vpc_id'] = vpcId;
+    }
+    public get vpcId() {
+        return this['vpc_id'];
+    }
+    public withType(type: string): Pool {
+        this['type'] = type;
+        return this;
     }
 }

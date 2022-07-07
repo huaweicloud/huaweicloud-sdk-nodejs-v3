@@ -19,6 +19,8 @@ export class ListPoolsRequest {
     private 'member_deletion_protection_enable'?: boolean | undefined;
     private 'listener_id'?: Array<string> | undefined;
     private 'member_instance_id'?: Array<string> | undefined;
+    private 'vpc_id'?: Array<string> | undefined;
+    public type?: Array<string>;
     public constructor() { 
     }
     public withMarker(marker: string): ListPoolsRequest {
@@ -164,5 +166,19 @@ export class ListPoolsRequest {
     }
     public get memberInstanceId() {
         return this['member_instance_id'];
+    }
+    public withVpcId(vpcId: Array<string>): ListPoolsRequest {
+        this['vpc_id'] = vpcId;
+        return this;
+    }
+    public set vpcId(vpcId: Array<string> | undefined) {
+        this['vpc_id'] = vpcId;
+    }
+    public get vpcId() {
+        return this['vpc_id'];
+    }
+    public withType(type: Array<string>): ListPoolsRequest {
+        this['type'] = type;
+        return this;
     }
 }

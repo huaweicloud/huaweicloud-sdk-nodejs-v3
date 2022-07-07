@@ -2,6 +2,8 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { APIVersionDetail } from './model/APIVersionDetail';
+import { APIVersionLink } from './model/APIVersionLink';
 import { AddNode } from './model/AddNode';
 import { AddNodeList } from './model/AddNodeList';
 import { AddNodeRequest } from './model/AddNodeRequest';
@@ -54,6 +56,8 @@ import { DeleteNodePoolResponse } from './model/DeleteNodePoolResponse';
 import { DeleteNodeRequest } from './model/DeleteNodeRequest';
 import { DeleteNodeResponse } from './model/DeleteNodeResponse';
 import { DeleteStatus } from './model/DeleteStatus';
+import { EipSpec } from './model/EipSpec';
+import { EipSpecBandwidth } from './model/EipSpecBandwidth';
 import { EniNetwork } from './model/EniNetwork';
 import { HibernateClusterRequest } from './model/HibernateClusterRequest';
 import { HibernateClusterResponse } from './model/HibernateClusterResponse';
@@ -77,6 +81,12 @@ import { ListNodePoolsResponse } from './model/ListNodePoolsResponse';
 import { ListNodesRequest } from './model/ListNodesRequest';
 import { ListNodesResponse } from './model/ListNodesResponse';
 import { Login } from './model/Login';
+import { MasterEIPRequest } from './model/MasterEIPRequest';
+import { MasterEIPRequestSpec } from './model/MasterEIPRequestSpec';
+import { MasterEIPRequestSpecSpec } from './model/MasterEIPRequestSpecSpec';
+import { MasterEIPResponseSpec } from './model/MasterEIPResponseSpec';
+import { MasterEIPResponseSpecSpec } from './model/MasterEIPResponseSpecSpec';
+import { MasterEIPResponseStatus } from './model/MasterEIPResponseStatus';
 import { MasterSpec } from './model/MasterSpec';
 import { Metadata } from './model/Metadata';
 import { MigrateNodeExtendParam } from './model/MigrateNodeExtendParam';
@@ -109,6 +119,8 @@ import { NodePublicIP } from './model/NodePublicIP';
 import { NodeSpec } from './model/NodeSpec';
 import { NodeSpecUpdate } from './model/NodeSpecUpdate';
 import { NodeStatus } from './model/NodeStatus';
+import { OpenAPIResponseSpec } from './model/OpenAPIResponseSpec';
+import { OpenAPIResponseSpecSpec } from './model/OpenAPIResponseSpecSpec';
 import { PersistentVolumeClaim } from './model/PersistentVolumeClaim';
 import { PersistentVolumeClaimMetadata } from './model/PersistentVolumeClaimMetadata';
 import { PersistentVolumeClaimSpec } from './model/PersistentVolumeClaimSpec';
@@ -136,6 +148,8 @@ import { RuntimeConfig } from './model/RuntimeConfig';
 import { SecurityID } from './model/SecurityID';
 import { ShowAddonInstanceRequest } from './model/ShowAddonInstanceRequest';
 import { ShowAddonInstanceResponse } from './model/ShowAddonInstanceResponse';
+import { ShowClusterEndpointsRequest } from './model/ShowClusterEndpointsRequest';
+import { ShowClusterEndpointsResponse } from './model/ShowClusterEndpointsResponse';
 import { ShowClusterRequest } from './model/ShowClusterRequest';
 import { ShowClusterResponse } from './model/ShowClusterResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
@@ -146,6 +160,8 @@ import { ShowNodeRequest } from './model/ShowNodeRequest';
 import { ShowNodeResponse } from './model/ShowNodeResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
+import { ShowVersionRequest } from './model/ShowVersionRequest';
+import { ShowVersionResponse } from './model/ShowVersionResponse';
 import { Storage } from './model/Storage';
 import { StorageGroups } from './model/StorageGroups';
 import { StorageSelectors } from './model/StorageSelectors';
@@ -156,6 +172,8 @@ import { TaskStatus } from './model/TaskStatus';
 import { Templatespec } from './model/Templatespec';
 import { UpdateAddonInstanceRequest } from './model/UpdateAddonInstanceRequest';
 import { UpdateAddonInstanceResponse } from './model/UpdateAddonInstanceResponse';
+import { UpdateClusterEipRequest } from './model/UpdateClusterEipRequest';
+import { UpdateClusterEipResponse } from './model/UpdateClusterEipResponse';
 import { UpdateClusterRequest } from './model/UpdateClusterRequest';
 import { UpdateClusterResponse } from './model/UpdateClusterResponse';
 import { UpdateNodePoolRequest } from './model/UpdateNodePoolRequest';
@@ -337,15 +355,14 @@ export class CceClient {
      * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。1.21版本的集群创建节点池时支持绑定安全组，每个节点池最多绑定五个安全组。更新节点池的安全组后，只针对新创的pod生效，建议驱逐节点上原有的pod。
      * 
      * &gt; 若无集群，请先[创建集群](cce_02_0236.xml)。
-     * 
      * &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 创建节点池
-     * @param {string} contentType 消息体的类型（格式）
      * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
      * @param {NodePool} createNodePoolRequestBody 创建节点池的请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -699,6 +716,26 @@ export class CceClient {
     }
 
     /**
+     * 该API用于通过集群ID获取集群访问的地址，包括PrivateIP(HA集群返回VIP)与PublicIP
+     * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取集群访问的地址
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showClusterEndpoints(showClusterEndpointsRequest?: ShowClusterEndpointsRequest): Promise<ShowClusterEndpointsResponse> {
+        const options = ParamCreater().showClusterEndpoints(showClusterEndpointsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于获取任务信息。通过某一任务请求下发后返回的jobID来查询指定任务的进度。
      * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
      * &gt; - 该接口通常使用场景为：
@@ -769,7 +806,7 @@ export class CceClient {
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 查询CCE服务下的资源配额。
+     * @summary 查询CCE服务下的资源配额
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -823,6 +860,27 @@ export class CceClient {
     }
 
     /**
+     * 该API用于通过集群ID绑定、解绑集群公网apiserver地址
+     * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 绑定、解绑集群公网apiserver地址
+     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} contentType 消息体的类型（格式）
+     * @param {MasterEIPRequest} masterEIPBody 绑定或解绑集群公网apiserver地址的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateClusterEip(updateClusterEipRequest?: UpdateClusterEipRequest): Promise<UpdateClusterEipResponse> {
+        const options = ParamCreater().updateClusterEip(updateClusterEipRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于更新指定的节点。
      * &gt; - 当前仅支持更新metadata下的name字段，即节点的名字。
      * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -849,9 +907,7 @@ export class CceClient {
      * 该API用于更新指定的节点池。仅支持集群在处于可用、扩容、缩容状态时调用。
      * 
      * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
-     * 
-     * &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags，
-     * taints，login，userTags与节点池的扩缩容配置相关字段。若此次更新未设置相关值，默认更新为初始值。
+     * &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags，taints，login，userTags与节点池的扩缩容配置相关字段。若此次更新未设置相关值，默认更新为初始值。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -866,6 +922,23 @@ export class CceClient {
      */
     public updateNodePool(updateNodePoolRequest?: UpdateNodePoolRequest): Promise<UpdateNodePoolResponse> {
         const options = ParamCreater().updateNodePool(updateNodePoolRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该API用于查询CCE服务当前支持的API版本信息列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询API版本信息列表。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVersion(): Promise<ShowVersionResponse> {
+        const options = ParamCreater().showVersion();
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1242,7 +1315,6 @@ export const ParamCreater = function () {
          * 该API用于在指定集群下创建节点池。仅支持集群在处于可用、扩容、缩容状态时调用。1.21版本的集群创建节点池时支持绑定安全组，每个节点池最多绑定五个安全组。更新节点池的安全组后，只针对新创的pod生效，建议驱逐节点上原有的pod。
          * 
          * &gt; 若无集群，请先[创建集群](cce_02_0236.xml)。
-         * 
          * &gt; 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
          * 
          * 详细说明请参考华为云API Explorer。
@@ -1261,17 +1333,17 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
-            let contentType;
             let clusterId;
+            let contentType;
 
             if (createNodePoolRequest !== null && createNodePoolRequest !== undefined) {
                 if (createNodePoolRequest instanceof CreateNodePoolRequest) {
-                    contentType = createNodePoolRequest.contentType;
                     clusterId = createNodePoolRequest.clusterId;
+                    contentType = createNodePoolRequest.contentType;
                     body = createNodePoolRequest.body
                 } else {
-                    contentType = createNodePoolRequest['Content-Type'];
                     clusterId = createNodePoolRequest['cluster_id'];
+                    contentType = createNodePoolRequest['Content-Type'];
                     body = createNodePoolRequest['body'];
                 }
             }
@@ -2177,6 +2249,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于通过集群ID获取集群访问的地址，包括PrivateIP(HA集群返回VIP)与PublicIP
+         * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showClusterEndpoints(showClusterEndpointsRequest?: ShowClusterEndpointsRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/openapi",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let clusterId;
+            let contentType;
+
+            if (showClusterEndpointsRequest !== null && showClusterEndpointsRequest !== undefined) {
+                if (showClusterEndpointsRequest instanceof ShowClusterEndpointsRequest) {
+                    clusterId = showClusterEndpointsRequest.clusterId;
+                    contentType = showClusterEndpointsRequest.contentType;
+                } else {
+                    clusterId = showClusterEndpointsRequest['cluster_id'];
+                    contentType = showClusterEndpointsRequest['Content-Type'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterEndpoints.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于获取任务信息。通过某一任务请求下发后返回的jobID来查询指定任务的进度。
          * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
          * &gt; - 该接口通常使用场景为：
@@ -2469,6 +2586,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该API用于通过集群ID绑定、解绑集群公网apiserver地址
+         * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        updateClusterEip(updateClusterEipRequest?: UpdateClusterEipRequest) {
+            const options = {
+                method: "PUT",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/mastereip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let clusterId;
+            let contentType;
+
+            if (updateClusterEipRequest !== null && updateClusterEipRequest !== undefined) {
+                if (updateClusterEipRequest instanceof UpdateClusterEipRequest) {
+                    clusterId = updateClusterEipRequest.clusterId;
+                    contentType = updateClusterEipRequest.contentType;
+                    body = updateClusterEipRequest.body
+                } else {
+                    clusterId = updateClusterEipRequest['cluster_id'];
+                    contentType = updateClusterEipRequest['Content-Type'];
+                    body = updateClusterEipRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateClusterEip.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于更新指定的节点。
          * &gt; - 当前仅支持更新metadata下的name字段，即节点的名字。
          * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
@@ -2532,9 +2702,7 @@ export const ParamCreater = function () {
          * 该API用于更新指定的节点池。仅支持集群在处于可用、扩容、缩容状态时调用。
          * 
          * &gt; - 集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径
-         * 
-         * &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags，
-         * taints，login，userTags与节点池的扩缩容配置相关字段。若此次更新未设置相关值，默认更新为初始值。
+         * &gt; - 当前仅支持更新节点池名称，spec下的initialNodeCount，k8sTags，taints，login，userTags与节点池的扩缩容配置相关字段。若此次更新未设置相关值，默认更新为初始值。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2587,6 +2755,29 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId,'nodepool_id': nodepoolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该API用于查询CCE服务当前支持的API版本信息列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showVersion() {
+            const options = {
+                method: "GET",
+                url: "/",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

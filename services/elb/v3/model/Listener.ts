@@ -1,5 +1,6 @@
 import { ListenerInsertHeaders } from './ListenerInsertHeaders';
 import { ListenerIpGroup } from './ListenerIpGroup';
+import { ListenerQuicConfig } from './ListenerQuicConfig';
 import { LoadBalancerRef } from './LoadBalancerRef';
 import { Tag } from './Tag';
 
@@ -32,6 +33,7 @@ export class Listener {
     public ipgroup: ListenerIpGroup;
     private 'transparent_client_ip_enable': boolean | undefined;
     private 'enhance_l7policy_enable': boolean | undefined;
+    private 'quic_config'?: ListenerQuicConfig | undefined;
     public constructor(adminStateUp?: any, clientCaTlsContainerRef?: any, connectionLimit?: any, createdAt?: any, defaultPoolId?: any, defaultTlsContainerRef?: any, description?: any, http2Enable?: any, id?: any, insertHeaders?: any, loadbalancers?: any, name?: any, projectId?: any, protocol?: any, protocolPort?: any, sniContainerRefs?: any, tags?: any, updatedAt?: any, tlsCiphersPolicy?: any, securityPolicyId?: any, enableMemberRetry?: any, keepaliveTimeout?: any, clientTimeout?: any, memberTimeout?: any, ipgroup?: any, transparentClientIpEnable?: any, enhanceL7policyEnable?: any) { 
         this['admin_state_up'] = adminStateUp;
         this['client_ca_tls_container_ref'] = clientCaTlsContainerRef;
@@ -288,5 +290,15 @@ export class Listener {
     }
     public get enhanceL7policyEnable() {
         return this['enhance_l7policy_enable'];
+    }
+    public withQuicConfig(quicConfig: ListenerQuicConfig): Listener {
+        this['quic_config'] = quicConfig;
+        return this;
+    }
+    public set quicConfig(quicConfig: ListenerQuicConfig | undefined) {
+        this['quic_config'] = quicConfig;
+    }
+    public get quicConfig() {
+        return this['quic_config'];
     }
 }

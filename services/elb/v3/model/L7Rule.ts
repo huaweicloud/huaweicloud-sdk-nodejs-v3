@@ -12,6 +12,8 @@ export class L7Rule {
     public invert: boolean;
     public id: string;
     public conditions: Array<RuleCondition>;
+    private 'created_at'?: string | undefined;
+    private 'updated_at'?: string | undefined;
     public constructor(adminStateUp?: any, compareType?: any, key?: any, projectId?: any, type?: any, value?: any, provisioningStatus?: any, invert?: any, id?: any, conditions?: any) { 
         this['admin_state_up'] = adminStateUp;
         this['compare_type'] = compareType;
@@ -87,6 +89,26 @@ export class L7Rule {
     public withConditions(conditions: Array<RuleCondition>): L7Rule {
         this['conditions'] = conditions;
         return this;
+    }
+    public withCreatedAt(createdAt: string): L7Rule {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: string | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt() {
+        return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: string): L7Rule {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: string | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt() {
+        return this['updated_at'];
     }
 }
 

@@ -1,11 +1,11 @@
 import { BatchDeleteIpListOption } from './BatchDeleteIpListOption';
 
 
-export class BatchDeleteIpListRequestBody {
+export class BatchDeleteIpGroupIpListRequestBody {
     public ipgroup?: BatchDeleteIpListOption;
     public constructor() { 
     }
-    public withIpgroup(ipgroup: BatchDeleteIpListOption): BatchDeleteIpListRequestBody {
+    public withIpgroup(ipgroup: BatchDeleteIpListOption): BatchDeleteIpGroupIpListRequestBody {
         this['ipgroup'] = ipgroup;
         return this;
     }

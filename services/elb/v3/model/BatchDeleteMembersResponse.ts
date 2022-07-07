@@ -1,10 +1,10 @@
-import { BatchDeleteMemberState } from './BatchDeleteMemberState';
+import { BatchDeleteMembersState } from './BatchDeleteMembersState';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class BatchDeleteMembersResponse extends SdkResponse {
     private 'request_id'?: string | undefined;
-    public members?: Array<BatchDeleteMemberState>;
+    public members?: Array<BatchDeleteMembersState>;
     public constructor() { 
         super();
     }
@@ -18,7 +18,7 @@ export class BatchDeleteMembersResponse extends SdkResponse {
     public get requestId() {
         return this['request_id'];
     }
-    public withMembers(members: Array<BatchDeleteMemberState>): BatchDeleteMembersResponse {
+    public withMembers(members: Array<BatchDeleteMembersState>): BatchDeleteMembersResponse {
         this['members'] = members;
         return this;
     }

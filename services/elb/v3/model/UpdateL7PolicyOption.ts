@@ -1,3 +1,4 @@
+import { CreateRedirectPoolsConfig } from './CreateRedirectPoolsConfig';
 import { CreateRuleOption } from './CreateRuleOption';
 import { UpdateFixtedResponseConfig } from './UpdateFixtedResponseConfig';
 import { UpdateRedirectUrlConfig } from './UpdateRedirectUrlConfig';
@@ -13,6 +14,7 @@ export class UpdateL7PolicyOption {
     private 'fixed_response_config'?: UpdateFixtedResponseConfig | undefined;
     public rules?: Array<CreateRuleOption>;
     public priority?: number;
+    private 'redirect_pools_config'?: Array<CreateRedirectPoolsConfig> | undefined;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdateL7PolicyOption {
@@ -80,5 +82,15 @@ export class UpdateL7PolicyOption {
     public withPriority(priority: number): UpdateL7PolicyOption {
         this['priority'] = priority;
         return this;
+    }
+    public withRedirectPoolsConfig(redirectPoolsConfig: Array<CreateRedirectPoolsConfig>): UpdateL7PolicyOption {
+        this['redirect_pools_config'] = redirectPoolsConfig;
+        return this;
+    }
+    public set redirectPoolsConfig(redirectPoolsConfig: Array<CreateRedirectPoolsConfig> | undefined) {
+        this['redirect_pools_config'] = redirectPoolsConfig;
+    }
+    public get redirectPoolsConfig() {
+        return this['redirect_pools_config'];
     }
 }
