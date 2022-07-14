@@ -3,7 +3,6 @@ import { AsyncDeviceCommandRequest } from './AsyncDeviceCommandRequest';
 
 export class CreateAsyncCommandRequest {
     private 'device_id': string | undefined;
-    private 'Sp-Auth-Token'?: string | undefined;
     private 'Instance-Id'?: string | undefined;
     public body?: AsyncDeviceCommandRequest;
     public constructor(deviceId?: any) { 
@@ -18,16 +17,6 @@ export class CreateAsyncCommandRequest {
     }
     public get deviceId() {
         return this['device_id'];
-    }
-    public withSpAuthToken(spAuthToken: string): CreateAsyncCommandRequest {
-        this['Sp-Auth-Token'] = spAuthToken;
-        return this;
-    }
-    public set spAuthToken(spAuthToken: string | undefined) {
-        this['Sp-Auth-Token'] = spAuthToken;
-    }
-    public get spAuthToken() {
-        return this['Sp-Auth-Token'];
     }
     public withInstanceId(instanceId: string): CreateAsyncCommandRequest {
         this['Instance-Id'] = instanceId;

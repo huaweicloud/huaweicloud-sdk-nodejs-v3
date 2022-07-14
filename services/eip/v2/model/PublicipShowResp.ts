@@ -6,7 +6,7 @@ export class PublicipShowResp {
     private 'bandwidth_name'?: string | undefined;
     private 'bandwidth_share_type'?: PublicipShowRespBandwidthShareTypeEnum | undefined;
     private 'bandwidth_size'?: number | undefined;
-    private 'create_time'?: Date | undefined;
+    private 'create_time'?: string | undefined;
     private 'enterprise_project_id'?: string | undefined;
     public id?: string;
     private 'port_id'?: string | undefined;
@@ -63,11 +63,11 @@ export class PublicipShowResp {
     public get bandwidthSize() {
         return this['bandwidth_size'];
     }
-    public withCreateTime(createTime: Date): PublicipShowResp {
+    public withCreateTime(createTime: string): PublicipShowResp {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: Date | undefined) {
+    public set createTime(createTime: string | undefined) {
         this['create_time'] = createTime;
     }
     public get createTime() {

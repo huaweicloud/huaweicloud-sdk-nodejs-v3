@@ -10,6 +10,7 @@ export class NeutronSecurityGroupRule {
     public protocol: string;
     private 'remote_group_id': string | undefined;
     private 'remote_ip_prefix': string | undefined;
+    private 'remote_address_group_id'?: string | undefined;
     private 'security_group_id': string | undefined;
     private 'tenant_id': string | undefined;
     private 'project_id': string | undefined;
@@ -90,6 +91,16 @@ export class NeutronSecurityGroupRule {
     }
     public get remoteIpPrefix() {
         return this['remote_ip_prefix'];
+    }
+    public withRemoteAddressGroupId(remoteAddressGroupId: string): NeutronSecurityGroupRule {
+        this['remote_address_group_id'] = remoteAddressGroupId;
+        return this;
+    }
+    public set remoteAddressGroupId(remoteAddressGroupId: string | undefined) {
+        this['remote_address_group_id'] = remoteAddressGroupId;
+    }
+    public get remoteAddressGroupId() {
+        return this['remote_address_group_id'];
     }
     public withSecurityGroupId(securityGroupId: string): NeutronSecurityGroupRule {
         this['security_group_id'] = securityGroupId;

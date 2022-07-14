@@ -61,7 +61,6 @@ import { CreateRuleActionRequest } from './model/CreateRuleActionRequest';
 import { CreateRuleActionResponse } from './model/CreateRuleActionResponse';
 import { CreateRuleRequest } from './model/CreateRuleRequest';
 import { CreateRuleResponse } from './model/CreateRuleResponse';
-import { CsvMappings } from './model/CsvMappings';
 import { DailyTimerType } from './model/DailyTimerType';
 import { DeleteApplicationRequest } from './model/DeleteApplicationRequest';
 import { DeleteApplicationResponse } from './model/DeleteApplicationResponse';
@@ -94,7 +93,6 @@ import { DeviceShadowProperties } from './model/DeviceShadowProperties';
 import { DisForwarding } from './model/DisForwarding';
 import { DmsKafkaForwarding } from './model/DmsKafkaForwarding';
 import { ErrorInfo } from './model/ErrorInfo';
-import { FileMapping } from './model/FileMapping';
 import { FreezeDeviceRequest } from './model/FreezeDeviceRequest';
 import { FreezeDeviceResponse } from './model/FreezeDeviceResponse';
 import { HttpForwarding } from './model/HttpForwarding';
@@ -424,7 +422,6 @@ export class IoTDAClient {
      * @summary 下发异步设备命令
      * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {AsyncDeviceCommandRequest} createAsyncCommandRequestBody 请求结构体，见请求结构体说明
-     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -445,7 +442,6 @@ export class IoTDAClient {
      * @summary 查询指定id的命令
      * @param {string} deviceId **参数说明**：下发命令的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} commandId **参数说明**：下发命令的命令id，用于唯一标识一个消息，在下发命令时由物联网平台分配获得。 **取值范围**：长度不超过100，只允许字母、数字、下划线（_）、连接符（-）的组合。
-     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -678,7 +674,6 @@ export class IoTDAClient {
      * @summary 下发设备命令
      * @param {string} deviceId **参数说明**：下发消息的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {DeviceCommandRequest} createCommandRequestBody 请求结构体，见请求结构体说明
-     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1250,7 +1245,6 @@ export class IoTDAClient {
      * @summary 查询设备属性
      * @param {string} deviceId **参数说明**：下发属性的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} serviceId **参数说明**：设备的服务ID，在设备关联的产品模型中定义。
-     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1263,7 +1257,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向指定设备下属性。平台负责将属性以同步方式发送给设备，并将设备执行属性结果同步返回。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。
+     * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向指定设备下发属性。平台负责将属性以同步方式发送给设备，并将设备执行属性结果同步返回。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -1271,7 +1265,6 @@ export class IoTDAClient {
      * @summary 修改设备属性
      * @param {string} deviceId **参数说明**：下发属性的设备ID，用于唯一标识一个设备，在注册设备时由物联网平台分配获得。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {DevicePropertiesRequest} updatePropertiesRequestBody 请求结构体，见请求结构体说明
-     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2109,19 +2102,16 @@ export const ParamCreater = function () {
 
             var body: any;
             let deviceId;
-            let spAuthToken;
             let instanceId;
 
             if (createAsyncCommandRequest !== null && createAsyncCommandRequest !== undefined) {
                 if (createAsyncCommandRequest instanceof CreateAsyncCommandRequest) {
                     deviceId = createAsyncCommandRequest.deviceId;
                     body = createAsyncCommandRequest.body
-                    spAuthToken = createAsyncCommandRequest.spAuthToken;
                     instanceId = createAsyncCommandRequest.instanceId;
                 } else {
                     deviceId = createAsyncCommandRequest['device_id'];
                     body = createAsyncCommandRequest['body'];
-                    spAuthToken = createAsyncCommandRequest['Sp-Auth-Token'];
                     instanceId = createAsyncCommandRequest['Instance-Id'];
                 }
             }
@@ -2132,9 +2122,6 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (spAuthToken !== undefined && spAuthToken !== null) {
-                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2167,19 +2154,16 @@ export const ParamCreater = function () {
 
             let deviceId;
             let commandId;
-            let spAuthToken;
             let instanceId;
 
             if (showAsyncDeviceCommandRequest !== null && showAsyncDeviceCommandRequest !== undefined) {
                 if (showAsyncDeviceCommandRequest instanceof ShowAsyncDeviceCommandRequest) {
                     deviceId = showAsyncDeviceCommandRequest.deviceId;
                     commandId = showAsyncDeviceCommandRequest.commandId;
-                    spAuthToken = showAsyncDeviceCommandRequest.spAuthToken;
                     instanceId = showAsyncDeviceCommandRequest.instanceId;
                 } else {
                     deviceId = showAsyncDeviceCommandRequest['device_id'];
                     commandId = showAsyncDeviceCommandRequest['command_id'];
-                    spAuthToken = showAsyncDeviceCommandRequest['Sp-Auth-Token'];
                     instanceId = showAsyncDeviceCommandRequest['Instance-Id'];
                 }
             }
@@ -2190,9 +2174,6 @@ export const ParamCreater = function () {
             }
             if (commandId === null || commandId === undefined) {
             throw new RequiredError('commandId','Required parameter commandId was null or undefined when calling showAsyncDeviceCommand.');
-            }
-            if (spAuthToken !== undefined && spAuthToken !== null) {
-                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2759,19 +2740,16 @@ export const ParamCreater = function () {
 
             var body: any;
             let deviceId;
-            let spAuthToken;
             let instanceId;
 
             if (createCommandRequest !== null && createCommandRequest !== undefined) {
                 if (createCommandRequest instanceof CreateCommandRequest) {
                     deviceId = createCommandRequest.deviceId;
                     body = createCommandRequest.body
-                    spAuthToken = createCommandRequest.spAuthToken;
                     instanceId = createCommandRequest.instanceId;
                 } else {
                     deviceId = createCommandRequest['device_id'];
                     body = createCommandRequest['body'];
-                    spAuthToken = createCommandRequest['Sp-Auth-Token'];
                     instanceId = createCommandRequest['Instance-Id'];
                 }
             }
@@ -2782,9 +2760,6 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (spAuthToken !== undefined && spAuthToken !== null) {
-                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4208,19 +4183,16 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let deviceId;
             let serviceId;
-            let spAuthToken;
             let instanceId;
 
             if (listPropertiesRequest !== null && listPropertiesRequest !== undefined) {
                 if (listPropertiesRequest instanceof ListPropertiesRequest) {
                     deviceId = listPropertiesRequest.deviceId;
                     serviceId = listPropertiesRequest.serviceId;
-                    spAuthToken = listPropertiesRequest.spAuthToken;
                     instanceId = listPropertiesRequest.instanceId;
                 } else {
                     deviceId = listPropertiesRequest['device_id'];
                     serviceId = listPropertiesRequest['service_id'];
-                    spAuthToken = listPropertiesRequest['Sp-Auth-Token'];
                     instanceId = listPropertiesRequest['Instance-Id'];
                 }
             }
@@ -4235,9 +4207,6 @@ export const ParamCreater = function () {
             if (serviceId !== null && serviceId !== undefined) {
                 localVarQueryParameter['service_id'] = serviceId;
             }
-            if (spAuthToken !== undefined && spAuthToken !== null) {
-                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
-            }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
             }
@@ -4249,7 +4218,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向指定设备下属性。平台负责将属性以同步方式发送给设备，并将设备执行属性结果同步返回。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。
+         * 设备的产品模型中定义了物联网平台可向设备下发的属性，应用服务器可调用此接口向指定设备下发属性。平台负责将属性以同步方式发送给设备，并将设备执行属性结果同步返回。注意：此接口适用于MQTT设备，暂不支持NB-IoT设备。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -4268,19 +4237,16 @@ export const ParamCreater = function () {
 
             var body: any;
             let deviceId;
-            let spAuthToken;
             let instanceId;
 
             if (updatePropertiesRequest !== null && updatePropertiesRequest !== undefined) {
                 if (updatePropertiesRequest instanceof UpdatePropertiesRequest) {
                     deviceId = updatePropertiesRequest.deviceId;
                     body = updatePropertiesRequest.body
-                    spAuthToken = updatePropertiesRequest.spAuthToken;
                     instanceId = updatePropertiesRequest.instanceId;
                 } else {
                     deviceId = updatePropertiesRequest['device_id'];
                     body = updatePropertiesRequest['body'];
-                    spAuthToken = updatePropertiesRequest['Sp-Auth-Token'];
                     instanceId = updatePropertiesRequest['Instance-Id'];
                 }
             }
@@ -4291,9 +4257,6 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (spAuthToken !== undefined && spAuthToken !== null) {
-                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);

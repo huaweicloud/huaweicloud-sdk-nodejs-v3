@@ -11,6 +11,7 @@ export class SecurityGroupRule {
     private 'port_range_max': number | undefined;
     private 'remote_ip_prefix': string | undefined;
     private 'remote_group_id': string | undefined;
+    private 'remote_address_group_id'?: string | undefined;
     private 'tenant_id': string | undefined;
     public constructor(id?: any, description?: any, securityGroupId?: any, direction?: any, ethertype?: any, protocol?: any, portRangeMin?: any, portRangeMax?: any, remoteIpPrefix?: any, remoteGroupId?: any, tenantId?: any) { 
         this['id'] = id;
@@ -94,6 +95,16 @@ export class SecurityGroupRule {
     }
     public get remoteGroupId() {
         return this['remote_group_id'];
+    }
+    public withRemoteAddressGroupId(remoteAddressGroupId: string): SecurityGroupRule {
+        this['remote_address_group_id'] = remoteAddressGroupId;
+        return this;
+    }
+    public set remoteAddressGroupId(remoteAddressGroupId: string | undefined) {
+        this['remote_address_group_id'] = remoteAddressGroupId;
+    }
+    public get remoteAddressGroupId() {
+        return this['remote_address_group_id'];
     }
     public withTenantId(tenantId: string): SecurityGroupRule {
         this['tenant_id'] = tenantId;

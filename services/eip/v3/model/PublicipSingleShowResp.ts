@@ -1,6 +1,5 @@
 import { ProfileInfo } from './ProfileInfo';
 import { PublicipBandwidthInfo } from './PublicipBandwidthInfo';
-import { TagsInfo } from './TagsInfo';
 import { VnicInfo } from './VnicInfo';
 
 
@@ -29,7 +28,7 @@ export class PublicipSingleShowResp {
     public alias?: string;
     public profile?: ProfileInfo;
     private 'fake_network_type'?: boolean | undefined;
-    public tags?: Array<TagsInfo>;
+    public tags?: Array<string>;
     private 'associate_instance_metadata'?: string | undefined;
     private 'associate_mode'?: string | undefined;
     private 'allow_share_bandwidth_types'?: Array<string> | undefined;
@@ -228,7 +227,7 @@ export class PublicipSingleShowResp {
     public get fakeNetworkType() {
         return this['fake_network_type'];
     }
-    public withTags(tags: Array<TagsInfo>): PublicipSingleShowResp {
+    public withTags(tags: Array<string>): PublicipSingleShowResp {
         this['tags'] = tags;
         return this;
     }

@@ -1,4 +1,3 @@
-import { FileMapping } from './FileMapping';
 
 
 export class ObsForwarding {
@@ -7,7 +6,6 @@ export class ObsForwarding {
     private 'bucket_name': string | undefined;
     public location?: string;
     private 'file_path'?: string | undefined;
-    private 'file_mapping'?: FileMapping | undefined;
     public constructor(regionName?: any, projectId?: any, bucketName?: any) { 
         this['region_name'] = regionName;
         this['project_id'] = projectId;
@@ -56,15 +54,5 @@ export class ObsForwarding {
     }
     public get filePath() {
         return this['file_path'];
-    }
-    public withFileMapping(fileMapping: FileMapping): ObsForwarding {
-        this['file_mapping'] = fileMapping;
-        return this;
-    }
-    public set fileMapping(fileMapping: FileMapping | undefined) {
-        this['file_mapping'] = fileMapping;
-    }
-    public get fileMapping() {
-        return this['file_mapping'];
     }
 }
