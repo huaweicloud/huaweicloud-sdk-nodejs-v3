@@ -1,3 +1,23 @@
+# 3.0.50-rc 2022-07-21
+
+### HuaweiCloud SDK Image
+
+- _Features_
+  - Support the interface `RunImageDescription`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK VPC
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `security_group_rules_links` to the interface `NeutronListSecurityGroupRules`
+
 # 3.0.49-rc 2022-07-14
 
 ### HuaweiCloud SDK Image

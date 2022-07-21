@@ -4,6 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { CelebrityRecognitionReq } from './model/CelebrityRecognitionReq';
 import { CelebrityRecognitionResultBody } from './model/CelebrityRecognitionResultBody';
+import { ImageDescriptionReq } from './model/ImageDescriptionReq';
+import { ImageDescriptionResponseResult } from './model/ImageDescriptionResponseResult';
 import { ImageMainObjectDetectionInstance } from './model/ImageMainObjectDetectionInstance';
 import { ImageMainObjectDetectionReq } from './model/ImageMainObjectDetectionReq';
 import { ImageMediaTaggingItemBody } from './model/ImageMediaTaggingItemBody';
@@ -19,6 +21,8 @@ import { ImageTaggingReq } from './model/ImageTaggingReq';
 import { ImageTaggingResponseResult } from './model/ImageTaggingResponseResult';
 import { RunCelebrityRecognitionRequest } from './model/RunCelebrityRecognitionRequest';
 import { RunCelebrityRecognitionResponse } from './model/RunCelebrityRecognitionResponse';
+import { RunImageDescriptionRequest } from './model/RunImageDescriptionRequest';
+import { RunImageDescriptionResponse } from './model/RunImageDescriptionResponse';
 import { RunImageMainObjectDetectionRequest } from './model/RunImageMainObjectDetectionRequest';
 import { RunImageMainObjectDetectionResponse } from './model/RunImageMainObjectDetectionResponse';
 import { RunImageMediaTaggingRequest } from './model/RunImageMediaTaggingRequest';
@@ -54,6 +58,24 @@ export class ImageClient {
      */
     public runCelebrityRecognition(runCelebrityRecognitionRequest?: RunCelebrityRecognitionRequest): Promise<RunCelebrityRecognitionResponse> {
         const options = ParamCreater().runCelebrityRecognition(runCelebrityRecognitionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 图像描述
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 图像描述
+     * @param {ImageDescriptionReq} runImageDescriptionRequestBody 图像描述接口请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runImageDescription(runImageDescriptionRequest?: RunImageDescriptionRequest): Promise<RunImageDescriptionResponse> {
+        const options = ParamCreater().runImageDescription(runImageDescriptionRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -142,6 +164,45 @@ export const ParamCreater = function () {
                     body = runCelebrityRecognitionRequest.body
                 } else {
                     body = runCelebrityRecognitionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 图像描述
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        runImageDescription(runImageDescriptionRequest?: RunImageDescriptionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/image/description",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (runImageDescriptionRequest !== null && runImageDescriptionRequest !== undefined) {
+                if (runImageDescriptionRequest instanceof RunImageDescriptionRequest) {
+                    body = runImageDescriptionRequest.body
+                } else {
+                    body = runImageDescriptionRequest['body'];
                 }
             }
 

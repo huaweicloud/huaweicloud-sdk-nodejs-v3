@@ -2,6 +2,8 @@ export * from './ImageClient';
 
 export * from './model/CelebrityRecognitionReq';
 export * from './model/CelebrityRecognitionResultBody';
+export * from './model/ImageDescriptionReq';
+export * from './model/ImageDescriptionResponseResult';
 export * from './model/ImageMainObjectDetectionInstance';
 export * from './model/ImageMainObjectDetectionReq';
 export * from './model/ImageMediaTaggingItemBody';
@@ -17,6 +19,8 @@ export * from './model/ImageTaggingReq';
 export * from './model/ImageTaggingResponseResult';
 export * from './model/RunCelebrityRecognitionRequest';
 export * from './model/RunCelebrityRecognitionResponse';
+export * from './model/RunImageDescriptionRequest';
+export * from './model/RunImageDescriptionResponse';
 export * from './model/RunImageMainObjectDetectionRequest';
 export * from './model/RunImageMainObjectDetectionResponse';
 export * from './model/RunImageMediaTaggingRequest';

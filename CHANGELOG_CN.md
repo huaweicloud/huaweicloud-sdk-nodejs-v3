@@ -1,3 +1,23 @@
+# 3.0.50-rc 2022-07-21
+
+### HuaweiCloud SDK Image
+
+- _新增特性_
+  - 支持接口`RunImageDescription`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK VPC
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`NeutronListSecurityGroupRules`新增响应参数 `security_group_rules_links`
+
 # 3.0.49-rc 2022-07-14
 
 ### HuaweiCloud SDK Image

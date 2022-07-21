@@ -1430,7 +1430,7 @@ export class IamClient {
      *
      * @summary 查询用户组列表
      * @param {string} [domainId] 用户组所属账号ID，获取方式请参见：[获取账号ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
-     * @param {string} [name] 用户组名，长度小于等于64字节，获取方式请参见：[获取用户组名](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
+     * @param {string} [name] 用户组名，长度小于等于128字符，获取方式请参见：[获取用户组名](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
