@@ -1,6 +1,5 @@
 import { Attachment } from './Attachment';
 import { Link } from './Link';
-import { VolumeMetadata } from './VolumeMetadata';
 
 
 export class VolumeDetail {
@@ -21,7 +20,7 @@ export class VolumeDetail {
     public size: number;
     private 'consistencygroup_id'?: string | undefined;
     public bootable: string;
-    public metadata: VolumeMetadata;
+    public metadata: { [key: string]: object; };
     private 'updated_at': string | undefined;
     public encrypted?: boolean;
     private 'replication_status': string | undefined;
@@ -188,7 +187,7 @@ export class VolumeDetail {
         this['bootable'] = bootable;
         return this;
     }
-    public withMetadata(metadata: VolumeMetadata): VolumeDetail {
+    public withMetadata(metadata: { [key: string]: object; }): VolumeDetail {
         this['metadata'] = metadata;
         return this;
     }

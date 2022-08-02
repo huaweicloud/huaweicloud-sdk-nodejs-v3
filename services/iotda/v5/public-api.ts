@@ -217,8 +217,5 @@ export * from './model/UpdateRuleActionResponse';
 export * from './model/UpdateRuleReq';
 export * from './model/UpdateRuleRequest';
 export * from './model/UpdateRuleResponse';
-export * from './model/UploadBatchTaskFileRequest';
-export * from './model/UploadBatchTaskFileRequestBody';
-export * from './model/UploadBatchTaskFileResponse';
 export * from './model/VerifyCertificateDTO';
 export * from './IoTDARegion';

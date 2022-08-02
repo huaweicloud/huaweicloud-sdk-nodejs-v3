@@ -219,9 +219,6 @@ import { UpdateRuleActionResponse } from './model/UpdateRuleActionResponse';
 import { UpdateRuleReq } from './model/UpdateRuleReq';
 import { UpdateRuleRequest } from './model/UpdateRuleRequest';
 import { UpdateRuleResponse } from './model/UpdateRuleResponse';
-import { UploadBatchTaskFileRequest } from './model/UploadBatchTaskFileRequest';
-import { UploadBatchTaskFileRequestBody } from './model/UploadBatchTaskFileRequestBody';
-import { UploadBatchTaskFileResponse } from './model/UploadBatchTaskFileResponse';
 import { VerifyCertificateDTO } from './model/VerifyCertificateDTO';
 
 export class IoTDAClient {
@@ -550,35 +547,6 @@ export class IoTDAClient {
      */
     public listBatchTaskFiles(listBatchTaskFilesRequest?: ListBatchTaskFilesRequest): Promise<ListBatchTaskFilesResponse> {
         const options = ParamCreater().listBatchTaskFiles(listBatchTaskFilesRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 应用服务器可调用此接口上传批量任务文件，用于创建批量任务。当前支持批量创建设备任务、批量删除设备任务、批量冻结设备任务、批量解冻设备任务的文件上传。
-     * - [批量注册设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchCreateDevices_Template.xlsx)
-     * 
-     * 
-     * - [批量删除设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchDeleteDevices_Template.xlsx)
-     * 
-     * 
-     * - [批量冻结设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchFreezeDevices_Template.xlsx)
-     * 
-     * 
-     * - [批量解冻设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchUnfreezeDevices_Template.xlsx)
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 上传批量任务文件
-     * @param {any} file **参数说明**：上传批量任务文件。 **取值范围**：当前仅支持xlsx/xls文件格式，且文件最大行数为30000行。
-     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public uploadBatchTaskFile(uploadBatchTaskFileRequest?: UploadBatchTaskFileRequest): Promise<UploadBatchTaskFileResponse> {
-        const options = ParamCreater().uploadBatchTaskFile(uploadBatchTaskFileRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -2446,63 +2414,6 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
             }
 
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 应用服务器可调用此接口上传批量任务文件，用于创建批量任务。当前支持批量创建设备任务、批量删除设备任务、批量冻结设备任务、批量解冻设备任务的文件上传。
-         * - [批量注册设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchCreateDevices_Template.xlsx)
-         * 
-         * 
-         * - [批量删除设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchDeleteDevices_Template.xlsx)
-         * 
-         * 
-         * - [批量冻结设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchFreezeDevices_Template.xlsx)
-         * 
-         * 
-         * - [批量解冻设备模板](https://developer.obs.cn-north-4.myhuaweicloud.com/template/BatchUnfreezeDevices_Template.xlsx)
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        uploadBatchTaskFile(uploadBatchTaskFileRequest?: UploadBatchTaskFileRequest) {
-            const options = {
-                method: "POST",
-                url: "/v5/iot/{project_id}/batchtask-files",
-                contentType: "multipart/form-data",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            const localVarFormParams = new FormData();
-            var file;
-            let instanceId;
-
-            if (uploadBatchTaskFileRequest !== null && uploadBatchTaskFileRequest !== undefined) {
-                if (uploadBatchTaskFileRequest instanceof UploadBatchTaskFileRequest) {
-                    file = uploadBatchTaskFileRequest.body;
-                    instanceId = uploadBatchTaskFileRequest.instanceId;
-                } else {
-                    file = uploadBatchTaskFileRequest['body'];
-                    instanceId = uploadBatchTaskFileRequest['Instance-Id'];
-                }
-            }
-
-        
-            if (file === null || file === undefined) {
-            throw new RequiredError('file','Required parameter file was null or undefined when calling uploadBatchTaskFile.');
-            }
-            if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
-            }
-            if (instanceId !== undefined && instanceId !== null) {
-                localVarHeaderParameter['Instance-Id'] = String(instanceId);
-            }
-            options.data = localVarFormParams;
             options.headers = localVarHeaderParameter;
             return options;
         },

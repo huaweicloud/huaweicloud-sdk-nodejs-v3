@@ -1,3 +1,14 @@
+# 3.0.51-rc 2022-08-02
+
+### HuaweiCloud SDK Image
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`RunImageDescription`移除请求参数 `language`
+
 # 3.0.50-rc 2022-07-21
 
 ### HuaweiCloud SDK Image

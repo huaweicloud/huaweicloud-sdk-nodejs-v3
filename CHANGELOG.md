@@ -1,3 +1,14 @@
+# 3.0.51-rc 2022-08-02
+
+### HuaweiCloud SDK Image
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the request parameter `language` from the interface `RunImageDescription`
+
 # 3.0.50-rc 2022-07-21
 
 ### HuaweiCloud SDK Image

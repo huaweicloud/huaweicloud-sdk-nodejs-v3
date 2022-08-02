@@ -6,7 +6,6 @@ export class ImageMediaTaggingReq {
     public language?: string;
     public threshold?: number;
     public limit?: number;
-    private 'custom_tags'?: Array<string> | undefined;
     public constructor() { 
     }
     public withImage(image: string): ImageMediaTaggingReq {
@@ -28,15 +27,5 @@ export class ImageMediaTaggingReq {
     public withLimit(limit: number): ImageMediaTaggingReq {
         this['limit'] = limit;
         return this;
-    }
-    public withCustomTags(customTags: Array<string>): ImageMediaTaggingReq {
-        this['custom_tags'] = customTags;
-        return this;
-    }
-    public set customTags(customTags: Array<string> | undefined) {
-        this['custom_tags'] = customTags;
-    }
-    public get customTags() {
-        return this['custom_tags'];
     }
 }
