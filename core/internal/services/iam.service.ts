@@ -29,13 +29,13 @@ import { KeystoneListRegionsResponse } from "../model/KeystoneListRegionsRespons
 import { filter, includes, cloneDeep } from "lodash";
 import { Region } from "../model/Region";
 import { KeystoneListAuthDomainsResponse } from "../model/KeystoneListAuthDomainsResponse";
+import { Constants } from "../../utils/constant";
 
 export class IamService {
-    private static DEFAULT_IAM_ENDPOINT = "https://iam.huaweicloud.com";
     private client: HcClient;
     constructor(hclient: HcClient, iamEndpoint?: string) {
         this.client = cloneDeep(hclient);
-        this.client.withEndpoint(iamEndpoint ?? IamService.DEFAULT_IAM_ENDPOINT);
+        this.client.withEndpoint(iamEndpoint ?? Constants.DEFAULT_IAM_ENDPOINT);
         this.client.withRegion(undefined);
     }
 
