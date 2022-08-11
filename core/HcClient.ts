@@ -93,10 +93,6 @@ export class HcClient {
             delete options.data;
         }
 
-        if (options.headers && Object.prototype.hasOwnProperty.call(options.headers, "Content-Type")) {
-            delete options.headers['Content-Type'];
-        }
-
         const builder = new HttpRequestBuilder();
         let httpRequest = builder
             .withEndpoint(url)

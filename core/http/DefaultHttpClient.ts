@@ -204,7 +204,9 @@ export class DefaultHttpClient implements HttpClient {
             data: error.response ? error.response.data : undefined,
             status: error.response ? error.response.status : undefined,
             headers: error.response ? error.response.headers : undefined,
-            message: error.message || undefined,  
+            message: error.message || undefined,
+            config: error.config,
+            originalError: error,
             requestId: error.response?.headers['x-request-id']
         }
         return transformedResponse;

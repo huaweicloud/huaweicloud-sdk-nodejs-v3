@@ -1,14 +1,3 @@
-# 3.0.52-rc 2022-08-08
-
-### HuaweiCloud SDK Image
-
-- _Features_
-  - None
-- _Bug Fix_
-  - Fix the problem that the custom Content-Type causes the signature to fail
-- _Change_
-  - None
-
 # 3.0.51-rc 2022-08-02
 
 ### HuaweiCloud SDK Image

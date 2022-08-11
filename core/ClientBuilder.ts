@@ -83,7 +83,7 @@ export class ClientBuilder<T> {
             disableSslVerification: true
         };
         if (this.proxyAgent) {
-            Object.assign(axiosOptions, { proxy: this.proxyAgent });
+            Object.assign(axiosOptions, { proxyAgent: this.proxyAgent });
         }
         if (this.userOptions?.customUserAgent) {
             axiosOptions.headers = axiosOptions.headers || {};

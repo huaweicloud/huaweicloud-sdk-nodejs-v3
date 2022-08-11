@@ -1,14 +1,3 @@
-# 3.0.52-rc 2022-08-08
-
-### HuaweiCloud SDK Core
-
-- _新增特性_
-  - 无
-- _解决问题_
-  - 修复自定义Content-Type导致签名失败的问题
-- _特性变更_
-  - 无
-
 # 3.0.51-rc 2022-08-02
 
 ### HuaweiCloud SDK Image
