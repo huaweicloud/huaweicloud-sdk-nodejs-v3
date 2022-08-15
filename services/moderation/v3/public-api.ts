@@ -1,5 +1,16 @@
 export * from './ModerationClient';
 
+export * from './model/AudioCreateRequest';
+export * from './model/AudioInputBody';
+export * from './model/AudioModerationResultRequestParams';
+export * from './model/AudioModerationResultRequestParamsData';
+export * from './model/AudioModerationResultResult';
+export * from './model/AudioModerationResultResultDetails';
+export * from './model/AudioModerationResultResultSegments';
+export * from './model/RunCreateAudioModerationJobRequest';
+export * from './model/RunCreateAudioModerationJobResponse';
+export * from './model/RunQueryAudioModerationJobRequest';
+export * from './model/RunQueryAudioModerationJobResponse';
 export * from './model/RunTextModerationRequest';
 export * from './model/RunTextModerationResponse';
 export * from './model/SegmentResult';

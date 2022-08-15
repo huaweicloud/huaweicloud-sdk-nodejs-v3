@@ -3,6 +3,7 @@
 export class ListNamespacesRequest {
     private 'Content-Type': ListNamespacesRequestContentTypeEnum | undefined;
     public namespace?: string;
+    public filter?: string;
     public constructor(contentType?: any) { 
         this['Content-Type'] = contentType;
     }
@@ -18,6 +19,10 @@ export class ListNamespacesRequest {
     }
     public withNamespace(namespace: string): ListNamespacesRequest {
         this['namespace'] = namespace;
+        return this;
+    }
+    public withFilter(filter: string): ListNamespacesRequest {
+        this['filter'] = filter;
         return this;
     }
 }

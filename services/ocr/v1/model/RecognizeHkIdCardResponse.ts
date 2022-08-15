@@ -1,12 +1,13 @@
+import { HkIdCardResult } from './HkIdCardResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class RecognizeHkIdCardResponse extends SdkResponse {
-    public result?: object;
+    public result?: HkIdCardResult;
     public constructor() { 
         super();
     }
-    public withResult(result: object): RecognizeHkIdCardResponse {
+    public withResult(result: HkIdCardResult): RecognizeHkIdCardResponse {
         this['result'] = result;
         return this;
     }

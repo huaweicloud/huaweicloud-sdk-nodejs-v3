@@ -4,11 +4,12 @@ export class ListRepositoryTagsRequest {
     private 'Content-Type': ListRepositoryTagsRequestContentTypeEnum | undefined;
     public namespace: string;
     public repository: string;
-    public offset?: string;
     public limit?: string;
+    public offset?: string;
     private 'order_column'?: string | undefined;
-    private 'order_type'?: ListRepositoryTagsRequestOrderTypeEnum | undefined;
+    private 'order_type'?: string | undefined;
     public tag?: string;
+    public filter?: string;
     public constructor(contentType?: any, namespace?: any, repository?: any) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
@@ -32,12 +33,12 @@ export class ListRepositoryTagsRequest {
         this['repository'] = repository;
         return this;
     }
-    public withOffset(offset: string): ListRepositoryTagsRequest {
-        this['offset'] = offset;
-        return this;
-    }
     public withLimit(limit: string): ListRepositoryTagsRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: string): ListRepositoryTagsRequest {
+        this['offset'] = offset;
         return this;
     }
     public withOrderColumn(orderColumn: string): ListRepositoryTagsRequest {
@@ -50,11 +51,11 @@ export class ListRepositoryTagsRequest {
     public get orderColumn() {
         return this['order_column'];
     }
-    public withOrderType(orderType: ListRepositoryTagsRequestOrderTypeEnum): ListRepositoryTagsRequest {
+    public withOrderType(orderType: string): ListRepositoryTagsRequest {
         this['order_type'] = orderType;
         return this;
     }
-    public set orderType(orderType: ListRepositoryTagsRequestOrderTypeEnum | undefined) {
+    public set orderType(orderType: string | undefined) {
         this['order_type'] = orderType;
     }
     public get orderType() {
@@ -62,6 +63,10 @@ export class ListRepositoryTagsRequest {
     }
     public withTag(tag: string): ListRepositoryTagsRequest {
         this['tag'] = tag;
+        return this;
+    }
+    public withFilter(filter: string): ListRepositoryTagsRequest {
+        this['filter'] = filter;
         return this;
     }
 }
@@ -73,12 +78,4 @@ export class ListRepositoryTagsRequest {
 export enum ListRepositoryTagsRequestContentTypeEnum {
     APPLICATION_JSONCHARSETUTF_8 = 'application/json;charset=utf-8',
     APPLICATION_JSON = 'application/json'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListRepositoryTagsRequestOrderTypeEnum {
-    DESC = 'desc',
-    ASC = 'asc'
 }

@@ -295,7 +295,7 @@ export class SwrClient {
      */
     public createSecret(createSecretRequest?: CreateSecretRequest): Promise<CreateSecretResponse> {
         const options = ParamCreater().createSecret(createSecretRequest);
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['X-Swr-Dockerlogin'];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
@@ -372,7 +372,7 @@ export class SwrClient {
      * @summary 删除组织权限
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
-     * @param {Array<string>} deleteNamespaceAuthRequestBody 删除权限需要的信息
+     * @param {Array<string>} deleteNamespaceAuthRequestBody 需要删除权限的用户id列表，需要从IAM服务获取
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -556,6 +556,7 @@ export class SwrClient {
      * @summary 查询组织列表
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} [namespace] 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
+     * @param {string} [filter] 应填写namespace::{namespace}|mode::{mode}。其中{namespace}是组织名称，{mode}如果不设置，查看有权限的组织列表；设置为visible，查看可见的组织列表（部分组织：仓库有权限，组织没有权限）。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -615,7 +616,11 @@ export class SwrClient {
      * @param {string} [namespace] 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} [name] 镜像仓库名称
      * @param {string} [category] 镜像仓库分类，可设置为app_server, linux, framework_app, database, lang, other, windows, arm。
-     * @param {string} [filter] 注意：至少要传递一个filter参数。其中{center}为self或thirdparty，自己的镜像或第三方镜像，默认值为self。{namespace}为组织名称，模糊匹配。 {name}为镜像仓库名称，模糊匹配。{category}为镜像仓库分类，可设置为app_server、linux、framework_app、database、lang、other、windows、arm。 {limit}为返回条数,{offset}为起始索引，注意：offset和limit参数需要配套使用。{order_column}为按列排序，可设置为name、updated_time、tag_count,{order_type}为排序类型， 可设置为desc（降序）、asc（升序），注意：order_column和order_type参数需要配套使用。
+     * @param {string} [limit] 返回条数。注意：offset和limit参数需要配套使用。
+     * @param {string} [offset] 起始索引。注意：offset和limit参数需要配套使用。
+     * @param {string} [orderColumn] 按列排序，可设置为updated_at（按更新时间排序）。注意：order_column和order_type参数需要配套使用。
+     * @param {string} [orderType] 排序类型，可设置为desc（降序）、asc（升序）。注意：order_column和order_type参数需要配套使用。
+     * @param {string} [filter] 注意：至少要传递一个filter参数。其中{namespace}为组织名称，模糊匹配。 {name}为镜像仓库名称，模糊匹配。{category}为镜像仓库分类，可设置为app_server、linux、framework_app、database、lang、other、windows、arm。 {limit}为返回条数,{offset}为起始索引，注意：offset和limit参数需要配套使用。{order_column}为按列排序，可设置为name、updated_time、tag_count,{order_type}为排序类型， 可设置为desc（降序）、asc（升序），注意：order_column和order_type参数需要配套使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -636,17 +641,18 @@ export class SwrClient {
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
-     * @param {string} [offset] 起始索引。**注意：offset和limit参数需要配套使用** 
-     * @param {string} [limit] 返回条数。**注意：offset和limit参数需要配套使用* 
-     * @param {string} [orderColumn] 按列排序，可设置为updated_at（按更新时间排序） 
-     * @param {'desc' | 'asc'} [orderType] 排序类型，可设置为desc（降序）、asc（升序） 
-     * @param {string} [tag] 镜像版本名
+     * @param {string} [limit] 返回条数。注意：offset和limit参数需要配套使用。
+     * @param {string} [offset] 起始索引。注意：offset和limit参数需要配套使用。
+     * @param {string} [orderColumn] 按列排序，可设置为updated_at（按更新时间排序）。注意：order_column和order_type参数需要配套使用。
+     * @param {string} [orderType] 排序类型，可设置为desc（降序）、asc（升序）。注意：order_column和order_type参数需要配套使用。
+     * @param {string} [tag] 镜像版本名。
+     * @param {string} [filter] 应填写 offset::{offset}|limit::{limit}|order_column::{order_column}|order_type::{order_type}|tag::{tag} ,其中{limit}为返回条数,{offset}为起始索引,注意：offset和limit参数需要配套使用。 {order_column}为按列排序，可设置为updated_at（按更新时间排序）,{order_type}为排序类型，可设置为desc（降序）、asc（升序），{tag}为镜像版本名。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listRepositoryTags(listRepositoryTagsRequest?: ListRepositoryTagsRequest): Promise<Array<ShowReposTagResp>> {
         const options = ParamCreater().listRepositoryTags(listRepositoryTagsRequest);
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['Content-Range'];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
@@ -661,8 +667,7 @@ export class SwrClient {
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
-     * @param {string} [offset] 起始索引。**注意：offset和limit参数需要配套使用** 
-     * @param {string} [limit] 返回条数。**注意：offset和limit参数需要配套使用** 
+     * @param {string} [filter] 应填写 limit::{limit}|offset::{offset}, 其中{limit}为返回条数,{offset}为起始索引, 注意：offset和limit参数需要配套使用
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -701,7 +706,14 @@ export class SwrClient {
      *
      * @summary 查询共享镜像列表
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
-     * @param {string} [filter] 应填写 center::{center}|limit::{limit}|offset::{offset}|order_column::{order_column}|order_type::{order_type} ,其中{limit}为返回条数,{offset}为起始索引, {order_column}为按列排序，可设置为name、updated_time、tag_count,{order_type}为排序类型，可设置为desc（降序）、asc（升序）
+     * @param {string} [namespace] 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
+     * @param {string} [name] 镜像仓库名称
+     * @param {string} [center] self: 我共享的镜像。thirdparty: 他人共享给我的镜像
+     * @param {string} [limit] 返回条数。注意：offset和limit参数需要配套使用。
+     * @param {string} [offset] 起始索引。注意：offset和limit参数需要配套使用。
+     * @param {string} [orderColumn] 按列排序，可设置为updated_at（按更新时间排序）。注意：order_column和order_type参数需要配套使用。
+     * @param {string} [orderType] 排序类型，可设置为desc（降序）、asc（升序）。注意：order_column和order_type参数需要配套使用。
+     * @param {string} [filter] 应填写 center::{center}|name::{name}|limit::{limit}|offset::{offset}|namespace::{namespace}|order_column::{order_column}|order_type::{order_type} ,其中 {center}可选为self: 我共享的镜像。thirdparty: 他人共享给我的镜像，namespace为组织名称，name为镜像仓库名称， {limit}为返回条数,{offset}为起始索引,{order_column}为按列排序，可设置为name、updated_time、tag_count,{order_type}为排序类型，可设置为desc（降序）、asc（升序）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -842,13 +854,13 @@ export class SwrClient {
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
      * @param {string} namespace 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
      * @param {string} repository 镜像仓库名称
-     * @param {string} filter 应填写 limit::{limit}|offset::{offset}|order::{order} ,其中{limit}为返回条数,{offset}为起始索引,{order}为排序类型，可设置为desc（降序）、asc（升序）
+     * @param {string} filter 应填写 limit::{limit}|offset::{offset}|order::{order} ,其中{limit}为返回条数,{offset}为起始索引,注意：offset和limit参数需要配套使用，且必选。{order}为排序类型（可选），可设置为desc（降序）、asc（升序）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public showSyncJob(showSyncJobRequest?: ShowSyncJobRequest): Promise<Array<SyncJob>> {
         const options = ParamCreater().showSyncJob(showSyncJobRequest);
-        options['responseHeaders'] = [''];
+        options['responseHeaders'] = ['Content-Range'];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
@@ -915,7 +927,7 @@ export class SwrClient {
     }
 
     /**
-     * 更新租户命名空间下的镜像概要信息，包括镜像类型、是否公有、描述信息
+     * 更新租户组织下的镜像概要信息，包括镜像类型、是否公有、描述信息
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -2160,20 +2172,26 @@ export const ParamCreater = function () {
             const localVarQueryParameter = {} as any;
             let contentType;
             let namespace;
+            let filter;
 
             if (listNamespacesRequest !== null && listNamespacesRequest !== undefined) {
                 if (listNamespacesRequest instanceof ListNamespacesRequest) {
                     contentType = listNamespacesRequest.contentType;
                     namespace = listNamespacesRequest.namespace;
+                    filter = listNamespacesRequest.filter;
                 } else {
                     contentType = listNamespacesRequest['Content-Type'];
                     namespace = listNamespacesRequest['namespace'];
+                    filter = listNamespacesRequest['filter'];
                 }
             }
 
         
             if (namespace !== null && namespace !== undefined) {
                 localVarQueryParameter['namespace'] = namespace;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -2293,6 +2311,10 @@ export const ParamCreater = function () {
             let namespace;
             let name;
             let category;
+            let limit;
+            let offset;
+            let orderColumn;
+            let orderType;
             let filter;
 
             if (listReposDetailsRequest !== null && listReposDetailsRequest !== undefined) {
@@ -2301,12 +2323,20 @@ export const ParamCreater = function () {
                     namespace = listReposDetailsRequest.namespace;
                     name = listReposDetailsRequest.name;
                     category = listReposDetailsRequest.category;
+                    limit = listReposDetailsRequest.limit;
+                    offset = listReposDetailsRequest.offset;
+                    orderColumn = listReposDetailsRequest.orderColumn;
+                    orderType = listReposDetailsRequest.orderType;
                     filter = listReposDetailsRequest.filter;
                 } else {
                     contentType = listReposDetailsRequest['Content-Type'];
                     namespace = listReposDetailsRequest['namespace'];
                     name = listReposDetailsRequest['name'];
                     category = listReposDetailsRequest['category'];
+                    limit = listReposDetailsRequest['limit'];
+                    offset = listReposDetailsRequest['offset'];
+                    orderColumn = listReposDetailsRequest['order_column'];
+                    orderType = listReposDetailsRequest['order_type'];
                     filter = listReposDetailsRequest['filter'];
                 }
             }
@@ -2320,6 +2350,18 @@ export const ParamCreater = function () {
             }
             if (category !== null && category !== undefined) {
                 localVarQueryParameter['category'] = category;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (orderColumn !== null && orderColumn !== undefined) {
+                localVarQueryParameter['order_column'] = orderColumn;
+            }
+            if (orderType !== null && orderType !== undefined) {
+                localVarQueryParameter['order_type'] = orderType;
             }
             if (filter !== null && filter !== undefined) {
                 localVarQueryParameter['filter'] = filter;
@@ -2354,31 +2396,34 @@ export const ParamCreater = function () {
             let contentType;
             let namespace;
             let repository;
-            let offset;
             let limit;
+            let offset;
             let orderColumn;
             let orderType;
             let tag;
+            let filter;
 
             if (listRepositoryTagsRequest !== null && listRepositoryTagsRequest !== undefined) {
                 if (listRepositoryTagsRequest instanceof ListRepositoryTagsRequest) {
                     contentType = listRepositoryTagsRequest.contentType;
                     namespace = listRepositoryTagsRequest.namespace;
                     repository = listRepositoryTagsRequest.repository;
-                    offset = listRepositoryTagsRequest.offset;
                     limit = listRepositoryTagsRequest.limit;
+                    offset = listRepositoryTagsRequest.offset;
                     orderColumn = listRepositoryTagsRequest.orderColumn;
                     orderType = listRepositoryTagsRequest.orderType;
                     tag = listRepositoryTagsRequest.tag;
+                    filter = listRepositoryTagsRequest.filter;
                 } else {
                     contentType = listRepositoryTagsRequest['Content-Type'];
                     namespace = listRepositoryTagsRequest['namespace'];
                     repository = listRepositoryTagsRequest['repository'];
-                    offset = listRepositoryTagsRequest['offset'];
                     limit = listRepositoryTagsRequest['limit'];
+                    offset = listRepositoryTagsRequest['offset'];
                     orderColumn = listRepositoryTagsRequest['order_column'];
                     orderType = listRepositoryTagsRequest['order_type'];
                     tag = listRepositoryTagsRequest['tag'];
+                    filter = listRepositoryTagsRequest['filter'];
                 }
             }
 
@@ -2389,11 +2434,11 @@ export const ParamCreater = function () {
             if (repository === null || repository === undefined) {
             throw new RequiredError('repository','Required parameter repository was null or undefined when calling listRepositoryTags.');
             }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (orderColumn !== null && orderColumn !== undefined) {
                 localVarQueryParameter['order_column'] = orderColumn;
@@ -2403,6 +2448,9 @@ export const ParamCreater = function () {
             }
             if (tag !== null && tag !== undefined) {
                 localVarQueryParameter['tag'] = tag;
+            }
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -2435,22 +2483,19 @@ export const ParamCreater = function () {
             let contentType;
             let namespace;
             let repository;
-            let offset;
-            let limit;
+            let filter;
 
             if (listRetentionHistoriesRequest !== null && listRetentionHistoriesRequest !== undefined) {
                 if (listRetentionHistoriesRequest instanceof ListRetentionHistoriesRequest) {
                     contentType = listRetentionHistoriesRequest.contentType;
                     namespace = listRetentionHistoriesRequest.namespace;
                     repository = listRetentionHistoriesRequest.repository;
-                    offset = listRetentionHistoriesRequest.offset;
-                    limit = listRetentionHistoriesRequest.limit;
+                    filter = listRetentionHistoriesRequest.filter;
                 } else {
                     contentType = listRetentionHistoriesRequest['Content-Type'];
                     namespace = listRetentionHistoriesRequest['namespace'];
                     repository = listRetentionHistoriesRequest['repository'];
-                    offset = listRetentionHistoriesRequest['offset'];
-                    limit = listRetentionHistoriesRequest['limit'];
+                    filter = listRetentionHistoriesRequest['filter'];
                 }
             }
 
@@ -2461,11 +2506,8 @@ export const ParamCreater = function () {
             if (repository === null || repository === undefined) {
             throw new RequiredError('repository','Required parameter repository was null or undefined when calling listRetentionHistories.');
             }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
+            if (filter !== null && filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -2546,19 +2588,61 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             let contentType;
+            let namespace;
+            let name;
+            let center;
+            let limit;
+            let offset;
+            let orderColumn;
+            let orderType;
             let filter;
 
             if (listSharedReposDetailsRequest !== null && listSharedReposDetailsRequest !== undefined) {
                 if (listSharedReposDetailsRequest instanceof ListSharedReposDetailsRequest) {
                     contentType = listSharedReposDetailsRequest.contentType;
+                    namespace = listSharedReposDetailsRequest.namespace;
+                    name = listSharedReposDetailsRequest.name;
+                    center = listSharedReposDetailsRequest.center;
+                    limit = listSharedReposDetailsRequest.limit;
+                    offset = listSharedReposDetailsRequest.offset;
+                    orderColumn = listSharedReposDetailsRequest.orderColumn;
+                    orderType = listSharedReposDetailsRequest.orderType;
                     filter = listSharedReposDetailsRequest.filter;
                 } else {
                     contentType = listSharedReposDetailsRequest['Content-Type'];
+                    namespace = listSharedReposDetailsRequest['namespace'];
+                    name = listSharedReposDetailsRequest['name'];
+                    center = listSharedReposDetailsRequest['center'];
+                    limit = listSharedReposDetailsRequest['limit'];
+                    offset = listSharedReposDetailsRequest['offset'];
+                    orderColumn = listSharedReposDetailsRequest['order_column'];
+                    orderType = listSharedReposDetailsRequest['order_type'];
                     filter = listSharedReposDetailsRequest['filter'];
                 }
             }
 
         
+            if (namespace !== null && namespace !== undefined) {
+                localVarQueryParameter['namespace'] = namespace;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (center !== null && center !== undefined) {
+                localVarQueryParameter['center'] = center;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (orderColumn !== null && orderColumn !== undefined) {
+                localVarQueryParameter['order_column'] = orderColumn;
+            }
+            if (orderType !== null && orderType !== undefined) {
+                localVarQueryParameter['order_type'] = orderType;
+            }
             if (filter !== null && filter !== undefined) {
                 localVarQueryParameter['filter'] = filter;
             }
@@ -3090,7 +3174,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新租户命名空间下的镜像概要信息，包括镜像类型、是否公有、描述信息
+         * 更新租户组织下的镜像概要信息，包括镜像类型、是否公有、描述信息
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.

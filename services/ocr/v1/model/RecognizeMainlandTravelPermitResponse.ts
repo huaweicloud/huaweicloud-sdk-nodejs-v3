@@ -1,12 +1,13 @@
+import { MainlandTravelPermitResult } from './MainlandTravelPermitResult';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class RecognizeMainlandTravelPermitResponse extends SdkResponse {
-    public result?: object;
+    public result?: MainlandTravelPermitResult;
     public constructor() { 
         super();
     }
-    public withResult(result: object): RecognizeMainlandTravelPermitResponse {
+    public withResult(result: MainlandTravelPermitResult): RecognizeMainlandTravelPermitResponse {
         this['result'] = result;
         return this;
     }

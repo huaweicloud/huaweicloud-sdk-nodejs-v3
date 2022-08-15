@@ -5,7 +5,6 @@ export class ImageDetectionReq {
     public image?: string;
     private 'moderation_rule'?: string | undefined;
     public categories?: Array<ImageDetectionReqCategoriesEnum>;
-    private 'ad_glossaries'?: Array<string> | undefined;
     private 'ad_categories'?: Array<string> | undefined;
     public threshold?: number;
     private 'show_ocr_text'?: boolean | undefined;
@@ -32,16 +31,6 @@ export class ImageDetectionReq {
     public withCategories(categories: Array<ImageDetectionReqCategoriesEnum>): ImageDetectionReq {
         this['categories'] = categories;
         return this;
-    }
-    public withAdGlossaries(adGlossaries: Array<string>): ImageDetectionReq {
-        this['ad_glossaries'] = adGlossaries;
-        return this;
-    }
-    public set adGlossaries(adGlossaries: Array<string> | undefined) {
-        this['ad_glossaries'] = adGlossaries;
-    }
-    public get adGlossaries() {
-        return this['ad_glossaries'];
     }
     public withAdCategories(adCategories: Array<string>): ImageDetectionReq {
         this['ad_categories'] = adCategories;

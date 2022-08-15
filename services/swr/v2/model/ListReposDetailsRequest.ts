@@ -5,6 +5,10 @@ export class ListReposDetailsRequest {
     public namespace?: string;
     public name?: string;
     public category?: string;
+    public limit?: string;
+    public offset?: string;
+    private 'order_column'?: string | undefined;
+    private 'order_type'?: string | undefined;
     public filter?: string;
     public constructor(contentType?: any) { 
         this['Content-Type'] = contentType;
@@ -30,6 +34,34 @@ export class ListReposDetailsRequest {
     public withCategory(category: string): ListReposDetailsRequest {
         this['category'] = category;
         return this;
+    }
+    public withLimit(limit: string): ListReposDetailsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: string): ListReposDetailsRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withOrderColumn(orderColumn: string): ListReposDetailsRequest {
+        this['order_column'] = orderColumn;
+        return this;
+    }
+    public set orderColumn(orderColumn: string | undefined) {
+        this['order_column'] = orderColumn;
+    }
+    public get orderColumn() {
+        return this['order_column'];
+    }
+    public withOrderType(orderType: string): ListReposDetailsRequest {
+        this['order_type'] = orderType;
+        return this;
+    }
+    public set orderType(orderType: string | undefined) {
+        this['order_type'] = orderType;
+    }
+    public get orderType() {
+        return this['order_type'];
     }
     public withFilter(filter: string): ListReposDetailsRequest {
         this['filter'] = filter;

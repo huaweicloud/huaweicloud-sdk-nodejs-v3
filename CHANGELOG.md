@@ -1,3 +1,49 @@
+# 3.0.53-rc 2022-08-11
+
+### HuaweiCloud SDK Moderation
+
+- _Features_
+  - Support the interfaces `RunCreateAudioModerationJob`, `RunQueryAudioModerationJob`
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the request parameter `ad_glossaries` from the interface `RunImageModeration`
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - Support the interface `RecognizeMacaoIdCard`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK SWR
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `filter` to the interface `ListNamespaces`
+  - Add the request parameters `limit`, `offset`, `order_column`, `order_type` to the interface `ListReposDetails`
+  - Add the request parameter `filter` to the interface `ListRepositoryTags`
+  - Add the request parameters `namespace`, `name`, `center`, `limit`, `offset`, `order_column`, `order_type` to the interface `ListSharedReposDetails`
+  - Changes of the interface `ListRetentionHistories`:
+    - Add the request parameter `filter`
+    - Remove the request parameters `offset`, `limit`
+
+# 3.0.52-rc 2022-08-08
+
+### HuaweiCloud SDK Image
+
+- _Features_
+  - None
+- _Bug Fix_
+  - Fix the problem that the custom Content-Type causes the signature to fail
+- _Change_
+  - None
+
 # 3.0.51-rc 2022-08-02
 
 ### HuaweiCloud SDK Image

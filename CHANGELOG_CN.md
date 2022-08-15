@@ -1,3 +1,49 @@
+# 3.0.53-rc 2022-08-11
+
+### HuaweiCloud SDK Moderation
+
+- _新增特性_
+  - 支持接口`RunCreateAudioModerationJob`、`RunQueryAudioModerationJob`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`RunImageModeration`移除请求参数 `ad_glossaries`
+
+### HuaweiCloud SDK OCR
+
+- _新增特性_
+  - 支持接口`RecognizeMacaoIdCard`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK SWR
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ListNamespaces`新增请求参数 `filter`
+  - 接口`ListReposDetails`新增请求参数 `limit`、`offset`、`order_column`、`order_type`
+  - 接口`ListRepositoryTags`新增请求参数 `filter`
+  - 接口`ListSharedReposDetails`新增请求参数 `namespace`、`name`、`center`、`limit`、`offset`、`order_column`、`order_type`
+  - 接口`ListRetentionHistories`:
+    - 新增请求参数 `filter`
+    - 移除请求参数 `offset`、`limit`
+
+# 3.0.52-rc 2022-08-08
+
+### HuaweiCloud SDK Core
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 修复自定义Content-Type导致签名失败的问题
+- _特性变更_
+  - 无
+
 # 3.0.51-rc 2022-08-02
 
 ### HuaweiCloud SDK Image

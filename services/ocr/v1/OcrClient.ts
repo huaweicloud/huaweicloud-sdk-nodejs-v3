@@ -13,12 +13,16 @@ import { BusinessCardResult } from './model/BusinessCardResult';
 import { BusinessLicenseRequestBody } from './model/BusinessLicenseRequestBody';
 import { BusinessLicenseResult } from './model/BusinessLicenseResult';
 import { CambodianIdCardRequestBody } from './model/CambodianIdCardRequestBody';
+import { CambodianIdCardResult } from './model/CambodianIdCardResult';
 import { ChileIdCardConfidence } from './model/ChileIdCardConfidence';
 import { ChileIdCardRequestBody } from './model/ChileIdCardRequestBody';
 import { ChileIdCardResult } from './model/ChileIdCardResult';
 import { DriverLicenseRequestBody } from './model/DriverLicenseRequestBody';
 import { DriverLicenseResult } from './model/DriverLicenseResult';
+import { ExitEntryPermitConfidence } from './model/ExitEntryPermitConfidence';
+import { ExitEntryPermitEndorsementInfo } from './model/ExitEntryPermitEndorsementInfo';
 import { ExitEntryPermitRequestBody } from './model/ExitEntryPermitRequestBody';
+import { ExitEntryPermitResult } from './model/ExitEntryPermitResult';
 import { ExtraInfoList } from './model/ExtraInfoList';
 import { FinancialStatementRequestBody } from './model/FinancialStatementRequestBody';
 import { FinancialStatementResult } from './model/FinancialStatementResult';
@@ -40,6 +44,7 @@ import { HealthCodeRequestBody } from './model/HealthCodeRequestBody';
 import { HealthCodeResult } from './model/HealthCodeResult';
 import { HealthCodeWordsBlockList } from './model/HealthCodeWordsBlockList';
 import { HkIdCardRequestBody } from './model/HkIdCardRequestBody';
+import { HkIdCardResult } from './model/HkIdCardResult';
 import { IdCardRequestBody } from './model/IdCardRequestBody';
 import { IdCardResult } from './model/IdCardResult';
 import { IdDocumentRequestBody } from './model/IdDocumentRequestBody';
@@ -54,7 +59,11 @@ import { ItemList } from './model/ItemList';
 import { ItineraryList } from './model/ItineraryList';
 import { LicensePlateRequestBody } from './model/LicensePlateRequestBody';
 import { LicensePlateResult } from './model/LicensePlateResult';
+import { MacaoIdCardRequestBody } from './model/MacaoIdCardRequestBody';
+import { MacaoIdCardResult } from './model/MacaoIdCardResult';
+import { MainlandTravelPermitConfidence } from './model/MainlandTravelPermitConfidence';
 import { MainlandTravelPermitRequestBody } from './model/MainlandTravelPermitRequestBody';
+import { MainlandTravelPermitResult } from './model/MainlandTravelPermitResult';
 import { MvsInvoiceRequestBody } from './model/MvsInvoiceRequestBody';
 import { MvsInvoiceResult } from './model/MvsInvoiceResult';
 import { MyanmarDriverLicenseConfidence } from './model/MyanmarDriverLicenseConfidence';
@@ -116,6 +125,8 @@ import { RecognizeInvoiceVerificationRequest } from './model/RecognizeInvoiceVer
 import { RecognizeInvoiceVerificationResponse } from './model/RecognizeInvoiceVerificationResponse';
 import { RecognizeLicensePlateRequest } from './model/RecognizeLicensePlateRequest';
 import { RecognizeLicensePlateResponse } from './model/RecognizeLicensePlateResponse';
+import { RecognizeMacaoIdCardRequest } from './model/RecognizeMacaoIdCardRequest';
+import { RecognizeMacaoIdCardResponse } from './model/RecognizeMacaoIdCardResponse';
 import { RecognizeMainlandTravelPermitRequest } from './model/RecognizeMainlandTravelPermitRequest';
 import { RecognizeMainlandTravelPermitResponse } from './model/RecognizeMainlandTravelPermitResponse';
 import { RecognizeMvsInvoiceRequest } from './model/RecognizeMvsInvoiceRequest';
@@ -594,6 +605,24 @@ export class OcrClient {
      */
     public recognizeLicensePlate(recognizeLicensePlateRequest?: RecognizeLicensePlateRequest): Promise<RecognizeLicensePlateResponse> {
         const options = ParamCreater().recognizeLicensePlate(recognizeLicensePlateRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 识别澳门身份证图片中的文字内容，并将识别的结果返回给用户。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 澳门身份证识别
+     * @param {MacaoIdCardRequestBody} macaoIdCardRequestBody This is a macao id card Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public recognizeMacaoIdCard(recognizeMacaoIdCardRequest?: RecognizeMacaoIdCardRequest): Promise<RecognizeMacaoIdCardResponse> {
+        const options = ParamCreater().recognizeMacaoIdCard(recognizeMacaoIdCardRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1786,6 +1815,45 @@ export const ParamCreater = function () {
                     body = recognizeLicensePlateRequest.body
                 } else {
                     body = recognizeLicensePlateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 识别澳门身份证图片中的文字内容，并将识别的结果返回给用户。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        recognizeMacaoIdCard(recognizeMacaoIdCardRequest?: RecognizeMacaoIdCardRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/ocr/macao-id-card",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (recognizeMacaoIdCardRequest !== null && recognizeMacaoIdCardRequest !== undefined) {
+                if (recognizeMacaoIdCardRequest instanceof RecognizeMacaoIdCardRequest) {
+                    body = recognizeMacaoIdCardRequest.body
+                } else {
+                    body = recognizeMacaoIdCardRequest['body'];
                 }
             }
 
