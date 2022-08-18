@@ -1,11 +1,11 @@
-import { BatchDeleteWorkflowsRequestBody } from './BatchDeleteWorkflowsRequestBody';
+import { WorkflowDeleteBody } from './WorkflowDeleteBody';
 
 
 export class BatchDeleteWorkflowsRequest {
-    public body?: BatchDeleteWorkflowsRequestBody;
+    public body?: WorkflowDeleteBody;
     public constructor() { 
     }
-    public withBody(body: BatchDeleteWorkflowsRequestBody): BatchDeleteWorkflowsRequest {
+    public withBody(body: WorkflowDeleteBody): BatchDeleteWorkflowsRequest {
         this['body'] = body;
         return this;
     }

@@ -1,9 +1,10 @@
 
 
 export class CancelAsyncInvocationRequestBody {
-    private 'request_id'?: string | undefined;
+    private 'request_id': string | undefined;
     public type?: CancelAsyncInvocationRequestBodyTypeEnum;
-    public constructor() { 
+    public constructor(requestId?: any) { 
+        this['request_id'] = requestId;
     }
     public withRequestId(requestId: string): CancelAsyncInvocationRequestBody {
         this['request_id'] = requestId;

@@ -1,3 +1,4 @@
+import { CustomImage } from './CustomImage';
 import { FunctionAsyncConfig } from './FunctionAsyncConfig';
 import { StrategyConfig } from './StrategyConfig';
 
@@ -33,13 +34,15 @@ export class ListFunctionVersionResult {
     private 'initializer_handler'?: string | undefined;
     private 'initializer_timeout'?: number | undefined;
     private 'long_time'?: boolean | undefined;
-    private 'log_group_id'?: string | undefined;
-    private 'log_stream_id'?: string | undefined;
     private 'function_async_config'?: FunctionAsyncConfig | undefined;
     public type?: string;
     private 'enable_cloud_debug'?: string | undefined;
     private 'enable_dynamic_memory'?: boolean | undefined;
     private 'enterprise_project_id'?: string | undefined;
+    private 'is_stateful_function'?: boolean | undefined;
+    private 'enable_auth_in_header'?: boolean | undefined;
+    private 'custom_image'?: CustomImage | undefined;
+    private 'reserved_instance_idle_mode'?: boolean | undefined;
     public constructor(funcUrn?: any, funcName?: any, domainId?: any, namespace?: any, projectName?: any, _package?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any, cpu?: any, codeType?: any, codeSize?: any, digest?: any, version?: any, imageName?: any, lastModified?: any) { 
         this['func_urn'] = funcUrn;
         this['func_name'] = funcName;
@@ -305,26 +308,6 @@ export class ListFunctionVersionResult {
     public get longTime() {
         return this['long_time'];
     }
-    public withLogGroupId(logGroupId: string): ListFunctionVersionResult {
-        this['log_group_id'] = logGroupId;
-        return this;
-    }
-    public set logGroupId(logGroupId: string | undefined) {
-        this['log_group_id'] = logGroupId;
-    }
-    public get logGroupId() {
-        return this['log_group_id'];
-    }
-    public withLogStreamId(logStreamId: string): ListFunctionVersionResult {
-        this['log_stream_id'] = logStreamId;
-        return this;
-    }
-    public set logStreamId(logStreamId: string | undefined) {
-        this['log_stream_id'] = logStreamId;
-    }
-    public get logStreamId() {
-        return this['log_stream_id'];
-    }
     public withFunctionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig): ListFunctionVersionResult {
         this['function_async_config'] = functionAsyncConfig;
         return this;
@@ -368,6 +351,46 @@ export class ListFunctionVersionResult {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withIsStatefulFunction(isStatefulFunction: boolean): ListFunctionVersionResult {
+        this['is_stateful_function'] = isStatefulFunction;
+        return this;
+    }
+    public set isStatefulFunction(isStatefulFunction: boolean | undefined) {
+        this['is_stateful_function'] = isStatefulFunction;
+    }
+    public get isStatefulFunction() {
+        return this['is_stateful_function'];
+    }
+    public withEnableAuthInHeader(enableAuthInHeader: boolean): ListFunctionVersionResult {
+        this['enable_auth_in_header'] = enableAuthInHeader;
+        return this;
+    }
+    public set enableAuthInHeader(enableAuthInHeader: boolean | undefined) {
+        this['enable_auth_in_header'] = enableAuthInHeader;
+    }
+    public get enableAuthInHeader() {
+        return this['enable_auth_in_header'];
+    }
+    public withCustomImage(customImage: CustomImage): ListFunctionVersionResult {
+        this['custom_image'] = customImage;
+        return this;
+    }
+    public set customImage(customImage: CustomImage | undefined) {
+        this['custom_image'] = customImage;
+    }
+    public get customImage() {
+        return this['custom_image'];
+    }
+    public withReservedInstanceIdleMode(reservedInstanceIdleMode: boolean): ListFunctionVersionResult {
+        this['reserved_instance_idle_mode'] = reservedInstanceIdleMode;
+        return this;
+    }
+    public set reservedInstanceIdleMode(reservedInstanceIdleMode: boolean | undefined) {
+        this['reserved_instance_idle_mode'] = reservedInstanceIdleMode;
+    }
+    public get reservedInstanceIdleMode() {
+        return this['reserved_instance_idle_mode'];
     }
 }
 

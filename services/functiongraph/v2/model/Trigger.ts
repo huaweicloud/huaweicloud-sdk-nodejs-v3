@@ -52,5 +52,8 @@ export class Trigger {
     */
 export enum TriggerTriggerTypeEnum {
     FLOWTIMER = 'FLOWTIMER',
+    SMN = 'SMN',
+    APIG = 'APIG',
+    APIG_DE = 'APIG_DE',
     OBS = 'OBS'
 }

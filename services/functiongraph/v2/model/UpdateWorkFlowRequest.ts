@@ -1,9 +1,9 @@
-import { UpdateWorkflowRequestBody } from './UpdateWorkflowRequestBody';
+import { WorkflowCreateBody } from './WorkflowCreateBody';
 
 
 export class UpdateWorkFlowRequest {
     private 'workflow_id': string | undefined;
-    public body?: UpdateWorkflowRequestBody;
+    public body?: WorkflowCreateBody;
     public constructor(workflowId?: any) { 
         this['workflow_id'] = workflowId;
     }
@@ -17,7 +17,7 @@ export class UpdateWorkFlowRequest {
     public get workflowId() {
         return this['workflow_id'];
     }
-    public withBody(body: UpdateWorkflowRequestBody): UpdateWorkFlowRequest {
+    public withBody(body: WorkflowCreateBody): UpdateWorkFlowRequest {
         this['body'] = body;
         return this;
     }

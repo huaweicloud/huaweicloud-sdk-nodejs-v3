@@ -1,11 +1,11 @@
-import { CreateWorkflowRequestBody } from './CreateWorkflowRequestBody';
+import { WorkflowCreateBody } from './WorkflowCreateBody';
 
 
 export class CreateWorkflowRequest {
-    public body?: CreateWorkflowRequestBody;
+    public body?: WorkflowCreateBody;
     public constructor() { 
     }
-    public withBody(body: CreateWorkflowRequestBody): CreateWorkflowRequest {
+    public withBody(body: WorkflowCreateBody): CreateWorkflowRequest {
         this['body'] = body;
         return this;
     }

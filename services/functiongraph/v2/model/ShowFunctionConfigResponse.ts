@@ -1,3 +1,4 @@
+import { CustomImage } from './CustomImage';
 import { Dependency } from './Dependency';
 import { FuncVpc } from './FuncVpc';
 import { MountConfig } from './MountConfig';
@@ -43,6 +44,9 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     private 'log_stream_id'?: string | undefined;
     public type?: ShowFunctionConfigResponseTypeEnum;
     private 'enable_dynamic_memory'?: boolean | undefined;
+    private 'is_stateful_function'?: boolean | undefined;
+    private 'enable_auth_in_header'?: boolean | undefined;
+    private 'custom_image'?: CustomImage | undefined;
     public constructor() { 
         super();
     }
@@ -349,6 +353,36 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     }
     public get enableDynamicMemory() {
         return this['enable_dynamic_memory'];
+    }
+    public withIsStatefulFunction(isStatefulFunction: boolean): ShowFunctionConfigResponse {
+        this['is_stateful_function'] = isStatefulFunction;
+        return this;
+    }
+    public set isStatefulFunction(isStatefulFunction: boolean | undefined) {
+        this['is_stateful_function'] = isStatefulFunction;
+    }
+    public get isStatefulFunction() {
+        return this['is_stateful_function'];
+    }
+    public withEnableAuthInHeader(enableAuthInHeader: boolean): ShowFunctionConfigResponse {
+        this['enable_auth_in_header'] = enableAuthInHeader;
+        return this;
+    }
+    public set enableAuthInHeader(enableAuthInHeader: boolean | undefined) {
+        this['enable_auth_in_header'] = enableAuthInHeader;
+    }
+    public get enableAuthInHeader() {
+        return this['enable_auth_in_header'];
+    }
+    public withCustomImage(customImage: CustomImage): ShowFunctionConfigResponse {
+        this['custom_image'] = customImage;
+        return this;
+    }
+    public set customImage(customImage: CustomImage | undefined) {
+        this['custom_image'] = customImage;
+    }
+    public get customImage() {
+        return this['custom_image'];
     }
 }
 

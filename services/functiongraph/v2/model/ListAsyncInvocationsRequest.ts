@@ -1,17 +1,17 @@
 
 
-export class ListFunctionAsyncInvocationsRequest {
+export class ListAsyncInvocationsRequest {
     private 'function_urn': string | undefined;
     private 'request_id'?: string | undefined;
-    public limit?: string;
     public marker?: string;
-    public status?: ListFunctionAsyncInvocationsRequestStatusEnum;
+    public limit?: string;
+    public status?: string;
     private 'query_begin_time'?: Date | undefined;
     private 'query_end_time'?: Date | undefined;
     public constructor(functionUrn?: any) { 
         this['function_urn'] = functionUrn;
     }
-    public withFunctionUrn(functionUrn: string): ListFunctionAsyncInvocationsRequest {
+    public withFunctionUrn(functionUrn: string): ListAsyncInvocationsRequest {
         this['function_urn'] = functionUrn;
         return this;
     }
@@ -21,7 +21,7 @@ export class ListFunctionAsyncInvocationsRequest {
     public get functionUrn() {
         return this['function_urn'];
     }
-    public withRequestId(requestId: string): ListFunctionAsyncInvocationsRequest {
+    public withRequestId(requestId: string): ListAsyncInvocationsRequest {
         this['request_id'] = requestId;
         return this;
     }
@@ -31,19 +31,19 @@ export class ListFunctionAsyncInvocationsRequest {
     public get requestId() {
         return this['request_id'];
     }
-    public withLimit(limit: string): ListFunctionAsyncInvocationsRequest {
-        this['limit'] = limit;
-        return this;
-    }
-    public withMarker(marker: string): ListFunctionAsyncInvocationsRequest {
+    public withMarker(marker: string): ListAsyncInvocationsRequest {
         this['marker'] = marker;
         return this;
     }
-    public withStatus(status: ListFunctionAsyncInvocationsRequestStatusEnum): ListFunctionAsyncInvocationsRequest {
+    public withLimit(limit: string): ListAsyncInvocationsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withStatus(status: string): ListAsyncInvocationsRequest {
         this['status'] = status;
         return this;
     }
-    public withQueryBeginTime(queryBeginTime: Date): ListFunctionAsyncInvocationsRequest {
+    public withQueryBeginTime(queryBeginTime: Date): ListAsyncInvocationsRequest {
         this['query_begin_time'] = queryBeginTime;
         return this;
     }
@@ -53,7 +53,7 @@ export class ListFunctionAsyncInvocationsRequest {
     public get queryBeginTime() {
         return this['query_begin_time'];
     }
-    public withQueryEndTime(queryEndTime: Date): ListFunctionAsyncInvocationsRequest {
+    public withQueryEndTime(queryEndTime: Date): ListAsyncInvocationsRequest {
         this['query_end_time'] = queryEndTime;
         return this;
     }
@@ -63,16 +63,4 @@ export class ListFunctionAsyncInvocationsRequest {
     public get queryEndTime() {
         return this['query_end_time'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListFunctionAsyncInvocationsRequestStatusEnum {
-    WAIT = 'WAIT',
-    RUNNING = 'RUNNING',
-    SUCCESS = 'SUCCESS',
-    FAIL = 'FAIL',
-    DISCARD = 'DISCARD'
 }

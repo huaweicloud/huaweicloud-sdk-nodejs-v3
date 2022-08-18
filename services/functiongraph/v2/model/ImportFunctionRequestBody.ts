@@ -5,6 +5,7 @@ export class ImportFunctionRequestBody {
     private 'file_name': string | undefined;
     private 'file_type': string | undefined;
     private 'file_code': string | undefined;
+    private 'package'?: string | undefined;
     public constructor(funcName?: any, fileName?: any, fileType?: any, fileCode?: any) { 
         this['func_name'] = funcName;
         this['file_name'] = fileName;
@@ -50,5 +51,15 @@ export class ImportFunctionRequestBody {
     }
     public get fileCode() {
         return this['file_code'];
+    }
+    public withPackage(_package: string): ImportFunctionRequestBody {
+        this['package'] = _package;
+        return this;
+    }
+    public set _package(_package: string | undefined) {
+        this['package'] = _package;
+    }
+    public get _package() {
+        return this['package'];
     }
 }

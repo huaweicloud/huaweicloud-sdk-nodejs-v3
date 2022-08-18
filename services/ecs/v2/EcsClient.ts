@@ -114,6 +114,9 @@ import { ListServerInterfacesRequest } from './model/ListServerInterfacesRequest
 import { ListServerInterfacesResponse } from './model/ListServerInterfacesResponse';
 import { ListServerTagsRequest } from './model/ListServerTagsRequest';
 import { ListServerTagsResponse } from './model/ListServerTagsResponse';
+import { ListServersByTagRequest } from './model/ListServersByTagRequest';
+import { ListServersByTagRequestBody } from './model/ListServersByTagRequestBody';
+import { ListServersByTagResponse } from './model/ListServersByTagResponse';
 import { ListServersDetailsRequest } from './model/ListServersDetailsRequest';
 import { ListServersDetailsResponse } from './model/ListServersDetailsResponse';
 import { MigrateServerOption } from './model/MigrateServerOption';
@@ -235,6 +238,7 @@ import { ResizeServerExtendParam } from './model/ResizeServerExtendParam';
 import { ResizeServerRequest } from './model/ResizeServerRequest';
 import { ResizeServerRequestBody } from './model/ResizeServerRequestBody';
 import { ResizeServerResponse } from './model/ResizeServerResponse';
+import { ResourceTag } from './model/ResourceTag';
 import { ServerAddress } from './model/ServerAddress';
 import { ServerAttachableQuantity } from './model/ServerAttachableQuantity';
 import { ServerBlockDevice } from './model/ServerBlockDevice';
@@ -249,10 +253,13 @@ import { ServerInterfaceFixedIp } from './model/ServerInterfaceFixedIp';
 import { ServerLimits } from './model/ServerLimits';
 import { ServerNicSecurityGroup } from './model/ServerNicSecurityGroup';
 import { ServerRemoteConsole } from './model/ServerRemoteConsole';
+import { ServerResource } from './model/ServerResource';
 import { ServerSchedulerHints } from './model/ServerSchedulerHints';
 import { ServerSecurityGroup } from './model/ServerSecurityGroup';
 import { ServerSystemTag } from './model/ServerSystemTag';
 import { ServerTag } from './model/ServerTag';
+import { ServerTagMatch } from './model/ServerTagMatch';
+import { ServerTags } from './model/ServerTags';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowResetPasswordFlagRequest } from './model/ShowResetPasswordFlagRequest';
@@ -942,6 +949,24 @@ export class EcsClient {
      */
     public listServerTags(): Promise<ListServerTagsResponse> {
         const options = ParamCreater().listServerTags();
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 使用标签过滤弹性云服务器，并返回云服务器使用的所有标签和资源列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 按标签查询云服务器列表
+     * @param {ListServersByTagRequestBody} listServersByTagRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listServersByTag(listServersByTagRequest?: ListServersByTagRequest): Promise<ListServersByTagResponse> {
+        const options = ParamCreater().listServersByTag(listServersByTagRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -3016,6 +3041,45 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 使用标签过滤弹性云服务器，并返回云服务器使用的所有标签和资源列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listServersByTag(listServersByTagRequest?: ListServersByTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/resource_instances/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (listServersByTagRequest !== null && listServersByTagRequest !== undefined) {
+                if (listServersByTagRequest instanceof ListServersByTagRequest) {
+                    body = listServersByTagRequest.body
+                } else {
+                    body = listServersByTagRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

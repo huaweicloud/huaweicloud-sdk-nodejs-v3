@@ -1,13 +1,13 @@
 import { UpdateDependencyRequestBody } from './UpdateDependencyRequestBody';
 
 
-export class UpdateDependencyRequest {
+export class UpdateDependcyRequest {
     private 'depend_id': string | undefined;
     public body?: UpdateDependencyRequestBody;
     public constructor(dependId?: any) { 
         this['depend_id'] = dependId;
     }
-    public withDependId(dependId: string): UpdateDependencyRequest {
+    public withDependId(dependId: string): UpdateDependcyRequest {
         this['depend_id'] = dependId;
         return this;
     }
@@ -17,7 +17,7 @@ export class UpdateDependencyRequest {
     public get dependId() {
         return this['depend_id'];
     }
-    public withBody(body: UpdateDependencyRequestBody): UpdateDependencyRequest {
+    public withBody(body: UpdateDependencyRequestBody): UpdateDependcyRequest {
         this['body'] = body;
         return this;
     }

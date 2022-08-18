@@ -87,7 +87,13 @@ export enum ShowFunctionTriggerResponseTriggerTypeCodeEnum {
     LTS = 'LTS',
     OBS = 'OBS',
     SMN = 'SMN',
-    KAFKA = 'KAFKA'
+    KAFKA = 'KAFKA',
+    RABBITMQ = 'RABBITMQ',
+    DEDICATEDGATEWAY = 'DEDICATEDGATEWAY',
+    OPENSOURCEKAFKA = 'OPENSOURCEKAFKA',
+    APIC = 'APIC',
+    GAUSSMONGO = 'GAUSSMONGO',
+    EVENTGRID = 'EVENTGRID'
 }
 /**
     * @export
@@ -95,5 +101,5 @@ export enum ShowFunctionTriggerResponseTriggerTypeCodeEnum {
     */
 export enum ShowFunctionTriggerResponseTriggerStatusEnum {
     ACTIVE = 'ACTIVE',
-    DISABLED = 'DISABLED'
+    DISABLE = 'DISABLE'
 }

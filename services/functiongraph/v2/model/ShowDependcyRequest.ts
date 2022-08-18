@@ -1,11 +1,11 @@
 
 
-export class ShowDependencyRequest {
+export class ShowDependcyRequest {
     private 'depend_id': string | undefined;
     public constructor(dependId?: any) { 
         this['depend_id'] = dependId;
     }
-    public withDependId(dependId: string): ShowDependencyRequest {
+    public withDependId(dependId: string): ShowDependcyRequest {
         this['depend_id'] = dependId;
         return this;
     }

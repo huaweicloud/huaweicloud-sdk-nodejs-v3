@@ -2,12 +2,12 @@ import { ListFunctionAsyncInvocationsResult } from './ListFunctionAsyncInvocatio
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class ListFunctionAsyncInvocationsResponse extends SdkResponse {
+export class ListAsyncInvocationsResponse extends SdkResponse {
     public invocations?: Array<ListFunctionAsyncInvocationsResult>;
     public constructor() { 
         super();
     }
-    public withInvocations(invocations: Array<ListFunctionAsyncInvocationsResult>): ListFunctionAsyncInvocationsResponse {
+    public withInvocations(invocations: Array<ListFunctionAsyncInvocationsResult>): ListAsyncInvocationsResponse {
         this['invocations'] = invocations;
         return this;
     }

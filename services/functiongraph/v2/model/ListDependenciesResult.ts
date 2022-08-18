@@ -8,8 +8,10 @@ export class ListDependenciesResult {
     public etag: string;
     public size: number;
     public name: string;
-    public description?: string;
     private 'file_name'?: string | undefined;
+    public description?: string;
+    public version?: number;
+    private 'last_modified'?: number | undefined;
     public constructor(id?: any, owner?: any, link?: any, runtime?: any, etag?: any, size?: any, name?: any) { 
         this['id'] = id;
         this['owner'] = owner;
@@ -47,10 +49,6 @@ export class ListDependenciesResult {
         this['name'] = name;
         return this;
     }
-    public withDescription(description: string): ListDependenciesResult {
-        this['description'] = description;
-        return this;
-    }
     public withFileName(fileName: string): ListDependenciesResult {
         this['file_name'] = fileName;
         return this;
@@ -60,6 +58,24 @@ export class ListDependenciesResult {
     }
     public get fileName() {
         return this['file_name'];
+    }
+    public withDescription(description: string): ListDependenciesResult {
+        this['description'] = description;
+        return this;
+    }
+    public withVersion(version: number): ListDependenciesResult {
+        this['version'] = version;
+        return this;
+    }
+    public withLastModified(lastModified: number): ListDependenciesResult {
+        this['last_modified'] = lastModified;
+        return this;
+    }
+    public set lastModified(lastModified: number | undefined) {
+        this['last_modified'] = lastModified;
+    }
+    public get lastModified() {
+        return this['last_modified'];
     }
 }
 

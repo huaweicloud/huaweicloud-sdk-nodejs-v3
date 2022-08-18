@@ -2,7 +2,7 @@
 
 export class ListFunctionStatisticsRequest {
     private 'func_urn': string | undefined;
-    public period: ListFunctionStatisticsRequestPeriodEnum;
+    public period: string;
     public constructor(funcUrn?: any, period?: any) { 
         this['func_urn'] = funcUrn;
         this['period'] = period;
@@ -17,18 +17,8 @@ export class ListFunctionStatisticsRequest {
     public get funcUrn() {
         return this['func_urn'];
     }
-    public withPeriod(period: ListFunctionStatisticsRequestPeriodEnum): ListFunctionStatisticsRequest {
+    public withPeriod(period: string): ListFunctionStatisticsRequest {
         this['period'] = period;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ListFunctionStatisticsRequestPeriodEnum {
-    E_5 = '5',
-    E_15 = '15',
-    E_60 = '60'
 }

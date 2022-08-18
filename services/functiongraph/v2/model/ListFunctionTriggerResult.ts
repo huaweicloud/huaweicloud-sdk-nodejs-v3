@@ -91,7 +91,13 @@ export enum ListFunctionTriggerResultTriggerTypeCodeEnum {
     LTS = 'LTS',
     OBS = 'OBS',
     SMN = 'SMN',
-    KAFKA = 'KAFKA'
+    KAFKA = 'KAFKA',
+    RABBITMQ = 'RABBITMQ',
+    DEDICATEDGATEWAY = 'DEDICATEDGATEWAY',
+    OPENSOURCEKAFKA = 'OPENSOURCEKAFKA',
+    APIC = 'APIC',
+    GAUSSMONGO = 'GAUSSMONGO',
+    EVENTGRID = 'EVENTGRID'
 }
 /**
     * @export
@@ -99,5 +105,5 @@ export enum ListFunctionTriggerResultTriggerTypeCodeEnum {
     */
 export enum ListFunctionTriggerResultTriggerStatusEnum {
     ACTIVE = 'ACTIVE',
-    DISABLED = 'DISABLED'
+    DISABLE = 'DISABLE'
 }

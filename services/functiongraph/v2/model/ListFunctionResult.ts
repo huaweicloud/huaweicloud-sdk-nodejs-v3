@@ -36,6 +36,7 @@ export class ListFunctionResult {
     private 'log_group_id'?: string | undefined;
     private 'log_stream_id'?: string | undefined;
     public type?: ListFunctionResultTypeEnum;
+    private 'fail_count'?: number | undefined;
     public constructor(funcUrn?: any, funcName?: any, domainId?: any, namespace?: any, projectName?: any, _package?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any, cpu?: any, codeType?: any, codeSize?: any, digest?: any, version?: any, imageName?: any, lastModified?: any) { 
         this['func_urn'] = funcUrn;
         this['func_name'] = funcName;
@@ -334,6 +335,16 @@ export class ListFunctionResult {
     public withType(type: ListFunctionResultTypeEnum): ListFunctionResult {
         this['type'] = type;
         return this;
+    }
+    public withFailCount(failCount: number): ListFunctionResult {
+        this['fail_count'] = failCount;
+        return this;
+    }
+    public set failCount(failCount: number | undefined) {
+        this['fail_count'] = failCount;
+    }
+    public get failCount() {
+        return this['fail_count'];
     }
 }
 

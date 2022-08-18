@@ -2,11 +2,22 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowLtsLogDetailsResponse extends SdkResponse {
+    private 'group_name'?: string | undefined;
     private 'group_id'?: string | undefined;
     private 'stream_id'?: string | undefined;
     private 'stream_name'?: string | undefined;
     public constructor() { 
         super();
+    }
+    public withGroupName(groupName: string): ShowLtsLogDetailsResponse {
+        this['group_name'] = groupName;
+        return this;
+    }
+    public set groupName(groupName: string | undefined) {
+        this['group_name'] = groupName;
+    }
+    public get groupName() {
+        return this['group_name'];
     }
     public withGroupId(groupId: string): ShowLtsLogDetailsResponse {
         this['group_id'] = groupId;

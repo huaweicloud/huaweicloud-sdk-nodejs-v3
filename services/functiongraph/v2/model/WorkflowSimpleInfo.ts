@@ -1,20 +1,27 @@
 
 
-export class ListWorkflowsResult {
-    public id?: string;
-    private 'workflow_urn'?: string | undefined;
-    public name?: string;
-    public description?: string;
-    private 'created_time'?: string | undefined;
-    private 'updated_time'?: string | undefined;
-    private 'created_by'?: string | undefined;
-    public constructor() { 
+export class WorkflowSimpleInfo {
+    public id: string;
+    private 'workflow_urn': string | undefined;
+    public name: string;
+    public description: string;
+    private 'created_time': string | undefined;
+    private 'updated_time': string | undefined;
+    private 'created_by': string | undefined;
+    public constructor(id?: any, workflowUrn?: any, name?: any, description?: any, createdTime?: any, updatedTime?: any, createdBy?: any) { 
+        this['id'] = id;
+        this['workflow_urn'] = workflowUrn;
+        this['name'] = name;
+        this['description'] = description;
+        this['created_time'] = createdTime;
+        this['updated_time'] = updatedTime;
+        this['created_by'] = createdBy;
     }
-    public withId(id: string): ListWorkflowsResult {
+    public withId(id: string): WorkflowSimpleInfo {
         this['id'] = id;
         return this;
     }
-    public withWorkflowUrn(workflowUrn: string): ListWorkflowsResult {
+    public withWorkflowUrn(workflowUrn: string): WorkflowSimpleInfo {
         this['workflow_urn'] = workflowUrn;
         return this;
     }
@@ -24,15 +31,15 @@ export class ListWorkflowsResult {
     public get workflowUrn() {
         return this['workflow_urn'];
     }
-    public withName(name: string): ListWorkflowsResult {
+    public withName(name: string): WorkflowSimpleInfo {
         this['name'] = name;
         return this;
     }
-    public withDescription(description: string): ListWorkflowsResult {
+    public withDescription(description: string): WorkflowSimpleInfo {
         this['description'] = description;
         return this;
     }
-    public withCreatedTime(createdTime: string): ListWorkflowsResult {
+    public withCreatedTime(createdTime: string): WorkflowSimpleInfo {
         this['created_time'] = createdTime;
         return this;
     }
@@ -42,7 +49,7 @@ export class ListWorkflowsResult {
     public get createdTime() {
         return this['created_time'];
     }
-    public withUpdatedTime(updatedTime: string): ListWorkflowsResult {
+    public withUpdatedTime(updatedTime: string): WorkflowSimpleInfo {
         this['updated_time'] = updatedTime;
         return this;
     }
@@ -52,7 +59,7 @@ export class ListWorkflowsResult {
     public get updatedTime() {
         return this['updated_time'];
     }
-    public withCreatedBy(createdBy: string): ListWorkflowsResult {
+    public withCreatedBy(createdBy: string): WorkflowSimpleInfo {
         this['created_by'] = createdBy;
         return this;
     }

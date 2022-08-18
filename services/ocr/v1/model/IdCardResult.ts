@@ -13,6 +13,7 @@ export class IdCardResult {
     private 'valid_to'?: string | undefined;
     private 'verification_result'?: IdcardVerificationResult | undefined;
     private 'text_location'?: object | undefined;
+    private 'detect_reproduce_result'?: boolean | undefined;
     public constructor() { 
     }
     public withName(name: string): IdCardResult {
@@ -88,5 +89,15 @@ export class IdCardResult {
     }
     public get textLocation() {
         return this['text_location'];
+    }
+    public withDetectReproduceResult(detectReproduceResult: boolean): IdCardResult {
+        this['detect_reproduce_result'] = detectReproduceResult;
+        return this;
+    }
+    public set detectReproduceResult(detectReproduceResult: boolean | undefined) {
+        this['detect_reproduce_result'] = detectReproduceResult;
+    }
+    public get detectReproduceResult() {
+        return this['detect_reproduce_result'];
     }
 }

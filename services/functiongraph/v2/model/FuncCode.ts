@@ -1,9 +1,11 @@
 
 
 export class FuncCode {
-    public file?: string;
-    public link?: string;
-    public constructor() { 
+    public file: string;
+    public link: string;
+    public constructor(file?: any, link?: any) { 
+        this['file'] = file;
+        this['link'] = link;
     }
     public withFile(file: string): FuncCode {
         this['file'] = file;

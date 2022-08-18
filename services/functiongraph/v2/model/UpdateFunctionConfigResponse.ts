@@ -1,3 +1,4 @@
+import { CustomImage } from './CustomImage';
 import { Dependency } from './Dependency';
 import { FuncVpc } from './FuncVpc';
 import { MountConfig } from './MountConfig';
@@ -44,6 +45,8 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     private 'enable_dynamic_memory'?: boolean | undefined;
     private 'is_stateful_function'?: boolean | undefined;
     private 'domain_names'?: string | undefined;
+    private 'enable_auth_in_header'?: boolean | undefined;
+    private 'custom_image'?: CustomImage | undefined;
     public constructor() { 
         super();
     }
@@ -360,6 +363,26 @@ export class UpdateFunctionConfigResponse extends SdkResponse {
     }
     public get domainNames() {
         return this['domain_names'];
+    }
+    public withEnableAuthInHeader(enableAuthInHeader: boolean): UpdateFunctionConfigResponse {
+        this['enable_auth_in_header'] = enableAuthInHeader;
+        return this;
+    }
+    public set enableAuthInHeader(enableAuthInHeader: boolean | undefined) {
+        this['enable_auth_in_header'] = enableAuthInHeader;
+    }
+    public get enableAuthInHeader() {
+        return this['enable_auth_in_header'];
+    }
+    public withCustomImage(customImage: CustomImage): UpdateFunctionConfigResponse {
+        this['custom_image'] = customImage;
+        return this;
+    }
+    public set customImage(customImage: CustomImage | undefined) {
+        this['custom_image'] = customImage;
+    }
+    public get customImage() {
+        return this['custom_image'];
     }
 }
 

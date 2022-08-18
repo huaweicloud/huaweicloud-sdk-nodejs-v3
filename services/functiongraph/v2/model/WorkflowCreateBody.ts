@@ -5,16 +5,16 @@ import { Retry } from './Retry';
 import { Trigger } from './Trigger';
 
 
-export class UpdateWorkflowRequestBody {
+export class WorkflowCreateBody {
     public name: string;
     public description?: string;
-    public triggers?: Array<Trigger>;
     public start: string;
+    public triggers?: Array<Trigger>;
     public functions: Array<Function>;
     public states: Array<OperationState>;
     public constants: object;
     public retries: Array<Retry>;
-    public mode?: UpdateWorkflowRequestBodyModeEnum;
+    public mode?: WorkflowCreateBodyModeEnum;
     private 'express_config'?: ExpressConfig | undefined;
     private 'enterprise_project_id'?: string | undefined;
     public constructor(name?: any, start?: any, functions?: any, states?: any, constants?: any, retries?: any) { 
@@ -25,43 +25,43 @@ export class UpdateWorkflowRequestBody {
         this['constants'] = constants;
         this['retries'] = retries;
     }
-    public withName(name: string): UpdateWorkflowRequestBody {
+    public withName(name: string): WorkflowCreateBody {
         this['name'] = name;
         return this;
     }
-    public withDescription(description: string): UpdateWorkflowRequestBody {
+    public withDescription(description: string): WorkflowCreateBody {
         this['description'] = description;
         return this;
     }
-    public withTriggers(triggers: Array<Trigger>): UpdateWorkflowRequestBody {
-        this['triggers'] = triggers;
-        return this;
-    }
-    public withStart(start: string): UpdateWorkflowRequestBody {
+    public withStart(start: string): WorkflowCreateBody {
         this['start'] = start;
         return this;
     }
-    public withFunctions(functions: Array<Function>): UpdateWorkflowRequestBody {
+    public withTriggers(triggers: Array<Trigger>): WorkflowCreateBody {
+        this['triggers'] = triggers;
+        return this;
+    }
+    public withFunctions(functions: Array<Function>): WorkflowCreateBody {
         this['functions'] = functions;
         return this;
     }
-    public withStates(states: Array<OperationState>): UpdateWorkflowRequestBody {
+    public withStates(states: Array<OperationState>): WorkflowCreateBody {
         this['states'] = states;
         return this;
     }
-    public withConstants(constants: object): UpdateWorkflowRequestBody {
+    public withConstants(constants: object): WorkflowCreateBody {
         this['constants'] = constants;
         return this;
     }
-    public withRetries(retries: Array<Retry>): UpdateWorkflowRequestBody {
+    public withRetries(retries: Array<Retry>): WorkflowCreateBody {
         this['retries'] = retries;
         return this;
     }
-    public withMode(mode: UpdateWorkflowRequestBodyModeEnum): UpdateWorkflowRequestBody {
+    public withMode(mode: WorkflowCreateBodyModeEnum): WorkflowCreateBody {
         this['mode'] = mode;
         return this;
     }
-    public withExpressConfig(expressConfig: ExpressConfig): UpdateWorkflowRequestBody {
+    public withExpressConfig(expressConfig: ExpressConfig): WorkflowCreateBody {
         this['express_config'] = expressConfig;
         return this;
     }
@@ -71,7 +71,7 @@ export class UpdateWorkflowRequestBody {
     public get expressConfig() {
         return this['express_config'];
     }
-    public withEnterpriseProjectId(enterpriseProjectId: string): UpdateWorkflowRequestBody {
+    public withEnterpriseProjectId(enterpriseProjectId: string): WorkflowCreateBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
@@ -87,7 +87,7 @@ export class UpdateWorkflowRequestBody {
     * @export
     * @enum {string}
     */
-export enum UpdateWorkflowRequestBodyModeEnum {
+export enum WorkflowCreateBodyModeEnum {
     NORMAL = 'NORMAL',
     EXPRESS = 'EXPRESS'
 }

@@ -7,6 +7,7 @@ import { AssetInfo } from './model/AssetInfo';
 import { AssetProcessReq } from './model/AssetProcessReq';
 import { AssetReviewReq } from './model/AssetReviewReq';
 import { AssetSummary } from './model/AssetSummary';
+import { AudioInfo } from './model/AudioInfo';
 import { AudioTemplateInfo } from './model/AudioTemplateInfo';
 import { BaseInfo } from './model/BaseInfo';
 import { CancelAssetTranscodeTaskRequest } from './model/CancelAssetTranscodeTaskRequest';
@@ -17,6 +18,7 @@ import { CdnLog } from './model/CdnLog';
 import { CheckMd5DuplicationRequest } from './model/CheckMd5DuplicationRequest';
 import { CheckMd5DuplicationResponse } from './model/CheckMd5DuplicationResponse';
 import { Common } from './model/Common';
+import { CommonInfo } from './model/CommonInfo';
 import { ConfirmAssetUploadReq } from './model/ConfirmAssetUploadReq';
 import { ConfirmAssetUploadRequest } from './model/ConfirmAssetUploadRequest';
 import { ConfirmAssetUploadResponse } from './model/ConfirmAssetUploadResponse';
@@ -42,8 +44,13 @@ import { CreatePreheatingAssetResponse } from './model/CreatePreheatingAssetResp
 import { CreateTakeOverTaskReq } from './model/CreateTakeOverTaskReq';
 import { CreateTakeOverTaskRequest } from './model/CreateTakeOverTaskRequest';
 import { CreateTakeOverTaskResponse } from './model/CreateTakeOverTaskResponse';
+import { CreateTemplateGroupCollectionRequest } from './model/CreateTemplateGroupCollectionRequest';
+import { CreateTemplateGroupCollectionResponse } from './model/CreateTemplateGroupCollectionResponse';
 import { CreateTemplateGroupRequest } from './model/CreateTemplateGroupRequest';
 import { CreateTemplateGroupResponse } from './model/CreateTemplateGroupResponse';
+import { CreateTranscodeTemplate } from './model/CreateTranscodeTemplate';
+import { CreateTranscodeTemplateRequest } from './model/CreateTranscodeTemplateRequest';
+import { CreateTranscodeTemplateResponse } from './model/CreateTranscodeTemplateResponse';
 import { CreateWatermarkTemplateReq } from './model/CreateWatermarkTemplateReq';
 import { CreateWatermarkTemplateRequest } from './model/CreateWatermarkTemplateRequest';
 import { CreateWatermarkTemplateResponse } from './model/CreateWatermarkTemplateResponse';
@@ -52,8 +59,12 @@ import { DeleteAssetCategoryResponse } from './model/DeleteAssetCategoryResponse
 import { DeleteAssetsRequest } from './model/DeleteAssetsRequest';
 import { DeleteAssetsResponse } from './model/DeleteAssetsResponse';
 import { DeleteResult } from './model/DeleteResult';
+import { DeleteTemplateGroupCollectionRequest } from './model/DeleteTemplateGroupCollectionRequest';
+import { DeleteTemplateGroupCollectionResponse } from './model/DeleteTemplateGroupCollectionResponse';
 import { DeleteTemplateGroupRequest } from './model/DeleteTemplateGroupRequest';
 import { DeleteTemplateGroupResponse } from './model/DeleteTemplateGroupResponse';
+import { DeleteTranscodeTemplateRequest } from './model/DeleteTranscodeTemplateRequest';
+import { DeleteTranscodeTemplateResponse } from './model/DeleteTranscodeTemplateResponse';
 import { DeleteWatermarkTemplateRequest } from './model/DeleteWatermarkTemplateRequest';
 import { DeleteWatermarkTemplateResponse } from './model/DeleteWatermarkTemplateResponse';
 import { ExtractAudioTaskReq } from './model/ExtractAudioTaskReq';
@@ -66,13 +77,19 @@ import { ListDomainLogsRequest } from './model/ListDomainLogsRequest';
 import { ListDomainLogsResponse } from './model/ListDomainLogsResponse';
 import { ListTakeOverTaskRequest } from './model/ListTakeOverTaskRequest';
 import { ListTakeOverTaskResponse } from './model/ListTakeOverTaskResponse';
+import { ListTemplateGroupCollectionRequest } from './model/ListTemplateGroupCollectionRequest';
+import { ListTemplateGroupCollectionResponse } from './model/ListTemplateGroupCollectionResponse';
 import { ListTemplateGroupRequest } from './model/ListTemplateGroupRequest';
 import { ListTemplateGroupResponse } from './model/ListTemplateGroupResponse';
 import { ListTopStatisticsRequest } from './model/ListTopStatisticsRequest';
 import { ListTopStatisticsResponse } from './model/ListTopStatisticsResponse';
+import { ListTranscodeTemplateRequest } from './model/ListTranscodeTemplateRequest';
+import { ListTranscodeTemplateResponse } from './model/ListTranscodeTemplateResponse';
 import { ListWatermarkTemplateRequest } from './model/ListWatermarkTemplateRequest';
 import { ListWatermarkTemplateResponse } from './model/ListWatermarkTemplateResponse';
 import { MetaData } from './model/MetaData';
+import { ModifyTemplateGroupCollection } from './model/ModifyTemplateGroupCollection';
+import { ModifyTransTemplate } from './model/ModifyTransTemplate';
 import { ModifyTransTemplateGroup } from './model/ModifyTransTemplateGroup';
 import { Output } from './model/Output';
 import { Parameter } from './model/Parameter';
@@ -86,6 +103,7 @@ import { PublishAssetReq } from './model/PublishAssetReq';
 import { PublishAssetsRequest } from './model/PublishAssetsRequest';
 import { PublishAssetsResponse } from './model/PublishAssetsResponse';
 import { QualityInfo } from './model/QualityInfo';
+import { QualityInfoList } from './model/QualityInfoList';
 import { QueryCategoryRsp } from './model/QueryCategoryRsp';
 import { Review } from './model/Review';
 import { ReviewDetail } from './model/ReviewDetail';
@@ -112,12 +130,15 @@ import { Subtitle } from './model/Subtitle';
 import { SubtitleInfo } from './model/SubtitleInfo';
 import { TakeOverTask } from './model/TakeOverTask';
 import { TemplateGroup } from './model/TemplateGroup';
+import { TemplateGroupCollection } from './model/TemplateGroupCollection';
 import { TextReviewRet } from './model/TextReviewRet';
 import { Thumbnail } from './model/Thumbnail';
 import { ThumbnailInfo } from './model/ThumbnailInfo';
 import { ThumbnailRsp } from './model/ThumbnailRsp';
 import { TopUrl } from './model/TopUrl';
 import { TransTemplateGroup } from './model/TransTemplateGroup';
+import { TransTemplateGroupCollection } from './model/TransTemplateGroupCollection';
+import { TransTemplateRsp } from './model/TransTemplateRsp';
 import { TranscodeInfo } from './model/TranscodeInfo';
 import { UnpublishAssetsRequest } from './model/UnpublishAssetsRequest';
 import { UnpublishAssetsResponse } from './model/UnpublishAssetsResponse';
@@ -135,8 +156,12 @@ import { UpdateCategoryReq } from './model/UpdateCategoryReq';
 import { UpdateCoverByThumbnailReq } from './model/UpdateCoverByThumbnailReq';
 import { UpdateCoverByThumbnailRequest } from './model/UpdateCoverByThumbnailRequest';
 import { UpdateCoverByThumbnailResponse } from './model/UpdateCoverByThumbnailResponse';
+import { UpdateTemplateGroupCollectionRequest } from './model/UpdateTemplateGroupCollectionRequest';
+import { UpdateTemplateGroupCollectionResponse } from './model/UpdateTemplateGroupCollectionResponse';
 import { UpdateTemplateGroupRequest } from './model/UpdateTemplateGroupRequest';
 import { UpdateTemplateGroupResponse } from './model/UpdateTemplateGroupResponse';
+import { UpdateTranscodeTemplateRequest } from './model/UpdateTranscodeTemplateRequest';
+import { UpdateTranscodeTemplateResponse } from './model/UpdateTranscodeTemplateResponse';
 import { UpdateWatermarkTemplateReq } from './model/UpdateWatermarkTemplateReq';
 import { UpdateWatermarkTemplateRequest } from './model/UpdateWatermarkTemplateRequest';
 import { UpdateWatermarkTemplateResponse } from './model/UpdateWatermarkTemplateResponse';
@@ -146,6 +171,7 @@ import { UploadMetaDataByUrl } from './model/UploadMetaDataByUrl';
 import { UploadMetaDataByUrlReq } from './model/UploadMetaDataByUrlReq';
 import { UploadMetaDataByUrlRequest } from './model/UploadMetaDataByUrlRequest';
 import { UploadMetaDataByUrlResponse } from './model/UploadMetaDataByUrlResponse';
+import { VideoInfo } from './model/VideoInfo';
 import { VideoTemplateInfo } from './model/VideoTemplateInfo';
 import { VideoTypeRef } from './model/VideoTypeRef';
 import { VodSampleData } from './model/VodSampleData';
@@ -434,6 +460,46 @@ export class VodClient {
     }
 
     /**
+     * 创建转码模板组集合
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 创建转码模板组集合
+     * @param {TransTemplateGroupCollection} createTemplateGroupCollectionRequestBody 创建自定义模板组集合 
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTemplateGroupCollection(createTemplateGroupCollectionRequest?: CreateTemplateGroupCollectionRequest): Promise<CreateTemplateGroupCollectionResponse> {
+        const options = ParamCreater().createTemplateGroupCollection(createTemplateGroupCollectionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建自定义转码模板。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 创建自定义转码模板
+     * @param {CreateTranscodeTemplate} createTranscodeTemplateRequestBody 创建自定义模板 
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTranscodeTemplate(createTranscodeTemplateRequest?: CreateTranscodeTemplateRequest): Promise<CreateTranscodeTemplateResponse> {
+        const options = ParamCreater().createTranscodeTemplate(createTranscodeTemplateRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建水印模板。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -509,6 +575,46 @@ export class VodClient {
      */
     public deleteTemplateGroup(deleteTemplateGroupRequest?: DeleteTemplateGroupRequest): Promise<void> {
         const options = ParamCreater().deleteTemplateGroup(deleteTemplateGroupRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除转码模板组集合
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 删除转码模板组集合
+     * @param {string} groupCollectionId 模板组集合id 
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTemplateGroupCollection(deleteTemplateGroupCollectionRequest?: DeleteTemplateGroupCollectionRequest): Promise<void> {
+        const options = ParamCreater().deleteTemplateGroupCollection(deleteTemplateGroupCollectionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除自定义模板
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 删除自定义模板
+     * @param {string} groupId 模板id 
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTranscodeTemplate(deleteTranscodeTemplateRequest?: DeleteTranscodeTemplateRequest): Promise<void> {
+        const options = ParamCreater().deleteTranscodeTemplate(deleteTranscodeTemplateRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -631,6 +737,28 @@ export class VodClient {
     }
 
     /**
+     * 查询转码模板组集合
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询自定义模板组集合
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {string} [groupCollectionId] 模板组集合id 
+     * @param {number} [offset] 偏移量。默认为0。指定group_collection_id时该参数无效。&lt;br/&gt; 
+     * @param {number} [limit] 每页记录数。默认为10，范围[1,100]。指定group_collection_id时该参数无效。&lt;br/&gt; 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTemplateGroupCollection(listTemplateGroupCollectionRequest?: ListTemplateGroupCollectionRequest): Promise<ListTemplateGroupCollectionResponse> {
+        const options = ParamCreater().listTemplateGroupCollection(listTemplateGroupCollectionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定域名在指定日期播放次数排名Top 100的媒资统计数据。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -646,6 +774,30 @@ export class VodClient {
      */
     public listTopStatistics(listTopStatisticsRequest?: ListTopStatisticsRequest): Promise<ListTopStatisticsResponse> {
         const options = ParamCreater().listTopStatistics(listTopStatisticsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询转码模板列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询转码模板列表
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {string} [groupId] 模板id 
+     * @param {boolean} [isDefault] 是否默认 
+     * @param {number} [offset] 偏移量。默认为0。指定group_id时该参数无效。&lt;br/&gt; 
+     * @param {number} [limit] 每页记录数。默认为10，范围[1,100]。指定group_id时该参数无效。&lt;br/&gt; 
+     * @param {string} [queryString] 按照模板名和描述模糊查询。指定group_id时该参数无效。&lt;br/&gt; 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTranscodeTemplate(listTranscodeTemplateRequest?: ListTranscodeTemplateRequest): Promise<ListTranscodeTemplateResponse> {
+        const options = ParamCreater().listTranscodeTemplate(listTranscodeTemplateRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1023,6 +1175,46 @@ export class VodClient {
      */
     public updateTemplateGroup(updateTemplateGroupRequest?: UpdateTemplateGroupRequest): Promise<void> {
         const options = ParamCreater().updateTemplateGroup(updateTemplateGroupRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改转码模板组结合
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 修改转码模板组集合
+     * @param {ModifyTemplateGroupCollection} updateTemplateGroupCollectionRequestBody 修改自定义模板组集合 
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTemplateGroupCollection(updateTemplateGroupCollectionRequest?: UpdateTemplateGroupCollectionRequest): Promise<void> {
+        const options = ParamCreater().updateTemplateGroupCollection(updateTemplateGroupCollectionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改转码模板
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 修改转码模板
+     * @param {ModifyTransTemplate} updateTranscodeTemplateRequestBody 修改模板 
+     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
+     * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateTranscodeTemplate(updateTranscodeTemplateRequest?: UpdateTranscodeTemplateRequest): Promise<void> {
+        const options = ParamCreater().updateTranscodeTemplate(updateTranscodeTemplateRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1820,6 +2012,108 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建转码模板组集合
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        createTemplateGroupCollection(createTemplateGroupCollectionRequest?: CreateTemplateGroupCollectionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/{project_id}/asset/template-collection/transcodings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let authorization;
+            let xSdkDate;
+
+            if (createTemplateGroupCollectionRequest !== null && createTemplateGroupCollectionRequest !== undefined) {
+                if (createTemplateGroupCollectionRequest instanceof CreateTemplateGroupCollectionRequest) {
+                    body = createTemplateGroupCollectionRequest.body
+                    authorization = createTemplateGroupCollectionRequest.authorization;
+                    xSdkDate = createTemplateGroupCollectionRequest.xSdkDate;
+                } else {
+                    body = createTemplateGroupCollectionRequest['body'];
+                    authorization = createTemplateGroupCollectionRequest['Authorization'];
+                    xSdkDate = createTemplateGroupCollectionRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建自定义转码模板。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        createTranscodeTemplate(createTranscodeTemplateRequest?: CreateTranscodeTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/asset/template/transcodings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let authorization;
+            let xSdkDate;
+
+            if (createTranscodeTemplateRequest !== null && createTranscodeTemplateRequest !== undefined) {
+                if (createTranscodeTemplateRequest instanceof CreateTranscodeTemplateRequest) {
+                    body = createTranscodeTemplateRequest.body
+                    authorization = createTranscodeTemplateRequest.authorization;
+                    xSdkDate = createTranscodeTemplateRequest.xSdkDate;
+                } else {
+                    body = createTranscodeTemplateRequest['body'];
+                    authorization = createTranscodeTemplateRequest['Authorization'];
+                    xSdkDate = createTranscodeTemplateRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建水印模板。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2019,6 +2313,112 @@ export const ParamCreater = function () {
         
             if (groupId === null || groupId === undefined) {
                 throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteTemplateGroup.');
+            }
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除转码模板组集合
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        deleteTemplateGroupCollection(deleteTemplateGroupCollectionRequest?: DeleteTemplateGroupCollectionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1.0/{project_id}/asset/template-collection/transcodings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let groupCollectionId;
+            let authorization;
+            let xSdkDate;
+
+            if (deleteTemplateGroupCollectionRequest !== null && deleteTemplateGroupCollectionRequest !== undefined) {
+                if (deleteTemplateGroupCollectionRequest instanceof DeleteTemplateGroupCollectionRequest) {
+                    groupCollectionId = deleteTemplateGroupCollectionRequest.groupCollectionId;
+                    authorization = deleteTemplateGroupCollectionRequest.authorization;
+                    xSdkDate = deleteTemplateGroupCollectionRequest.xSdkDate;
+                } else {
+                    groupCollectionId = deleteTemplateGroupCollectionRequest['group_collection_id'];
+                    authorization = deleteTemplateGroupCollectionRequest['Authorization'];
+                    xSdkDate = deleteTemplateGroupCollectionRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (groupCollectionId === null || groupCollectionId === undefined) {
+                throw new RequiredError('groupCollectionId','Required parameter groupCollectionId was null or undefined when calling deleteTemplateGroupCollection.');
+            }
+            if (groupCollectionId !== null && groupCollectionId !== undefined) {
+                localVarQueryParameter['group_collection_id'] = groupCollectionId;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除自定义模板
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        deleteTranscodeTemplate(deleteTranscodeTemplateRequest?: DeleteTranscodeTemplateRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/asset/template/transcodings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let groupId;
+            let authorization;
+            let xSdkDate;
+
+            if (deleteTranscodeTemplateRequest !== null && deleteTranscodeTemplateRequest !== undefined) {
+                if (deleteTranscodeTemplateRequest instanceof DeleteTranscodeTemplateRequest) {
+                    groupId = deleteTranscodeTemplateRequest.groupId;
+                    authorization = deleteTranscodeTemplateRequest.authorization;
+                    xSdkDate = deleteTranscodeTemplateRequest.xSdkDate;
+                } else {
+                    groupId = deleteTranscodeTemplateRequest['group_id'];
+                    authorization = deleteTranscodeTemplateRequest['Authorization'];
+                    xSdkDate = deleteTranscodeTemplateRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (groupId === null || groupId === undefined) {
+                throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling deleteTranscodeTemplate.');
             }
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
@@ -2394,6 +2794,68 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询转码模板组集合
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listTemplateGroupCollection(listTemplateGroupCollectionRequest?: ListTemplateGroupCollectionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/{project_id}/asset/template-collection/transcodings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let authorization;
+            let xSdkDate;
+            let groupCollectionId;
+            let offset;
+            let limit;
+
+            if (listTemplateGroupCollectionRequest !== null && listTemplateGroupCollectionRequest !== undefined) {
+                if (listTemplateGroupCollectionRequest instanceof ListTemplateGroupCollectionRequest) {
+                    authorization = listTemplateGroupCollectionRequest.authorization;
+                    xSdkDate = listTemplateGroupCollectionRequest.xSdkDate;
+                    groupCollectionId = listTemplateGroupCollectionRequest.groupCollectionId;
+                    offset = listTemplateGroupCollectionRequest.offset;
+                    limit = listTemplateGroupCollectionRequest.limit;
+                } else {
+                    authorization = listTemplateGroupCollectionRequest['Authorization'];
+                    xSdkDate = listTemplateGroupCollectionRequest['X-Sdk-Date'];
+                    groupCollectionId = listTemplateGroupCollectionRequest['group_collection_id'];
+                    offset = listTemplateGroupCollectionRequest['offset'];
+                    limit = listTemplateGroupCollectionRequest['limit'];
+                }
+            }
+
+        
+            if (groupCollectionId !== null && groupCollectionId !== undefined) {
+                localVarQueryParameter['group_collection_id'] = groupCollectionId;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定域名在指定日期播放次数排名Top 100的媒资统计数据。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2442,6 +2904,80 @@ export const ParamCreater = function () {
             }
             if (date !== null && date !== undefined) {
                 localVarQueryParameter['date'] = date;
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询转码模板列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listTranscodeTemplate(listTranscodeTemplateRequest?: ListTranscodeTemplateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/asset/template/transcodings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let authorization;
+            let xSdkDate;
+            let groupId;
+            let isDefault;
+            let offset;
+            let limit;
+            let queryString;
+
+            if (listTranscodeTemplateRequest !== null && listTranscodeTemplateRequest !== undefined) {
+                if (listTranscodeTemplateRequest instanceof ListTranscodeTemplateRequest) {
+                    authorization = listTranscodeTemplateRequest.authorization;
+                    xSdkDate = listTranscodeTemplateRequest.xSdkDate;
+                    groupId = listTranscodeTemplateRequest.groupId;
+                    isDefault = listTranscodeTemplateRequest.isDefault;
+                    offset = listTranscodeTemplateRequest.offset;
+                    limit = listTranscodeTemplateRequest.limit;
+                    queryString = listTranscodeTemplateRequest.queryString;
+                } else {
+                    authorization = listTranscodeTemplateRequest['Authorization'];
+                    xSdkDate = listTranscodeTemplateRequest['X-Sdk-Date'];
+                    groupId = listTranscodeTemplateRequest['group_id'];
+                    isDefault = listTranscodeTemplateRequest['is_default'];
+                    offset = listTranscodeTemplateRequest['offset'];
+                    limit = listTranscodeTemplateRequest['limit'];
+                    queryString = listTranscodeTemplateRequest['query_string'];
+                }
+            }
+
+        
+            if (groupId !== null && groupId !== undefined) {
+                localVarQueryParameter['group_id'] = groupId;
+            }
+            if (isDefault !== null && isDefault !== undefined) {
+                localVarQueryParameter['is_default'] = isDefault;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (queryString !== null && queryString !== undefined) {
+                localVarQueryParameter['query_string'] = queryString;
             }
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
@@ -3477,6 +4013,108 @@ export const ParamCreater = function () {
                     body = updateTemplateGroupRequest['body'];
                     authorization = updateTemplateGroupRequest['Authorization'];
                     xSdkDate = updateTemplateGroupRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改转码模板组结合
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        updateTemplateGroupCollection(updateTemplateGroupCollectionRequest?: UpdateTemplateGroupCollectionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.0/{project_id}/asset/template-collection/transcodings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let authorization;
+            let xSdkDate;
+
+            if (updateTemplateGroupCollectionRequest !== null && updateTemplateGroupCollectionRequest !== undefined) {
+                if (updateTemplateGroupCollectionRequest instanceof UpdateTemplateGroupCollectionRequest) {
+                    body = updateTemplateGroupCollectionRequest.body
+                    authorization = updateTemplateGroupCollectionRequest.authorization;
+                    xSdkDate = updateTemplateGroupCollectionRequest.xSdkDate;
+                } else {
+                    body = updateTemplateGroupCollectionRequest['body'];
+                    authorization = updateTemplateGroupCollectionRequest['Authorization'];
+                    xSdkDate = updateTemplateGroupCollectionRequest['X-Sdk-Date'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            if (xSdkDate !== undefined && xSdkDate !== null) {
+                localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改转码模板
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        updateTranscodeTemplate(updateTranscodeTemplateRequest?: UpdateTranscodeTemplateRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/asset/template/transcodings",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let authorization;
+            let xSdkDate;
+
+            if (updateTranscodeTemplateRequest !== null && updateTranscodeTemplateRequest !== undefined) {
+                if (updateTranscodeTemplateRequest instanceof UpdateTranscodeTemplateRequest) {
+                    body = updateTranscodeTemplateRequest.body
+                    authorization = updateTranscodeTemplateRequest.authorization;
+                    xSdkDate = updateTranscodeTemplateRequest.xSdkDate;
+                } else {
+                    body = updateTranscodeTemplateRequest['body'];
+                    authorization = updateTranscodeTemplateRequest['Authorization'];
+                    xSdkDate = updateTranscodeTemplateRequest['X-Sdk-Date'];
                 }
             }
 

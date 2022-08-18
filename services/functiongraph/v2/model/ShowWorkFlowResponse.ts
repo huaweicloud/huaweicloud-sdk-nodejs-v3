@@ -1,4 +1,4 @@
-import { CreateWorkflowRequestBody } from './CreateWorkflowRequestBody';
+import { WorkflowCreateBody } from './WorkflowCreateBody';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -10,7 +10,7 @@ export class ShowWorkFlowResponse extends SdkResponse {
     private 'created_by'?: string | undefined;
     private 'lts_group_id'?: string | undefined;
     private 'lts_stream_id'?: string | undefined;
-    public definition?: CreateWorkflowRequestBody;
+    public definition?: WorkflowCreateBody;
     public constructor() { 
         super();
     }
@@ -78,7 +78,7 @@ export class ShowWorkFlowResponse extends SdkResponse {
     public get ltsStreamId() {
         return this['lts_stream_id'];
     }
-    public withDefinition(definition: CreateWorkflowRequestBody): ShowWorkFlowResponse {
+    public withDefinition(definition: WorkflowCreateBody): ShowWorkFlowResponse {
         this['definition'] = definition;
         return this;
     }

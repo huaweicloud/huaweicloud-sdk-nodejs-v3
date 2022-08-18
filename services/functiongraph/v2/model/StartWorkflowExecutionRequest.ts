@@ -1,11 +1,12 @@
-import { StartWorkflowExecutionRequestBody } from './StartWorkflowExecutionRequestBody';
+import { FlowExecuteBody } from './FlowExecuteBody';
 
 
 export class StartWorkflowExecutionRequest {
     private 'workflow_id': string | undefined;
     private 'X-Create-Time'?: string | undefined;
     private 'X-WorkflowRun-ID'?: string | undefined;
-    public body?: StartWorkflowExecutionRequestBody;
+    private 'X-WorkflowRun-MergeFnParameters'?: string | undefined;
+    public body?: FlowExecuteBody;
     public constructor(workflowId?: any) { 
         this['workflow_id'] = workflowId;
     }
@@ -39,7 +40,17 @@ export class StartWorkflowExecutionRequest {
     public get xWorkflowRunID() {
         return this['X-WorkflowRun-ID'];
     }
-    public withBody(body: StartWorkflowExecutionRequestBody): StartWorkflowExecutionRequest {
+    public withXWorkflowRunMergeFnParameters(xWorkflowRunMergeFnParameters: string): StartWorkflowExecutionRequest {
+        this['X-WorkflowRun-MergeFnParameters'] = xWorkflowRunMergeFnParameters;
+        return this;
+    }
+    public set xWorkflowRunMergeFnParameters(xWorkflowRunMergeFnParameters: string | undefined) {
+        this['X-WorkflowRun-MergeFnParameters'] = xWorkflowRunMergeFnParameters;
+    }
+    public get xWorkflowRunMergeFnParameters() {
+        return this['X-WorkflowRun-MergeFnParameters'];
+    }
+    public withBody(body: FlowExecuteBody): StartWorkflowExecutionRequest {
         this['body'] = body;
         return this;
     }

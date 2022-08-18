@@ -1,7 +1,6 @@
 
 
 export class Dependency {
-    public id: string;
     public owner: string;
     public link: string;
     public runtime: DependencyRuntimeEnum;
@@ -10,8 +9,7 @@ export class Dependency {
     public name: string;
     public description: string;
     private 'file_name'?: string | undefined;
-    public constructor(id?: any, owner?: any, link?: any, runtime?: any, etag?: any, size?: any, name?: any, description?: any) { 
-        this['id'] = id;
+    public constructor(owner?: any, link?: any, runtime?: any, etag?: any, size?: any, name?: any, description?: any) { 
         this['owner'] = owner;
         this['link'] = link;
         this['runtime'] = runtime;
@@ -19,10 +17,6 @@ export class Dependency {
         this['size'] = size;
         this['name'] = name;
         this['description'] = description;
-    }
-    public withId(id: string): Dependency {
-        this['id'] = id;
-        return this;
     }
     public withOwner(owner: string): Dependency {
         this['owner'] = owner;

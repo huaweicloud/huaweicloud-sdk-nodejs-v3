@@ -3,6 +3,7 @@
 export class ShowWorkflowExecutionRequest {
     private 'workflow_id': string | undefined;
     private 'execution_id': string | undefined;
+    private 'X-Get-Workflow-Full-History-Data'?: boolean | undefined;
     public constructor(workflowId?: any, executionId?: any) { 
         this['workflow_id'] = workflowId;
         this['execution_id'] = executionId;
@@ -26,5 +27,15 @@ export class ShowWorkflowExecutionRequest {
     }
     public get executionId() {
         return this['execution_id'];
+    }
+    public withXGetWorkflowFullHistoryData(xGetWorkflowFullHistoryData: boolean): ShowWorkflowExecutionRequest {
+        this['X-Get-Workflow-Full-History-Data'] = xGetWorkflowFullHistoryData;
+        return this;
+    }
+    public set xGetWorkflowFullHistoryData(xGetWorkflowFullHistoryData: boolean | undefined) {
+        this['X-Get-Workflow-Full-History-Data'] = xGetWorkflowFullHistoryData;
+    }
+    public get xGetWorkflowFullHistoryData() {
+        return this['X-Get-Workflow-Full-History-Data'];
     }
 }

@@ -6,6 +6,7 @@ export class IdCardRequestBody {
     public side?: string;
     private 'return_verification'?: boolean | undefined;
     private 'return_text_location'?: boolean | undefined;
+    private 'detect_reproduce'?: boolean | undefined;
     public constructor() { 
     }
     public withImage(image: string): IdCardRequestBody {
@@ -39,5 +40,15 @@ export class IdCardRequestBody {
     }
     public get returnTextLocation() {
         return this['return_text_location'];
+    }
+    public withDetectReproduce(detectReproduce: boolean): IdCardRequestBody {
+        this['detect_reproduce'] = detectReproduce;
+        return this;
+    }
+    public set detectReproduce(detectReproduce: boolean | undefined) {
+        this['detect_reproduce'] = detectReproduce;
+    }
+    public get detectReproduce() {
+        return this['detect_reproduce'];
     }
 }

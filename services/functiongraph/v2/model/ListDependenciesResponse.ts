@@ -3,15 +3,11 @@ import { ListDependenciesResult } from './ListDependenciesResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListDependenciesResponse extends SdkResponse {
-    public count?: number;
     public dependencies?: Array<ListDependenciesResult>;
     private 'next_marker'?: number | undefined;
+    public count?: number;
     public constructor() { 
         super();
-    }
-    public withCount(count: number): ListDependenciesResponse {
-        this['count'] = count;
-        return this;
     }
     public withDependencies(dependencies: Array<ListDependenciesResult>): ListDependenciesResponse {
         this['dependencies'] = dependencies;
@@ -26,5 +22,9 @@ export class ListDependenciesResponse extends SdkResponse {
     }
     public get nextMarker() {
         return this['next_marker'];
+    }
+    public withCount(count: number): ListDependenciesResponse {
+        this['count'] = count;
+        return this;
     }
 }

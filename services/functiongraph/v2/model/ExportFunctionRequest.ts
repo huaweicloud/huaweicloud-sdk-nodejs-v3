@@ -4,7 +4,7 @@ export class ExportFunctionRequest {
     private 'function_urn': string | undefined;
     public config?: boolean;
     public code?: boolean;
-    public type?: ExportFunctionRequestTypeEnum;
+    public type?: string;
     public constructor(functionUrn?: any) { 
         this['function_urn'] = functionUrn;
     }
@@ -26,17 +26,8 @@ export class ExportFunctionRequest {
         this['code'] = code;
         return this;
     }
-    public withType(type: ExportFunctionRequestTypeEnum): ExportFunctionRequest {
+    public withType(type: string): ExportFunctionRequest {
         this['type'] = type;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ExportFunctionRequestTypeEnum {
-    TYPE = 'type',
-    CODE = 'code'
 }

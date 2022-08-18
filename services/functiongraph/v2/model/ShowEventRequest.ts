@@ -1,21 +1,11 @@
 
 
 export class ShowEventRequest {
-    private 'event_id': string | undefined;
     private 'function_urn': string | undefined;
-    public constructor(eventId?: any, functionUrn?: any) { 
-        this['event_id'] = eventId;
+    private 'event_id': string | undefined;
+    public constructor(functionUrn?: any, eventId?: any) { 
         this['function_urn'] = functionUrn;
-    }
-    public withEventId(eventId: string): ShowEventRequest {
         this['event_id'] = eventId;
-        return this;
-    }
-    public set eventId(eventId: string | undefined) {
-        this['event_id'] = eventId;
-    }
-    public get eventId() {
-        return this['event_id'];
     }
     public withFunctionUrn(functionUrn: string): ShowEventRequest {
         this['function_urn'] = functionUrn;
@@ -26,5 +16,15 @@ export class ShowEventRequest {
     }
     public get functionUrn() {
         return this['function_urn'];
+    }
+    public withEventId(eventId: string): ShowEventRequest {
+        this['event_id'] = eventId;
+        return this;
+    }
+    public set eventId(eventId: string | undefined) {
+        this['event_id'] = eventId;
+    }
+    public get eventId() {
+        return this['event_id'];
     }
 }

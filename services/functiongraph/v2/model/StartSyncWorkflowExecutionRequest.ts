@@ -1,9 +1,9 @@
-import { StartSyncWorkflowExecutionRequestBody } from './StartSyncWorkflowExecutionRequestBody';
+import { FlowExecuteBody } from './FlowExecuteBody';
 
 
 export class StartSyncWorkflowExecutionRequest {
     private 'workflow_id': string | undefined;
-    public body?: StartSyncWorkflowExecutionRequestBody;
+    public body?: FlowExecuteBody;
     public constructor(workflowId?: any) { 
         this['workflow_id'] = workflowId;
     }
@@ -17,7 +17,7 @@ export class StartSyncWorkflowExecutionRequest {
     public get workflowId() {
         return this['workflow_id'];
     }
-    public withBody(body: StartSyncWorkflowExecutionRequestBody): StartSyncWorkflowExecutionRequest {
+    public withBody(body: FlowExecuteBody): StartSyncWorkflowExecutionRequest {
         this['body'] = body;
         return this;
     }

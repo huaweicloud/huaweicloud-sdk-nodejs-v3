@@ -1,9 +1,8 @@
 
 
 export class UpdateTriggerRequestBody {
-    private 'trigger_status': UpdateTriggerRequestBodyTriggerStatusEnum | undefined;
-    public constructor(triggerStatus?: any) { 
-        this['trigger_status'] = triggerStatus;
+    private 'trigger_status'?: UpdateTriggerRequestBodyTriggerStatusEnum | undefined;
+    public constructor() { 
     }
     public withTriggerStatus(triggerStatus: UpdateTriggerRequestBodyTriggerStatusEnum): UpdateTriggerRequestBody {
         this['trigger_status'] = triggerStatus;
@@ -23,5 +22,5 @@ export class UpdateTriggerRequestBody {
     */
 export enum UpdateTriggerRequestBodyTriggerStatusEnum {
     ACTIVE = 'ACTIVE',
-    DISABLED = 'DISABLED'
+    DISABLE = 'DISABLE'
 }
