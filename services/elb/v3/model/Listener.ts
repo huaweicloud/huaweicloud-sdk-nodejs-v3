@@ -22,6 +22,7 @@ export class Listener {
     public protocol: string;
     private 'protocol_port': number | undefined;
     private 'sni_container_refs': Array<string> | undefined;
+    private 'sni_match_algo': string | undefined;
     public tags: Array<Tag>;
     private 'updated_at': string | undefined;
     private 'tls_ciphers_policy': string | undefined;
@@ -34,7 +35,7 @@ export class Listener {
     private 'transparent_client_ip_enable': boolean | undefined;
     private 'enhance_l7policy_enable': boolean | undefined;
     private 'quic_config'?: ListenerQuicConfig | undefined;
-    public constructor(adminStateUp?: any, clientCaTlsContainerRef?: any, connectionLimit?: any, createdAt?: any, defaultPoolId?: any, defaultTlsContainerRef?: any, description?: any, http2Enable?: any, id?: any, insertHeaders?: any, loadbalancers?: any, name?: any, projectId?: any, protocol?: any, protocolPort?: any, sniContainerRefs?: any, tags?: any, updatedAt?: any, tlsCiphersPolicy?: any, securityPolicyId?: any, enableMemberRetry?: any, keepaliveTimeout?: any, clientTimeout?: any, memberTimeout?: any, ipgroup?: any, transparentClientIpEnable?: any, enhanceL7policyEnable?: any) { 
+    public constructor(adminStateUp?: any, clientCaTlsContainerRef?: any, connectionLimit?: any, createdAt?: any, defaultPoolId?: any, defaultTlsContainerRef?: any, description?: any, http2Enable?: any, id?: any, insertHeaders?: any, loadbalancers?: any, name?: any, projectId?: any, protocol?: any, protocolPort?: any, sniContainerRefs?: any, sniMatchAlgo?: any, tags?: any, updatedAt?: any, tlsCiphersPolicy?: any, securityPolicyId?: any, enableMemberRetry?: any, keepaliveTimeout?: any, clientTimeout?: any, memberTimeout?: any, ipgroup?: any, transparentClientIpEnable?: any, enhanceL7policyEnable?: any) { 
         this['admin_state_up'] = adminStateUp;
         this['client_ca_tls_container_ref'] = clientCaTlsContainerRef;
         this['connection_limit'] = connectionLimit;
@@ -51,6 +52,7 @@ export class Listener {
         this['protocol'] = protocol;
         this['protocol_port'] = protocolPort;
         this['sni_container_refs'] = sniContainerRefs;
+        this['sni_match_algo'] = sniMatchAlgo;
         this['tags'] = tags;
         this['updated_at'] = updatedAt;
         this['tls_ciphers_policy'] = tlsCiphersPolicy;
@@ -192,6 +194,16 @@ export class Listener {
     }
     public get sniContainerRefs() {
         return this['sni_container_refs'];
+    }
+    public withSniMatchAlgo(sniMatchAlgo: string): Listener {
+        this['sni_match_algo'] = sniMatchAlgo;
+        return this;
+    }
+    public set sniMatchAlgo(sniMatchAlgo: string | undefined) {
+        this['sni_match_algo'] = sniMatchAlgo;
+    }
+    public get sniMatchAlgo() {
+        return this['sni_match_algo'];
     }
     public withTags(tags: Array<Tag>): Listener {
         this['tags'] = tags;

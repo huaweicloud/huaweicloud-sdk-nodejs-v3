@@ -18,6 +18,7 @@ export class CreateListenerOption {
     public protocol: string;
     private 'protocol_port': number | undefined;
     private 'sni_container_refs'?: Array<string> | undefined;
+    private 'sni_match_algo'?: string | undefined;
     public tags?: Array<Tag>;
     private 'tls_ciphers_policy'?: string | undefined;
     private 'security_policy_id'?: string | undefined;
@@ -145,6 +146,16 @@ export class CreateListenerOption {
     }
     public get sniContainerRefs() {
         return this['sni_container_refs'];
+    }
+    public withSniMatchAlgo(sniMatchAlgo: string): CreateListenerOption {
+        this['sni_match_algo'] = sniMatchAlgo;
+        return this;
+    }
+    public set sniMatchAlgo(sniMatchAlgo: string | undefined) {
+        this['sni_match_algo'] = sniMatchAlgo;
+    }
+    public get sniMatchAlgo() {
+        return this['sni_match_algo'];
     }
     public withTags(tags: Array<Tag>): CreateListenerOption {
         this['tags'] = tags;

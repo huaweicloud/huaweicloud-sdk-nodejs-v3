@@ -3,7 +3,6 @@
 export class PrepaidUpdateOption {
     private 'auto_pay'?: boolean | undefined;
     private 'change_mode'?: PrepaidUpdateOptionChangeModeEnum | undefined;
-    private 'cloud_service_console_url'?: string | undefined;
     private 'period_num'?: number | undefined;
     private 'period_type'?: PrepaidUpdateOptionPeriodTypeEnum | undefined;
     public constructor() { 
@@ -27,16 +26,6 @@ export class PrepaidUpdateOption {
     }
     public get changeMode() {
         return this['change_mode'];
-    }
-    public withCloudServiceConsoleUrl(cloudServiceConsoleUrl: string): PrepaidUpdateOption {
-        this['cloud_service_console_url'] = cloudServiceConsoleUrl;
-        return this;
-    }
-    public set cloudServiceConsoleUrl(cloudServiceConsoleUrl: string | undefined) {
-        this['cloud_service_console_url'] = cloudServiceConsoleUrl;
-    }
-    public get cloudServiceConsoleUrl() {
-        return this['cloud_service_console_url'];
     }
     public withPeriodNum(periodNum: number): PrepaidUpdateOption {
         this['period_num'] = periodNum;

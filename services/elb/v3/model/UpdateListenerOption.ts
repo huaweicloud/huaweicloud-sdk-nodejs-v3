@@ -13,6 +13,7 @@ export class UpdateListenerOption {
     private 'insert_headers'?: ListenerInsertHeaders | undefined;
     public name?: string;
     private 'sni_container_refs'?: Array<string> | undefined;
+    private 'sni_match_algo'?: string | undefined;
     private 'tls_ciphers_policy'?: string | undefined;
     private 'security_policy_id'?: string | undefined;
     private 'enable_member_retry'?: boolean | undefined;
@@ -102,6 +103,16 @@ export class UpdateListenerOption {
     }
     public get sniContainerRefs() {
         return this['sni_container_refs'];
+    }
+    public withSniMatchAlgo(sniMatchAlgo: string): UpdateListenerOption {
+        this['sni_match_algo'] = sniMatchAlgo;
+        return this;
+    }
+    public set sniMatchAlgo(sniMatchAlgo: string | undefined) {
+        this['sni_match_algo'] = sniMatchAlgo;
+    }
+    public get sniMatchAlgo() {
+        return this['sni_match_algo'];
     }
     public withTlsCiphersPolicy(tlsCiphersPolicy: string): UpdateListenerOption {
         this['tls_ciphers_policy'] = tlsCiphersPolicy;

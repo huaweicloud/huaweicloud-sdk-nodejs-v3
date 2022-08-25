@@ -9,9 +9,9 @@ import { BatchCreateMembersOption } from './model/BatchCreateMembersOption';
 import { BatchCreateMembersRequest } from './model/BatchCreateMembersRequest';
 import { BatchCreateMembersRequestBody } from './model/BatchCreateMembersRequestBody';
 import { BatchCreateMembersResponse } from './model/BatchCreateMembersResponse';
-import { BatchDeleteIpGroupIpListRequestBody } from './model/BatchDeleteIpGroupIpListRequestBody';
 import { BatchDeleteIpListOption } from './model/BatchDeleteIpListOption';
 import { BatchDeleteIpListRequest } from './model/BatchDeleteIpListRequest';
+import { BatchDeleteIpListRequestBody } from './model/BatchDeleteIpListRequestBody';
 import { BatchDeleteIpListResponse } from './model/BatchDeleteIpListResponse';
 import { BatchDeleteMembersOption } from './model/BatchDeleteMembersOption';
 import { BatchDeleteMembersRequest } from './model/BatchDeleteMembersRequest';
@@ -68,12 +68,6 @@ import { CreateLogtankOption } from './model/CreateLogtankOption';
 import { CreateLogtankRequest } from './model/CreateLogtankRequest';
 import { CreateLogtankRequestBody } from './model/CreateLogtankRequestBody';
 import { CreateLogtankResponse } from './model/CreateLogtankResponse';
-import { CreateMasterSlaveHealthMonitorOption } from './model/CreateMasterSlaveHealthMonitorOption';
-import { CreateMasterSlaveMemberOption } from './model/CreateMasterSlaveMemberOption';
-import { CreateMasterSlavePoolOption } from './model/CreateMasterSlavePoolOption';
-import { CreateMasterSlavePoolRequest } from './model/CreateMasterSlavePoolRequest';
-import { CreateMasterSlavePoolRequestBody } from './model/CreateMasterSlavePoolRequestBody';
-import { CreateMasterSlavePoolResponse } from './model/CreateMasterSlavePoolResponse';
 import { CreateMemberOption } from './model/CreateMemberOption';
 import { CreateMemberRequest } from './model/CreateMemberRequest';
 import { CreateMemberRequestBody } from './model/CreateMemberRequestBody';
@@ -108,8 +102,6 @@ import { DeleteLoadBalancerRequest } from './model/DeleteLoadBalancerRequest';
 import { DeleteLoadBalancerResponse } from './model/DeleteLoadBalancerResponse';
 import { DeleteLogtankRequest } from './model/DeleteLogtankRequest';
 import { DeleteLogtankResponse } from './model/DeleteLogtankResponse';
-import { DeleteMasterSlavePoolRequest } from './model/DeleteMasterSlavePoolRequest';
-import { DeleteMasterSlavePoolResponse } from './model/DeleteMasterSlavePoolResponse';
 import { DeleteMemberRequest } from './model/DeleteMemberRequest';
 import { DeleteMemberResponse } from './model/DeleteMemberResponse';
 import { DeletePoolRequest } from './model/DeletePoolRequest';
@@ -151,8 +143,6 @@ import { ListLoadBalancersRequest } from './model/ListLoadBalancersRequest';
 import { ListLoadBalancersResponse } from './model/ListLoadBalancersResponse';
 import { ListLogtanksRequest } from './model/ListLogtanksRequest';
 import { ListLogtanksResponse } from './model/ListLogtanksResponse';
-import { ListMasterSlavePoolsRequest } from './model/ListMasterSlavePoolsRequest';
-import { ListMasterSlavePoolsResponse } from './model/ListMasterSlavePoolsResponse';
 import { ListMembersRequest } from './model/ListMembersRequest';
 import { ListMembersResponse } from './model/ListMembersResponse';
 import { ListPoolsRequest } from './model/ListPoolsRequest';
@@ -166,7 +156,6 @@ import { ListSystemSecurityPoliciesResponse } from './model/ListSystemSecurityPo
 import { Listener } from './model/Listener';
 import { ListenerInsertHeaders } from './model/ListenerInsertHeaders';
 import { ListenerIpGroup } from './model/ListenerIpGroup';
-import { ListenerMemberInfo } from './model/ListenerMemberInfo';
 import { ListenerQuicConfig } from './model/ListenerQuicConfig';
 import { ListenerRef } from './model/ListenerRef';
 import { LoadBalancer } from './model/LoadBalancer';
@@ -180,9 +169,6 @@ import { LoadBalancerStatusPolicy } from './model/LoadBalancerStatusPolicy';
 import { LoadBalancerStatusPool } from './model/LoadBalancerStatusPool';
 import { LoadBalancerStatusResult } from './model/LoadBalancerStatusResult';
 import { Logtank } from './model/Logtank';
-import { MasterSlaveHealthMonitor } from './model/MasterSlaveHealthMonitor';
-import { MasterSlaveMember } from './model/MasterSlaveMember';
-import { MasterSlavePool } from './model/MasterSlavePool';
 import { Member } from './model/Member';
 import { MemberRef } from './model/MemberRef';
 import { MemberStatus } from './model/MemberStatus';
@@ -222,8 +208,6 @@ import { ShowLoadBalancerStatusRequest } from './model/ShowLoadBalancerStatusReq
 import { ShowLoadBalancerStatusResponse } from './model/ShowLoadBalancerStatusResponse';
 import { ShowLogtankRequest } from './model/ShowLogtankRequest';
 import { ShowLogtankResponse } from './model/ShowLogtankResponse';
-import { ShowMasterSlavePoolRequest } from './model/ShowMasterSlavePoolRequest';
-import { ShowMasterSlavePoolResponse } from './model/ShowMasterSlavePoolResponse';
 import { ShowMemberRequest } from './model/ShowMemberRequest';
 import { ShowMemberResponse } from './model/ShowMemberResponse';
 import { ShowPoolRequest } from './model/ShowPoolRequest';
@@ -531,24 +515,6 @@ export class ElbClient {
     }
 
     /**
-     * 创建主备后端服务器组。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 创建主备后端服务器组
-     * @param {CreateMasterSlavePoolRequestBody} createMasterSlavePoolRequestBody This is a auto create Body Object
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createMasterSlavePool(createMasterSlavePoolRequest?: CreateMasterSlavePoolRequest): Promise<CreateMasterSlavePoolResponse> {
-        const options = ParamCreater().createMasterSlavePool(createMasterSlavePoolRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 创建后端服务器。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -725,24 +691,6 @@ export class ElbClient {
      */
     public deleteLogtank(deleteLogtankRequest?: DeleteLogtankRequest): Promise<void> {
         const options = ParamCreater().deleteLogtank(deleteLogtankRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 删除主备后端服务器组。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 删除主备后端服务器组
-     * @param {string} poolId 后端服务器组ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public deleteMasterSlavePool(deleteMasterSlavePoolRequest?: DeleteMasterSlavePoolRequest): Promise<void> {
-        const options = ParamCreater().deleteMasterSlavePool(deleteMasterSlavePoolRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1125,41 +1073,6 @@ export class ElbClient {
     }
 
     /**
-     * 主备后端服务器组列表。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 查询主备后端服务器组列表
-     * @param {string} [marker] 上一页最后一条记录的ID。  使用说明：  - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
-     * @param {number} [limit] 每页返回的个数。
-     * @param {boolean} [pageReverse] 是否反向查询，取值： - true：查询上一页。 - false：查询下一页，默认。  使用说明： - 必须与limit一起使用。 - 当page_reverse&#x3D;true时，若要查询上一页，marker取值为当前页返回值的previous_marker。
-     * @param {Array<string>} [description] 后端云服务器组的描述信息。  支持多值查询，查询条件格式：*description&#x3D;xxx&amp;description&#x3D;xxx*。
-     * @param {Array<string>} [healthmonitorId] 后端云服务器组关联的健康检查的ID。  支持多值查询，查询条件格式：*healthmonitor_id&#x3D;xxx&amp;healthmonitor_id&#x3D;xxx*。
-     * @param {Array<string>} [id] 后端云服务器组的ID。  支持多值查询，查询条件格式：*id&#x3D;xxx&amp;id&#x3D;xxx*。
-     * @param {Array<string>} [name] 后端云服务器组的名称。  支持多值查询，查询条件格式：*name&#x3D;xxx&amp;name&#x3D;xxx*。
-     * @param {Array<string>} [loadbalancerId] 后端云服务器组绑定的负载均衡器ID。  支持多值查询，查询条件格式：*loadbalancer_id&#x3D;xxx&amp;loadbalancer_id&#x3D;xxx*。
-     * @param {Array<string>} [protocol] 后端云服务器组的后端协议。取值：TCP、UDP、HTTP、HTTPS和QUIC。  支持多值查询，查询条件格式：*protocol&#x3D;xxx&amp;protocol&#x3D;xxx*。
-     * @param {Array<string>} [lbAlgorithm] 后端云服务器组的负载均衡算法。  取值： 1、ROUND_ROBIN：加权轮询算法。 2、LEAST_CONNECTIONS：加权最少连接算法。 3、SOURCE_IP：源IP算法。 4、QUIC_CID：连接ID算法。  支持多值查询，查询条件格式：*lb_algorithm&#x3D;xxx&amp;lb_algorithm&#x3D;xxx*。
-     * @param {Array<string>} [enterpriseProjectId] 企业项目ID。不传时查询default企业项目\&quot;0\&quot;下的资源，鉴权按照default企业项目鉴权；如果传值，则传已存在的企业项目ID或all_granted_eps（表示查询所有企业项目）进行查询。   支持多值查询，查询条件格式：*enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。   [不支持该字段，请勿使用。](tag:dt,dt_test,hcso_dt)
-     * @param {Array<string>} [ipVersion] 后端云服务器组支持的IP版本。  支持多值查询，查询条件格式：*ip_version&#x3D;xxx&amp;ip_version&#x3D;xxx*。
-     * @param {Array<string>} [memberAddress] 后端云服务器的IP地址。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_address&#x3D;xxx&amp;member_address&#x3D;xxx*。
-     * @param {Array<string>} [memberDeviceId] 后端云服务器对应的弹性云服务器的ID。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_device_id&#x3D;xxx&amp;member_device_id&#x3D;xxx*。
-     * @param {Array<string>} [listenerId] 关联的监听器ID，包括通过l7policy关联的。  支持多值查询，查询条件格式：*listener_id&#x3D;xxx&amp;listener_id&#x3D;xxx*。
-     * @param {Array<string>} [memberInstanceId] 后端云服务器ID。仅用于查询条件，不作为响应参数字段。  支持多值查询，查询条件格式：*member_instance_id&#x3D;xxx&amp;member_instance_id&#x3D;xxx*。
-     * @param {Array<string>} [vpcId] 后端云服务器组关联的虚拟私有云的ID。
-     * @param {Array<string>} [type] 后端服务器组的类型。   取值：  - instance：允许任意类型的后端，type指定为该类型时，vpc_id是必选字段。  - ip：只能添加跨VPC后端，type指定为该类型时，vpc_id不允许指定。  - 空字符串（\&quot;\&quot;）：允许任意类型的后端
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listMasterSlavePools(listMasterSlavePoolsRequest?: ListMasterSlavePoolsRequest): Promise<ListMasterSlavePoolsResponse> {
-        const options = ParamCreater().listMasterSlavePools(listMasterSlavePoolsRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * Pool下的后端服务器列表。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -1181,6 +1094,7 @@ export class ElbClient {
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID。不传时查询default企业项目\&quot;0\&quot;下的资源，鉴权按照default企业项目鉴权；如果传值，则传已存在的企业项目ID或all_granted_eps（表示查询所有企业项目）进行查询。   支持多值查询，查询条件格式：*enterprise_project_id&#x3D;xxx&amp;enterprise_project_id&#x3D;xxx*。   [不支持该字段，请勿使用。](tag:dt,dt_test,hcso_dt)
      * @param {Array<string>} [ipVersion] 当前后端服务器的IP地址版本。取值：v4、v6。
      * @param {Array<string>} [memberType] 后端云服务器的类型。取值： - ip：跨VPC的member。 - instance：关联到ECS的member。  支持多值查询，查询条件格式：*member_type&#x3D;xxx&amp;member_type&#x3D;xxx*。
+     * @param {Array<string>} [instanceId] member关联的ECS实例ID，空表示跨VPC场景的member。  支持多值查询，查询条件格式：*instance_id&#x3D;xxx&amp;instance_id&#x3D;xxx*。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1450,24 +1364,6 @@ export class ElbClient {
      */
     public showLogtank(showLogtankRequest?: ShowLogtankRequest): Promise<ShowLogtankResponse> {
         const options = ParamCreater().showLogtank(showLogtankRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 主备后端服务器组详情。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 查询主备后端服务器组详情
-     * @param {string} poolId 后端服务器组ID。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showMasterSlavePool(showMasterSlavePoolRequest?: ShowMasterSlavePoolRequest): Promise<ShowMasterSlavePoolResponse> {
-        const options = ParamCreater().showMasterSlavePool(showMasterSlavePoolRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1762,7 +1658,7 @@ export class ElbClient {
      *
      * @summary 删除IP地址组的IP列表项
      * @param {string} ipgroupId IP地址组ID。
-     * @param {BatchDeleteIpGroupIpListRequestBody} [batchDeleteIpListRequestBody] This is a auto create Body Object
+     * @param {BatchDeleteIpListRequestBody} [batchDeleteIpListRequestBody] This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2401,45 +2297,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建主备后端服务器组。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        createMasterSlavePool(createMasterSlavePoolRequest?: CreateMasterSlavePoolRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/elb/master-slave-pools",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-
-            if (createMasterSlavePoolRequest !== null && createMasterSlavePoolRequest !== undefined) {
-                if (createMasterSlavePoolRequest instanceof CreateMasterSlavePoolRequest) {
-                    body = createMasterSlavePoolRequest.body
-                } else {
-                    body = createMasterSlavePoolRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 创建后端服务器。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2831,44 +2688,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'logtank_id': logtankId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 删除主备后端服务器组。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        deleteMasterSlavePool(deleteMasterSlavePoolRequest?: DeleteMasterSlavePoolRequest) {
-            const options = {
-                method: "DELETE",
-                url: "/v3/{project_id}/elb/master-slave-pools/{pool_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let poolId;
-
-            if (deleteMasterSlavePoolRequest !== null && deleteMasterSlavePoolRequest !== undefined) {
-                if (deleteMasterSlavePoolRequest instanceof DeleteMasterSlavePoolRequest) {
-                    poolId = deleteMasterSlavePoolRequest.poolId;
-                } else {
-                    poolId = deleteMasterSlavePoolRequest['pool_id'];
-                }
-            }
-
-        
-            if (poolId === null || poolId === undefined) {
-            throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling deleteMasterSlavePool.');
-            }
-
-            options.pathParams = { 'pool_id': poolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4191,146 +4010,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 主备后端服务器组列表。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        listMasterSlavePools(listMasterSlavePoolsRequest?: ListMasterSlavePoolsRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/elb/master-slave-pools",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let marker;
-            let limit;
-            let pageReverse;
-            let description;
-            let healthmonitorId;
-            let id;
-            let name;
-            let loadbalancerId;
-            let protocol;
-            let lbAlgorithm;
-            let enterpriseProjectId;
-            let ipVersion;
-            let memberAddress;
-            let memberDeviceId;
-            let listenerId;
-            let memberInstanceId;
-            let vpcId;
-            let type;
-
-            if (listMasterSlavePoolsRequest !== null && listMasterSlavePoolsRequest !== undefined) {
-                if (listMasterSlavePoolsRequest instanceof ListMasterSlavePoolsRequest) {
-                    marker = listMasterSlavePoolsRequest.marker;
-                    limit = listMasterSlavePoolsRequest.limit;
-                    pageReverse = listMasterSlavePoolsRequest.pageReverse;
-                    description = listMasterSlavePoolsRequest.description;
-                    healthmonitorId = listMasterSlavePoolsRequest.healthmonitorId;
-                    id = listMasterSlavePoolsRequest.id;
-                    name = listMasterSlavePoolsRequest.name;
-                    loadbalancerId = listMasterSlavePoolsRequest.loadbalancerId;
-                    protocol = listMasterSlavePoolsRequest.protocol;
-                    lbAlgorithm = listMasterSlavePoolsRequest.lbAlgorithm;
-                    enterpriseProjectId = listMasterSlavePoolsRequest.enterpriseProjectId;
-                    ipVersion = listMasterSlavePoolsRequest.ipVersion;
-                    memberAddress = listMasterSlavePoolsRequest.memberAddress;
-                    memberDeviceId = listMasterSlavePoolsRequest.memberDeviceId;
-                    listenerId = listMasterSlavePoolsRequest.listenerId;
-                    memberInstanceId = listMasterSlavePoolsRequest.memberInstanceId;
-                    vpcId = listMasterSlavePoolsRequest.vpcId;
-                    type = listMasterSlavePoolsRequest.type;
-                } else {
-                    marker = listMasterSlavePoolsRequest['marker'];
-                    limit = listMasterSlavePoolsRequest['limit'];
-                    pageReverse = listMasterSlavePoolsRequest['page_reverse'];
-                    description = listMasterSlavePoolsRequest['description'];
-                    healthmonitorId = listMasterSlavePoolsRequest['healthmonitor_id'];
-                    id = listMasterSlavePoolsRequest['id'];
-                    name = listMasterSlavePoolsRequest['name'];
-                    loadbalancerId = listMasterSlavePoolsRequest['loadbalancer_id'];
-                    protocol = listMasterSlavePoolsRequest['protocol'];
-                    lbAlgorithm = listMasterSlavePoolsRequest['lb_algorithm'];
-                    enterpriseProjectId = listMasterSlavePoolsRequest['enterprise_project_id'];
-                    ipVersion = listMasterSlavePoolsRequest['ip_version'];
-                    memberAddress = listMasterSlavePoolsRequest['member_address'];
-                    memberDeviceId = listMasterSlavePoolsRequest['member_device_id'];
-                    listenerId = listMasterSlavePoolsRequest['listener_id'];
-                    memberInstanceId = listMasterSlavePoolsRequest['member_instance_id'];
-                    vpcId = listMasterSlavePoolsRequest['vpc_id'];
-                    type = listMasterSlavePoolsRequest['type'];
-                }
-            }
-
-        
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (pageReverse !== null && pageReverse !== undefined) {
-                localVarQueryParameter['page_reverse'] = pageReverse;
-            }
-            if (description !== null && description !== undefined) {
-                localVarQueryParameter['description'] = description;
-            }
-            if (healthmonitorId !== null && healthmonitorId !== undefined) {
-                localVarQueryParameter['healthmonitor_id'] = healthmonitorId;
-            }
-            if (id !== null && id !== undefined) {
-                localVarQueryParameter['id'] = id;
-            }
-            if (name !== null && name !== undefined) {
-                localVarQueryParameter['name'] = name;
-            }
-            if (loadbalancerId !== null && loadbalancerId !== undefined) {
-                localVarQueryParameter['loadbalancer_id'] = loadbalancerId;
-            }
-            if (protocol !== null && protocol !== undefined) {
-                localVarQueryParameter['protocol'] = protocol;
-            }
-            if (lbAlgorithm !== null && lbAlgorithm !== undefined) {
-                localVarQueryParameter['lb_algorithm'] = lbAlgorithm;
-            }
-            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
-                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
-            }
-            if (ipVersion !== null && ipVersion !== undefined) {
-                localVarQueryParameter['ip_version'] = ipVersion;
-            }
-            if (memberAddress !== null && memberAddress !== undefined) {
-                localVarQueryParameter['member_address'] = memberAddress;
-            }
-            if (memberDeviceId !== null && memberDeviceId !== undefined) {
-                localVarQueryParameter['member_device_id'] = memberDeviceId;
-            }
-            if (listenerId !== null && listenerId !== undefined) {
-                localVarQueryParameter['listener_id'] = listenerId;
-            }
-            if (memberInstanceId !== null && memberInstanceId !== undefined) {
-                localVarQueryParameter['member_instance_id'] = memberInstanceId;
-            }
-            if (vpcId !== null && vpcId !== undefined) {
-                localVarQueryParameter['vpc_id'] = vpcId;
-            }
-            if (type !== null && type !== undefined) {
-                localVarQueryParameter['type'] = type;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * Pool下的后端服务器列表。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -4363,6 +4042,7 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             let ipVersion;
             let memberType;
+            let instanceId;
 
             if (listMembersRequest !== null && listMembersRequest !== undefined) {
                 if (listMembersRequest instanceof ListMembersRequest) {
@@ -4381,6 +4061,7 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listMembersRequest.enterpriseProjectId;
                     ipVersion = listMembersRequest.ipVersion;
                     memberType = listMembersRequest.memberType;
+                    instanceId = listMembersRequest.instanceId;
                 } else {
                     poolId = listMembersRequest['pool_id'];
                     marker = listMembersRequest['marker'];
@@ -4397,6 +4078,7 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listMembersRequest['enterprise_project_id'];
                     ipVersion = listMembersRequest['ip_version'];
                     memberType = listMembersRequest['member_type'];
+                    instanceId = listMembersRequest['instance_id'];
                 }
             }
 
@@ -4445,6 +4127,9 @@ export const ParamCreater = function () {
             }
             if (memberType !== null && memberType !== undefined) {
                 localVarQueryParameter['member_type'] = memberType;
+            }
+            if (instanceId !== null && instanceId !== undefined) {
+                localVarQueryParameter['instance_id'] = instanceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -5094,44 +4779,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'logtank_id': logtankId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 主备后端服务器组详情。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        showMasterSlavePool(showMasterSlavePoolRequest?: ShowMasterSlavePoolRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/elb/master-slave-pools/{pool_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let poolId;
-
-            if (showMasterSlavePoolRequest !== null && showMasterSlavePoolRequest !== undefined) {
-                if (showMasterSlavePoolRequest instanceof ShowMasterSlavePoolRequest) {
-                    poolId = showMasterSlavePoolRequest.poolId;
-                } else {
-                    poolId = showMasterSlavePoolRequest['pool_id'];
-                }
-            }
-
-        
-            if (poolId === null || poolId === undefined) {
-            throw new RequiredError('poolId','Required parameter poolId was null or undefined when calling showMasterSlavePool.');
-            }
-
-            options.pathParams = { 'pool_id': poolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

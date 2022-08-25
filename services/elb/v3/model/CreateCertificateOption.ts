@@ -10,6 +10,8 @@ export class CreateCertificateOption {
     private 'project_id'?: string | undefined;
     public type?: CreateCertificateOptionTypeEnum;
     private 'enterprise_project_id'?: string | undefined;
+    private 'enc_certificate'?: string | undefined;
+    private 'enc_private_key'?: string | undefined;
     public constructor(certificate?: any) { 
         this['certificate'] = certificate;
     }
@@ -72,6 +74,26 @@ export class CreateCertificateOption {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withEncCertificate(encCertificate: string): CreateCertificateOption {
+        this['enc_certificate'] = encCertificate;
+        return this;
+    }
+    public set encCertificate(encCertificate: string | undefined) {
+        this['enc_certificate'] = encCertificate;
+    }
+    public get encCertificate() {
+        return this['enc_certificate'];
+    }
+    public withEncPrivateKey(encPrivateKey: string): CreateCertificateOption {
+        this['enc_private_key'] = encPrivateKey;
+        return this;
+    }
+    public set encPrivateKey(encPrivateKey: string | undefined) {
+        this['enc_private_key'] = encPrivateKey;
+    }
+    public get encPrivateKey() {
+        return this['enc_private_key'];
     }
 }
 

@@ -5,6 +5,7 @@ export class WebImageRequestBody {
     public url?: string;
     private 'detect_direction'?: boolean | undefined;
     private 'extract_type'?: Array<string> | undefined;
+    private 'detect_font'?: boolean | undefined;
     public constructor() { 
     }
     public withImage(image: string): WebImageRequestBody {
@@ -34,5 +35,15 @@ export class WebImageRequestBody {
     }
     public get extractType() {
         return this['extract_type'];
+    }
+    public withDetectFont(detectFont: boolean): WebImageRequestBody {
+        this['detect_font'] = detectFont;
+        return this;
+    }
+    public set detectFont(detectFont: boolean | undefined) {
+        this['detect_font'] = detectFont;
+    }
+    public get detectFont() {
+        return this['detect_font'];
     }
 }

@@ -18,6 +18,7 @@ export class UpdateLoadBalancerOption {
     private 'deletion_protection_enable'?: boolean | undefined;
     private 'prepaid_options'?: PrepaidUpdateOption | undefined;
     public autoscaling?: UpdateLoadbalancerAutoscalingOption;
+    private 'waf_failure_action'?: UpdateLoadBalancerOptionWafFailureActionEnum | undefined;
     public constructor() { 
     }
     public withName(name: string): UpdateLoadBalancerOption {
@@ -142,4 +143,23 @@ export class UpdateLoadBalancerOption {
         this['autoscaling'] = autoscaling;
         return this;
     }
+    public withWafFailureAction(wafFailureAction: UpdateLoadBalancerOptionWafFailureActionEnum): UpdateLoadBalancerOption {
+        this['waf_failure_action'] = wafFailureAction;
+        return this;
+    }
+    public set wafFailureAction(wafFailureAction: UpdateLoadBalancerOptionWafFailureActionEnum | undefined) {
+        this['waf_failure_action'] = wafFailureAction;
+    }
+    public get wafFailureAction() {
+        return this['waf_failure_action'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateLoadBalancerOptionWafFailureActionEnum {
+    DISCARD = 'discard',
+    FORWARD = 'forward'
 }

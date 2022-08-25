@@ -15,6 +15,8 @@ export class WebImageWordsBlockList {
     public city?: string;
     public district?: string;
     private 'detail_address'?: string | undefined;
+    private 'font_list'?: Array<string> | undefined;
+    private 'font_scores'?: Array<number> | undefined;
     public constructor() { 
     }
     public withWords(words: string): WebImageWordsBlockList {
@@ -96,5 +98,25 @@ export class WebImageWordsBlockList {
     }
     public get detailAddress() {
         return this['detail_address'];
+    }
+    public withFontList(fontList: Array<string>): WebImageWordsBlockList {
+        this['font_list'] = fontList;
+        return this;
+    }
+    public set fontList(fontList: Array<string> | undefined) {
+        this['font_list'] = fontList;
+    }
+    public get fontList() {
+        return this['font_list'];
+    }
+    public withFontScores(fontScores: Array<number>): WebImageWordsBlockList {
+        this['font_scores'] = fontScores;
+        return this;
+    }
+    public set fontScores(fontScores: Array<number> | undefined) {
+        this['font_scores'] = fontScores;
+    }
+    public get fontScores() {
+        return this['font_scores'];
     }
 }

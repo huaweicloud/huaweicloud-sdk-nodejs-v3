@@ -32,6 +32,7 @@ export class CreateLoadBalancerOption {
     private 'deletion_protection_enable'?: boolean | undefined;
     private 'prepaid_options'?: PrepaidCreateOption | undefined;
     public autoscaling?: CreateLoadbalancerAutoscalingOption;
+    private 'waf_failure_action'?: CreateLoadBalancerOptionWafFailureActionEnum | undefined;
     public constructor(availabilityZoneList?: any) { 
         this['availability_zone_list'] = availabilityZoneList;
     }
@@ -247,4 +248,23 @@ export class CreateLoadBalancerOption {
         this['autoscaling'] = autoscaling;
         return this;
     }
+    public withWafFailureAction(wafFailureAction: CreateLoadBalancerOptionWafFailureActionEnum): CreateLoadBalancerOption {
+        this['waf_failure_action'] = wafFailureAction;
+        return this;
+    }
+    public set wafFailureAction(wafFailureAction: CreateLoadBalancerOptionWafFailureActionEnum | undefined) {
+        this['waf_failure_action'] = wafFailureAction;
+    }
+    public get wafFailureAction() {
+        return this['waf_failure_action'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateLoadBalancerOptionWafFailureActionEnum {
+    DISCARD = 'discard',
+    FORWARD = 'forward'
 }

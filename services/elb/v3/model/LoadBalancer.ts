@@ -47,6 +47,7 @@ export class LoadBalancer {
     private 'deletion_protection_enable'?: boolean | undefined;
     public autoscaling?: AutoscalingRef;
     private 'public_border_group'?: string | undefined;
+    private 'waf_failure_action'?: string | undefined;
     public constructor(id?: any, description?: any, provisioningStatus?: any, adminStateUp?: any, provider?: any, pools?: any, listeners?: any, operatingStatus?: any, name?: any, projectId?: any, vipSubnetCidrId?: any, vipAddress?: any, vipPortId?: any, tags?: any, createdAt?: any, updatedAt?: any, guaranteed?: any, vpcId?: any, eips?: any, ipv6VipAddress?: any, ipv6VipVirsubnetId?: any, ipv6VipPortId?: any, availabilityZoneList?: any, enterpriseProjectId?: any, l4FlavorId?: any, l4ScaleFlavorId?: any, l7FlavorId?: any, l7ScaleFlavorId?: any, publicips?: any, globalEips?: any, elbVirsubnetIds?: any, elbVirsubnetType?: any, ipTargetEnable?: any, frozenScene?: any, ipv6Bandwidth?: any) { 
         this['id'] = id;
         this['description'] = description;
@@ -397,6 +398,16 @@ export class LoadBalancer {
     }
     public get publicBorderGroup() {
         return this['public_border_group'];
+    }
+    public withWafFailureAction(wafFailureAction: string): LoadBalancer {
+        this['waf_failure_action'] = wafFailureAction;
+        return this;
+    }
+    public set wafFailureAction(wafFailureAction: string | undefined) {
+        this['waf_failure_action'] = wafFailureAction;
+    }
+    public get wafFailureAction() {
+        return this['waf_failure_action'];
     }
 }
 

@@ -6,6 +6,8 @@ export class UpdateCertificateOption {
     public name?: string;
     private 'private_key'?: string | undefined;
     public domain?: string;
+    private 'enc_certificate'?: string | undefined;
+    private 'enc_private_key'?: string | undefined;
     public constructor() { 
     }
     public withCertificate(certificate: string): UpdateCertificateOption {
@@ -33,5 +35,25 @@ export class UpdateCertificateOption {
     public withDomain(domain: string): UpdateCertificateOption {
         this['domain'] = domain;
         return this;
+    }
+    public withEncCertificate(encCertificate: string): UpdateCertificateOption {
+        this['enc_certificate'] = encCertificate;
+        return this;
+    }
+    public set encCertificate(encCertificate: string | undefined) {
+        this['enc_certificate'] = encCertificate;
+    }
+    public get encCertificate() {
+        return this['enc_certificate'];
+    }
+    public withEncPrivateKey(encPrivateKey: string): UpdateCertificateOption {
+        this['enc_private_key'] = encPrivateKey;
+        return this;
+    }
+    public set encPrivateKey(encPrivateKey: string | undefined) {
+        this['enc_private_key'] = encPrivateKey;
+    }
+    public get encPrivateKey() {
+        return this['enc_private_key'];
     }
 }
