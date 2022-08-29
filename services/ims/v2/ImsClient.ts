@@ -86,6 +86,7 @@ import { ImportImageQuickRequest } from './model/ImportImageQuickRequest';
 import { ImportImageQuickResponse } from './model/ImportImageQuickResponse';
 import { JobEntities } from './model/JobEntities';
 import { JobEntitiesResult } from './model/JobEntitiesResult';
+import { JobProgressEntities } from './model/JobProgressEntities';
 import { Links } from './model/Links';
 import { ListImageByTagsRequest } from './model/ListImageByTagsRequest';
 import { ListImageByTagsRequestBody } from './model/ListImageByTagsRequestBody';
@@ -116,6 +117,8 @@ import { ResourceTag } from './model/ResourceTag';
 import { ShowImageByTagsResource } from './model/ShowImageByTagsResource';
 import { ShowImageQuotaRequest } from './model/ShowImageQuotaRequest';
 import { ShowImageQuotaResponse } from './model/ShowImageQuotaResponse';
+import { ShowJobProgressRequest } from './model/ShowJobProgressRequest';
+import { ShowJobProgressResponse } from './model/ShowJobProgressResponse';
 import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowVersionRequest } from './model/ShowVersionRequest';
@@ -619,6 +622,42 @@ export class ImsClient {
     }
 
     /**
+     * 该接口为扩展接口，主要用于查询异步接口执行情况，比如查询导出镜像任务的执行状态。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询job状态
+     * @param {string} jobId 异步任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJob(showJobRequest?: ShowJobRequest): Promise<ShowJobResponse> {
+        const options = ParamCreater().showJob(showJobRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口为扩展接口，主要用于查询异步任务进度。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 异步任务进度查询
+     * @param {string} jobId 异步任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobProgress(showJobProgressRequest?: ShowJobProgressRequest): Promise<ShowJobProgressResponse> {
+        const options = ParamCreater().showJobProgress(showJobProgressRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新镜像信息接口，主要用于镜像属性的修改。当前仅支持可用（active）状态的镜像更新相关信息。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -667,24 +706,6 @@ export class ImsClient {
      */
     public showVersion(showVersionRequest?: ShowVersionRequest): Promise<ShowVersionResponse> {
         const options = ParamCreater().showVersion(showVersionRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 该接口为扩展接口，主要用于查询异步接口执行情况，比如查询导出镜像任务的执行状态。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 查询job状态
-     * @param {string} jobId 异步任务ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showJob(showJobRequest?: ShowJobRequest): Promise<ShowJobResponse> {
-        const options = ParamCreater().showJob(showJobRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -2218,6 +2239,82 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 该接口为扩展接口，主要用于查询异步接口执行情况，比如查询导出镜像任务的执行状态。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showJob(showJobRequest?: ShowJobRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let jobId;
+
+            if (showJobRequest !== null && showJobRequest !== undefined) {
+                if (showJobRequest instanceof ShowJobRequest) {
+                    jobId = showJobRequest.jobId;
+                } else {
+                    jobId = showJobRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJob.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口为扩展接口，主要用于查询异步任务进度。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showJobProgress(showJobProgressRequest?: ShowJobProgressRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/cloudimages/job/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let jobId;
+
+            if (showJobProgressRequest !== null && showJobProgressRequest !== undefined) {
+                if (showJobProgressRequest instanceof ShowJobProgressRequest) {
+                    jobId = showJobProgressRequest.jobId;
+                } else {
+                    jobId = showJobProgressRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobProgress.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新镜像信息接口，主要用于镜像属性的修改。当前仅支持可用（active）状态的镜像更新相关信息。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2320,44 +2417,6 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'version': version, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 该接口为扩展接口，主要用于查询异步接口执行情况，比如查询导出镜像任务的执行状态。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        showJob(showJobRequest?: ShowJobRequest) {
-            const options = {
-                method: "GET",
-                url: "/v1/{project_id}/jobs/{job_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let jobId;
-
-            if (showJobRequest !== null && showJobRequest !== undefined) {
-                if (showJobRequest instanceof ShowJobRequest) {
-                    jobId = showJobRequest.jobId;
-                } else {
-                    jobId = showJobRequest['job_id'];
-                }
-            }
-
-        
-            if (jobId === null || jobId === undefined) {
-            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJob.');
-            }
-
-            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

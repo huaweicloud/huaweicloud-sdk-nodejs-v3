@@ -12,6 +12,7 @@ export class PostPaidServer {
     private 'auto_terminate_time'?: string | undefined;
     public adminPass?: string;
     private 'availability_zone'?: string | undefined;
+    private 'batch_create_in_multi_az'?: boolean | undefined;
     public count?: number;
     private 'data_volumes'?: Array<PostPaidServerDataVolume> | undefined;
     public extendparam?: PostPaidServerExtendParam;
@@ -62,6 +63,16 @@ export class PostPaidServer {
     }
     public get availabilityZone() {
         return this['availability_zone'];
+    }
+    public withBatchCreateInMultiAz(batchCreateInMultiAz: boolean): PostPaidServer {
+        this['batch_create_in_multi_az'] = batchCreateInMultiAz;
+        return this;
+    }
+    public set batchCreateInMultiAz(batchCreateInMultiAz: boolean | undefined) {
+        this['batch_create_in_multi_az'] = batchCreateInMultiAz;
+    }
+    public get batchCreateInMultiAz() {
+        return this['batch_create_in_multi_az'];
     }
     public withCount(count: number): PostPaidServer {
         this['count'] = count;
