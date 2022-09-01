@@ -11,8 +11,6 @@ export class CreateDependencyResponse extends SdkResponse {
     public name?: string;
     public description?: string;
     private 'file_name'?: string | undefined;
-    public version?: number;
-    private 'last_modified'?: number | undefined;
     public constructor() { 
         super();
     }
@@ -57,19 +55,5 @@ export class CreateDependencyResponse extends SdkResponse {
     }
     public get fileName() {
         return this['file_name'];
-    }
-    public withVersion(version: number): CreateDependencyResponse {
-        this['version'] = version;
-        return this;
-    }
-    public withLastModified(lastModified: number): CreateDependencyResponse {
-        this['last_modified'] = lastModified;
-        return this;
-    }
-    public set lastModified(lastModified: number | undefined) {
-        this['last_modified'] = lastModified;
-    }
-    public get lastModified() {
-        return this['last_modified'];
     }
 }

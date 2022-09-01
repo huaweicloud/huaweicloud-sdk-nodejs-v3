@@ -3,11 +3,9 @@ import { AllowIpRangesResult } from './AllowIpRangesResult';
 
 
 export class AclPolicyResult {
-    private 'allow_address_netmasks': Array<AllowAddressNetmasksResult> | undefined;
-    private 'allow_ip_ranges': Array<AllowIpRangesResult> | undefined;
-    public constructor(allowAddressNetmasks?: any, allowIpRanges?: any) { 
-        this['allow_address_netmasks'] = allowAddressNetmasks;
-        this['allow_ip_ranges'] = allowIpRanges;
+    private 'allow_address_netmasks'?: Array<AllowAddressNetmasksResult> | undefined;
+    private 'allow_ip_ranges'?: Array<AllowIpRangesResult> | undefined;
+    public constructor() { 
     }
     public withAllowAddressNetmasks(allowAddressNetmasks: Array<AllowAddressNetmasksResult>): AclPolicyResult {
         this['allow_address_netmasks'] = allowAddressNetmasks;

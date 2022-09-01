@@ -35,5 +35,6 @@ export enum ShowDomainQuotaRequestTypeEnum {
     ASSIGMENT_GROUP_MP = 'assigment_group_mp',
     ASSIGMENT_AGENCY_MP = 'assigment_agency_mp',
     ASSIGMENT_GROUP_EP = 'assigment_group_ep',
-    ASSIGMENT_USER_EP = 'assigment_user_ep'
+    ASSIGMENT_USER_EP = 'assigment_user_ep',
+    MAPPING = 'mapping'
 }

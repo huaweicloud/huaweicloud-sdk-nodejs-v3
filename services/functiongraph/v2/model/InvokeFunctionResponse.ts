@@ -6,6 +6,7 @@ export class InvokeFunctionResponse extends SdkResponse {
     public result?: string;
     public log?: string;
     public status?: number;
+    private 'X-Cff-Request-Id'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -30,5 +31,15 @@ export class InvokeFunctionResponse extends SdkResponse {
     public withStatus(status: number): InvokeFunctionResponse {
         this['status'] = status;
         return this;
+    }
+    public withXCffRequestId(xCffRequestId: string): InvokeFunctionResponse {
+        this['X-Cff-Request-Id'] = xCffRequestId;
+        return this;
+    }
+    public set xCffRequestId(xCffRequestId: string | undefined) {
+        this['X-Cff-Request-Id'] = xCffRequestId;
+    }
+    public get xCffRequestId() {
+        return this['X-Cff-Request-Id'];
     }
 }

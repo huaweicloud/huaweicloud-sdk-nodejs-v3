@@ -1,21 +1,14 @@
 
 
 export class LoginPolicyOption {
-    private 'account_validity_period': number | undefined;
-    private 'custom_info_for_login': string | undefined;
-    private 'lockout_duration': number | undefined;
-    private 'login_failed_times': number | undefined;
-    private 'period_with_login_failures': number | undefined;
-    private 'session_timeout': number | undefined;
-    private 'show_recent_login_info': boolean | undefined;
-    public constructor(accountValidityPeriod?: any, customInfoForLogin?: any, lockoutDuration?: any, loginFailedTimes?: any, periodWithLoginFailures?: any, sessionTimeout?: any, showRecentLoginInfo?: any) { 
-        this['account_validity_period'] = accountValidityPeriod;
-        this['custom_info_for_login'] = customInfoForLogin;
-        this['lockout_duration'] = lockoutDuration;
-        this['login_failed_times'] = loginFailedTimes;
-        this['period_with_login_failures'] = periodWithLoginFailures;
-        this['session_timeout'] = sessionTimeout;
-        this['show_recent_login_info'] = showRecentLoginInfo;
+    private 'account_validity_period'?: number | undefined;
+    private 'custom_info_for_login'?: string | undefined;
+    private 'lockout_duration'?: number | undefined;
+    private 'login_failed_times'?: number | undefined;
+    private 'period_with_login_failures'?: number | undefined;
+    private 'session_timeout'?: number | undefined;
+    private 'show_recent_login_info'?: boolean | undefined;
+    public constructor() { 
     }
     public withAccountValidityPeriod(accountValidityPeriod: number): LoginPolicyOption {
         this['account_validity_period'] = accountValidityPeriod;

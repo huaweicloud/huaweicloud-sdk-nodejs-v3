@@ -32,6 +32,7 @@ import { AllowAddressNetmasksOption } from './model/AllowAddressNetmasksOption';
 import { AllowAddressNetmasksResult } from './model/AllowAddressNetmasksResult';
 import { AllowIpRangesOption } from './model/AllowIpRangesOption';
 import { AllowIpRangesResult } from './model/AllowIpRangesResult';
+import { AllowUserBody } from './model/AllowUserBody';
 import { AssociateAgencyWithAllProjectsPermissionRequest } from './model/AssociateAgencyWithAllProjectsPermissionRequest';
 import { AssociateAgencyWithAllProjectsPermissionResponse } from './model/AssociateAgencyWithAllProjectsPermissionResponse';
 import { AssociateAgencyWithDomainPermissionRequest } from './model/AssociateAgencyWithDomainPermissionRequest';
@@ -365,7 +366,6 @@ import { ProjectDetailsAndStatusResult } from './model/ProjectDetailsAndStatusRe
 import { ProjectInfo } from './model/ProjectInfo';
 import { ProjectResult } from './model/ProjectResult';
 import { ProtectPolicyOption } from './model/ProtectPolicyOption';
-import { ProtectPolicyResult } from './model/ProtectPolicyResult';
 import { ProtocolIdInfo } from './model/ProtocolIdInfo';
 import { ProtocolLinks } from './model/ProtocolLinks';
 import { ProtocolOption } from './model/ProtocolOption';
@@ -401,7 +401,10 @@ import { RoleProjectAssignmentId } from './model/RoleProjectAssignmentId';
 import { RoleResult } from './model/RoleResult';
 import { RoleUserAssignmentId } from './model/RoleUserAssignmentId';
 import { RolesItem } from './model/RolesItem';
-import { RulesLocalAdditional } from './model/RulesLocalAdditional';
+import { RulesLocal } from './model/RulesLocal';
+import { RulesLocalGroup } from './model/RulesLocalGroup';
+import { RulesLocalGroups } from './model/RulesLocalGroups';
+import { RulesLocalUser } from './model/RulesLocalUser';
 import { RulesRemote } from './model/RulesRemote';
 import { ScopeDomainOption } from './model/ScopeDomainOption';
 import { ScopeProjectOption } from './model/ScopeProjectOption';
@@ -433,6 +436,7 @@ import { ShowDomainPasswordPolicyRequest } from './model/ShowDomainPasswordPolic
 import { ShowDomainPasswordPolicyResponse } from './model/ShowDomainPasswordPolicyResponse';
 import { ShowDomainProtectPolicyRequest } from './model/ShowDomainProtectPolicyRequest';
 import { ShowDomainProtectPolicyResponse } from './model/ShowDomainProtectPolicyResponse';
+import { ShowDomainProtectPolicyResponseBodyProtectPolicy } from './model/ShowDomainProtectPolicyResponseBodyProtectPolicy';
 import { ShowDomainQuotaRequest } from './model/ShowDomainQuotaRequest';
 import { ShowDomainQuotaResponse } from './model/ShowDomainQuotaResponse';
 import { ShowDomainRoleAssignmentsRequest } from './model/ShowDomainRoleAssignmentsRequest';
@@ -500,6 +504,7 @@ import { UpdateDomainPasswordPolicyResponse } from './model/UpdateDomainPassword
 import { UpdateDomainProtectPolicyRequest } from './model/UpdateDomainProtectPolicyRequest';
 import { UpdateDomainProtectPolicyRequestBody } from './model/UpdateDomainProtectPolicyRequestBody';
 import { UpdateDomainProtectPolicyResponse } from './model/UpdateDomainProtectPolicyResponse';
+import { UpdateDomainProtectPolicyResponseBodyProtectPolicy } from './model/UpdateDomainProtectPolicyResponseBodyProtectPolicy';
 import { UpdateIdentityproviderOption } from './model/UpdateIdentityproviderOption';
 import { UpdateLoginProject } from './model/UpdateLoginProject';
 import { UpdateLoginProjectReq } from './model/UpdateLoginProjectReq';
@@ -2581,7 +2586,7 @@ export class IamClient {
      *
      * @summary 查询账号配额
      * @param {string} domainId 待查询的账号ID，获取方式请参见：[获取账号、IAM用户、项目、用户组、委托的名称和ID](https://support.huaweicloud.com/api-iam/iam_17_0002.html)。
-     * @param {'user' | 'group' | 'idp' | 'agency' | 'policy' | 'assigment_group_mp' | 'assigment_agency_mp' | 'assigment_group_ep' | 'assigment_user_ep'} [type] 查询配额的类型，取值范围为：user, group, idp, agency, policy, assigment_group_mp, assigment_agency_mp, assigment_group_ep, assigment_user_ep。
+     * @param {'user' | 'group' | 'idp' | 'agency' | 'policy' | 'assigment_group_mp' | 'assigment_agency_mp' | 'assigment_group_ep' | 'assigment_user_ep' | 'mapping'} [type] 查询配额的类型，取值范围为：user, group, idp, agency, policy, assigment_group_mp, assigment_agency_mp, assigment_group_ep, assigment_user_ep, mapping。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2807,7 +2812,7 @@ export class IamClient {
     }
 
     /**
-     * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/zh-cn_topic_0079496985.html)为用户组授予所有项目服务权限。
+     * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)为用户组授予所有项目服务权限。
      * 
      * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
      * 
@@ -8412,7 +8417,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/zh-cn_topic_0079496985.html)为用户组授予所有项目服务权限。
+         * 该接口可以用于[管理员](https://support.huaweicloud.com/usermanual-iam/iam_01_0001.html)为用户组授予所有项目服务权限。
          * 
          * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
          * 
