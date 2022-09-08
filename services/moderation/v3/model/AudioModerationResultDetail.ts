@@ -1,16 +1,16 @@
-import { AudioModerationResultResultSegments } from './AudioModerationResultResultSegments';
+import { VideoModerationDetailSegment } from './VideoModerationDetailSegment';
 
 
-export class AudioModerationResultResultDetails {
+export class AudioModerationResultDetail {
     private 'start_time'?: number | undefined;
-    public suggestion?: AudioModerationResultResultDetailsSuggestionEnum;
+    public suggestion?: AudioModerationResultDetailSuggestionEnum;
     private 'end_time'?: number | undefined;
     public label?: string;
     private 'audio_text'?: string | undefined;
-    public segments?: Array<AudioModerationResultResultSegments>;
+    public segments?: Array<VideoModerationDetailSegment>;
     public constructor() { 
     }
-    public withStartTime(startTime: number): AudioModerationResultResultDetails {
+    public withStartTime(startTime: number): AudioModerationResultDetail {
         this['start_time'] = startTime;
         return this;
     }
@@ -20,11 +20,11 @@ export class AudioModerationResultResultDetails {
     public get startTime() {
         return this['start_time'];
     }
-    public withSuggestion(suggestion: AudioModerationResultResultDetailsSuggestionEnum): AudioModerationResultResultDetails {
+    public withSuggestion(suggestion: AudioModerationResultDetailSuggestionEnum): AudioModerationResultDetail {
         this['suggestion'] = suggestion;
         return this;
     }
-    public withEndTime(endTime: number): AudioModerationResultResultDetails {
+    public withEndTime(endTime: number): AudioModerationResultDetail {
         this['end_time'] = endTime;
         return this;
     }
@@ -34,11 +34,11 @@ export class AudioModerationResultResultDetails {
     public get endTime() {
         return this['end_time'];
     }
-    public withLabel(label: string): AudioModerationResultResultDetails {
+    public withLabel(label: string): AudioModerationResultDetail {
         this['label'] = label;
         return this;
     }
-    public withAudioText(audioText: string): AudioModerationResultResultDetails {
+    public withAudioText(audioText: string): AudioModerationResultDetail {
         this['audio_text'] = audioText;
         return this;
     }
@@ -48,7 +48,7 @@ export class AudioModerationResultResultDetails {
     public get audioText() {
         return this['audio_text'];
     }
-    public withSegments(segments: Array<AudioModerationResultResultSegments>): AudioModerationResultResultDetails {
+    public withSegments(segments: Array<VideoModerationDetailSegment>): AudioModerationResultDetail {
         this['segments'] = segments;
         return this;
     }
@@ -58,7 +58,7 @@ export class AudioModerationResultResultDetails {
     * @export
     * @enum {string}
     */
-export enum AudioModerationResultResultDetailsSuggestionEnum {
+export enum AudioModerationResultDetailSuggestionEnum {
     BLOCK = 'block',
     REVIEW = 'review'
 }

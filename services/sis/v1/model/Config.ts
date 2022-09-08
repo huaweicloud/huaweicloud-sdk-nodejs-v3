@@ -90,10 +90,10 @@ export enum ConfigAudioFormatEnum {
     * @enum {string}
     */
 export enum ConfigPropertyEnum {
-    CHINESE_8K_COMMON = 'chinese_8k_common',
-    CHINESE_16K_COMMON = 'chinese_16k_common',
     CHINESE_16K_GENERAL = 'chinese_16k_general',
     CHINESE_16K_TRAVEL = 'chinese_16k_travel',
+    CHINESE_8K_COMMON = 'chinese_8k_common',
+    CHINESE_16K_COMMON = 'chinese_16k_common',
     SICHUAN_16K_COMMON = 'sichuan_16k_common',
     CANTONESE_16K_COMMON = 'cantonese_16k_common',
     SHANGHAI_16K_COMMON = 'shanghai_16k_common'

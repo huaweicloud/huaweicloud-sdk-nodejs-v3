@@ -13,6 +13,11 @@ export class IamRegion {
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", "https://iam.ap-southeast-2.myhuaweicloud.com");
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", "https://iam.ap-southeast-3.myhuaweicloud.com");
     public static AF_SOUTH_1 = new Region("af-south-1", "https://iam.af-south-1.myhuaweicloud.com");
+    public static SA_BRAZIL_1 = new Region("sa-brazil-1", "https://iam.sa-brazil-1.myhuaweicloud.com");
+    public static LA_SOUTH_2 = new Region("la-south-2", "https://iam.la-south-2.myhuaweicloud.com");
+    public static NA_MEXICO_1 = new Region("na-mexico-1", "https://iam.na-mexico-1.myhuaweicloud.com");
+    public static LA_NORTH_2 = new Region("la-north-2", "https://iam.la-north-2.myhuaweicloud.com");
+    public static CN_NORTH_9 = new Region("cn-north-9", "https://iam.cn-north-9.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = IamRegion.createStaticFields();
@@ -30,6 +35,11 @@ export class IamRegion {
         map.set("ap-southeast-2", IamRegion.AP_SOUTHEAST_2);
         map.set("ap-southeast-3", IamRegion.AP_SOUTHEAST_3);
         map.set("af-south-1", IamRegion.AF_SOUTH_1);
+        map.set("sa-brazil-1", IamRegion.SA_BRAZIL_1);
+        map.set("la-south-2", IamRegion.LA_SOUTH_2);
+        map.set("na-mexico-1", IamRegion.NA_MEXICO_1);
+        map.set("la-north-2", IamRegion.LA_NORTH_2);
+        map.set("cn-north-9", IamRegion.CN_NORTH_9);
         return map;
     }
     public static valueOf(regionId: String) {

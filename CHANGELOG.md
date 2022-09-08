@@ -1,3 +1,30 @@
+# 3.1.1 2022-09-08
+
+### HuaweiCloud SDK EVS
+
+- _Features_
+  - Support the following interfaces：
+    - `ShowVersion`
+    - `ListVersions`
+    - `CinderShowVolumeTransfer`
+    - `CinderDeleteVolumeTransfer`
+    - `CinderListVolumeTransfers`
+    - `CinderCreateVolumeTransfer`
+    - `CinderAcceptVolumeTransfer`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK Moderation
+
+- _Features_
+  - Support the interfaces `RunCreateVideoModerationJob`, `RunQueryVideoModerationJob`
+- _Bug Fix_
+  - None
+- _Change_
+  - The request parameter `url` changed to not required of the interface `RunCreateAudioModerationJob`
+
 # 3.0.57 2022-09-01
 
 ### HuaweiCloud SDK FunctionGraph

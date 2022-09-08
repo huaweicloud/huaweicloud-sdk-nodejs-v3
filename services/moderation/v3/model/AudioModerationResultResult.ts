@@ -1,9 +1,9 @@
-import { AudioModerationResultResultDetails } from './AudioModerationResultResultDetails';
+import { AudioModerationResultDetail } from './AudioModerationResultDetail';
 
 
 export class AudioModerationResultResult {
     public suggestion?: AudioModerationResultResultSuggestionEnum;
-    public details?: Array<AudioModerationResultResultDetails>;
+    public details?: Array<AudioModerationResultDetail>;
     private 'audio_text'?: string | undefined;
     public constructor() { 
     }
@@ -11,7 +11,7 @@ export class AudioModerationResultResult {
         this['suggestion'] = suggestion;
         return this;
     }
-    public withDetails(details: Array<AudioModerationResultResultDetails>): AudioModerationResultResult {
+    public withDetails(details: Array<AudioModerationResultDetail>): AudioModerationResultResult {
         this['details'] = details;
         return this;
     }

@@ -1,3 +1,30 @@
+# 3.1.1 2022-09-08
+
+### HuaweiCloud SDK EVS
+
+- _新增特性_
+  - 支持以下接口：
+    - `ShowVersion`
+    - `ListVersions`
+    - `CinderShowVolumeTransfer`
+    - `CinderDeleteVolumeTransfer`
+    - `CinderListVolumeTransfers`
+    - `CinderCreateVolumeTransfer`
+    - `CinderAcceptVolumeTransfer`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK Moderation
+
+- _新增特性_
+  - 支持接口`RunCreateVideoModerationJob`、`RunQueryVideoModerationJob`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`RunCreateAudioModerationJob`请求参数`url`改为非必填
+
 # 3.0.57 2022-09-01
 
 ### HuaweiCloud SDK FunctionGraph

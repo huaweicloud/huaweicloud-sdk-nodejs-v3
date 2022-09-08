@@ -33,6 +33,7 @@ export class LoadBalancer {
     private 'ipv6_vip_port_id': string | undefined;
     private 'availability_zone_list': Array<string> | undefined;
     private 'enterprise_project_id': string | undefined;
+    private 'billing_info': string | undefined;
     private 'l4_flavor_id': string | undefined;
     private 'l4_scale_flavor_id': string | undefined;
     private 'l7_flavor_id': string | undefined;
@@ -48,7 +49,7 @@ export class LoadBalancer {
     public autoscaling?: AutoscalingRef;
     private 'public_border_group'?: string | undefined;
     private 'waf_failure_action'?: string | undefined;
-    public constructor(id?: any, description?: any, provisioningStatus?: any, adminStateUp?: any, provider?: any, pools?: any, listeners?: any, operatingStatus?: any, name?: any, projectId?: any, vipSubnetCidrId?: any, vipAddress?: any, vipPortId?: any, tags?: any, createdAt?: any, updatedAt?: any, guaranteed?: any, vpcId?: any, eips?: any, ipv6VipAddress?: any, ipv6VipVirsubnetId?: any, ipv6VipPortId?: any, availabilityZoneList?: any, enterpriseProjectId?: any, l4FlavorId?: any, l4ScaleFlavorId?: any, l7FlavorId?: any, l7ScaleFlavorId?: any, publicips?: any, globalEips?: any, elbVirsubnetIds?: any, elbVirsubnetType?: any, ipTargetEnable?: any, frozenScene?: any, ipv6Bandwidth?: any) { 
+    public constructor(id?: any, description?: any, provisioningStatus?: any, adminStateUp?: any, provider?: any, pools?: any, listeners?: any, operatingStatus?: any, name?: any, projectId?: any, vipSubnetCidrId?: any, vipAddress?: any, vipPortId?: any, tags?: any, createdAt?: any, updatedAt?: any, guaranteed?: any, vpcId?: any, eips?: any, ipv6VipAddress?: any, ipv6VipVirsubnetId?: any, ipv6VipPortId?: any, availabilityZoneList?: any, enterpriseProjectId?: any, billingInfo?: any, l4FlavorId?: any, l4ScaleFlavorId?: any, l7FlavorId?: any, l7ScaleFlavorId?: any, publicips?: any, globalEips?: any, elbVirsubnetIds?: any, elbVirsubnetType?: any, ipTargetEnable?: any, frozenScene?: any, ipv6Bandwidth?: any) { 
         this['id'] = id;
         this['description'] = description;
         this['provisioning_status'] = provisioningStatus;
@@ -73,6 +74,7 @@ export class LoadBalancer {
         this['ipv6_vip_port_id'] = ipv6VipPortId;
         this['availability_zone_list'] = availabilityZoneList;
         this['enterprise_project_id'] = enterpriseProjectId;
+        this['billing_info'] = billingInfo;
         this['l4_flavor_id'] = l4FlavorId;
         this['l4_scale_flavor_id'] = l4ScaleFlavorId;
         this['l7_flavor_id'] = l7FlavorId;
@@ -270,6 +272,16 @@ export class LoadBalancer {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withBillingInfo(billingInfo: string): LoadBalancer {
+        this['billing_info'] = billingInfo;
+        return this;
+    }
+    public set billingInfo(billingInfo: string | undefined) {
+        this['billing_info'] = billingInfo;
+    }
+    public get billingInfo() {
+        return this['billing_info'];
     }
     public withL4FlavorId(l4FlavorId: string): LoadBalancer {
         this['l4_flavor_id'] = l4FlavorId;

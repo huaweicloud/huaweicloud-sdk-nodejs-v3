@@ -87,7 +87,7 @@ export class ImageClient {
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 图像主体识别
+     * @summary 主体识别
      * @param {ImageMainObjectDetectionReq} runImageMainObjectDetectionRequestBody 图像主体识别接口请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

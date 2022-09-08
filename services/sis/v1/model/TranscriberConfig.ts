@@ -109,11 +109,11 @@ export enum TranscriberConfigAudioFormatEnum {
     * @enum {string}
     */
 export enum TranscriberConfigPropertyEnum {
+    CHINESE_16K_MEDIA = 'chinese_16k_media',
     CHINESE_8K_COMMON = 'chinese_8k_common',
     CHINESE_16K_CONVERSATION = 'chinese_16k_conversation',
     CHINESE_8K_BANK = 'chinese_8k_bank',
-    CHINESE_8K_INSURANCE = 'chinese_8k_insurance',
-    CHINESE_16K_MEDIA = 'chinese_16k_media'
+    CHINESE_8K_INSURANCE = 'chinese_8k_insurance'
 }
 /**
     * @export

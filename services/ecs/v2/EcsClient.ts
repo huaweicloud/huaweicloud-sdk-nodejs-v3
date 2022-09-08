@@ -319,7 +319,7 @@ export class EcsClient {
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 云服务器组添加成员
+     * @summary 添加云服务器组成员
      * @param {string} serverGroupId 云服务器组ID。
      * @param {AddServerGroupMemberRequestBody} addServerGroupMemberRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
@@ -725,7 +725,7 @@ export class EcsClient {
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 云服务器组删除成员
+     * @summary 删除云服务器组成员
      * @param {string} serverGroupId 云服务器组ID。
      * @param {DeleteServerGroupMemberRequestBody} deleteServerGroupMemberRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.

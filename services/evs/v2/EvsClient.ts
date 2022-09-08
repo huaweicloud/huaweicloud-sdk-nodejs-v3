@@ -12,12 +12,25 @@ import { BatchDeleteVolumeTagsRequestBody } from './model/BatchDeleteVolumeTagsR
 import { BatchDeleteVolumeTagsResponse } from './model/BatchDeleteVolumeTagsResponse';
 import { BssParamForCreateVolume } from './model/BssParamForCreateVolume';
 import { BssParamForResizeVolume } from './model/BssParamForResizeVolume';
+import { CinderAcceptVolumeTransferOption } from './model/CinderAcceptVolumeTransferOption';
+import { CinderAcceptVolumeTransferRequest } from './model/CinderAcceptVolumeTransferRequest';
+import { CinderAcceptVolumeTransferRequestBody } from './model/CinderAcceptVolumeTransferRequestBody';
+import { CinderAcceptVolumeTransferResponse } from './model/CinderAcceptVolumeTransferResponse';
+import { CinderCreateVolumeTransferRequest } from './model/CinderCreateVolumeTransferRequest';
+import { CinderCreateVolumeTransferRequestBody } from './model/CinderCreateVolumeTransferRequestBody';
+import { CinderCreateVolumeTransferResponse } from './model/CinderCreateVolumeTransferResponse';
+import { CinderDeleteVolumeTransferRequest } from './model/CinderDeleteVolumeTransferRequest';
+import { CinderDeleteVolumeTransferResponse } from './model/CinderDeleteVolumeTransferResponse';
 import { CinderListAvailabilityZonesRequest } from './model/CinderListAvailabilityZonesRequest';
 import { CinderListAvailabilityZonesResponse } from './model/CinderListAvailabilityZonesResponse';
 import { CinderListQuotasRequest } from './model/CinderListQuotasRequest';
 import { CinderListQuotasResponse } from './model/CinderListQuotasResponse';
+import { CinderListVolumeTransfersRequest } from './model/CinderListVolumeTransfersRequest';
+import { CinderListVolumeTransfersResponse } from './model/CinderListVolumeTransfersResponse';
 import { CinderListVolumeTypesRequest } from './model/CinderListVolumeTypesRequest';
 import { CinderListVolumeTypesResponse } from './model/CinderListVolumeTypesResponse';
+import { CinderShowVolumeTransferRequest } from './model/CinderShowVolumeTransferRequest';
+import { CinderShowVolumeTransferResponse } from './model/CinderShowVolumeTransferResponse';
 import { CreateSnapshotOption } from './model/CreateSnapshotOption';
 import { CreateSnapshotRequest } from './model/CreateSnapshotRequest';
 import { CreateSnapshotRequestBody } from './model/CreateSnapshotRequestBody';
@@ -27,6 +40,8 @@ import { CreateVolumeRequest } from './model/CreateVolumeRequest';
 import { CreateVolumeRequestBody } from './model/CreateVolumeRequestBody';
 import { CreateVolumeResponse } from './model/CreateVolumeResponse';
 import { CreateVolumeSchedulerHints } from './model/CreateVolumeSchedulerHints';
+import { CreateVolumeTransferDetail } from './model/CreateVolumeTransferDetail';
+import { CreateVolumeTransferOption } from './model/CreateVolumeTransferOption';
 import { DeleteSnapshotRequest } from './model/DeleteSnapshotRequest';
 import { DeleteSnapshotResponse } from './model/DeleteSnapshotResponse';
 import { DeleteTagsOption } from './model/DeleteTagsOption';
@@ -36,6 +51,8 @@ import { JobEntities } from './model/JobEntities';
 import { Link } from './model/Link';
 import { ListSnapshotsRequest } from './model/ListSnapshotsRequest';
 import { ListSnapshotsResponse } from './model/ListSnapshotsResponse';
+import { ListVersionsRequest } from './model/ListVersionsRequest';
+import { ListVersionsResponse } from './model/ListVersionsResponse';
 import { ListVolumeTagsRequest } from './model/ListVolumeTagsRequest';
 import { ListVolumeTagsResponse } from './model/ListVolumeTagsResponse';
 import { ListVolumesByTagsRequest } from './model/ListVolumesByTagsRequest';
@@ -44,6 +61,7 @@ import { ListVolumesByTagsResponse } from './model/ListVolumesByTagsResponse';
 import { ListVolumesRequest } from './model/ListVolumesRequest';
 import { ListVolumesResponse } from './model/ListVolumesResponse';
 import { Match } from './model/Match';
+import { MediaTypes } from './model/MediaTypes';
 import { OsExtend } from './model/OsExtend';
 import { QuotaDetail } from './model/QuotaDetail';
 import { QuotaDetailBackupGigabytes } from './model/QuotaDetailBackupGigabytes';
@@ -78,6 +96,8 @@ import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowSnapshotRequest } from './model/ShowSnapshotRequest';
 import { ShowSnapshotResponse } from './model/ShowSnapshotResponse';
+import { ShowVersionRequest } from './model/ShowVersionRequest';
+import { ShowVersionResponse } from './model/ShowVersionResponse';
 import { ShowVolumeRequest } from './model/ShowVolumeRequest';
 import { ShowVolumeResponse } from './model/ShowVolumeResponse';
 import { ShowVolumeTagsRequest } from './model/ShowVolumeTagsRequest';
@@ -96,9 +116,12 @@ import { UpdateVolumeOption } from './model/UpdateVolumeOption';
 import { UpdateVolumeRequest } from './model/UpdateVolumeRequest';
 import { UpdateVolumeRequestBody } from './model/UpdateVolumeRequestBody';
 import { UpdateVolumeResponse } from './model/UpdateVolumeResponse';
+import { Versions } from './model/Versions';
 import { VolumeDetail } from './model/VolumeDetail';
 import { VolumeDetailForTag } from './model/VolumeDetailForTag';
 import { VolumeMetadata } from './model/VolumeMetadata';
+import { VolumeTransfer } from './model/VolumeTransfer';
+import { VolumeTransferSummary } from './model/VolumeTransferSummary';
 import { VolumeType } from './model/VolumeType';
 import { VolumeTypeExtraSpecs } from './model/VolumeTypeExtraSpecs';
 import { ZoneState } from './model/ZoneState';
@@ -160,6 +183,62 @@ export class EvsClient {
     }
 
     /**
+     * 通过云硬盘过户记录ID以及身份认证密钥来接受云硬盘过户。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 接受云硬盘过户
+     * @param {string} transferId 云硬盘ID
+     * @param {CinderAcceptVolumeTransferRequestBody} cinderAcceptVolumeTransferRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cinderAcceptVolumeTransfer(cinderAcceptVolumeTransferRequest?: CinderAcceptVolumeTransferRequest): Promise<CinderAcceptVolumeTransferResponse> {
+        const options = ParamCreater().cinderAcceptVolumeTransfer(cinderAcceptVolumeTransferRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 指定云硬盘来创建云硬盘过户记录，创建成功后，会返回过户记录ID以及身份认证密钥。
+     * 云硬盘在过户过程中的状态变化如下：创建云硬盘过户后，云硬盘状态由“available”变为“awaiting-transfer”。当云硬盘过户被接收后，云硬盘状态变为“available”。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 创建云硬盘过户
+     * @param {CinderCreateVolumeTransferRequestBody} cinderCreateVolumeTransferRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cinderCreateVolumeTransfer(cinderCreateVolumeTransferRequest?: CinderCreateVolumeTransferRequest): Promise<CinderCreateVolumeTransferResponse> {
+        const options = ParamCreater().cinderCreateVolumeTransfer(cinderCreateVolumeTransferRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 当云硬盘过户未被接受时，您可以删除云硬盘过户记录，接受后则无法执行删除操作。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 删除云硬盘过户
+     * @param {string} transferId 云硬盘过户记录ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cinderDeleteVolumeTransfer(cinderDeleteVolumeTransferRequest?: CinderDeleteVolumeTransferRequest): Promise<void> {
+        const options = ParamCreater().cinderDeleteVolumeTransfer(cinderDeleteVolumeTransferRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询所有的可用分区信息。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -196,6 +275,25 @@ export class EvsClient {
     }
 
     /**
+     * 查询当前租户下所有云硬盘的过户记录列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询云硬盘过户记录列表概要
+     * @param {number} [limit] 返回结果个数限制，取值为大 于0的整数
+     * @param {number} [offset] 偏移量，偏移量为一个大于0小 于云硬盘过户记录总个数的整 数，表示查询该偏移量后面的 所有的云硬盘过户记录
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cinderListVolumeTransfers(cinderListVolumeTransfersRequest?: CinderListVolumeTransfersRequest): Promise<CinderListVolumeTransfersResponse> {
+        const options = ParamCreater().cinderListVolumeTransfers(cinderListVolumeTransfersRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询云硬盘类型列表。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -207,6 +305,24 @@ export class EvsClient {
      */
     public cinderListVolumeTypes(): Promise<CinderListVolumeTypesResponse> {
         const options = ParamCreater().cinderListVolumeTypes();
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询单个云硬盘的过户记录详情，比如过户记录创建时间、ID以及名称等信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询单个云硬盘过户记录详情
+     * @param {string} transferId 云硬盘过户记录ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public cinderShowVolumeTransfer(cinderShowVolumeTransferRequest?: CinderShowVolumeTransferRequest): Promise<CinderShowVolumeTransferResponse> {
+        const options = ParamCreater().cinderShowVolumeTransfer(cinderShowVolumeTransferRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -540,6 +656,41 @@ export class EvsClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 查询接口版本信息列表。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询接口版本信息列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listVersions(): Promise<void> {
+        const options = ParamCreater().listVersions();
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询接口的指定版本信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询API接口的版本信息
+     * @param {'v1' | 'v2' | 'v3'} version 查询的目标版本号。 取值为：v1、v2、v3。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVersion(showVersionRequest?: ShowVersionRequest): Promise<ShowVersionResponse> {
+        const options = ParamCreater().showVersion(showVersionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -641,6 +792,130 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 通过云硬盘过户记录ID以及身份认证密钥来接受云硬盘过户。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        cinderAcceptVolumeTransfer(cinderAcceptVolumeTransferRequest?: CinderAcceptVolumeTransferRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/os-volume-transfer/{transfer_id}/accept",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let transferId;
+
+            if (cinderAcceptVolumeTransferRequest !== null && cinderAcceptVolumeTransferRequest !== undefined) {
+                if (cinderAcceptVolumeTransferRequest instanceof CinderAcceptVolumeTransferRequest) {
+                    transferId = cinderAcceptVolumeTransferRequest.transferId;
+                    body = cinderAcceptVolumeTransferRequest.body
+                } else {
+                    transferId = cinderAcceptVolumeTransferRequest['transfer_id'];
+                    body = cinderAcceptVolumeTransferRequest['body'];
+                }
+            }
+
+        
+            if (transferId === null || transferId === undefined) {
+            throw new RequiredError('transferId','Required parameter transferId was null or undefined when calling cinderAcceptVolumeTransfer.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'transfer_id': transferId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 指定云硬盘来创建云硬盘过户记录，创建成功后，会返回过户记录ID以及身份认证密钥。
+         * 云硬盘在过户过程中的状态变化如下：创建云硬盘过户后，云硬盘状态由“available”变为“awaiting-transfer”。当云硬盘过户被接收后，云硬盘状态变为“available”。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        cinderCreateVolumeTransfer(cinderCreateVolumeTransferRequest?: CinderCreateVolumeTransferRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/os-volume-transfer",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (cinderCreateVolumeTransferRequest !== null && cinderCreateVolumeTransferRequest !== undefined) {
+                if (cinderCreateVolumeTransferRequest instanceof CinderCreateVolumeTransferRequest) {
+                    body = cinderCreateVolumeTransferRequest.body
+                } else {
+                    body = cinderCreateVolumeTransferRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 当云硬盘过户未被接受时，您可以删除云硬盘过户记录，接受后则无法执行删除操作。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        cinderDeleteVolumeTransfer(cinderDeleteVolumeTransferRequest?: CinderDeleteVolumeTransferRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/os-volume-transfer/{transfer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let transferId;
+
+            if (cinderDeleteVolumeTransferRequest !== null && cinderDeleteVolumeTransferRequest !== undefined) {
+                if (cinderDeleteVolumeTransferRequest instanceof CinderDeleteVolumeTransferRequest) {
+                    transferId = cinderDeleteVolumeTransferRequest.transferId;
+                } else {
+                    transferId = cinderDeleteVolumeTransferRequest['transfer_id'];
+                }
+            }
+
+        
+            if (transferId === null || transferId === undefined) {
+            throw new RequiredError('transferId','Required parameter transferId was null or undefined when calling cinderDeleteVolumeTransfer.');
+            }
+
+            options.pathParams = { 'transfer_id': transferId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询所有的可用分区信息。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -712,6 +987,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询当前租户下所有云硬盘的过户记录列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        cinderListVolumeTransfers(cinderListVolumeTransfersRequest?: CinderListVolumeTransfersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/os-volume-transfer",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let limit;
+            let offset;
+
+            if (cinderListVolumeTransfersRequest !== null && cinderListVolumeTransfersRequest !== undefined) {
+                if (cinderListVolumeTransfersRequest instanceof CinderListVolumeTransfersRequest) {
+                    limit = cinderListVolumeTransfersRequest.limit;
+                    offset = cinderListVolumeTransfersRequest.offset;
+                } else {
+                    limit = cinderListVolumeTransfersRequest['limit'];
+                    offset = cinderListVolumeTransfersRequest['offset'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询云硬盘类型列表。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -730,6 +1049,44 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询单个云硬盘的过户记录详情，比如过户记录创建时间、ID以及名称等信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        cinderShowVolumeTransfer(cinderShowVolumeTransferRequest?: CinderShowVolumeTransferRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/os-volume-transfer/{transfer_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let transferId;
+
+            if (cinderShowVolumeTransferRequest !== null && cinderShowVolumeTransferRequest !== undefined) {
+                if (cinderShowVolumeTransferRequest instanceof CinderShowVolumeTransferRequest) {
+                    transferId = cinderShowVolumeTransferRequest.transferId;
+                } else {
+                    transferId = cinderShowVolumeTransferRequest['transfer_id'];
+                }
+            }
+
+        
+            if (transferId === null || transferId === undefined) {
+            throw new RequiredError('transferId','Required parameter transferId was null or undefined when calling cinderShowVolumeTransfer.');
+            }
+
+            options.pathParams = { 'transfer_id': transferId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1531,6 +1888,67 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'volume_id': volumeId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询接口版本信息列表。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listVersions() {
+            const options = {
+                method: "GET",
+                url: "/",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询接口的指定版本信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showVersion(showVersionRequest?: ShowVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/{version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let version;
+
+            if (showVersionRequest !== null && showVersionRequest !== undefined) {
+                if (showVersionRequest instanceof ShowVersionRequest) {
+                    version = showVersionRequest.version;
+                } else {
+                    version = showVersionRequest['version'];
+                }
+            }
+
+        
+            if (version === null || version === undefined) {
+            throw new RequiredError('version','Required parameter version was null or undefined when calling showVersion.');
+            }
+
+            options.pathParams = { 'version': version, };
             options.headers = localVarHeaderParameter;
             return options;
         },
