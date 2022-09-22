@@ -27,8 +27,18 @@ import { ServiceResponseException } from "./ServiceResponseException";
 export class ExceptionUtil {
     static generalException(exception: ExceptionResponse) {
         const data = exception.data || {};
-        let errorCode = data.error ? data.error.code : exception.status;
-        let errorMsg = data.error ? data.error.message : exception.message;
+        let errorMsg;
+        let errorCode;
+        if (data.error) {
+            errorCode = data.error.code;
+            errorMsg = data.error.message;
+        } else if (data.error_code) {
+            errorCode = data.error_code;
+            errorMsg = data.error_msg;
+        } else {
+            errorCode = exception.status;
+            errorMsg = exception.message;
+        }
         let requestId = exception.requestId;
 
         const httpStatusCode = exception.status;

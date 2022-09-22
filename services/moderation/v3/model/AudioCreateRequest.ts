@@ -4,11 +4,12 @@ import { AudioInputBody } from './AudioInputBody';
 export class AudioCreateRequest {
     public data: AudioInputBody;
     private 'event_type': AudioCreateRequestEventTypeEnum | undefined;
-    public categories?: Array<AudioCreateRequestCategoriesEnum>;
+    public categories: Array<AudioCreateRequestCategoriesEnum>;
     public callback?: string;
-    public constructor(data?: any, eventType?: any) { 
+    public constructor(data?: any, eventType?: any, categories?: any) { 
         this['data'] = data;
         this['event_type'] = eventType;
+        this['categories'] = categories;
     }
     public withData(data: AudioInputBody): AudioCreateRequest {
         this['data'] = data;

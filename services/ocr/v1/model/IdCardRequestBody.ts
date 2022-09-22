@@ -7,6 +7,7 @@ export class IdCardRequestBody {
     private 'return_verification'?: boolean | undefined;
     private 'return_text_location'?: boolean | undefined;
     private 'detect_reproduce'?: boolean | undefined;
+    private 'detect_copy'?: boolean | undefined;
     public constructor() { 
     }
     public withImage(image: string): IdCardRequestBody {
@@ -50,5 +51,15 @@ export class IdCardRequestBody {
     }
     public get detectReproduce() {
         return this['detect_reproduce'];
+    }
+    public withDetectCopy(detectCopy: boolean): IdCardRequestBody {
+        this['detect_copy'] = detectCopy;
+        return this;
+    }
+    public set detectCopy(detectCopy: boolean | undefined) {
+        this['detect_copy'] = detectCopy;
+    }
+    public get detectCopy() {
+        return this['detect_copy'];
     }
 }

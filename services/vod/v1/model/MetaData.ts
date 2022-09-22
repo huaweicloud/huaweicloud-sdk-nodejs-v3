@@ -1,6 +1,7 @@
 
 
 export class MetaData {
+    private 'pack_type'?: MetaDataPackTypeEnum | undefined;
     public codec?: MetaDataCodecEnum;
     public duration?: number;
     private 'video_size'?: number | undefined;
@@ -11,6 +12,16 @@ export class MetaData {
     public quality?: string;
     private 'audio_channels'?: number | undefined;
     public constructor() { 
+    }
+    public withPackType(packType: MetaDataPackTypeEnum): MetaData {
+        this['pack_type'] = packType;
+        return this;
+    }
+    public set packType(packType: MetaDataPackTypeEnum | undefined) {
+        this['pack_type'] = packType;
+    }
+    public get packType() {
+        return this['pack_type'];
     }
     public withCodec(codec: MetaDataCodecEnum): MetaData {
         this['codec'] = codec;
@@ -74,6 +85,39 @@ export class MetaData {
     }
 }
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MetaDataPackTypeEnum {
+    MP4 = 'MP4',
+    TS = 'TS',
+    MOV = 'MOV',
+    MXF = 'MXF',
+    MPG = 'MPG',
+    FLV = 'FLV',
+    WMV = 'WMV',
+    MP3 = 'MP3',
+    WMA = 'WMA',
+    APE = 'APE',
+    FLAC = 'FLAC',
+    AAC = 'AAC',
+    AC3 = 'AC3',
+    MMF = 'MMF',
+    AMR = 'AMR',
+    M4A = 'M4A',
+    M4R = 'M4R',
+    OGG = 'OGG',
+    WAV = 'WAV',
+    WV = 'WV',
+    MP2 = 'MP2',
+    AVI = 'AVI',
+    F4V = 'F4V',
+    M4V = 'M4V',
+    MPEG = 'MPEG',
+    HLS = 'HLS',
+    DASH = 'DASH'
+}
 /**
     * @export
     * @enum {string}

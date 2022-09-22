@@ -5,6 +5,7 @@ export class ReleaseRepository {
     public name?: string;
     private 'download_path'?: string | undefined;
     public size?: string;
+    private 'category_name'?: string | undefined;
     private 'file_type'?: string | undefined;
     public created?: string;
     public updated?: string;
@@ -31,6 +32,16 @@ export class ReleaseRepository {
     public withSize(size: string): ReleaseRepository {
         this['size'] = size;
         return this;
+    }
+    public withCategoryName(categoryName: string): ReleaseRepository {
+        this['category_name'] = categoryName;
+        return this;
+    }
+    public set categoryName(categoryName: string | undefined) {
+        this['category_name'] = categoryName;
+    }
+    public get categoryName() {
+        return this['category_name'];
     }
     public withFileType(fileType: string): ReleaseRepository {
         this['file_type'] = fileType;

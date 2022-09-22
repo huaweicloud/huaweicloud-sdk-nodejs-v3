@@ -1,0 +1,99 @@
+
+
+export class ListServersRequest {
+    public state?: ListServersRequestStateEnum;
+    public name?: string;
+    public id?: string;
+    public ip?: string;
+    public migproject?: string;
+    public limit?: number;
+    public offset?: number;
+    private 'migration_cycle'?: ListServersRequestMigrationCycleEnum | undefined;
+    public connected?: boolean;
+    private 'enterprise_project_id'?: string | undefined;
+    public constructor() { 
+    }
+    public withState(state: ListServersRequestStateEnum): ListServersRequest {
+        this['state'] = state;
+        return this;
+    }
+    public withName(name: string): ListServersRequest {
+        this['name'] = name;
+        return this;
+    }
+    public withId(id: string): ListServersRequest {
+        this['id'] = id;
+        return this;
+    }
+    public withIp(ip: string): ListServersRequest {
+        this['ip'] = ip;
+        return this;
+    }
+    public withMigproject(migproject: string): ListServersRequest {
+        this['migproject'] = migproject;
+        return this;
+    }
+    public withLimit(limit: number): ListServersRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListServersRequest {
+        this['offset'] = offset;
+        return this;
+    }
+    public withMigrationCycle(migrationCycle: ListServersRequestMigrationCycleEnum): ListServersRequest {
+        this['migration_cycle'] = migrationCycle;
+        return this;
+    }
+    public set migrationCycle(migrationCycle: ListServersRequestMigrationCycleEnum | undefined) {
+        this['migration_cycle'] = migrationCycle;
+    }
+    public get migrationCycle() {
+        return this['migration_cycle'];
+    }
+    public withConnected(connected: boolean): ListServersRequest {
+        this['connected'] = connected;
+        return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListServersRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListServersRequestStateEnum {
+    UNAVAILABLE = 'unavailable',
+    WAITING = 'waiting',
+    INITIALIZE = 'initialize',
+    REPLICATE = 'replicate',
+    SYNCING = 'syncing',
+    STOPPING = 'stopping',
+    STOPPED = 'stopped',
+    DELETING = 'deleting',
+    ERROR = 'error',
+    CLONING = 'cloning',
+    CUTOVERING = 'cutovering',
+    FINISHED = 'finished'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListServersRequestMigrationCycleEnum {
+    CHECKING = 'checking',
+    SETTING = 'setting',
+    REPLICATING = 'replicating',
+    SYNCING = 'syncing',
+    CUTOVERING = 'cutovering',
+    CUTOVERED = 'cutovered'
+}

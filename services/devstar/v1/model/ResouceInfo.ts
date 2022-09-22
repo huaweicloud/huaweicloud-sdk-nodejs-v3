@@ -5,6 +5,7 @@ export class ResouceInfo {
     public description?: string;
     private 'home_link'?: string | undefined;
     private 'subscribe_link'?: string | undefined;
+    private 'subscribe_guide'?: string | undefined;
     public type?: string;
     private 'reference_price'?: string | undefined;
     private 'price_details_link'?: string | undefined;
@@ -38,6 +39,16 @@ export class ResouceInfo {
     }
     public get subscribeLink() {
         return this['subscribe_link'];
+    }
+    public withSubscribeGuide(subscribeGuide: string): ResouceInfo {
+        this['subscribe_guide'] = subscribeGuide;
+        return this;
+    }
+    public set subscribeGuide(subscribeGuide: string | undefined) {
+        this['subscribe_guide'] = subscribeGuide;
+    }
+    public get subscribeGuide() {
+        return this['subscribe_guide'];
     }
     public withType(type: string): ResouceInfo {
         this['type'] = type;

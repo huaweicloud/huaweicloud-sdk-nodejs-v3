@@ -1,3 +1,4 @@
+import { ErrorInfoDTO } from './ErrorInfoDTO';
 
 
 export class DeviceMessage {
@@ -8,6 +9,7 @@ export class DeviceMessage {
     private 'payload_format'?: string | undefined;
     public topic?: string;
     public status?: string;
+    private 'error_info'?: ErrorInfoDTO | undefined;
     private 'created_time'?: string | undefined;
     private 'finished_time'?: string | undefined;
     public constructor() { 
@@ -51,6 +53,16 @@ export class DeviceMessage {
     public withStatus(status: string): DeviceMessage {
         this['status'] = status;
         return this;
+    }
+    public withErrorInfo(errorInfo: ErrorInfoDTO): DeviceMessage {
+        this['error_info'] = errorInfo;
+        return this;
+    }
+    public set errorInfo(errorInfo: ErrorInfoDTO | undefined) {
+        this['error_info'] = errorInfo;
+    }
+    public get errorInfo() {
+        return this['error_info'];
     }
     public withCreatedTime(createdTime: string): DeviceMessage {
         this['created_time'] = createdTime;

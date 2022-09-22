@@ -8,6 +8,15 @@ import { AudioModerationResultDetail } from './model/AudioModerationResultDetail
 import { AudioModerationResultRequestParams } from './model/AudioModerationResultRequestParams';
 import { AudioModerationResultRequestParamsData } from './model/AudioModerationResultRequestParamsData';
 import { AudioModerationResultResult } from './model/AudioModerationResultResult';
+import { CheckImageModerationRequest } from './model/CheckImageModerationRequest';
+import { CheckImageModerationResponse } from './model/CheckImageModerationResponse';
+import { FaceLocationDetail } from './model/FaceLocationDetail';
+import { ImageDetectionReq } from './model/ImageDetectionReq';
+import { ImageDetectionResult } from './model/ImageDetectionResult';
+import { ImageDetectionResultDetail } from './model/ImageDetectionResultDetail';
+import { ImgTextConfig } from './model/ImgTextConfig';
+import { OCRTextDetail } from './model/OCRTextDetail';
+import { QRLocationDetail } from './model/QRLocationDetail';
 import { RunCreateAudioModerationJobRequest } from './model/RunCreateAudioModerationJobRequest';
 import { RunCreateAudioModerationJobResponse } from './model/RunCreateAudioModerationJobResponse';
 import { RunCreateVideoModerationJobRequest } from './model/RunCreateVideoModerationJobRequest';
@@ -50,6 +59,24 @@ export class ModerationClient {
         return __dirname;
     }
 
+
+    /**
+     * 分析并识别用户上传的图片是否有敏感内容（如色情、政治等），并将识别结果返回给用户
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 图片内容审核
+     * @param {ImageDetectionReq} runImageModerationRequestBody 图像内容审核请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkImageModeration(checkImageModerationRequest?: CheckImageModerationRequest): Promise<CheckImageModerationResponse> {
+        const options = ParamCreater().checkImageModeration(checkImageModerationRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 分析并识别用户上传的音频内容是否有敏感内容（如色情、政治等），并将识别结果返回给用户
@@ -143,6 +170,45 @@ export class ModerationClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 分析并识别用户上传的图片是否有敏感内容（如色情、政治等），并将识别结果返回给用户
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        checkImageModeration(checkImageModerationRequest?: CheckImageModerationRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/moderation/image",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (checkImageModerationRequest !== null && checkImageModerationRequest !== undefined) {
+                if (checkImageModerationRequest instanceof CheckImageModerationRequest) {
+                    body = checkImageModerationRequest.body
+                } else {
+                    body = checkImageModerationRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 分析并识别用户上传的音频内容是否有敏感内容（如色情、政治等），并将识别结果返回给用户

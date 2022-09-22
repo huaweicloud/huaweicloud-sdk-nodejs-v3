@@ -190,5 +190,6 @@ export enum ApplicationV3DeployTypeEnum {
     FUNCTION = 'function',
     CCI = 'cci',
     SERVICESTAGE_JAR = 'ServiceStage(Jar)',
-    SERVICESTAGE_DOCKER = 'ServiceStage(Docker)'
+    SERVICESTAGE_DOCKER = 'ServiceStage(Docker)',
+    NONE = 'none'
 }

@@ -1,3 +1,86 @@
+# 3.1.3 2022-09-22
+
+### HuaweiCloud SDK DevStar
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the enum values `none` to the response parameter `deploy_type` to the interface `ShowApplicationV3`
+  - Add the response parameter `subscribe_guide` to the interface `ShowApplicationDependentResources`
+  - Add the enum values `none` to the response parameter `deploy_type` to the interface `ListApplicationsV6`
+  - Add the response parameter `category_name` to the interface `ShowApplicationReleaseRepositories`
+  - Add the response parameter `subscribe_guide` to the interface `ShowTemplateV3`
+  - Add the response parameter `subscribe_guide` to the interface `ListTemplatesV2`
+  - Add the response parameter `subscribe_guide` to the interface `ListTemplates`
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `port_id` to the interface `CreatePublicip`
+  - Add the request parameter `port_id` to the interface `CreatePrePaidPublicip`
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `error_info` to the interface `ListDeviceMessages`
+  - Add the response parameter `error_info` to the interface `ShowDeviceMessage`
+
+### HuaweiCloud SDK Moderation
+
+- _Features_
+  - Support the interface `CheckImageModeration`
+- _Bug Fix_
+  - None
+- _Change_
+  - The request parameter `url`, `categories` changed to required of the interface `RunCreateAudioModerationJob`
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Changes of the interface `RecognizeIdCard`:
+    - Add the request parameter `detect_copy`
+    - Add the response parameter `detect_copy_result`
+
+### HuaweiCloud SDK SMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the response parameter `disks` from the interface `ListTemplates`
+  - Remove the response parameter `disks` from the interface `ShowTemplate`
+  - Remove the request parameter `disks` from the interface `UpdateMigproject`
+  - Remove the response parameter `disks` from the interface `ShowMigproject`
+
+### HuaweiCloud SDK VOD
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameters `pack_type`, `pack_type` to the interface `PublishAssets`
+  - Add the response parameters `pack_type`, `pack_type` to the interface `UnpublishAssets`
+  - Add the response parameters `pack_type`, `pack_type` to the interface `ShowAssetMeta`
+  - Add the response parameters `pack_type`, `pack_type` to the interface `ShowAssetDetail`
+  - Add the response parameters `pack_type`, `pack_type` to the interface `ShowTakeOverTaskDetails`
+  - Add the response parameters `pack_type`, `pack_type` to the interface `ShowTakeOverAssetDetails`
+
 # 3.1.2 2022-09-15
 
 ### HuaweiCloud SDK EVS

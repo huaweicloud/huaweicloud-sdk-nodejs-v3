@@ -5,6 +5,7 @@ export class CreatePublicipOption {
     public type: string;
     private 'ip_version'?: CreatePublicipOptionIpVersionEnum | undefined;
     public alias?: string;
+    private 'port_id'?: string | undefined;
     public constructor(type?: any) { 
         this['type'] = type;
     }
@@ -35,6 +36,16 @@ export class CreatePublicipOption {
     public withAlias(alias: string): CreatePublicipOption {
         this['alias'] = alias;
         return this;
+    }
+    public withPortId(portId: string): CreatePublicipOption {
+        this['port_id'] = portId;
+        return this;
+    }
+    public set portId(portId: string | undefined) {
+        this['port_id'] = portId;
+    }
+    public get portId() {
+        return this['port_id'];
     }
 }
 

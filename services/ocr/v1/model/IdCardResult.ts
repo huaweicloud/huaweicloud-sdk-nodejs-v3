@@ -14,6 +14,7 @@ export class IdCardResult {
     private 'verification_result'?: IdcardVerificationResult | undefined;
     private 'text_location'?: object | undefined;
     private 'detect_reproduce_result'?: boolean | undefined;
+    private 'detect_copy_result'?: boolean | undefined;
     public constructor() { 
     }
     public withName(name: string): IdCardResult {
@@ -99,5 +100,15 @@ export class IdCardResult {
     }
     public get detectReproduceResult() {
         return this['detect_reproduce_result'];
+    }
+    public withDetectCopyResult(detectCopyResult: boolean): IdCardResult {
+        this['detect_copy_result'] = detectCopyResult;
+        return this;
+    }
+    public set detectCopyResult(detectCopyResult: boolean | undefined) {
+        this['detect_copy_result'] = detectCopyResult;
+    }
+    public get detectCopyResult() {
+        return this['detect_copy_result'];
     }
 }

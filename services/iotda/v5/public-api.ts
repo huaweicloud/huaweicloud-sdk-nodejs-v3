@@ -91,6 +91,7 @@ export * from './model/DeviceShadowProperties';
 export * from './model/DisForwarding';
 export * from './model/DmsKafkaForwarding';
 export * from './model/ErrorInfo';
+export * from './model/ErrorInfoDTO';
 export * from './model/FreezeDeviceRequest';
 export * from './model/FreezeDeviceResponse';
 export * from './model/HttpForwarding';
