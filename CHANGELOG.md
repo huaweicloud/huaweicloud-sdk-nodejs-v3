@@ -1,3 +1,24 @@
+# 3.1.4 2022-09-26
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameters `version`, `last_modified` to the interface `CreateDependency`
+  - Add the response parameters `version`, `last_modified` to the interface `ListDependencies`
+
+### HuaweiCloud SDK Moderation
+
+- _Features_
+  - None
+- _Bug Fix_
+  - Fix the problem that the response parameters' type of the interface `CheckImageModeration` is incorrect
+- _Change_
+  - None
+
 # 3.1.3 2022-09-22
 
 ### HuaweiCloud SDK DevStar

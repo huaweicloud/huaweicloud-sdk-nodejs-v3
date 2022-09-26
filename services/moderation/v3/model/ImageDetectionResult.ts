@@ -4,7 +4,7 @@ import { ImageDetectionResultDetail } from './ImageDetectionResultDetail';
 export class ImageDetectionResult {
     public suggestion?: string;
     public category?: string;
-    public details?: ImageDetectionResultDetail;
+    public details?: Array<ImageDetectionResultDetail>;
     private 'ocr_text'?: string | undefined;
     public constructor() { 
     }
@@ -16,7 +16,7 @@ export class ImageDetectionResult {
         this['category'] = category;
         return this;
     }
-    public withDetails(details: ImageDetectionResultDetail): ImageDetectionResult {
+    public withDetails(details: Array<ImageDetectionResultDetail>): ImageDetectionResult {
         this['details'] = details;
         return this;
     }

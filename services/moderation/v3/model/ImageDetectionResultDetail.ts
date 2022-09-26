@@ -10,7 +10,7 @@ export class ImageDetectionResultDetail {
     private 'face_location'?: FaceLocationDetail | undefined;
     private 'qr_location'?: QRLocationDetail | undefined;
     private 'qr_content'?: string | undefined;
-    public segments?: OCRTextDetail;
+    public segments?: Array<OCRTextDetail>;
     public label?: string;
     public constructor(suggestion?: any, category?: any, confidence?: any) { 
         this['suggestion'] = suggestion;
@@ -59,7 +59,7 @@ export class ImageDetectionResultDetail {
     public get qrContent() {
         return this['qr_content'];
     }
-    public withSegments(segments: OCRTextDetail): ImageDetectionResultDetail {
+    public withSegments(segments: Array<OCRTextDetail>): ImageDetectionResultDetail {
         this['segments'] = segments;
         return this;
     }
