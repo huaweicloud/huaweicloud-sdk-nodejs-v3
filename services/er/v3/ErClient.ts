@@ -279,7 +279,7 @@ export class ErClient {
      *
      * @summary 更新企业路由器的可用区信息
      * @param {string} erId 企业路由器实例ID
-     * @param {EnterpriseRouterAZ} enterpriseRouterAZ 更新企业路由器实例的az信息Request Body
+     * @param {EnterpriseRouterAZ} enterpriseRouterAZ 更新企业路由器实例的AZ信息Request Body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -310,8 +310,8 @@ export class ErClient {
     }
 
     /**
-     * 1，只能删除企业路由器实例和其创建的默认路由表，如果存在其他路由表和连接，那么需要先删除其他路由表、连接、关联、传播和路由条目等。 
-     * 2，企业路由器实例状态为available，deleting和failed的时候才能删除。
+     * 1. 只能删除企业路由器实例和其创建的默认路由表，如果存在其他路由表和连接，那么需要先删除其他路由表、连接、关联、传播和路由条目等。
+     * 2. 企业路由器实例状态为available，deleting和failed的时候才能删除。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -1302,8 +1302,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 1，只能删除企业路由器实例和其创建的默认路由表，如果存在其他路由表和连接，那么需要先删除其他路由表、连接、关联、传播和路由条目等。 
-         * 2，企业路由器实例状态为available，deleting和failed的时候才能删除。
+         * 1. 只能删除企业路由器实例和其创建的默认路由表，如果存在其他路由表和连接，那么需要先删除其他路由表、连接、关联、传播和路由条目等。
+         * 2. 企业路由器实例状态为available，deleting和failed的时候才能删除。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
