@@ -465,7 +465,7 @@ export class ImsClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 查询镜像列表
-     * @param {'gold' | 'private' | 'shared'} [imagetype] 镜像类型，目前支持以下类型： 公共镜像：gold 私有镜像：private 共享镜像：shared
+     * @param {'gold' | 'private' | 'shared'} [imagetype] 镜像类型，目前支持以下类型： 公共镜像：gold 私有镜像：private 共享镜像：shared 市场镜像：market
      * @param {'true' | 'false'} [isregistered] 镜像是否可用，取值为true，扩展接口会默认为true，普通用户只能查询取值为true的镜像。
      * @param {'32' | '64'} [osBit] 操作系统位数，一般取值为32或者64。
      * @param {'Linux' | 'Windows' | 'Other'} [osType] 镜像系统类型，取值为Linux，Windows，Other。
@@ -556,7 +556,7 @@ export class ImsClient {
      * @summary 按条件查询租户镜像标签列表
      * @param {number} [limit] 用于分页，表示查询几条记录，取值为整数，默认为所有。
      * @param {number} [page] 页码，表示需要查询第几页的数据。默认值为1。
-     * @param {'gold' | 'private' | 'shared'} [imagetype] 镜像类型，目前支持以下类型：公共镜像：gold私有镜像：private共享镜像：shared
+     * @param {'gold' | 'private' | 'shared' | 'market'} [imagetype] 镜像类型，目前支持以下类型：公共镜像：gold私有镜像：private共享镜像：shared 市场镜像：market
      * @param {string} [id] 镜像ID。
      * @param {'queued' | 'saving' | 'deleted' | 'killed' | 'active'} [status] 镜像状态。取值如下： queued：表示镜像元数据已经创建成功，等待上传镜像文件。 saving：表示镜像正在上传文件到后端存储。 deleted：表示镜像已经删除。 killed：表示镜像上传错误。 active：表示镜像可以正常使用。
      * @param {string} [name] 镜像名称。
@@ -887,7 +887,7 @@ export class ImsClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 查询镜像列表（OpenStack原生）
-     * @param {'gold' | 'private' | 'shared'} [imagetype] 镜像类型，目前支持以下类型：公共镜像：gold私有镜像：private共享镜像：shared
+     * @param {'gold' | 'private' | 'shared' | 'market'} [imagetype] 镜像类型，目前支持以下类型：公共镜像：gold私有镜像：private共享镜像：shared 市场镜像：market
      * @param {boolean} [isregistered] 镜像是否是受保护，取值为true/false。一般查询公共镜像时候取值为true，查询私有镜像可以不指定。
      * @param {'32' | '64'} [osBit] 操作系统位数，一般取值为32或者64
      * @param {'Linux' | 'Windows' | 'Other'} [osType] 镜像系统类型，取值为Linux，Windows，Other

@@ -1,4 +1,5 @@
 import { ErrorInfoDTO } from './ErrorInfoDTO';
+import { PropertiesDTO } from './PropertiesDTO';
 
 
 export class DeviceMessage {
@@ -8,6 +9,7 @@ export class DeviceMessage {
     public encoding?: string;
     private 'payload_format'?: string | undefined;
     public topic?: string;
+    public properties?: PropertiesDTO;
     public status?: string;
     private 'error_info'?: ErrorInfoDTO | undefined;
     private 'created_time'?: string | undefined;
@@ -48,6 +50,10 @@ export class DeviceMessage {
     }
     public withTopic(topic: string): DeviceMessage {
         this['topic'] = topic;
+        return this;
+    }
+    public withProperties(properties: PropertiesDTO): DeviceMessage {
+        this['properties'] = properties;
         return this;
     }
     public withStatus(status: string): DeviceMessage {

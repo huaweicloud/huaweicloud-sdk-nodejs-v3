@@ -356,7 +356,7 @@ export class ElbClient {
     }
 
     /**
-     * 给指定负载均衡器添加标签。
+     * 给指定监听器添加标签。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -399,7 +399,7 @@ export class ElbClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 添加负载均衡器标签
-     * @param {string} loadbalancerId 
+     * @param {string} loadbalancerId 负载均衡器ID
      * @param {CreateLoadbalancerTagsRequestBody} [createLoadbalancerTagsRequestBody] This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -522,14 +522,13 @@ export class ElbClient {
     }
 
     /**
-     * 根据指定ID删除监听器。提供级联删除选项，当选择级联删除时，删除和负载均衡器关联的转发规则、转发策略、白名单、标签等。
+     * 根据指定ID删除监听器。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 删除监听器
      * @param {string} listenerId 监听器id
-     * @param {boolean} [cascade] （不再支持）级联删除负载均衡器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -560,14 +559,13 @@ export class ElbClient {
     }
 
     /**
-     * 根据指定ID删除负载均衡器。提供级联删除选项，当选择级联删除时，删除和负载均衡器关联的监听器、后端云服务器组、后端云服务器、健康检查、转发策略、转发规则、白名单、标签等
+     * 根据指定ID删除负载均衡器。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 删除负载均衡
      * @param {string} loadbalancerId 负载均衡器id
-     * @param {boolean} [cascade] （不再支持）级联删除负载均衡器
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -705,7 +703,7 @@ export class ElbClient {
      * @param {string} [redirectUrl] 转发策略重定向到的url。该字段为预留字段，暂未启用。
      * @param {number} [position] 转发优先级，从1递增，最高100。默认值：100；该字段为预留字段，暂未启用。
      * @param {string} [provisioningStatus] 转发策略的配置状态，可以为ACTIVE、PENDING_CREATE 或者ERROR。默认值：ACTIVE；该字段为预留字段，暂未启用。
-     * @param {string} [enterpriseProjectId] 企业项目ID。  取值范围：带“-”连字符的UUID格式，或者是字符串“0”。“0”表示默认企业项目。  若子账号查询转发策略列表时，需要指定enterprise_project_id为all_granted_eps或者具体企业项目ID。
+     * @param {string} [enterpriseProjectId] 企业项目ID。  传入all_granted_eps表示查询所有有权限的企业项目资源；\&quot;0\&quot;表示查询默认企业项目资源；或者指定的企业项目ID下的资源。
      * @param {boolean} [displayAllRules] 是否显示所有的rule信息。取值范围：false表示不显示（跟以前一样只显示ID）；true表示显示。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -771,7 +769,7 @@ export class ElbClient {
      *
      * @summary 查询监听器列表
      * @param {number} [limit] 分页查询中每页的监听器个数
-     * @param {string} [marker] 分页查询的起始的资源id，表示上一页最后一条查询记录的负载均衡器的id。不指定时表示查询第一页。
+     * @param {string} [marker] 分页查询的起始的资源id，表示上一页最后一条查询记录的监听器的id。不指定时表示查询第一页。
      * @param {boolean} [pageReverse] 分页的顺序，true表示从后往前分页，false表示从前往后分页，默认为false。
      * @param {string} [id] 监听器ID。
      * @param {string} [name] 监听器名称。
@@ -787,7 +785,7 @@ export class ElbClient {
      * @param {string} [tlsCiphersPolicy] 监听器使用的安全策略，仅对TERMINATED_HTTPS协议类型的监听器有效，且默认值为tls-1-0。取值包括：tls-1-0, tls-1-1, tls-1-2, tls-1-2-strict四种安全策略。
      * @param {string} [tlsContainerId] 查询证书所关联的监听器
      * @param {boolean} [http2Enable] HTTP2功能的开启状态。取值范围：true/false。true：开启。false：关闭。
-     * @param {string} [enterpriseProjectId] 企业项目ID，仅用于基于企业项目的细粒度鉴权使用。 - 如果参数传递default_pool_id，则以pool对应的企业项目ID鉴权。 - 如果default_pool_id和enterprise_project_id都没有传递 ，则进行细粒度鉴权 ，必须在用户
+     * @param {string} [enterpriseProjectId] 企业项目ID。  传入all_granted_eps表示查询所有有权限的企业项目资源；\&quot;0\&quot;表示查询默认企业项目资源；或者指定的企业项目ID下的资源。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -852,7 +850,7 @@ export class ElbClient {
      * @param {string} [vipPortId] 负载均衡器内网IP对应的端口ID。
      * @param {string} [vipSubnetId] 负载均衡器所在的子网ID。
      * @param {string} [vpcId] 负载均衡器所在的虚拟私有云ID。
-     * @param {string} [enterpriseProjectId] 企业项目ID。创建负载均衡器时，给负载均衡器绑定企业项目ID。取值范围：最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。“0”表示默认企业项目。 关于企业项目ID的获取及企业项目特性的详细信息，请参见《企业管理用户指南》。
+     * @param {string} [enterpriseProjectId] 企业项目ID。  传入all_granted_eps表示查询所有有权限的企业项目资源；\&quot;0\&quot;表示查询默认企业项目资源；或者指定的企业项目ID下的资源。
      * @param {boolean} [adminStateUp] 负载均衡器的管理状态。负载均衡器停用时不再接收流量。取值范围：true：启用负载均衡器；false：停用负载均衡器。
      * @param {string} [memberAddress] 负载均衡器的后端服务器的IP地址
      * @param {string} [memberDeviceId] 负载均衡器的后端服务器对应的弹性云服务器ID
@@ -885,14 +883,14 @@ export class ElbClient {
     }
 
     /**
-     * 添加属于某个后端云服务器组的后端云服务器。
+     * 查询属于某个后端云服务器组的后端云服务器。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 查询后端云服务器列表
      * @param {string} poolId 后端云服务器组id
-     * @param {number} [limit] 分页查询中每页的监听器个数
+     * @param {number} [limit] 分页查询中每页的后端服务器个数
      * @param {string} [marker] 分页查询的起始的资源id，表示上一页最后一条查询记录的负载均衡器的id。不指定时表示查询第一页。
      * @param {boolean} [pageReverse] 分页的顺序，true表示从后往前分页，false表示从前往后分页，默认为false。
      * @param {string} [id] 后端云服务器的ID。
@@ -919,8 +917,8 @@ export class ElbClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 查询后端云服务器组列表
-     * @param {number} [limit] 分页查询中每页的监听器个数
-     * @param {string} [marker] 分页查询的起始的资源id，表示上一页最后一条查询记录的负载均衡器的id。不指定时表示查询第一页。
+     * @param {number} [limit] 分页查询中每页的后端服务器组个数
+     * @param {string} [marker] 分页查询的起始的资源id，表示上一页最后一条查询记录的后端服务器组的id。不指定时表示查询第一页。
      * @param {boolean} [pageReverse] 分页的顺序，true表示从后往前分页，false表示从前往后分页，默认为false。
      * @param {string} [id] 后端云服务器组ID。
      * @param {string} [name] 后端云服务器组名称。
@@ -931,7 +929,7 @@ export class ElbClient {
      * @param {string} [lbAlgorithm] 后端云服务器组的负载均衡算法。取值范围：ROUND_ROBIN：加权轮询算法。LEAST_CONNECTIONS：加权最少连接算法。SOURCE_IP：源IP算法。当该字段的取值为SOURCE_IP时，后端云服务器组绑定的后端云服务器的weight字段无效。
      * @param {string} [memberAddress] 后端云服务器组关联的后端云服务器IP。
      * @param {string} [memberDeviceId] 后端云服务器组关联的后端云服务器对应的弹性云服务器的ID。
-     * @param {string} [enterpriseProjectId] 企业项目ID，仅用于基于企业项目的细粒度鉴权使用；如果参数中传递了loadbalancer_id，则用该负载均衡器对应企业项目ID鉴权；如果参数中没有传递loadbalancer_id，而传递了healthmonitor_id，则使用健康检查器对应的企业项目id鉴权。
+     * @param {string} [enterpriseProjectId] 企业项目ID。  传入all_granted_eps表示查询所有有权限的企业项目资源；\&quot;0\&quot;表示查询默认企业项目资源；或者指定的企业项目ID下的资源。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1370,7 +1368,7 @@ export class ElbClient {
      * @param {string} [name] SSL证书的名称。
      * @param {string} [description] 证书描述SSL证书描述。
      * @param {string} [type] SSL证书的类型。默认值：server；取值范围：server：服务端证书；client：客户端证书；
-     * @param {string} [domain] 服务端证书所签的域名。默认值：null；取值范围：普通域名由若干字符串组成，总长度为0-1024，字符串间以\&quot;.\&quot;分割，单个字符串长度不超过63个字符，只能包含英文字母、数字或\&quot;-\&quot;，且必须以字母或数字开头和结尾。泛域名在普通域名的基础上仅允许首字母为\&quot;*\&quot;。该字段仅type为server时有效。
+     * @param {string} [domain] 服务端证书所签的域名。 取值：总长度为0-1024。  普通域名由若干字符串组成，字符串间以\&quot;.\&quot;分割，单个字符串长度不超过63个字符，只能包含英文字母、数字或\&quot;-\&quot;，且必须以字母或数字开头和结尾。  泛域名仅允许首段为\&quot;*\&quot;，其他取值限制与普通域名一致。如：*.domain.com，但不能是：*my.domain.com   该字段仅type为server时有效。
      * @param {string} [privateKey] PEM格式的服务端私有密钥。
      * @param {string} [certificate] PEM格式的服务端公有密钥或者用于认证客户端证书的CA证书，由type字段区分。
      * @param {*} [options] Override http request option.
@@ -1772,7 +1770,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 给指定负载均衡器添加标签。
+         * 给指定监听器添加标签。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2141,7 +2139,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据指定ID删除监听器。提供级联删除选项，当选择级联删除时，删除和负载均衡器关联的转发规则、转发策略、白名单、标签等。
+         * 根据指定ID删除监听器。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2157,17 +2155,14 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+
             let listenerId;
-            let cascade;
 
             if (deleteListenerRequest !== null && deleteListenerRequest !== undefined) {
                 if (deleteListenerRequest instanceof DeleteListenerRequest) {
                     listenerId = deleteListenerRequest.listenerId;
-                    cascade = deleteListenerRequest.cascade;
                 } else {
                     listenerId = deleteListenerRequest['listener_id'];
-                    cascade = deleteListenerRequest['cascade'];
                 }
             }
 
@@ -2175,11 +2170,7 @@ export const ParamCreater = function () {
             if (listenerId === null || listenerId === undefined) {
             throw new RequiredError('listenerId','Required parameter listenerId was null or undefined when calling deleteListener.');
             }
-            if (cascade !== null && cascade !== undefined) {
-                localVarQueryParameter['cascade'] = cascade;
-            }
 
-            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'listener_id': listenerId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2230,7 +2221,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 根据指定ID删除负载均衡器。提供级联删除选项，当选择级联删除时，删除和负载均衡器关联的监听器、后端云服务器组、后端云服务器、健康检查、转发策略、转发规则、白名单、标签等
+         * 根据指定ID删除负载均衡器。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2246,17 +2237,14 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+
             let loadbalancerId;
-            let cascade;
 
             if (deleteLoadbalancerRequest !== null && deleteLoadbalancerRequest !== undefined) {
                 if (deleteLoadbalancerRequest instanceof DeleteLoadbalancerRequest) {
                     loadbalancerId = deleteLoadbalancerRequest.loadbalancerId;
-                    cascade = deleteLoadbalancerRequest.cascade;
                 } else {
                     loadbalancerId = deleteLoadbalancerRequest['loadbalancer_id'];
-                    cascade = deleteLoadbalancerRequest['cascade'];
                 }
             }
 
@@ -2264,11 +2252,7 @@ export const ParamCreater = function () {
             if (loadbalancerId === null || loadbalancerId === undefined) {
             throw new RequiredError('loadbalancerId','Required parameter loadbalancerId was null or undefined when calling deleteLoadbalancer.');
             }
-            if (cascade !== null && cascade !== undefined) {
-                localVarQueryParameter['cascade'] = cascade;
-            }
 
-            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'loadbalancer_id': loadbalancerId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3186,7 +3170,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 添加属于某个后端云服务器组的后端云服务器。
+         * 查询属于某个后端云服务器组的后端云服务器。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.

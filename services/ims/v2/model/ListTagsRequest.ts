@@ -141,7 +141,8 @@ export class ListTagsRequest {
 export enum ListTagsRequestImagetypeEnum {
     GOLD = 'gold',
     PRIVATE = 'private',
-    SHARED = 'shared'
+    SHARED = 'shared',
+    MARKET = 'market'
 }
 /**
     * @export

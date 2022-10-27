@@ -316,7 +316,8 @@ export class GlanceListImagesRequest {
 export enum GlanceListImagesRequestImagetypeEnum {
     GOLD = 'gold',
     PRIVATE = 'private',
-    SHARED = 'shared'
+    SHARED = 'shared',
+    MARKET = 'market'
 }
 /**
     * @export

@@ -8,7 +8,7 @@ export class RunQueryVideoModerationJobResponse extends SdkResponse {
     private 'job_id'?: string | undefined;
     public status?: RunQueryVideoModerationJobResponseStatusEnum;
     private 'request_params'?: VideoModerationResultRequestParams | undefined;
-    private 'craete_time'?: string | undefined;
+    private 'create_time'?: string | undefined;
     private 'update_time'?: string | undefined;
     public result?: VideoModerationResultResult;
     public constructor() { 
@@ -48,15 +48,15 @@ export class RunQueryVideoModerationJobResponse extends SdkResponse {
     public get requestParams() {
         return this['request_params'];
     }
-    public withCraeteTime(craeteTime: string): RunQueryVideoModerationJobResponse {
-        this['craete_time'] = craeteTime;
+    public withCreateTime(createTime: string): RunQueryVideoModerationJobResponse {
+        this['create_time'] = createTime;
         return this;
     }
-    public set craeteTime(craeteTime: string | undefined) {
-        this['craete_time'] = craeteTime;
+    public set createTime(createTime: string | undefined) {
+        this['create_time'] = createTime;
     }
-    public get craeteTime() {
-        return this['craete_time'];
+    public get createTime() {
+        return this['create_time'];
     }
     public withUpdateTime(updateTime: string): RunQueryVideoModerationJobResponse {
         this['update_time'] = updateTime;

@@ -616,7 +616,8 @@ export enum GlanceUpdateImageResponseImageSourceTypeEnum {
 export enum GlanceUpdateImageResponseImagetypeEnum {
     GOLD = 'gold',
     PRIVATE = 'private',
-    SHARED = 'shared'
+    SHARED = 'shared',
+    MARKET = 'market'
 }
 /**
     * @export

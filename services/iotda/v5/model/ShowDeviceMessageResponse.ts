@@ -1,4 +1,5 @@
 import { ErrorInfoDTO } from './ErrorInfoDTO';
+import { PropertiesDTO } from './PropertiesDTO';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -9,6 +10,7 @@ export class ShowDeviceMessageResponse extends SdkResponse {
     public encoding?: string;
     private 'payload_format'?: string | undefined;
     public topic?: string;
+    public properties?: PropertiesDTO;
     public status?: string;
     private 'error_info'?: ErrorInfoDTO | undefined;
     private 'created_time'?: string | undefined;
@@ -50,6 +52,10 @@ export class ShowDeviceMessageResponse extends SdkResponse {
     }
     public withTopic(topic: string): ShowDeviceMessageResponse {
         this['topic'] = topic;
+        return this;
+    }
+    public withProperties(properties: PropertiesDTO): ShowDeviceMessageResponse {
+        this['properties'] = properties;
         return this;
     }
     public withStatus(status: string): ShowDeviceMessageResponse {

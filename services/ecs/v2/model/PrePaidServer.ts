@@ -25,6 +25,7 @@ export class PrePaidServer {
     private 'data_volumes'?: Array<PrePaidServerDataVolume> | undefined;
     private 'security_groups'?: Array<PrePaidServerSecurityGroup> | undefined;
     private 'availability_zone'?: string | undefined;
+    private 'batch_create_in_multi_az'?: boolean | undefined;
     public extendparam?: PrePaidServerExtendParam;
     public metadata?: { [key: string]: string; };
     private 'os:scheduler_hints'?: PrePaidServerSchedulerHints | undefined;
@@ -144,6 +145,16 @@ export class PrePaidServer {
     }
     public get availabilityZone() {
         return this['availability_zone'];
+    }
+    public withBatchCreateInMultiAz(batchCreateInMultiAz: boolean): PrePaidServer {
+        this['batch_create_in_multi_az'] = batchCreateInMultiAz;
+        return this;
+    }
+    public set batchCreateInMultiAz(batchCreateInMultiAz: boolean | undefined) {
+        this['batch_create_in_multi_az'] = batchCreateInMultiAz;
+    }
+    public get batchCreateInMultiAz() {
+        return this['batch_create_in_multi_az'];
     }
     public withExtendparam(extendparam: PrePaidServerExtendParam): PrePaidServer {
         this['extendparam'] = extendparam;

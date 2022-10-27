@@ -629,6 +629,7 @@ export class EcsClient {
      *
      * @summary 创建云服务器(按需)
      * @param {CreatePostPaidServersRequestBody} createPostPaidServersRequestBody This is a auto create Body Object
+     * @param {string} [xClientToken] 保证客户端请求幂等性的标识
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -689,6 +690,7 @@ export class EcsClient {
      *
      * @summary 创建云服务器
      * @param {CreateServersRequestBody} createServersRequestBody This is a auto create Body Object
+     * @param {string} [xClientToken] 保证客户端请求幂等性的标识
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2356,18 +2358,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let xClientToken;
 
             if (createPostPaidServersRequest !== null && createPostPaidServersRequest !== undefined) {
                 if (createPostPaidServersRequest instanceof CreatePostPaidServersRequest) {
                     body = createPostPaidServersRequest.body
+                    xClientToken = createPostPaidServersRequest.xClientToken;
                 } else {
                     body = createPostPaidServersRequest['body'];
+                    xClientToken = createPostPaidServersRequest['X-Client-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2458,18 +2466,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let xClientToken;
 
             if (createServersRequest !== null && createServersRequest !== undefined) {
                 if (createServersRequest instanceof CreateServersRequest) {
                     body = createServersRequest.body
+                    xClientToken = createServersRequest.xClientToken;
                 } else {
                     body = createServersRequest['body'];
+                    xClientToken = createServersRequest['X-Client-Token'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xClientToken !== undefined && xClientToken !== null) {
+                localVarHeaderParameter['X-Client-Token'] = String(xClientToken);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 

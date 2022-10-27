@@ -1,9 +1,11 @@
+import { PropertiesDTO } from './PropertiesDTO';
 
 
 export class DeviceMessageRequest {
     private 'message_id'?: string | undefined;
     public name?: string;
     public message: object;
+    public properties?: PropertiesDTO;
     public encoding?: string;
     private 'payload_format'?: string | undefined;
     public topic?: string;
@@ -27,6 +29,10 @@ export class DeviceMessageRequest {
     }
     public withMessage(message: object): DeviceMessageRequest {
         this['message'] = message;
+        return this;
+    }
+    public withProperties(properties: PropertiesDTO): DeviceMessageRequest {
+        this['properties'] = properties;
         return this;
     }
     public withEncoding(encoding: string): DeviceMessageRequest {

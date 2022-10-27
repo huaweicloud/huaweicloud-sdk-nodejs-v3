@@ -1,3 +1,68 @@
+# 3.1.6 2022-10-27
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameters `X-Client-Token`, `batch_create_in_multi_az` to the interface `CreateServers`
+  - Add the request parameter `X-Client-Token` to the interface `CreatePostPaidServers`
+
+### HuaweiCloud SDK ELB
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the enum values `tls-1-1`, `tls-1-2`, `tls-1-2-strict`, Remove the enum values ` tls-1-1`, ` tls-1-2`, ` tls-1-2-strict` from the request parameter `tls_ciphers_policy` to the interface `CreateListener`
+  - Remove the request parameter `cascade` from the interface `DeleteListener`
+  - Remove the request parameter `cascade` from the interface `DeleteLoadbalancer`
+  - Changes of the interface `ListApiVersions`:
+    - Add the response parameter `versions`
+    - Remove the response parameters `id`, `status`
+  - Remove the request parameter `global_eip_ids` from the interface `CreateLoadBalancer`
+
+### HuaweiCloud SDK IMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the enum values `market` to the request parameter `__imagetype` to the interface `ListTags`
+  - Changes of the interface `GlanceListImages`:
+    - Add the enum values `market` to the request parameter `__imagetype`
+    - Add the enum values `market` to the response parameter `__imagetype`
+  - Add the enum values `market` to the response parameter `__imagetype` to the interface `GlanceShowImage`
+  - Add the enum values `market` to the response parameter `__imagetype` to the interface `GlanceUpdateImage`
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `properties` to the interface `CreateMessage`
+  - Add the response parameter `properties` to the interface `ListDeviceMessages`
+  - Add the response parameter `properties` to the interface `ShowDeviceMessage`
+
+### HuaweiCloud SDK Moderation
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Modify the type `float` -> `integer` of the request parameter `frame_interval` of the interface `RunCreateVideoModerationJob`
+  - Modify the type `float` -> `integer` of the response parameters `start_time`, `end_time` of the interface `RunQueryAudioModerationJob`
+  - Changes of the interface `RunQueryVideoModerationJob`:
+    - Modify the type `integer` -> `float` of the response parameter `time`
+    - Modify the type `integer` -> `float` of the response parameters `start_time`, `end_time`
+
 # 3.1.5 2022-09-28
 
 ### HuaweiCloud SDK OCR

@@ -127,6 +127,7 @@ import { NetAddress } from './model/NetAddress';
 import { ObsForwarding } from './model/ObsForwarding';
 import { Page } from './model/Page';
 import { ProductSummary } from './model/ProductSummary';
+import { PropertiesDTO } from './model/PropertiesDTO';
 import { PropertyFilter } from './model/PropertyFilter';
 import { QueryDeviceSimplify } from './model/QueryDeviceSimplify';
 import { QueryQueueBase } from './model/QueryQueueBase';
@@ -220,6 +221,7 @@ import { UpdateRuleActionResponse } from './model/UpdateRuleActionResponse';
 import { UpdateRuleReq } from './model/UpdateRuleReq';
 import { UpdateRuleRequest } from './model/UpdateRuleRequest';
 import { UpdateRuleResponse } from './model/UpdateRuleResponse';
+import { UserPropDTO } from './model/UserPropDTO';
 import { VerifyCertificateDTO } from './model/VerifyCertificateDTO';
 
 export class IoTDAClient {

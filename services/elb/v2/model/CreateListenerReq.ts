@@ -172,7 +172,7 @@ export enum CreateListenerReqProtocolEnum {
     */
 export enum CreateListenerReqTlsCiphersPolicyEnum {
     TLS_1_0 = 'tls-1-0',
-    TLS_1_1 = ' tls-1-1',
-    TLS_1_2 = ' tls-1-2',
-    TLS_1_2_STRICT = ' tls-1-2-strict'
+    TLS_1_1 = 'tls-1-1',
+    TLS_1_2 = 'tls-1-2',
+    TLS_1_2_STRICT = 'tls-1-2-strict'
 }

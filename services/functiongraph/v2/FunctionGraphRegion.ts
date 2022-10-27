@@ -11,6 +11,10 @@ export class FunctionGraphRegion {
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", "https://functiongraph.ap-southeast-3.myhuaweicloud.com");
     public static AF_SOUTH_1 = new Region("af-south-1", "https://functiongraph.af-south-1.myhuaweicloud.com");
     public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", "https://functiongraph.cn-southwest-2.myhuaweicloud.com");
+    public static SA_BRAZIL_1 = new Region("sa-brazil-1", "https://functiongraph.sa-brazil-1.myhuaweicloud.com");
+    public static LA_SOUTH_2 = new Region("la-south-2", "https://functiongraph.la-south-2.myhuaweicloud.com");
+    public static NA_MEXICO_1 = new Region("na-mexico-1", "https://functiongraph.na-mexico-1.myhuaweicloud.com");
+    public static LA_NORTH_2 = new Region("la-north-2", "https://functiongraph.la-north-2.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = FunctionGraphRegion.createStaticFields();
@@ -26,6 +30,10 @@ export class FunctionGraphRegion {
         map.set("ap-southeast-3", FunctionGraphRegion.AP_SOUTHEAST_3);
         map.set("af-south-1", FunctionGraphRegion.AF_SOUTH_1);
         map.set("cn-southwest-2", FunctionGraphRegion.CN_SOUTHWEST_2);
+        map.set("sa-brazil-1", FunctionGraphRegion.SA_BRAZIL_1);
+        map.set("la-south-2", FunctionGraphRegion.LA_SOUTH_2);
+        map.set("na-mexico-1", FunctionGraphRegion.NA_MEXICO_1);
+        map.set("la-north-2", FunctionGraphRegion.LA_NORTH_2);
         return map;
     }
     public static valueOf(regionId: String) {

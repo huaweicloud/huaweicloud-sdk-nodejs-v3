@@ -24,7 +24,6 @@ export class CreateLoadBalancerOption {
     private 'admin_state_up'?: boolean | undefined;
     private 'billing_info'?: string | undefined;
     private 'ipv6_bandwidth'?: BandwidthRef | undefined;
-    private 'global_eip_ids'?: Array<string> | undefined;
     private 'publicip_ids'?: Array<string> | undefined;
     public publicip?: CreateLoadBalancerPublicIpOption;
     private 'elb_virsubnet_ids'?: Array<string> | undefined;
@@ -179,16 +178,6 @@ export class CreateLoadBalancerOption {
     }
     public get ipv6Bandwidth() {
         return this['ipv6_bandwidth'];
-    }
-    public withGlobalEipIds(globalEipIds: Array<string>): CreateLoadBalancerOption {
-        this['global_eip_ids'] = globalEipIds;
-        return this;
-    }
-    public set globalEipIds(globalEipIds: Array<string> | undefined) {
-        this['global_eip_ids'] = globalEipIds;
-    }
-    public get globalEipIds() {
-        return this['global_eip_ids'];
     }
     public withPublicipIds(publicipIds: Array<string>): CreateLoadBalancerOption {
         this['publicip_ids'] = publicipIds;

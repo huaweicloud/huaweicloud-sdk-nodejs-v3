@@ -1,5 +1,6 @@
 export * from './ElbClient';
 
+export * from './model/ApiVersionInfo';
 export * from './model/AutoscalingRef';
 export * from './model/AvailabilityZone';
 export * from './model/BandwidthRef';
