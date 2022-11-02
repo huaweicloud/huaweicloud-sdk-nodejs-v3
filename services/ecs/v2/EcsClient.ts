@@ -216,6 +216,9 @@ import { ProjectTag } from './model/ProjectTag';
 import { RegisterServerAutoRecoveryRequest } from './model/RegisterServerAutoRecoveryRequest';
 import { RegisterServerAutoRecoveryRequestBody } from './model/RegisterServerAutoRecoveryRequestBody';
 import { RegisterServerAutoRecoveryResponse } from './model/RegisterServerAutoRecoveryResponse';
+import { RegisterServerMonitorRequest } from './model/RegisterServerMonitorRequest';
+import { RegisterServerMonitorRequestBody } from './model/RegisterServerMonitorRequestBody';
+import { RegisterServerMonitorResponse } from './model/RegisterServerMonitorResponse';
 import { ReinstallServerWithCloudInitOption } from './model/ReinstallServerWithCloudInitOption';
 import { ReinstallServerWithCloudInitRequest } from './model/ReinstallServerWithCloudInitRequest';
 import { ReinstallServerWithCloudInitRequestBody } from './model/ReinstallServerWithCloudInitRequestBody';
@@ -289,6 +292,10 @@ import { UpdateServerAddress } from './model/UpdateServerAddress';
 import { UpdateServerAutoTerminateTimeRequest } from './model/UpdateServerAutoTerminateTimeRequest';
 import { UpdateServerAutoTerminateTimeRequestBody } from './model/UpdateServerAutoTerminateTimeRequestBody';
 import { UpdateServerAutoTerminateTimeResponse } from './model/UpdateServerAutoTerminateTimeResponse';
+import { UpdateServerBlockDeviceOption } from './model/UpdateServerBlockDeviceOption';
+import { UpdateServerBlockDeviceReq } from './model/UpdateServerBlockDeviceReq';
+import { UpdateServerBlockDeviceRequest } from './model/UpdateServerBlockDeviceRequest';
+import { UpdateServerBlockDeviceResponse } from './model/UpdateServerBlockDeviceResponse';
 import { UpdateServerMetadataRequest } from './model/UpdateServerMetadataRequest';
 import { UpdateServerMetadataRequestBody } from './model/UpdateServerMetadataRequestBody';
 import { UpdateServerMetadataResponse } from './model/UpdateServerMetadataResponse';
@@ -1288,6 +1295,27 @@ export class EcsClient {
     }
 
     /**
+     * 将云服务器添加到监控表中。
+     * 
+     * 注册到监控表中的云服务会被ceilometer周期性采集监控数据，包括平台的版本、cpu信息、内存、网卡、磁盘、硬件平台等信息，这些数据上报给云监控。例如SAP云服务器内部的插件会周期性从云监控中查询监控数据，以报表形式呈现给SAP。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 注册云服务器监控
+     * @param {string} serverId 云服务器ID。
+     * @param {RegisterServerMonitorRequestBody} registerServerMonitorRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public registerServerMonitor(registerServerMonitorRequest?: RegisterServerMonitorRequest): Promise<void> {
+        const options = ParamCreater().registerServerMonitor(registerServerMonitorRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重装弹性云服务器的操作系统。支持弹性云服务器数据盘不变的情况下，使用原镜像重装系统盘。
      * 
      * 调用该接口后，系统将卸载系统盘，然后使用原镜像重新创建系统盘，并挂载至弹性云服务器，实现重装操作系统功能。
@@ -1602,6 +1630,26 @@ export class EcsClient {
      */
     public updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest?: UpdateServerAutoTerminateTimeRequest): Promise<void> {
         const options = ParamCreater().updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改云服务器云主机挂载的单个磁盘信息。\&#39;当前仅支持修改delete_on_termination字段。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 修改云服务器挂载的单个磁盘信息
+     * @param {string} serverId 云服务器ID。
+     * @param {string} volumeId 磁盘id，uuid格式
+     * @param {UpdateServerBlockDeviceReq} updateServerBlockDeviceReq This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateServerBlockDevice(updateServerBlockDeviceRequest?: UpdateServerBlockDeviceRequest): Promise<void> {
+        const options = ParamCreater().updateServerBlockDevice(updateServerBlockDeviceRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -3868,6 +3916,54 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 将云服务器添加到监控表中。
+         * 
+         * 注册到监控表中的云服务会被ceilometer周期性采集监控数据，包括平台的版本、cpu信息、内存、网卡、磁盘、硬件平台等信息，这些数据上报给云监控。例如SAP云服务器内部的插件会周期性从云监控中查询监控数据，以报表形式呈现给SAP。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        registerServerMonitor(registerServerMonitorRequest?: RegisterServerMonitorRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1.0/servers/{server_id}/action",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let serverId;
+
+            if (registerServerMonitorRequest !== null && registerServerMonitorRequest !== undefined) {
+                if (registerServerMonitorRequest instanceof RegisterServerMonitorRequest) {
+                    serverId = registerServerMonitorRequest.serverId;
+                    body = registerServerMonitorRequest.body
+                } else {
+                    serverId = registerServerMonitorRequest['server_id'];
+                    body = registerServerMonitorRequest['body'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling registerServerMonitor.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重装弹性云服务器的操作系统。支持弹性云服务器数据盘不变的情况下，使用原镜像重装系统盘。
          * 
          * 调用该接口后，系统将卸载系统盘，然后使用原镜像重新创建系统盘，并挂载至弹性云服务器，实现重装操作系统功能。
@@ -4550,6 +4646,58 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改云服务器云主机挂载的单个磁盘信息。\&#39;当前仅支持修改delete_on_termination字段。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        updateServerBlockDevice(updateServerBlockDeviceRequest?: UpdateServerBlockDeviceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/cloudservers/{server_id}/block_device/{volume_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let serverId;
+            let volumeId;
+
+            if (updateServerBlockDeviceRequest !== null && updateServerBlockDeviceRequest !== undefined) {
+                if (updateServerBlockDeviceRequest instanceof UpdateServerBlockDeviceRequest) {
+                    serverId = updateServerBlockDeviceRequest.serverId;
+                    volumeId = updateServerBlockDeviceRequest.volumeId;
+                    body = updateServerBlockDeviceRequest.body
+                } else {
+                    serverId = updateServerBlockDeviceRequest['server_id'];
+                    volumeId = updateServerBlockDeviceRequest['volume_id'];
+                    body = updateServerBlockDeviceRequest['body'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling updateServerBlockDevice.');
+            }
+            if (volumeId === null || volumeId === undefined) {
+            throw new RequiredError('volumeId','Required parameter volumeId was null or undefined when calling updateServerBlockDevice.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId,'volume_id': volumeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

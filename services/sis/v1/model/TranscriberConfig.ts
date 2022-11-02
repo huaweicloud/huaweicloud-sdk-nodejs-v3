@@ -113,7 +113,8 @@ export enum TranscriberConfigPropertyEnum {
     CHINESE_8K_COMMON = 'chinese_8k_common',
     CHINESE_16K_CONVERSATION = 'chinese_16k_conversation',
     CHINESE_8K_BANK = 'chinese_8k_bank',
-    CHINESE_8K_INSURANCE = 'chinese_8k_insurance'
+    CHINESE_8K_INSURANCE = 'chinese_8k_insurance',
+    SICHUAN_8K_COMMON = 'sichuan_8k_common'
 }
 /**
     * @export

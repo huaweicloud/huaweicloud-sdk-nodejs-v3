@@ -19,6 +19,7 @@ export class CceRegion {
     public static LA_SOUTH_2 = new Region("la-south-2", "https://cce.la-south-2.myhuaweicloud.com");
     public static LA_NORTH_2 = new Region("la-north-2", "https://cce.la-north-2.myhuaweicloud.com");
     public static NA_MEXICO_1 = new Region("na-mexico-1", "https://cce.na-mexico-1.myhuaweicloud.com");
+    public static RU_NORTHWEST_2 = new Region("ru-northwest-2", "https://cce.ru-northwest-2.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = CceRegion.createStaticFields();
@@ -42,6 +43,7 @@ export class CceRegion {
         map.set("la-south-2", CceRegion.LA_SOUTH_2);
         map.set("la-north-2", CceRegion.LA_NORTH_2);
         map.set("na-mexico-1", CceRegion.NA_MEXICO_1);
+        map.set("ru-northwest-2", CceRegion.RU_NORTHWEST_2);
         return map;
     }
     public static valueOf(regionId: String) {

@@ -95,5 +95,7 @@ export enum TtsConfigPropertyEnum {
     CHINESE_HUANVXIA_LITERATURE = 'chinese_huanvxia_literature',
     CHINESE_HUAXIAOXUAN_LITERATURE = 'chinese_huaxiaoxuan_literature',
     CHINESE_HUAXIAOMEI_COMMON = 'chinese_huaxiaomei_common',
-    CHINESE_HUAXIAOFEI_COMMON = 'chinese_huaxiaofei_common'
+    CHINESE_HUAXIAOFEI_COMMON = 'chinese_huaxiaofei_common',
+    CHINESE_HUAXIAOLONG_COMMON = 'chinese_huaxiaolong_common',
+    CHINESE_HUAXIAORUI_COMMON = 'chinese_huaxiaorui_common'
 }
