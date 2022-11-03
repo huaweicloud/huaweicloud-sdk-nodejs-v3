@@ -32,6 +32,7 @@ export * from './model/FlightItineraryResult';
 export * from './model/GeneralTableRequestBody';
 export * from './model/GeneralTableResult';
 export * from './model/GeneralTableWordsBlockList';
+export * from './model/GeneralTextCharList';
 export * from './model/GeneralTextRequestBody';
 export * from './model/GeneralTextResult';
 export * from './model/GeneralTextWordsBlockList';

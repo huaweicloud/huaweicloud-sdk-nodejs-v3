@@ -22,6 +22,7 @@ export class ThailandIdcardResult {
     private 'portrait_image'?: string | undefined;
     private 'portrait_location'?: Array<Array<number>> | undefined;
     private 'idcard_type'?: string | undefined;
+    private 'text_location'?: object | undefined;
     public constructor() { 
     }
     public withSide(side: string): ThailandIdcardResult {
@@ -211,5 +212,15 @@ export class ThailandIdcardResult {
     }
     public get idcardType() {
         return this['idcard_type'];
+    }
+    public withTextLocation(textLocation: object): ThailandIdcardResult {
+        this['text_location'] = textLocation;
+        return this;
+    }
+    public set textLocation(textLocation: object | undefined) {
+        this['text_location'] = textLocation;
+    }
+    public get textLocation() {
+        return this['text_location'];
     }
 }

@@ -2,7 +2,7 @@
 
 export class NovaServerBlockDeviceMapping {
     private 'source_type': NovaServerBlockDeviceMappingSourceTypeEnum | undefined;
-    private 'destination_type': NovaServerBlockDeviceMappingDestinationTypeEnum | undefined;
+    private 'destination_type'?: NovaServerBlockDeviceMappingDestinationTypeEnum | undefined;
     private 'guest_format'?: string | undefined;
     private 'device_name'?: string | undefined;
     private 'delete_on_termination'?: boolean | undefined;
@@ -10,9 +10,8 @@ export class NovaServerBlockDeviceMapping {
     public uuid?: string;
     private 'volume_size'?: number | undefined;
     private 'volume_type'?: string | undefined;
-    public constructor(sourceType?: any, destinationType?: any) { 
+    public constructor(sourceType?: any) { 
         this['source_type'] = sourceType;
-        this['destination_type'] = destinationType;
     }
     public withSourceType(sourceType: NovaServerBlockDeviceMappingSourceTypeEnum): NovaServerBlockDeviceMapping {
         this['source_type'] = sourceType;

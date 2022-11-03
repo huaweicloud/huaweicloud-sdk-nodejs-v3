@@ -34,6 +34,7 @@ import { FlightItineraryResult } from './model/FlightItineraryResult';
 import { GeneralTableRequestBody } from './model/GeneralTableRequestBody';
 import { GeneralTableResult } from './model/GeneralTableResult';
 import { GeneralTableWordsBlockList } from './model/GeneralTableWordsBlockList';
+import { GeneralTextCharList } from './model/GeneralTextCharList';
 import { GeneralTextRequestBody } from './model/GeneralTextRequestBody';
 import { GeneralTextResult } from './model/GeneralTextResult';
 import { GeneralTextWordsBlockList } from './model/GeneralTextWordsBlockList';
@@ -763,7 +764,7 @@ export class OcrClient {
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 从业资格证识别
+     * @summary 道路运输从业资格证识别
      * @param {QualificationCertificateRequestBody} qualificationCertificateRequestBody This is a auto create Body Object Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

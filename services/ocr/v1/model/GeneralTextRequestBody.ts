@@ -5,6 +5,7 @@ export class GeneralTextRequestBody {
     public url?: string;
     private 'detect_direction'?: boolean | undefined;
     private 'quick_mode'?: boolean | undefined;
+    private 'character_mode'?: boolean | undefined;
     public constructor() { 
     }
     public withImage(image: string): GeneralTextRequestBody {
@@ -34,5 +35,15 @@ export class GeneralTextRequestBody {
     }
     public get quickMode() {
         return this['quick_mode'];
+    }
+    public withCharacterMode(characterMode: boolean): GeneralTextRequestBody {
+        this['character_mode'] = characterMode;
+        return this;
+    }
+    public set characterMode(characterMode: boolean | undefined) {
+        this['character_mode'] = characterMode;
+    }
+    public get characterMode() {
+        return this['character_mode'];
     }
 }

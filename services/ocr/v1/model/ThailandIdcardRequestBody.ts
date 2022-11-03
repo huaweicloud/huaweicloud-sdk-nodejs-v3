@@ -7,6 +7,7 @@ export class ThailandIdcardRequestBody {
     private 'return_portrait_image'?: boolean | undefined;
     private 'return_portrait_location'?: boolean | undefined;
     private 'return_idcard_type'?: boolean | undefined;
+    private 'return_text_location'?: boolean | undefined;
     public constructor() { 
     }
     public withImage(image: string): ThailandIdcardRequestBody {
@@ -50,5 +51,15 @@ export class ThailandIdcardRequestBody {
     }
     public get returnIdcardType() {
         return this['return_idcard_type'];
+    }
+    public withReturnTextLocation(returnTextLocation: boolean): ThailandIdcardRequestBody {
+        this['return_text_location'] = returnTextLocation;
+        return this;
+    }
+    public set returnTextLocation(returnTextLocation: boolean | undefined) {
+        this['return_text_location'] = returnTextLocation;
+    }
+    public get returnTextLocation() {
+        return this['return_text_location'];
     }
 }

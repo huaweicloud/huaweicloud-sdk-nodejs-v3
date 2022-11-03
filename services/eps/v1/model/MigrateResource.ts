@@ -1,6 +1,7 @@
 
 
 export class MigrateResource {
+    private 'region_id'?: string | undefined;
     private 'project_id'?: string | undefined;
     private 'resource_id': string | undefined;
     private 'resource_type': string | undefined;
@@ -8,6 +9,16 @@ export class MigrateResource {
     public constructor(resourceId?: any, resourceType?: any) { 
         this['resource_id'] = resourceId;
         this['resource_type'] = resourceType;
+    }
+    public withRegionId(regionId: string): MigrateResource {
+        this['region_id'] = regionId;
+        return this;
+    }
+    public set regionId(regionId: string | undefined) {
+        this['region_id'] = regionId;
+    }
+    public get regionId() {
+        return this['region_id'];
     }
     public withProjectId(projectId: string): MigrateResource {
         this['project_id'] = projectId;
