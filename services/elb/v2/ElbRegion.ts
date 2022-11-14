@@ -13,6 +13,11 @@ export class ElbRegion {
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", "https://elb.ap-southeast-2.myhuaweicloud.com");
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", "https://elb.ap-southeast-1.myhuaweicloud.com");
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", "https://elb.ap-southeast-3.myhuaweicloud.com");
+    public static CN_NORTH_9 = new Region("cn-north-9", "https://elb.cn-north-9.myhuaweicloud.com");
+    public static LA_SOUTH_2 = new Region("la-south-2", "https://elb.la-south-2.myhuaweicloud.com");
+    public static SA_BRAZIL_1 = new Region("sa-brazil-1", "https://elb.sa-brazil-1.myhuaweicloud.com");
+    public static NA_MEXICO_1 = new Region("na-mexico-1", "https://elb.na-mexico-1.myhuaweicloud.com");
+    public static LA_NORTH_2 = new Region("la-north-2", "https://elb.la-north-2.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = ElbRegion.createStaticFields();
@@ -30,6 +35,11 @@ export class ElbRegion {
         map.set("ap-southeast-2", ElbRegion.AP_SOUTHEAST_2);
         map.set("ap-southeast-1", ElbRegion.AP_SOUTHEAST_1);
         map.set("ap-southeast-3", ElbRegion.AP_SOUTHEAST_3);
+        map.set("cn-north-9", ElbRegion.CN_NORTH_9);
+        map.set("la-south-2", ElbRegion.LA_SOUTH_2);
+        map.set("sa-brazil-1", ElbRegion.SA_BRAZIL_1);
+        map.set("na-mexico-1", ElbRegion.NA_MEXICO_1);
+        map.set("la-north-2", ElbRegion.LA_NORTH_2);
         return map;
     }
     public static valueOf(regionId: String) {

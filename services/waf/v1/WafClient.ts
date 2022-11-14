@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AccessProgress } from './model/AccessProgress';
 import { Action } from './model/Action';
 import { Advanced } from './model/Advanced';
+import { AlertNoticeConfigResponse } from './model/AlertNoticeConfigResponse';
 import { AntiTamperRuleResponseBody } from './model/AntiTamperRuleResponseBody';
 import { ApplyCertificateToHostRequest } from './model/ApplyCertificateToHostRequest';
 import { ApplyCertificateToHostRequestBody } from './model/ApplyCertificateToHostRequestBody';
@@ -97,6 +98,7 @@ import { IpClassificationItem } from './model/IpClassificationItem';
 import { IpGroup } from './model/IpGroup';
 import { IpGroupBody } from './model/IpGroupBody';
 import { IpItem } from './model/IpItem';
+import { IpsItem } from './model/IpsItem';
 import { ListAntitamperRuleRequest } from './model/ListAntitamperRuleRequest';
 import { ListAntitamperRuleResponse } from './model/ListAntitamperRuleResponse';
 import { ListBandwidthTimelineRequest } from './model/ListBandwidthTimelineRequest';
@@ -121,6 +123,8 @@ import { ListInstanceRequest } from './model/ListInstanceRequest';
 import { ListInstanceResponse } from './model/ListInstanceResponse';
 import { ListIpGroupRequest } from './model/ListIpGroupRequest';
 import { ListIpGroupResponse } from './model/ListIpGroupResponse';
+import { ListNoticeConfigsRequest } from './model/ListNoticeConfigsRequest';
+import { ListNoticeConfigsResponse } from './model/ListNoticeConfigsResponse';
 import { ListOverviewsClassificationRequest } from './model/ListOverviewsClassificationRequest';
 import { ListOverviewsClassificationResponse } from './model/ListOverviewsClassificationResponse';
 import { ListPolicyRequest } from './model/ListPolicyRequest';
@@ -142,6 +146,9 @@ import { ListValueListResponse } from './model/ListValueListResponse';
 import { ListWhiteblackipRuleRequest } from './model/ListWhiteblackipRuleRequest';
 import { ListWhiteblackipRuleResponse } from './model/ListWhiteblackipRuleResponse';
 import { LtsIdInfo } from './model/LtsIdInfo';
+import { MigrateCompositeHostsRequest } from './model/MigrateCompositeHostsRequest';
+import { MigrateCompositeHostsRequestBody } from './model/MigrateCompositeHostsRequestBody';
+import { MigrateCompositeHostsResponse } from './model/MigrateCompositeHostsResponse';
 import { PolicyAction } from './model/PolicyAction';
 import { PolicyOption } from './model/PolicyOption';
 import { PolicyResponse } from './model/PolicyResponse';
@@ -176,11 +183,16 @@ import { ShowPolicyRequest } from './model/ShowPolicyRequest';
 import { ShowPolicyResponse } from './model/ShowPolicyResponse';
 import { ShowPremiumHostRequest } from './model/ShowPremiumHostRequest';
 import { ShowPremiumHostResponse } from './model/ShowPremiumHostResponse';
+import { ShowSourceIpRequest } from './model/ShowSourceIpRequest';
+import { ShowSourceIpResponse } from './model/ShowSourceIpResponse';
 import { SimplePremiumWafHost } from './model/SimplePremiumWafHost';
 import { StatisticsTimelineItem } from './model/StatisticsTimelineItem';
 import { TimeLineItem } from './model/TimeLineItem';
 import { TimeoutConfig } from './model/TimeoutConfig';
 import { TrafficMark } from './model/TrafficMark';
+import { UpdateAlertNoticeConfigRequest } from './model/UpdateAlertNoticeConfigRequest';
+import { UpdateAlertNoticeConfigRequestBody } from './model/UpdateAlertNoticeConfigRequestBody';
+import { UpdateAlertNoticeConfigResponse } from './model/UpdateAlertNoticeConfigResponse';
 import { UpdateCertificateRequest } from './model/UpdateCertificateRequest';
 import { UpdateCertificateRequestBody } from './model/UpdateCertificateRequestBody';
 import { UpdateCertificateResponse } from './model/UpdateCertificateResponse';
@@ -376,7 +388,7 @@ export class WafClient {
      * @summary 创建WAF独享引擎实例
      * @param {string} contentType 内容类型
      * @param {CreateInstanceRequestBody} createInstanceRequestBody 待创建的独享引擎信息
-     * @param {string} [enterpriseProjectId] 通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询企业项目ID
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -621,7 +633,7 @@ export class WafClient {
      * @summary 删除WAF独享引擎信息
      * @param {string} contentType 内容类型
      * @param {string} instanceId 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID）
-     * @param {string} [enterpriseProjectId] 通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询企业项目ID
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -972,7 +984,7 @@ export class WafClient {
      *
      * @summary 查询WAF独享引擎列表
      * @param {string} contentType 内容类型
-     * @param {string} [enterpriseProjectId] 通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询企业项目ID
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
      * @param {number} [page] 分页查询参数，第page页，默认值为1
      * @param {number} [pagesize] 分页查询参数，每页pagesize条记录，默认值为10
      * @param {string} [instancename] 模糊查询，独享引擎名称
@@ -1004,6 +1016,25 @@ export class WafClient {
      */
     public listIpGroup(listIpGroupRequest?: ListIpGroupRequest): Promise<ListIpGroupResponse> {
         const options = ParamCreater().listIpGroup(listIpGroupRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询告警通知配置
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询告警通知配置
+     * @param {string} contentType 内容类型
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listNoticeConfigs(listNoticeConfigsRequest?: ListNoticeConfigsRequest): Promise<ListNoticeConfigsResponse> {
+        const options = ParamCreater().listNoticeConfigs(listNoticeConfigsRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1242,6 +1273,27 @@ export class WafClient {
     }
 
     /**
+     * 按企业项目迁移防护域名，仅专业版与独享版支持该功能
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 按企业项目迁移防护域名
+     * @param {string} contentType 内容类型
+     * @param {string} enterpriseProjectId 当前企业项目ID
+     * @param {string} targetEnterpriseProjectId 迁移的目标企业项目ID
+     * @param {MigrateCompositeHostsRequestBody} [migrateCompositeHostsRequestBody] 域名迁移的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public migrateCompositeHosts(migrateCompositeHostsRequest?: MigrateCompositeHostsRequest): Promise<MigrateCompositeHostsResponse> {
+        const options = ParamCreater().migrateCompositeHosts(migrateCompositeHostsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 重命名WAF独享引擎
      * 
      * 详细说明请参考华为云API Explorer。
@@ -1250,7 +1302,7 @@ export class WafClient {
      * @summary 重命名WAF独享引擎
      * @param {string} contentType 内容类型
      * @param {string} instanceId 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID）
-     * @param {string} [enterpriseProjectId] 通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询企业项目ID
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
      * @param {RenameInstanceRequestBody} [renameInstanceRequestBody] 独享引擎新名称
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1369,7 +1421,7 @@ export class WafClient {
      * @summary 查询WAF独享引擎信息
      * @param {string} contentType 内容类型
      * @param {string} instanceId 独享引擎ID（通过调用WAF的ListInstance接口获取所有独享引擎信息查询独享引擎ID）
-     * @param {string} [enterpriseProjectId] 通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询通过企业项目管理服务的查询企业项目列表接口ListEnterpriseProject查询企业项目ID
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1454,6 +1506,45 @@ export class WafClient {
      */
     public showPremiumHost(showPremiumHostRequest?: ShowPremiumHostRequest): Promise<ShowPremiumHostResponse> {
         const options = ParamCreater().showPremiumHost(showPremiumHostRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询WAF回源Ip信息
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询WAF回源Ip信息
+     * @param {string} contentType 内容类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSourceIp(showSourceIpRequest?: ShowSourceIpRequest): Promise<ShowSourceIpResponse> {
+        const options = ParamCreater().showSourceIp(showSourceIpRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新告警通知配置
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 更新告警通知配置
+     * @param {string} contentType 内容类型
+     * @param {string} xLanguage zh-cn/en-us
+     * @param {string} alertId 告警通知id
+     * @param {UpdateAlertNoticeConfigRequestBody} updateAlertNoticeConfigRequestBody 请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAlertNoticeConfig(updateAlertNoticeConfigRequest?: UpdateAlertNoticeConfigRequest): Promise<UpdateAlertNoticeConfigResponse> {
+        const options = ParamCreater().updateAlertNoticeConfig(updateAlertNoticeConfigRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1566,7 +1657,7 @@ export class WafClient {
     }
 
     /**
-     * 配置全量日志lts，该接口可用来开启与关闭wa全量日志以及配置日志组和日志流。日志组id和日志流id可前往云日志服务获取。配置的日志流id要属于所配置的日志组。
+     * 配置全量日志lts，该接口可用来开启与关闭waf全量日志以及配置日志组和日志流。日志组id和日志流id可前往云日志服务获取。配置的日志流id要属于所配置的日志组。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -3887,6 +3978,50 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询告警通知配置
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listNoticeConfigs(listNoticeConfigsRequest?: ListNoticeConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/waf/alerts",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let contentType;
+            let enterpriseProjectId;
+
+            if (listNoticeConfigsRequest !== null && listNoticeConfigsRequest !== undefined) {
+                if (listNoticeConfigsRequest instanceof ListNoticeConfigsRequest) {
+                    contentType = listNoticeConfigsRequest.contentType;
+                    enterpriseProjectId = listNoticeConfigsRequest.enterpriseProjectId;
+                } else {
+                    contentType = listNoticeConfigsRequest['Content-Type'];
+                    enterpriseProjectId = listNoticeConfigsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询安全总览分类统计TOP信息，包含受攻击域名 、攻击源ip、受攻击URL、攻击来源区域、攻击事件分布。需要注意的是，安全总览相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -4611,6 +4746,67 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 按企业项目迁移防护域名，仅专业版与独享版支持该功能
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        migrateCompositeHosts(migrateCompositeHostsRequest?: MigrateCompositeHostsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/composite-waf/hosts/migration",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            var body: any;
+            let contentType;
+            let enterpriseProjectId;
+            let targetEnterpriseProjectId;
+
+            if (migrateCompositeHostsRequest !== null && migrateCompositeHostsRequest !== undefined) {
+                if (migrateCompositeHostsRequest instanceof MigrateCompositeHostsRequest) {
+                    contentType = migrateCompositeHostsRequest.contentType;
+                    enterpriseProjectId = migrateCompositeHostsRequest.enterpriseProjectId;
+                    targetEnterpriseProjectId = migrateCompositeHostsRequest.targetEnterpriseProjectId;
+                    body = migrateCompositeHostsRequest.body
+                } else {
+                    contentType = migrateCompositeHostsRequest['Content-Type'];
+                    enterpriseProjectId = migrateCompositeHostsRequest['enterprise_project_id'];
+                    targetEnterpriseProjectId = migrateCompositeHostsRequest['target_enterprise_project_id'];
+                    body = migrateCompositeHostsRequest['body'];
+                }
+            }
+
+        
+            if (enterpriseProjectId === null || enterpriseProjectId === undefined) {
+                throw new RequiredError('enterpriseProjectId','Required parameter enterpriseProjectId was null or undefined when calling migrateCompositeHosts.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (targetEnterpriseProjectId === null || targetEnterpriseProjectId === undefined) {
+                throw new RequiredError('targetEnterpriseProjectId','Required parameter targetEnterpriseProjectId was null or undefined when calling migrateCompositeHosts.');
+            }
+            if (targetEnterpriseProjectId !== null && targetEnterpriseProjectId !== undefined) {
+                localVarQueryParameter['target_enterprise_project_id'] = targetEnterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 重命名WAF独享引擎
          * 
          * 详细说明请参考华为云API Explorer。
@@ -5156,6 +5352,101 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询WAF回源Ip信息
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showSourceIp(showSourceIpRequest?: ShowSourceIpRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/config/source-ip",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let contentType;
+
+            if (showSourceIpRequest !== null && showSourceIpRequest !== undefined) {
+                if (showSourceIpRequest instanceof ShowSourceIpRequest) {
+                    contentType = showSourceIpRequest.contentType;
+                } else {
+                    contentType = showSourceIpRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新告警通知配置
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        updateAlertNoticeConfig(updateAlertNoticeConfigRequest?: UpdateAlertNoticeConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/waf/alert/{alert_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let contentType;
+            let xLanguage;
+            let alertId;
+
+            if (updateAlertNoticeConfigRequest !== null && updateAlertNoticeConfigRequest !== undefined) {
+                if (updateAlertNoticeConfigRequest instanceof UpdateAlertNoticeConfigRequest) {
+                    contentType = updateAlertNoticeConfigRequest.contentType;
+                    xLanguage = updateAlertNoticeConfigRequest.xLanguage;
+                    alertId = updateAlertNoticeConfigRequest.alertId;
+                    body = updateAlertNoticeConfigRequest.body
+                } else {
+                    contentType = updateAlertNoticeConfigRequest['Content-Type'];
+                    xLanguage = updateAlertNoticeConfigRequest['X-Language'];
+                    alertId = updateAlertNoticeConfigRequest['alert_id'];
+                    body = updateAlertNoticeConfigRequest['body'];
+                }
+            }
+
+        
+            if (alertId === null || alertId === undefined) {
+            throw new RequiredError('alertId','Required parameter alertId was null or undefined when calling updateAlertNoticeConfig.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (xLanguage !== undefined && xLanguage !== null) {
+                localVarHeaderParameter['X-Language'] = String(xLanguage);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'alert_id': alertId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改证书
          * 
          * 详细说明请参考华为云API Explorer。
@@ -5448,7 +5739,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 配置全量日志lts，该接口可用来开启与关闭wa全量日志以及配置日志组和日志流。日志组id和日志流id可前往云日志服务获取。配置的日志流id要属于所配置的日志组。
+         * 配置全量日志lts，该接口可用来开启与关闭waf全量日志以及配置日志组和日志流。日志组id和日志流id可前往云日志服务获取。配置的日志流id要属于所配置的日志组。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.

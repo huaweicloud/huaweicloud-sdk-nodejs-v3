@@ -23,6 +23,7 @@ export class ListInstance {
     public hosts?: Array<IdHostnameEntry>;
     public serverId?: string;
     private 'create_time'?: number | undefined;
+    private 'instance_name'?: string | undefined;
     public constructor() { 
     }
     public withId(id: string): ListInstance {
@@ -156,5 +157,15 @@ export class ListInstance {
     }
     public get createTime() {
         return this['create_time'];
+    }
+    public withInstanceName(instanceName: string): ListInstance {
+        this['instance_name'] = instanceName;
+        return this;
+    }
+    public set instanceName(instanceName: string | undefined) {
+        this['instance_name'] = instanceName;
+    }
+    public get instanceName() {
+        return this['instance_name'];
     }
 }

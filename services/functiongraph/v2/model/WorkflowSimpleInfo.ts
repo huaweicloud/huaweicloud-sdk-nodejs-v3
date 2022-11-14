@@ -1,6 +1,7 @@
 
 
 export class WorkflowSimpleInfo {
+    private 'enable_stream_response': boolean | undefined;
     public id: string;
     private 'workflow_urn': string | undefined;
     public name: string;
@@ -8,7 +9,8 @@ export class WorkflowSimpleInfo {
     private 'created_time': string | undefined;
     private 'updated_time': string | undefined;
     private 'created_by': string | undefined;
-    public constructor(id?: any, workflowUrn?: any, name?: any, description?: any, createdTime?: any, updatedTime?: any, createdBy?: any) { 
+    public constructor(enableStreamResponse?: any, id?: any, workflowUrn?: any, name?: any, description?: any, createdTime?: any, updatedTime?: any, createdBy?: any) { 
+        this['enable_stream_response'] = enableStreamResponse;
         this['id'] = id;
         this['workflow_urn'] = workflowUrn;
         this['name'] = name;
@@ -16,6 +18,16 @@ export class WorkflowSimpleInfo {
         this['created_time'] = createdTime;
         this['updated_time'] = updatedTime;
         this['created_by'] = createdBy;
+    }
+    public withEnableStreamResponse(enableStreamResponse: boolean): WorkflowSimpleInfo {
+        this['enable_stream_response'] = enableStreamResponse;
+        return this;
+    }
+    public set enableStreamResponse(enableStreamResponse: boolean | undefined) {
+        this['enable_stream_response'] = enableStreamResponse;
+    }
+    public get enableStreamResponse() {
+        return this['enable_stream_response'];
     }
     public withId(id: string): WorkflowSimpleInfo {
         this['id'] = id;

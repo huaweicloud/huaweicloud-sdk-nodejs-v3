@@ -1,3 +1,43 @@
+# 3.1.9 2022-11-14
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - Support the interface `ShowWorkflowExecutionForPage`
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `enable_stream_response` to the interface `ListWorkflow`
+  - Add the response parameter `enable_stream_response` to the interface `UpdateWorkFlow`
+
+### HuaweiCloud SDK VPCEP
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Modify the type `string` -> `array` of the response parameter `Action` of the interface `ListEndpoints`
+  - Modify the type `string` -> `array` of the response parameter `Action` of the interface `DeleteEndpointPolicy`
+  - Changes of the interface `UpdateEndpointPolicy`:
+    - Modify the type `string` -> `array` of the request parameter `Action`
+    - Modify the type `string` -> `array` of the response parameter `Action`
+
+### HuaweiCloud SDK WAF
+
+- _Features_
+  - Support the interfaces `MigrateCompositeHosts`, `ShowSourceIp`, `ListNoticeConfigs`, `UpdateAlertNoticeConfig`
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `instance_name` to the interface `ListInstance`
+  - Add the response parameters `enabled`, `ltsAttackStreamID` to the interface `ShowLtsInfoConfig`
+  - Changes of the interface `UpdateLtsInfoConfig`:
+    - Add the request parameters `enabled`, `ltsAttackStreamID`
+    - Add the response parameters `enabled`, `ltsAttackStreamID`
+    - The request parameter `enabale` changed to not required
+  - Add the response parameter `description` to the interface `ShowIpGroup`
+
 # 3.1.8 2022-11-03
 
 ### HuaweiCloud SDK GA

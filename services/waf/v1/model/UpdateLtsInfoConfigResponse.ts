@@ -4,8 +4,9 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateLtsInfoConfigResponse extends SdkResponse {
     public id?: string;
-    public enabale?: boolean;
+    public enabled?: boolean;
     public ltsIdInfo?: LtsIdInfo;
+    public enabale?: boolean;
     public constructor() { 
         super();
     }
@@ -13,12 +14,16 @@ export class UpdateLtsInfoConfigResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withEnabale(enabale: boolean): UpdateLtsInfoConfigResponse {
-        this['enabale'] = enabale;
+    public withEnabled(enabled: boolean): UpdateLtsInfoConfigResponse {
+        this['enabled'] = enabled;
         return this;
     }
     public withLtsIdInfo(ltsIdInfo: LtsIdInfo): UpdateLtsInfoConfigResponse {
         this['ltsIdInfo'] = ltsIdInfo;
+        return this;
+    }
+    public withEnabale(enabale: boolean): UpdateLtsInfoConfigResponse {
+        this['enabale'] = enabale;
         return this;
     }
 }

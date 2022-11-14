@@ -2,7 +2,7 @@
 
 export class PolicyStatement {
     private 'Effect': string | undefined;
-    private 'Action': string | undefined;
+    private 'Action': Array<string> | undefined;
     private 'Resource': Array<string> | undefined;
     public constructor(effect?: any, action?: any, resource?: any) { 
         this['Effect'] = effect;
@@ -19,11 +19,11 @@ export class PolicyStatement {
     public get effect() {
         return this['Effect'];
     }
-    public withAction(action: string): PolicyStatement {
+    public withAction(action: Array<string>): PolicyStatement {
         this['Action'] = action;
         return this;
     }
-    public set action(action: string | undefined) {
+    public set action(action: Array<string> | undefined) {
         this['Action'] = action;
     }
     public get action() {

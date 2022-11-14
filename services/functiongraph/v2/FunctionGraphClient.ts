@@ -56,6 +56,7 @@ import { ExportFunctionResponse } from './model/ExportFunctionResponse';
 import { ExpressConfig } from './model/ExpressConfig';
 import { FlowExecuteBody } from './model/FlowExecuteBody';
 import { FlowExecutionBrief } from './model/FlowExecutionBrief';
+import { FlowExecutionBriefV2 } from './model/FlowExecutionBriefV2';
 import { FuncAsyncDestinationConfig } from './model/FuncAsyncDestinationConfig';
 import { FuncCode } from './model/FuncCode';
 import { FuncDestinationConfig } from './model/FuncDestinationConfig';
@@ -116,6 +117,8 @@ import { OnError } from './model/OnError';
 import { OperateErrorInfo } from './model/OperateErrorInfo';
 import { OperationState } from './model/OperationState';
 import { PageInfo } from './model/PageInfo';
+import { Pager } from './model/Pager';
+import { QueryRunListParam } from './model/QueryRunListParam';
 import { Resources } from './model/Resources';
 import { Retry } from './model/Retry';
 import { RetryWorkFlowRequest } from './model/RetryWorkFlowRequest';
@@ -144,6 +147,8 @@ import { ShowWorkFlowMetricRequest } from './model/ShowWorkFlowMetricRequest';
 import { ShowWorkFlowMetricResponse } from './model/ShowWorkFlowMetricResponse';
 import { ShowWorkFlowRequest } from './model/ShowWorkFlowRequest';
 import { ShowWorkFlowResponse } from './model/ShowWorkFlowResponse';
+import { ShowWorkflowExecutionForPageRequest } from './model/ShowWorkflowExecutionForPageRequest';
+import { ShowWorkflowExecutionForPageResponse } from './model/ShowWorkflowExecutionForPageResponse';
 import { ShowWorkflowExecutionRequest } from './model/ShowWorkflowExecutionRequest';
 import { ShowWorkflowExecutionResponse } from './model/ShowWorkflowExecutionResponse';
 import { SlaReportsValue } from './model/SlaReportsValue';
@@ -1157,6 +1162,25 @@ export class FunctionGraphClient {
      */
     public showWorkflowExecution(showWorkflowExecutionRequest?: ShowWorkflowExecutionRequest): Promise<ShowWorkflowExecutionResponse> {
         const options = ParamCreater().showWorkflowExecution(showWorkflowExecutionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 分页获取指定函数流执行实例列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 分页获取指定函数流执行实例列表
+     * @param {string} workflowId 函数工作流ID
+     * @param {QueryRunListParam} createWorkflowRequestBody 创建函数流的body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWorkflowExecutionForPage(showWorkflowExecutionForPageRequest?: ShowWorkflowExecutionForPageRequest): Promise<ShowWorkflowExecutionForPageResponse> {
+        const options = ParamCreater().showWorkflowExecutionForPage(showWorkflowExecutionForPageRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -3659,6 +3683,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'workflow_id': workflowId,'execution_id': executionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 分页获取指定函数流执行实例列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showWorkflowExecutionForPage(showWorkflowExecutionForPageRequest?: ShowWorkflowExecutionForPageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/workflows/{workflow_id}/executions-history",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let workflowId;
+
+            if (showWorkflowExecutionForPageRequest !== null && showWorkflowExecutionForPageRequest !== undefined) {
+                if (showWorkflowExecutionForPageRequest instanceof ShowWorkflowExecutionForPageRequest) {
+                    workflowId = showWorkflowExecutionForPageRequest.workflowId;
+                    body = showWorkflowExecutionForPageRequest.body
+                } else {
+                    workflowId = showWorkflowExecutionForPageRequest['workflow_id'];
+                    body = showWorkflowExecutionForPageRequest['body'];
+                }
+            }
+
+        
+            if (workflowId === null || workflowId === undefined) {
+            throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling showWorkflowExecutionForPage.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'workflow_id': workflowId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

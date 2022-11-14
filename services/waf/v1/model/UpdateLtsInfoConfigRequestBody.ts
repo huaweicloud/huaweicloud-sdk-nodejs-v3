@@ -2,17 +2,21 @@ import { LtsIdInfo } from './LtsIdInfo';
 
 
 export class UpdateLtsInfoConfigRequestBody {
-    public enabale: boolean;
+    public enabled?: boolean;
     public ltsIdInfo?: LtsIdInfo;
-    public constructor(enabale?: any) { 
-        this['enabale'] = enabale;
+    public enabale?: boolean;
+    public constructor() { 
     }
-    public withEnabale(enabale: boolean): UpdateLtsInfoConfigRequestBody {
-        this['enabale'] = enabale;
+    public withEnabled(enabled: boolean): UpdateLtsInfoConfigRequestBody {
+        this['enabled'] = enabled;
         return this;
     }
     public withLtsIdInfo(ltsIdInfo: LtsIdInfo): UpdateLtsInfoConfigRequestBody {
         this['ltsIdInfo'] = ltsIdInfo;
+        return this;
+    }
+    public withEnabale(enabale: boolean): UpdateLtsInfoConfigRequestBody {
+        this['enabale'] = enabale;
         return this;
     }
 }

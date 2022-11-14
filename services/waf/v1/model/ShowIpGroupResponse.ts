@@ -10,6 +10,7 @@ export class ShowIpGroupResponse extends SdkResponse {
     public size?: number;
     public rules?: Array<RuleInfo>;
     private 'share_info'?: ShareInfo | undefined;
+    public description?: string;
     public constructor() { 
         super();
     }
@@ -42,5 +43,9 @@ export class ShowIpGroupResponse extends SdkResponse {
     }
     public get shareInfo() {
         return this['share_info'];
+    }
+    public withDescription(description: string): ShowIpGroupResponse {
+        this['description'] = description;
+        return this;
     }
 }

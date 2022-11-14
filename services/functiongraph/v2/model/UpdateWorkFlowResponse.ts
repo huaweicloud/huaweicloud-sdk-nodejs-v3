@@ -2,6 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateWorkFlowResponse extends SdkResponse {
+    private 'enable_stream_response'?: boolean | undefined;
     public id?: string;
     private 'workflow_urn'?: string | undefined;
     public name?: string;
@@ -11,6 +12,16 @@ export class UpdateWorkFlowResponse extends SdkResponse {
     private 'created_by'?: string | undefined;
     public constructor() { 
         super();
+    }
+    public withEnableStreamResponse(enableStreamResponse: boolean): UpdateWorkFlowResponse {
+        this['enable_stream_response'] = enableStreamResponse;
+        return this;
+    }
+    public set enableStreamResponse(enableStreamResponse: boolean | undefined) {
+        this['enable_stream_response'] = enableStreamResponse;
+    }
+    public get enableStreamResponse() {
+        return this['enable_stream_response'];
     }
     public withId(id: string): UpdateWorkFlowResponse {
         this['id'] = id;

@@ -3,7 +3,7 @@
 export class LtsIdInfo {
     public ltsGroupId?: string;
     public ltsAccessStreamID?: string;
-    public ltsAttackStreamID?: object;
+    public ltsAttackStreamID?: string;
     public constructor() { 
     }
     public withLtsGroupId(ltsGroupId: string): LtsIdInfo {
@@ -14,7 +14,7 @@ export class LtsIdInfo {
         this['ltsAccessStreamID'] = ltsAccessStreamID;
         return this;
     }
-    public withLtsAttackStreamID(ltsAttackStreamID: object): LtsIdInfo {
+    public withLtsAttackStreamID(ltsAttackStreamID: string): LtsIdInfo {
         this['ltsAttackStreamID'] = ltsAttackStreamID;
         return this;
     }
