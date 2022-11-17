@@ -19,11 +19,15 @@ import { ListApiVersionsRequest } from './model/ListApiVersionsRequest';
 import { ListApiVersionsResponse } from './model/ListApiVersionsResponse';
 import { ListEnterpriseProjectRequest } from './model/ListEnterpriseProjectRequest';
 import { ListEnterpriseProjectResponse } from './model/ListEnterpriseProjectResponse';
+import { ListProvidersRequest } from './model/ListProvidersRequest';
+import { ListProvidersResponse } from './model/ListProvidersResponse';
 import { Match } from './model/Match';
 import { MigrateResource } from './model/MigrateResource';
 import { MigrateResourceRequest } from './model/MigrateResourceRequest';
 import { MigrateResourceResponse } from './model/MigrateResourceResponse';
+import { ProviderResponseBody } from './model/ProviderResponseBody';
 import { QuotasDetail } from './model/QuotasDetail';
+import { ResourceTypeBody } from './model/ResourceTypeBody';
 import { Resources } from './model/Resources';
 import { ResqEpResouce } from './model/ResqEpResouce';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
@@ -145,6 +149,27 @@ export class EpsClient {
      */
     public listEnterpriseProject(listEnterpriseProjectRequest?: ListEnterpriseProjectRequest): Promise<ListEnterpriseProjectResponse> {
         const options = ParamCreater().listEnterpriseProject(listEnterpriseProjectRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询企业项目支持的服务
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询企业项目支持的服务
+     * @param {'zh-cn' | 'en-us'} [locale] 指定显示语言
+     * @param {number} [limit] 查询记录数默认为200，limit最多为200, 最小值为1
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询，必须为数字，不能为负数，默认为0
+     * @param {string} [provider] 云服务名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProviders(listProvidersRequest?: ListProvidersRequest): Promise<ListProvidersResponse> {
+        const options = ParamCreater().listProviders(listProvidersRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -485,6 +510,62 @@ export const ParamCreater = function () {
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询企业项目支持的服务
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listProviders(listProvidersRequest?: ListProvidersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/enterprise-projects/providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let locale;
+            let limit;
+            let offset;
+            let provider;
+
+            if (listProvidersRequest !== null && listProvidersRequest !== undefined) {
+                if (listProvidersRequest instanceof ListProvidersRequest) {
+                    locale = listProvidersRequest.locale;
+                    limit = listProvidersRequest.limit;
+                    offset = listProvidersRequest.offset;
+                    provider = listProvidersRequest.provider;
+                } else {
+                    locale = listProvidersRequest['locale'];
+                    limit = listProvidersRequest['limit'];
+                    offset = listProvidersRequest['offset'];
+                    provider = listProvidersRequest['provider'];
+                }
+            }
+
+        
+            if (locale !== null && locale !== undefined) {
+                localVarQueryParameter['locale'] = locale;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (provider !== null && provider !== undefined) {
+                localVarQueryParameter['provider'] = provider;
             }
 
             options.queryParams = localVarQueryParameter;

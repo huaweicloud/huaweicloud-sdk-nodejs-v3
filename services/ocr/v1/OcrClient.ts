@@ -48,6 +48,7 @@ import { HkIdCardRequestBody } from './model/HkIdCardRequestBody';
 import { HkIdCardResult } from './model/HkIdCardResult';
 import { IdCardRequestBody } from './model/IdCardRequestBody';
 import { IdCardResult } from './model/IdCardResult';
+import { IdDocumentItem } from './model/IdDocumentItem';
 import { IdDocumentRequestBody } from './model/IdDocumentRequestBody';
 import { IdcardVerificationResult } from './model/IdcardVerificationResult';
 import { InsuranceItem } from './model/InsuranceItem';
@@ -220,6 +221,7 @@ export class OcrClient {
      *
      * @summary 智能分类识别
      * @param {AutoClassificationRequestBody} autoClassificationRequestBody This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -242,6 +244,7 @@ export class OcrClient {
      *
      * @summary 银行卡识别
      * @param {BankcardRequestBody} bankcardRequestBody This is a auto create Body Object Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -260,6 +263,7 @@ export class OcrClient {
      *
      * @summary 名片识别
      * @param {BusinessCardRequestBody} businessCardRequestBody This is a businesscard Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -282,6 +286,7 @@ export class OcrClient {
      *
      * @summary 营业执照识别
      * @param {BusinessLicenseRequestBody} businessLicenseRequestBody This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -300,6 +305,7 @@ export class OcrClient {
      *
      * @summary 柬文身份证识别
      * @param {CambodianIdCardRequestBody} cambodianIdCardRequestBody This is a Cambodian ID Card OCR Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-3#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -318,6 +324,7 @@ export class OcrClient {
      *
      * @summary 智利身份证识别
      * @param {ChileIdCardRequestBody} chileIdCardRequestBody This is a chile id-card Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;la-south-2#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -340,6 +347,7 @@ export class OcrClient {
      *
      * @summary 驾驶证识别
      * @param {DriverLicenseRequestBody} driverLicenseRequestBody This is a driverlicense Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -358,6 +366,7 @@ export class OcrClient {
      *
      * @summary 往来港澳台通行证识别
      * @param {ExitEntryPermitRequestBody} exitEntryPermitRequestBody This is a Exit-Entry Permit for Traveling to and from Hong Kong, Macao, and Taiwan Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -376,6 +385,7 @@ export class OcrClient {
      *
      * @summary 财务报表识别
      * @param {FinancialStatementRequestBody} financialStatementRequestBody This is a financial statement Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -397,6 +407,7 @@ export class OcrClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 飞机行程单识别
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {FlightItineraryRequestBody} [flightItineraryRequestBody] This is a flightitinerary Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -415,6 +426,7 @@ export class OcrClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 通用表格识别
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {GeneralTableRequestBody} [generalTableRequestBody] This is a generaltable Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -433,6 +445,7 @@ export class OcrClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 通用文字识别
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {GeneralTextRequestBody} [generalTextRequestBody] This is a generaltext Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -452,6 +465,7 @@ export class OcrClient {
      *
      * @summary 手写文字识别
      * @param {HandwritingRequestBody} handwritingRequestBody This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -469,6 +483,7 @@ export class OcrClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 防疫健康码识别
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {HealthCodeRequestBody} [healthCodeRequestBody] This is a healthcode Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -488,6 +503,7 @@ export class OcrClient {
      *
      * @summary 香港身份证识别
      * @param {HkIdCardRequestBody} hkIdCardRequestBody This is a hk id card Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -512,6 +528,7 @@ export class OcrClient {
      *
      * @summary 身份证识别
      * @param {IdCardRequestBody} idCardRequestBody This is a idcard Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -554,6 +571,7 @@ export class OcrClient {
      *
      * @summary 通用证件识别
      * @param {IdDocumentRequestBody} idDocumentRequestBody This is a General Identity Document Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -572,6 +590,7 @@ export class OcrClient {
      *
      * @summary 保险单识别
      * @param {InsurancePolicyRequestBody} insurancePolicyRequestBody This is a insurance policy request Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -590,6 +609,7 @@ export class OcrClient {
      *
      * @summary 发票验真
      * @param {InvoiceVerificationRequestBody} invoiceVerificationRequestBody This is a invoice verification Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -608,6 +628,7 @@ export class OcrClient {
      *
      * @summary 车牌识别
      * @param {LicensePlateRequestBody} licensePlateRequestBody This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -626,6 +647,7 @@ export class OcrClient {
      *
      * @summary 澳门身份证识别
      * @param {MacaoIdCardRequestBody} macaoIdCardRequestBody This is a macao id card Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -644,6 +666,7 @@ export class OcrClient {
      *
      * @summary 港澳台居民来往内地通行证识别
      * @param {MainlandTravelPermitRequestBody} mainlandTravelPermitRequestBody This is a Mainland Travel Permit for Hong Kong, Macao, and Taiwan Residents Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -668,6 +691,7 @@ export class OcrClient {
      *
      * @summary 机动车销售发票识别
      * @param {MvsInvoiceRequestBody} mvsInvoiceRequestBody This is a MvsInvoice Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -686,6 +710,7 @@ export class OcrClient {
      *
      * @summary 缅文驾驶证识别
      * @param {MyanmarDriverLicenseRequestBody} myanmarDriverLicenseRequestBody This is a Myanmar driver license Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -704,6 +729,7 @@ export class OcrClient {
      *
      * @summary 缅文身份证识别
      * @param {MyanmarIdcardRequestBody} myanmarIdcardRequestBody This is a Myanmar Idcard Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -726,6 +752,7 @@ export class OcrClient {
      *
      * @summary 护照识别
      * @param {PassportRequestBody} passportRequestBody This is a Passport Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -743,6 +770,7 @@ export class OcrClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 核酸检测记录识别
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {PcrTestRecordRequestBody} [pcrTestRecordRequestBody] This is a pcr test record Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -766,6 +794,7 @@ export class OcrClient {
      *
      * @summary 道路运输从业资格证识别
      * @param {QualificationCertificateRequestBody} qualificationCertificateRequestBody This is a auto create Body Object Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -788,6 +817,7 @@ export class OcrClient {
      *
      * @summary 定额发票识别
      * @param {QuotaInvoiceRequestBody} quotaInvoiceRequestBody This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -810,6 +840,7 @@ export class OcrClient {
      *
      * @summary 出租车发票识别
      * @param {TaxiInvoiceRequestBody} taxiInvoiceRequestBody This is a taxiinvoice Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -828,6 +859,7 @@ export class OcrClient {
      *
      * @summary 泰文身份证识别
      * @param {ThailandIdcardRequestBody} thailandIdcardRequestBody This is a Thailand Idcard Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-2#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -846,6 +878,7 @@ export class OcrClient {
      *
      * @summary 泰国车牌识别
      * @param {ThailandLicensePlateRequestBody} thailandLicensePlateRequestBody This is a thailand license plate Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-2#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -868,6 +901,7 @@ export class OcrClient {
      *
      * @summary 车辆通行费发票识别
      * @param {TollInvoiceRequestBody} tollInvoiceRequestBody This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -890,6 +924,7 @@ export class OcrClient {
      *
      * @summary 火车票识别
      * @param {TrainTicketRequestBody} trainTicketRequestBody This is a train ticket Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -910,6 +945,7 @@ export class OcrClient {
      *
      * @summary 道路运输证识别
      * @param {TransportationLicenseRequestBody} transportationLicenseRequestBody This is a train ticket Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -936,6 +972,7 @@ export class OcrClient {
      *
      * @summary 增值税发票识别
      * @param {VatInvoiceRequestBody} vatInvoiceRequestBody This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -958,6 +995,7 @@ export class OcrClient {
      *
      * @summary 行驶证识别
      * @param {VehicleLicenseRequestBody} vehicleLicenseRequestBody This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -976,6 +1014,7 @@ export class OcrClient {
      *
      * @summary 电子面单识别
      * @param {WaybillElectronicRequestBody} waybillElectronicRequestBody This is a thailand license plate Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -994,6 +1033,7 @@ export class OcrClient {
      *
      * @summary 网络图片识别
      * @param {WebImageRequestBody} webImageRequestBody This is a Web Image Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1012,6 +1052,7 @@ export class OcrClient {
      *
      * @summary VIN码识别
      * @param {VinRequestBody} vinRequestBody This is a Vin Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1049,18 +1090,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeAutoClassificationRequest !== null && recognizeAutoClassificationRequest !== undefined) {
                 if (recognizeAutoClassificationRequest instanceof RecognizeAutoClassificationRequest) {
                     body = recognizeAutoClassificationRequest.body
+                    enterpriseProjectId = recognizeAutoClassificationRequest.enterpriseProjectId;
                 } else {
                     body = recognizeAutoClassificationRequest['body'];
+                    enterpriseProjectId = recognizeAutoClassificationRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1092,18 +1139,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeBankcardRequest !== null && recognizeBankcardRequest !== undefined) {
                 if (recognizeBankcardRequest instanceof RecognizeBankcardRequest) {
                     body = recognizeBankcardRequest.body
+                    enterpriseProjectId = recognizeBankcardRequest.enterpriseProjectId;
                 } else {
                     body = recognizeBankcardRequest['body'];
+                    enterpriseProjectId = recognizeBankcardRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1131,18 +1184,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeBusinessCardRequest !== null && recognizeBusinessCardRequest !== undefined) {
                 if (recognizeBusinessCardRequest instanceof RecognizeBusinessCardRequest) {
                     body = recognizeBusinessCardRequest.body
+                    enterpriseProjectId = recognizeBusinessCardRequest.enterpriseProjectId;
                 } else {
                     body = recognizeBusinessCardRequest['body'];
+                    enterpriseProjectId = recognizeBusinessCardRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1174,18 +1233,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeBusinessLicenseRequest !== null && recognizeBusinessLicenseRequest !== undefined) {
                 if (recognizeBusinessLicenseRequest instanceof RecognizeBusinessLicenseRequest) {
                     body = recognizeBusinessLicenseRequest.body
+                    enterpriseProjectId = recognizeBusinessLicenseRequest.enterpriseProjectId;
                 } else {
                     body = recognizeBusinessLicenseRequest['body'];
+                    enterpriseProjectId = recognizeBusinessLicenseRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1213,18 +1278,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeCambodianIdCardRequest !== null && recognizeCambodianIdCardRequest !== undefined) {
                 if (recognizeCambodianIdCardRequest instanceof RecognizeCambodianIdCardRequest) {
                     body = recognizeCambodianIdCardRequest.body
+                    enterpriseProjectId = recognizeCambodianIdCardRequest.enterpriseProjectId;
                 } else {
                     body = recognizeCambodianIdCardRequest['body'];
+                    enterpriseProjectId = recognizeCambodianIdCardRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1252,18 +1323,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeChileIdCardRequest !== null && recognizeChileIdCardRequest !== undefined) {
                 if (recognizeChileIdCardRequest instanceof RecognizeChileIdCardRequest) {
                     body = recognizeChileIdCardRequest.body
+                    enterpriseProjectId = recognizeChileIdCardRequest.enterpriseProjectId;
                 } else {
                     body = recognizeChileIdCardRequest['body'];
+                    enterpriseProjectId = recognizeChileIdCardRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1295,18 +1372,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeDriverLicenseRequest !== null && recognizeDriverLicenseRequest !== undefined) {
                 if (recognizeDriverLicenseRequest instanceof RecognizeDriverLicenseRequest) {
                     body = recognizeDriverLicenseRequest.body
+                    enterpriseProjectId = recognizeDriverLicenseRequest.enterpriseProjectId;
                 } else {
                     body = recognizeDriverLicenseRequest['body'];
+                    enterpriseProjectId = recognizeDriverLicenseRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1334,18 +1417,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeExitEntryPermitRequest !== null && recognizeExitEntryPermitRequest !== undefined) {
                 if (recognizeExitEntryPermitRequest instanceof RecognizeExitEntryPermitRequest) {
                     body = recognizeExitEntryPermitRequest.body
+                    enterpriseProjectId = recognizeExitEntryPermitRequest.enterpriseProjectId;
                 } else {
                     body = recognizeExitEntryPermitRequest['body'];
+                    enterpriseProjectId = recognizeExitEntryPermitRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1373,18 +1462,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeFinancialStatementRequest !== null && recognizeFinancialStatementRequest !== undefined) {
                 if (recognizeFinancialStatementRequest instanceof RecognizeFinancialStatementRequest) {
                     body = recognizeFinancialStatementRequest.body
+                    enterpriseProjectId = recognizeFinancialStatementRequest.enterpriseProjectId;
                 } else {
                     body = recognizeFinancialStatementRequest['body'];
+                    enterpriseProjectId = recognizeFinancialStatementRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1416,16 +1511,22 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeFlightItineraryRequest !== null && recognizeFlightItineraryRequest !== undefined) {
                 if (recognizeFlightItineraryRequest instanceof RecognizeFlightItineraryRequest) {
+                    enterpriseProjectId = recognizeFlightItineraryRequest.enterpriseProjectId;
                     body = recognizeFlightItineraryRequest.body
                 } else {
+                    enterpriseProjectId = recognizeFlightItineraryRequest['Enterprise-Project-Id'];
                     body = recognizeFlightItineraryRequest['body'];
                 }
             }
 
         
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -1452,16 +1553,22 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeGeneralTableRequest !== null && recognizeGeneralTableRequest !== undefined) {
                 if (recognizeGeneralTableRequest instanceof RecognizeGeneralTableRequest) {
+                    enterpriseProjectId = recognizeGeneralTableRequest.enterpriseProjectId;
                     body = recognizeGeneralTableRequest.body
                 } else {
+                    enterpriseProjectId = recognizeGeneralTableRequest['Enterprise-Project-Id'];
                     body = recognizeGeneralTableRequest['body'];
                 }
             }
 
         
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -1488,16 +1595,22 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeGeneralTextRequest !== null && recognizeGeneralTextRequest !== undefined) {
                 if (recognizeGeneralTextRequest instanceof RecognizeGeneralTextRequest) {
+                    enterpriseProjectId = recognizeGeneralTextRequest.enterpriseProjectId;
                     body = recognizeGeneralTextRequest.body
                 } else {
+                    enterpriseProjectId = recognizeGeneralTextRequest['Enterprise-Project-Id'];
                     body = recognizeGeneralTextRequest['body'];
                 }
             }
 
         
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -1524,18 +1637,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeHandwritingRequest !== null && recognizeHandwritingRequest !== undefined) {
                 if (recognizeHandwritingRequest instanceof RecognizeHandwritingRequest) {
                     body = recognizeHandwritingRequest.body
+                    enterpriseProjectId = recognizeHandwritingRequest.enterpriseProjectId;
                 } else {
                     body = recognizeHandwritingRequest['body'];
+                    enterpriseProjectId = recognizeHandwritingRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1563,16 +1682,22 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeHealthCodeRequest !== null && recognizeHealthCodeRequest !== undefined) {
                 if (recognizeHealthCodeRequest instanceof RecognizeHealthCodeRequest) {
+                    enterpriseProjectId = recognizeHealthCodeRequest.enterpriseProjectId;
                     body = recognizeHealthCodeRequest.body
                 } else {
+                    enterpriseProjectId = recognizeHealthCodeRequest['Enterprise-Project-Id'];
                     body = recognizeHealthCodeRequest['body'];
                 }
             }
 
         
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -1599,18 +1724,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeHkIdCardRequest !== null && recognizeHkIdCardRequest !== undefined) {
                 if (recognizeHkIdCardRequest instanceof RecognizeHkIdCardRequest) {
                     body = recognizeHkIdCardRequest.body
+                    enterpriseProjectId = recognizeHkIdCardRequest.enterpriseProjectId;
                 } else {
                     body = recognizeHkIdCardRequest['body'];
+                    enterpriseProjectId = recognizeHkIdCardRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1644,18 +1775,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeIdCardRequest !== null && recognizeIdCardRequest !== undefined) {
                 if (recognizeIdCardRequest instanceof RecognizeIdCardRequest) {
                     body = recognizeIdCardRequest.body
+                    enterpriseProjectId = recognizeIdCardRequest.enterpriseProjectId;
                 } else {
                     body = recognizeIdCardRequest['body'];
+                    enterpriseProjectId = recognizeIdCardRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1707,18 +1844,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeIdDocumentRequest !== null && recognizeIdDocumentRequest !== undefined) {
                 if (recognizeIdDocumentRequest instanceof RecognizeIdDocumentRequest) {
                     body = recognizeIdDocumentRequest.body
+                    enterpriseProjectId = recognizeIdDocumentRequest.enterpriseProjectId;
                 } else {
                     body = recognizeIdDocumentRequest['body'];
+                    enterpriseProjectId = recognizeIdDocumentRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1746,18 +1889,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeInsurancePolicyRequest !== null && recognizeInsurancePolicyRequest !== undefined) {
                 if (recognizeInsurancePolicyRequest instanceof RecognizeInsurancePolicyRequest) {
                     body = recognizeInsurancePolicyRequest.body
+                    enterpriseProjectId = recognizeInsurancePolicyRequest.enterpriseProjectId;
                 } else {
                     body = recognizeInsurancePolicyRequest['body'];
+                    enterpriseProjectId = recognizeInsurancePolicyRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1785,18 +1934,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeInvoiceVerificationRequest !== null && recognizeInvoiceVerificationRequest !== undefined) {
                 if (recognizeInvoiceVerificationRequest instanceof RecognizeInvoiceVerificationRequest) {
                     body = recognizeInvoiceVerificationRequest.body
+                    enterpriseProjectId = recognizeInvoiceVerificationRequest.enterpriseProjectId;
                 } else {
                     body = recognizeInvoiceVerificationRequest['body'];
+                    enterpriseProjectId = recognizeInvoiceVerificationRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1824,18 +1979,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeLicensePlateRequest !== null && recognizeLicensePlateRequest !== undefined) {
                 if (recognizeLicensePlateRequest instanceof RecognizeLicensePlateRequest) {
                     body = recognizeLicensePlateRequest.body
+                    enterpriseProjectId = recognizeLicensePlateRequest.enterpriseProjectId;
                 } else {
                     body = recognizeLicensePlateRequest['body'];
+                    enterpriseProjectId = recognizeLicensePlateRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1863,18 +2024,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeMacaoIdCardRequest !== null && recognizeMacaoIdCardRequest !== undefined) {
                 if (recognizeMacaoIdCardRequest instanceof RecognizeMacaoIdCardRequest) {
                     body = recognizeMacaoIdCardRequest.body
+                    enterpriseProjectId = recognizeMacaoIdCardRequest.enterpriseProjectId;
                 } else {
                     body = recognizeMacaoIdCardRequest['body'];
+                    enterpriseProjectId = recognizeMacaoIdCardRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1902,18 +2069,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeMainlandTravelPermitRequest !== null && recognizeMainlandTravelPermitRequest !== undefined) {
                 if (recognizeMainlandTravelPermitRequest instanceof RecognizeMainlandTravelPermitRequest) {
                     body = recognizeMainlandTravelPermitRequest.body
+                    enterpriseProjectId = recognizeMainlandTravelPermitRequest.enterpriseProjectId;
                 } else {
                     body = recognizeMainlandTravelPermitRequest['body'];
+                    enterpriseProjectId = recognizeMainlandTravelPermitRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1947,18 +2120,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeMvsInvoiceRequest !== null && recognizeMvsInvoiceRequest !== undefined) {
                 if (recognizeMvsInvoiceRequest instanceof RecognizeMvsInvoiceRequest) {
                     body = recognizeMvsInvoiceRequest.body
+                    enterpriseProjectId = recognizeMvsInvoiceRequest.enterpriseProjectId;
                 } else {
                     body = recognizeMvsInvoiceRequest['body'];
+                    enterpriseProjectId = recognizeMvsInvoiceRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -1986,18 +2165,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeMyanmarDriverLicenseRequest !== null && recognizeMyanmarDriverLicenseRequest !== undefined) {
                 if (recognizeMyanmarDriverLicenseRequest instanceof RecognizeMyanmarDriverLicenseRequest) {
                     body = recognizeMyanmarDriverLicenseRequest.body
+                    enterpriseProjectId = recognizeMyanmarDriverLicenseRequest.enterpriseProjectId;
                 } else {
                     body = recognizeMyanmarDriverLicenseRequest['body'];
+                    enterpriseProjectId = recognizeMyanmarDriverLicenseRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2025,18 +2210,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeMyanmarIdcardRequest !== null && recognizeMyanmarIdcardRequest !== undefined) {
                 if (recognizeMyanmarIdcardRequest instanceof RecognizeMyanmarIdcardRequest) {
                     body = recognizeMyanmarIdcardRequest.body
+                    enterpriseProjectId = recognizeMyanmarIdcardRequest.enterpriseProjectId;
                 } else {
                     body = recognizeMyanmarIdcardRequest['body'];
+                    enterpriseProjectId = recognizeMyanmarIdcardRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2068,18 +2259,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizePassportRequest !== null && recognizePassportRequest !== undefined) {
                 if (recognizePassportRequest instanceof RecognizePassportRequest) {
                     body = recognizePassportRequest.body
+                    enterpriseProjectId = recognizePassportRequest.enterpriseProjectId;
                 } else {
                     body = recognizePassportRequest['body'];
+                    enterpriseProjectId = recognizePassportRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2107,16 +2304,22 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizePcrTestRecordRequest !== null && recognizePcrTestRecordRequest !== undefined) {
                 if (recognizePcrTestRecordRequest instanceof RecognizePcrTestRecordRequest) {
+                    enterpriseProjectId = recognizePcrTestRecordRequest.enterpriseProjectId;
                     body = recognizePcrTestRecordRequest.body
                 } else {
+                    enterpriseProjectId = recognizePcrTestRecordRequest['Enterprise-Project-Id'];
                     body = recognizePcrTestRecordRequest['body'];
                 }
             }
 
         
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
@@ -2147,18 +2350,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeQualificationCertificateRequest !== null && recognizeQualificationCertificateRequest !== undefined) {
                 if (recognizeQualificationCertificateRequest instanceof RecognizeQualificationCertificateRequest) {
                     body = recognizeQualificationCertificateRequest.body
+                    enterpriseProjectId = recognizeQualificationCertificateRequest.enterpriseProjectId;
                 } else {
                     body = recognizeQualificationCertificateRequest['body'];
+                    enterpriseProjectId = recognizeQualificationCertificateRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2190,18 +2399,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeQuotaInvoiceRequest !== null && recognizeQuotaInvoiceRequest !== undefined) {
                 if (recognizeQuotaInvoiceRequest instanceof RecognizeQuotaInvoiceRequest) {
                     body = recognizeQuotaInvoiceRequest.body
+                    enterpriseProjectId = recognizeQuotaInvoiceRequest.enterpriseProjectId;
                 } else {
                     body = recognizeQuotaInvoiceRequest['body'];
+                    enterpriseProjectId = recognizeQuotaInvoiceRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2233,18 +2448,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeTaxiInvoiceRequest !== null && recognizeTaxiInvoiceRequest !== undefined) {
                 if (recognizeTaxiInvoiceRequest instanceof RecognizeTaxiInvoiceRequest) {
                     body = recognizeTaxiInvoiceRequest.body
+                    enterpriseProjectId = recognizeTaxiInvoiceRequest.enterpriseProjectId;
                 } else {
                     body = recognizeTaxiInvoiceRequest['body'];
+                    enterpriseProjectId = recognizeTaxiInvoiceRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2272,18 +2493,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeThailandIdcardRequest !== null && recognizeThailandIdcardRequest !== undefined) {
                 if (recognizeThailandIdcardRequest instanceof RecognizeThailandIdcardRequest) {
                     body = recognizeThailandIdcardRequest.body
+                    enterpriseProjectId = recognizeThailandIdcardRequest.enterpriseProjectId;
                 } else {
                     body = recognizeThailandIdcardRequest['body'];
+                    enterpriseProjectId = recognizeThailandIdcardRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2311,18 +2538,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeThailandLicensePlateRequest !== null && recognizeThailandLicensePlateRequest !== undefined) {
                 if (recognizeThailandLicensePlateRequest instanceof RecognizeThailandLicensePlateRequest) {
                     body = recognizeThailandLicensePlateRequest.body
+                    enterpriseProjectId = recognizeThailandLicensePlateRequest.enterpriseProjectId;
                 } else {
                     body = recognizeThailandLicensePlateRequest['body'];
+                    enterpriseProjectId = recognizeThailandLicensePlateRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2354,18 +2587,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeTollInvoiceRequest !== null && recognizeTollInvoiceRequest !== undefined) {
                 if (recognizeTollInvoiceRequest instanceof RecognizeTollInvoiceRequest) {
                     body = recognizeTollInvoiceRequest.body
+                    enterpriseProjectId = recognizeTollInvoiceRequest.enterpriseProjectId;
                 } else {
                     body = recognizeTollInvoiceRequest['body'];
+                    enterpriseProjectId = recognizeTollInvoiceRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2397,18 +2636,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeTrainTicketRequest !== null && recognizeTrainTicketRequest !== undefined) {
                 if (recognizeTrainTicketRequest instanceof RecognizeTrainTicketRequest) {
                     body = recognizeTrainTicketRequest.body
+                    enterpriseProjectId = recognizeTrainTicketRequest.enterpriseProjectId;
                 } else {
                     body = recognizeTrainTicketRequest['body'];
+                    enterpriseProjectId = recognizeTrainTicketRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2438,18 +2683,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeTransportationLicenseRequest !== null && recognizeTransportationLicenseRequest !== undefined) {
                 if (recognizeTransportationLicenseRequest instanceof RecognizeTransportationLicenseRequest) {
                     body = recognizeTransportationLicenseRequest.body
+                    enterpriseProjectId = recognizeTransportationLicenseRequest.enterpriseProjectId;
                 } else {
                     body = recognizeTransportationLicenseRequest['body'];
+                    enterpriseProjectId = recognizeTransportationLicenseRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2485,18 +2736,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeVatInvoiceRequest !== null && recognizeVatInvoiceRequest !== undefined) {
                 if (recognizeVatInvoiceRequest instanceof RecognizeVatInvoiceRequest) {
                     body = recognizeVatInvoiceRequest.body
+                    enterpriseProjectId = recognizeVatInvoiceRequest.enterpriseProjectId;
                 } else {
                     body = recognizeVatInvoiceRequest['body'];
+                    enterpriseProjectId = recognizeVatInvoiceRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2528,18 +2785,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeVehicleLicenseRequest !== null && recognizeVehicleLicenseRequest !== undefined) {
                 if (recognizeVehicleLicenseRequest instanceof RecognizeVehicleLicenseRequest) {
                     body = recognizeVehicleLicenseRequest.body
+                    enterpriseProjectId = recognizeVehicleLicenseRequest.enterpriseProjectId;
                 } else {
                     body = recognizeVehicleLicenseRequest['body'];
+                    enterpriseProjectId = recognizeVehicleLicenseRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2567,18 +2830,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeWaybillElectronicRequest !== null && recognizeWaybillElectronicRequest !== undefined) {
                 if (recognizeWaybillElectronicRequest instanceof RecognizeWaybillElectronicRequest) {
                     body = recognizeWaybillElectronicRequest.body
+                    enterpriseProjectId = recognizeWaybillElectronicRequest.enterpriseProjectId;
                 } else {
                     body = recognizeWaybillElectronicRequest['body'];
+                    enterpriseProjectId = recognizeWaybillElectronicRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2606,18 +2875,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeWebImageRequest !== null && recognizeWebImageRequest !== undefined) {
                 if (recognizeWebImageRequest instanceof RecognizeWebImageRequest) {
                     body = recognizeWebImageRequest.body
+                    enterpriseProjectId = recognizeWebImageRequest.enterpriseProjectId;
                 } else {
                     body = recognizeWebImageRequest['body'];
+                    enterpriseProjectId = recognizeWebImageRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
@@ -2645,18 +2920,24 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let enterpriseProjectId;
 
             if (recognizeVinRequest !== null && recognizeVinRequest !== undefined) {
                 if (recognizeVinRequest instanceof RecognizeVinRequest) {
                     body = recognizeVinRequest.body
+                    enterpriseProjectId = recognizeVinRequest.enterpriseProjectId;
                 } else {
                     body = recognizeVinRequest['body'];
+                    enterpriseProjectId = recognizeVinRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 

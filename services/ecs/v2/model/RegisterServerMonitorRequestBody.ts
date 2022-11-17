@@ -1,12 +1,20 @@
 
 
 export class RegisterServerMonitorRequestBody {
-    public monitorMetrics: string;
+    public monitorMetrics: RegisterServerMonitorRequestBodyMonitorMetricsEnum;
     public constructor(monitorMetrics?: any) { 
         this['monitorMetrics'] = monitorMetrics;
     }
-    public withMonitorMetrics(monitorMetrics: string): RegisterServerMonitorRequestBody {
+    public withMonitorMetrics(monitorMetrics: RegisterServerMonitorRequestBodyMonitorMetricsEnum): RegisterServerMonitorRequestBody {
         this['monitorMetrics'] = monitorMetrics;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RegisterServerMonitorRequestBodyMonitorMetricsEnum {
+    Empty = ''
 }

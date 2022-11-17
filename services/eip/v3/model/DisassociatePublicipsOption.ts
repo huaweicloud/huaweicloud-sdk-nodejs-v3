@@ -34,6 +34,7 @@ export class DisassociatePublicipsOption {
 export enum DisassociatePublicipsOptionAssociateInstanceTypeEnum {
     PORT = 'PORT',
     NATGW = 'NATGW',
+    VPN = 'VPN',
     ELB = 'ELB',
     Empty = ''
 }

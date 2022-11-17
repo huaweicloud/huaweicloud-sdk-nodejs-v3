@@ -46,6 +46,7 @@ export * from './model/HkIdCardRequestBody';
 export * from './model/HkIdCardResult';
 export * from './model/IdCardRequestBody';
 export * from './model/IdCardResult';
+export * from './model/IdDocumentItem';
 export * from './model/IdDocumentRequestBody';
 export * from './model/IdcardVerificationResult';
 export * from './model/InsuranceItem';

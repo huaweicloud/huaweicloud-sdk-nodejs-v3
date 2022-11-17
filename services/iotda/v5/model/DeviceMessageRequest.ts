@@ -10,6 +10,7 @@ export class DeviceMessageRequest {
     private 'payload_format'?: string | undefined;
     public topic?: string;
     private 'topic_full_name'?: string | undefined;
+    public ttl?: number;
     public constructor(message?: any) { 
         this['message'] = message;
     }
@@ -62,5 +63,9 @@ export class DeviceMessageRequest {
     }
     public get topicFullName() {
         return this['topic_full_name'];
+    }
+    public withTtl(ttl: number): DeviceMessageRequest {
+        this['ttl'] = ttl;
+        return this;
     }
 }

@@ -61,12 +61,12 @@ export class ModerationClient {
 
 
     /**
-     * 分析并识别用户上传的图片是否有敏感内容（如色情、政治等），并将识别结果返回给用户
+     * 分析并识别用户上传的图像内容是否有敏感内容（如涉及暴恐元素、涉黄内容等），并将识别结果返回给用户。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 图片内容审核
+     * @summary 图像内容审核
      * @param {ImageDetectionReq} runImageModerationRequestBody 图像内容审核请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -172,7 +172,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 分析并识别用户上传的图片是否有敏感内容（如色情、政治等），并将识别结果返回给用户
+         * 分析并识别用户上传的图像内容是否有敏感内容（如涉及暴恐元素、涉黄内容等），并将识别结果返回给用户。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.

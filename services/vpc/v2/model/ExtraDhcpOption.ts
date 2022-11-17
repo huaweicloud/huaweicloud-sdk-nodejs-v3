@@ -33,5 +33,6 @@ export class ExtraDhcpOption {
     * @enum {string}
     */
 export enum ExtraDhcpOptionOptNameEnum {
-    NTP = 'ntp'
+    NTP = 'ntp',
+    ADDRESSTIME = 'addresstime'
 }

@@ -7,7 +7,7 @@ export class MyanmarDriverLicenseConfidence {
     private 'name_en'?: number | undefined;
     private 'nrc_id'?: number | undefined;
     private 'nrc_id_en'?: number | undefined;
-    private 'Birth'?: number | undefined;
+    public birth?: number;
     private 'birth_en'?: number | undefined;
     private 'blood_group'?: number | undefined;
     private 'blood_group_en'?: number | undefined;
@@ -70,14 +70,8 @@ export class MyanmarDriverLicenseConfidence {
         return this['nrc_id_en'];
     }
     public withBirth(birth: number): MyanmarDriverLicenseConfidence {
-        this['Birth'] = birth;
+        this['birth'] = birth;
         return this;
-    }
-    public set birth(birth: number | undefined) {
-        this['Birth'] = birth;
-    }
-    public get birth() {
-        return this['Birth'];
     }
     public withBirthEn(birthEn: number): MyanmarDriverLicenseConfidence {
         this['birth_en'] = birthEn;

@@ -11,11 +11,15 @@ import { ListApiVersionsRequest } from './model/ListApiVersionsRequest';
 import { ListApiVersionsResponse } from './model/ListApiVersionsResponse';
 import { ListPredefineTagsRequest } from './model/ListPredefineTagsRequest';
 import { ListPredefineTagsResponse } from './model/ListPredefineTagsResponse';
+import { ListProvidersRequest } from './model/ListProvidersRequest';
+import { ListProvidersResponse } from './model/ListProvidersResponse';
 import { ModifyPrefineTag } from './model/ModifyPrefineTag';
 import { PredefineTag } from './model/PredefineTag';
 import { PredefineTagRequest } from './model/PredefineTagRequest';
+import { ProviderResponseBody } from './model/ProviderResponseBody';
 import { ReqCreatePredefineTag } from './model/ReqCreatePredefineTag';
 import { ReqDeletePredefineTag } from './model/ReqDeletePredefineTag';
+import { ResourceTypeBody } from './model/ResourceTypeBody';
 import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
 import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
 import { ShowTagQuotaRequest } from './model/ShowTagQuotaRequest';
@@ -111,6 +115,27 @@ export class TmsClient {
      */
     public listPredefineTags(listPredefineTagsRequest?: ListPredefineTagsRequest): Promise<ListPredefineTagsResponse> {
         const options = ParamCreater().listPredefineTags(listPredefineTagsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询标签管理支持的服务
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询标签管理支持的服务
+     * @param {'zh-cn' | 'en-us'} [locale] 指定显示语言
+     * @param {number} [limit] 查询记录数默认为200，limit最多为200, 最小值为1
+     * @param {number} [offset] 索引位置，从offset指定的下一条数据开始查询，必须为数字，不能为负数，默认为0
+     * @param {string} [provider] 云服务名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProviders(listProvidersRequest?: ListProvidersRequest): Promise<ListProvidersResponse> {
+        const options = ParamCreater().listProviders(listProvidersRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -335,6 +360,62 @@ export const ParamCreater = function () {
             }
             if (orderMethod !== null && orderMethod !== undefined) {
                 localVarQueryParameter['order_method'] = orderMethod;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询标签管理支持的服务
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listProviders(listProvidersRequest?: ListProvidersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/tms/providers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let locale;
+            let limit;
+            let offset;
+            let provider;
+
+            if (listProvidersRequest !== null && listProvidersRequest !== undefined) {
+                if (listProvidersRequest instanceof ListProvidersRequest) {
+                    locale = listProvidersRequest.locale;
+                    limit = listProvidersRequest.limit;
+                    offset = listProvidersRequest.offset;
+                    provider = listProvidersRequest.provider;
+                } else {
+                    locale = listProvidersRequest['locale'];
+                    limit = listProvidersRequest['limit'];
+                    offset = listProvidersRequest['offset'];
+                    provider = listProvidersRequest['provider'];
+                }
+            }
+
+        
+            if (locale !== null && locale !== undefined) {
+                localVarQueryParameter['locale'] = locale;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (provider !== null && provider !== undefined) {
+                localVarQueryParameter['provider'] = provider;
             }
 
             options.queryParams = localVarQueryParameter;

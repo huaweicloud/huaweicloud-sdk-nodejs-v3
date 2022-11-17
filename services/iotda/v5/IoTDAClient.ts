@@ -414,7 +414,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)。
+     * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)](tag:hws)[[设备命令状态变更通知](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_01212.html)](tag:hws_hk)。
      * 注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -435,7 +435,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 物联网平台可查询指定id的命令。 
+     * 物联网平台可查询指定id的命令。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -557,14 +557,16 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口在物联网平台上传设备的CA证书
+     * 应用服务器可调用此接口在物联网平台上传设备CA证书
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 上传设备CA证书
      * @param {CreateCertificateDTO} addCertificateRequestBody request
-     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
+     * @param {string} [stageAuthToken] Stage用户的Token, 仅提供给IoStage服务使用
+     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -582,10 +584,12 @@ export class IoTDAClient {
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 验证设备CA证书
-     * @param {string} certificateId **参数说明**：设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
-     * @param {string} actionId **参数说明**：对证书执行的操作。 **取值范围**：当前仅支持verify:校验证书。
-     * @param {VerifyCertificateDTO} checkCertificateRequestBody **参数说明**：certificate
-     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} certificateId 设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
+     * @param {string} actionId 对证书执行的操作，当前仅支持verify:校验证书
+     * @param {VerifyCertificateDTO} checkCertificateRequestBody certificate
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
+     * @param {string} [stageAuthToken] Stage用户的Token, 仅提供给IoStage服务使用
+     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -597,14 +601,16 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口在物联网平台删除设备的CA证书
+     * 应用服务器可调用此接口在物联网平台删除设备CA证书
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 删除设备CA证书
-     * @param {string} certificateId **参数说明**：设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
-     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} certificateId 设备CA证书ID，在上传设备CA证书时由平台分配的唯一标识。
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
+     * @param {string} [stageAuthToken] Stage用户的Token, 仅提供给IoStage服务使用
+     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -616,17 +622,19 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口在物联网平台获取设备的CA证书列表
+     * 应用服务器可调用此接口在物联网平台获取设备CA证书列表
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
      * @summary 获取设备CA证书列表
-     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的证书列表，不携带该参数则会查询该用户下所有证书列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
-     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
-     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
-     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
+     * @param {string} [stageAuthToken] Stage用户的Token, 仅提供给IoStage服务使用
+     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [appId] 资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的证书列表，不携带该参数则会查询该用户下所有证书列表。
+     * @param {number} [limit] 分页查询时每页显示的记录数，默认值为10，取值范围为1-50的整数。
+     * @param {string} [marker] 上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。
+     * @param {number} [offset] 表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -870,7 +878,7 @@ export class IoTDAClient {
      *
      * @summary 查询设备列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
-     * @param {string} [productId] **参数说明**：设备关联的产品ID，用于唯一标识一个产品模型，创建产品后获得。方法请参见 [创建产品](https://support.huaweicloud.com/api-iothub/iot_06_v5_0050.html)。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [productId] **参数说明**：设备关联的产品ID，用于唯一标识一个产品模型，创建产品后获得。方法请参见 [[创建产品](https://support.huaweicloud.com/api-iothub/iot_06_v5_0050.html)](tag:hws)[[创建产品](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0050.html)](tag:hws_hk)。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [gatewayId] **参数说明**：网关ID，用于标识设备所属的父设备，即父设备的设备ID。携带该参数时，表示查询该设备下的子设备，默认查询下一级子设备，如果需要查询该设备下所有各级子设备，请同时携带is_cascade_query参数为true；不携带该参数时，表示查询用户下所有设备。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {boolean} [isCascadeQuery] **参数说明**：是否级联查询，该参数仅在同时携带gateway_id时生效。默认值为false。 **取值范围**： - true：表示查询设备ID等于gateway_id参数的设备下的所有各级子设备。 - false：表示查询设备ID等于gateway_id参数的设备下的一级子设备。
      * @param {string} [nodeId] **参数说明**：设备标识码，通常使用IMEI、MAC地址或Serial No作为node_id。 **取值范围**：长度不超过64，只允许字母、数字、下划线（_）、连接符（-）的组合。
@@ -1050,7 +1058,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。平台返回应用响应结果不一定是设备接收结果，建议用户应用通过订阅[设备消息状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01203.html)，订阅后平台会将设备接收结果推送给订阅的应用。
+     * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。平台返回应用响应结果不一定是设备接收结果，建议用户应用通过订阅[[设备消息状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01203.html)](tag:hws)[[设备消息状态变更通知](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_01203.html)](tag:hws_hk)，订阅后平台会将设备接收结果推送给订阅的应用。
      * 注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -1071,7 +1079,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口查询平台下发给设备的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。 
+     * 应用服务器可调用此接口查询平台下发给设备的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -1090,7 +1098,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口查询平台下发给设备的指定消息id的消息。 
+     * 应用服务器可调用此接口查询平台下发给设备的指定消息id的消息。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -1338,8 +1346,8 @@ export class IoTDAClient {
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [resource] **参数说明**：订阅的资源名称。 **取值范围**： - device：设备。 - device.property：设备属性。 - device.message：设备消息。 - device.message.status：设备消息状态。 - device.status：设备状态。 - batchtask：批量任务。 - product：产品。 - device.command.status：设备异步命令状态。
      * @param {string} [event] **参数说明**：订阅的资源事件。 **取值范围**：与资源有关，不同的资源，事件不同。 event需要与resource关联使用，具体的“resource：event”映射关系如下： - device：create（设备添加） - device：delete（设备删除） - device：update（设备更新） - device.status：update （设备状态变更） - device.property：report（设备属性上报） - device.message：report（设备消息上报） - device.message.status：update（设备消息状态变更） - batchtask：update （批量任务状态变更） - product：create（产品添加） - product：delete（产品删除） - product：update（产品更新） - device.command.status：update（设备异步命令状态更新）。
-     * @param {string} [appType] **参数说明**：租户规则的生效范围。 **取值范围**： - GLOBAL：生效范围为租户级。 - APP：生效范围为资源空间级。如果类型为APP，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则列表。
-     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则动作列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [appType] **参数说明**：租户规则的生效范围。 **取值范围**： - GLOBAL：生效范围为租户级。 - APP：生效范围为资源空间级。如果类型为APP，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)](tag:hws)[[默认资源空间](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0006.html#section0)](tag:hws_hk)下的规则列表。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)](tag:hws)[[默认资源空间](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0006.html#section0)](tag:hws_hk)下的规则动作列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [ruleName] **参数说明**：用户自定义的规则名称
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录。 **取值范围**：1-50的整数，默认值为10。
      * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
@@ -1364,8 +1372,8 @@ export class IoTDAClient {
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [ruleId] **参数说明**：规则触发条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [channel] **参数说明**：规则动作的类型。 **取值范围**： - HTTP_FORWARDING：HTTP服务消息类型。 - DIS_FORWARDING：转发DIS服务消息类型。 - OBS_FORWARDING：转发OBS服务消息类型。 - AMQP_FORWARDING：转发AMQP服务消息类型。 - DMS_KAFKA_FORWARDING：转发kafka消息类型。
-     * @param {string} [appType] **参数说明**：租户规则的生效范围。 **取值范围**： - GLOBAL：生效范围为租户级。 - APP：生效范围为资源空间级。如果类型为APP，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则动作列表。
-     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，rule_id不携带且app_type为APP时，该参数生效，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)下的规则动作列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [appType] **参数说明**：租户规则的生效范围。 **取值范围**： - GLOBAL：生效范围为租户级。 - APP：生效范围为资源空间级。如果类型为APP，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)](tag:hws)[[默认资源空间](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0006.html#section0)](tag:hws_hk)下的规则动作列表。
+     * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，rule_id不携带且app_type为APP时，该参数生效，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)](tag:hws)[[默认资源空间](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0006.html#section0)](tag:hws_hk)下的规则动作列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录。 **取值范围**：1-50的整数，默认值为10。
      * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
      * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。 - 限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
@@ -1524,8 +1532,8 @@ export class IoTDAClient {
      * @summary 查询规则列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的规则列表，不携带该参数则会查询该用户下所有规则列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
-     * @param {string} [ruleType] **参数说明**：规则类型。此参数为非必选参数，指定对应的规则类型结果进行返回，不携带该参数则会返回所有类型规则。 **取值范围**： - DEVICE_LINKAGE - DATA_FORWARDING
-     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数，查询结果根据limit进行分页。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [ruleType] **参数说明**：规则类型。此参数为非必选参数，指定对应的规则类型结果进行返回，不携带该参数则会返回所有类型规则。 **取值范围**： - DEVICE_LINKAGE
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
      * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
      * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
@@ -2059,7 +2067,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)。
+         * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)](tag:hws)[[设备命令状态变更通知](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_01212.html)](tag:hws_hk)。
          * 注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2112,7 +2120,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 物联网平台可查询指定id的命令。 
+         * 物联网平台可查询指定id的命令。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2428,7 +2436,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口在物联网平台上传设备的CA证书
+         * 应用服务器可调用此接口在物联网平台上传设备CA证书
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2446,14 +2454,20 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            let spAuthToken;
+            let stageAuthToken;
             let instanceId;
 
             if (addCertificateRequest !== null && addCertificateRequest !== undefined) {
                 if (addCertificateRequest instanceof AddCertificateRequest) {
                     body = addCertificateRequest.body
+                    spAuthToken = addCertificateRequest.spAuthToken;
+                    stageAuthToken = addCertificateRequest.stageAuthToken;
                     instanceId = addCertificateRequest.instanceId;
                 } else {
                     body = addCertificateRequest['body'];
+                    spAuthToken = addCertificateRequest['Sp-Auth-Token'];
+                    stageAuthToken = addCertificateRequest['Stage-Auth-Token'];
                     instanceId = addCertificateRequest['Instance-Id'];
                 }
             }
@@ -2461,6 +2475,12 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (stageAuthToken !== undefined && stageAuthToken !== null) {
+                localVarHeaderParameter['Stage-Auth-Token'] = String(stageAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2493,6 +2513,8 @@ export const ParamCreater = function () {
             var body: any;
             let certificateId;
             let actionId;
+            let spAuthToken;
+            let stageAuthToken;
             let instanceId;
 
             if (checkCertificateRequest !== null && checkCertificateRequest !== undefined) {
@@ -2500,11 +2522,15 @@ export const ParamCreater = function () {
                     certificateId = checkCertificateRequest.certificateId;
                     actionId = checkCertificateRequest.actionId;
                     body = checkCertificateRequest.body
+                    spAuthToken = checkCertificateRequest.spAuthToken;
+                    stageAuthToken = checkCertificateRequest.stageAuthToken;
                     instanceId = checkCertificateRequest.instanceId;
                 } else {
                     certificateId = checkCertificateRequest['certificate_id'];
                     actionId = checkCertificateRequest['action_id'];
                     body = checkCertificateRequest['body'];
+                    spAuthToken = checkCertificateRequest['Sp-Auth-Token'];
+                    stageAuthToken = checkCertificateRequest['Stage-Auth-Token'];
                     instanceId = checkCertificateRequest['Instance-Id'];
                 }
             }
@@ -2522,6 +2548,12 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (stageAuthToken !== undefined && stageAuthToken !== null) {
+                localVarHeaderParameter['Stage-Auth-Token'] = String(stageAuthToken);
+            }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
             }
@@ -2535,7 +2567,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口在物联网平台删除设备的CA证书
+         * 应用服务器可调用此接口在物联网平台删除设备CA证书
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2553,14 +2585,20 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             let certificateId;
+            let spAuthToken;
+            let stageAuthToken;
             let instanceId;
 
             if (deleteCertificateRequest !== null && deleteCertificateRequest !== undefined) {
                 if (deleteCertificateRequest instanceof DeleteCertificateRequest) {
                     certificateId = deleteCertificateRequest.certificateId;
+                    spAuthToken = deleteCertificateRequest.spAuthToken;
+                    stageAuthToken = deleteCertificateRequest.stageAuthToken;
                     instanceId = deleteCertificateRequest.instanceId;
                 } else {
                     certificateId = deleteCertificateRequest['certificate_id'];
+                    spAuthToken = deleteCertificateRequest['Sp-Auth-Token'];
+                    stageAuthToken = deleteCertificateRequest['Stage-Auth-Token'];
                     instanceId = deleteCertificateRequest['Instance-Id'];
                 }
             }
@@ -2568,6 +2606,12 @@ export const ParamCreater = function () {
         
             if (certificateId === null || certificateId === undefined) {
             throw new RequiredError('certificateId','Required parameter certificateId was null or undefined when calling deleteCertificate.');
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (stageAuthToken !== undefined && stageAuthToken !== null) {
+                localVarHeaderParameter['Stage-Auth-Token'] = String(stageAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -2579,7 +2623,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口在物联网平台获取设备的CA证书列表
+         * 应用服务器可调用此接口在物联网平台获取设备CA证书列表
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2596,6 +2640,8 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            let spAuthToken;
+            let stageAuthToken;
             let instanceId;
             let appId;
             let limit;
@@ -2604,12 +2650,16 @@ export const ParamCreater = function () {
 
             if (listCertificatesRequest !== null && listCertificatesRequest !== undefined) {
                 if (listCertificatesRequest instanceof ListCertificatesRequest) {
+                    spAuthToken = listCertificatesRequest.spAuthToken;
+                    stageAuthToken = listCertificatesRequest.stageAuthToken;
                     instanceId = listCertificatesRequest.instanceId;
                     appId = listCertificatesRequest.appId;
                     limit = listCertificatesRequest.limit;
                     marker = listCertificatesRequest.marker;
                     offset = listCertificatesRequest.offset;
                 } else {
+                    spAuthToken = listCertificatesRequest['Sp-Auth-Token'];
+                    stageAuthToken = listCertificatesRequest['Stage-Auth-Token'];
                     instanceId = listCertificatesRequest['Instance-Id'];
                     appId = listCertificatesRequest['app_id'];
                     limit = listCertificatesRequest['limit'];
@@ -2630,6 +2680,12 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (stageAuthToken !== undefined && stageAuthToken !== null) {
+                localVarHeaderParameter['Stage-Auth-Token'] = String(stageAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -3681,7 +3737,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。平台返回应用响应结果不一定是设备接收结果，建议用户应用通过订阅[设备消息状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01203.html)，订阅后平台会将设备接收结果推送给订阅的应用。
+         * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。平台返回应用响应结果不一定是设备接收结果，建议用户应用通过订阅[[设备消息状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01203.html)](tag:hws)[[设备消息状态变更通知](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_01203.html)](tag:hws_hk)，订阅后平台会将设备接收结果推送给订阅的应用。
          * 注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -3734,7 +3790,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口查询平台下发给设备的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。 
+         * 应用服务器可调用此接口查询平台下发给设备的消息，平台为每个设备默认最多保存20条消息，超过20条后， 后续的消息会替换下发最早的消息。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -3778,7 +3834,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口查询平台下发给设备的指定消息id的消息。 
+         * 应用服务器可调用此接口查询平台下发给设备的指定消息id的消息。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.

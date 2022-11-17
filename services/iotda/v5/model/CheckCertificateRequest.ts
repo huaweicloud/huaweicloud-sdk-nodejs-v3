@@ -2,6 +2,8 @@ import { VerifyCertificateDTO } from './VerifyCertificateDTO';
 
 
 export class CheckCertificateRequest {
+    private 'Sp-Auth-Token'?: string | undefined;
+    private 'Stage-Auth-Token'?: string | undefined;
     private 'Instance-Id'?: string | undefined;
     private 'certificate_id': string | undefined;
     private 'action_id': string | undefined;
@@ -9,6 +11,26 @@ export class CheckCertificateRequest {
     public constructor(certificateId?: any, actionId?: any) { 
         this['certificate_id'] = certificateId;
         this['action_id'] = actionId;
+    }
+    public withSpAuthToken(spAuthToken: string): CheckCertificateRequest {
+        this['Sp-Auth-Token'] = spAuthToken;
+        return this;
+    }
+    public set spAuthToken(spAuthToken: string | undefined) {
+        this['Sp-Auth-Token'] = spAuthToken;
+    }
+    public get spAuthToken() {
+        return this['Sp-Auth-Token'];
+    }
+    public withStageAuthToken(stageAuthToken: string): CheckCertificateRequest {
+        this['Stage-Auth-Token'] = stageAuthToken;
+        return this;
+    }
+    public set stageAuthToken(stageAuthToken: string | undefined) {
+        this['Stage-Auth-Token'] = stageAuthToken;
+    }
+    public get stageAuthToken() {
+        return this['Stage-Auth-Token'];
     }
     public withInstanceId(instanceId: string): CheckCertificateRequest {
         this['Instance-Id'] = instanceId;

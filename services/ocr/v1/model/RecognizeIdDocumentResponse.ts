@@ -1,12 +1,13 @@
+import { IdDocumentItem } from './IdDocumentItem';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class RecognizeIdDocumentResponse extends SdkResponse {
-    public result?: object;
+    public result?: IdDocumentItem;
     public constructor() { 
         super();
     }
-    public withResult(result: object): RecognizeIdDocumentResponse {
+    public withResult(result: IdDocumentItem): RecognizeIdDocumentResponse {
         this['result'] = result;
         return this;
     }
