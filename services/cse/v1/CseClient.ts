@@ -12,17 +12,21 @@ import { DownloadKieReqBody } from './model/DownloadKieReqBody';
 import { DownloadKieRequest } from './model/DownloadKieRequest';
 import { DownloadKieResponse } from './model/DownloadKieResponse';
 import { DownloadKieResponseBodyMetadata } from './model/DownloadKieResponseBodyMetadata';
+import { EngineAdditionalActionReq } from './model/EngineAdditionalActionReq';
 import { EngineCreateReq } from './model/EngineCreateReq';
 import { EngineExternalEntrypoint } from './model/EngineExternalEntrypoint';
 import { EngineRbacPwd } from './model/EngineRbacPwd';
 import { EngineReference } from './model/EngineReference';
 import { EngineSimpleInfo } from './model/EngineSimpleInfo';
+import { EngineUpdateReq } from './model/EngineUpdateReq';
 import { EntrypointItem } from './model/EntrypointItem';
 import { FlavorBrief } from './model/FlavorBrief';
 import { ListEnginesRequest } from './model/ListEnginesRequest';
 import { ListEnginesResponse } from './model/ListEnginesResponse';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
+import { RetryEngineRequest } from './model/RetryEngineRequest';
+import { RetryEngineResponse } from './model/RetryEngineResponse';
 import { ShowEngineJobRequest } from './model/ShowEngineJobRequest';
 import { ShowEngineJobResponse } from './model/ShowEngineJobResponse';
 import { ShowEngineRequest } from './model/ShowEngineRequest';
@@ -32,6 +36,8 @@ import { SpecClusterNode } from './model/SpecClusterNode';
 import { Task } from './model/Task';
 import { TaskExecutorBrief } from './model/TaskExecutorBrief';
 import { TaskSteps } from './model/TaskSteps';
+import { UpgradeEngineRequest } from './model/UpgradeEngineRequest';
+import { UpgradeEngineResponse } from './model/UpgradeEngineResponse';
 
 export class CseClient {
     public static newBuilder(): ClientBuilder<CseClient> {
@@ -146,6 +152,26 @@ export class CseClient {
     }
 
     /**
+     * 对微服务引擎专享版进行重试
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 对微服务引擎专享版进行重试
+     * @param {string} engineId 引擎id
+     * @param {EngineAdditionalActionReq} retryEngineRequestBody 重试微服务引擎专享版的请求体
+     * @param {string} [xEnterpriseProjectID] 如果不带则默认企业项目为\&quot;default\&quot;，ID为\&quot;0\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryEngine(retryEngineRequest?: RetryEngineRequest): Promise<RetryEngineResponse> {
+        const options = ParamCreater().retryEngine(retryEngineRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询微服务引擎专享版详情
      * 
      * 详细说明请参考华为云API Explorer。
@@ -179,6 +205,26 @@ export class CseClient {
      */
     public showEngineJob(showEngineJobRequest?: ShowEngineJobRequest): Promise<ShowEngineJobResponse> {
         const options = ParamCreater().showEngineJob(showEngineJobRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 升级微服务引擎专享版
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 升级微服务引擎专享版
+     * @param {string} engineId 升级的引擎Id
+     * @param {EngineUpdateReq} upgradeEngineRequestBody 升级微服务引擎专享版请求体
+     * @param {string} [xEnterpriseProjectID] 如果不带则默认企业项目为\&quot;default\&quot;，ID为\&quot;0\&quot;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeEngine(upgradeEngineRequest?: UpgradeEngineRequest): Promise<UpgradeEngineResponse> {
+        const options = ParamCreater().upgradeEngine(upgradeEngineRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -424,6 +470,58 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 对微服务引擎专享版进行重试
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        retryEngine(retryEngineRequest?: RetryEngineRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/enginemgr/engines/{engine_id}/actions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let engineId;
+            let xEnterpriseProjectID;
+
+            if (retryEngineRequest !== null && retryEngineRequest !== undefined) {
+                if (retryEngineRequest instanceof RetryEngineRequest) {
+                    engineId = retryEngineRequest.engineId;
+                    body = retryEngineRequest.body
+                    xEnterpriseProjectID = retryEngineRequest.xEnterpriseProjectID;
+                } else {
+                    engineId = retryEngineRequest['engine_id'];
+                    body = retryEngineRequest['body'];
+                    xEnterpriseProjectID = retryEngineRequest['X-Enterprise-Project-ID'];
+                }
+            }
+
+        
+            if (engineId === null || engineId === undefined) {
+            throw new RequiredError('engineId','Required parameter engineId was null or undefined when calling retryEngine.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
+                localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine_id': engineId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询微服务引擎专享版详情
          * 
          * 详细说明请参考华为云API Explorer。
@@ -513,6 +611,58 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'engine_id': engineId,'job_id': jobId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 升级微服务引擎专享版
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        upgradeEngine(upgradeEngineRequest?: UpgradeEngineRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/enginemgr/engines/{engine_id}/upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let engineId;
+            let xEnterpriseProjectID;
+
+            if (upgradeEngineRequest !== null && upgradeEngineRequest !== undefined) {
+                if (upgradeEngineRequest instanceof UpgradeEngineRequest) {
+                    engineId = upgradeEngineRequest.engineId;
+                    body = upgradeEngineRequest.body
+                    xEnterpriseProjectID = upgradeEngineRequest.xEnterpriseProjectID;
+                } else {
+                    engineId = upgradeEngineRequest['engine_id'];
+                    body = upgradeEngineRequest['body'];
+                    xEnterpriseProjectID = upgradeEngineRequest['X-Enterprise-Project-ID'];
+                }
+            }
+
+        
+            if (engineId === null || engineId === undefined) {
+            throw new RequiredError('engineId','Required parameter engineId was null or undefined when calling upgradeEngine.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (xEnterpriseProjectID !== undefined && xEnterpriseProjectID !== null) {
+                localVarHeaderParameter['X-Enterprise-Project-ID'] = String(xEnterpriseProjectID);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'engine_id': engineId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

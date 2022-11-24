@@ -6,6 +6,7 @@ import { AccessProgress } from './model/AccessProgress';
 import { Action } from './model/Action';
 import { Advanced } from './model/Advanced';
 import { AlertNoticeConfigResponse } from './model/AlertNoticeConfigResponse';
+import { AlterWafProductInfo } from './model/AlterWafProductInfo';
 import { AntiTamperRuleResponseBody } from './model/AntiTamperRuleResponseBody';
 import { ApplyCertificateToHostRequest } from './model/ApplyCertificateToHostRequest';
 import { ApplyCertificateToHostRequestBody } from './model/ApplyCertificateToHostRequestBody';
@@ -17,6 +18,9 @@ import { BindHost } from './model/BindHost';
 import { BlockPage } from './model/BlockPage';
 import { CertificateBody } from './model/CertificateBody';
 import { CertificateBundingHostBody } from './model/CertificateBundingHostBody';
+import { ChangePrepaidCloudWafRequest } from './model/ChangePrepaidCloudWafRequest';
+import { ChangePrepaidCloudWafRequestBody } from './model/ChangePrepaidCloudWafRequestBody';
+import { ChangePrepaidCloudWafResponse } from './model/ChangePrepaidCloudWafResponse';
 import { CircuitBreaker } from './model/CircuitBreaker';
 import { CloudWafHostItem } from './model/CloudWafHostItem';
 import { CloudWafServer } from './model/CloudWafServer';
@@ -51,6 +55,9 @@ import { CreatePolicyResponse } from './model/CreatePolicyResponse';
 import { CreatePremiumHostRequest } from './model/CreatePremiumHostRequest';
 import { CreatePremiumHostRequestBody } from './model/CreatePremiumHostRequestBody';
 import { CreatePremiumHostResponse } from './model/CreatePremiumHostResponse';
+import { CreatePrepaidCloudWafRequest } from './model/CreatePrepaidCloudWafRequest';
+import { CreatePrepaidCloudWafRequestBody } from './model/CreatePrepaidCloudWafRequestBody';
+import { CreatePrepaidCloudWafResponse } from './model/CreatePrepaidCloudWafResponse';
 import { CreatePrivacyRuleRequest } from './model/CreatePrivacyRuleRequest';
 import { CreatePrivacyRuleRequestBody } from './model/CreatePrivacyRuleRequestBody';
 import { CreatePrivacyRuleResponse } from './model/CreatePrivacyRuleResponse';
@@ -87,6 +94,7 @@ import { DeleteWhiteBlackIpRuleRequest } from './model/DeleteWhiteBlackIpRuleReq
 import { DeleteWhiteBlackIpRuleResponse } from './model/DeleteWhiteBlackIpRuleResponse';
 import { DomainClassificationItem } from './model/DomainClassificationItem';
 import { DomainItem } from './model/DomainItem';
+import { ExpackProductInfo } from './model/ExpackProductInfo';
 import { Flag } from './model/Flag';
 import { GeOIpItem } from './model/GeOIpItem';
 import { GeoClassificationItem } from './model/GeoClassificationItem';
@@ -152,12 +160,14 @@ import { MigrateCompositeHostsResponse } from './model/MigrateCompositeHostsResp
 import { PolicyAction } from './model/PolicyAction';
 import { PolicyOption } from './model/PolicyOption';
 import { PolicyResponse } from './model/PolicyResponse';
+import { Premium } from './model/Premium';
 import { PremiumWafInstances } from './model/PremiumWafInstances';
 import { PremiumWafServer } from './model/PremiumWafServer';
 import { PrivacyResponseBody } from './model/PrivacyResponseBody';
 import { RenameInstanceRequest } from './model/RenameInstanceRequest';
 import { RenameInstanceRequestBody } from './model/RenameInstanceRequestBody';
 import { RenameInstanceResponse } from './model/RenameInstanceResponse';
+import { ResourceResponse } from './model/ResourceResponse';
 import { RouteBody } from './model/RouteBody';
 import { RouteServerBody } from './model/RouteServerBody';
 import { RuleInfo } from './model/RuleInfo';
@@ -185,6 +195,8 @@ import { ShowPremiumHostRequest } from './model/ShowPremiumHostRequest';
 import { ShowPremiumHostResponse } from './model/ShowPremiumHostResponse';
 import { ShowSourceIpRequest } from './model/ShowSourceIpRequest';
 import { ShowSourceIpResponse } from './model/ShowSourceIpResponse';
+import { ShowSubscriptionInfoRequest } from './model/ShowSubscriptionInfoRequest';
+import { ShowSubscriptionInfoResponse } from './model/ShowSubscriptionInfoResponse';
 import { SimplePremiumWafHost } from './model/SimplePremiumWafHost';
 import { StatisticsTimelineItem } from './model/StatisticsTimelineItem';
 import { TimeLineItem } from './model/TimeLineItem';
@@ -238,6 +250,7 @@ import { UrlClassificationItem } from './model/UrlClassificationItem';
 import { UrlCountItem } from './model/UrlCountItem';
 import { UrlItem } from './model/UrlItem';
 import { ValueListResponseBody } from './model/ValueListResponseBody';
+import { WafProductInfo } from './model/WafProductInfo';
 import { WhiteBlackIpResponseBody } from './model/WhiteBlackIpResponseBody';
 
 export class WafClient {
@@ -271,6 +284,29 @@ export class WafClient {
      */
     public applyCertificateToHost(applyCertificateToHostRequest?: ApplyCertificateToHostRequest): Promise<ApplyCertificateToHostResponse> {
         const options = ParamCreater().applyCertificateToHost(applyCertificateToHostRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 变更包周期云模式waf规格。注：
+     *  - 1.变更某产品规格的前提是必须已购买该产品 
+     *  - 2.waf版本只支持升配，不支持降配；扩展包数量可以增加或者减少，但不支持数量减少为0 
+     *  - 3.不支持同时升降配，如增加域名扩展包数量，同时减少规则扩展包数量
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 变更包周期云模式waf规格
+     * @param {string} contentType 内容类型
+     * @param {ChangePrepaidCloudWafRequestBody} changePrepaidCloudWafRequestBody 变更包周期云模式waf规格请求体
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changePrepaidCloudWaf(changePrepaidCloudWafRequest?: ChangePrepaidCloudWafRequest): Promise<ChangePrepaidCloudWafResponse> {
+        const options = ParamCreater().changePrepaidCloudWaf(changePrepaidCloudWafRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -380,7 +416,7 @@ export class WafClient {
     }
 
     /**
-     * 创建WAF独享引擎实例
+     * 创建WAF独享引擎实例。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -454,6 +490,26 @@ export class WafClient {
      */
     public createPremiumHost(createPremiumHostRequest?: CreatePremiumHostRequest): Promise<CreatePremiumHostResponse> {
         const options = ParamCreater().createPremiumHost(createPremiumHostRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 购买包周期云模式waf
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 购买包周期云模式waf
+     * @param {string} contentType 内容类型
+     * @param {CreatePrepaidCloudWafRequestBody} createPrepaidCloudWafRequestBody 购买包周期云模式waf请求体
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPrepaidCloudWaf(createPrepaidCloudWafRequest?: CreatePrepaidCloudWafRequest): Promise<CreatePrepaidCloudWafResponse> {
+        const options = ParamCreater().createPrepaidCloudWaf(createPrepaidCloudWafRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -625,7 +681,7 @@ export class WafClient {
     }
 
     /**
-     * 删除WAF独享引擎信息
+     * 删除WAF独享引擎信息。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -977,7 +1033,7 @@ export class WafClient {
     }
 
     /**
-     * 查询WAF独享引擎列表
+     * 查询WAF独享引擎列表。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -1294,7 +1350,7 @@ export class WafClient {
     }
 
     /**
-     * 重命名WAF独享引擎
+     * 重命名WAF独享引擎。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -1413,7 +1469,7 @@ export class WafClient {
     }
 
     /**
-     * 查询WAF独享引擎信息
+     * 查询WAF独享引擎信息。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -1524,6 +1580,24 @@ export class WafClient {
      */
     public showSourceIp(showSourceIpRequest?: ShowSourceIpRequest): Promise<ShowSourceIpResponse> {
         const options = ParamCreater().showSourceIp(showSourceIpRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户订购信息，包括云模式包周期、按需计费、独享模式
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询租户订购信息
+     * @param {string} contentType 内容类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSubscriptionInfo(showSubscriptionInfoRequest?: ShowSubscriptionInfoRequest): Promise<ShowSubscriptionInfoResponse> {
+        const options = ParamCreater().showSubscriptionInfo(showSubscriptionInfoRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1910,6 +1984,61 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 变更包周期云模式waf规格。注：
+         *  - 1.变更某产品规格的前提是必须已购买该产品 
+         *  - 2.waf版本只支持升配，不支持降配；扩展包数量可以增加或者减少，但不支持数量减少为0 
+         *  - 3.不支持同时升降配，如增加域名扩展包数量，同时减少规则扩展包数量
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        changePrepaidCloudWaf(changePrepaidCloudWafRequest?: ChangePrepaidCloudWafRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/subscription/batchalter/prepaid-cloud-waf",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            var body: any;
+            let contentType;
+            let enterpriseProjectId;
+
+            if (changePrepaidCloudWafRequest !== null && changePrepaidCloudWafRequest !== undefined) {
+                if (changePrepaidCloudWafRequest instanceof ChangePrepaidCloudWafRequest) {
+                    contentType = changePrepaidCloudWafRequest.contentType;
+                    body = changePrepaidCloudWafRequest.body
+                    enterpriseProjectId = changePrepaidCloudWafRequest.enterpriseProjectId;
+                } else {
+                    contentType = changePrepaidCloudWafRequest['Content-Type'];
+                    body = changePrepaidCloudWafRequest['body'];
+                    enterpriseProjectId = changePrepaidCloudWafRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建防篡改规则
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2191,7 +2320,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建WAF独享引擎实例
+         * 创建WAF独享引擎实例。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2381,6 +2510,58 @@ export const ParamCreater = function () {
             }
 
         
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 购买包周期云模式waf
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        createPrepaidCloudWaf(createPrepaidCloudWafRequest?: CreatePrepaidCloudWafRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/subscription/purchase/prepaid-cloud-waf",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            var body: any;
+            let contentType;
+            let enterpriseProjectId;
+
+            if (createPrepaidCloudWafRequest !== null && createPrepaidCloudWafRequest !== undefined) {
+                if (createPrepaidCloudWafRequest instanceof CreatePrepaidCloudWafRequest) {
+                    contentType = createPrepaidCloudWafRequest.contentType;
+                    body = createPrepaidCloudWafRequest.body
+                    enterpriseProjectId = createPrepaidCloudWafRequest.enterpriseProjectId;
+                } else {
+                    contentType = createPrepaidCloudWafRequest['Content-Type'];
+                    body = createPrepaidCloudWafRequest['body'];
+                    enterpriseProjectId = createPrepaidCloudWafRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
@@ -2839,7 +3020,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除WAF独享引擎信息
+         * 删除WAF独享引擎信息。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -3848,7 +4029,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询WAF独享引擎列表
+         * 查询WAF独享引擎列表。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -4807,7 +4988,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 重命名WAF独享引擎
+         * 重命名WAF独享引擎。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -5104,7 +5285,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询WAF独享引擎信息
+         * 查询WAF独享引擎信息。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -5376,6 +5557,43 @@ export const ParamCreater = function () {
                     contentType = showSourceIpRequest.contentType;
                 } else {
                     contentType = showSourceIpRequest['Content-Type'];
+                }
+            }
+
+        
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户订购信息，包括云模式包周期、按需计费、独享模式
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showSubscriptionInfo(showSubscriptionInfoRequest?: ShowSubscriptionInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/subscription",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let contentType;
+
+            if (showSubscriptionInfoRequest !== null && showSubscriptionInfoRequest !== undefined) {
+                if (showSubscriptionInfoRequest instanceof ShowSubscriptionInfoRequest) {
+                    contentType = showSubscriptionInfoRequest.contentType;
+                } else {
+                    contentType = showSubscriptionInfoRequest['Content-Type'];
                 }
             }
 

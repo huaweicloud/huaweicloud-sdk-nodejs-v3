@@ -5,8 +5,6 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { Action } from './model/Action';
 import { AsyncInvokeFunctionRequest } from './model/AsyncInvokeFunctionRequest';
 import { AsyncInvokeFunctionResponse } from './model/AsyncInvokeFunctionResponse';
-import { AsyncInvokeReservedFunctionRequest } from './model/AsyncInvokeReservedFunctionRequest';
-import { AsyncInvokeReservedFunctionResponse } from './model/AsyncInvokeReservedFunctionResponse';
 import { BatchDeleteFunctionTriggersRequest } from './model/BatchDeleteFunctionTriggersRequest';
 import { BatchDeleteFunctionTriggersResponse } from './model/BatchDeleteFunctionTriggersResponse';
 import { BatchDeleteWorkflowsRequest } from './model/BatchDeleteWorkflowsRequest';
@@ -17,6 +15,8 @@ import { CancelAsyncInvocationResponse } from './model/CancelAsyncInvocationResp
 import { CreateDependencyRequest } from './model/CreateDependencyRequest';
 import { CreateDependencyRequestBody } from './model/CreateDependencyRequestBody';
 import { CreateDependencyResponse } from './model/CreateDependencyResponse';
+import { CreateDependencyVersionRequest } from './model/CreateDependencyVersionRequest';
+import { CreateDependencyVersionResponse } from './model/CreateDependencyVersionResponse';
 import { CreateEventRequest } from './model/CreateEventRequest';
 import { CreateEventRequestBody } from './model/CreateEventRequestBody';
 import { CreateEventResponse } from './model/CreateEventResponse';
@@ -38,6 +38,8 @@ import { CronConfig } from './model/CronConfig';
 import { CustomImage } from './model/CustomImage';
 import { DeleteDependencyRequest } from './model/DeleteDependencyRequest';
 import { DeleteDependencyResponse } from './model/DeleteDependencyResponse';
+import { DeleteDependencyVersionRequest } from './model/DeleteDependencyVersionRequest';
+import { DeleteDependencyVersionResponse } from './model/DeleteDependencyVersionResponse';
 import { DeleteEventRequest } from './model/DeleteEventRequest';
 import { DeleteEventResponse } from './model/DeleteEventResponse';
 import { DeleteFunctionAsyncInvokeConfigRequest } from './model/DeleteFunctionAsyncInvokeConfigRequest';
@@ -61,9 +63,11 @@ import { FuncAsyncDestinationConfig } from './model/FuncAsyncDestinationConfig';
 import { FuncCode } from './model/FuncCode';
 import { FuncDestinationConfig } from './model/FuncDestinationConfig';
 import { FuncMount } from './model/FuncMount';
+import { FuncReservedInstance } from './model/FuncReservedInstance';
 import { FuncVpc } from './model/FuncVpc';
 import { Function } from './model/Function';
 import { FunctionAsyncConfig } from './model/FunctionAsyncConfig';
+import { FunctionMetric } from './model/FunctionMetric';
 import { FunctionRef } from './model/FunctionRef';
 import { ImportFunctionRequest } from './model/ImportFunctionRequest';
 import { ImportFunctionRequestBody } from './model/ImportFunctionRequestBody';
@@ -75,13 +79,19 @@ import { ListAsyncInvocationsResponse } from './model/ListAsyncInvocationsRespon
 import { ListDependenciesRequest } from './model/ListDependenciesRequest';
 import { ListDependenciesResponse } from './model/ListDependenciesResponse';
 import { ListDependenciesResult } from './model/ListDependenciesResult';
+import { ListDependencyVersionRequest } from './model/ListDependencyVersionRequest';
+import { ListDependencyVersionResponse } from './model/ListDependencyVersionResponse';
 import { ListEventsRequest } from './model/ListEventsRequest';
 import { ListEventsResponse } from './model/ListEventsResponse';
 import { ListEventsResult } from './model/ListEventsResult';
+import { ListFunctionAsMetricRequest } from './model/ListFunctionAsMetricRequest';
+import { ListFunctionAsMetricResponse } from './model/ListFunctionAsMetricResponse';
 import { ListFunctionAsyncInvocationsResult } from './model/ListFunctionAsyncInvocationsResult';
 import { ListFunctionAsyncInvokeConfigRequest } from './model/ListFunctionAsyncInvokeConfigRequest';
 import { ListFunctionAsyncInvokeConfigResponse } from './model/ListFunctionAsyncInvokeConfigResponse';
 import { ListFunctionAsyncInvokeConfigResult } from './model/ListFunctionAsyncInvokeConfigResult';
+import { ListFunctionReservedInstancesRequest } from './model/ListFunctionReservedInstancesRequest';
+import { ListFunctionReservedInstancesResponse } from './model/ListFunctionReservedInstancesResponse';
 import { ListFunctionResult } from './model/ListFunctionResult';
 import { ListFunctionStatisticsRequest } from './model/ListFunctionStatisticsRequest';
 import { ListFunctionStatisticsResponse } from './model/ListFunctionStatisticsResponse';
@@ -97,6 +107,8 @@ import { ListFunctionsResponse } from './model/ListFunctionsResponse';
 import { ListQuotasRequest } from './model/ListQuotasRequest';
 import { ListQuotasResponse } from './model/ListQuotasResponse';
 import { ListQuotasResult } from './model/ListQuotasResult';
+import { ListReservedInstanceConfigsRequest } from './model/ListReservedInstanceConfigsRequest';
+import { ListReservedInstanceConfigsResponse } from './model/ListReservedInstanceConfigsResponse';
 import { ListStatisticsRequest } from './model/ListStatisticsRequest';
 import { ListStatisticsResponse } from './model/ListStatisticsResponse';
 import { ListVersionAliasResult } from './model/ListVersionAliasResult';
@@ -125,6 +137,8 @@ import { RetryWorkFlowRequest } from './model/RetryWorkFlowRequest';
 import { RetryWorkFlowResponse } from './model/RetryWorkFlowResponse';
 import { ShowDependcyRequest } from './model/ShowDependcyRequest';
 import { ShowDependcyResponse } from './model/ShowDependcyResponse';
+import { ShowDependencyVersionRequest } from './model/ShowDependencyVersionRequest';
+import { ShowDependencyVersionResponse } from './model/ShowDependencyVersionResponse';
 import { ShowEventRequest } from './model/ShowEventRequest';
 import { ShowEventResponse } from './model/ShowEventResponse';
 import { ShowFunctionAsyncInvokeConfigRequest } from './model/ShowFunctionAsyncInvokeConfigRequest';
@@ -235,25 +249,6 @@ export class FunctionGraphClient {
     }
 
     /**
-     * 函数异步执行并返回预留实例ID用于场景指客户端请求执行比较费时任务，不需要同步等待执行完成返回结果，该方法提前返回任务执行对应的预留实例ID, 如果预留实例有异常，可以通过该实例ID把对应实例删除（该接口主要针对白名单用户）。
-     * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
-     *
-     * @summary 函数异步执行并返回预留实例ID
-     * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
-     * @param {{ [key: string]: object; }} asyncInvokeReservedFunctionRequestBody 函数异步执行并返回预留实例请求body体。
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public asyncInvokeReservedFunction(asyncInvokeReservedFunctionRequest?: AsyncInvokeReservedFunctionRequest): Promise<AsyncInvokeReservedFunctionResponse> {
-        const options = ParamCreater().asyncInvokeReservedFunction(asyncInvokeReservedFunctionRequest);
-        options['responseHeaders'] = ['Content-Type'];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 删除指定函数所有触发器设置。
      * 
      * 在提供函数版本且非latest的情况下，删除对应函数版本的触发器。
@@ -325,6 +320,24 @@ export class FunctionGraphClient {
      */
     public createDependency(createDependencyRequest?: CreateDependencyRequest): Promise<CreateDependencyResponse> {
         const options = ParamCreater().createDependency(createDependencyRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建依赖包版本
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 创建依赖包版本
+     * @param {CreateDependencyRequestBody} createDependencyVersionRequestBody 创建依赖包版本请求body体。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createDependencyVersion(createDependencyVersionRequest?: CreateDependencyVersionRequest): Promise<CreateDependencyVersionResponse> {
+        const options = ParamCreater().createDependencyVersion(createDependencyVersionRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -459,6 +472,25 @@ export class FunctionGraphClient {
      */
     public deleteDependency(deleteDependencyRequest?: DeleteDependencyRequest): Promise<void> {
         const options = ParamCreater().deleteDependency(deleteDependencyRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除依赖包版本
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 删除依赖包版本
+     * @param {string} dependId 依赖包的ID。
+     * @param {string} version 依赖包的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteDependencyVersion(deleteDependencyVersionRequest?: DeleteDependencyVersionRequest): Promise<void> {
+        const options = ParamCreater().deleteDependencyVersion(deleteDependencyVersionRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -687,6 +719,26 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 获取依赖包版本列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取依赖包版本列表
+     * @param {string} dependId 依赖包的ID。
+     * @param {string} [marker] 上一次查询依赖包的最后记录位置，默认为\&quot;0\&quot;。
+     * @param {string} [maxitems] 单次查询最大条数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDependencyVersion(listDependencyVersionRequest?: ListDependencyVersionRequest): Promise<ListDependencyVersionResponse> {
+        const options = ParamCreater().listDependencyVersion(listDependencyVersionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定函数的测试事件列表
      * 
      * 详细说明请参考华为云API Explorer。
@@ -699,6 +751,29 @@ export class FunctionGraphClient {
      */
     public listEvents(listEventsRequest?: ListEventsRequest): Promise<ListEventsResponse> {
         const options = ParamCreater().listEvents(listEventsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 按指定指标排序的函数列表。
+     * 
+     * 默认统计按错误次数指标统计最近一天失败次数最多的前10个函数
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取按指定指标排序的函数列表
+     * @param {string} [type] 指标类型，默认值为failcount。
+     * @param {string} [startTime] 起始时间。
+     * @param {string} [endTime] 结束时间。
+     * @param {string} [limit] 指标类型，默认值为failcount。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionAsMetric(listFunctionAsMetricRequest?: ListFunctionAsMetricRequest): Promise<ListFunctionAsMetricResponse> {
+        const options = ParamCreater().listFunctionAsMetric(listFunctionAsMetricRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -719,6 +794,26 @@ export class FunctionGraphClient {
      */
     public listFunctionAsyncInvokeConfig(listFunctionAsyncInvokeConfigRequest?: ListFunctionAsyncInvokeConfigRequest): Promise<ListFunctionAsyncInvokeConfigResponse> {
         const options = ParamCreater().listFunctionAsyncInvokeConfig(listFunctionAsyncInvokeConfigRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取函数预留实例数量。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取函数预留实例数量
+     * @param {string} [marker] 上一次查询到的最后的记录位置。
+     * @param {string} [maxitems] 每次查询获取的最大函数记录数量  最大值：400 如果不提供该值或者提供的值大于400或等于0，则使用默认值：400 如果该值小于0，则返回参数错误。
+     * @param {string} [urn] 查询指定函数版本预留实例数的函数urn。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFunctionReservedInstances(listFunctionReservedInstancesRequest?: ListFunctionReservedInstancesRequest): Promise<ListFunctionReservedInstancesResponse> {
+        const options = ParamCreater().listFunctionReservedInstances(listFunctionReservedInstancesRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -813,6 +908,24 @@ export class FunctionGraphClient {
      */
     public listQuotas(): Promise<ListQuotasResponse> {
         const options = ParamCreater().listQuotas();
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取函数预留实例配置列表
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取函数预留实例配置列表
+     * @param {string} [functionUrn] 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listReservedInstanceConfigs(listReservedInstanceConfigsRequest?: ListReservedInstanceConfigsRequest): Promise<ListReservedInstanceConfigsResponse> {
+        const options = ParamCreater().listReservedInstanceConfigs(listReservedInstanceConfigsRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -935,6 +1048,25 @@ export class FunctionGraphClient {
      */
     public showDependcy(showDependcyRequest?: ShowDependcyRequest): Promise<ShowDependcyResponse> {
         const options = ParamCreater().showDependcy(showDependcyRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取依赖包版本详情
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 获取依赖包版本详情
+     * @param {string} dependId 依赖包的ID。
+     * @param {string} version 依赖包的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDependencyVersion(showDependencyVersionRequest?: ShowDependencyVersionRequest): Promise<ShowDependencyVersionResponse> {
+        const options = ParamCreater().showDependencyVersion(showDependencyVersionRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1510,52 +1642,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 函数异步执行并返回预留实例ID用于场景指客户端请求执行比较费时任务，不需要同步等待执行完成返回结果，该方法提前返回任务执行对应的预留实例ID, 如果预留实例有异常，可以通过该实例ID把对应实例删除（该接口主要针对白名单用户）。
-         * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
-         */
-        asyncInvokeReservedFunction(asyncInvokeReservedFunctionRequest?: AsyncInvokeReservedFunctionRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/fgs/functions/{function_urn}/reserved-invocations",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-            let functionUrn;
-
-            if (asyncInvokeReservedFunctionRequest !== null && asyncInvokeReservedFunctionRequest !== undefined) {
-                if (asyncInvokeReservedFunctionRequest instanceof AsyncInvokeReservedFunctionRequest) {
-                    functionUrn = asyncInvokeReservedFunctionRequest.functionUrn;
-                    body = asyncInvokeReservedFunctionRequest.body
-                } else {
-                    functionUrn = asyncInvokeReservedFunctionRequest['function_urn'];
-                    body = asyncInvokeReservedFunctionRequest['body'];
-                }
-            }
-
-        
-            if (functionUrn === null || functionUrn === undefined) {
-            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling asyncInvokeReservedFunction.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'function_urn': functionUrn, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 删除指定函数所有触发器设置。
          * 
          * 在提供函数版本且非latest的情况下，删除对应函数版本的触发器。
@@ -1707,6 +1793,45 @@ export const ParamCreater = function () {
                     body = createDependencyRequest.body
                 } else {
                     body = createDependencyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建依赖包版本
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        createDependencyVersion(createDependencyVersionRequest?: CreateDependencyVersionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/dependencies/version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createDependencyVersionRequest !== null && createDependencyVersionRequest !== undefined) {
+                if (createDependencyVersionRequest instanceof CreateDependencyVersionRequest) {
+                    body = createDependencyVersionRequest.body
+                } else {
+                    body = createDependencyVersionRequest['body'];
                 }
             }
 
@@ -2021,6 +2146,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'depend_id': dependId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除依赖包版本
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        deleteDependencyVersion(deleteDependencyVersionRequest?: DeleteDependencyVersionRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/fgs/dependencies/{depend_id}/version/{version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let dependId;
+            let version;
+
+            if (deleteDependencyVersionRequest !== null && deleteDependencyVersionRequest !== undefined) {
+                if (deleteDependencyVersionRequest instanceof DeleteDependencyVersionRequest) {
+                    dependId = deleteDependencyVersionRequest.dependId;
+                    version = deleteDependencyVersionRequest.version;
+                } else {
+                    dependId = deleteDependencyVersionRequest['depend_id'];
+                    version = deleteDependencyVersionRequest['version'];
+                }
+            }
+
+        
+            if (dependId === null || dependId === undefined) {
+            throw new RequiredError('dependId','Required parameter dependId was null or undefined when calling deleteDependencyVersion.');
+            }
+            if (version === null || version === undefined) {
+            throw new RequiredError('version','Required parameter version was null or undefined when calling deleteDependencyVersion.');
+            }
+
+            options.pathParams = { 'depend_id': dependId,'version': version, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2569,6 +2738,57 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取依赖包版本列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listDependencyVersion(listDependencyVersionRequest?: ListDependencyVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/dependencies/{depend_id}/version",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let dependId;
+            let marker;
+            let maxitems;
+
+            if (listDependencyVersionRequest !== null && listDependencyVersionRequest !== undefined) {
+                if (listDependencyVersionRequest instanceof ListDependencyVersionRequest) {
+                    dependId = listDependencyVersionRequest.dependId;
+                    marker = listDependencyVersionRequest.marker;
+                    maxitems = listDependencyVersionRequest.maxitems;
+                } else {
+                    dependId = listDependencyVersionRequest['depend_id'];
+                    marker = listDependencyVersionRequest['marker'];
+                    maxitems = listDependencyVersionRequest['maxitems'];
+                }
+            }
+
+        
+            if (dependId === null || dependId === undefined) {
+            throw new RequiredError('dependId','Required parameter dependId was null or undefined when calling listDependencyVersion.');
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (maxitems !== null && maxitems !== undefined) {
+                localVarQueryParameter['maxitems'] = maxitems;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'depend_id': dependId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定函数的测试事件列表
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2602,6 +2822,64 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 按指定指标排序的函数列表。
+         * 
+         * 默认统计按错误次数指标统计最近一天失败次数最多的前10个函数
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listFunctionAsMetric(listFunctionAsMetricRequest?: ListFunctionAsMetricRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/function/report",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let type;
+            let startTime;
+            let endTime;
+            let limit;
+
+            if (listFunctionAsMetricRequest !== null && listFunctionAsMetricRequest !== undefined) {
+                if (listFunctionAsMetricRequest instanceof ListFunctionAsMetricRequest) {
+                    type = listFunctionAsMetricRequest.type;
+                    startTime = listFunctionAsMetricRequest.startTime;
+                    endTime = listFunctionAsMetricRequest.endTime;
+                    limit = listFunctionAsMetricRequest.limit;
+                } else {
+                    type = listFunctionAsMetricRequest['type'];
+                    startTime = listFunctionAsMetricRequest['start_time'];
+                    endTime = listFunctionAsMetricRequest['end_time'];
+                    limit = listFunctionAsMetricRequest['limit'];
+                }
+            }
+
+        
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2653,6 +2931,56 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取函数预留实例数量。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listFunctionReservedInstances(listFunctionReservedInstancesRequest?: ListFunctionReservedInstancesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/functions/reservedinstances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let marker;
+            let maxitems;
+            let urn;
+
+            if (listFunctionReservedInstancesRequest !== null && listFunctionReservedInstancesRequest !== undefined) {
+                if (listFunctionReservedInstancesRequest instanceof ListFunctionReservedInstancesRequest) {
+                    marker = listFunctionReservedInstancesRequest.marker;
+                    maxitems = listFunctionReservedInstancesRequest.maxitems;
+                    urn = listFunctionReservedInstancesRequest.urn;
+                } else {
+                    marker = listFunctionReservedInstancesRequest['marker'];
+                    maxitems = listFunctionReservedInstancesRequest['maxitems'];
+                    urn = listFunctionReservedInstancesRequest['urn'];
+                }
+            }
+
+        
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (maxitems !== null && maxitems !== undefined) {
+                localVarQueryParameter['maxitems'] = maxitems;
+            }
+            if (urn !== null && urn !== undefined) {
+                localVarQueryParameter['urn'] = urn;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2859,6 +3187,44 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取函数预留实例配置列表
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listReservedInstanceConfigs(listReservedInstanceConfigsRequest?: ListReservedInstanceConfigsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/functions/reservedinstanceconfigs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let functionUrn;
+
+            if (listReservedInstanceConfigsRequest !== null && listReservedInstanceConfigsRequest !== undefined) {
+                if (listReservedInstanceConfigsRequest instanceof ListReservedInstanceConfigsRequest) {
+                    functionUrn = listReservedInstanceConfigsRequest.functionUrn;
+                } else {
+                    functionUrn = listReservedInstanceConfigsRequest['function_urn'];
+                }
+            }
+
+        
+            if (functionUrn !== null && functionUrn !== undefined) {
+                localVarQueryParameter['function_urn'] = functionUrn;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3160,6 +3526,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'depend_id': dependId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取依赖包版本详情
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showDependencyVersion(showDependencyVersionRequest?: ShowDependencyVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/dependencies/{depend_id}/version/{version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let dependId;
+            let version;
+
+            if (showDependencyVersionRequest !== null && showDependencyVersionRequest !== undefined) {
+                if (showDependencyVersionRequest instanceof ShowDependencyVersionRequest) {
+                    dependId = showDependencyVersionRequest.dependId;
+                    version = showDependencyVersionRequest.version;
+                } else {
+                    dependId = showDependencyVersionRequest['depend_id'];
+                    version = showDependencyVersionRequest['version'];
+                }
+            }
+
+        
+            if (dependId === null || dependId === undefined) {
+            throw new RequiredError('dependId','Required parameter dependId was null or undefined when calling showDependencyVersion.');
+            }
+            if (version === null || version === undefined) {
+            throw new RequiredError('version','Required parameter version was null or undefined when calling showDependencyVersion.');
+            }
+
+            options.pathParams = { 'depend_id': dependId,'version': version, };
             options.headers = localVarHeaderParameter;
             return options;
         },

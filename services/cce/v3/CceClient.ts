@@ -22,12 +22,14 @@ import { ClusterEndpoints } from './model/ClusterEndpoints';
 import { ClusterExtendParam } from './model/ClusterExtendParam';
 import { ClusterInformation } from './model/ClusterInformation';
 import { ClusterInformationSpec } from './model/ClusterInformationSpec';
+import { ClusterInformationSpecHostNetwork } from './model/ClusterInformationSpecHostNetwork';
 import { ClusterMetadata } from './model/ClusterMetadata';
 import { ClusterNodeInformation } from './model/ClusterNodeInformation';
 import { ClusterNodeInformationMetadata } from './model/ClusterNodeInformationMetadata';
 import { ClusterSpec } from './model/ClusterSpec';
 import { ClusterStatus } from './model/ClusterStatus';
 import { Clusters } from './model/Clusters';
+import { ConfigurationItem } from './model/ConfigurationItem';
 import { ContainerCIDR } from './model/ContainerCIDR';
 import { ContainerNetwork } from './model/ContainerNetwork';
 import { ContainerNetworkUpdate } from './model/ContainerNetworkUpdate';
@@ -59,6 +61,7 @@ import { DeleteStatus } from './model/DeleteStatus';
 import { EipSpec } from './model/EipSpec';
 import { EipSpecBandwidth } from './model/EipSpecBandwidth';
 import { EniNetwork } from './model/EniNetwork';
+import { EniNetworkUpdate } from './model/EniNetworkUpdate';
 import { HibernateClusterRequest } from './model/HibernateClusterRequest';
 import { HibernateClusterResponse } from './model/HibernateClusterResponse';
 import { HostNetwork } from './model/HostNetwork';
@@ -121,6 +124,7 @@ import { NodeSpecUpdate } from './model/NodeSpecUpdate';
 import { NodeStatus } from './model/NodeStatus';
 import { OpenAPIResponseSpec } from './model/OpenAPIResponseSpec';
 import { OpenAPIResponseSpecSpec } from './model/OpenAPIResponseSpecSpec';
+import { PackageConfiguration } from './model/PackageConfiguration';
 import { PersistentVolumeClaim } from './model/PersistentVolumeClaim';
 import { PersistentVolumeClaimMetadata } from './model/PersistentVolumeClaimMetadata';
 import { PersistentVolumeClaimSpec } from './model/PersistentVolumeClaimSpec';
@@ -395,19 +399,19 @@ export class CceClient {
     }
 
     /**
-     * 该API用于删除指定Namespace下的PVC（PersistentVolumeClaim）对象，并可以选择保留后端的云存储。
+     * 该API用于删除指定Namespace下的PVC（PersistentVolumeClaim）对象，并可以选择保留后端的云存储。该API待废弃，请使用Kubernetes PVC相关接口。
      * 
      * &gt;存储管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。如果使用https://Endpoint/uri，则必须指定请求header中的X-Cluster-ID参数。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 删除PVC
+     * @summary 删除PVC（待废弃）
      * @param {string} name 需要删除的PersistentVolumClaim的名称。 
      * @param {string} namespace 指定PersistentVolumeClaim所在的命名空间。 
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} [deleteVolume] 删除PersistentVolumeClaim后是否保留后端关联的云存储。false表示不删除，true表示删除，默认为false。 
-     * @param {string} [storageType] 删除PersistentVolumeClaim后是否保留后端关联的云存储。false表示不删除，true表示删除，默认为false。 云存储的类型，和deleteVolume搭配使用。即deleteVolume和storageType必须同时配置。     - bs：EVS云硬盘存储     - nfs：SFS弹性文件存储     - obs：OBS对象存储     - efs：SFS Turbo极速文件存储 
+     * @param {string} [storageType] 云存储的类型，和deleteVolume搭配使用。即deleteVolume和storageType必须同时配置。     - bs：EVS云硬盘存储     - nfs：SFS弹性文件存储     - obs：OBS对象存储     - efs：SFS Turbo极速文件存储 
      * @param {string} [xClusterID] 集群ID，使用**https://Endpoint/uri**这种URL格式时必须指定此参数。获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -435,6 +439,7 @@ export class CceClient {
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteNet] 是否删除elb（弹性负载均衡）等集群Service/Ingress相关资源。 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程，默认选项) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteObs] 是否删除obs（对象存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteSfs] 是否删除sfs（文件存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
+     * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteSfs30] 是否删除sfs3.0（文件存储卷3.0）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
      * @param {'true'} [tobedeleted] 是否使用包周期集群删除参数预置模式（仅对包周期集群生效）。 需要和其他删除选项参数一起使用，未指定的参数，则使用默认值。 使用该参数，集群不执行真正的删除，仅将本次请求的全部query参数都预置到集群数据库中，用于包周期集群退订时识别用户要删除的资源。 允许重复执行，覆盖预置的删除参数。 枚举取值： - true  (预置模式，仅预置query参数，不执行删除)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -611,7 +616,9 @@ export class CceClient {
     }
 
     /**
-     * 该API用于在指定集群下迁移节点到另一集群。
+     * 该API用于在指定集群下迁移节点到另一集群（仅支持在同一VPC下的不同集群之间进行迁移）。
+     * [CCE Turbo集群下弹性云服务-物理机类型节点不支持迁移。](tag:hws,hws_hk,dt)
+     * 
      * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -1418,7 +1425,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于删除指定Namespace下的PVC（PersistentVolumeClaim）对象，并可以选择保留后端的云存储。
+         * 该API用于删除指定Namespace下的PVC（PersistentVolumeClaim）对象，并可以选择保留后端的云存储。该API待废弃，请使用Kubernetes PVC相关接口。
          * 
          * &gt;存储管理的URL格式为：https://{clusterid}.Endpoint/uri。其中{clusterid}为集群ID，uri为资源路径，也即API访问的路径。如果使用https://Endpoint/uri，则必须指定请求header中的X-Cluster-ID参数。
          * 
@@ -1515,6 +1522,7 @@ export const ParamCreater = function () {
             let deleteNet;
             let deleteObs;
             let deleteSfs;
+            let deleteSfs30;
             let tobedeleted;
 
             if (deleteClusterRequest !== null && deleteClusterRequest !== undefined) {
@@ -1527,6 +1535,7 @@ export const ParamCreater = function () {
                     deleteNet = deleteClusterRequest.deleteNet;
                     deleteObs = deleteClusterRequest.deleteObs;
                     deleteSfs = deleteClusterRequest.deleteSfs;
+                    deleteSfs30 = deleteClusterRequest.deleteSfs30;
                     tobedeleted = deleteClusterRequest.tobedeleted;
                 } else {
                     clusterId = deleteClusterRequest['cluster_id'];
@@ -1537,6 +1546,7 @@ export const ParamCreater = function () {
                     deleteNet = deleteClusterRequest['delete_net'];
                     deleteObs = deleteClusterRequest['delete_obs'];
                     deleteSfs = deleteClusterRequest['delete_sfs'];
+                    deleteSfs30 = deleteClusterRequest['delete_sfs30'];
                     tobedeleted = deleteClusterRequest['tobedeleted'];
                 }
             }
@@ -1562,6 +1572,9 @@ export const ParamCreater = function () {
             }
             if (deleteSfs !== null && deleteSfs !== undefined) {
                 localVarQueryParameter['delete_sfs'] = deleteSfs;
+            }
+            if (deleteSfs30 !== null && deleteSfs30 !== undefined) {
+                localVarQueryParameter['delete_sfs30'] = deleteSfs30;
             }
             if (tobedeleted !== null && tobedeleted !== undefined) {
                 localVarQueryParameter['tobedeleted'] = tobedeleted;
@@ -1981,7 +1994,9 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该API用于在指定集群下迁移节点到另一集群。
+         * 该API用于在指定集群下迁移节点到另一集群（仅支持在同一VPC下的不同集群之间进行迁移）。
+         * [CCE Turbo集群下弹性云服务-物理机类型节点不支持迁移。](tag:hws,hws_hk,dt)
+         * 
          * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          * 
          * 详细说明请参考华为云API Explorer。

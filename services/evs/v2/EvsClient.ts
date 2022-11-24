@@ -411,7 +411,7 @@ export class EvsClient {
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 查询云硬盘快照详细列表信息
+     * @summary 查询云硬盘快照详情列表
      * @param {number} [offset] 偏移量。 说明:分页查询快照时使用，与limit配合使用。假如共有30个快照，设置offset为11，limit为10，即为从第12个快照开始查询，一次最多可读取10个快照。
      * @param {number} [limit] 返回结果个数限制，值为大于0的整数。默认值为1000。
      * @param {string} [name] 云硬盘快照名称。最大支持255个字节。
@@ -571,7 +571,7 @@ export class EvsClient {
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 查询单个云硬盘快照详细信息
+     * @summary 查询单个云硬盘快照详情
      * @param {string} snapshotId 快照ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

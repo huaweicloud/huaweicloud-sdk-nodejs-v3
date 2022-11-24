@@ -1,3 +1,98 @@
+# 3.1.11 2022-11-24
+
+### HuaweiCloud SDK AOS
+
+- _新增特性_
+  - 支持接口`ListStackEvents`、`ListStackResources`、`DeleteStack`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK CFW
+
+- _新增特性_
+  - 支持云防火墙服务
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`CreateCluster`新增请求参数 `configurationsOverride`
+  - 接口`ListClusters`新增响应参数 `configurationsOverride`
+  - 接口`UpdateCluster`:
+    - 新增请求参数 `eniNetwork`、`hostNetwork`
+    - 新增响应参数 `configurationsOverride`
+  - 接口`DeleteCluster`:
+    - 新增请求参数 `delete_sfs30`
+    - 新增响应参数 `configurationsOverride`
+  - 接口`ShowCluster`新增响应参数 `configurationsOverride`
+  - 接口`CreateNode`新增请求参数 `initializedConditions`
+  - 接口`ListNodes`新增响应参数 `initializedConditions`
+  - 接口`UpdateNode`新增响应参数 `initializedConditions`
+  - 接口`DeleteNode`新增响应参数 `initializedConditions`
+  - 接口`ShowNode`新增响应参数 `initializedConditions`
+  - 接口`AddNode`新增请求参数 `initializedConditions`
+  - 接口`ResetNode`新增请求参数 `initializedConditions`
+  - 接口`CreateNodePool`新增请求参数 `customSecurityGroups`、`initializedConditions`
+  - 接口`ListNodePools`新增响应参数 `customSecurityGroups`、`initializedConditions`
+  - 接口`UpdateNodePool`:
+    - 新增请求参数 `initializedConditions`
+    - 新增响应参数 `customSecurityGroups`、`initializedConditions`
+  - 接口`DeleteNodePool`新增响应参数 `customSecurityGroups`、`initializedConditions`
+  - 接口`ShowNodePool`新增响应参数 `customSecurityGroups`、`initializedConditions`
+
+### HuaweiCloud SDK CSE
+
+- _新增特性_
+  - 支持接口`UpgradeEngine`、`RetryEngine`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK FunctionGraph
+
+- _新增特性_
+  - 支持以下接口：
+    - `CreateDependencyVersion`
+    - `ListDependencyVersion`
+    - `ShowDependencyVersion`
+    - `DeleteDependencyVersion`
+    - `ListReservedInstanceConfigs`
+    - `ListFunctionReservedInstances`
+    - `ListFunctionAsMetric`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 移除接口`AsyncInvokeReservedFunction`
+  - 接口`UpdateFunctionConfig`新增请求参数 `custom_image`
+
+### HuaweiCloud SDK OCR
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`RecognizeHealthCode`新增响应参数 `test_interval`
+
+### HuaweiCloud SDK WAF
+
+- _新增特性_
+  - 支持接口`CreatePrepaidCloudWaf`、`ChangePrepaidCloudWaf`、`ShowSubscriptionInfo`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
 # 3.1.10 2022-11-17
 
 ### HuaweiCloud SDK AOS

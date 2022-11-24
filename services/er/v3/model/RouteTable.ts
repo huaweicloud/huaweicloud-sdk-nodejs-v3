@@ -1,4 +1,3 @@
-import { BgpOptions } from './BgpOptions';
 import { Tag } from './Tag';
 
 
@@ -10,7 +9,6 @@ export class RouteTable {
     private 'is_default_propagation': boolean | undefined;
     public state: string;
     public tags?: Array<Tag>;
-    private 'bgp_options'?: BgpOptions | undefined;
     private 'created_at': Date | undefined;
     private 'updated_at'?: Date | undefined;
     public constructor(name?: any, isDefaultAssociation?: any, isDefaultPropagation?: any, state?: any, createdAt?: any) { 
@@ -59,16 +57,6 @@ export class RouteTable {
     public withTags(tags: Array<Tag>): RouteTable {
         this['tags'] = tags;
         return this;
-    }
-    public withBgpOptions(bgpOptions: BgpOptions): RouteTable {
-        this['bgp_options'] = bgpOptions;
-        return this;
-    }
-    public set bgpOptions(bgpOptions: BgpOptions | undefined) {
-        this['bgp_options'] = bgpOptions;
-    }
-    public get bgpOptions() {
-        return this['bgp_options'];
     }
     public withCreatedAt(createdAt: Date): RouteTable {
         this['created_at'] = createdAt;

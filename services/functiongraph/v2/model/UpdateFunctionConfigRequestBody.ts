@@ -1,3 +1,4 @@
+import { CustomImage } from './CustomImage';
 import { FuncVpc } from './FuncVpc';
 import { MountConfig } from './MountConfig';
 import { StrategyConfig } from './StrategyConfig';
@@ -17,6 +18,7 @@ export class UpdateFunctionConfigRequestBody {
     private 'func_vpc'?: FuncVpc | undefined;
     private 'mount_config'?: MountConfig | undefined;
     private 'strategy_config'?: StrategyConfig | undefined;
+    private 'custom_image'?: CustomImage | undefined;
     private 'extend_config'?: string | undefined;
     private 'initializer_handler'?: string | undefined;
     private 'initializer_timeout'?: number | undefined;
@@ -129,6 +131,16 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get strategyConfig() {
         return this['strategy_config'];
+    }
+    public withCustomImage(customImage: CustomImage): UpdateFunctionConfigRequestBody {
+        this['custom_image'] = customImage;
+        return this;
+    }
+    public set customImage(customImage: CustomImage | undefined) {
+        this['custom_image'] = customImage;
+    }
+    public get customImage() {
+        return this['custom_image'];
     }
     public withExtendConfig(extendConfig: string): UpdateFunctionConfigRequestBody {
         this['extend_config'] = extendConfig;

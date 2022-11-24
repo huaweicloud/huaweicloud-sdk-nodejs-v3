@@ -11,6 +11,7 @@ export class HealthCodeResult {
     public time: string;
     public color: string;
     private 'vaccination_status': string | undefined;
+    private 'test_interval': string | undefined;
     private 'pcr_test_result': string | undefined;
     private 'pcr_test_organization': string | undefined;
     private 'pcr_test_time': string | undefined;
@@ -19,7 +20,7 @@ export class HealthCodeResult {
     public confidence: object;
     private 'words_block_count': number | undefined;
     private 'words_block_list': Array<HealthCodeWordsBlockList> | undefined;
-    public constructor(type?: any, name?: any, idcardNumber?: any, phoneNumber?: any, province?: any, city?: any, time?: any, color?: any, vaccinationStatus?: any, pcrTestResult?: any, pcrTestOrganization?: any, pcrTestTime?: any, pcrSamplingTime?: any, reachedCity?: any, confidence?: any, wordsBlockCount?: any, wordsBlockList?: any) { 
+    public constructor(type?: any, name?: any, idcardNumber?: any, phoneNumber?: any, province?: any, city?: any, time?: any, color?: any, vaccinationStatus?: any, testInterval?: any, pcrTestResult?: any, pcrTestOrganization?: any, pcrTestTime?: any, pcrSamplingTime?: any, reachedCity?: any, confidence?: any, wordsBlockCount?: any, wordsBlockList?: any) { 
         this['type'] = type;
         this['name'] = name;
         this['idcard_number'] = idcardNumber;
@@ -29,6 +30,7 @@ export class HealthCodeResult {
         this['time'] = time;
         this['color'] = color;
         this['vaccination_status'] = vaccinationStatus;
+        this['test_interval'] = testInterval;
         this['pcr_test_result'] = pcrTestResult;
         this['pcr_test_organization'] = pcrTestOrganization;
         this['pcr_test_time'] = pcrTestTime;
@@ -91,6 +93,16 @@ export class HealthCodeResult {
     }
     public get vaccinationStatus() {
         return this['vaccination_status'];
+    }
+    public withTestInterval(testInterval: string): HealthCodeResult {
+        this['test_interval'] = testInterval;
+        return this;
+    }
+    public set testInterval(testInterval: string | undefined) {
+        this['test_interval'] = testInterval;
+    }
+    public get testInterval() {
+        return this['test_interval'];
     }
     public withPcrTestResult(pcrTestResult: string): HealthCodeResult {
         this['pcr_test_result'] = pcrTestResult;

@@ -1,3 +1,98 @@
+# 3.1.11 2022-11-24
+
+### HuaweiCloud SDK AOS
+
+- _Features_
+  - Support the interfaces `ListStackEvents`, `ListStackResources`, `DeleteStack`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK CFW
+
+- _Features_
+  - Support the service `Cloud Firewall`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `configurationsOverride` to the interface `CreateCluster`
+  - Add the response parameter `configurationsOverride` to the interface `ListClusters`
+  - Changes of the interface `UpdateCluster`:
+    - Add the request parameters `eniNetwork`, `hostNetwork`
+    - Add the response parameter `configurationsOverride`
+  - Changes of the interface `DeleteCluster`:
+    - Add the request parameter `delete_sfs30`
+    - Add the response parameter `configurationsOverride`
+  - Add the response parameter `configurationsOverride` to the interface `ShowCluster`
+  - Add the request parameter `initializedConditions` to the interface `CreateNode`
+  - Add the response parameter `initializedConditions` to the interface `ListNodes`
+  - Add the response parameter `initializedConditions` to the interface `UpdateNode`
+  - Add the response parameter `initializedConditions` to the interface `DeleteNode`
+  - Add the response parameter `initializedConditions` to the interface `ShowNode`
+  - Add the request parameter `initializedConditions` to the interface `AddNode`
+  - Add the request parameter `initializedConditions` to the interface `ResetNode`
+  - Add the request parameters `customSecurityGroups`, `initializedConditions` to the interface `CreateNodePool`
+  - Add the response parameters `customSecurityGroups`, `initializedConditions` to the interface `ListNodePools`
+  - Changes of the interface `UpdateNodePool`:
+    - Add the request parameter `initializedConditions`
+    - Add the response parameters `customSecurityGroups`, `initializedConditions`
+  - Add the response parameters `customSecurityGroups`, `initializedConditions` to the interface `DeleteNodePool`
+  - Add the response parameters `customSecurityGroups`, `initializedConditions` to the interface `ShowNodePool`
+
+### HuaweiCloud SDK CSE
+
+- _Features_
+  - Support the interfaces `UpgradeEngine`, `RetryEngine`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - Support the following interfaces：
+    - `CreateDependencyVersion`
+    - `ListDependencyVersion`
+    - `ShowDependencyVersion`
+    - `DeleteDependencyVersion`
+    - `ListReservedInstanceConfigs`
+    - `ListFunctionReservedInstances`
+    - `ListFunctionAsMetric`
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the interface `AsyncInvokeReservedFunction`
+  - Add the request parameter `custom_image` to the interface `UpdateFunctionConfig`
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the response parameter `test_interval` to the interface `RecognizeHealthCode`
+
+### HuaweiCloud SDK WAF
+
+- _Features_
+  - Support the interfaces `CreatePrepaidCloudWaf`, `ChangePrepaidCloudWaf`, `ShowSubscriptionInfo`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.1.10 2022-11-17
 
 ### HuaweiCloud SDK AOS

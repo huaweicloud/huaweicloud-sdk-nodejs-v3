@@ -16,6 +16,7 @@ export class ReinstallNodeSpec {
     public runtimeConfig?: ReinstallRuntimeConfig;
     public k8sOptions?: ReinstallK8sOptionsConfig;
     public lifecycle?: NodeLifecycleConfig;
+    public initializedConditions?: Array<string>;
     public extendParam?: ReinstallExtendParam;
     public constructor(os?: any, login?: any) { 
         this['os'] = os;
@@ -51,6 +52,10 @@ export class ReinstallNodeSpec {
     }
     public withLifecycle(lifecycle: NodeLifecycleConfig): ReinstallNodeSpec {
         this['lifecycle'] = lifecycle;
+        return this;
+    }
+    public withInitializedConditions(initializedConditions: Array<string>): ReinstallNodeSpec {
+        this['initializedConditions'] = initializedConditions;
         return this;
     }
     public withExtendParam(extendParam: ReinstallExtendParam): ReinstallNodeSpec {

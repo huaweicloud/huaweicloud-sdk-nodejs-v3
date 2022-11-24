@@ -9,13 +9,15 @@ import { AssociationRequestBody } from './model/AssociationRequestBody';
 import { AttachmentDetails } from './model/AttachmentDetails';
 import { AttachmentResponse } from './model/AttachmentResponse';
 import { AvailableZone } from './model/AvailableZone';
-import { BgpOptions } from './model/BgpOptions';
 import { ChangeAvailabilityZoneRequest } from './model/ChangeAvailabilityZoneRequest';
 import { ChangeAvailabilityZoneResponse } from './model/ChangeAvailabilityZoneResponse';
 import { CreateEnterpriseRouter } from './model/CreateEnterpriseRouter';
 import { CreateEnterpriseRouterRequest } from './model/CreateEnterpriseRouterRequest';
 import { CreateEnterpriseRouterRequestBody } from './model/CreateEnterpriseRouterRequestBody';
 import { CreateEnterpriseRouterResponse } from './model/CreateEnterpriseRouterResponse';
+import { CreateResourceTagRequest } from './model/CreateResourceTagRequest';
+import { CreateResourceTagRequestBody } from './model/CreateResourceTagRequestBody';
+import { CreateResourceTagResponse } from './model/CreateResourceTagResponse';
 import { CreateRoute } from './model/CreateRoute';
 import { CreateRouteRequestBody } from './model/CreateRouteRequestBody';
 import { CreateRouteTable } from './model/CreateRouteTable';
@@ -29,6 +31,8 @@ import { CreateVpcAttachmentRequest } from './model/CreateVpcAttachmentRequest';
 import { CreateVpcAttachmentResponse } from './model/CreateVpcAttachmentResponse';
 import { DeleteEnterpriseRouterRequest } from './model/DeleteEnterpriseRouterRequest';
 import { DeleteEnterpriseRouterResponse } from './model/DeleteEnterpriseRouterResponse';
+import { DeleteResourceTagRequest } from './model/DeleteResourceTagRequest';
+import { DeleteResourceTagResponse } from './model/DeleteResourceTagResponse';
 import { DeleteRouteTableRequest } from './model/DeleteRouteTableRequest';
 import { DeleteRouteTableResponse } from './model/DeleteRouteTableResponse';
 import { DeleteStaticRouteRequest } from './model/DeleteStaticRouteRequest';
@@ -56,6 +60,8 @@ import { ListEffectiveRoutesRequest } from './model/ListEffectiveRoutesRequest';
 import { ListEffectiveRoutesResponse } from './model/ListEffectiveRoutesResponse';
 import { ListEnterpriseRoutersRequest } from './model/ListEnterpriseRoutersRequest';
 import { ListEnterpriseRoutersResponse } from './model/ListEnterpriseRoutersResponse';
+import { ListProjectTagsRequest } from './model/ListProjectTagsRequest';
+import { ListProjectTagsResponse } from './model/ListProjectTagsResponse';
 import { ListPropagationsRequest } from './model/ListPropagationsRequest';
 import { ListPropagationsResponse } from './model/ListPropagationsResponse';
 import { ListRouteTablesRequest } from './model/ListRouteTablesRequest';
@@ -74,6 +80,8 @@ import { ShowAttachmentRequest } from './model/ShowAttachmentRequest';
 import { ShowAttachmentResponse } from './model/ShowAttachmentResponse';
 import { ShowEnterpriseRouterRequest } from './model/ShowEnterpriseRouterRequest';
 import { ShowEnterpriseRouterResponse } from './model/ShowEnterpriseRouterResponse';
+import { ShowResourceTagRequest } from './model/ShowResourceTagRequest';
+import { ShowResourceTagResponse } from './model/ShowResourceTagResponse';
 import { ShowRouteTableRequest } from './model/ShowRouteTableRequest';
 import { ShowRouteTableResponse } from './model/ShowRouteTableResponse';
 import { ShowStaticRouteRequest } from './model/ShowStaticRouteRequest';
@@ -81,6 +89,7 @@ import { ShowStaticRouteResponse } from './model/ShowStaticRouteResponse';
 import { ShowVpcAttachmentRequest } from './model/ShowVpcAttachmentRequest';
 import { ShowVpcAttachmentResponse } from './model/ShowVpcAttachmentResponse';
 import { Tag } from './model/Tag';
+import { Tags } from './model/Tags';
 import { UpdateAttachmentBody } from './model/UpdateAttachmentBody';
 import { UpdateAttachmentRequest } from './model/UpdateAttachmentRequest';
 import { UpdateAttachmentRequestBody } from './model/UpdateAttachmentRequestBody';
@@ -161,7 +170,7 @@ export class ErClient {
     }
 
     /**
-     * 支持分页查询, 支持过滤查询：state, resource_type, attachment_id。支持单字段排序，排序字段有[id,created_at,updated_at]，不支持多字段排序。
+     * 查询路由关联列表。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -172,7 +181,7 @@ export class ErClient {
      * @param {number} [limit] 每页返回的个数。 取值范围：0~2000。
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [attachmentId] 连接ID
-     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'gdgw'>} [resourceType] 连接资源类型:vpc|vpn|vgw|peering|can|gdgw
+     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'gdgw'>} [resourceType] 连接资源类型:vpc|vpn|vgw|peering
      * @param {Array<'pending' | 'available' | 'deleting' | 'deleted' | 'failed' | 'modifying'>} [state] 状态
      * @param {Array<string>} [sortKey] 按关键字排序，默认按照id排序，可选值:id|name|state
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序或降序排列，默认为asc,降序为desc
@@ -187,10 +196,7 @@ export class ErClient {
     }
 
     /**
-     * 查询企业路由器实例下的连接列表：
-     *  1，支持过滤查询，过滤条件有state，resource_type，resource_id过滤条件可以重复和组合 
-     * 2，支持分页查询，limit和marker组合实现分页查询 
-     * 3，支持单字段排序，排序字段有[id,name,description,created_at,updated_at]，不支持多字段排序。
+     * 查询企业路由器实例下的连接列表。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -200,7 +206,7 @@ export class ErClient {
      * @param {number} [limit] 每页返回的个数。 取值范围：0~2000。
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<'pending' | 'available' | 'modifying' | 'deleting' | 'deleted' | 'failed' | 'initiating_request' | 'rejected' | 'pending_acceptance'>} [state] 连接状态:pending|available|modifying|deleting|deleted|failed|pending_acceptance|rejected|initiating_request
-     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'gdgw'>} [resourceType] 连接资源类型:vpc|vpn|vgw|peering|can|gdgw
+     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'gdgw'>} [resourceType] 连接资源类型:vpc|vpn|vgw|peering
      * @param {Array<string>} [resourceId] 连接对应的资源ID列表
      * @param {Array<string>} [sortKey] 按关键字排序，默认按照id排序，可选值:id|name|state
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序或降序排列，默认为asc,降序为desc
@@ -279,7 +285,7 @@ export class ErClient {
      *
      * @summary 更新企业路由器的可用区信息
      * @param {string} erId 企业路由器实例ID
-     * @param {EnterpriseRouterAZ} enterpriseRouterAZ 更新企业路由器实例的AZ信息Request Body
+     * @param {EnterpriseRouterAZ} enterpriseRouterAZ 更新企业路由器实例的az信息Request Body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -310,8 +316,7 @@ export class ErClient {
     }
 
     /**
-     * 1. 只能删除企业路由器实例和其创建的默认路由表，如果存在其他路由表和连接，那么需要先删除其他路由表、连接、关联、传播和路由条目等。
-     * 2. 企业路由器实例状态为available，deleting和failed的时候才能删除。
+     * 删除企业路由器。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -329,12 +334,12 @@ export class ErClient {
     }
 
     /**
-     * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。支持单字段排序，排序字段有[id,name,description,created_at,updated_at]，不支持多字段排序。
+     * 查询企业路由器列表
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 查询企业路由器实例列表
+     * @summary 查询企业路由器列表
      * @param {number} [limit] 每页返回的个数。 取值范围：0~2000。
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [enterpriseProjectId] 企业项目ID
@@ -372,7 +377,7 @@ export class ErClient {
     }
 
     /**
-     * 除了name和description，其它信息只有在企业路由器实例状态为available的时候才能更新。
+     * 更新企业路由器基本信息。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -432,7 +437,7 @@ export class ErClient {
     }
 
     /**
-     * 支持分页查询, 支持过滤查询：state, resource_type, attachment_id。支持单字段排序，排序字段有[id,created_at,updated_at]，不支持多字段排序。
+     * 查询路由传播列表。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -443,7 +448,7 @@ export class ErClient {
      * @param {number} [limit] 每页返回的个数。 取值范围：0~2000。
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [attachmentId] 连接ID
-     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'gdgw'>} [resourceType] 连接资源类型:vpc|vpn|vgw|peering|can|gdgw
+     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'gdgw'>} [resourceType] 连接资源类型:vpc|vpn|vgw|peering
      * @param {Array<'pending' | 'available' | 'modifying' | 'deleting' | 'deleted' | 'failed'>} [state] 企业路由器实例状态
      * @param {Array<string>} [sortKey] 按关键字排序，默认按照id排序，可选值:id|name|state
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序或降序排列，默认为asc,降序为desc
@@ -507,7 +512,7 @@ export class ErClient {
      * @param {number} [limit] 每页返回的个数。 取值范围：0~2000。
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [destination] 路由目的地址
-     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'gdgw'>} [resourceType] 连接资源类型:vpc|vpn|vgw|peering|can|gdgw
+     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'gdgw'>} [resourceType] 连接资源类型:vpc|vpn|vgw|peering
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -519,7 +524,7 @@ export class ErClient {
     }
 
     /**
-     * 支持分页查询，支持过滤查询：destination，attachment_id, resource_type, type.支持单字段排序，排序字段有[id,destination,created_at,updated_at]，不支持多字段排序。
+     * 查询静态路由列表。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -530,7 +535,7 @@ export class ErClient {
      * @param {string} [marker] 上一页最后一条记录的企业路由器实例的id，为空时为查询第一页。 使用说明：必须与limit一起使用。
      * @param {Array<string>} [destination] 路由目的地址
      * @param {Array<string>} [attachmentId] 连接ID
-     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'gdgw'>} [resourceType] 连接资源类型:vpc|vpn|vgw|peering|can|gdgw
+     * @param {Array<'vpc' | 'vpn' | 'dgw' | 'vgw' | 'peering' | 'can' | 'gdgw'>} [resourceType] 连接资源类型:vpc|vpn|vgw|peering
      * @param {Array<string>} [sortKey] 按关键字排序，默认按照id排序，可选值:id|name|state
      * @param {Array<'asc' | 'desc'>} [sortDir] 返回结果按照升序或降序排列，默认为asc,降序为desc
      * @param {*} [options] Override http request option.
@@ -544,12 +549,12 @@ export class ErClient {
     }
 
     /**
-     * 查询路由详情
+     * 查询静态路由详情
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 查询路由详情
+     * @summary 查询静态路由详情
      * @param {string} routeTableId 路由表ID
      * @param {string} routeId 路由ID
      * @param {*} [options] Override http request option.
@@ -563,12 +568,12 @@ export class ErClient {
     }
 
     /**
-     * 修改静态路由
+     * 更新静态路由
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
      *
-     * @summary 修改路由
+     * @summary 更新静态路由
      * @param {string} routeTableId 路由表ID
      * @param {string} routeId 路由ID
      * @param {UpdateRouteRequestBody} updateStaticRouteRequestBody This is a auto create Body Object
@@ -622,7 +627,7 @@ export class ErClient {
     }
 
     /**
-     * 支持分页查询, 支持过滤查询：state, is_default_propagation_route_table, is_default_association_route_table。支持单字段排序，排序字段有[id,name,description,created_at,updated_at]，不支持多字段排序。
+     * 查询路由表列表。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -686,6 +691,83 @@ export class ErClient {
     }
 
     /**
+     * 为特定类型的资源创建标签。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 创建资源标签
+     * @param {string} resourceId 资源ID
+     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'gdgw-attachment' | 'attachments'} resourceType - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 - attachments: 所有连接类型
+     * @param {CreateResourceTagRequestBody} createResourceTagRequestBody 创建资源标签请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createResourceTag(createResourceTagRequest?: CreateResourceTagRequest): Promise<string> {
+        const options = ParamCreater().createResourceTag(createResourceTagRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除特定类型资源的标签。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 删除资源标签
+     * @param {string} key 标签键
+     * @param {string} resourceId 资源ID
+     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'gdgw-attachment' | 'attachments'} resourceType - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 - attachments: 所有连接类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteResourceTag(deleteResourceTagRequest?: DeleteResourceTagRequest): Promise<string> {
+        const options = ParamCreater().deleteResourceTag(deleteResourceTagRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询特定类型资源的标签集合。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询项目标签
+     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'gdgw-attachment' | 'attachments'} resourceType - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 - attachments: 所有连接类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjectTags(listProjectTagsRequest?: ListProjectTagsRequest): Promise<ListProjectTagsResponse> {
+        const options = ParamCreater().listProjectTags(listProjectTagsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询特定类型资源的标签信息。
+     * 
+     * 详细说明请参考华为云API Explorer。
+     * Please refer to Huawei cloud API Explorer for details.
+     *
+     * @summary 查询资源标签
+     * @param {string} resourceId 资源ID
+     * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'gdgw-attachment' | 'attachments'} resourceType - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 - attachments: 所有连接类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourceTag(showResourceTagRequest?: ShowResourceTagRequest): Promise<ShowResourceTagResponse> {
+        const options = ParamCreater().showResourceTag(showResourceTagRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 给ER实例创建VPC连接。
      * 
      * 详细说明请参考华为云API Explorer。
@@ -706,7 +788,7 @@ export class ErClient {
     }
 
     /**
-     * VPC连接状态为available，deleting和failed的时候才能删除。
+     * 删除VPC连接。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -725,10 +807,7 @@ export class ErClient {
     }
 
     /**
-     * 查询企业路由器实例下的VPC连接列表：
-     * 1，支持过滤查询，过滤条件有id，state，enterprise_project_id，vpc_id，过滤条件可以重复和组合
-     * 2，支持分页查询，limit和marker组合实现分页查询
-     * 3，支持单字段排序功能，排序字段有[id,name,description,created_at,updated_at]，不支持多字段排序。
+     * 查询企业路由器实例下的VPC连接列表。
      * 
      * 详细说明请参考华为云API Explorer。
      * Please refer to Huawei cloud API Explorer for details.
@@ -906,7 +985,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 支持分页查询, 支持过滤查询：state, resource_type, attachment_id。支持单字段排序，排序字段有[id,created_at,updated_at]，不支持多字段排序。
+         * 查询路由关联列表。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -993,10 +1072,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询企业路由器实例下的连接列表：
-         *  1，支持过滤查询，过滤条件有state，resource_type，resource_id过滤条件可以重复和组合 
-         * 2，支持分页查询，limit和marker组合实现分页查询 
-         * 3，支持单字段排序，排序字段有[id,name,description,created_at,updated_at]，不支持多字段排序。
+         * 查询企业路由器实例下的连接列表。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -1302,8 +1378,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 1. 只能删除企业路由器实例和其创建的默认路由表，如果存在其他路由表和连接，那么需要先删除其他路由表、连接、关联、传播和路由条目等。
-         * 2. 企业路由器实例状态为available，deleting和failed的时候才能删除。
+         * 删除企业路由器。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -1341,7 +1416,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 分页查询使用的参数为marker、limit。marker和limit一起使用时才会生效，单独使用无效。支持单字段排序，排序字段有[id,name,description,created_at,updated_at]，不支持多字段排序。
+         * 查询企业路由器列表
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -1459,7 +1534,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 除了name和description，其它信息只有在企业路由器实例状态为available的时候才能更新。
+         * 更新企业路由器基本信息。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -1615,7 +1690,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 支持分页查询, 支持过滤查询：state, resource_type, attachment_id。支持单字段排序，排序字段有[id,created_at,updated_at]，不支持多字段排序。
+         * 查询路由传播列表。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -1861,7 +1936,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 支持分页查询，支持过滤查询：destination，attachment_id, resource_type, type.支持单字段排序，排序字段有[id,destination,created_at,updated_at]，不支持多字段排序。
+         * 查询静态路由列表。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -1942,7 +2017,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询路由详情
+         * 查询静态路由详情
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -1986,7 +2061,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改静态路由
+         * 更新静态路由
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2134,7 +2209,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 支持分页查询, 支持过滤查询：state, is_default_propagation_route_table, is_default_association_route_table。支持单字段排序，排序字段有[id,name,description,created_at,updated_at]，不支持多字段排序。
+         * 查询路由表列表。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2308,6 +2383,190 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为特定类型的资源创建标签。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        createResourceTag(createResourceTagRequest?: CreateResourceTagRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/{resource_type}/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let resourceId;
+            let resourceType;
+
+            if (createResourceTagRequest !== null && createResourceTagRequest !== undefined) {
+                if (createResourceTagRequest instanceof CreateResourceTagRequest) {
+                    resourceId = createResourceTagRequest.resourceId;
+                    resourceType = createResourceTagRequest.resourceType;
+                    body = createResourceTagRequest.body
+                } else {
+                    resourceId = createResourceTagRequest['resource_id'];
+                    resourceType = createResourceTagRequest['resource_type'];
+                    body = createResourceTagRequest['body'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createResourceTag.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling createResourceTag.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_id': resourceId,'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除特定类型资源的标签。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        deleteResourceTag(deleteResourceTagRequest?: DeleteResourceTagRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/{resource_type}/{resource_id}/tags/{key}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let key;
+            let resourceId;
+            let resourceType;
+
+            if (deleteResourceTagRequest !== null && deleteResourceTagRequest !== undefined) {
+                if (deleteResourceTagRequest instanceof DeleteResourceTagRequest) {
+                    key = deleteResourceTagRequest.key;
+                    resourceId = deleteResourceTagRequest.resourceId;
+                    resourceType = deleteResourceTagRequest.resourceType;
+                } else {
+                    key = deleteResourceTagRequest['key'];
+                    resourceId = deleteResourceTagRequest['resource_id'];
+                    resourceType = deleteResourceTagRequest['resource_type'];
+                }
+            }
+
+        
+            if (key === null || key === undefined) {
+            throw new RequiredError('key','Required parameter key was null or undefined when calling deleteResourceTag.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteResourceTag.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling deleteResourceTag.');
+            }
+
+            options.pathParams = { 'key': key,'resource_id': resourceId,'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询特定类型资源的标签集合。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        listProjectTags(listProjectTagsRequest?: ListProjectTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/{resource_type}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let resourceType;
+
+            if (listProjectTagsRequest !== null && listProjectTagsRequest !== undefined) {
+                if (listProjectTagsRequest instanceof ListProjectTagsRequest) {
+                    resourceType = listProjectTagsRequest.resourceType;
+                } else {
+                    resourceType = listProjectTagsRequest['resource_type'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling listProjectTags.');
+            }
+
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询特定类型资源的标签信息。
+         * 
+         * 详细说明请参考华为云API Explorer。
+         * Please refer to Huawei cloud API Explorer for details.
+         */
+        showResourceTag(showResourceTagRequest?: ShowResourceTagRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/{resource_type}/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let resourceId;
+            let resourceType;
+
+            if (showResourceTagRequest !== null && showResourceTagRequest !== undefined) {
+                if (showResourceTagRequest instanceof ShowResourceTagRequest) {
+                    resourceId = showResourceTagRequest.resourceId;
+                    resourceType = showResourceTagRequest.resourceType;
+                } else {
+                    resourceId = showResourceTagRequest['resource_id'];
+                    resourceType = showResourceTagRequest['resource_type'];
+                }
+            }
+
+        
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showResourceTag.');
+            }
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showResourceTag.');
+            }
+
+            options.pathParams = { 'resource_id': resourceId,'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 给ER实例创建VPC连接。
          * 
          * 详细说明请参考华为云API Explorer。
@@ -2360,7 +2619,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * VPC连接状态为available，deleting和failed的时候才能删除。
+         * 删除VPC连接。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.
@@ -2404,10 +2663,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询企业路由器实例下的VPC连接列表：
-         * 1，支持过滤查询，过滤条件有id，state，enterprise_project_id，vpc_id，过滤条件可以重复和组合
-         * 2，支持分页查询，limit和marker组合实现分页查询
-         * 3，支持单字段排序功能，排序字段有[id,name,description,created_at,updated_at]，不支持多字段排序。
+         * 查询企业路由器实例下的VPC连接列表。
          * 
          * 详细说明请参考华为云API Explorer。
          * Please refer to Huawei cloud API Explorer for details.

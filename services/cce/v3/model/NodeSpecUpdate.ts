@@ -6,6 +6,7 @@ export class NodeSpecUpdate {
     public taints: Array<Taint>;
     public k8sTags: { [key: string]: string; };
     public userTags: Array<UserTag>;
+    public initializedConditions?: Array<string>;
     public constructor(taints?: any, k8sTags?: any, userTags?: any) { 
         this['taints'] = taints;
         this['k8sTags'] = k8sTags;
@@ -21,6 +22,10 @@ export class NodeSpecUpdate {
     }
     public withUserTags(userTags: Array<UserTag>): NodeSpecUpdate {
         this['userTags'] = userTags;
+        return this;
+    }
+    public withInitializedConditions(initializedConditions: Array<string>): NodeSpecUpdate {
+        this['initializedConditions'] = initializedConditions;
         return this;
     }
 }

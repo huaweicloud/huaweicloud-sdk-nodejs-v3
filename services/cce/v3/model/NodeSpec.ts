@@ -27,6 +27,7 @@ export class NodeSpec {
     public dedicatedHostId?: string;
     public userTags?: Array<UserTag>;
     public runtime?: Runtime;
+    public initializedConditions?: Array<string>;
     public extendParam?: NodeExtendParam;
     public constructor(flavor?: any, az?: any, login?: any, rootVolume?: any, dataVolumes?: any) { 
         this['flavor'] = flavor;
@@ -101,6 +102,10 @@ export class NodeSpec {
     }
     public withRuntime(runtime: Runtime): NodeSpec {
         this['runtime'] = runtime;
+        return this;
+    }
+    public withInitializedConditions(initializedConditions: Array<string>): NodeSpec {
+        this['initializedConditions'] = initializedConditions;
         return this;
     }
     public withExtendParam(extendParam: NodeExtendParam): NodeSpec {

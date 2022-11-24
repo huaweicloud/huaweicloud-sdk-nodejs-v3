@@ -9,6 +9,7 @@ export class DeleteClusterRequest {
     private 'delete_net'?: DeleteClusterRequestDeleteNetEnum | undefined;
     private 'delete_obs'?: DeleteClusterRequestDeleteObsEnum | undefined;
     private 'delete_sfs'?: DeleteClusterRequestDeleteSfsEnum | undefined;
+    private 'delete_sfs30'?: DeleteClusterRequestDeleteSfs30Enum | undefined;
     public tobedeleted?: DeleteClusterRequestTobedeletedEnum;
     public constructor(clusterId?: any, contentType?: any) { 
         this['cluster_id'] = clusterId;
@@ -94,6 +95,16 @@ export class DeleteClusterRequest {
     public get deleteSfs() {
         return this['delete_sfs'];
     }
+    public withDeleteSfs30(deleteSfs30: DeleteClusterRequestDeleteSfs30Enum): DeleteClusterRequest {
+        this['delete_sfs30'] = deleteSfs30;
+        return this;
+    }
+    public set deleteSfs30(deleteSfs30: DeleteClusterRequestDeleteSfs30Enum | undefined) {
+        this['delete_sfs30'] = deleteSfs30;
+    }
+    public get deleteSfs30() {
+        return this['delete_sfs30'];
+    }
     public withTobedeleted(tobedeleted: DeleteClusterRequestTobedeletedEnum): DeleteClusterRequest {
         this['tobedeleted'] = tobedeleted;
         return this;
@@ -160,6 +171,17 @@ export enum DeleteClusterRequestDeleteObsEnum {
     * @enum {string}
     */
 export enum DeleteClusterRequestDeleteSfsEnum {
+    TRUE = 'true',
+    BLOCK = 'block',
+    TRY = 'try',
+    FALSE = 'false',
+    SKIP = 'skip'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeleteClusterRequestDeleteSfs30Enum {
     TRUE = 'true',
     BLOCK = 'block',
     TRY = 'try',

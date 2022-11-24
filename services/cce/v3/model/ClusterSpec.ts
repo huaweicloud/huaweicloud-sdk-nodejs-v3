@@ -4,6 +4,7 @@ import { ContainerNetwork } from './ContainerNetwork';
 import { EniNetwork } from './EniNetwork';
 import { HostNetwork } from './HostNetwork';
 import { MasterSpec } from './MasterSpec';
+import { PackageConfiguration } from './PackageConfiguration';
 import { ResourceTag } from './ResourceTag';
 
 
@@ -28,6 +29,7 @@ export class ClusterSpec {
     public az?: string;
     public extendParam?: ClusterExtendParam;
     public supportIstio?: boolean;
+    public configurationsOverride?: Array<PackageConfiguration>;
     public constructor(flavor?: any, hostNetwork?: any, containerNetwork?: any) { 
         this['flavor'] = flavor;
         this['hostNetwork'] = hostNetwork;
@@ -111,6 +113,10 @@ export class ClusterSpec {
     }
     public withSupportIstio(supportIstio: boolean): ClusterSpec {
         this['supportIstio'] = supportIstio;
+        return this;
+    }
+    public withConfigurationsOverride(configurationsOverride: Array<PackageConfiguration>): ClusterSpec {
+        this['configurationsOverride'] = configurationsOverride;
         return this;
     }
 }
