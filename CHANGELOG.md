@@ -1,3 +1,33 @@
+# 3.1.12 2022-11-30
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - Support the interfaces `DisassociatePublicips`, `AssociatePublicips`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `metric_type` to the interface `ShowTenantMetric`
+
+### HuaweiCloud SDK SIS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the enum values `chinese_8k_general` to the request parameter `property` to the interface `PushTranscriberJobs`
+  - Add the enum values `chinese_huaxiaoru_common`, `chinese_huaxiaohan_common`, `chinese_huaxiaoning_common`, `chinese_huaxiaozhen_common`, `english_alvin_common`, `english_amy_common` to the request parameter `property` to the interface `RunTts`
+
 # 3.1.11 2022-11-24
 
 ### HuaweiCloud SDK AOS

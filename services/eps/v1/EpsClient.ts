@@ -60,8 +60,7 @@ export class EpsClient {
     /**
      * 创建企业项目。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建企业项目
      * @param {EnterpriseProject} createEp 创建企业项目
@@ -78,8 +77,7 @@ export class EpsClient {
     /**
      * 停用企业项目。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 停用企业项目
      * @param {string} enterpriseProjectId 
@@ -97,8 +95,7 @@ export class EpsClient {
     /**
      * 启用企业项目。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启用企业项目
      * @param {string} enterpriseProjectId 企业项目ID，不能为0。
@@ -116,8 +113,7 @@ export class EpsClient {
     /**
      * 查询企业项目的API版本列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询API版本列表
      * @param {*} [options] Override http request option.
@@ -133,8 +129,7 @@ export class EpsClient {
     /**
      * 查询当前用户已授权的企业项目列表，用户可以使用企业项目绑定资源。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询企业项目列表
      * @param {string} [id] 企业项目ID，0表示默认企业项目
@@ -157,8 +152,7 @@ export class EpsClient {
     /**
      * 查询企业项目支持的服务
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询企业项目支持的服务
      * @param {'zh-cn' | 'en-us'} [locale] 指定显示语言
@@ -178,8 +172,7 @@ export class EpsClient {
     /**
      * 迁移资源到目标企业项目。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 迁移资源
      * @param {string} enterpriseProjectId 目标企业项目ID，enterprise_project_id为0时表示迁移资源到默认资源组default。注：实际迁移时，会将资源所属的【当前企业项目ID】替换为【目标企业项目ID】，所以不需要指定【当前企业项目ID】。
@@ -197,8 +190,7 @@ export class EpsClient {
     /**
      * 查询指定的企业项目API版本号详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询API版本号详情
      * @param {string} apiVersion 版本ID（版本号），如v1.0。
@@ -215,8 +207,7 @@ export class EpsClient {
     /**
      * 查询企业项目详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询企业项目详情
      * @param {string} enterpriseProjectId 企业项目ID。 可以通过查询企业项目列表接口获取。
@@ -233,8 +224,7 @@ export class EpsClient {
     /**
      * 查询企业项目的配额信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询企业项目配额
      * @param {*} [options] Override http request option.
@@ -250,8 +240,7 @@ export class EpsClient {
     /**
      * 查询企业项目下绑定的资源详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询企业项目绑定的资源列表
      * @param {string} enterpriseProjectId 企业项目ID
@@ -269,8 +258,7 @@ export class EpsClient {
     /**
      * 修改企业项目。当前仅支持修改名称和描述。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改企业项目
      * @param {string} enterpriseProjectId 企业项目ID，不能为0。 可以通过查询企业项目列表接口获取。
@@ -292,8 +280,7 @@ export const ParamCreater = function () {
         /**
          * 创建企业项目。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createEnterpriseProject(createEnterpriseProjectRequest?: CreateEnterpriseProjectRequest) {
             const options = {
@@ -331,8 +318,7 @@ export const ParamCreater = function () {
         /**
          * 停用企业项目。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         disableEnterpriseProject(disableEnterpriseProjectRequest?: DisableEnterpriseProjectRequest) {
             const options = {
@@ -377,8 +363,7 @@ export const ParamCreater = function () {
         /**
          * 启用企业项目。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         enableEnterpriseProject(enableEnterpriseProjectRequest?: EnableEnterpriseProjectRequest) {
             const options = {
@@ -423,8 +408,7 @@ export const ParamCreater = function () {
         /**
          * 查询企业项目的API版本列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listApiVersions() {
             const options = {
@@ -446,8 +430,7 @@ export const ParamCreater = function () {
         /**
          * 查询当前用户已授权的企业项目列表，用户可以使用企业项目绑定资源。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEnterpriseProject(listEnterpriseProjectRequest?: ListEnterpriseProjectRequest) {
             const options = {
@@ -520,8 +503,7 @@ export const ParamCreater = function () {
         /**
          * 查询企业项目支持的服务
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listProviders(listProvidersRequest?: ListProvidersRequest) {
             const options = {
@@ -576,8 +558,7 @@ export const ParamCreater = function () {
         /**
          * 迁移资源到目标企业项目。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         migrateResource(migrateResourceRequest?: MigrateResourceRequest) {
             const options = {
@@ -622,8 +603,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定的企业项目API版本号详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showApiVersion(showApiVersionRequest?: ShowApiVersionRequest) {
             const options = {
@@ -660,8 +640,7 @@ export const ParamCreater = function () {
         /**
          * 查询企业项目详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showEnterpriseProject(showEnterpriseProjectRequest?: ShowEnterpriseProjectRequest) {
             const options = {
@@ -698,8 +677,7 @@ export const ParamCreater = function () {
         /**
          * 查询企业项目的配额信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showEnterpriseProjectQuota() {
             const options = {
@@ -721,8 +699,7 @@ export const ParamCreater = function () {
         /**
          * 查询企业项目下绑定的资源详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showResourceBindEnterpriseProject(showResourceBindEnterpriseProjectRequest?: ShowResourceBindEnterpriseProjectRequest) {
             const options = {
@@ -767,8 +744,7 @@ export const ParamCreater = function () {
         /**
          * 修改企业项目。当前仅支持修改名称和描述。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEnterpriseProject(updateEnterpriseProjectRequest?: UpdateEnterpriseProjectRequest) {
             const options = {

@@ -97,5 +97,11 @@ export enum TtsConfigPropertyEnum {
     CHINESE_HUAXIAOMEI_COMMON = 'chinese_huaxiaomei_common',
     CHINESE_HUAXIAOFEI_COMMON = 'chinese_huaxiaofei_common',
     CHINESE_HUAXIAOLONG_COMMON = 'chinese_huaxiaolong_common',
-    CHINESE_HUAXIAORUI_COMMON = 'chinese_huaxiaorui_common'
+    CHINESE_HUAXIAORUI_COMMON = 'chinese_huaxiaorui_common',
+    CHINESE_HUAXIAORU_COMMON = 'chinese_huaxiaoru_common',
+    CHINESE_HUAXIAOHAN_COMMON = 'chinese_huaxiaohan_common',
+    CHINESE_HUAXIAONING_COMMON = 'chinese_huaxiaoning_common',
+    CHINESE_HUAXIAOZHEN_COMMON = 'chinese_huaxiaozhen_common',
+    ENGLISH_ALVIN_COMMON = 'english_alvin_common',
+    ENGLISH_AMY_COMMON = 'english_amy_common'
 }

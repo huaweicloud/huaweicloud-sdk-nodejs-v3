@@ -59,8 +59,7 @@ export class ModerationClient {
      * 分析并识别用户上传的图像内容是否有敏感内容（如涉及政治人物、暴恐元素、涉黄内容等），并将识别结果返回给用户。
      * &gt; 任务最长保留时间为30分钟，过期后会被清理掉。建议在任务提交后，每30s进行一次周期查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 处理结果查询
      * @param {string} jobId 任务标识。
@@ -77,8 +76,7 @@ export class ModerationClient {
     /**
      * 查询批量图像内容审核任务列表，可通过指定任务状态查询来对任务列表进行过滤。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 任务列表查询
      * @param {'created' | 'running' | 'finish' | 'failed'} [status] 图像内容审核任务处理状态如下：  - created 已创建  - running 正在处理  - finish 已完成  - failed 处理失败 
@@ -97,8 +95,7 @@ export class ModerationClient {
     /**
      * 分析并识别用户上传的图像内容是否有敏感内容（如涉及政治人物、暴恐元素、涉黄内容等），并将识别结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 图像内容审核（批量）
      * @param {ImageBatchModerationReq} runImageBatchModerationRequestBody 图像内容审核（批量）请求体
@@ -115,8 +112,7 @@ export class ModerationClient {
     /**
      * 分析并识别用户上传的图像内容是否有敏感内容（如涉及政治人物、暴恐元素、涉黄内容等），并将识别结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 图像内容审核
      * @param {ImageDetectionReq} runImageModerationRequestBody 图像内容审核请求体
@@ -133,8 +129,7 @@ export class ModerationClient {
     /**
      * 分析并识别用户上传的语音内容是否有敏感内容（如色情、政治等），并将识别结果 返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 语音内容审核
      * @param {RunModerationAudioRequestBody} runModerationAudioRequestBody 请求参数
@@ -151,8 +146,7 @@ export class ModerationClient {
     /**
      * 提交批量图像内容审核任务，返回任务标识，任务标识可用于查询任务结果。此接口为异步接口，相对于批量接口，支持更大图片列表批次。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 任务提交
      * @param {TaskSumbitReq} runTaskSumbitRequestBody 图像内容审核（批量）- 任务提交请求体
@@ -169,8 +163,7 @@ export class ModerationClient {
     /**
      * 分析并识别用户上传的文本内容是否有敏感内容（如色情、政治等），并将识别结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 文本内容审核
      * @param {TextDetectionReq} runTextModerationRequestBody 文本内容审核请求体
@@ -192,8 +185,7 @@ export const ParamCreater = function () {
          * 分析并识别用户上传的图像内容是否有敏感内容（如涉及政治人物、暴恐元素、涉黄内容等），并将识别结果返回给用户。
          * &gt; 任务最长保留时间为30分钟，过期后会被清理掉。建议在任务提交后，每30s进行一次周期查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runCheckResult(runCheckResultRequest?: RunCheckResultRequest) {
             const options = {
@@ -233,8 +225,7 @@ export const ParamCreater = function () {
         /**
          * 查询批量图像内容审核任务列表，可通过指定任务状态查询来对任务列表进行过滤。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runCheckTaskJobs(runCheckTaskJobsRequest?: RunCheckTaskJobsRequest) {
             const options = {
@@ -283,8 +274,7 @@ export const ParamCreater = function () {
         /**
          * 分析并识别用户上传的图像内容是否有敏感内容（如涉及政治人物、暴恐元素、涉黄内容等），并将识别结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runImageBatchModeration(runImageBatchModerationRequest?: RunImageBatchModerationRequest) {
             const options = {
@@ -322,8 +312,7 @@ export const ParamCreater = function () {
         /**
          * 分析并识别用户上传的图像内容是否有敏感内容（如涉及政治人物、暴恐元素、涉黄内容等），并将识别结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runImageModeration(runImageModerationRequest?: RunImageModerationRequest) {
             const options = {
@@ -361,8 +350,7 @@ export const ParamCreater = function () {
         /**
          * 分析并识别用户上传的语音内容是否有敏感内容（如色情、政治等），并将识别结果 返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runModerationAudio(runModerationAudioRequest?: RunModerationAudioRequest) {
             const options = {
@@ -400,8 +388,7 @@ export const ParamCreater = function () {
         /**
          * 提交批量图像内容审核任务，返回任务标识，任务标识可用于查询任务结果。此接口为异步接口，相对于批量接口，支持更大图片列表批次。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runTaskSumbit(runTaskSumbitRequest?: RunTaskSumbitRequest) {
             const options = {
@@ -439,8 +426,7 @@ export const ParamCreater = function () {
         /**
          * 分析并识别用户上传的文本内容是否有敏感内容（如色情、政治等），并将识别结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runTextModeration(runTextModerationRequest?: RunTextModerationRequest) {
             const options = {

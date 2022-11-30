@@ -323,8 +323,7 @@ export class EcsClient {
     /**
      * 将云服务器加入云服务器组。添加成功后，如果该云服务器组是反亲和性策略的，则该云服务器与云服务器组中的其他成员尽量分散地创建在不同主机上。如果该云服务器时故障域类型的，则该云服务器会拥有故障域属性。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加云服务器组成员
      * @param {string} serverGroupId 云服务器组ID。
@@ -348,8 +347,7 @@ export class EcsClient {
      * 
      * - 当指定的IP地址是一个已经创建好的私有IP时，系统会将指定的网卡和虚拟IP绑定。如果该IP的device_owner为空，则仅支持VPC内二三层通信；如果该IP的device_owner为neutron:VIP_PORT，则支持VPC内二三层通信、VPC之间对等连接访问，以及弹性公网IP、VPN、云专线等Internet接入。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 云服务器网卡配置虚拟IP地址
      * @param {string} nicId 云服务器网卡ID。
@@ -367,8 +365,7 @@ export class EcsClient {
     /**
      * 把磁盘挂载到弹性云服务器上。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 弹性云服务器挂载磁盘
      * @param {string} serverId 云服务器ID。
@@ -386,8 +383,7 @@ export class EcsClient {
     /**
      * 给云服务器添加一张或多张网卡。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加云服务器网卡
      * @param {string} serverId 云服务器ID。
@@ -405,8 +401,7 @@ export class EcsClient {
     /**
      * 将指定的共享磁盘一次性挂载到多个弹性云服务器，实现批量挂载。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量挂载指定共享盘
      * @param {string} volumeId 共享磁盘ID。
@@ -426,8 +421,7 @@ export class EcsClient {
      * 
      * - 标签管理服务TMS使用该接口批量管理云服务器的标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加云服务器标签
      * @param {string} serverId 云服务器ID。
@@ -445,8 +439,7 @@ export class EcsClient {
     /**
      * 卸载并删除云服务器中的一张或多张网卡。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除云服务器网卡
      * @param {string} serverId 云服务器ID。
@@ -466,8 +459,7 @@ export class EcsClient {
      * 
      * - 标签管理服务TMS使用该接口批量管理云服务器的标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除云服务器标签
      * @param {string} serverId 云服务器ID。
@@ -485,8 +477,7 @@ export class EcsClient {
     /**
      * 根据给定的云服务器ID列表，批量重启云服务器，一次最多可以重启1000台。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量重启云服务器
      * @param {BatchRebootServersRequestBody} batchRebootServersRequestBody This is a auto create Body Object
@@ -503,8 +494,7 @@ export class EcsClient {
     /**
      * 批量重置弹性云服务器管理帐号（root用户或Administrator用户）的密码。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量重置弹性云服务器密码
      * @param {BatchResetServersPasswordRequestBody} batchResetServersPasswordRequestBody This is a auto create Body Object
@@ -521,8 +511,7 @@ export class EcsClient {
     /**
      * 根据给定的云服务器ID列表，批量启动云服务器，一次最多可以启动1000台。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量启动云服务器
      * @param {BatchStartServersRequestBody} batchStartServersRequestBody This is a auto create Body Object
@@ -539,8 +528,7 @@ export class EcsClient {
     /**
      * 根据给定的云服务器ID列表，批量关闭云服务器，一次最多可以关闭1000台。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量关闭云服务器
      * @param {BatchStopServersRequestBody} batchStopServersRequestBody This is a auto create Body Object
@@ -558,8 +546,7 @@ export class EcsClient {
      * 批量修改弹性云服务器信息。
      * 当前仅支持批量修改云服务器名称，一次最多可以修改1000台。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量修改弹性云服务器
      * @param {BatchUpdateServersNameRequestBody} batchUpdateServersNameRequestBody This is a auto create Body Object
@@ -578,8 +565,7 @@ export class EcsClient {
      * 
      * 调用该接口后，系统将卸载系统盘，然后使用新镜像重新创建系统盘，并挂载至弹性云服务器，实现切换操作系统功能。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 切换弹性云服务器操作系统(安装Cloud init)
      * @param {string} serverId 云服务器ID。
@@ -599,8 +585,7 @@ export class EcsClient {
      * 
      * 该接口支持未安装Cloud-init或Cloudbase-init的镜像使用。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 切换弹性云服务器操作系统(未安装Cloud init)
      * @param {string} serverId 云服务器ID。
@@ -631,8 +616,7 @@ export class EcsClient {
      * 
      * &gt; 对于安装Cloud-init镜像的Linux云服务器云主机，若指定user_data字段，则adminPass字段无效。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建云服务器(按需)
      * @param {CreatePostPaidServersRequestBody} createPostPaidServersRequestBody This is a auto create Body Object
@@ -652,8 +636,7 @@ export class EcsClient {
      * 
      * 与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建云服务器组
      * @param {CreateServerGroupRequestBody} createServerGroupRequestBody This is a auto create Body Object
@@ -692,8 +675,7 @@ export class EcsClient {
      * - [使用API购买ECS过程中常见问题及处理方法](https://support.huaweicloud.com/api-ecs/ecs_04_0007.html)
      * - [获取Token并检验Token的有效期 ](https://support.huaweicloud.com/api-ecs/ecs_04_0008.html)
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建云服务器
      * @param {CreateServersRequestBody} createServersRequestBody This is a auto create Body Object
@@ -713,8 +695,7 @@ export class EcsClient {
      * 
      * 与原生的删除云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除云服务器组
      * @param {string} serverGroupId 弹性云服务器组UUID。
@@ -731,8 +712,7 @@ export class EcsClient {
     /**
      * 将弹性云服务器移出云服务器组。移出后，该云服务器与云服务器组中的成员不再遵从反亲和策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除云服务器组成员
      * @param {string} serverGroupId 云服务器组ID。
@@ -750,8 +730,7 @@ export class EcsClient {
     /**
      * 删除云服务器指定元数据。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除云服务器指定元数据
      * @param {string} key 待删除的云服务器metadata键值
@@ -769,8 +748,7 @@ export class EcsClient {
     /**
      * 清除Windows云服务器初始安装时系统生成的密码记录。清除密码后，不影响云服务器密码登录功能，但不能再使用获取密码功能来查询该云服务器密码。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 云服务器清除密码(企业项目)
      * @param {string} serverId 云服务器ID。
@@ -789,8 +767,7 @@ export class EcsClient {
      * 
      * 系统支持删除单台云服务器和批量删除多台云服务器操作，批量删除云服务器时，一次最多可以删除1000台。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除云服务器
      * @param {DeleteServersRequestBody} deleteServersRequestBody This is a auto create Body Object
@@ -807,8 +784,7 @@ export class EcsClient {
     /**
      * 从弹性云服务器中卸载磁盘。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 弹性云服务器卸载磁盘
      * @param {string} serverId 云服务器ID。
@@ -829,8 +805,7 @@ export class EcsClient {
      * 
      * 该接口用于解绑定弹性云服务器网卡的虚拟IP地址。解绑后，网卡不会被删除。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 云服务器网卡解绑虚拟IP地址
      * @param {string} nicId 云服务器网卡ID。
@@ -848,8 +823,7 @@ export class EcsClient {
     /**
      * 查询云服务器规格详情信息和规格扩展信息列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询规格详情和规格扩展信息列表
      * @param {string} [availabilityZone] 可用区，需要指定可用区（AZ）的名称或者ID或者code。  可通过接口 [查询可用区列表接口](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;ECS&amp;api&#x3D;NovaListAvailabilityZones) 获取，也可参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)获取。
@@ -866,8 +840,7 @@ export class EcsClient {
     /**
      * 变更规格时，部分规格的云服务器之间不能互相变更。您可以通过本接口，通过指定弹性云服务器规格，查询该规格可以变更的规格列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器规格变更支持列表
      * @param {string} [instanceUuid] 进行规格切换的云服务器ID，UUID格式。
@@ -890,8 +863,7 @@ export class EcsClient {
     /**
      * 查询弹性云服务器挂载的磁盘信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询弹性云服务器磁盘信息
      * @param {string} serverId 云服务器ID。
@@ -910,8 +882,7 @@ export class EcsClient {
      * 
      * 与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器组列表
      * @param {number} [limit] 查询返回server group数量限制。
@@ -929,8 +900,7 @@ export class EcsClient {
     /**
      * 查询云服务器网卡信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器网卡信息
      * @param {string} serverId 云服务器ID。
@@ -949,8 +919,7 @@ export class EcsClient {
      * 
      * 该接口用于查询用户在指定项目所使用的全部标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目标签
      * @param {*} [options] Override http request option.
@@ -966,8 +935,7 @@ export class EcsClient {
     /**
      * 使用标签过滤弹性云服务器，并返回云服务器使用的所有标签和资源列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 按标签查询云服务器列表
      * @param {ListServersByTagRequestBody} listServersByTagRequestBody This is a auto create Body Object
@@ -986,8 +954,7 @@ export class EcsClient {
      * 
      * 该接口支持查询弹性云服务器计费方式，以及是否被冻结。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器详情列表
      * @param {string} [enterpriseProjectId] 查询绑定某个企业项目的弹性云服务器。  若需要查询当前用户所有企业项目绑定的弹性云服务，请传参all_granted_eps。
@@ -1016,8 +983,7 @@ export class EcsClient {
      * - 将部署在专属主机上的弹性云服务器迁移至公共资源池，即不再部署在专属主机上。
      * - 将公共资源池的弹性云服务器迁移至专属主机上，成为专属主机上部署的弹性云服务器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 冷迁移云服务器
      * @param {string} serverId 云服务器ID。
@@ -1037,8 +1003,7 @@ export class EcsClient {
      * 
      * 添加多个安全组时，建议最多为弹性云服务器添加5个安全组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加安全组
      * @param {string} serverId 弹性云服务器ID。
@@ -1058,8 +1023,7 @@ export class EcsClient {
      * 
      * 创建SSH密钥成功后，请把响应数据中的私钥内容保存到本地文件，用户使用该私钥登录云服务器云主机。为保证云服务器云主机器安全，私钥数据只能读取一次，请妥善保管。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建和导入SSH密钥
      * @param {NovaCreateKeypairRequestBody} novaCreateKeypairRequestBody This is a auto create Body Object
@@ -1081,8 +1045,7 @@ export class EcsClient {
      * 
      * 该接口在云服务器创建失败后不支持自动回滚。若需要自动回滚能力，可以调用POST /v1/{project_id}/cloudservers接口，具体使用请参见创建云服务器（按需）。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建云服务器
      * @param {NovaCreateServersRequestBody} novaCreateServersRequestBody This is a auto create Body Object
@@ -1100,8 +1063,7 @@ export class EcsClient {
     /**
      * 根据SSH密钥的名称，删除指定SSH密钥。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除SSH密钥
      * @param {string} keypairName 密钥名称。
@@ -1118,8 +1080,7 @@ export class EcsClient {
     /**
      * 删除一台云服务器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除云服务器
      * @param {string} serverId 云服务器ID。
@@ -1136,8 +1097,7 @@ export class EcsClient {
     /**
      * 移除弹性云服务器中的安全组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 移除安全组
      * @param {string} serverId 云服务器ID。
@@ -1155,8 +1115,7 @@ export class EcsClient {
     /**
      * 查询可用域列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可用区列表
      * @param {*} [options] Override http request option.
@@ -1172,8 +1131,7 @@ export class EcsClient {
     /**
      * 查询SSH密钥信息列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询SSH密钥列表
      * @param {number} [limit] 查询返回秘钥数量限制。  在微版本2.35后支持
@@ -1192,8 +1150,7 @@ export class EcsClient {
     /**
      * 查询指定弹性云服务器的安全组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定云服务器安全组列表
      * @param {string} serverId 云服务器ID。
@@ -1210,8 +1167,7 @@ export class EcsClient {
     /**
      * 查询云服务器详情信息列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器详情列表
      * @param {string} [changesSince] 云服务器上次更新状态的时间戳信息。时间戳为UTC格式。
@@ -1240,8 +1196,7 @@ export class EcsClient {
     /**
      * 根据SSH密钥名称查询指定SSH密钥。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询SSH密钥详情
      * @param {string} keypairName 密钥名称信息。
@@ -1259,8 +1214,7 @@ export class EcsClient {
     /**
      * 根据云服务器ID，查询云服务器的详细信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器详情
      * @param {string} serverId 云服务器ID。
@@ -1278,8 +1232,7 @@ export class EcsClient {
     /**
      * 配置、删除云服务器自动恢复动作。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 管理云服务器自动恢复动作
      * @param {string} serverId 云服务器ID。
@@ -1299,8 +1252,7 @@ export class EcsClient {
      * 
      * 注册到监控表中的云服务会被ceilometer周期性采集监控数据，包括平台的版本、cpu信息、内存、网卡、磁盘、硬件平台等信息，这些数据上报给云监控。例如SAP云服务器内部的插件会周期性从云监控中查询监控数据，以报表形式呈现给SAP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 注册云服务器监控
      * @param {string} serverId 云服务器ID。
@@ -1320,8 +1272,7 @@ export class EcsClient {
      * 
      * 调用该接口后，系统将卸载系统盘，然后使用原镜像重新创建系统盘，并挂载至弹性云服务器，实现重装操作系统功能。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重装弹性云服务器操作系统(安装Cloud-init)
      * @param {string} serverId 云服务器ID。
@@ -1341,8 +1292,7 @@ export class EcsClient {
      * 
      * 该接口支持未安装Cloud-init或Cloudbase-init的镜像。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重装弹性云服务器操作系统(未安装Cloud init)
      * @param {string} serverId 云服务器ID。
@@ -1360,8 +1310,7 @@ export class EcsClient {
     /**
      * 重置弹性云服务器管理帐号（root用户或Administrator用户）的密码。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 一键重置弹性云服务器密码(企业项目)
      * @param {string} serverId 云服务器ID。
@@ -1383,8 +1332,7 @@ export class EcsClient {
      * 
      * 您可以通过接口“/v1/{project_id}/cloudservers/resize_flavors?{instance_uuid,source_flavor_id,source_flavor_name}”查询支持列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 变更云服务器规格(按需)
      * @param {string} serverId 云服务器ID。
@@ -1410,8 +1358,7 @@ export class EcsClient {
      * - 如果使用AK/SK认证方式，示例代码中region请参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)中“弹性云服务 ECS”下“区域”的内容，，serviceName（英文服务名称缩写）请指定为ECS。
      * - Endpoint请参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)中“弹性云服务 ECS”下“终端节点（Endpoint）”的内容。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 变更云服务器规格
      * @param {string} serverId 云服务器ID。
@@ -1429,8 +1376,7 @@ export class EcsClient {
     /**
      * 查询弹性云服务器是否支持一键重置密码。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询是否支持一键重置密码
      * @param {string} serverId 云服务器ID。
@@ -1449,8 +1395,7 @@ export class EcsClient {
      * 
      * 该接口支持查询弹性云服务器的计费方式，以及是否被冻结。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器详情
      * @param {string} serverId 云服务器ID。
@@ -1467,8 +1412,7 @@ export class EcsClient {
     /**
      * 查询云服务器是否配置了自动恢复动作。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器是否配置了自动恢复动作
      * @param {string} serverId 云服务器ID。
@@ -1485,8 +1429,7 @@ export class EcsClient {
     /**
      * 查询弹性云服务器挂载的单个磁盘信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询弹性云服务器单个磁盘信息
      * @param {string} serverId 云服务器ID。
@@ -1506,8 +1449,7 @@ export class EcsClient {
      * 
      * 与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器组详情
      * @param {string} serverGroupId 弹性云服务器组UUID。
@@ -1524,8 +1466,7 @@ export class EcsClient {
     /**
      * 查询租户配额信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户配额
      * @param {*} [options] Override http request option.
@@ -1541,8 +1482,7 @@ export class EcsClient {
     /**
      * 当通过支持Cloudbase-init功能的镜像创建Windows云服务器时，获取云服务器初始安装时系统生成的管理员帐户（Administrator帐户或Cloudbase-init设置的帐户）随机密码。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 云服务器获取密码(企业项目)
      * @param {string} serverId 云服务器ID。
@@ -1559,8 +1499,7 @@ export class EcsClient {
     /**
      * 获取弹性云服务器VNC远程登录地址。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取VNC远程登录地址
      * @param {string} serverId 云服务器ID。
@@ -1580,8 +1519,7 @@ export class EcsClient {
      * 
      * - 标签管理服务TMS使用该接口查询指定云服务器的全部标签数据。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器标签
      * @param {string} serverId 云服务器ID。
@@ -1598,8 +1536,7 @@ export class EcsClient {
     /**
      * 修改云服务器信息，目前支持修改云服务器名称及描述和hostname。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改云服务器
      * @param {string} serverId 云服务器ID。
@@ -1619,8 +1556,7 @@ export class EcsClient {
      * 
      * 该接口支持企业项目细粒度权限的校验，具体细粒度请参见 ecs:cloudServers:put。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改云服务器销毁时间
      * @param {string} serverId 云服务器ID。
@@ -1638,8 +1574,7 @@ export class EcsClient {
     /**
      * 修改云服务器云主机挂载的单个磁盘信息。\&#39;当前仅支持修改delete_on_termination字段。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改云服务器挂载的单个磁盘信息
      * @param {string} serverId 云服务器ID。
@@ -1664,8 +1599,7 @@ export class EcsClient {
      * 
      * - 如果元数据中的字段不再请求参数中，则保持不变
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新云服务器元数据
      * @param {string} serverId 云服务器ID。
@@ -1685,8 +1619,7 @@ export class EcsClient {
      * 
      * 对于创建云服务器、删除云服务器、云服务器批量操作和网卡操作等异步API，命令下发后，会返回job_id，通过job_id可以查询任务的执行状态。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询任务的执行状态
      * @param {string} jobId 异步请求的任务ID。
@@ -1707,8 +1640,7 @@ export const ParamCreater = function () {
         /**
          * 将云服务器加入云服务器组。添加成功后，如果该云服务器组是反亲和性策略的，则该云服务器与云服务器组中的其他成员尽量分散地创建在不同主机上。如果该云服务器时故障域类型的，则该云服务器会拥有故障域属性。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         addServerGroupMember(addServerGroupMemberRequest?: AddServerGroupMemberRequest) {
             const options = {
@@ -1759,8 +1691,7 @@ export const ParamCreater = function () {
          * 
          * - 当指定的IP地址是一个已经创建好的私有IP时，系统会将指定的网卡和虚拟IP绑定。如果该IP的device_owner为空，则仅支持VPC内二三层通信；如果该IP的device_owner为neutron:VIP_PORT，则支持VPC内二三层通信、VPC之间对等连接访问，以及弹性公网IP、VPN、云专线等Internet接入。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         associateServerVirtualIp(associateServerVirtualIpRequest?: AssociateServerVirtualIpRequest) {
             const options = {
@@ -1805,8 +1736,7 @@ export const ParamCreater = function () {
         /**
          * 把磁盘挂载到弹性云服务器上。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         attachServerVolume(attachServerVolumeRequest?: AttachServerVolumeRequest) {
             const options = {
@@ -1851,8 +1781,7 @@ export const ParamCreater = function () {
         /**
          * 给云服务器添加一张或多张网卡。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchAddServerNics(batchAddServerNicsRequest?: BatchAddServerNicsRequest) {
             const options = {
@@ -1897,8 +1826,7 @@ export const ParamCreater = function () {
         /**
          * 将指定的共享磁盘一次性挂载到多个弹性云服务器，实现批量挂载。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchAttachSharableVolumes(batchAttachSharableVolumesRequest?: BatchAttachSharableVolumesRequest) {
             const options = {
@@ -1945,8 +1873,7 @@ export const ParamCreater = function () {
          * 
          * - 标签管理服务TMS使用该接口批量管理云服务器的标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchCreateServerTags(batchCreateServerTagsRequest?: BatchCreateServerTagsRequest) {
             const options = {
@@ -1991,8 +1918,7 @@ export const ParamCreater = function () {
         /**
          * 卸载并删除云服务器中的一张或多张网卡。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeleteServerNics(batchDeleteServerNicsRequest?: BatchDeleteServerNicsRequest) {
             const options = {
@@ -2039,8 +1965,7 @@ export const ParamCreater = function () {
          * 
          * - 标签管理服务TMS使用该接口批量管理云服务器的标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeleteServerTags(batchDeleteServerTagsRequest?: BatchDeleteServerTagsRequest) {
             const options = {
@@ -2085,8 +2010,7 @@ export const ParamCreater = function () {
         /**
          * 根据给定的云服务器ID列表，批量重启云服务器，一次最多可以重启1000台。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchRebootServers(batchRebootServersRequest?: BatchRebootServersRequest) {
             const options = {
@@ -2124,8 +2048,7 @@ export const ParamCreater = function () {
         /**
          * 批量重置弹性云服务器管理帐号（root用户或Administrator用户）的密码。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchResetServersPassword(batchResetServersPasswordRequest?: BatchResetServersPasswordRequest) {
             const options = {
@@ -2163,8 +2086,7 @@ export const ParamCreater = function () {
         /**
          * 根据给定的云服务器ID列表，批量启动云服务器，一次最多可以启动1000台。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchStartServers(batchStartServersRequest?: BatchStartServersRequest) {
             const options = {
@@ -2202,8 +2124,7 @@ export const ParamCreater = function () {
         /**
          * 根据给定的云服务器ID列表，批量关闭云服务器，一次最多可以关闭1000台。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchStopServers(batchStopServersRequest?: BatchStopServersRequest) {
             const options = {
@@ -2242,8 +2163,7 @@ export const ParamCreater = function () {
          * 批量修改弹性云服务器信息。
          * 当前仅支持批量修改云服务器名称，一次最多可以修改1000台。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchUpdateServersName(batchUpdateServersNameRequest?: BatchUpdateServersNameRequest) {
             const options = {
@@ -2283,8 +2203,7 @@ export const ParamCreater = function () {
          * 
          * 调用该接口后，系统将卸载系统盘，然后使用新镜像重新创建系统盘，并挂载至弹性云服务器，实现切换操作系统功能。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         changeServerOsWithCloudInit(changeServerOsWithCloudInitRequest?: ChangeServerOsWithCloudInitRequest) {
             const options = {
@@ -2331,8 +2250,7 @@ export const ParamCreater = function () {
          * 
          * 该接口支持未安装Cloud-init或Cloudbase-init的镜像使用。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         changeServerOsWithoutCloudInit(changeServerOsWithoutCloudInitRequest?: ChangeServerOsWithoutCloudInitRequest) {
             const options = {
@@ -2390,8 +2308,7 @@ export const ParamCreater = function () {
          * 
          * &gt; 对于安装Cloud-init镜像的Linux云服务器云主机，若指定user_data字段，则adminPass字段无效。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPostPaidServers(createPostPaidServersRequest?: CreatePostPaidServersRequest) {
             const options = {
@@ -2437,8 +2354,7 @@ export const ParamCreater = function () {
          * 
          * 与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createServerGroup(createServerGroupRequest?: CreateServerGroupRequest) {
             const options = {
@@ -2498,8 +2414,7 @@ export const ParamCreater = function () {
          * - [使用API购买ECS过程中常见问题及处理方法](https://support.huaweicloud.com/api-ecs/ecs_04_0007.html)
          * - [获取Token并检验Token的有效期 ](https://support.huaweicloud.com/api-ecs/ecs_04_0008.html)
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createServers(createServersRequest?: CreateServersRequest) {
             const options = {
@@ -2545,8 +2460,7 @@ export const ParamCreater = function () {
          * 
          * 与原生的删除云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteServerGroup(deleteServerGroupRequest?: DeleteServerGroupRequest) {
             const options = {
@@ -2583,8 +2497,7 @@ export const ParamCreater = function () {
         /**
          * 将弹性云服务器移出云服务器组。移出后，该云服务器与云服务器组中的成员不再遵从反亲和策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteServerGroupMember(deleteServerGroupMemberRequest?: DeleteServerGroupMemberRequest) {
             const options = {
@@ -2629,8 +2542,7 @@ export const ParamCreater = function () {
         /**
          * 删除云服务器指定元数据。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteServerMetadata(deleteServerMetadataRequest?: DeleteServerMetadataRequest) {
             const options = {
@@ -2673,8 +2585,7 @@ export const ParamCreater = function () {
         /**
          * 清除Windows云服务器初始安装时系统生成的密码记录。清除密码后，不影响云服务器密码登录功能，但不能再使用获取密码功能来查询该云服务器密码。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteServerPassword(deleteServerPasswordRequest?: DeleteServerPasswordRequest) {
             const options = {
@@ -2713,8 +2624,7 @@ export const ParamCreater = function () {
          * 
          * 系统支持删除单台云服务器和批量删除多台云服务器操作，批量删除云服务器时，一次最多可以删除1000台。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteServers(deleteServersRequest?: DeleteServersRequest) {
             const options = {
@@ -2752,8 +2662,7 @@ export const ParamCreater = function () {
         /**
          * 从弹性云服务器中卸载磁盘。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         detachServerVolume(detachServerVolumeRequest?: DetachServerVolumeRequest) {
             const options = {
@@ -2805,8 +2714,7 @@ export const ParamCreater = function () {
          * 
          * 该接口用于解绑定弹性云服务器网卡的虚拟IP地址。解绑后，网卡不会被删除。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         disassociateServerVirtualIp(disassociateServerVirtualIpRequest?: DisassociateServerVirtualIpRequest) {
             const options = {
@@ -2851,8 +2759,7 @@ export const ParamCreater = function () {
         /**
          * 查询云服务器规格详情信息和规格扩展信息列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFlavors(listFlavorsRequest?: ListFlavorsRequest) {
             const options = {
@@ -2889,8 +2796,7 @@ export const ParamCreater = function () {
         /**
          * 变更规格时，部分规格的云服务器之间不能互相变更。您可以通过本接口，通过指定弹性云服务器规格，查询该规格可以变更的规格列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listResizeFlavors(listResizeFlavorsRequest?: ListResizeFlavorsRequest) {
             const options = {
@@ -2963,8 +2869,7 @@ export const ParamCreater = function () {
         /**
          * 查询弹性云服务器挂载的磁盘信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServerBlockDevices(listServerBlockDevicesRequest?: ListServerBlockDevicesRequest) {
             const options = {
@@ -3003,8 +2908,7 @@ export const ParamCreater = function () {
          * 
          * 与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServerGroups(listServerGroupsRequest?: ListServerGroupsRequest) {
             const options = {
@@ -3047,8 +2951,7 @@ export const ParamCreater = function () {
         /**
          * 查询云服务器网卡信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServerInterfaces(listServerInterfacesRequest?: ListServerInterfacesRequest) {
             const options = {
@@ -3087,8 +2990,7 @@ export const ParamCreater = function () {
          * 
          * 该接口用于查询用户在指定项目所使用的全部标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServerTags() {
             const options = {
@@ -3110,8 +3012,7 @@ export const ParamCreater = function () {
         /**
          * 使用标签过滤弹性云服务器，并返回云服务器使用的所有标签和资源列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServersByTag(listServersByTagRequest?: ListServersByTagRequest) {
             const options = {
@@ -3151,8 +3052,7 @@ export const ParamCreater = function () {
          * 
          * 该接口支持查询弹性云服务器计费方式，以及是否被冻结。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServersDetails(listServersDetailsRequest?: ListServersDetailsRequest) {
             const options = {
@@ -3251,8 +3151,7 @@ export const ParamCreater = function () {
          * - 将部署在专属主机上的弹性云服务器迁移至公共资源池，即不再部署在专属主机上。
          * - 将公共资源池的弹性云服务器迁移至专属主机上，成为专属主机上部署的弹性云服务器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         migrateServer(migrateServerRequest?: MigrateServerRequest) {
             const options = {
@@ -3299,8 +3198,7 @@ export const ParamCreater = function () {
          * 
          * 添加多个安全组时，建议最多为弹性云服务器添加5个安全组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest?: NovaAssociateSecurityGroupRequest) {
             const options = {
@@ -3347,8 +3245,7 @@ export const ParamCreater = function () {
          * 
          * 创建SSH密钥成功后，请把响应数据中的私钥内容保存到本地文件，用户使用该私钥登录云服务器云主机。为保证云服务器云主机器安全，私钥数据只能读取一次，请妥善保管。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaCreateKeypair(novaCreateKeypairRequest?: NovaCreateKeypairRequest) {
             const options = {
@@ -3396,8 +3293,7 @@ export const ParamCreater = function () {
          * 
          * 该接口在云服务器创建失败后不支持自动回滚。若需要自动回滚能力，可以调用POST /v1/{project_id}/cloudservers接口，具体使用请参见创建云服务器（按需）。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaCreateServers(novaCreateServersRequest?: NovaCreateServersRequest) {
             const options = {
@@ -3441,8 +3337,7 @@ export const ParamCreater = function () {
         /**
          * 根据SSH密钥的名称，删除指定SSH密钥。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaDeleteKeypair(novaDeleteKeypairRequest?: NovaDeleteKeypairRequest) {
             const options = {
@@ -3479,8 +3374,7 @@ export const ParamCreater = function () {
         /**
          * 删除一台云服务器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaDeleteServer(novaDeleteServerRequest?: NovaDeleteServerRequest) {
             const options = {
@@ -3517,8 +3411,7 @@ export const ParamCreater = function () {
         /**
          * 移除弹性云服务器中的安全组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaDisassociateSecurityGroup(novaDisassociateSecurityGroupRequest?: NovaDisassociateSecurityGroupRequest) {
             const options = {
@@ -3563,8 +3456,7 @@ export const ParamCreater = function () {
         /**
          * 查询可用域列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaListAvailabilityZones() {
             const options = {
@@ -3586,8 +3478,7 @@ export const ParamCreater = function () {
         /**
          * 查询SSH密钥信息列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaListKeypairs(novaListKeypairsRequest?: NovaListKeypairsRequest) {
             const options = {
@@ -3636,8 +3527,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定弹性云服务器的安全组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaListServerSecurityGroups(novaListServerSecurityGroupsRequest?: NovaListServerSecurityGroupsRequest) {
             const options = {
@@ -3674,8 +3564,7 @@ export const ParamCreater = function () {
         /**
          * 查询云服务器详情信息列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaListServersDetails(novaListServersDetailsRequest?: NovaListServersDetailsRequest) {
             const options = {
@@ -3784,8 +3673,7 @@ export const ParamCreater = function () {
         /**
          * 根据SSH密钥名称查询指定SSH密钥。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaShowKeypair(novaShowKeypairRequest?: NovaShowKeypairRequest) {
             const options = {
@@ -3828,8 +3716,7 @@ export const ParamCreater = function () {
         /**
          * 根据云服务器ID，查询云服务器的详细信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         novaShowServer(novaShowServerRequest?: NovaShowServerRequest) {
             const options = {
@@ -3872,8 +3759,7 @@ export const ParamCreater = function () {
         /**
          * 配置、删除云服务器自动恢复动作。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         registerServerAutoRecovery(registerServerAutoRecoveryRequest?: RegisterServerAutoRecoveryRequest) {
             const options = {
@@ -3920,8 +3806,7 @@ export const ParamCreater = function () {
          * 
          * 注册到监控表中的云服务会被ceilometer周期性采集监控数据，包括平台的版本、cpu信息、内存、网卡、磁盘、硬件平台等信息，这些数据上报给云监控。例如SAP云服务器内部的插件会周期性从云监控中查询监控数据，以报表形式呈现给SAP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         registerServerMonitor(registerServerMonitorRequest?: RegisterServerMonitorRequest) {
             const options = {
@@ -3968,8 +3853,7 @@ export const ParamCreater = function () {
          * 
          * 调用该接口后，系统将卸载系统盘，然后使用原镜像重新创建系统盘，并挂载至弹性云服务器，实现重装操作系统功能。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         reinstallServerWithCloudInit(reinstallServerWithCloudInitRequest?: ReinstallServerWithCloudInitRequest) {
             const options = {
@@ -4016,8 +3900,7 @@ export const ParamCreater = function () {
          * 
          * 该接口支持未安装Cloud-init或Cloudbase-init的镜像。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         reinstallServerWithoutCloudInit(reinstallServerWithoutCloudInitRequest?: ReinstallServerWithoutCloudInitRequest) {
             const options = {
@@ -4062,8 +3945,7 @@ export const ParamCreater = function () {
         /**
          * 重置弹性云服务器管理帐号（root用户或Administrator用户）的密码。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         resetServerPassword(resetServerPasswordRequest?: ResetServerPasswordRequest) {
             const options = {
@@ -4112,8 +3994,7 @@ export const ParamCreater = function () {
          * 
          * 您可以通过接口“/v1/{project_id}/cloudservers/resize_flavors?{instance_uuid,source_flavor_id,source_flavor_name}”查询支持列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         resizePostPaidServer(resizePostPaidServerRequest?: ResizePostPaidServerRequest) {
             const options = {
@@ -4166,8 +4047,7 @@ export const ParamCreater = function () {
          * - 如果使用AK/SK认证方式，示例代码中region请参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)中“弹性云服务 ECS”下“区域”的内容，，serviceName（英文服务名称缩写）请指定为ECS。
          * - Endpoint请参考[地区和终端节点](https://developer.huaweicloud.com/endpoint)中“弹性云服务 ECS”下“终端节点（Endpoint）”的内容。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         resizeServer(resizeServerRequest?: ResizeServerRequest) {
             const options = {
@@ -4212,8 +4092,7 @@ export const ParamCreater = function () {
         /**
          * 查询弹性云服务器是否支持一键重置密码。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showResetPasswordFlag(showResetPasswordFlagRequest?: ShowResetPasswordFlagRequest) {
             const options = {
@@ -4252,8 +4131,7 @@ export const ParamCreater = function () {
          * 
          * 该接口支持查询弹性云服务器的计费方式，以及是否被冻结。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showServer(showServerRequest?: ShowServerRequest) {
             const options = {
@@ -4290,8 +4168,7 @@ export const ParamCreater = function () {
         /**
          * 查询云服务器是否配置了自动恢复动作。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showServerAutoRecovery(showServerAutoRecoveryRequest?: ShowServerAutoRecoveryRequest) {
             const options = {
@@ -4328,8 +4205,7 @@ export const ParamCreater = function () {
         /**
          * 查询弹性云服务器挂载的单个磁盘信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showServerBlockDevice(showServerBlockDeviceRequest?: ShowServerBlockDeviceRequest) {
             const options = {
@@ -4374,8 +4250,7 @@ export const ParamCreater = function () {
          * 
          * 与原生的创建云服务器组接口不同之处在于该接口支持企业项目细粒度权限的校验。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showServerGroup(showServerGroupRequest?: ShowServerGroupRequest) {
             const options = {
@@ -4412,8 +4287,7 @@ export const ParamCreater = function () {
         /**
          * 查询租户配额信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showServerLimits() {
             const options = {
@@ -4435,8 +4309,7 @@ export const ParamCreater = function () {
         /**
          * 当通过支持Cloudbase-init功能的镜像创建Windows云服务器时，获取云服务器初始安装时系统生成的管理员帐户（Administrator帐户或Cloudbase-init设置的帐户）随机密码。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showServerPassword(showServerPasswordRequest?: ShowServerPasswordRequest) {
             const options = {
@@ -4473,8 +4346,7 @@ export const ParamCreater = function () {
         /**
          * 获取弹性云服务器VNC远程登录地址。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showServerRemoteConsole(showServerRemoteConsoleRequest?: ShowServerRemoteConsoleRequest) {
             const options = {
@@ -4521,8 +4393,7 @@ export const ParamCreater = function () {
          * 
          * - 标签管理服务TMS使用该接口查询指定云服务器的全部标签数据。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showServerTags(showServerTagsRequest?: ShowServerTagsRequest) {
             const options = {
@@ -4559,8 +4430,7 @@ export const ParamCreater = function () {
         /**
          * 修改云服务器信息，目前支持修改云服务器名称及描述和hostname。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateServer(updateServerRequest?: UpdateServerRequest) {
             const options = {
@@ -4607,8 +4477,7 @@ export const ParamCreater = function () {
          * 
          * 该接口支持企业项目细粒度权限的校验，具体细粒度请参见 ecs:cloudServers:put。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest?: UpdateServerAutoTerminateTimeRequest) {
             const options = {
@@ -4653,8 +4522,7 @@ export const ParamCreater = function () {
         /**
          * 修改云服务器云主机挂载的单个磁盘信息。\&#39;当前仅支持修改delete_on_termination字段。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateServerBlockDevice(updateServerBlockDeviceRequest?: UpdateServerBlockDeviceRequest) {
             const options = {
@@ -4711,8 +4579,7 @@ export const ParamCreater = function () {
          * 
          * - 如果元数据中的字段不再请求参数中，则保持不变
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateServerMetadata(updateServerMetadataRequest?: UpdateServerMetadataRequest) {
             const options = {
@@ -4759,8 +4626,7 @@ export const ParamCreater = function () {
          * 
          * 对于创建云服务器、删除云服务器、云服务器批量操作和网卡操作等异步API，命令下发后，会返回job_id，通过job_id可以查询任务的执行状态。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showJob(showJobRequest?: ShowJobRequest) {
             const options = {

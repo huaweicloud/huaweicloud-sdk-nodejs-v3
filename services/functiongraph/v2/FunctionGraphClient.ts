@@ -232,8 +232,7 @@ export class FunctionGraphClient {
     /**
      * 异步执行函数。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 异步执行函数
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -255,8 +254,7 @@ export class FunctionGraphClient {
      * 在提供函数别名的情况下，删除对应函数别名的触发器。
      * 在不提供函数版本（也不提供别名）或版本为latest的情况下，删除该函数所有的触发器（包括所有版本和别名）。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定函数的所有触发器
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -273,8 +271,7 @@ export class FunctionGraphClient {
     /**
      * 删除函数流
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除函数流
      * @param {WorkflowDeleteBody} batchDeleteWorkflowsRequestBody 批量删除函数流的Body体
@@ -291,8 +288,7 @@ export class FunctionGraphClient {
     /**
      * -| 停止函数异步调用请求 当前仅支持recursive为false且force为true的参数。针对1：N的函数做并发异步调用 停止异步请求时实例同时在执行的其他请求也会被一并停止并返回4208 function invocation canceled 目前仅支持广州和贵阳一
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 停止函数异步调用请求
      * @param {string} functionUrn 函数URN
@@ -310,8 +306,7 @@ export class FunctionGraphClient {
     /**
      * 创建依赖包
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建依赖包
      * @param {CreateDependencyRequestBody} createDependencyRequestBody 创建依赖包请求body体。
@@ -328,8 +323,7 @@ export class FunctionGraphClient {
     /**
      * 创建依赖包版本
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建依赖包版本
      * @param {CreateDependencyRequestBody} createDependencyVersionRequestBody 创建依赖包版本请求body体。
@@ -346,8 +340,7 @@ export class FunctionGraphClient {
     /**
      * 创建测试事件
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建测试事件
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -365,8 +358,7 @@ export class FunctionGraphClient {
     /**
      * 创建指定的函数。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建函数
      * @param {CreateFunctionRequestBody} createFunctionRequestBody 创建函数请求body体。
@@ -387,8 +379,7 @@ export class FunctionGraphClient {
      * - DDS和KAFKA触发器创建时默认为DISABLE状态，其他触发器默认为ACTIVE状态。
      * - TIMER、DDS、DMS、KAFKA、LTS触发器支持禁用，其他触发器不支持。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建触发器
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -406,8 +397,7 @@ export class FunctionGraphClient {
     /**
      * 发布函数版本。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 发布函数版本
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -425,8 +415,7 @@ export class FunctionGraphClient {
     /**
      * 创建函数灰度版本别名。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建函数版本别名
      * @param {string} functionUrn 函数的URN。
@@ -444,8 +433,7 @@ export class FunctionGraphClient {
     /**
      * 创建函数流
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建函数流
      * @param {WorkflowCreateBody} createWorkflowRequestBody 创建函数流的body体
@@ -462,8 +450,7 @@ export class FunctionGraphClient {
     /**
      * 删除指定的依赖包
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定的依赖包
      * @param {string} dependId 依赖包的ID。
@@ -480,8 +467,7 @@ export class FunctionGraphClient {
     /**
      * 删除依赖包版本
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除依赖包版本
      * @param {string} dependId 依赖包的ID。
@@ -499,8 +485,7 @@ export class FunctionGraphClient {
     /**
      * 删除指定测试事件
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定测试事件
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -521,8 +506,7 @@ export class FunctionGraphClient {
      * 如果URN中包含函数版本或者别名，则删除特定的函数版本或者别名指向的版本以及该版本关联的trigger。
      * 如果URN中不包含版本或者别名，则删除整个函数，包含所有版本以及别名，触发器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除函数/版本
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。  不允许删除函数的latest版本，如要删除整个函数（包含所有版本），提供不带任何版本号/别名的urn，如： urn:fss:xxxxxxxx:7aad83af3e8d42e99ac194e8419e2c9b:function:default:test
@@ -539,8 +523,7 @@ export class FunctionGraphClient {
     /**
      * 删除函数异步配置信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除函数异步配置信息
      * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
@@ -557,8 +540,7 @@ export class FunctionGraphClient {
     /**
      * 删除触发器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除触发器
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -577,8 +559,7 @@ export class FunctionGraphClient {
     /**
      * 删除函数版本别名。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除函数版本别名
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -596,8 +577,7 @@ export class FunctionGraphClient {
     /**
      * 开通lts日志上报功能。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开通lts日志上报功能
      * @param {*} [options] Override http request option.
@@ -613,8 +593,7 @@ export class FunctionGraphClient {
     /**
      * 导出函数
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 导出函数
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -634,8 +613,7 @@ export class FunctionGraphClient {
     /**
      * 导入函数
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 导入函数
      * @param {ImportFunctionRequestBody} importFunctionRequestBody 导入函数的请求body体。
@@ -652,8 +630,7 @@ export class FunctionGraphClient {
     /**
      * 同步调用指的是客户端请求需要明确等到响应结果，也就是说这样的请求必须得调用到用户的函数，并且等到调用完成才返回。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 同步执行函数
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -673,8 +650,7 @@ export class FunctionGraphClient {
     /**
      * 获取函数异步调用请求列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数异步调用请求列表
      * @param {string} functionUrn 函数URN
@@ -697,8 +673,7 @@ export class FunctionGraphClient {
     /**
      * 获取依赖包列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取依赖包列表
      * @param {string} [marker] 上一次查询依赖包的最后记录位置，默认为\&quot;0\&quot;。
@@ -721,8 +696,7 @@ export class FunctionGraphClient {
     /**
      * 获取依赖包版本列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取依赖包版本列表
      * @param {string} dependId 依赖包的ID。
@@ -741,8 +715,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数的测试事件列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数的测试事件列表
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -761,8 +734,7 @@ export class FunctionGraphClient {
      * 
      * 默认统计按错误次数指标统计最近一天失败次数最多的前10个函数
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取按指定指标排序的函数列表
      * @param {string} [type] 指标类型，默认值为failcount。
@@ -782,8 +754,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数所有版本的异步配置列表。。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数异步配置列表
      * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
@@ -802,8 +773,7 @@ export class FunctionGraphClient {
     /**
      * 获取函数预留实例数量。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数预留实例数量
      * @param {string} [marker] 上一次查询到的最后的记录位置。
@@ -822,8 +792,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定时间段的函数运行指标。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定时间段的函数运行指标
      * @param {string} funcUrn 函数的URN（Uniform Resource Name），唯一标识函数。
@@ -841,8 +810,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数的所有触发器设置。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数的所有触发器
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -859,8 +827,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数的版本列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数的版本列表
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -879,8 +846,7 @@ export class FunctionGraphClient {
     /**
      * 获取函数列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数列表
      * @param {string} [marker] 上一次查询到的最后的记录位置。
@@ -899,8 +865,7 @@ export class FunctionGraphClient {
     /**
      * 查询租户配额
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户配额
      * @param {*} [options] Override http request option.
@@ -916,8 +881,7 @@ export class FunctionGraphClient {
     /**
      * 获取函数预留实例配置列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数预留实例配置列表
      * @param {string} [functionUrn] 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -937,8 +901,7 @@ export class FunctionGraphClient {
      * 返回三类的统计信息，函数格式和大小使用情况包括配额和使用量，流量报告。
      * 通过查询参数filter可以进行过滤，查询参数period可以指定返回的时间段。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 租户函数统计信息
      * @param {'monitor_data' | 'monthly_report'} filter 参数过滤器。 monitor_data: 查询统计信息。 monthly_report：查询月度统计信息。
@@ -957,8 +920,7 @@ export class FunctionGraphClient {
     /**
      * 获取函数版本别名列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数所有版本别名列表
      * @param {string} functionUrn 函数的URN。
@@ -975,8 +937,7 @@ export class FunctionGraphClient {
     /**
      * 查询函数流
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询函数流
      * @param {string} [workflowName] 函数流名称
@@ -997,8 +958,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数流执行实例列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数流执行实例列表
      * @param {string} workflowId 函数工作流ID
@@ -1019,8 +979,7 @@ export class FunctionGraphClient {
     /**
      * 重试函数流
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重试函数流
      * @param {string} workflowId 函数工作流ID
@@ -1038,8 +997,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定依赖包
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定依赖包
      * @param {string} dependId 依赖包的ID。
@@ -1056,8 +1014,7 @@ export class FunctionGraphClient {
     /**
      * 获取依赖包版本详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取依赖包版本详情
      * @param {string} dependId 依赖包的ID。
@@ -1075,8 +1032,7 @@ export class FunctionGraphClient {
     /**
      * 获取测试事件详细信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取测试事件详细信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -1094,8 +1050,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数某一版本的异步配置信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数异步配置信息
      * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
@@ -1112,8 +1067,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数的代码。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数代码
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -1130,8 +1084,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数的metadata。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数的metadata
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -1148,8 +1101,7 @@ export class FunctionGraphClient {
     /**
      * 获取特定触发器的信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定触发器的信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -1168,8 +1120,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数的lts日志组日志流配置。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数的lts日志组日志流配置
      * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
@@ -1186,13 +1137,13 @@ export class FunctionGraphClient {
     /**
      * 获取函数流指标
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数流指标
      * @param {string} [period] 时间段，单位为分钟
      * @param {string} [startTime] 开始时间，精确到ms的时间戳
      * @param {string} [endTime] 结束时间，精确到ms的时间戳
+     * @param {string} [metricType] 指标类型，为空或不在取值范围内时，查询所有指标。取值范围：totalCount 调用次数；errorCount 错误次数； averageDuration 运行时间；running 运行中个数；rejectCount  拒绝个数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1206,8 +1157,7 @@ export class FunctionGraphClient {
     /**
      * 获取函数调用链配置
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数调用链配置
      * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
@@ -1224,8 +1174,7 @@ export class FunctionGraphClient {
     /**
      * 获取函数指定的版本别名信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取函数版本的指定别名信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -1243,8 +1192,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数流实例的元数据
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数流实例的元数据
      * @param {string} workflowId 函数工作流ID
@@ -1261,8 +1209,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数流指标
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数流指标
      * @param {string} workflowUrn 函数工作流URN, 格式为： urn:fss:&lt;region_id&gt;:&lt;project_id&gt;:workflow:\\&lt;package\\&gt;:&lt;workflow_name&gt;:\\&lt;version\\&gt; 注意： package当前只支持default version当前只支持latest
@@ -1282,8 +1229,7 @@ export class FunctionGraphClient {
     /**
      * 获取指定函数流执行实例。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定函数流执行实例
      * @param {string} workflowId 函数工作流ID
@@ -1302,8 +1248,7 @@ export class FunctionGraphClient {
     /**
      * 分页获取指定函数流执行实例列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 分页获取指定函数流执行实例列表
      * @param {string} workflowId 函数工作流ID
@@ -1321,8 +1266,7 @@ export class FunctionGraphClient {
     /**
      * 以同步执行方式启动函数流（仅快速模式函数流支持）
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 同步执行函数流
      * @param {string} workflowId 函数流定义ID
@@ -1340,8 +1284,7 @@ export class FunctionGraphClient {
     /**
      * 以异步执行方式启动函数流
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开始执行函数流
      * @param {string} workflowId 函数流定义ID
@@ -1362,8 +1305,7 @@ export class FunctionGraphClient {
     /**
      * 停止函数流
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 停止函数流
      * @param {string} workflowId 函数工作流ID
@@ -1381,8 +1323,7 @@ export class FunctionGraphClient {
     /**
      * 更新指定依赖包
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新指定依赖包
      * @param {string} dependId 依赖包的ID。
@@ -1400,8 +1341,7 @@ export class FunctionGraphClient {
     /**
      * 更新测试事件详细信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新测试事件详细信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -1420,8 +1360,7 @@ export class FunctionGraphClient {
     /**
      * 设置函数异步配置信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置函数异步配置信息
      * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
@@ -1439,8 +1378,7 @@ export class FunctionGraphClient {
     /**
      * 修改指定的函数的代码。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改函数代码
      * @param {string} functionUrn 函数的URN，详细解释见表1 FunctionGraph函数字段说明表的描述。
@@ -1458,8 +1396,7 @@ export class FunctionGraphClient {
     /**
      * 修改指定的函数的metadata信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改函数的metadata信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型。
@@ -1477,8 +1414,7 @@ export class FunctionGraphClient {
     /**
      * 更新函数最大实例数
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新函数最大实例数
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -1496,8 +1432,7 @@ export class FunctionGraphClient {
     /**
      * 修改函数预留实例数量。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改函数预留实例数量
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -1515,8 +1450,7 @@ export class FunctionGraphClient {
     /**
      * 修改函数调用链配置,开通/修改传入aksk，关闭aksk传空
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改函数调用链配置
      * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
@@ -1534,8 +1468,7 @@ export class FunctionGraphClient {
     /**
      * 更新触发器
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新触发器
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -1555,8 +1488,7 @@ export class FunctionGraphClient {
     /**
      * 修改函数版本别名信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改函数版本别名信息
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
@@ -1575,8 +1507,7 @@ export class FunctionGraphClient {
     /**
      * 修改指定函数流实例的元数据
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改指定函数流实例的元数据
      * @param {string} workflowId 函数工作流ID
@@ -1598,8 +1529,7 @@ export const ParamCreater = function () {
         /**
          * 异步执行函数。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         asyncInvokeFunction(asyncInvokeFunctionRequest?: AsyncInvokeFunctionRequest) {
             const options = {
@@ -1648,8 +1578,7 @@ export const ParamCreater = function () {
          * 在提供函数别名的情况下，删除对应函数别名的触发器。
          * 在不提供函数版本（也不提供别名）或版本为latest的情况下，删除该函数所有的触发器（包括所有版本和别名）。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest?: BatchDeleteFunctionTriggersRequest) {
             const options = {
@@ -1686,8 +1615,7 @@ export const ParamCreater = function () {
         /**
          * 删除函数流
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeleteWorkflows(batchDeleteWorkflowsRequest?: BatchDeleteWorkflowsRequest) {
             const options = {
@@ -1725,8 +1653,7 @@ export const ParamCreater = function () {
         /**
          * -| 停止函数异步调用请求 当前仅支持recursive为false且force为true的参数。针对1：N的函数做并发异步调用 停止异步请求时实例同时在执行的其他请求也会被一并停止并返回4208 function invocation canceled 目前仅支持广州和贵阳一
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         cancelAsyncInvocation(cancelAsyncInvocationRequest?: CancelAsyncInvocationRequest) {
             const options = {
@@ -1771,8 +1698,7 @@ export const ParamCreater = function () {
         /**
          * 创建依赖包
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createDependency(createDependencyRequest?: CreateDependencyRequest) {
             const options = {
@@ -1810,8 +1736,7 @@ export const ParamCreater = function () {
         /**
          * 创建依赖包版本
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createDependencyVersion(createDependencyVersionRequest?: CreateDependencyVersionRequest) {
             const options = {
@@ -1849,8 +1774,7 @@ export const ParamCreater = function () {
         /**
          * 创建测试事件
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createEvent(createEventRequest?: CreateEventRequest) {
             const options = {
@@ -1895,8 +1819,7 @@ export const ParamCreater = function () {
         /**
          * 创建指定的函数。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createFunction(createFunctionRequest?: CreateFunctionRequest) {
             const options = {
@@ -1938,8 +1861,7 @@ export const ParamCreater = function () {
          * - DDS和KAFKA触发器创建时默认为DISABLE状态，其他触发器默认为ACTIVE状态。
          * - TIMER、DDS、DMS、KAFKA、LTS触发器支持禁用，其他触发器不支持。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createFunctionTrigger(createFunctionTriggerRequest?: CreateFunctionTriggerRequest) {
             const options = {
@@ -1984,8 +1906,7 @@ export const ParamCreater = function () {
         /**
          * 发布函数版本。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createFunctionVersion(createFunctionVersionRequest?: CreateFunctionVersionRequest) {
             const options = {
@@ -2030,8 +1951,7 @@ export const ParamCreater = function () {
         /**
          * 创建函数灰度版本别名。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createVersionAlias(createVersionAliasRequest?: CreateVersionAliasRequest) {
             const options = {
@@ -2076,8 +1996,7 @@ export const ParamCreater = function () {
         /**
          * 创建函数流
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createWorkflow(createWorkflowRequest?: CreateWorkflowRequest) {
             const options = {
@@ -2115,8 +2034,7 @@ export const ParamCreater = function () {
         /**
          * 删除指定的依赖包
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteDependency(deleteDependencyRequest?: DeleteDependencyRequest) {
             const options = {
@@ -2153,8 +2071,7 @@ export const ParamCreater = function () {
         /**
          * 删除依赖包版本
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteDependencyVersion(deleteDependencyVersionRequest?: DeleteDependencyVersionRequest) {
             const options = {
@@ -2197,8 +2114,7 @@ export const ParamCreater = function () {
         /**
          * 删除指定测试事件
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteEvent(deleteEventRequest?: DeleteEventRequest) {
             const options = {
@@ -2244,8 +2160,7 @@ export const ParamCreater = function () {
          * 如果URN中包含函数版本或者别名，则删除特定的函数版本或者别名指向的版本以及该版本关联的trigger。
          * 如果URN中不包含版本或者别名，则删除整个函数，包含所有版本以及别名，触发器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteFunction(deleteFunctionRequest?: DeleteFunctionRequest) {
             const options = {
@@ -2282,8 +2197,7 @@ export const ParamCreater = function () {
         /**
          * 删除函数异步配置信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteFunctionAsyncInvokeConfig(deleteFunctionAsyncInvokeConfigRequest?: DeleteFunctionAsyncInvokeConfigRequest) {
             const options = {
@@ -2320,8 +2234,7 @@ export const ParamCreater = function () {
         /**
          * 删除触发器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteFunctionTrigger(deleteFunctionTriggerRequest?: DeleteFunctionTriggerRequest) {
             const options = {
@@ -2370,8 +2283,7 @@ export const ParamCreater = function () {
         /**
          * 删除函数版本别名。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteVersionAlias(deleteVersionAliasRequest?: DeleteVersionAliasRequest) {
             const options = {
@@ -2414,8 +2326,7 @@ export const ParamCreater = function () {
         /**
          * 开通lts日志上报功能。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         enableLtsLogs() {
             const options = {
@@ -2437,8 +2348,7 @@ export const ParamCreater = function () {
         /**
          * 导出函数
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         exportFunction(exportFunctionRequest?: ExportFunctionRequest) {
             const options = {
@@ -2494,8 +2404,7 @@ export const ParamCreater = function () {
         /**
          * 导入函数
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         importFunction(importFunctionRequest?: ImportFunctionRequest) {
             const options = {
@@ -2533,8 +2442,7 @@ export const ParamCreater = function () {
         /**
          * 同步调用指的是客户端请求需要明确等到响应结果，也就是说这样的请求必须得调用到用户的函数，并且等到调用完成才返回。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         invokeFunction(invokeFunctionRequest?: InvokeFunctionRequest) {
             const options = {
@@ -2591,8 +2499,7 @@ export const ParamCreater = function () {
         /**
          * 获取函数异步调用请求列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAsyncInvocations(listAsyncInvocationsRequest?: ListAsyncInvocationsRequest) {
             const options = {
@@ -2666,8 +2573,7 @@ export const ParamCreater = function () {
         /**
          * 获取依赖包列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listDependencies(listDependenciesRequest?: ListDependenciesRequest) {
             const options = {
@@ -2740,8 +2646,7 @@ export const ParamCreater = function () {
         /**
          * 获取依赖包版本列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listDependencyVersion(listDependencyVersionRequest?: ListDependencyVersionRequest) {
             const options = {
@@ -2791,8 +2696,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数的测试事件列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEvents(listEventsRequest?: ListEventsRequest) {
             const options = {
@@ -2831,8 +2735,7 @@ export const ParamCreater = function () {
          * 
          * 默认统计按错误次数指标统计最近一天失败次数最多的前10个函数
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFunctionAsMetric(listFunctionAsMetricRequest?: ListFunctionAsMetricRequest) {
             const options = {
@@ -2887,8 +2790,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数所有版本的异步配置列表。。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFunctionAsyncInvokeConfig(listFunctionAsyncInvokeConfigRequest?: ListFunctionAsyncInvokeConfigRequest) {
             const options = {
@@ -2938,8 +2840,7 @@ export const ParamCreater = function () {
         /**
          * 获取函数预留实例数量。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFunctionReservedInstances(listFunctionReservedInstancesRequest?: ListFunctionReservedInstancesRequest) {
             const options = {
@@ -2988,8 +2889,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定时间段的函数运行指标。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFunctionStatistics(listFunctionStatisticsRequest?: ListFunctionStatisticsRequest) {
             const options = {
@@ -3032,8 +2932,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数的所有触发器设置。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFunctionTriggers(listFunctionTriggersRequest?: ListFunctionTriggersRequest) {
             const options = {
@@ -3070,8 +2969,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数的版本列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFunctionVersions(listFunctionVersionsRequest?: ListFunctionVersionsRequest) {
             const options = {
@@ -3121,8 +3019,7 @@ export const ParamCreater = function () {
         /**
          * 获取函数列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFunctions(listFunctionsRequest?: ListFunctionsRequest) {
             const options = {
@@ -3171,8 +3068,7 @@ export const ParamCreater = function () {
         /**
          * 查询租户配额
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listQuotas() {
             const options = {
@@ -3194,8 +3090,7 @@ export const ParamCreater = function () {
         /**
          * 获取函数预留实例配置列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listReservedInstanceConfigs(listReservedInstanceConfigsRequest?: ListReservedInstanceConfigsRequest) {
             const options = {
@@ -3235,8 +3130,7 @@ export const ParamCreater = function () {
          * 返回三类的统计信息，函数格式和大小使用情况包括配额和使用量，流量报告。
          * 通过查询参数filter可以进行过滤，查询参数period可以指定返回的时间段。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listStatistics(listStatisticsRequest?: ListStatisticsRequest) {
             const options = {
@@ -3288,8 +3182,7 @@ export const ParamCreater = function () {
         /**
          * 获取函数版本别名列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listVersionAliases(listVersionAliasesRequest?: ListVersionAliasesRequest) {
             const options = {
@@ -3326,8 +3219,7 @@ export const ParamCreater = function () {
         /**
          * 查询函数流
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listWorkflow(listWorkflowRequest?: ListWorkflowRequest) {
             const options = {
@@ -3388,8 +3280,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数流执行实例列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listWorkflowExecutions(listWorkflowExecutionsRequest?: ListWorkflowExecutionsRequest) {
             const options = {
@@ -3451,8 +3342,7 @@ export const ParamCreater = function () {
         /**
          * 重试函数流
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         retryWorkFlow(retryWorkFlowRequest?: RetryWorkFlowRequest) {
             const options = {
@@ -3495,8 +3385,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定依赖包
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showDependcy(showDependcyRequest?: ShowDependcyRequest) {
             const options = {
@@ -3533,8 +3422,7 @@ export const ParamCreater = function () {
         /**
          * 获取依赖包版本详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showDependencyVersion(showDependencyVersionRequest?: ShowDependencyVersionRequest) {
             const options = {
@@ -3577,8 +3465,7 @@ export const ParamCreater = function () {
         /**
          * 获取测试事件详细信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showEvent(showEventRequest?: ShowEventRequest) {
             const options = {
@@ -3621,8 +3508,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数某一版本的异步配置信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showFunctionAsyncInvokeConfig(showFunctionAsyncInvokeConfigRequest?: ShowFunctionAsyncInvokeConfigRequest) {
             const options = {
@@ -3659,8 +3545,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数的代码。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showFunctionCode(showFunctionCodeRequest?: ShowFunctionCodeRequest) {
             const options = {
@@ -3697,8 +3582,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数的metadata。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showFunctionConfig(showFunctionConfigRequest?: ShowFunctionConfigRequest) {
             const options = {
@@ -3735,8 +3619,7 @@ export const ParamCreater = function () {
         /**
          * 获取特定触发器的信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showFunctionTrigger(showFunctionTriggerRequest?: ShowFunctionTriggerRequest) {
             const options = {
@@ -3785,8 +3668,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数的lts日志组日志流配置。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showLtsLogDetails(showLtsLogDetailsRequest?: ShowLtsLogDetailsRequest) {
             const options = {
@@ -3823,8 +3705,7 @@ export const ParamCreater = function () {
         /**
          * 获取函数流指标
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showTenantMetric(showTenantMetricRequest?: ShowTenantMetricRequest) {
             const options = {
@@ -3841,16 +3722,19 @@ export const ParamCreater = function () {
             let period;
             let startTime;
             let endTime;
+            let metricType;
 
             if (showTenantMetricRequest !== null && showTenantMetricRequest !== undefined) {
                 if (showTenantMetricRequest instanceof ShowTenantMetricRequest) {
                     period = showTenantMetricRequest.period;
                     startTime = showTenantMetricRequest.startTime;
                     endTime = showTenantMetricRequest.endTime;
+                    metricType = showTenantMetricRequest.metricType;
                 } else {
                     period = showTenantMetricRequest['period'];
                     startTime = showTenantMetricRequest['start_time'];
                     endTime = showTenantMetricRequest['end_time'];
+                    metricType = showTenantMetricRequest['metric_type'];
                 }
             }
 
@@ -3864,6 +3748,9 @@ export const ParamCreater = function () {
             if (endTime !== null && endTime !== undefined) {
                 localVarQueryParameter['end_time'] = endTime;
             }
+            if (metricType !== null && metricType !== undefined) {
+                localVarQueryParameter['metric_type'] = metricType;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -3873,8 +3760,7 @@ export const ParamCreater = function () {
         /**
          * 获取函数调用链配置
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showTracing(showTracingRequest?: ShowTracingRequest) {
             const options = {
@@ -3911,8 +3797,7 @@ export const ParamCreater = function () {
         /**
          * 获取函数指定的版本别名信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showVersionAlias(showVersionAliasRequest?: ShowVersionAliasRequest) {
             const options = {
@@ -3955,8 +3840,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数流实例的元数据
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showWorkFlow(showWorkFlowRequest?: ShowWorkFlowRequest) {
             const options = {
@@ -3993,8 +3877,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数流指标
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showWorkFlowMetric(showWorkFlowMetricRequest?: ShowWorkFlowMetricRequest) {
             const options = {
@@ -4050,8 +3933,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定函数流执行实例。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showWorkflowExecution(showWorkflowExecutionRequest?: ShowWorkflowExecutionRequest) {
             const options = {
@@ -4100,8 +3982,7 @@ export const ParamCreater = function () {
         /**
          * 分页获取指定函数流执行实例列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showWorkflowExecutionForPage(showWorkflowExecutionForPageRequest?: ShowWorkflowExecutionForPageRequest) {
             const options = {
@@ -4146,8 +4027,7 @@ export const ParamCreater = function () {
         /**
          * 以同步执行方式启动函数流（仅快速模式函数流支持）
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         startSyncWorkflowExecution(startSyncWorkflowExecutionRequest?: StartSyncWorkflowExecutionRequest) {
             const options = {
@@ -4192,8 +4072,7 @@ export const ParamCreater = function () {
         /**
          * 以异步执行方式启动函数流
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         startWorkflowExecution(startWorkflowExecutionRequest?: StartWorkflowExecutionRequest) {
             const options = {
@@ -4256,8 +4135,7 @@ export const ParamCreater = function () {
         /**
          * 停止函数流
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         stopWorkFlow(stopWorkFlowRequest?: StopWorkFlowRequest) {
             const options = {
@@ -4300,8 +4178,7 @@ export const ParamCreater = function () {
         /**
          * 更新指定依赖包
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateDependcy(updateDependcyRequest?: UpdateDependcyRequest) {
             const options = {
@@ -4346,8 +4223,7 @@ export const ParamCreater = function () {
         /**
          * 更新测试事件详细信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEvent(updateEventRequest?: UpdateEventRequest) {
             const options = {
@@ -4398,8 +4274,7 @@ export const ParamCreater = function () {
         /**
          * 设置函数异步配置信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateFunctionAsyncInvokeConfig(updateFunctionAsyncInvokeConfigRequest?: UpdateFunctionAsyncInvokeConfigRequest) {
             const options = {
@@ -4444,8 +4319,7 @@ export const ParamCreater = function () {
         /**
          * 修改指定的函数的代码。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateFunctionCode(updateFunctionCodeRequest?: UpdateFunctionCodeRequest) {
             const options = {
@@ -4490,8 +4364,7 @@ export const ParamCreater = function () {
         /**
          * 修改指定的函数的metadata信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateFunctionConfig(updateFunctionConfigRequest?: UpdateFunctionConfigRequest) {
             const options = {
@@ -4536,8 +4409,7 @@ export const ParamCreater = function () {
         /**
          * 更新函数最大实例数
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateFunctionMaxInstanceConfig(updateFunctionMaxInstanceConfigRequest?: UpdateFunctionMaxInstanceConfigRequest) {
             const options = {
@@ -4582,8 +4454,7 @@ export const ParamCreater = function () {
         /**
          * 修改函数预留实例数量。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateFunctionReservedInstancesCount(updateFunctionReservedInstancesCountRequest?: UpdateFunctionReservedInstancesCountRequest) {
             const options = {
@@ -4628,8 +4499,7 @@ export const ParamCreater = function () {
         /**
          * 修改函数调用链配置,开通/修改传入aksk，关闭aksk传空
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateTracing(updateTracingRequest?: UpdateTracingRequest) {
             const options = {
@@ -4674,8 +4544,7 @@ export const ParamCreater = function () {
         /**
          * 更新触发器
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateTrigger(updateTriggerRequest?: UpdateTriggerRequest) {
             const options = {
@@ -4732,8 +4601,7 @@ export const ParamCreater = function () {
         /**
          * 修改函数版本别名信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateVersionAlias(updateVersionAliasRequest?: UpdateVersionAliasRequest) {
             const options = {
@@ -4784,8 +4652,7 @@ export const ParamCreater = function () {
         /**
          * 修改指定函数流实例的元数据
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateWorkFlow(updateWorkFlowRequest?: UpdateWorkFlowRequest) {
             const options = {

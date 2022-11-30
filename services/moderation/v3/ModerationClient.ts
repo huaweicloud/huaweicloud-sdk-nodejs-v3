@@ -63,8 +63,7 @@ export class ModerationClient {
     /**
      * 分析并识别用户上传的图像内容是否有敏感内容（如涉及暴恐元素、涉黄内容等），并将识别结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 图像内容审核
      * @param {ImageDetectionReq} runImageModerationRequestBody 图像内容审核请求体
@@ -81,8 +80,7 @@ export class ModerationClient {
     /**
      * 分析并识别用户上传的音频内容是否有敏感内容（如色情、政治等），并将识别结果返回给用户
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建音频内容审核作业
      * @param {AudioCreateRequest} runTextModerationRequestBody 音频内容审核请求体
@@ -99,8 +97,7 @@ export class ModerationClient {
     /**
      * 创建视频内容审核作业，创建成功会将作业ID返回给用户
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建视频内容审核作业
      * @param {VideoCreateRequest} runVideoModerationRequestBody 视频内容审核请求体
@@ -116,8 +113,7 @@ export class ModerationClient {
 
     /**
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询音频内容审核作业
      * @param {string} jobId 
@@ -134,8 +130,7 @@ export class ModerationClient {
     /**
      * 查询视频审核作业处理状态与结果，并将识别结果返回给用户
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询视频内容审核作业
      * @param {string} jobId 创建作业成功时，接口返回的job_id。
@@ -152,8 +147,7 @@ export class ModerationClient {
     /**
      * 分析并识别用户上传的文本内容是否有敏感内容（如色情、政治等），并将识别结果返回给用户
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 文本内容审核
      * @param {TextDetectionReq} runTextModerationRequestBody 文本内容审核请求体
@@ -174,8 +168,7 @@ export const ParamCreater = function () {
         /**
          * 分析并识别用户上传的图像内容是否有敏感内容（如涉及暴恐元素、涉黄内容等），并将识别结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         checkImageModeration(checkImageModerationRequest?: CheckImageModerationRequest) {
             const options = {
@@ -213,8 +206,7 @@ export const ParamCreater = function () {
         /**
          * 分析并识别用户上传的音频内容是否有敏感内容（如色情、政治等），并将识别结果返回给用户
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runCreateAudioModerationJob(runCreateAudioModerationJobRequest?: RunCreateAudioModerationJobRequest) {
             const options = {
@@ -252,8 +244,7 @@ export const ParamCreater = function () {
         /**
          * 创建视频内容审核作业，创建成功会将作业ID返回给用户
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runCreateVideoModerationJob(runCreateVideoModerationJobRequest?: RunCreateVideoModerationJobRequest) {
             const options = {
@@ -290,8 +281,7 @@ export const ParamCreater = function () {
     
         /**
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runQueryAudioModerationJob(runQueryAudioModerationJobRequest?: RunQueryAudioModerationJobRequest) {
             const options = {
@@ -328,8 +318,7 @@ export const ParamCreater = function () {
         /**
          * 查询视频审核作业处理状态与结果，并将识别结果返回给用户
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runQueryVideoModerationJob(runQueryVideoModerationJobRequest?: RunQueryVideoModerationJobRequest) {
             const options = {
@@ -366,8 +355,7 @@ export const ParamCreater = function () {
         /**
          * 分析并识别用户上传的文本内容是否有敏感内容（如色情、政治等），并将识别结果返回给用户
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runTextModeration(runTextModerationRequest?: RunTextModerationRequest) {
             const options = {

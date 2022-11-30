@@ -81,8 +81,7 @@ export class AosClient {
     /**
      * 此命令用于执行已有的执行计划(execution plan)
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 此命令用于执行已有的执行计划(execution plan)
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -103,8 +102,7 @@ export class AosClient {
     /**
      * 此命令用于生成一个执行计划(execution plan)
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 此命令用于生成一个执行计划(execution plan)
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -124,8 +122,7 @@ export class AosClient {
     /**
      * 删除堆栈
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除堆栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -146,8 +143,7 @@ export class AosClient {
     /**
      * 预估执行计划的价格
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 预估执行计划的价格
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -169,8 +165,7 @@ export class AosClient {
     /**
      * 获取堆栈当前使用的模板
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取堆栈模板
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -191,8 +186,7 @@ export class AosClient {
     /**
      * 列举执行计划
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列举执行计划
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -213,8 +207,7 @@ export class AosClient {
     /**
      * 获取栈的细节更新状态，可以获取整个栈从生成到当前时间点的所有状态
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取栈的细节更新状态
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -238,8 +231,7 @@ export class AosClient {
     /**
      * 列举堆栈的输出
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列举堆栈的输出
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -262,8 +254,7 @@ export class AosClient {
     /**
      * 获取堆栈的资源列表，可以获取整个栈从生成到当前时间点的所有状态
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取堆栈的资源列表
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -284,8 +275,7 @@ export class AosClient {
     /**
      * 此命令用于解析模板参数
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 此命令用于解析模板参数
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -307,8 +297,7 @@ export class AosClient {
      * * 如果资源栈当前可以回滚，即处于&#x60;ROLLBACK_FAILED&#x60;，则返回202与对应生成的deploymentId，否则将不允许回滚并返回响应的错误码
      * * 继续回滚也有可能会回滚失败。如果失败，用户可以从ListStackEvents获取对应的log，解决后可再次调用ContinueRollbackStack去继续触发回滚
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 继续回滚资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -331,8 +320,7 @@ export class AosClient {
      * * 当请求中不含有模板（template）、参数（vars）等信息，将生成一个无任何资源的空资源栈，返回资源栈ID（stack_id）
      * * 当请求中携带了模板（template）、参数（vars）等信息，则会同时创建并部署资源栈，返回资源栈ID（stack_id）和部署ID（deployment_id）
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -359,8 +347,7 @@ export class AosClient {
      * 
      * * 当触发的部署失败时，如果堆栈开启了自动回滚，会触发自动回滚的流程，否则就会停留在部署失败时的状态
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 部署一个已有的资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -386,8 +373,7 @@ export class AosClient {
      * 
      * ListStacks返回的只有摘要信息（具体摘要信息见ListStacksResponseBody），如果用户需要详细的资源栈元数据请调用GetStackMetadata
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 列举堆栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
@@ -410,8 +396,7 @@ export const ParamCreater = function () {
         /**
          * 此命令用于执行已有的执行计划(execution plan)
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         applyExecutionPlan(applyExecutionPlanRequest?: ApplyExecutionPlanRequest) {
             const options = {
@@ -474,8 +459,7 @@ export const ParamCreater = function () {
         /**
          * 此命令用于生成一个执行计划(execution plan)
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createExecutionPlan(createExecutionPlanRequest?: CreateExecutionPlanRequest) {
             const options = {
@@ -532,8 +516,7 @@ export const ParamCreater = function () {
         /**
          * 删除堆栈
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteStack(deleteStackRequest?: DeleteStackRequest) {
             const options = {
@@ -595,8 +578,7 @@ export const ParamCreater = function () {
         /**
          * 预估执行计划的价格
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         estimateExecutionPlanPrice(estimateExecutionPlanPriceRequest?: EstimateExecutionPlanPriceRequest) {
             const options = {
@@ -664,8 +646,7 @@ export const ParamCreater = function () {
         /**
          * 获取堆栈当前使用的模板
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         getStackTemplate(getStackTemplateRequest?: GetStackTemplateRequest) {
             const options = {
@@ -727,8 +708,7 @@ export const ParamCreater = function () {
         /**
          * 列举执行计划
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listExecutionPlans(listExecutionPlansRequest?: ListExecutionPlansRequest) {
             const options = {
@@ -790,8 +770,7 @@ export const ParamCreater = function () {
         /**
          * 获取栈的细节更新状态，可以获取整个栈从生成到当前时间点的所有状态
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listStackEvents(listStackEventsRequest?: ListStackEventsRequest) {
             const options = {
@@ -871,8 +850,7 @@ export const ParamCreater = function () {
         /**
          * 列举堆栈的输出
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listStackOutputs(listStackOutputsRequest?: ListStackOutputsRequest) {
             const options = {
@@ -946,8 +924,7 @@ export const ParamCreater = function () {
         /**
          * 获取堆栈的资源列表，可以获取整个栈从生成到当前时间点的所有状态
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listStackResources(listStackResourcesRequest?: ListStackResourcesRequest) {
             const options = {
@@ -1009,8 +986,7 @@ export const ParamCreater = function () {
         /**
          * 此命令用于解析模板参数
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         parseTemplateVariables(parseTemplateVariablesRequest?: ParseTemplateVariablesRequest) {
             const options = {
@@ -1064,8 +1040,7 @@ export const ParamCreater = function () {
          * * 如果资源栈当前可以回滚，即处于&#x60;ROLLBACK_FAILED&#x60;，则返回202与对应生成的deploymentId，否则将不允许回滚并返回响应的错误码
          * * 继续回滚也有可能会回滚失败。如果失败，用户可以从ListStackEvents获取对应的log，解决后可再次调用ContinueRollbackStack去继续触发回滚
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         continueRollbackStack(continueRollbackStackRequest?: ContinueRollbackStackRequest) {
             const options = {
@@ -1125,8 +1100,7 @@ export const ParamCreater = function () {
          * * 当请求中不含有模板（template）、参数（vars）等信息，将生成一个无任何资源的空资源栈，返回资源栈ID（stack_id）
          * * 当请求中携带了模板（template）、参数（vars）等信息，则会同时创建并部署资源栈，返回资源栈ID（stack_id）和部署ID（deployment_id）
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createStack(createStackRequest?: CreateStackRequest) {
             const options = {
@@ -1185,8 +1159,7 @@ export const ParamCreater = function () {
          * 
          * * 当触发的部署失败时，如果堆栈开启了自动回滚，会触发自动回滚的流程，否则就会停留在部署失败时的状态
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deployStack(deployStackRequest?: DeployStackRequest) {
             const options = {
@@ -1249,8 +1222,7 @@ export const ParamCreater = function () {
          * 
          * ListStacks返回的只有摘要信息（具体摘要信息见ListStacksResponseBody），如果用户需要详细的资源栈元数据请调用GetStackMetadata
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listStacks(listStacksRequest?: ListStacksRequest) {
             const options = {

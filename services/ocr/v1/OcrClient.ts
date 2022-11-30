@@ -216,8 +216,7 @@ export class OcrClient {
      * 
      * 只对识别成功的票证进行计费，识别失败的票证不计费。例如图片中包含三张票证，有两张识别成功，一张识别失败，此时接口计费两次。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 智能分类识别
      * @param {AutoClassificationRequestBody} autoClassificationRequestBody This is a auto create Body Object
@@ -239,8 +238,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 银行卡识别
      * @param {BankcardRequestBody} bankcardRequestBody This is a auto create Body Object Object
@@ -258,8 +256,7 @@ export class OcrClient {
     /**
      * 识别名片图片上的文字信息，并返回识别的结构化结果。支持对多种不同版式名片进行结构化信息提取。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 名片识别
      * @param {BusinessCardRequestBody} businessCardRequestBody This is a businesscard Body Object
@@ -281,8 +278,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 营业执照识别
      * @param {BusinessLicenseRequestBody} businessLicenseRequestBody This is a auto create Body Object
@@ -300,8 +296,7 @@ export class OcrClient {
     /**
      * 识别柬文身份证图片中的文字内容，并将识别的结构化结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 柬文身份证识别
      * @param {CambodianIdCardRequestBody} cambodianIdCardRequestBody This is a Cambodian ID Card OCR Body Object
@@ -319,8 +314,7 @@ export class OcrClient {
     /**
      * 识别智利身份证图片中的文字内容，并返回识别的结构化结果。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 智利身份证识别
      * @param {ChileIdCardRequestBody} chileIdCardRequestBody This is a chile id-card Body Object
@@ -342,8 +336,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用智能分类识别服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 驾驶证识别
      * @param {DriverLicenseRequestBody} driverLicenseRequestBody This is a driverlicense Body Object
@@ -361,8 +354,7 @@ export class OcrClient {
     /**
      * 识别往来港澳台证件图片中的文字内容，并将识别的结构化结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 往来港澳台通行证识别
      * @param {ExitEntryPermitRequestBody} exitEntryPermitRequestBody This is a Exit-Entry Permit for Traveling to and from Hong Kong, Macao, and Taiwan Body Object
@@ -380,8 +372,7 @@ export class OcrClient {
     /**
      * 识别用户上传的表格图片中的文字内容，并将识别的结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 财务报表识别
      * @param {FinancialStatementRequestBody} financialStatementRequestBody This is a financial statement Body Object
@@ -403,8 +394,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用智能分类识别服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 飞机行程单识别
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
@@ -422,8 +412,7 @@ export class OcrClient {
     /**
      * 识别用于识别用户上传的通用表格图片（或者用户提供的华为云上OBS的通用表格图片文件的URL）中的文字内容，并将识别的结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 通用表格识别
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
@@ -441,8 +430,7 @@ export class OcrClient {
     /**
      * 识别图片上的文字信息，返回识别的文字和坐标。支持扫描文件、电子文档、书籍、票据和表单等多种场景的文字识别。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 通用文字识别
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
@@ -460,8 +448,7 @@ export class OcrClient {
     /**
      * 识别文档中的手写文字信息，并将识别的结构化结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 手写文字识别
      * @param {HandwritingRequestBody} handwritingRequestBody This is a auto create Body Object
@@ -479,8 +466,7 @@ export class OcrClient {
     /**
      * 支持对全国各地区不同版式的防疫健康码、核酸检测记录、行程卡中的14个关键字段进行结构化识别；支持识别4种健康码颜色，包括绿码、黄码、红码、灰码；支持返回各个关键字段的置信度，以便提高人工校验效率。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 防疫健康码识别
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
@@ -498,8 +484,7 @@ export class OcrClient {
     /**
      * 识别香港身份证中的文字内容，并将识别的结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 香港身份证识别
      * @param {HkIdCardRequestBody} hkIdCardRequestBody This is a hk id card Body Object
@@ -523,8 +508,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 身份证识别
      * @param {IdCardRequestBody} idCardRequestBody This is a idcard Body Object
@@ -566,8 +550,7 @@ export class OcrClient {
      * - DL: driving license,驾驶证
      * - ID: identification card,各国颁发的身份证类型证件，比如身份证、选民证、社保卡等。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 通用证件识别
      * @param {IdDocumentRequestBody} idDocumentRequestBody This is a General Identity Document Body Object
@@ -585,8 +568,7 @@ export class OcrClient {
     /**
      * 识别保险单图片上的文字信息，并将识别的结构化结果返回给用户。支持对多板式保险单的扫描图片及手机照片进行结构化信息提取。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 保险单识别
      * @param {InsurancePolicyRequestBody} insurancePolicyRequestBody This is a insurance policy request Body Object
@@ -604,8 +586,7 @@ export class OcrClient {
     /**
      * 发票验真服务支持10种增值税发票的信息核验，包括增值税专用发票、增值税普通发票、增值税普通发票（卷式）、增值税电子专用发票、增值税电子普通发票、增值税电子普通发票（通行费）、二手车销售统一发票、机动车销售统一发票、区块链电子发票、全电发票，支持返回票面的全部信息。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 发票验真
      * @param {InvoiceVerificationRequestBody} invoiceVerificationRequestBody This is a invoice verification Body Object
@@ -623,8 +604,7 @@ export class OcrClient {
     /**
      * 识别输入图片中的车牌信息，并返回其坐标和内容。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 车牌识别
      * @param {LicensePlateRequestBody} licensePlateRequestBody This is a auto create Body Object
@@ -642,8 +622,7 @@ export class OcrClient {
     /**
      * 识别澳门身份证图片中的文字内容，并将识别的结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 澳门身份证识别
      * @param {MacaoIdCardRequestBody} macaoIdCardRequestBody This is a macao id card Body Object
@@ -661,8 +640,7 @@ export class OcrClient {
     /**
      * 识别港澳居民来往内地通行证上的文字内容，并将识别的结构化结果返回给用户。支持港澳居民来往内地通行证和台湾居民来往内地通行证两种卡证。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 港澳台居民来往内地通行证识别
      * @param {MainlandTravelPermitRequestBody} mainlandTravelPermitRequestBody This is a Mainland Travel Permit for Hong Kong, Macao, and Taiwan Residents Body Object
@@ -686,8 +664,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 机动车销售发票识别
      * @param {MvsInvoiceRequestBody} mvsInvoiceRequestBody This is a MvsInvoice Body Object
@@ -705,8 +682,7 @@ export class OcrClient {
     /**
      * 识别缅甸驾驶证中的文字信息，并返回识别的结构化结果。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 缅文驾驶证识别
      * @param {MyanmarDriverLicenseRequestBody} myanmarDriverLicenseRequestBody This is a Myanmar driver license Body Object
@@ -724,8 +700,7 @@ export class OcrClient {
     /**
      * 识别缅文身份证中的文字信息，并返回识别的结构化结果。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 缅文身份证识别
      * @param {MyanmarIdcardRequestBody} myanmarIdcardRequestBody This is a Myanmar Idcard Body Object
@@ -747,8 +722,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 护照识别
      * @param {PassportRequestBody} passportRequestBody This is a Passport Body Object
@@ -766,8 +740,7 @@ export class OcrClient {
     /**
      * 识别核酸检测记录中的文字信息，并将识别的结构化结果返回给用户。PCR，全称Polymerase chain reaction,即聚合酶链式反应.PCR-test也为大众所认知为新型冠状病毒核酸检测测试。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 核酸检测记录识别
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
@@ -789,8 +762,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 道路运输从业资格证识别
      * @param {QualificationCertificateRequestBody} qualificationCertificateRequestBody This is a auto create Body Object Object
@@ -812,8 +784,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 定额发票识别
      * @param {QuotaInvoiceRequestBody} quotaInvoiceRequestBody This is a auto create Body Object
@@ -835,8 +806,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用智能分类识别服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 出租车发票识别
      * @param {TaxiInvoiceRequestBody} taxiInvoiceRequestBody This is a taxiinvoice Body Object
@@ -854,8 +824,7 @@ export class OcrClient {
     /**
      * 识别泰国身份证中的文字信息，并返回识别的结构化结果。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 泰文身份证识别
      * @param {ThailandIdcardRequestBody} thailandIdcardRequestBody This is a Thailand Idcard Body Object
@@ -873,8 +842,7 @@ export class OcrClient {
     /**
      * 识别泰国车牌图片中的车牌信息，并返回识别的结构化结果。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 泰国车牌识别
      * @param {ThailandLicensePlateRequestBody} thailandLicensePlateRequestBody This is a thailand license plate Body Object
@@ -896,8 +864,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 车辆通行费发票识别
      * @param {TollInvoiceRequestBody} tollInvoiceRequestBody This is a auto create Body Object
@@ -919,8 +886,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 火车票识别
      * @param {TrainTicketRequestBody} trainTicketRequestBody This is a train ticket Body Object
@@ -940,8 +906,7 @@ export class OcrClient {
      * 
      * 说明： 如果图片中包含多张卡证票据，请调用智能分类识别服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 道路运输证识别
      * @param {TransportationLicenseRequestBody} transportationLicenseRequestBody This is a train ticket Body Object
@@ -967,8 +932,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用智能分类识别服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 增值税发票识别
      * @param {VatInvoiceRequestBody} vatInvoiceRequestBody This is a auto create Body Object
@@ -990,8 +954,7 @@ export class OcrClient {
      * 
      * 如果图片中包含多张卡证票据，请调用智能分类识别服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 行驶证识别
      * @param {VehicleLicenseRequestBody} vehicleLicenseRequestBody This is a auto create Body Object
@@ -1009,8 +972,7 @@ export class OcrClient {
     /**
      * 识别用户上传的韵达电子面单图片中的文字内容，并将识别的结果以json格式返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 电子面单识别
      * @param {WaybillElectronicRequestBody} waybillElectronicRequestBody This is a thailand license plate Body Object
@@ -1028,8 +990,7 @@ export class OcrClient {
     /**
      * 识别网络图片中的文字内容，并返回识别的结构化结果。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 网络图片识别
      * @param {WebImageRequestBody} webImageRequestBody This is a Web Image Body Object
@@ -1047,8 +1008,7 @@ export class OcrClient {
     /**
      * 识别图片中的车架号信息，并将识别结果返回给用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary VIN码识别
      * @param {VinRequestBody} vinRequestBody This is a Vin Body Object
@@ -1074,8 +1034,7 @@ export const ParamCreater = function () {
          * 
          * 只对识别成功的票证进行计费，识别失败的票证不计费。例如图片中包含三张票证，有两张识别成功，一张识别失败，此时接口计费两次。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeAutoClassification(recognizeAutoClassificationRequest?: RecognizeAutoClassificationRequest) {
             const options = {
@@ -1123,8 +1082,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeBankcard(recognizeBankcardRequest?: RecognizeBankcardRequest) {
             const options = {
@@ -1168,8 +1126,7 @@ export const ParamCreater = function () {
         /**
          * 识别名片图片上的文字信息，并返回识别的结构化结果。支持对多种不同版式名片进行结构化信息提取。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeBusinessCard(recognizeBusinessCardRequest?: RecognizeBusinessCardRequest) {
             const options = {
@@ -1217,8 +1174,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeBusinessLicense(recognizeBusinessLicenseRequest?: RecognizeBusinessLicenseRequest) {
             const options = {
@@ -1262,8 +1218,7 @@ export const ParamCreater = function () {
         /**
          * 识别柬文身份证图片中的文字内容，并将识别的结构化结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeCambodianIdCard(recognizeCambodianIdCardRequest?: RecognizeCambodianIdCardRequest) {
             const options = {
@@ -1307,8 +1262,7 @@ export const ParamCreater = function () {
         /**
          * 识别智利身份证图片中的文字内容，并返回识别的结构化结果。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeChileIdCard(recognizeChileIdCardRequest?: RecognizeChileIdCardRequest) {
             const options = {
@@ -1356,8 +1310,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用智能分类识别服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeDriverLicense(recognizeDriverLicenseRequest?: RecognizeDriverLicenseRequest) {
             const options = {
@@ -1401,8 +1354,7 @@ export const ParamCreater = function () {
         /**
          * 识别往来港澳台证件图片中的文字内容，并将识别的结构化结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeExitEntryPermit(recognizeExitEntryPermitRequest?: RecognizeExitEntryPermitRequest) {
             const options = {
@@ -1446,8 +1398,7 @@ export const ParamCreater = function () {
         /**
          * 识别用户上传的表格图片中的文字内容，并将识别的结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeFinancialStatement(recognizeFinancialStatementRequest?: RecognizeFinancialStatementRequest) {
             const options = {
@@ -1495,8 +1446,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用智能分类识别服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeFlightItinerary(recognizeFlightItineraryRequest?: RecognizeFlightItineraryRequest) {
             const options = {
@@ -1537,8 +1487,7 @@ export const ParamCreater = function () {
         /**
          * 识别用于识别用户上传的通用表格图片（或者用户提供的华为云上OBS的通用表格图片文件的URL）中的文字内容，并将识别的结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeGeneralTable(recognizeGeneralTableRequest?: RecognizeGeneralTableRequest) {
             const options = {
@@ -1579,8 +1528,7 @@ export const ParamCreater = function () {
         /**
          * 识别图片上的文字信息，返回识别的文字和坐标。支持扫描文件、电子文档、书籍、票据和表单等多种场景的文字识别。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeGeneralText(recognizeGeneralTextRequest?: RecognizeGeneralTextRequest) {
             const options = {
@@ -1621,8 +1569,7 @@ export const ParamCreater = function () {
         /**
          * 识别文档中的手写文字信息，并将识别的结构化结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeHandwriting(recognizeHandwritingRequest?: RecognizeHandwritingRequest) {
             const options = {
@@ -1666,8 +1613,7 @@ export const ParamCreater = function () {
         /**
          * 支持对全国各地区不同版式的防疫健康码、核酸检测记录、行程卡中的14个关键字段进行结构化识别；支持识别4种健康码颜色，包括绿码、黄码、红码、灰码；支持返回各个关键字段的置信度，以便提高人工校验效率。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeHealthCode(recognizeHealthCodeRequest?: RecognizeHealthCodeRequest) {
             const options = {
@@ -1708,8 +1654,7 @@ export const ParamCreater = function () {
         /**
          * 识别香港身份证中的文字内容，并将识别的结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeHkIdCard(recognizeHkIdCardRequest?: RecognizeHkIdCardRequest) {
             const options = {
@@ -1759,8 +1704,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeIdCard(recognizeIdCardRequest?: RecognizeIdCardRequest) {
             const options = {
@@ -1828,8 +1772,7 @@ export const ParamCreater = function () {
          * - DL: driving license,驾驶证
          * - ID: identification card,各国颁发的身份证类型证件，比如身份证、选民证、社保卡等。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeIdDocument(recognizeIdDocumentRequest?: RecognizeIdDocumentRequest) {
             const options = {
@@ -1873,8 +1816,7 @@ export const ParamCreater = function () {
         /**
          * 识别保险单图片上的文字信息，并将识别的结构化结果返回给用户。支持对多板式保险单的扫描图片及手机照片进行结构化信息提取。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeInsurancePolicy(recognizeInsurancePolicyRequest?: RecognizeInsurancePolicyRequest) {
             const options = {
@@ -1918,8 +1860,7 @@ export const ParamCreater = function () {
         /**
          * 发票验真服务支持10种增值税发票的信息核验，包括增值税专用发票、增值税普通发票、增值税普通发票（卷式）、增值税电子专用发票、增值税电子普通发票、增值税电子普通发票（通行费）、二手车销售统一发票、机动车销售统一发票、区块链电子发票、全电发票，支持返回票面的全部信息。该接口的使用限制请参见[约束与限制](https://support.huaweicloud.com/productdesc-ocr/ocr_01_0006.html)，详细使用指导请参见[OCR服务使用简介](https://support.huaweicloud.com/qs-ocr/ocr_05_0001.html)章节。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeInvoiceVerification(recognizeInvoiceVerificationRequest?: RecognizeInvoiceVerificationRequest) {
             const options = {
@@ -1963,8 +1904,7 @@ export const ParamCreater = function () {
         /**
          * 识别输入图片中的车牌信息，并返回其坐标和内容。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeLicensePlate(recognizeLicensePlateRequest?: RecognizeLicensePlateRequest) {
             const options = {
@@ -2008,8 +1948,7 @@ export const ParamCreater = function () {
         /**
          * 识别澳门身份证图片中的文字内容，并将识别的结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeMacaoIdCard(recognizeMacaoIdCardRequest?: RecognizeMacaoIdCardRequest) {
             const options = {
@@ -2053,8 +1992,7 @@ export const ParamCreater = function () {
         /**
          * 识别港澳居民来往内地通行证上的文字内容，并将识别的结构化结果返回给用户。支持港澳居民来往内地通行证和台湾居民来往内地通行证两种卡证。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeMainlandTravelPermit(recognizeMainlandTravelPermitRequest?: RecognizeMainlandTravelPermitRequest) {
             const options = {
@@ -2104,8 +2042,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeMvsInvoice(recognizeMvsInvoiceRequest?: RecognizeMvsInvoiceRequest) {
             const options = {
@@ -2149,8 +2086,7 @@ export const ParamCreater = function () {
         /**
          * 识别缅甸驾驶证中的文字信息，并返回识别的结构化结果。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeMyanmarDriverLicense(recognizeMyanmarDriverLicenseRequest?: RecognizeMyanmarDriverLicenseRequest) {
             const options = {
@@ -2194,8 +2130,7 @@ export const ParamCreater = function () {
         /**
          * 识别缅文身份证中的文字信息，并返回识别的结构化结果。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeMyanmarIdcard(recognizeMyanmarIdcardRequest?: RecognizeMyanmarIdcardRequest) {
             const options = {
@@ -2243,8 +2178,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizePassport(recognizePassportRequest?: RecognizePassportRequest) {
             const options = {
@@ -2288,8 +2222,7 @@ export const ParamCreater = function () {
         /**
          * 识别核酸检测记录中的文字信息，并将识别的结构化结果返回给用户。PCR，全称Polymerase chain reaction,即聚合酶链式反应.PCR-test也为大众所认知为新型冠状病毒核酸检测测试。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizePcrTestRecord(recognizePcrTestRecordRequest?: RecognizePcrTestRecordRequest) {
             const options = {
@@ -2334,8 +2267,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeQualificationCertificate(recognizeQualificationCertificateRequest?: RecognizeQualificationCertificateRequest) {
             const options = {
@@ -2383,8 +2315,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeQuotaInvoice(recognizeQuotaInvoiceRequest?: RecognizeQuotaInvoiceRequest) {
             const options = {
@@ -2432,8 +2363,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用智能分类识别服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeTaxiInvoice(recognizeTaxiInvoiceRequest?: RecognizeTaxiInvoiceRequest) {
             const options = {
@@ -2477,8 +2407,7 @@ export const ParamCreater = function () {
         /**
          * 识别泰国身份证中的文字信息，并返回识别的结构化结果。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeThailandIdcard(recognizeThailandIdcardRequest?: RecognizeThailandIdcardRequest) {
             const options = {
@@ -2522,8 +2451,7 @@ export const ParamCreater = function () {
         /**
          * 识别泰国车牌图片中的车牌信息，并返回识别的结构化结果。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeThailandLicensePlate(recognizeThailandLicensePlateRequest?: RecognizeThailandLicensePlateRequest) {
             const options = {
@@ -2571,8 +2499,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeTollInvoice(recognizeTollInvoiceRequest?: RecognizeTollInvoiceRequest) {
             const options = {
@@ -2620,8 +2547,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用[智能分类识别](https://apiexplorer.developer.huaweicloud.com/apiexplorer/doc?product&#x3D;OCR&amp;api&#x3D;AutoClassification)服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeTrainTicket(recognizeTrainTicketRequest?: RecognizeTrainTicketRequest) {
             const options = {
@@ -2667,8 +2593,7 @@ export const ParamCreater = function () {
          * 
          * 说明： 如果图片中包含多张卡证票据，请调用智能分类识别服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeTransportationLicense(recognizeTransportationLicenseRequest?: RecognizeTransportationLicenseRequest) {
             const options = {
@@ -2720,8 +2645,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用智能分类识别服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeVatInvoice(recognizeVatInvoiceRequest?: RecognizeVatInvoiceRequest) {
             const options = {
@@ -2769,8 +2693,7 @@ export const ParamCreater = function () {
          * 
          * 如果图片中包含多张卡证票据，请调用智能分类识别服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeVehicleLicense(recognizeVehicleLicenseRequest?: RecognizeVehicleLicenseRequest) {
             const options = {
@@ -2814,8 +2737,7 @@ export const ParamCreater = function () {
         /**
          * 识别用户上传的韵达电子面单图片中的文字内容，并将识别的结果以json格式返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeWaybillElectronic(recognizeWaybillElectronicRequest?: RecognizeWaybillElectronicRequest) {
             const options = {
@@ -2859,8 +2781,7 @@ export const ParamCreater = function () {
         /**
          * 识别网络图片中的文字内容，并返回识别的结构化结果。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeWebImage(recognizeWebImageRequest?: RecognizeWebImageRequest) {
             const options = {
@@ -2904,8 +2825,7 @@ export const ParamCreater = function () {
         /**
          * 识别图片中的车架号信息，并将识别结果返回给用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeVin(recognizeVinRequest?: RecognizeVinRequest) {
             const options = {

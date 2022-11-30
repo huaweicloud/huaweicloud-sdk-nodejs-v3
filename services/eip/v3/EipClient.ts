@@ -36,6 +36,10 @@ import { ShowPublicipPoolResponse } from './model/ShowPublicipPoolResponse';
 import { ShowPublicipRequest } from './model/ShowPublicipRequest';
 import { ShowPublicipResponse } from './model/ShowPublicipResponse';
 import { TagsInfo } from './model/TagsInfo';
+import { UpdateAssociatePublicipRequest } from './model/UpdateAssociatePublicipRequest';
+import { UpdateAssociatePublicipResponse } from './model/UpdateAssociatePublicipResponse';
+import { UpdateDisassociatePublicipRequest } from './model/UpdateDisassociatePublicipRequest';
+import { UpdateDisassociatePublicipResponse } from './model/UpdateDisassociatePublicipResponse';
 import { VnicInfo } from './model/VnicInfo';
 
 export class EipClient {
@@ -56,8 +60,7 @@ export class EipClient {
     /**
      * 查询公共池列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询公共池列表
      * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/status/type/used/allow_share_bandwidth_types/public_border_group
@@ -76,8 +79,7 @@ export class EipClient {
     /**
      * 查询公共池分组列表，包含名称和位置信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询公共池分组列表
      * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：publicip_pools/public_border_group
@@ -94,8 +96,7 @@ export class EipClient {
     /**
      * 查询指定租户下的共享带宽类型列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定租户下的共享带宽类型列表
      * @param {string} [fields] 形式为\\\&quot;fields&#x3D;id&amp;fields&#x3D;bandwidth_type&amp;...\\\&quot;，支持字段：id/bandwidth_type/name_en/name_zh/created_at/update_at/public_border_group/description
@@ -120,8 +121,7 @@ export class EipClient {
     /**
      * 绑定弹性公网IP
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 绑定弹性公网IP
      * @param {string} publicipId 弹性公网IP的ID
@@ -139,12 +139,10 @@ export class EipClient {
     /**
      * 解绑弹性公网IP
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 解绑弹性公网IP
      * @param {string} publicipId 弹性公网IP的ID
-     * @param {DisassociatePublicipsRequestBody} disassociatePublicipsRequestBody 弹性公网ip对象
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -158,8 +156,7 @@ export class EipClient {
     /**
      * 全量查询公网IP池列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询公网IP池列表
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
@@ -187,8 +184,7 @@ export class EipClient {
     /**
      * 查询弹性公网IP列表信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 全量查询弹性公网IP列表
      * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
@@ -245,8 +241,7 @@ export class EipClient {
     /**
      * 查询弹性公网IP详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询弹性公网IP详情
      * @param {string} publicipId 弹性公网IP的ID
@@ -264,8 +259,7 @@ export class EipClient {
     /**
      * 查询公网IP池详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询公网IP池详情
      * @param {string} publicipPoolId 公网IP池ID唯一标识
@@ -279,6 +273,42 @@ export class EipClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 绑定弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定弹性公网IP
+     * @param {string} publicipId 弹性公网IP的ID
+     * @param {AssociatePublicipsRequestBody} associatePublicipsRequestBody 弹性公网ip对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAssociatePublicip(updateAssociatePublicipRequest?: UpdateAssociatePublicipRequest): Promise<UpdateAssociatePublicipResponse> {
+        const options = ParamCreater().updateAssociatePublicip(updateAssociatePublicipRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解绑弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解绑弹性公网IP
+     * @param {string} publicipId 弹性公网IP的ID
+     * @param {DisassociatePublicipsRequestBody} disassociatePublicipsRequestBody 弹性公网ip对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDisassociatePublicip(updateDisassociatePublicipRequest?: UpdateDisassociatePublicipRequest): Promise<UpdateDisassociatePublicipResponse> {
+        const options = ParamCreater().updateDisassociatePublicip(updateDisassociatePublicipRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -287,8 +317,7 @@ export const ParamCreater = function () {
         /**
          * 查询公共池列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listCommonPools(listCommonPoolsRequest?: ListCommonPoolsRequest) {
             const options = {
@@ -337,8 +366,7 @@ export const ParamCreater = function () {
         /**
          * 查询公共池分组列表，包含名称和位置信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPublicBorderGroups(listPublicBorderGroupsRequest?: ListPublicBorderGroupsRequest) {
             const options = {
@@ -375,8 +403,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定租户下的共享带宽类型列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listShareBandwidthTypes(listShareBandwidthTypesRequest?: ListShareBandwidthTypesRequest) {
             const options = {
@@ -461,12 +488,11 @@ export const ParamCreater = function () {
         /**
          * 绑定弹性公网IP
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         associatePublicips(associatePublicipsRequest?: AssociatePublicipsRequest) {
             const options = {
-                method: "PUT",
+                method: "POST",
                 url: "/v3/{project_id}/eip/publicips/{publicip_id}/associate-instance",
                 contentType: "application/json;charset=UTF-8",
                 queryParams: {},
@@ -507,14 +533,13 @@ export const ParamCreater = function () {
         /**
          * 解绑弹性公网IP
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         disassociatePublicips(disassociatePublicipsRequest?: DisassociatePublicipsRequest) {
             const options = {
-                method: "PUT",
+                method: "POST",
                 url: "/v3/{project_id}/eip/publicips/{publicip_id}/disassociate-instance",
-                contentType: "application/json;charset=UTF-8",
+                contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
                 headers: {},
@@ -522,16 +547,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
             let publicipId;
 
             if (disassociatePublicipsRequest !== null && disassociatePublicipsRequest !== undefined) {
                 if (disassociatePublicipsRequest instanceof DisassociatePublicipsRequest) {
                     publicipId = disassociatePublicipsRequest.publicipId;
-                    body = disassociatePublicipsRequest.body
                 } else {
                     publicipId = disassociatePublicipsRequest['publicip_id'];
-                    body = disassociatePublicipsRequest['body'];
                 }
             }
 
@@ -539,12 +561,7 @@ export const ParamCreater = function () {
             if (publicipId === null || publicipId === undefined) {
             throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling disassociatePublicips.');
             }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
-            options.data = body !== undefined ? body : {};
             options.pathParams = { 'publicip_id': publicipId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -553,8 +570,7 @@ export const ParamCreater = function () {
         /**
          * 全量查询公网IP池列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPublicipPool(listPublicipPoolRequest?: ListPublicipPoolRequest) {
             const options = {
@@ -657,8 +673,7 @@ export const ParamCreater = function () {
         /**
          * 查询弹性公网IP列表信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPublicips(listPublicipsRequest?: ListPublicipsRequest) {
             const options = {
@@ -935,8 +950,7 @@ export const ParamCreater = function () {
         /**
          * 查询弹性公网IP详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showPublicip(showPublicipRequest?: ShowPublicipRequest) {
             const options = {
@@ -980,8 +994,7 @@ export const ParamCreater = function () {
         /**
          * 查询公网IP池详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showPublicipPool(showPublicipPoolRequest?: ShowPublicipPoolRequest) {
             const options = {
@@ -1018,6 +1031,96 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'publicip_pool_id': publicipPoolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 绑定弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAssociatePublicip(updateAssociatePublicipRequest?: UpdateAssociatePublicipRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/eip/publicips/{publicip_id}/associate-instance",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let publicipId;
+
+            if (updateAssociatePublicipRequest !== null && updateAssociatePublicipRequest !== undefined) {
+                if (updateAssociatePublicipRequest instanceof UpdateAssociatePublicipRequest) {
+                    publicipId = updateAssociatePublicipRequest.publicipId;
+                    body = updateAssociatePublicipRequest.body
+                } else {
+                    publicipId = updateAssociatePublicipRequest['publicip_id'];
+                    body = updateAssociatePublicipRequest['body'];
+                }
+            }
+
+        
+            if (publicipId === null || publicipId === undefined) {
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling updateAssociatePublicip.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'publicip_id': publicipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解绑弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDisassociatePublicip(updateDisassociatePublicipRequest?: UpdateDisassociatePublicipRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/eip/publicips/{publicip_id}/disassociate-instance",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let publicipId;
+
+            if (updateDisassociatePublicipRequest !== null && updateDisassociatePublicipRequest !== undefined) {
+                if (updateDisassociatePublicipRequest instanceof UpdateDisassociatePublicipRequest) {
+                    publicipId = updateDisassociatePublicipRequest.publicipId;
+                    body = updateDisassociatePublicipRequest.body
+                } else {
+                    publicipId = updateDisassociatePublicipRequest['publicip_id'];
+                    body = updateDisassociatePublicipRequest['body'];
+                }
+            }
+
+        
+            if (publicipId === null || publicipId === undefined) {
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling updateDisassociatePublicip.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'publicip_id': publicipId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

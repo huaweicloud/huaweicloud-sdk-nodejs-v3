@@ -47,8 +47,7 @@ export class TmsClient {
     /**
      * 用于创建预定标签。用户创建预定义标签后，可以使用预定义标签来给资源创建标签。该接口支持幂等特性和处理批量数据。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建预定义标签
      * @param {ReqCreatePredefineTag} reqCreatePredefineTag 创建标签
@@ -65,8 +64,7 @@ export class TmsClient {
     /**
      * 用于删除预定标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除预定义标签
      * @param {ReqDeletePredefineTag} reqDeletePredefineTag 删除标签
@@ -83,8 +81,7 @@ export class TmsClient {
     /**
      * 查询标签管理服务的API版本列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询API版本列表
      * @param {*} [options] Override http request option.
@@ -100,8 +97,7 @@ export class TmsClient {
     /**
      * 用于查询预定义标签列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询预定义标签列表
      * @param {string} [key] 键，支持模糊查询，不区分大小写，如果包含“non-URL-safe”的字符，需要进行“urlencoded”。
@@ -123,8 +119,7 @@ export class TmsClient {
     /**
      * 查询标签管理支持的服务
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询标签管理支持的服务
      * @param {'zh-cn' | 'en-us'} [locale] 指定显示语言
@@ -144,8 +139,7 @@ export class TmsClient {
     /**
      * 查询指定的标签管理服务API版本号详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询API版本号详情
      * @param {string} apiVersion API版本号。
@@ -162,8 +156,7 @@ export class TmsClient {
     /**
      * 查询标签的配额信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询标签配额
      * @param {*} [options] Override http request option.
@@ -179,8 +172,7 @@ export class TmsClient {
     /**
      * 修改预定义标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改预定义标签
      * @param {ModifyPrefineTag} reqModifyPredefineTag 修改预定义标签
@@ -201,8 +193,7 @@ export const ParamCreater = function () {
         /**
          * 用于创建预定标签。用户创建预定义标签后，可以使用预定义标签来给资源创建标签。该接口支持幂等特性和处理批量数据。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPredefineTags(createPredefineTagsRequest?: CreatePredefineTagsRequest) {
             const options = {
@@ -240,8 +231,7 @@ export const ParamCreater = function () {
         /**
          * 用于删除预定标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deletePredefineTags(deletePredefineTagsRequest?: DeletePredefineTagsRequest) {
             const options = {
@@ -279,8 +269,7 @@ export const ParamCreater = function () {
         /**
          * 查询标签管理服务的API版本列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listApiVersions() {
             const options = {
@@ -302,8 +291,7 @@ export const ParamCreater = function () {
         /**
          * 用于查询预定义标签列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPredefineTags(listPredefineTagsRequest?: ListPredefineTagsRequest) {
             const options = {
@@ -370,8 +358,7 @@ export const ParamCreater = function () {
         /**
          * 查询标签管理支持的服务
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listProviders(listProvidersRequest?: ListProvidersRequest) {
             const options = {
@@ -426,8 +413,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定的标签管理服务API版本号详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showApiVersion(showApiVersionRequest?: ShowApiVersionRequest) {
             const options = {
@@ -464,8 +450,7 @@ export const ParamCreater = function () {
         /**
          * 查询标签的配额信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showTagQuota() {
             const options = {
@@ -487,8 +472,7 @@ export const ParamCreater = function () {
         /**
          * 修改预定义标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePredefineTags(updatePredefineTagsRequest?: UpdatePredefineTagsRequest) {
             const options = {

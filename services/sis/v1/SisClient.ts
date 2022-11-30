@@ -77,8 +77,7 @@ export class SisClient {
     /**
      * 该接口用于获取录音文件识别结果及识别状态。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取录音文件识别结果
      * @param {string} jobId 录音文件识别任务标识符。
@@ -95,8 +94,7 @@ export class SisClient {
     /**
      * 新建一个热词表，创建成功返回id。每个用户限制创建10个热词表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建热词表
      * @param {PostCreateVocabReq} postCreateVocabReq 请求体。
@@ -113,8 +111,7 @@ export class SisClient {
     /**
      * 通过热词表id删除热词表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除热词表
      * @param {string} vocabularyId 热词表id。
@@ -140,8 +137,7 @@ export class SisClient {
      * 接口约束
      * 录音时长不超过5小时，文件大小不超过300M，识别结果保存72小时（从识别完成的时间算起）。72小时后如果再访问，将会返回 \&quot;task id is not found\&quot;错误。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 提交录音文件识别任务
      * @param {PostTranscriberJobs} [postTranscribe] 请求体。
@@ -159,8 +155,7 @@ export class SisClient {
      * 极速版ASR(Restful API 接口, 适用于音频(文件大小&lt;&#x3D;100M,语音时长&lt;&#x3D;30分钟)文件的同步识别。
      * 此接口以POST方式一次性上传整个音频或从华为OBS中下载音频， 识别结果将在请求响应中即刻返回，用于语音文件极速转写，质检分析的离线场景。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 录音文件识别极速版
      * @param {'chinese_8k_common' | 'chinese_16k_conversation'} property 所使用的模型特征串。通常是 “语种_采样率_领域”的形式。 采样率需要与音频采样率保持一致。 当前支持如下模型特征串： chinese_8k_common chinese_16k_conversation
@@ -185,8 +180,7 @@ export class SisClient {
     /**
      * 一句话识别接口，用于短语音的同步识别。一次性上传整个音频，响应中即返回识别结果。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 一句话识别
      * @param {PostShortAudioReq} postShortAudioReq 请求体。
@@ -203,8 +197,7 @@ export class SisClient {
     /**
      * 口语评测接口，基于一小段朗读语音和预期文本，评价朗读者发音质量。当前仅支持华北-北京四。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 语音评测
      * @param {PostShortAudioAssessmentReq} postShortAudioAssessmentReq 
@@ -221,8 +214,7 @@ export class SisClient {
     /**
      * 多模态评测接口，根据朗读视频数据、视频对应的音频数据和试题文本，综合给出朗读者口语的评测分数。当前仅支持华北-北京四。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 多模态评测
      * @param {PostMultiModalAssessmentReq} postShortVideoAssessmentReq 
@@ -239,8 +231,7 @@ export class SisClient {
     /**
      * 语音合成，是一种将文本转换成逼真语音的服务。用户通过实时访问和调用API获取语音合成结果，将用户输入的文字合成为音频。通过音色选择、自定义音量、语速，为企业和个人提供个性化的发音服务
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 语音合成
      * @param {PostCustomTTSReq} postCustomTTSReq 请求体
@@ -257,8 +248,7 @@ export class SisClient {
     /**
      * 查询用户所有热词表列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询热词表列表
      * @param {ShowVocabulariesParams} [showVocabulariesParams] 请求体。
@@ -275,8 +265,7 @@ export class SisClient {
     /**
      * 通过热词表id查询热词表的信息和内容。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询热词表信息
      * @param {string} vocabularyId 热词表id。
@@ -293,8 +282,7 @@ export class SisClient {
     /**
      * 更新一个热词表，更新成功返回id。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新热词表
      * @param {string} vocabularyId 被更新的热词表id。
@@ -316,8 +304,7 @@ export const ParamCreater = function () {
         /**
          * 该接口用于获取录音文件识别结果及识别状态。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         collectTranscriberJob(collectTranscriberJobRequest?: CollectTranscriberJobRequest) {
             const options = {
@@ -354,8 +341,7 @@ export const ParamCreater = function () {
         /**
          * 新建一个热词表，创建成功返回id。每个用户限制创建10个热词表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createVocabulary(createVocabularyRequest?: CreateVocabularyRequest) {
             const options = {
@@ -393,8 +379,7 @@ export const ParamCreater = function () {
         /**
          * 通过热词表id删除热词表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteVocabulary(deleteVocabularyRequest?: DeleteVocabularyRequest) {
             const options = {
@@ -440,8 +425,7 @@ export const ParamCreater = function () {
          * 接口约束
          * 录音时长不超过5小时，文件大小不超过300M，识别结果保存72小时（从识别完成的时间算起）。72小时后如果再访问，将会返回 \&quot;task id is not found\&quot;错误。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         pushTranscriberJobs(pushTranscriberJobsRequest?: PushTranscriberJobsRequest) {
             const options = {
@@ -477,8 +461,7 @@ export const ParamCreater = function () {
          * 极速版ASR(Restful API 接口, 适用于音频(文件大小&lt;&#x3D;100M,语音时长&lt;&#x3D;30分钟)文件的同步识别。
          * 此接口以POST方式一次性上传整个音频或从华为OBS中下载音频， 识别结果将在请求响应中即刻返回，用于语音文件极速转写，质检分析的离线场景。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeFlashAsr(recognizeFlashAsrRequest?: RecognizeFlashAsrRequest) {
             const options = {
@@ -569,8 +552,7 @@ export const ParamCreater = function () {
         /**
          * 一句话识别接口，用于短语音的同步识别。一次性上传整个音频，响应中即返回识别结果。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         recognizeShortAudio(recognizeShortAudioRequest?: RecognizeShortAudioRequest) {
             const options = {
@@ -608,8 +590,7 @@ export const ParamCreater = function () {
         /**
          * 口语评测接口，基于一小段朗读语音和预期文本，评价朗读者发音质量。当前仅支持华北-北京四。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runAudioAssessment(runAudioAssessmentRequest?: RunAudioAssessmentRequest) {
             const options = {
@@ -647,8 +628,7 @@ export const ParamCreater = function () {
         /**
          * 多模态评测接口，根据朗读视频数据、视频对应的音频数据和试题文本，综合给出朗读者口语的评测分数。当前仅支持华北-北京四。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runMultiModalAssessment(runMultiModalAssessmentRequest?: RunMultiModalAssessmentRequest) {
             const options = {
@@ -686,8 +666,7 @@ export const ParamCreater = function () {
         /**
          * 语音合成，是一种将文本转换成逼真语音的服务。用户通过实时访问和调用API获取语音合成结果，将用户输入的文字合成为音频。通过音色选择、自定义音量、语速，为企业和个人提供个性化的发音服务
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         runTts(runTtsRequest?: RunTtsRequest) {
             const options = {
@@ -725,8 +704,7 @@ export const ParamCreater = function () {
         /**
          * 查询用户所有热词表列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showVocabularies(showVocabulariesRequest?: ShowVocabulariesRequest) {
             const options = {
@@ -761,8 +739,7 @@ export const ParamCreater = function () {
         /**
          * 通过热词表id查询热词表的信息和内容。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showVocabulary(showVocabularyRequest?: ShowVocabularyRequest) {
             const options = {
@@ -799,8 +776,7 @@ export const ParamCreater = function () {
         /**
          * 更新一个热词表，更新成功返回id。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateVocabulary(updateVocabularyRequest?: UpdateVocabularyRequest) {
             const options = {

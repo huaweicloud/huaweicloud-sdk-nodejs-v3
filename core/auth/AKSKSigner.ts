@@ -77,7 +77,12 @@ export class AKSKSigner {
         Object.assign(authenticationHeaders, { "host": host });
 
         let allHeaders = {};
-        Object.assign(allHeaders, request.headers, authenticationHeaders);
+        let current_headers:any = {};
+        Object.assign(current_headers, request.headers);
+        if (current_headers['content-type'].indexOf('multipart/form-data') !== -1) {
+            delete current_headers['content-type'];
+        }
+        Object.assign(allHeaders, current_headers, authenticationHeaders);
         const canonicalURI = this.CanonicalURI(parsedUrl.pathname!);
         const canonicalQueryString = this.CanonicalQueryString(request);
 

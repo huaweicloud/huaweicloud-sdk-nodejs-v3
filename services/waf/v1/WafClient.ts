@@ -271,8 +271,7 @@ export class WafClient {
     /**
      * 绑定证书到域名
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 绑定证书到域名
      * @param {string} contentType 内容类型
@@ -295,8 +294,7 @@ export class WafClient {
      *  - 2.waf版本只支持升配，不支持降配；扩展包数量可以增加或者减少，但不支持数量减少为0 
      *  - 3.不支持同时升降配，如增加域名扩展包数量，同时减少规则扩展包数量
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 变更包周期云模式waf规格
      * @param {string} contentType 内容类型
@@ -315,8 +313,7 @@ export class WafClient {
     /**
      * 创建防篡改规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建防篡改规则
      * @param {string} contentType 内容类型
@@ -336,8 +333,7 @@ export class WafClient {
     /**
      * 创建证书
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建证书
      * @param {string} contentType 内容类型
@@ -356,8 +352,7 @@ export class WafClient {
     /**
      * 创建地理位置控制规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建地理位置控制规则
      * @param {string} contentType 内容类型
@@ -377,8 +372,7 @@ export class WafClient {
     /**
      * 创建云模式防护域名
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建云模式防护域名
      * @param {string} contentType 内容类型
@@ -397,8 +391,7 @@ export class WafClient {
     /**
      * 创建全局白名单(原误报屏蔽)规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建全局白名单(原误报屏蔽)规则
      * @param {string} contentType 内容类型
@@ -418,8 +411,7 @@ export class WafClient {
     /**
      * 创建WAF独享引擎实例。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建WAF独享引擎实例
      * @param {string} contentType 内容类型
@@ -438,8 +430,7 @@ export class WafClient {
     /**
      * 创建ip地址组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建ip地址组
      * @param {string} contentType 内容类型
@@ -458,8 +449,7 @@ export class WafClient {
     /**
      * 创建防护策略，系统会在生成策略时配置一些默认的配置项，如果需要修改策略的默认配置项需要通过调用更新防护策略接口实现
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建防护策略
      * @param {string} contentType 内容类型
@@ -478,8 +468,7 @@ export class WafClient {
     /**
      * 创建独享模式域名
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建独享模式域名
      * @param {string} contentType 内容类型
@@ -498,8 +487,7 @@ export class WafClient {
     /**
      * 购买包周期云模式waf
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 购买包周期云模式waf
      * @param {string} contentType 内容类型
@@ -518,8 +506,7 @@ export class WafClient {
     /**
      * 创建隐私屏蔽防护规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建隐私屏蔽防护规则
      * @param {string} contentType 内容类型
@@ -539,8 +526,7 @@ export class WafClient {
     /**
      * 创建引用表，引用表能够被CC攻击防护规则和精准访问防护中的规则所引用。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建引用表
      * @param {string} contentType 内容类型
@@ -559,8 +545,7 @@ export class WafClient {
     /**
      * 创建黑白名单规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建黑白名单规则
      * @param {string} contentType 内容类型
@@ -580,8 +565,7 @@ export class WafClient {
     /**
      * 删除防篡改防护规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除防篡改防护规则
      * @param {string} contentType 内容类型
@@ -601,8 +585,7 @@ export class WafClient {
     /**
      * 删除证书
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除证书
      * @param {string} contentType 内容类型
@@ -621,8 +604,7 @@ export class WafClient {
     /**
      * 删除地理位置控制防护规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除地理位置控制防护规则
      * @param {string} contentType 内容类型
@@ -642,8 +624,7 @@ export class WafClient {
     /**
      * 删除云模式防护域名
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除云模式防护域名
      * @param {string} contentType 内容类型
@@ -662,8 +643,7 @@ export class WafClient {
     /**
      * 删除全局白名单(原误报屏蔽)防护规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除全局白名单(原误报屏蔽)防护规则
      * @param {string} contentType 内容类型
@@ -683,8 +663,7 @@ export class WafClient {
     /**
      * 删除WAF独享引擎信息。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除WAF独享引擎信息
      * @param {string} contentType 内容类型
@@ -703,8 +682,7 @@ export class WafClient {
     /**
      * 删除ip地址组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除ip地址组
      * @param {string} contentType 内容类型
@@ -723,8 +701,7 @@ export class WafClient {
     /**
      * 删除防护策略，若策略正在使用，则需要先接解除域名与策略的绑定关系才能删除策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除防护策略
      * @param {string} contentType 内容类型
@@ -743,8 +720,7 @@ export class WafClient {
     /**
      * 删除独享模式域名
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除独享模式域名
      * @param {string} contentType 内容类型
@@ -764,8 +740,7 @@ export class WafClient {
     /**
      * 删除隐私屏蔽防护规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除隐私屏蔽防护规则
      * @param {string} contentType 内容类型
@@ -785,8 +760,7 @@ export class WafClient {
     /**
      * 删除引用表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除引用表
      * @param {string} contentType 内容类型
@@ -805,8 +779,7 @@ export class WafClient {
     /**
      * 删除黑白名单防护规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除黑白名单防护规则
      * @param {string} contentType 内容类型
@@ -826,8 +799,7 @@ export class WafClient {
     /**
      * 查询防篡改规则列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防篡改规则列表
      * @param {string} contentType 内容类型
@@ -848,8 +820,7 @@ export class WafClient {
     /**
      * 查询安全统计带宽数据。需要注意的是，安全统计相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全统计带宽数据
      * @param {string} contentType 内容类型
@@ -872,8 +843,7 @@ export class WafClient {
     /**
      * 查询证书列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询证书列表
      * @param {string} contentType 内容类型
@@ -896,8 +866,7 @@ export class WafClient {
     /**
      * 查询全部防护域名列表，包括云模式和独享模式
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全部防护域名列表
      * @param {string} contentType 内容类型
@@ -922,8 +891,7 @@ export class WafClient {
     /**
      * 查询攻击事件列表，该API暂时不支持查询全部防护事件，pagesize参数不可设为-1，由于性能原因，数据量越大消耗的内存越大，后端最多限制查询10000条数据，例如：自定义时间段内的数据超过了10000条，就无法查出page为101，pagesize为100之后的数据，需要调整时间区间，再进行查询
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询攻击事件列表
      * @param {string} contentType 内容类型
@@ -948,8 +916,7 @@ export class WafClient {
     /**
      * 查询地理位置访问控制规则列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地理位置访问控制规则列表
      * @param {string} contentType 内容类型
@@ -970,8 +937,7 @@ export class WafClient {
     /**
      * 查询云模式防护域名列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云模式防护域名列表
      * @param {string} contentType 内容类型
@@ -993,8 +959,7 @@ export class WafClient {
     /**
      * 返回路由信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取云模式域名路由信息
      * @param {string} contentType 内容类型
@@ -1013,8 +978,7 @@ export class WafClient {
     /**
      * 查询全局白名单(原误报屏蔽)规则列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全局白名单(原误报屏蔽)规则列表
      * @param {string} contentType 内容类型
@@ -1035,8 +999,7 @@ export class WafClient {
     /**
      * 查询WAF独享引擎列表。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询WAF独享引擎列表
      * @param {string} contentType 内容类型
@@ -1057,8 +1020,7 @@ export class WafClient {
     /**
      * 查询地址组列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地址组列表
      * @param {string} contentType 内容类型
@@ -1080,8 +1042,7 @@ export class WafClient {
     /**
      * 查询告警通知配置
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询告警通知配置
      * @param {string} contentType 内容类型
@@ -1099,8 +1060,7 @@ export class WafClient {
     /**
      * 查询安全总览分类统计TOP信息，包含受攻击域名 、攻击源ip、受攻击URL、攻击来源区域、攻击事件分布。需要注意的是，安全总览相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全总览分类统计top信息
      * @param {string} contentType 内容类型
@@ -1123,8 +1083,7 @@ export class WafClient {
     /**
      * 查询防护策略列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防护策略列表
      * @param {string} contentType 内容类型
@@ -1145,8 +1104,7 @@ export class WafClient {
     /**
      * 独享模式域名列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 独享模式域名列表
      * @param {string} contentType 内容类型
@@ -1169,8 +1127,7 @@ export class WafClient {
     /**
      * 查询隐私屏蔽防护规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询隐私屏蔽防护规则
      * @param {string} contentType 内容类型
@@ -1191,8 +1148,7 @@ export class WafClient {
     /**
      * 查询安全统计qps次数。需要注意的是，安全统计相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全统计qps次数
      * @param {string} contentType 内容类型
@@ -1215,8 +1171,7 @@ export class WafClient {
     /**
      * 查询安全总览中请求次数时间线统计数据。需要注意的是，安全总览相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全总览中请求次数时间线统计数据
      * @param {string} contentType 内容类型
@@ -1239,8 +1194,7 @@ export class WafClient {
     /**
      * 查询安全总览请求与攻击数量。需要注意的是，安全总览相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全总览请求与攻击数量
      * @param {string} contentType 内容类型
@@ -1262,8 +1216,7 @@ export class WafClient {
     /**
      * 查询业务异常TOP统计信息。需要注意的是，安全总览相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询业务异常数量
      * @param {string} contentType 内容类型
@@ -1287,8 +1240,7 @@ export class WafClient {
     /**
      * 查询引用表列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询引用表列表
      * @param {string} contentType 内容类型
@@ -1308,8 +1260,7 @@ export class WafClient {
     /**
      * 查询黑白名单规则列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询黑白名单规则列表
      * @param {string} contentType 内容类型
@@ -1331,8 +1282,7 @@ export class WafClient {
     /**
      * 按企业项目迁移防护域名，仅专业版与独享版支持该功能
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 按企业项目迁移防护域名
      * @param {string} contentType 内容类型
@@ -1352,8 +1302,7 @@ export class WafClient {
     /**
      * 重命名WAF独享引擎。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重命名WAF独享引擎
      * @param {string} contentType 内容类型
@@ -1373,8 +1322,7 @@ export class WafClient {
     /**
      * 查询证书
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询证书
      * @param {string} contentType 内容类型
@@ -1393,8 +1341,7 @@ export class WafClient {
     /**
      * 根据Id查询防护域名
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据Id查询防护域名
      * @param {string} contentType 内容类型
@@ -1413,8 +1360,7 @@ export class WafClient {
     /**
      * 局点支持特性查询
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 局点支持特性查询
      * @param {string} contentType 内容类型
@@ -1431,8 +1377,7 @@ export class WafClient {
     /**
      * 查询指定事件id的防护事件详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定事件id的防护事件详情
      * @param {string} contentType 内容类型
@@ -1451,8 +1396,7 @@ export class WafClient {
     /**
      * 根据防护域名Id查询云模式防护域名详细信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据防护域名Id查询云模式防护域名详细信息
      * @param {string} contentType 内容类型
@@ -1471,8 +1415,7 @@ export class WafClient {
     /**
      * 查询WAF独享引擎信息。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询WAF独享引擎信息
      * @param {string} contentType 内容类型
@@ -1491,8 +1434,7 @@ export class WafClient {
     /**
      * 查询ip地址组明细
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询ip地址组明细
      * @param {string} contentType 内容类型
@@ -1511,8 +1453,7 @@ export class WafClient {
     /**
      * 查询lts配置信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询lts配置信息
      * @param {string} contentType 内容类型
@@ -1530,8 +1471,7 @@ export class WafClient {
     /**
      * 根据Id查询防护策略
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 根据Id查询防护策略
      * @param {string} contentType 内容类型
@@ -1550,8 +1490,7 @@ export class WafClient {
     /**
      * 查看独享模式域名配置
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查看独享模式域名配置
      * @param {string} contentType 内容类型
@@ -1570,8 +1509,7 @@ export class WafClient {
     /**
      * 查询WAF回源Ip信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询WAF回源Ip信息
      * @param {string} contentType 内容类型
@@ -1588,8 +1526,7 @@ export class WafClient {
     /**
      * 查询租户订购信息，包括云模式包周期、按需计费、独享模式
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户订购信息
      * @param {string} contentType 内容类型
@@ -1606,8 +1543,7 @@ export class WafClient {
     /**
      * 更新告警通知配置
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新告警通知配置
      * @param {string} contentType 内容类型
@@ -1627,8 +1563,7 @@ export class WafClient {
     /**
      * 修改证书
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改证书
      * @param {string} contentType 内容类型
@@ -1648,8 +1583,7 @@ export class WafClient {
     /**
      * 更新地理位置控制防护规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新地理位置控制防护规则
      * @param {string} contentType 内容类型
@@ -1670,8 +1604,7 @@ export class WafClient {
     /**
      * 更新云模式防护域名配置，在没有填入源站信息server的原始数据的情况下，则新的源站信息server会覆盖源站信息，而不是新增源站。此外，请求体可只传需要更新的部分。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新云模式防护域名的配置
      * @param {string} contentType 内容类型
@@ -1691,8 +1624,7 @@ export class WafClient {
     /**
      * 修改域名防护状态
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改域名防护状态
      * @param {string} contentType 内容类型
@@ -1712,8 +1644,7 @@ export class WafClient {
     /**
      * 修改ip地址组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改ip地址组
      * @param {string} contentType 内容类型
@@ -1733,8 +1664,7 @@ export class WafClient {
     /**
      * 配置全量日志lts，该接口可用来开启与关闭waf全量日志以及配置日志组和日志流。日志组id和日志流id可前往云日志服务获取。配置的日志流id要属于所配置的日志组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 配置全量日志lts
      * @param {string} contentType 内容类型
@@ -1754,8 +1684,7 @@ export class WafClient {
     /**
      * 更新防护策略，请求体可只传需要更新的部分
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新防护策略
      * @param {string} contentType 内容类型
@@ -1775,8 +1704,7 @@ export class WafClient {
     /**
      * 更新防护策略的防护域名
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新防护策略的域名
      * @param {string} contentType 内容类型
@@ -1796,8 +1724,7 @@ export class WafClient {
     /**
      * 修改单条规则的状态，用于开启或者关闭单条规则，比如关闭精准防护中某一条规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改单条规则的状态
      * @param {string} contentType 内容类型
@@ -1819,8 +1746,7 @@ export class WafClient {
     /**
      * 修改独享模式域名配置，在没有填入源站信息server的原始数据的情况下，则新的源站信息server会覆盖源站信息，而不是新增源站。此外，请求体可只传需要更新的部分。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改独享模式域名配置
      * @param {string} contentType 内容类型
@@ -1840,8 +1766,7 @@ export class WafClient {
     /**
      * 修改独享模式域名防护状态
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改独享模式域名防护状态
      * @param {string} contentType 内容类型
@@ -1861,8 +1786,7 @@ export class WafClient {
     /**
      * 更新隐私屏蔽防护规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新隐私屏蔽防护规则
      * @param {string} contentType 内容类型
@@ -1883,8 +1807,7 @@ export class WafClient {
     /**
      * 修改引用表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改引用表
      * @param {string} contentType 内容类型
@@ -1904,8 +1827,7 @@ export class WafClient {
     /**
      * 更新黑白名单防护规则，可以更新ip/ip段以及防护动作等信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新黑白名单防护规则
      * @param {string} contentType 内容类型
@@ -1930,8 +1852,7 @@ export const ParamCreater = function () {
         /**
          * 绑定证书到域名
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         applyCertificateToHost(applyCertificateToHostRequest?: ApplyCertificateToHostRequest) {
             const options = {
@@ -1989,8 +1910,7 @@ export const ParamCreater = function () {
          *  - 2.waf版本只支持升配，不支持降配；扩展包数量可以增加或者减少，但不支持数量减少为0 
          *  - 3.不支持同时升降配，如增加域名扩展包数量，同时减少规则扩展包数量
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         changePrepaidCloudWaf(changePrepaidCloudWafRequest?: ChangePrepaidCloudWafRequest) {
             const options = {
@@ -2041,8 +1961,7 @@ export const ParamCreater = function () {
         /**
          * 创建防篡改规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createAntiTamperRule(createAntiTamperRuleRequest?: CreateAntiTamperRuleRequest) {
             const options = {
@@ -2100,8 +2019,7 @@ export const ParamCreater = function () {
         /**
          * 创建证书
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createCertificate(createCertificateRequest?: CreateCertificateRequest) {
             const options = {
@@ -2152,8 +2070,7 @@ export const ParamCreater = function () {
         /**
          * 创建地理位置控制规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createGeoipRule(createGeoipRuleRequest?: CreateGeoipRuleRequest) {
             const options = {
@@ -2211,8 +2128,7 @@ export const ParamCreater = function () {
         /**
          * 创建云模式防护域名
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createHost(createHostRequest?: CreateHostRequest) {
             const options = {
@@ -2263,8 +2179,7 @@ export const ParamCreater = function () {
         /**
          * 创建全局白名单(原误报屏蔽)规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createIgnoreRule(createIgnoreRuleRequest?: CreateIgnoreRuleRequest) {
             const options = {
@@ -2322,8 +2237,7 @@ export const ParamCreater = function () {
         /**
          * 创建WAF独享引擎实例。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createInstance(createInstanceRequest?: CreateInstanceRequest) {
             const options = {
@@ -2374,8 +2288,7 @@ export const ParamCreater = function () {
         /**
          * 创建ip地址组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createIpGroup(createIpGroupRequest?: CreateIpGroupRequest) {
             const options = {
@@ -2426,8 +2339,7 @@ export const ParamCreater = function () {
         /**
          * 创建防护策略，系统会在生成策略时配置一些默认的配置项，如果需要修改策略的默认配置项需要通过调用更新防护策略接口实现
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPolicy(createPolicyRequest?: CreatePolicyRequest) {
             const options = {
@@ -2478,8 +2390,7 @@ export const ParamCreater = function () {
         /**
          * 创建独享模式域名
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPremiumHost(createPremiumHostRequest?: CreatePremiumHostRequest) {
             const options = {
@@ -2527,8 +2438,7 @@ export const ParamCreater = function () {
         /**
          * 购买包周期云模式waf
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPrepaidCloudWaf(createPrepaidCloudWafRequest?: CreatePrepaidCloudWafRequest) {
             const options = {
@@ -2579,8 +2489,7 @@ export const ParamCreater = function () {
         /**
          * 创建隐私屏蔽防护规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPrivacyRule(createPrivacyRuleRequest?: CreatePrivacyRuleRequest) {
             const options = {
@@ -2638,8 +2547,7 @@ export const ParamCreater = function () {
         /**
          * 创建引用表，引用表能够被CC攻击防护规则和精准访问防护中的规则所引用。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createValueList(createValueListRequest?: CreateValueListRequest) {
             const options = {
@@ -2690,8 +2598,7 @@ export const ParamCreater = function () {
         /**
          * 创建黑白名单规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createWhiteblackipRule(createWhiteblackipRuleRequest?: CreateWhiteblackipRuleRequest) {
             const options = {
@@ -2749,8 +2656,7 @@ export const ParamCreater = function () {
         /**
          * 删除防篡改防护规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteAntitamperRule(deleteAntitamperRuleRequest?: DeleteAntitamperRuleRequest) {
             const options = {
@@ -2806,8 +2712,7 @@ export const ParamCreater = function () {
         /**
          * 删除证书
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest) {
             const options = {
@@ -2857,8 +2762,7 @@ export const ParamCreater = function () {
         /**
          * 删除地理位置控制防护规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteGeoipRule(deleteGeoipRuleRequest?: DeleteGeoipRuleRequest) {
             const options = {
@@ -2914,8 +2818,7 @@ export const ParamCreater = function () {
         /**
          * 删除云模式防护域名
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteHost(deleteHostRequest?: DeleteHostRequest) {
             const options = {
@@ -2965,8 +2868,7 @@ export const ParamCreater = function () {
         /**
          * 删除全局白名单(原误报屏蔽)防护规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteIgnoreRule(deleteIgnoreRuleRequest?: DeleteIgnoreRuleRequest) {
             const options = {
@@ -3022,8 +2924,7 @@ export const ParamCreater = function () {
         /**
          * 删除WAF独享引擎信息。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest) {
             const options = {
@@ -3073,8 +2974,7 @@ export const ParamCreater = function () {
         /**
          * 删除ip地址组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteIpGroup(deleteIpGroupRequest?: DeleteIpGroupRequest) {
             const options = {
@@ -3124,8 +3024,7 @@ export const ParamCreater = function () {
         /**
          * 删除防护策略，若策略正在使用，则需要先接解除域名与策略的绑定关系才能删除策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deletePolicy(deletePolicyRequest?: DeletePolicyRequest) {
             const options = {
@@ -3175,8 +3074,7 @@ export const ParamCreater = function () {
         /**
          * 删除独享模式域名
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deletePremiumHost(deletePremiumHostRequest?: DeletePremiumHostRequest) {
             const options = {
@@ -3232,8 +3130,7 @@ export const ParamCreater = function () {
         /**
          * 删除隐私屏蔽防护规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deletePrivacyRule(deletePrivacyRuleRequest?: DeletePrivacyRuleRequest) {
             const options = {
@@ -3289,8 +3186,7 @@ export const ParamCreater = function () {
         /**
          * 删除引用表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteValueList(deleteValueListRequest?: DeleteValueListRequest) {
             const options = {
@@ -3340,8 +3236,7 @@ export const ParamCreater = function () {
         /**
          * 删除黑白名单防护规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteWhiteBlackIpRule(deleteWhiteBlackIpRuleRequest?: DeleteWhiteBlackIpRuleRequest) {
             const options = {
@@ -3397,8 +3292,7 @@ export const ParamCreater = function () {
         /**
          * 查询防篡改规则列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAntitamperRule(listAntitamperRuleRequest?: ListAntitamperRuleRequest) {
             const options = {
@@ -3460,8 +3354,7 @@ export const ParamCreater = function () {
         /**
          * 查询安全统计带宽数据。需要注意的是，安全统计相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listBandwidthTimeline(listBandwidthTimelineRequest?: ListBandwidthTimelineRequest) {
             const options = {
@@ -3540,8 +3433,7 @@ export const ParamCreater = function () {
         /**
          * 查询证书列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listCertificates(listCertificatesRequest?: ListCertificatesRequest) {
             const options = {
@@ -3614,8 +3506,7 @@ export const ParamCreater = function () {
         /**
          * 查询全部防护域名列表，包括云模式和独享模式
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listCompositeHosts(listCompositeHostsRequest?: ListCompositeHostsRequest) {
             const options = {
@@ -3700,8 +3591,7 @@ export const ParamCreater = function () {
         /**
          * 查询攻击事件列表，该API暂时不支持查询全部防护事件，pagesize参数不可设为-1，由于性能原因，数据量越大消耗的内存越大，后端最多限制查询10000条数据，例如：自定义时间段内的数据超过了10000条，就无法查出page为101，pagesize为100之后的数据，需要调整时间区间，再进行查询
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEvent(listEventRequest?: ListEventRequest) {
             const options = {
@@ -3786,8 +3676,7 @@ export const ParamCreater = function () {
         /**
          * 查询地理位置访问控制规则列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listGeoipRule(listGeoipRuleRequest?: ListGeoipRuleRequest) {
             const options = {
@@ -3849,8 +3738,7 @@ export const ParamCreater = function () {
         /**
          * 查询云模式防护域名列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listHost(listHostRequest?: ListHostRequest) {
             const options = {
@@ -3917,8 +3805,7 @@ export const ParamCreater = function () {
         /**
          * 返回路由信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listHostRoute(listHostRouteRequest?: ListHostRouteRequest) {
             const options = {
@@ -3968,8 +3855,7 @@ export const ParamCreater = function () {
         /**
          * 查询全局白名单(原误报屏蔽)规则列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listIgnoreRule(listIgnoreRuleRequest?: ListIgnoreRuleRequest) {
             const options = {
@@ -4031,8 +3917,7 @@ export const ParamCreater = function () {
         /**
          * 查询WAF独享引擎列表。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listInstance(listInstanceRequest?: ListInstanceRequest) {
             const options = {
@@ -4093,8 +3978,7 @@ export const ParamCreater = function () {
         /**
          * 查询地址组列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listIpGroup(listIpGroupRequest?: ListIpGroupRequest) {
             const options = {
@@ -4161,8 +4045,7 @@ export const ParamCreater = function () {
         /**
          * 查询告警通知配置
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listNoticeConfigs(listNoticeConfigsRequest?: ListNoticeConfigsRequest) {
             const options = {
@@ -4205,8 +4088,7 @@ export const ParamCreater = function () {
         /**
          * 查询安全总览分类统计TOP信息，包含受攻击域名 、攻击源ip、受攻击URL、攻击来源区域、攻击事件分布。需要注意的是，安全总览相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listOverviewsClassification(listOverviewsClassificationRequest?: ListOverviewsClassificationRequest) {
             const options = {
@@ -4285,8 +4167,7 @@ export const ParamCreater = function () {
         /**
          * 查询防护策略列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPolicy(listPolicyRequest?: ListPolicyRequest) {
             const options = {
@@ -4347,8 +4228,7 @@ export const ParamCreater = function () {
         /**
          * 独享模式域名列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPremiumHost(listPremiumHostRequest?: ListPremiumHostRequest) {
             const options = {
@@ -4421,8 +4301,7 @@ export const ParamCreater = function () {
         /**
          * 查询隐私屏蔽防护规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPrivacyRule(listPrivacyRuleRequest?: ListPrivacyRuleRequest) {
             const options = {
@@ -4484,8 +4363,7 @@ export const ParamCreater = function () {
         /**
          * 查询安全统计qps次数。需要注意的是，安全统计相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listQpsTimeline(listQpsTimelineRequest?: ListQpsTimelineRequest) {
             const options = {
@@ -4564,8 +4442,7 @@ export const ParamCreater = function () {
         /**
          * 查询安全总览中请求次数时间线统计数据。需要注意的是，安全总览相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listRequestTimeline(listRequestTimelineRequest?: ListRequestTimelineRequest) {
             const options = {
@@ -4644,8 +4521,7 @@ export const ParamCreater = function () {
         /**
          * 查询安全总览请求与攻击数量。需要注意的是，安全总览相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listStatistics(listStatisticsRequest?: ListStatisticsRequest) {
             const options = {
@@ -4718,8 +4594,7 @@ export const ParamCreater = function () {
         /**
          * 查询业务异常TOP统计信息。需要注意的是，安全总览相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listTopAbnormal(listTopAbnormalRequest?: ListTopAbnormalRequest) {
             const options = {
@@ -4804,8 +4679,7 @@ export const ParamCreater = function () {
         /**
          * 查询引用表列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listValueList(listValueListRequest?: ListValueListRequest) {
             const options = {
@@ -4860,8 +4734,7 @@ export const ParamCreater = function () {
         /**
          * 查询黑白名单规则列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listWhiteblackipRule(listWhiteblackipRuleRequest?: ListWhiteblackipRuleRequest) {
             const options = {
@@ -4929,8 +4802,7 @@ export const ParamCreater = function () {
         /**
          * 按企业项目迁移防护域名，仅专业版与独享版支持该功能
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         migrateCompositeHosts(migrateCompositeHostsRequest?: MigrateCompositeHostsRequest) {
             const options = {
@@ -4990,8 +4862,7 @@ export const ParamCreater = function () {
         /**
          * 重命名WAF独享引擎。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         renameInstance(renameInstanceRequest?: RenameInstanceRequest) {
             const options = {
@@ -5046,8 +4917,7 @@ export const ParamCreater = function () {
         /**
          * 查询证书
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showCertificate(showCertificateRequest?: ShowCertificateRequest) {
             const options = {
@@ -5097,8 +4967,7 @@ export const ParamCreater = function () {
         /**
          * 根据Id查询防护域名
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showCompositeHost(showCompositeHostRequest?: ShowCompositeHostRequest) {
             const options = {
@@ -5148,8 +5017,7 @@ export const ParamCreater = function () {
         /**
          * 局点支持特性查询
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showConsoleConfig(showConsoleConfigRequest?: ShowConsoleConfigRequest) {
             const options = {
@@ -5185,8 +5053,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定事件id的防护事件详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showEvent(showEventRequest?: ShowEventRequest) {
             const options = {
@@ -5236,8 +5103,7 @@ export const ParamCreater = function () {
         /**
          * 根据防护域名Id查询云模式防护域名详细信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showHost(showHostRequest?: ShowHostRequest) {
             const options = {
@@ -5287,8 +5153,7 @@ export const ParamCreater = function () {
         /**
          * 查询WAF独享引擎信息。独享模式只在部分局点支持，包括：华北-北京四、华东-上海一、华南-广州、华南-深圳  、中国-香港、亚太-曼谷、 亚太-新加坡。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showInstance(showInstanceRequest?: ShowInstanceRequest) {
             const options = {
@@ -5338,8 +5203,7 @@ export const ParamCreater = function () {
         /**
          * 查询ip地址组明细
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showIpGroup(showIpGroupRequest?: ShowIpGroupRequest) {
             const options = {
@@ -5389,8 +5253,7 @@ export const ParamCreater = function () {
         /**
          * 查询lts配置信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showLtsInfoConfig(showLtsInfoConfigRequest?: ShowLtsInfoConfigRequest) {
             const options = {
@@ -5433,8 +5296,7 @@ export const ParamCreater = function () {
         /**
          * 根据Id查询防护策略
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showPolicy(showPolicyRequest?: ShowPolicyRequest) {
             const options = {
@@ -5484,8 +5346,7 @@ export const ParamCreater = function () {
         /**
          * 查看独享模式域名配置
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showPremiumHost(showPremiumHostRequest?: ShowPremiumHostRequest) {
             const options = {
@@ -5535,8 +5396,7 @@ export const ParamCreater = function () {
         /**
          * 查询WAF回源Ip信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showSourceIp(showSourceIpRequest?: ShowSourceIpRequest) {
             const options = {
@@ -5572,8 +5432,7 @@ export const ParamCreater = function () {
         /**
          * 查询租户订购信息，包括云模式包周期、按需计费、独享模式
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showSubscriptionInfo(showSubscriptionInfoRequest?: ShowSubscriptionInfoRequest) {
             const options = {
@@ -5609,8 +5468,7 @@ export const ParamCreater = function () {
         /**
          * 更新告警通知配置
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateAlertNoticeConfig(updateAlertNoticeConfigRequest?: UpdateAlertNoticeConfigRequest) {
             const options = {
@@ -5667,8 +5525,7 @@ export const ParamCreater = function () {
         /**
          * 修改证书
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateCertificate(updateCertificateRequest?: UpdateCertificateRequest) {
             const options = {
@@ -5723,8 +5580,7 @@ export const ParamCreater = function () {
         /**
          * 更新地理位置控制防护规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateGeoipRule(updateGeoipRuleRequest?: UpdateGeoipRuleRequest) {
             const options = {
@@ -5788,8 +5644,7 @@ export const ParamCreater = function () {
         /**
          * 更新云模式防护域名配置，在没有填入源站信息server的原始数据的情况下，则新的源站信息server会覆盖源站信息，而不是新增源站。此外，请求体可只传需要更新的部分。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateHost(updateHostRequest?: UpdateHostRequest) {
             const options = {
@@ -5844,8 +5699,7 @@ export const ParamCreater = function () {
         /**
          * 修改域名防护状态
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateHostProtectStatus(updateHostProtectStatusRequest?: UpdateHostProtectStatusRequest) {
             const options = {
@@ -5900,8 +5754,7 @@ export const ParamCreater = function () {
         /**
          * 修改ip地址组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateIpGroup(updateIpGroupRequest?: UpdateIpGroupRequest) {
             const options = {
@@ -5959,8 +5812,7 @@ export const ParamCreater = function () {
         /**
          * 配置全量日志lts，该接口可用来开启与关闭waf全量日志以及配置日志组和日志流。日志组id和日志流id可前往云日志服务获取。配置的日志流id要属于所配置的日志组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateLtsInfoConfig(updateLtsInfoConfigRequest?: UpdateLtsInfoConfigRequest) {
             const options = {
@@ -6018,8 +5870,7 @@ export const ParamCreater = function () {
         /**
          * 更新防护策略，请求体可只传需要更新的部分
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePolicy(updatePolicyRequest?: UpdatePolicyRequest) {
             const options = {
@@ -6077,8 +5928,7 @@ export const ParamCreater = function () {
         /**
          * 更新防护策略的防护域名
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePolicyProtectHost(updatePolicyProtectHostRequest?: UpdatePolicyProtectHostRequest) {
             const options = {
@@ -6137,8 +5987,7 @@ export const ParamCreater = function () {
         /**
          * 修改单条规则的状态，用于开启或者关闭单条规则，比如关闭精准防护中某一条规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePolicyRuleStatus(updatePolicyRuleStatusRequest?: UpdatePolicyRuleStatusRequest) {
             const options = {
@@ -6208,8 +6057,7 @@ export const ParamCreater = function () {
         /**
          * 修改独享模式域名配置，在没有填入源站信息server的原始数据的情况下，则新的源站信息server会覆盖源站信息，而不是新增源站。此外，请求体可只传需要更新的部分。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePremiumHost(updatePremiumHostRequest?: UpdatePremiumHostRequest) {
             const options = {
@@ -6264,8 +6112,7 @@ export const ParamCreater = function () {
         /**
          * 修改独享模式域名防护状态
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePremiumHostProtectStatus(updatePremiumHostProtectStatusRequest?: UpdatePremiumHostProtectStatusRequest) {
             const options = {
@@ -6320,8 +6167,7 @@ export const ParamCreater = function () {
         /**
          * 更新隐私屏蔽防护规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePrivacyRule(updatePrivacyRuleRequest?: UpdatePrivacyRuleRequest) {
             const options = {
@@ -6385,8 +6231,7 @@ export const ParamCreater = function () {
         /**
          * 修改引用表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateValueList(updateValueListRequest?: UpdateValueListRequest) {
             const options = {
@@ -6441,8 +6286,7 @@ export const ParamCreater = function () {
         /**
          * 更新黑白名单防护规则，可以更新ip/ip段以及防护动作等信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateWhiteblackipRule(updateWhiteblackipRuleRequest?: UpdateWhiteblackipRuleRequest) {
             const options = {

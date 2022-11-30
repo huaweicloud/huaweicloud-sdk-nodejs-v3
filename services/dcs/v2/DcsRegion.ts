@@ -16,6 +16,9 @@ export class DcsRegion {
     public static RU_NORTHWEST_2 = new Region("ru-northwest-2", "https://dcs.ru-northwest-2.myhuaweicloud.com");
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", "https://dcs.sa-brazil-1.myhuaweicloud.com");
     public static LA_NORTH_2 = new Region("la-north-2", "https://dcs.la-north-2.myhuaweicloud.com");
+    public static LA_SOUTH_2 = new Region("la-south-2", "https://dcs.la-south-2.myhuaweicloud.com");
+    public static CN_NORTH_9 = new Region("cn-north-9", "https://dcs.cn-north-9.myhuaweicloud.com");
+    public static NA_MEXICO_1 = new Region("na-mexico-1", "https://dcs.na-mexico-1.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = DcsRegion.createStaticFields();
@@ -36,6 +39,9 @@ export class DcsRegion {
         map.set("ru-northwest-2", DcsRegion.RU_NORTHWEST_2);
         map.set("sa-brazil-1", DcsRegion.SA_BRAZIL_1);
         map.set("la-north-2", DcsRegion.LA_NORTH_2);
+        map.set("la-south-2", DcsRegion.LA_SOUTH_2);
+        map.set("cn-north-9", DcsRegion.CN_NORTH_9);
+        map.set("na-mexico-1", DcsRegion.NA_MEXICO_1);
         return map;
     }
     public static valueOf(regionId: String) {

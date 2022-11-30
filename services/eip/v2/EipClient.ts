@@ -128,8 +128,7 @@ export class EipClient {
     /**
      * 共享带宽插入弹性公网IP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 共享带宽插入弹性公网IP
      * @param {string} bandwidthId 带宽唯一标识
@@ -147,8 +146,7 @@ export class EipClient {
     /**
      * 批量创建共享带宽。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建共享带宽
      * @param {BatchCreateBandwidthRequestBody} bandwidth 带宽对象
@@ -165,8 +163,7 @@ export class EipClient {
     /**
      * 创建共享带宽。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建共享带宽
      * @param {CreateSharedBandwidhRequestBody} bandwidth 带宽对象
@@ -183,8 +180,7 @@ export class EipClient {
     /**
      * 删除共享带宽。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除共享带宽
      * @param {string} bandwidthId 带宽唯一标识  约束： 当前仅支持删除共享带宽
@@ -201,8 +197,7 @@ export class EipClient {
     /**
      * 查询带宽列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询带宽列表
      * @param {string} [marker] 取值为上一页数据的最后一条记录的id，为空时为查询第一页
@@ -222,8 +217,7 @@ export class EipClient {
     /**
      * 查询配额
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额接口
      * @param {string} [type] 功能说明：根据type过滤查询指定类型的配额 取值范围：vpc，subnet，securityGroup，securityGroupRule，publicIp，vpn，vpngw，vpcPeer，firewall，shareBandwidth，shareBandwidthIP，loadbalancer，listener
@@ -240,8 +234,7 @@ export class EipClient {
     /**
      * 共享带宽移除弹性公网IP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 共享带宽移除弹性公网IP
      * @param {string} bandwidthId 带宽唯一标识
@@ -259,8 +252,7 @@ export class EipClient {
     /**
      * 查询带宽
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询带宽
      * @param {string} bandwidthId 带宽唯一标识
@@ -277,8 +269,7 @@ export class EipClient {
     /**
      * 更新带宽。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新带宽
      * @param {string} bandwidthId 带宽唯一标识
@@ -296,8 +287,7 @@ export class EipClient {
     /**
      * 更新带宽。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新包周期带宽
      * @param {string} bandwidthId 带宽唯一标识。通过弹性公网IP详情获取，且此弹性公网IP是包周期的。
@@ -315,8 +305,7 @@ export class EipClient {
     /**
      * 为指定的弹性公网IP资源实例批量添加标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建弹性公网IP资源标签
      * @param {string} publicipId 资源ID
@@ -334,8 +323,7 @@ export class EipClient {
     /**
      * 为指定的弹性公网IP资源实例批量删除标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除弹性公网IP资源标签
      * @param {string} publicipId 资源ID
@@ -353,8 +341,7 @@ export class EipClient {
     /**
      * 申请包年包月的弹性公网IP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 申请包周期弹性公网IP
      * @param {CreatePrePaidPublicipRequestBody} createPeriodPublicip 申请包周期弹性公网IP请求参数
@@ -372,8 +359,7 @@ export class EipClient {
      * 申请弹性公网IP，支持IPv4和IPv6。
      *  弹性公网IP（Elastic IP）提供独立的公网IP资源，包括公网IP地址与公网出口带宽服务。可以与弹性云服务器、裸金属服务器、虚拟IP、弹性负载均衡、NAT网关等资源灵活地绑定及解绑。拥有多种灵活的计费方式，可以满足各种业务场景的需要。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 申请弹性公网IP
      * @param {CreatePublicipRequestBody} createPublicip 申请弹性公网IP请求参数
@@ -390,8 +376,7 @@ export class EipClient {
     /**
      * 给指定弹性IP资源实例增加标签信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建弹性公网IP资源标签
      * @param {string} publicipId 资源ID
@@ -409,8 +394,7 @@ export class EipClient {
     /**
      * 删除弹性公网IP,绑定状态eip不允许直接删除。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除弹性公网IP
      * @param {string} publicipId 弹性公网IP唯一标识
@@ -427,8 +411,7 @@ export class EipClient {
     /**
      * 删除指定弹性公网IP的标签信息。其中project_id是项目ID，publicip_id 是要操作的弹性公网IP的id。key是要删除标签的键。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除弹性公网IP的标签
      * @param {string} publicipId 弹性公网IP的id
@@ -446,8 +429,7 @@ export class EipClient {
     /**
      * 查询租户在指定区域和实例类型的所有标签集合。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户的弹性公网IP标签
      * @param {*} [options] Override http request option.
@@ -463,8 +445,7 @@ export class EipClient {
     /**
      * 查询弹性公网IP列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询弹性公网IP列表
      * @param {string} [marker] 取值为上一页数据的最后一条记录的id，为空时为查询第一页
@@ -489,8 +470,7 @@ export class EipClient {
     /**
      * 使用标签过滤弹性公网IP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 按标签查询弹性公网IP列表
      * @param {ListPublicipsByTagsRequestBody} showPublicipResourceInstance 查询弹性IP资源实例请求参数
@@ -507,8 +487,7 @@ export class EipClient {
     /**
      * 查询指定的弹性公网IP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询弹性公网IP
      * @param {string} publicipId 弹性公网IP唯一标识
@@ -525,8 +504,7 @@ export class EipClient {
     /**
      * 查询指定弹性IP实例的标签信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询弹性公网IP的标签
      * @param {string} publicipId 资源ID
@@ -543,8 +521,7 @@ export class EipClient {
     /**
      * 更新弹性公网IP，将弹性公网IP跟一个网卡绑定或者解绑定，转换IP地址版本类型。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新弹性公网IP
      * @param {string} publicipId 弹性公网IP唯一标识
@@ -562,8 +539,7 @@ export class EipClient {
     /**
      * 创建浮动IP的外部网络UUID，请使用GET /v2.0/networks?router:external&#x3D;True或neutron net-external-list方式获取。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建浮动IP
      * @param {NeutronCreateFloatingIpRequestBody} floatingip 创建floatingip对象列表
@@ -580,8 +556,7 @@ export class EipClient {
     /**
      * 删除指定的浮动IP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除浮动IP
      * @param {string} floatingipId floatingip的ID
@@ -598,8 +573,7 @@ export class EipClient {
     /**
      * 查询提交请求的租户有权限操作的所有浮动IP地址。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询浮动IP列表
      * @param {number} [limit] 每页显示的条目数量。
@@ -625,8 +599,7 @@ export class EipClient {
     /**
      * 查询浮动IP详情，包括浮动IP状态，浮动IP所属路由器ID，浮动IP的外部网络ID等等。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询浮动IP
      * @param {string} floatingipId floatingip的ID
@@ -645,8 +618,7 @@ export class EipClient {
      *  更新时需在URL中给出浮动IP地址的ID。
      *  port_id 为空，则表示浮动IP从端口解绑。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新浮动IP
      * @param {string} floatingipId floatingip的ID
@@ -668,8 +640,7 @@ export const ParamCreater = function () {
         /**
          * 共享带宽插入弹性公网IP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         addPublicipsIntoSharedBandwidth(addPublicipsIntoSharedBandwidthRequest?: AddPublicipsIntoSharedBandwidthRequest) {
             const options = {
@@ -714,8 +685,7 @@ export const ParamCreater = function () {
         /**
          * 批量创建共享带宽。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchCreateSharedBandwidths(batchCreateSharedBandwidthsRequest?: BatchCreateSharedBandwidthsRequest) {
             const options = {
@@ -753,8 +723,7 @@ export const ParamCreater = function () {
         /**
          * 创建共享带宽。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createSharedBandwidth(createSharedBandwidthRequest?: CreateSharedBandwidthRequest) {
             const options = {
@@ -792,8 +761,7 @@ export const ParamCreater = function () {
         /**
          * 删除共享带宽。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteSharedBandwidth(deleteSharedBandwidthRequest?: DeleteSharedBandwidthRequest) {
             const options = {
@@ -830,8 +798,7 @@ export const ParamCreater = function () {
         /**
          * 查询带宽列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listBandwidths(listBandwidthsRequest?: ListBandwidthsRequest) {
             const options = {
@@ -886,8 +853,7 @@ export const ParamCreater = function () {
         /**
          * 查询配额
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listQuotas(listQuotasRequest?: ListQuotasRequest) {
             const options = {
@@ -924,8 +890,7 @@ export const ParamCreater = function () {
         /**
          * 共享带宽移除弹性公网IP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         removePublicipsFromSharedBandwidth(removePublicipsFromSharedBandwidthRequest?: RemovePublicipsFromSharedBandwidthRequest) {
             const options = {
@@ -970,8 +935,7 @@ export const ParamCreater = function () {
         /**
          * 查询带宽
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showBandwidth(showBandwidthRequest?: ShowBandwidthRequest) {
             const options = {
@@ -1008,8 +972,7 @@ export const ParamCreater = function () {
         /**
          * 更新带宽。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateBandwidth(updateBandwidthRequest?: UpdateBandwidthRequest) {
             const options = {
@@ -1054,8 +1017,7 @@ export const ParamCreater = function () {
         /**
          * 更新带宽。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePrePaidBandwidth(updatePrePaidBandwidthRequest?: UpdatePrePaidBandwidthRequest) {
             const options = {
@@ -1100,8 +1062,7 @@ export const ParamCreater = function () {
         /**
          * 为指定的弹性公网IP资源实例批量添加标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchCreatePublicipTags(batchCreatePublicipTagsRequest?: BatchCreatePublicipTagsRequest) {
             const options = {
@@ -1146,8 +1107,7 @@ export const ParamCreater = function () {
         /**
          * 为指定的弹性公网IP资源实例批量删除标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeletePublicipTags(batchDeletePublicipTagsRequest?: BatchDeletePublicipTagsRequest) {
             const options = {
@@ -1192,8 +1152,7 @@ export const ParamCreater = function () {
         /**
          * 申请包年包月的弹性公网IP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPrePaidPublicip(createPrePaidPublicipRequest?: CreatePrePaidPublicipRequest) {
             const options = {
@@ -1232,8 +1191,7 @@ export const ParamCreater = function () {
          * 申请弹性公网IP，支持IPv4和IPv6。
          *  弹性公网IP（Elastic IP）提供独立的公网IP资源，包括公网IP地址与公网出口带宽服务。可以与弹性云服务器、裸金属服务器、虚拟IP、弹性负载均衡、NAT网关等资源灵活地绑定及解绑。拥有多种灵活的计费方式，可以满足各种业务场景的需要。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPublicip(createPublicipRequest?: CreatePublicipRequest) {
             const options = {
@@ -1271,8 +1229,7 @@ export const ParamCreater = function () {
         /**
          * 给指定弹性IP资源实例增加标签信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPublicipTag(createPublicipTagRequest?: CreatePublicipTagRequest) {
             const options = {
@@ -1317,8 +1274,7 @@ export const ParamCreater = function () {
         /**
          * 删除弹性公网IP,绑定状态eip不允许直接删除。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deletePublicip(deletePublicipRequest?: DeletePublicipRequest) {
             const options = {
@@ -1355,8 +1311,7 @@ export const ParamCreater = function () {
         /**
          * 删除指定弹性公网IP的标签信息。其中project_id是项目ID，publicip_id 是要操作的弹性公网IP的id。key是要删除标签的键。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deletePublicipTag(deletePublicipTagRequest?: DeletePublicipTagRequest) {
             const options = {
@@ -1399,8 +1354,7 @@ export const ParamCreater = function () {
         /**
          * 查询租户在指定区域和实例类型的所有标签集合。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPublicipTags() {
             const options = {
@@ -1422,8 +1376,7 @@ export const ParamCreater = function () {
         /**
          * 查询弹性公网IP列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPublicips(listPublicipsRequest?: ListPublicipsRequest) {
             const options = {
@@ -1508,8 +1461,7 @@ export const ParamCreater = function () {
         /**
          * 使用标签过滤弹性公网IP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPublicipsByTags(listPublicipsByTagsRequest?: ListPublicipsByTagsRequest) {
             const options = {
@@ -1547,8 +1499,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定的弹性公网IP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showPublicip(showPublicipRequest?: ShowPublicipRequest) {
             const options = {
@@ -1585,8 +1536,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定弹性IP实例的标签信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showPublicipTags(showPublicipTagsRequest?: ShowPublicipTagsRequest) {
             const options = {
@@ -1623,8 +1573,7 @@ export const ParamCreater = function () {
         /**
          * 更新弹性公网IP，将弹性公网IP跟一个网卡绑定或者解绑定，转换IP地址版本类型。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePublicip(updatePublicipRequest?: UpdatePublicipRequest) {
             const options = {
@@ -1669,8 +1618,7 @@ export const ParamCreater = function () {
         /**
          * 创建浮动IP的外部网络UUID，请使用GET /v2.0/networks?router:external&#x3D;True或neutron net-external-list方式获取。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronCreateFloatingIp(neutronCreateFloatingIpRequest?: NeutronCreateFloatingIpRequest) {
             const options = {
@@ -1708,8 +1656,7 @@ export const ParamCreater = function () {
         /**
          * 删除指定的浮动IP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronDeleteFloatingIp(neutronDeleteFloatingIpRequest?: NeutronDeleteFloatingIpRequest) {
             const options = {
@@ -1746,8 +1693,7 @@ export const ParamCreater = function () {
         /**
          * 查询提交请求的租户有权限操作的所有浮动IP地址。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronListFloatingIps(neutronListFloatingIpsRequest?: NeutronListFloatingIpsRequest) {
             const options = {
@@ -1838,8 +1784,7 @@ export const ParamCreater = function () {
         /**
          * 查询浮动IP详情，包括浮动IP状态，浮动IP所属路由器ID，浮动IP的外部网络ID等等。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronShowFloatingIp(neutronShowFloatingIpRequest?: NeutronShowFloatingIpRequest) {
             const options = {
@@ -1878,8 +1823,7 @@ export const ParamCreater = function () {
          *  更新时需在URL中给出浮动IP地址的ID。
          *  port_id 为空，则表示浮动IP从端口解绑。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronUpdateFloatingIp(neutronUpdateFloatingIpRequest?: NeutronUpdateFloatingIpRequest) {
             const options = {

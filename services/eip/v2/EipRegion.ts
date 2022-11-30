@@ -14,6 +14,9 @@ export class EipRegion {
     public static CN_NORTH_9 = new Region("cn-north-9", "https://vpc.cn-north-9.myhuaweicloud.com");
     public static LA_NORTH_2 = new Region("la-north-2", "https://vpc.la-north-2.myhuaweicloud.com");
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", "https://vpc.sa-brazil-1.myhuaweicloud.com");
+    public static CN_NORTH_2 = new Region("cn-north-2", "https://vpc.cn-north-2.myhuaweicloud.com");
+    public static LA_SOUTH_2 = new Region("la-south-2", "https://vpc.la-south-2.myhuaweicloud.com");
+    public static NA_MEXICO_1 = new Region("na-mexico-1", "https://vpc.na-mexico-1.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = EipRegion.createStaticFields();
@@ -32,6 +35,9 @@ export class EipRegion {
         map.set("cn-north-9", EipRegion.CN_NORTH_9);
         map.set("la-north-2", EipRegion.LA_NORTH_2);
         map.set("sa-brazil-1", EipRegion.SA_BRAZIL_1);
+        map.set("cn-north-2", EipRegion.CN_NORTH_2);
+        map.set("la-south-2", EipRegion.LA_SOUTH_2);
+        map.set("na-mexico-1", EipRegion.NA_MEXICO_1);
         return map;
     }
     public static valueOf(regionId: String) {

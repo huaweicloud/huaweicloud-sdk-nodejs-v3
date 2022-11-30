@@ -1,9 +1,7 @@
-import { DisassociatePublicipsRequestBody } from './DisassociatePublicipsRequestBody';
 
 
 export class DisassociatePublicipsRequest {
     private 'publicip_id': string | undefined;
-    public body?: DisassociatePublicipsRequestBody;
     public constructor(publicipId?: any) { 
         this['publicip_id'] = publicipId;
     }
@@ -16,9 +14,5 @@ export class DisassociatePublicipsRequest {
     }
     public get publicipId() {
         return this['publicip_id'];
-    }
-    public withBody(body: DisassociatePublicipsRequestBody): DisassociatePublicipsRequest {
-        this['body'] = body;
-        return this;
     }
 }

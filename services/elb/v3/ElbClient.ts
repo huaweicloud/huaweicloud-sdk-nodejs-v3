@@ -296,8 +296,7 @@ export class ElbClient {
     /**
      * 在指定pool下批量创建后端服务器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建后端服务器
      * @param {string} poolId 后端服务器组ID。
@@ -315,8 +314,7 @@ export class ElbClient {
     /**
      * 在指定pool下批量删除后端服务器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除后端服务器
      * @param {string} poolId 后端服务器组ID。
@@ -334,8 +332,7 @@ export class ElbClient {
     /**
      * 批量更新转发策略的优先级。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量更新转发策略优先级
      * @param {BatchUpdatePoliciesPriorityRequestBody} [batchUpdatePoliciesPriorityRequestBody] This is a auto create Body Object
@@ -352,8 +349,7 @@ export class ElbClient {
     /**
      * 负载均衡器计费模式变更，当前只支持按需计费转包周期计费。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 变更负载均衡器计费模式
      * @param {ChangeLoadbalancerChargeModeRequestBody} changeLoadbalancerChargeModeRequestBody This is a auto create Body Object
@@ -370,8 +366,7 @@ export class ElbClient {
     /**
      * 创建证书。用于HTTPS协议监听器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建证书
      * @param {CreateCertificateRequestBody} createCertificateRequestBody This is a auto create Body Object
@@ -388,8 +383,7 @@ export class ElbClient {
     /**
      * 创建健康检查。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建健康检查
      * @param {CreateHealthMonitorRequestBody} createHealthMonitorRequestBody This is a auto create Body Object
@@ -406,8 +400,7 @@ export class ElbClient {
     /**
      * 创建七层转发策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建转发策略
      * @param {CreateL7PolicyRequestBody} createL7PolicyRequestBody This is a auto create Body Object
@@ -424,8 +417,7 @@ export class ElbClient {
     /**
      * 创建七层转发规则。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建转发规则
      * @param {string} l7policyId 转发策略ID。
@@ -443,8 +435,7 @@ export class ElbClient {
     /**
      * 创建监听器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建监听器
      * @param {CreateListenerRequestBody} createListenerRequestBody This is a auto create Body Object
@@ -470,8 +461,7 @@ export class ElbClient {
      * 
      * [&gt; 不支持创建IPv6地址负载均衡器](tag:dt,dt_test)
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建负载均衡器
      * @param {CreateLoadBalancerRequestBody} createLoadBalancerRequestBody This is a auto create Body Object
@@ -488,8 +478,7 @@ export class ElbClient {
     /**
      * 创建云日志
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建云日志
      * @param {CreateLogtankRequestBody} createLogtankRequestBody This is a auto create Body Object
@@ -506,8 +495,7 @@ export class ElbClient {
     /**
      * 创建后端服务器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建后端服务器
      * @param {string} poolId 后端服务器组ID。
@@ -525,8 +513,7 @@ export class ElbClient {
     /**
      * 创建后端服务器组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建后端服务器组
      * @param {CreatePoolRequestBody} createPoolRequestBody This is a auto create Body Object
@@ -543,8 +530,7 @@ export class ElbClient {
     /**
      * 创建自定义安全策略。用于在创建HTTPS监听器时，请求参数中指定security_policy_id来设置监听器的自定义安全策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建自定义安全策略
      * @param {CreateSecurityPolicyRequestBody} createSecurityPolicyRequestBody This is a auto create Body Object
@@ -561,8 +547,7 @@ export class ElbClient {
     /**
      * 删除证书。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除证书
      * @param {string} certificateId 证书ID。
@@ -579,8 +564,7 @@ export class ElbClient {
     /**
      * 删除健康检查。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除健康检查
      * @param {string} healthmonitorId 健康检查ID。
@@ -597,8 +581,7 @@ export class ElbClient {
     /**
      * 删除七层转发策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除转发策略
      * @param {string} l7policyId 转发策略ID。
@@ -615,8 +598,7 @@ export class ElbClient {
     /**
      * 删除七层转发规则。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除转发规则
      * @param {string} l7policyId 策略ID。
@@ -634,8 +616,7 @@ export class ElbClient {
     /**
      * 删除监听器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除监听器
      * @param {string} listenerId 监听器ID。
@@ -652,8 +633,7 @@ export class ElbClient {
     /**
      * 删除负载均衡器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除负载均衡器
      * @param {string} loadbalancerId 负载均衡器ID。
@@ -670,8 +650,7 @@ export class ElbClient {
     /**
      * 删除云日志。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除云日志
      * @param {string} logtankId 云日志ID。
@@ -688,8 +667,7 @@ export class ElbClient {
     /**
      * 删除后端服务器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除后端服务器
      * @param {string} poolId 后端服务器组ID。
@@ -707,8 +685,7 @@ export class ElbClient {
     /**
      * 删除后端服务器组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除后端服务器组
      * @param {string} poolId 后端服务器组ID。
@@ -725,8 +702,7 @@ export class ElbClient {
     /**
      * 删除自定义安全策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除自定义安全策略
      * @param {string} securityPolicyId 自定义安全策略的ID。
@@ -743,8 +719,7 @@ export class ElbClient {
     /**
      * 查询当前租户下的后端服务器列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 后端服务器全局列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
@@ -783,8 +758,7 @@ export class ElbClient {
      * 在创建负载均衡器时，可以选择创建在多个可用区，但所选的多个可用区必须同属于其中一个可用区集合，
      * 如可以选az2和az3，但不能选择az1和az3。你可以选择多个可用区，只要这些可用区在一个子集中
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可用区列表
      * @param {string} [publicBorderGroup] AZ组。
@@ -801,8 +775,7 @@ export class ElbClient {
     /**
      * 查询证书列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询证书列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
@@ -827,8 +800,7 @@ export class ElbClient {
     /**
      * 查询租户在当前region下可用的负载均衡规格列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询规格列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
@@ -851,8 +823,7 @@ export class ElbClient {
     /**
      * 健康检查列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询健康检查列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
@@ -885,8 +856,7 @@ export class ElbClient {
     /**
      * 查询七层转发策略列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询转发策略列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
@@ -919,8 +889,7 @@ export class ElbClient {
     /**
      * 查询转发规则列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询转发规则列表
      * @param {string} l7policyId 策略ID。
@@ -949,8 +918,7 @@ export class ElbClient {
     /**
      * 查询监听器列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询监听器列表
      * @param {number} [limit] 每页返回的个数。
@@ -992,8 +960,7 @@ export class ElbClient {
     /**
      * 查询负载均衡器列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询负载均衡器列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
@@ -1041,8 +1008,7 @@ export class ElbClient {
     /**
      * 查询云日志列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云日志列表
      * @param {number} [limit] 每页返回的个数。
@@ -1066,8 +1032,7 @@ export class ElbClient {
     /**
      * Pool下的后端服务器列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询后端服务器列表
      * @param {string} poolId 后端服务器组ID。
@@ -1099,8 +1064,7 @@ export class ElbClient {
     /**
      * 后端服务器组列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询后端服务器组列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
@@ -1136,8 +1100,7 @@ export class ElbClient {
     /**
      * 查询指定项目中负载均衡相关的各类资源的当前配额和已使用配额信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额使用详情
      * @param {Array<string>} [quotaKey] 资源类型。  取值： loadbalancer、listener、ipgroup、pool、member、members_per_pool、 healthmonitor、l7policy、certificate、security_policy， 其中members_per_pool表示一个pool下最多可关联的member数量。  支持多值查询，查询条件格式：quota_key&#x3D;xxx&amp;quota_key&#x3D;xxx。
@@ -1154,8 +1117,7 @@ export class ElbClient {
     /**
      * 查询自定义安全策略列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询自定义安全策略列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
@@ -1181,8 +1143,7 @@ export class ElbClient {
      * 
      * 系统安全策略为预置的所有租户通用的安全策略，租户不可新增或修改。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询系统安全策略列表
      * @param {*} [options] Override http request option.
@@ -1198,8 +1159,7 @@ export class ElbClient {
     /**
      * 查询证书详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询证书详情
      * @param {string} certificateId 证书ID。
@@ -1216,8 +1176,7 @@ export class ElbClient {
     /**
      * 查询规格的详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询规格详情
      * @param {string} flavorId 规格ID。
@@ -1234,8 +1193,7 @@ export class ElbClient {
     /**
      * 查询健康检查详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询健康检查详情
      * @param {string} healthmonitorId 健康检查ID。
@@ -1252,8 +1210,7 @@ export class ElbClient {
     /**
      * 查询七层转发策略详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询转发策略详情
      * @param {string} l7policyId 转发策略ID。
@@ -1270,8 +1227,7 @@ export class ElbClient {
     /**
      * 查询七层转发规则详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询转发规则详情
      * @param {string} l7policyId 7层转发策略。
@@ -1289,8 +1245,7 @@ export class ElbClient {
     /**
      * 监听器详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询监听器详情
      * @param {string} listenerId 监听器ID。
@@ -1307,8 +1262,7 @@ export class ElbClient {
     /**
      * 查询负载均衡器详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询负载均衡器详情
      * @param {string} loadbalancerId 负载均衡器ID。
@@ -1328,8 +1282,7 @@ export class ElbClient {
      * 如：当Member的admin_state_up&#x3D;false且operating_status&#x3D;OFFLINE时，
      * 该接口返回member的operating_status&#x3D;DISABLE。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询负载均衡器状态树
      * @param {string} loadbalancerId 负载均衡器ID。
@@ -1346,8 +1299,7 @@ export class ElbClient {
     /**
      * 云日志详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云日志详情
      * @param {string} logtankId 云日志ID。
@@ -1364,8 +1316,7 @@ export class ElbClient {
     /**
      * 后端服务器详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询后端服务器详情
      * @param {string} poolId 后端服务器组ID。
@@ -1383,8 +1334,7 @@ export class ElbClient {
     /**
      * 后端服务器组详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询后端服务器组详情
      * @param {string} poolId 后端服务器组ID。
@@ -1401,8 +1351,7 @@ export class ElbClient {
     /**
      * 查询指定项目中负载均衡相关的各类资源的当前配额。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额详情
      * @param {*} [options] Override http request option.
@@ -1418,8 +1367,7 @@ export class ElbClient {
     /**
      * 查询自定义安全策略详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询自定义安全策略详情
      * @param {string} securityPolicyId 自定义安全策略ID。
@@ -1436,8 +1384,7 @@ export class ElbClient {
     /**
      * 更新证书。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新证书
      * @param {string} certificateId 证书ID。
@@ -1455,8 +1402,7 @@ export class ElbClient {
     /**
      * 更新健康检查。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新健康检查
      * @param {string} healthmonitorId 健康检查ID
@@ -1474,8 +1420,7 @@ export class ElbClient {
     /**
      * 更新七层转发策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新转发策略
      * @param {string} l7policyId 转发策略ID。
@@ -1493,8 +1438,7 @@ export class ElbClient {
     /**
      * 更新七层转发规则。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新转发规则
      * @param {string} l7policyId 策略ID。
@@ -1513,8 +1457,7 @@ export class ElbClient {
     /**
      * 更新监听器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新监听器
      * @param {string} listenerId 监听器ID。
@@ -1532,8 +1475,7 @@ export class ElbClient {
     /**
      * 更新负载均衡器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新负载均衡器
      * @param {string} loadbalancerId 负载均衡器ID。
@@ -1551,8 +1493,7 @@ export class ElbClient {
     /**
      * 更新云日志
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新云日志
      * @param {string} logtankId 云日志ID。
@@ -1570,8 +1511,7 @@ export class ElbClient {
     /**
      * 更新后端服务器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新后端服务器
      * @param {string} memberId 后端服务器ID。 &gt;说明： 此处并非ECS服务器的ID，而是ELB为绑定的后端服务器自动生成的member ID。
@@ -1590,8 +1530,7 @@ export class ElbClient {
     /**
      * 更新后端服务器组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新后端服务器组
      * @param {string} poolId 后端服务器组ID。
@@ -1609,8 +1548,7 @@ export class ElbClient {
     /**
      * 更新自定义安全策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新自定义安全策略
      * @param {string} securityPolicyId 自定义安全策略的ID。
@@ -1628,8 +1566,7 @@ export class ElbClient {
     /**
      * 返回ELB当前所有可用的API版本。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询API版本列表信息
      * @param {*} [options] Override http request option.
@@ -1645,8 +1582,7 @@ export class ElbClient {
     /**
      * 批量删除IP地址组的IP列表信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除IP地址组的IP列表项
      * @param {string} ipgroupId IP地址组ID。
@@ -1677,8 +1613,7 @@ export class ElbClient {
      * - 计算出来的预占IP数大于等于最终实际占用的IP数。
      * - 总占用IP数量，即整个LB所占用的IP数量。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 计算预占IP数
      * @param {string} [l7FlavorId] 负载均衡器七层规格的ID。传入该字段表示计算创建该规格的LB，或变更LB的原七层规格到该规格所需要的预占IP。  适用场景：创建负LB，变更LB规格。
@@ -1701,8 +1636,7 @@ export class ElbClient {
      * 
      * 需要注意0.0.0.0与0.0.0.0/32视为重复，0:0:0:0:0:0:0:1与::1与::1/128视为重复，只会保存其中一个。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建IP地址组
      * @param {CreateIpGroupRequestBody} createIpGroupRequestBody This is a auto create Body Object
@@ -1719,8 +1653,7 @@ export class ElbClient {
     /**
      * 删除ip地址组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除IP地址组
      * @param {string} ipgroupId IP地址组的ID。
@@ -1737,8 +1670,7 @@ export class ElbClient {
     /**
      * 查询IP地址组列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询IP地址组列表
      * @param {string} [marker] 上一页最后一条记录的ID。  使用说明： - 必须与limit一起使用。 - 不指定时表示查询第一页。 - 该字段不允许为空或无效的ID。
@@ -1761,8 +1693,7 @@ export class ElbClient {
     /**
      * 获取IP地址组详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询IP地址组详情
      * @param {string} ipgroupId IP地址组ID。
@@ -1782,8 +1713,7 @@ export class ElbClient {
      * 
      * 需要注意0.0.0.0与0.0.0.0/32视为重复，0:0:0:0:0:0:0:1与::1与::1/128视为重复，只会保存其中一个。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新IP地址组
      * @param {string} ipgroupId 待更新的IP地址组的ID。
@@ -1801,8 +1731,7 @@ export class ElbClient {
     /**
      * 更新IP地址组的IP列表信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新IP地址组的IP列表项
      * @param {string} ipgroupId IP地址组ID。
@@ -1824,8 +1753,7 @@ export const ParamCreater = function () {
         /**
          * 在指定pool下批量创建后端服务器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchCreateMembers(batchCreateMembersRequest?: BatchCreateMembersRequest) {
             const options = {
@@ -1870,8 +1798,7 @@ export const ParamCreater = function () {
         /**
          * 在指定pool下批量删除后端服务器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeleteMembers(batchDeleteMembersRequest?: BatchDeleteMembersRequest) {
             const options = {
@@ -1916,8 +1843,7 @@ export const ParamCreater = function () {
         /**
          * 批量更新转发策略的优先级。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchUpdatePoliciesPriority(batchUpdatePoliciesPriorityRequest?: BatchUpdatePoliciesPriorityRequest) {
             const options = {
@@ -1952,8 +1878,7 @@ export const ParamCreater = function () {
         /**
          * 负载均衡器计费模式变更，当前只支持按需计费转包周期计费。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         changeLoadbalancerChargeMode(changeLoadbalancerChargeModeRequest?: ChangeLoadbalancerChargeModeRequest) {
             const options = {
@@ -1991,8 +1916,7 @@ export const ParamCreater = function () {
         /**
          * 创建证书。用于HTTPS协议监听器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createCertificate(createCertificateRequest?: CreateCertificateRequest) {
             const options = {
@@ -2030,8 +1954,7 @@ export const ParamCreater = function () {
         /**
          * 创建健康检查。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createHealthMonitor(createHealthMonitorRequest?: CreateHealthMonitorRequest) {
             const options = {
@@ -2069,8 +1992,7 @@ export const ParamCreater = function () {
         /**
          * 创建七层转发策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createL7Policy(createL7PolicyRequest?: CreateL7PolicyRequest) {
             const options = {
@@ -2108,8 +2030,7 @@ export const ParamCreater = function () {
         /**
          * 创建七层转发规则。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createL7Rule(createL7RuleRequest?: CreateL7RuleRequest) {
             const options = {
@@ -2154,8 +2075,7 @@ export const ParamCreater = function () {
         /**
          * 创建监听器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createListener(createListenerRequest?: CreateListenerRequest) {
             const options = {
@@ -2202,8 +2122,7 @@ export const ParamCreater = function () {
          * 
          * [&gt; 不支持创建IPv6地址负载均衡器](tag:dt,dt_test)
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createLoadBalancer(createLoadBalancerRequest?: CreateLoadBalancerRequest) {
             const options = {
@@ -2241,8 +2160,7 @@ export const ParamCreater = function () {
         /**
          * 创建云日志
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createLogtank(createLogtankRequest?: CreateLogtankRequest) {
             const options = {
@@ -2280,8 +2198,7 @@ export const ParamCreater = function () {
         /**
          * 创建后端服务器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createMember(createMemberRequest?: CreateMemberRequest) {
             const options = {
@@ -2326,8 +2243,7 @@ export const ParamCreater = function () {
         /**
          * 创建后端服务器组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPool(createPoolRequest?: CreatePoolRequest) {
             const options = {
@@ -2365,8 +2281,7 @@ export const ParamCreater = function () {
         /**
          * 创建自定义安全策略。用于在创建HTTPS监听器时，请求参数中指定security_policy_id来设置监听器的自定义安全策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createSecurityPolicy(createSecurityPolicyRequest?: CreateSecurityPolicyRequest) {
             const options = {
@@ -2404,8 +2319,7 @@ export const ParamCreater = function () {
         /**
          * 删除证书。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest) {
             const options = {
@@ -2442,8 +2356,7 @@ export const ParamCreater = function () {
         /**
          * 删除健康检查。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteHealthMonitor(deleteHealthMonitorRequest?: DeleteHealthMonitorRequest) {
             const options = {
@@ -2480,8 +2393,7 @@ export const ParamCreater = function () {
         /**
          * 删除七层转发策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteL7Policy(deleteL7PolicyRequest?: DeleteL7PolicyRequest) {
             const options = {
@@ -2518,8 +2430,7 @@ export const ParamCreater = function () {
         /**
          * 删除七层转发规则。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteL7Rule(deleteL7RuleRequest?: DeleteL7RuleRequest) {
             const options = {
@@ -2562,8 +2473,7 @@ export const ParamCreater = function () {
         /**
          * 删除监听器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteListener(deleteListenerRequest?: DeleteListenerRequest) {
             const options = {
@@ -2600,8 +2510,7 @@ export const ParamCreater = function () {
         /**
          * 删除负载均衡器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteLoadBalancer(deleteLoadBalancerRequest?: DeleteLoadBalancerRequest) {
             const options = {
@@ -2638,8 +2547,7 @@ export const ParamCreater = function () {
         /**
          * 删除云日志。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteLogtank(deleteLogtankRequest?: DeleteLogtankRequest) {
             const options = {
@@ -2676,8 +2584,7 @@ export const ParamCreater = function () {
         /**
          * 删除后端服务器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteMember(deleteMemberRequest?: DeleteMemberRequest) {
             const options = {
@@ -2720,8 +2627,7 @@ export const ParamCreater = function () {
         /**
          * 删除后端服务器组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deletePool(deletePoolRequest?: DeletePoolRequest) {
             const options = {
@@ -2758,8 +2664,7 @@ export const ParamCreater = function () {
         /**
          * 删除自定义安全策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteSecurityPolicy(deleteSecurityPolicyRequest?: DeleteSecurityPolicyRequest) {
             const options = {
@@ -2796,8 +2701,7 @@ export const ParamCreater = function () {
         /**
          * 查询当前租户下的后端服务器列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAllMembers(listAllMembersRequest?: ListAllMembersRequest) {
             const options = {
@@ -2926,8 +2830,7 @@ export const ParamCreater = function () {
          * 在创建负载均衡器时，可以选择创建在多个可用区，但所选的多个可用区必须同属于其中一个可用区集合，
          * 如可以选az2和az3，但不能选择az1和az3。你可以选择多个可用区，只要这些可用区在一个子集中
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAvailabilityZones(listAvailabilityZonesRequest?: ListAvailabilityZonesRequest) {
             const options = {
@@ -2964,8 +2867,7 @@ export const ParamCreater = function () {
         /**
          * 查询证书列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listCertificates(listCertificatesRequest?: ListCertificatesRequest) {
             const options = {
@@ -3050,8 +2952,7 @@ export const ParamCreater = function () {
         /**
          * 查询租户在当前region下可用的负载均衡规格列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFlavors(listFlavorsRequest?: ListFlavorsRequest) {
             const options = {
@@ -3124,8 +3025,7 @@ export const ParamCreater = function () {
         /**
          * 健康检查列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listHealthMonitors(listHealthMonitorsRequest?: ListHealthMonitorsRequest) {
             const options = {
@@ -3258,8 +3158,7 @@ export const ParamCreater = function () {
         /**
          * 查询七层转发策略列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listL7Policies(listL7PoliciesRequest?: ListL7PoliciesRequest) {
             const options = {
@@ -3392,8 +3291,7 @@ export const ParamCreater = function () {
         /**
          * 查询转发规则列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listL7Rules(listL7RulesRequest?: ListL7RulesRequest) {
             const options = {
@@ -3503,8 +3401,7 @@ export const ParamCreater = function () {
         /**
          * 查询监听器列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listListeners(listListenersRequest?: ListListenersRequest) {
             const options = {
@@ -3691,8 +3588,7 @@ export const ParamCreater = function () {
         /**
          * 查询负载均衡器列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listLoadBalancers(listLoadBalancersRequest?: ListLoadBalancersRequest) {
             const options = {
@@ -3915,8 +3811,7 @@ export const ParamCreater = function () {
         /**
          * 查询云日志列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listLogtanks(listLogtanksRequest?: ListLogtanksRequest) {
             const options = {
@@ -3995,8 +3890,7 @@ export const ParamCreater = function () {
         /**
          * Pool下的后端服务器列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listMembers(listMembersRequest?: ListMembersRequest) {
             const options = {
@@ -4124,8 +4018,7 @@ export const ParamCreater = function () {
         /**
          * 后端服务器组列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPools(listPoolsRequest?: ListPoolsRequest) {
             const options = {
@@ -4276,8 +4169,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定项目中负载均衡相关的各类资源的当前配额和已使用配额信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listQuotaDetails(listQuotaDetailsRequest?: ListQuotaDetailsRequest) {
             const options = {
@@ -4314,8 +4206,7 @@ export const ParamCreater = function () {
         /**
          * 查询自定义安全策略列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listSecurityPolicies(listSecurityPoliciesRequest?: ListSecurityPoliciesRequest) {
             const options = {
@@ -4396,8 +4287,7 @@ export const ParamCreater = function () {
          * 
          * 系统安全策略为预置的所有租户通用的安全策略，租户不可新增或修改。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listSystemSecurityPolicies() {
             const options = {
@@ -4419,8 +4309,7 @@ export const ParamCreater = function () {
         /**
          * 查询证书详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showCertificate(showCertificateRequest?: ShowCertificateRequest) {
             const options = {
@@ -4457,8 +4346,7 @@ export const ParamCreater = function () {
         /**
          * 查询规格的详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showFlavor(showFlavorRequest?: ShowFlavorRequest) {
             const options = {
@@ -4495,8 +4383,7 @@ export const ParamCreater = function () {
         /**
          * 查询健康检查详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showHealthMonitor(showHealthMonitorRequest?: ShowHealthMonitorRequest) {
             const options = {
@@ -4533,8 +4420,7 @@ export const ParamCreater = function () {
         /**
          * 查询七层转发策略详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showL7Policy(showL7PolicyRequest?: ShowL7PolicyRequest) {
             const options = {
@@ -4571,8 +4457,7 @@ export const ParamCreater = function () {
         /**
          * 查询七层转发规则详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showL7Rule(showL7RuleRequest?: ShowL7RuleRequest) {
             const options = {
@@ -4615,8 +4500,7 @@ export const ParamCreater = function () {
         /**
          * 监听器详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showListener(showListenerRequest?: ShowListenerRequest) {
             const options = {
@@ -4653,8 +4537,7 @@ export const ParamCreater = function () {
         /**
          * 查询负载均衡器详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showLoadBalancer(showLoadBalancerRequest?: ShowLoadBalancerRequest) {
             const options = {
@@ -4694,8 +4577,7 @@ export const ParamCreater = function () {
          * 如：当Member的admin_state_up&#x3D;false且operating_status&#x3D;OFFLINE时，
          * 该接口返回member的operating_status&#x3D;DISABLE。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showLoadBalancerStatus(showLoadBalancerStatusRequest?: ShowLoadBalancerStatusRequest) {
             const options = {
@@ -4732,8 +4614,7 @@ export const ParamCreater = function () {
         /**
          * 云日志详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showLogtank(showLogtankRequest?: ShowLogtankRequest) {
             const options = {
@@ -4770,8 +4651,7 @@ export const ParamCreater = function () {
         /**
          * 后端服务器详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showMember(showMemberRequest?: ShowMemberRequest) {
             const options = {
@@ -4814,8 +4694,7 @@ export const ParamCreater = function () {
         /**
          * 后端服务器组详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showPool(showPoolRequest?: ShowPoolRequest) {
             const options = {
@@ -4852,8 +4731,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定项目中负载均衡相关的各类资源的当前配额。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showQuota() {
             const options = {
@@ -4875,8 +4753,7 @@ export const ParamCreater = function () {
         /**
          * 查询自定义安全策略详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showSecurityPolicy(showSecurityPolicyRequest?: ShowSecurityPolicyRequest) {
             const options = {
@@ -4913,8 +4790,7 @@ export const ParamCreater = function () {
         /**
          * 更新证书。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateCertificate(updateCertificateRequest?: UpdateCertificateRequest) {
             const options = {
@@ -4959,8 +4835,7 @@ export const ParamCreater = function () {
         /**
          * 更新健康检查。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateHealthMonitor(updateHealthMonitorRequest?: UpdateHealthMonitorRequest) {
             const options = {
@@ -5005,8 +4880,7 @@ export const ParamCreater = function () {
         /**
          * 更新七层转发策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateL7Policy(updateL7PolicyRequest?: UpdateL7PolicyRequest) {
             const options = {
@@ -5051,8 +4925,7 @@ export const ParamCreater = function () {
         /**
          * 更新七层转发规则。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateL7Rule(updateL7RuleRequest?: UpdateL7RuleRequest) {
             const options = {
@@ -5103,8 +4976,7 @@ export const ParamCreater = function () {
         /**
          * 更新监听器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateListener(updateListenerRequest?: UpdateListenerRequest) {
             const options = {
@@ -5149,8 +5021,7 @@ export const ParamCreater = function () {
         /**
          * 更新负载均衡器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateLoadBalancer(updateLoadBalancerRequest?: UpdateLoadBalancerRequest) {
             const options = {
@@ -5195,8 +5066,7 @@ export const ParamCreater = function () {
         /**
          * 更新云日志
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateLogtank(updateLogtankRequest?: UpdateLogtankRequest) {
             const options = {
@@ -5241,8 +5111,7 @@ export const ParamCreater = function () {
         /**
          * 更新后端服务器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateMember(updateMemberRequest?: UpdateMemberRequest) {
             const options = {
@@ -5293,8 +5162,7 @@ export const ParamCreater = function () {
         /**
          * 更新后端服务器组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePool(updatePoolRequest?: UpdatePoolRequest) {
             const options = {
@@ -5339,8 +5207,7 @@ export const ParamCreater = function () {
         /**
          * 更新自定义安全策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateSecurityPolicy(updateSecurityPolicyRequest?: UpdateSecurityPolicyRequest) {
             const options = {
@@ -5385,8 +5252,7 @@ export const ParamCreater = function () {
         /**
          * 返回ELB当前所有可用的API版本。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listApiVersions() {
             const options = {
@@ -5408,8 +5274,7 @@ export const ParamCreater = function () {
         /**
          * 批量删除IP地址组的IP列表信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeleteIpList(batchDeleteIpListRequest?: BatchDeleteIpListRequest) {
             const options = {
@@ -5464,8 +5329,7 @@ export const ParamCreater = function () {
          * - 计算出来的预占IP数大于等于最终实际占用的IP数。
          * - 总占用IP数量，即整个LB所占用的IP数量。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         countPreoccupyIpNum(countPreoccupyIpNumRequest?: CountPreoccupyIpNumRequest) {
             const options = {
@@ -5528,8 +5392,7 @@ export const ParamCreater = function () {
          * 
          * 需要注意0.0.0.0与0.0.0.0/32视为重复，0:0:0:0:0:0:0:1与::1与::1/128视为重复，只会保存其中一个。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createIpGroup(createIpGroupRequest?: CreateIpGroupRequest) {
             const options = {
@@ -5567,8 +5430,7 @@ export const ParamCreater = function () {
         /**
          * 删除ip地址组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteIpGroup(deleteIpGroupRequest?: DeleteIpGroupRequest) {
             const options = {
@@ -5605,8 +5467,7 @@ export const ParamCreater = function () {
         /**
          * 查询IP地址组列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listIpGroups(listIpGroupsRequest?: ListIpGroupsRequest) {
             const options = {
@@ -5679,8 +5540,7 @@ export const ParamCreater = function () {
         /**
          * 获取IP地址组详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showIpGroup(showIpGroupRequest?: ShowIpGroupRequest) {
             const options = {
@@ -5720,8 +5580,7 @@ export const ParamCreater = function () {
          * 
          * 需要注意0.0.0.0与0.0.0.0/32视为重复，0:0:0:0:0:0:0:1与::1与::1/128视为重复，只会保存其中一个。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateIpGroup(updateIpGroupRequest?: UpdateIpGroupRequest) {
             const options = {
@@ -5766,8 +5625,7 @@ export const ParamCreater = function () {
         /**
          * 更新IP地址组的IP列表信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateIpList(updateIpListRequest?: UpdateIpListRequest) {
             const options = {

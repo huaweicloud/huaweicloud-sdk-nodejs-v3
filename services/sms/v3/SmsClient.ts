@@ -168,8 +168,7 @@ export class SmsClient {
     /**
      * 检查网卡安全组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 检查网卡安全组端口是否符合要求
      * @param {string} tProjectId 目的虚拟机所属project_id
@@ -189,8 +188,7 @@ export class SmsClient {
     /**
      * 上传迁移任务的日志。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 上传迁移任务的日志
      * @param {string} taskId 迁移任务ID
@@ -208,8 +206,7 @@ export class SmsClient {
     /**
      * 新建迁移项目。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新建迁移项目
      * @param {PostMigProjectBody} createMigprojectRequestBody 新建的迁移项目的请求体
@@ -226,8 +223,7 @@ export class SmsClient {
     /**
      * 根据源端服务器创建一个迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建迁移任务
      * @param {PostTask} createTaskRequestBody 迁移任务信息请求体
@@ -244,8 +240,7 @@ export class SmsClient {
     /**
      * 新增源端模板信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新增模板信息
      * @param {CreateTemplateReq} createTemplateRequestBody This is a auto create Body Object
@@ -262,8 +257,7 @@ export class SmsClient {
     /**
      * 删除指定ID的迁移项目。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除迁移项目
      * @param {string} migProjectId 需要删除的迁移项目的ID
@@ -280,8 +274,7 @@ export class SmsClient {
     /**
      * 从主机迁移服务界面上删除指定ID的源端服务器信息。一旦源端服务器信息被删除，则只能通过重启源端服务器上的迁移Agent来将源端服务器信息重新添加在主机迁移服务界面。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定ID的源端服务器信息
      * @param {string} sourceId 源端服务器在主机迁移服务中的ID
@@ -298,8 +291,7 @@ export class SmsClient {
     /**
      * 批量删除源端服务器信息。一旦源端服务器信息被删除，则只能通过重启源端服务器上的迁移Agent来将源端服务器信息重新添加在主机迁移服务界面。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除源端服务器信息
      * @param {DeleteIds} deleteServersRequestBody 批量删除对象的源端ID
@@ -316,8 +308,7 @@ export class SmsClient {
     /**
      * 删除指定ID的迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定ID的迁移任务
      * @param {string} taskId 要删除的迁移任务ID
@@ -334,8 +325,7 @@ export class SmsClient {
     /**
      * 批量删除迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除迁移任务
      * @param {DeleteTasksReq} deleteTasksRequestBody This is a auto create Body Object
@@ -352,8 +342,7 @@ export class SmsClient {
     /**
      * 删除指定ID的模板。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定ID的模板
      * @param {string} id 需要删除的模板的ID
@@ -370,8 +359,7 @@ export class SmsClient {
     /**
      * 批量删除指定ID的模板。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除指定ID的模板
      * @param {DeletetemplatesReq} [deletetemplatesRequestBody] This is a auto create Body Object
@@ -388,8 +376,7 @@ export class SmsClient {
     /**
      * 主机迁移过程中可能发生错误，使用该接口可以批量查询迁移过程中出现错误的源端服务器信息，以及它们的错误信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询待迁移源端的所有错误
      * @param {number} offset 偏移量
@@ -409,8 +396,7 @@ export class SmsClient {
     /**
      * 主机迁移服务中可以使用迁移项目来对源端进行项目管理，使用该接口获取当前账户下所有的迁移项目列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取项目列表
      * @param {number} [limit] 每一页记录的迁移项目
@@ -428,8 +414,7 @@ export class SmsClient {
     /**
      * 用户在源端安装并成功启动Agent后，Agent会将源端服务器信息注册在主机迁移服务中，调用该接口查询已注册的源端服务器列表信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询源端服务器列表
      * @param {'unavailable' | 'waiting' | 'initialize' | 'replicate' | 'syncing' | 'stopping' | 'stopped' | 'deleting' | 'error' | 'cloning' | 'cutovering' | 'finished'} [state] 源端服务器状态 unavailable：环境校验不通过 waiting：等待 initialize：初始化 replicate：复制 syncing：持续同步 stopping：暂停中 stopped：已暂停 deleting：删除中 error：错误 cloning：等待克隆完成 cutovering：启动目的端中 finished：启动目的端完成
@@ -455,8 +440,7 @@ export class SmsClient {
     /**
      * 在设置目的端后，主机迁移服务会自动创建迁移任务，使用该接口可以查询迁移任务列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询迁移任务列表
      * @param {'READY' | 'RUNNING' | 'SYNCING' | 'MIGRATE_SUCCESS' | 'MIGRATE_FAIL' | 'ABORTING' | 'ABORT' | 'DELETING' | 'SYNC_F_ROLLBACKING' | 'SYNC_F_ROLLBACK_SUCCESS'} [state] 迁移任务状态 READY:准备就绪 RUNNING:迁移中 SYNCING:同步中 MIGRATE_SUCCESS:迁移成功 MIGRATE_FAIL:迁移失败 ABORTING:中止中 ABORT:中止 DELETING::删除中 SYNC_F_ROLLBACKING:同步失败回滚中 SYNC_F_ROLLBACK_SUCCESS:同步失败回滚成功
@@ -479,8 +463,7 @@ export class SmsClient {
     /**
      * 查询弹性云服务器模板列表，迁移时选择“新建服务器”时可使用该模板创建弹性云服务器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询模板列表
      * @param {string} [name] 模板名称
@@ -501,8 +484,7 @@ export class SmsClient {
     /**
      * 上报源端服务器信息，上报成功后会在sms服务器列表中看到对应的源端服务器信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 上报源端服务器基本信息
      * @param {PostSourceServerBody} registerServerRequestBody 源端服务器信息
@@ -519,8 +501,7 @@ export class SmsClient {
     /**
      * 当源端服务器为Windows操作系统时，安装在源端服务器上的迁移Agent通过SSLSocket同目的端服务器通信，该接口用于下载目的端服务器所需要的证书和私钥(PEM格式)。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取SSL目的端证书和私钥
      * @param {string} taskId 迁移任务ID
@@ -537,8 +518,7 @@ export class SmsClient {
     /**
      * 迁移Agent调用该接口从SMS服务端获取下发给指定源端迁移Agent的命令。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取服务端命令
      * @param {string} serverId 命令对应的服务器ID
@@ -555,8 +535,7 @@ export class SmsClient {
     /**
      * 查询指定ID的迁移项目详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定ID迁移项目详情
      * @param {string} migProjectId 迁移项目ID
@@ -573,8 +552,7 @@ export class SmsClient {
     /**
      * 获取服务器总览
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取服务器总览
      * @param {*} [options] Override http request option.
@@ -590,8 +568,7 @@ export class SmsClient {
     /**
      * 查询指定任务ID的安全传输通道的证书passphrase。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定任务ID的安全传输通道的证书passphrase
      * @param {string} taskId 任务ID
@@ -608,8 +585,7 @@ export class SmsClient {
     /**
      * 迁移Agent将源端服务器信息上报到主机迁移服务后，主机迁移服务会对迁移的可行性进行检测，该接口返回源端服务器的基本信息和检查结果。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定ID的源端服务器
      * @param {string} sourceId 源端服务器在主机迁移服务中的ID
@@ -626,8 +602,7 @@ export class SmsClient {
     /**
      * 计算sha256
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 计算sha256
      * @param {string} key 关键字
@@ -644,8 +619,7 @@ export class SmsClient {
     /**
      * 查询指定ID的模板中的目的端服务器的密码。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定ID的模板中的目的端服务器的密码
      * @param {string} id 模板的ID
@@ -662,8 +636,7 @@ export class SmsClient {
     /**
      * 查询指定ID的迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定ID的迁移任务
      * @param {string} taskId 迁移任务ID
@@ -680,8 +653,7 @@ export class SmsClient {
     /**
      * 查询指定ID的弹性云服务器模板信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定ID模板信息
      * @param {string} id 需要查询的模板信息的ID
@@ -698,8 +670,7 @@ export class SmsClient {
     /**
      * 按时间段查询迁移任务的迁移速率。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询任务限速规则
      * @param {string} taskId 查询限速信息的任务ID
@@ -716,8 +687,7 @@ export class SmsClient {
     /**
      * 解锁指定任务的目的端服务器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 解锁指定任务的目的端服务器
      * @param {string} taskId 指定任务的ID
@@ -734,8 +704,7 @@ export class SmsClient {
     /**
      * 迁移Agent调用该接口向SMS服务端反馈指定指令的执行结果。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 上报服务端命令执行结果
      * @param {string} serverId 上报命令执行结果的命令所对应的服务端ID
@@ -753,8 +722,7 @@ export class SmsClient {
     /**
      * 更新任务对应源端复制状态。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新任务对应源端复制状态
      * @param {string} sourceId 源端服务器在主机迁移服务中的ID
@@ -772,8 +740,7 @@ export class SmsClient {
     /**
      * 更改默认迁移项目，注册源端会注册在当前的默认项目下。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新默认迁移项目
      * @param {string} migProjectId 迁移项目ID
@@ -790,8 +757,7 @@ export class SmsClient {
     /**
      * 更新服务器的磁盘信息，此接口会把服务器原有磁盘信息清空，然后更新成新磁盘信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新磁盘信息
      * @param {string} sourceId 源端服务器ID
@@ -809,8 +775,7 @@ export class SmsClient {
     /**
      * 更新迁移项目的信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新迁移项目信息
      * @param {string} migProjectId 迁移项目ID
@@ -828,8 +793,7 @@ export class SmsClient {
     /**
      * 该功能用来修改SMS服务端的源端名称，方便用户对源端进行管理。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改指定ID的源端服务器名称
      * @param {string} sourceId 源端服务器在主机迁移服务中的ID
@@ -847,8 +811,7 @@ export class SmsClient {
     /**
      * 设置迁移任务的迁移速率。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置迁移限速规则
      * @param {string} taskId 主机迁移任务的ID
@@ -866,8 +829,7 @@ export class SmsClient {
     /**
      * 更新指定ID的迁移任务
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新指定ID的迁移任务
      * @param {string} taskId 迁移任务ID
@@ -887,8 +849,7 @@ export class SmsClient {
      * 
      * 迁移Agent自动调用此接口用于上报数据迁移进度，您无需调用此接口。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 上报数据迁移进度和速率
      * @param {string} taskId 主机迁移任务的ID
@@ -906,8 +867,7 @@ export class SmsClient {
     /**
      * 管理迁移任务，包括启动任务，暂停任务，同步任务，日志上传，回滚失败迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 管理迁移任务
      * @param {string} taskId 迁移任务ID
@@ -925,8 +885,7 @@ export class SmsClient {
     /**
      * 修改源端模板信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改模板信息
      * @param {string} id 需要修改信息的模板的ID
@@ -948,8 +907,7 @@ export const ParamCreater = function () {
         /**
          * 检查网卡安全组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         checkNetAcl(checkNetAclRequest?: CheckNetAclRequest) {
             const options = {
@@ -1011,8 +969,7 @@ export const ParamCreater = function () {
         /**
          * 上传迁移任务的日志。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         collectLog(collectLogRequest?: CollectLogRequest) {
             const options = {
@@ -1057,8 +1014,7 @@ export const ParamCreater = function () {
         /**
          * 新建迁移项目。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createMigproject(createMigprojectRequest?: CreateMigprojectRequest) {
             const options = {
@@ -1096,8 +1052,7 @@ export const ParamCreater = function () {
         /**
          * 根据源端服务器创建一个迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createTask(createTaskRequest?: CreateTaskRequest) {
             const options = {
@@ -1135,8 +1090,7 @@ export const ParamCreater = function () {
         /**
          * 新增源端模板信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createTemplate(createTemplateRequest?: CreateTemplateRequest) {
             const options = {
@@ -1174,8 +1128,7 @@ export const ParamCreater = function () {
         /**
          * 删除指定ID的迁移项目。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteMigproject(deleteMigprojectRequest?: DeleteMigprojectRequest) {
             const options = {
@@ -1212,8 +1165,7 @@ export const ParamCreater = function () {
         /**
          * 从主机迁移服务界面上删除指定ID的源端服务器信息。一旦源端服务器信息被删除，则只能通过重启源端服务器上的迁移Agent来将源端服务器信息重新添加在主机迁移服务界面。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteServer(deleteServerRequest?: DeleteServerRequest) {
             const options = {
@@ -1250,8 +1202,7 @@ export const ParamCreater = function () {
         /**
          * 批量删除源端服务器信息。一旦源端服务器信息被删除，则只能通过重启源端服务器上的迁移Agent来将源端服务器信息重新添加在主机迁移服务界面。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteServers(deleteServersRequest?: DeleteServersRequest) {
             const options = {
@@ -1289,8 +1240,7 @@ export const ParamCreater = function () {
         /**
          * 删除指定ID的迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteTask(deleteTaskRequest?: DeleteTaskRequest) {
             const options = {
@@ -1327,8 +1277,7 @@ export const ParamCreater = function () {
         /**
          * 批量删除迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteTasks(deleteTasksRequest?: DeleteTasksRequest) {
             const options = {
@@ -1366,8 +1315,7 @@ export const ParamCreater = function () {
         /**
          * 删除指定ID的模板。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteTemplate(deleteTemplateRequest?: DeleteTemplateRequest) {
             const options = {
@@ -1404,8 +1352,7 @@ export const ParamCreater = function () {
         /**
          * 批量删除指定ID的模板。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteTemplates(deleteTemplatesRequest?: DeleteTemplatesRequest) {
             const options = {
@@ -1440,8 +1387,7 @@ export const ParamCreater = function () {
         /**
          * 主机迁移过程中可能发生错误，使用该接口可以批量查询迁移过程中出现错误的源端服务器信息，以及它们的错误信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listErrorServers(listErrorServersRequest?: ListErrorServersRequest) {
             const options = {
@@ -1499,8 +1445,7 @@ export const ParamCreater = function () {
         /**
          * 主机迁移服务中可以使用迁移项目来对源端进行项目管理，使用该接口获取当前账户下所有的迁移项目列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listMigprojects(listMigprojectsRequest?: ListMigprojectsRequest) {
             const options = {
@@ -1543,8 +1488,7 @@ export const ParamCreater = function () {
         /**
          * 用户在源端安装并成功启动Agent后，Agent会将源端服务器信息注册在主机迁移服务中，调用该接口查询已注册的源端服务器列表信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServers(listServersRequest?: ListServersRequest) {
             const options = {
@@ -1635,8 +1579,7 @@ export const ParamCreater = function () {
         /**
          * 在设置目的端后，主机迁移服务会自动创建迁移任务，使用该接口可以查询迁移任务列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listTasks(listTasksRequest?: ListTasksRequest) {
             const options = {
@@ -1709,8 +1652,7 @@ export const ParamCreater = function () {
         /**
          * 查询弹性云服务器模板列表，迁移时选择“新建服务器”时可使用该模板创建弹性云服务器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listTemplates(listTemplatesRequest?: ListTemplatesRequest) {
             const options = {
@@ -1771,8 +1713,7 @@ export const ParamCreater = function () {
         /**
          * 上报源端服务器信息，上报成功后会在sms服务器列表中看到对应的源端服务器信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         registerServer(registerServerRequest?: RegisterServerRequest) {
             const options = {
@@ -1810,8 +1751,7 @@ export const ParamCreater = function () {
         /**
          * 当源端服务器为Windows操作系统时，安装在源端服务器上的迁移Agent通过SSLSocket同目的端服务器通信，该接口用于下载目的端服务器所需要的证书和私钥(PEM格式)。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showCertKey(showCertKeyRequest?: ShowCertKeyRequest) {
             const options = {
@@ -1848,8 +1788,7 @@ export const ParamCreater = function () {
         /**
          * 迁移Agent调用该接口从SMS服务端获取下发给指定源端迁移Agent的命令。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showCommand(showCommandRequest?: ShowCommandRequest) {
             const options = {
@@ -1886,8 +1825,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定ID的迁移项目详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showMigproject(showMigprojectRequest?: ShowMigprojectRequest) {
             const options = {
@@ -1924,8 +1862,7 @@ export const ParamCreater = function () {
         /**
          * 获取服务器总览
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showOverview() {
             const options = {
@@ -1947,8 +1884,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定任务ID的安全传输通道的证书passphrase。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showPassphrase(showPassphraseRequest?: ShowPassphraseRequest) {
             const options = {
@@ -1985,8 +1921,7 @@ export const ParamCreater = function () {
         /**
          * 迁移Agent将源端服务器信息上报到主机迁移服务后，主机迁移服务会对迁移的可行性进行检测，该接口返回源端服务器的基本信息和检查结果。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showServer(showServerRequest?: ShowServerRequest) {
             const options = {
@@ -2023,8 +1958,7 @@ export const ParamCreater = function () {
         /**
          * 计算sha256
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showSha256(showSha256Request?: ShowSha256Request) {
             const options = {
@@ -2061,8 +1995,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定ID的模板中的目的端服务器的密码。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showTargetPassword(showTargetPasswordRequest?: ShowTargetPasswordRequest) {
             const options = {
@@ -2099,8 +2032,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定ID的迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showTask(showTaskRequest?: ShowTaskRequest) {
             const options = {
@@ -2137,8 +2069,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定ID的弹性云服务器模板信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showTemplate(showTemplateRequest?: ShowTemplateRequest) {
             const options = {
@@ -2175,8 +2106,7 @@ export const ParamCreater = function () {
         /**
          * 按时间段查询迁移任务的迁移速率。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showsSpeedLimits(showsSpeedLimitsRequest?: ShowsSpeedLimitsRequest) {
             const options = {
@@ -2213,8 +2143,7 @@ export const ParamCreater = function () {
         /**
          * 解锁指定任务的目的端服务器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         unlockTargetEcs(unlockTargetEcsRequest?: UnlockTargetEcsRequest) {
             const options = {
@@ -2251,8 +2180,7 @@ export const ParamCreater = function () {
         /**
          * 迁移Agent调用该接口向SMS服务端反馈指定指令的执行结果。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateCommandResult(updateCommandResultRequest?: UpdateCommandResultRequest) {
             const options = {
@@ -2297,8 +2225,7 @@ export const ParamCreater = function () {
         /**
          * 更新任务对应源端复制状态。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateCopyState(updateCopyStateRequest?: UpdateCopyStateRequest) {
             const options = {
@@ -2343,8 +2270,7 @@ export const ParamCreater = function () {
         /**
          * 更改默认迁移项目，注册源端会注册在当前的默认项目下。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateDefaultMigproject(updateDefaultMigprojectRequest?: UpdateDefaultMigprojectRequest) {
             const options = {
@@ -2381,8 +2307,7 @@ export const ParamCreater = function () {
         /**
          * 更新服务器的磁盘信息，此接口会把服务器原有磁盘信息清空，然后更新成新磁盘信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateDiskInfo(updateDiskInfoRequest?: UpdateDiskInfoRequest) {
             const options = {
@@ -2424,8 +2349,7 @@ export const ParamCreater = function () {
         /**
          * 更新迁移项目的信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateMigproject(updateMigprojectRequest?: UpdateMigprojectRequest) {
             const options = {
@@ -2467,8 +2391,7 @@ export const ParamCreater = function () {
         /**
          * 该功能用来修改SMS服务端的源端名称，方便用户对源端进行管理。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateServerName(updateServerNameRequest?: UpdateServerNameRequest) {
             const options = {
@@ -2513,8 +2436,7 @@ export const ParamCreater = function () {
         /**
          * 设置迁移任务的迁移速率。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateSpeed(updateSpeedRequest?: UpdateSpeedRequest) {
             const options = {
@@ -2559,8 +2481,7 @@ export const ParamCreater = function () {
         /**
          * 更新指定ID的迁移任务
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateTask(updateTaskRequest?: UpdateTaskRequest) {
             const options = {
@@ -2604,8 +2525,7 @@ export const ParamCreater = function () {
          * 
          * 迁移Agent自动调用此接口用于上报数据迁移进度，您无需调用此接口。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateTaskSpeed(updateTaskSpeedRequest?: UpdateTaskSpeedRequest) {
             const options = {
@@ -2647,8 +2567,7 @@ export const ParamCreater = function () {
         /**
          * 管理迁移任务，包括启动任务，暂停任务，同步任务，日志上传，回滚失败迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateTaskStatus(updateTaskStatusRequest?: UpdateTaskStatusRequest) {
             const options = {
@@ -2693,8 +2612,7 @@ export const ParamCreater = function () {
         /**
          * 修改源端模板信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateTemplate(updateTemplateRequest?: UpdateTemplateRequest) {
             const options = {

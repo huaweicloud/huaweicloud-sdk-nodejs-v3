@@ -119,6 +119,14 @@ export class GlobalCredentials implements ICredential {
             builder.addHeaders("X-Security-Token", this.securityToken);
         }
 
+        if (httpRequest.headers
+            && ((Object.prototype.hasOwnProperty.call(httpRequest.headers,"content-type") 
+            && httpRequest.headers!["content-type"] !== "application/json") ||
+                (Object.prototype.hasOwnProperty.call(httpRequest.headers,"Content-Type")
+                && httpRequest.headers!["Content-Type"] !== "application/json"))) {
+            builder.addHeaders("X-Sdk-Content-Sha256", "UNSIGNED-PAYLOAD");
+        }
+
         builder.addAllHeaders(httpRequest.headers);
         Object.assign(httpRequest, builder.build());
         const headers = AKSKSigner.sign(httpRequest, this);

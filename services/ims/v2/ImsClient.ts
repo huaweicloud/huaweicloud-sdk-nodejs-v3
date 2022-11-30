@@ -147,8 +147,7 @@ export class ImsClient {
     /**
      * 该接口用于为指定镜像添加或更新指定的单个标签
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加镜像标签
      * @param {string} imageId 镜像ID。
@@ -167,8 +166,7 @@ export class ImsClient {
      * 该接口为扩展接口，主要用于镜像共享时用户将多个镜像共享给多个用户。
      * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加镜像成员
      * @param {BatchAddMembersRequestBody} members 镜像ID列表
@@ -185,8 +183,7 @@ export class ImsClient {
     /**
      * 该接口用于为指定镜像批量添加/更新、删除标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加删除镜像标签
      * @param {string} imageId 镜像ID。
@@ -205,8 +202,7 @@ export class ImsClient {
      * 该接口为扩展接口，主要用于取消镜像共享。
      * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除镜像成员
      * @param {BatchAddMembersRequestBody} members 请求参数
@@ -224,8 +220,7 @@ export class ImsClient {
      * 该接口为扩展接口，主要用于用户接受或者拒绝多个共享镜像时批量更新镜像成员的状态。
      * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量更新镜像成员状态
      * @param {BatchUpdateMembersRequestBody} members 请求参数
@@ -244,8 +239,7 @@ export class ImsClient {
      * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。
      * 如何查询异步任务，请参见异步任务进度查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 跨Region复制镜像
      * @param {string} imageId 镜像ID
@@ -264,8 +258,7 @@ export class ImsClient {
      * 该接口为扩展接口，主要用于用户将一个已有镜像复制为另一个镜像。复制镜像时，可以更改镜像的加密等属性，以满足不同的场景。
      * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary Region内复制镜像
      * @param {string} imageId 镜像ID
@@ -283,8 +276,7 @@ export class ImsClient {
     /**
      * 使用上传至OBS桶中的外部数据卷镜像文件制作数据镜像。作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态。具体请参考异步任务查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 使用外部镜像文件制作数据镜像
      * @param {CreateDataImageRequestBody} bodyparam 请求参数
@@ -312,8 +304,7 @@ export class ImsClient {
      * - 使用上传至OBS桶中的外部镜像文件时的请求必选参数：name,image_url,min_disk。
      * - 使用数据卷制作系统盘镜像时的请求必选参数：name,volume_id,os_version
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 制作镜像
      * @param {CreateImageRequestBody} eCSbodyparam 使用云服务器制作镜像时的Request Body
@@ -330,8 +321,7 @@ export class ImsClient {
     /**
      * 该接口主要用于为某个镜像增加或修改一个自定义标签。通过自定义标签，用户可以将镜像进行分类。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 增加或修改标签
      * @param {AddOrUpdateTagsRequestBody} bodyparam 请求参数
@@ -348,8 +338,7 @@ export class ImsClient {
     /**
      * 使用云服务器或者云服务器备份制作整机镜像。作为异步接口，调用成功，只是说明后台收到了制作整机镜像的请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态，具体请参考异步任务查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 制作整机镜像
      * @param {CreateWholeImageRequestBody} eCSmakewholeimagebody 请求参数
@@ -366,8 +355,7 @@ export class ImsClient {
     /**
      * 该接口用于为镜像删除指定的标签
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除镜像标签
      * @param {string} imageId 镜像ID。
@@ -385,8 +373,7 @@ export class ImsClient {
     /**
      * 该接口为扩展接口，用于用户将自己的私有镜像导出到指定的OBS桶中。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 导出镜像
      * @param {string} imageId 镜像ID。
@@ -406,8 +393,7 @@ export class ImsClient {
      * 由于快速导入功能要求提前转换镜像文件格式为RAW或ZVHD2格式，因此镜像文件小于128GB时推荐您优先使用常规的创建私有镜像的方式。
      * 作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态，具体请参考异步任务查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 镜像文件快速导入
      * @param {QuickImportImageByFileRequestBody} fileCreateIms 快速通道创建镜像的Request Body
@@ -424,8 +410,7 @@ export class ImsClient {
     /**
      * 该接口用于按标签或其他条件对镜像进行过滤或者计数使用。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 按标签查询镜像
      * @param {ListImageByTagsRequestBody} bodyparam 请求参数
@@ -442,8 +427,7 @@ export class ImsClient {
     /**
      * 该接口用于为查询指定镜像上的所有标签
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像标签
      * @param {string} imageId 镜像ID。
@@ -461,8 +445,7 @@ export class ImsClient {
      * 根据不同条件查询镜像列表信息。
      * 可以在URI后面用‘?’和‘&amp;’添加不同的查询条件组合，请参考请求样例。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像列表
      * @param {'gold' | 'private' | 'shared'} [imagetype] 镜像类型，目前支持以下类型： 公共镜像：gold 私有镜像：private 共享镜像：shared 市场镜像：market
@@ -515,8 +498,7 @@ export class ImsClient {
     /**
      * 该接口用于为查询租户的所有镜像上的标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户所有镜像标签
      * @param {*} [options] Override http request option.
@@ -532,8 +514,7 @@ export class ImsClient {
     /**
      * 查询当前区域弹性云服务器的OS兼容性列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像支持的OS列表
      * @param {string} [tag] OS的标签。 根据标签值可以过滤查询指定特性的OS信息。 取值范围： bms：表示该镜像支持BMS的os_version列表。 uefi：支持UEFI启动方式的os_version列表。 arm：显示基于arm架构的os_version列表。 x86：显示基于x86架构的os_version列表。不带tag查询条件则默认查询当前region支持的所有的OS列表。
@@ -550,8 +531,7 @@ export class ImsClient {
     /**
      * 根据不同条件查询镜像标签列表信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 按条件查询租户镜像标签列表
      * @param {number} [limit] 用于分页，表示查询几条记录，取值为整数，默认为所有。
@@ -588,8 +568,7 @@ export class ImsClient {
      * 注册镜像接口作为异步接口，调用成功后，说明后台收到了注册请求。需要根据镜像ID查询该镜像状态验证镜像注册是否成功。当镜像状态变为“active”时，表示镜像注册成功。
      * 如何查询异步任务，请参见异步任务查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 注册镜像
      * @param {string} imageId 镜像ID。 image_id为用户调用创建镜像元数据接口所创建出来镜像的id，使用其他方式创建的镜像id会导致注册失败。 注册接口调用成功后，请根据镜像id查询镜像的状态。镜像状态变为active表示镜像注册成功，详情请参见查询镜像详情（OpenStack原生）。
@@ -607,8 +586,7 @@ export class ImsClient {
     /**
      * 该接口为扩展接口，主要用于查询租户在当前Region的私有镜像的配额数量。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像配额
      * @param {*} [options] Override http request option.
@@ -624,8 +602,7 @@ export class ImsClient {
     /**
      * 该接口为扩展接口，主要用于查询异步接口执行情况，比如查询导出镜像任务的执行状态。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询job状态
      * @param {string} jobId 异步任务ID
@@ -642,8 +619,7 @@ export class ImsClient {
     /**
      * 该接口为扩展接口，主要用于查询异步任务进度。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 异步任务进度查询
      * @param {string} jobId 异步任务ID
@@ -660,8 +636,7 @@ export class ImsClient {
     /**
      * 更新镜像信息接口，主要用于镜像属性的修改。当前仅支持可用（active）状态的镜像更新相关信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新镜像信息
      * @param {string} imageId 镜像ID
@@ -679,8 +654,7 @@ export class ImsClient {
     /**
      * 查询API的版本信息列表，包括API的版本兼容性、域名信息等。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询版本列表（OpenStack原生）
      * @param {*} [options] Override http request option.
@@ -696,8 +670,7 @@ export class ImsClient {
     /**
      * 查询API的版本信息列表，包括API的版本兼容性、域名信息等。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询版本列表（OpenStack原生）
      * @param {string} version API版本号。例如：v2.0
@@ -714,8 +687,7 @@ export class ImsClient {
     /**
      * 用户共享镜像给其他用户时，使用该接口向该镜像成员中添加接受镜像用户的项目ID。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加镜像成员（OpenStack原生）
      * @param {string} imageId 镜像id
@@ -733,8 +705,7 @@ export class ImsClient {
     /**
      * 创建镜像元数据。调用创建镜像元数据接口成功后，只是创建了镜像的元数据，镜像对应的实际镜像文件并不存在
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建镜像元数据（OpenStack原生）
      * @param {GlanceCreateImageMetadataRequestBody} bodyparam 创建镜像元数据body体
@@ -751,8 +722,7 @@ export class ImsClient {
     /**
      * 该接口主要用于为某个镜像添加一个自定义标签。通过自定义标签，用户可以将镜像进行分类。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 增加标签（OpenStack原生）
      * @param {string} imageId 镜像id
@@ -770,8 +740,7 @@ export class ImsClient {
     /**
      * 该接口主要用于删除镜像，用户可以通过该接口将自己的私有镜像删除。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除镜像（OpenStack原生）
      * @param {string} imageId 镜像ID
@@ -789,8 +758,7 @@ export class ImsClient {
     /**
      * 该接口用于取消对某个用户的镜像共享。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定的镜像成员（OpenStack原生）
      * @param {string} imageId 镜像id
@@ -808,8 +776,7 @@ export class ImsClient {
     /**
      * 该接口主要用于删除某个镜像的自定义标签，通过该接口，用户可以将私有镜像中一些不用的标签删除。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除标签（OpenStack原生）
      * @param {string} imageId 镜像id
@@ -827,8 +794,7 @@ export class ImsClient {
     /**
      * 该接口主要用于查询镜像成员列表视图，通过视图，用户可以了解到镜像成员包含哪些属性，同时也可以了解每个属性的数据类型。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像成员列表视图（OpenStack原生）
      * @param {*} [options] Override http request option.
@@ -844,8 +810,7 @@ export class ImsClient {
     /**
      * 该接口用于共享镜像过程中，获取接受该镜像的成员列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取镜像成员列表（OpenStack原生）
      * @param {string} imageId 镜像id
@@ -862,8 +827,7 @@ export class ImsClient {
     /**
      * 该接口主要用于查询镜像列表视图，通过该接口用户可以了解到镜像列表的详细情况和数据结构。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像列表视图（OpenStack原生）
      * @param {*} [options] Override http request option.
@@ -883,8 +847,7 @@ export class ImsClient {
      * 分页是指返回一组镜像的一个子集，在返回的时候会存在下个子集的链接和首个子集的链接，默认返回的子集中数量为25，用户也可以通过使用limit和marker两个参数自己分页，指定返回子集中需要返回的数量。
      * 响应中的参数first是查询首页的URL。next是查询下一页的URL。当查询镜像列表最后一页时，不存在next。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像列表（OpenStack原生）
      * @param {'gold' | 'private' | 'shared' | 'market'} [imagetype] 镜像类型，目前支持以下类型：公共镜像：gold私有镜像：private共享镜像：shared 市场镜像：market
@@ -932,8 +895,7 @@ export class ImsClient {
     /**
      * 查询单个镜像详情，用户可以通过该接口查询单个私有或者公共镜像的详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像详情（OpenStack原生）
      * @param {string} imageId 镜像ID
@@ -950,8 +912,7 @@ export class ImsClient {
     /**
      * 该接口主要用于镜像共享中查询某个镜像成员的详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取镜像成员详情（OpenStack原生）
      * @param {string} imageId 镜像id
@@ -969,8 +930,7 @@ export class ImsClient {
     /**
      * 该接口主要用于查询镜像成员视图，通过视图，用户可以了解到镜像成员包含哪些属性，同时也可以了解每个属性的数据类型。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像成员视图（OpenStack原生）
      * @param {*} [options] Override http request option.
@@ -986,8 +946,7 @@ export class ImsClient {
     /**
      * 该接口主要用于查询镜像视图，通过视图，用户可以了解到镜像包含哪些属性，同时也可以了解每个属性的数据类型等。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像视图（OpenStack原生）
      * @param {*} [options] Override http request option.
@@ -1003,8 +962,7 @@ export class ImsClient {
     /**
      * 修改镜像信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新镜像信息（OpenStack原生）
      * @param {string} imageId 镜像ID
@@ -1022,8 +980,7 @@ export class ImsClient {
     /**
      * 用户接受或者拒绝共享镜像时，使用该接口更新镜像成员的状态。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新镜像成员状态（OpenStack原生）
      * @param {string} imageId 镜像id
@@ -1046,8 +1003,7 @@ export const ParamCreater = function () {
         /**
          * 该接口用于为指定镜像添加或更新指定的单个标签
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         addImageTag(addImageTagRequest?: AddImageTagRequest) {
             const options = {
@@ -1093,8 +1049,7 @@ export const ParamCreater = function () {
          * 该接口为扩展接口，主要用于镜像共享时用户将多个镜像共享给多个用户。
          * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchAddMembers(batchAddMembersRequest?: BatchAddMembersRequest) {
             const options = {
@@ -1132,8 +1087,7 @@ export const ParamCreater = function () {
         /**
          * 该接口用于为指定镜像批量添加/更新、删除标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchAddOrDeleteTags(batchAddOrDeleteTagsRequest?: BatchAddOrDeleteTagsRequest) {
             const options = {
@@ -1179,8 +1133,7 @@ export const ParamCreater = function () {
          * 该接口为扩展接口，主要用于取消镜像共享。
          * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeleteMembers(batchDeleteMembersRequest?: BatchDeleteMembersRequest) {
             const options = {
@@ -1219,8 +1172,7 @@ export const ParamCreater = function () {
          * 该接口为扩展接口，主要用于用户接受或者拒绝多个共享镜像时批量更新镜像成员的状态。
          * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchUpdateMembers(batchUpdateMembersRequest?: BatchUpdateMembersRequest) {
             const options = {
@@ -1260,8 +1212,7 @@ export const ParamCreater = function () {
          * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。
          * 如何查询异步任务，请参见异步任务进度查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         copyImageCrossRegion(copyImageCrossRegionRequest?: CopyImageCrossRegionRequest) {
             const options = {
@@ -1307,8 +1258,7 @@ export const ParamCreater = function () {
          * 该接口为扩展接口，主要用于用户将一个已有镜像复制为另一个镜像。复制镜像时，可以更改镜像的加密等属性，以满足不同的场景。
          * 该接口为异步接口，返回job_id说明任务下发成功，查询异步任务状态，如果是success说明任务执行成功，如果是failed说明任务执行失败。如何查询异步任务，请参见异步任务查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         copyImageInRegion(copyImageInRegionRequest?: CopyImageInRegionRequest) {
             const options = {
@@ -1353,8 +1303,7 @@ export const ParamCreater = function () {
         /**
          * 使用上传至OBS桶中的外部数据卷镜像文件制作数据镜像。作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态。具体请参考异步任务查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createDataImage(createDataImageRequest?: CreateDataImageRequest) {
             const options = {
@@ -1403,8 +1352,7 @@ export const ParamCreater = function () {
          * - 使用上传至OBS桶中的外部镜像文件时的请求必选参数：name,image_url,min_disk。
          * - 使用数据卷制作系统盘镜像时的请求必选参数：name,volume_id,os_version
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createImage(createImageRequest?: CreateImageRequest) {
             const options = {
@@ -1442,8 +1390,7 @@ export const ParamCreater = function () {
         /**
          * 该接口主要用于为某个镜像增加或修改一个自定义标签。通过自定义标签，用户可以将镜像进行分类。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createOrUpdateTags(createOrUpdateTagsRequest?: CreateOrUpdateTagsRequest) {
             const options = {
@@ -1481,8 +1428,7 @@ export const ParamCreater = function () {
         /**
          * 使用云服务器或者云服务器备份制作整机镜像。作为异步接口，调用成功，只是说明后台收到了制作整机镜像的请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态，具体请参考异步任务查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createWholeImage(createWholeImageRequest?: CreateWholeImageRequest) {
             const options = {
@@ -1520,8 +1466,7 @@ export const ParamCreater = function () {
         /**
          * 该接口用于为镜像删除指定的标签
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteImageTag(deleteImageTagRequest?: DeleteImageTagRequest) {
             const options = {
@@ -1564,8 +1509,7 @@ export const ParamCreater = function () {
         /**
          * 该接口为扩展接口，用于用户将自己的私有镜像导出到指定的OBS桶中。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         exportImage(exportImageRequest?: ExportImageRequest) {
             const options = {
@@ -1612,8 +1556,7 @@ export const ParamCreater = function () {
          * 由于快速导入功能要求提前转换镜像文件格式为RAW或ZVHD2格式，因此镜像文件小于128GB时推荐您优先使用常规的创建私有镜像的方式。
          * 作为异步接口，调用成功，只是说明后台收到了制作请求，镜像是否制作成功需要通过异步任务查询接口查询该任务的执行状态，具体请参考异步任务查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         importImageQuick(importImageQuickRequest?: ImportImageQuickRequest) {
             const options = {
@@ -1651,8 +1594,7 @@ export const ParamCreater = function () {
         /**
          * 该接口用于按标签或其他条件对镜像进行过滤或者计数使用。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listImageByTags(listImageByTagsRequest?: ListImageByTagsRequest) {
             const options = {
@@ -1690,8 +1632,7 @@ export const ParamCreater = function () {
         /**
          * 该接口用于为查询指定镜像上的所有标签
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listImageTags(listImageTagsRequest?: ListImageTagsRequest) {
             const options = {
@@ -1729,8 +1670,7 @@ export const ParamCreater = function () {
          * 根据不同条件查询镜像列表信息。
          * 可以在URI后面用‘?’和‘&amp;’添加不同的查询条件组合，请参考请求样例。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listImages(listImagesRequest?: ListImagesRequest) {
             const options = {
@@ -1983,8 +1923,7 @@ export const ParamCreater = function () {
         /**
          * 该接口用于为查询租户的所有镜像上的标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listImagesTags() {
             const options = {
@@ -2006,8 +1945,7 @@ export const ParamCreater = function () {
         /**
          * 查询当前区域弹性云服务器的OS兼容性列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listOsVersions(listOsVersionsRequest?: ListOsVersionsRequest) {
             const options = {
@@ -2044,8 +1982,7 @@ export const ParamCreater = function () {
         /**
          * 根据不同条件查询镜像标签列表信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listTags(listTagsRequest?: ListTagsRequest) {
             const options = {
@@ -2172,8 +2109,7 @@ export const ParamCreater = function () {
          * 注册镜像接口作为异步接口，调用成功后，说明后台收到了注册请求。需要根据镜像ID查询该镜像状态验证镜像注册是否成功。当镜像状态变为“active”时，表示镜像注册成功。
          * 如何查询异步任务，请参见异步任务查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         registerImage(registerImageRequest?: RegisterImageRequest) {
             const options = {
@@ -2218,8 +2154,7 @@ export const ParamCreater = function () {
         /**
          * 该接口为扩展接口，主要用于查询租户在当前Region的私有镜像的配额数量。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showImageQuota() {
             const options = {
@@ -2241,8 +2176,7 @@ export const ParamCreater = function () {
         /**
          * 该接口为扩展接口，主要用于查询异步接口执行情况，比如查询导出镜像任务的执行状态。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showJob(showJobRequest?: ShowJobRequest) {
             const options = {
@@ -2279,8 +2213,7 @@ export const ParamCreater = function () {
         /**
          * 该接口为扩展接口，主要用于查询异步任务进度。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showJobProgress(showJobProgressRequest?: ShowJobProgressRequest) {
             const options = {
@@ -2317,8 +2250,7 @@ export const ParamCreater = function () {
         /**
          * 更新镜像信息接口，主要用于镜像属性的修改。当前仅支持可用（active）状态的镜像更新相关信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateImage(updateImageRequest?: UpdateImageRequest) {
             const options = {
@@ -2363,8 +2295,7 @@ export const ParamCreater = function () {
         /**
          * 查询API的版本信息列表，包括API的版本兼容性、域名信息等。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listVersions() {
             const options = {
@@ -2386,8 +2317,7 @@ export const ParamCreater = function () {
         /**
          * 查询API的版本信息列表，包括API的版本兼容性、域名信息等。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showVersion(showVersionRequest?: ShowVersionRequest) {
             const options = {
@@ -2424,8 +2354,7 @@ export const ParamCreater = function () {
         /**
          * 用户共享镜像给其他用户时，使用该接口向该镜像成员中添加接受镜像用户的项目ID。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceAddImageMember(glanceAddImageMemberRequest?: GlanceAddImageMemberRequest) {
             const options = {
@@ -2470,8 +2399,7 @@ export const ParamCreater = function () {
         /**
          * 创建镜像元数据。调用创建镜像元数据接口成功后，只是创建了镜像的元数据，镜像对应的实际镜像文件并不存在
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceCreateImageMetadata(glanceCreateImageMetadataRequest?: GlanceCreateImageMetadataRequest) {
             const options = {
@@ -2509,8 +2437,7 @@ export const ParamCreater = function () {
         /**
          * 该接口主要用于为某个镜像添加一个自定义标签。通过自定义标签，用户可以将镜像进行分类。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceCreateTag(glanceCreateTagRequest?: GlanceCreateTagRequest) {
             const options = {
@@ -2553,8 +2480,7 @@ export const ParamCreater = function () {
         /**
          * 该接口主要用于删除镜像，用户可以通过该接口将自己的私有镜像删除。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceDeleteImage(glanceDeleteImageRequest?: GlanceDeleteImageRequest) {
             const options = {
@@ -2596,8 +2522,7 @@ export const ParamCreater = function () {
         /**
          * 该接口用于取消对某个用户的镜像共享。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceDeleteImageMember(glanceDeleteImageMemberRequest?: GlanceDeleteImageMemberRequest) {
             const options = {
@@ -2640,8 +2565,7 @@ export const ParamCreater = function () {
         /**
          * 该接口主要用于删除某个镜像的自定义标签，通过该接口，用户可以将私有镜像中一些不用的标签删除。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceDeleteTag(glanceDeleteTagRequest?: GlanceDeleteTagRequest) {
             const options = {
@@ -2684,8 +2608,7 @@ export const ParamCreater = function () {
         /**
          * 该接口主要用于查询镜像成员列表视图，通过视图，用户可以了解到镜像成员包含哪些属性，同时也可以了解每个属性的数据类型。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceListImageMemberSchemas() {
             const options = {
@@ -2707,8 +2630,7 @@ export const ParamCreater = function () {
         /**
          * 该接口用于共享镜像过程中，获取接受该镜像的成员列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceListImageMembers(glanceListImageMembersRequest?: GlanceListImageMembersRequest) {
             const options = {
@@ -2745,8 +2667,7 @@ export const ParamCreater = function () {
         /**
          * 该接口主要用于查询镜像列表视图，通过该接口用户可以了解到镜像列表的详细情况和数据结构。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceListImageSchemas() {
             const options = {
@@ -2772,8 +2693,7 @@ export const ParamCreater = function () {
          * 分页是指返回一组镜像的一个子集，在返回的时候会存在下个子集的链接和首个子集的链接，默认返回的子集中数量为25，用户也可以通过使用limit和marker两个参数自己分页，指定返回子集中需要返回的数量。
          * 响应中的参数first是查询首页的URL。next是查询下一页的URL。当查询镜像列表最后一页时，不存在next。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceListImages(glanceListImagesRequest?: GlanceListImagesRequest) {
             const options = {
@@ -2996,8 +2916,7 @@ export const ParamCreater = function () {
         /**
          * 查询单个镜像详情，用户可以通过该接口查询单个私有或者公共镜像的详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceShowImage(glanceShowImageRequest?: GlanceShowImageRequest) {
             const options = {
@@ -3034,8 +2953,7 @@ export const ParamCreater = function () {
         /**
          * 该接口主要用于镜像共享中查询某个镜像成员的详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceShowImageMember(glanceShowImageMemberRequest?: GlanceShowImageMemberRequest) {
             const options = {
@@ -3078,8 +2996,7 @@ export const ParamCreater = function () {
         /**
          * 该接口主要用于查询镜像成员视图，通过视图，用户可以了解到镜像成员包含哪些属性，同时也可以了解每个属性的数据类型。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceShowImageMemberSchemas() {
             const options = {
@@ -3101,8 +3018,7 @@ export const ParamCreater = function () {
         /**
          * 该接口主要用于查询镜像视图，通过视图，用户可以了解到镜像包含哪些属性，同时也可以了解每个属性的数据类型等。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceShowImageSchemas() {
             const options = {
@@ -3124,8 +3040,7 @@ export const ParamCreater = function () {
         /**
          * 修改镜像信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceUpdateImage(glanceUpdateImageRequest?: GlanceUpdateImageRequest) {
             const options = {
@@ -3170,8 +3085,7 @@ export const ParamCreater = function () {
         /**
          * 用户接受或者拒绝共享镜像时，使用该接口更新镜像成员的状态。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         glanceUpdateImageMember(glanceUpdateImageMemberRequest?: GlanceUpdateImageMemberRequest) {
             const options = {

@@ -289,8 +289,7 @@ export class VpcClient {
     /**
      * 租户A名下的VPC申请和租户B的VPC建立对等连接，需要等待租户B接受该请求。此接口用于租户接受其他租户发起的对等连接请求。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 接受对等连接请求
      * @param {string} peeringId 对等连接ID
@@ -307,8 +306,7 @@ export class VpcClient {
     /**
      * 路由表关联子网。子网关联路由表A后，再关联B，不需要先跟路由表A解关联再关联路由表B
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 子网关联路由表
      * @param {string} routetableId 路由表ID
@@ -327,8 +325,7 @@ export class VpcClient {
      * 为指定的子网资源实例批量添加标签。
      * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建子网资源标签
      * @param {string} subnetId 子网ID
@@ -347,8 +344,7 @@ export class VpcClient {
      * 为指定的子网资源实例批量删除标签
      * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除子网资源标签
      * @param {string} subnetId 子网ID
@@ -366,8 +362,7 @@ export class VpcClient {
     /**
      * 创建端口。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建端口
      * @param {CreatePortRequestBody} port 创建端口对象
@@ -384,8 +379,7 @@ export class VpcClient {
     /**
      * 创建路由表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建路由表
      * @param {CreateRoutetableReqBody} routetable 创建路由表对象，参见CreateRouteTableReq对象
@@ -402,8 +396,7 @@ export class VpcClient {
     /**
      * 创建安全组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建安全组
      * @param {CreateSecurityGroupRequestBody} securityGroup 创建安全组对象
@@ -420,8 +413,7 @@ export class VpcClient {
     /**
      * 创建安全组规则。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建安全组规则
      * @param {CreateSecurityGroupRuleRequestBody} securityGroupRule 创建安全组规则对象
@@ -438,8 +430,7 @@ export class VpcClient {
     /**
      * 创建子网。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建子网
      * @param {CreateSubnetRequestBody} subnet 创建子网对象
@@ -457,8 +448,7 @@ export class VpcClient {
      * 给指定子网资源实例增加标签信息。
      * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建子网资源标签
      * @param {string} subnetId 子网ID
@@ -476,8 +466,7 @@ export class VpcClient {
     /**
      * 创建对等连接。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建对等连接
      * @param {CreateVpcPeeringRequestBody} peering peering对象
@@ -494,8 +483,7 @@ export class VpcClient {
     /**
      * 删除端口。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除端口
      * @param {string} portId 端口ID
@@ -512,8 +500,7 @@ export class VpcClient {
     /**
      * 删除路由表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除路由表
      * @param {string} routetableId 路由表ID
@@ -530,8 +517,7 @@ export class VpcClient {
     /**
      * 删除安全组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除安全组
      * @param {string} securityGroupId 安全组ID
@@ -548,8 +534,7 @@ export class VpcClient {
     /**
      * 删除安全组规则。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除安全组规则
      * @param {string} securityGroupRuleId 安全组规则ID
@@ -566,8 +551,7 @@ export class VpcClient {
     /**
      * 删除子网
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除子网
      * @param {string} vpcId 子网对应的vpc_id
@@ -586,8 +570,7 @@ export class VpcClient {
      * 删除指定子网资源实例的标签信息。
      * 该接口为幂等接口：删除的key不存在报404，Key不能为空或者空字符串
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除子网资源标签
      * @param {string} subnetId 子网ID
@@ -606,8 +589,7 @@ export class VpcClient {
      * 删除对等连接。
      * 可以在在本端或对端任何一端删除对等连接。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除对等连接
      * @param {string} peeringId 对等连接ID
@@ -624,8 +606,7 @@ export class VpcClient {
     /**
      * 子网解关联路由表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 子网解关联路由表
      * @param {string} routetableId 路由表ID
@@ -643,8 +624,7 @@ export class VpcClient {
     /**
      * 查询提交请求的租户的所有端口，单次查询最多返回2000条数据。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询端口列表
      * @param {string} [name] 功能说明：按照name过滤查询  取值范围：最大长度不超过255
@@ -672,8 +652,7 @@ export class VpcClient {
     /**
      * 查询提交请求的帐户的所有路由表列表，并根据过滤条件进行过滤
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询路由表列表
      * @param {number} [limit] 每页返回的个数
@@ -694,8 +673,7 @@ export class VpcClient {
     /**
      * 查询安全组规则列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全组规则列表
      * @param {string} [marker] 功能说明：分页查询起始的资源ID，为空时查询第一页
@@ -714,8 +692,7 @@ export class VpcClient {
     /**
      * 查询安全组列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全组列表
      * @param {number} [limit] 每页返回的个数
@@ -735,8 +712,7 @@ export class VpcClient {
     /**
      * 查询租户在指定区域和实例类型的所有标签集合
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询子网项目标签
      * @param {*} [options] Override http request option.
@@ -752,8 +728,7 @@ export class VpcClient {
     /**
      * 查询子网列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询子网列表
      * @param {number} [limit] 每页返回的个数
@@ -772,8 +747,7 @@ export class VpcClient {
     /**
      * 使用标签过滤实例
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询子网资源实例
      * @param {ListSubnetsByTagsRequestBody} listSubnetsByTagsRequestBody This is a auto create Body Object
@@ -790,8 +764,7 @@ export class VpcClient {
     /**
      * 查询提交请求的租户的所有对等连接。根据过滤条件进行过滤。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询对等连接列表
      * @param {number} [limit] 每页返回的个数
@@ -814,8 +787,7 @@ export class VpcClient {
     /**
      * 租户A名下的VPC申请和租户B的VPC建立对等连接，需要等待租户B接受该请求。此接口用于租户拒绝其他租户发起的对等连接请求。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 拒绝对等连接请求
      * @param {string} peeringId 对等连接ID
@@ -832,8 +804,7 @@ export class VpcClient {
     /**
      * 查询单个端口详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询端口
      * @param {string} portId 端口ID
@@ -850,8 +821,7 @@ export class VpcClient {
     /**
      * 查询单租户在VPC服务下的网络资源配额，包括vpc配额、子网配额、安全组配额、安全组规则配额、弹性公网IP配额，vpn配额等。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额
      * @param {'vpc' | 'subnet' | 'securityGroup' | 'securityGroupRule' | 'publicIp' | 'vpn' | 'vpngw' | 'vpcPeer' | 'firewall' | 'shareBandwidth' | 'shareBandwidthIP' | 'loadbalancer' | 'listener' | 'physicalConnect' | 'virtualInterface' | 'vpcContainRoutetable' | 'routetableContainRoutes'} [type] 功能说明：根据type过滤查询指定类型的配额 取值范围：vpc，subnet，securityGroup，securityGroupRule，publicIp，vpn，vpngw，vpcPeer，firewall，shareBandwidth，shareBandwidthIP，loadbalancer，listener，physicalConnect，virtualInterface，vpcContainRoutetable，routetableContainRoutes
@@ -868,8 +838,7 @@ export class VpcClient {
     /**
      * 查询路由表详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询路由表
      * @param {string} routetableId 路由表ID
@@ -886,8 +855,7 @@ export class VpcClient {
     /**
      * 查询单个安全组详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全组
      * @param {string} securityGroupId 安全组ID
@@ -904,8 +872,7 @@ export class VpcClient {
     /**
      * 查询单个安全组规则详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全组规则
      * @param {string} securityGroupRuleId 安全组规则ID
@@ -922,8 +889,7 @@ export class VpcClient {
     /**
      * 查询子网详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询子网
      * @param {string} subnetId 子网ID
@@ -940,8 +906,7 @@ export class VpcClient {
     /**
      * 查询指定子网实例的标签信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询子网资源标签
      * @param {string} subnetId 子网ID
@@ -958,8 +923,7 @@ export class VpcClient {
     /**
      * 查询对等连接详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询对等连接
      * @param {string} peeringId 对等连接ID
@@ -976,8 +940,7 @@ export class VpcClient {
     /**
      * 更新端口。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新端口
      * @param {string} portId 端口ID
@@ -995,8 +958,7 @@ export class VpcClient {
     /**
      * 更新路由表，包括可以更新路由表的名称，描述，以及新增、更新、删除路由条目
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新路由表
      * @param {string} routetableId 路由表ID
@@ -1014,8 +976,7 @@ export class VpcClient {
     /**
      * 更新子网。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新子网
      * @param {string} vpcId 子网对应的vpc_id
@@ -1034,8 +995,7 @@ export class VpcClient {
     /**
      * 更新对等连接。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新对等连接
      * @param {string} peeringId 对等连接ID
@@ -1053,8 +1013,7 @@ export class VpcClient {
     /**
      * 申请私有IP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 申请私有IP
      * @param {CreatePrivateipRequestBody} privateips 申请私有IP对象
@@ -1071,8 +1030,7 @@ export class VpcClient {
     /**
      * 删除私有IP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除私有IP
      * @param {string} privateipId 私有IP ID
@@ -1089,8 +1047,7 @@ export class VpcClient {
     /**
      * 查询指定子网下的私有IP列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询私有IP列表
      * @param {string} subnetId 私有IP所在子网的唯一标识
@@ -1116,8 +1073,7 @@ export class VpcClient {
      * - 这里以及下文描述的IP地址总数、已用IP地址总数不包含系统预留地址。
      * - 在分配IP时，用户可以指定系统预留的IP地址。但是不论IP是如何分配的，只要是处于系统预留IP地址段的IP均不会被统计到已用IP地址数目和IP地址总数中。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询网络IP使用情况
      * @param {string} networkId 网络ID
@@ -1134,8 +1090,7 @@ export class VpcClient {
     /**
      * 指定ID查询私有IP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询私有IP
      * @param {string} privateipId 私有IP ID
@@ -1152,8 +1107,7 @@ export class VpcClient {
     /**
      * 创建安全组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建安全组
      * @param {NeutronCreateSecurityGroupRequestBody} securityGroup 安全组对象
@@ -1170,8 +1124,7 @@ export class VpcClient {
     /**
      * 创建安全组规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建安全组规则
      * @param {NeutronCreateSecurityGroupRuleRequestBody} securityGroupRule 安全组规则对象
@@ -1188,8 +1141,7 @@ export class VpcClient {
     /**
      * 删除安全组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除安全组
      * @param {string} securityGroupId 安全组ID
@@ -1206,8 +1158,7 @@ export class VpcClient {
     /**
      * 删除安全组规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除安全组规则
      * @param {string} securityGroupRuleId 安全组规则ID
@@ -1224,8 +1175,7 @@ export class VpcClient {
     /**
      * 查询提交请求的租户有权限查看的所有安全组规则。单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全组规则列表
      * @param {number} [limit] 每页返回的个数
@@ -1254,8 +1204,7 @@ export class VpcClient {
     /**
      * 查询提交请求租户的所有安全组，单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询 。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全组列表
      * @param {number} [limit] 每页返回的个数
@@ -1277,8 +1226,7 @@ export class VpcClient {
     /**
      * 查询安全组详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全组
      * @param {string} securityGroupId 安全组ID
@@ -1295,8 +1243,7 @@ export class VpcClient {
     /**
      * 查询安全组规则详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全组规则
      * @param {string} securityGroupRuleId 安全组规则ID
@@ -1313,8 +1260,7 @@ export class VpcClient {
     /**
      * 更新安全组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新安全组
      * @param {string} securityGroupId 安全组ID
@@ -1332,8 +1278,7 @@ export class VpcClient {
     /**
      * 插入一条网络ACL规则到某一网络ACL策略中。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 插入网络ACL规则
      * @param {string} firewallPolicyId 网络ACL防火墙策略ID
@@ -1351,8 +1296,7 @@ export class VpcClient {
     /**
      * 创建网络ACL组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建网络ACL组
      * @param {NeutronCreateFirewallGroupRequestBody} firewallGroup firewall group对象
@@ -1369,8 +1313,7 @@ export class VpcClient {
     /**
      * 创建网络ACL策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建网络ACL策略
      * @param {NeutronCreateFirewallPolicyRequestBody} firewallPolicy firewall policy对象
@@ -1387,8 +1330,7 @@ export class VpcClient {
     /**
      * 创建网络ACL规则。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建网络ACL规则
      * @param {NeutronCreateFirewallRuleRequestBody} firewallRule firewall rule对象
@@ -1405,8 +1347,7 @@ export class VpcClient {
     /**
      * 删除网络ACL组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除网络ACL组
      * @param {string} firewallGroupId 网络ACL防火墙组ID
@@ -1423,8 +1364,7 @@ export class VpcClient {
     /**
      * 删除网络ACL策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除网络ACL策略
      * @param {string} firewallPolicyId 网络ACL防火墙策略ID
@@ -1441,8 +1381,7 @@ export class VpcClient {
     /**
      * 删除网络ACL规则。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除网络ACL规则
      * @param {string} firewallRuleId 网络ACL防火墙规则ID
@@ -1459,8 +1398,7 @@ export class VpcClient {
     /**
      * 查询提交请求的租户有权限操作的所有网络ACL组信息。单次查询最多返回2000条数据，超过2000后会返回分页标记。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有网络ACL组
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
@@ -1483,8 +1421,7 @@ export class VpcClient {
     /**
      * 查询提交请求的租户有权限操作的所有网络ACL策略信息。单次查询最多返回2000条数据，超过2000后会返回分页标记。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有网络ACL策略
      * @param {number} [limit] 每页返回的个数
@@ -1506,8 +1443,7 @@ export class VpcClient {
     /**
      * 查询提交请求的租户有权限操作的所有网络ACL规则信息。单次查询最多返回2000条数据，超过2000后会返回分页标记。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有网络ACL规则
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
@@ -1530,8 +1466,7 @@ export class VpcClient {
     /**
      * 从某一网络ACL策略中移除一条网络ACL规则。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 移除网络ACL规则
      * @param {string} firewallPolicyId 网络ACL防火墙策略ID
@@ -1549,8 +1484,7 @@ export class VpcClient {
     /**
      * 查询特定网络ACL组详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询特定网络ACL组详情
      * @param {string} firewallGroupId 网络ACL防火墙组ID
@@ -1567,8 +1501,7 @@ export class VpcClient {
     /**
      * 查询特定网络ACL策略详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询特定网络ACL策略详情
      * @param {string} firewallPolicyId 网络ACL防火墙策略ID
@@ -1585,8 +1518,7 @@ export class VpcClient {
     /**
      * 查询特定网络ACL规则。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询特定网络ACL规则
      * @param {string} firewallRuleId 网络ACL规则ID
@@ -1603,8 +1535,7 @@ export class VpcClient {
     /**
      * 更新网络ACL组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新网络ACL组
      * @param {string} firewallGroupId 网络ACL防火墙组ID
@@ -1622,8 +1553,7 @@ export class VpcClient {
     /**
      * 更新网络ACL策略。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新网络ACL策略
      * @param {string} firewallPolicyId 网络ACL防火墙策略ID
@@ -1641,8 +1571,7 @@ export class VpcClient {
     /**
      * 更新网络ACL规则。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新网络ACL规则
      * @param {string} firewallRuleId 网络ACL防火墙规则ID
@@ -1661,8 +1590,7 @@ export class VpcClient {
      * 为指定的VPC资源实例批量添加标签。
      * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量创建VPC资源标签
      * @param {string} vpcId 功能说明：虚拟私有云唯一标识 取值范围：合法UUID 约束：ID对应的VPC必须存在
@@ -1681,8 +1609,7 @@ export class VpcClient {
      * 为指定的VPC资源实例批量删除标签。
      * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除VPC资源标签
      * @param {string} vpcId 功能说明：虚拟私有云唯一标识 取值范围：合法UUID 约束：ID对应的VPC必须存在
@@ -1700,8 +1627,7 @@ export class VpcClient {
     /**
      * 创建虚拟私有云。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建VPC
      * @param {CreateVpcRequestBody} vpc 创建VPC对象
@@ -1719,8 +1645,7 @@ export class VpcClient {
      * 给指定VPC资源实例增加标签信息
      * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建VPC资源标签
      * @param {string} vpcId 功能说明：虚拟私有云唯一标识 取值范围：合法UUID 约束：ID对应的VPC必须存在
@@ -1738,8 +1663,7 @@ export class VpcClient {
     /**
      * 创建路由
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建VPC路由
      * @param {CreateVpcRouteRequestBody} route route对象，必选字段：destination、nexthop、type、vpc_id。
@@ -1756,8 +1680,7 @@ export class VpcClient {
     /**
      * 删除虚拟私有云。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除VPC
      * @param {string} vpcId 虚拟私有云ID
@@ -1774,8 +1697,7 @@ export class VpcClient {
     /**
      * 删除路由
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除VPC路由
      * @param {string} routeId 路由ID
@@ -1793,8 +1715,7 @@ export class VpcClient {
      * 删除指定VPC资源实例的标签信息
      * 该接口为幂等接口：删除的key不存在报404，Key不能为空或者空字符串
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除VPC资源标签
      * @param {string} vpcId 功能说明：虚拟私有云唯一标识 取值范围：合法UUID 约束：ID对应的VPC必须存在
@@ -1812,8 +1733,7 @@ export class VpcClient {
     /**
      * 查询提交请求的租户的所有路由列表，并根据过滤条件进行过滤。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC路由列表
      * @param {number} [limit] 每页返回的个数
@@ -1836,8 +1756,7 @@ export class VpcClient {
     /**
      * 查询租户在指定区域和实例类型的所有标签集合
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC项目标签
      * @param {*} [options] Override http request option.
@@ -1853,8 +1772,7 @@ export class VpcClient {
     /**
      * 查询虚拟私有云列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC列表
      * @param {number} [limit] 每页返回的个数
@@ -1874,8 +1792,7 @@ export class VpcClient {
     /**
      * 使用标签过滤实例。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC资源实例
      * @param {ListVpcsByTagsRequestBody} listVpcsByTagsRequestBody This is a auto create Body Object
@@ -1892,8 +1809,7 @@ export class VpcClient {
     /**
      * 查询虚拟私有云。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC
      * @param {string} vpcId 虚拟私有云ID
@@ -1910,8 +1826,7 @@ export class VpcClient {
     /**
      * 查询路由详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC路由
      * @param {string} routeId 路由ID
@@ -1928,8 +1843,7 @@ export class VpcClient {
     /**
      * 查询指定VPC实例的标签信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC资源标签
      * @param {string} vpcId 功能说明：虚拟私有云唯一标识 取值范围：合法UUID 约束：ID对应的VPC必须存在
@@ -1946,8 +1860,7 @@ export class VpcClient {
     /**
      * 更新虚拟私有云。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新VPC
      * @param {string} vpcId 虚拟私有云ID
@@ -1969,8 +1882,7 @@ export const ParamCreater = function () {
         /**
          * 租户A名下的VPC申请和租户B的VPC建立对等连接，需要等待租户B接受该请求。此接口用于租户接受其他租户发起的对等连接请求。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         acceptVpcPeering(acceptVpcPeeringRequest?: AcceptVpcPeeringRequest) {
             const options = {
@@ -2007,8 +1919,7 @@ export const ParamCreater = function () {
         /**
          * 路由表关联子网。子网关联路由表A后，再关联B，不需要先跟路由表A解关联再关联路由表B
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         associateRouteTable(associateRouteTableRequest?: AssociateRouteTableRequest) {
             const options = {
@@ -2054,8 +1965,7 @@ export const ParamCreater = function () {
          * 为指定的子网资源实例批量添加标签。
          * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchCreateSubnetTags(batchCreateSubnetTagsRequest?: BatchCreateSubnetTagsRequest) {
             const options = {
@@ -2101,8 +2011,7 @@ export const ParamCreater = function () {
          * 为指定的子网资源实例批量删除标签
          * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeleteSubnetTags(batchDeleteSubnetTagsRequest?: BatchDeleteSubnetTagsRequest) {
             const options = {
@@ -2147,8 +2056,7 @@ export const ParamCreater = function () {
         /**
          * 创建端口。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPort(createPortRequest?: CreatePortRequest) {
             const options = {
@@ -2186,8 +2094,7 @@ export const ParamCreater = function () {
         /**
          * 创建路由表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createRouteTable(createRouteTableRequest?: CreateRouteTableRequest) {
             const options = {
@@ -2225,8 +2132,7 @@ export const ParamCreater = function () {
         /**
          * 创建安全组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createSecurityGroup(createSecurityGroupRequest?: CreateSecurityGroupRequest) {
             const options = {
@@ -2264,8 +2170,7 @@ export const ParamCreater = function () {
         /**
          * 创建安全组规则。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createSecurityGroupRule(createSecurityGroupRuleRequest?: CreateSecurityGroupRuleRequest) {
             const options = {
@@ -2303,8 +2208,7 @@ export const ParamCreater = function () {
         /**
          * 创建子网。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createSubnet(createSubnetRequest?: CreateSubnetRequest) {
             const options = {
@@ -2343,8 +2247,7 @@ export const ParamCreater = function () {
          * 给指定子网资源实例增加标签信息。
          * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createSubnetTag(createSubnetTagRequest?: CreateSubnetTagRequest) {
             const options = {
@@ -2389,8 +2292,7 @@ export const ParamCreater = function () {
         /**
          * 创建对等连接。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createVpcPeering(createVpcPeeringRequest?: CreateVpcPeeringRequest) {
             const options = {
@@ -2428,8 +2330,7 @@ export const ParamCreater = function () {
         /**
          * 删除端口。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deletePort(deletePortRequest?: DeletePortRequest) {
             const options = {
@@ -2466,8 +2367,7 @@ export const ParamCreater = function () {
         /**
          * 删除路由表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteRouteTable(deleteRouteTableRequest?: DeleteRouteTableRequest) {
             const options = {
@@ -2504,8 +2404,7 @@ export const ParamCreater = function () {
         /**
          * 删除安全组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteSecurityGroup(deleteSecurityGroupRequest?: DeleteSecurityGroupRequest) {
             const options = {
@@ -2542,8 +2441,7 @@ export const ParamCreater = function () {
         /**
          * 删除安全组规则。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteSecurityGroupRule(deleteSecurityGroupRuleRequest?: DeleteSecurityGroupRuleRequest) {
             const options = {
@@ -2580,8 +2478,7 @@ export const ParamCreater = function () {
         /**
          * 删除子网
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteSubnet(deleteSubnetRequest?: DeleteSubnetRequest) {
             const options = {
@@ -2625,8 +2522,7 @@ export const ParamCreater = function () {
          * 删除指定子网资源实例的标签信息。
          * 该接口为幂等接口：删除的key不存在报404，Key不能为空或者空字符串
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteSubnetTag(deleteSubnetTagRequest?: DeleteSubnetTagRequest) {
             const options = {
@@ -2670,8 +2566,7 @@ export const ParamCreater = function () {
          * 删除对等连接。
          * 可以在在本端或对端任何一端删除对等连接。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteVpcPeering(deleteVpcPeeringRequest?: DeleteVpcPeeringRequest) {
             const options = {
@@ -2708,8 +2603,7 @@ export const ParamCreater = function () {
         /**
          * 子网解关联路由表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         disassociateRouteTable(disassociateRouteTableRequest?: DisassociateRouteTableRequest) {
             const options = {
@@ -2754,8 +2648,7 @@ export const ParamCreater = function () {
         /**
          * 查询提交请求的租户的所有端口，单次查询最多返回2000条数据。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPorts(listPortsRequest?: ListPortsRequest) {
             const options = {
@@ -2858,8 +2751,7 @@ export const ParamCreater = function () {
         /**
          * 查询提交请求的帐户的所有路由表列表，并根据过滤条件进行过滤
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listRouteTables(listRouteTablesRequest?: ListRouteTablesRequest) {
             const options = {
@@ -2920,8 +2812,7 @@ export const ParamCreater = function () {
         /**
          * 查询安全组规则列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listSecurityGroupRules(listSecurityGroupRulesRequest?: ListSecurityGroupRulesRequest) {
             const options = {
@@ -2970,8 +2861,7 @@ export const ParamCreater = function () {
         /**
          * 查询安全组列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listSecurityGroups(listSecurityGroupsRequest?: ListSecurityGroupsRequest) {
             const options = {
@@ -3026,8 +2916,7 @@ export const ParamCreater = function () {
         /**
          * 查询租户在指定区域和实例类型的所有标签集合
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listSubnetTags() {
             const options = {
@@ -3049,8 +2938,7 @@ export const ParamCreater = function () {
         /**
          * 查询子网列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listSubnets(listSubnetsRequest?: ListSubnetsRequest) {
             const options = {
@@ -3099,8 +2987,7 @@ export const ParamCreater = function () {
         /**
          * 使用标签过滤实例
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listSubnetsByTags(listSubnetsByTagsRequest?: ListSubnetsByTagsRequest) {
             const options = {
@@ -3138,8 +3025,7 @@ export const ParamCreater = function () {
         /**
          * 查询提交请求的租户的所有对等连接。根据过滤条件进行过滤。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listVpcPeerings(listVpcPeeringsRequest?: ListVpcPeeringsRequest) {
             const options = {
@@ -3212,8 +3098,7 @@ export const ParamCreater = function () {
         /**
          * 租户A名下的VPC申请和租户B的VPC建立对等连接，需要等待租户B接受该请求。此接口用于租户拒绝其他租户发起的对等连接请求。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         rejectVpcPeering(rejectVpcPeeringRequest?: RejectVpcPeeringRequest) {
             const options = {
@@ -3250,8 +3135,7 @@ export const ParamCreater = function () {
         /**
          * 查询单个端口详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showPort(showPortRequest?: ShowPortRequest) {
             const options = {
@@ -3288,8 +3172,7 @@ export const ParamCreater = function () {
         /**
          * 查询单租户在VPC服务下的网络资源配额，包括vpc配额、子网配额、安全组配额、安全组规则配额、弹性公网IP配额，vpn配额等。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showQuota(showQuotaRequest?: ShowQuotaRequest) {
             const options = {
@@ -3326,8 +3209,7 @@ export const ParamCreater = function () {
         /**
          * 查询路由表详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showRouteTable(showRouteTableRequest?: ShowRouteTableRequest) {
             const options = {
@@ -3364,8 +3246,7 @@ export const ParamCreater = function () {
         /**
          * 查询单个安全组详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showSecurityGroup(showSecurityGroupRequest?: ShowSecurityGroupRequest) {
             const options = {
@@ -3402,8 +3283,7 @@ export const ParamCreater = function () {
         /**
          * 查询单个安全组规则详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showSecurityGroupRule(showSecurityGroupRuleRequest?: ShowSecurityGroupRuleRequest) {
             const options = {
@@ -3440,8 +3320,7 @@ export const ParamCreater = function () {
         /**
          * 查询子网详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showSubnet(showSubnetRequest?: ShowSubnetRequest) {
             const options = {
@@ -3478,8 +3357,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定子网实例的标签信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showSubnetTags(showSubnetTagsRequest?: ShowSubnetTagsRequest) {
             const options = {
@@ -3516,8 +3394,7 @@ export const ParamCreater = function () {
         /**
          * 查询对等连接详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showVpcPeering(showVpcPeeringRequest?: ShowVpcPeeringRequest) {
             const options = {
@@ -3554,8 +3431,7 @@ export const ParamCreater = function () {
         /**
          * 更新端口。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePort(updatePortRequest?: UpdatePortRequest) {
             const options = {
@@ -3600,8 +3476,7 @@ export const ParamCreater = function () {
         /**
          * 更新路由表，包括可以更新路由表的名称，描述，以及新增、更新、删除路由条目
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateRouteTable(updateRouteTableRequest?: UpdateRouteTableRequest) {
             const options = {
@@ -3646,8 +3521,7 @@ export const ParamCreater = function () {
         /**
          * 更新子网。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateSubnet(updateSubnetRequest?: UpdateSubnetRequest) {
             const options = {
@@ -3698,8 +3572,7 @@ export const ParamCreater = function () {
         /**
          * 更新对等连接。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateVpcPeering(updateVpcPeeringRequest?: UpdateVpcPeeringRequest) {
             const options = {
@@ -3744,8 +3617,7 @@ export const ParamCreater = function () {
         /**
          * 申请私有IP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createPrivateip(createPrivateipRequest?: CreatePrivateipRequest) {
             const options = {
@@ -3783,8 +3655,7 @@ export const ParamCreater = function () {
         /**
          * 删除私有IP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deletePrivateip(deletePrivateipRequest?: DeletePrivateipRequest) {
             const options = {
@@ -3821,8 +3692,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定子网下的私有IP列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPrivateips(listPrivateipsRequest?: ListPrivateipsRequest) {
             const options = {
@@ -3879,8 +3749,7 @@ export const ParamCreater = function () {
          * - 这里以及下文描述的IP地址总数、已用IP地址总数不包含系统预留地址。
          * - 在分配IP时，用户可以指定系统预留的IP地址。但是不论IP是如何分配的，只要是处于系统预留IP地址段的IP均不会被统计到已用IP地址数目和IP地址总数中。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showNetworkIpAvailabilities(showNetworkIpAvailabilitiesRequest?: ShowNetworkIpAvailabilitiesRequest) {
             const options = {
@@ -3917,8 +3786,7 @@ export const ParamCreater = function () {
         /**
          * 指定ID查询私有IP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showPrivateip(showPrivateipRequest?: ShowPrivateipRequest) {
             const options = {
@@ -3955,8 +3823,7 @@ export const ParamCreater = function () {
         /**
          * 创建安全组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronCreateSecurityGroup(neutronCreateSecurityGroupRequest?: NeutronCreateSecurityGroupRequest) {
             const options = {
@@ -3994,8 +3861,7 @@ export const ParamCreater = function () {
         /**
          * 创建安全组规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronCreateSecurityGroupRule(neutronCreateSecurityGroupRuleRequest?: NeutronCreateSecurityGroupRuleRequest) {
             const options = {
@@ -4033,8 +3899,7 @@ export const ParamCreater = function () {
         /**
          * 删除安全组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronDeleteSecurityGroup(neutronDeleteSecurityGroupRequest?: NeutronDeleteSecurityGroupRequest) {
             const options = {
@@ -4071,8 +3936,7 @@ export const ParamCreater = function () {
         /**
          * 删除安全组规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronDeleteSecurityGroupRule(neutronDeleteSecurityGroupRuleRequest?: NeutronDeleteSecurityGroupRuleRequest) {
             const options = {
@@ -4109,8 +3973,7 @@ export const ParamCreater = function () {
         /**
          * 查询提交请求的租户有权限查看的所有安全组规则。单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronListSecurityGroupRules(neutronListSecurityGroupRulesRequest?: NeutronListSecurityGroupRulesRequest) {
             const options = {
@@ -4219,8 +4082,7 @@ export const ParamCreater = function () {
         /**
          * 查询提交请求租户的所有安全组，单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询 。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronListSecurityGroups(neutronListSecurityGroupsRequest?: NeutronListSecurityGroupsRequest) {
             const options = {
@@ -4287,8 +4149,7 @@ export const ParamCreater = function () {
         /**
          * 查询安全组详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronShowSecurityGroup(neutronShowSecurityGroupRequest?: NeutronShowSecurityGroupRequest) {
             const options = {
@@ -4325,8 +4186,7 @@ export const ParamCreater = function () {
         /**
          * 查询安全组规则详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronShowSecurityGroupRule(neutronShowSecurityGroupRuleRequest?: NeutronShowSecurityGroupRuleRequest) {
             const options = {
@@ -4363,8 +4223,7 @@ export const ParamCreater = function () {
         /**
          * 更新安全组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronUpdateSecurityGroup(neutronUpdateSecurityGroupRequest?: NeutronUpdateSecurityGroupRequest) {
             const options = {
@@ -4409,8 +4268,7 @@ export const ParamCreater = function () {
         /**
          * 插入一条网络ACL规则到某一网络ACL策略中。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronAddFirewallRule(neutronAddFirewallRuleRequest?: NeutronAddFirewallRuleRequest) {
             const options = {
@@ -4455,8 +4313,7 @@ export const ParamCreater = function () {
         /**
          * 创建网络ACL组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronCreateFirewallGroup(neutronCreateFirewallGroupRequest?: NeutronCreateFirewallGroupRequest) {
             const options = {
@@ -4494,8 +4351,7 @@ export const ParamCreater = function () {
         /**
          * 创建网络ACL策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronCreateFirewallPolicy(neutronCreateFirewallPolicyRequest?: NeutronCreateFirewallPolicyRequest) {
             const options = {
@@ -4533,8 +4389,7 @@ export const ParamCreater = function () {
         /**
          * 创建网络ACL规则。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronCreateFirewallRule(neutronCreateFirewallRuleRequest?: NeutronCreateFirewallRuleRequest) {
             const options = {
@@ -4572,8 +4427,7 @@ export const ParamCreater = function () {
         /**
          * 删除网络ACL组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronDeleteFirewallGroup(neutronDeleteFirewallGroupRequest?: NeutronDeleteFirewallGroupRequest) {
             const options = {
@@ -4610,8 +4464,7 @@ export const ParamCreater = function () {
         /**
          * 删除网络ACL策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronDeleteFirewallPolicy(neutronDeleteFirewallPolicyRequest?: NeutronDeleteFirewallPolicyRequest) {
             const options = {
@@ -4648,8 +4501,7 @@ export const ParamCreater = function () {
         /**
          * 删除网络ACL规则。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronDeleteFirewallRule(neutronDeleteFirewallRuleRequest?: NeutronDeleteFirewallRuleRequest) {
             const options = {
@@ -4686,8 +4538,7 @@ export const ParamCreater = function () {
         /**
          * 查询提交请求的租户有权限操作的所有网络ACL组信息。单次查询最多返回2000条数据，超过2000后会返回分页标记。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronListFirewallGroups(neutronListFirewallGroupsRequest?: NeutronListFirewallGroupsRequest) {
             const options = {
@@ -4760,8 +4611,7 @@ export const ParamCreater = function () {
         /**
          * 查询提交请求的租户有权限操作的所有网络ACL策略信息。单次查询最多返回2000条数据，超过2000后会返回分页标记。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronListFirewallPolicies(neutronListFirewallPoliciesRequest?: NeutronListFirewallPoliciesRequest) {
             const options = {
@@ -4828,8 +4678,7 @@ export const ParamCreater = function () {
         /**
          * 查询提交请求的租户有权限操作的所有网络ACL规则信息。单次查询最多返回2000条数据，超过2000后会返回分页标记。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronListFirewallRules(neutronListFirewallRulesRequest?: NeutronListFirewallRulesRequest) {
             const options = {
@@ -4902,8 +4751,7 @@ export const ParamCreater = function () {
         /**
          * 从某一网络ACL策略中移除一条网络ACL规则。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronRemoveFirewallRule(neutronRemoveFirewallRuleRequest?: NeutronRemoveFirewallRuleRequest) {
             const options = {
@@ -4948,8 +4796,7 @@ export const ParamCreater = function () {
         /**
          * 查询特定网络ACL组详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronShowFirewallGroup(neutronShowFirewallGroupRequest?: NeutronShowFirewallGroupRequest) {
             const options = {
@@ -4986,8 +4833,7 @@ export const ParamCreater = function () {
         /**
          * 查询特定网络ACL策略详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronShowFirewallPolicy(neutronShowFirewallPolicyRequest?: NeutronShowFirewallPolicyRequest) {
             const options = {
@@ -5024,8 +4870,7 @@ export const ParamCreater = function () {
         /**
          * 查询特定网络ACL规则。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronShowFirewallRule(neutronShowFirewallRuleRequest?: NeutronShowFirewallRuleRequest) {
             const options = {
@@ -5062,8 +4907,7 @@ export const ParamCreater = function () {
         /**
          * 更新网络ACL组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronUpdateFirewallGroup(neutronUpdateFirewallGroupRequest?: NeutronUpdateFirewallGroupRequest) {
             const options = {
@@ -5108,8 +4952,7 @@ export const ParamCreater = function () {
         /**
          * 更新网络ACL策略。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronUpdateFirewallPolicy(neutronUpdateFirewallPolicyRequest?: NeutronUpdateFirewallPolicyRequest) {
             const options = {
@@ -5154,8 +4997,7 @@ export const ParamCreater = function () {
         /**
          * 更新网络ACL规则。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         neutronUpdateFirewallRule(neutronUpdateFirewallRuleRequest?: NeutronUpdateFirewallRuleRequest) {
             const options = {
@@ -5201,8 +5043,7 @@ export const ParamCreater = function () {
          * 为指定的VPC资源实例批量添加标签。
          * 此接口为幂等接口：创建时如果请求体中存在重复key则报错。创建时，不允许设置重复key数据，如果数据库已存在该key，就覆盖value的值。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchCreateVpcTags(batchCreateVpcTagsRequest?: BatchCreateVpcTagsRequest) {
             const options = {
@@ -5248,8 +5089,7 @@ export const ParamCreater = function () {
          * 为指定的VPC资源实例批量删除标签。
          * 此接口为幂等接口：删除时，如果删除的标签不存在，默认处理成功；删除时不对标签字符集范围做校验。删除时tags结构体不能缺失，key不能为空，或者空字符串。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeleteVpcTags(batchDeleteVpcTagsRequest?: BatchDeleteVpcTagsRequest) {
             const options = {
@@ -5294,8 +5134,7 @@ export const ParamCreater = function () {
         /**
          * 创建虚拟私有云。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createVpc(createVpcRequest?: CreateVpcRequest) {
             const options = {
@@ -5334,8 +5173,7 @@ export const ParamCreater = function () {
          * 给指定VPC资源实例增加标签信息
          * 此接口为幂等接口：创建时，如果创建的标签已经存在（key相同），则覆盖。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createVpcResourceTag(createVpcResourceTagRequest?: CreateVpcResourceTagRequest) {
             const options = {
@@ -5380,8 +5218,7 @@ export const ParamCreater = function () {
         /**
          * 创建路由
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createVpcRoute(createVpcRouteRequest?: CreateVpcRouteRequest) {
             const options = {
@@ -5419,8 +5256,7 @@ export const ParamCreater = function () {
         /**
          * 删除虚拟私有云。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteVpc(deleteVpcRequest?: DeleteVpcRequest) {
             const options = {
@@ -5457,8 +5293,7 @@ export const ParamCreater = function () {
         /**
          * 删除路由
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteVpcRoute(deleteVpcRouteRequest?: DeleteVpcRouteRequest) {
             const options = {
@@ -5496,8 +5331,7 @@ export const ParamCreater = function () {
          * 删除指定VPC资源实例的标签信息
          * 该接口为幂等接口：删除的key不存在报404，Key不能为空或者空字符串
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteVpcTag(deleteVpcTagRequest?: DeleteVpcTagRequest) {
             const options = {
@@ -5540,8 +5374,7 @@ export const ParamCreater = function () {
         /**
          * 查询提交请求的租户的所有路由列表，并根据过滤条件进行过滤。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listVpcRoutes(listVpcRoutesRequest?: ListVpcRoutesRequest) {
             const options = {
@@ -5614,8 +5447,7 @@ export const ParamCreater = function () {
         /**
          * 查询租户在指定区域和实例类型的所有标签集合
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listVpcTags() {
             const options = {
@@ -5637,8 +5469,7 @@ export const ParamCreater = function () {
         /**
          * 查询虚拟私有云列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listVpcs(listVpcsRequest?: ListVpcsRequest) {
             const options = {
@@ -5693,8 +5524,7 @@ export const ParamCreater = function () {
         /**
          * 使用标签过滤实例。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listVpcsByTags(listVpcsByTagsRequest?: ListVpcsByTagsRequest) {
             const options = {
@@ -5732,8 +5562,7 @@ export const ParamCreater = function () {
         /**
          * 查询虚拟私有云。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showVpc(showVpcRequest?: ShowVpcRequest) {
             const options = {
@@ -5770,8 +5599,7 @@ export const ParamCreater = function () {
         /**
          * 查询路由详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showVpcRoute(showVpcRouteRequest?: ShowVpcRouteRequest) {
             const options = {
@@ -5808,8 +5636,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定VPC实例的标签信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showVpcTags(showVpcTagsRequest?: ShowVpcTagsRequest) {
             const options = {
@@ -5846,8 +5673,7 @@ export const ParamCreater = function () {
         /**
          * 更新虚拟私有云。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateVpc(updateVpcRequest?: UpdateVpcRequest) {
             const options = {

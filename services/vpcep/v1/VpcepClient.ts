@@ -122,8 +122,7 @@ export class VpcepClient {
      * 功能介绍
      * 接受或者拒绝终端节点连接到当前的终端节点服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 接受或拒绝终端节点的连接
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -145,8 +144,7 @@ export class VpcepClient {
      * 说明
      * 本帐号默认在自身用户的终端节点服务的白名单中。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加或移除终端节点服务的白名单
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -168,8 +166,7 @@ export class VpcepClient {
      * 说明
      * 本帐号默认在自身用户的终端节点服务的白名单中。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加或移除终端节点服务的白名单
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -189,8 +186,7 @@ export class VpcepClient {
      * 功能介绍
      * 批量删除当前用户下终端节点服务的白名单
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加或移除终端节点服务的白名单
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -210,8 +206,7 @@ export class VpcepClient {
      * 功能介绍
      * 创建终端节点，以便访问终端节点服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建终端节点
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -234,8 +229,7 @@ export class VpcepClient {
      * 该接口为异步接口，调用成功会返回200状态码，说明请求已正常下发。
      * 通常创建终端节点服务需要1~2分钟，可以通过查询终端节点服务详情查看创建结果。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建终端节点服务
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -254,8 +248,7 @@ export class VpcepClient {
      * 功能介绍
      * 删除终端节点。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除终端节点
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -274,8 +267,7 @@ export class VpcepClient {
      * 功能介绍
      * 删除网关型终端节点policy。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改终端节点路由表
      * @param {string} vpcEndpointId 终端节点的ID。
@@ -294,8 +286,7 @@ export class VpcepClient {
      * 功能介绍
      * 删除终端节点服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除终端节点服务
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -314,8 +305,7 @@ export class VpcepClient {
      * 功能介绍
      * 查询终端节点的详细信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点详情
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -334,8 +324,7 @@ export class VpcepClient {
      * 功能介绍
      * 查询当前用户下的终端节点服务的列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点服务列表
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -361,8 +350,7 @@ export class VpcepClient {
      * 功能介绍
      * 查询当前用户下的终端节点的列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点列表
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -388,8 +376,7 @@ export class VpcepClient {
      * 功能介绍
      * 查询用户的资源配额，包括终端节点服务和终端节点。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -408,8 +395,7 @@ export class VpcepClient {
      * 功能介绍
      * 查询连接当前用户下的某一个终端节点服务的连接列表。marker_id是连接的唯一标识。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询连接终端节点服务的连接列表
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -435,8 +421,7 @@ export class VpcepClient {
      * 功能介绍
      * 查询终端节点服务的概要信息， 此接口是供创建终端节点的用户来查询需要连接的终端节点服务信息。 此接口既可以方便其他用户查询到您的终端节点服务概要信息, 又可以避免您的终端节点服务的细节信息暴露给其他用户。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点服务概要
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -456,8 +441,7 @@ export class VpcepClient {
      * 功能介绍
      * 查询终端节点服务的详细信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点服务详情
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -478,8 +462,7 @@ export class VpcepClient {
      * 说明
      * 本帐号默认在当前用户下终端节点服务的白名单中。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点服务的白名单列表
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -504,8 +487,7 @@ export class VpcepClient {
      * 查询公共终端节点服务的列表，公共终端节点服务是所有用户可见且可连接的终端节点服务，
      * 由运维人员创建，用户可直接使用，但无权创建。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询公共终端节点服务列表
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -529,8 +511,7 @@ export class VpcepClient {
      * 功能介绍
      * 查询指定VPC终端节点接口版本信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定VPC终端节点接口版本信息
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -549,8 +530,7 @@ export class VpcepClient {
      * 功能介绍
      * 查询VPC终端节点接口版本列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC终端节点接口版本列表
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -568,8 +548,7 @@ export class VpcepClient {
      * 功能介绍：
      *      更新终端节点服务连接的终端节点的描述。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新终端节点连接描述
      * @param {string} vpcEndpointServiceId 终端节点服务ID
@@ -588,8 +567,7 @@ export class VpcepClient {
      * 功能介绍
      * 修改网关型终端节点policy。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改终端节点路由表
      * @param {string} vpcEndpointId 终端节点的ID。
@@ -609,8 +587,7 @@ export class VpcepClient {
      * 功能介绍
      * 修改终端节点路由表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改终端节点路由表
      * @param {string} vpcEndpointId 终端节点的ID。
@@ -630,8 +607,7 @@ export class VpcepClient {
      * 功能介绍
      * 修改终端节点服务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改终端节点服务
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -651,8 +627,7 @@ export class VpcepClient {
      * 功能介绍
      * 修改终端节点服务名称
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改终端节点服务名称
      * @param {string} vpcEndpointServiceId 终端节点服务ID
@@ -671,8 +646,7 @@ export class VpcepClient {
      * 功能介绍
      * 更新当前用户下终端节点服务白名单的描述信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新终端节点服务白名单描述
      * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
@@ -693,8 +667,7 @@ export class VpcepClient {
      * 功能介绍
      * 更新或删除允许访问终端节点的白名单。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新终端节点的白名单
      * @param {string} vpcEndpointId 终端节点的ID。
@@ -715,8 +688,7 @@ export class VpcepClient {
      * 为指定Endpoint Service或Endpoint批量添加或删除标签。
      * ● 一个资源上最多有10个标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加或删除资源标签接口
      * @param {string} resourceType 资源类型，值为：endpoint_service或endpoint。
@@ -737,8 +709,7 @@ export class VpcepClient {
      * 功能介绍
      * 根据租户ID和资源类型，获取租户下资源的标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户资源标签接口
      * @param {string} resourceType 资源类型，值为：endpoint_service或endpoint。
@@ -757,8 +728,7 @@ export class VpcepClient {
      * 功能介绍
      * 使用标签过滤查询租户下资源的实例。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源实例接口
      * @param {string} resourceType 资源类型，值为：endpoint_service或endpoint。
@@ -782,8 +752,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 接受或者拒绝终端节点连接到当前的终端节点服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         acceptOrRejectEndpoint(acceptOrRejectEndpointRequest?: AcceptOrRejectEndpointRequest) {
             const options = {
@@ -837,8 +806,7 @@ export const ParamCreater = function () {
          * 说明
          * 本帐号默认在自身用户的终端节点服务的白名单中。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         addOrRemoveServicePermissions(addOrRemoveServicePermissionsRequest?: AddOrRemoveServicePermissionsRequest) {
             const options = {
@@ -892,8 +860,7 @@ export const ParamCreater = function () {
          * 说明
          * 本帐号默认在自身用户的终端节点服务的白名单中。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchAddEndpointServicePermissions(batchAddEndpointServicePermissionsRequest?: BatchAddEndpointServicePermissionsRequest) {
             const options = {
@@ -945,8 +912,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 批量删除当前用户下终端节点服务的白名单
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchRemoveEndpointServicePermissions(batchRemoveEndpointServicePermissionsRequest?: BatchRemoveEndpointServicePermissionsRequest) {
             const options = {
@@ -998,8 +964,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 创建终端节点，以便访问终端节点服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createEndpoint(createEndpointRequest?: CreateEndpointRequest) {
             const options = {
@@ -1048,8 +1013,7 @@ export const ParamCreater = function () {
          * 该接口为异步接口，调用成功会返回200状态码，说明请求已正常下发。
          * 通常创建终端节点服务需要1~2分钟，可以通过查询终端节点服务详情查看创建结果。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createEndpointService(createEndpointServiceRequest?: CreateEndpointServiceRequest) {
             const options = {
@@ -1094,8 +1058,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 删除终端节点。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteEndpoint(deleteEndpointRequest?: DeleteEndpointRequest) {
             const options = {
@@ -1139,8 +1102,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 删除网关型终端节点policy。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteEndpointPolicy(deleteEndpointPolicyRequest?: DeleteEndpointPolicyRequest) {
             const options = {
@@ -1184,8 +1146,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 删除终端节点服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteEndpointService(deleteEndpointServiceRequest?: DeleteEndpointServiceRequest) {
             const options = {
@@ -1229,8 +1190,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 查询终端节点的详细信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEndpointInfoDetails(listEndpointInfoDetailsRequest?: ListEndpointInfoDetailsRequest) {
             const options = {
@@ -1274,8 +1234,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 查询当前用户下的终端节点服务的列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEndpointService(listEndpointServiceRequest?: ListEndpointServiceRequest) {
             const options = {
@@ -1361,8 +1320,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 查询当前用户下的终端节点的列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEndpoints(listEndpointsRequest?: ListEndpointsRequest) {
             const options = {
@@ -1448,8 +1406,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 查询用户的资源配额，包括终端节点服务和终端节点。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listQuotaDetails(listQuotaDetailsRequest?: ListQuotaDetailsRequest) {
             const options = {
@@ -1493,8 +1450,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 查询连接当前用户下的某一个终端节点服务的连接列表。marker_id是连接的唯一标识。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServiceConnections(listServiceConnectionsRequest?: ListServiceConnectionsRequest) {
             const options = {
@@ -1581,8 +1537,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 查询终端节点服务的概要信息， 此接口是供创建终端节点的用户来查询需要连接的终端节点服务信息。 此接口既可以方便其他用户查询到您的终端节点服务概要信息, 又可以避免您的终端节点服务的细节信息暴露给其他用户。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServiceDescribeDetails(listServiceDescribeDetailsRequest?: ListServiceDescribeDetailsRequest) {
             const options = {
@@ -1632,8 +1587,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 查询终端节点服务的详细信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServiceDetails(listServiceDetailsRequest?: ListServiceDetailsRequest) {
             const options = {
@@ -1679,8 +1633,7 @@ export const ParamCreater = function () {
          * 说明
          * 本帐号默认在当前用户下终端节点服务的白名单中。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServicePermissionsDetails(listServicePermissionsDetailsRequest?: ListServicePermissionsDetailsRequest) {
             const options = {
@@ -1756,8 +1709,7 @@ export const ParamCreater = function () {
          * 查询公共终端节点服务的列表，公共终端节点服务是所有用户可见且可连接的终端节点服务，
          * 由运维人员创建，用户可直接使用，但无权创建。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServicePublicDetails(listServicePublicDetailsRequest?: ListServicePublicDetailsRequest) {
             const options = {
@@ -1831,8 +1783,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 查询指定VPC终端节点接口版本信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listSpecifiedVersionDetails(listSpecifiedVersionDetailsRequest?: ListSpecifiedVersionDetailsRequest) {
             const options = {
@@ -1876,8 +1827,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 查询VPC终端节点接口版本列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listVersionDetails(listVersionDetailsRequest?: ListVersionDetailsRequest) {
             const options = {
@@ -1914,8 +1864,7 @@ export const ParamCreater = function () {
          * 功能介绍：
          *      更新终端节点服务连接的终端节点的描述。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEndpointConnectionsDesc(updateEndpointConnectionsDescRequest?: UpdateEndpointConnectionsDescRequest) {
             const options = {
@@ -1961,8 +1910,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 修改网关型终端节点policy。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEndpointPolicy(updateEndpointPolicyRequest?: UpdateEndpointPolicyRequest) {
             const options = {
@@ -2014,8 +1962,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 修改终端节点路由表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEndpointRoutetable(updateEndpointRoutetableRequest?: UpdateEndpointRoutetableRequest) {
             const options = {
@@ -2067,8 +2014,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 修改终端节点服务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEndpointService(updateEndpointServiceRequest?: UpdateEndpointServiceRequest) {
             const options = {
@@ -2120,8 +2066,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 修改终端节点服务名称
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEndpointServiceName(updateEndpointServiceNameRequest?: UpdateEndpointServiceNameRequest) {
             const options = {
@@ -2164,8 +2109,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 更新当前用户下终端节点服务白名单的描述信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEndpointServicePermissionDesc(updateEndpointServicePermissionDescRequest?: UpdateEndpointServicePermissionDescRequest) {
             const options = {
@@ -2223,8 +2167,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 更新或删除允许访问终端节点的白名单。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEndpointWhite(updateEndpointWhiteRequest?: UpdateEndpointWhiteRequest) {
             const options = {
@@ -2277,8 +2220,7 @@ export const ParamCreater = function () {
          * 为指定Endpoint Service或Endpoint批量添加或删除标签。
          * ● 一个资源上最多有10个标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchAddOrRemoveResourceInstance(batchAddOrRemoveResourceInstanceRequest?: BatchAddOrRemoveResourceInstanceRequest) {
             const options = {
@@ -2333,8 +2275,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 根据租户ID和资源类型，获取租户下资源的标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listQueryProjectResourceTags(listQueryProjectResourceTagsRequest?: ListQueryProjectResourceTagsRequest) {
             const options = {
@@ -2378,8 +2319,7 @@ export const ParamCreater = function () {
          * 功能介绍
          * 使用标签过滤查询租户下资源的实例。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listResourceInstances(listResourceInstancesRequest?: ListResourceInstancesRequest) {
             const options = {

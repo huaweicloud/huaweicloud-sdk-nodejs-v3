@@ -4,6 +4,7 @@ export class ShowTenantMetricRequest {
     public period?: string;
     private 'start_time'?: string | undefined;
     private 'end_time'?: string | undefined;
+    private 'metric_type'?: string | undefined;
     public constructor() { 
     }
     public withPeriod(period: string): ShowTenantMetricRequest {
@@ -29,5 +30,15 @@ export class ShowTenantMetricRequest {
     }
     public get endTime() {
         return this['end_time'];
+    }
+    public withMetricType(metricType: string): ShowTenantMetricRequest {
+        this['metric_type'] = metricType;
+        return this;
+    }
+    public set metricType(metricType: string | undefined) {
+        this['metric_type'] = metricType;
+    }
+    public get metricType() {
+        return this['metric_type'];
     }
 }

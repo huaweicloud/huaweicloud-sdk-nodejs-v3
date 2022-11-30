@@ -89,12 +89,25 @@ export class HcClient {
             url = url.replace("{" + x + "}", pathParams[x]);
         });
 
-        if (options.method === 'DELETE' && (options.data && (Object.keys(options.data).length <= 0 || options.data.length <= 0))) {
+        if (options.method === 'DELETE'
+            && (options.data && (Object.keys(options.data).length <= 0 || options.data.length <= 0))) {
             delete options.data;
         }
 
         if (options.headers && Object.prototype.hasOwnProperty.call(options.headers, "Content-Type")) {
             delete options.headers['Content-Type'];
+        }
+
+        if (options.contentType) {
+            if (!options.headers) {
+                options.headers = {};
+            }
+            if (options.contentType.toLowerCase().startsWith("application/json")) {
+                // remove charset
+                options.headers['content-type'] = "application/json";
+            } else {
+                options.headers['content-type'] = options.contentType;
+            }
         }
 
         const builder = new HttpRequestBuilder();

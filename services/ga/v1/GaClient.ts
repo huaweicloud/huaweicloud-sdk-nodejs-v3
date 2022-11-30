@@ -112,8 +112,7 @@ export class GaClient {
     /**
      * 创建全球加速器
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建全球加速器
      * @param {CreateAcceleratorRequestBody} createAcceleratorRequestBody 
@@ -130,8 +129,7 @@ export class GaClient {
     /**
      * 删除全球加速器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除全球加速器
      * @param {string} acceleratorId 全球加速器ID。
@@ -148,8 +146,7 @@ export class GaClient {
     /**
      * 查询全球加速器列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全球加速器列表
      * @param {number} [limit] 分页查询每页的资源个数。如果不设置，则默认为500。
@@ -172,8 +169,7 @@ export class GaClient {
     /**
      * 查询全球加速器详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询全球加速器详情
      * @param {string} acceleratorId 全球加速器ID。
@@ -190,8 +186,7 @@ export class GaClient {
     /**
      * 更新全球加速器
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新全球加速器
      * @param {string} acceleratorId 全球加速器ID。
@@ -209,8 +204,7 @@ export class GaClient {
     /**
      * 创建终端节点
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建终端节点
      * @param {string} endpointGroupId 终端节点组ID。
@@ -228,8 +222,7 @@ export class GaClient {
     /**
      * 删除终端节点
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除终端节点
      * @param {string} endpointGroupId 终端节点组ID。
@@ -247,8 +240,7 @@ export class GaClient {
     /**
      * 查询终端节点组下终端节点列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点组下终端节点列表
      * @param {string} endpointGroupId 终端节点组ID。
@@ -270,8 +262,7 @@ export class GaClient {
     /**
      * 查询终端节点详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点详情
      * @param {string} endpointGroupId 终端节点组ID。
@@ -289,8 +280,7 @@ export class GaClient {
     /**
      * 更新终端节点
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新终端节点
      * @param {string} endpointGroupId 终端节点组ID。
@@ -309,8 +299,7 @@ export class GaClient {
     /**
      * 创建终端节点组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建终端节点组
      * @param {CreateEndpointGroupRequestBody} createEndpointGroupRequestBody 
@@ -327,8 +316,7 @@ export class GaClient {
     /**
      * 删除终端节点组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除终端节点组
      * @param {string} endpointGroupId 终端节点组ID。
@@ -345,8 +333,7 @@ export class GaClient {
     /**
      * 查询终端节点组列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点组列表
      * @param {number} [limit] 分页查询每页的资源个数。如果不设置，则默认为500。
@@ -369,8 +356,7 @@ export class GaClient {
     /**
      * 查询终端节点组详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点组详情
      * @param {string} endpointGroupId 终端节点组ID。
@@ -387,8 +373,7 @@ export class GaClient {
     /**
      * 更新终端节点组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新终端节点组
      * @param {string} endpointGroupId 终端节点组ID。
@@ -406,8 +391,7 @@ export class GaClient {
     /**
      * 创建健康检查
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建健康检查
      * @param {CreateHealthCheckRequestBody} createHealthCheckRequestBody 
@@ -424,8 +408,7 @@ export class GaClient {
     /**
      * 删除健康检查
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除健康检查
      * @param {string} healthCheckId 健康检查ID。
@@ -442,8 +425,7 @@ export class GaClient {
     /**
      * 查询健康检查列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询健康检查列表
      * @param {number} [limit] 分页查询每页的资源个数。如果不设置，则默认为500。
@@ -465,8 +447,7 @@ export class GaClient {
     /**
      * 查询健康检查详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询健康检查详情
      * @param {string} healthCheckId 健康检查ID。
@@ -483,8 +464,7 @@ export class GaClient {
     /**
      * 更新健康检查
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新健康检查
      * @param {string} healthCheckId 健康检查ID。
@@ -502,8 +482,7 @@ export class GaClient {
     /**
      * 创建监听器
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建监听器
      * @param {CreateListenerRequestBody} createListenerRequestBody 
@@ -520,8 +499,7 @@ export class GaClient {
     /**
      * 删除监听器
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除监听器
      * @param {string} listenerId 监听器ID。
@@ -538,8 +516,7 @@ export class GaClient {
     /**
      * 查询监听器列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询监听器列表
      * @param {number} [limit] 分页查询每页的资源个数。如果不设置，则默认为500。
@@ -562,8 +539,7 @@ export class GaClient {
     /**
      * 查询监听器详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询监听器详情
      * @param {string} listenerId 监听器ID。
@@ -580,8 +556,7 @@ export class GaClient {
     /**
      * 更新监听器
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新监听器
      * @param {string} listenerId 监听器ID。
@@ -599,8 +574,7 @@ export class GaClient {
     /**
      * 查询区域列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询区域列表
      * @param {*} [options] Override http request option.
@@ -620,8 +594,7 @@ export const ParamCreater = function () {
         /**
          * 创建全球加速器
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createAccelerator(createAcceleratorRequest?: CreateAcceleratorRequest) {
             const options = {
@@ -659,8 +632,7 @@ export const ParamCreater = function () {
         /**
          * 删除全球加速器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteAccelerator(deleteAcceleratorRequest?: DeleteAcceleratorRequest) {
             const options = {
@@ -697,8 +669,7 @@ export const ParamCreater = function () {
         /**
          * 查询全球加速器列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAccelerators(listAcceleratorsRequest?: ListAcceleratorsRequest) {
             const options = {
@@ -771,8 +742,7 @@ export const ParamCreater = function () {
         /**
          * 查询全球加速器详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showAccelerator(showAcceleratorRequest?: ShowAcceleratorRequest) {
             const options = {
@@ -809,8 +779,7 @@ export const ParamCreater = function () {
         /**
          * 更新全球加速器
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateAccelerator(updateAcceleratorRequest?: UpdateAcceleratorRequest) {
             const options = {
@@ -855,8 +824,7 @@ export const ParamCreater = function () {
         /**
          * 创建终端节点
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createEndpoint(createEndpointRequest?: CreateEndpointRequest) {
             const options = {
@@ -901,8 +869,7 @@ export const ParamCreater = function () {
         /**
          * 删除终端节点
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteEndpoint(deleteEndpointRequest?: DeleteEndpointRequest) {
             const options = {
@@ -945,8 +912,7 @@ export const ParamCreater = function () {
         /**
          * 查询终端节点组下终端节点列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEndpoints(listEndpointsRequest?: ListEndpointsRequest) {
             const options = {
@@ -1014,8 +980,7 @@ export const ParamCreater = function () {
         /**
          * 查询终端节点详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showEndpoint(showEndpointRequest?: ShowEndpointRequest) {
             const options = {
@@ -1058,8 +1023,7 @@ export const ParamCreater = function () {
         /**
          * 更新终端节点
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEndpoint(updateEndpointRequest?: UpdateEndpointRequest) {
             const options = {
@@ -1110,8 +1074,7 @@ export const ParamCreater = function () {
         /**
          * 创建终端节点组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createEndpointGroup(createEndpointGroupRequest?: CreateEndpointGroupRequest) {
             const options = {
@@ -1149,8 +1112,7 @@ export const ParamCreater = function () {
         /**
          * 删除终端节点组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteEndpointGroup(deleteEndpointGroupRequest?: DeleteEndpointGroupRequest) {
             const options = {
@@ -1187,8 +1149,7 @@ export const ParamCreater = function () {
         /**
          * 查询终端节点组列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEndpointGroups(listEndpointGroupsRequest?: ListEndpointGroupsRequest) {
             const options = {
@@ -1261,8 +1222,7 @@ export const ParamCreater = function () {
         /**
          * 查询终端节点组详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showEndpointGroup(showEndpointGroupRequest?: ShowEndpointGroupRequest) {
             const options = {
@@ -1299,8 +1259,7 @@ export const ParamCreater = function () {
         /**
          * 更新终端节点组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEndpointGroup(updateEndpointGroupRequest?: UpdateEndpointGroupRequest) {
             const options = {
@@ -1345,8 +1304,7 @@ export const ParamCreater = function () {
         /**
          * 创建健康检查
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createHealthCheck(createHealthCheckRequest?: CreateHealthCheckRequest) {
             const options = {
@@ -1384,8 +1342,7 @@ export const ParamCreater = function () {
         /**
          * 删除健康检查
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteHealthCheck(deleteHealthCheckRequest?: DeleteHealthCheckRequest) {
             const options = {
@@ -1422,8 +1379,7 @@ export const ParamCreater = function () {
         /**
          * 查询健康检查列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listHealthChecks(listHealthChecksRequest?: ListHealthChecksRequest) {
             const options = {
@@ -1490,8 +1446,7 @@ export const ParamCreater = function () {
         /**
          * 查询健康检查详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showHealthCheck(showHealthCheckRequest?: ShowHealthCheckRequest) {
             const options = {
@@ -1528,8 +1483,7 @@ export const ParamCreater = function () {
         /**
          * 更新健康检查
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateHealthCheck(updateHealthCheckRequest?: UpdateHealthCheckRequest) {
             const options = {
@@ -1574,8 +1528,7 @@ export const ParamCreater = function () {
         /**
          * 创建监听器
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createListener(createListenerRequest?: CreateListenerRequest) {
             const options = {
@@ -1613,8 +1566,7 @@ export const ParamCreater = function () {
         /**
          * 删除监听器
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteListener(deleteListenerRequest?: DeleteListenerRequest) {
             const options = {
@@ -1651,8 +1603,7 @@ export const ParamCreater = function () {
         /**
          * 查询监听器列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listListeners(listListenersRequest?: ListListenersRequest) {
             const options = {
@@ -1725,8 +1676,7 @@ export const ParamCreater = function () {
         /**
          * 查询监听器详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showListener(showListenerRequest?: ShowListenerRequest) {
             const options = {
@@ -1763,8 +1713,7 @@ export const ParamCreater = function () {
         /**
          * 更新监听器
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateListener(updateListenerRequest?: UpdateListenerRequest) {
             const options = {
@@ -1809,8 +1758,7 @@ export const ParamCreater = function () {
         /**
          * 查询区域列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listRegions() {
             const options = {

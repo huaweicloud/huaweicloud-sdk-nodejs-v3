@@ -174,8 +174,7 @@ export class CfwClient {
     /**
      * 添加地址组成员
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加地址组成员
      * @param {string} projectId 租户项目id
@@ -193,8 +192,7 @@ export class CfwClient {
     /**
      * 添加地址组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 添加地址组
      * @param {string} projectId 租户项目id
@@ -212,8 +210,7 @@ export class CfwClient {
     /**
      * 创建黑白名单规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建黑白名单规则
      * @param {string} projectId 租户项目id
@@ -231,8 +228,7 @@ export class CfwClient {
     /**
      * 批量添加服务组成员
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新建服务成员
      * @param {string} projectId 租户项目id
@@ -250,8 +246,7 @@ export class CfwClient {
     /**
      * 创建服务组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新建服务组
      * @param {string} projectId 租户项目id
@@ -269,8 +264,7 @@ export class CfwClient {
     /**
      * 东西向防护资源防护开启/关闭
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改东西向防火墙防护状态
      * @param {string} projectId 租户项目id
@@ -288,8 +282,7 @@ export class CfwClient {
     /**
      * 切换防护模式
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 切换防护模式
      * @param {string} projectId 租户项目id
@@ -307,8 +300,7 @@ export class CfwClient {
     /**
      * 清除规则击中次数
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除规则击中次数
      * @param {string} projectId project id
@@ -326,8 +318,7 @@ export class CfwClient {
     /**
      * 删除地址组成员
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除地址组成员
      * @param {string} itemId 地址组成员id
@@ -345,8 +336,7 @@ export class CfwClient {
     /**
      * 删除地址组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除地址组
      * @param {string} projectId 租户项目id
@@ -364,8 +354,7 @@ export class CfwClient {
     /**
      * 删除黑白名单规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除黑白名单规则
      * @param {string} projectId 租户项目id
@@ -383,8 +372,7 @@ export class CfwClient {
     /**
      * 删除服务组成员
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除服务成员
      * @param {string} projectId 租户项目id
@@ -402,8 +390,7 @@ export class CfwClient {
     /**
      * 删除服务组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除服务组
      * @param {string} projectId 租户项目id
@@ -421,8 +408,7 @@ export class CfwClient {
     /**
      * 查询访问控制日志
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询访问控制日志
      * @param {string} projectId 租户项目id
@@ -454,8 +440,7 @@ export class CfwClient {
     /**
      * 查询地址组成员
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地址组成员
      * @param {string} projectId 租户项目id
@@ -477,8 +462,7 @@ export class CfwClient {
     /**
      * 查询地址组详细
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地址组详细信息
      * @param {string} projectId 租户项目id
@@ -496,8 +480,7 @@ export class CfwClient {
     /**
      * 查询地址组列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询地址组列表
      * @param {string} projectId 租户项目id
@@ -520,8 +503,7 @@ export class CfwClient {
     /**
      * 查询攻击日志
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询攻击日志
      * @param {string} projectId 租户项目id
@@ -557,8 +539,7 @@ export class CfwClient {
     /**
      * 查询黑白名单列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询黑白名单列表
      * @param {string} projectId 租户项目id
@@ -582,8 +563,7 @@ export class CfwClient {
     /**
      * 查询dns服务器列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询dns服务器列表
      * @param {string} projectId 租户项目id
@@ -602,8 +582,7 @@ export class CfwClient {
     /**
      * 查询东西向防火墙信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取东西向防火墙信息
      * @param {string} projectId 租户项目id
@@ -622,8 +601,7 @@ export class CfwClient {
     /**
      * 查询防火墙实例
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防火墙实例
      * @param {string} projectId 租户项目id
@@ -643,8 +621,7 @@ export class CfwClient {
     /**
      * 查询流日志
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询流日志
      * @param {string} projectId 租户项目id
@@ -676,8 +653,7 @@ export class CfwClient {
     /**
      * 查询防护模式
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防护模式
      * @param {string} projectId 租户项目id
@@ -695,8 +671,7 @@ export class CfwClient {
     /**
      * 测试域名有效性
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名解析ip地址
      * @param {string} projectId 租户项目id
@@ -714,8 +689,7 @@ export class CfwClient {
     /**
      * 获取规则击中次数
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取规则击中次数
      * @param {string} projectId 租户项目id
@@ -733,8 +707,7 @@ export class CfwClient {
     /**
      * 查询服务组成员列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询服务成员列表
      * @param {string} projectId 租户项目id
@@ -755,8 +728,7 @@ export class CfwClient {
     /**
      * 获取服务组列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取服务组列表
      * @param {string} projectId 租户项目id
@@ -777,8 +749,7 @@ export class CfwClient {
     /**
      * 查询服务组细节
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询服务组详情
      * @param {string} projectId 租户项目id
@@ -796,8 +767,7 @@ export class CfwClient {
     /**
      * 更新地址组信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新地址组信息
      * @param {string} projectId 租户项目id
@@ -816,8 +786,7 @@ export class CfwClient {
     /**
      * 更新黑白名单列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新黑白名单列表
      * @param {string} projectId 租户项目id
@@ -836,8 +805,7 @@ export class CfwClient {
     /**
      * 更新dns服务器列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新dns服务器列表
      * @param {string} projectId 租户项目id
@@ -855,8 +823,7 @@ export class CfwClient {
     /**
      * 更新服务组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改服务组
      * @param {string} projectId 租户项目id
@@ -875,8 +842,7 @@ export class CfwClient {
     /**
      * 创建ACL规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建ACL规则
      * @param {string} projectId 租户项目id
@@ -894,8 +860,7 @@ export class CfwClient {
     /**
      * 删除ACL规则组
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除ACL规则组
      * @param {string} projectId 租户项目Id
@@ -913,8 +878,7 @@ export class CfwClient {
     /**
      * ACL防护规则优先级设置
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary ACL防护规则优先级设置
      * @param {string} projectId 租户项目id
@@ -933,8 +897,7 @@ export class CfwClient {
     /**
      * 查询防护规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防护规则
      * @param {string} projectId 租户项目id
@@ -962,8 +925,7 @@ export class CfwClient {
     /**
      * 更新ACL规则
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新ACL规则
      * @param {string} projectId 租户项目id
@@ -982,8 +944,7 @@ export class CfwClient {
     /**
      * 开启关闭EIP
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 弹性IP开启关闭
      * @param {string} projectId 租户项目ID
@@ -1001,8 +962,7 @@ export class CfwClient {
     /**
      * 查询Eip个数
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Eip个数
      * @param {string} projectId 租户项目ID
@@ -1020,8 +980,7 @@ export class CfwClient {
     /**
      * 弹性IP列表查询
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 弹性IP列表查询
      * @param {string} projectId 租户项目ID
@@ -1047,8 +1006,7 @@ export class CfwClient {
     /**
      * 切换开关状态
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary IPS特性开关操作
      * @param {string} projectId project_id
@@ -1066,8 +1024,7 @@ export class CfwClient {
     /**
      * 查询IPS特性开关状态
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询IPS特性开关状态
      * @param {string} projectId project_id
@@ -1085,8 +1042,7 @@ export class CfwClient {
     /**
      * 查询防护vpc信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询防护VPC数
      * @param {string} projectId 租户项目id
@@ -1108,8 +1064,7 @@ export const ParamCreater = function () {
         /**
          * 添加地址组成员
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         addAddressItemsUsingPost(addAddressItemsUsingPostRequest?: AddAddressItemsUsingPostRequest) {
             const options = {
@@ -1154,8 +1109,7 @@ export const ParamCreater = function () {
         /**
          * 添加地址组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         addAddressSetInfoUsingPost(addAddressSetInfoUsingPostRequest?: AddAddressSetInfoUsingPostRequest) {
             const options = {
@@ -1200,8 +1154,7 @@ export const ParamCreater = function () {
         /**
          * 创建黑白名单规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         addBlackWhiteListUsingPost(addBlackWhiteListUsingPostRequest?: AddBlackWhiteListUsingPostRequest) {
             const options = {
@@ -1246,8 +1199,7 @@ export const ParamCreater = function () {
         /**
          * 批量添加服务组成员
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         addServiceItemsUsingPost(addServiceItemsUsingPostRequest?: AddServiceItemsUsingPostRequest) {
             const options = {
@@ -1292,8 +1244,7 @@ export const ParamCreater = function () {
         /**
          * 创建服务组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         addServiceSetUsingPost(addServiceSetUsingPostRequest?: AddServiceSetUsingPostRequest) {
             const options = {
@@ -1338,8 +1289,7 @@ export const ParamCreater = function () {
         /**
          * 东西向防护资源防护开启/关闭
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         changeEwProtectStatus(changeEwProtectStatusRequest?: ChangeEwProtectStatusRequest) {
             const options = {
@@ -1384,8 +1334,7 @@ export const ParamCreater = function () {
         /**
          * 切换防护模式
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         changeIpsProtectModeUsingPost(changeIpsProtectModeUsingPostRequest?: ChangeIpsProtectModeUsingPostRequest) {
             const options = {
@@ -1430,8 +1379,7 @@ export const ParamCreater = function () {
         /**
          * 清除规则击中次数
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteAclRuleCount(deleteAclRuleCountRequest?: DeleteAclRuleCountRequest) {
             const options = {
@@ -1476,8 +1424,7 @@ export const ParamCreater = function () {
         /**
          * 删除地址组成员
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteAddressItemUsingDelete(deleteAddressItemUsingDeleteRequest?: DeleteAddressItemUsingDeleteRequest) {
             const options = {
@@ -1520,8 +1467,7 @@ export const ParamCreater = function () {
         /**
          * 删除地址组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteAddressSetInfoUsingDelete(deleteAddressSetInfoUsingDeleteRequest?: DeleteAddressSetInfoUsingDeleteRequest) {
             const options = {
@@ -1564,8 +1510,7 @@ export const ParamCreater = function () {
         /**
          * 删除黑白名单规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteBlackWhiteListUsingDelete(deleteBlackWhiteListUsingDeleteRequest?: DeleteBlackWhiteListUsingDeleteRequest) {
             const options = {
@@ -1608,8 +1553,7 @@ export const ParamCreater = function () {
         /**
          * 删除服务组成员
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteServiceItemUsingDelete(deleteServiceItemUsingDeleteRequest?: DeleteServiceItemUsingDeleteRequest) {
             const options = {
@@ -1652,8 +1596,7 @@ export const ParamCreater = function () {
         /**
          * 删除服务组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteServiceSetUsingDelete(deleteServiceSetUsingDeleteRequest?: DeleteServiceSetUsingDeleteRequest) {
             const options = {
@@ -1696,8 +1639,7 @@ export const ParamCreater = function () {
         /**
          * 查询访问控制日志
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAccessControlLogs(listAccessControlLogsRequest?: ListAccessControlLogsRequest) {
             const options = {
@@ -1837,8 +1779,7 @@ export const ParamCreater = function () {
         /**
          * 查询地址组成员
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAddressItemsUsingGet(listAddressItemsUsingGetRequest?: ListAddressItemsUsingGetRequest) {
             const options = {
@@ -1915,8 +1856,7 @@ export const ParamCreater = function () {
         /**
          * 查询地址组详细
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAddressSetDetailUsingGet(listAddressSetDetailUsingGetRequest?: ListAddressSetDetailUsingGetRequest) {
             const options = {
@@ -1959,8 +1899,7 @@ export const ParamCreater = function () {
         /**
          * 查询地址组列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAddressSetListUsingGet(listAddressSetListUsingGetRequest?: ListAddressSetListUsingGetRequest) {
             const options = {
@@ -2043,8 +1982,7 @@ export const ParamCreater = function () {
         /**
          * 查询攻击日志
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAttackLogs(listAttackLogsRequest?: ListAttackLogsRequest) {
             const options = {
@@ -2205,8 +2143,7 @@ export const ParamCreater = function () {
         /**
          * 查询黑白名单列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listBlackWhiteListsUsingGet(listBlackWhiteListsUsingGetRequest?: ListBlackWhiteListsUsingGetRequest) {
             const options = {
@@ -2298,8 +2235,7 @@ export const ParamCreater = function () {
         /**
          * 查询dns服务器列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listDnsServers(listDnsServersRequest?: ListDnsServersRequest) {
             const options = {
@@ -2349,8 +2285,7 @@ export const ParamCreater = function () {
         /**
          * 查询东西向防火墙信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEastWestFirewall(listEastWestFirewallRequest?: ListEastWestFirewallRequest) {
             const options = {
@@ -2406,8 +2341,7 @@ export const ParamCreater = function () {
         /**
          * 查询防火墙实例
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFirewallUsingGet(listFirewallUsingGetRequest?: ListFirewallUsingGetRequest) {
             const options = {
@@ -2472,8 +2406,7 @@ export const ParamCreater = function () {
         /**
          * 查询流日志
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFlowLogs(listFlowLogsRequest?: ListFlowLogsRequest) {
             const options = {
@@ -2613,8 +2546,7 @@ export const ParamCreater = function () {
         /**
          * 查询防护模式
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listIpsProtectModeUsingPost(listIpsProtectModeUsingPostRequest?: ListIpsProtectModeUsingPostRequest) {
             const options = {
@@ -2661,8 +2593,7 @@ export const ParamCreater = function () {
         /**
          * 测试域名有效性
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listParseDomainDetails(listParseDomainDetailsRequest?: ListParseDomainDetailsRequest) {
             const options = {
@@ -2705,8 +2636,7 @@ export const ParamCreater = function () {
         /**
          * 获取规则击中次数
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listRuleHitCount(listRuleHitCountRequest?: ListRuleHitCountRequest) {
             const options = {
@@ -2748,8 +2678,7 @@ export const ParamCreater = function () {
         /**
          * 查询服务组成员列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServiceItemsDetails(listServiceItemsDetailsRequest?: ListServiceItemsDetailsRequest) {
             const options = {
@@ -2820,8 +2749,7 @@ export const ParamCreater = function () {
         /**
          * 获取服务组列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServiceSet(listServiceSetRequest?: ListServiceSetRequest) {
             const options = {
@@ -2892,8 +2820,7 @@ export const ParamCreater = function () {
         /**
          * 查询服务组细节
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listServiceSetDetails(listServiceSetDetailsRequest?: ListServiceSetDetailsRequest) {
             const options = {
@@ -2936,8 +2863,7 @@ export const ParamCreater = function () {
         /**
          * 更新地址组信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateAddressSetInfoUsingPut(updateAddressSetInfoUsingPutRequest?: UpdateAddressSetInfoUsingPutRequest) {
             const options = {
@@ -2988,8 +2914,7 @@ export const ParamCreater = function () {
         /**
          * 更新黑白名单列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateBlackWhiteListUsingPut(updateBlackWhiteListUsingPutRequest?: UpdateBlackWhiteListUsingPutRequest) {
             const options = {
@@ -3040,8 +2965,7 @@ export const ParamCreater = function () {
         /**
          * 更新dns服务器列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateDnsServers(updateDnsServersRequest?: UpdateDnsServersRequest) {
             const options = {
@@ -3086,8 +3010,7 @@ export const ParamCreater = function () {
         /**
          * 更新服务组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateServiceSetUsingPut(updateServiceSetUsingPutRequest?: UpdateServiceSetUsingPutRequest) {
             const options = {
@@ -3138,8 +3061,7 @@ export const ParamCreater = function () {
         /**
          * 创建ACL规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         addRuleAclUsingPost(addRuleAclUsingPostRequest?: AddRuleAclUsingPostRequest) {
             const options = {
@@ -3184,8 +3106,7 @@ export const ParamCreater = function () {
         /**
          * 删除ACL规则组
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteRuleAclUsingDelete(deleteRuleAclUsingDeleteRequest?: DeleteRuleAclUsingDeleteRequest) {
             const options = {
@@ -3228,8 +3149,7 @@ export const ParamCreater = function () {
         /**
          * ACL防护规则优先级设置
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listRuleAclUsingPut(listRuleAclUsingPutRequest?: ListRuleAclUsingPutRequest) {
             const options = {
@@ -3280,8 +3200,7 @@ export const ParamCreater = function () {
         /**
          * 查询防护规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listRuleAclsUsingGet(listRuleAclsUsingGetRequest?: ListRuleAclsUsingGetRequest) {
             const options = {
@@ -3394,8 +3313,7 @@ export const ParamCreater = function () {
         /**
          * 更新ACL规则
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateRuleAclUsingPut(updateRuleAclUsingPutRequest?: UpdateRuleAclUsingPutRequest) {
             const options = {
@@ -3446,8 +3364,7 @@ export const ParamCreater = function () {
         /**
          * 开启关闭EIP
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         changeProtectEip(changeProtectEipRequest?: ChangeProtectEipRequest) {
             const options = {
@@ -3492,8 +3409,7 @@ export const ParamCreater = function () {
         /**
          * 查询Eip个数
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         countEips(countEipsRequest?: CountEipsRequest) {
             const options = {
@@ -3536,8 +3452,7 @@ export const ParamCreater = function () {
         /**
          * 弹性IP列表查询
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEipResources(listEipResourcesRequest?: ListEipResourcesRequest) {
             const options = {
@@ -3638,8 +3553,7 @@ export const ParamCreater = function () {
         /**
          * 切换开关状态
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         changeIpsSwitchUsingPost(changeIpsSwitchUsingPostRequest?: ChangeIpsSwitchUsingPostRequest) {
             const options = {
@@ -3684,8 +3598,7 @@ export const ParamCreater = function () {
         /**
          * 查询IPS特性开关状态
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listIpsSwitchStatusUsingGet(listIpsSwitchStatusUsingGetRequest?: ListIpsSwitchStatusUsingGetRequest) {
             const options = {
@@ -3732,8 +3645,7 @@ export const ParamCreater = function () {
         /**
          * 查询防护vpc信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listVpcProtects(listVpcProtectsRequest?: ListVpcProtectsRequest) {
             const options = {

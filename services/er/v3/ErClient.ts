@@ -131,8 +131,7 @@ export class ErClient {
     /**
      * 每个连接只能关联到一张路由表。通过创建关联将连接关联到路由表，从该连接收到的报文会用被关联的路由表进行路由。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建路由关联
      * @param {string} erId 企业路由器实例ID
@@ -152,8 +151,7 @@ export class ErClient {
     /**
      * 解绑连接和路由表的关联关系。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除路由关联
      * @param {string} erId 企业路由器实例ID
@@ -172,8 +170,7 @@ export class ErClient {
     /**
      * 查询路由关联列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询路由关联列表
      * @param {string} erId 企业路由器实例ID
@@ -198,8 +195,7 @@ export class ErClient {
     /**
      * 查询企业路由器实例下的连接列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询连接列表
      * @param {string} erId 企业路由器实例ID
@@ -223,8 +219,7 @@ export class ErClient {
     /**
      * 查询连接详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询连接详情
      * @param {string} erId 企业路由器实例ID
@@ -242,8 +237,7 @@ export class ErClient {
     /**
      * 修改连接基本信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新连接基本信息
      * @param {string} erId 企业路由器实例ID
@@ -262,8 +256,7 @@ export class ErClient {
     /**
      * 查询支持创建企业路由器实例的可用区列表，当可用区状态为available时，表示可以创建企业路由器实例。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可用区列表
      * @param {string} [instanceId] 企业路由器ID
@@ -280,8 +273,7 @@ export class ErClient {
     /**
      * 更新企业路由器的可用区信息，企业路由器实例状态为available的时候才能更新。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新企业路由器的可用区信息
      * @param {string} erId 企业路由器实例ID
@@ -299,8 +291,7 @@ export class ErClient {
     /**
      * 创建企业路由器实例，如果使能默认关联路由表或使能默认传递路由表，那么系统会默认创建一张路由表，作为默认关联路由表或默认传递路由表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建企业路由器
      * @param {CreateEnterpriseRouterRequestBody} createEnterpriseRouterRequestBody This is a auto create Body Object
@@ -318,8 +309,7 @@ export class ErClient {
     /**
      * 删除企业路由器。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除企业路由器
      * @param {string} erId 企业路由器实例ID
@@ -336,8 +326,7 @@ export class ErClient {
     /**
      * 查询企业路由器列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询企业路由器列表
      * @param {number} [limit] 每页返回的个数。 取值范围：0~2000。
@@ -361,8 +350,7 @@ export class ErClient {
     /**
      * 查询企业路由器详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询企业路由器详情
      * @param {string} erId 企业路由器实例ID
@@ -379,8 +367,7 @@ export class ErClient {
     /**
      * 更新企业路由器基本信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新企业路由器
      * @param {string} erId 企业路由器实例ID
@@ -398,8 +385,7 @@ export class ErClient {
     /**
      * 解绑连接和路由表的传播关系。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除路由传播
      * @param {string} erId 企业路由器实例ID
@@ -418,8 +404,7 @@ export class ErClient {
     /**
      * 每个连接可以和多个路由表建立传播关系，从该连接学习到的路由会应用到具有传播关系的路由表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建路由传播
      * @param {string} erId 企业路由器实例ID
@@ -439,8 +424,7 @@ export class ErClient {
     /**
      * 查询路由传播列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询路由传播列表
      * @param {string} erId 企业路由器实例ID
@@ -465,8 +449,7 @@ export class ErClient {
     /**
      * 创建静态路由
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建静态路由
      * @param {string} routeTableId 路由表ID
@@ -485,8 +468,7 @@ export class ErClient {
     /**
      * 删除静态路由
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除静态路由
      * @param {string} routeTableId 路由表ID
@@ -504,8 +486,7 @@ export class ErClient {
     /**
      * 查询有效的路由列表，支持分页查询能力
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询有效路由列表
      * @param {string} routeTableId 路由表ID
@@ -526,8 +507,7 @@ export class ErClient {
     /**
      * 查询静态路由列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询静态路由列表
      * @param {string} routeTableId 路由表ID
@@ -551,8 +531,7 @@ export class ErClient {
     /**
      * 查询静态路由详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询静态路由详情
      * @param {string} routeTableId 路由表ID
@@ -570,8 +549,7 @@ export class ErClient {
     /**
      * 更新静态路由
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新静态路由
      * @param {string} routeTableId 路由表ID
@@ -590,8 +568,7 @@ export class ErClient {
     /**
      * 路由表是企业路由器收发报文的依据，包含了连接的关联关系，传播关系以及路由信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建路由表
      * @param {string} erId 企业路由器实例ID
@@ -610,8 +587,7 @@ export class ErClient {
     /**
      * 删除路由表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除路由表
      * @param {string} erId 企业路由器实例ID
@@ -629,8 +605,7 @@ export class ErClient {
     /**
      * 查询路由表列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询路由表列表
      * @param {string} erId 企业路由器实例ID
@@ -654,8 +629,7 @@ export class ErClient {
     /**
      * 查询路由表详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询路由表详情
      * @param {string} erId 企业路由器实例ID
@@ -673,8 +647,7 @@ export class ErClient {
     /**
      * 更新路由表基本信息，如名称，描述等。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新路由表信息
      * @param {string} erId 企业路由器实例ID
@@ -693,8 +666,7 @@ export class ErClient {
     /**
      * 为特定类型的资源创建标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建资源标签
      * @param {string} resourceId 资源ID
@@ -713,8 +685,7 @@ export class ErClient {
     /**
      * 删除特定类型资源的标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除资源标签
      * @param {string} key 标签键
@@ -733,8 +704,7 @@ export class ErClient {
     /**
      * 查询特定类型资源的标签集合。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询项目标签
      * @param {'instance' | 'route-table' | 'vpc-attachment' | 'dgw-attachment' | 'vgw-attachment' | 'peering-attachment' | 'vpn-attachment' | 'can-attachment' | 'gdgw-attachment' | 'attachments'} resourceType - instance: 企业路由器实例 - route-table: 路由表 - vpc-attachment: VPC连接 - vgw-attachment: 虚拟网关连接 - peering-attachment: 对等连接（Peering）连接 - vpn-attachment: VPN网关连接 - attachments: 所有连接类型
@@ -751,8 +721,7 @@ export class ErClient {
     /**
      * 查询特定类型资源的标签信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源标签
      * @param {string} resourceId 资源ID
@@ -770,8 +739,7 @@ export class ErClient {
     /**
      * 给ER实例创建VPC连接。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建VPC连接
      * @param {string} erId 企业路由器实例ID
@@ -790,8 +758,7 @@ export class ErClient {
     /**
      * 删除VPC连接。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除VPC连接
      * @param {string} erId 企业路由器实例ID
@@ -809,8 +776,7 @@ export class ErClient {
     /**
      * 查询企业路由器实例下的VPC连接列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC连接列表
      * @param {string} erId 企业路由器实例ID
@@ -834,8 +800,7 @@ export class ErClient {
     /**
      * 查询VPC连接详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC连接详情
      * @param {string} erId 企业路由器实例ID
@@ -853,8 +818,7 @@ export class ErClient {
     /**
      * 修改VPC连接基本信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新VPC连接基本信息
      * @param {string} erId 企业路由器实例ID
@@ -877,8 +841,7 @@ export const ParamCreater = function () {
         /**
          * 每个连接只能关联到一张路由表。通过创建关联将连接关联到路由表，从该连接收到的报文会用被关联的路由表进行路由。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         associateRouteTable(associateRouteTableRequest?: AssociateRouteTableRequest) {
             const options = {
@@ -935,8 +898,7 @@ export const ParamCreater = function () {
         /**
          * 解绑连接和路由表的关联关系。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         disassociateRouteTable(disassociateRouteTableRequest?: DisassociateRouteTableRequest) {
             const options = {
@@ -987,8 +949,7 @@ export const ParamCreater = function () {
         /**
          * 查询路由关联列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAssociations(listAssociationsRequest?: ListAssociationsRequest) {
             const options = {
@@ -1074,8 +1035,7 @@ export const ParamCreater = function () {
         /**
          * 查询企业路由器实例下的连接列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAttachments(listAttachmentsRequest?: ListAttachmentsRequest) {
             const options = {
@@ -1155,8 +1115,7 @@ export const ParamCreater = function () {
         /**
          * 查询连接详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showAttachment(showAttachmentRequest?: ShowAttachmentRequest) {
             const options = {
@@ -1199,8 +1158,7 @@ export const ParamCreater = function () {
         /**
          * 修改连接基本信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateAttachment(updateAttachmentRequest?: UpdateAttachmentRequest) {
             const options = {
@@ -1251,8 +1209,7 @@ export const ParamCreater = function () {
         /**
          * 查询支持创建企业路由器实例的可用区列表，当可用区状态为available时，表示可以创建企业路由器实例。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAvailabilityZone(listAvailabilityZoneRequest?: ListAvailabilityZoneRequest) {
             const options = {
@@ -1289,8 +1246,7 @@ export const ParamCreater = function () {
         /**
          * 更新企业路由器的可用区信息，企业路由器实例状态为available的时候才能更新。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         changeAvailabilityZone(changeAvailabilityZoneRequest?: ChangeAvailabilityZoneRequest) {
             const options = {
@@ -1335,8 +1291,7 @@ export const ParamCreater = function () {
         /**
          * 创建企业路由器实例，如果使能默认关联路由表或使能默认传递路由表，那么系统会默认创建一张路由表，作为默认关联路由表或默认传递路由表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createEnterpriseRouter(createEnterpriseRouterRequest?: CreateEnterpriseRouterRequest) {
             const options = {
@@ -1380,8 +1335,7 @@ export const ParamCreater = function () {
         /**
          * 删除企业路由器。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteEnterpriseRouter(deleteEnterpriseRouterRequest?: DeleteEnterpriseRouterRequest) {
             const options = {
@@ -1418,8 +1372,7 @@ export const ParamCreater = function () {
         /**
          * 查询企业路由器列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEnterpriseRouters(listEnterpriseRoutersRequest?: ListEnterpriseRoutersRequest) {
             const options = {
@@ -1498,8 +1451,7 @@ export const ParamCreater = function () {
         /**
          * 查询企业路由器详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showEnterpriseRouter(showEnterpriseRouterRequest?: ShowEnterpriseRouterRequest) {
             const options = {
@@ -1536,8 +1488,7 @@ export const ParamCreater = function () {
         /**
          * 更新企业路由器基本信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateEnterpriseRouter(updateEnterpriseRouterRequest?: UpdateEnterpriseRouterRequest) {
             const options = {
@@ -1582,8 +1533,7 @@ export const ParamCreater = function () {
         /**
          * 解绑连接和路由表的传播关系。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         disablePropagation(disablePropagationRequest?: DisablePropagationRequest) {
             const options = {
@@ -1634,8 +1584,7 @@ export const ParamCreater = function () {
         /**
          * 每个连接可以和多个路由表建立传播关系，从该连接学习到的路由会应用到具有传播关系的路由表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         enablePropagation(enablePropagationRequest?: EnablePropagationRequest) {
             const options = {
@@ -1692,8 +1641,7 @@ export const ParamCreater = function () {
         /**
          * 查询路由传播列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listPropagations(listPropagationsRequest?: ListPropagationsRequest) {
             const options = {
@@ -1779,8 +1727,7 @@ export const ParamCreater = function () {
         /**
          * 创建静态路由
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createStaticRoute(createStaticRouteRequest?: CreateStaticRouteRequest) {
             const options = {
@@ -1831,8 +1778,7 @@ export const ParamCreater = function () {
         /**
          * 删除静态路由
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteStaticRoute(deleteStaticRouteRequest?: DeleteStaticRouteRequest) {
             const options = {
@@ -1875,8 +1821,7 @@ export const ParamCreater = function () {
         /**
          * 查询有效的路由列表，支持分页查询能力
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEffectiveRoutes(listEffectiveRoutesRequest?: ListEffectiveRoutesRequest) {
             const options = {
@@ -1938,8 +1883,7 @@ export const ParamCreater = function () {
         /**
          * 查询静态路由列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listStaticRoutes(listStaticRoutesRequest?: ListStaticRoutesRequest) {
             const options = {
@@ -2019,8 +1963,7 @@ export const ParamCreater = function () {
         /**
          * 查询静态路由详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showStaticRoute(showStaticRouteRequest?: ShowStaticRouteRequest) {
             const options = {
@@ -2063,8 +2006,7 @@ export const ParamCreater = function () {
         /**
          * 更新静态路由
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateStaticRoute(updateStaticRouteRequest?: UpdateStaticRouteRequest) {
             const options = {
@@ -2115,8 +2057,7 @@ export const ParamCreater = function () {
         /**
          * 路由表是企业路由器收发报文的依据，包含了连接的关联关系，传播关系以及路由信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createRouteTable(createRouteTableRequest?: CreateRouteTableRequest) {
             const options = {
@@ -2167,8 +2108,7 @@ export const ParamCreater = function () {
         /**
          * 删除路由表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteRouteTable(deleteRouteTableRequest?: DeleteRouteTableRequest) {
             const options = {
@@ -2211,8 +2151,7 @@ export const ParamCreater = function () {
         /**
          * 查询路由表列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listRouteTables(listRouteTablesRequest?: ListRouteTablesRequest) {
             const options = {
@@ -2292,8 +2231,7 @@ export const ParamCreater = function () {
         /**
          * 查询路由表详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showRouteTable(showRouteTableRequest?: ShowRouteTableRequest) {
             const options = {
@@ -2336,8 +2274,7 @@ export const ParamCreater = function () {
         /**
          * 更新路由表基本信息，如名称，描述等。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateRouteTable(updateRouteTableRequest?: UpdateRouteTableRequest) {
             const options = {
@@ -2385,8 +2322,7 @@ export const ParamCreater = function () {
         /**
          * 为特定类型的资源创建标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createResourceTag(createResourceTagRequest?: CreateResourceTagRequest) {
             const options = {
@@ -2437,8 +2373,7 @@ export const ParamCreater = function () {
         /**
          * 删除特定类型资源的标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteResourceTag(deleteResourceTagRequest?: DeleteResourceTagRequest) {
             const options = {
@@ -2487,8 +2422,7 @@ export const ParamCreater = function () {
         /**
          * 查询特定类型资源的标签集合。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listProjectTags(listProjectTagsRequest?: ListProjectTagsRequest) {
             const options = {
@@ -2525,8 +2459,7 @@ export const ParamCreater = function () {
         /**
          * 查询特定类型资源的标签信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showResourceTag(showResourceTagRequest?: ShowResourceTagRequest) {
             const options = {
@@ -2569,8 +2502,7 @@ export const ParamCreater = function () {
         /**
          * 给ER实例创建VPC连接。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createVpcAttachment(createVpcAttachmentRequest?: CreateVpcAttachmentRequest) {
             const options = {
@@ -2621,8 +2553,7 @@ export const ParamCreater = function () {
         /**
          * 删除VPC连接。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteVpcAttachment(deleteVpcAttachmentRequest?: DeleteVpcAttachmentRequest) {
             const options = {
@@ -2665,8 +2596,7 @@ export const ParamCreater = function () {
         /**
          * 查询企业路由器实例下的VPC连接列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listVpcAttachments(listVpcAttachmentsRequest?: ListVpcAttachmentsRequest) {
             const options = {
@@ -2746,8 +2676,7 @@ export const ParamCreater = function () {
         /**
          * 查询VPC连接详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showVpcAttachment(showVpcAttachmentRequest?: ShowVpcAttachmentRequest) {
             const options = {
@@ -2790,8 +2719,7 @@ export const ParamCreater = function () {
         /**
          * 修改VPC连接基本信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateVpcAttachment(updateVpcAttachmentRequest?: UpdateVpcAttachmentRequest) {
             const options = {

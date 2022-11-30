@@ -57,8 +57,7 @@ export class CseClient {
     /**
      * 创建微服务引擎专享版。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建微服务引擎专享版
      * @param {EngineCreateReq} createEngineRequestBody 创建微服务专享版请求结构体。
@@ -76,8 +75,7 @@ export class CseClient {
     /**
      * 删除微服务引擎专享版。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除微服务引擎专享版
      * @param {string} engineId 微服务引擎专享版ID
@@ -95,8 +93,7 @@ export class CseClient {
     /**
      * 导出kie配置
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 导出kie配置
      * @param {string} xEngineId 微服务引擎专享版ID。
@@ -117,8 +114,7 @@ export class CseClient {
     /**
      * 查询微服务引擎列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询微服务引擎列表
      * @param {number} [offset] 偏移量。
@@ -136,8 +132,7 @@ export class CseClient {
     /**
      * 查询微服务引擎专享版的规格列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询微服务引擎专享版的规格列表
      * @param {string} [specType] 微服务引擎专享版应用部署类型，查询CSE微服务引擎专享版需要将该值设置为CSE2。
@@ -154,8 +149,7 @@ export class CseClient {
     /**
      * 对微服务引擎专享版进行重试
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 对微服务引擎专享版进行重试
      * @param {string} engineId 引擎id
@@ -174,8 +168,7 @@ export class CseClient {
     /**
      * 查询微服务引擎专享版详情
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询微服务引擎专享版详情
      * @param {string} engineId 微服务引擎专享版ID。
@@ -193,8 +186,7 @@ export class CseClient {
     /**
      * 查询微服务引擎任务详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询微服务引擎任务详情
      * @param {string} engineId 微服务引擎专享版ID。
@@ -213,8 +205,7 @@ export class CseClient {
     /**
      * 升级微服务引擎专享版
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 升级微服务引擎专享版
      * @param {string} engineId 升级的引擎Id
@@ -237,8 +228,7 @@ export const ParamCreater = function () {
         /**
          * 创建微服务引擎专享版。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createEngine(createEngineRequest?: CreateEngineRequest) {
             const options = {
@@ -282,8 +272,7 @@ export const ParamCreater = function () {
         /**
          * 删除微服务引擎专享版。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteEngine(deleteEngineRequest?: DeleteEngineRequest) {
             const options = {
@@ -326,8 +315,7 @@ export const ParamCreater = function () {
         /**
          * 导出kie配置
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         downloadKie(downloadKieRequest?: DownloadKieRequest) {
             const options = {
@@ -390,8 +378,7 @@ export const ParamCreater = function () {
         /**
          * 查询微服务引擎列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listEngines(listEnginesRequest?: ListEnginesRequest) {
             const options = {
@@ -434,8 +421,7 @@ export const ParamCreater = function () {
         /**
          * 查询微服务引擎专享版的规格列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFlavors(listFlavorsRequest?: ListFlavorsRequest) {
             const options = {
@@ -472,8 +458,7 @@ export const ParamCreater = function () {
         /**
          * 对微服务引擎专享版进行重试
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         retryEngine(retryEngineRequest?: RetryEngineRequest) {
             const options = {
@@ -524,8 +509,7 @@ export const ParamCreater = function () {
         /**
          * 查询微服务引擎专享版详情
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showEngine(showEngineRequest?: ShowEngineRequest) {
             const options = {
@@ -568,8 +552,7 @@ export const ParamCreater = function () {
         /**
          * 查询微服务引擎任务详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showEngineJob(showEngineJobRequest?: ShowEngineJobRequest) {
             const options = {
@@ -618,8 +601,7 @@ export const ParamCreater = function () {
         /**
          * 升级微服务引擎专享版
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         upgradeEngine(upgradeEngineRequest?: UpgradeEngineRequest) {
             const options = {

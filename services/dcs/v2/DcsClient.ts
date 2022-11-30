@@ -234,8 +234,7 @@ export class DcsClient {
     /**
      * 为指定实例批量添加标签，或批量删除标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加或删除标签
      * @param {string} instanceId 实例ID。
@@ -253,8 +252,7 @@ export class DcsClient {
     /**
      * 批量删除多个缓存实例。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量删除实例
      * @param {boolean} [allFailure] 是否批量删除创建失败的缓存实例。取值如下： - true，表示删除租户所有创建失败的缓存实例，此时请求参数instances可为空； - false或者其他值，表示删除instances参数数组中指定的缓存实例。 
@@ -274,8 +272,7 @@ export class DcsClient {
      * 创建中实例不返回节点信息。
      * 仅支持Redis4.0和Redis5.0实例查询
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量查询实例节点信息
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询，offset大于等于0。
@@ -293,8 +290,7 @@ export class DcsClient {
     /**
      * 批量停止数据迁移任务，接口响应成功，仅表示下发任务成功。查询到迁移任务状态为TERMINATED时，即停止成功。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量停止数据迁移任务
      * @param {BatchStopMigrationTasksBody} batchStopMigrationTasksRequestBody 批量停止数据迁移任务请求体
@@ -311,8 +307,7 @@ export class DcsClient {
     /**
      * 切换实例主备节点，只有主备实例支持该操作。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 主备切换
      * @param {string} instanceId 实例ID。
@@ -330,8 +325,7 @@ export class DcsClient {
      * 备份指定的缓存实例。
      * &gt; 只有主备和集群类型的缓存实例支持备份恢复操作，单机实例不支持备份恢复操作。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 备份指定实例
      * @param {string} instanceId 实例ID。
@@ -349,8 +343,7 @@ export class DcsClient {
     /**
      * 为Redis实例创建大key分析任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建大key分析任务
      * @param {string} instanceId 实例ID。
@@ -367,8 +360,7 @@ export class DcsClient {
     /**
      * 诊断指定的缓存实例。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建实例诊断任务
      * @param {string} instanceId 实例ID
@@ -388,8 +380,7 @@ export class DcsClient {
      * 
      * 热key分析需要将缓存实例配置参数maxmemory-policy设置为allkeys-lfu或volatile-lfu。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建热key分析任务
      * @param {string} instanceId 实例ID。
@@ -406,8 +397,7 @@ export class DcsClient {
     /**
      * 创建缓存实例，该接口创建的缓存实例支持按需计费和包周期两种方式。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建缓存实例
      * @param {CreateInstanceBody} createInstanceRequestBody This is a auto create BodyParameter
@@ -424,8 +414,7 @@ export class DcsClient {
     /**
      * 创建数据迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建数据迁移任务
      * @param {CreateMigrationTaskBody} createMigrationTaskRequestBody This is a auto create BodyParameter
@@ -442,8 +431,7 @@ export class DcsClient {
     /**
      * 创建在线数据迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建在线数据迁移任务
      * @param {CreateOnlineMigrationTaskBody} createOnlineMigrationTaskRequestBody 创建在线数据迁移任务请求体
@@ -460,8 +448,7 @@ export class DcsClient {
     /**
      * 采集Redis运行日志。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 采集Redis运行日志
      * @param {string} instanceId 实例ID。
@@ -481,8 +468,7 @@ export class DcsClient {
     /**
      * 获取日志下载链接。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取日志下载链接
      * @param {string} instanceId 实例ID。
@@ -500,8 +486,7 @@ export class DcsClient {
     /**
      * 删除后台任务
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除后台任务
      * @param {string} instanceId 实例ID。
@@ -519,8 +504,7 @@ export class DcsClient {
     /**
      * 删除缓存实例已备份的文件。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除备份文件
      * @param {string} backupId 备份记录ID。
@@ -538,8 +522,7 @@ export class DcsClient {
     /**
      * 删除大key分析记录。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除大key分析记录
      * @param {string} instanceId 实例ID。
@@ -557,8 +540,7 @@ export class DcsClient {
     /**
      * 删除热key分析任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除热key分析任务
      * @param {string} instanceId 实例ID。
@@ -576,8 +558,7 @@ export class DcsClient {
     /**
      * 将只读副本的IP从域名中摘除，摘除成功后，只读域名不会再解析到该副本IP。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 域名摘除IP
      * @param {string} instanceId 实例ID。
@@ -596,8 +577,7 @@ export class DcsClient {
     /**
      * 删除数据迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除数据迁移任务
      * @param {DeleteMigrateTaskRequest} deleteMigrationTaskRequestBody 删除数据迁移任务请求体
@@ -616,8 +596,7 @@ export class DcsClient {
      * 
      * &gt; 如果是删除按需资源，请按照本章节执行；如果是删除包周期资源，即退订，请参考[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html#section2)。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除实例
      * @param {string} instanceId 实例ID。
@@ -634,8 +613,7 @@ export class DcsClient {
     /**
      * 查询所在局点的可用区信息
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可用区信息
      * @param {*} [options] Override http request option.
@@ -651,8 +629,7 @@ export class DcsClient {
     /**
      * 查询后台任务列表
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询后台任务列表
      * @param {string} instanceId 实例ID。
@@ -673,8 +650,7 @@ export class DcsClient {
     /**
      * 获取指定实例的备份文件下载链接，下载备份文件。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取备份文件下载链接
      * @param {string} instanceId 实例ID。
@@ -693,8 +669,7 @@ export class DcsClient {
     /**
      * 查询指定缓存实例的备份信息列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例备份信息
      * @param {string} instanceId 实例ID。
@@ -715,8 +690,7 @@ export class DcsClient {
     /**
      * 查询大key分析任务列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询大key分析任务列表
      * @param {string} instanceId 实例ID。
@@ -736,8 +710,7 @@ export class DcsClient {
     /**
      * 查询指定实例的配置参数信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例配置参数
      * @param {string} instanceId 实例ID。
@@ -754,8 +727,7 @@ export class DcsClient {
     /**
      * 查询指定缓存实例诊断任务列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例诊断任务列表
      * @param {string} instanceId 实例ID
@@ -774,8 +746,7 @@ export class DcsClient {
     /**
      * 在创建缓存实例时，需要配置订购的产品规格编码（spec_code），可通过该接口查询产品规格，查询条件不选时默认查询全部。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询产品规格
      * @param {string} [instanceId] 缓存实例ID，根据该字段可查询出实例可变更的规格
@@ -798,8 +769,7 @@ export class DcsClient {
     /**
      * 查询读写分离实例和集群实例的分片和副本信息，其中，读写分离实例仅Redis4.0和Redis5.0的主备实例支持。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询分片信息
      * @param {string} instanceId 实例ID。
@@ -816,8 +786,7 @@ export class DcsClient {
     /**
      * 查询热key分析历史记录。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询热key分析任务列表
      * @param {string} instanceId 实例ID。
@@ -837,8 +806,7 @@ export class DcsClient {
     /**
      * 查询租户的缓存实例列表，支持按照条件查询。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有实例列表
      * @param {string} [instanceId] 实例ID。
@@ -864,8 +832,7 @@ export class DcsClient {
     /**
      * 查询维护时间窗开始时间和结束时间。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询维护时间窗时间段
      * @param {*} [options] Override http request option.
@@ -881,8 +848,7 @@ export class DcsClient {
     /**
      * 查询迁移任务列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询迁移任务列表
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
@@ -902,8 +868,7 @@ export class DcsClient {
      * 查询主维度对象列表，主维度ID当前支持dcs_instance_id，dcs_memcached_instance_id。
      * &gt; 该接口当前仅在中国华南区开放。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主维度信息列表
      * @param {string} dimName 主维度ID，当前支持dcs_instance_id，dcs_memcached_instance_id。
@@ -923,8 +888,7 @@ export class DcsClient {
      * 查询主维度下子维度监控对象列表，当前支持子维度的主维度ID的有 dcs_instance_id
      * &gt; 该接口当前仅在中国华南区开放。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询单个主维度下子维度监控对象列表
      * @param {string} instanceId 主维度对象ID，与DCS实例列表中实例ID相同。
@@ -942,8 +906,7 @@ export class DcsClient {
     /**
      * 查询该租户在当前区域下不同状态的实例数。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例状态
      * @param {string} [includeFailure] 是否返回创建失败的实例数。   - 当参数值为“true”时，返回的统计包括创建失败的实例数。   - 参数值为“false”或者其他值，返回的统计不包括创建失败的实例数。 
@@ -960,8 +923,7 @@ export class DcsClient {
     /**
      * 查询Redis运行日志列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Redis运行日志列表
      * @param {string} instanceId 实例ID。
@@ -981,8 +943,7 @@ export class DcsClient {
     /**
      * 查询指定缓存实例的恢复记录列表。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询实例恢复记录
      * @param {string} instanceId 实例ID。
@@ -1003,8 +964,7 @@ export class DcsClient {
     /**
      * 查询慢日志。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询慢日志
      * @param {string} instanceId 实例ID。
@@ -1027,8 +987,7 @@ export class DcsClient {
     /**
      * 查询当前租户下处于“运行中”状态的缓存实例的统计信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询运行中实例的统计信息
      * @param {*} [options] Override http request option.
@@ -1044,8 +1003,7 @@ export class DcsClient {
     /**
      * 查询租户在指定Project中实例类型的所有资源标签集合。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户所有标签
      * @param {*} [options] Override http request option.
@@ -1061,8 +1019,7 @@ export class DcsClient {
     /**
      * 用户可以为状态为“运行中”的DCS缓存实例进行规格变更，当前仅能支持按需实例的同副本或分片数量的实例规格变更。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 变更实例规格
      * @param {string} instanceId 实例ID。
@@ -1082,8 +1039,7 @@ export class DcsClient {
      * 
      * 清空Redis4.0/Redis5.0的实例数据，数据清空后，无法撤销，且无法恢复，请谨慎操作。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重启实例或清空数据
      * @param {ChangeInstanceStatusBody} restartOrFlushInstancesRequestBody This is a auto create BodyParameter
@@ -1101,8 +1057,7 @@ export class DcsClient {
      * 恢复指定的缓存实例。
      * &gt; 只有主备和集群类型的缓存实例支持备份恢复操作，单机实例不支持备份恢复操作。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 恢复指定实例
      * @param {string} instanceId 实例ID。
@@ -1120,8 +1075,7 @@ export class DcsClient {
     /**
      * 配置在线数据迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 配置在线数据迁移任务
      * @param {string} taskId 在线迁移任务ID。
@@ -1139,8 +1093,7 @@ export class DcsClient {
     /**
      * 查询大key自动分析配置。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询大key自动分析配置
      * @param {string} instanceId 实例ID。
@@ -1157,8 +1110,7 @@ export class DcsClient {
     /**
      * 查询大key分析详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询大key分析详情
      * @param {string} instanceId 实例ID。
@@ -1176,8 +1128,7 @@ export class DcsClient {
     /**
      * 通过报告ID查询诊断报告的详细信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定诊断报告
      * @param {string} reportId 诊断报告ID
@@ -1194,8 +1145,7 @@ export class DcsClient {
     /**
      * 查询热key自动分析配置。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询热key自动分析配置
      * @param {string} instanceId 实例ID。
@@ -1212,8 +1162,7 @@ export class DcsClient {
     /**
      * 查询热key分析详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询热key分析详情
      * @param {string} instanceId 实例ID。
@@ -1231,8 +1180,7 @@ export class DcsClient {
     /**
      * 通过实例ID查询实例的详细信息。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定实例
      * @param {string} instanceId 实例ID。
@@ -1249,8 +1197,7 @@ export class DcsClient {
     /**
      * 查询迁移任务详情。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询迁移任务详情
      * @param {string} taskId 任务ID。
@@ -1267,8 +1214,7 @@ export class DcsClient {
     /**
      * 查询在线迁移进度明细。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询在线迁移进度明细
      * @param {string} taskId 任务ID。
@@ -1285,8 +1231,7 @@ export class DcsClient {
     /**
      * 查询租户默认可以创建的实例数和总内存的配额限制，以及可以申请配额的最大值和最小值。不同的租户在不同的区域配额可能不同。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询租户配额
      * @param {*} [options] Override http request option.
@@ -1302,8 +1247,7 @@ export class DcsClient {
     /**
      * 通过实例ID查询标签。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询单个实例标签
      * @param {string} instanceId 实例ID。
@@ -1320,8 +1264,7 @@ export class DcsClient {
     /**
      * 停止数据迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 停止数据迁移任务
      * @param {string} taskId 任务ID
@@ -1338,8 +1281,7 @@ export class DcsClient {
     /**
      * 同步停止数据迁移任务。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 同步停止数据迁移任务
      * @param {string} taskId 任务ID
@@ -1356,8 +1298,7 @@ export class DcsClient {
     /**
      * 设置大key自动分析配置。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置大key自动分析配置
      * @param {string} instanceId 实例ID。
@@ -1375,8 +1316,7 @@ export class DcsClient {
     /**
      * 为了确保分布式缓存服务发挥出最优性能，您可以根据自己的业务情况对DCS缓存实例的运行参数进行调整。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改实例配置参数
      * @param {string} instanceId 实例ID
@@ -1394,8 +1334,7 @@ export class DcsClient {
     /**
      * 设置热key自动分析配置。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置热key自动分析配置
      * @param {string} instanceId 实例ID。
@@ -1413,8 +1352,7 @@ export class DcsClient {
     /**
      * 修改缓存实例的信息，可修改信息包括实例名称、描述、备份策略、维护时间窗开始和结束时间以及安全组。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改实例信息
      * @param {string} instanceId 实例ID。
@@ -1432,8 +1370,7 @@ export class DcsClient {
     /**
      * 修改缓存实例的密码。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改密码
      * @param {string} instanceId 实例ID。
@@ -1451,8 +1388,7 @@ export class DcsClient {
     /**
      * 设置副本优先级，主节点故障时，权重越小的备节点切换为主节点的优先级越高。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置备节点优先级
      * @param {string} instanceId 实例ID。
@@ -1472,8 +1408,7 @@ export class DcsClient {
     /**
      * 查询指定实例的IP白名单。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定实例的IP白名单
      * @param {string} instanceId 实例ID。
@@ -1490,8 +1425,7 @@ export class DcsClient {
     /**
      * 为指定实例设置IP白名单分组，包含创建、停用、编辑、删除白名单四个功能
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置IP白名单分组
      * @param {string} instanceId 实例ID。
@@ -1513,8 +1447,7 @@ export const ParamCreater = function () {
         /**
          * 为指定实例批量添加标签，或批量删除标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest?: BatchCreateOrDeleteTagsRequest) {
             const options = {
@@ -1559,8 +1492,7 @@ export const ParamCreater = function () {
         /**
          * 批量删除多个缓存实例。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchDeleteInstances(batchDeleteInstancesRequest?: BatchDeleteInstancesRequest) {
             const options = {
@@ -1604,8 +1536,7 @@ export const ParamCreater = function () {
          * 创建中实例不返回节点信息。
          * 仅支持Redis4.0和Redis5.0实例查询
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchShowNodesInformation(batchShowNodesInformationRequest?: BatchShowNodesInformationRequest) {
             const options = {
@@ -1648,8 +1579,7 @@ export const ParamCreater = function () {
         /**
          * 批量停止数据迁移任务，接口响应成功，仅表示下发任务成功。查询到迁移任务状态为TERMINATED时，即停止成功。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         batchStopMigrationTasks(batchStopMigrationTasksRequest?: BatchStopMigrationTasksRequest) {
             const options = {
@@ -1687,8 +1617,7 @@ export const ParamCreater = function () {
         /**
          * 切换实例主备节点，只有主备实例支持该操作。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         changeMasterStandby(changeMasterStandbyRequest?: ChangeMasterStandbyRequest) {
             const options = {
@@ -1726,8 +1655,7 @@ export const ParamCreater = function () {
          * 备份指定的缓存实例。
          * &gt; 只有主备和集群类型的缓存实例支持备份恢复操作，单机实例不支持备份恢复操作。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         copyInstance(copyInstanceRequest?: CopyInstanceRequest) {
             const options = {
@@ -1769,8 +1697,7 @@ export const ParamCreater = function () {
         /**
          * 为Redis实例创建大key分析任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createBigkeyScanTask(createBigkeyScanTaskRequest?: CreateBigkeyScanTaskRequest) {
             const options = {
@@ -1807,8 +1734,7 @@ export const ParamCreater = function () {
         /**
          * 诊断指定的缓存实例。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createDiagnosisTask(createDiagnosisTaskRequest?: CreateDiagnosisTaskRequest) {
             const options = {
@@ -1855,8 +1781,7 @@ export const ParamCreater = function () {
          * 
          * 热key分析需要将缓存实例配置参数maxmemory-policy设置为allkeys-lfu或volatile-lfu。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createHotkeyScanTask(createHotkeyScanTaskRequest?: CreateHotkeyScanTaskRequest) {
             const options = {
@@ -1893,8 +1818,7 @@ export const ParamCreater = function () {
         /**
          * 创建缓存实例，该接口创建的缓存实例支持按需计费和包周期两种方式。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createInstance(createInstanceRequest?: CreateInstanceRequest) {
             const options = {
@@ -1932,8 +1856,7 @@ export const ParamCreater = function () {
         /**
          * 创建数据迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createMigrationTask(createMigrationTaskRequest?: CreateMigrationTaskRequest) {
             const options = {
@@ -1971,8 +1894,7 @@ export const ParamCreater = function () {
         /**
          * 创建在线数据迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createOnlineMigrationTask(createOnlineMigrationTaskRequest?: CreateOnlineMigrationTaskRequest) {
             const options = {
@@ -2010,8 +1932,7 @@ export const ParamCreater = function () {
         /**
          * 采集Redis运行日志。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createRedislog(createRedislogRequest?: CreateRedislogRequest) {
             const options = {
@@ -2070,8 +1991,7 @@ export const ParamCreater = function () {
         /**
          * 获取日志下载链接。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         createRedislogDownloadLink(createRedislogDownloadLinkRequest?: CreateRedislogDownloadLinkRequest) {
             const options = {
@@ -2114,8 +2034,7 @@ export const ParamCreater = function () {
         /**
          * 删除后台任务
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteBackgroundTask(deleteBackgroundTaskRequest?: DeleteBackgroundTaskRequest) {
             const options = {
@@ -2158,8 +2077,7 @@ export const ParamCreater = function () {
         /**
          * 删除缓存实例已备份的文件。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteBackupFile(deleteBackupFileRequest?: DeleteBackupFileRequest) {
             const options = {
@@ -2202,8 +2120,7 @@ export const ParamCreater = function () {
         /**
          * 删除大key分析记录。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteBigkeyScanTask(deleteBigkeyScanTaskRequest?: DeleteBigkeyScanTaskRequest) {
             const options = {
@@ -2246,8 +2163,7 @@ export const ParamCreater = function () {
         /**
          * 删除热key分析任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteHotkeyScanTask(deleteHotkeyScanTaskRequest?: DeleteHotkeyScanTaskRequest) {
             const options = {
@@ -2290,8 +2206,7 @@ export const ParamCreater = function () {
         /**
          * 将只读副本的IP从域名中摘除，摘除成功后，只读域名不会再解析到该副本IP。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteIpFromDomainName(deleteIpFromDomainNameRequest?: DeleteIpFromDomainNameRequest) {
             const options = {
@@ -2340,8 +2255,7 @@ export const ParamCreater = function () {
         /**
          * 删除数据迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteMigrationTask(deleteMigrationTaskRequest?: DeleteMigrationTaskRequest) {
             const options = {
@@ -2381,8 +2295,7 @@ export const ParamCreater = function () {
          * 
          * &gt; 如果是删除按需资源，请按照本章节执行；如果是删除包周期资源，即退订，请参考[退订包周期资源](https://support.huaweicloud.com/api-oce/zh-cn_topic_0082522030.html#section2)。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         deleteSingleInstance(deleteSingleInstanceRequest?: DeleteSingleInstanceRequest) {
             const options = {
@@ -2419,8 +2332,7 @@ export const ParamCreater = function () {
         /**
          * 查询所在局点的可用区信息
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listAvailableZones() {
             const options = {
@@ -2442,8 +2354,7 @@ export const ParamCreater = function () {
         /**
          * 查询后台任务列表
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listBackgroundTask(listBackgroundTaskRequest?: ListBackgroundTaskRequest) {
             const options = {
@@ -2505,8 +2416,7 @@ export const ParamCreater = function () {
         /**
          * 获取指定实例的备份文件下载链接，下载备份文件。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listBackupFileLinks(listBackupFileLinksRequest?: ListBackupFileLinksRequest) {
             const options = {
@@ -2557,8 +2467,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定缓存实例的备份信息列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listBackupRecords(listBackupRecordsRequest?: ListBackupRecordsRequest) {
             const options = {
@@ -2620,8 +2529,7 @@ export const ParamCreater = function () {
         /**
          * 查询大key分析任务列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listBigkeyScanTasks(listBigkeyScanTasksRequest?: ListBigkeyScanTasksRequest) {
             const options = {
@@ -2677,8 +2585,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定实例的配置参数信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listConfigurations(listConfigurationsRequest?: ListConfigurationsRequest) {
             const options = {
@@ -2715,8 +2622,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定缓存实例诊断任务列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listDiagnosisTasks(listDiagnosisTasksRequest?: ListDiagnosisTasksRequest) {
             const options = {
@@ -2766,8 +2672,7 @@ export const ParamCreater = function () {
         /**
          * 在创建缓存实例时，需要配置订购的产品规格编码（spec_code），可通过该接口查询产品规格，查询条件不选时默认查询全部。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listFlavors(listFlavorsRequest?: ListFlavorsRequest) {
             const options = {
@@ -2840,8 +2745,7 @@ export const ParamCreater = function () {
         /**
          * 查询读写分离实例和集群实例的分片和副本信息，其中，读写分离实例仅Redis4.0和Redis5.0的主备实例支持。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listGroupReplicationInfo(listGroupReplicationInfoRequest?: ListGroupReplicationInfoRequest) {
             const options = {
@@ -2878,8 +2782,7 @@ export const ParamCreater = function () {
         /**
          * 查询热key分析历史记录。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listHotKeyScanTasks(listHotKeyScanTasksRequest?: ListHotKeyScanTasksRequest) {
             const options = {
@@ -2935,8 +2838,7 @@ export const ParamCreater = function () {
         /**
          * 查询租户的缓存实例列表，支持按照条件查询。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listInstances(listInstancesRequest?: ListInstancesRequest) {
             const options = {
@@ -3027,8 +2929,7 @@ export const ParamCreater = function () {
         /**
          * 查询维护时间窗开始时间和结束时间。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listMaintenanceWindows() {
             const options = {
@@ -3050,8 +2951,7 @@ export const ParamCreater = function () {
         /**
          * 查询迁移任务列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listMigrationTask(listMigrationTaskRequest?: ListMigrationTaskRequest) {
             const options = {
@@ -3101,8 +3001,7 @@ export const ParamCreater = function () {
          * 查询主维度对象列表，主维度ID当前支持dcs_instance_id，dcs_memcached_instance_id。
          * &gt; 该接口当前仅在中国华南区开放。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listMonitoredObjects(listMonitoredObjectsRequest?: ListMonitoredObjectsRequest) {
             const options = {
@@ -3155,8 +3054,7 @@ export const ParamCreater = function () {
          * 查询主维度下子维度监控对象列表，当前支持子维度的主维度ID的有 dcs_instance_id
          * &gt; 该接口当前仅在中国华南区开放。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listMonitoredObjectsOfInstance(listMonitoredObjectsOfInstanceRequest?: ListMonitoredObjectsOfInstanceRequest) {
             const options = {
@@ -3203,8 +3101,7 @@ export const ParamCreater = function () {
         /**
          * 查询该租户在当前区域下不同状态的实例数。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listNumberOfInstancesInDifferentStatus(listNumberOfInstancesInDifferentStatusRequest?: ListNumberOfInstancesInDifferentStatusRequest) {
             const options = {
@@ -3241,8 +3138,7 @@ export const ParamCreater = function () {
         /**
          * 查询Redis运行日志列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listRedislog(listRedislogRequest?: ListRedislogRequest) {
             const options = {
@@ -3301,8 +3197,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定缓存实例的恢复记录列表。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listRestoreRecords(listRestoreRecordsRequest?: ListRestoreRecordsRequest) {
             const options = {
@@ -3364,8 +3259,7 @@ export const ParamCreater = function () {
         /**
          * 查询慢日志。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listSlowlog(listSlowlogRequest?: ListSlowlogRequest) {
             const options = {
@@ -3445,8 +3339,7 @@ export const ParamCreater = function () {
         /**
          * 查询当前租户下处于“运行中”状态的缓存实例的统计信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listStatisticsOfRunningInstances() {
             const options = {
@@ -3468,8 +3361,7 @@ export const ParamCreater = function () {
         /**
          * 查询租户在指定Project中实例类型的所有资源标签集合。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         listTagsOfTenant() {
             const options = {
@@ -3491,8 +3383,7 @@ export const ParamCreater = function () {
         /**
          * 用户可以为状态为“运行中”的DCS缓存实例进行规格变更，当前仅能支持按需实例的同副本或分片数量的实例规格变更。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         resizeInstance(resizeInstanceRequest?: ResizeInstanceRequest) {
             const options = {
@@ -3539,8 +3430,7 @@ export const ParamCreater = function () {
          * 
          * 清空Redis4.0/Redis5.0的实例数据，数据清空后，无法撤销，且无法恢复，请谨慎操作。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         restartOrFlushInstances(restartOrFlushInstancesRequest?: RestartOrFlushInstancesRequest) {
             const options = {
@@ -3579,8 +3469,7 @@ export const ParamCreater = function () {
          * 恢复指定的缓存实例。
          * &gt; 只有主备和集群类型的缓存实例支持备份恢复操作，单机实例不支持备份恢复操作。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         restoreInstance(restoreInstanceRequest?: RestoreInstanceRequest) {
             const options = {
@@ -3622,8 +3511,7 @@ export const ParamCreater = function () {
         /**
          * 配置在线数据迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         setOnlineMigrationTask(setOnlineMigrationTaskRequest?: SetOnlineMigrationTaskRequest) {
             const options = {
@@ -3668,8 +3556,7 @@ export const ParamCreater = function () {
         /**
          * 查询大key自动分析配置。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showBigkeyAutoscanConfig(showBigkeyAutoscanConfigRequest?: ShowBigkeyAutoscanConfigRequest) {
             const options = {
@@ -3706,8 +3593,7 @@ export const ParamCreater = function () {
         /**
          * 查询大key分析详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showBigkeyScanTaskDetails(showBigkeyScanTaskDetailsRequest?: ShowBigkeyScanTaskDetailsRequest) {
             const options = {
@@ -3750,8 +3636,7 @@ export const ParamCreater = function () {
         /**
          * 通过报告ID查询诊断报告的详细信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showDiagnosisTaskDetails(showDiagnosisTaskDetailsRequest?: ShowDiagnosisTaskDetailsRequest) {
             const options = {
@@ -3788,8 +3673,7 @@ export const ParamCreater = function () {
         /**
          * 查询热key自动分析配置。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showHotkeyAutoscanConfig(showHotkeyAutoscanConfigRequest?: ShowHotkeyAutoscanConfigRequest) {
             const options = {
@@ -3826,8 +3710,7 @@ export const ParamCreater = function () {
         /**
          * 查询热key分析详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showHotkeyTaskDetails(showHotkeyTaskDetailsRequest?: ShowHotkeyTaskDetailsRequest) {
             const options = {
@@ -3870,8 +3753,7 @@ export const ParamCreater = function () {
         /**
          * 通过实例ID查询实例的详细信息。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showInstance(showInstanceRequest?: ShowInstanceRequest) {
             const options = {
@@ -3908,8 +3790,7 @@ export const ParamCreater = function () {
         /**
          * 查询迁移任务详情。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showMigrationTask(showMigrationTaskRequest?: ShowMigrationTaskRequest) {
             const options = {
@@ -3946,8 +3827,7 @@ export const ParamCreater = function () {
         /**
          * 查询在线迁移进度明细。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showMigrationTaskStats(showMigrationTaskStatsRequest?: ShowMigrationTaskStatsRequest) {
             const options = {
@@ -3984,8 +3864,7 @@ export const ParamCreater = function () {
         /**
          * 查询租户默认可以创建的实例数和总内存的配额限制，以及可以申请配额的最大值和最小值。不同的租户在不同的区域配额可能不同。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showQuotaOfTenant() {
             const options = {
@@ -4007,8 +3886,7 @@ export const ParamCreater = function () {
         /**
          * 通过实例ID查询标签。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showTags(showTagsRequest?: ShowTagsRequest) {
             const options = {
@@ -4045,8 +3923,7 @@ export const ParamCreater = function () {
         /**
          * 停止数据迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         stopMigrationTask(stopMigrationTaskRequest?: StopMigrationTaskRequest) {
             const options = {
@@ -4083,8 +3960,7 @@ export const ParamCreater = function () {
         /**
          * 同步停止数据迁移任务。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         stopMigrationTaskSync(stopMigrationTaskSyncRequest?: StopMigrationTaskSyncRequest) {
             const options = {
@@ -4121,8 +3997,7 @@ export const ParamCreater = function () {
         /**
          * 设置大key自动分析配置。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateBigkeyAutoscanConfig(updateBigkeyAutoscanConfigRequest?: UpdateBigkeyAutoscanConfigRequest) {
             const options = {
@@ -4167,8 +4042,7 @@ export const ParamCreater = function () {
         /**
          * 为了确保分布式缓存服务发挥出最优性能，您可以根据自己的业务情况对DCS缓存实例的运行参数进行调整。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateConfigurations(updateConfigurationsRequest?: UpdateConfigurationsRequest) {
             const options = {
@@ -4213,8 +4087,7 @@ export const ParamCreater = function () {
         /**
          * 设置热key自动分析配置。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateHotkeyAutoScanConfig(updateHotkeyAutoScanConfigRequest?: UpdateHotkeyAutoScanConfigRequest) {
             const options = {
@@ -4259,8 +4132,7 @@ export const ParamCreater = function () {
         /**
          * 修改缓存实例的信息，可修改信息包括实例名称、描述、备份策略、维护时间窗开始和结束时间以及安全组。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateInstance(updateInstanceRequest?: UpdateInstanceRequest) {
             const options = {
@@ -4302,8 +4174,7 @@ export const ParamCreater = function () {
         /**
          * 修改缓存实例的密码。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updatePassword(updatePasswordRequest?: UpdatePasswordRequest) {
             const options = {
@@ -4345,8 +4216,7 @@ export const ParamCreater = function () {
         /**
          * 设置副本优先级，主节点故障时，权重越小的备节点切换为主节点的优先级越高。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateSlavePriority(updateSlavePriorityRequest?: UpdateSlavePriorityRequest) {
             const options = {
@@ -4403,8 +4273,7 @@ export const ParamCreater = function () {
         /**
          * 查询指定实例的IP白名单。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         showIpWhitelist(showIpWhitelistRequest?: ShowIpWhitelistRequest) {
             const options = {
@@ -4441,8 +4310,7 @@ export const ParamCreater = function () {
         /**
          * 为指定实例设置IP白名单分组，包含创建、停用、编辑、删除白名单四个功能
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         updateIpWhitelist(updateIpWhitelistRequest?: UpdateIpWhitelistRequest) {
             const options = {

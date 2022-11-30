@@ -51,8 +51,7 @@ export class IvsClient {
     /**
      * 使用姓名、身份证号码二要素进行身份审核。身份验证时，传入的数据为身份证信息。提取身份证信息时，可以使用身份证正反面图片，也可以直接输入姓名、身份证号文本。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 人证核身证件版（二要素）
      * @param {IvsExtentionByIdCardImageRequestBody} ivsExtentionByIdCardImageRequestBody This is a auto create Body Object
@@ -69,8 +68,7 @@ export class IvsClient {
     /**
      * 使用姓名、身份证号码二要素进行身份审核。身份验证时，传入的数据为身份证信息。提取身份证信息时，可以使用身份证正反面图片，也可以直接输入姓名、身份证号文本。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 人证核身证件版（二要素）
      * @param {IvsExtentionByNameAndIdRequestBody} ivsExtentionByNameAndIdRequestBody This is a auto create Body Object
@@ -88,8 +86,7 @@ export class IvsClient {
      * 使用姓名、身份证号码、人脸图片三要素进行身份审核。
      * 身份验证时，传入的数据为人脸图片、身份证信息。提取身份证信息时，可以使用身份证正反面图片，也可以直接输入姓名、身份证号文本。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 人证核身标准版（三要素）
      * @param {IvsStandardByIdCardImageRequestBody} ivsStandardByIdCardImageRequestBody This is a auto create Body Object
@@ -106,8 +103,7 @@ export class IvsClient {
     /**
      * 校验用户上传的身份证图片支持正反面同时上传 中的信息的真实性，输出最终的审核结果。 该接口也支持用户直接上传姓名和身份证号码进行合法性校验 。
      * 
-     * 详细说明请参考华为云API Explorer。
-     * Please refer to Huawei cloud API Explorer for details.
+     * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 人证核身标准版（三要素）
      * @param {IvsStandardByNameAndIdRequestBody} ivsStandardByNameAndIdRequestBody This is a auto create Body Object
@@ -128,8 +124,7 @@ export const ParamCreater = function () {
         /**
          * 使用姓名、身份证号码二要素进行身份审核。身份验证时，传入的数据为身份证信息。提取身份证信息时，可以使用身份证正反面图片，也可以直接输入姓名、身份证号文本。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         detectExtentionByIdCardImage(detectExtentionByIdCardImageRequest?: DetectExtentionByIdCardImageRequest) {
             const options = {
@@ -167,8 +162,7 @@ export const ParamCreater = function () {
         /**
          * 使用姓名、身份证号码二要素进行身份审核。身份验证时，传入的数据为身份证信息。提取身份证信息时，可以使用身份证正反面图片，也可以直接输入姓名、身份证号文本。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         detectExtentionByNameAndId(detectExtentionByNameAndIdRequest?: DetectExtentionByNameAndIdRequest) {
             const options = {
@@ -207,8 +201,7 @@ export const ParamCreater = function () {
          * 使用姓名、身份证号码、人脸图片三要素进行身份审核。
          * 身份验证时，传入的数据为人脸图片、身份证信息。提取身份证信息时，可以使用身份证正反面图片，也可以直接输入姓名、身份证号文本。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         detectStandardByIdCardImage(detectStandardByIdCardImageRequest?: DetectStandardByIdCardImageRequest) {
             const options = {
@@ -246,8 +239,7 @@ export const ParamCreater = function () {
         /**
          * 校验用户上传的身份证图片支持正反面同时上传 中的信息的真实性，输出最终的审核结果。 该接口也支持用户直接上传姓名和身份证号码进行合法性校验 。
          * 
-         * 详细说明请参考华为云API Explorer。
-         * Please refer to Huawei cloud API Explorer for details.
+         * Please refer to HUAWEI cloud API Explorer for details.
          */
         detectStandardByNameAndId(detectStandardByNameAndIdRequest?: DetectStandardByNameAndIdRequest) {
             const options = {
