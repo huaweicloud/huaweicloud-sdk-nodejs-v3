@@ -8,6 +8,11 @@ import { ImageDescriptionReq } from './model/ImageDescriptionReq';
 import { ImageDescriptionResponseResult } from './model/ImageDescriptionResponseResult';
 import { ImageMainObjectDetectionInstance } from './model/ImageMainObjectDetectionInstance';
 import { ImageMainObjectDetectionReq } from './model/ImageMainObjectDetectionReq';
+import { ImageMediaTaggingDetInstance } from './model/ImageMediaTaggingDetInstance';
+import { ImageMediaTaggingDetItemBody } from './model/ImageMediaTaggingDetItemBody';
+import { ImageMediaTaggingDetItemBodyI18nTag } from './model/ImageMediaTaggingDetItemBodyI18nTag';
+import { ImageMediaTaggingDetReq } from './model/ImageMediaTaggingDetReq';
+import { ImageMediaTaggingDetResponseResult } from './model/ImageMediaTaggingDetResponseResult';
 import { ImageMediaTaggingItemBody } from './model/ImageMediaTaggingItemBody';
 import { ImageMediaTaggingItemBodyI18nTag } from './model/ImageMediaTaggingItemBodyI18nTag';
 import { ImageMediaTaggingItemBodyI18nType } from './model/ImageMediaTaggingItemBodyI18nType';
@@ -21,14 +26,20 @@ import { ImageTaggingReq } from './model/ImageTaggingReq';
 import { ImageTaggingResponseResult } from './model/ImageTaggingResponseResult';
 import { RunCelebrityRecognitionRequest } from './model/RunCelebrityRecognitionRequest';
 import { RunCelebrityRecognitionResponse } from './model/RunCelebrityRecognitionResponse';
+import { RunDeleteCustomTagsRequest } from './model/RunDeleteCustomTagsRequest';
+import { RunDeleteCustomTagsResponse } from './model/RunDeleteCustomTagsResponse';
 import { RunImageDescriptionRequest } from './model/RunImageDescriptionRequest';
 import { RunImageDescriptionResponse } from './model/RunImageDescriptionResponse';
 import { RunImageMainObjectDetectionRequest } from './model/RunImageMainObjectDetectionRequest';
 import { RunImageMainObjectDetectionResponse } from './model/RunImageMainObjectDetectionResponse';
+import { RunImageMediaTaggingDetRequest } from './model/RunImageMediaTaggingDetRequest';
+import { RunImageMediaTaggingDetResponse } from './model/RunImageMediaTaggingDetResponse';
 import { RunImageMediaTaggingRequest } from './model/RunImageMediaTaggingRequest';
 import { RunImageMediaTaggingResponse } from './model/RunImageMediaTaggingResponse';
 import { RunImageTaggingRequest } from './model/RunImageTaggingRequest';
 import { RunImageTaggingResponse } from './model/RunImageTaggingResponse';
+import { RunQueryCustomTagsRequest } from './model/RunQueryCustomTagsRequest';
+import { RunQueryCustomTagsResponse } from './model/RunQueryCustomTagsResponse';
 
 export class ImageClient {
     public static newBuilder(): ClientBuilder<ImageClient> {
@@ -57,6 +68,22 @@ export class ImageClient {
      */
     public runCelebrityRecognition(runCelebrityRecognitionRequest?: RunCelebrityRecognitionRequest): Promise<RunCelebrityRecognitionResponse> {
         const options = ParamCreater().runCelebrityRecognition(runCelebrityRecognitionRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于用户删除自定义的标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除媒资图像标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runDeleteCustomTags(): Promise<RunDeleteCustomTagsResponse> {
+        const options = ParamCreater().runDeleteCustomTags();
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -101,13 +128,30 @@ export class ImageClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 媒资图像标签
-     * @param {ImageMediaTaggingReq} runImageMediaTaggingRequestBody 媒资图像标签接口请求体
+     * @summary 标签识别
+     * @param {ImageMediaTaggingReq} runImageMediaTaggingRequestBody 媒资图像标签（分类）接口请求体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public runImageMediaTagging(runImageMediaTaggingRequest?: RunImageMediaTaggingRequest): Promise<RunImageMediaTaggingResponse> {
         const options = ParamCreater().runImageMediaTagging(runImageMediaTaggingRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 自然图像的语义内容非常丰富，一个图像包含多个标签内容，图像标签服务准确识别自然图片中数百种场景、上千种通用物体及其属性，让智能相册管理、照片检索和分类、基于场景内容或者物体的广告推荐等功能更加直观。使用时用户发送待处理图片，返回图片标签内容及相应的位置坐标。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 媒资图像标签检测
+     * @param {ImageMediaTaggingDetReq} runImageMediaTaggingDetRequestBody 媒资图像标签检测版接口请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runImageMediaTaggingDet(runImageMediaTaggingDetRequest?: RunImageMediaTaggingDetRequest): Promise<RunImageMediaTaggingDetResponse> {
+        const options = ParamCreater().runImageMediaTaggingDet(runImageMediaTaggingDetRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -125,6 +169,22 @@ export class ImageClient {
      */
     public runImageTagging(runImageTaggingRequest?: RunImageTaggingRequest): Promise<RunImageTaggingResponse> {
         const options = ParamCreater().runImageTagging(runImageTaggingRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用于用户自查是否存在自定义的标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询媒资图像标签
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runQueryCustomTags(): Promise<RunQueryCustomTagsResponse> {
+        const options = ParamCreater().runQueryCustomTags();
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -168,6 +228,28 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于用户删除自定义的标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runDeleteCustomTags() {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/image/media-tagging/custom-tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -287,6 +369,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 自然图像的语义内容非常丰富，一个图像包含多个标签内容，图像标签服务准确识别自然图片中数百种场景、上千种通用物体及其属性，让智能相册管理、照片检索和分类、基于场景内容或者物体的广告推荐等功能更加直观。使用时用户发送待处理图片，返回图片标签内容及相应的位置坐标。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runImageMediaTaggingDet(runImageMediaTaggingDetRequest?: RunImageMediaTaggingDetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/image/media-tagging-det",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (runImageMediaTaggingDetRequest !== null && runImageMediaTaggingDetRequest !== undefined) {
+                if (runImageMediaTaggingDetRequest instanceof RunImageMediaTaggingDetRequest) {
+                    body = runImageMediaTaggingDetRequest.body
+                } else {
+                    body = runImageMediaTaggingDetRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 自然图像的语义内容非常丰富，一个图像包含多个标签内容，图像标签服务准确识别自然图片中数百种场景、上千种通用物体及其属性，让智能相册管理、照片检索和分类、基于场景内容或者物体的广告推荐等功能更加直观。使用时用户发送待处理图片，返回图片标签内容及相应置信度。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -320,6 +440,28 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用于用户自查是否存在自定义的标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runQueryCustomTags() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/image/media-tagging/custom-tags/check",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

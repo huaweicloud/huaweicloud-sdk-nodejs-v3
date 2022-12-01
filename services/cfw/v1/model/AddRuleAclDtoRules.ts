@@ -9,26 +9,22 @@ export class AddRuleAclDtoRules {
     private 'address_type': AddRuleAclDtoRulesAddressTypeEnum | undefined;
     private 'action_type': number | undefined;
     public status: AddRuleAclDtoRulesStatusEnum;
-    private 'long_connect_time': number | undefined;
-    private 'long_connect_time_hour': number | undefined;
-    private 'long_connect_time_minute': number | undefined;
-    private 'long_connect_time_second': number | undefined;
+    private 'long_connect_time'?: number | undefined;
+    private 'long_connect_time_hour'?: number | undefined;
+    private 'long_connect_time_minute'?: number | undefined;
+    private 'long_connect_time_second'?: number | undefined;
     private 'long_connect_enable': AddRuleAclDtoRulesLongConnectEnableEnum | undefined;
     public description?: string;
     public direction?: AddRuleAclDtoRulesDirectionEnum;
     public source: RuleAddressDto;
     public destination: RuleAddressDto;
     public service: RuleServiceDto;
-    public constructor(name?: any, sequence?: any, addressType?: any, actionType?: any, status?: any, longConnectTime?: any, longConnectTimeHour?: any, longConnectTimeMinute?: any, longConnectTimeSecond?: any, longConnectEnable?: any, source?: any, destination?: any, service?: any) { 
+    public constructor(name?: any, sequence?: any, addressType?: any, actionType?: any, status?: any, longConnectEnable?: any, source?: any, destination?: any, service?: any) { 
         this['name'] = name;
         this['sequence'] = sequence;
         this['address_type'] = addressType;
         this['action_type'] = actionType;
         this['status'] = status;
-        this['long_connect_time'] = longConnectTime;
-        this['long_connect_time_hour'] = longConnectTimeHour;
-        this['long_connect_time_minute'] = longConnectTimeMinute;
-        this['long_connect_time_second'] = longConnectTimeSecond;
         this['long_connect_enable'] = longConnectEnable;
         this['source'] = source;
         this['destination'] = destination;

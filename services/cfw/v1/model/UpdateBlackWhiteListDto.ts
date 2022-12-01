@@ -6,6 +6,8 @@ export class UpdateBlackWhiteListDto {
     public address?: string;
     public protocol?: number;
     public port?: string;
+    private 'list_type'?: UpdateBlackWhiteListDtoListTypeEnum | undefined;
+    private 'object_id'?: string | undefined;
     public constructor() { 
     }
     public withDirection(direction: number): UpdateBlackWhiteListDto {
@@ -34,4 +36,33 @@ export class UpdateBlackWhiteListDto {
         this['port'] = port;
         return this;
     }
+    public withListType(listType: UpdateBlackWhiteListDtoListTypeEnum): UpdateBlackWhiteListDto {
+        this['list_type'] = listType;
+        return this;
+    }
+    public set listType(listType: UpdateBlackWhiteListDtoListTypeEnum | undefined) {
+        this['list_type'] = listType;
+    }
+    public get listType() {
+        return this['list_type'];
+    }
+    public withObjectId(objectId: string): UpdateBlackWhiteListDto {
+        this['object_id'] = objectId;
+        return this;
+    }
+    public set objectId(objectId: string | undefined) {
+        this['object_id'] = objectId;
+    }
+    public get objectId() {
+        return this['object_id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateBlackWhiteListDtoListTypeEnum {
+    NUMBER_4 = 4,
+    NUMBER_5 = 5
 }

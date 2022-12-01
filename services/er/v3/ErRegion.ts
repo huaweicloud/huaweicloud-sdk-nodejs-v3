@@ -2,6 +2,8 @@ import { Region } from "@huaweicloud/huaweicloud-sdk-core/region/region";
 
 export class ErRegion {
     public static CN_SOUTH_1 = new Region("cn-south-1", "https://er.cn-south-1.myhuaweicloud.com");
+    public static CN_EAST_3 = new Region("cn-east-3", "https://er.cn-east-3.myhuaweicloud.com");
+    public static CN_NORTH_4 = new Region("cn-north-4", "https://er.cn-north-4.myhuaweicloud.com");
     public static CN_NORTH_9 = new Region("cn-north-9", "https://er.cn-north-9.myhuaweicloud.com");
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", "https://er.ap-southeast-2.myhuaweicloud.com");
     
@@ -10,6 +12,8 @@ export class ErRegion {
     private static createStaticFields() {
         let map = new Map<String, Region>();
         map.set("cn-south-1", ErRegion.CN_SOUTH_1);
+        map.set("cn-east-3", ErRegion.CN_EAST_3);
+        map.set("cn-north-4", ErRegion.CN_NORTH_4);
         map.set("cn-north-9", ErRegion.CN_NORTH_9);
         map.set("ap-southeast-2", ErRegion.AP_SOUTHEAST_2);
         return map;

@@ -1,4 +1,5 @@
 import { Packet } from './Packet';
+import { PacketMessage } from './PacketMessage';
 
 
 export class HttpQueryCfwAttackLogsResponseDTODataRecords {
@@ -20,6 +21,7 @@ export class HttpQueryCfwAttackLogsResponseDTODataRecords {
     public protocol?: string;
     public packet?: Packet;
     public app?: string;
+    public packetMessages?: Array<PacketMessage>;
     public constructor() { 
     }
     public withDirection(direction: HttpQueryCfwAttackLogsResponseDTODataRecordsDirectionEnum): HttpQueryCfwAttackLogsResponseDTODataRecords {
@@ -158,6 +160,10 @@ export class HttpQueryCfwAttackLogsResponseDTODataRecords {
     }
     public withApp(app: string): HttpQueryCfwAttackLogsResponseDTODataRecords {
         this['app'] = app;
+        return this;
+    }
+    public withPacketMessages(packetMessages: Array<PacketMessage>): HttpQueryCfwAttackLogsResponseDTODataRecords {
+        this['packetMessages'] = packetMessages;
         return this;
     }
 }

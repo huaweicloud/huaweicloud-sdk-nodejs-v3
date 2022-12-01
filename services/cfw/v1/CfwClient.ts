@@ -59,12 +59,16 @@ import { DeleteServiceItemUsingDeleteResponse } from './model/DeleteServiceItemU
 import { DeleteServiceSetUsingDeleteRequest } from './model/DeleteServiceSetUsingDeleteRequest';
 import { DeleteServiceSetUsingDeleteResponse } from './model/DeleteServiceSetUsingDeleteResponse';
 import { DnsServersResponseDTO } from './model/DnsServersResponseDTO';
+import { EipCountRespData } from './model/EipCountRespData';
 import { EipOperateProtectReq } from './model/EipOperateProtectReq';
 import { EipOperateProtectReqIpInfos } from './model/EipOperateProtectReqIpInfos';
+import { EipResource } from './model/EipResource';
+import { EipResponseData } from './model/EipResponseData';
 import { ErInstance } from './model/ErInstance';
 import { EwProtectResourceInfo } from './model/EwProtectResourceInfo';
 import { Flavor } from './model/Flavor';
 import { GetEastWestFirewallResponseBody } from './model/GetEastWestFirewallResponseBody';
+import { GetFirewallInstanceResponseData } from './model/GetFirewallInstanceResponseData';
 import { HttpQueryCfwAccessControllerLogsResponseDTOData } from './model/HttpQueryCfwAccessControllerLogsResponseDTOData';
 import { HttpQueryCfwAccessControllerLogsResponseDTODataRecords } from './model/HttpQueryCfwAccessControllerLogsResponseDTODataRecords';
 import { HttpQueryCfwAttackLogsResponseDTOData } from './model/HttpQueryCfwAttackLogsResponseDTOData';
@@ -74,6 +78,7 @@ import { HttpQueryCfwFlowLogsResponseDTODataRecords } from './model/HttpQueryCfw
 import { IdObject } from './model/IdObject';
 import { IpsProtectDTO } from './model/IpsProtectDTO';
 import { IpsSwitchDTO } from './model/IpsSwitchDTO';
+import { IpsSwitchResponseDTO } from './model/IpsSwitchResponseDTO';
 import { ListAccessControlLogsRequest } from './model/ListAccessControlLogsRequest';
 import { ListAccessControlLogsResponse } from './model/ListAccessControlLogsResponse';
 import { ListAddressItemsUsingGetRequest } from './model/ListAddressItemsUsingGetRequest';
@@ -119,6 +124,7 @@ import { ListVpcProtectsRequest } from './model/ListVpcProtectsRequest';
 import { ListVpcProtectsResponse } from './model/ListVpcProtectsResponse';
 import { OrderRuleAclDto } from './model/OrderRuleAclDto';
 import { Packet } from './model/Packet';
+import { PacketMessage } from './model/PacketMessage';
 import { ProtectObjectVO } from './model/ProtectObjectVO';
 import { RuleAclListResponseDTOData } from './model/RuleAclListResponseDTOData';
 import { RuleAclListResponseDTODataRecords } from './model/RuleAclListResponseDTODataRecords';
@@ -132,6 +138,7 @@ import { ServiceItemIds } from './model/ServiceItemIds';
 import { ServiceItemListResponseDtoData } from './model/ServiceItemListResponseDtoData';
 import { ServiceItemListResponseDtoDataRecords } from './model/ServiceItemListResponseDtoDataRecords';
 import { ServiceSet } from './model/ServiceSet';
+import { ServiceSetDetailResponseDto } from './model/ServiceSetDetailResponseDto';
 import { ServiceSetRecords } from './model/ServiceSetRecords';
 import { SubnetInfo } from './model/SubnetInfo';
 import { SuccessRspData } from './model/SuccessRspData';
@@ -510,6 +517,7 @@ export class CfwClient {
      * @param {number} startTime 开始时间
      * @param {number} endTime 结束时间
      * @param {number} limit 每页显示个数
+     * @param {string} fwInstanceId 防火墙实例ID
      * @param {string} [srcIp] 源IP
      * @param {number} [srcPort] 源端口号
      * @param {string} [dstIp] 目的IP
@@ -519,7 +527,6 @@ export class CfwClient {
      * @param {string} [logId] 日志ID，当是第一页时为空，不是第一页时不为空
      * @param {number} [nextDate] 下个日期，当是第一页时为空，不是第一页时不为空
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
-     * @param {string} [fwInstanceId] 防火墙实例ID
      * @param {'0' | '1'} [action] 动作0：permit,1：deny
      * @param {'0' | '1'} [direction] 方向0：外到内1：内到外
      * @param {string} [attackType] 入侵事件类型
@@ -2000,6 +2007,7 @@ export const ParamCreater = function () {
             let startTime;
             let endTime;
             let limit;
+            let fwInstanceId;
             let srcIp;
             let srcPort;
             let dstIp;
@@ -2009,7 +2017,6 @@ export const ParamCreater = function () {
             let logId;
             let nextDate;
             let offset;
-            let fwInstanceId;
             let action;
             let direction;
             let attackType;
@@ -2023,6 +2030,7 @@ export const ParamCreater = function () {
                     startTime = listAttackLogsRequest.startTime;
                     endTime = listAttackLogsRequest.endTime;
                     limit = listAttackLogsRequest.limit;
+                    fwInstanceId = listAttackLogsRequest.fwInstanceId;
                     srcIp = listAttackLogsRequest.srcIp;
                     srcPort = listAttackLogsRequest.srcPort;
                     dstIp = listAttackLogsRequest.dstIp;
@@ -2032,7 +2040,6 @@ export const ParamCreater = function () {
                     logId = listAttackLogsRequest.logId;
                     nextDate = listAttackLogsRequest.nextDate;
                     offset = listAttackLogsRequest.offset;
-                    fwInstanceId = listAttackLogsRequest.fwInstanceId;
                     action = listAttackLogsRequest.action;
                     direction = listAttackLogsRequest.direction;
                     attackType = listAttackLogsRequest.attackType;
@@ -2044,6 +2051,7 @@ export const ParamCreater = function () {
                     startTime = listAttackLogsRequest['start_time'];
                     endTime = listAttackLogsRequest['end_time'];
                     limit = listAttackLogsRequest['limit'];
+                    fwInstanceId = listAttackLogsRequest['fw_instance_id'];
                     srcIp = listAttackLogsRequest['src_ip'];
                     srcPort = listAttackLogsRequest['src_port'];
                     dstIp = listAttackLogsRequest['dst_ip'];
@@ -2053,7 +2061,6 @@ export const ParamCreater = function () {
                     logId = listAttackLogsRequest['log_id'];
                     nextDate = listAttackLogsRequest['next_date'];
                     offset = listAttackLogsRequest['offset'];
-                    fwInstanceId = listAttackLogsRequest['fw_instance_id'];
                     action = listAttackLogsRequest['action'];
                     direction = listAttackLogsRequest['direction'];
                     attackType = listAttackLogsRequest['attack_type'];
@@ -2085,6 +2092,12 @@ export const ParamCreater = function () {
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
+            if (fwInstanceId === null || fwInstanceId === undefined) {
+                throw new RequiredError('fwInstanceId','Required parameter fwInstanceId was null or undefined when calling listAttackLogs.');
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             if (srcIp !== null && srcIp !== undefined) {
                 localVarQueryParameter['src_ip'] = srcIp;
             }
@@ -2111,9 +2124,6 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
-            }
-            if (fwInstanceId !== null && fwInstanceId !== undefined) {
-                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
             if (action !== null && action !== undefined) {
                 localVarQueryParameter['action'] = action;

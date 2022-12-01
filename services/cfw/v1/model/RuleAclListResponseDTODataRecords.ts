@@ -20,6 +20,7 @@ export class RuleAclListResponseDTODataRecords {
     public source?: RuleAddressDto;
     public destination?: RuleAddressDto;
     public service?: RuleServiceDto;
+    public type?: RuleAclListResponseDTODataRecordsTypeEnum;
     public constructor() { 
     }
     public withRuleId(ruleId: string): RuleAclListResponseDTODataRecords {
@@ -134,6 +135,10 @@ export class RuleAclListResponseDTODataRecords {
         this['service'] = service;
         return this;
     }
+    public withType(type: RuleAclListResponseDTODataRecordsTypeEnum): RuleAclListResponseDTODataRecords {
+        this['type'] = type;
+        return this;
+    }
 }
 
 /**
@@ -143,4 +148,13 @@ export class RuleAclListResponseDTODataRecords {
 export enum RuleAclListResponseDTODataRecordsDirectionEnum {
     NUMBER_0 = 0,
     NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RuleAclListResponseDTODataRecordsTypeEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
 }

@@ -14,18 +14,19 @@ export class ListAttackLogsRequest {
     private 'next_date'?: number | undefined;
     public offset?: number;
     public limit: number;
-    private 'fw_instance_id'?: string | undefined;
+    private 'fw_instance_id': string | undefined;
     public action?: ListAttackLogsRequestActionEnum;
     public direction?: ListAttackLogsRequestDirectionEnum;
     private 'attack_type'?: string | undefined;
     private 'attack_rule'?: string | undefined;
     public level?: string;
     public source?: string;
-    public constructor(projectId?: any, startTime?: any, endTime?: any, limit?: any) { 
+    public constructor(projectId?: any, startTime?: any, endTime?: any, limit?: any, fwInstanceId?: any) { 
         this['project_id'] = projectId;
         this['start_time'] = startTime;
         this['end_time'] = endTime;
         this['limit'] = limit;
+        this['fw_instance_id'] = fwInstanceId;
     }
     public withProjectId(projectId: string): ListAttackLogsRequest {
         this['project_id'] = projectId;

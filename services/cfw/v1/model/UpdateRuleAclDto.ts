@@ -19,6 +19,7 @@ export class UpdateRuleAclDto {
     public source?: RuleAddressDto;
     public destination?: RuleAddressDto;
     public service?: RuleServiceDto;
+    public type?: UpdateRuleAclDtoTypeEnum;
     public constructor() { 
     }
     public withAddressType(addressType: UpdateRuleAclDtoAddressTypeEnum): UpdateRuleAclDto {
@@ -123,6 +124,10 @@ export class UpdateRuleAclDto {
         this['service'] = service;
         return this;
     }
+    public withType(type: UpdateRuleAclDtoTypeEnum): UpdateRuleAclDto {
+        this['type'] = type;
+        return this;
+    }
 }
 
 /**
@@ -156,4 +161,13 @@ export enum UpdateRuleAclDtoActionTypeEnum {
 export enum UpdateRuleAclDtoLongConnectEnableEnum {
     NUMBER_0 = 0,
     NUMBER_1 = 1
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateRuleAclDtoTypeEnum {
+    NUMBER_0 = 0,
+    NUMBER_1 = 1,
+    NUMBER_2 = 2
 }

@@ -12,7 +12,7 @@ export class GetEastWestFirewallResponseBody {
     private 'firewall_associated_subnets'?: Array<SubnetInfo> | undefined;
     public er?: ErInstance;
     private 'inspection_vpc'?: VpcDetail | undefined;
-    private 'protected_infos'?: Array<EwProtectResourceInfo> | undefined;
+    private 'protect_infos'?: Array<EwProtectResourceInfo> | undefined;
     public total?: number;
     public offset?: number;
     public limit?: number;
@@ -76,15 +76,15 @@ export class GetEastWestFirewallResponseBody {
     public get inspectionVpc() {
         return this['inspection_vpc'];
     }
-    public withProtectedInfos(protectedInfos: Array<EwProtectResourceInfo>): GetEastWestFirewallResponseBody {
-        this['protected_infos'] = protectedInfos;
+    public withProtectInfos(protectInfos: Array<EwProtectResourceInfo>): GetEastWestFirewallResponseBody {
+        this['protect_infos'] = protectInfos;
         return this;
     }
-    public set protectedInfos(protectedInfos: Array<EwProtectResourceInfo> | undefined) {
-        this['protected_infos'] = protectedInfos;
+    public set protectInfos(protectInfos: Array<EwProtectResourceInfo> | undefined) {
+        this['protect_infos'] = protectInfos;
     }
-    public get protectedInfos() {
-        return this['protected_infos'];
+    public get protectInfos() {
+        return this['protect_infos'];
     }
     public withTotal(total: number): GetEastWestFirewallResponseBody {
         this['total'] = total;
