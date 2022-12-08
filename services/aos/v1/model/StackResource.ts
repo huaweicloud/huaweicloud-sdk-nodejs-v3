@@ -7,8 +7,6 @@ export class StackResource {
     private 'logical_resource_type'?: string | undefined;
     private 'resource_status'?: StackResourceResourceStatusEnum | undefined;
     private 'status_message'?: string | undefined;
-    private 'create_time'?: string | undefined;
-    private 'update_time'?: string | undefined;
     public constructor() { 
     }
     public withPhysicalResourceId(physicalResourceId: string): StackResource {
@@ -70,26 +68,6 @@ export class StackResource {
     }
     public get statusMessage() {
         return this['status_message'];
-    }
-    public withCreateTime(createTime: string): StackResource {
-        this['create_time'] = createTime;
-        return this;
-    }
-    public set createTime(createTime: string | undefined) {
-        this['create_time'] = createTime;
-    }
-    public get createTime() {
-        return this['create_time'];
-    }
-    public withUpdateTime(updateTime: string): StackResource {
-        this['update_time'] = updateTime;
-        return this;
-    }
-    public set updateTime(updateTime: string | undefined) {
-        this['update_time'] = updateTime;
-    }
-    public get updateTime() {
-        return this['update_time'];
     }
 }
 

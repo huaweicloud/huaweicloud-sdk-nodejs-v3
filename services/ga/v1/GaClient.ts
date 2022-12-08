@@ -29,6 +29,9 @@ import { CreateListenerOption } from './model/CreateListenerOption';
 import { CreateListenerRequest } from './model/CreateListenerRequest';
 import { CreateListenerRequestBody } from './model/CreateListenerRequestBody';
 import { CreateListenerResponse } from './model/CreateListenerResponse';
+import { CreateTagsRequest } from './model/CreateTagsRequest';
+import { CreateTagsRequestBody } from './model/CreateTagsRequestBody';
+import { CreateTagsResponse } from './model/CreateTagsResponse';
 import { DeleteAcceleratorRequest } from './model/DeleteAcceleratorRequest';
 import { DeleteAcceleratorResponse } from './model/DeleteAcceleratorResponse';
 import { DeleteEndpointGroupRequest } from './model/DeleteEndpointGroupRequest';
@@ -39,6 +42,10 @@ import { DeleteHealthCheckRequest } from './model/DeleteHealthCheckRequest';
 import { DeleteHealthCheckResponse } from './model/DeleteHealthCheckResponse';
 import { DeleteListenerRequest } from './model/DeleteListenerRequest';
 import { DeleteListenerResponse } from './model/DeleteListenerResponse';
+import { DeleteTagsRequest } from './model/DeleteTagsRequest';
+import { DeleteTagsRequestBody } from './model/DeleteTagsRequestBody';
+import { DeleteTagsResponse } from './model/DeleteTagsResponse';
+import { DeletingResourceTag } from './model/DeletingResourceTag';
 import { EndpointDetail } from './model/EndpointDetail';
 import { EndpointGroupDetail } from './model/EndpointGroupDetail';
 import { EndpointType } from './model/EndpointType';
@@ -63,6 +70,7 @@ import { ListenerProtocol } from './model/ListenerProtocol';
 import { PageInfo } from './model/PageInfo';
 import { PortRange } from './model/PortRange';
 import { ResourceTag } from './model/ResourceTag';
+import { ResourceType } from './model/ResourceType';
 import { ShowAcceleratorRequest } from './model/ShowAcceleratorRequest';
 import { ShowAcceleratorResponse } from './model/ShowAcceleratorResponse';
 import { ShowEndpointGroupRequest } from './model/ShowEndpointGroupRequest';
@@ -73,6 +81,8 @@ import { ShowHealthCheckRequest } from './model/ShowHealthCheckRequest';
 import { ShowHealthCheckResponse } from './model/ShowHealthCheckResponse';
 import { ShowListenerRequest } from './model/ShowListenerRequest';
 import { ShowListenerResponse } from './model/ShowListenerResponse';
+import { ShowResourceTagsRequest } from './model/ShowResourceTagsRequest';
+import { ShowResourceTagsResponse } from './model/ShowResourceTagsResponse';
 import { UpdateAcceleratorOption } from './model/UpdateAcceleratorOption';
 import { UpdateAcceleratorRequest } from './model/UpdateAcceleratorRequest';
 import { UpdateAcceleratorRequestBody } from './model/UpdateAcceleratorRequestBody';
@@ -110,7 +120,7 @@ export class GaClient {
 
 
     /**
-     * 创建全球加速器
+     * 创建全球加速器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -144,7 +154,7 @@ export class GaClient {
     }
 
     /**
-     * 查询全球加速器列表
+     * 查询全球加速器列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -167,7 +177,7 @@ export class GaClient {
     }
 
     /**
-     * 查询全球加速器详情
+     * 查询全球加速器详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -184,7 +194,7 @@ export class GaClient {
     }
 
     /**
-     * 更新全球加速器
+     * 更新全球加速器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -202,7 +212,7 @@ export class GaClient {
     }
 
     /**
-     * 创建终端节点
+     * 创建终端节点。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -220,7 +230,7 @@ export class GaClient {
     }
 
     /**
-     * 删除终端节点
+     * 删除终端节点。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -238,7 +248,7 @@ export class GaClient {
     }
 
     /**
-     * 查询终端节点组下终端节点列表
+     * 查询终端节点组下终端节点列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -260,7 +270,7 @@ export class GaClient {
     }
 
     /**
-     * 查询终端节点详情
+     * 查询终端节点详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -278,7 +288,7 @@ export class GaClient {
     }
 
     /**
-     * 更新终端节点
+     * 更新终端节点。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -297,7 +307,7 @@ export class GaClient {
     }
 
     /**
-     * 创建终端节点组
+     * 创建终端节点组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -331,7 +341,7 @@ export class GaClient {
     }
 
     /**
-     * 查询终端节点组列表
+     * 查询终端节点组列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -354,7 +364,7 @@ export class GaClient {
     }
 
     /**
-     * 查询终端节点组详情
+     * 查询终端节点组详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -371,7 +381,7 @@ export class GaClient {
     }
 
     /**
-     * 更新终端节点组
+     * 更新终端节点组。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -389,7 +399,7 @@ export class GaClient {
     }
 
     /**
-     * 创建健康检查
+     * 创建健康检查。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -406,7 +416,7 @@ export class GaClient {
     }
 
     /**
-     * 删除健康检查
+     * 删除健康检查。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -423,7 +433,7 @@ export class GaClient {
     }
 
     /**
-     * 查询健康检查列表
+     * 查询健康检查列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -445,7 +455,7 @@ export class GaClient {
     }
 
     /**
-     * 查询健康检查详情
+     * 查询健康检查详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -462,7 +472,7 @@ export class GaClient {
     }
 
     /**
-     * 更新健康检查
+     * 更新健康检查。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -480,7 +490,7 @@ export class GaClient {
     }
 
     /**
-     * 创建监听器
+     * 创建监听器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -497,7 +507,7 @@ export class GaClient {
     }
 
     /**
-     * 删除监听器
+     * 删除监听器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -514,7 +524,7 @@ export class GaClient {
     }
 
     /**
-     * 查询监听器列表
+     * 查询监听器列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -537,7 +547,7 @@ export class GaClient {
     }
 
     /**
-     * 查询监听器详情
+     * 查询监听器详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -554,7 +564,7 @@ export class GaClient {
     }
 
     /**
-     * 更新监听器
+     * 更新监听器。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -572,7 +582,7 @@ export class GaClient {
     }
 
     /**
-     * 查询区域列表
+     * 查询区域列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -586,13 +596,69 @@ export class GaClient {
         // @ts-ignore
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 批量添加标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量添加标签
+     * @param {ResourceType} resourceType 资源类型。
+     * @param {string} resourceId 资源ID。
+     * @param {CreateTagsRequestBody} createTagsRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTags(createTagsRequest?: CreateTagsRequest): Promise<CreateTagsResponse> {
+        const options = ParamCreater().createTags(createTagsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除标签
+     * @param {ResourceType} resourceType 资源类型。
+     * @param {string} resourceId 资源ID。
+     * @param {DeleteTagsRequestBody} deleteTagsRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTags(deleteTagsRequest?: DeleteTagsRequest): Promise<DeleteTagsResponse> {
+        const options = ParamCreater().deleteTags(deleteTagsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资源已打标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源已打标签
+     * @param {ResourceType} resourceType 资源类型。
+     * @param {string} resourceId 资源ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourceTags(showResourceTagsRequest?: ShowResourceTagsRequest): Promise<ShowResourceTagsResponse> {
+        const options = ParamCreater().showResourceTags(showResourceTagsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
     return {
     
         /**
-         * 创建全球加速器
+         * 创建全球加速器。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -667,7 +733,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询全球加速器列表
+         * 查询全球加速器列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -740,7 +806,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询全球加速器详情
+         * 查询全球加速器详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -777,7 +843,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新全球加速器
+         * 更新全球加速器。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -822,7 +888,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建终端节点
+         * 创建终端节点。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -867,7 +933,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除终端节点
+         * 删除终端节点。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -910,7 +976,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询终端节点组下终端节点列表
+         * 查询终端节点组下终端节点列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -978,7 +1044,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询终端节点详情
+         * 查询终端节点详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1021,7 +1087,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新终端节点
+         * 更新终端节点。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1072,7 +1138,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建终端节点组
+         * 创建终端节点组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1147,7 +1213,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询终端节点组列表
+         * 查询终端节点组列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1220,7 +1286,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询终端节点组详情
+         * 查询终端节点组详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1257,7 +1323,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新终端节点组
+         * 更新终端节点组。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1302,7 +1368,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建健康检查
+         * 创建健康检查。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1340,7 +1406,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除健康检查
+         * 删除健康检查。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1377,7 +1443,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询健康检查列表
+         * 查询健康检查列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1444,7 +1510,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询健康检查详情
+         * 查询健康检查详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1481,7 +1547,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新健康检查
+         * 更新健康检查。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1526,7 +1592,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建监听器
+         * 创建监听器。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1564,7 +1630,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除监听器
+         * 删除监听器。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1601,7 +1667,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询监听器列表
+         * 查询监听器列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1674,7 +1740,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询监听器详情
+         * 查询监听器详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1711,7 +1777,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 更新监听器
+         * 更新监听器。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1756,7 +1822,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询区域列表
+         * 查询区域列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1773,6 +1839,151 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量添加标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTags(createTagsRequest?: CreateTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{resource_type}/{resource_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let resourceType;
+            let resourceId;
+
+            if (createTagsRequest !== null && createTagsRequest !== undefined) {
+                if (createTagsRequest instanceof CreateTagsRequest) {
+                    resourceType = createTagsRequest.resourceType;
+                    resourceId = createTagsRequest.resourceId;
+                    body = createTagsRequest.body
+                } else {
+                    resourceType = createTagsRequest['resource_type'];
+                    resourceId = createTagsRequest['resource_id'];
+                    body = createTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling createTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTags(deleteTagsRequest?: DeleteTagsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{resource_type}/{resource_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let resourceType;
+            let resourceId;
+
+            if (deleteTagsRequest !== null && deleteTagsRequest !== undefined) {
+                if (deleteTagsRequest instanceof DeleteTagsRequest) {
+                    resourceType = deleteTagsRequest.resourceType;
+                    resourceId = deleteTagsRequest.resourceId;
+                    body = deleteTagsRequest.body
+                } else {
+                    resourceType = deleteTagsRequest['resource_type'];
+                    resourceId = deleteTagsRequest['resource_id'];
+                    body = deleteTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling deleteTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资源已打标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResourceTags(showResourceTagsRequest?: ShowResourceTagsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{resource_type}/{resource_id}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let resourceType;
+            let resourceId;
+
+            if (showResourceTagsRequest !== null && showResourceTagsRequest !== undefined) {
+                if (showResourceTagsRequest instanceof ShowResourceTagsRequest) {
+                    resourceType = showResourceTagsRequest.resourceType;
+                    resourceId = showResourceTagsRequest.resourceId;
+                } else {
+                    resourceType = showResourceTagsRequest['resource_type'];
+                    resourceId = showResourceTagsRequest['resource_id'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showResourceTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling showResourceTags.');
+            }
+
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

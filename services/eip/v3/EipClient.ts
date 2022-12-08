@@ -10,10 +10,13 @@ import { BandwidthInfoResp } from './model/BandwidthInfoResp';
 import { BillingInfoDict } from './model/BillingInfoDict';
 import { CommonPoolDict } from './model/CommonPoolDict';
 import { CommonPoolsWithBorderGroupDict } from './model/CommonPoolsWithBorderGroupDict';
+import { CountEipAvailableResourcesRequest } from './model/CountEipAvailableResourcesRequest';
+import { CountEipAvailableResourcesResponse } from './model/CountEipAvailableResourcesResponse';
 import { DisassociatePublicipsOption } from './model/DisassociatePublicipsOption';
 import { DisassociatePublicipsRequest } from './model/DisassociatePublicipsRequest';
 import { DisassociatePublicipsRequestBody } from './model/DisassociatePublicipsRequestBody';
 import { DisassociatePublicipsResponse } from './model/DisassociatePublicipsResponse';
+import { EipResourcesAvailableV3RequestBody } from './model/EipResourcesAvailableV3RequestBody';
 import { ListCommonPoolsRequest } from './model/ListCommonPoolsRequest';
 import { ListCommonPoolsResponse } from './model/ListCommonPoolsResponse';
 import { ListPublicBorderGroupsRequest } from './model/ListPublicBorderGroupsRequest';
@@ -94,6 +97,34 @@ export class EipClient {
     }
 
     /**
+     * 全量查询公网IP池列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公网IP池列表
+     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
+     * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
+     * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/size/used/project_id/status/billing_info/created_at/updated_at/type/shared/is_common/description/tags/enterprise_project_id/allow_share_bandwidth_types/public_border_group
+     * @param {string} [sortKey] 排序，形式为\&quot;sort_key&#x3D;id&amp;sort_dir&#x3D;asc\&quot;  支持字段：id/name/created_at/updated_at/public_border_group
+     * @param {string} [sortDir] 排序方向  取值范围：asc、desc
+     * @param {string} [id] 根据id过滤
+     * @param {string} [name] 根据name过滤
+     * @param {number} [size] 根据size过滤
+     * @param {string} [status] 根据status过滤
+     * @param {string} [type] 根据type过滤
+     * @param {string} [description] 根据description过滤
+     * @param {string} [publicBorderGroup] 根据public_border_group过滤
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listPublicipPool(listPublicipPoolRequest?: ListPublicipPoolRequest): Promise<ListPublicipPoolResponse> {
+        const options = ParamCreater().listPublicipPool(listPublicipPoolRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定租户下的共享带宽类型列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -119,6 +150,24 @@ export class EipClient {
     }
 
     /**
+     * 查询公网IP池详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询公网IP池详情
+     * @param {string} publicipPoolId 公网IP池ID唯一标识
+     * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/size/used/project_id/status/billing_info/created_at/updated_at/type/shared/is_common/description/tags/enterprise_project_id/allow_share_bandwidth_types/public_border_group
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPublicipPool(showPublicipPoolRequest?: ShowPublicipPoolRequest): Promise<ShowPublicipPoolResponse> {
+        const options = ParamCreater().showPublicipPool(showPublicipPoolRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 绑定弹性公网IP
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -137,6 +186,23 @@ export class EipClient {
     }
 
     /**
+     * IP池用于查询公网可用ip个数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询弹性公网IP可用数
+     * @param {EipResourcesAvailableV3RequestBody} eipResourcesAvailableV3RequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countEipAvailableResources(countEipAvailableResourcesRequest?: CountEipAvailableResourcesRequest): Promise<CountEipAvailableResourcesResponse> {
+        const options = ParamCreater().countEipAvailableResources(countEipAvailableResourcesRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 解绑弹性公网IP
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -148,34 +214,6 @@ export class EipClient {
      */
     public disassociatePublicips(disassociatePublicipsRequest?: DisassociatePublicipsRequest): Promise<DisassociatePublicipsResponse> {
         const options = ParamCreater().disassociatePublicips(disassociatePublicipsRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 全量查询公网IP池列表
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询公网IP池列表
-     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
-     * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
-     * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/size/used/project_id/status/billing_info/created_at/updated_at/type/shared/is_common/description/tags/enterprise_project_id/allow_share_bandwidth_types/public_border_group
-     * @param {string} [sortKey] 排序，形式为\&quot;sort_key&#x3D;id&amp;sort_dir&#x3D;asc\&quot;  支持字段：id/name/created_at/updated_at/public_border_group
-     * @param {string} [sortDir] 排序方向  取值范围：asc、desc
-     * @param {string} [id] 根据id过滤
-     * @param {string} [name] 根据name过滤
-     * @param {number} [size] 根据size过滤
-     * @param {string} [status] 根据status过滤
-     * @param {string} [type] 根据type过滤
-     * @param {string} [description] 根据description过滤
-     * @param {string} [publicBorderGroup] 根据public_border_group过滤
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public listPublicipPool(listPublicipPoolRequest?: ListPublicipPoolRequest): Promise<ListPublicipPoolResponse> {
-        const options = ParamCreater().listPublicipPool(listPublicipPoolRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -251,24 +289,6 @@ export class EipClient {
      */
     public showPublicip(showPublicipRequest?: ShowPublicipRequest): Promise<ShowPublicipResponse> {
         const options = ParamCreater().showPublicip(showPublicipRequest);
-        options['responseHeaders'] = [''];
-        // @ts-ignore
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询公网IP池详情
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询公网IP池详情
-     * @param {string} publicipPoolId 公网IP池ID唯一标识
-     * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/size/used/project_id/status/billing_info/created_at/updated_at/type/shared/is_common/description/tags/enterprise_project_id/allow_share_bandwidth_types/public_border_group
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showPublicipPool(showPublicipPoolRequest?: ShowPublicipPoolRequest): Promise<ShowPublicipPoolResponse> {
-        const options = ParamCreater().showPublicipPool(showPublicipPoolRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -401,173 +421,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询指定租户下的共享带宽类型列表
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        listShareBandwidthTypes(listShareBandwidthTypesRequest?: ListShareBandwidthTypesRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/eip/share-bandwidth-types",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let fields;
-            let id;
-            let bandwidthType;
-            let nameEn;
-            let nameZh;
-            let publicBorderGroup;
-            let sortKey;
-            let sortDir;
-            let limit;
-
-            if (listShareBandwidthTypesRequest !== null && listShareBandwidthTypesRequest !== undefined) {
-                if (listShareBandwidthTypesRequest instanceof ListShareBandwidthTypesRequest) {
-                    fields = listShareBandwidthTypesRequest.fields;
-                    id = listShareBandwidthTypesRequest.id;
-                    bandwidthType = listShareBandwidthTypesRequest.bandwidthType;
-                    nameEn = listShareBandwidthTypesRequest.nameEn;
-                    nameZh = listShareBandwidthTypesRequest.nameZh;
-                    publicBorderGroup = listShareBandwidthTypesRequest.publicBorderGroup;
-                    sortKey = listShareBandwidthTypesRequest.sortKey;
-                    sortDir = listShareBandwidthTypesRequest.sortDir;
-                    limit = listShareBandwidthTypesRequest.limit;
-                } else {
-                    fields = listShareBandwidthTypesRequest['fields'];
-                    id = listShareBandwidthTypesRequest['id'];
-                    bandwidthType = listShareBandwidthTypesRequest['bandwidth_type'];
-                    nameEn = listShareBandwidthTypesRequest['name_en'];
-                    nameZh = listShareBandwidthTypesRequest['name_zh'];
-                    publicBorderGroup = listShareBandwidthTypesRequest['public_border_group'];
-                    sortKey = listShareBandwidthTypesRequest['sort_key'];
-                    sortDir = listShareBandwidthTypesRequest['sort_dir'];
-                    limit = listShareBandwidthTypesRequest['limit'];
-                }
-            }
-
-        
-            if (fields !== null && fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
-            }
-            if (id !== null && id !== undefined) {
-                localVarQueryParameter['id'] = id;
-            }
-            if (bandwidthType !== null && bandwidthType !== undefined) {
-                localVarQueryParameter['bandwidth_type'] = bandwidthType;
-            }
-            if (nameEn !== null && nameEn !== undefined) {
-                localVarQueryParameter['name_en'] = nameEn;
-            }
-            if (nameZh !== null && nameZh !== undefined) {
-                localVarQueryParameter['name_zh'] = nameZh;
-            }
-            if (publicBorderGroup !== null && publicBorderGroup !== undefined) {
-                localVarQueryParameter['public_border_group'] = publicBorderGroup;
-            }
-            if (sortKey !== null && sortKey !== undefined) {
-                localVarQueryParameter['sort_key'] = sortKey;
-            }
-            if (sortDir !== null && sortDir !== undefined) {
-                localVarQueryParameter['sort_dir'] = sortDir;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 绑定弹性公网IP
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        associatePublicips(associatePublicipsRequest?: AssociatePublicipsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/eip/publicips/{publicip_id}/associate-instance",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-            let publicipId;
-
-            if (associatePublicipsRequest !== null && associatePublicipsRequest !== undefined) {
-                if (associatePublicipsRequest instanceof AssociatePublicipsRequest) {
-                    publicipId = associatePublicipsRequest.publicipId;
-                    body = associatePublicipsRequest.body
-                } else {
-                    publicipId = associatePublicipsRequest['publicip_id'];
-                    body = associatePublicipsRequest['body'];
-                }
-            }
-
-        
-            if (publicipId === null || publicipId === undefined) {
-            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling associatePublicips.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.pathParams = { 'publicip_id': publicipId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 解绑弹性公网IP
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        disassociatePublicips(disassociatePublicipsRequest?: DisassociatePublicipsRequest) {
-            const options = {
-                method: "POST",
-                url: "/v3/{project_id}/eip/publicips/{publicip_id}/disassociate-instance",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let publicipId;
-
-            if (disassociatePublicipsRequest !== null && disassociatePublicipsRequest !== undefined) {
-                if (disassociatePublicipsRequest instanceof DisassociatePublicipsRequest) {
-                    publicipId = disassociatePublicipsRequest.publicipId;
-                } else {
-                    publicipId = disassociatePublicipsRequest['publicip_id'];
-                }
-            }
-
-        
-            if (publicipId === null || publicipId === undefined) {
-            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling disassociatePublicips.');
-            }
-
-            options.pathParams = { 'publicip_id': publicipId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 全量查询公网IP池列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -666,6 +519,255 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定租户下的共享带宽类型列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listShareBandwidthTypes(listShareBandwidthTypesRequest?: ListShareBandwidthTypesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/eip/share-bandwidth-types",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let fields;
+            let id;
+            let bandwidthType;
+            let nameEn;
+            let nameZh;
+            let publicBorderGroup;
+            let sortKey;
+            let sortDir;
+            let limit;
+
+            if (listShareBandwidthTypesRequest !== null && listShareBandwidthTypesRequest !== undefined) {
+                if (listShareBandwidthTypesRequest instanceof ListShareBandwidthTypesRequest) {
+                    fields = listShareBandwidthTypesRequest.fields;
+                    id = listShareBandwidthTypesRequest.id;
+                    bandwidthType = listShareBandwidthTypesRequest.bandwidthType;
+                    nameEn = listShareBandwidthTypesRequest.nameEn;
+                    nameZh = listShareBandwidthTypesRequest.nameZh;
+                    publicBorderGroup = listShareBandwidthTypesRequest.publicBorderGroup;
+                    sortKey = listShareBandwidthTypesRequest.sortKey;
+                    sortDir = listShareBandwidthTypesRequest.sortDir;
+                    limit = listShareBandwidthTypesRequest.limit;
+                } else {
+                    fields = listShareBandwidthTypesRequest['fields'];
+                    id = listShareBandwidthTypesRequest['id'];
+                    bandwidthType = listShareBandwidthTypesRequest['bandwidth_type'];
+                    nameEn = listShareBandwidthTypesRequest['name_en'];
+                    nameZh = listShareBandwidthTypesRequest['name_zh'];
+                    publicBorderGroup = listShareBandwidthTypesRequest['public_border_group'];
+                    sortKey = listShareBandwidthTypesRequest['sort_key'];
+                    sortDir = listShareBandwidthTypesRequest['sort_dir'];
+                    limit = listShareBandwidthTypesRequest['limit'];
+                }
+            }
+
+        
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (bandwidthType !== null && bandwidthType !== undefined) {
+                localVarQueryParameter['bandwidth_type'] = bandwidthType;
+            }
+            if (nameEn !== null && nameEn !== undefined) {
+                localVarQueryParameter['name_en'] = nameEn;
+            }
+            if (nameZh !== null && nameZh !== undefined) {
+                localVarQueryParameter['name_zh'] = nameZh;
+            }
+            if (publicBorderGroup !== null && publicBorderGroup !== undefined) {
+                localVarQueryParameter['public_border_group'] = publicBorderGroup;
+            }
+            if (sortKey !== null && sortKey !== undefined) {
+                localVarQueryParameter['sort_key'] = sortKey;
+            }
+            if (sortDir !== null && sortDir !== undefined) {
+                localVarQueryParameter['sort_dir'] = sortDir;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询公网IP池详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPublicipPool(showPublicipPoolRequest?: ShowPublicipPoolRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/eip/publicip-pools/{publicip_pool_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let publicipPoolId;
+            let fields;
+
+            if (showPublicipPoolRequest !== null && showPublicipPoolRequest !== undefined) {
+                if (showPublicipPoolRequest instanceof ShowPublicipPoolRequest) {
+                    publicipPoolId = showPublicipPoolRequest.publicipPoolId;
+                    fields = showPublicipPoolRequest.fields;
+                } else {
+                    publicipPoolId = showPublicipPoolRequest['publicip_pool_id'];
+                    fields = showPublicipPoolRequest['fields'];
+                }
+            }
+
+        
+            if (publicipPoolId === null || publicipPoolId === undefined) {
+            throw new RequiredError('publicipPoolId','Required parameter publicipPoolId was null or undefined when calling showPublicipPool.');
+            }
+            if (fields !== null && fields !== undefined) {
+                localVarQueryParameter['fields'] = fields;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'publicip_pool_id': publicipPoolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 绑定弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associatePublicips(associatePublicipsRequest?: AssociatePublicipsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/eip/publicips/{publicip_id}/associate-instance",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let publicipId;
+
+            if (associatePublicipsRequest !== null && associatePublicipsRequest !== undefined) {
+                if (associatePublicipsRequest instanceof AssociatePublicipsRequest) {
+                    publicipId = associatePublicipsRequest.publicipId;
+                    body = associatePublicipsRequest.body
+                } else {
+                    publicipId = associatePublicipsRequest['publicip_id'];
+                    body = associatePublicipsRequest['body'];
+                }
+            }
+
+        
+            if (publicipId === null || publicipId === undefined) {
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling associatePublicips.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'publicip_id': publicipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * IP池用于查询公网可用ip个数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countEipAvailableResources(countEipAvailableResourcesRequest?: CountEipAvailableResourcesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/eip/resources/available",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (countEipAvailableResourcesRequest !== null && countEipAvailableResourcesRequest !== undefined) {
+                if (countEipAvailableResourcesRequest instanceof CountEipAvailableResourcesRequest) {
+                    body = countEipAvailableResourcesRequest.body
+                } else {
+                    body = countEipAvailableResourcesRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解绑弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disassociatePublicips(disassociatePublicipsRequest?: DisassociatePublicipsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/eip/publicips/{publicip_id}/disassociate-instance",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let publicipId;
+
+            if (disassociatePublicipsRequest !== null && disassociatePublicipsRequest !== undefined) {
+                if (disassociatePublicipsRequest instanceof DisassociatePublicipsRequest) {
+                    publicipId = disassociatePublicipsRequest.publicipId;
+                } else {
+                    publicipId = disassociatePublicipsRequest['publicip_id'];
+                }
+            }
+
+        
+            if (publicipId === null || publicipId === undefined) {
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling disassociatePublicips.');
+            }
+
+            options.pathParams = { 'publicip_id': publicipId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -987,50 +1089,6 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'publicip_id': publicipId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询公网IP池详情
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showPublicipPool(showPublicipPoolRequest?: ShowPublicipPoolRequest) {
-            const options = {
-                method: "GET",
-                url: "/v3/{project_id}/eip/publicip-pools/{publicip_pool_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            let publicipPoolId;
-            let fields;
-
-            if (showPublicipPoolRequest !== null && showPublicipPoolRequest !== undefined) {
-                if (showPublicipPoolRequest instanceof ShowPublicipPoolRequest) {
-                    publicipPoolId = showPublicipPoolRequest.publicipPoolId;
-                    fields = showPublicipPoolRequest.fields;
-                } else {
-                    publicipPoolId = showPublicipPoolRequest['publicip_pool_id'];
-                    fields = showPublicipPoolRequest['fields'];
-                }
-            }
-
-        
-            if (publicipPoolId === null || publicipPoolId === undefined) {
-            throw new RequiredError('publicipPoolId','Required parameter publicipPoolId was null or undefined when calling showPublicipPool.');
-            }
-            if (fields !== null && fields !== undefined) {
-                localVarQueryParameter['fields'] = fields;
-            }
-
-            options.queryParams = localVarQueryParameter;
-            options.pathParams = { 'publicip_pool_id': publicipPoolId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

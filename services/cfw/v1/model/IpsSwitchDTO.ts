@@ -2,10 +2,11 @@
 
 export class IpsSwitchDTO {
     private 'object_id': string | undefined;
-    private 'ips_type'?: IpsSwitchDTOIpsTypeEnum | undefined;
+    private 'ips_type': IpsSwitchDTOIpsTypeEnum | undefined;
     public status: number;
-    public constructor(objectId?: any, status?: any) { 
+    public constructor(objectId?: any, ipsType?: any, status?: any) { 
         this['object_id'] = objectId;
+        this['ips_type'] = ipsType;
         this['status'] = status;
     }
     public withObjectId(objectId: string): IpsSwitchDTO {

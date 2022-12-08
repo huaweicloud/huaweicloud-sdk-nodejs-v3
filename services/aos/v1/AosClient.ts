@@ -16,18 +16,28 @@ import { CreateExecutionPlanResponse } from './model/CreateExecutionPlanResponse
 import { CreateStackRequest } from './model/CreateStackRequest';
 import { CreateStackRequestBody } from './model/CreateStackRequestBody';
 import { CreateStackResponse } from './model/CreateStackResponse';
+import { DeleteExecutionPlanRequest } from './model/DeleteExecutionPlanRequest';
+import { DeleteExecutionPlanResponse } from './model/DeleteExecutionPlanResponse';
 import { DeleteStackRequest } from './model/DeleteStackRequest';
 import { DeleteStackResponse } from './model/DeleteStackResponse';
 import { DeployStackRequest } from './model/DeployStackRequest';
 import { DeployStackRequestBody } from './model/DeployStackRequestBody';
 import { DeployStackResponse } from './model/DeployStackResponse';
+import { DescribeExecutionPlanRequest } from './model/DescribeExecutionPlanRequest';
+import { DescribeExecutionPlanResponse } from './model/DescribeExecutionPlanResponse';
 import { EnableAutoRollbackPrimitiveTypeHolder } from './model/EnableAutoRollbackPrimitiveTypeHolder';
 import { EnableDeletionProtectionPrimitiveTypeHolder } from './model/EnableDeletionProtectionPrimitiveTypeHolder';
 import { EncryptionStructure } from './model/EncryptionStructure';
 import { EstimateExecutionPlanPriceRequest } from './model/EstimateExecutionPlanPriceRequest';
 import { EstimateExecutionPlanPriceResponse } from './model/EstimateExecutionPlanPriceResponse';
 import { ExecutionPlan } from './model/ExecutionPlan';
-import { ExecutorPrimitiveTypeHolder } from './model/ExecutorPrimitiveTypeHolder';
+import { ExecutionPlanDiffAttribute } from './model/ExecutionPlanDiffAttribute';
+import { ExecutionPlanItem } from './model/ExecutionPlanItem';
+import { ExecutionPlanSummary } from './model/ExecutionPlanSummary';
+import { GetExecutionPlanRequest } from './model/GetExecutionPlanRequest';
+import { GetExecutionPlanResponse } from './model/GetExecutionPlanResponse';
+import { GetStackMetadataRequest } from './model/GetStackMetadataRequest';
+import { GetStackMetadataResponse } from './model/GetStackMetadataResponse';
 import { GetStackTemplateRequest } from './model/GetStackTemplateRequest';
 import { GetStackTemplateResponse } from './model/GetStackTemplateResponse';
 import { ItemsResponse } from './model/ItemsResponse';
@@ -87,7 +97,7 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
      * @param {string} stackName 用户希望操作的资源栈名
-     * @param {string} executionPlanName 执行计划的名字。如果未指定，则使用execution_plan_id作为execution_plan_name。
+     * @param {string} executionPlanName 执行计划的名字。
      * @param {ApplyExecutionPlanRequestBody} applyExecutionPlanRequestBody apply_execution_plan_v1 request body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -120,21 +130,64 @@ export class AosClient {
     }
 
     /**
-     * 删除堆栈
+     * 此命令用于删除已有的执行计划(execution plan)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 删除堆栈
+     * @summary 此命令用于删除已有的执行计划(execution plan)
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
      * @param {string} stackName 用户希望操作的资源栈名
-     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则IaC会检查是否两个匹配，否则返回400
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
+     * @param {string} executionPlanName 执行计划的名字。
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
+     * @param {string} [executionPlanId] 执行计划ID(uuid)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteExecutionPlan(deleteExecutionPlanRequest?: DeleteExecutionPlanRequest): Promise<void> {
+        const options = ParamCreater().deleteExecutionPlan(deleteExecutionPlanRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除资源栈
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资源栈
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
+     * @param {string} stackName 用户希望操作的资源栈名
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public deleteStack(deleteStackRequest?: DeleteStackRequest): Promise<void> {
         const options = ParamCreater().deleteStack(deleteStackRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 描述执行计划当前的状态，返回执行计划的元数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 描述执行计划当前的状态，返回执行计划的元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
+     * @param {string} stackName 用户希望操作的资源栈名
+     * @param {string} executionPlanName 执行计划的名字。
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
+     * @param {string} [executionPlanId] 执行计划ID(uuid)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public describeExecutionPlan(describeExecutionPlanRequest?: DescribeExecutionPlanRequest): Promise<DescribeExecutionPlanResponse> {
+        const options = ParamCreater().describeExecutionPlan(describeExecutionPlanRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -149,8 +202,8 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
      * @param {string} stackName 用户希望操作的资源栈名
-     * @param {string} executionPlanName 执行计划的名字。如果未指定，则使用execution_plan_id作为execution_plan_name。
-     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则IaC会检查是否两个匹配，否则返回400
+     * @param {string} executionPlanName 执行计划的名字。
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
      * @param {string} [executionPlanId] 执行计划ID(uuid)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -163,16 +216,57 @@ export class AosClient {
     }
 
     /**
-     * 获取堆栈当前使用的模板
+     * 此接口用于获取执行计划的详细内容
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取堆栈模板
+     * @summary 此接口用于获取执行计划的详细内容
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
      * @param {string} stackName 用户希望操作的资源栈名
-     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则IaC会检查是否两个匹配，否则返回400
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
+     * @param {string} executionPlanName 执行计划的名字。
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
+     * @param {string} [executionPlanId] 执行计划ID(uuid)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getExecutionPlan(getExecutionPlanRequest?: GetExecutionPlanRequest): Promise<GetExecutionPlanResponse> {
+        const options = ParamCreater().getExecutionPlan(getExecutionPlanRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 描述栈的状态，返回栈的元数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 描述栈的状态，返回栈的元数据
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
+     * @param {string} stackName 用户希望操作的资源栈名
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getStackMetadata(getStackMetadataRequest?: GetStackMetadataRequest): Promise<GetStackMetadataResponse> {
+        const options = ParamCreater().getStackMetadata(getStackMetadataRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取资源栈当前使用的模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取资源栈模板
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
+     * @param {string} stackName 用户希望操作的资源栈名
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -192,8 +286,7 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
      * @param {string} stackName 用户希望操作的资源栈名
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
-     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则IaC会检查是否两个匹配，否则返回400
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -213,11 +306,8 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
      * @param {string} stackName 用户希望操作的资源栈名
-     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则IaC会检查是否两个匹配，否则返回400
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
      * @param {string} [deploymentId] 部署时API返回的id(uuid)。如果deployment_id不存在，则返回整个栈从生成到现在的所有更新状态
-     * @param {number} [limit] 一次返回的stack-events的最大数量
-     * @param {string} [marker] 当一页无法发回所有的细节，上一次的请求将返回next_marker以指引还有更多页数，客户可以将next_marker中的值放到此处以查询下一页的信息。
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -229,18 +319,15 @@ export class AosClient {
     }
 
     /**
-     * 列举堆栈的输出
+     * 列举资源栈的输出
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 列举堆栈的输出
+     * @summary 列举资源栈的输出
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
      * @param {string} stackName 用户希望操作的资源栈名
-     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则IaC会检查是否两个匹配，否则返回400
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
-     * @param {number} [limit] 分页limit
-     * @param {string} [marker] 当一页无法发回所有的细节，上一次的请求将返回next_marker以指引还有更多页数，客户可以将next_marker中的值放到此处以查询下一页的信息。
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -252,16 +339,15 @@ export class AosClient {
     }
 
     /**
-     * 获取堆栈的资源列表，可以获取整个栈从生成到当前时间点的所有状态
+     * 获取资源栈的资源列表，可以获取整个栈从生成到当前时间点的所有状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 获取堆栈的资源列表
+     * @summary 获取资源栈的资源列表
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
      * @param {string} stackName 用户希望操作的资源栈名
-     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则IaC会检查是否两个匹配，否则返回400
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
+     * @param {string} [stackId] 用户希望描述的栈的Id。若stack_name和stack_id同时存在，则资源编排服务会检查是否两个匹配，否则返回400
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -345,7 +431,7 @@ export class AosClient {
      * 
      * * 此API为全量API，即用户每次部署都需要给予所想要使用的template、vars的全量
      * 
-     * * 当触发的部署失败时，如果堆栈开启了自动回滚，会触发自动回滚的流程，否则就会停留在部署失败时的状态
+     * * 当触发的部署失败时，如果资源栈开启了自动回滚，会触发自动回滚的流程，否则就会停留在部署失败时的状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -365,20 +451,19 @@ export class AosClient {
     }
 
     /**
-     * ListStacks 列举当前局点下用户所有的堆栈
+     * ListStacks 列举当前局点下用户所有的资源栈
      * 
      *   * 默认按照生成时间排序，最早生成的在最前
-     *   * 注意：目前暂时返回全量堆栈信息，即不支持分页
-     *   * 如果没有任何堆栈，则返回空list
+     *   * 注意：目前暂时返回全量资源栈信息，即不支持分页
+     *   * 如果没有任何资源栈，则返回空list
      * 
      * ListStacks返回的只有摘要信息（具体摘要信息见ListStacksResponseBody），如果用户需要详细的资源栈元数据请调用GetStackMetadata
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 列举堆栈
+     * @summary 列举资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  获取方式：https://support.huaweicloud.com/api-ticket/ticket_api_20002.html 
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -514,7 +599,75 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 删除堆栈
+         * 此命令用于删除已有的执行计划(execution plan)
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteExecutionPlan(deleteExecutionPlanRequest?: DeleteExecutionPlanRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/stacks/{stack_name}/execution-plans/{execution_plan_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let clientRequestId;
+            let projectId;
+            let stackName;
+            let executionPlanName;
+            let stackId;
+            let executionPlanId;
+
+            if (deleteExecutionPlanRequest !== null && deleteExecutionPlanRequest !== undefined) {
+                if (deleteExecutionPlanRequest instanceof DeleteExecutionPlanRequest) {
+                    clientRequestId = deleteExecutionPlanRequest.clientRequestId;
+                    projectId = deleteExecutionPlanRequest.projectId;
+                    stackName = deleteExecutionPlanRequest.stackName;
+                    executionPlanName = deleteExecutionPlanRequest.executionPlanName;
+                    stackId = deleteExecutionPlanRequest.stackId;
+                    executionPlanId = deleteExecutionPlanRequest.executionPlanId;
+                } else {
+                    clientRequestId = deleteExecutionPlanRequest['Client-Request-Id'];
+                    projectId = deleteExecutionPlanRequest['project_id'];
+                    stackName = deleteExecutionPlanRequest['stack_name'];
+                    executionPlanName = deleteExecutionPlanRequest['execution_plan_name'];
+                    stackId = deleteExecutionPlanRequest['stack_id'];
+                    executionPlanId = deleteExecutionPlanRequest['execution_plan_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteExecutionPlan.');
+            }
+            if (stackName === null || stackName === undefined) {
+            throw new RequiredError('stackName','Required parameter stackName was null or undefined when calling deleteExecutionPlan.');
+            }
+            if (executionPlanName === null || executionPlanName === undefined) {
+            throw new RequiredError('executionPlanName','Required parameter executionPlanName was null or undefined when calling deleteExecutionPlan.');
+            }
+            if (stackId !== null && stackId !== undefined) {
+                localVarQueryParameter['stack_id'] = stackId;
+            }
+            if (executionPlanId !== null && executionPlanId !== undefined) {
+                localVarQueryParameter['execution_plan_id'] = executionPlanId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'stack_name': stackName,'execution_plan_name': executionPlanName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除资源栈
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -534,7 +687,6 @@ export const ParamCreater = function () {
             let projectId;
             let stackName;
             let stackId;
-            let executor;
 
             if (deleteStackRequest !== null && deleteStackRequest !== undefined) {
                 if (deleteStackRequest instanceof DeleteStackRequest) {
@@ -542,13 +694,11 @@ export const ParamCreater = function () {
                     projectId = deleteStackRequest.projectId;
                     stackName = deleteStackRequest.stackName;
                     stackId = deleteStackRequest.stackId;
-                    executor = deleteStackRequest.executor;
                 } else {
                     clientRequestId = deleteStackRequest['Client-Request-Id'];
                     projectId = deleteStackRequest['project_id'];
                     stackName = deleteStackRequest['stack_name'];
                     stackId = deleteStackRequest['stack_id'];
-                    executor = deleteStackRequest['executor'];
                 }
             }
 
@@ -562,15 +712,80 @@ export const ParamCreater = function () {
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
             }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
-            }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
             }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'stack_name': stackName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 描述执行计划当前的状态，返回执行计划的元数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        describeExecutionPlan(describeExecutionPlanRequest?: DescribeExecutionPlanRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/stacks/{stack_name}/execution-plans/{execution_plan_name}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let clientRequestId;
+            let projectId;
+            let stackName;
+            let executionPlanName;
+            let stackId;
+            let executionPlanId;
+
+            if (describeExecutionPlanRequest !== null && describeExecutionPlanRequest !== undefined) {
+                if (describeExecutionPlanRequest instanceof DescribeExecutionPlanRequest) {
+                    clientRequestId = describeExecutionPlanRequest.clientRequestId;
+                    projectId = describeExecutionPlanRequest.projectId;
+                    stackName = describeExecutionPlanRequest.stackName;
+                    executionPlanName = describeExecutionPlanRequest.executionPlanName;
+                    stackId = describeExecutionPlanRequest.stackId;
+                    executionPlanId = describeExecutionPlanRequest.executionPlanId;
+                } else {
+                    clientRequestId = describeExecutionPlanRequest['Client-Request-Id'];
+                    projectId = describeExecutionPlanRequest['project_id'];
+                    stackName = describeExecutionPlanRequest['stack_name'];
+                    executionPlanName = describeExecutionPlanRequest['execution_plan_name'];
+                    stackId = describeExecutionPlanRequest['stack_id'];
+                    executionPlanId = describeExecutionPlanRequest['execution_plan_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling describeExecutionPlan.');
+            }
+            if (stackName === null || stackName === undefined) {
+            throw new RequiredError('stackName','Required parameter stackName was null or undefined when calling describeExecutionPlan.');
+            }
+            if (executionPlanName === null || executionPlanName === undefined) {
+            throw new RequiredError('executionPlanName','Required parameter executionPlanName was null or undefined when calling describeExecutionPlan.');
+            }
+            if (stackId !== null && stackId !== undefined) {
+                localVarQueryParameter['stack_id'] = stackId;
+            }
+            if (executionPlanId !== null && executionPlanId !== undefined) {
+                localVarQueryParameter['execution_plan_id'] = executionPlanId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'stack_name': stackName,'execution_plan_name': executionPlanName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -644,7 +859,131 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取堆栈当前使用的模板
+         * 此接口用于获取执行计划的详细内容
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getExecutionPlan(getExecutionPlanRequest?: GetExecutionPlanRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/stacks/{stack_name}/execution-plans/{execution_plan_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let clientRequestId;
+            let projectId;
+            let stackName;
+            let executionPlanName;
+            let stackId;
+            let executionPlanId;
+
+            if (getExecutionPlanRequest !== null && getExecutionPlanRequest !== undefined) {
+                if (getExecutionPlanRequest instanceof GetExecutionPlanRequest) {
+                    clientRequestId = getExecutionPlanRequest.clientRequestId;
+                    projectId = getExecutionPlanRequest.projectId;
+                    stackName = getExecutionPlanRequest.stackName;
+                    executionPlanName = getExecutionPlanRequest.executionPlanName;
+                    stackId = getExecutionPlanRequest.stackId;
+                    executionPlanId = getExecutionPlanRequest.executionPlanId;
+                } else {
+                    clientRequestId = getExecutionPlanRequest['Client-Request-Id'];
+                    projectId = getExecutionPlanRequest['project_id'];
+                    stackName = getExecutionPlanRequest['stack_name'];
+                    executionPlanName = getExecutionPlanRequest['execution_plan_name'];
+                    stackId = getExecutionPlanRequest['stack_id'];
+                    executionPlanId = getExecutionPlanRequest['execution_plan_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling getExecutionPlan.');
+            }
+            if (stackName === null || stackName === undefined) {
+            throw new RequiredError('stackName','Required parameter stackName was null or undefined when calling getExecutionPlan.');
+            }
+            if (executionPlanName === null || executionPlanName === undefined) {
+            throw new RequiredError('executionPlanName','Required parameter executionPlanName was null or undefined when calling getExecutionPlan.');
+            }
+            if (stackId !== null && stackId !== undefined) {
+                localVarQueryParameter['stack_id'] = stackId;
+            }
+            if (executionPlanId !== null && executionPlanId !== undefined) {
+                localVarQueryParameter['execution_plan_id'] = executionPlanId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'stack_name': stackName,'execution_plan_name': executionPlanName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 描述栈的状态，返回栈的元数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        getStackMetadata(getStackMetadataRequest?: GetStackMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/stacks/{stack_name}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            let clientRequestId;
+            let projectId;
+            let stackName;
+            let stackId;
+
+            if (getStackMetadataRequest !== null && getStackMetadataRequest !== undefined) {
+                if (getStackMetadataRequest instanceof GetStackMetadataRequest) {
+                    clientRequestId = getStackMetadataRequest.clientRequestId;
+                    projectId = getStackMetadataRequest.projectId;
+                    stackName = getStackMetadataRequest.stackName;
+                    stackId = getStackMetadataRequest.stackId;
+                } else {
+                    clientRequestId = getStackMetadataRequest['Client-Request-Id'];
+                    projectId = getStackMetadataRequest['project_id'];
+                    stackName = getStackMetadataRequest['stack_name'];
+                    stackId = getStackMetadataRequest['stack_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling getStackMetadata.');
+            }
+            if (stackName === null || stackName === undefined) {
+            throw new RequiredError('stackName','Required parameter stackName was null or undefined when calling getStackMetadata.');
+            }
+            if (stackId !== null && stackId !== undefined) {
+                localVarQueryParameter['stack_id'] = stackId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'stack_name': stackName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取资源栈当前使用的模板
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -664,7 +1003,6 @@ export const ParamCreater = function () {
             let projectId;
             let stackName;
             let stackId;
-            let executor;
 
             if (getStackTemplateRequest !== null && getStackTemplateRequest !== undefined) {
                 if (getStackTemplateRequest instanceof GetStackTemplateRequest) {
@@ -672,13 +1010,11 @@ export const ParamCreater = function () {
                     projectId = getStackTemplateRequest.projectId;
                     stackName = getStackTemplateRequest.stackName;
                     stackId = getStackTemplateRequest.stackId;
-                    executor = getStackTemplateRequest.executor;
                 } else {
                     clientRequestId = getStackTemplateRequest['Client-Request-Id'];
                     projectId = getStackTemplateRequest['project_id'];
                     stackName = getStackTemplateRequest['stack_name'];
                     stackId = getStackTemplateRequest['stack_id'];
-                    executor = getStackTemplateRequest['executor'];
                 }
             }
 
@@ -691,9 +1027,6 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -725,7 +1058,6 @@ export const ParamCreater = function () {
             let clientRequestId;
             let projectId;
             let stackName;
-            let executor;
             let stackId;
 
             if (listExecutionPlansRequest !== null && listExecutionPlansRequest !== undefined) {
@@ -733,13 +1065,11 @@ export const ParamCreater = function () {
                     clientRequestId = listExecutionPlansRequest.clientRequestId;
                     projectId = listExecutionPlansRequest.projectId;
                     stackName = listExecutionPlansRequest.stackName;
-                    executor = listExecutionPlansRequest.executor;
                     stackId = listExecutionPlansRequest.stackId;
                 } else {
                     clientRequestId = listExecutionPlansRequest['Client-Request-Id'];
                     projectId = listExecutionPlansRequest['project_id'];
                     stackName = listExecutionPlansRequest['stack_name'];
-                    executor = listExecutionPlansRequest['executor'];
                     stackId = listExecutionPlansRequest['stack_id'];
                 }
             }
@@ -750,9 +1080,6 @@ export const ParamCreater = function () {
             }
             if (stackName === null || stackName === undefined) {
             throw new RequiredError('stackName','Required parameter stackName was null or undefined when calling listExecutionPlans.');
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
@@ -789,9 +1116,6 @@ export const ParamCreater = function () {
             let stackName;
             let stackId;
             let deploymentId;
-            let limit;
-            let marker;
-            let executor;
 
             if (listStackEventsRequest !== null && listStackEventsRequest !== undefined) {
                 if (listStackEventsRequest instanceof ListStackEventsRequest) {
@@ -800,18 +1124,12 @@ export const ParamCreater = function () {
                     stackName = listStackEventsRequest.stackName;
                     stackId = listStackEventsRequest.stackId;
                     deploymentId = listStackEventsRequest.deploymentId;
-                    limit = listStackEventsRequest.limit;
-                    marker = listStackEventsRequest.marker;
-                    executor = listStackEventsRequest.executor;
                 } else {
                     clientRequestId = listStackEventsRequest['Client-Request-Id'];
                     projectId = listStackEventsRequest['project_id'];
                     stackName = listStackEventsRequest['stack_name'];
                     stackId = listStackEventsRequest['stack_id'];
                     deploymentId = listStackEventsRequest['deployment_id'];
-                    limit = listStackEventsRequest['limit'];
-                    marker = listStackEventsRequest['marker'];
-                    executor = listStackEventsRequest['executor'];
                 }
             }
 
@@ -828,15 +1146,6 @@ export const ParamCreater = function () {
             if (deploymentId !== null && deploymentId !== undefined) {
                 localVarQueryParameter['deployment_id'] = deploymentId;
             }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
-            }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
             }
@@ -848,7 +1157,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 列举堆栈的输出
+         * 列举资源栈的输出
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -868,9 +1177,6 @@ export const ParamCreater = function () {
             let projectId;
             let stackName;
             let stackId;
-            let executor;
-            let limit;
-            let marker;
 
             if (listStackOutputsRequest !== null && listStackOutputsRequest !== undefined) {
                 if (listStackOutputsRequest instanceof ListStackOutputsRequest) {
@@ -878,17 +1184,11 @@ export const ParamCreater = function () {
                     projectId = listStackOutputsRequest.projectId;
                     stackName = listStackOutputsRequest.stackName;
                     stackId = listStackOutputsRequest.stackId;
-                    executor = listStackOutputsRequest.executor;
-                    limit = listStackOutputsRequest.limit;
-                    marker = listStackOutputsRequest.marker;
                 } else {
                     clientRequestId = listStackOutputsRequest['Client-Request-Id'];
                     projectId = listStackOutputsRequest['project_id'];
                     stackName = listStackOutputsRequest['stack_name'];
                     stackId = listStackOutputsRequest['stack_id'];
-                    executor = listStackOutputsRequest['executor'];
-                    limit = listStackOutputsRequest['limit'];
-                    marker = listStackOutputsRequest['marker'];
                 }
             }
 
@@ -902,15 +1202,6 @@ export const ParamCreater = function () {
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
             }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-            if (marker !== null && marker !== undefined) {
-                localVarQueryParameter['marker'] = marker;
-            }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
             }
@@ -922,7 +1213,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取堆栈的资源列表，可以获取整个栈从生成到当前时间点的所有状态
+         * 获取资源栈的资源列表，可以获取整个栈从生成到当前时间点的所有状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -942,7 +1233,6 @@ export const ParamCreater = function () {
             let projectId;
             let stackName;
             let stackId;
-            let executor;
 
             if (listStackResourcesRequest !== null && listStackResourcesRequest !== undefined) {
                 if (listStackResourcesRequest instanceof ListStackResourcesRequest) {
@@ -950,13 +1240,11 @@ export const ParamCreater = function () {
                     projectId = listStackResourcesRequest.projectId;
                     stackName = listStackResourcesRequest.stackName;
                     stackId = listStackResourcesRequest.stackId;
-                    executor = listStackResourcesRequest.executor;
                 } else {
                     clientRequestId = listStackResourcesRequest['Client-Request-Id'];
                     projectId = listStackResourcesRequest['project_id'];
                     stackName = listStackResourcesRequest['stack_name'];
                     stackId = listStackResourcesRequest['stack_id'];
-                    executor = listStackResourcesRequest['executor'];
                 }
             }
 
@@ -969,9 +1257,6 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -1157,7 +1442,7 @@ export const ParamCreater = function () {
          * 
          * * 此API为全量API，即用户每次部署都需要给予所想要使用的template、vars的全量
          * 
-         * * 当触发的部署失败时，如果堆栈开启了自动回滚，会触发自动回滚的流程，否则就会停留在部署失败时的状态
+         * * 当触发的部署失败时，如果资源栈开启了自动回滚，会触发自动回滚的流程，否则就会停留在部署失败时的状态
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1214,11 +1499,11 @@ export const ParamCreater = function () {
         },
     
         /**
-         * ListStacks 列举当前局点下用户所有的堆栈
+         * ListStacks 列举当前局点下用户所有的资源栈
          * 
          *   * 默认按照生成时间排序，最早生成的在最前
-         *   * 注意：目前暂时返回全量堆栈信息，即不支持分页
-         *   * 如果没有任何堆栈，则返回空list
+         *   * 注意：目前暂时返回全量资源栈信息，即不支持分页
+         *   * 如果没有任何资源栈，则返回空list
          * 
          * ListStacks返回的只有摘要信息（具体摘要信息见ListStacksResponseBody），如果用户需要详细的资源栈元数据请调用GetStackMetadata
          * 
@@ -1235,20 +1520,17 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+
             let clientRequestId;
             let projectId;
-            let executor;
 
             if (listStacksRequest !== null && listStacksRequest !== undefined) {
                 if (listStacksRequest instanceof ListStacksRequest) {
                     clientRequestId = listStacksRequest.clientRequestId;
                     projectId = listStacksRequest.projectId;
-                    executor = listStacksRequest.executor;
                 } else {
                     clientRequestId = listStacksRequest['Client-Request-Id'];
                     projectId = listStacksRequest['project_id'];
-                    executor = listStacksRequest['executor'];
                 }
             }
 
@@ -1256,14 +1538,10 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listStacks.');
             }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
-            }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
             }
 
-            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;

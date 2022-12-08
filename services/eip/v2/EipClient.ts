@@ -7,19 +7,36 @@ import { AddPublicipsIntoSharedBandwidthRequest } from './model/AddPublicipsInto
 import { AddPublicipsIntoSharedBandwidthRequestBody } from './model/AddPublicipsIntoSharedBandwidthRequestBody';
 import { AddPublicipsIntoSharedBandwidthResponse } from './model/AddPublicipsIntoSharedBandwidthResponse';
 import { BandWidthRules } from './model/BandWidthRules';
+import { BandwidthPkgPage } from './model/BandwidthPkgPage';
+import { BandwidthPkgResp } from './model/BandwidthPkgResp';
 import { BandwidthResp } from './model/BandwidthResp';
 import { BandwidthRespInsert } from './model/BandwidthRespInsert';
+import { BatchBandwidth } from './model/BatchBandwidth';
 import { BatchBandwidthResp } from './model/BatchBandwidthResp';
 import { BatchCreateBandwidthOption } from './model/BatchCreateBandwidthOption';
 import { BatchCreateBandwidthRequestBody } from './model/BatchCreateBandwidthRequestBody';
 import { BatchCreatePublicipTagsRequest } from './model/BatchCreatePublicipTagsRequest';
 import { BatchCreatePublicipTagsRequestBody } from './model/BatchCreatePublicipTagsRequestBody';
 import { BatchCreatePublicipTagsResponse } from './model/BatchCreatePublicipTagsResponse';
+import { BatchCreatePublicipsRequest } from './model/BatchCreatePublicipsRequest';
+import { BatchCreatePublicipsResponse } from './model/BatchCreatePublicipsResponse';
+import { BatchCreatePublicipsV2RequestBody } from './model/BatchCreatePublicipsV2RequestBody';
 import { BatchCreateSharedBandwidthsRequest } from './model/BatchCreateSharedBandwidthsRequest';
 import { BatchCreateSharedBandwidthsResponse } from './model/BatchCreateSharedBandwidthsResponse';
+import { BatchDeletePublicIpRequest } from './model/BatchDeletePublicIpRequest';
+import { BatchDeletePublicIpRequestBody } from './model/BatchDeletePublicIpRequestBody';
+import { BatchDeletePublicIpResponse } from './model/BatchDeletePublicIpResponse';
 import { BatchDeletePublicipTagsRequest } from './model/BatchDeletePublicipTagsRequest';
 import { BatchDeletePublicipTagsRequestBody } from './model/BatchDeletePublicipTagsRequestBody';
 import { BatchDeletePublicipTagsResponse } from './model/BatchDeletePublicipTagsResponse';
+import { BatchDisassociatePublicipsRequest } from './model/BatchDisassociatePublicipsRequest';
+import { BatchDisassociatePublicipsResponse } from './model/BatchDisassociatePublicipsResponse';
+import { BatchProfile } from './model/BatchProfile';
+import { BatchPublicIp } from './model/BatchPublicIp';
+import { CountPublicIpInstanceRequest } from './model/CountPublicIpInstanceRequest';
+import { CountPublicIpInstanceResponse } from './model/CountPublicIpInstanceResponse';
+import { CountPublicIpRequest } from './model/CountPublicIpRequest';
+import { CountPublicIpResponse } from './model/CountPublicIpResponse';
 import { CreateFloatingIpOption } from './model/CreateFloatingIpOption';
 import { CreatePrePaidPublicipExtendParamOption } from './model/CreatePrePaidPublicipExtendParamOption';
 import { CreatePrePaidPublicipOption } from './model/CreatePrePaidPublicipOption';
@@ -46,6 +63,8 @@ import { DeleteSharedBandwidthRequest } from './model/DeleteSharedBandwidthReque
 import { DeleteSharedBandwidthResponse } from './model/DeleteSharedBandwidthResponse';
 import { FloatingIpResp } from './model/FloatingIpResp';
 import { InsertPublicipInfo } from './model/InsertPublicipInfo';
+import { ListBandwidthPkgRequest } from './model/ListBandwidthPkgRequest';
+import { ListBandwidthPkgResponse } from './model/ListBandwidthPkgResponse';
 import { ListBandwidthsRequest } from './model/ListBandwidthsRequest';
 import { ListBandwidthsResponse } from './model/ListBandwidthsResponse';
 import { ListPublicipTagsRequest } from './model/ListPublicipTagsRequest';
@@ -89,6 +108,8 @@ import { ResourceTagOption } from './model/ResourceTagOption';
 import { ResourceTagResp } from './model/ResourceTagResp';
 import { ShowBandwidthRequest } from './model/ShowBandwidthRequest';
 import { ShowBandwidthResponse } from './model/ShowBandwidthResponse';
+import { ShowPublicIpTypeRequest } from './model/ShowPublicIpTypeRequest';
+import { ShowPublicIpTypeResponse } from './model/ShowPublicIpTypeResponse';
 import { ShowPublicipRequest } from './model/ShowPublicipRequest';
 import { ShowPublicipResponse } from './model/ShowPublicipResponse';
 import { ShowPublicipTagsRequest } from './model/ShowPublicipTagsRequest';
@@ -189,6 +210,22 @@ export class EipClient {
      */
     public deleteSharedBandwidth(deleteSharedBandwidthRequest?: DeleteSharedBandwidthRequest): Promise<void> {
         const options = ParamCreater().deleteSharedBandwidth(deleteSharedBandwidthRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询带宽加油包列表信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询带宽加油包列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBandwidthPkg(): Promise<ListBandwidthPkgResponse> {
+        const options = ParamCreater().listBandwidthPkg();
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -321,6 +358,40 @@ export class EipClient {
     }
 
     /**
+     * 批量创建弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量创建弹性公网IP
+     * @param {BatchCreatePublicipsV2RequestBody} batchCreatePublicipsV2RequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchCreatePublicips(batchCreatePublicipsRequest?: BatchCreatePublicipsRequest): Promise<BatchCreatePublicipsResponse> {
+        const options = ParamCreater().batchCreatePublicips(batchCreatePublicipsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量删除弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量删除弹性公网IP
+     * @param {BatchDeletePublicIpRequestBody} batchDeletePublicIpRequestBody 批量操作弹性公网IP请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDeletePublicIp(batchDeletePublicIpRequest?: BatchDeletePublicIpRequest): Promise<BatchDeletePublicIpResponse> {
+        const options = ParamCreater().batchDeletePublicIp(batchDeletePublicIpRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为指定的弹性公网IP资源实例批量删除标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -333,6 +404,55 @@ export class EipClient {
      */
     public batchDeletePublicipTags(batchDeletePublicipTagsRequest?: BatchDeletePublicipTagsRequest): Promise<void> {
         const options = ParamCreater().batchDeletePublicipTags(batchDeletePublicipTagsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 批量解绑弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量解绑弹性公网IP
+     * @param {BatchDeletePublicIpRequestBody} batchDisassociatePublicipsRequestBody 批量操作弹性公网IP请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchDisassociatePublicips(batchDisassociatePublicipsRequest?: BatchDisassociatePublicipsRequest): Promise<BatchDisassociatePublicipsResponse> {
+        const options = ParamCreater().batchDisassociatePublicips(batchDisassociatePublicipsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询PublicIp数量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询PublicIp数量
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countPublicIp(): Promise<CountPublicIpResponse> {
+        const options = ParamCreater().countPublicIp();
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询PublicIp实例数
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询PublicIp实例数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public countPublicIpInstance(): Promise<string> {
+        const options = ParamCreater().countPublicIpInstance();
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -479,6 +599,22 @@ export class EipClient {
      */
     public listPublicipsByTags(listPublicipsByTagsRequest?: ListPublicipsByTagsRequest): Promise<ListPublicipsByTagsResponse> {
         const options = ParamCreater().listPublicipsByTags(listPublicipsByTagsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询PublicIp类型
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询PublicIp类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPublicIpType(): Promise<string> {
+        const options = ParamCreater().showPublicIpType();
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -796,6 +932,28 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询带宽加油包列表信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBandwidthPkg() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/bandwidthpkgs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询带宽列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1105,6 +1263,82 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量创建弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchCreatePublicips(batchCreatePublicipsRequest?: BatchCreatePublicipsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/batchpublicips",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (batchCreatePublicipsRequest !== null && batchCreatePublicipsRequest !== undefined) {
+                if (batchCreatePublicipsRequest instanceof BatchCreatePublicipsRequest) {
+                    body = batchCreatePublicipsRequest.body
+                } else {
+                    body = batchCreatePublicipsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量删除弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDeletePublicIp(batchDeletePublicIpRequest?: BatchDeletePublicIpRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/batchpublicips",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (batchDeletePublicIpRequest !== null && batchDeletePublicIpRequest !== undefined) {
+                if (batchDeletePublicIpRequest instanceof BatchDeletePublicIpRequest) {
+                    body = batchDeletePublicIpRequest.body
+                } else {
+                    body = batchDeletePublicIpRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为指定的弹性公网IP资源实例批量删除标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1145,6 +1379,88 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'publicip_id': publicipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 批量解绑弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchDisassociatePublicips(batchDisassociatePublicipsRequest?: BatchDisassociatePublicipsRequest) {
+            const options = {
+                method: "PATCH",
+                url: "/v2/{project_id}/batchpublicips",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (batchDisassociatePublicipsRequest !== null && batchDisassociatePublicipsRequest !== undefined) {
+                if (batchDisassociatePublicipsRequest instanceof BatchDisassociatePublicipsRequest) {
+                    body = batchDisassociatePublicipsRequest.body
+                } else {
+                    body = batchDisassociatePublicipsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询PublicIp数量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countPublicIp() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/elasticips",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询PublicIp实例数
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        countPublicIpInstance() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/publicip/instances",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1492,6 +1808,28 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询PublicIp类型
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPublicIpType() {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/publicip_types",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

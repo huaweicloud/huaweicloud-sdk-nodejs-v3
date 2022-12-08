@@ -3,7 +3,6 @@
 export class ApplyExecutionPlanRequestBody {
     private 'stack_id'?: string | undefined;
     private 'execution_plan_id'?: string | undefined;
-    public executor?: string;
     public constructor() { 
     }
     public withStackId(stackId: string): ApplyExecutionPlanRequestBody {
@@ -25,9 +24,5 @@ export class ApplyExecutionPlanRequestBody {
     }
     public get executionPlanId() {
         return this['execution_plan_id'];
-    }
-    public withExecutor(executor: string): ApplyExecutionPlanRequestBody {
-        this['executor'] = executor;
-        return this;
     }
 }

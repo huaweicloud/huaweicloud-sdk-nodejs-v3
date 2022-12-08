@@ -1,4 +1,3 @@
-import { ExecutorPrimitiveTypeHolder } from './ExecutorPrimitiveTypeHolder';
 import { StackIdPrimitiveTypeHolder } from './StackIdPrimitiveTypeHolder';
 import { TemplateBodyPrimitiveTypeHolder } from './TemplateBodyPrimitiveTypeHolder';
 import { TemplateURIPrimitiveTypeHolder } from './TemplateURIPrimitiveTypeHolder';
@@ -9,7 +8,6 @@ import { VarsURIPrimitiveTypeHolder } from './VarsURIPrimitiveTypeHolder';
 
 
 export class DeployStackRequestBody {
-    public executor?: string;
     private 'template_body'?: string | undefined;
     private 'template_uri'?: string | undefined;
     private 'vars_structure'?: Array<VarsStructure> | undefined;
@@ -17,10 +15,6 @@ export class DeployStackRequestBody {
     private 'vars_uri'?: string | undefined;
     private 'stack_id'?: string | undefined;
     public constructor() { 
-    }
-    public withExecutor(executor: string): DeployStackRequestBody {
-        this['executor'] = executor;
-        return this;
     }
     public withTemplateBody(templateBody: string): DeployStackRequestBody {
         this['template_body'] = templateBody;

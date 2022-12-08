@@ -1,25 +1,25 @@
+import { FirewallInstanceResource } from './FirewallInstanceResource';
 import { Flavor } from './Flavor';
 import { ProtectObjectVO } from './ProtectObjectVO';
 
 
-export class GetFirewallInstanceResponseData {
+export class GetFirewallInstanceResponseRecord {
     private 'fw_instance_id'?: string | undefined;
-    private 'resource_id'?: string | undefined;
     public name?: string;
     private 'ha_type'?: number | undefined;
     private 'charge_mode'?: number | undefined;
     private 'service_type'?: number | undefined;
-    private 'engine_type'?: string | undefined;
+    private 'engine_type'?: number | undefined;
     public flavor?: Flavor;
     private 'protect_objects'?: Array<ProtectObjectVO> | undefined;
-    public status?: GetFirewallInstanceResponseDataStatusEnum;
-    public description?: string;
+    public status?: GetFirewallInstanceResponseRecordStatusEnum;
     private 'is_old_firewall_instance'?: boolean | undefined;
     private 'support_ipv6'?: boolean | undefined;
     private 'feature_toggle'?: { [key: string]: boolean; } | undefined;
+    public resources?: Array<FirewallInstanceResource>;
     public constructor() { 
     }
-    public withFwInstanceId(fwInstanceId: string): GetFirewallInstanceResponseData {
+    public withFwInstanceId(fwInstanceId: string): GetFirewallInstanceResponseRecord {
         this['fw_instance_id'] = fwInstanceId;
         return this;
     }
@@ -29,21 +29,11 @@ export class GetFirewallInstanceResponseData {
     public get fwInstanceId() {
         return this['fw_instance_id'];
     }
-    public withResourceId(resourceId: string): GetFirewallInstanceResponseData {
-        this['resource_id'] = resourceId;
-        return this;
-    }
-    public set resourceId(resourceId: string | undefined) {
-        this['resource_id'] = resourceId;
-    }
-    public get resourceId() {
-        return this['resource_id'];
-    }
-    public withName(name: string): GetFirewallInstanceResponseData {
+    public withName(name: string): GetFirewallInstanceResponseRecord {
         this['name'] = name;
         return this;
     }
-    public withHaType(haType: number): GetFirewallInstanceResponseData {
+    public withHaType(haType: number): GetFirewallInstanceResponseRecord {
         this['ha_type'] = haType;
         return this;
     }
@@ -53,7 +43,7 @@ export class GetFirewallInstanceResponseData {
     public get haType() {
         return this['ha_type'];
     }
-    public withChargeMode(chargeMode: number): GetFirewallInstanceResponseData {
+    public withChargeMode(chargeMode: number): GetFirewallInstanceResponseRecord {
         this['charge_mode'] = chargeMode;
         return this;
     }
@@ -63,7 +53,7 @@ export class GetFirewallInstanceResponseData {
     public get chargeMode() {
         return this['charge_mode'];
     }
-    public withServiceType(serviceType: number): GetFirewallInstanceResponseData {
+    public withServiceType(serviceType: number): GetFirewallInstanceResponseRecord {
         this['service_type'] = serviceType;
         return this;
     }
@@ -73,21 +63,21 @@ export class GetFirewallInstanceResponseData {
     public get serviceType() {
         return this['service_type'];
     }
-    public withEngineType(engineType: string): GetFirewallInstanceResponseData {
+    public withEngineType(engineType: number): GetFirewallInstanceResponseRecord {
         this['engine_type'] = engineType;
         return this;
     }
-    public set engineType(engineType: string | undefined) {
+    public set engineType(engineType: number | undefined) {
         this['engine_type'] = engineType;
     }
     public get engineType() {
         return this['engine_type'];
     }
-    public withFlavor(flavor: Flavor): GetFirewallInstanceResponseData {
+    public withFlavor(flavor: Flavor): GetFirewallInstanceResponseRecord {
         this['flavor'] = flavor;
         return this;
     }
-    public withProtectObjects(protectObjects: Array<ProtectObjectVO>): GetFirewallInstanceResponseData {
+    public withProtectObjects(protectObjects: Array<ProtectObjectVO>): GetFirewallInstanceResponseRecord {
         this['protect_objects'] = protectObjects;
         return this;
     }
@@ -97,15 +87,11 @@ export class GetFirewallInstanceResponseData {
     public get protectObjects() {
         return this['protect_objects'];
     }
-    public withStatus(status: GetFirewallInstanceResponseDataStatusEnum): GetFirewallInstanceResponseData {
+    public withStatus(status: GetFirewallInstanceResponseRecordStatusEnum): GetFirewallInstanceResponseRecord {
         this['status'] = status;
         return this;
     }
-    public withDescription(description: string): GetFirewallInstanceResponseData {
-        this['description'] = description;
-        return this;
-    }
-    public withIsOldFirewallInstance(isOldFirewallInstance: boolean): GetFirewallInstanceResponseData {
+    public withIsOldFirewallInstance(isOldFirewallInstance: boolean): GetFirewallInstanceResponseRecord {
         this['is_old_firewall_instance'] = isOldFirewallInstance;
         return this;
     }
@@ -115,7 +101,7 @@ export class GetFirewallInstanceResponseData {
     public get isOldFirewallInstance() {
         return this['is_old_firewall_instance'];
     }
-    public withSupportIpv6(supportIpv6: boolean): GetFirewallInstanceResponseData {
+    public withSupportIpv6(supportIpv6: boolean): GetFirewallInstanceResponseRecord {
         this['support_ipv6'] = supportIpv6;
         return this;
     }
@@ -125,7 +111,7 @@ export class GetFirewallInstanceResponseData {
     public get supportIpv6() {
         return this['support_ipv6'];
     }
-    public withFeatureToggle(featureToggle: { [key: string]: boolean; }): GetFirewallInstanceResponseData {
+    public withFeatureToggle(featureToggle: { [key: string]: boolean; }): GetFirewallInstanceResponseRecord {
         this['feature_toggle'] = featureToggle;
         return this;
     }
@@ -135,13 +121,17 @@ export class GetFirewallInstanceResponseData {
     public get featureToggle() {
         return this['feature_toggle'];
     }
+    public withResources(resources: Array<FirewallInstanceResource>): GetFirewallInstanceResponseRecord {
+        this['resources'] = resources;
+        return this;
+    }
 }
 
 /**
     * @export
     * @enum {string}
     */
-export enum GetFirewallInstanceResponseDataStatusEnum {
+export enum GetFirewallInstanceResponseRecordStatusEnum {
     NUMBER_MINUS_1 = -1,
     NUMBER_0 = 0,
     NUMBER_1 = 1,

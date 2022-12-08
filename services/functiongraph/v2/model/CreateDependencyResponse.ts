@@ -12,6 +12,7 @@ export class CreateDependencyResponse extends SdkResponse {
     public description?: string;
     private 'file_name'?: string | undefined;
     public version?: number;
+    private 'dep_id'?: string | undefined;
     private 'last_modified'?: number | undefined;
     public constructor() { 
         super();
@@ -61,6 +62,16 @@ export class CreateDependencyResponse extends SdkResponse {
     public withVersion(version: number): CreateDependencyResponse {
         this['version'] = version;
         return this;
+    }
+    public withDepId(depId: string): CreateDependencyResponse {
+        this['dep_id'] = depId;
+        return this;
+    }
+    public set depId(depId: string | undefined) {
+        this['dep_id'] = depId;
+    }
+    public get depId() {
+        return this['dep_id'];
     }
     public withLastModified(lastModified: number): CreateDependencyResponse {
         this['last_modified'] = lastModified;

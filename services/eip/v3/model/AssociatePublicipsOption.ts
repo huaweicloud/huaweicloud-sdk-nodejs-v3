@@ -35,6 +35,5 @@ export enum AssociatePublicipsOptionAssociateInstanceTypeEnum {
     PORT = 'PORT',
     NATGW = 'NATGW',
     VPN = 'VPN',
-    ELB = 'ELB',
-    Empty = ''
+    ELB = 'ELB'
 }

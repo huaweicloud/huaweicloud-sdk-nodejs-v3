@@ -3,7 +3,6 @@
 export class ListStacksRequest {
     private 'Client-Request-Id': string | undefined;
     private 'project_id': string | undefined;
-    public executor?: string;
     public constructor(clientRequestId?: any, projectId?: any) { 
         this['Client-Request-Id'] = clientRequestId;
         this['project_id'] = projectId;
@@ -27,9 +26,5 @@ export class ListStacksRequest {
     }
     public get projectId() {
         return this['project_id'];
-    }
-    public withExecutor(executor: string): ListStacksRequest {
-        this['executor'] = executor;
-        return this;
     }
 }

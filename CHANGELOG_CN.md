@@ -1,3 +1,102 @@
+# 3.1.14 2022-12-08
+
+### HuaweiCloud SDK AOS
+
+- _新增特性_
+  - 支持接口`GetExecutionPlan`、`DeleteExecutionPlan`、`DescribeExecutionPlan`、`GetStackMetadata`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ListExecutionPlans`移除请求参数 `executor`
+  - 接口`CreateExecutionPlan`移除请求参数 `executor`
+  - 接口`ApplyExecutionPlan`移除请求参数 `executor`
+  - 接口`ListStackEvents`:
+    - 移除请求参数 `limit`、`marker`、`executor`
+    - 移除响应参数 `next_marker`
+  - 接口`ListStacks`移除请求参数 `executor`
+  - 接口`CreateStack`移除请求参数 `executor`
+  - 接口`GetStackTemplate`移除请求参数 `executor`
+  - 接口`ListStackResources`:
+    - 移除请求参数 `executor`
+    - 移除响应参数 `create_time`、`update_time`
+  - 接口`ListStackOutputs`:
+    - 移除请求参数 `executor`、`limit`、`marker`
+    - 移除响应参数 `next_marker`
+  - 接口`DeployStack`移除请求参数 `executor`
+  - 接口`DeleteStack`移除请求参数 `executor`
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`CreateAddonInstance`请求参数`version`改为非必填
+  - 接口`UpdateAddonInstance`请求参数`version`改为非必填
+
+### HuaweiCloud SDK CFW
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ListIpsSwitchStatusUsingGet`:
+    - 新增响应参数 `id`、`virtual_patches_status`
+    - 移除响应参数 `object_id`、`virtual_patches_stauts`
+  - 接口`ChangeIpsSwitchUsingPost`请求参数`ips_type`改为必填
+  - 接口`ListFirewallUsingGet`移除响应参数 `fw_instance_id`、`resource_id`、`name`、`ha_type`、`charge_mode`、`service_type`、`engine_type`、`flavor`、`protect_objects`、`status`、`description`、`is_old_firewall_instance`、`support_ipv6`、`feature_toggle`
+
+### HuaweiCloud SDK EIP
+
+- _新增特性_
+  - 支持以下接口：
+    - `ListBandwidthPkg`
+    - `CountPublicIp`
+    - `ShowPublicIpType`
+    - `CountPublicIpInstance`
+    - `BatchCreatePublicips`
+    - `BatchDeletePublicIp`
+    - `BatchDisassociatePublicips`
+    - `CountEipAvailableResources`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`AssociatePublicips`请求参数`associate_instance_type`移除枚举值``
+  - 接口`UpdateAssociatePublicip`请求参数`associate_instance_type`移除枚举值``
+
+### HuaweiCloud SDK FunctionGraph
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`CreateDependency`新增响应参数 `dep_id`
+  - 接口`CreateDependencyVersion`新增响应参数 `dep_id`
+  - 接口`UpdateFunctionConfig`新增请求参数 `enable_dynamic_memory`、`enable_auth_in_header`
+  - 接口`ShowWorkflowExecutionForPage`:
+    - 新增请求参数 `offset`、`limit`
+    - 新增响应参数 `total`、`size`、`executions`
+    - 移除请求参数 `page`、`page_size`
+    - 移除响应参数 `pager`、`hisRecords`
+
+### HuaweiCloud SDK TMS
+
+- _新增特性_
+  - 支持以下接口：
+    - `ListResource`
+    - `CreateResourceTag`
+    - `DeleteResourceTag`
+    - `ListTagKeys`
+    - `ListTagValues`
+    - `ShowResourceTag`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
 # 3.1.13 2022-12-01
 
 ### HuaweiCloud SDK CFW

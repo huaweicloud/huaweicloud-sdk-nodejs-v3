@@ -131,7 +131,6 @@ import { OnError } from './model/OnError';
 import { OperateErrorInfo } from './model/OperateErrorInfo';
 import { OperationState } from './model/OperationState';
 import { PageInfo } from './model/PageInfo';
-import { Pager } from './model/Pager';
 import { QueryRunListParam } from './model/QueryRunListParam';
 import { ReservedInstanceConfigs } from './model/ReservedInstanceConfigs';
 import { Resources } from './model/Resources';
@@ -257,7 +256,7 @@ export class FunctionGraphClient {
      *
      * @summary 函数异步执行并返回预留实例ID
      * @param {string} functionUrn 函数的URN（Uniform Resource Name），唯一标识函数。
-     * @param {{ [key: string]: object; }} asyncInvokeReservedFunctionRequestBody 函数异步执行并返回预留实例请求body体。
+     * @param {{ [key: string]: object; }} [asyncInvokeReservedFunctionRequestBody] 函数异步执行并返回预留实例请求body体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -492,7 +491,7 @@ export class FunctionGraphClient {
      *
      * @summary 删除依赖包版本
      * @param {string} dependId 依赖包的ID。
-     * @param {string} version 依赖包的ID。
+     * @param {string} version 依赖包版本号。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1625,9 +1624,6 @@ export const ParamCreater = function () {
         
             if (functionUrn === null || functionUrn === undefined) {
             throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling asyncInvokeReservedFunction.');
-            }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 

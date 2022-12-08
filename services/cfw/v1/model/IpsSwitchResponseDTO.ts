@@ -1,20 +1,14 @@
 
 
 export class IpsSwitchResponseDTO {
-    private 'object_id'?: string | undefined;
+    public id?: string;
     private 'basic_defense_status'?: number | undefined;
-    private 'virtual_patches_stauts'?: number | undefined;
+    private 'virtual_patches_status'?: number | undefined;
     public constructor() { 
     }
-    public withObjectId(objectId: string): IpsSwitchResponseDTO {
-        this['object_id'] = objectId;
+    public withId(id: string): IpsSwitchResponseDTO {
+        this['id'] = id;
         return this;
-    }
-    public set objectId(objectId: string | undefined) {
-        this['object_id'] = objectId;
-    }
-    public get objectId() {
-        return this['object_id'];
     }
     public withBasicDefenseStatus(basicDefenseStatus: number): IpsSwitchResponseDTO {
         this['basic_defense_status'] = basicDefenseStatus;
@@ -26,14 +20,14 @@ export class IpsSwitchResponseDTO {
     public get basicDefenseStatus() {
         return this['basic_defense_status'];
     }
-    public withVirtualPatchesStauts(virtualPatchesStauts: number): IpsSwitchResponseDTO {
-        this['virtual_patches_stauts'] = virtualPatchesStauts;
+    public withVirtualPatchesStatus(virtualPatchesStatus: number): IpsSwitchResponseDTO {
+        this['virtual_patches_status'] = virtualPatchesStatus;
         return this;
     }
-    public set virtualPatchesStauts(virtualPatchesStauts: number | undefined) {
-        this['virtual_patches_stauts'] = virtualPatchesStauts;
+    public set virtualPatchesStatus(virtualPatchesStatus: number | undefined) {
+        this['virtual_patches_status'] = virtualPatchesStatus;
     }
-    public get virtualPatchesStauts() {
-        return this['virtual_patches_stauts'];
+    public get virtualPatchesStatus() {
+        return this['virtual_patches_status'];
     }
 }

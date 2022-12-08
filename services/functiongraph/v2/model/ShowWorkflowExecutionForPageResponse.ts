@@ -1,20 +1,24 @@
 import { FlowExecutionBriefV2 } from './FlowExecutionBriefV2';
-import { Pager } from './Pager';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowWorkflowExecutionForPageResponse extends SdkResponse {
-    public pager?: Pager;
-    public hisRecords?: FlowExecutionBriefV2;
+    public total?: number;
+    public size?: number;
+    public executions?: FlowExecutionBriefV2;
     public constructor() { 
         super();
     }
-    public withPager(pager: Pager): ShowWorkflowExecutionForPageResponse {
-        this['pager'] = pager;
+    public withTotal(total: number): ShowWorkflowExecutionForPageResponse {
+        this['total'] = total;
         return this;
     }
-    public withHisRecords(hisRecords: FlowExecutionBriefV2): ShowWorkflowExecutionForPageResponse {
-        this['hisRecords'] = hisRecords;
+    public withSize(size: number): ShowWorkflowExecutionForPageResponse {
+        this['size'] = size;
+        return this;
+    }
+    public withExecutions(executions: FlowExecutionBriefV2): ShowWorkflowExecutionForPageResponse {
+        this['executions'] = executions;
         return this;
     }
 }
