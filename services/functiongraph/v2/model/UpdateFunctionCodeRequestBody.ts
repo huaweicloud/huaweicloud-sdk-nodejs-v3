@@ -7,6 +7,7 @@ export class UpdateFunctionCodeRequestBody {
     private 'code_filename'?: string | undefined;
     private 'func_code': FuncCode | undefined;
     private 'depend_list'?: Array<string> | undefined;
+    private 'depend_version_list'?: Array<string> | undefined;
     public constructor(codeType?: any, funcCode?: any) { 
         this['code_type'] = codeType;
         this['func_code'] = funcCode;
@@ -60,6 +61,16 @@ export class UpdateFunctionCodeRequestBody {
     }
     public get dependList() {
         return this['depend_list'];
+    }
+    public withDependVersionList(dependVersionList: Array<string>): UpdateFunctionCodeRequestBody {
+        this['depend_version_list'] = dependVersionList;
+        return this;
+    }
+    public set dependVersionList(dependVersionList: Array<string> | undefined) {
+        this['depend_version_list'] = dependVersionList;
+    }
+    public get dependVersionList() {
+        return this['depend_version_list'];
     }
 }
 

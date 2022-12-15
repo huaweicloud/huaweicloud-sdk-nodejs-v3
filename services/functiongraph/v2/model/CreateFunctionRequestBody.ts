@@ -1,4 +1,5 @@
 import { FuncCode } from './FuncCode';
+import { FuncVpc } from './FuncVpc';
 
 
 export class CreateFunctionRequestBody {
@@ -7,6 +8,8 @@ export class CreateFunctionRequestBody {
     public runtime: CreateFunctionRequestBodyRuntimeEnum;
     public timeout: number;
     public handler: string;
+    private 'depend_version_list'?: Array<string> | undefined;
+    private 'func_vpc'?: FuncVpc | undefined;
     private 'memory_size': number | undefined;
     private 'code_type': CreateFunctionRequestBodyCodeTypeEnum | undefined;
     private 'code_url'?: string | undefined;
@@ -60,6 +63,26 @@ export class CreateFunctionRequestBody {
     public withHandler(handler: string): CreateFunctionRequestBody {
         this['handler'] = handler;
         return this;
+    }
+    public withDependVersionList(dependVersionList: Array<string>): CreateFunctionRequestBody {
+        this['depend_version_list'] = dependVersionList;
+        return this;
+    }
+    public set dependVersionList(dependVersionList: Array<string> | undefined) {
+        this['depend_version_list'] = dependVersionList;
+    }
+    public get dependVersionList() {
+        return this['depend_version_list'];
+    }
+    public withFuncVpc(funcVpc: FuncVpc): CreateFunctionRequestBody {
+        this['func_vpc'] = funcVpc;
+        return this;
+    }
+    public set funcVpc(funcVpc: FuncVpc | undefined) {
+        this['func_vpc'] = funcVpc;
+    }
+    public get funcVpc() {
+        return this['func_vpc'];
     }
     public withMemorySize(memorySize: number): CreateFunctionRequestBody {
         this['memory_size'] = memorySize;

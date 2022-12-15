@@ -33,6 +33,12 @@ import { BatchDisassociatePublicipsRequest } from './model/BatchDisassociatePubl
 import { BatchDisassociatePublicipsResponse } from './model/BatchDisassociatePublicipsResponse';
 import { BatchProfile } from './model/BatchProfile';
 import { BatchPublicIp } from './model/BatchPublicIp';
+import { BwChangeToPeriodReq } from './model/BwChangeToPeriodReq';
+import { ChangeBandwidthToPeriodRequest } from './model/ChangeBandwidthToPeriodRequest';
+import { ChangeBandwidthToPeriodResponse } from './model/ChangeBandwidthToPeriodResponse';
+import { ChangePublicipToPeriodRequest } from './model/ChangePublicipToPeriodRequest';
+import { ChangePublicipToPeriodResponse } from './model/ChangePublicipToPeriodResponse';
+import { ChangeToPeriodReq } from './model/ChangeToPeriodReq';
 import { CountPublicIpInstanceRequest } from './model/CountPublicIpInstanceRequest';
 import { CountPublicIpInstanceResponse } from './model/CountPublicIpInstanceResponse';
 import { CountPublicIpRequest } from './model/CountPublicIpRequest';
@@ -114,6 +120,9 @@ import { ShowPublicipRequest } from './model/ShowPublicipRequest';
 import { ShowPublicipResponse } from './model/ShowPublicipResponse';
 import { ShowPublicipTagsRequest } from './model/ShowPublicipTagsRequest';
 import { ShowPublicipTagsResponse } from './model/ShowPublicipTagsResponse';
+import { ShowResourcesJobDetailRequest } from './model/ShowResourcesJobDetailRequest';
+import { ShowResourcesJobDetailResponse } from './model/ShowResourcesJobDetailResponse';
+import { SubJobs } from './model/SubJobs';
 import { TagReq } from './model/TagReq';
 import { TagResp } from './model/TagResp';
 import { UpdateBandwidthOption } from './model/UpdateBandwidthOption';
@@ -176,6 +185,23 @@ export class EipClient {
      */
     public batchCreateSharedBandwidths(batchCreateSharedBandwidthsRequest?: BatchCreateSharedBandwidthsRequest): Promise<BatchCreateSharedBandwidthsResponse> {
         const options = ParamCreater().batchCreateSharedBandwidths(batchCreateSharedBandwidthsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 租户按需转包接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按需转包API
+     * @param {BwChangeToPeriodReq} ipChangeToPeriodRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeBandwidthToPeriod(changeBandwidthToPeriodRequest?: ChangeBandwidthToPeriodRequest): Promise<ChangeBandwidthToPeriodResponse> {
+        const options = ParamCreater().changeBandwidthToPeriod(changeBandwidthToPeriodRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -421,6 +447,23 @@ export class EipClient {
      */
     public batchDisassociatePublicips(batchDisassociatePublicipsRequest?: BatchDisassociatePublicipsRequest): Promise<BatchDisassociatePublicipsResponse> {
         const options = ParamCreater().batchDisassociatePublicips(batchDisassociatePublicipsRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 租户按需转包接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 按需转包接口
+     * @param {ChangeToPeriodReq} ipChangeToPeriodRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changePublicipToPeriod(changePublicipToPeriodRequest?: ChangePublicipToPeriodRequest): Promise<ChangePublicipToPeriodResponse> {
+        const options = ParamCreater().changePublicipToPeriod(changePublicipToPeriodRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -673,6 +716,23 @@ export class EipClient {
     }
 
     /**
+     * 查询Job状态接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Job状态接口
+     * @param {string} jobId 批量操作返回的JOB ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResourcesJobDetail(showResourcesJobDetailRequest?: ShowResourcesJobDetailRequest): Promise<ShowResourcesJobDetailResponse> {
+        const options = ParamCreater().showResourcesJobDetail(showResourcesJobDetailRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建浮动IP的外部网络UUID，请使用GET /v2.0/networks?router:external&#x3D;True或neutron net-external-list方式获取。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -842,6 +902,44 @@ export const ParamCreater = function () {
                     body = batchCreateSharedBandwidthsRequest.body
                 } else {
                     body = batchCreateSharedBandwidthsRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 租户按需转包接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeBandwidthToPeriod(changeBandwidthToPeriodRequest?: ChangeBandwidthToPeriodRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/{project_id}/bandwidths/change-to-period",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (changeBandwidthToPeriodRequest !== null && changeBandwidthToPeriodRequest !== undefined) {
+                if (changeBandwidthToPeriodRequest instanceof ChangeBandwidthToPeriodRequest) {
+                    body = changeBandwidthToPeriodRequest.body
+                } else {
+                    body = changeBandwidthToPeriodRequest['body'];
                 }
             }
 
@@ -1422,6 +1520,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 租户按需转包接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changePublicipToPeriod(changePublicipToPeriodRequest?: ChangePublicipToPeriodRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/{project_id}/publicips/change-to-period",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (changePublicipToPeriodRequest !== null && changePublicipToPeriodRequest !== undefined) {
+                if (changePublicipToPeriodRequest instanceof ChangePublicipToPeriodRequest) {
+                    body = changePublicipToPeriodRequest.body
+                } else {
+                    body = changePublicipToPeriodRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询PublicIp数量
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1949,6 +2085,43 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'publicip_id': publicipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Job状态接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResourcesJobDetail(showResourcesJobDetailRequest?: ShowResourcesJobDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let jobId;
+
+            if (showResourcesJobDetailRequest !== null && showResourcesJobDetailRequest !== undefined) {
+                if (showResourcesJobDetailRequest instanceof ShowResourcesJobDetailRequest) {
+                    jobId = showResourcesJobDetailRequest.jobId;
+                } else {
+                    jobId = showResourcesJobDetailRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showResourcesJobDetail.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

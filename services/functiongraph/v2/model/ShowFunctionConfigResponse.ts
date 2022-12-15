@@ -34,6 +34,7 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     private 'func_vpc'?: FuncVpc | undefined;
     private 'mount_config'?: MountConfig | undefined;
     private 'depend_list'?: Array<string> | undefined;
+    private 'depend_version_list'?: Array<string> | undefined;
     private 'strategy_config'?: StrategyConfig | undefined;
     public dependencies?: Array<Dependency>;
     private 'initializer_handler'?: string | undefined;
@@ -265,6 +266,16 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     }
     public get dependList() {
         return this['depend_list'];
+    }
+    public withDependVersionList(dependVersionList: Array<string>): ShowFunctionConfigResponse {
+        this['depend_version_list'] = dependVersionList;
+        return this;
+    }
+    public set dependVersionList(dependVersionList: Array<string> | undefined) {
+        this['depend_version_list'] = dependVersionList;
+    }
+    public get dependVersionList() {
+        return this['depend_version_list'];
     }
     public withStrategyConfig(strategyConfig: StrategyConfig): ShowFunctionConfigResponse {
         this['strategy_config'] = strategyConfig;

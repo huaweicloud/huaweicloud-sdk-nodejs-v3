@@ -12,6 +12,7 @@ export class ListServersDetailsRequest {
     public status?: string;
     public tags?: string;
     private 'ip_eq'?: string | undefined;
+    private 'server_id'?: string | undefined;
     public constructor() { 
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListServersDetailsRequest {
@@ -81,5 +82,15 @@ export class ListServersDetailsRequest {
     }
     public get ipEq() {
         return this['ip_eq'];
+    }
+    public withServerId(serverId: string): ListServersDetailsRequest {
+        this['server_id'] = serverId;
+        return this;
+    }
+    public set serverId(serverId: string | undefined) {
+        this['server_id'] = serverId;
+    }
+    public get serverId() {
+        return this['server_id'];
     }
 }

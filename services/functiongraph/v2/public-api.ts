@@ -129,7 +129,6 @@ export * from './model/OnError';
 export * from './model/OperateErrorInfo';
 export * from './model/OperationState';
 export * from './model/PageInfo';
-export * from './model/QueryRunListParam';
 export * from './model/ReservedInstanceConfigs';
 export * from './model/Resources';
 export * from './model/Retry';

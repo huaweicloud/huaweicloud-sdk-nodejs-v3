@@ -17,6 +17,7 @@ export class UpdateFunctionCodeResponse extends SdkResponse {
     private 'last_modified'?: Date | undefined;
     private 'func_code'?: FuncCode | undefined;
     private 'depend_list'?: Array<string> | undefined;
+    private 'depend_version_list'?: Array<string> | undefined;
     private 'strategy_config'?: StrategyConfig | undefined;
     public dependencies?: Array<Dependency>;
     public constructor() { 
@@ -129,6 +130,16 @@ export class UpdateFunctionCodeResponse extends SdkResponse {
     }
     public get dependList() {
         return this['depend_list'];
+    }
+    public withDependVersionList(dependVersionList: Array<string>): UpdateFunctionCodeResponse {
+        this['depend_version_list'] = dependVersionList;
+        return this;
+    }
+    public set dependVersionList(dependVersionList: Array<string> | undefined) {
+        this['depend_version_list'] = dependVersionList;
+    }
+    public get dependVersionList() {
+        return this['depend_version_list'];
     }
     public withStrategyConfig(strategyConfig: StrategyConfig): UpdateFunctionCodeResponse {
         this['strategy_config'] = strategyConfig;

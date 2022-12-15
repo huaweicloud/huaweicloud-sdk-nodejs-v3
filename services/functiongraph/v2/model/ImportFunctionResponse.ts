@@ -30,6 +30,7 @@ export class ImportFunctionResponse extends SdkResponse {
     private 'last_modified'?: Date | undefined;
     private 'func_vpc'?: FuncVpc | undefined;
     private 'depend_list'?: Array<string> | undefined;
+    private 'depend_version_list'?: Array<string> | undefined;
     private 'strategy_config'?: StrategyConfig | undefined;
     private 'extend_config'?: string | undefined;
     private 'initializer_handler'?: string | undefined;
@@ -243,6 +244,16 @@ export class ImportFunctionResponse extends SdkResponse {
     }
     public get dependList() {
         return this['depend_list'];
+    }
+    public withDependVersionList(dependVersionList: Array<string>): ImportFunctionResponse {
+        this['depend_version_list'] = dependVersionList;
+        return this;
+    }
+    public set dependVersionList(dependVersionList: Array<string> | undefined) {
+        this['depend_version_list'] = dependVersionList;
+    }
+    public get dependVersionList() {
+        return this['depend_version_list'];
     }
     public withStrategyConfig(strategyConfig: StrategyConfig): ImportFunctionResponse {
         this['strategy_config'] = strategyConfig;

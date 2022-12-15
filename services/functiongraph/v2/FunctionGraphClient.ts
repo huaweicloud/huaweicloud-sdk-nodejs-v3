@@ -131,7 +131,6 @@ import { OnError } from './model/OnError';
 import { OperateErrorInfo } from './model/OperateErrorInfo';
 import { OperationState } from './model/OperationState';
 import { PageInfo } from './model/PageInfo';
-import { QueryRunListParam } from './model/QueryRunListParam';
 import { ReservedInstanceConfigs } from './model/ReservedInstanceConfigs';
 import { Resources } from './model/Resources';
 import { Retry } from './model/Retry';
@@ -797,7 +796,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取函数预留实例数量
      * @param {string} [marker] 上一次查询到的最后的记录位置。
-     * @param {string} [maxitems] 每次查询获取的最大函数记录数量  最大值：400 如果不提供该值或者提供的值大于400或等于0，则使用默认值：400 如果该值小于0，则返回参数错误。
+     * @param {string} [limit] 每次查询获取的最大函数记录数量  最大值：400 如果不提供该值或者提供的值大于400或等于0，则使用默认值：400 如果该值小于0，则返回参数错误。
      * @param {string} [urn] 查询指定函数版本预留实例数的函数urn。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -905,6 +904,8 @@ export class FunctionGraphClient {
      *
      * @summary 获取函数预留实例配置列表
      * @param {string} [functionUrn] 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {string} [marker] 本次查询起始位置，默认值0
+     * @param {string} [limit] 本次查询最大返回的数据条数，最大值500，默认值100
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1038,7 +1039,7 @@ export class FunctionGraphClient {
      *
      * @summary 获取依赖包版本详情
      * @param {string} dependId 依赖包的ID。
-     * @param {string} version 依赖包的ID。
+     * @param {string} version 依赖包版本号。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1272,7 +1273,10 @@ export class FunctionGraphClient {
      *
      * @summary 分页获取指定函数流执行实例列表
      * @param {string} workflowId 函数工作流ID
-     * @param {QueryRunListParam} createWorkflowRequestBody 创建函数流的body体
+     * @param {number} offset 偏移量，表示从此偏移量开始查询，offset大于等于0
+     * @param {number} limit 分页查询，每页查询数据条数，取值范围：1,2,3...100
+     * @param {string} [startTime] 查询开始时间，UTC时间，格式：YYYY-MM-DD hh:mm:ss。若起始时间未填写，以终止时间前推3天为起始时间。
+     * @param {string} [endTime] 查询结束时间，UTC时间，格式：YYYY-MM-DD hh:mm:ss。若终止时间未填写，以起始时间后退3天未终止时间。若均未填写，默认查询最近3天数据。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2917,17 +2921,17 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             let marker;
-            let maxitems;
+            let limit;
             let urn;
 
             if (listFunctionReservedInstancesRequest !== null && listFunctionReservedInstancesRequest !== undefined) {
                 if (listFunctionReservedInstancesRequest instanceof ListFunctionReservedInstancesRequest) {
                     marker = listFunctionReservedInstancesRequest.marker;
-                    maxitems = listFunctionReservedInstancesRequest.maxitems;
+                    limit = listFunctionReservedInstancesRequest.limit;
                     urn = listFunctionReservedInstancesRequest.urn;
                 } else {
                     marker = listFunctionReservedInstancesRequest['marker'];
-                    maxitems = listFunctionReservedInstancesRequest['maxitems'];
+                    limit = listFunctionReservedInstancesRequest['limit'];
                     urn = listFunctionReservedInstancesRequest['urn'];
                 }
             }
@@ -2936,8 +2940,8 @@ export const ParamCreater = function () {
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;
             }
-            if (maxitems !== null && maxitems !== undefined) {
-                localVarQueryParameter['maxitems'] = maxitems;
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             if (urn !== null && urn !== undefined) {
                 localVarQueryParameter['urn'] = urn;
@@ -3167,18 +3171,30 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             let functionUrn;
+            let marker;
+            let limit;
 
             if (listReservedInstanceConfigsRequest !== null && listReservedInstanceConfigsRequest !== undefined) {
                 if (listReservedInstanceConfigsRequest instanceof ListReservedInstanceConfigsRequest) {
                     functionUrn = listReservedInstanceConfigsRequest.functionUrn;
+                    marker = listReservedInstanceConfigsRequest.marker;
+                    limit = listReservedInstanceConfigsRequest.limit;
                 } else {
                     functionUrn = listReservedInstanceConfigsRequest['function_urn'];
+                    marker = listReservedInstanceConfigsRequest['marker'];
+                    limit = listReservedInstanceConfigsRequest['limit'];
                 }
             }
 
         
             if (functionUrn !== null && functionUrn !== undefined) {
                 localVarQueryParameter['function_urn'] = functionUrn;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -4057,17 +4073,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
-            var body: any;
+            const localVarQueryParameter = {} as any;
             let workflowId;
+            let offset;
+            let limit;
+            let startTime;
+            let endTime;
 
             if (showWorkflowExecutionForPageRequest !== null && showWorkflowExecutionForPageRequest !== undefined) {
                 if (showWorkflowExecutionForPageRequest instanceof ShowWorkflowExecutionForPageRequest) {
                     workflowId = showWorkflowExecutionForPageRequest.workflowId;
-                    body = showWorkflowExecutionForPageRequest.body
+                    offset = showWorkflowExecutionForPageRequest.offset;
+                    limit = showWorkflowExecutionForPageRequest.limit;
+                    startTime = showWorkflowExecutionForPageRequest.startTime;
+                    endTime = showWorkflowExecutionForPageRequest.endTime;
                 } else {
                     workflowId = showWorkflowExecutionForPageRequest['workflow_id'];
-                    body = showWorkflowExecutionForPageRequest['body'];
+                    offset = showWorkflowExecutionForPageRequest['offset'];
+                    limit = showWorkflowExecutionForPageRequest['limit'];
+                    startTime = showWorkflowExecutionForPageRequest['start_time'];
+                    endTime = showWorkflowExecutionForPageRequest['end_time'];
                 }
             }
 
@@ -4075,12 +4100,26 @@ export const ParamCreater = function () {
             if (workflowId === null || workflowId === undefined) {
             throw new RequiredError('workflowId','Required parameter workflowId was null or undefined when calling showWorkflowExecutionForPage.');
             }
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            if (offset === null || offset === undefined) {
+                throw new RequiredError('offset','Required parameter offset was null or undefined when calling showWorkflowExecutionForPage.');
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit === null || limit === undefined) {
+                throw new RequiredError('limit','Required parameter limit was null or undefined when calling showWorkflowExecutionForPage.');
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
+            }
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
+            }
 
-            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'workflow_id': workflowId, };
             options.headers = localVarHeaderParameter;
             return options;

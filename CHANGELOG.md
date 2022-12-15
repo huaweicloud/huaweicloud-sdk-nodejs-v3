@@ -1,3 +1,50 @@
+# 3.1.15 2022-12-15
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `server_id` to the interface `ListServersDetails`
+
+### HuaweiCloud SDK EIP
+
+- _Features_
+  - Support the interfaces `ShowResourcesJobDetail`, `ChangeBandwidthToPeriod`, `ChangePublicipToPeriod`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Changes of the interface `CreateFunction`:
+    - Add the request parameters `depend_version_list`, `func_vpc`
+    - Add the response parameter `depend_version_list`
+  - Changes of the interface `UpdateFunctionCode`:
+    - Add the request parameter `depend_version_list`
+    - Add the response parameter `depend_version_list`
+  - Add the response parameter `depend_version_list` to the interface `ShowFunctionCode`
+  - Add the response parameter `depend_version_list` to the interface `ShowFunctionConfig`
+  - Changes of the interface `ListReservedInstanceConfigs`:
+    - Add the request parameters `marker`, `limit`
+    - Add the response parameter `reserved_instances`
+    - Remove the response parameter `reservedinstances`
+  - Add the response parameter `depend_version_list` to the interface `ImportFunction`
+  - Changes of the interface `ListFunctionReservedInstances`:
+    - Add the request parameter `limit`
+    - Remove the request parameter `maxitems`
+  - Changes of the interface `ShowWorkflowExecutionForPage`:
+    - Add the request parameters `offset`, `limit`, `start_time`, `end_time`
+    - Remove the request parameter `CreateWorkflowRequestBody`
+
 # 3.1.14 2022-12-08
 
 ### HuaweiCloud SDK AOS

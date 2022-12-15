@@ -816,7 +816,7 @@ export class ElbClient {
      * @param {string} [provisioningStatus] 负载均衡器的配置状态。取值范围：可以为ACTIVE、PENDING_CREATE 或者ERROR。
      * @param {string} [vipAddress] 负载均衡器的内网IP。
      * @param {string} [vipPortId] 负载均衡器内网IP对应的端口ID。
-     * @param {string} [vipSubnetId] 负载均衡器所在的子网ID。
+     * @param {string} [vipSubnetId] 负载均衡器所在的子网IPv4网络ID。
      * @param {string} [vpcId] 负载均衡器所在的虚拟私有云ID。
      * @param {string} [enterpriseProjectId] 企业项目ID。  传入all_granted_eps表示查询所有有权限的企业项目资源；\&quot;0\&quot;表示查询默认企业项目资源；或者指定的企业项目ID下的资源。
      * @param {boolean} [adminStateUp] 负载均衡器的管理状态。负载均衡器停用时不再接收流量。取值范围：true：启用负载均衡器；false：停用负载均衡器。
@@ -857,7 +857,7 @@ export class ElbClient {
      * @summary 查询后端云服务器列表
      * @param {string} poolId 后端云服务器组id
      * @param {number} [limit] 分页查询中每页的后端服务器个数
-     * @param {string} [marker] 分页查询的起始的资源id，表示上一页最后一条查询记录的负载均衡器的id。不指定时表示查询第一页。
+     * @param {string} [marker] 分页查询的起始的资源id，表示上一页最后一条查询记录的后端服务器的id。不指定时表示查询第一页。
      * @param {boolean} [pageReverse] 分页的顺序，true表示从后往前分页，false表示从前往后分页，默认为false。
      * @param {string} [id] 后端云服务器的ID。
      * @param {string} [name] 后端云服务器的名称。

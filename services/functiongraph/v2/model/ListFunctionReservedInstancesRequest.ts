@@ -2,7 +2,7 @@
 
 export class ListFunctionReservedInstancesRequest {
     public marker?: string;
-    public maxitems?: string;
+    public limit?: string;
     public urn?: string;
     public constructor() { 
     }
@@ -10,8 +10,8 @@ export class ListFunctionReservedInstancesRequest {
         this['marker'] = marker;
         return this;
     }
-    public withMaxitems(maxitems: string): ListFunctionReservedInstancesRequest {
-        this['maxitems'] = maxitems;
+    public withLimit(limit: string): ListFunctionReservedInstancesRequest {
+        this['limit'] = limit;
         return this;
     }
     public withUrn(urn: string): ListFunctionReservedInstancesRequest {
