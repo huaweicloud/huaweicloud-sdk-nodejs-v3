@@ -3,7 +3,7 @@
 export class ServiceStatement {
     private 'Action': Array<string> | undefined;
     private 'Effect': ServiceStatementEffectEnum | undefined;
-    private 'Condition'?: { [key: string]: { [key: string]: Array; }; } | undefined;
+    private 'Condition'?: { [key: string]: { [key: string]: Array<any>; }; } | undefined;
     private 'Resource'?: Array<string> | undefined;
     public constructor(action?: any, effect?: any) { 
         this['Action'] = action;
@@ -29,11 +29,11 @@ export class ServiceStatement {
     public get effect() {
         return this['Effect'];
     }
-    public withCondition(condition: { [key: string]: { [key: string]: Array; }; }): ServiceStatement {
+    public withCondition(condition: { [key: string]: { [key: string]: Array<any>; }; }): ServiceStatement {
         this['Condition'] = condition;
         return this;
     }
-    public set condition(condition: { [key: string]: { [key: string]: Array; }; } | undefined) {
+    public set condition(condition: { [key: string]: { [key: string]: Array<any>; }; } | undefined) {
         this['Condition'] = condition;
     }
     public get condition() {
