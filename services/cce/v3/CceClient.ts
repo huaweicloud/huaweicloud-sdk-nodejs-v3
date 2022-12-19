@@ -28,6 +28,7 @@ import { ClusterNodeInformation } from './model/ClusterNodeInformation';
 import { ClusterNodeInformationMetadata } from './model/ClusterNodeInformationMetadata';
 import { ClusterSpec } from './model/ClusterSpec';
 import { ClusterStatus } from './model/ClusterStatus';
+import { ClusterUpgradeAction } from './model/ClusterUpgradeAction';
 import { Clusters } from './model/Clusters';
 import { ConfigurationItem } from './model/ConfigurationItem';
 import { ContainerCIDR } from './model/ContainerCIDR';
@@ -35,6 +36,8 @@ import { ContainerNetwork } from './model/ContainerNetwork';
 import { ContainerNetworkUpdate } from './model/ContainerNetworkUpdate';
 import { Context } from './model/Context';
 import { Contexts } from './model/Contexts';
+import { ContinueUpgradeClusterTaskRequest } from './model/ContinueUpgradeClusterTaskRequest';
+import { ContinueUpgradeClusterTaskResponse } from './model/ContinueUpgradeClusterTaskResponse';
 import { CreateAddonInstanceRequest } from './model/CreateAddonInstanceRequest';
 import { CreateAddonInstanceResponse } from './model/CreateAddonInstanceResponse';
 import { CreateCloudPersistentVolumeClaimsRequest } from './model/CreateCloudPersistentVolumeClaimsRequest';
@@ -65,6 +68,7 @@ import { EniNetworkUpdate } from './model/EniNetworkUpdate';
 import { HibernateClusterRequest } from './model/HibernateClusterRequest';
 import { HibernateClusterResponse } from './model/HibernateClusterResponse';
 import { HostNetwork } from './model/HostNetwork';
+import { InPlaceRollingUpdate } from './model/InPlaceRollingUpdate';
 import { InstanceRequest } from './model/InstanceRequest';
 import { InstanceRequestSpec } from './model/InstanceRequestSpec';
 import { InstanceSpec } from './model/InstanceSpec';
@@ -118,13 +122,17 @@ import { NodePoolSpec } from './model/NodePoolSpec';
 import { NodePoolSpecUpdate } from './model/NodePoolSpecUpdate';
 import { NodePoolStatus } from './model/NodePoolStatus';
 import { NodePoolUpdate } from './model/NodePoolUpdate';
+import { NodePriority } from './model/NodePriority';
 import { NodePublicIP } from './model/NodePublicIP';
+import { NodeSelector } from './model/NodeSelector';
 import { NodeSpec } from './model/NodeSpec';
 import { NodeSpecUpdate } from './model/NodeSpecUpdate';
 import { NodeStatus } from './model/NodeStatus';
 import { OpenAPIResponseSpec } from './model/OpenAPIResponseSpec';
 import { OpenAPIResponseSpecSpec } from './model/OpenAPIResponseSpecSpec';
 import { PackageConfiguration } from './model/PackageConfiguration';
+import { PauseUpgradeClusterTaskRequest } from './model/PauseUpgradeClusterTaskRequest';
+import { PauseUpgradeClusterTaskResponse } from './model/PauseUpgradeClusterTaskResponse';
 import { PersistentVolumeClaim } from './model/PersistentVolumeClaim';
 import { PersistentVolumeClaimMetadata } from './model/PersistentVolumeClaimMetadata';
 import { PersistentVolumeClaimSpec } from './model/PersistentVolumeClaimSpec';
@@ -147,6 +155,8 @@ import { ResetNodeRequest } from './model/ResetNodeRequest';
 import { ResetNodeResponse } from './model/ResetNodeResponse';
 import { ResourceRequirements } from './model/ResourceRequirements';
 import { ResourceTag } from './model/ResourceTag';
+import { RetryUpgradeClusterTaskRequest } from './model/RetryUpgradeClusterTaskRequest';
+import { RetryUpgradeClusterTaskResponse } from './model/RetryUpgradeClusterTaskResponse';
 import { Runtime } from './model/Runtime';
 import { RuntimeConfig } from './model/RuntimeConfig';
 import { SecurityID } from './model/SecurityID';
@@ -164,6 +174,8 @@ import { ShowNodeRequest } from './model/ShowNodeRequest';
 import { ShowNodeResponse } from './model/ShowNodeResponse';
 import { ShowQuotasRequest } from './model/ShowQuotasRequest';
 import { ShowQuotasResponse } from './model/ShowQuotasResponse';
+import { ShowUpgradeClusterTaskRequest } from './model/ShowUpgradeClusterTaskRequest';
+import { ShowUpgradeClusterTaskResponse } from './model/ShowUpgradeClusterTaskResponse';
 import { ShowVersionRequest } from './model/ShowVersionRequest';
 import { ShowVersionResponse } from './model/ShowVersionResponse';
 import { Storage } from './model/Storage';
@@ -184,6 +196,16 @@ import { UpdateNodePoolRequest } from './model/UpdateNodePoolRequest';
 import { UpdateNodePoolResponse } from './model/UpdateNodePoolResponse';
 import { UpdateNodeRequest } from './model/UpdateNodeRequest';
 import { UpdateNodeResponse } from './model/UpdateNodeResponse';
+import { UpgradeAddonConfig } from './model/UpgradeAddonConfig';
+import { UpgradeClusterRequest } from './model/UpgradeClusterRequest';
+import { UpgradeClusterRequestBody } from './model/UpgradeClusterRequestBody';
+import { UpgradeClusterRequestMetadata } from './model/UpgradeClusterRequestMetadata';
+import { UpgradeClusterResponse } from './model/UpgradeClusterResponse';
+import { UpgradeSpec } from './model/UpgradeSpec';
+import { UpgradeStrategy } from './model/UpgradeStrategy';
+import { UpgradeTaskMetadata } from './model/UpgradeTaskMetadata';
+import { UpgradeTaskSpec } from './model/UpgradeTaskSpec';
+import { UpgradeTaskStatus } from './model/UpgradeTaskStatus';
 import { User } from './model/User';
 import { UserPassword } from './model/UserPassword';
 import { UserTag } from './model/UserTag';
@@ -215,7 +237,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 纳管节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {AddNodeList} addNodeList 纳管节点的请求体
      * @param {*} [options] Override http request option.
@@ -234,13 +256,32 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 集群唤醒
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public awakeCluster(awakeClusterRequest?: AwakeClusterRequest): Promise<void> {
         const options = ParamCreater().awakeCluster(awakeClusterRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 继续执行被暂停的集群升级任务。
+     * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+     * &gt; - 当前集群升级相关接口受限开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 继续执行集群升级任务
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public continueUpgradeClusterTask(continueUpgradeClusterTaskRequest?: ContinueUpgradeClusterTaskRequest): Promise<void> {
+        const options = ParamCreater().continueUpgradeClusterTask(continueUpgradeClusterTaskRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -315,7 +356,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群证书
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {CertDuration} createKubernetesClusterCertRequestBody 创建集群证书的请求Body。
      * @param {*} [options] Override http request option.
@@ -336,7 +377,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {NodeCreateRequest} createNodeRequestBody 创建节点的请求体
      * @param {'NodepoolScaleUp'} [nodepoolScaleUp] 标明是否为nodepool下发的请求。若不为“NodepoolScaleUp”将自动更新对应节点池的实例数
@@ -363,7 +404,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建节点池
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {NodePool} createNodePoolRequestBody 创建节点池的请求体
      * @param {*} [options] Override http request option.
@@ -425,7 +466,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除集群
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEfs] 是否删除SFS Turbo（极速文件存储卷）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程，默认选项)
      * @param {'true' | 'block' | 'try' | 'false' | 'skip'} [deleteEni] 是否删除eni ports（原生弹性网卡）， 枚举取值： - true或block (执行删除流程，失败则阻塞后续流程，默认选项) - try (执行删除流程，失败则忽略，并继续执行后续流程) - false或skip (跳过删除流程)
@@ -452,7 +493,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {'NoScaleDown'} [nodepoolScaleDown] 标明是否为nodepool下发的请求。若不为“NoScaleDown”将自动更新对应节点池的实例数
@@ -473,7 +514,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除节点池
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
@@ -492,7 +533,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 集群休眠
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -569,7 +610,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群下所有节点池
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} [showDefaultNodePool] 是否展示默认节点池。默认不展示，指定为“true”时展示默认节点池。
      * @param {*} [options] Override http request option.
@@ -589,7 +630,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群下所有节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -610,7 +651,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 节点迁移
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} targetClusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {MigrateNodesTask} migrateNodesTask 迁移节点的请求体
@@ -625,13 +666,32 @@ export class CceClient {
     }
 
     /**
+     * 暂停集群升级任务。
+     * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+     * &gt; - 当前集群升级相关接口受限开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 暂停集群升级任务
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public pauseUpgradeClusterTask(pauseUpgradeClusterTaskRequest?: PauseUpgradeClusterTaskRequest): Promise<void> {
+        const options = ParamCreater().pauseUpgradeClusterTask(pauseUpgradeClusterTaskRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该API用于在指定集群下移除节点。
      * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 节点移除
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {RemoveNodesTask} removeNodesTask 移除节点的请求体
      * @param {*} [options] Override http request option.
@@ -651,7 +711,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重置节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {ResetNodeList} resetNodeList 重置节点的请求体
      * @param {*} [options] Override http request option.
@@ -659,6 +719,25 @@ export class CceClient {
      */
     public resetNode(resetNodeRequest?: ResetNodeRequest): Promise<ResetNodeResponse> {
         const options = ParamCreater().resetNode(resetNodeRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重新执行失败的集群升级任务。
+     * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+     * &gt; - 当前集群升级相关接口受限开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重试集群升级任务
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryUpgradeClusterTask(retryUpgradeClusterTaskRequest?: RetryUpgradeClusterTaskRequest): Promise<void> {
+        const options = ParamCreater().retryUpgradeClusterTask(retryUpgradeClusterTaskRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -690,7 +769,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定的集群
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {string} [detail] 查询集群详细信息。  若设置为true，获取集群下节点总数(totalNodesNumber)、正常节点数(activeNodesNumber)、CPU总量(totalNodesCPU)、内存总量(totalNodesMemory)和已安装插件列表(installedAddonInstances)，已安装插件列表中包含名称(addonTemplateName)、版本号(version)、插件的状态信息(status)，放入到annotation中。 
      * @param {*} [options] Override http request option.
@@ -710,7 +789,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取集群访问的地址
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -751,7 +830,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定的节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
@@ -771,7 +850,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取指定的节点池
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
      * @param {string} contentType 消息体的类型（格式）
      * @param {*} [options] Override http request option.
@@ -796,6 +875,26 @@ export class CceClient {
      */
     public showQuotas(showQuotasRequest?: ShowQuotasRequest): Promise<ShowQuotasResponse> {
         const options = ParamCreater().showQuotas(showQuotasRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取集群升级任务详情，任务ID由调用集群升级API后从响应体中uid字段获取。
+     * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+     * &gt; - 当前集群升级相关接口受限开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取集群升级任务详情
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} taskId 升级任务ID，调用集群升级API后从响应体中uid字段获取。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showUpgradeClusterTask(showUpgradeClusterTaskRequest?: ShowUpgradeClusterTaskRequest): Promise<ShowUpgradeClusterTaskResponse> {
+        const options = ParamCreater().showUpgradeClusterTask(showUpgradeClusterTaskRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -827,7 +926,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新指定的集群
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {ClusterInformation} updateClusterRequestBody spec是集合类的元素类型，用户对需要管理的集群对象进行详细描述的主体部分都在spec中给出。系统通过spec的描述来创建或更新对象。
      * @param {*} [options] Override http request option.
@@ -847,7 +946,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 绑定、解绑集群公网apiserver地址
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {MasterEIPRequest} masterEIPBody 绑定或解绑集群公网apiserver地址的请求体
      * @param {*} [options] Override http request option.
@@ -868,7 +967,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新指定的节点
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodeId 节点ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} contentType 消息体的类型（格式）
      * @param {ClusterNodeInformation} updateNodeRequestBody metadata是节点对象的元数据定义，是集合类的元素类型，包含一组由不同名称定义的属性。
@@ -893,7 +992,7 @@ export class CceClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新指定节点池
-     * @param {string} clusterId 集群 ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
      * @param {string} nodepoolId 节点池ID
      * @param {string} contentType 消息体的类型（格式）
      * @param {NodePoolUpdate} updateNodePoolRequestBody 更新节点池的请求体
@@ -902,6 +1001,26 @@ export class CceClient {
      */
     public updateNodePool(updateNodePoolRequest?: UpdateNodePoolRequest): Promise<UpdateNodePoolResponse> {
         const options = ParamCreater().updateNodePool(updateNodePoolRequest);
+        options['responseHeaders'] = [''];
+        // @ts-ignore
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 集群升级。
+     * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+     * &gt; - 当前集群升级相关接口受限开放。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群升级
+     * @param {string} clusterId 集群ID，获取方式请参见[如何获取接口URI中参数](cce_02_0271.xml)。
+     * @param {UpgradeClusterRequestBody} upgradeClusterRequestBody 集群升级请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public upgradeCluster(upgradeClusterRequest?: UpgradeClusterRequest): Promise<UpgradeClusterResponse> {
+        const options = ParamCreater().upgradeCluster(upgradeClusterRequest);
         options['responseHeaders'] = [''];
         // @ts-ignore
         return this.hcClient.sendRequest(options);
@@ -1015,6 +1134,45 @@ export const ParamCreater = function () {
             }
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 继续执行被暂停的集群升级任务。
+         * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+         * &gt; - 当前集群升级相关接口受限开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        continueUpgradeClusterTask(continueUpgradeClusterTaskRequest?: ContinueUpgradeClusterTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgrade/continue",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let clusterId;
+
+            if (continueUpgradeClusterTaskRequest !== null && continueUpgradeClusterTaskRequest !== undefined) {
+                if (continueUpgradeClusterTaskRequest instanceof ContinueUpgradeClusterTaskRequest) {
+                    clusterId = continueUpgradeClusterTaskRequest.clusterId;
+                } else {
+                    clusterId = continueUpgradeClusterTaskRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling continueUpgradeClusterTask.');
             }
 
             options.pathParams = { 'cluster_id': clusterId, };
@@ -2012,6 +2170,45 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 暂停集群升级任务。
+         * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+         * &gt; - 当前集群升级相关接口受限开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        pauseUpgradeClusterTask(pauseUpgradeClusterTaskRequest?: PauseUpgradeClusterTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgrade/pause",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let clusterId;
+
+            if (pauseUpgradeClusterTaskRequest !== null && pauseUpgradeClusterTaskRequest !== undefined) {
+                if (pauseUpgradeClusterTaskRequest instanceof PauseUpgradeClusterTaskRequest) {
+                    clusterId = pauseUpgradeClusterTaskRequest.clusterId;
+                } else {
+                    clusterId = pauseUpgradeClusterTaskRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling pauseUpgradeClusterTask.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该API用于在指定集群下移除节点。
          * &gt;集群管理的URL格式为：https://Endpoint/uri。其中uri为资源路径，也即API访问的路径。
          * 
@@ -2110,6 +2307,45 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重新执行失败的集群升级任务。
+         * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+         * &gt; - 当前集群升级相关接口受限开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retryUpgradeClusterTask(retryUpgradeClusterTaskRequest?: RetryUpgradeClusterTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgrade/retry",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let clusterId;
+
+            if (retryUpgradeClusterTaskRequest !== null && retryUpgradeClusterTaskRequest !== undefined) {
+                if (retryUpgradeClusterTaskRequest instanceof RetryUpgradeClusterTaskRequest) {
+                    clusterId = retryUpgradeClusterTaskRequest.clusterId;
+                } else {
+                    clusterId = retryUpgradeClusterTaskRequest['cluster_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling retryUpgradeClusterTask.');
+            }
+
             options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2444,6 +2680,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 获取集群升级任务详情，任务ID由调用集群升级API后从响应体中uid字段获取。
+         * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+         * &gt; - 当前集群升级相关接口受限开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showUpgradeClusterTask(showUpgradeClusterTaskRequest?: ShowUpgradeClusterTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgrade/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let clusterId;
+            let taskId;
+
+            if (showUpgradeClusterTaskRequest !== null && showUpgradeClusterTaskRequest !== undefined) {
+                if (showUpgradeClusterTaskRequest instanceof ShowUpgradeClusterTaskRequest) {
+                    clusterId = showUpgradeClusterTaskRequest.clusterId;
+                    taskId = showUpgradeClusterTaskRequest.taskId;
+                } else {
+                    clusterId = showUpgradeClusterTaskRequest['cluster_id'];
+                    taskId = showUpgradeClusterTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showUpgradeClusterTask.');
+            }
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showUpgradeClusterTask.');
+            }
+
+            options.pathParams = { 'cluster_id': clusterId,'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新插件实例的功能。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2715,6 +2996,53 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId,'nodepool_id': nodepoolId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 集群升级。
+         * &gt; - 集群升级涉及多维度的组件升级操作，强烈建议统一通过CCE控制台执行交互式升级，降低集群升级过程的业务意外受损风险；
+         * &gt; - 当前集群升级相关接口受限开放。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        upgradeCluster(upgradeClusterRequest?: UpgradeClusterRequest) {
+            const options = {
+                method: "POST",
+                url: "/api/v3/projects/{project_id}/clusters/{cluster_id}/operation/upgrade",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            let clusterId;
+
+            if (upgradeClusterRequest !== null && upgradeClusterRequest !== undefined) {
+                if (upgradeClusterRequest instanceof UpgradeClusterRequest) {
+                    clusterId = upgradeClusterRequest.clusterId;
+                    body = upgradeClusterRequest.body
+                } else {
+                    clusterId = upgradeClusterRequest['cluster_id'];
+                    body = upgradeClusterRequest['body'];
+                }
+            }
+
+        
+            if (clusterId === null || clusterId === undefined) {
+            throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling upgradeCluster.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
