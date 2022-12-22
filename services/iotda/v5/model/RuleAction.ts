@@ -5,15 +5,25 @@ import { ActionSmnForwarding } from './ActionSmnForwarding';
 
 export class RuleAction {
     public type: string;
+    private 'device_command'?: ActionDeviceCommand | undefined;
     private 'smn_forwarding'?: ActionSmnForwarding | undefined;
     private 'device_alarm'?: ActionDeviceAlarm | undefined;
-    private 'device_command'?: ActionDeviceCommand | undefined;
     public constructor(type?: any) { 
         this['type'] = type;
     }
     public withType(type: string): RuleAction {
         this['type'] = type;
         return this;
+    }
+    public withDeviceCommand(deviceCommand: ActionDeviceCommand): RuleAction {
+        this['device_command'] = deviceCommand;
+        return this;
+    }
+    public set deviceCommand(deviceCommand: ActionDeviceCommand | undefined) {
+        this['device_command'] = deviceCommand;
+    }
+    public get deviceCommand() {
+        return this['device_command'];
     }
     public withSmnForwarding(smnForwarding: ActionSmnForwarding): RuleAction {
         this['smn_forwarding'] = smnForwarding;
@@ -34,15 +44,5 @@ export class RuleAction {
     }
     public get deviceAlarm() {
         return this['device_alarm'];
-    }
-    public withDeviceCommand(deviceCommand: ActionDeviceCommand): RuleAction {
-        this['device_command'] = deviceCommand;
-        return this;
-    }
-    public set deviceCommand(deviceCommand: ActionDeviceCommand | undefined) {
-        this['device_command'] = deviceCommand;
-    }
-    public get deviceCommand() {
-        return this['device_command'];
     }
 }

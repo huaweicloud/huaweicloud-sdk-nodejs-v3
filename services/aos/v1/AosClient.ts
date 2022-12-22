@@ -75,7 +75,7 @@ import { VarsURIPrimitiveTypeHolder } from './model/VarsURIPrimitiveTypeHolder';
 
 export class AosClient {
     public static newBuilder(): ClientBuilder<AosClient> {
-        return new ClientBuilder<AosClient>(newClient);
+            return new ClientBuilder<AosClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -104,8 +104,10 @@ export class AosClient {
      */
     public applyExecutionPlan(applyExecutionPlanRequest?: ApplyExecutionPlanRequest): Promise<ApplyExecutionPlanResponse> {
         const options = ParamCreater().applyExecutionPlan(applyExecutionPlanRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -124,8 +126,10 @@ export class AosClient {
      */
     public createExecutionPlan(createExecutionPlanRequest?: CreateExecutionPlanRequest): Promise<CreateExecutionPlanResponse> {
         const options = ParamCreater().createExecutionPlan(createExecutionPlanRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -146,8 +150,10 @@ export class AosClient {
      */
     public deleteExecutionPlan(deleteExecutionPlanRequest?: DeleteExecutionPlanRequest): Promise<void> {
         const options = ParamCreater().deleteExecutionPlan(deleteExecutionPlanRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -166,8 +172,10 @@ export class AosClient {
      */
     public deleteStack(deleteStackRequest?: DeleteStackRequest): Promise<void> {
         const options = ParamCreater().deleteStack(deleteStackRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -188,8 +196,10 @@ export class AosClient {
      */
     public describeExecutionPlan(describeExecutionPlanRequest?: DescribeExecutionPlanRequest): Promise<DescribeExecutionPlanResponse> {
         const options = ParamCreater().describeExecutionPlan(describeExecutionPlanRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -210,8 +220,10 @@ export class AosClient {
      */
     public estimateExecutionPlanPrice(estimateExecutionPlanPriceRequest?: EstimateExecutionPlanPriceRequest): Promise<EstimateExecutionPlanPriceResponse> {
         const options = ParamCreater().estimateExecutionPlanPrice(estimateExecutionPlanPriceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -232,8 +244,10 @@ export class AosClient {
      */
     public getExecutionPlan(getExecutionPlanRequest?: GetExecutionPlanRequest): Promise<GetExecutionPlanResponse> {
         const options = ParamCreater().getExecutionPlan(getExecutionPlanRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -252,8 +266,10 @@ export class AosClient {
      */
     public getStackMetadata(getStackMetadataRequest?: GetStackMetadataRequest): Promise<GetStackMetadataResponse> {
         const options = ParamCreater().getStackMetadata(getStackMetadataRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -272,8 +288,10 @@ export class AosClient {
      */
     public getStackTemplate(getStackTemplateRequest?: GetStackTemplateRequest): Promise<void> {
         const options = ParamCreater().getStackTemplate(getStackTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -292,8 +310,10 @@ export class AosClient {
      */
     public listExecutionPlans(listExecutionPlansRequest?: ListExecutionPlansRequest): Promise<ListExecutionPlansResponse> {
         const options = ParamCreater().listExecutionPlans(listExecutionPlansRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -313,8 +333,10 @@ export class AosClient {
      */
     public listStackEvents(listStackEventsRequest?: ListStackEventsRequest): Promise<ListStackEventsResponse> {
         const options = ParamCreater().listStackEvents(listStackEventsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -333,8 +355,10 @@ export class AosClient {
      */
     public listStackOutputs(listStackOutputsRequest?: ListStackOutputsRequest): Promise<ListStackOutputsResponse> {
         const options = ParamCreater().listStackOutputs(listStackOutputsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -353,8 +377,10 @@ export class AosClient {
      */
     public listStackResources(listStackResourcesRequest?: ListStackResourcesRequest): Promise<ListStackResourcesResponse> {
         const options = ParamCreater().listStackResources(listStackResourcesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -372,8 +398,10 @@ export class AosClient {
      */
     public parseTemplateVariables(parseTemplateVariablesRequest?: ParseTemplateVariablesRequest): Promise<ParseTemplateVariablesResponse> {
         const options = ParamCreater().parseTemplateVariables(parseTemplateVariablesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -395,8 +423,10 @@ export class AosClient {
      */
     public continueRollbackStack(continueRollbackStackRequest?: ContinueRollbackStackRequest): Promise<ContinueRollbackStackResponse> {
         const options = ParamCreater().continueRollbackStack(continueRollbackStackRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -417,8 +447,10 @@ export class AosClient {
      */
     public createStack(createStackRequest?: CreateStackRequest): Promise<CreateStackResponse> {
         const options = ParamCreater().createStack(createStackRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -445,8 +477,10 @@ export class AosClient {
      */
     public deployStack(deployStackRequest?: DeployStackRequest): Promise<DeployStackResponse> {
         const options = ParamCreater().deployStack(deployStackRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -469,8 +503,10 @@ export class AosClient {
      */
     public listStacks(listStacksRequest?: ListStacksRequest): Promise<ListStacksResponse> {
         const options = ParamCreater().listStacks(listStacksRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -496,9 +532,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let executionPlanName;
 
             if (applyExecutionPlanRequest !== null && applyExecutionPlanRequest !== undefined) {
@@ -559,8 +599,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
 
             if (createExecutionPlanRequest !== null && createExecutionPlanRequest !== undefined) {
@@ -615,11 +658,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let executionPlanName;
+            
             let stackId;
+            
             let executionPlanId;
 
             if (deleteExecutionPlanRequest !== null && deleteExecutionPlanRequest !== undefined) {
@@ -683,9 +732,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let stackId;
 
             if (deleteStackRequest !== null && deleteStackRequest !== undefined) {
@@ -739,11 +792,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let executionPlanName;
+            
             let stackId;
+            
             let executionPlanId;
 
             if (describeExecutionPlanRequest !== null && describeExecutionPlanRequest !== undefined) {
@@ -807,11 +866,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let executionPlanName;
+            
             let stackId;
+            
             let executionPlanId;
 
             if (estimateExecutionPlanPriceRequest !== null && estimateExecutionPlanPriceRequest !== undefined) {
@@ -875,11 +940,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let executionPlanName;
+            
             let stackId;
+            
             let executionPlanId;
 
             if (getExecutionPlanRequest !== null && getExecutionPlanRequest !== undefined) {
@@ -943,9 +1014,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let stackId;
 
             if (getStackMetadataRequest !== null && getStackMetadataRequest !== undefined) {
@@ -999,9 +1074,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let stackId;
 
             if (getStackTemplateRequest !== null && getStackTemplateRequest !== undefined) {
@@ -1055,9 +1134,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let stackId;
 
             if (listExecutionPlansRequest !== null && listExecutionPlansRequest !== undefined) {
@@ -1111,10 +1194,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let stackId;
+            
             let deploymentId;
 
             if (listStackEventsRequest !== null && listStackEventsRequest !== undefined) {
@@ -1173,9 +1261,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let stackId;
 
             if (listStackOutputsRequest !== null && listStackOutputsRequest !== undefined) {
@@ -1229,9 +1321,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
+            
             let stackId;
 
             if (listStackResourcesRequest !== null && listStackResourcesRequest !== undefined) {
@@ -1286,7 +1382,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let clientRequestId;
+            
             let projectId;
 
             if (parseTemplateVariablesRequest !== null && parseTemplateVariablesRequest !== undefined) {
@@ -1340,8 +1438,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
 
             if (continueRollbackStackRequest !== null && continueRollbackStackRequest !== undefined) {
@@ -1400,7 +1501,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let clientRequestId;
+            
             let projectId;
 
             if (createStackRequest !== null && createStackRequest !== undefined) {
@@ -1459,8 +1562,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let clientRequestId;
+            
             let projectId;
+            
             let stackName;
 
             if (deployStackRequest !== null && deployStackRequest !== undefined) {
@@ -1521,7 +1627,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let clientRequestId;
+            
             let projectId;
 
             if (listStacksRequest !== null && listStacksRequest !== undefined) {

@@ -57,7 +57,7 @@ import { VersionDetail } from './model/VersionDetail';
 
 export class TmsClient {
     public static newBuilder(): ClientBuilder<TmsClient> {
-        return new ClientBuilder<TmsClient>(newClient, 'GlobalCredentials');
+            return new ClientBuilder<TmsClient>(newClient, 'GlobalCredentials');
     }
 
     private hcClient: HcClient;
@@ -82,8 +82,10 @@ export class TmsClient {
      */
     public createPredefineTags(createPredefineTagsRequest?: CreatePredefineTagsRequest): Promise<void> {
         const options = ParamCreater().createPredefineTags(createPredefineTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -99,8 +101,10 @@ export class TmsClient {
      */
     public createResourceTag(createResourceTagRequest?: CreateResourceTagRequest): Promise<CreateResourceTagResponse> {
         const options = ParamCreater().createResourceTag(createResourceTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -116,8 +120,10 @@ export class TmsClient {
      */
     public deletePredefineTags(deletePredefineTagsRequest?: DeletePredefineTagsRequest): Promise<void> {
         const options = ParamCreater().deletePredefineTags(deletePredefineTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -133,8 +139,10 @@ export class TmsClient {
      */
     public deleteResourceTag(deleteResourceTagRequest?: DeleteResourceTagRequest): Promise<DeleteResourceTagResponse> {
         const options = ParamCreater().deleteResourceTag(deleteResourceTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -149,8 +157,10 @@ export class TmsClient {
      */
     public listApiVersions(): Promise<ListApiVersionsResponse> {
         const options = ParamCreater().listApiVersions();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -171,8 +181,10 @@ export class TmsClient {
      */
     public listPredefineTags(listPredefineTagsRequest?: ListPredefineTagsRequest): Promise<ListPredefineTagsResponse> {
         const options = ParamCreater().listPredefineTags(listPredefineTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -191,8 +203,10 @@ export class TmsClient {
      */
     public listProviders(listProvidersRequest?: ListProvidersRequest): Promise<ListProvidersResponse> {
         const options = ParamCreater().listProviders(listProvidersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -208,8 +222,10 @@ export class TmsClient {
      */
     public listResource(listResourceRequest?: ListResourceRequest): Promise<ListResourceResponse> {
         const options = ParamCreater().listResource(listResourceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -227,8 +243,10 @@ export class TmsClient {
      */
     public listTagKeys(listTagKeysRequest?: ListTagKeysRequest): Promise<ListTagKeysResponse> {
         const options = ParamCreater().listTagKeys(listTagKeysRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -247,8 +265,10 @@ export class TmsClient {
      */
     public listTagValues(listTagValuesRequest?: ListTagValuesRequest): Promise<ListTagValuesResponse> {
         const options = ParamCreater().listTagValues(listTagValuesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -264,8 +284,10 @@ export class TmsClient {
      */
     public showApiVersion(showApiVersionRequest?: ShowApiVersionRequest): Promise<ShowApiVersionResponse> {
         const options = ParamCreater().showApiVersion(showApiVersionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -283,8 +305,10 @@ export class TmsClient {
      */
     public showResourceTag(showResourceTagRequest?: ShowResourceTagRequest): Promise<ShowResourceTagResponse> {
         const options = ParamCreater().showResourceTag(showResourceTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -299,8 +323,10 @@ export class TmsClient {
      */
     public showTagQuota(): Promise<ShowTagQuotaResponse> {
         const options = ParamCreater().showTagQuota();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -316,8 +342,10 @@ export class TmsClient {
      */
     public updatePredefineTags(updatePredefineTagsRequest?: UpdatePredefineTagsRequest): Promise<void> {
         const options = ParamCreater().updatePredefineTags(updatePredefineTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -516,11 +544,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let key;
+            
             let value;
+            
             let limit;
+            
             let marker;
+            
             let orderField;
+            
             let orderMethod;
 
             if (listPredefineTagsRequest !== null && listPredefineTagsRequest !== undefined) {
@@ -583,9 +617,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let locale;
+            
             let limit;
+            
             let offset;
+            
             let provider;
 
             if (listProvidersRequest !== null && listProvidersRequest !== undefined) {
@@ -676,8 +714,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let regionId;
+            
             let limit;
+            
             let marker;
 
             if (listTagKeysRequest !== null && listTagKeysRequest !== undefined) {
@@ -725,9 +766,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let key;
+            
             let regionId;
+            
             let limit;
+            
             let marker;
 
             if (listTagValuesRequest !== null && listTagValuesRequest !== undefined) {
@@ -783,6 +828,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let apiVersion;
 
             if (showApiVersionRequest !== null && showApiVersionRequest !== undefined) {
@@ -820,8 +866,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let resourceId;
+            
             let resourceType;
+            
             let projectId;
 
             if (showResourceTagRequest !== null && showResourceTagRequest !== undefined) {

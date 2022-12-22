@@ -106,7 +106,7 @@ import { UpdateListenerResponse } from './model/UpdateListenerResponse';
 
 export class GaClient {
     public static newBuilder(): ClientBuilder<GaClient> {
-        return new ClientBuilder<GaClient>(newClient);
+            return new ClientBuilder<GaClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -131,8 +131,10 @@ export class GaClient {
      */
     public createAccelerator(createAcceleratorRequest?: CreateAcceleratorRequest): Promise<CreateAcceleratorResponse> {
         const options = ParamCreater().createAccelerator(createAcceleratorRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -148,8 +150,10 @@ export class GaClient {
      */
     public deleteAccelerator(deleteAcceleratorRequest?: DeleteAcceleratorRequest): Promise<void> {
         const options = ParamCreater().deleteAccelerator(deleteAcceleratorRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -171,8 +175,10 @@ export class GaClient {
      */
     public listAccelerators(listAcceleratorsRequest?: ListAcceleratorsRequest): Promise<ListAcceleratorsResponse> {
         const options = ParamCreater().listAccelerators(listAcceleratorsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -188,8 +194,10 @@ export class GaClient {
      */
     public showAccelerator(showAcceleratorRequest?: ShowAcceleratorRequest): Promise<ShowAcceleratorResponse> {
         const options = ParamCreater().showAccelerator(showAcceleratorRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -206,8 +214,10 @@ export class GaClient {
      */
     public updateAccelerator(updateAcceleratorRequest?: UpdateAcceleratorRequest): Promise<UpdateAcceleratorResponse> {
         const options = ParamCreater().updateAccelerator(updateAcceleratorRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -224,8 +234,10 @@ export class GaClient {
      */
     public createEndpoint(createEndpointRequest?: CreateEndpointRequest): Promise<CreateEndpointResponse> {
         const options = ParamCreater().createEndpoint(createEndpointRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -242,8 +254,10 @@ export class GaClient {
      */
     public deleteEndpoint(deleteEndpointRequest?: DeleteEndpointRequest): Promise<void> {
         const options = ParamCreater().deleteEndpoint(deleteEndpointRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -264,8 +278,10 @@ export class GaClient {
      */
     public listEndpoints(listEndpointsRequest?: ListEndpointsRequest): Promise<ListEndpointsResponse> {
         const options = ParamCreater().listEndpoints(listEndpointsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -282,8 +298,10 @@ export class GaClient {
      */
     public showEndpoint(showEndpointRequest?: ShowEndpointRequest): Promise<ShowEndpointResponse> {
         const options = ParamCreater().showEndpoint(showEndpointRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -301,8 +319,10 @@ export class GaClient {
      */
     public updateEndpoint(updateEndpointRequest?: UpdateEndpointRequest): Promise<UpdateEndpointResponse> {
         const options = ParamCreater().updateEndpoint(updateEndpointRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -318,8 +338,10 @@ export class GaClient {
      */
     public createEndpointGroup(createEndpointGroupRequest?: CreateEndpointGroupRequest): Promise<CreateEndpointGroupResponse> {
         const options = ParamCreater().createEndpointGroup(createEndpointGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -335,8 +357,10 @@ export class GaClient {
      */
     public deleteEndpointGroup(deleteEndpointGroupRequest?: DeleteEndpointGroupRequest): Promise<void> {
         const options = ParamCreater().deleteEndpointGroup(deleteEndpointGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -358,8 +382,10 @@ export class GaClient {
      */
     public listEndpointGroups(listEndpointGroupsRequest?: ListEndpointGroupsRequest): Promise<ListEndpointGroupsResponse> {
         const options = ParamCreater().listEndpointGroups(listEndpointGroupsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -375,8 +401,10 @@ export class GaClient {
      */
     public showEndpointGroup(showEndpointGroupRequest?: ShowEndpointGroupRequest): Promise<ShowEndpointGroupResponse> {
         const options = ParamCreater().showEndpointGroup(showEndpointGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -393,8 +421,10 @@ export class GaClient {
      */
     public updateEndpointGroup(updateEndpointGroupRequest?: UpdateEndpointGroupRequest): Promise<UpdateEndpointGroupResponse> {
         const options = ParamCreater().updateEndpointGroup(updateEndpointGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -410,8 +440,10 @@ export class GaClient {
      */
     public createHealthCheck(createHealthCheckRequest?: CreateHealthCheckRequest): Promise<CreateHealthCheckResponse> {
         const options = ParamCreater().createHealthCheck(createHealthCheckRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -427,8 +459,10 @@ export class GaClient {
      */
     public deleteHealthCheck(deleteHealthCheckRequest?: DeleteHealthCheckRequest): Promise<void> {
         const options = ParamCreater().deleteHealthCheck(deleteHealthCheckRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -449,8 +483,10 @@ export class GaClient {
      */
     public listHealthChecks(listHealthChecksRequest?: ListHealthChecksRequest): Promise<ListHealthChecksResponse> {
         const options = ParamCreater().listHealthChecks(listHealthChecksRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -466,8 +502,10 @@ export class GaClient {
      */
     public showHealthCheck(showHealthCheckRequest?: ShowHealthCheckRequest): Promise<ShowHealthCheckResponse> {
         const options = ParamCreater().showHealthCheck(showHealthCheckRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -484,8 +522,10 @@ export class GaClient {
      */
     public updateHealthCheck(updateHealthCheckRequest?: UpdateHealthCheckRequest): Promise<UpdateHealthCheckResponse> {
         const options = ParamCreater().updateHealthCheck(updateHealthCheckRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -501,8 +541,10 @@ export class GaClient {
      */
     public createListener(createListenerRequest?: CreateListenerRequest): Promise<CreateListenerResponse> {
         const options = ParamCreater().createListener(createListenerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -518,8 +560,10 @@ export class GaClient {
      */
     public deleteListener(deleteListenerRequest?: DeleteListenerRequest): Promise<void> {
         const options = ParamCreater().deleteListener(deleteListenerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -541,8 +585,10 @@ export class GaClient {
      */
     public listListeners(listListenersRequest?: ListListenersRequest): Promise<ListListenersResponse> {
         const options = ParamCreater().listListeners(listListenersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -558,8 +604,10 @@ export class GaClient {
      */
     public showListener(showListenerRequest?: ShowListenerRequest): Promise<ShowListenerResponse> {
         const options = ParamCreater().showListener(showListenerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -576,8 +624,10 @@ export class GaClient {
      */
     public updateListener(updateListenerRequest?: UpdateListenerRequest): Promise<UpdateListenerResponse> {
         const options = ParamCreater().updateListener(updateListenerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -592,8 +642,10 @@ export class GaClient {
      */
     public listRegions(): Promise<ListRegionsResponse> {
         const options = ParamCreater().listRegions();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -611,8 +663,10 @@ export class GaClient {
      */
     public createTags(createTagsRequest?: CreateTagsRequest): Promise<CreateTagsResponse> {
         const options = ParamCreater().createTags(createTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -630,8 +684,10 @@ export class GaClient {
      */
     public deleteTags(deleteTagsRequest?: DeleteTagsRequest): Promise<DeleteTagsResponse> {
         const options = ParamCreater().deleteTags(deleteTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -648,8 +704,10 @@ export class GaClient {
      */
     public showResourceTags(showResourceTagsRequest?: ShowResourceTagsRequest): Promise<ShowResourceTagsResponse> {
         const options = ParamCreater().showResourceTags(showResourceTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -712,6 +770,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let acceleratorId;
 
             if (deleteAcceleratorRequest !== null && deleteAcceleratorRequest !== undefined) {
@@ -749,12 +808,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let pageReverse;
+            
             let id;
+            
             let name;
+            
             let status;
+            
             let enterpriseProjectId;
 
             if (listAcceleratorsRequest !== null && listAcceleratorsRequest !== undefined) {
@@ -822,6 +888,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let acceleratorId;
 
             if (showAcceleratorRequest !== null && showAcceleratorRequest !== undefined) {
@@ -860,6 +927,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let acceleratorId;
 
             if (updateAcceleratorRequest !== null && updateAcceleratorRequest !== undefined) {
@@ -905,6 +973,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let endpointGroupId;
 
             if (createEndpointRequest !== null && createEndpointRequest !== undefined) {
@@ -949,7 +1018,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let endpointGroupId;
+            
             let endpointId;
 
             if (deleteEndpointRequest !== null && deleteEndpointRequest !== undefined) {
@@ -992,11 +1063,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let endpointGroupId;
+            
             let limit;
+            
             let marker;
+            
             let pageReverse;
+            
             let id;
+            
             let status;
 
             if (listEndpointsRequest !== null && listEndpointsRequest !== undefined) {
@@ -1060,7 +1137,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let endpointGroupId;
+            
             let endpointId;
 
             if (showEndpointRequest !== null && showEndpointRequest !== undefined) {
@@ -1104,7 +1183,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let endpointGroupId;
+            
             let endpointId;
 
             if (updateEndpointRequest !== null && updateEndpointRequest !== undefined) {
@@ -1192,6 +1273,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let endpointGroupId;
 
             if (deleteEndpointGroupRequest !== null && deleteEndpointGroupRequest !== undefined) {
@@ -1229,12 +1311,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let pageReverse;
+            
             let id;
+            
             let name;
+            
             let status;
+            
             let listenerId;
 
             if (listEndpointGroupsRequest !== null && listEndpointGroupsRequest !== undefined) {
@@ -1302,6 +1391,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let endpointGroupId;
 
             if (showEndpointGroupRequest !== null && showEndpointGroupRequest !== undefined) {
@@ -1340,6 +1430,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let endpointGroupId;
 
             if (updateEndpointGroupRequest !== null && updateEndpointGroupRequest !== undefined) {
@@ -1422,6 +1513,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let healthCheckId;
 
             if (deleteHealthCheckRequest !== null && deleteHealthCheckRequest !== undefined) {
@@ -1459,11 +1551,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let pageReverse;
+            
             let id;
+            
             let status;
+            
             let endpointGroupId;
 
             if (listHealthChecksRequest !== null && listHealthChecksRequest !== undefined) {
@@ -1526,6 +1624,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let healthCheckId;
 
             if (showHealthCheckRequest !== null && showHealthCheckRequest !== undefined) {
@@ -1564,6 +1663,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let healthCheckId;
 
             if (updateHealthCheckRequest !== null && updateHealthCheckRequest !== undefined) {
@@ -1646,6 +1746,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let listenerId;
 
             if (deleteListenerRequest !== null && deleteListenerRequest !== undefined) {
@@ -1683,12 +1784,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let pageReverse;
+            
             let id;
+            
             let name;
+            
             let status;
+            
             let acceleratorId;
 
             if (listListenersRequest !== null && listListenersRequest !== undefined) {
@@ -1756,6 +1864,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let listenerId;
 
             if (showListenerRequest !== null && showListenerRequest !== undefined) {
@@ -1794,6 +1903,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let listenerId;
 
             if (updateListenerRequest !== null && updateListenerRequest !== undefined) {
@@ -1861,7 +1971,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let resourceType;
+            
             let resourceId;
 
             if (createTagsRequest !== null && createTagsRequest !== undefined) {
@@ -1912,7 +2024,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let resourceType;
+            
             let resourceId;
 
             if (deleteTagsRequest !== null && deleteTagsRequest !== undefined) {
@@ -1962,7 +2076,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let resourceType;
+            
             let resourceId;
 
             if (showResourceTagsRequest !== null && showResourceTagsRequest !== undefined) {

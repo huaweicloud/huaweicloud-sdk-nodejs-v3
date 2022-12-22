@@ -44,7 +44,7 @@ import { VersionDetail } from './model/VersionDetail';
 
 export class EpsClient {
     public static newBuilder(): ClientBuilder<EpsClient> {
-        return new ClientBuilder<EpsClient>(newClient, 'GlobalCredentials');
+            return new ClientBuilder<EpsClient>(newClient, 'GlobalCredentials');
     }
 
     private hcClient: HcClient;
@@ -69,8 +69,10 @@ export class EpsClient {
      */
     public createEnterpriseProject(createEnterpriseProjectRequest?: CreateEnterpriseProjectRequest): Promise<CreateEnterpriseProjectResponse> {
         const options = ParamCreater().createEnterpriseProject(createEnterpriseProjectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -87,8 +89,10 @@ export class EpsClient {
      */
     public disableEnterpriseProject(disableEnterpriseProjectRequest?: DisableEnterpriseProjectRequest): Promise<void> {
         const options = ParamCreater().disableEnterpriseProject(disableEnterpriseProjectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -105,8 +109,10 @@ export class EpsClient {
      */
     public enableEnterpriseProject(enableEnterpriseProjectRequest?: EnableEnterpriseProjectRequest): Promise<void> {
         const options = ParamCreater().enableEnterpriseProject(enableEnterpriseProjectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -121,8 +127,10 @@ export class EpsClient {
      */
     public listApiVersions(): Promise<ListApiVersionsResponse> {
         const options = ParamCreater().listApiVersions();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -144,8 +152,10 @@ export class EpsClient {
      */
     public listEnterpriseProject(listEnterpriseProjectRequest?: ListEnterpriseProjectRequest): Promise<ListEnterpriseProjectResponse> {
         const options = ParamCreater().listEnterpriseProject(listEnterpriseProjectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -164,8 +174,10 @@ export class EpsClient {
      */
     public listProviders(listProvidersRequest?: ListProvidersRequest): Promise<ListProvidersResponse> {
         const options = ParamCreater().listProviders(listProvidersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -182,8 +194,10 @@ export class EpsClient {
      */
     public migrateResource(migrateResourceRequest?: MigrateResourceRequest): Promise<void> {
         const options = ParamCreater().migrateResource(migrateResourceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -199,8 +213,10 @@ export class EpsClient {
      */
     public showApiVersion(showApiVersionRequest?: ShowApiVersionRequest): Promise<ShowApiVersionResponse> {
         const options = ParamCreater().showApiVersion(showApiVersionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -216,8 +232,10 @@ export class EpsClient {
      */
     public showEnterpriseProject(showEnterpriseProjectRequest?: ShowEnterpriseProjectRequest): Promise<ShowEnterpriseProjectResponse> {
         const options = ParamCreater().showEnterpriseProject(showEnterpriseProjectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -232,8 +250,10 @@ export class EpsClient {
      */
     public showEnterpriseProjectQuota(): Promise<ShowEnterpriseProjectQuotaResponse> {
         const options = ParamCreater().showEnterpriseProjectQuota();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -250,8 +270,10 @@ export class EpsClient {
      */
     public showResourceBindEnterpriseProject(showResourceBindEnterpriseProjectRequest?: ShowResourceBindEnterpriseProjectRequest): Promise<ShowResourceBindEnterpriseProjectResponse> {
         const options = ParamCreater().showResourceBindEnterpriseProject(showResourceBindEnterpriseProjectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -268,8 +290,10 @@ export class EpsClient {
      */
     public updateEnterpriseProject(updateEnterpriseProjectRequest?: UpdateEnterpriseProjectRequest): Promise<UpdateEnterpriseProjectResponse> {
         const options = ParamCreater().updateEnterpriseProject(updateEnterpriseProjectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -333,6 +357,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (disableEnterpriseProjectRequest !== null && disableEnterpriseProjectRequest !== undefined) {
@@ -378,6 +403,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (enableEnterpriseProjectRequest !== null && enableEnterpriseProjectRequest !== undefined) {
@@ -444,12 +470,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let id;
+            
             let limit;
+            
             let name;
+            
             let offset;
+            
             let sortDir;
+            
             let sortKey;
+            
             let status;
 
             if (listEnterpriseProjectRequest !== null && listEnterpriseProjectRequest !== undefined) {
@@ -517,9 +550,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let locale;
+            
             let limit;
+            
             let offset;
+            
             let provider;
 
             if (listProvidersRequest !== null && listProvidersRequest !== undefined) {
@@ -573,6 +610,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (migrateResourceRequest !== null && migrateResourceRequest !== undefined) {
@@ -617,6 +655,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let apiVersion;
 
             if (showApiVersionRequest !== null && showApiVersionRequest !== undefined) {
@@ -654,6 +693,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let enterpriseProjectId;
 
             if (showEnterpriseProjectRequest !== null && showEnterpriseProjectRequest !== undefined) {
@@ -714,6 +754,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (showResourceBindEnterpriseProjectRequest !== null && showResourceBindEnterpriseProjectRequest !== undefined) {
@@ -759,6 +800,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (updateEnterpriseProjectRequest !== null && updateEnterpriseProjectRequest !== undefined) {

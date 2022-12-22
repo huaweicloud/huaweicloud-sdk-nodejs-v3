@@ -1,4 +1,5 @@
 import { ConditionGroup } from './ConditionGroup';
+import { DeviceSide } from './DeviceSide';
 import { RuleAction } from './RuleAction';
 
 
@@ -10,6 +11,7 @@ export class Rule {
     private 'rule_type': string | undefined;
     public status?: string;
     private 'app_id'?: string | undefined;
+    private 'device_side'?: DeviceSide | undefined;
     public constructor(name?: any, conditionGroup?: any, actions?: any, ruleType?: any) { 
         this['name'] = name;
         this['condition_group'] = conditionGroup;
@@ -61,5 +63,15 @@ export class Rule {
     }
     public get appId() {
         return this['app_id'];
+    }
+    public withDeviceSide(deviceSide: DeviceSide): Rule {
+        this['device_side'] = deviceSide;
+        return this;
+    }
+    public set deviceSide(deviceSide: DeviceSide | undefined) {
+        this['device_side'] = deviceSide;
+    }
+    public get deviceSide() {
+        return this['device_side'];
     }
 }

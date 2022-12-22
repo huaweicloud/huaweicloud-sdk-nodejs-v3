@@ -5,10 +5,11 @@ export class CreateEndpointOption {
     private 'resource_id': string | undefined;
     private 'resource_type': EndpointType | undefined;
     public weight?: number;
-    private 'ip_address'?: string | undefined;
-    public constructor(resourceId?: any, resourceType?: any) { 
+    private 'ip_address': string | undefined;
+    public constructor(resourceId?: any, resourceType?: any, ipAddress?: any) { 
         this['resource_id'] = resourceId;
         this['resource_type'] = resourceType;
+        this['ip_address'] = ipAddress;
     }
     public withResourceId(resourceId: string): CreateEndpointOption {
         this['resource_id'] = resourceId;

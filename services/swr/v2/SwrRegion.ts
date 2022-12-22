@@ -14,6 +14,11 @@ export class SwrRegion {
     public static CN_SOUTH_2 = new Region("cn-south-2", "https://swr-api.cn-south-2.myhuaweicloud.com");
     public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", "https://swr-api.cn-southwest-2.myhuaweicloud.com");
     public static RU_NORTHWEST_2 = new Region("ru-northwest-2", "https://swr-api.ru-northwest-2.myhuaweicloud.com");
+    public static LA_SOUTH_2 = new Region("la-south-2", "https://swr-api.la-south-2.myhuaweicloud.com");
+    public static SA_BRAZIL_1 = new Region("sa-brazil-1", "https://swr-api.sa-brazil-1.myhuaweicloud.com");
+    public static CN_NORTH_9 = new Region("cn-north-9", "https://swr-api.cn-north-9.myhuaweicloud.com");
+    public static NA_MEXICO_1 = new Region("na-mexico-1", "https://swr-api.na-mexico-1.myhuaweicloud.com");
+    public static LA_NORTH_2 = new Region("la-north-2", "https://swr-api.la-north-2.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = SwrRegion.createStaticFields();
@@ -32,6 +37,11 @@ export class SwrRegion {
         map.set("cn-south-2", SwrRegion.CN_SOUTH_2);
         map.set("cn-southwest-2", SwrRegion.CN_SOUTHWEST_2);
         map.set("ru-northwest-2", SwrRegion.RU_NORTHWEST_2);
+        map.set("la-south-2", SwrRegion.LA_SOUTH_2);
+        map.set("sa-brazil-1", SwrRegion.SA_BRAZIL_1);
+        map.set("cn-north-9", SwrRegion.CN_NORTH_9);
+        map.set("na-mexico-1", SwrRegion.NA_MEXICO_1);
+        map.set("la-north-2", SwrRegion.LA_NORTH_2);
         return map;
     }
     public static valueOf(regionId: String) {

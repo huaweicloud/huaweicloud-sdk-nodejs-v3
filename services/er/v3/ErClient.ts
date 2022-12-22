@@ -115,7 +115,7 @@ import { VpcAttachmentDetails } from './model/VpcAttachmentDetails';
 
 export class ErClient {
     public static newBuilder(): ClientBuilder<ErClient> {
-        return new ClientBuilder<ErClient>(newClient);
+            return new ClientBuilder<ErClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -143,8 +143,10 @@ export class ErClient {
      */
     public associateRouteTable(associateRouteTableRequest?: AssociateRouteTableRequest): Promise<AssociateRouteTableResponse> {
         const options = ParamCreater().associateRouteTable(associateRouteTableRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['X-Client-Token'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -162,8 +164,10 @@ export class ErClient {
      */
     public disassociateRouteTable(disassociateRouteTableRequest?: DisassociateRouteTableRequest): Promise<void> {
         const options = ParamCreater().disassociateRouteTable(disassociateRouteTableRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -187,8 +191,10 @@ export class ErClient {
      */
     public listAssociations(listAssociationsRequest?: ListAssociationsRequest): Promise<ListAssociationsResponse> {
         const options = ParamCreater().listAssociations(listAssociationsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -211,8 +217,10 @@ export class ErClient {
      */
     public listAttachments(listAttachmentsRequest?: ListAttachmentsRequest): Promise<ListAttachmentsResponse> {
         const options = ParamCreater().listAttachments(listAttachmentsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -229,8 +237,10 @@ export class ErClient {
      */
     public showAttachment(showAttachmentRequest?: ShowAttachmentRequest): Promise<ShowAttachmentResponse> {
         const options = ParamCreater().showAttachment(showAttachmentRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -248,8 +258,10 @@ export class ErClient {
      */
     public updateAttachment(updateAttachmentRequest?: UpdateAttachmentRequest): Promise<UpdateAttachmentResponse> {
         const options = ParamCreater().updateAttachment(updateAttachmentRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -265,8 +277,10 @@ export class ErClient {
      */
     public listAvailabilityZone(listAvailabilityZoneRequest?: ListAvailabilityZoneRequest): Promise<ListAvailabilityZoneResponse> {
         const options = ParamCreater().listAvailabilityZone(listAvailabilityZoneRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -283,8 +297,10 @@ export class ErClient {
      */
     public changeAvailabilityZone(changeAvailabilityZoneRequest?: ChangeAvailabilityZoneRequest): Promise<ChangeAvailabilityZoneResponse> {
         const options = ParamCreater().changeAvailabilityZone(changeAvailabilityZoneRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -301,8 +317,10 @@ export class ErClient {
      */
     public createEnterpriseRouter(createEnterpriseRouterRequest?: CreateEnterpriseRouterRequest): Promise<CreateEnterpriseRouterResponse> {
         const options = ParamCreater().createEnterpriseRouter(createEnterpriseRouterRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['X-Client-Token'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -318,8 +336,10 @@ export class ErClient {
      */
     public deleteEnterpriseRouter(deleteEnterpriseRouterRequest?: DeleteEnterpriseRouterRequest): Promise<void> {
         const options = ParamCreater().deleteEnterpriseRouter(deleteEnterpriseRouterRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -342,8 +362,10 @@ export class ErClient {
      */
     public listEnterpriseRouters(listEnterpriseRoutersRequest?: ListEnterpriseRoutersRequest): Promise<ListEnterpriseRoutersResponse> {
         const options = ParamCreater().listEnterpriseRouters(listEnterpriseRoutersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -359,8 +381,10 @@ export class ErClient {
      */
     public showEnterpriseRouter(showEnterpriseRouterRequest?: ShowEnterpriseRouterRequest): Promise<ShowEnterpriseRouterResponse> {
         const options = ParamCreater().showEnterpriseRouter(showEnterpriseRouterRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -377,8 +401,10 @@ export class ErClient {
      */
     public updateEnterpriseRouter(updateEnterpriseRouterRequest?: UpdateEnterpriseRouterRequest): Promise<UpdateEnterpriseRouterResponse> {
         const options = ParamCreater().updateEnterpriseRouter(updateEnterpriseRouterRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -396,8 +422,10 @@ export class ErClient {
      */
     public disablePropagation(disablePropagationRequest?: DisablePropagationRequest): Promise<void> {
         const options = ParamCreater().disablePropagation(disablePropagationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -416,8 +444,10 @@ export class ErClient {
      */
     public enablePropagation(enablePropagationRequest?: EnablePropagationRequest): Promise<EnablePropagationResponse> {
         const options = ParamCreater().enablePropagation(enablePropagationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['X-Client-Token'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -441,8 +471,10 @@ export class ErClient {
      */
     public listPropagations(listPropagationsRequest?: ListPropagationsRequest): Promise<ListPropagationsResponse> {
         const options = ParamCreater().listPropagations(listPropagationsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -460,8 +492,10 @@ export class ErClient {
      */
     public createStaticRoute(createStaticRouteRequest?: CreateStaticRouteRequest): Promise<CreateStaticRouteResponse> {
         const options = ParamCreater().createStaticRoute(createStaticRouteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['X-Client-Token'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -478,8 +512,10 @@ export class ErClient {
      */
     public deleteStaticRoute(deleteStaticRouteRequest?: DeleteStaticRouteRequest): Promise<void> {
         const options = ParamCreater().deleteStaticRoute(deleteStaticRouteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -499,8 +535,10 @@ export class ErClient {
      */
     public listEffectiveRoutes(listEffectiveRoutesRequest?: ListEffectiveRoutesRequest): Promise<ListEffectiveRoutesResponse> {
         const options = ParamCreater().listEffectiveRoutes(listEffectiveRoutesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -523,8 +561,10 @@ export class ErClient {
      */
     public listStaticRoutes(listStaticRoutesRequest?: ListStaticRoutesRequest): Promise<ListStaticRoutesResponse> {
         const options = ParamCreater().listStaticRoutes(listStaticRoutesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -541,8 +581,10 @@ export class ErClient {
      */
     public showStaticRoute(showStaticRouteRequest?: ShowStaticRouteRequest): Promise<ShowStaticRouteResponse> {
         const options = ParamCreater().showStaticRoute(showStaticRouteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -560,8 +602,10 @@ export class ErClient {
      */
     public updateStaticRoute(updateStaticRouteRequest?: UpdateStaticRouteRequest): Promise<UpdateStaticRouteResponse> {
         const options = ParamCreater().updateStaticRoute(updateStaticRouteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -579,8 +623,10 @@ export class ErClient {
      */
     public createRouteTable(createRouteTableRequest?: CreateRouteTableRequest): Promise<CreateRouteTableResponse> {
         const options = ParamCreater().createRouteTable(createRouteTableRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['X-Client-Token'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -597,8 +643,10 @@ export class ErClient {
      */
     public deleteRouteTable(deleteRouteTableRequest?: DeleteRouteTableRequest): Promise<void> {
         const options = ParamCreater().deleteRouteTable(deleteRouteTableRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -621,8 +669,10 @@ export class ErClient {
      */
     public listRouteTables(listRouteTablesRequest?: ListRouteTablesRequest): Promise<ListRouteTablesResponse> {
         const options = ParamCreater().listRouteTables(listRouteTablesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -639,8 +689,10 @@ export class ErClient {
      */
     public showRouteTable(showRouteTableRequest?: ShowRouteTableRequest): Promise<ShowRouteTableResponse> {
         const options = ParamCreater().showRouteTable(showRouteTableRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -658,8 +710,10 @@ export class ErClient {
      */
     public updateRouteTable(updateRouteTableRequest?: UpdateRouteTableRequest): Promise<UpdateRouteTableResponse> {
         const options = ParamCreater().updateRouteTable(updateRouteTableRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -677,8 +731,10 @@ export class ErClient {
      */
     public createResourceTag(createResourceTagRequest?: CreateResourceTagRequest): Promise<string> {
         const options = ParamCreater().createResourceTag(createResourceTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -696,8 +752,10 @@ export class ErClient {
      */
     public deleteResourceTag(deleteResourceTagRequest?: DeleteResourceTagRequest): Promise<string> {
         const options = ParamCreater().deleteResourceTag(deleteResourceTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -713,8 +771,10 @@ export class ErClient {
      */
     public listProjectTags(listProjectTagsRequest?: ListProjectTagsRequest): Promise<ListProjectTagsResponse> {
         const options = ParamCreater().listProjectTags(listProjectTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -731,8 +791,10 @@ export class ErClient {
      */
     public showResourceTag(showResourceTagRequest?: ShowResourceTagRequest): Promise<ShowResourceTagResponse> {
         const options = ParamCreater().showResourceTag(showResourceTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -750,8 +812,10 @@ export class ErClient {
      */
     public createVpcAttachment(createVpcAttachmentRequest?: CreateVpcAttachmentRequest): Promise<CreateVpcAttachmentResponse> {
         const options = ParamCreater().createVpcAttachment(createVpcAttachmentRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['X-Client-Token'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -768,8 +832,10 @@ export class ErClient {
      */
     public deleteVpcAttachment(deleteVpcAttachmentRequest?: DeleteVpcAttachmentRequest): Promise<void> {
         const options = ParamCreater().deleteVpcAttachment(deleteVpcAttachmentRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -792,8 +858,10 @@ export class ErClient {
      */
     public listVpcAttachments(listVpcAttachmentsRequest?: ListVpcAttachmentsRequest): Promise<ListVpcAttachmentsResponse> {
         const options = ParamCreater().listVpcAttachments(listVpcAttachmentsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -810,8 +878,10 @@ export class ErClient {
      */
     public showVpcAttachment(showVpcAttachmentRequest?: ShowVpcAttachmentRequest): Promise<ShowVpcAttachmentResponse> {
         const options = ParamCreater().showVpcAttachment(showVpcAttachmentRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -829,8 +899,10 @@ export class ErClient {
      */
     public updateVpcAttachment(updateVpcAttachmentRequest?: UpdateVpcAttachmentRequest): Promise<UpdateVpcAttachmentResponse> {
         const options = ParamCreater().updateVpcAttachment(updateVpcAttachmentRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -856,8 +928,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
+            
             let routeTableId;
+            
             let xClientToken;
 
             if (associateRouteTableRequest !== null && associateRouteTableRequest !== undefined) {
@@ -913,7 +988,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
+            
             let routeTableId;
 
             if (disassociateRouteTableRequest !== null && disassociateRouteTableRequest !== undefined) {
@@ -963,14 +1040,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let erId;
+            
             let routeTableId;
+            
             let limit;
+            
             let marker;
+            
             let attachmentId;
+            
             let resourceType;
+            
             let state;
+            
             let sortKey;
+            
             let sortDir;
 
             if (listAssociationsRequest !== null && listAssociationsRequest !== undefined) {
@@ -1049,13 +1135,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let erId;
+            
             let limit;
+            
             let marker;
+            
             let state;
+            
             let resourceType;
+            
             let resourceId;
+            
             let sortKey;
+            
             let sortDir;
 
             if (listAttachmentsRequest !== null && listAttachmentsRequest !== undefined) {
@@ -1129,7 +1223,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let erId;
+            
             let attachmentId;
 
             if (showAttachmentRequest !== null && showAttachmentRequest !== undefined) {
@@ -1173,7 +1269,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
+            
             let attachmentId;
 
             if (updateAttachmentRequest !== null && updateAttachmentRequest !== undefined) {
@@ -1223,6 +1321,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
 
             if (listAvailabilityZoneRequest !== null && listAvailabilityZoneRequest !== undefined) {
@@ -1261,6 +1360,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
 
             if (changeAvailabilityZoneRequest !== null && changeAvailabilityZoneRequest !== undefined) {
@@ -1306,6 +1406,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let xClientToken;
 
             if (createEnterpriseRouterRequest !== null && createEnterpriseRouterRequest !== undefined) {
@@ -1349,6 +1450,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let erId;
 
             if (deleteEnterpriseRouterRequest !== null && deleteEnterpriseRouterRequest !== undefined) {
@@ -1386,13 +1488,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let enterpriseProjectId;
+            
             let state;
+            
             let id;
+            
             let resourceId;
+            
             let sortKey;
+            
             let sortDir;
 
             if (listEnterpriseRoutersRequest !== null && listEnterpriseRoutersRequest !== undefined) {
@@ -1465,6 +1575,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let erId;
 
             if (showEnterpriseRouterRequest !== null && showEnterpriseRouterRequest !== undefined) {
@@ -1503,6 +1614,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
 
             if (updateEnterpriseRouterRequest !== null && updateEnterpriseRouterRequest !== undefined) {
@@ -1548,7 +1660,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
+            
             let routeTableId;
 
             if (disablePropagationRequest !== null && disablePropagationRequest !== undefined) {
@@ -1599,8 +1713,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
+            
             let routeTableId;
+            
             let xClientToken;
 
             if (enablePropagationRequest !== null && enablePropagationRequest !== undefined) {
@@ -1655,14 +1772,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let erId;
+            
             let routeTableId;
+            
             let limit;
+            
             let marker;
+            
             let attachmentId;
+            
             let resourceType;
+            
             let state;
+            
             let sortKey;
+            
             let sortDir;
 
             if (listPropagationsRequest !== null && listPropagationsRequest !== undefined) {
@@ -1742,7 +1868,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let routeTableId;
+            
             let xClientToken;
 
             if (createStaticRouteRequest !== null && createStaticRouteRequest !== undefined) {
@@ -1792,7 +1920,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let routeTableId;
+            
             let routeId;
 
             if (deleteStaticRouteRequest !== null && deleteStaticRouteRequest !== undefined) {
@@ -1835,10 +1965,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let routeTableId;
+            
             let limit;
+            
             let marker;
+            
             let destination;
+            
             let resourceType;
 
             if (listEffectiveRoutesRequest !== null && listEffectiveRoutesRequest !== undefined) {
@@ -1897,13 +2032,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let routeTableId;
+            
             let limit;
+            
             let marker;
+            
             let destination;
+            
             let attachmentId;
+            
             let resourceType;
+            
             let sortKey;
+            
             let sortDir;
 
             if (listStaticRoutesRequest !== null && listStaticRoutesRequest !== undefined) {
@@ -1977,7 +2120,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let routeTableId;
+            
             let routeId;
 
             if (showStaticRouteRequest !== null && showStaticRouteRequest !== undefined) {
@@ -2021,7 +2166,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let routeTableId;
+            
             let routeId;
 
             if (updateStaticRouteRequest !== null && updateStaticRouteRequest !== undefined) {
@@ -2072,7 +2219,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
+            
             let xClientToken;
 
             if (createRouteTableRequest !== null && createRouteTableRequest !== undefined) {
@@ -2122,7 +2271,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let erId;
+            
             let routeTableId;
 
             if (deleteRouteTableRequest !== null && deleteRouteTableRequest !== undefined) {
@@ -2165,13 +2316,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let erId;
+            
             let limit;
+            
             let marker;
+            
             let state;
+            
             let isDefaultPropagationTable;
+            
             let isDefaultAssociationTable;
+            
             let sortKey;
+            
             let sortDir;
 
             if (listRouteTablesRequest !== null && listRouteTablesRequest !== undefined) {
@@ -2245,7 +2404,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let erId;
+            
             let routeTableId;
 
             if (showRouteTableRequest !== null && showRouteTableRequest !== undefined) {
@@ -2289,7 +2450,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
+            
             let routeTableId;
 
             if (updateRouteTableRequest !== null && updateRouteTableRequest !== undefined) {
@@ -2337,7 +2500,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let resourceId;
+            
             let resourceType;
 
             if (createResourceTagRequest !== null && createResourceTagRequest !== undefined) {
@@ -2387,8 +2552,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let key;
+            
             let resourceId;
+            
             let resourceType;
 
             if (deleteResourceTagRequest !== null && deleteResourceTagRequest !== undefined) {
@@ -2436,6 +2604,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let resourceType;
 
             if (listProjectTagsRequest !== null && listProjectTagsRequest !== undefined) {
@@ -2473,7 +2642,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let resourceId;
+            
             let resourceType;
 
             if (showResourceTagRequest !== null && showResourceTagRequest !== undefined) {
@@ -2517,7 +2688,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
+            
             let xClientToken;
 
             if (createVpcAttachmentRequest !== null && createVpcAttachmentRequest !== undefined) {
@@ -2567,7 +2740,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let erId;
+            
             let vpcAttachmentId;
 
             if (deleteVpcAttachmentRequest !== null && deleteVpcAttachmentRequest !== undefined) {
@@ -2610,13 +2785,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let erId;
+            
             let limit;
+            
             let marker;
+            
             let state;
+            
             let id;
+            
             let sortKey;
+            
             let sortDir;
+            
             let vpcId;
 
             if (listVpcAttachmentsRequest !== null && listVpcAttachmentsRequest !== undefined) {
@@ -2690,7 +2873,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let erId;
+            
             let vpcAttachmentId;
 
             if (showVpcAttachmentRequest !== null && showVpcAttachmentRequest !== undefined) {
@@ -2734,7 +2919,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let erId;
+            
             let vpcAttachmentId;
 
             if (updateVpcAttachmentRequest !== null && updateVpcAttachmentRequest !== undefined) {

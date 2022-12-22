@@ -6,6 +6,7 @@ export class CopyImageCrossRegionRequestBody {
     public name: string;
     private 'project_name': string | undefined;
     public region: string;
+    private 'vault_id'?: string | undefined;
     public constructor(agencyName?: any, name?: any, projectName?: any, region?: any) { 
         this['agency_name'] = agencyName;
         this['name'] = name;
@@ -43,5 +44,15 @@ export class CopyImageCrossRegionRequestBody {
     public withRegion(region: string): CopyImageCrossRegionRequestBody {
         this['region'] = region;
         return this;
+    }
+    public withVaultId(vaultId: string): CopyImageCrossRegionRequestBody {
+        this['vault_id'] = vaultId;
+        return this;
+    }
+    public set vaultId(vaultId: string | undefined) {
+        this['vault_id'] = vaultId;
+    }
+    public get vaultId() {
+        return this['vault_id'];
     }
 }

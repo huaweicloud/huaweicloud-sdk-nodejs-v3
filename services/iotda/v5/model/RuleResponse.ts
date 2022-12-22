@@ -1,4 +1,5 @@
 import { ConditionGroup } from './ConditionGroup';
+import { DeviceSide } from './DeviceSide';
 import { RuleAction } from './RuleAction';
 
 
@@ -13,6 +14,7 @@ export class RuleResponse {
     private 'app_id'?: string | undefined;
     private 'edge_node_ids'?: Array<string> | undefined;
     private 'last_update_time'?: string | undefined;
+    private 'device_side'?: DeviceSide | undefined;
     public constructor(name?: any, conditionGroup?: any, actions?: any, ruleType?: any) { 
         this['name'] = name;
         this['condition_group'] = conditionGroup;
@@ -94,5 +96,15 @@ export class RuleResponse {
     }
     public get lastUpdateTime() {
         return this['last_update_time'];
+    }
+    public withDeviceSide(deviceSide: DeviceSide): RuleResponse {
+        this['device_side'] = deviceSide;
+        return this;
+    }
+    public set deviceSide(deviceSide: DeviceSide | undefined) {
+        this['device_side'] = deviceSide;
+    }
+    public get deviceSide() {
+        return this['device_side'];
     }
 }

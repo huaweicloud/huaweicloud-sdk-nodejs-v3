@@ -100,7 +100,7 @@ import { Vpc } from './model/Vpc';
 
 export class VpcClient {
     public static newBuilder(): ClientBuilder<VpcClient> {
-        return new ClientBuilder<VpcClient>(newClient);
+            return new ClientBuilder<VpcClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -125,8 +125,10 @@ export class VpcClient {
      */
     public batchCreateSubNetworkInterface(batchCreateSubNetworkInterfaceRequest?: BatchCreateSubNetworkInterfaceRequest): Promise<BatchCreateSubNetworkInterfaceResponse> {
         const options = ParamCreater().batchCreateSubNetworkInterface(batchCreateSubNetworkInterfaceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -142,8 +144,10 @@ export class VpcClient {
      */
     public createSecurityGroup(createSecurityGroupRequest?: CreateSecurityGroupRequest): Promise<CreateSecurityGroupResponse> {
         const options = ParamCreater().createSecurityGroup(createSecurityGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -159,8 +163,10 @@ export class VpcClient {
      */
     public createSecurityGroupRule(createSecurityGroupRuleRequest?: CreateSecurityGroupRuleRequest): Promise<CreateSecurityGroupRuleResponse> {
         const options = ParamCreater().createSecurityGroupRule(createSecurityGroupRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -176,8 +182,10 @@ export class VpcClient {
      */
     public createSubNetworkInterface(createSubNetworkInterfaceRequest?: CreateSubNetworkInterfaceRequest): Promise<CreateSubNetworkInterfaceResponse> {
         const options = ParamCreater().createSubNetworkInterface(createSubNetworkInterfaceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -193,8 +201,10 @@ export class VpcClient {
      */
     public deleteSecurityGroup(deleteSecurityGroupRequest?: DeleteSecurityGroupRequest): Promise<void> {
         const options = ParamCreater().deleteSecurityGroup(deleteSecurityGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -210,8 +220,10 @@ export class VpcClient {
      */
     public deleteSecurityGroupRule(deleteSecurityGroupRuleRequest?: DeleteSecurityGroupRuleRequest): Promise<void> {
         const options = ParamCreater().deleteSecurityGroupRule(deleteSecurityGroupRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -227,8 +239,10 @@ export class VpcClient {
      */
     public deleteSubNetworkInterface(deleteSubNetworkInterfaceRequest?: DeleteSubNetworkInterfaceRequest): Promise<void> {
         const options = ParamCreater().deleteSubNetworkInterface(deleteSubNetworkInterfaceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -252,8 +266,10 @@ export class VpcClient {
      */
     public listSecurityGroupRules(listSecurityGroupRulesRequest?: ListSecurityGroupRulesRequest): Promise<ListSecurityGroupRulesResponse> {
         const options = ParamCreater().listSecurityGroupRules(listSecurityGroupRulesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -274,8 +290,10 @@ export class VpcClient {
      */
     public listSecurityGroups(listSecurityGroupsRequest?: ListSecurityGroupsRequest): Promise<ListSecurityGroupsResponse> {
         const options = ParamCreater().listSecurityGroups(listSecurityGroupsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -299,8 +317,10 @@ export class VpcClient {
      */
     public listSubNetworkInterfaces(listSubNetworkInterfacesRequest?: ListSubNetworkInterfacesRequest): Promise<ListSubNetworkInterfacesResponse> {
         const options = ParamCreater().listSubNetworkInterfaces(listSubNetworkInterfacesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -316,8 +336,10 @@ export class VpcClient {
      */
     public migrateSubNetworkInterface(migrateSubNetworkInterfaceRequest?: MigrateSubNetworkInterfaceRequest): Promise<MigrateSubNetworkInterfaceResponse> {
         const options = ParamCreater().migrateSubNetworkInterface(migrateSubNetworkInterfaceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -333,8 +355,10 @@ export class VpcClient {
      */
     public showSecurityGroup(showSecurityGroupRequest?: ShowSecurityGroupRequest): Promise<ShowSecurityGroupResponse> {
         const options = ParamCreater().showSecurityGroup(showSecurityGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -350,8 +374,10 @@ export class VpcClient {
      */
     public showSecurityGroupRule(showSecurityGroupRuleRequest?: ShowSecurityGroupRuleRequest): Promise<ShowSecurityGroupRuleResponse> {
         const options = ParamCreater().showSecurityGroupRule(showSecurityGroupRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -367,8 +393,10 @@ export class VpcClient {
      */
     public showSubNetworkInterface(showSubNetworkInterfaceRequest?: ShowSubNetworkInterfaceRequest): Promise<ShowSubNetworkInterfaceResponse> {
         const options = ParamCreater().showSubNetworkInterface(showSubNetworkInterfaceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -383,8 +411,10 @@ export class VpcClient {
      */
     public showSubNetworkInterfacesQuantity(): Promise<ShowSubNetworkInterfacesQuantityResponse> {
         const options = ParamCreater().showSubNetworkInterfacesQuantity();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -401,8 +431,10 @@ export class VpcClient {
      */
     public updateSecurityGroup(updateSecurityGroupRequest?: UpdateSecurityGroupRequest): Promise<UpdateSecurityGroupResponse> {
         const options = ParamCreater().updateSecurityGroup(updateSecurityGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -419,8 +451,10 @@ export class VpcClient {
      */
     public updateSubNetworkInterface(updateSubNetworkInterfaceRequest?: UpdateSubNetworkInterfaceRequest): Promise<UpdateSubNetworkInterfaceResponse> {
         const options = ParamCreater().updateSubNetworkInterface(updateSubNetworkInterfaceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -436,8 +470,10 @@ export class VpcClient {
      */
     public createAddressGroup(createAddressGroupRequest?: CreateAddressGroupRequest): Promise<CreateAddressGroupResponse> {
         const options = ParamCreater().createAddressGroup(createAddressGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -453,8 +489,10 @@ export class VpcClient {
      */
     public deleteAddressGroup(deleteAddressGroupRequest?: DeleteAddressGroupRequest): Promise<void> {
         const options = ParamCreater().deleteAddressGroup(deleteAddressGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -470,8 +508,10 @@ export class VpcClient {
      */
     public deleteIpAddressGroupForce(deleteIpAddressGroupForceRequest?: DeleteIpAddressGroupForceRequest): Promise<void> {
         const options = ParamCreater().deleteIpAddressGroupForce(deleteIpAddressGroupForceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -492,8 +532,10 @@ export class VpcClient {
      */
     public listAddressGroup(listAddressGroupRequest?: ListAddressGroupRequest): Promise<ListAddressGroupResponse> {
         const options = ParamCreater().listAddressGroup(listAddressGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -509,8 +551,10 @@ export class VpcClient {
      */
     public showAddressGroup(showAddressGroupRequest?: ShowAddressGroupRequest): Promise<ShowAddressGroupResponse> {
         const options = ParamCreater().showAddressGroup(showAddressGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -527,8 +571,10 @@ export class VpcClient {
      */
     public updateAddressGroup(updateAddressGroupRequest?: UpdateAddressGroupRequest): Promise<UpdateAddressGroupResponse> {
         const options = ParamCreater().updateAddressGroup(updateAddressGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -545,8 +591,10 @@ export class VpcClient {
      */
     public addVpcExtendCidr(addVpcExtendCidrRequest?: AddVpcExtendCidrRequest): Promise<AddVpcExtendCidrResponse> {
         const options = ParamCreater().addVpcExtendCidr(addVpcExtendCidrRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -562,8 +610,10 @@ export class VpcClient {
      */
     public createVpc(createVpcRequest?: CreateVpcRequest): Promise<CreateVpcResponse> {
         const options = ParamCreater().createVpc(createVpcRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -579,8 +629,10 @@ export class VpcClient {
      */
     public deleteVpc(deleteVpcRequest?: DeleteVpcRequest): Promise<void> {
         const options = ParamCreater().deleteVpc(deleteVpcRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -601,8 +653,10 @@ export class VpcClient {
      */
     public listVpcs(listVpcsRequest?: ListVpcsRequest): Promise<ListVpcsResponse> {
         const options = ParamCreater().listVpcs(listVpcsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -619,8 +673,10 @@ export class VpcClient {
      */
     public removeVpcExtendCidr(removeVpcExtendCidrRequest?: RemoveVpcExtendCidrRequest): Promise<RemoveVpcExtendCidrResponse> {
         const options = ParamCreater().removeVpcExtendCidr(removeVpcExtendCidrRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -636,8 +692,10 @@ export class VpcClient {
      */
     public showVpc(showVpcRequest?: ShowVpcRequest): Promise<ShowVpcResponse> {
         const options = ParamCreater().showVpc(showVpcRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -654,8 +712,10 @@ export class VpcClient {
      */
     public updateVpc(updateVpcRequest?: UpdateVpcRequest): Promise<UpdateVpcResponse> {
         const options = ParamCreater().updateVpc(updateVpcRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -832,6 +892,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let securityGroupId;
 
             if (deleteSecurityGroupRequest !== null && deleteSecurityGroupRequest !== undefined) {
@@ -869,6 +930,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let securityGroupRuleId;
 
             if (deleteSecurityGroupRuleRequest !== null && deleteSecurityGroupRuleRequest !== undefined) {
@@ -906,6 +968,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let subNetworkInterfaceId;
 
             if (deleteSubNetworkInterfaceRequest !== null && deleteSubNetworkInterfaceRequest !== undefined) {
@@ -943,14 +1006,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let id;
+            
             let securityGroupId;
+            
             let protocol;
+            
             let description;
+            
             let remoteGroupId;
+            
             let direction;
+            
             let action;
 
             if (listSecurityGroupRulesRequest !== null && listSecurityGroupRulesRequest !== undefined) {
@@ -1028,11 +1100,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let id;
+            
             let name;
+            
             let description;
+            
             let enterpriseProjectId;
 
             if (listSecurityGroupsRequest !== null && listSecurityGroupsRequest !== undefined) {
@@ -1095,14 +1173,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let id;
+            
             let virsubnetId;
+            
             let privateIpAddress;
+            
             let macAddress;
+            
             let vpcId;
+            
             let description;
+            
             let parentId;
 
             if (listSubNetworkInterfacesRequest !== null && listSubNetworkInterfacesRequest !== undefined) {
@@ -1218,6 +1305,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let securityGroupId;
 
             if (showSecurityGroupRequest !== null && showSecurityGroupRequest !== undefined) {
@@ -1255,6 +1343,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let securityGroupRuleId;
 
             if (showSecurityGroupRuleRequest !== null && showSecurityGroupRuleRequest !== undefined) {
@@ -1292,6 +1381,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let subNetworkInterfaceId;
 
             if (showSubNetworkInterfaceRequest !== null && showSubNetworkInterfaceRequest !== undefined) {
@@ -1352,6 +1442,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let securityGroupId;
 
             if (updateSecurityGroupRequest !== null && updateSecurityGroupRequest !== undefined) {
@@ -1397,6 +1488,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let subNetworkInterfaceId;
 
             if (updateSubNetworkInterfaceRequest !== null && updateSubNetworkInterfaceRequest !== undefined) {
@@ -1479,6 +1571,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let addressGroupId;
 
             if (deleteAddressGroupRequest !== null && deleteAddressGroupRequest !== undefined) {
@@ -1516,6 +1609,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let addressGroupId;
 
             if (deleteIpAddressGroupForceRequest !== null && deleteIpAddressGroupForceRequest !== undefined) {
@@ -1553,11 +1647,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let id;
+            
             let name;
+            
             let ipVersion;
+            
             let description;
 
             if (listAddressGroupRequest !== null && listAddressGroupRequest !== undefined) {
@@ -1620,6 +1720,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let addressGroupId;
 
             if (showAddressGroupRequest !== null && showAddressGroupRequest !== undefined) {
@@ -1658,6 +1759,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let addressGroupId;
 
             if (updateAddressGroupRequest !== null && updateAddressGroupRequest !== undefined) {
@@ -1703,6 +1805,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let vpcId;
 
             if (addVpcExtendCidrRequest !== null && addVpcExtendCidrRequest !== undefined) {
@@ -1785,6 +1888,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let vpcId;
 
             if (deleteVpcRequest !== null && deleteVpcRequest !== undefined) {
@@ -1822,11 +1926,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let id;
+            
             let name;
+            
             let description;
+            
             let cidr;
 
             if (listVpcsRequest !== null && listVpcsRequest !== undefined) {
@@ -1890,6 +2000,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let vpcId;
 
             if (removeVpcExtendCidrRequest !== null && removeVpcExtendCidrRequest !== undefined) {
@@ -1934,6 +2045,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let vpcId;
 
             if (showVpcRequest !== null && showVpcRequest !== undefined) {
@@ -1972,6 +2084,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let vpcId;
 
             if (updateVpcRequest !== null && updateVpcRequest !== undefined) {

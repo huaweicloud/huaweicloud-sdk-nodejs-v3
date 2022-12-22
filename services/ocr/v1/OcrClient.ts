@@ -196,7 +196,7 @@ import { WordsRegionList } from './model/WordsRegionList';
 
 export class OcrClient {
     public static newBuilder(): ClientBuilder<OcrClient> {
-        return new ClientBuilder<OcrClient>(newClient);
+            return new ClientBuilder<OcrClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -226,8 +226,10 @@ export class OcrClient {
      */
     public recognizeAutoClassification(recognizeAutoClassificationRequest?: RecognizeAutoClassificationRequest): Promise<RecognizeAutoClassificationResponse> {
         const options = ParamCreater().recognizeAutoClassification(recognizeAutoClassificationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -248,8 +250,10 @@ export class OcrClient {
      */
     public recognizeBankcard(recognizeBankcardRequest?: RecognizeBankcardRequest): Promise<RecognizeBankcardResponse> {
         const options = ParamCreater().recognizeBankcard(recognizeBankcardRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -266,8 +270,10 @@ export class OcrClient {
      */
     public recognizeBusinessCard(recognizeBusinessCardRequest?: RecognizeBusinessCardRequest): Promise<RecognizeBusinessCardResponse> {
         const options = ParamCreater().recognizeBusinessCard(recognizeBusinessCardRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -288,8 +294,10 @@ export class OcrClient {
      */
     public recognizeBusinessLicense(recognizeBusinessLicenseRequest?: RecognizeBusinessLicenseRequest): Promise<RecognizeBusinessLicenseResponse> {
         const options = ParamCreater().recognizeBusinessLicense(recognizeBusinessLicenseRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -306,8 +314,10 @@ export class OcrClient {
      */
     public recognizeCambodianIdCard(recognizeCambodianIdCardRequest?: RecognizeCambodianIdCardRequest): Promise<RecognizeCambodianIdCardResponse> {
         const options = ParamCreater().recognizeCambodianIdCard(recognizeCambodianIdCardRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -324,8 +334,10 @@ export class OcrClient {
      */
     public recognizeChileIdCard(recognizeChileIdCardRequest?: RecognizeChileIdCardRequest): Promise<RecognizeChileIdCardResponse> {
         const options = ParamCreater().recognizeChileIdCard(recognizeChileIdCardRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -346,8 +358,10 @@ export class OcrClient {
      */
     public recognizeDriverLicense(recognizeDriverLicenseRequest?: RecognizeDriverLicenseRequest): Promise<RecognizeDriverLicenseResponse> {
         const options = ParamCreater().recognizeDriverLicense(recognizeDriverLicenseRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -364,8 +378,10 @@ export class OcrClient {
      */
     public recognizeExitEntryPermit(recognizeExitEntryPermitRequest?: RecognizeExitEntryPermitRequest): Promise<RecognizeExitEntryPermitResponse> {
         const options = ParamCreater().recognizeExitEntryPermit(recognizeExitEntryPermitRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -382,8 +398,10 @@ export class OcrClient {
      */
     public recognizeFinancialStatement(recognizeFinancialStatementRequest?: RecognizeFinancialStatementRequest): Promise<RecognizeFinancialStatementResponse> {
         const options = ParamCreater().recognizeFinancialStatement(recognizeFinancialStatementRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -404,8 +422,10 @@ export class OcrClient {
      */
     public recognizeFlightItinerary(recognizeFlightItineraryRequest?: RecognizeFlightItineraryRequest): Promise<RecognizeFlightItineraryResponse> {
         const options = ParamCreater().recognizeFlightItinerary(recognizeFlightItineraryRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -422,8 +442,10 @@ export class OcrClient {
      */
     public recognizeGeneralTable(recognizeGeneralTableRequest?: RecognizeGeneralTableRequest): Promise<RecognizeGeneralTableResponse> {
         const options = ParamCreater().recognizeGeneralTable(recognizeGeneralTableRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -440,8 +462,10 @@ export class OcrClient {
      */
     public recognizeGeneralText(recognizeGeneralTextRequest?: RecognizeGeneralTextRequest): Promise<RecognizeGeneralTextResponse> {
         const options = ParamCreater().recognizeGeneralText(recognizeGeneralTextRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -458,8 +482,10 @@ export class OcrClient {
      */
     public recognizeHandwriting(recognizeHandwritingRequest?: RecognizeHandwritingRequest): Promise<RecognizeHandwritingResponse> {
         const options = ParamCreater().recognizeHandwriting(recognizeHandwritingRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -476,8 +502,10 @@ export class OcrClient {
      */
     public recognizeHealthCode(recognizeHealthCodeRequest?: RecognizeHealthCodeRequest): Promise<RecognizeHealthCodeResponse> {
         const options = ParamCreater().recognizeHealthCode(recognizeHealthCodeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -494,8 +522,10 @@ export class OcrClient {
      */
     public recognizeHkIdCard(recognizeHkIdCardRequest?: RecognizeHkIdCardRequest): Promise<RecognizeHkIdCardResponse> {
         const options = ParamCreater().recognizeHkIdCard(recognizeHkIdCardRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -518,8 +548,10 @@ export class OcrClient {
      */
     public recognizeIdCard(recognizeIdCardRequest?: RecognizeIdCardRequest): Promise<RecognizeIdCardResponse> {
         const options = ParamCreater().recognizeIdCard(recognizeIdCardRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -560,8 +592,10 @@ export class OcrClient {
      */
     public recognizeIdDocument(recognizeIdDocumentRequest?: RecognizeIdDocumentRequest): Promise<RecognizeIdDocumentResponse> {
         const options = ParamCreater().recognizeIdDocument(recognizeIdDocumentRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -578,8 +612,10 @@ export class OcrClient {
      */
     public recognizeInsurancePolicy(recognizeInsurancePolicyRequest?: RecognizeInsurancePolicyRequest): Promise<RecognizeInsurancePolicyResponse> {
         const options = ParamCreater().recognizeInsurancePolicy(recognizeInsurancePolicyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -596,8 +632,10 @@ export class OcrClient {
      */
     public recognizeInvoiceVerification(recognizeInvoiceVerificationRequest?: RecognizeInvoiceVerificationRequest): Promise<RecognizeInvoiceVerificationResponse> {
         const options = ParamCreater().recognizeInvoiceVerification(recognizeInvoiceVerificationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -614,8 +652,10 @@ export class OcrClient {
      */
     public recognizeLicensePlate(recognizeLicensePlateRequest?: RecognizeLicensePlateRequest): Promise<RecognizeLicensePlateResponse> {
         const options = ParamCreater().recognizeLicensePlate(recognizeLicensePlateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -632,8 +672,10 @@ export class OcrClient {
      */
     public recognizeMacaoIdCard(recognizeMacaoIdCardRequest?: RecognizeMacaoIdCardRequest): Promise<RecognizeMacaoIdCardResponse> {
         const options = ParamCreater().recognizeMacaoIdCard(recognizeMacaoIdCardRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -650,8 +692,10 @@ export class OcrClient {
      */
     public recognizeMainlandTravelPermit(recognizeMainlandTravelPermitRequest?: RecognizeMainlandTravelPermitRequest): Promise<RecognizeMainlandTravelPermitResponse> {
         const options = ParamCreater().recognizeMainlandTravelPermit(recognizeMainlandTravelPermitRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -674,8 +718,10 @@ export class OcrClient {
      */
     public recognizeMvsInvoice(recognizeMvsInvoiceRequest?: RecognizeMvsInvoiceRequest): Promise<RecognizeMvsInvoiceResponse> {
         const options = ParamCreater().recognizeMvsInvoice(recognizeMvsInvoiceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -692,8 +738,10 @@ export class OcrClient {
      */
     public recognizeMyanmarDriverLicense(recognizeMyanmarDriverLicenseRequest?: RecognizeMyanmarDriverLicenseRequest): Promise<RecognizeMyanmarDriverLicenseResponse> {
         const options = ParamCreater().recognizeMyanmarDriverLicense(recognizeMyanmarDriverLicenseRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -710,8 +758,10 @@ export class OcrClient {
      */
     public recognizeMyanmarIdcard(recognizeMyanmarIdcardRequest?: RecognizeMyanmarIdcardRequest): Promise<RecognizeMyanmarIdcardResponse> {
         const options = ParamCreater().recognizeMyanmarIdcard(recognizeMyanmarIdcardRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -732,8 +782,10 @@ export class OcrClient {
      */
     public recognizePassport(recognizePassportRequest?: RecognizePassportRequest): Promise<RecognizePassportResponse> {
         const options = ParamCreater().recognizePassport(recognizePassportRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -750,8 +802,10 @@ export class OcrClient {
      */
     public recognizePcrTestRecord(recognizePcrTestRecordRequest?: RecognizePcrTestRecordRequest): Promise<RecognizePcrTestRecordResponse> {
         const options = ParamCreater().recognizePcrTestRecord(recognizePcrTestRecordRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -772,8 +826,10 @@ export class OcrClient {
      */
     public recognizeQualificationCertificate(recognizeQualificationCertificateRequest?: RecognizeQualificationCertificateRequest): Promise<RecognizeQualificationCertificateResponse> {
         const options = ParamCreater().recognizeQualificationCertificate(recognizeQualificationCertificateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -794,8 +850,10 @@ export class OcrClient {
      */
     public recognizeQuotaInvoice(recognizeQuotaInvoiceRequest?: RecognizeQuotaInvoiceRequest): Promise<RecognizeQuotaInvoiceResponse> {
         const options = ParamCreater().recognizeQuotaInvoice(recognizeQuotaInvoiceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -816,8 +874,10 @@ export class OcrClient {
      */
     public recognizeTaxiInvoice(recognizeTaxiInvoiceRequest?: RecognizeTaxiInvoiceRequest): Promise<RecognizeTaxiInvoiceResponse> {
         const options = ParamCreater().recognizeTaxiInvoice(recognizeTaxiInvoiceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -834,8 +894,10 @@ export class OcrClient {
      */
     public recognizeThailandIdcard(recognizeThailandIdcardRequest?: RecognizeThailandIdcardRequest): Promise<RecognizeThailandIdcardResponse> {
         const options = ParamCreater().recognizeThailandIdcard(recognizeThailandIdcardRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -852,8 +914,10 @@ export class OcrClient {
      */
     public recognizeThailandLicensePlate(recognizeThailandLicensePlateRequest?: RecognizeThailandLicensePlateRequest): Promise<RecognizeThailandLicensePlateResponse> {
         const options = ParamCreater().recognizeThailandLicensePlate(recognizeThailandLicensePlateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -874,8 +938,10 @@ export class OcrClient {
      */
     public recognizeTollInvoice(recognizeTollInvoiceRequest?: RecognizeTollInvoiceRequest): Promise<RecognizeTollInvoiceResponse> {
         const options = ParamCreater().recognizeTollInvoice(recognizeTollInvoiceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -896,8 +962,10 @@ export class OcrClient {
      */
     public recognizeTrainTicket(recognizeTrainTicketRequest?: RecognizeTrainTicketRequest): Promise<RecognizeTrainTicketResponse> {
         const options = ParamCreater().recognizeTrainTicket(recognizeTrainTicketRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -916,8 +984,10 @@ export class OcrClient {
      */
     public recognizeTransportationLicense(recognizeTransportationLicenseRequest?: RecognizeTransportationLicenseRequest): Promise<RecognizeTransportationLicenseResponse> {
         const options = ParamCreater().recognizeTransportationLicense(recognizeTransportationLicenseRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -942,8 +1012,10 @@ export class OcrClient {
      */
     public recognizeVatInvoice(recognizeVatInvoiceRequest?: RecognizeVatInvoiceRequest): Promise<RecognizeVatInvoiceResponse> {
         const options = ParamCreater().recognizeVatInvoice(recognizeVatInvoiceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -964,8 +1036,10 @@ export class OcrClient {
      */
     public recognizeVehicleLicense(recognizeVehicleLicenseRequest?: RecognizeVehicleLicenseRequest): Promise<RecognizeVehicleLicenseResponse> {
         const options = ParamCreater().recognizeVehicleLicense(recognizeVehicleLicenseRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -982,8 +1056,10 @@ export class OcrClient {
      */
     public recognizeWaybillElectronic(recognizeWaybillElectronicRequest?: RecognizeWaybillElectronicRequest): Promise<RecognizeWaybillElectronicResponse> {
         const options = ParamCreater().recognizeWaybillElectronic(recognizeWaybillElectronicRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1000,8 +1076,10 @@ export class OcrClient {
      */
     public recognizeWebImage(recognizeWebImageRequest?: RecognizeWebImageRequest): Promise<RecognizeWebImageResponse> {
         const options = ParamCreater().recognizeWebImage(recognizeWebImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1018,8 +1096,10 @@ export class OcrClient {
      */
     public recognizeVin(recognizeVinRequest?: RecognizeVinRequest): Promise<RecognizeVinResponse> {
         const options = ParamCreater().recognizeVin(recognizeVinRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -1049,6 +1129,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeAutoClassificationRequest !== null && recognizeAutoClassificationRequest !== undefined) {
@@ -1097,6 +1178,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeBankcardRequest !== null && recognizeBankcardRequest !== undefined) {
@@ -1141,6 +1223,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeBusinessCardRequest !== null && recognizeBusinessCardRequest !== undefined) {
@@ -1189,6 +1272,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeBusinessLicenseRequest !== null && recognizeBusinessLicenseRequest !== undefined) {
@@ -1233,6 +1317,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeCambodianIdCardRequest !== null && recognizeCambodianIdCardRequest !== undefined) {
@@ -1277,6 +1362,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeChileIdCardRequest !== null && recognizeChileIdCardRequest !== undefined) {
@@ -1325,6 +1411,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeDriverLicenseRequest !== null && recognizeDriverLicenseRequest !== undefined) {
@@ -1369,6 +1456,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeExitEntryPermitRequest !== null && recognizeExitEntryPermitRequest !== undefined) {
@@ -1413,6 +1501,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeFinancialStatementRequest !== null && recognizeFinancialStatementRequest !== undefined) {
@@ -1461,6 +1550,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeFlightItineraryRequest !== null && recognizeFlightItineraryRequest !== undefined) {
@@ -1502,6 +1592,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeGeneralTableRequest !== null && recognizeGeneralTableRequest !== undefined) {
@@ -1543,6 +1634,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeGeneralTextRequest !== null && recognizeGeneralTextRequest !== undefined) {
@@ -1584,6 +1676,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeHandwritingRequest !== null && recognizeHandwritingRequest !== undefined) {
@@ -1628,6 +1721,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeHealthCodeRequest !== null && recognizeHealthCodeRequest !== undefined) {
@@ -1669,6 +1763,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeHkIdCardRequest !== null && recognizeHkIdCardRequest !== undefined) {
@@ -1719,6 +1814,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeIdCardRequest !== null && recognizeIdCardRequest !== undefined) {
@@ -1787,6 +1883,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeIdDocumentRequest !== null && recognizeIdDocumentRequest !== undefined) {
@@ -1831,6 +1928,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeInsurancePolicyRequest !== null && recognizeInsurancePolicyRequest !== undefined) {
@@ -1875,6 +1973,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeInvoiceVerificationRequest !== null && recognizeInvoiceVerificationRequest !== undefined) {
@@ -1919,6 +2018,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeLicensePlateRequest !== null && recognizeLicensePlateRequest !== undefined) {
@@ -1963,6 +2063,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeMacaoIdCardRequest !== null && recognizeMacaoIdCardRequest !== undefined) {
@@ -2007,6 +2108,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeMainlandTravelPermitRequest !== null && recognizeMainlandTravelPermitRequest !== undefined) {
@@ -2057,6 +2159,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeMvsInvoiceRequest !== null && recognizeMvsInvoiceRequest !== undefined) {
@@ -2101,6 +2204,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeMyanmarDriverLicenseRequest !== null && recognizeMyanmarDriverLicenseRequest !== undefined) {
@@ -2145,6 +2249,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeMyanmarIdcardRequest !== null && recognizeMyanmarIdcardRequest !== undefined) {
@@ -2193,6 +2298,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizePassportRequest !== null && recognizePassportRequest !== undefined) {
@@ -2237,6 +2343,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizePcrTestRecordRequest !== null && recognizePcrTestRecordRequest !== undefined) {
@@ -2282,6 +2389,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeQualificationCertificateRequest !== null && recognizeQualificationCertificateRequest !== undefined) {
@@ -2330,6 +2438,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeQuotaInvoiceRequest !== null && recognizeQuotaInvoiceRequest !== undefined) {
@@ -2378,6 +2487,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeTaxiInvoiceRequest !== null && recognizeTaxiInvoiceRequest !== undefined) {
@@ -2422,6 +2532,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeThailandIdcardRequest !== null && recognizeThailandIdcardRequest !== undefined) {
@@ -2466,6 +2577,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeThailandLicensePlateRequest !== null && recognizeThailandLicensePlateRequest !== undefined) {
@@ -2514,6 +2626,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeTollInvoiceRequest !== null && recognizeTollInvoiceRequest !== undefined) {
@@ -2562,6 +2675,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeTrainTicketRequest !== null && recognizeTrainTicketRequest !== undefined) {
@@ -2608,6 +2722,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeTransportationLicenseRequest !== null && recognizeTransportationLicenseRequest !== undefined) {
@@ -2660,6 +2775,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeVatInvoiceRequest !== null && recognizeVatInvoiceRequest !== undefined) {
@@ -2708,6 +2824,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeVehicleLicenseRequest !== null && recognizeVehicleLicenseRequest !== undefined) {
@@ -2752,6 +2869,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeWaybillElectronicRequest !== null && recognizeWaybillElectronicRequest !== undefined) {
@@ -2796,6 +2914,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeWebImageRequest !== null && recognizeWebImageRequest !== undefined) {
@@ -2840,6 +2959,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let enterpriseProjectId;
 
             if (recognizeVinRequest !== null && recognizeVinRequest !== undefined) {

@@ -217,7 +217,7 @@ import { WorkflowUrn } from './model/WorkflowUrn';
 
 export class FunctionGraphClient {
     public static newBuilder(): ClientBuilder<FunctionGraphClient> {
-        return new ClientBuilder<FunctionGraphClient>(newClient);
+            return new ClientBuilder<FunctionGraphClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -243,8 +243,10 @@ export class FunctionGraphClient {
      */
     public asyncInvokeFunction(asyncInvokeFunctionRequest?: AsyncInvokeFunctionRequest): Promise<AsyncInvokeFunctionResponse> {
         const options = ParamCreater().asyncInvokeFunction(asyncInvokeFunctionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -261,8 +263,10 @@ export class FunctionGraphClient {
      */
     public asyncInvokeReservedFunction(asyncInvokeReservedFunctionRequest?: AsyncInvokeReservedFunctionRequest): Promise<AsyncInvokeReservedFunctionResponse> {
         const options = ParamCreater().asyncInvokeReservedFunction(asyncInvokeReservedFunctionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['Content-Type'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -282,8 +286,10 @@ export class FunctionGraphClient {
      */
     public batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest?: BatchDeleteFunctionTriggersRequest): Promise<void> {
         const options = ParamCreater().batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -299,8 +305,10 @@ export class FunctionGraphClient {
      */
     public batchDeleteWorkflows(batchDeleteWorkflowsRequest?: BatchDeleteWorkflowsRequest): Promise<BatchDeleteWorkflowsResponse> {
         const options = ParamCreater().batchDeleteWorkflows(batchDeleteWorkflowsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -317,8 +325,10 @@ export class FunctionGraphClient {
      */
     public cancelAsyncInvocation(cancelAsyncInvocationRequest?: CancelAsyncInvocationRequest): Promise<void> {
         const options = ParamCreater().cancelAsyncInvocation(cancelAsyncInvocationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -334,8 +344,10 @@ export class FunctionGraphClient {
      */
     public createDependency(createDependencyRequest?: CreateDependencyRequest): Promise<CreateDependencyResponse> {
         const options = ParamCreater().createDependency(createDependencyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -351,8 +363,10 @@ export class FunctionGraphClient {
      */
     public createDependencyVersion(createDependencyVersionRequest?: CreateDependencyVersionRequest): Promise<CreateDependencyVersionResponse> {
         const options = ParamCreater().createDependencyVersion(createDependencyVersionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -369,8 +383,10 @@ export class FunctionGraphClient {
      */
     public createEvent(createEventRequest?: CreateEventRequest): Promise<CreateEventResponse> {
         const options = ParamCreater().createEvent(createEventRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -386,8 +402,10 @@ export class FunctionGraphClient {
      */
     public createFunction(createFunctionRequest?: CreateFunctionRequest): Promise<CreateFunctionResponse> {
         const options = ParamCreater().createFunction(createFunctionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -408,8 +426,10 @@ export class FunctionGraphClient {
      */
     public createFunctionTrigger(createFunctionTriggerRequest?: CreateFunctionTriggerRequest): Promise<CreateFunctionTriggerResponse> {
         const options = ParamCreater().createFunctionTrigger(createFunctionTriggerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -426,8 +446,10 @@ export class FunctionGraphClient {
      */
     public createFunctionVersion(createFunctionVersionRequest?: CreateFunctionVersionRequest): Promise<CreateFunctionVersionResponse> {
         const options = ParamCreater().createFunctionVersion(createFunctionVersionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -444,8 +466,10 @@ export class FunctionGraphClient {
      */
     public createVersionAlias(createVersionAliasRequest?: CreateVersionAliasRequest): Promise<CreateVersionAliasResponse> {
         const options = ParamCreater().createVersionAlias(createVersionAliasRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -461,8 +485,10 @@ export class FunctionGraphClient {
      */
     public createWorkflow(createWorkflowRequest?: CreateWorkflowRequest): Promise<CreateWorkflowResponse> {
         const options = ParamCreater().createWorkflow(createWorkflowRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -478,8 +504,10 @@ export class FunctionGraphClient {
      */
     public deleteDependency(deleteDependencyRequest?: DeleteDependencyRequest): Promise<void> {
         const options = ParamCreater().deleteDependency(deleteDependencyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -496,8 +524,10 @@ export class FunctionGraphClient {
      */
     public deleteDependencyVersion(deleteDependencyVersionRequest?: DeleteDependencyVersionRequest): Promise<void> {
         const options = ParamCreater().deleteDependencyVersion(deleteDependencyVersionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -514,8 +544,10 @@ export class FunctionGraphClient {
      */
     public deleteEvent(deleteEventRequest?: DeleteEventRequest): Promise<void> {
         const options = ParamCreater().deleteEvent(deleteEventRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -534,8 +566,10 @@ export class FunctionGraphClient {
      */
     public deleteFunction(deleteFunctionRequest?: DeleteFunctionRequest): Promise<void> {
         const options = ParamCreater().deleteFunction(deleteFunctionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -551,8 +585,10 @@ export class FunctionGraphClient {
      */
     public deleteFunctionAsyncInvokeConfig(deleteFunctionAsyncInvokeConfigRequest?: DeleteFunctionAsyncInvokeConfigRequest): Promise<void> {
         const options = ParamCreater().deleteFunctionAsyncInvokeConfig(deleteFunctionAsyncInvokeConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -570,8 +606,10 @@ export class FunctionGraphClient {
      */
     public deleteFunctionTrigger(deleteFunctionTriggerRequest?: DeleteFunctionTriggerRequest): Promise<void> {
         const options = ParamCreater().deleteFunctionTrigger(deleteFunctionTriggerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -588,8 +626,10 @@ export class FunctionGraphClient {
      */
     public deleteVersionAlias(deleteVersionAliasRequest?: DeleteVersionAliasRequest): Promise<void> {
         const options = ParamCreater().deleteVersionAlias(deleteVersionAliasRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -604,8 +644,10 @@ export class FunctionGraphClient {
      */
     public enableLtsLogs(): Promise<void> {
         const options = ParamCreater().enableLtsLogs();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -624,8 +666,10 @@ export class FunctionGraphClient {
      */
     public exportFunction(exportFunctionRequest?: ExportFunctionRequest): Promise<void> {
         const options = ParamCreater().exportFunction(exportFunctionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -641,8 +685,10 @@ export class FunctionGraphClient {
      */
     public importFunction(importFunctionRequest?: ImportFunctionRequest): Promise<ImportFunctionResponse> {
         const options = ParamCreater().importFunction(importFunctionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -661,8 +707,10 @@ export class FunctionGraphClient {
      */
     public invokeFunction(invokeFunctionRequest?: InvokeFunctionRequest): Promise<InvokeFunctionResponse> {
         const options = ParamCreater().invokeFunction(invokeFunctionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['X-Cff-Request-Id'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -684,8 +732,10 @@ export class FunctionGraphClient {
      */
     public listAsyncInvocations(listAsyncInvocationsRequest?: ListAsyncInvocationsRequest): Promise<ListAsyncInvocationsResponse> {
         const options = ParamCreater().listAsyncInvocations(listAsyncInvocationsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -707,8 +757,10 @@ export class FunctionGraphClient {
      */
     public listDependencies(listDependenciesRequest?: ListDependenciesRequest): Promise<ListDependenciesResponse> {
         const options = ParamCreater().listDependencies(listDependenciesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -726,8 +778,10 @@ export class FunctionGraphClient {
      */
     public listDependencyVersion(listDependencyVersionRequest?: ListDependencyVersionRequest): Promise<ListDependencyVersionResponse> {
         const options = ParamCreater().listDependencyVersion(listDependencyVersionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -743,8 +797,10 @@ export class FunctionGraphClient {
      */
     public listEvents(listEventsRequest?: ListEventsRequest): Promise<ListEventsResponse> {
         const options = ParamCreater().listEvents(listEventsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -765,8 +821,10 @@ export class FunctionGraphClient {
      */
     public listFunctionAsMetric(listFunctionAsMetricRequest?: ListFunctionAsMetricRequest): Promise<ListFunctionAsMetricResponse> {
         const options = ParamCreater().listFunctionAsMetric(listFunctionAsMetricRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -784,8 +842,10 @@ export class FunctionGraphClient {
      */
     public listFunctionAsyncInvokeConfig(listFunctionAsyncInvokeConfigRequest?: ListFunctionAsyncInvokeConfigRequest): Promise<ListFunctionAsyncInvokeConfigResponse> {
         const options = ParamCreater().listFunctionAsyncInvokeConfig(listFunctionAsyncInvokeConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -803,8 +863,10 @@ export class FunctionGraphClient {
      */
     public listFunctionReservedInstances(listFunctionReservedInstancesRequest?: ListFunctionReservedInstancesRequest): Promise<ListFunctionReservedInstancesResponse> {
         const options = ParamCreater().listFunctionReservedInstances(listFunctionReservedInstancesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -821,8 +883,10 @@ export class FunctionGraphClient {
      */
     public listFunctionStatistics(listFunctionStatisticsRequest?: ListFunctionStatisticsRequest): Promise<ListFunctionStatisticsResponse> {
         const options = ParamCreater().listFunctionStatistics(listFunctionStatisticsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -838,8 +902,10 @@ export class FunctionGraphClient {
      */
     public listFunctionTriggers(listFunctionTriggersRequest?: ListFunctionTriggersRequest): Promise<Array<ListFunctionTriggerResult>> {
         const options = ParamCreater().listFunctionTriggers(listFunctionTriggersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -857,8 +923,10 @@ export class FunctionGraphClient {
      */
     public listFunctionVersions(listFunctionVersionsRequest?: ListFunctionVersionsRequest): Promise<ListFunctionVersionsResponse> {
         const options = ParamCreater().listFunctionVersions(listFunctionVersionsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -876,8 +944,10 @@ export class FunctionGraphClient {
      */
     public listFunctions(listFunctionsRequest?: ListFunctionsRequest): Promise<ListFunctionsResponse> {
         const options = ParamCreater().listFunctions(listFunctionsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -892,8 +962,10 @@ export class FunctionGraphClient {
      */
     public listQuotas(): Promise<ListQuotasResponse> {
         const options = ParamCreater().listQuotas();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -911,8 +983,10 @@ export class FunctionGraphClient {
      */
     public listReservedInstanceConfigs(listReservedInstanceConfigsRequest?: ListReservedInstanceConfigsRequest): Promise<ListReservedInstanceConfigsResponse> {
         const options = ParamCreater().listReservedInstanceConfigs(listReservedInstanceConfigsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -933,8 +1007,10 @@ export class FunctionGraphClient {
      */
     public listStatistics(listStatisticsRequest?: ListStatisticsRequest): Promise<ListStatisticsResponse> {
         const options = ParamCreater().listStatistics(listStatisticsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -950,8 +1026,10 @@ export class FunctionGraphClient {
      */
     public listVersionAliases(listVersionAliasesRequest?: ListVersionAliasesRequest): Promise<Array<ListVersionAliasResult>> {
         const options = ParamCreater().listVersionAliases(listVersionAliasesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -971,8 +1049,10 @@ export class FunctionGraphClient {
      */
     public listWorkflow(listWorkflowRequest?: ListWorkflowRequest): Promise<ListWorkflowResponse> {
         const options = ParamCreater().listWorkflow(listWorkflowRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -992,8 +1072,10 @@ export class FunctionGraphClient {
      */
     public listWorkflowExecutions(listWorkflowExecutionsRequest?: ListWorkflowExecutionsRequest): Promise<ListWorkflowExecutionsResponse> {
         const options = ParamCreater().listWorkflowExecutions(listWorkflowExecutionsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1010,8 +1092,10 @@ export class FunctionGraphClient {
      */
     public retryWorkFlow(retryWorkFlowRequest?: RetryWorkFlowRequest): Promise<void> {
         const options = ParamCreater().retryWorkFlow(retryWorkFlowRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1027,8 +1111,10 @@ export class FunctionGraphClient {
      */
     public showDependcy(showDependcyRequest?: ShowDependcyRequest): Promise<ShowDependcyResponse> {
         const options = ParamCreater().showDependcy(showDependcyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1045,8 +1131,10 @@ export class FunctionGraphClient {
      */
     public showDependencyVersion(showDependencyVersionRequest?: ShowDependencyVersionRequest): Promise<ShowDependencyVersionResponse> {
         const options = ParamCreater().showDependencyVersion(showDependencyVersionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1063,8 +1151,10 @@ export class FunctionGraphClient {
      */
     public showEvent(showEventRequest?: ShowEventRequest): Promise<ShowEventResponse> {
         const options = ParamCreater().showEvent(showEventRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1080,8 +1170,10 @@ export class FunctionGraphClient {
      */
     public showFunctionAsyncInvokeConfig(showFunctionAsyncInvokeConfigRequest?: ShowFunctionAsyncInvokeConfigRequest): Promise<ShowFunctionAsyncInvokeConfigResponse> {
         const options = ParamCreater().showFunctionAsyncInvokeConfig(showFunctionAsyncInvokeConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1097,8 +1189,10 @@ export class FunctionGraphClient {
      */
     public showFunctionCode(showFunctionCodeRequest?: ShowFunctionCodeRequest): Promise<ShowFunctionCodeResponse> {
         const options = ParamCreater().showFunctionCode(showFunctionCodeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1114,8 +1208,10 @@ export class FunctionGraphClient {
      */
     public showFunctionConfig(showFunctionConfigRequest?: ShowFunctionConfigRequest): Promise<ShowFunctionConfigResponse> {
         const options = ParamCreater().showFunctionConfig(showFunctionConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1133,8 +1229,10 @@ export class FunctionGraphClient {
      */
     public showFunctionTrigger(showFunctionTriggerRequest?: ShowFunctionTriggerRequest): Promise<ShowFunctionTriggerResponse> {
         const options = ParamCreater().showFunctionTrigger(showFunctionTriggerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1150,8 +1248,10 @@ export class FunctionGraphClient {
      */
     public showLtsLogDetails(showLtsLogDetailsRequest?: ShowLtsLogDetailsRequest): Promise<ShowLtsLogDetailsResponse> {
         const options = ParamCreater().showLtsLogDetails(showLtsLogDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1170,8 +1270,10 @@ export class FunctionGraphClient {
      */
     public showTenantMetric(showTenantMetricRequest?: ShowTenantMetricRequest): Promise<ShowTenantMetricResponse> {
         const options = ParamCreater().showTenantMetric(showTenantMetricRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1187,8 +1289,10 @@ export class FunctionGraphClient {
      */
     public showTracing(showTracingRequest?: ShowTracingRequest): Promise<ShowTracingResponse> {
         const options = ParamCreater().showTracing(showTracingRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1205,8 +1309,10 @@ export class FunctionGraphClient {
      */
     public showVersionAlias(showVersionAliasRequest?: ShowVersionAliasRequest): Promise<ShowVersionAliasResponse> {
         const options = ParamCreater().showVersionAlias(showVersionAliasRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1222,8 +1328,10 @@ export class FunctionGraphClient {
      */
     public showWorkFlow(showWorkFlowRequest?: ShowWorkFlowRequest): Promise<ShowWorkFlowResponse> {
         const options = ParamCreater().showWorkFlow(showWorkFlowRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1242,8 +1350,10 @@ export class FunctionGraphClient {
      */
     public showWorkFlowMetric(showWorkFlowMetricRequest?: ShowWorkFlowMetricRequest): Promise<ShowWorkFlowMetricResponse> {
         const options = ParamCreater().showWorkFlowMetric(showWorkFlowMetricRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1261,8 +1371,10 @@ export class FunctionGraphClient {
      */
     public showWorkflowExecution(showWorkflowExecutionRequest?: ShowWorkflowExecutionRequest): Promise<ShowWorkflowExecutionResponse> {
         const options = ParamCreater().showWorkflowExecution(showWorkflowExecutionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1282,8 +1394,10 @@ export class FunctionGraphClient {
      */
     public showWorkflowExecutionForPage(showWorkflowExecutionForPageRequest?: ShowWorkflowExecutionForPageRequest): Promise<ShowWorkflowExecutionForPageResponse> {
         const options = ParamCreater().showWorkflowExecutionForPage(showWorkflowExecutionForPageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1300,8 +1414,10 @@ export class FunctionGraphClient {
      */
     public startSyncWorkflowExecution(startSyncWorkflowExecutionRequest?: StartSyncWorkflowExecutionRequest): Promise<StartSyncWorkflowExecutionResponse> {
         const options = ParamCreater().startSyncWorkflowExecution(startSyncWorkflowExecutionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1321,8 +1437,10 @@ export class FunctionGraphClient {
      */
     public startWorkflowExecution(startWorkflowExecutionRequest?: StartWorkflowExecutionRequest): Promise<StartWorkflowExecutionResponse> {
         const options = ParamCreater().startWorkflowExecution(startWorkflowExecutionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1339,8 +1457,10 @@ export class FunctionGraphClient {
      */
     public stopWorkFlow(stopWorkFlowRequest?: StopWorkFlowRequest): Promise<void> {
         const options = ParamCreater().stopWorkFlow(stopWorkFlowRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1357,8 +1477,10 @@ export class FunctionGraphClient {
      */
     public updateDependcy(updateDependcyRequest?: UpdateDependcyRequest): Promise<UpdateDependcyResponse> {
         const options = ParamCreater().updateDependcy(updateDependcyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1376,8 +1498,10 @@ export class FunctionGraphClient {
      */
     public updateEvent(updateEventRequest?: UpdateEventRequest): Promise<UpdateEventResponse> {
         const options = ParamCreater().updateEvent(updateEventRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1394,8 +1518,10 @@ export class FunctionGraphClient {
      */
     public updateFunctionAsyncInvokeConfig(updateFunctionAsyncInvokeConfigRequest?: UpdateFunctionAsyncInvokeConfigRequest): Promise<UpdateFunctionAsyncInvokeConfigResponse> {
         const options = ParamCreater().updateFunctionAsyncInvokeConfig(updateFunctionAsyncInvokeConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1412,8 +1538,10 @@ export class FunctionGraphClient {
      */
     public updateFunctionCode(updateFunctionCodeRequest?: UpdateFunctionCodeRequest): Promise<UpdateFunctionCodeResponse> {
         const options = ParamCreater().updateFunctionCode(updateFunctionCodeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1430,8 +1558,10 @@ export class FunctionGraphClient {
      */
     public updateFunctionConfig(updateFunctionConfigRequest?: UpdateFunctionConfigRequest): Promise<UpdateFunctionConfigResponse> {
         const options = ParamCreater().updateFunctionConfig(updateFunctionConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1448,8 +1578,10 @@ export class FunctionGraphClient {
      */
     public updateFunctionMaxInstanceConfig(updateFunctionMaxInstanceConfigRequest?: UpdateFunctionMaxInstanceConfigRequest): Promise<UpdateFunctionMaxInstanceConfigResponse> {
         const options = ParamCreater().updateFunctionMaxInstanceConfig(updateFunctionMaxInstanceConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1466,8 +1598,10 @@ export class FunctionGraphClient {
      */
     public updateFunctionReservedInstancesCount(updateFunctionReservedInstancesCountRequest?: UpdateFunctionReservedInstancesCountRequest): Promise<UpdateFunctionReservedInstancesCountResponse> {
         const options = ParamCreater().updateFunctionReservedInstancesCount(updateFunctionReservedInstancesCountRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1484,8 +1618,10 @@ export class FunctionGraphClient {
      */
     public updateTracing(updateTracingRequest?: UpdateTracingRequest): Promise<void> {
         const options = ParamCreater().updateTracing(updateTracingRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1504,8 +1640,10 @@ export class FunctionGraphClient {
      */
     public updateTrigger(updateTriggerRequest?: UpdateTriggerRequest): Promise<void> {
         const options = ParamCreater().updateTrigger(updateTriggerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1523,8 +1661,10 @@ export class FunctionGraphClient {
      */
     public updateVersionAlias(updateVersionAliasRequest?: UpdateVersionAliasRequest): Promise<UpdateVersionAliasResponse> {
         const options = ParamCreater().updateVersionAlias(updateVersionAliasRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1541,8 +1681,10 @@ export class FunctionGraphClient {
      */
     public updateWorkFlow(updateWorkFlowRequest?: UpdateWorkFlowRequest): Promise<UpdateWorkFlowResponse> {
         const options = ParamCreater().updateWorkFlow(updateWorkFlowRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -1568,6 +1710,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (asyncInvokeFunctionRequest !== null && asyncInvokeFunctionRequest !== undefined) {
@@ -1613,6 +1756,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (asyncInvokeReservedFunctionRequest !== null && asyncInvokeReservedFunctionRequest !== undefined) {
@@ -1658,6 +1802,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (batchDeleteFunctionTriggersRequest !== null && batchDeleteFunctionTriggersRequest !== undefined) {
@@ -1734,6 +1879,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (cancelAsyncInvocationRequest !== null && cancelAsyncInvocationRequest !== undefined) {
@@ -1855,6 +2001,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (createEventRequest !== null && createEventRequest !== undefined) {
@@ -1942,6 +2089,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (createFunctionTriggerRequest !== null && createFunctionTriggerRequest !== undefined) {
@@ -1987,6 +2135,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (createFunctionVersionRequest !== null && createFunctionVersionRequest !== undefined) {
@@ -2032,6 +2181,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (createVersionAliasRequest !== null && createVersionAliasRequest !== undefined) {
@@ -2114,6 +2264,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let dependId;
 
             if (deleteDependencyRequest !== null && deleteDependencyRequest !== undefined) {
@@ -2151,7 +2302,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let dependId;
+            
             let version;
 
             if (deleteDependencyVersionRequest !== null && deleteDependencyVersionRequest !== undefined) {
@@ -2194,7 +2347,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
+            
             let eventId;
 
             if (deleteEventRequest !== null && deleteEventRequest !== undefined) {
@@ -2240,6 +2395,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (deleteFunctionRequest !== null && deleteFunctionRequest !== undefined) {
@@ -2277,6 +2433,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (deleteFunctionAsyncInvokeConfigRequest !== null && deleteFunctionAsyncInvokeConfigRequest !== undefined) {
@@ -2314,8 +2471,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
+            
             let triggerTypeCode;
+            
             let triggerId;
 
             if (deleteFunctionTriggerRequest !== null && deleteFunctionTriggerRequest !== undefined) {
@@ -2363,7 +2523,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
+            
             let aliasName;
 
             if (deleteVersionAliasRequest !== null && deleteVersionAliasRequest !== undefined) {
@@ -2428,9 +2590,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let functionUrn;
+            
             let config;
+            
             let code;
+            
             let type;
 
             if (exportFunctionRequest !== null && exportFunctionRequest !== undefined) {
@@ -2523,8 +2689,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
+            
             let xCffLogType;
+            
             let xCFFRequestVersion;
 
             if (invokeFunctionRequest !== null && invokeFunctionRequest !== undefined) {
@@ -2579,12 +2748,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let functionUrn;
+            
             let requestId;
+            
             let marker;
+            
             let limit;
+            
             let status;
+            
             let queryBeginTime;
+            
             let queryEndTime;
 
             if (listAsyncInvocationsRequest !== null && listAsyncInvocationsRequest !== undefined) {
@@ -2653,12 +2829,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let marker;
+            
             let maxitems;
+            
             let ispublic;
+            
             let dependencyType;
+            
             let runtime;
+            
             let name;
+            
             let limit;
 
             if (listDependenciesRequest !== null && listDependenciesRequest !== undefined) {
@@ -2726,8 +2909,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let dependId;
+            
             let marker;
+            
             let maxitems;
 
             if (listDependencyVersionRequest !== null && listDependencyVersionRequest !== undefined) {
@@ -2776,6 +2962,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (listEventsRequest !== null && listEventsRequest !== undefined) {
@@ -2815,9 +3002,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let type;
+            
             let startTime;
+            
             let endTime;
+            
             let limit;
 
             if (listFunctionAsMetricRequest !== null && listFunctionAsMetricRequest !== undefined) {
@@ -2870,8 +3061,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let functionUrn;
+            
             let marker;
+            
             let limit;
 
             if (listFunctionAsyncInvokeConfigRequest !== null && listFunctionAsyncInvokeConfigRequest !== undefined) {
@@ -2920,8 +3114,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let marker;
+            
             let limit;
+            
             let urn;
 
             if (listFunctionReservedInstancesRequest !== null && listFunctionReservedInstancesRequest !== undefined) {
@@ -2969,7 +3166,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let funcUrn;
+            
             let period;
 
             if (listFunctionStatisticsRequest !== null && listFunctionStatisticsRequest !== undefined) {
@@ -3012,6 +3211,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (listFunctionTriggersRequest !== null && listFunctionTriggersRequest !== undefined) {
@@ -3049,8 +3249,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let functionUrn;
+            
             let marker;
+            
             let maxitems;
 
             if (listFunctionVersionsRequest !== null && listFunctionVersionsRequest !== undefined) {
@@ -3099,8 +3302,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let marker;
+            
             let maxitems;
+            
             let packageName;
 
             if (listFunctionsRequest !== null && listFunctionsRequest !== undefined) {
@@ -3170,8 +3376,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let functionUrn;
+            
             let marker;
+            
             let limit;
 
             if (listReservedInstanceConfigsRequest !== null && listReservedInstanceConfigsRequest !== undefined) {
@@ -3222,8 +3431,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let filter;
+            
             let period;
+            
             let option;
 
             if (listStatisticsRequest !== null && listStatisticsRequest !== undefined) {
@@ -3274,6 +3486,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (listVersionAliasesRequest !== null && listVersionAliasesRequest !== undefined) {
@@ -3311,10 +3524,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let workflowName;
+            
             let limit;
+            
             let offset;
+            
             let enterpriseProject;
+            
             let mode;
 
             if (listWorkflowRequest !== null && listWorkflowRequest !== undefined) {
@@ -3372,10 +3590,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let workflowId;
+            
             let limit;
+            
             let status;
+            
             let startTime;
+            
             let endTime;
 
             if (listWorkflowExecutionsRequest !== null && listWorkflowExecutionsRequest !== undefined) {
@@ -3434,7 +3657,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let workflowId;
+            
             let executionId;
 
             if (retryWorkFlowRequest !== null && retryWorkFlowRequest !== undefined) {
@@ -3477,6 +3702,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let dependId;
 
             if (showDependcyRequest !== null && showDependcyRequest !== undefined) {
@@ -3514,7 +3740,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let dependId;
+            
             let version;
 
             if (showDependencyVersionRequest !== null && showDependencyVersionRequest !== undefined) {
@@ -3557,7 +3785,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
+            
             let eventId;
 
             if (showEventRequest !== null && showEventRequest !== undefined) {
@@ -3600,6 +3830,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (showFunctionAsyncInvokeConfigRequest !== null && showFunctionAsyncInvokeConfigRequest !== undefined) {
@@ -3637,6 +3868,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (showFunctionCodeRequest !== null && showFunctionCodeRequest !== undefined) {
@@ -3674,6 +3906,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (showFunctionConfigRequest !== null && showFunctionConfigRequest !== undefined) {
@@ -3711,8 +3944,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
+            
             let triggerTypeCode;
+            
             let triggerId;
 
             if (showFunctionTriggerRequest !== null && showFunctionTriggerRequest !== undefined) {
@@ -3760,6 +3996,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (showLtsLogDetailsRequest !== null && showLtsLogDetailsRequest !== undefined) {
@@ -3797,9 +4034,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let period;
+            
             let startTime;
+            
             let endTime;
+            
             let metricType;
 
             if (showTenantMetricRequest !== null && showTenantMetricRequest !== undefined) {
@@ -3852,6 +4093,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
 
             if (showTracingRequest !== null && showTracingRequest !== undefined) {
@@ -3889,7 +4131,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let functionUrn;
+            
             let aliasName;
 
             if (showVersionAliasRequest !== null && showVersionAliasRequest !== undefined) {
@@ -3932,6 +4176,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let workflowId;
 
             if (showWorkFlowRequest !== null && showWorkFlowRequest !== undefined) {
@@ -3969,9 +4214,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let workflowUrn;
+            
             let period;
+            
             let startTime;
+            
             let endTime;
 
             if (showWorkFlowMetricRequest !== null && showWorkFlowMetricRequest !== undefined) {
@@ -4025,8 +4274,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let workflowId;
+            
             let executionId;
+            
             let xGetWorkflowFullHistoryData;
 
             if (showWorkflowExecutionRequest !== null && showWorkflowExecutionRequest !== undefined) {
@@ -4074,10 +4326,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let workflowId;
+            
             let offset;
+            
             let limit;
+            
             let startTime;
+            
             let endTime;
 
             if (showWorkflowExecutionForPageRequest !== null && showWorkflowExecutionForPageRequest !== undefined) {
@@ -4143,6 +4400,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let workflowId;
 
             if (startSyncWorkflowExecutionRequest !== null && startSyncWorkflowExecutionRequest !== undefined) {
@@ -4188,9 +4446,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let workflowId;
+            
             let xCreateTime;
+            
             let xWorkflowRunID;
+            
             let xWorkflowRunMergeFnParameters;
 
             if (startWorkflowExecutionRequest !== null && startWorkflowExecutionRequest !== undefined) {
@@ -4250,7 +4512,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let workflowId;
+            
             let executionId;
 
             if (stopWorkFlowRequest !== null && stopWorkFlowRequest !== undefined) {
@@ -4294,6 +4558,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let dependId;
 
             if (updateDependcyRequest !== null && updateDependcyRequest !== undefined) {
@@ -4339,7 +4604,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
+            
             let eventId;
 
             if (updateEventRequest !== null && updateEventRequest !== undefined) {
@@ -4390,6 +4657,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (updateFunctionAsyncInvokeConfigRequest !== null && updateFunctionAsyncInvokeConfigRequest !== undefined) {
@@ -4435,6 +4703,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (updateFunctionCodeRequest !== null && updateFunctionCodeRequest !== undefined) {
@@ -4480,6 +4749,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (updateFunctionConfigRequest !== null && updateFunctionConfigRequest !== undefined) {
@@ -4525,6 +4795,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (updateFunctionMaxInstanceConfigRequest !== null && updateFunctionMaxInstanceConfigRequest !== undefined) {
@@ -4570,6 +4841,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (updateFunctionReservedInstancesCountRequest !== null && updateFunctionReservedInstancesCountRequest !== undefined) {
@@ -4615,6 +4887,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
 
             if (updateTracingRequest !== null && updateTracingRequest !== undefined) {
@@ -4660,8 +4933,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
+            
             let triggerTypeCode;
+            
             let triggerId;
 
             if (updateTriggerRequest !== null && updateTriggerRequest !== undefined) {
@@ -4717,7 +4993,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let functionUrn;
+            
             let aliasName;
 
             if (updateVersionAliasRequest !== null && updateVersionAliasRequest !== undefined) {
@@ -4768,6 +5046,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let workflowId;
 
             if (updateWorkFlowRequest !== null && updateWorkFlowRequest !== undefined) {

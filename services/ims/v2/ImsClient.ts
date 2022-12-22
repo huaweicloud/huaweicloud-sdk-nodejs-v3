@@ -131,7 +131,7 @@ import { UpdateImageResponse } from './model/UpdateImageResponse';
 
 export class ImsClient {
     public static newBuilder(): ClientBuilder<ImsClient> {
-        return new ClientBuilder<ImsClient>(newClient);
+            return new ClientBuilder<ImsClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -157,8 +157,10 @@ export class ImsClient {
      */
     public addImageTag(addImageTagRequest?: AddImageTagRequest): Promise<void> {
         const options = ParamCreater().addImageTag(addImageTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -175,8 +177,10 @@ export class ImsClient {
      */
     public batchAddMembers(batchAddMembersRequest?: BatchAddMembersRequest): Promise<BatchAddMembersResponse> {
         const options = ParamCreater().batchAddMembers(batchAddMembersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -193,8 +197,10 @@ export class ImsClient {
      */
     public batchAddOrDeleteTags(batchAddOrDeleteTagsRequest?: BatchAddOrDeleteTagsRequest): Promise<void> {
         const options = ParamCreater().batchAddOrDeleteTags(batchAddOrDeleteTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -211,8 +217,10 @@ export class ImsClient {
      */
     public batchDeleteMembers(batchDeleteMembersRequest?: BatchDeleteMembersRequest): Promise<BatchDeleteMembersResponse> {
         const options = ParamCreater().batchDeleteMembers(batchDeleteMembersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -229,8 +237,10 @@ export class ImsClient {
      */
     public batchUpdateMembers(batchUpdateMembersRequest?: BatchUpdateMembersRequest): Promise<BatchUpdateMembersResponse> {
         const options = ParamCreater().batchUpdateMembers(batchUpdateMembersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -249,8 +259,10 @@ export class ImsClient {
      */
     public copyImageCrossRegion(copyImageCrossRegionRequest?: CopyImageCrossRegionRequest): Promise<CopyImageCrossRegionResponse> {
         const options = ParamCreater().copyImageCrossRegion(copyImageCrossRegionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -268,8 +280,10 @@ export class ImsClient {
      */
     public copyImageInRegion(copyImageInRegionRequest?: CopyImageInRegionRequest): Promise<CopyImageInRegionResponse> {
         const options = ParamCreater().copyImageInRegion(copyImageInRegionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -285,8 +299,10 @@ export class ImsClient {
      */
     public createDataImage(createDataImageRequest?: CreateDataImageRequest): Promise<CreateDataImageResponse> {
         const options = ParamCreater().createDataImage(createDataImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -313,8 +329,10 @@ export class ImsClient {
      */
     public createImage(createImageRequest?: CreateImageRequest): Promise<CreateImageResponse> {
         const options = ParamCreater().createImage(createImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -330,8 +348,10 @@ export class ImsClient {
      */
     public createOrUpdateTags(createOrUpdateTagsRequest?: CreateOrUpdateTagsRequest): Promise<void> {
         const options = ParamCreater().createOrUpdateTags(createOrUpdateTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -347,8 +367,10 @@ export class ImsClient {
      */
     public createWholeImage(createWholeImageRequest?: CreateWholeImageRequest): Promise<CreateWholeImageResponse> {
         const options = ParamCreater().createWholeImage(createWholeImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -365,8 +387,10 @@ export class ImsClient {
      */
     public deleteImageTag(deleteImageTagRequest?: DeleteImageTagRequest): Promise<void> {
         const options = ParamCreater().deleteImageTag(deleteImageTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -383,8 +407,10 @@ export class ImsClient {
      */
     public exportImage(exportImageRequest?: ExportImageRequest): Promise<ExportImageResponse> {
         const options = ParamCreater().exportImage(exportImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -402,8 +428,10 @@ export class ImsClient {
      */
     public importImageQuick(importImageQuickRequest?: ImportImageQuickRequest): Promise<ImportImageQuickResponse> {
         const options = ParamCreater().importImageQuick(importImageQuickRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -419,8 +447,10 @@ export class ImsClient {
      */
     public listImageByTags(listImageByTagsRequest?: ListImageByTagsRequest): Promise<ListImageByTagsResponse> {
         const options = ParamCreater().listImageByTags(listImageByTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -436,8 +466,10 @@ export class ImsClient {
      */
     public listImageTags(listImageTagsRequest?: ListImageTagsRequest): Promise<ListImageTagsResponse> {
         const options = ParamCreater().listImageTags(listImageTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -490,8 +522,10 @@ export class ImsClient {
      */
     public listImages(listImagesRequest?: ListImagesRequest): Promise<ListImagesResponse> {
         const options = ParamCreater().listImages(listImagesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -506,8 +540,10 @@ export class ImsClient {
      */
     public listImagesTags(): Promise<ListImagesTagsResponse> {
         const options = ParamCreater().listImagesTags();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -523,8 +559,10 @@ export class ImsClient {
      */
     public listOsVersions(listOsVersionsRequest?: ListOsVersionsRequest): Promise<Array<ListOsVersionsResponseBody>> {
         const options = ParamCreater().listOsVersions(listOsVersionsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -554,8 +592,10 @@ export class ImsClient {
      */
     public listTags(listTagsRequest?: ListTagsRequest): Promise<ListTagsResponse> {
         const options = ParamCreater().listTags(listTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -578,8 +618,10 @@ export class ImsClient {
      */
     public registerImage(registerImageRequest?: RegisterImageRequest): Promise<RegisterImageResponse> {
         const options = ParamCreater().registerImage(registerImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -594,8 +636,10 @@ export class ImsClient {
      */
     public showImageQuota(): Promise<ShowImageQuotaResponse> {
         const options = ParamCreater().showImageQuota();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -611,8 +655,10 @@ export class ImsClient {
      */
     public showJob(showJobRequest?: ShowJobRequest): Promise<ShowJobResponse> {
         const options = ParamCreater().showJob(showJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -628,8 +674,10 @@ export class ImsClient {
      */
     public showJobProgress(showJobProgressRequest?: ShowJobProgressRequest): Promise<ShowJobProgressResponse> {
         const options = ParamCreater().showJobProgress(showJobProgressRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -646,8 +694,10 @@ export class ImsClient {
      */
     public updateImage(updateImageRequest?: UpdateImageRequest): Promise<UpdateImageResponse> {
         const options = ParamCreater().updateImage(updateImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -662,8 +712,10 @@ export class ImsClient {
      */
     public listVersions(): Promise<ListVersionsResponse> {
         const options = ParamCreater().listVersions();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -679,8 +731,10 @@ export class ImsClient {
      */
     public showVersion(showVersionRequest?: ShowVersionRequest): Promise<ShowVersionResponse> {
         const options = ParamCreater().showVersion(showVersionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -697,8 +751,10 @@ export class ImsClient {
      */
     public glanceAddImageMember(glanceAddImageMemberRequest?: GlanceAddImageMemberRequest): Promise<GlanceAddImageMemberResponse> {
         const options = ParamCreater().glanceAddImageMember(glanceAddImageMemberRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -714,8 +770,10 @@ export class ImsClient {
      */
     public glanceCreateImageMetadata(glanceCreateImageMetadataRequest?: GlanceCreateImageMetadataRequest): Promise<GlanceCreateImageMetadataResponse> {
         const options = ParamCreater().glanceCreateImageMetadata(glanceCreateImageMetadataRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -732,8 +790,10 @@ export class ImsClient {
      */
     public glanceCreateTag(glanceCreateTagRequest?: GlanceCreateTagRequest): Promise<void> {
         const options = ParamCreater().glanceCreateTag(glanceCreateTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -750,8 +810,10 @@ export class ImsClient {
      */
     public glanceDeleteImage(glanceDeleteImageRequest?: GlanceDeleteImageRequest): Promise<void> {
         const options = ParamCreater().glanceDeleteImage(glanceDeleteImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -768,8 +830,10 @@ export class ImsClient {
      */
     public glanceDeleteImageMember(glanceDeleteImageMemberRequest?: GlanceDeleteImageMemberRequest): Promise<void> {
         const options = ParamCreater().glanceDeleteImageMember(glanceDeleteImageMemberRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -786,8 +850,10 @@ export class ImsClient {
      */
     public glanceDeleteTag(glanceDeleteTagRequest?: GlanceDeleteTagRequest): Promise<void> {
         const options = ParamCreater().glanceDeleteTag(glanceDeleteTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -802,8 +868,10 @@ export class ImsClient {
      */
     public glanceListImageMemberSchemas(): Promise<GlanceListImageMemberSchemasResponse> {
         const options = ParamCreater().glanceListImageMemberSchemas();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -819,8 +887,10 @@ export class ImsClient {
      */
     public glanceListImageMembers(glanceListImageMembersRequest?: GlanceListImageMembersRequest): Promise<GlanceListImageMembersResponse> {
         const options = ParamCreater().glanceListImageMembers(glanceListImageMembersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -835,8 +905,10 @@ export class ImsClient {
      */
     public glanceListImageSchemas(): Promise<GlanceListImageSchemasResponse> {
         const options = ParamCreater().glanceListImageSchemas();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -887,8 +959,10 @@ export class ImsClient {
      */
     public glanceListImages(glanceListImagesRequest?: GlanceListImagesRequest): Promise<GlanceListImagesResponse> {
         const options = ParamCreater().glanceListImages(glanceListImagesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -904,8 +978,10 @@ export class ImsClient {
      */
     public glanceShowImage(glanceShowImageRequest?: GlanceShowImageRequest): Promise<GlanceShowImageResponse> {
         const options = ParamCreater().glanceShowImage(glanceShowImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -922,8 +998,10 @@ export class ImsClient {
      */
     public glanceShowImageMember(glanceShowImageMemberRequest?: GlanceShowImageMemberRequest): Promise<GlanceShowImageMemberResponse> {
         const options = ParamCreater().glanceShowImageMember(glanceShowImageMemberRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -938,8 +1016,10 @@ export class ImsClient {
      */
     public glanceShowImageMemberSchemas(): Promise<GlanceShowImageMemberSchemasResponse> {
         const options = ParamCreater().glanceShowImageMemberSchemas();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -954,8 +1034,10 @@ export class ImsClient {
      */
     public glanceShowImageSchemas(): Promise<GlanceShowImageSchemasResponse> {
         const options = ParamCreater().glanceShowImageSchemas();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -972,8 +1054,10 @@ export class ImsClient {
      */
     public glanceUpdateImage(glanceUpdateImageRequest?: GlanceUpdateImageRequest): Promise<GlanceUpdateImageResponse> {
         const options = ParamCreater().glanceUpdateImage(glanceUpdateImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -991,8 +1075,10 @@ export class ImsClient {
      */
     public glanceUpdateImageMember(glanceUpdateImageMemberRequest?: GlanceUpdateImageMemberRequest): Promise<GlanceUpdateImageMemberResponse> {
         const options = ParamCreater().glanceUpdateImageMember(glanceUpdateImageMemberRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -1018,6 +1104,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
 
             if (addImageTagRequest !== null && addImageTagRequest !== undefined) {
@@ -1102,6 +1189,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
 
             if (batchAddOrDeleteTagsRequest !== null && batchAddOrDeleteTagsRequest !== undefined) {
@@ -1227,6 +1315,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
 
             if (copyImageCrossRegionRequest !== null && copyImageCrossRegionRequest !== undefined) {
@@ -1273,6 +1362,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
 
             if (copyImageInRegionRequest !== null && copyImageInRegionRequest !== undefined) {
@@ -1480,7 +1570,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let imageId;
+            
             let key;
 
             if (deleteImageTagRequest !== null && deleteImageTagRequest !== undefined) {
@@ -1524,6 +1616,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
 
             if (exportImageRequest !== null && exportImageRequest !== undefined) {
@@ -1646,6 +1739,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let imageId;
 
             if (listImageTagsRequest !== null && listImageTagsRequest !== undefined) {
@@ -1684,42 +1778,79 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let imagetype;
+            
             let isregistered;
+            
             let osBit;
+            
             let osType;
+            
             let platform;
+            
             let supportDiskintensive;
+            
             let supportHighperformance;
+            
             let supportKvm;
+            
             let supportKvmGpuType;
+            
             let supportKvmInfiniband;
+            
             let supportLargememory;
+            
             let supportXen;
+            
             let supportXenGpuType;
+            
             let supportXenHana;
+            
             let containerFormat;
+            
             let diskFormat;
+            
             let enterpriseProjectId;
+            
             let id;
+            
             let limit;
+            
             let marker;
+            
             let memberStatus;
+            
             let minDisk;
+            
             let minRam;
+            
             let name;
+            
             let owner;
+            
             let _protected;
+            
             let sortDir;
+            
             let sortKey;
+            
             let status;
+            
             let tag;
+            
             let virtualEnvType;
+            
             let visibility;
+            
             let xSdkDate;
+            
             let flavorId;
+            
             let createdAt;
+            
             let updatedAt;
+            
             let architecture;
 
             if (listImagesRequest !== null && listImagesRequest !== undefined) {
@@ -1959,6 +2090,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let tag;
 
             if (listOsVersionsRequest !== null && listOsVersionsRequest !== undefined) {
@@ -1996,20 +2128,35 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let page;
+            
             let imagetype;
+            
             let id;
+            
             let status;
+            
             let name;
+            
             let minDisk;
+            
             let platform;
+            
             let osType;
+            
             let memberStatus;
+            
             let virtualEnvType;
+            
             let enterpriseProjectId;
+            
             let architecture;
+            
             let createdAt;
+            
             let updatedAt;
 
             if (listTagsRequest !== null && listTagsRequest !== undefined) {
@@ -2124,6 +2271,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
 
             if (registerImageRequest !== null && registerImageRequest !== undefined) {
@@ -2190,6 +2338,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let jobId;
 
             if (showJobRequest !== null && showJobRequest !== undefined) {
@@ -2227,6 +2376,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let jobId;
 
             if (showJobProgressRequest !== null && showJobProgressRequest !== undefined) {
@@ -2265,6 +2415,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
 
             if (updateImageRequest !== null && updateImageRequest !== undefined) {
@@ -2331,6 +2482,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let version;
 
             if (showVersionRequest !== null && showVersionRequest !== undefined) {
@@ -2369,6 +2521,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
 
             if (glanceAddImageMemberRequest !== null && glanceAddImageMemberRequest !== undefined) {
@@ -2451,7 +2604,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let imageId;
+            
             let tag;
 
             if (glanceCreateTagRequest !== null && glanceCreateTagRequest !== undefined) {
@@ -2495,6 +2650,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
 
             if (glanceDeleteImageRequest !== null && glanceDeleteImageRequest !== undefined) {
@@ -2536,7 +2692,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let imageId;
+            
             let memberId;
 
             if (glanceDeleteImageMemberRequest !== null && glanceDeleteImageMemberRequest !== undefined) {
@@ -2579,7 +2737,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let imageId;
+            
             let tag;
 
             if (glanceDeleteTagRequest !== null && glanceDeleteTagRequest !== undefined) {
@@ -2644,6 +2804,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let imageId;
 
             if (glanceListImageMembersRequest !== null && glanceListImageMembersRequest !== undefined) {
@@ -2707,37 +2868,69 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let imagetype;
+            
             let isregistered;
+            
             let osBit;
+            
             let osType;
+            
             let platform;
+            
             let supportDiskintensive;
+            
             let supportHighperformance;
+            
             let supportKvm;
+            
             let supportKvmGpuType;
+            
             let supportKvmInfiniband;
+            
             let supportLargememory;
+            
             let supportXen;
+            
             let supportXenGpuType;
+            
             let supportXenHana;
+            
             let containerFormat;
+            
             let diskFormat;
+            
             let id;
+            
             let limit;
+            
             let marker;
+            
             let memberStatus;
+            
             let minDisk;
+            
             let minRam;
+            
             let name;
+            
             let owner;
+            
             let _protected;
+            
             let sortDir;
+            
             let sortKey;
+            
             let status;
+            
             let tag;
+            
             let visibility;
+            
             let createdAt;
+            
             let updatedAt;
 
             if (glanceListImagesRequest !== null && glanceListImagesRequest !== undefined) {
@@ -2930,6 +3123,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let imageId;
 
             if (glanceShowImageRequest !== null && glanceShowImageRequest !== undefined) {
@@ -2967,7 +3161,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let imageId;
+            
             let memberId;
 
             if (glanceShowImageMemberRequest !== null && glanceShowImageMemberRequest !== undefined) {
@@ -3055,6 +3251,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
 
             if (glanceUpdateImageRequest !== null && glanceUpdateImageRequest !== undefined) {
@@ -3100,7 +3297,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let imageId;
+            
             let memberId;
 
             if (glanceUpdateImageMemberRequest !== null && glanceUpdateImageMemberRequest !== undefined) {

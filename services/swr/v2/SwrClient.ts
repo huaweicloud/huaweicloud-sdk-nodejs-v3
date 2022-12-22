@@ -125,7 +125,7 @@ import { VersionDetail } from './model/VersionDetail';
 
 export class SwrClient {
     public static newBuilder(): ClientBuilder<SwrClient> {
-        return new ClientBuilder<SwrClient>(newClient);
+            return new ClientBuilder<SwrClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -153,8 +153,10 @@ export class SwrClient {
      */
     public createImageSyncRepo(createImageSyncRepoRequest?: CreateImageSyncRepoRequest): Promise<void> {
         const options = ParamCreater().createImageSyncRepo(createImageSyncRepoRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -173,8 +175,10 @@ export class SwrClient {
      */
     public createManualImageSyncRepo(createManualImageSyncRepoRequest?: CreateManualImageSyncRepoRequest): Promise<Array<string>> {
         const options = ParamCreater().createManualImageSyncRepo(createManualImageSyncRepoRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -191,8 +195,10 @@ export class SwrClient {
      */
     public createNamespace(createNamespaceRequest?: CreateNamespaceRequest): Promise<void> {
         const options = ParamCreater().createNamespace(createNamespaceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -210,8 +216,10 @@ export class SwrClient {
      */
     public createNamespaceAuth(createNamespaceAuthRequest?: CreateNamespaceAuthRequest): Promise<void> {
         const options = ParamCreater().createNamespaceAuth(createNamespaceAuthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -229,8 +237,10 @@ export class SwrClient {
      */
     public createRepo(createRepoRequest?: CreateRepoRequest): Promise<void> {
         const options = ParamCreater().createRepo(createRepoRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -249,8 +259,10 @@ export class SwrClient {
      */
     public createRepoDomains(createRepoDomainsRequest?: CreateRepoDomainsRequest): Promise<void> {
         const options = ParamCreater().createRepoDomains(createRepoDomainsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -269,8 +281,10 @@ export class SwrClient {
      */
     public createRetention(createRetentionRequest?: CreateRetentionRequest): Promise<CreateRetentionResponse> {
         const options = ParamCreater().createRetention(createRetentionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -287,8 +301,10 @@ export class SwrClient {
      */
     public createSecret(createSecretRequest?: CreateSecretRequest): Promise<CreateSecretResponse> {
         const options = ParamCreater().createSecret(createSecretRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['X-Swr-Dockerlogin'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -307,8 +323,10 @@ export class SwrClient {
      */
     public createTrigger(createTriggerRequest?: CreateTriggerRequest): Promise<void> {
         const options = ParamCreater().createTrigger(createTriggerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -327,8 +345,10 @@ export class SwrClient {
      */
     public createUserRepositoryAuth(createUserRepositoryAuthRequest?: CreateUserRepositoryAuthRequest): Promise<void> {
         const options = ParamCreater().createUserRepositoryAuth(createUserRepositoryAuthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -347,8 +367,10 @@ export class SwrClient {
      */
     public deleteImageSyncRepo(deleteImageSyncRepoRequest?: DeleteImageSyncRepoRequest): Promise<void> {
         const options = ParamCreater().deleteImageSyncRepo(deleteImageSyncRepoRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -366,8 +388,10 @@ export class SwrClient {
      */
     public deleteNamespaceAuth(deleteNamespaceAuthRequest?: DeleteNamespaceAuthRequest): Promise<void> {
         const options = ParamCreater().deleteNamespaceAuth(deleteNamespaceAuthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -384,8 +408,10 @@ export class SwrClient {
      */
     public deleteNamespaces(deleteNamespacesRequest?: DeleteNamespacesRequest): Promise<void> {
         const options = ParamCreater().deleteNamespaces(deleteNamespacesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -403,8 +429,10 @@ export class SwrClient {
      */
     public deleteRepo(deleteRepoRequest?: DeleteRepoRequest): Promise<void> {
         const options = ParamCreater().deleteRepo(deleteRepoRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -423,8 +451,10 @@ export class SwrClient {
      */
     public deleteRepoDomains(deleteRepoDomainsRequest?: DeleteRepoDomainsRequest): Promise<void> {
         const options = ParamCreater().deleteRepoDomains(deleteRepoDomainsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -443,8 +473,10 @@ export class SwrClient {
      */
     public deleteRepoTag(deleteRepoTagRequest?: DeleteRepoTagRequest): Promise<void> {
         const options = ParamCreater().deleteRepoTag(deleteRepoTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -463,8 +495,10 @@ export class SwrClient {
      */
     public deleteRetention(deleteRetentionRequest?: DeleteRetentionRequest): Promise<void> {
         const options = ParamCreater().deleteRetention(deleteRetentionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -483,8 +517,10 @@ export class SwrClient {
      */
     public deleteTrigger(deleteTriggerRequest?: DeleteTriggerRequest): Promise<void> {
         const options = ParamCreater().deleteTrigger(deleteTriggerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -503,8 +539,10 @@ export class SwrClient {
      */
     public deleteUserRepositoryAuth(deleteUserRepositoryAuthRequest?: DeleteUserRepositoryAuthRequest): Promise<void> {
         const options = ParamCreater().deleteUserRepositoryAuth(deleteUserRepositoryAuthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -522,8 +560,10 @@ export class SwrClient {
      */
     public listImageAutoSyncReposDetails(listImageAutoSyncReposDetailsRequest?: ListImageAutoSyncReposDetailsRequest): Promise<Array<SyncRepo>> {
         const options = ParamCreater().listImageAutoSyncReposDetails(listImageAutoSyncReposDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -541,8 +581,10 @@ export class SwrClient {
      */
     public listNamespaces(listNamespacesRequest?: ListNamespacesRequest): Promise<ListNamespacesResponse> {
         const options = ParamCreater().listNamespaces(listNamespacesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -558,8 +600,10 @@ export class SwrClient {
      */
     public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
         const options = ParamCreater().listQuotas(listQuotasRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -577,8 +621,10 @@ export class SwrClient {
      */
     public listRepoDomains(listRepoDomainsRequest?: ListRepoDomainsRequest): Promise<Array<ShowRepoDomainsResponse>> {
         const options = ParamCreater().listRepoDomains(listRepoDomainsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -589,21 +635,23 @@ export class SwrClient {
      *
      * @summary 查询镜像仓库列表
      * @param {'application/json;charset=utf-8' | 'application/json'} contentType 消息体的类型（格式），下方类型可任选其一使用： application/json;charset&#x3D;utf-8 application/json
-     * @param {string} [namespace] 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。
-     * @param {string} [name] 镜像仓库名称
-     * @param {string} [category] 镜像仓库分类，可设置为app_server, linux, framework_app, database, lang, other, windows, arm。
+     * @param {string} [namespace] 组织名称。小写字母开头，后面跟小写字母、数字、小数点、下划线或中划线（其中下划线最多允许连续两个，小数点、下划线、中划线不能直接相连），小写字母或数字结尾，1-64个字符。注意：和filter最好分开使用，如果同时使用，此过滤参数将失效，以filter为准。
+     * @param {string} [name] 镜像仓库名称。注意：和filter最好分开使用，如果同时使用，此过滤参数将失效，以filter为准。
+     * @param {string} [category] 镜像仓库分类，可设置为app_server, linux, framework_app, database, lang, other, windows, arm。注意：和filter最好分开使用，如果同时使用，此过滤参数将失效，以filter为准。
      * @param {string} [limit] 返回条数。注意：offset和limit参数需要配套使用。
      * @param {string} [offset] 起始索引。注意：offset和limit参数需要配套使用。
      * @param {string} [orderColumn] 按列排序，可设置为updated_at（按更新时间排序）。注意：order_column和order_type参数需要配套使用。
      * @param {string} [orderType] 排序类型，可设置为desc（降序）、asc（升序）。注意：order_column和order_type参数需要配套使用。
-     * @param {string} [filter] 注意：至少要传递一个filter参数。其中{namespace}为组织名称，模糊匹配。 {name}为镜像仓库名称，模糊匹配。{category}为镜像仓库分类，可设置为app_server、linux、framework_app、database、lang、other、windows、arm。 {limit}为返回条数,{offset}为起始索引，注意：offset和limit参数需要配套使用。{order_column}为按列排序，可设置为name、updated_time、tag_count,{order_type}为排序类型， 可设置为desc（降序）、asc（升序），注意：order_column和order_type参数需要配套使用。
+     * @param {string} [filter] 注意：如果使用filter至少要传递一个filter参数。应填写 namespace::{namespace}|name::{name}|limit::{limit}|offset::{offset}|order_column::{order_column}|order_type::{order_type},其中{namespace}为组织名称。 {name}为镜像仓库名称，模糊匹配。{category}为镜像仓库分类，可设置为app_server、linux、framework_app、database、lang、other、windows、arm。 {limit}为返回条数,{offset}为起始索引，注意：offset和limit参数需要配套使用。{order_column}为按列排序，可设置为name、updated_time、tag_count,{order_type}为排序类型， 可设置为desc（降序）、asc（升序），注意：order_column和order_type参数需要配套使用。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listReposDetails(listReposDetailsRequest?: ListReposDetailsRequest): Promise<Array<ShowReposResp>> {
         const options = ParamCreater().listReposDetails(listReposDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['Content-Range'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -627,8 +675,10 @@ export class SwrClient {
      */
     public listRepositoryTags(listRepositoryTagsRequest?: ListRepositoryTagsRequest): Promise<Array<ShowReposTagResp>> {
         const options = ParamCreater().listRepositoryTags(listRepositoryTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['Content-Range'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -647,8 +697,10 @@ export class SwrClient {
      */
     public listRetentionHistories(listRetentionHistoriesRequest?: ListRetentionHistoriesRequest): Promise<ListRetentionHistoriesResponse> {
         const options = ParamCreater().listRetentionHistories(listRetentionHistoriesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['Content-Range'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -666,8 +718,10 @@ export class SwrClient {
      */
     public listRetentions(listRetentionsRequest?: ListRetentionsRequest): Promise<Array<Retention>> {
         const options = ParamCreater().listRetentions(listRetentionsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -691,8 +745,10 @@ export class SwrClient {
      */
     public listSharedReposDetails(listSharedReposDetailsRequest?: ListSharedReposDetailsRequest): Promise<Array<ShowReposResp>> {
         const options = ParamCreater().listSharedReposDetails(listSharedReposDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['Content-Range'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -710,8 +766,10 @@ export class SwrClient {
      */
     public listTriggersDetails(listTriggersDetailsRequest?: ListTriggersDetailsRequest): Promise<Array<Trigger>> {
         const options = ParamCreater().listTriggersDetails(listTriggersDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -730,8 +788,10 @@ export class SwrClient {
      */
     public showAccessDomain(showAccessDomainRequest?: ShowAccessDomainRequest): Promise<ShowAccessDomainResponse> {
         const options = ParamCreater().showAccessDomain(showAccessDomainRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -748,8 +808,10 @@ export class SwrClient {
      */
     public showNamespace(showNamespaceRequest?: ShowNamespaceRequest): Promise<ShowNamespaceResponse> {
         const options = ParamCreater().showNamespace(showNamespaceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -766,8 +828,10 @@ export class SwrClient {
      */
     public showNamespaceAuth(showNamespaceAuthRequest?: ShowNamespaceAuthRequest): Promise<ShowNamespaceAuthResponse> {
         const options = ParamCreater().showNamespaceAuth(showNamespaceAuthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -785,8 +849,10 @@ export class SwrClient {
      */
     public showRepository(showRepositoryRequest?: ShowRepositoryRequest): Promise<ShowRepositoryResponse> {
         const options = ParamCreater().showRepository(showRepositoryRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -805,8 +871,10 @@ export class SwrClient {
      */
     public showRetention(showRetentionRequest?: ShowRetentionRequest): Promise<ShowRetentionResponse> {
         const options = ParamCreater().showRetention(showRetentionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -825,8 +893,10 @@ export class SwrClient {
      */
     public showSyncJob(showSyncJobRequest?: ShowSyncJobRequest): Promise<Array<SyncJob>> {
         const options = ParamCreater().showSyncJob(showSyncJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = ['Content-Range'];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -845,8 +915,10 @@ export class SwrClient {
      */
     public showTrigger(showTriggerRequest?: ShowTriggerRequest): Promise<ShowTriggerResponse> {
         const options = ParamCreater().showTrigger(showTriggerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -864,8 +936,10 @@ export class SwrClient {
      */
     public showUserRepositoryAuth(showUserRepositoryAuthRequest?: ShowUserRepositoryAuthRequest): Promise<ShowUserRepositoryAuthResponse> {
         const options = ParamCreater().showUserRepositoryAuth(showUserRepositoryAuthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -883,8 +957,10 @@ export class SwrClient {
      */
     public updateNamespaceAuth(updateNamespaceAuthRequest?: UpdateNamespaceAuthRequest): Promise<void> {
         const options = ParamCreater().updateNamespaceAuth(updateNamespaceAuthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -903,8 +979,10 @@ export class SwrClient {
      */
     public updateRepo(updateRepoRequest?: UpdateRepoRequest): Promise<void> {
         const options = ParamCreater().updateRepo(updateRepoRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -924,8 +1002,10 @@ export class SwrClient {
      */
     public updateRepoDomains(updateRepoDomainsRequest?: UpdateRepoDomainsRequest): Promise<void> {
         const options = ParamCreater().updateRepoDomains(updateRepoDomainsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -945,8 +1025,10 @@ export class SwrClient {
      */
     public updateRetention(updateRetentionRequest?: UpdateRetentionRequest): Promise<void> {
         const options = ParamCreater().updateRetention(updateRetentionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -966,8 +1048,10 @@ export class SwrClient {
      */
     public updateTrigger(updateTriggerRequest?: UpdateTriggerRequest): Promise<void> {
         const options = ParamCreater().updateTrigger(updateTriggerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -986,8 +1070,10 @@ export class SwrClient {
      */
     public updateUserRepositoryAuth(updateUserRepositoryAuthRequest?: UpdateUserRepositoryAuthRequest): Promise<void> {
         const options = ParamCreater().updateUserRepositoryAuth(updateUserRepositoryAuthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1003,8 +1089,10 @@ export class SwrClient {
      */
     public listApiVersions(listApiVersionsRequest?: ListApiVersionsRequest): Promise<ListApiVersionsResponse> {
         const options = ParamCreater().listApiVersions(listApiVersionsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1021,8 +1109,10 @@ export class SwrClient {
      */
     public showApiVersion(showApiVersionRequest?: ShowApiVersionRequest): Promise<ShowApiVersionResponse> {
         const options = ParamCreater().showApiVersion(showApiVersionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -1048,8 +1138,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (createImageSyncRepoRequest !== null && createImageSyncRepoRequest !== undefined) {
@@ -1105,8 +1198,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (createManualImageSyncRepoRequest !== null && createManualImageSyncRepoRequest !== undefined) {
@@ -1162,6 +1258,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
 
             if (createNamespaceRequest !== null && createNamespaceRequest !== undefined) {
@@ -1206,7 +1303,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
 
             if (createNamespaceAuthRequest !== null && createNamespaceAuthRequest !== undefined) {
@@ -1257,7 +1356,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
 
             if (createRepoRequest !== null && createRepoRequest !== undefined) {
@@ -1308,8 +1409,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (createRepoDomainsRequest !== null && createRepoDomainsRequest !== undefined) {
@@ -1365,8 +1469,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (createRetentionRequest !== null && createRetentionRequest !== undefined) {
@@ -1421,7 +1528,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let projectname;
 
             if (createSecretRequest !== null && createSecretRequest !== undefined) {
@@ -1465,8 +1574,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (createTriggerRequest !== null && createTriggerRequest !== undefined) {
@@ -1522,8 +1634,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (createUserRepositoryAuthRequest !== null && createUserRepositoryAuthRequest !== undefined) {
@@ -1579,8 +1694,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (deleteImageSyncRepoRequest !== null && deleteImageSyncRepoRequest !== undefined) {
@@ -1636,7 +1754,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
 
             if (deleteNamespaceAuthRequest !== null && deleteNamespaceAuthRequest !== undefined) {
@@ -1686,7 +1806,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
 
             if (deleteNamespacesRequest !== null && deleteNamespacesRequest !== undefined) {
@@ -1729,8 +1851,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (deleteRepoRequest !== null && deleteRepoRequest !== undefined) {
@@ -1778,9 +1903,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let accessDomain;
 
             if (deleteRepoDomainsRequest !== null && deleteRepoDomainsRequest !== undefined) {
@@ -1833,9 +1962,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let tag;
 
             if (deleteRepoTagRequest !== null && deleteRepoTagRequest !== undefined) {
@@ -1888,9 +2021,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let retentionId;
 
             if (deleteRetentionRequest !== null && deleteRetentionRequest !== undefined) {
@@ -1943,9 +2080,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let trigger;
 
             if (deleteTriggerRequest !== null && deleteTriggerRequest !== undefined) {
@@ -1999,8 +2140,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (deleteUserRepositoryAuthRequest !== null && deleteUserRepositoryAuthRequest !== undefined) {
@@ -2055,8 +2199,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (listImageAutoSyncReposDetailsRequest !== null && listImageAutoSyncReposDetailsRequest !== undefined) {
@@ -2104,8 +2251,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let namespace;
+            
             let filter;
 
             if (listNamespacesRequest !== null && listNamespacesRequest !== undefined) {
@@ -2153,6 +2303,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
 
             if (listQuotasRequest !== null && listQuotasRequest !== undefined) {
@@ -2189,8 +2340,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (listRepoDomainsRequest !== null && listRepoDomainsRequest !== undefined) {
@@ -2238,14 +2392,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let namespace;
+            
             let name;
+            
             let category;
+            
             let limit;
+            
             let offset;
+            
             let orderColumn;
+            
             let orderType;
+            
             let filter;
 
             if (listReposDetailsRequest !== null && listReposDetailsRequest !== undefined) {
@@ -2323,14 +2486,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let limit;
+            
             let offset;
+            
             let orderColumn;
+            
             let orderType;
+            
             let tag;
+            
             let filter;
 
             if (listRepositoryTagsRequest !== null && listRepositoryTagsRequest !== undefined) {
@@ -2409,9 +2581,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let filter;
 
             if (listRetentionHistoriesRequest !== null && listRetentionHistoriesRequest !== undefined) {
@@ -2465,8 +2641,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (listRetentionsRequest !== null && listRetentionsRequest !== undefined) {
@@ -2514,14 +2693,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let namespace;
+            
             let name;
+            
             let center;
+            
             let limit;
+            
             let offset;
+            
             let orderColumn;
+            
             let orderType;
+            
             let filter;
 
             if (listSharedReposDetailsRequest !== null && listSharedReposDetailsRequest !== undefined) {
@@ -2599,8 +2787,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (listTriggersDetailsRequest !== null && listTriggersDetailsRequest !== undefined) {
@@ -2648,9 +2839,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let accessDomain;
 
             if (showAccessDomainRequest !== null && showAccessDomainRequest !== undefined) {
@@ -2703,7 +2898,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
 
             if (showNamespaceRequest !== null && showNamespaceRequest !== undefined) {
@@ -2746,7 +2943,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
 
             if (showNamespaceAuthRequest !== null && showNamespaceAuthRequest !== undefined) {
@@ -2789,8 +2988,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (showRepositoryRequest !== null && showRepositoryRequest !== undefined) {
@@ -2838,9 +3040,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let retentionId;
 
             if (showRetentionRequest !== null && showRetentionRequest !== undefined) {
@@ -2893,9 +3099,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let filter;
 
             if (showSyncJobRequest !== null && showSyncJobRequest !== undefined) {
@@ -2952,9 +3162,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let trigger;
 
             if (showTriggerRequest !== null && showTriggerRequest !== undefined) {
@@ -3007,8 +3221,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (showUserRepositoryAuthRequest !== null && showUserRepositoryAuthRequest !== undefined) {
@@ -3057,7 +3274,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
 
             if (updateNamespaceAuthRequest !== null && updateNamespaceAuthRequest !== undefined) {
@@ -3108,8 +3327,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (updateRepoRequest !== null && updateRepoRequest !== undefined) {
@@ -3165,9 +3387,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let accessDomain;
 
             if (updateRepoDomainsRequest !== null && updateRepoDomainsRequest !== undefined) {
@@ -3228,9 +3454,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let retentionId;
 
             if (updateRetentionRequest !== null && updateRetentionRequest !== undefined) {
@@ -3288,9 +3518,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
+            
             let trigger;
 
             if (updateTriggerRequest !== null && updateTriggerRequest !== undefined) {
@@ -3351,8 +3585,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let namespace;
+            
             let repository;
 
             if (updateUserRepositoryAuthRequest !== null && updateUserRepositoryAuthRequest !== undefined) {
@@ -3407,6 +3644,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
 
             if (listApiVersionsRequest !== null && listApiVersionsRequest !== undefined) {
@@ -3443,7 +3681,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
+            
             let apiVersion;
 
             if (showApiVersionRequest !== null && showApiVersionRequest !== undefined) {

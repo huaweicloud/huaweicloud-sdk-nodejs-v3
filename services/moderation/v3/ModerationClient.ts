@@ -47,7 +47,7 @@ import { VideoModerationVideoDetail } from './model/VideoModerationVideoDetail';
 
 export class ModerationClient {
     public static newBuilder(): ClientBuilder<ModerationClient> {
-        return new ClientBuilder<ModerationClient>(newClient);
+            return new ClientBuilder<ModerationClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -72,8 +72,10 @@ export class ModerationClient {
      */
     public checkImageModeration(checkImageModerationRequest?: CheckImageModerationRequest): Promise<CheckImageModerationResponse> {
         const options = ParamCreater().checkImageModeration(checkImageModerationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -89,8 +91,10 @@ export class ModerationClient {
      */
     public runCreateAudioModerationJob(runCreateAudioModerationJobRequest?: RunCreateAudioModerationJobRequest): Promise<RunCreateAudioModerationJobResponse> {
         const options = ParamCreater().runCreateAudioModerationJob(runCreateAudioModerationJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -106,8 +110,10 @@ export class ModerationClient {
      */
     public runCreateVideoModerationJob(runCreateVideoModerationJobRequest?: RunCreateVideoModerationJobRequest): Promise<RunCreateVideoModerationJobResponse> {
         const options = ParamCreater().runCreateVideoModerationJob(runCreateVideoModerationJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -122,8 +128,10 @@ export class ModerationClient {
      */
     public runQueryAudioModerationJob(runQueryAudioModerationJobRequest?: RunQueryAudioModerationJobRequest): Promise<RunQueryAudioModerationJobResponse> {
         const options = ParamCreater().runQueryAudioModerationJob(runQueryAudioModerationJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -139,8 +147,10 @@ export class ModerationClient {
      */
     public runQueryVideoModerationJob(runQueryVideoModerationJobRequest?: RunQueryVideoModerationJobRequest): Promise<RunQueryVideoModerationJobResponse> {
         const options = ParamCreater().runQueryVideoModerationJob(runQueryVideoModerationJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -156,8 +166,10 @@ export class ModerationClient {
      */
     public runTextModeration(runTextModerationRequest?: RunTextModerationRequest): Promise<RunTextModerationResponse> {
         const options = ParamCreater().runTextModeration(runTextModerationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -295,6 +307,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let jobId;
 
             if (runQueryAudioModerationJobRequest !== null && runQueryAudioModerationJobRequest !== undefined) {
@@ -332,6 +345,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let jobId;
 
             if (runQueryVideoModerationJobRequest !== null && runQueryVideoModerationJobRequest !== undefined) {

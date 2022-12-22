@@ -1,6 +1,7 @@
 import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
+import FormData from 'form-data';
 
 import { ActionsList } from './model/ActionsList';
 import { AddFacesBase64Req } from './model/AddFacesBase64Req';
@@ -114,7 +115,7 @@ import { WarningList } from './model/WarningList';
 
 export class FrsClient {
     public static newBuilder(): ClientBuilder<FrsClient> {
-        return new ClientBuilder<FrsClient>(newClient);
+            return new ClientBuilder<FrsClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -140,8 +141,10 @@ export class FrsClient {
      */
     public addFacesByBase64(addFacesByBase64Request?: AddFacesByBase64Request): Promise<AddFacesByBase64Response> {
         const options = ParamCreater().addFacesByBase64(addFacesByBase64Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -161,8 +164,10 @@ export class FrsClient {
      */
     public addFacesByFile(addFacesByFileRequest?: AddFacesByFileRequest): Promise<AddFacesByFileResponse> {
         const options = ParamCreater().addFacesByFile(addFacesByFileRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -179,8 +184,10 @@ export class FrsClient {
      */
     public addFacesByUrl(addFacesByUrlRequest?: AddFacesByUrlRequest): Promise<AddFacesByUrlResponse> {
         const options = ParamCreater().addFacesByUrl(addFacesByUrlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -197,8 +204,10 @@ export class FrsClient {
      */
     public batchDeleteFaces(batchDeleteFacesRequest?: BatchDeleteFacesRequest): Promise<BatchDeleteFacesResponse> {
         const options = ParamCreater().batchDeleteFaces(batchDeleteFacesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -214,8 +223,10 @@ export class FrsClient {
      */
     public compareFaceByBase64(compareFaceByBase64Request?: CompareFaceByBase64Request): Promise<CompareFaceByBase64Response> {
         const options = ParamCreater().compareFaceByBase64(compareFaceByBase64Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -232,8 +243,10 @@ export class FrsClient {
      */
     public compareFaceByFile(compareFaceByFileRequest?: CompareFaceByFileRequest): Promise<CompareFaceByFileResponse> {
         const options = ParamCreater().compareFaceByFile(compareFaceByFileRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -249,8 +262,10 @@ export class FrsClient {
      */
     public compareFaceByUrl(compareFaceByUrlRequest?: CompareFaceByUrlRequest): Promise<CompareFaceByUrlResponse> {
         const options = ParamCreater().compareFaceByUrl(compareFaceByUrlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -266,8 +281,10 @@ export class FrsClient {
      */
     public createFaceSet(createFaceSetRequest?: CreateFaceSetRequest): Promise<CreateFaceSetResponse> {
         const options = ParamCreater().createFaceSet(createFaceSetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -284,8 +301,10 @@ export class FrsClient {
      */
     public deleteFaceByExternalImageId(deleteFaceByExternalImageIdRequest?: DeleteFaceByExternalImageIdRequest): Promise<DeleteFaceByExternalImageIdResponse> {
         const options = ParamCreater().deleteFaceByExternalImageId(deleteFaceByExternalImageIdRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -302,8 +321,10 @@ export class FrsClient {
      */
     public deleteFaceByFaceId(deleteFaceByFaceIdRequest?: DeleteFaceByFaceIdRequest): Promise<DeleteFaceByFaceIdResponse> {
         const options = ParamCreater().deleteFaceByFaceId(deleteFaceByFaceIdRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -319,8 +340,10 @@ export class FrsClient {
      */
     public deleteFaceSet(deleteFaceSetRequest?: DeleteFaceSetRequest): Promise<DeleteFaceSetResponse> {
         const options = ParamCreater().deleteFaceSet(deleteFaceSetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -336,8 +359,10 @@ export class FrsClient {
      */
     public detectFaceByBase64(detectFaceByBase64Request?: DetectFaceByBase64Request): Promise<DetectFaceByBase64Response> {
         const options = ParamCreater().detectFaceByBase64(detectFaceByBase64Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -353,8 +378,10 @@ export class FrsClient {
      */
     public detectFaceByBase64Intl(detectFaceByBase64IntlRequest?: DetectFaceByBase64IntlRequest): Promise<DetectFaceByBase64IntlResponse> {
         const options = ParamCreater().detectFaceByBase64Intl(detectFaceByBase64IntlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -371,8 +398,10 @@ export class FrsClient {
      */
     public detectFaceByFile(detectFaceByFileRequest?: DetectFaceByFileRequest): Promise<DetectFaceByFileResponse> {
         const options = ParamCreater().detectFaceByFile(detectFaceByFileRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -388,8 +417,10 @@ export class FrsClient {
      */
     public detectFaceByFileIntl(detectFaceByFileIntlRequest?: DetectFaceByFileIntlRequest): Promise<DetectFaceByFileIntlResponse> {
         const options = ParamCreater().detectFaceByFileIntl(detectFaceByFileIntlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -405,8 +436,10 @@ export class FrsClient {
      */
     public detectFaceByUrl(detectFaceByUrlRequest?: DetectFaceByUrlRequest): Promise<DetectFaceByUrlResponse> {
         const options = ParamCreater().detectFaceByUrl(detectFaceByUrlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -422,8 +455,10 @@ export class FrsClient {
      */
     public detectFaceByUrlIntl(detectFaceByUrlIntlRequest?: DetectFaceByUrlIntlRequest): Promise<DetectFaceByUrlIntlResponse> {
         const options = ParamCreater().detectFaceByUrlIntl(detectFaceByUrlIntlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -439,8 +474,10 @@ export class FrsClient {
      */
     public detectLiveByBase64(detectLiveByBase64Request?: DetectLiveByBase64Request): Promise<DetectLiveByBase64Response> {
         const options = ParamCreater().detectLiveByBase64(detectLiveByBase64Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -456,8 +493,10 @@ export class FrsClient {
      */
     public detectLiveByBase64Intl(detectLiveByBase64IntlRequest?: DetectLiveByBase64IntlRequest): Promise<DetectLiveByBase64IntlResponse> {
         const options = ParamCreater().detectLiveByBase64Intl(detectLiveByBase64IntlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -475,8 +514,10 @@ export class FrsClient {
      */
     public detectLiveByFile(detectLiveByFileRequest?: DetectLiveByFileRequest): Promise<DetectLiveByFileResponse> {
         const options = ParamCreater().detectLiveByFile(detectLiveByFileRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -494,8 +535,10 @@ export class FrsClient {
      */
     public detectLiveByFileIntl(detectLiveByFileIntlRequest?: DetectLiveByFileIntlRequest): Promise<DetectLiveByFileIntlResponse> {
         const options = ParamCreater().detectLiveByFileIntl(detectLiveByFileIntlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -511,8 +554,10 @@ export class FrsClient {
      */
     public detectLiveByUrl(detectLiveByUrlRequest?: DetectLiveByUrlRequest): Promise<DetectLiveByUrlResponse> {
         const options = ParamCreater().detectLiveByUrl(detectLiveByUrlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -528,8 +573,10 @@ export class FrsClient {
      */
     public detectLiveByUrlIntl(detectLiveByUrlIntlRequest?: DetectLiveByUrlIntlRequest): Promise<DetectLiveByUrlIntlResponse> {
         const options = ParamCreater().detectLiveByUrlIntl(detectLiveByUrlIntlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -545,8 +592,10 @@ export class FrsClient {
      */
     public detectLiveFaceByBase64(detectLiveFaceByBase64Request?: DetectLiveFaceByBase64Request): Promise<DetectLiveFaceByBase64Response> {
         const options = ParamCreater().detectLiveFaceByBase64(detectLiveFaceByBase64Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -562,8 +611,10 @@ export class FrsClient {
      */
     public detectLiveFaceByFile(detectLiveFaceByFileRequest?: DetectLiveFaceByFileRequest): Promise<DetectLiveFaceByFileResponse> {
         const options = ParamCreater().detectLiveFaceByFile(detectLiveFaceByFileRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -579,8 +630,10 @@ export class FrsClient {
      */
     public detectLiveFaceByUrl(detectLiveFaceByUrlRequest?: DetectLiveFaceByUrlRequest): Promise<DetectLiveFaceByUrlResponse> {
         const options = ParamCreater().detectLiveFaceByUrl(detectLiveFaceByUrlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -598,8 +651,10 @@ export class FrsClient {
      */
     public searchFaceByBase64(searchFaceByBase64Request?: SearchFaceByBase64Request): Promise<SearchFaceByBase64Response> {
         const options = ParamCreater().searchFaceByBase64(searchFaceByBase64Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -617,8 +672,10 @@ export class FrsClient {
      */
     public searchFaceByFaceId(searchFaceByFaceIdRequest?: SearchFaceByFaceIdRequest): Promise<SearchFaceByFaceIdResponse> {
         const options = ParamCreater().searchFaceByFaceId(searchFaceByFaceIdRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -641,8 +698,10 @@ export class FrsClient {
      */
     public searchFaceByFile(searchFaceByFileRequest?: SearchFaceByFileRequest): Promise<SearchFaceByFileResponse> {
         const options = ParamCreater().searchFaceByFile(searchFaceByFileRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -660,8 +719,10 @@ export class FrsClient {
      */
     public searchFaceByUrl(searchFaceByUrlRequest?: SearchFaceByUrlRequest): Promise<SearchFaceByUrlResponse> {
         const options = ParamCreater().searchFaceByUrl(searchFaceByUrlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -676,8 +737,10 @@ export class FrsClient {
      */
     public showAllFaceSets(): Promise<ShowAllFaceSetsResponse> {
         const options = ParamCreater().showAllFaceSets();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -693,8 +756,10 @@ export class FrsClient {
      */
     public showFaceSet(showFaceSetRequest?: ShowFaceSetRequest): Promise<ShowFaceSetResponse> {
         const options = ParamCreater().showFaceSet(showFaceSetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -711,8 +776,10 @@ export class FrsClient {
      */
     public showFacesByFaceId(showFacesByFaceIdRequest?: ShowFacesByFaceIdRequest): Promise<ShowFacesByFaceIdResponse> {
         const options = ParamCreater().showFacesByFaceId(showFacesByFaceIdRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -730,8 +797,10 @@ export class FrsClient {
      */
     public showFacesByLimit(showFacesByLimitRequest?: ShowFacesByLimitRequest): Promise<ShowFacesByLimitResponse> {
         const options = ParamCreater().showFacesByLimit(showFacesByLimitRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -748,8 +817,10 @@ export class FrsClient {
      */
     public updateFace(updateFaceRequest?: UpdateFaceRequest): Promise<UpdateFaceResponse> {
         const options = ParamCreater().updateFace(updateFaceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -775,6 +846,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let faceSetName;
 
             if (addFacesByBase64Request !== null && addFacesByBase64Request !== undefined) {
@@ -820,22 +892,30 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             const localVarFormParams = new FormData();
+            
             let faceSetName;
-            var imageFile;var externalImageId;var externalFields;var single;
+            var imageFile;
+            
+            var externalImageId;
+            
+            var externalFields;
+            
+            var single;
+            
 
             if (addFacesByFileRequest !== null && addFacesByFileRequest !== undefined) {
                 if (addFacesByFileRequest instanceof AddFacesByFileRequest) {
                     faceSetName = addFacesByFileRequest.faceSetName;
-                    imageFile = addFacesByFileRequest.body;
-                    externalImageId = addFacesByFileRequest.body;
-                    externalFields = addFacesByFileRequest.body;
-                    single = addFacesByFileRequest.body;
+                    imageFile = addFacesByFileRequest.body?.imageFile;
+                    externalImageId = addFacesByFileRequest.body?.externalImageId;
+                    externalFields = addFacesByFileRequest.body?.externalFields;
+                    single = addFacesByFileRequest.body?.single;
                 } else {
                     faceSetName = addFacesByFileRequest['face_set_name'];
-                    imageFile = addFacesByFileRequest['body'];
-                    externalImageId = addFacesByFileRequest['body'];
-                    externalFields = addFacesByFileRequest['body'];
-                    single = addFacesByFileRequest['body'];
+                    imageFile = addFacesByFileRequest['body']['imageFile'];
+                    externalImageId = addFacesByFileRequest['body']['externalImageId'];
+                    externalFields = addFacesByFileRequest['body']['externalFields'];
+                    single = addFacesByFileRequest['body']['single'];
                 }
             }
 
@@ -846,9 +926,6 @@ export const ParamCreater = function () {
             if (imageFile === null || imageFile === undefined) {
             throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling addFacesByFile.');
             }
-            if (imageFile !== undefined) { 
-                localVarFormParams.append('image_file', imageFile as any);
-            }
             if (externalImageId !== undefined) { 
                 localVarFormParams.append('external_image_id', externalImageId as any);
             }
@@ -858,6 +935,11 @@ export const ParamCreater = function () {
             if (single !== undefined) { 
                 localVarFormParams.append('single', single as any);
             }
+            if (imageFile !== undefined) { 
+                localVarFormParams.append('image_file', imageFile as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
             options.pathParams = { 'face_set_name': faceSetName, };
             options.headers = localVarHeaderParameter;
@@ -882,6 +964,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let faceSetName;
 
             if (addFacesByUrlRequest !== null && addFacesByUrlRequest !== undefined) {
@@ -927,6 +1010,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let faceSetName;
 
             if (batchDeleteFacesRequest !== null && batchDeleteFacesRequest !== undefined) {
@@ -1011,15 +1095,17 @@ export const ParamCreater = function () {
 
             const localVarFormParams = new FormData();
             var image1File;
+            
             var image2File;
+            
 
             if (compareFaceByFileRequest !== null && compareFaceByFileRequest !== undefined) {
                 if (compareFaceByFileRequest instanceof CompareFaceByFileRequest) {
-                    image1File = compareFaceByFileRequest.body;
-                    image2File = compareFaceByFileRequest.body;
+                    image1File = compareFaceByFileRequest.body?.image1File;
+                    image2File = compareFaceByFileRequest.body?.image2File;
                 } else {
-                    image1File = compareFaceByFileRequest['body'];
-                    image2File = compareFaceByFileRequest['body'];
+                    image1File = compareFaceByFileRequest['body']['image1File'];
+                    image2File = compareFaceByFileRequest['body']['image2File'];
                 }
             }
 
@@ -1036,6 +1122,8 @@ export const ParamCreater = function () {
             if (image2File !== undefined) { 
                 localVarFormParams.append('image2_file', image2File as any);
             }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
             options.headers = localVarHeaderParameter;
             return options;
@@ -1134,7 +1222,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let faceSetName;
+            
             let externalImageId;
 
             if (deleteFaceByExternalImageIdRequest !== null && deleteFaceByExternalImageIdRequest !== undefined) {
@@ -1181,7 +1271,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let faceSetName;
+            
             let faceId;
 
             if (deleteFaceByFaceIdRequest !== null && deleteFaceByFaceIdRequest !== undefined) {
@@ -1228,6 +1320,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let faceSetName;
 
             if (deleteFaceSetRequest !== null && deleteFaceSetRequest !== undefined) {
@@ -1342,15 +1435,18 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             const localVarFormParams = new FormData();
-            var imageFile;var attributes;
+            var imageFile;
+            
+            var attributes;
+            
 
             if (detectFaceByFileRequest !== null && detectFaceByFileRequest !== undefined) {
                 if (detectFaceByFileRequest instanceof DetectFaceByFileRequest) {
-                    imageFile = detectFaceByFileRequest.body;
-                    attributes = detectFaceByFileRequest.body;
+                    imageFile = detectFaceByFileRequest.body?.imageFile;
+                    attributes = detectFaceByFileRequest.body?.attributes;
                 } else {
-                    imageFile = detectFaceByFileRequest['body'];
-                    attributes = detectFaceByFileRequest['body'];
+                    imageFile = detectFaceByFileRequest['body']['imageFile'];
+                    attributes = detectFaceByFileRequest['body']['attributes'];
                 }
             }
 
@@ -1358,12 +1454,14 @@ export const ParamCreater = function () {
             if (imageFile === null || imageFile === undefined) {
             throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling detectFaceByFile.');
             }
-            if (imageFile !== undefined) { 
-                localVarFormParams.append('image_file', imageFile as any);
-            }
             if (attributes !== undefined) { 
                 localVarFormParams.append('attributes', attributes as any);
             }
+            if (imageFile !== undefined) { 
+                localVarFormParams.append('image_file', imageFile as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
             options.headers = localVarHeaderParameter;
             return options;
@@ -1388,12 +1486,13 @@ export const ParamCreater = function () {
 
             const localVarFormParams = new FormData();
             var imageFile;
+            
 
             if (detectFaceByFileIntlRequest !== null && detectFaceByFileIntlRequest !== undefined) {
                 if (detectFaceByFileIntlRequest instanceof DetectFaceByFileIntlRequest) {
-                    imageFile = detectFaceByFileIntlRequest.body;
+                    imageFile = detectFaceByFileIntlRequest.body?.imageFile;
                 } else {
-                    imageFile = detectFaceByFileIntlRequest['body'];
+                    imageFile = detectFaceByFileIntlRequest['body']['imageFile'];
                 }
             }
 
@@ -1404,6 +1503,8 @@ export const ParamCreater = function () {
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
             }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
             options.headers = localVarHeaderParameter;
             return options;
@@ -1579,17 +1680,22 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             const localVarFormParams = new FormData();
-            var videoFile;var actions;var actionTime;
+            var videoFile;
+            
+            var actions;
+            
+            var actionTime;
+            
 
             if (detectLiveByFileRequest !== null && detectLiveByFileRequest !== undefined) {
                 if (detectLiveByFileRequest instanceof DetectLiveByFileRequest) {
-                    videoFile = detectLiveByFileRequest.body;
-                    actions = detectLiveByFileRequest.body;
-                    actionTime = detectLiveByFileRequest.body;
+                    videoFile = detectLiveByFileRequest.body?.videoFile;
+                    actions = detectLiveByFileRequest.body?.actions;
+                    actionTime = detectLiveByFileRequest.body?.actionTime;
                 } else {
-                    videoFile = detectLiveByFileRequest['body'];
-                    actions = detectLiveByFileRequest['body'];
-                    actionTime = detectLiveByFileRequest['body'];
+                    videoFile = detectLiveByFileRequest['body']['videoFile'];
+                    actions = detectLiveByFileRequest['body']['actions'];
+                    actionTime = detectLiveByFileRequest['body']['actionTime'];
                 }
             }
 
@@ -1600,15 +1706,17 @@ export const ParamCreater = function () {
             if (actions === null || actions === undefined) {
             throw new RequiredError('actions','Required parameter actions was null or undefined when calling detectLiveByFile.');
             }
-            if (videoFile !== undefined) { 
-                localVarFormParams.append('video_file', videoFile as any);
-            }
             if (actions !== undefined) { 
                 localVarFormParams.append('actions', actions as any);
             }
             if (actionTime !== undefined) { 
                 localVarFormParams.append('action_time', actionTime as any);
             }
+            if (videoFile !== undefined) { 
+                localVarFormParams.append('video_file', videoFile as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
             options.headers = localVarHeaderParameter;
             return options;
@@ -1632,17 +1740,22 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             const localVarFormParams = new FormData();
-            var videoFile;var actions;var actionTime;
+            var videoFile;
+            
+            var actions;
+            
+            var actionTime;
+            
 
             if (detectLiveByFileIntlRequest !== null && detectLiveByFileIntlRequest !== undefined) {
                 if (detectLiveByFileIntlRequest instanceof DetectLiveByFileIntlRequest) {
-                    videoFile = detectLiveByFileIntlRequest.body;
-                    actions = detectLiveByFileIntlRequest.body;
-                    actionTime = detectLiveByFileIntlRequest.body;
+                    videoFile = detectLiveByFileIntlRequest.body?.videoFile;
+                    actions = detectLiveByFileIntlRequest.body?.actions;
+                    actionTime = detectLiveByFileIntlRequest.body?.actionTime;
                 } else {
-                    videoFile = detectLiveByFileIntlRequest['body'];
-                    actions = detectLiveByFileIntlRequest['body'];
-                    actionTime = detectLiveByFileIntlRequest['body'];
+                    videoFile = detectLiveByFileIntlRequest['body']['videoFile'];
+                    actions = detectLiveByFileIntlRequest['body']['actions'];
+                    actionTime = detectLiveByFileIntlRequest['body']['actionTime'];
                 }
             }
 
@@ -1653,15 +1766,17 @@ export const ParamCreater = function () {
             if (actions === null || actions === undefined) {
             throw new RequiredError('actions','Required parameter actions was null or undefined when calling detectLiveByFileIntl.');
             }
-            if (videoFile !== undefined) { 
-                localVarFormParams.append('video_file', videoFile as any);
-            }
             if (actions !== undefined) { 
                 localVarFormParams.append('actions', actions as any);
             }
             if (actionTime !== undefined) { 
                 localVarFormParams.append('action_time', actionTime as any);
             }
+            if (videoFile !== undefined) { 
+                localVarFormParams.append('video_file', videoFile as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
             options.headers = localVarHeaderParameter;
             return options;
@@ -1800,12 +1915,13 @@ export const ParamCreater = function () {
 
             const localVarFormParams = new FormData();
             var imageFile;
+            
 
             if (detectLiveFaceByFileRequest !== null && detectLiveFaceByFileRequest !== undefined) {
                 if (detectLiveFaceByFileRequest instanceof DetectLiveFaceByFileRequest) {
-                    imageFile = detectLiveFaceByFileRequest.body;
+                    imageFile = detectLiveFaceByFileRequest.body?.imageFile;
                 } else {
-                    imageFile = detectLiveFaceByFileRequest['body'];
+                    imageFile = detectLiveFaceByFileRequest['body']['imageFile'];
                 }
             }
 
@@ -1816,6 +1932,8 @@ export const ParamCreater = function () {
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
             }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
             options.headers = localVarHeaderParameter;
             return options;
@@ -1878,6 +1996,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let faceSetName;
 
             if (searchFaceByBase64Request !== null && searchFaceByBase64Request !== undefined) {
@@ -1924,6 +2043,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let faceSetName;
 
             if (searchFaceByFaceIdRequest !== null && searchFaceByFaceIdRequest !== undefined) {
@@ -1970,26 +2090,38 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             const localVarFormParams = new FormData();
+            
             let faceSetName;
-            var imageFile;var topN;var threshold;var sort;var filter;var returnFields;
+            var imageFile;
+            
+            var topN;
+            
+            var threshold;
+            
+            var sort;
+            
+            var filter;
+            
+            var returnFields;
+            
 
             if (searchFaceByFileRequest !== null && searchFaceByFileRequest !== undefined) {
                 if (searchFaceByFileRequest instanceof SearchFaceByFileRequest) {
                     faceSetName = searchFaceByFileRequest.faceSetName;
-                    imageFile = searchFaceByFileRequest.body;
-                    topN = searchFaceByFileRequest.body;
-                    threshold = searchFaceByFileRequest.body;
-                    sort = searchFaceByFileRequest.body;
-                    filter = searchFaceByFileRequest.body;
-                    returnFields = searchFaceByFileRequest.body;
+                    imageFile = searchFaceByFileRequest.body?.imageFile;
+                    topN = searchFaceByFileRequest.body?.topN;
+                    threshold = searchFaceByFileRequest.body?.threshold;
+                    sort = searchFaceByFileRequest.body?.sort;
+                    filter = searchFaceByFileRequest.body?.filter;
+                    returnFields = searchFaceByFileRequest.body?.returnFields;
                 } else {
                     faceSetName = searchFaceByFileRequest['face_set_name'];
-                    imageFile = searchFaceByFileRequest['body'];
-                    topN = searchFaceByFileRequest['body'];
-                    threshold = searchFaceByFileRequest['body'];
-                    sort = searchFaceByFileRequest['body'];
-                    filter = searchFaceByFileRequest['body'];
-                    returnFields = searchFaceByFileRequest['body'];
+                    imageFile = searchFaceByFileRequest['body']['imageFile'];
+                    topN = searchFaceByFileRequest['body']['topN'];
+                    threshold = searchFaceByFileRequest['body']['threshold'];
+                    sort = searchFaceByFileRequest['body']['sort'];
+                    filter = searchFaceByFileRequest['body']['filter'];
+                    returnFields = searchFaceByFileRequest['body']['returnFields'];
                 }
             }
 
@@ -1999,9 +2131,6 @@ export const ParamCreater = function () {
             }
             if (imageFile === null || imageFile === undefined) {
             throw new RequiredError('imageFile','Required parameter imageFile was null or undefined when calling searchFaceByFile.');
-            }
-            if (imageFile !== undefined) { 
-                localVarFormParams.append('image_file', imageFile as any);
             }
             if (topN !== undefined) { 
                 localVarFormParams.append('top_n', topN as any);
@@ -2018,6 +2147,11 @@ export const ParamCreater = function () {
             if (returnFields !== undefined) { 
                 localVarFormParams.append('return_fields', returnFields as any);
             }
+            if (imageFile !== undefined) { 
+                localVarFormParams.append('image_file', imageFile as any);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
             options.pathParams = { 'face_set_name': faceSetName, };
             options.headers = localVarHeaderParameter;
@@ -2043,6 +2177,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let faceSetName;
 
             if (searchFaceByUrlRequest !== null && searchFaceByUrlRequest !== undefined) {
@@ -2109,6 +2244,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let faceSetName;
 
             if (showFaceSetRequest !== null && showFaceSetRequest !== undefined) {
@@ -2146,7 +2282,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let faceSetName;
+            
             let faceId;
 
             if (showFacesByFaceIdRequest !== null && showFacesByFaceIdRequest !== undefined) {
@@ -2193,8 +2331,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let faceSetName;
+            
             let offset;
+            
             let limit;
 
             if (showFacesByLimitRequest !== null && showFacesByLimitRequest !== undefined) {
@@ -2250,6 +2391,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let faceSetName;
 
             if (updateFaceRequest !== null && updateFaceRequest !== undefined) {

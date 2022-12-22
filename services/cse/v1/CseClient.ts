@@ -41,7 +41,7 @@ import { UpgradeEngineResponse } from './model/UpgradeEngineResponse';
 
 export class CseClient {
     public static newBuilder(): ClientBuilder<CseClient> {
-        return new ClientBuilder<CseClient>(newClient);
+            return new ClientBuilder<CseClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -67,8 +67,10 @@ export class CseClient {
      */
     public createEngine(createEngineRequest?: CreateEngineRequest): Promise<CreateEngineResponse> {
         const options = ParamCreater().createEngine(createEngineRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -85,8 +87,10 @@ export class CseClient {
      */
     public deleteEngine(deleteEngineRequest?: DeleteEngineRequest): Promise<DeleteEngineResponse> {
         const options = ParamCreater().deleteEngine(deleteEngineRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -106,8 +110,10 @@ export class CseClient {
      */
     public downloadKie(downloadKieRequest?: DownloadKieRequest): Promise<DownloadKieResponse> {
         const options = ParamCreater().downloadKie(downloadKieRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -124,8 +130,10 @@ export class CseClient {
      */
     public listEngines(listEnginesRequest?: ListEnginesRequest): Promise<ListEnginesResponse> {
         const options = ParamCreater().listEngines(listEnginesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -141,8 +149,10 @@ export class CseClient {
      */
     public listFlavors(listFlavorsRequest?: ListFlavorsRequest): Promise<ListFlavorsResponse> {
         const options = ParamCreater().listFlavors(listFlavorsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -160,8 +170,10 @@ export class CseClient {
      */
     public retryEngine(retryEngineRequest?: RetryEngineRequest): Promise<RetryEngineResponse> {
         const options = ParamCreater().retryEngine(retryEngineRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -178,8 +190,10 @@ export class CseClient {
      */
     public showEngine(showEngineRequest?: ShowEngineRequest): Promise<ShowEngineResponse> {
         const options = ParamCreater().showEngine(showEngineRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -197,8 +211,10 @@ export class CseClient {
      */
     public showEngineJob(showEngineJobRequest?: ShowEngineJobRequest): Promise<ShowEngineJobResponse> {
         const options = ParamCreater().showEngineJob(showEngineJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -216,8 +232,10 @@ export class CseClient {
      */
     public upgradeEngine(upgradeEngineRequest?: UpgradeEngineRequest): Promise<UpgradeEngineResponse> {
         const options = ParamCreater().upgradeEngine(upgradeEngineRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -243,6 +261,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let xEnterpriseProjectID;
 
             if (createEngineRequest !== null && createEngineRequest !== undefined) {
@@ -286,7 +305,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let engineId;
+            
             let xEnterpriseProjectID;
 
             if (deleteEngineRequest !== null && deleteEngineRequest !== undefined) {
@@ -330,9 +351,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let xEngineId;
+            
             let xEnterpriseProjectID;
+            
             let label;
+            
             let match;
 
             if (downloadKieRequest !== null && downloadKieRequest !== undefined) {
@@ -392,7 +417,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let offset;
+            
             let limit;
 
             if (listEnginesRequest !== null && listEnginesRequest !== undefined) {
@@ -435,6 +462,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let specType;
 
             if (listFlavorsRequest !== null && listFlavorsRequest !== undefined) {
@@ -473,7 +501,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let engineId;
+            
             let xEnterpriseProjectID;
 
             if (retryEngineRequest !== null && retryEngineRequest !== undefined) {
@@ -523,7 +553,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let engineId;
+            
             let xEnterpriseProjectID;
 
             if (showEngineRequest !== null && showEngineRequest !== undefined) {
@@ -566,8 +598,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let engineId;
+            
             let jobId;
+            
             let xEnterpriseProjectID;
 
             if (showEngineJobRequest !== null && showEngineJobRequest !== undefined) {
@@ -616,7 +651,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let engineId;
+            
             let xEnterpriseProjectID;
 
             if (upgradeEngineRequest !== null && upgradeEngineRequest !== undefined) {

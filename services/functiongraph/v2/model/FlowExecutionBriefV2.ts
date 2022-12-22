@@ -7,7 +7,7 @@ export class FlowExecutionBriefV2 {
     private 'begin_time'?: Date | undefined;
     private 'end_time'?: Date | undefined;
     private 'last_update_time'?: Date | undefined;
-    private 'create_by'?: string | undefined;
+    private 'created_by'?: string | undefined;
     private 'workflow_urn'?: string | undefined;
     public constructor() { 
     }
@@ -65,15 +65,15 @@ export class FlowExecutionBriefV2 {
     public get lastUpdateTime() {
         return this['last_update_time'];
     }
-    public withCreateBy(createBy: string): FlowExecutionBriefV2 {
-        this['create_by'] = createBy;
+    public withCreatedBy(createdBy: string): FlowExecutionBriefV2 {
+        this['created_by'] = createdBy;
         return this;
     }
-    public set createBy(createBy: string | undefined) {
-        this['create_by'] = createBy;
+    public set createdBy(createdBy: string | undefined) {
+        this['created_by'] = createdBy;
     }
-    public get createBy() {
-        return this['create_by'];
+    public get createdBy() {
+        return this['created_by'];
     }
     public withWorkflowUrn(workflowUrn: string): FlowExecutionBriefV2 {
         this['workflow_urn'] = workflowUrn;

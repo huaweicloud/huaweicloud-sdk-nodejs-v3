@@ -218,7 +218,7 @@ import { Whitelist } from './model/Whitelist';
 
 export class DcsClient {
     public static newBuilder(): ClientBuilder<DcsClient> {
-        return new ClientBuilder<DcsClient>(newClient);
+            return new ClientBuilder<DcsClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -244,8 +244,10 @@ export class DcsClient {
      */
     public batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest?: BatchCreateOrDeleteTagsRequest): Promise<void> {
         const options = ParamCreater().batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -262,8 +264,10 @@ export class DcsClient {
      */
     public batchDeleteInstances(batchDeleteInstancesRequest?: BatchDeleteInstancesRequest): Promise<BatchDeleteInstancesResponse> {
         const options = ParamCreater().batchDeleteInstances(batchDeleteInstancesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -282,8 +286,10 @@ export class DcsClient {
      */
     public batchShowNodesInformation(batchShowNodesInformationRequest?: BatchShowNodesInformationRequest): Promise<BatchShowNodesInformationResponse> {
         const options = ParamCreater().batchShowNodesInformation(batchShowNodesInformationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -299,8 +305,10 @@ export class DcsClient {
      */
     public batchStopMigrationTasks(batchStopMigrationTasksRequest?: BatchStopMigrationTasksRequest): Promise<BatchStopMigrationTasksResponse> {
         const options = ParamCreater().batchStopMigrationTasks(batchStopMigrationTasksRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -316,8 +324,10 @@ export class DcsClient {
      */
     public changeMasterStandby(changeMasterStandbyRequest?: ChangeMasterStandbyRequest): Promise<void> {
         const options = ParamCreater().changeMasterStandby(changeMasterStandbyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -335,8 +345,10 @@ export class DcsClient {
      */
     public copyInstance(copyInstanceRequest?: CopyInstanceRequest): Promise<CopyInstanceResponse> {
         const options = ParamCreater().copyInstance(copyInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -352,8 +364,10 @@ export class DcsClient {
      */
     public createBigkeyScanTask(createBigkeyScanTaskRequest?: CreateBigkeyScanTaskRequest): Promise<CreateBigkeyScanTaskResponse> {
         const options = ParamCreater().createBigkeyScanTask(createBigkeyScanTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -370,8 +384,10 @@ export class DcsClient {
      */
     public createDiagnosisTask(createDiagnosisTaskRequest?: CreateDiagnosisTaskRequest): Promise<CreateDiagnosisTaskResponse> {
         const options = ParamCreater().createDiagnosisTask(createDiagnosisTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -389,8 +405,10 @@ export class DcsClient {
      */
     public createHotkeyScanTask(createHotkeyScanTaskRequest?: CreateHotkeyScanTaskRequest): Promise<CreateHotkeyScanTaskResponse> {
         const options = ParamCreater().createHotkeyScanTask(createHotkeyScanTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -406,8 +424,10 @@ export class DcsClient {
      */
     public createInstance(createInstanceRequest?: CreateInstanceRequest): Promise<CreateInstanceResponse> {
         const options = ParamCreater().createInstance(createInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -423,8 +443,10 @@ export class DcsClient {
      */
     public createMigrationTask(createMigrationTaskRequest?: CreateMigrationTaskRequest): Promise<CreateMigrationTaskResponse> {
         const options = ParamCreater().createMigrationTask(createMigrationTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -440,8 +462,10 @@ export class DcsClient {
      */
     public createOnlineMigrationTask(createOnlineMigrationTaskRequest?: CreateOnlineMigrationTaskRequest): Promise<CreateOnlineMigrationTaskResponse> {
         const options = ParamCreater().createOnlineMigrationTask(createOnlineMigrationTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -460,8 +484,10 @@ export class DcsClient {
      */
     public createRedislog(createRedislogRequest?: CreateRedislogRequest): Promise<void> {
         const options = ParamCreater().createRedislog(createRedislogRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -478,8 +504,10 @@ export class DcsClient {
      */
     public createRedislogDownloadLink(createRedislogDownloadLinkRequest?: CreateRedislogDownloadLinkRequest): Promise<CreateRedislogDownloadLinkResponse> {
         const options = ParamCreater().createRedislogDownloadLink(createRedislogDownloadLinkRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -496,8 +524,10 @@ export class DcsClient {
      */
     public deleteBackgroundTask(deleteBackgroundTaskRequest?: DeleteBackgroundTaskRequest): Promise<void> {
         const options = ParamCreater().deleteBackgroundTask(deleteBackgroundTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -514,8 +544,10 @@ export class DcsClient {
      */
     public deleteBackupFile(deleteBackupFileRequest?: DeleteBackupFileRequest): Promise<void> {
         const options = ParamCreater().deleteBackupFile(deleteBackupFileRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -532,8 +564,10 @@ export class DcsClient {
      */
     public deleteBigkeyScanTask(deleteBigkeyScanTaskRequest?: DeleteBigkeyScanTaskRequest): Promise<void> {
         const options = ParamCreater().deleteBigkeyScanTask(deleteBigkeyScanTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -550,8 +584,10 @@ export class DcsClient {
      */
     public deleteHotkeyScanTask(deleteHotkeyScanTaskRequest?: DeleteHotkeyScanTaskRequest): Promise<void> {
         const options = ParamCreater().deleteHotkeyScanTask(deleteHotkeyScanTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -569,8 +605,10 @@ export class DcsClient {
      */
     public deleteIpFromDomainName(deleteIpFromDomainNameRequest?: DeleteIpFromDomainNameRequest): Promise<DeleteIpFromDomainNameResponse> {
         const options = ParamCreater().deleteIpFromDomainName(deleteIpFromDomainNameRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -586,8 +624,10 @@ export class DcsClient {
      */
     public deleteMigrationTask(deleteMigrationTaskRequest?: DeleteMigrationTaskRequest): Promise<DeleteMigrationTaskResponse> {
         const options = ParamCreater().deleteMigrationTask(deleteMigrationTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -605,8 +645,10 @@ export class DcsClient {
      */
     public deleteSingleInstance(deleteSingleInstanceRequest?: DeleteSingleInstanceRequest): Promise<void> {
         const options = ParamCreater().deleteSingleInstance(deleteSingleInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -621,8 +663,10 @@ export class DcsClient {
      */
     public listAvailableZones(): Promise<ListAvailableZonesResponse> {
         const options = ParamCreater().listAvailableZones();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -642,8 +686,10 @@ export class DcsClient {
      */
     public listBackgroundTask(listBackgroundTaskRequest?: ListBackgroundTaskRequest): Promise<ListBackgroundTaskResponse> {
         const options = ParamCreater().listBackgroundTask(listBackgroundTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -661,8 +707,10 @@ export class DcsClient {
      */
     public listBackupFileLinks(listBackupFileLinksRequest?: ListBackupFileLinksRequest): Promise<ListBackupFileLinksResponse> {
         const options = ParamCreater().listBackupFileLinks(listBackupFileLinksRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -682,8 +730,10 @@ export class DcsClient {
      */
     public listBackupRecords(listBackupRecordsRequest?: ListBackupRecordsRequest): Promise<ListBackupRecordsResponse> {
         const options = ParamCreater().listBackupRecords(listBackupRecordsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -702,8 +752,10 @@ export class DcsClient {
      */
     public listBigkeyScanTasks(listBigkeyScanTasksRequest?: ListBigkeyScanTasksRequest): Promise<ListBigkeyScanTasksResponse> {
         const options = ParamCreater().listBigkeyScanTasks(listBigkeyScanTasksRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -719,8 +771,10 @@ export class DcsClient {
      */
     public listConfigurations(listConfigurationsRequest?: ListConfigurationsRequest): Promise<ListConfigurationsResponse> {
         const options = ParamCreater().listConfigurations(listConfigurationsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -738,8 +792,10 @@ export class DcsClient {
      */
     public listDiagnosisTasks(listDiagnosisTasksRequest?: ListDiagnosisTasksRequest): Promise<ListDiagnosisTasksResponse> {
         const options = ParamCreater().listDiagnosisTasks(listDiagnosisTasksRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -761,8 +817,10 @@ export class DcsClient {
      */
     public listFlavors(listFlavorsRequest?: ListFlavorsRequest): Promise<ListFlavorsResponse> {
         const options = ParamCreater().listFlavors(listFlavorsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -778,8 +836,10 @@ export class DcsClient {
      */
     public listGroupReplicationInfo(listGroupReplicationInfoRequest?: ListGroupReplicationInfoRequest): Promise<ListGroupReplicationInfoResponse> {
         const options = ParamCreater().listGroupReplicationInfo(listGroupReplicationInfoRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -798,8 +858,10 @@ export class DcsClient {
      */
     public listHotKeyScanTasks(listHotKeyScanTasksRequest?: ListHotKeyScanTasksRequest): Promise<ListHotKeyScanTasksResponse> {
         const options = ParamCreater().listHotKeyScanTasks(listHotKeyScanTasksRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -824,8 +886,10 @@ export class DcsClient {
      */
     public listInstances(listInstancesRequest?: ListInstancesRequest): Promise<ListInstancesResponse> {
         const options = ParamCreater().listInstances(listInstancesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -840,8 +904,10 @@ export class DcsClient {
      */
     public listMaintenanceWindows(): Promise<ListMaintenanceWindowsResponse> {
         const options = ParamCreater().listMaintenanceWindows();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -859,8 +925,10 @@ export class DcsClient {
      */
     public listMigrationTask(listMigrationTaskRequest?: ListMigrationTaskRequest): Promise<ListMigrationTaskResponse> {
         const options = ParamCreater().listMigrationTask(listMigrationTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -879,8 +947,10 @@ export class DcsClient {
      */
     public listMonitoredObjects(listMonitoredObjectsRequest?: ListMonitoredObjectsRequest): Promise<ListMonitoredObjectsResponse> {
         const options = ParamCreater().listMonitoredObjects(listMonitoredObjectsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -898,8 +968,10 @@ export class DcsClient {
      */
     public listMonitoredObjectsOfInstance(listMonitoredObjectsOfInstanceRequest?: ListMonitoredObjectsOfInstanceRequest): Promise<ListMonitoredObjectsOfInstanceResponse> {
         const options = ParamCreater().listMonitoredObjectsOfInstance(listMonitoredObjectsOfInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -915,8 +987,10 @@ export class DcsClient {
      */
     public listNumberOfInstancesInDifferentStatus(listNumberOfInstancesInDifferentStatusRequest?: ListNumberOfInstancesInDifferentStatusRequest): Promise<ListNumberOfInstancesInDifferentStatusResponse> {
         const options = ParamCreater().listNumberOfInstancesInDifferentStatus(listNumberOfInstancesInDifferentStatusRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -935,8 +1009,10 @@ export class DcsClient {
      */
     public listRedislog(listRedislogRequest?: ListRedislogRequest): Promise<ListRedislogResponse> {
         const options = ParamCreater().listRedislog(listRedislogRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -956,8 +1032,10 @@ export class DcsClient {
      */
     public listRestoreRecords(listRestoreRecordsRequest?: ListRestoreRecordsRequest): Promise<ListRestoreRecordsResponse> {
         const options = ParamCreater().listRestoreRecords(listRestoreRecordsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -979,8 +1057,10 @@ export class DcsClient {
      */
     public listSlowlog(listSlowlogRequest?: ListSlowlogRequest): Promise<ListSlowlogResponse> {
         const options = ParamCreater().listSlowlog(listSlowlogRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -995,8 +1075,10 @@ export class DcsClient {
      */
     public listStatisticsOfRunningInstances(): Promise<ListStatisticsOfRunningInstancesResponse> {
         const options = ParamCreater().listStatisticsOfRunningInstances();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1011,8 +1093,10 @@ export class DcsClient {
      */
     public listTagsOfTenant(): Promise<ListTagsOfTenantResponse> {
         const options = ParamCreater().listTagsOfTenant();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1029,8 +1113,10 @@ export class DcsClient {
      */
     public resizeInstance(resizeInstanceRequest?: ResizeInstanceRequest): Promise<void> {
         const options = ParamCreater().resizeInstance(resizeInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1048,8 +1134,10 @@ export class DcsClient {
      */
     public restartOrFlushInstances(restartOrFlushInstancesRequest?: RestartOrFlushInstancesRequest): Promise<RestartOrFlushInstancesResponse> {
         const options = ParamCreater().restartOrFlushInstances(restartOrFlushInstancesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1067,8 +1155,10 @@ export class DcsClient {
      */
     public restoreInstance(restoreInstanceRequest?: RestoreInstanceRequest): Promise<RestoreInstanceResponse> {
         const options = ParamCreater().restoreInstance(restoreInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1085,8 +1175,10 @@ export class DcsClient {
      */
     public setOnlineMigrationTask(setOnlineMigrationTaskRequest?: SetOnlineMigrationTaskRequest): Promise<SetOnlineMigrationTaskResponse> {
         const options = ParamCreater().setOnlineMigrationTask(setOnlineMigrationTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1102,8 +1194,10 @@ export class DcsClient {
      */
     public showBigkeyAutoscanConfig(showBigkeyAutoscanConfigRequest?: ShowBigkeyAutoscanConfigRequest): Promise<ShowBigkeyAutoscanConfigResponse> {
         const options = ParamCreater().showBigkeyAutoscanConfig(showBigkeyAutoscanConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1120,8 +1214,10 @@ export class DcsClient {
      */
     public showBigkeyScanTaskDetails(showBigkeyScanTaskDetailsRequest?: ShowBigkeyScanTaskDetailsRequest): Promise<ShowBigkeyScanTaskDetailsResponse> {
         const options = ParamCreater().showBigkeyScanTaskDetails(showBigkeyScanTaskDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1137,8 +1233,10 @@ export class DcsClient {
      */
     public showDiagnosisTaskDetails(showDiagnosisTaskDetailsRequest?: ShowDiagnosisTaskDetailsRequest): Promise<ShowDiagnosisTaskDetailsResponse> {
         const options = ParamCreater().showDiagnosisTaskDetails(showDiagnosisTaskDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1154,8 +1252,10 @@ export class DcsClient {
      */
     public showHotkeyAutoscanConfig(showHotkeyAutoscanConfigRequest?: ShowHotkeyAutoscanConfigRequest): Promise<ShowHotkeyAutoscanConfigResponse> {
         const options = ParamCreater().showHotkeyAutoscanConfig(showHotkeyAutoscanConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1172,8 +1272,10 @@ export class DcsClient {
      */
     public showHotkeyTaskDetails(showHotkeyTaskDetailsRequest?: ShowHotkeyTaskDetailsRequest): Promise<ShowHotkeyTaskDetailsResponse> {
         const options = ParamCreater().showHotkeyTaskDetails(showHotkeyTaskDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1189,8 +1291,10 @@ export class DcsClient {
      */
     public showInstance(showInstanceRequest?: ShowInstanceRequest): Promise<ShowInstanceResponse> {
         const options = ParamCreater().showInstance(showInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1206,8 +1310,10 @@ export class DcsClient {
      */
     public showMigrationTask(showMigrationTaskRequest?: ShowMigrationTaskRequest): Promise<ShowMigrationTaskResponse> {
         const options = ParamCreater().showMigrationTask(showMigrationTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1223,8 +1329,10 @@ export class DcsClient {
      */
     public showMigrationTaskStats(showMigrationTaskStatsRequest?: ShowMigrationTaskStatsRequest): Promise<ShowMigrationTaskStatsResponse> {
         const options = ParamCreater().showMigrationTaskStats(showMigrationTaskStatsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1239,8 +1347,10 @@ export class DcsClient {
      */
     public showQuotaOfTenant(): Promise<ShowQuotaOfTenantResponse> {
         const options = ParamCreater().showQuotaOfTenant();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1256,8 +1366,10 @@ export class DcsClient {
      */
     public showTags(showTagsRequest?: ShowTagsRequest): Promise<ShowTagsResponse> {
         const options = ParamCreater().showTags(showTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1273,8 +1385,10 @@ export class DcsClient {
      */
     public stopMigrationTask(stopMigrationTaskRequest?: StopMigrationTaskRequest): Promise<StopMigrationTaskResponse> {
         const options = ParamCreater().stopMigrationTask(stopMigrationTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1290,8 +1404,10 @@ export class DcsClient {
      */
     public stopMigrationTaskSync(stopMigrationTaskSyncRequest?: StopMigrationTaskSyncRequest): Promise<void> {
         const options = ParamCreater().stopMigrationTaskSync(stopMigrationTaskSyncRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1308,8 +1424,10 @@ export class DcsClient {
      */
     public updateBigkeyAutoscanConfig(updateBigkeyAutoscanConfigRequest?: UpdateBigkeyAutoscanConfigRequest): Promise<UpdateBigkeyAutoscanConfigResponse> {
         const options = ParamCreater().updateBigkeyAutoscanConfig(updateBigkeyAutoscanConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1326,8 +1444,10 @@ export class DcsClient {
      */
     public updateConfigurations(updateConfigurationsRequest?: UpdateConfigurationsRequest): Promise<void> {
         const options = ParamCreater().updateConfigurations(updateConfigurationsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1344,8 +1464,10 @@ export class DcsClient {
      */
     public updateHotkeyAutoScanConfig(updateHotkeyAutoScanConfigRequest?: UpdateHotkeyAutoScanConfigRequest): Promise<UpdateHotkeyAutoScanConfigResponse> {
         const options = ParamCreater().updateHotkeyAutoScanConfig(updateHotkeyAutoScanConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1362,8 +1484,10 @@ export class DcsClient {
      */
     public updateInstance(updateInstanceRequest?: UpdateInstanceRequest): Promise<void> {
         const options = ParamCreater().updateInstance(updateInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1380,8 +1504,10 @@ export class DcsClient {
      */
     public updatePassword(updatePasswordRequest?: UpdatePasswordRequest): Promise<UpdatePasswordResponse> {
         const options = ParamCreater().updatePassword(updatePasswordRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1400,8 +1526,10 @@ export class DcsClient {
      */
     public updateSlavePriority(updateSlavePriorityRequest?: UpdateSlavePriorityRequest): Promise<void> {
         const options = ParamCreater().updateSlavePriority(updateSlavePriorityRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1417,8 +1545,10 @@ export class DcsClient {
      */
     public showIpWhitelist(showIpWhitelistRequest?: ShowIpWhitelistRequest): Promise<ShowIpWhitelistResponse> {
         const options = ParamCreater().showIpWhitelist(showIpWhitelistRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1435,8 +1565,10 @@ export class DcsClient {
      */
     public updateIpWhitelist(updateIpWhitelistRequest?: UpdateIpWhitelistRequest): Promise<void> {
         const options = ParamCreater().updateIpWhitelist(updateIpWhitelistRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -1462,6 +1594,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (batchCreateOrDeleteTagsRequest !== null && batchCreateOrDeleteTagsRequest !== undefined) {
@@ -1507,6 +1640,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let allFailure;
 
             if (batchDeleteInstancesRequest !== null && batchDeleteInstancesRequest !== undefined) {
@@ -1550,7 +1684,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let offset;
+            
             let limit;
 
             if (batchShowNodesInformationRequest !== null && batchShowNodesInformationRequest !== undefined) {
@@ -1631,6 +1767,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (changeMasterStandbyRequest !== null && changeMasterStandbyRequest !== undefined) {
@@ -1670,6 +1807,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (copyInstanceRequest !== null && copyInstanceRequest !== undefined) {
@@ -1711,6 +1849,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (createBigkeyScanTaskRequest !== null && createBigkeyScanTaskRequest !== undefined) {
@@ -1749,6 +1888,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (createDiagnosisTaskRequest !== null && createDiagnosisTaskRequest !== undefined) {
@@ -1795,6 +1935,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (createHotkeyScanTaskRequest !== null && createHotkeyScanTaskRequest !== undefined) {
@@ -1946,9 +2087,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let logType;
+            
             let queryTime;
+            
             let replicationId;
 
             if (createRedislogRequest !== null && createRedislogRequest !== undefined) {
@@ -2005,7 +2150,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
+            
             let id;
 
             if (createRedislogDownloadLinkRequest !== null && createRedislogDownloadLinkRequest !== undefined) {
@@ -2048,7 +2195,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
+            
             let taskId;
 
             if (deleteBackgroundTaskRequest !== null && deleteBackgroundTaskRequest !== undefined) {
@@ -2091,7 +2240,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let backupId;
+            
             let instanceId;
 
             if (deleteBackupFileRequest !== null && deleteBackupFileRequest !== undefined) {
@@ -2134,7 +2285,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
+            
             let bigkeyId;
 
             if (deleteBigkeyScanTaskRequest !== null && deleteBigkeyScanTaskRequest !== undefined) {
@@ -2177,7 +2330,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
+            
             let hotkeyId;
 
             if (deleteHotkeyScanTaskRequest !== null && deleteHotkeyScanTaskRequest !== undefined) {
@@ -2220,8 +2375,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
+            
             let groupId;
+            
             let nodeId;
 
             if (deleteIpFromDomainNameRequest !== null && deleteIpFromDomainNameRequest !== undefined) {
@@ -2309,6 +2467,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (deleteSingleInstanceRequest !== null && deleteSingleInstanceRequest !== undefined) {
@@ -2368,10 +2527,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let offset;
+            
             let limit;
+            
             let startTime;
+            
             let endTime;
 
             if (listBackgroundTaskRequest !== null && listBackgroundTaskRequest !== undefined) {
@@ -2431,7 +2595,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
+            
             let backupId;
 
             if (listBackupFileLinksRequest !== null && listBackupFileLinksRequest !== undefined) {
@@ -2481,10 +2647,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let beginTime;
+            
             let endTime;
+            
             let limit;
+            
             let offset;
 
             if (listBackupRecordsRequest !== null && listBackupRecordsRequest !== undefined) {
@@ -2543,9 +2714,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let offset;
+            
             let limit;
+            
             let status;
 
             if (listBigkeyScanTasksRequest !== null && listBigkeyScanTasksRequest !== undefined) {
@@ -2599,6 +2774,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (listConfigurationsRequest !== null && listConfigurationsRequest !== undefined) {
@@ -2636,8 +2812,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let limit;
+            
             let offset;
 
             if (listDiagnosisTasksRequest !== null && listDiagnosisTasksRequest !== undefined) {
@@ -2686,12 +2865,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let specCode;
+            
             let cacheMode;
+            
             let engine;
+            
             let engineVersion;
+            
             let cpuType;
+            
             let capacity;
 
             if (listFlavorsRequest !== null && listFlavorsRequest !== undefined) {
@@ -2759,6 +2945,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (listGroupReplicationInfoRequest !== null && listGroupReplicationInfoRequest !== undefined) {
@@ -2796,9 +2983,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let offset;
+            
             let limit;
+            
             let status;
 
             if (listHotKeyScanTasksRequest !== null && listHotKeyScanTasksRequest !== undefined) {
@@ -2852,15 +3043,25 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let includeFailure;
+            
             let includeDelete;
+            
             let name;
+            
             let offset;
+            
             let limit;
+            
             let status;
+            
             let nameEqual;
+            
             let tags;
+            
             let ip;
 
             if (listInstancesRequest !== null && listInstancesRequest !== undefined) {
@@ -2965,8 +3166,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let offset;
+            
             let limit;
+            
             let name;
 
             if (listMigrationTaskRequest !== null && listMigrationTaskRequest !== undefined) {
@@ -3015,8 +3219,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let dimName;
+            
             let offset;
+            
             let limit;
 
             if (listMonitoredObjectsRequest !== null && listMonitoredObjectsRequest !== undefined) {
@@ -3068,7 +3275,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let dimName;
 
             if (listMonitoredObjectsOfInstanceRequest !== null && listMonitoredObjectsOfInstanceRequest !== undefined) {
@@ -3115,6 +3324,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let includeFailure;
 
             if (listNumberOfInstancesInDifferentStatusRequest !== null && listNumberOfInstancesInDifferentStatusRequest !== undefined) {
@@ -3152,9 +3362,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let logType;
+            
             let offset;
+            
             let limit;
 
             if (listRedislogRequest !== null && listRedislogRequest !== undefined) {
@@ -3211,10 +3425,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let beginTime;
+            
             let endTime;
+            
             let limit;
+            
             let offset;
 
             if (listRestoreRecordsRequest !== null && listRestoreRecordsRequest !== undefined) {
@@ -3273,12 +3492,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let startTime;
+            
             let endTime;
+            
             let offset;
+            
             let limit;
+            
             let sortKey;
+            
             let sortDir;
 
             if (listSlowlogRequest !== null && listSlowlogRequest !== undefined) {
@@ -3398,6 +3624,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (resizeInstanceRequest !== null && resizeInstanceRequest !== undefined) {
@@ -3484,6 +3711,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (restoreInstanceRequest !== null && restoreInstanceRequest !== undefined) {
@@ -3526,6 +3754,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let taskId;
 
             if (setOnlineMigrationTaskRequest !== null && setOnlineMigrationTaskRequest !== undefined) {
@@ -3570,6 +3799,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (showBigkeyAutoscanConfigRequest !== null && showBigkeyAutoscanConfigRequest !== undefined) {
@@ -3607,7 +3837,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
+            
             let bigkeyId;
 
             if (showBigkeyScanTaskDetailsRequest !== null && showBigkeyScanTaskDetailsRequest !== undefined) {
@@ -3650,6 +3882,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let reportId;
 
             if (showDiagnosisTaskDetailsRequest !== null && showDiagnosisTaskDetailsRequest !== undefined) {
@@ -3687,6 +3920,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (showHotkeyAutoscanConfigRequest !== null && showHotkeyAutoscanConfigRequest !== undefined) {
@@ -3724,7 +3958,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
+            
             let hotkeyId;
 
             if (showHotkeyTaskDetailsRequest !== null && showHotkeyTaskDetailsRequest !== undefined) {
@@ -3767,6 +4003,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (showInstanceRequest !== null && showInstanceRequest !== undefined) {
@@ -3804,6 +4041,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let taskId;
 
             if (showMigrationTaskRequest !== null && showMigrationTaskRequest !== undefined) {
@@ -3841,6 +4079,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let taskId;
 
             if (showMigrationTaskStatsRequest !== null && showMigrationTaskStatsRequest !== undefined) {
@@ -3900,6 +4139,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (showTagsRequest !== null && showTagsRequest !== undefined) {
@@ -3937,6 +4177,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let taskId;
 
             if (stopMigrationTaskRequest !== null && stopMigrationTaskRequest !== undefined) {
@@ -3974,6 +4215,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let taskId;
 
             if (stopMigrationTaskSyncRequest !== null && stopMigrationTaskSyncRequest !== undefined) {
@@ -4012,6 +4254,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (updateBigkeyAutoscanConfigRequest !== null && updateBigkeyAutoscanConfigRequest !== undefined) {
@@ -4057,6 +4300,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (updateConfigurationsRequest !== null && updateConfigurationsRequest !== undefined) {
@@ -4102,6 +4346,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (updateHotkeyAutoScanConfigRequest !== null && updateHotkeyAutoScanConfigRequest !== undefined) {
@@ -4147,6 +4392,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (updateInstanceRequest !== null && updateInstanceRequest !== undefined) {
@@ -4189,6 +4435,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (updatePasswordRequest !== null && updatePasswordRequest !== undefined) {
@@ -4231,8 +4478,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
+            
             let groupId;
+            
             let nodeId;
 
             if (updateSlavePriorityRequest !== null && updateSlavePriorityRequest !== undefined) {
@@ -4287,6 +4537,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (showIpWhitelistRequest !== null && showIpWhitelistRequest !== undefined) {
@@ -4325,6 +4576,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (updateIpWhitelistRequest !== null && updateIpWhitelistRequest !== undefined) {

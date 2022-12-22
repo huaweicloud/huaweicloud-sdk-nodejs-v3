@@ -1,4 +1,5 @@
 import { ConditionGroup } from './ConditionGroup';
+import { DeviceSide } from './DeviceSide';
 import { RuleAction } from './RuleAction';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -14,6 +15,7 @@ export class CreateRuleResponse extends SdkResponse {
     private 'app_id'?: string | undefined;
     private 'edge_node_ids'?: Array<string> | undefined;
     private 'last_update_time'?: string | undefined;
+    private 'device_side'?: DeviceSide | undefined;
     public constructor() { 
         super();
     }
@@ -92,5 +94,15 @@ export class CreateRuleResponse extends SdkResponse {
     }
     public get lastUpdateTime() {
         return this['last_update_time'];
+    }
+    public withDeviceSide(deviceSide: DeviceSide): CreateRuleResponse {
+        this['device_side'] = deviceSide;
+        return this;
+    }
+    public set deviceSide(deviceSide: DeviceSide | undefined) {
+        this['device_side'] = deviceSide;
+    }
+    public get deviceSide() {
+        return this['device_side'];
     }
 }

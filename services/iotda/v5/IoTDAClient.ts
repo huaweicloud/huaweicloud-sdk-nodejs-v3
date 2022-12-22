@@ -90,6 +90,7 @@ import { DeviceMessageRequest } from './model/DeviceMessageRequest';
 import { DevicePropertiesRequest } from './model/DevicePropertiesRequest';
 import { DeviceShadowData } from './model/DeviceShadowData';
 import { DeviceShadowProperties } from './model/DeviceShadowProperties';
+import { DeviceSide } from './model/DeviceSide';
 import { DisForwarding } from './model/DisForwarding';
 import { DmsKafkaForwarding } from './model/DmsKafkaForwarding';
 import { ErrorInfo } from './model/ErrorInfo';
@@ -148,6 +149,10 @@ import { RuleAction } from './model/RuleAction';
 import { RuleCondition } from './model/RuleCondition';
 import { RuleResponse } from './model/RuleResponse';
 import { RuleStatus } from './model/RuleStatus';
+import { SearchDevice } from './model/SearchDevice';
+import { SearchDevicesRequest } from './model/SearchDevicesRequest';
+import { SearchDevicesResponse } from './model/SearchDevicesResponse';
+import { SearchSql } from './model/SearchSql';
 import { ServiceCapability } from './model/ServiceCapability';
 import { ServiceCommand } from './model/ServiceCommand';
 import { ServiceCommandPara } from './model/ServiceCommandPara';
@@ -226,7 +231,7 @@ import { VerifyCertificateDTO } from './model/VerifyCertificateDTO';
 
 export class IoTDAClient {
     public static newBuilder(): ClientBuilder<IoTDAClient> {
-        return new ClientBuilder<IoTDAClient>(newClient);
+            return new ClientBuilder<IoTDAClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -252,8 +257,10 @@ export class IoTDAClient {
      */
     public createAccessCode(createAccessCodeRequest?: CreateAccessCodeRequest): Promise<CreateAccessCodeResponse> {
         const options = ParamCreater().createAccessCode(createAccessCodeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -270,8 +277,10 @@ export class IoTDAClient {
      */
     public addQueue(addQueueRequest?: AddQueueRequest): Promise<AddQueueResponse> {
         const options = ParamCreater().addQueue(addQueueRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -291,8 +300,10 @@ export class IoTDAClient {
      */
     public batchShowQueue(batchShowQueueRequest?: BatchShowQueueRequest): Promise<BatchShowQueueResponse> {
         const options = ParamCreater().batchShowQueue(batchShowQueueRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -309,8 +320,10 @@ export class IoTDAClient {
      */
     public deleteQueue(deleteQueueRequest?: DeleteQueueRequest): Promise<string> {
         const options = ParamCreater().deleteQueue(deleteQueueRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -327,8 +340,10 @@ export class IoTDAClient {
      */
     public showQueue(showQueueRequest?: ShowQueueRequest): Promise<ShowQueueResponse> {
         const options = ParamCreater().showQueue(showQueueRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -345,8 +360,10 @@ export class IoTDAClient {
      */
     public addApplication(addApplicationRequest?: AddApplicationRequest): Promise<AddApplicationResponse> {
         const options = ParamCreater().addApplication(addApplicationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -363,8 +380,10 @@ export class IoTDAClient {
      */
     public deleteApplication(deleteApplicationRequest?: DeleteApplicationRequest): Promise<string> {
         const options = ParamCreater().deleteApplication(deleteApplicationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -381,8 +400,10 @@ export class IoTDAClient {
      */
     public showApplication(showApplicationRequest?: ShowApplicationRequest): Promise<ShowApplicationResponse> {
         const options = ParamCreater().showApplication(showApplicationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -399,8 +420,10 @@ export class IoTDAClient {
      */
     public showApplications(showApplicationsRequest?: ShowApplicationsRequest): Promise<ShowApplicationsResponse> {
         const options = ParamCreater().showApplications(showApplicationsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -419,8 +442,10 @@ export class IoTDAClient {
      */
     public createAsyncCommand(createAsyncCommandRequest?: CreateAsyncCommandRequest): Promise<CreateAsyncCommandResponse> {
         const options = ParamCreater().createAsyncCommand(createAsyncCommandRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -438,8 +463,10 @@ export class IoTDAClient {
      */
     public showAsyncDeviceCommand(showAsyncDeviceCommandRequest?: ShowAsyncDeviceCommandRequest): Promise<ShowAsyncDeviceCommandResponse> {
         const options = ParamCreater().showAsyncDeviceCommand(showAsyncDeviceCommandRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -456,8 +483,10 @@ export class IoTDAClient {
      */
     public createBatchTask(createBatchTaskRequest?: CreateBatchTaskRequest): Promise<CreateBatchTaskResponse> {
         const options = ParamCreater().createBatchTask(createBatchTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -479,8 +508,10 @@ export class IoTDAClient {
      */
     public listBatchTasks(listBatchTasksRequest?: ListBatchTasksRequest): Promise<ListBatchTasksResponse> {
         const options = ParamCreater().listBatchTasks(listBatchTasksRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -500,8 +531,10 @@ export class IoTDAClient {
      */
     public showBatchTask(showBatchTaskRequest?: ShowBatchTaskRequest): Promise<ShowBatchTaskResponse> {
         const options = ParamCreater().showBatchTask(showBatchTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -518,8 +551,10 @@ export class IoTDAClient {
      */
     public deleteBatchTaskFile(deleteBatchTaskFileRequest?: DeleteBatchTaskFileRequest): Promise<string> {
         const options = ParamCreater().deleteBatchTaskFile(deleteBatchTaskFileRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -535,8 +570,10 @@ export class IoTDAClient {
      */
     public listBatchTaskFiles(listBatchTaskFilesRequest?: ListBatchTaskFilesRequest): Promise<ListBatchTaskFilesResponse> {
         const options = ParamCreater().listBatchTaskFiles(listBatchTaskFilesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -555,8 +592,10 @@ export class IoTDAClient {
      */
     public addCertificate(addCertificateRequest?: AddCertificateRequest): Promise<AddCertificateResponse> {
         const options = ParamCreater().addCertificate(addCertificateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -577,8 +616,10 @@ export class IoTDAClient {
      */
     public checkCertificate(checkCertificateRequest?: CheckCertificateRequest): Promise<string> {
         const options = ParamCreater().checkCertificate(checkCertificateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -597,8 +638,10 @@ export class IoTDAClient {
      */
     public deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest): Promise<string> {
         const options = ParamCreater().deleteCertificate(deleteCertificateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -620,8 +663,10 @@ export class IoTDAClient {
      */
     public listCertificates(listCertificatesRequest?: ListCertificatesRequest): Promise<ListCertificatesResponse> {
         const options = ParamCreater().listCertificates(listCertificatesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -640,8 +685,10 @@ export class IoTDAClient {
      */
     public createCommand(createCommandRequest?: CreateCommandRequest): Promise<CreateCommandResponse> {
         const options = ParamCreater().createCommand(createCommandRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -658,8 +705,10 @@ export class IoTDAClient {
      */
     public addDeviceGroup(addDeviceGroupRequest?: AddDeviceGroupRequest): Promise<AddDeviceGroupResponse> {
         const options = ParamCreater().addDeviceGroup(addDeviceGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -678,8 +727,10 @@ export class IoTDAClient {
      */
     public createOrDeleteDeviceInGroup(createOrDeleteDeviceInGroupRequest?: CreateOrDeleteDeviceInGroupRequest): Promise<string> {
         const options = ParamCreater().createOrDeleteDeviceInGroup(createOrDeleteDeviceInGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -696,8 +747,10 @@ export class IoTDAClient {
      */
     public deleteDeviceGroup(deleteDeviceGroupRequest?: DeleteDeviceGroupRequest): Promise<string> {
         const options = ParamCreater().deleteDeviceGroup(deleteDeviceGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -718,8 +771,10 @@ export class IoTDAClient {
      */
     public listDeviceGroups(listDeviceGroupsRequest?: ListDeviceGroupsRequest): Promise<ListDeviceGroupsResponse> {
         const options = ParamCreater().listDeviceGroups(listDeviceGroupsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -736,8 +791,10 @@ export class IoTDAClient {
      */
     public showDeviceGroup(showDeviceGroupRequest?: ShowDeviceGroupRequest): Promise<ShowDeviceGroupResponse> {
         const options = ParamCreater().showDeviceGroup(showDeviceGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -757,8 +814,10 @@ export class IoTDAClient {
      */
     public showDevicesInGroup(showDevicesInGroupRequest?: ShowDevicesInGroupRequest): Promise<ShowDevicesInGroupResponse> {
         const options = ParamCreater().showDevicesInGroup(showDevicesInGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -776,8 +835,10 @@ export class IoTDAClient {
      */
     public updateDeviceGroup(updateDeviceGroupRequest?: UpdateDeviceGroupRequest): Promise<UpdateDeviceGroupResponse> {
         const options = ParamCreater().updateDeviceGroup(updateDeviceGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -798,8 +859,10 @@ export class IoTDAClient {
      */
     public addDevice(addDeviceRequest?: AddDeviceRequest): Promise<AddDeviceResponse> {
         const options = ParamCreater().addDevice(addDeviceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -816,8 +879,10 @@ export class IoTDAClient {
      */
     public deleteDevice(deleteDeviceRequest?: DeleteDeviceRequest): Promise<string> {
         const options = ParamCreater().deleteDevice(deleteDeviceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -834,8 +899,10 @@ export class IoTDAClient {
      */
     public freezeDevice(freezeDeviceRequest?: FreezeDeviceRequest): Promise<string> {
         const options = ParamCreater().freezeDevice(freezeDeviceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -862,8 +929,10 @@ export class IoTDAClient {
      */
     public listDevices(listDevicesRequest?: ListDevicesRequest): Promise<ListDevicesResponse> {
         const options = ParamCreater().listDevices(listDevicesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -882,8 +951,10 @@ export class IoTDAClient {
      */
     public resetDeviceSecret(resetDeviceSecretRequest?: ResetDeviceSecretRequest): Promise<ResetDeviceSecretResponse> {
         const options = ParamCreater().resetDeviceSecret(resetDeviceSecretRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -901,8 +972,143 @@ export class IoTDAClient {
      */
     public resetFingerprint(resetFingerprintRequest?: ResetFingerprintRequest): Promise<ResetFingerprintResponse> {
         const options = ParamCreater().resetFingerprint(resetFingerprintRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * #### 接口说明
+     * 
+     * 应用服务器使用SQL语句调用该接口，灵活的搜索所需要的设备资源列表
+     * 
+     * #### 限制
+     * 
+     * - 仅**标准版实例、企业版实例**支持该接口调用，基础版不支持。
+     * - 单账号调用该接口的 TPS 限制最大为1/S(每秒1次请求数)
+     * 
+     * #### 类SQL语法使用说明
+     * 
+     * 类SQL语句有select、from、where(可选)、order by(可选)、limit子句(可选)组成，长度限制为400个字符。子句里的内容大小写敏感，SQL语句的关键字大小写不敏感。
+     * 
+     * 示例：
+     * 
+     * &#x60;&#x60;&#x60;
+     * select * from device where device_id &#x3D; \&#39;as********\&#39; limit 0,5
+     * &#x60;&#x60;&#x60;
+     * 
+     * ##### SELECT子句
+     * 
+     * &#x60;&#x60;&#x60;
+     * select [field]/[count(*)/count(1)] from device
+     * &#x60;&#x60;&#x60;
+     * 
+     * 其中field为需要获取的字段，请参考响应参数字段名称，也可填*，获取所有字段。
+     * 
+     * 如果需要统计搜索的设备个数，请填count(*)或者count(1).
+     * 
+     * ##### FROM子句
+     * 
+     * &#x60;&#x60;&#x60;
+     * from device
+     * &#x60;&#x60;&#x60;
+     * 
+     * from后为要查询的资源名，当前支持\&quot;device\&quot;
+     * 
+     * ##### WHERE子句(可选)
+     * 
+     * &#x60;&#x60;&#x60;
+     * WHERE [condition1] AND [condition2]
+     * &#x60;&#x60;&#x60;
+     * 
+     * 最多支持5个condition，不支持嵌套；支持的检索字段请参见下面的**搜索条件字段说明**和**支持的运算符**章节
+     * 
+     * 连接词支持AND、OR，优先级参考标准SQL语法，默认AND优先级高于OR。
+     * 
+     * ##### LIMIT子句(可选)
+     * 
+     * &#x60;&#x60;&#x60;
+     * limit [offset,] rows
+     * &#x60;&#x60;&#x60;
+     * 
+     * offset标识搜索的偏移量，rows标识返回搜索结果的最大行数，例如：
+     * 
+     * - limit n ;示例(select * from device limit 10)
+     * 
+     *   最大返回n条结果数据
+     *   
+     * - limit m,n; 示例(select * from device limit 20,10) 
+     *   搜索偏移量为m，最大返回n条结果数据
+     * 
+     * ###### 限制
+     * 
+     *  offset 最大 500， rows最大50，如果不填写limit子句，默认为limit 10
+     * 
+     * ##### ORDER BY子句(可选)
+     * 
+     * 用于实现自定义排序，当前支持自定义排序的字段为：\&quot;marker\&quot;。
+     * 
+     * &#x60;&#x60;&#x60;
+     * order by marker [asc]/[desc]
+     * &#x60;&#x60;&#x60;
+     * 
+     * 子句不填写时默认逻辑为随机排序
+     * 
+     * #### 搜索条件字段说明
+     * 
+     * | 字段名      | 类型   | 说明             | 取值范围                                                     |
+     * | :---------- | :----- | :--------------- | :----------------------------------------------------------- |
+     * | app_id      | string | 资源空间ID       | 长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
+     * | device_id   | string | 设备ID           | 长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合，建议不少于4个字符。 |
+     * | gateway_id  | string | 网关ID           | 长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
+     * | product_id  | string | 设备关联的产品ID | 长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
+     * | device_name | string | 设备名称         | 长度不超过256，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合，建议不少于4个字符。 |
+     * | node_id     | string | 设备标识码       | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）的组合，建议不少于4个字符 |
+     * | status      | string | 设备的状态       | ONLINE(在线)、OFFLINE(离线)、ABNORMAL(异常)、INACTIVE(未激活)、FROZEN(冻结) |
+     * | node_type   | string | 设备节点类型     | GATEWAY(直连设备或网关)、ENDPOINT(非直连设备)                |
+     * | tag_key     | string | 标签键           | 长度不超过64，只允许中文、字母、数字、以及_.-等字符的组合。  |
+     * | tag_value   | string | 标签值           | 长度不超过128，只允许中文、字母、数字、以及_.-等字符的组合。 |
+     * | sw_version  | string | 软件版本         | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）、英文点(.)的组合。 |
+     * | fw_version  | string | 固件版本         | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）、英文点(.)的组合。 |
+     * | create_time | string | 设备注册时间     | 格式：yyyy-MM-dd\&#39;T\&#39;HH:mm:ss.SSS\&#39;Z\&#39;，如：2015-06-06T12:10:10.000Z |
+     * | marker      | string | 结果记录ID       | 长度为24的十六进制字符串，如ffffffffffffffffffffffff         |
+     * 
+     * #### 支持的运算符
+     * 
+     * | 运算符  | 支持的字段                               |
+     * | ------- | ---------------------------------------- |
+     * | &#x3D;       | 所有                                     |
+     * | !&#x3D;      | 所有                                     |
+     * | &gt;       | create_time、marker                      |
+     * | &lt;       | create_time、marker                      |
+     * | like    | device_name、node_id、tag_key、tag_value |
+     * | in      | 所有                                     |
+     * | not  in | 所有                                     |
+     * 
+     * #### SQL 限制
+     * 
+     * - like: 只支持前缀匹配，不支持后缀匹配或者通配符匹配。前缀匹配不得少于4个字符，且不能包含任何特殊字符(只允许中文、字母、数字、下划线（_）、连接符（-）). 前缀后必须跟上\&quot;%\&quot;结尾。
+     * - 不支持除了count(*)/count(1)以外的其他任何函数。
+     * - 不支持其他SQL用法，如嵌套SQL、union、join、别名(Alias)等用法
+     * - SQL长度限制为400个字符，单个请求条件最大支持5个。
+     * - 不支持\&quot;null\&quot;和空字符串等条件值匹配
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 灵活搜索设备列表
+     * @param {SearchSql} searchDevicesRequestBody request
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public searchDevices(searchDevicesRequest?: SearchDevicesRequest): Promise<SearchDevicesResponse> {
+        const options = ParamCreater().searchDevices(searchDevicesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -919,8 +1125,10 @@ export class IoTDAClient {
      */
     public showDevice(showDeviceRequest?: ShowDeviceRequest): Promise<ShowDeviceResponse> {
         const options = ParamCreater().showDevice(showDeviceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -937,8 +1145,10 @@ export class IoTDAClient {
      */
     public unfreezeDevice(unfreezeDeviceRequest?: UnfreezeDeviceRequest): Promise<string> {
         const options = ParamCreater().unfreezeDevice(unfreezeDeviceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -956,8 +1166,10 @@ export class IoTDAClient {
      */
     public updateDevice(updateDeviceRequest?: UpdateDeviceRequest): Promise<UpdateDeviceResponse> {
         const options = ParamCreater().updateDevice(updateDeviceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -984,8 +1196,10 @@ export class IoTDAClient {
      */
     public showDeviceShadow(showDeviceShadowRequest?: ShowDeviceShadowRequest): Promise<ShowDeviceShadowResponse> {
         const options = ParamCreater().showDeviceShadow(showDeviceShadowRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1013,8 +1227,10 @@ export class IoTDAClient {
      */
     public updateDeviceShadowDesiredData(updateDeviceShadowDesiredDataRequest?: UpdateDeviceShadowDesiredDataRequest): Promise<UpdateDeviceShadowDesiredDataResponse> {
         const options = ParamCreater().updateDeviceShadowDesiredData(updateDeviceShadowDesiredDataRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1033,8 +1249,10 @@ export class IoTDAClient {
      */
     public createMessage(createMessageRequest?: CreateMessageRequest): Promise<CreateMessageResponse> {
         const options = ParamCreater().createMessage(createMessageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1051,8 +1269,10 @@ export class IoTDAClient {
      */
     public listDeviceMessages(listDeviceMessagesRequest?: ListDeviceMessagesRequest): Promise<ListDeviceMessagesResponse> {
         const options = ParamCreater().listDeviceMessages(listDeviceMessagesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1070,8 +1290,10 @@ export class IoTDAClient {
      */
     public showDeviceMessage(showDeviceMessageRequest?: ShowDeviceMessageRequest): Promise<ShowDeviceMessageResponse> {
         const options = ParamCreater().showDeviceMessage(showDeviceMessageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1088,8 +1310,10 @@ export class IoTDAClient {
      */
     public createProduct(createProductRequest?: CreateProductRequest): Promise<CreateProductResponse> {
         const options = ParamCreater().createProduct(createProductRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1107,8 +1331,10 @@ export class IoTDAClient {
      */
     public deleteProduct(deleteProductRequest?: DeleteProductRequest): Promise<string> {
         const options = ParamCreater().deleteProduct(deleteProductRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1128,8 +1354,10 @@ export class IoTDAClient {
      */
     public listProducts(listProductsRequest?: ListProductsRequest): Promise<ListProductsResponse> {
         const options = ParamCreater().listProducts(listProductsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1147,8 +1375,10 @@ export class IoTDAClient {
      */
     public showProduct(showProductRequest?: ShowProductRequest): Promise<ShowProductResponse> {
         const options = ParamCreater().showProduct(showProductRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1166,8 +1396,10 @@ export class IoTDAClient {
      */
     public updateProduct(updateProductRequest?: UpdateProductRequest): Promise<UpdateProductResponse> {
         const options = ParamCreater().updateProduct(updateProductRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1186,8 +1418,10 @@ export class IoTDAClient {
      */
     public listProperties(listPropertiesRequest?: ListPropertiesRequest): Promise<ListPropertiesResponse> {
         const options = ParamCreater().listProperties(listPropertiesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1206,8 +1440,10 @@ export class IoTDAClient {
      */
     public updateProperties(updatePropertiesRequest?: UpdatePropertiesRequest): Promise<UpdatePropertiesResponse> {
         const options = ParamCreater().updateProperties(updatePropertiesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1224,8 +1460,10 @@ export class IoTDAClient {
      */
     public createRoutingRule(createRoutingRuleRequest?: CreateRoutingRuleRequest): Promise<CreateRoutingRuleResponse> {
         const options = ParamCreater().createRoutingRule(createRoutingRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1242,8 +1480,10 @@ export class IoTDAClient {
      */
     public createRuleAction(createRuleActionRequest?: CreateRuleActionRequest): Promise<CreateRuleActionResponse> {
         const options = ParamCreater().createRuleAction(createRuleActionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1260,8 +1500,10 @@ export class IoTDAClient {
      */
     public deleteRoutingRule(deleteRoutingRuleRequest?: DeleteRoutingRuleRequest): Promise<string> {
         const options = ParamCreater().deleteRoutingRule(deleteRoutingRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1278,8 +1520,10 @@ export class IoTDAClient {
      */
     public deleteRuleAction(deleteRuleActionRequest?: DeleteRuleActionRequest): Promise<string> {
         const options = ParamCreater().deleteRuleAction(deleteRuleActionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1303,8 +1547,10 @@ export class IoTDAClient {
      */
     public listRoutingRules(listRoutingRulesRequest?: ListRoutingRulesRequest): Promise<ListRoutingRulesResponse> {
         const options = ParamCreater().listRoutingRules(listRoutingRulesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1327,8 +1573,10 @@ export class IoTDAClient {
      */
     public listRuleActions(listRuleActionsRequest?: ListRuleActionsRequest): Promise<ListRuleActionsResponse> {
         const options = ParamCreater().listRuleActions(listRuleActionsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1345,8 +1593,10 @@ export class IoTDAClient {
      */
     public showRoutingRule(showRoutingRuleRequest?: ShowRoutingRuleRequest): Promise<ShowRoutingRuleResponse> {
         const options = ParamCreater().showRoutingRule(showRoutingRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1363,8 +1613,10 @@ export class IoTDAClient {
      */
     public showRuleAction(showRuleActionRequest?: ShowRuleActionRequest): Promise<ShowRuleActionResponse> {
         const options = ParamCreater().showRuleAction(showRuleActionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1382,8 +1634,10 @@ export class IoTDAClient {
      */
     public updateRoutingRule(updateRoutingRuleRequest?: UpdateRoutingRuleRequest): Promise<UpdateRoutingRuleResponse> {
         const options = ParamCreater().updateRoutingRule(updateRoutingRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1401,8 +1655,10 @@ export class IoTDAClient {
      */
     public updateRuleAction(updateRuleActionRequest?: UpdateRuleActionRequest): Promise<UpdateRuleActionResponse> {
         const options = ParamCreater().updateRuleAction(updateRuleActionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1420,8 +1676,10 @@ export class IoTDAClient {
      */
     public changeRuleStatus(changeRuleStatusRequest?: ChangeRuleStatusRequest): Promise<ChangeRuleStatusResponse> {
         const options = ParamCreater().changeRuleStatus(changeRuleStatusRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1438,8 +1696,10 @@ export class IoTDAClient {
      */
     public createRule(createRuleRequest?: CreateRuleRequest): Promise<CreateRuleResponse> {
         const options = ParamCreater().createRule(createRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1456,8 +1716,10 @@ export class IoTDAClient {
      */
     public deleteRule(deleteRuleRequest?: DeleteRuleRequest): Promise<string> {
         const options = ParamCreater().deleteRule(deleteRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1469,7 +1731,7 @@ export class IoTDAClient {
      * @summary 查询规则列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的规则列表，不携带该参数则会查询该用户下所有规则列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
-     * @param {string} [ruleType] **参数说明**：规则类型。此参数为非必选参数，指定对应的规则类型结果进行返回，不携带该参数则会返回所有类型规则。 **取值范围**： - DEVICE_LINKAGE
+     * @param {string} [ruleType] **参数说明**：规则类型。此参数为非必选参数，指定对应的规则类型结果进行返回，不携带该参数则会返回所有类型规则。 **取值范围**： - DEVICE_LINKAGE：云端联动规则。  - DEVICE_SIDE：端侧规则。
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
      * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
      * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
@@ -1478,8 +1740,10 @@ export class IoTDAClient {
      */
     public listRules(listRulesRequest?: ListRulesRequest): Promise<ListRulesResponse> {
         const options = ParamCreater().listRules(listRulesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1496,8 +1760,10 @@ export class IoTDAClient {
      */
     public showRule(showRuleRequest?: ShowRuleRequest): Promise<ShowRuleResponse> {
         const options = ParamCreater().showRule(showRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1515,8 +1781,10 @@ export class IoTDAClient {
      */
     public updateRule(updateRuleRequest?: UpdateRuleRequest): Promise<UpdateRuleResponse> {
         const options = ParamCreater().updateRule(updateRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1536,8 +1804,10 @@ export class IoTDAClient {
      */
     public listResourcesByTags(listResourcesByTagsRequest?: ListResourcesByTagsRequest): Promise<ListResourcesByTagsResponse> {
         const options = ParamCreater().listResourcesByTags(listResourcesByTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1554,8 +1824,10 @@ export class IoTDAClient {
      */
     public tagDevice(tagDeviceRequest?: TagDeviceRequest): Promise<string> {
         const options = ParamCreater().tagDevice(tagDeviceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1572,8 +1844,10 @@ export class IoTDAClient {
      */
     public untagDevice(untagDeviceRequest?: UntagDeviceRequest): Promise<string> {
         const options = ParamCreater().untagDevice(untagDeviceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -1599,6 +1873,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (createAccessCodeRequest !== null && createAccessCodeRequest !== undefined) {
@@ -1643,6 +1918,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (addQueueRequest !== null && addQueueRequest !== undefined) {
@@ -1686,10 +1962,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let queueName;
+            
             let limit;
+            
             let marker;
+            
             let offset;
 
             if (batchShowQueueRequest !== null && batchShowQueueRequest !== undefined) {
@@ -1747,7 +2028,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let queueId;
+            
             let instanceId;
 
             if (deleteQueueRequest !== null && deleteQueueRequest !== undefined) {
@@ -1790,7 +2073,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let queueId;
+            
             let instanceId;
 
             if (showQueueRequest !== null && showQueueRequest !== undefined) {
@@ -1834,6 +2119,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (addApplicationRequest !== null && addApplicationRequest !== undefined) {
@@ -1877,7 +2163,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let appId;
+            
             let instanceId;
 
             if (deleteApplicationRequest !== null && deleteApplicationRequest !== undefined) {
@@ -1920,7 +2208,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let appId;
+            
             let instanceId;
 
             if (showApplicationRequest !== null && showApplicationRequest !== undefined) {
@@ -1963,7 +2253,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let defaultApp;
 
             if (showApplicationsRequest !== null && showApplicationsRequest !== undefined) {
@@ -2008,7 +2300,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let deviceId;
+            
             let instanceId;
 
             if (createAsyncCommandRequest !== null && createAsyncCommandRequest !== undefined) {
@@ -2058,8 +2352,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let deviceId;
+            
             let commandId;
+            
             let instanceId;
 
             if (showAsyncDeviceCommandRequest !== null && showAsyncDeviceCommandRequest !== undefined) {
@@ -2108,6 +2405,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (createBatchTaskRequest !== null && createBatchTaskRequest !== undefined) {
@@ -2151,12 +2449,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let taskType;
+            
             let instanceId;
+            
             let appId;
+            
             let status;
+            
             let limit;
+            
             let marker;
+            
             let offset;
 
             if (listBatchTasksRequest !== null && listBatchTasksRequest !== undefined) {
@@ -2227,10 +2532,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let taskId;
+            
             let instanceId;
+            
             let limit;
+            
             let marker;
+            
             let offset;
 
             if (showBatchTaskRequest !== null && showBatchTaskRequest !== undefined) {
@@ -2289,7 +2599,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let fileId;
+            
             let instanceId;
 
             if (deleteBatchTaskFileRequest !== null && deleteBatchTaskFileRequest !== undefined) {
@@ -2332,6 +2644,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let instanceId;
 
             if (listBatchTaskFilesRequest !== null && listBatchTaskFilesRequest !== undefined) {
@@ -2369,8 +2682,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let spAuthToken;
+            
             let stageAuthToken;
+            
             let instanceId;
 
             if (addCertificateRequest !== null && addCertificateRequest !== undefined) {
@@ -2425,10 +2741,15 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let certificateId;
+            
             let actionId;
+            
             let spAuthToken;
+            
             let stageAuthToken;
+            
             let instanceId;
 
             if (checkCertificateRequest !== null && checkCertificateRequest !== undefined) {
@@ -2497,9 +2818,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let certificateId;
+            
             let spAuthToken;
+            
             let stageAuthToken;
+            
             let instanceId;
 
             if (deleteCertificateRequest !== null && deleteCertificateRequest !== undefined) {
@@ -2552,12 +2877,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let spAuthToken;
+            
             let stageAuthToken;
+            
             let instanceId;
+            
             let appId;
+            
             let limit;
+            
             let marker;
+            
             let offset;
 
             if (listCertificatesRequest !== null && listCertificatesRequest !== undefined) {
@@ -2627,7 +2959,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let deviceId;
+            
             let instanceId;
 
             if (createCommandRequest !== null && createCommandRequest !== undefined) {
@@ -2678,6 +3012,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (addDeviceGroupRequest !== null && addDeviceGroupRequest !== undefined) {
@@ -2718,9 +3053,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let groupId;
+            
             let actionId;
+            
             let deviceId;
+            
             let instanceId;
 
             if (createOrDeleteDeviceInGroupRequest !== null && createOrDeleteDeviceInGroupRequest !== undefined) {
@@ -2780,7 +3119,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let groupId;
+            
             let instanceId;
 
             if (deleteDeviceGroupRequest !== null && deleteDeviceGroupRequest !== undefined) {
@@ -2823,11 +3164,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let limit;
+            
             let marker;
+            
             let offset;
+            
             let lastModifiedTime;
+            
             let appId;
 
             if (listDeviceGroupsRequest !== null && listDeviceGroupsRequest !== undefined) {
@@ -2890,7 +3237,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let groupId;
+            
             let instanceId;
 
             if (showDeviceGroupRequest !== null && showDeviceGroupRequest !== undefined) {
@@ -2933,10 +3282,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let groupId;
+            
             let instanceId;
+            
             let limit;
+            
             let marker;
+            
             let offset;
 
             if (showDevicesInGroupRequest !== null && showDevicesInGroupRequest !== undefined) {
@@ -2996,7 +3350,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let groupId;
+            
             let instanceId;
 
             if (updateDeviceGroupRequest !== null && updateDeviceGroupRequest !== undefined) {
@@ -3051,6 +3407,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (addDeviceRequest !== null && addDeviceRequest !== undefined) {
@@ -3094,7 +3451,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let deviceId;
+            
             let instanceId;
 
             if (deleteDeviceRequest !== null && deleteDeviceRequest !== undefined) {
@@ -3137,7 +3496,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let deviceId;
+            
             let instanceId;
 
             if (freezeDeviceRequest !== null && freezeDeviceRequest !== undefined) {
@@ -3180,17 +3541,29 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let productId;
+            
             let gatewayId;
+            
             let isCascadeQuery;
+            
             let nodeId;
+            
             let deviceName;
+            
             let limit;
+            
             let marker;
+            
             let offset;
+            
             let startTime;
+            
             let endTime;
+            
             let appId;
 
             if (listDevicesRequest !== null && listDevicesRequest !== undefined) {
@@ -3284,8 +3657,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let deviceId;
+            
             let actionId;
+            
             let instanceId;
 
             if (resetDeviceSecretRequest !== null && resetDeviceSecretRequest !== undefined) {
@@ -3345,7 +3721,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let deviceId;
+            
             let instanceId;
 
             if (resetFingerprintRequest !== null && resetFingerprintRequest !== undefined) {
@@ -3379,6 +3757,164 @@ export const ParamCreater = function () {
         },
     
         /**
+         * #### 接口说明
+         * 
+         * 应用服务器使用SQL语句调用该接口，灵活的搜索所需要的设备资源列表
+         * 
+         * #### 限制
+         * 
+         * - 仅**标准版实例、企业版实例**支持该接口调用，基础版不支持。
+         * - 单账号调用该接口的 TPS 限制最大为1/S(每秒1次请求数)
+         * 
+         * #### 类SQL语法使用说明
+         * 
+         * 类SQL语句有select、from、where(可选)、order by(可选)、limit子句(可选)组成，长度限制为400个字符。子句里的内容大小写敏感，SQL语句的关键字大小写不敏感。
+         * 
+         * 示例：
+         * 
+         * &#x60;&#x60;&#x60;
+         * select * from device where device_id &#x3D; \&#39;as********\&#39; limit 0,5
+         * &#x60;&#x60;&#x60;
+         * 
+         * ##### SELECT子句
+         * 
+         * &#x60;&#x60;&#x60;
+         * select [field]/[count(*)/count(1)] from device
+         * &#x60;&#x60;&#x60;
+         * 
+         * 其中field为需要获取的字段，请参考响应参数字段名称，也可填*，获取所有字段。
+         * 
+         * 如果需要统计搜索的设备个数，请填count(*)或者count(1).
+         * 
+         * ##### FROM子句
+         * 
+         * &#x60;&#x60;&#x60;
+         * from device
+         * &#x60;&#x60;&#x60;
+         * 
+         * from后为要查询的资源名，当前支持\&quot;device\&quot;
+         * 
+         * ##### WHERE子句(可选)
+         * 
+         * &#x60;&#x60;&#x60;
+         * WHERE [condition1] AND [condition2]
+         * &#x60;&#x60;&#x60;
+         * 
+         * 最多支持5个condition，不支持嵌套；支持的检索字段请参见下面的**搜索条件字段说明**和**支持的运算符**章节
+         * 
+         * 连接词支持AND、OR，优先级参考标准SQL语法，默认AND优先级高于OR。
+         * 
+         * ##### LIMIT子句(可选)
+         * 
+         * &#x60;&#x60;&#x60;
+         * limit [offset,] rows
+         * &#x60;&#x60;&#x60;
+         * 
+         * offset标识搜索的偏移量，rows标识返回搜索结果的最大行数，例如：
+         * 
+         * - limit n ;示例(select * from device limit 10)
+         * 
+         *   最大返回n条结果数据
+         *   
+         * - limit m,n; 示例(select * from device limit 20,10) 
+         *   搜索偏移量为m，最大返回n条结果数据
+         * 
+         * ###### 限制
+         * 
+         *  offset 最大 500， rows最大50，如果不填写limit子句，默认为limit 10
+         * 
+         * ##### ORDER BY子句(可选)
+         * 
+         * 用于实现自定义排序，当前支持自定义排序的字段为：\&quot;marker\&quot;。
+         * 
+         * &#x60;&#x60;&#x60;
+         * order by marker [asc]/[desc]
+         * &#x60;&#x60;&#x60;
+         * 
+         * 子句不填写时默认逻辑为随机排序
+         * 
+         * #### 搜索条件字段说明
+         * 
+         * | 字段名      | 类型   | 说明             | 取值范围                                                     |
+         * | :---------- | :----- | :--------------- | :----------------------------------------------------------- |
+         * | app_id      | string | 资源空间ID       | 长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
+         * | device_id   | string | 设备ID           | 长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合，建议不少于4个字符。 |
+         * | gateway_id  | string | 网关ID           | 长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
+         * | product_id  | string | 设备关联的产品ID | 长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
+         * | device_name | string | 设备名称         | 长度不超过256，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合，建议不少于4个字符。 |
+         * | node_id     | string | 设备标识码       | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）的组合，建议不少于4个字符 |
+         * | status      | string | 设备的状态       | ONLINE(在线)、OFFLINE(离线)、ABNORMAL(异常)、INACTIVE(未激活)、FROZEN(冻结) |
+         * | node_type   | string | 设备节点类型     | GATEWAY(直连设备或网关)、ENDPOINT(非直连设备)                |
+         * | tag_key     | string | 标签键           | 长度不超过64，只允许中文、字母、数字、以及_.-等字符的组合。  |
+         * | tag_value   | string | 标签值           | 长度不超过128，只允许中文、字母、数字、以及_.-等字符的组合。 |
+         * | sw_version  | string | 软件版本         | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）、英文点(.)的组合。 |
+         * | fw_version  | string | 固件版本         | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）、英文点(.)的组合。 |
+         * | create_time | string | 设备注册时间     | 格式：yyyy-MM-dd\&#39;T\&#39;HH:mm:ss.SSS\&#39;Z\&#39;，如：2015-06-06T12:10:10.000Z |
+         * | marker      | string | 结果记录ID       | 长度为24的十六进制字符串，如ffffffffffffffffffffffff         |
+         * 
+         * #### 支持的运算符
+         * 
+         * | 运算符  | 支持的字段                               |
+         * | ------- | ---------------------------------------- |
+         * | &#x3D;       | 所有                                     |
+         * | !&#x3D;      | 所有                                     |
+         * | &gt;       | create_time、marker                      |
+         * | &lt;       | create_time、marker                      |
+         * | like    | device_name、node_id、tag_key、tag_value |
+         * | in      | 所有                                     |
+         * | not  in | 所有                                     |
+         * 
+         * #### SQL 限制
+         * 
+         * - like: 只支持前缀匹配，不支持后缀匹配或者通配符匹配。前缀匹配不得少于4个字符，且不能包含任何特殊字符(只允许中文、字母、数字、下划线（_）、连接符（-）). 前缀后必须跟上\&quot;%\&quot;结尾。
+         * - 不支持除了count(*)/count(1)以外的其他任何函数。
+         * - 不支持其他SQL用法，如嵌套SQL、union、join、别名(Alias)等用法
+         * - SQL长度限制为400个字符，单个请求条件最大支持5个。
+         * - 不支持\&quot;null\&quot;和空字符串等条件值匹配
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        searchDevices(searchDevicesRequest?: SearchDevicesRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/search/query-devices",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            
+            let instanceId;
+
+            if (searchDevicesRequest !== null && searchDevicesRequest !== undefined) {
+                if (searchDevicesRequest instanceof SearchDevicesRequest) {
+                    body = searchDevicesRequest.body
+                    instanceId = searchDevicesRequest.instanceId;
+                } else {
+                    body = searchDevicesRequest['body'];
+                    instanceId = searchDevicesRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 应用服务器可调用此接口查询物联网平台中指定设备的详细信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3395,7 +3931,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let deviceId;
+            
             let instanceId;
 
             if (showDeviceRequest !== null && showDeviceRequest !== undefined) {
@@ -3438,7 +3976,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let deviceId;
+            
             let instanceId;
 
             if (unfreezeDeviceRequest !== null && unfreezeDeviceRequest !== undefined) {
@@ -3482,7 +4022,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let deviceId;
+            
             let instanceId;
 
             if (updateDeviceRequest !== null && updateDeviceRequest !== undefined) {
@@ -3542,7 +4084,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let deviceId;
+            
             let instanceId;
 
             if (showDeviceShadowRequest !== null && showDeviceShadowRequest !== undefined) {
@@ -3596,7 +4140,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let deviceId;
+            
             let instanceId;
 
             if (updateDeviceShadowDesiredDataRequest !== null && updateDeviceShadowDesiredDataRequest !== undefined) {
@@ -3648,7 +4194,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let deviceId;
+            
             let instanceId;
 
             if (createMessageRequest !== null && createMessageRequest !== undefined) {
@@ -3698,7 +4246,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let deviceId;
+            
             let instanceId;
 
             if (listDeviceMessagesRequest !== null && listDeviceMessagesRequest !== undefined) {
@@ -3741,8 +4291,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let deviceId;
+            
             let messageId;
+            
             let instanceId;
 
             if (showDeviceMessageRequest !== null && showDeviceMessageRequest !== undefined) {
@@ -3791,6 +4344,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (createProductRequest !== null && createProductRequest !== undefined) {
@@ -3831,8 +4385,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let productId;
+            
             let instanceId;
+            
             let appId;
 
             if (deleteProductRequest !== null && deleteProductRequest !== undefined) {
@@ -3881,10 +4438,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let limit;
+            
             let marker;
+            
             let appId;
+            
             let offset;
 
             if (listProductsRequest !== null && listProductsRequest !== undefined) {
@@ -3942,8 +4504,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let productId;
+            
             let instanceId;
+            
             let appId;
 
             if (showProductRequest !== null && showProductRequest !== undefined) {
@@ -3993,7 +4558,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let productId;
+            
             let instanceId;
 
             if (updateProductRequest !== null && updateProductRequest !== undefined) {
@@ -4044,8 +4611,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let deviceId;
+            
             let serviceId;
+            
             let instanceId;
 
             if (listPropertiesRequest !== null && listPropertiesRequest !== undefined) {
@@ -4099,7 +4669,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let deviceId;
+            
             let instanceId;
 
             if (updatePropertiesRequest !== null && updatePropertiesRequest !== undefined) {
@@ -4150,6 +4722,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (createRoutingRuleRequest !== null && createRoutingRuleRequest !== undefined) {
@@ -4194,6 +4767,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (createRuleActionRequest !== null && createRuleActionRequest !== undefined) {
@@ -4237,7 +4811,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let ruleId;
+            
             let instanceId;
 
             if (deleteRoutingRuleRequest !== null && deleteRoutingRuleRequest !== undefined) {
@@ -4280,7 +4856,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let actionId;
+            
             let instanceId;
 
             if (deleteRuleActionRequest !== null && deleteRuleActionRequest !== undefined) {
@@ -4323,14 +4901,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let resource;
+            
             let event;
+            
             let appType;
+            
             let appId;
+            
             let ruleName;
+            
             let limit;
+            
             let marker;
+            
             let offset;
 
             if (listRoutingRulesRequest !== null && listRoutingRulesRequest !== undefined) {
@@ -4408,13 +4995,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let ruleId;
+            
             let channel;
+            
             let appType;
+            
             let appId;
+            
             let limit;
+            
             let marker;
+            
             let offset;
 
             if (listRuleActionsRequest !== null && listRuleActionsRequest !== undefined) {
@@ -4487,7 +5082,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let ruleId;
+            
             let instanceId;
 
             if (showRoutingRuleRequest !== null && showRoutingRuleRequest !== undefined) {
@@ -4530,7 +5127,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let actionId;
+            
             let instanceId;
 
             if (showRuleActionRequest !== null && showRuleActionRequest !== undefined) {
@@ -4574,7 +5173,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let ruleId;
+            
             let instanceId;
 
             if (updateRoutingRuleRequest !== null && updateRoutingRuleRequest !== undefined) {
@@ -4625,7 +5226,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let actionId;
+            
             let instanceId;
 
             if (updateRuleActionRequest !== null && updateRuleActionRequest !== undefined) {
@@ -4676,7 +5279,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let ruleId;
+            
             let instanceId;
 
             if (changeRuleStatusRequest !== null && changeRuleStatusRequest !== undefined) {
@@ -4727,6 +5332,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (createRuleRequest !== null && createRuleRequest !== undefined) {
@@ -4770,7 +5376,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let ruleId;
+            
             let instanceId;
 
             if (deleteRuleRequest !== null && deleteRuleRequest !== undefined) {
@@ -4813,11 +5421,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceId;
+            
             let appId;
+            
             let ruleType;
+            
             let limit;
+            
             let marker;
+            
             let offset;
 
             if (listRulesRequest !== null && listRulesRequest !== undefined) {
@@ -4880,7 +5494,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let ruleId;
+            
             let instanceId;
 
             if (showRuleRequest !== null && showRuleRequest !== undefined) {
@@ -4924,7 +5540,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let ruleId;
+            
             let instanceId;
 
             if (updateRuleRequest !== null && updateRuleRequest !== undefined) {
@@ -4975,9 +5593,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let instanceId;
+            
             let limit;
+            
             let marker;
+            
             let offset;
 
             if (listResourcesByTagsRequest !== null && listResourcesByTagsRequest !== undefined) {
@@ -5035,6 +5657,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (tagDeviceRequest !== null && tagDeviceRequest !== undefined) {
@@ -5076,6 +5699,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let instanceId;
 
             if (untagDeviceRequest !== null && untagDeviceRequest !== undefined) {

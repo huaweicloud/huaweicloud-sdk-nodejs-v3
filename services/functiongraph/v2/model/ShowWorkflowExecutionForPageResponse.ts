@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowWorkflowExecutionForPageResponse extends SdkResponse {
     public total?: number;
     public size?: number;
-    public executions?: FlowExecutionBriefV2;
+    public executions?: Array<FlowExecutionBriefV2>;
     public constructor() { 
         super();
     }
@@ -17,7 +17,7 @@ export class ShowWorkflowExecutionForPageResponse extends SdkResponse {
         this['size'] = size;
         return this;
     }
-    public withExecutions(executions: FlowExecutionBriefV2): ShowWorkflowExecutionForPageResponse {
+    public withExecutions(executions: Array<FlowExecutionBriefV2>): ShowWorkflowExecutionForPageResponse {
         this['executions'] = executions;
         return this;
     }

@@ -128,7 +128,7 @@ import { ZoneState } from './model/ZoneState';
 
 export class EvsClient {
     public static newBuilder(): ClientBuilder<EvsClient> {
-        return new ClientBuilder<EvsClient>(newClient);
+            return new ClientBuilder<EvsClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -157,8 +157,10 @@ export class EvsClient {
      */
     public batchCreateVolumeTags(batchCreateVolumeTagsRequest?: BatchCreateVolumeTagsRequest): Promise<void> {
         const options = ParamCreater().batchCreateVolumeTags(batchCreateVolumeTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -175,8 +177,10 @@ export class EvsClient {
      */
     public batchDeleteVolumeTags(batchDeleteVolumeTagsRequest?: BatchDeleteVolumeTagsRequest): Promise<void> {
         const options = ParamCreater().batchDeleteVolumeTags(batchDeleteVolumeTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -193,8 +197,10 @@ export class EvsClient {
      */
     public cinderAcceptVolumeTransfer(cinderAcceptVolumeTransferRequest?: CinderAcceptVolumeTransferRequest): Promise<CinderAcceptVolumeTransferResponse> {
         const options = ParamCreater().cinderAcceptVolumeTransfer(cinderAcceptVolumeTransferRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -211,8 +217,10 @@ export class EvsClient {
      */
     public cinderCreateVolumeTransfer(cinderCreateVolumeTransferRequest?: CinderCreateVolumeTransferRequest): Promise<CinderCreateVolumeTransferResponse> {
         const options = ParamCreater().cinderCreateVolumeTransfer(cinderCreateVolumeTransferRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -228,8 +236,10 @@ export class EvsClient {
      */
     public cinderDeleteVolumeTransfer(cinderDeleteVolumeTransferRequest?: CinderDeleteVolumeTransferRequest): Promise<void> {
         const options = ParamCreater().cinderDeleteVolumeTransfer(cinderDeleteVolumeTransferRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -244,8 +254,10 @@ export class EvsClient {
      */
     public cinderListAvailabilityZones(): Promise<CinderListAvailabilityZonesResponse> {
         const options = ParamCreater().cinderListAvailabilityZones();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -262,8 +274,10 @@ export class EvsClient {
      */
     public cinderListQuotas(cinderListQuotasRequest?: CinderListQuotasRequest): Promise<CinderListQuotasResponse> {
         const options = ParamCreater().cinderListQuotas(cinderListQuotasRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -280,8 +294,10 @@ export class EvsClient {
      */
     public cinderListVolumeTransfers(cinderListVolumeTransfersRequest?: CinderListVolumeTransfersRequest): Promise<CinderListVolumeTransfersResponse> {
         const options = ParamCreater().cinderListVolumeTransfers(cinderListVolumeTransfersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -296,8 +312,10 @@ export class EvsClient {
      */
     public cinderListVolumeTypes(): Promise<CinderListVolumeTypesResponse> {
         const options = ParamCreater().cinderListVolumeTypes();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -313,8 +331,10 @@ export class EvsClient {
      */
     public cinderShowVolumeTransfer(cinderShowVolumeTransferRequest?: CinderShowVolumeTransferRequest): Promise<CinderShowVolumeTransferResponse> {
         const options = ParamCreater().cinderShowVolumeTransfer(cinderShowVolumeTransferRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -330,8 +350,10 @@ export class EvsClient {
      */
     public createSnapshot(createSnapshotRequest?: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
         const options = ParamCreater().createSnapshot(createSnapshotRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -352,8 +374,10 @@ export class EvsClient {
      */
     public createVolume(createVolumeRequest?: CreateVolumeRequest): Promise<CreateVolumeResponse> {
         const options = ParamCreater().createVolume(createVolumeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -369,8 +393,10 @@ export class EvsClient {
      */
     public deleteSnapshot(deleteSnapshotRequest?: DeleteSnapshotRequest): Promise<void> {
         const options = ParamCreater().deleteSnapshot(deleteSnapshotRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -386,8 +412,10 @@ export class EvsClient {
      */
     public deleteVolume(deleteVolumeRequest?: DeleteVolumeRequest): Promise<DeleteVolumeResponse> {
         const options = ParamCreater().deleteVolume(deleteVolumeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -413,8 +441,10 @@ export class EvsClient {
      */
     public listSnapshots(listSnapshotsRequest?: ListSnapshotsRequest): Promise<ListSnapshotsResponse> {
         const options = ParamCreater().listSnapshots(listSnapshotsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -429,8 +459,10 @@ export class EvsClient {
      */
     public listVolumeTags(): Promise<ListVolumeTagsResponse> {
         const options = ParamCreater().listVolumeTags();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -463,8 +495,10 @@ export class EvsClient {
      */
     public listVolumes(listVolumesRequest?: ListVolumesRequest): Promise<ListVolumesResponse> {
         const options = ParamCreater().listVolumes(listVolumesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -480,8 +514,10 @@ export class EvsClient {
      */
     public listVolumesByTags(listVolumesByTagsRequest?: ListVolumesByTagsRequest): Promise<ListVolumesByTagsResponse> {
         const options = ParamCreater().listVolumesByTags(listVolumesByTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -503,8 +539,10 @@ export class EvsClient {
      */
     public resizeVolume(resizeVolumeRequest?: ResizeVolumeRequest): Promise<ResizeVolumeResponse> {
         const options = ParamCreater().resizeVolume(resizeVolumeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -521,8 +559,10 @@ export class EvsClient {
      */
     public rollbackSnapshot(rollbackSnapshotRequest?: RollbackSnapshotRequest): Promise<RollbackSnapshotResponse> {
         const options = ParamCreater().rollbackSnapshot(rollbackSnapshotRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -539,8 +579,10 @@ export class EvsClient {
      */
     public showJob(showJobRequest?: ShowJobRequest): Promise<ShowJobResponse> {
         const options = ParamCreater().showJob(showJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -556,8 +598,10 @@ export class EvsClient {
      */
     public showSnapshot(showSnapshotRequest?: ShowSnapshotRequest): Promise<ShowSnapshotResponse> {
         const options = ParamCreater().showSnapshot(showSnapshotRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -573,8 +617,10 @@ export class EvsClient {
      */
     public showVolume(showVolumeRequest?: ShowVolumeRequest): Promise<ShowVolumeResponse> {
         const options = ParamCreater().showVolume(showVolumeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -590,8 +636,10 @@ export class EvsClient {
      */
     public showVolumeTags(showVolumeTagsRequest?: ShowVolumeTagsRequest): Promise<ShowVolumeTagsResponse> {
         const options = ParamCreater().showVolumeTags(showVolumeTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -608,8 +656,10 @@ export class EvsClient {
      */
     public updateSnapshot(updateSnapshotRequest?: UpdateSnapshotRequest): Promise<UpdateSnapshotResponse> {
         const options = ParamCreater().updateSnapshot(updateSnapshotRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -626,8 +676,10 @@ export class EvsClient {
      */
     public updateVolume(updateVolumeRequest?: UpdateVolumeRequest): Promise<UpdateVolumeResponse> {
         const options = ParamCreater().updateVolume(updateVolumeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -642,8 +694,10 @@ export class EvsClient {
      */
     public listVersions(): Promise<void> {
         const options = ParamCreater().listVersions();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -659,8 +713,10 @@ export class EvsClient {
      */
     public showVersion(showVersionRequest?: ShowVersionRequest): Promise<ShowVersionResponse> {
         const options = ParamCreater().showVersion(showVersionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -689,6 +745,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let volumeId;
 
             if (batchCreateVolumeTagsRequest !== null && batchCreateVolumeTagsRequest !== undefined) {
@@ -734,6 +791,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let volumeId;
 
             if (batchDeleteVolumeTagsRequest !== null && batchDeleteVolumeTagsRequest !== undefined) {
@@ -779,6 +837,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let transferId;
 
             if (cinderAcceptVolumeTransferRequest !== null && cinderAcceptVolumeTransferRequest !== undefined) {
@@ -862,6 +921,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let transferId;
 
             if (cinderDeleteVolumeTransferRequest !== null && cinderDeleteVolumeTransferRequest !== undefined) {
@@ -921,7 +981,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let targetProjectId;
+            
             let usage;
 
             if (cinderListQuotasRequest !== null && cinderListQuotasRequest !== undefined) {
@@ -968,7 +1030,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let offset;
 
             if (cinderListVolumeTransfersRequest !== null && cinderListVolumeTransfersRequest !== undefined) {
@@ -1033,6 +1097,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let transferId;
 
             if (cinderShowVolumeTransferRequest !== null && cinderShowVolumeTransferRequest !== undefined) {
@@ -1151,6 +1216,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let snapshotId;
 
             if (deleteSnapshotRequest !== null && deleteSnapshotRequest !== undefined) {
@@ -1188,6 +1254,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let volumeId;
 
             if (deleteVolumeRequest !== null && deleteVolumeRequest !== undefined) {
@@ -1225,16 +1292,27 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let offset;
+            
             let limit;
+            
             let name;
+            
             let status;
+            
             let volumeId;
+            
             let availabilityZone;
+            
             let id;
+            
             let dedicatedStorageName;
+            
             let dedicatedStorageId;
+            
             let serviceType;
+            
             let enterpriseProjectId;
 
             if (listSnapshotsRequest !== null && listSnapshotsRequest !== undefined) {
@@ -1344,23 +1422,41 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let marker;
+            
             let name;
+            
             let limit;
+            
             let sortKey;
+            
             let offset;
+            
             let sortDir;
+            
             let status;
+            
             let metadata;
+            
             let availabilityZone;
+            
             let multiattach;
+            
             let serviceType;
+            
             let dedicatedStorageId;
+            
             let dedicatedStorageName;
+            
             let volumeTypeId;
+            
             let id;
+            
             let ids;
+            
             let enterpriseProjectId;
+            
             let serverId;
 
             if (listVolumesRequest !== null && listVolumesRequest !== undefined) {
@@ -1527,6 +1623,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let volumeId;
 
             if (resizeVolumeRequest !== null && resizeVolumeRequest !== undefined) {
@@ -1572,6 +1669,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let snapshotId;
 
             if (rollbackSnapshotRequest !== null && rollbackSnapshotRequest !== undefined) {
@@ -1617,6 +1715,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let jobId;
 
             if (showJobRequest !== null && showJobRequest !== undefined) {
@@ -1654,6 +1753,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let snapshotId;
 
             if (showSnapshotRequest !== null && showSnapshotRequest !== undefined) {
@@ -1691,6 +1791,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let volumeId;
 
             if (showVolumeRequest !== null && showVolumeRequest !== undefined) {
@@ -1728,6 +1829,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let volumeId;
 
             if (showVolumeTagsRequest !== null && showVolumeTagsRequest !== undefined) {
@@ -1766,6 +1868,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let snapshotId;
 
             if (updateSnapshotRequest !== null && updateSnapshotRequest !== undefined) {
@@ -1811,6 +1914,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let volumeId;
 
             if (updateVolumeRequest !== null && updateVolumeRequest !== undefined) {
@@ -1877,6 +1981,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let version;
 
             if (showVersionRequest !== null && showVersionRequest !== undefined) {

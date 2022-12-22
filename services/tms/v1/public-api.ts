@@ -1,4 +1,5 @@
 export * from './TmsClient';
+export * from './GlobalCredentials';
 
 export * from './model/CreatePredefineTagsRequest';
 export * from './model/CreatePredefineTagsResponse';

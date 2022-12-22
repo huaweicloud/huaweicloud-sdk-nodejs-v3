@@ -42,7 +42,7 @@ import { TextDetectionResponseResult } from './model/TextDetectionResponseResult
 
 export class ModerationClient {
     public static newBuilder(): ClientBuilder<ModerationClient> {
-        return new ClientBuilder<ModerationClient>(newClient);
+            return new ClientBuilder<ModerationClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -68,8 +68,10 @@ export class ModerationClient {
      */
     public runCheckResult(runCheckResultRequest?: RunCheckResultRequest): Promise<RunCheckResultResponse> {
         const options = ParamCreater().runCheckResult(runCheckResultRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -87,8 +89,10 @@ export class ModerationClient {
      */
     public runCheckTaskJobs(runCheckTaskJobsRequest?: RunCheckTaskJobsRequest): Promise<RunCheckTaskJobsResponse> {
         const options = ParamCreater().runCheckTaskJobs(runCheckTaskJobsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -104,8 +108,10 @@ export class ModerationClient {
      */
     public runImageBatchModeration(runImageBatchModerationRequest?: RunImageBatchModerationRequest): Promise<RunImageBatchModerationResponse> {
         const options = ParamCreater().runImageBatchModeration(runImageBatchModerationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -121,8 +127,10 @@ export class ModerationClient {
      */
     public runImageModeration(runImageModerationRequest?: RunImageModerationRequest): Promise<RunImageModerationResponse> {
         const options = ParamCreater().runImageModeration(runImageModerationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -138,8 +146,10 @@ export class ModerationClient {
      */
     public runModerationAudio(runModerationAudioRequest?: RunModerationAudioRequest): Promise<RunModerationAudioResponse> {
         const options = ParamCreater().runModerationAudio(runModerationAudioRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -155,8 +165,10 @@ export class ModerationClient {
      */
     public runTaskSumbit(runTaskSumbitRequest?: RunTaskSumbitRequest): Promise<RunTaskSumbitResponse> {
         const options = ParamCreater().runTaskSumbit(runTaskSumbitRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -172,8 +184,10 @@ export class ModerationClient {
      */
     public runTextModeration(runTextModerationRequest?: RunTextModerationRequest): Promise<RunTextModerationResponse> {
         const options = ParamCreater().runTextModeration(runTextModerationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -199,6 +213,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let jobId;
 
             if (runCheckResultRequest !== null && runCheckResultRequest !== undefined) {
@@ -239,8 +254,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let status;
+            
             let offset;
+            
             let limit;
 
             if (runCheckTaskJobsRequest !== null && runCheckTaskJobsRequest !== undefined) {

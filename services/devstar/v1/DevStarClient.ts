@@ -97,7 +97,7 @@ import { UpdateApplicationResponse } from './model/UpdateApplicationResponse';
 
 export class DevStarClient {
     public static newBuilder(): ClientBuilder<DevStarClient> {
-        return new ClientBuilder<DevStarClient>(newClient);
+            return new ClientBuilder<DevStarClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -127,8 +127,10 @@ export class DevStarClient {
      */
     public showApplicationReleaseRepositories(showApplicationReleaseRepositoriesRequest?: ShowApplicationReleaseRepositoriesRequest): Promise<ShowApplicationReleaseRepositoriesResponse> {
         const options = ParamCreater().showApplicationReleaseRepositories(showApplicationReleaseRepositoriesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -145,8 +147,10 @@ export class DevStarClient {
      */
     public showApplicationResDeleteStatus(showApplicationResDeleteStatusRequest?: ShowApplicationResDeleteStatusRequest): Promise<ShowApplicationResDeleteStatusResponse> {
         const options = ParamCreater().showApplicationResDeleteStatus(showApplicationResDeleteStatusRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -165,8 +169,10 @@ export class DevStarClient {
      */
     public showApplicationDependentResources(showApplicationDependentResourcesRequest?: ShowApplicationDependentResourcesRequest): Promise<ShowApplicationDependentResourcesResponse> {
         const options = ParamCreater().showApplicationDependentResources(showApplicationDependentResourcesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -183,8 +189,10 @@ export class DevStarClient {
      */
     public showApplicationV3(showApplicationV3Request?: ShowApplicationV3Request): Promise<ShowApplicationV3Response> {
         const options = ParamCreater().showApplicationV3(showApplicationV3Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -204,8 +212,10 @@ export class DevStarClient {
      */
     public updateApplication(updateApplicationRequest?: UpdateApplicationRequest): Promise<void> {
         const options = ParamCreater().updateApplication(updateApplicationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -223,8 +233,10 @@ export class DevStarClient {
      */
     public deleteApplicationV4(deleteApplicationV4Request?: DeleteApplicationV4Request): Promise<void> {
         const options = ParamCreater().deleteApplicationV4(deleteApplicationV4Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -251,8 +263,10 @@ export class DevStarClient {
      */
     public listApplicationsV6(listApplicationsV6Request?: ListApplicationsV6Request): Promise<ListApplicationsV6Response> {
         const options = ParamCreater().listApplicationsV6(listApplicationsV6Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -269,8 +283,10 @@ export class DevStarClient {
      */
     public downloadApplicationCode(downloadApplicationCodeRequest?: DownloadApplicationCodeRequest): Promise<any> {
         const options = ParamCreater().downloadApplicationCode(downloadApplicationCodeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -289,8 +305,10 @@ export class DevStarClient {
      */
     public confirmDeploymentJob(confirmDeploymentJobRequest?: ConfirmDeploymentJobRequest): Promise<void> {
         const options = ParamCreater().confirmDeploymentJob(confirmDeploymentJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -312,8 +330,10 @@ export class DevStarClient {
      */
     public createDeploymentJobs(createDeploymentJobsRequest?: CreateDeploymentJobsRequest): Promise<CreateDeploymentJobsResponse> {
         const options = ParamCreater().createDeploymentJobs(createDeploymentJobsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -331,8 +351,10 @@ export class DevStarClient {
      */
     public showDeploymentJobs(showDeploymentJobsRequest?: ShowDeploymentJobsRequest): Promise<ShowDeploymentJobsResponse> {
         const options = ParamCreater().showDeploymentJobs(showDeploymentJobsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -357,8 +379,10 @@ export class DevStarClient {
      */
     public runCodehubTemplateJob(runCodehubTemplateJobRequest?: RunCodehubTemplateJobRequest): Promise<RunCodehubTemplateJobResponse> {
         const options = ParamCreater().runCodehubTemplateJob(runCodehubTemplateJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -383,8 +407,10 @@ export class DevStarClient {
      */
     public runDevstarTemplateJob(runDevstarTemplateJobRequest?: RunDevstarTemplateJobRequest): Promise<RunDevstarTemplateJobResponse> {
         const options = ParamCreater().runDevstarTemplateJob(runDevstarTemplateJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -410,8 +436,10 @@ export class DevStarClient {
      */
     public showJobDetail(showJobDetailRequest?: ShowJobDetailRequest): Promise<ShowJobDetailResponse> {
         const options = ParamCreater().showJobDetail(showJobDetailRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -430,8 +458,10 @@ export class DevStarClient {
      */
     public listPipelineTemplates(listPipelineTemplatesRequest?: ListPipelineTemplatesRequest): Promise<ListPipelineTemplatesResponse> {
         const options = ParamCreater().listPipelineTemplates(listPipelineTemplatesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -448,8 +478,10 @@ export class DevStarClient {
      */
     public showPipelineLastStatusV2(showPipelineLastStatusV2Request?: ShowPipelineLastStatusV2Request): Promise<ShowPipelineLastStatusV2Response> {
         const options = ParamCreater().showPipelineLastStatusV2(showPipelineLastStatusV2Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -466,8 +498,10 @@ export class DevStarClient {
      */
     public startPipeline(startPipelineRequest?: StartPipelineRequest): Promise<StartPipelineResponse> {
         const options = ParamCreater().startPipeline(startPipelineRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -487,8 +521,10 @@ export class DevStarClient {
      */
     public listProjectsV4(listProjectsV4Request?: ListProjectsV4Request): Promise<ListProjectsV4Response> {
         const options = ParamCreater().listProjectsV4(listProjectsV4Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -511,8 +547,10 @@ export class DevStarClient {
      */
     public checkRepositoryDuplicateName(checkRepositoryDuplicateNameRequest?: CheckRepositoryDuplicateNameRequest): Promise<CheckRepositoryDuplicateNameResponse> {
         const options = ParamCreater().checkRepositoryDuplicateName(checkRepositoryDuplicateNameRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -536,8 +574,10 @@ export class DevStarClient {
      */
     public showRepositoryByCloudIde(showRepositoryByCloudIdeRequest?: ShowRepositoryByCloudIdeRequest): Promise<ShowRepositoryByCloudIdeResponse> {
         const options = ParamCreater().showRepositoryByCloudIde(showRepositoryByCloudIdeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -554,8 +594,10 @@ export class DevStarClient {
      */
     public showRepositoryStatisticalDataV2(showRepositoryStatisticalDataV2Request?: ShowRepositoryStatisticalDataV2Request): Promise<ShowRepositoryStatisticalDataV2Response> {
         const options = ParamCreater().showRepositoryStatisticalDataV2(showRepositoryStatisticalDataV2Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -574,8 +616,10 @@ export class DevStarClient {
      */
     public showTemplateFile(showTemplateFileRequest?: ShowTemplateFileRequest): Promise<ShowTemplateFileResponse> {
         const options = ParamCreater().showTemplateFile(showTemplateFileRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -592,8 +636,10 @@ export class DevStarClient {
      */
     public createTemplateViewHistories(createTemplateViewHistoriesRequest?: CreateTemplateViewHistoriesRequest): Promise<CreateTemplateViewHistoriesResponse> {
         const options = ParamCreater().createTemplateViewHistories(createTemplateViewHistoriesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -612,8 +658,10 @@ export class DevStarClient {
      */
     public listPublishedTemplates(listPublishedTemplatesRequest?: ListPublishedTemplatesRequest): Promise<ListPublishedTemplatesResponse> {
         const options = ParamCreater().listPublishedTemplates(listPublishedTemplatesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -630,8 +678,10 @@ export class DevStarClient {
      */
     public listTemplateViewHistories(listTemplateViewHistoriesRequest?: ListTemplateViewHistoriesRequest): Promise<ListTemplateViewHistoriesResponse> {
         const options = ParamCreater().listTemplateViewHistories(listTemplateViewHistoriesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -648,8 +698,10 @@ export class DevStarClient {
      */
     public listTemplates(listTemplatesRequest?: ListTemplatesRequest): Promise<ListTemplatesResponse> {
         const options = ParamCreater().listTemplates(listTemplatesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -667,8 +719,10 @@ export class DevStarClient {
      */
     public listTemplatesV2(listTemplatesV2Request?: ListTemplatesV2Request): Promise<ListTemplatesV2Response> {
         const options = ParamCreater().listTemplatesV2(listTemplatesV2Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -685,8 +739,10 @@ export class DevStarClient {
      */
     public showTemplateV3(showTemplateV3Request?: ShowTemplateV3Request): Promise<ShowTemplateV3Response> {
         const options = ParamCreater().showTemplateV3(showTemplateV3Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -703,8 +759,10 @@ export class DevStarClient {
      */
     public showTemplateDetail(showTemplateDetailRequest?: ShowTemplateDetailRequest): Promise<ShowTemplateDetailResponse> {
         const options = ParamCreater().showTemplateDetail(showTemplateDetailRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -729,11 +787,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let applicationId;
+            
             let xLanguage;
+            
             let parentId;
+            
             let keyword;
+            
             let limit;
+            
             let offset;
 
             if (showApplicationReleaseRepositoriesRequest !== null && showApplicationReleaseRepositoriesRequest !== undefined) {
@@ -797,7 +861,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let applicationId;
+            
             let xLanguage;
 
             if (showApplicationResDeleteStatusRequest !== null && showApplicationResDeleteStatusRequest !== undefined) {
@@ -840,9 +906,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let applicationId;
+            
             let xLanguage;
+            
             let limit;
+            
             let offset;
 
             if (showApplicationDependentResourcesRequest !== null && showApplicationDependentResourcesRequest !== undefined) {
@@ -896,7 +966,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let applicationId;
+            
             let xLanguage;
 
             if (showApplicationV3Request !== null && showApplicationV3Request !== undefined) {
@@ -942,7 +1014,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let applicationId;
+            
             let xLanguage;
 
             if (updateApplicationRequest !== null && updateApplicationRequest !== undefined) {
@@ -992,8 +1066,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let applicationId;
+            
             let isDeleteRepository;
+            
             let pipelineIds;
 
             if (deleteApplicationV4Request !== null && deleteApplicationV4Request !== undefined) {
@@ -1043,16 +1120,27 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let xLanguage;
+            
             let attention;
+            
             let regionId;
+            
             let keyword;
+            
             let projectId;
+            
             let topicId;
+            
             let isCreatedBySelf;
+            
             let sortKey;
+            
             let sortDir;
+            
             let limit;
+            
             let offset;
 
             if (listApplicationsV6Request !== null && listApplicationsV6Request !== undefined) {
@@ -1140,7 +1228,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let jobId;
+            
             let xLanguage;
 
             if (downloadApplicationCodeRequest !== null && downloadApplicationCodeRequest !== undefined) {
@@ -1187,8 +1277,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let applicationId;
+            
             let environmentTag;
+            
             let xLanguage;
 
             if (confirmDeploymentJobRequest !== null && confirmDeploymentJobRequest !== undefined) {
@@ -1247,8 +1340,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let applicationId;
+            
             let environmentTag;
+            
             let xLanguage;
 
             if (createDeploymentJobsRequest !== null && createDeploymentJobsRequest !== undefined) {
@@ -1303,8 +1399,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let applicationId;
+            
             let environmentTag;
+            
             let xLanguage;
 
             if (showDeploymentJobsRequest !== null && showDeploymentJobsRequest !== undefined) {
@@ -1361,6 +1460,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let xLanguage;
 
             if (runCodehubTemplateJobRequest !== null && runCodehubTemplateJobRequest !== undefined) {
@@ -1413,6 +1513,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let xLanguage;
 
             if (runDevstarTemplateJobRequest !== null && runDevstarTemplateJobRequest !== undefined) {
@@ -1465,7 +1566,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let jobId;
+            
             let xLanguage;
 
             if (showJobDetailRequest !== null && showJobDetailRequest !== undefined) {
@@ -1508,9 +1611,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let regionId;
+            
             let xLanguage;
+            
             let offset;
+            
             let limit;
 
             if (listPipelineTemplatesRequest !== null && listPipelineTemplatesRequest !== undefined) {
@@ -1566,7 +1673,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let pipelineId;
+            
             let xLanguage;
 
             if (showPipelineLastStatusV2Request !== null && showPipelineLastStatusV2Request !== undefined) {
@@ -1609,7 +1718,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let pipelineId;
+            
             let xLanguage;
 
             if (startPipelineRequest !== null && startPipelineRequest !== undefined) {
@@ -1653,9 +1764,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let xLanguage;
+            
             let keyword;
+            
             let limit;
+            
             let offset;
 
             if (listProjectsV4Request !== null && listProjectsV4Request !== undefined) {
@@ -1712,9 +1827,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let name;
+            
             let regionId;
+            
             let xLanguage;
 
             if (checkRepositoryDuplicateNameRequest !== null && checkRepositoryDuplicateNameRequest !== undefined) {
@@ -1778,12 +1897,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let repositoryId;
+            
             let repositorySshUrl;
+            
             let xLanguage;
+            
             let regionId;
+            
             let spacePrefix;
+            
             let isOpenLast;
+            
             let isFree;
 
             if (showRepositoryByCloudIdeRequest !== null && showRepositoryByCloudIdeRequest !== undefined) {
@@ -1855,7 +1981,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let repositoryId;
+            
             let xLanguage;
 
             if (showRepositoryStatisticalDataV2Request !== null && showRepositoryStatisticalDataV2Request !== undefined) {
@@ -1898,9 +2026,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let templateId;
+            
             let filePath;
+            
             let xLanguage;
+            
             let type;
 
             if (showTemplateFileRequest !== null && showTemplateFileRequest !== undefined) {
@@ -1958,6 +2090,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let xLanguage;
 
             if (createTemplateViewHistoriesRequest !== null && createTemplateViewHistoriesRequest !== undefined) {
@@ -2001,9 +2134,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let xLanguage;
+            
             let keyword;
+            
             let offset;
+            
             let limit;
 
             if (listPublishedTemplatesRequest !== null && listPublishedTemplatesRequest !== undefined) {
@@ -2056,7 +2193,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let platformSource;
+            
             let xLanguage;
 
             if (listTemplateViewHistoriesRequest !== null && listTemplateViewHistoriesRequest !== undefined) {
@@ -2103,6 +2242,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let xLanguage;
 
             if (listTemplatesRequest !== null && listTemplatesRequest !== undefined) {
@@ -2144,7 +2284,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let actionId;
+            
             let xLanguage;
 
             if (listTemplatesV2Request !== null && listTemplatesV2Request !== undefined) {
@@ -2194,7 +2336,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let templateId;
+            
             let xLanguage;
 
             if (showTemplateV3Request !== null && showTemplateV3Request !== undefined) {
@@ -2237,7 +2381,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let templateId;
+            
             let xLanguage;
 
             if (showTemplateDetailRequest !== null && showTemplateDetailRequest !== undefined) {

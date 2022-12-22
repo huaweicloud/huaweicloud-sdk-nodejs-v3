@@ -179,7 +179,7 @@ import { WatermarkTemplate } from './model/WatermarkTemplate';
 
 export class VodClient {
     public static newBuilder(): ClientBuilder<VodClient> {
-        return new ClientBuilder<VodClient>(newClient);
+            return new ClientBuilder<VodClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -206,8 +206,10 @@ export class VodClient {
      */
     public cancelAssetTranscodeTask(cancelAssetTranscodeTaskRequest?: CancelAssetTranscodeTaskRequest): Promise<void> {
         const options = ParamCreater().cancelAssetTranscodeTask(cancelAssetTranscodeTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -225,8 +227,10 @@ export class VodClient {
      */
     public cancelExtractAudioTask(cancelExtractAudioTaskRequest?: CancelExtractAudioTaskRequest): Promise<void> {
         const options = ParamCreater().cancelExtractAudioTask(cancelExtractAudioTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -245,8 +249,10 @@ export class VodClient {
      */
     public checkMd5Duplication(checkMd5DuplicationRequest?: CheckMd5DuplicationRequest): Promise<CheckMd5DuplicationResponse> {
         const options = ParamCreater().checkMd5Duplication(checkMd5DuplicationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -264,8 +270,10 @@ export class VodClient {
      */
     public confirmAssetUpload(confirmAssetUploadRequest?: ConfirmAssetUploadRequest): Promise<ConfirmAssetUploadResponse> {
         const options = ParamCreater().confirmAssetUpload(confirmAssetUploadRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -283,8 +291,10 @@ export class VodClient {
      */
     public confirmImageUpload(confirmImageUploadRequest?: ConfirmImageUploadRequest): Promise<ConfirmImageUploadResponse> {
         const options = ParamCreater().confirmImageUpload(confirmImageUploadRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -306,8 +316,10 @@ export class VodClient {
      */
     public createAssetByFileUpload(createAssetByFileUploadRequest?: CreateAssetByFileUploadRequest): Promise<CreateAssetByFileUploadResponse> {
         const options = ParamCreater().createAssetByFileUpload(createAssetByFileUploadRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -325,8 +337,10 @@ export class VodClient {
      */
     public createAssetCategory(createAssetCategoryRequest?: CreateAssetCategoryRequest): Promise<CreateAssetCategoryResponse> {
         const options = ParamCreater().createAssetCategory(createAssetCategoryRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -344,8 +358,10 @@ export class VodClient {
      */
     public createAssetProcessTask(createAssetProcessTaskRequest?: CreateAssetProcessTaskRequest): Promise<CreateAssetProcessTaskResponse> {
         const options = ParamCreater().createAssetProcessTask(createAssetProcessTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -363,8 +379,10 @@ export class VodClient {
      */
     public createAssetReviewTask(createAssetReviewTaskRequest?: CreateAssetReviewTaskRequest): Promise<CreateAssetReviewTaskResponse> {
         const options = ParamCreater().createAssetReviewTask(createAssetReviewTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -382,8 +400,10 @@ export class VodClient {
      */
     public createExtractAudioTask(createExtractAudioTaskRequest?: CreateExtractAudioTaskRequest): Promise<CreateExtractAudioTaskResponse> {
         const options = ParamCreater().createExtractAudioTask(createExtractAudioTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -401,8 +421,10 @@ export class VodClient {
      */
     public createPreheatingAsset(createPreheatingAssetRequest?: CreatePreheatingAssetRequest): Promise<CreatePreheatingAssetResponse> {
         const options = ParamCreater().createPreheatingAsset(createPreheatingAssetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -422,8 +444,10 @@ export class VodClient {
      */
     public createTakeOverTask(createTakeOverTaskRequest?: CreateTakeOverTaskRequest): Promise<CreateTakeOverTaskResponse> {
         const options = ParamCreater().createTakeOverTask(createTakeOverTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -441,8 +465,10 @@ export class VodClient {
      */
     public createTemplateGroup(createTemplateGroupRequest?: CreateTemplateGroupRequest): Promise<CreateTemplateGroupResponse> {
         const options = ParamCreater().createTemplateGroup(createTemplateGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -460,8 +486,10 @@ export class VodClient {
      */
     public createTemplateGroupCollection(createTemplateGroupCollectionRequest?: CreateTemplateGroupCollectionRequest): Promise<CreateTemplateGroupCollectionResponse> {
         const options = ParamCreater().createTemplateGroupCollection(createTemplateGroupCollectionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -479,8 +507,10 @@ export class VodClient {
      */
     public createTranscodeTemplate(createTranscodeTemplateRequest?: CreateTranscodeTemplateRequest): Promise<CreateTranscodeTemplateResponse> {
         const options = ParamCreater().createTranscodeTemplate(createTranscodeTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -498,8 +528,10 @@ export class VodClient {
      */
     public createWatermarkTemplate(createWatermarkTemplateRequest?: CreateWatermarkTemplateRequest): Promise<CreateWatermarkTemplateResponse> {
         const options = ParamCreater().createWatermarkTemplate(createWatermarkTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -517,8 +549,10 @@ export class VodClient {
      */
     public deleteAssetCategory(deleteAssetCategoryRequest?: DeleteAssetCategoryRequest): Promise<void> {
         const options = ParamCreater().deleteAssetCategory(deleteAssetCategoryRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -537,8 +571,10 @@ export class VodClient {
      */
     public deleteAssets(deleteAssetsRequest?: DeleteAssetsRequest): Promise<DeleteAssetsResponse> {
         const options = ParamCreater().deleteAssets(deleteAssetsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -556,8 +592,10 @@ export class VodClient {
      */
     public deleteTemplateGroup(deleteTemplateGroupRequest?: DeleteTemplateGroupRequest): Promise<void> {
         const options = ParamCreater().deleteTemplateGroup(deleteTemplateGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -575,8 +613,10 @@ export class VodClient {
      */
     public deleteTemplateGroupCollection(deleteTemplateGroupCollectionRequest?: DeleteTemplateGroupCollectionRequest): Promise<void> {
         const options = ParamCreater().deleteTemplateGroupCollection(deleteTemplateGroupCollectionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -594,8 +634,10 @@ export class VodClient {
      */
     public deleteTranscodeTemplate(deleteTranscodeTemplateRequest?: DeleteTranscodeTemplateRequest): Promise<void> {
         const options = ParamCreater().deleteTranscodeTemplate(deleteTranscodeTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -613,8 +655,10 @@ export class VodClient {
      */
     public deleteWatermarkTemplate(deleteWatermarkTemplateRequest?: DeleteWatermarkTemplateRequest): Promise<void> {
         const options = ParamCreater().deleteWatermarkTemplate(deleteWatermarkTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -632,8 +676,10 @@ export class VodClient {
      */
     public listAssetCategory(listAssetCategoryRequest?: ListAssetCategoryRequest): Promise<Array<QueryCategoryRsp>> {
         const options = ParamCreater().listAssetCategory(listAssetCategoryRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -661,8 +707,10 @@ export class VodClient {
      */
     public listAssetList(listAssetListRequest?: ListAssetListRequest): Promise<ListAssetListResponse> {
         const options = ParamCreater().listAssetList(listAssetListRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -683,8 +731,10 @@ export class VodClient {
      */
     public listDomainLogs(listDomainLogsRequest?: ListDomainLogsRequest): Promise<ListDomainLogsResponse> {
         const options = ParamCreater().listDomainLogs(listDomainLogsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -705,8 +755,10 @@ export class VodClient {
      */
     public listTemplateGroup(listTemplateGroupRequest?: ListTemplateGroupRequest): Promise<ListTemplateGroupResponse> {
         const options = ParamCreater().listTemplateGroup(listTemplateGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -726,8 +778,10 @@ export class VodClient {
      */
     public listTemplateGroupCollection(listTemplateGroupCollectionRequest?: ListTemplateGroupCollectionRequest): Promise<ListTemplateGroupCollectionResponse> {
         const options = ParamCreater().listTemplateGroupCollection(listTemplateGroupCollectionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -746,8 +800,10 @@ export class VodClient {
      */
     public listTopStatistics(listTopStatisticsRequest?: ListTopStatisticsRequest): Promise<ListTopStatisticsResponse> {
         const options = ParamCreater().listTopStatistics(listTopStatisticsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -769,8 +825,10 @@ export class VodClient {
      */
     public listTranscodeTemplate(listTranscodeTemplateRequest?: ListTranscodeTemplateRequest): Promise<ListTranscodeTemplateResponse> {
         const options = ParamCreater().listTranscodeTemplate(listTranscodeTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -790,8 +848,10 @@ export class VodClient {
      */
     public listWatermarkTemplate(listWatermarkTemplateRequest?: ListWatermarkTemplateRequest): Promise<ListWatermarkTemplateResponse> {
         const options = ParamCreater().listWatermarkTemplate(listWatermarkTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -809,8 +869,10 @@ export class VodClient {
      */
     public publishAssetFromObs(publishAssetFromObsRequest?: PublishAssetFromObsRequest): Promise<PublishAssetFromObsResponse> {
         const options = ParamCreater().publishAssetFromObs(publishAssetFromObsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -828,8 +890,10 @@ export class VodClient {
      */
     public publishAssets(publishAssetsRequest?: PublishAssetsRequest): Promise<PublishAssetsResponse> {
         const options = ParamCreater().publishAssets(publishAssetsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -847,8 +911,10 @@ export class VodClient {
      */
     public showAssetCipher(showAssetCipherRequest?: ShowAssetCipherRequest): Promise<ShowAssetCipherResponse> {
         const options = ParamCreater().showAssetCipher(showAssetCipherRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -867,8 +933,10 @@ export class VodClient {
      */
     public showAssetDetail(showAssetDetailRequest?: ShowAssetDetailRequest): Promise<ShowAssetDetailResponse> {
         const options = ParamCreater().showAssetDetail(showAssetDetailRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -896,8 +964,10 @@ export class VodClient {
      */
     public showAssetMeta(showAssetMetaRequest?: ShowAssetMetaRequest): Promise<ShowAssetMetaResponse> {
         const options = ParamCreater().showAssetMeta(showAssetMetaRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -927,8 +997,10 @@ export class VodClient {
      */
     public showAssetTempAuthority(showAssetTempAuthorityRequest?: ShowAssetTempAuthorityRequest): Promise<ShowAssetTempAuthorityResponse> {
         const options = ParamCreater().showAssetTempAuthority(showAssetTempAuthorityRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -950,8 +1022,10 @@ export class VodClient {
      */
     public showCdnStatistics(showCdnStatisticsRequest?: ShowCdnStatisticsRequest): Promise<ShowCdnStatisticsResponse> {
         const options = ParamCreater().showCdnStatistics(showCdnStatisticsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -969,8 +1043,10 @@ export class VodClient {
      */
     public showPreheatingAsset(showPreheatingAssetRequest?: ShowPreheatingAssetRequest): Promise<ShowPreheatingAssetResponse> {
         const options = ParamCreater().showPreheatingAsset(showPreheatingAssetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -990,8 +1066,10 @@ export class VodClient {
      */
     public showVodStatistics(showVodStatisticsRequest?: ShowVodStatisticsRequest): Promise<ShowVodStatisticsResponse> {
         const options = ParamCreater().showVodStatistics(showVodStatisticsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1009,8 +1087,10 @@ export class VodClient {
      */
     public unpublishAssets(unpublishAssetsRequest?: UnpublishAssetsRequest): Promise<UnpublishAssetsResponse> {
         const options = ParamCreater().unpublishAssets(unpublishAssetsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1034,8 +1114,10 @@ export class VodClient {
      */
     public updateAsset(updateAssetRequest?: UpdateAssetRequest): Promise<UpdateAssetResponse> {
         const options = ParamCreater().updateAsset(updateAssetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1053,8 +1135,10 @@ export class VodClient {
      */
     public updateAssetCategory(updateAssetCategoryRequest?: UpdateAssetCategoryRequest): Promise<UpdateAssetCategoryResponse> {
         const options = ParamCreater().updateAssetCategory(updateAssetCategoryRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1072,8 +1156,10 @@ export class VodClient {
      */
     public updateAssetMeta(updateAssetMetaRequest?: UpdateAssetMetaRequest): Promise<void> {
         const options = ParamCreater().updateAssetMeta(updateAssetMetaRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1091,8 +1177,10 @@ export class VodClient {
      */
     public updateBucketAuthorized(updateBucketAuthorizedRequest?: UpdateBucketAuthorizedRequest): Promise<void> {
         const options = ParamCreater().updateBucketAuthorized(updateBucketAuthorizedRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1110,8 +1198,10 @@ export class VodClient {
      */
     public updateCoverByThumbnail(updateCoverByThumbnailRequest?: UpdateCoverByThumbnailRequest): Promise<void> {
         const options = ParamCreater().updateCoverByThumbnail(updateCoverByThumbnailRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1129,8 +1219,10 @@ export class VodClient {
      */
     public updateTemplateGroup(updateTemplateGroupRequest?: UpdateTemplateGroupRequest): Promise<void> {
         const options = ParamCreater().updateTemplateGroup(updateTemplateGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1148,8 +1240,10 @@ export class VodClient {
      */
     public updateTemplateGroupCollection(updateTemplateGroupCollectionRequest?: UpdateTemplateGroupCollectionRequest): Promise<void> {
         const options = ParamCreater().updateTemplateGroupCollection(updateTemplateGroupCollectionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1167,8 +1261,10 @@ export class VodClient {
      */
     public updateTranscodeTemplate(updateTranscodeTemplateRequest?: UpdateTranscodeTemplateRequest): Promise<void> {
         const options = ParamCreater().updateTranscodeTemplate(updateTranscodeTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1186,8 +1282,10 @@ export class VodClient {
      */
     public updateWatermarkTemplate(updateWatermarkTemplateRequest?: UpdateWatermarkTemplateRequest): Promise<void> {
         const options = ParamCreater().updateWatermarkTemplate(updateWatermarkTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1205,8 +1303,10 @@ export class VodClient {
      */
     public uploadMetaDataByUrl(uploadMetaDataByUrlRequest?: UploadMetaDataByUrlRequest): Promise<UploadMetaDataByUrlResponse> {
         const options = ParamCreater().uploadMetaDataByUrl(uploadMetaDataByUrlRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1227,8 +1327,10 @@ export class VodClient {
      */
     public listTakeOverTask(listTakeOverTaskRequest?: ListTakeOverTaskRequest): Promise<ListTakeOverTaskResponse> {
         const options = ParamCreater().listTakeOverTask(listTakeOverTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1247,8 +1349,10 @@ export class VodClient {
      */
     public showTakeOverAssetDetails(showTakeOverAssetDetailsRequest?: ShowTakeOverAssetDetailsRequest): Promise<ShowTakeOverAssetDetailsResponse> {
         const options = ParamCreater().showTakeOverAssetDetails(showTakeOverAssetDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1268,8 +1372,10 @@ export class VodClient {
      */
     public showTakeOverTaskDetails(showTakeOverTaskDetailsRequest?: ShowTakeOverTaskDetailsRequest): Promise<ShowTakeOverTaskDetailsResponse> {
         const options = ParamCreater().showTakeOverTaskDetails(showTakeOverTaskDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -1294,8 +1400,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let assetId;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (cancelAssetTranscodeTaskRequest !== null && cancelAssetTranscodeTaskRequest !== undefined) {
@@ -1346,8 +1455,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let assetId;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (cancelExtractAudioTaskRequest !== null && cancelExtractAudioTaskRequest !== undefined) {
@@ -1398,9 +1510,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let size;
+            
             let md5;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (checkMd5DuplicationRequest !== null && checkMd5DuplicationRequest !== undefined) {
@@ -1460,7 +1576,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (confirmAssetUploadRequest !== null && confirmAssetUploadRequest !== undefined) {
@@ -1510,7 +1628,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (confirmImageUploadRequest !== null && confirmImageUploadRequest !== undefined) {
@@ -1564,7 +1684,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createAssetByFileUploadRequest !== null && createAssetByFileUploadRequest !== undefined) {
@@ -1614,7 +1736,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createAssetCategoryRequest !== null && createAssetCategoryRequest !== undefined) {
@@ -1664,7 +1788,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createAssetProcessTaskRequest !== null && createAssetProcessTaskRequest !== undefined) {
@@ -1711,7 +1837,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createAssetReviewTaskRequest !== null && createAssetReviewTaskRequest !== undefined) {
@@ -1761,7 +1889,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createExtractAudioTaskRequest !== null && createExtractAudioTaskRequest !== undefined) {
@@ -1811,7 +1941,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createPreheatingAssetRequest !== null && createPreheatingAssetRequest !== undefined) {
@@ -1863,7 +1995,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createTakeOverTaskRequest !== null && createTakeOverTaskRequest !== undefined) {
@@ -1913,7 +2047,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createTemplateGroupRequest !== null && createTemplateGroupRequest !== undefined) {
@@ -1963,7 +2099,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createTemplateGroupCollectionRequest !== null && createTemplateGroupCollectionRequest !== undefined) {
@@ -2013,7 +2151,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createTranscodeTemplateRequest !== null && createTranscodeTemplateRequest !== undefined) {
@@ -2063,7 +2203,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (createWatermarkTemplateRequest !== null && createWatermarkTemplateRequest !== undefined) {
@@ -2112,8 +2254,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let id;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (deleteAssetCategoryRequest !== null && deleteAssetCategoryRequest !== undefined) {
@@ -2164,9 +2309,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let assetId;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let deleteType;
 
             if (deleteAssetsRequest !== null && deleteAssetsRequest !== undefined) {
@@ -2222,8 +2371,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let groupId;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (deleteTemplateGroupRequest !== null && deleteTemplateGroupRequest !== undefined) {
@@ -2274,8 +2426,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let groupCollectionId;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (deleteTemplateGroupCollectionRequest !== null && deleteTemplateGroupCollectionRequest !== undefined) {
@@ -2326,8 +2481,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let groupId;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (deleteTranscodeTemplateRequest !== null && deleteTranscodeTemplateRequest !== undefined) {
@@ -2378,8 +2536,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let id;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (deleteWatermarkTemplateRequest !== null && deleteWatermarkTemplateRequest !== undefined) {
@@ -2430,8 +2591,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let id;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (listAssetCategoryRequest !== null && listAssetCategoryRequest !== undefined) {
@@ -2482,18 +2646,31 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let assetId;
+            
             let status;
+            
             let startTime;
+            
             let endTime;
+            
             let categoryId;
+            
             let tags;
+            
             let queryString;
+            
             let mediaType;
+            
             let page;
+            
             let size;
+            
             let order;
 
             if (listAssetListRequest !== null && listAssetListRequest !== undefined) {
@@ -2591,11 +2768,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let domainName;
+            
             let queryDate;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let pageSize;
+            
             let pageNumber;
 
             if (listDomainLogsRequest !== null && listDomainLogsRequest !== undefined) {
@@ -2664,11 +2847,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let groupId;
+            
             let status;
+            
             let page;
+            
             let size;
 
             if (listTemplateGroupRequest !== null && listTemplateGroupRequest !== undefined) {
@@ -2731,10 +2920,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let groupCollectionId;
+            
             let offset;
+            
             let limit;
 
             if (listTemplateGroupCollectionRequest !== null && listTemplateGroupCollectionRequest !== undefined) {
@@ -2792,9 +2986,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let domain;
+            
             let date;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (listTopStatisticsRequest !== null && listTopStatisticsRequest !== undefined) {
@@ -2853,12 +3051,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let groupId;
+            
             let isDefault;
+            
             let offset;
+            
             let limit;
+            
             let queryString;
 
             if (listTranscodeTemplateRequest !== null && listTranscodeTemplateRequest !== undefined) {
@@ -2926,10 +3131,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let id;
+            
             let page;
+            
             let size;
 
             if (listWatermarkTemplateRequest !== null && listWatermarkTemplateRequest !== undefined) {
@@ -2988,7 +3198,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (publishAssetFromObsRequest !== null && publishAssetFromObsRequest !== undefined) {
@@ -3038,7 +3250,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (publishAssetsRequest !== null && publishAssetsRequest !== undefined) {
@@ -3087,8 +3301,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let assetId;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (showAssetCipherRequest !== null && showAssetCipherRequest !== undefined) {
@@ -3139,9 +3356,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let assetId;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let categories;
 
             if (showAssetDetailRequest !== null && showAssetDetailRequest !== undefined) {
@@ -3197,18 +3418,31 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let assetId;
+            
             let status;
+            
             let transcodeStatus;
+            
             let assetStatus;
+            
             let startTime;
+            
             let endTime;
+            
             let categoryId;
+            
             let tags;
+            
             let queryString;
+            
             let page;
+            
             let size;
 
             if (showAssetMetaRequest !== null && showAssetMetaRequest !== undefined) {
@@ -3312,14 +3546,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let httpVerb;
+            
             let bucket;
+            
             let objectKey;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let contentType;
+            
             let contentMd5;
+            
             let uploadId;
+            
             let partNumber;
 
             if (showAssetTempAuthorityRequest !== null && showAssetTempAuthorityRequest !== undefined) {
@@ -3406,12 +3649,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let statType;
+            
             let domain;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let startTime;
+            
             let endTime;
+            
             let interval;
 
             if (showCdnStatisticsRequest !== null && showCdnStatisticsRequest !== undefined) {
@@ -3485,8 +3735,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let taskId;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (showPreheatingAssetRequest !== null && showPreheatingAssetRequest !== undefined) {
@@ -3537,10 +3790,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let startTime;
+            
             let endTime;
+            
             let interval;
 
             if (showVodStatisticsRequest !== null && showVodStatisticsRequest !== undefined) {
@@ -3599,7 +3857,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (unpublishAssetsRequest !== null && unpublishAssetsRequest !== undefined) {
@@ -3655,7 +3915,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (updateAssetRequest !== null && updateAssetRequest !== undefined) {
@@ -3705,7 +3967,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (updateAssetCategoryRequest !== null && updateAssetCategoryRequest !== undefined) {
@@ -3755,7 +4019,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (updateAssetMetaRequest !== null && updateAssetMetaRequest !== undefined) {
@@ -3802,7 +4068,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (updateBucketAuthorizedRequest !== null && updateBucketAuthorizedRequest !== undefined) {
@@ -3852,7 +4120,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (updateCoverByThumbnailRequest !== null && updateCoverByThumbnailRequest !== undefined) {
@@ -3902,7 +4172,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (updateTemplateGroupRequest !== null && updateTemplateGroupRequest !== undefined) {
@@ -3952,7 +4224,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (updateTemplateGroupCollectionRequest !== null && updateTemplateGroupCollectionRequest !== undefined) {
@@ -4002,7 +4276,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (updateTranscodeTemplateRequest !== null && updateTranscodeTemplateRequest !== undefined) {
@@ -4052,7 +4328,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (updateWatermarkTemplateRequest !== null && updateWatermarkTemplateRequest !== undefined) {
@@ -4099,7 +4377,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (uploadMetaDataByUrlRequest !== null && uploadMetaDataByUrlRequest !== undefined) {
@@ -4148,11 +4428,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let status;
+            
             let taskId;
+            
             let page;
+            
             let size;
 
             if (listTakeOverTaskRequest !== null && listTakeOverTaskRequest !== undefined) {
@@ -4215,9 +4501,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let sourceBucket;
+            
             let sourceObject;
+            
             let authorization;
+            
             let xSdkDate;
 
             if (showTakeOverAssetDetailsRequest !== null && showTakeOverAssetDetailsRequest !== undefined) {
@@ -4276,10 +4566,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let taskId;
+            
             let authorization;
+            
             let xSdkDate;
+            
             let page;
+            
             let size;
 
             if (showTakeOverTaskDetailsRequest !== null && showTakeOverTaskDetailsRequest !== undefined) {

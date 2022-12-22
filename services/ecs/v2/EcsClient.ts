@@ -307,7 +307,7 @@ import { UpdateServerResult } from './model/UpdateServerResult';
 
 export class EcsClient {
     public static newBuilder(): ClientBuilder<EcsClient> {
-        return new ClientBuilder<EcsClient>(newClient);
+            return new ClientBuilder<EcsClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -333,8 +333,10 @@ export class EcsClient {
      */
     public addServerGroupMember(addServerGroupMemberRequest?: AddServerGroupMemberRequest): Promise<void> {
         const options = ParamCreater().addServerGroupMember(addServerGroupMemberRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -357,8 +359,10 @@ export class EcsClient {
      */
     public associateServerVirtualIp(associateServerVirtualIpRequest?: AssociateServerVirtualIpRequest): Promise<AssociateServerVirtualIpResponse> {
         const options = ParamCreater().associateServerVirtualIp(associateServerVirtualIpRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -375,8 +379,10 @@ export class EcsClient {
      */
     public attachServerVolume(attachServerVolumeRequest?: AttachServerVolumeRequest): Promise<AttachServerVolumeResponse> {
         const options = ParamCreater().attachServerVolume(attachServerVolumeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -393,8 +399,10 @@ export class EcsClient {
      */
     public batchAddServerNics(batchAddServerNicsRequest?: BatchAddServerNicsRequest): Promise<BatchAddServerNicsResponse> {
         const options = ParamCreater().batchAddServerNics(batchAddServerNicsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -411,8 +419,10 @@ export class EcsClient {
      */
     public batchAttachSharableVolumes(batchAttachSharableVolumesRequest?: BatchAttachSharableVolumesRequest): Promise<BatchAttachSharableVolumesResponse> {
         const options = ParamCreater().batchAttachSharableVolumes(batchAttachSharableVolumesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -431,8 +441,10 @@ export class EcsClient {
      */
     public batchCreateServerTags(batchCreateServerTagsRequest?: BatchCreateServerTagsRequest): Promise<void> {
         const options = ParamCreater().batchCreateServerTags(batchCreateServerTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -449,8 +461,10 @@ export class EcsClient {
      */
     public batchDeleteServerNics(batchDeleteServerNicsRequest?: BatchDeleteServerNicsRequest): Promise<BatchDeleteServerNicsResponse> {
         const options = ParamCreater().batchDeleteServerNics(batchDeleteServerNicsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -469,8 +483,10 @@ export class EcsClient {
      */
     public batchDeleteServerTags(batchDeleteServerTagsRequest?: BatchDeleteServerTagsRequest): Promise<void> {
         const options = ParamCreater().batchDeleteServerTags(batchDeleteServerTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -486,8 +502,10 @@ export class EcsClient {
      */
     public batchRebootServers(batchRebootServersRequest?: BatchRebootServersRequest): Promise<BatchRebootServersResponse> {
         const options = ParamCreater().batchRebootServers(batchRebootServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -503,8 +521,10 @@ export class EcsClient {
      */
     public batchResetServersPassword(batchResetServersPasswordRequest?: BatchResetServersPasswordRequest): Promise<BatchResetServersPasswordResponse> {
         const options = ParamCreater().batchResetServersPassword(batchResetServersPasswordRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -520,8 +540,10 @@ export class EcsClient {
      */
     public batchStartServers(batchStartServersRequest?: BatchStartServersRequest): Promise<BatchStartServersResponse> {
         const options = ParamCreater().batchStartServers(batchStartServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -537,8 +559,10 @@ export class EcsClient {
      */
     public batchStopServers(batchStopServersRequest?: BatchStopServersRequest): Promise<BatchStopServersResponse> {
         const options = ParamCreater().batchStopServers(batchStopServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -555,8 +579,10 @@ export class EcsClient {
      */
     public batchUpdateServersName(batchUpdateServersNameRequest?: BatchUpdateServersNameRequest): Promise<BatchUpdateServersNameResponse> {
         const options = ParamCreater().batchUpdateServersName(batchUpdateServersNameRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -575,8 +601,10 @@ export class EcsClient {
      */
     public changeServerOsWithCloudInit(changeServerOsWithCloudInitRequest?: ChangeServerOsWithCloudInitRequest): Promise<ChangeServerOsWithCloudInitResponse> {
         const options = ParamCreater().changeServerOsWithCloudInit(changeServerOsWithCloudInitRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -595,8 +623,10 @@ export class EcsClient {
      */
     public changeServerOsWithoutCloudInit(changeServerOsWithoutCloudInitRequest?: ChangeServerOsWithoutCloudInitRequest): Promise<ChangeServerOsWithoutCloudInitResponse> {
         const options = ParamCreater().changeServerOsWithoutCloudInit(changeServerOsWithoutCloudInitRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -626,8 +656,10 @@ export class EcsClient {
      */
     public createPostPaidServers(createPostPaidServersRequest?: CreatePostPaidServersRequest): Promise<CreatePostPaidServersResponse> {
         const options = ParamCreater().createPostPaidServers(createPostPaidServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -645,8 +677,10 @@ export class EcsClient {
      */
     public createServerGroup(createServerGroupRequest?: CreateServerGroupRequest): Promise<CreateServerGroupResponse> {
         const options = ParamCreater().createServerGroup(createServerGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -685,8 +719,10 @@ export class EcsClient {
      */
     public createServers(createServersRequest?: CreateServersRequest): Promise<CreateServersResponse> {
         const options = ParamCreater().createServers(createServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -704,8 +740,10 @@ export class EcsClient {
      */
     public deleteServerGroup(deleteServerGroupRequest?: DeleteServerGroupRequest): Promise<void> {
         const options = ParamCreater().deleteServerGroup(deleteServerGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -722,8 +760,10 @@ export class EcsClient {
      */
     public deleteServerGroupMember(deleteServerGroupMemberRequest?: DeleteServerGroupMemberRequest): Promise<void> {
         const options = ParamCreater().deleteServerGroupMember(deleteServerGroupMemberRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -740,8 +780,10 @@ export class EcsClient {
      */
     public deleteServerMetadata(deleteServerMetadataRequest?: DeleteServerMetadataRequest): Promise<void> {
         const options = ParamCreater().deleteServerMetadata(deleteServerMetadataRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -757,8 +799,10 @@ export class EcsClient {
      */
     public deleteServerPassword(deleteServerPasswordRequest?: DeleteServerPasswordRequest): Promise<void> {
         const options = ParamCreater().deleteServerPassword(deleteServerPasswordRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -776,8 +820,10 @@ export class EcsClient {
      */
     public deleteServers(deleteServersRequest?: DeleteServersRequest): Promise<DeleteServersResponse> {
         const options = ParamCreater().deleteServers(deleteServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -795,8 +841,10 @@ export class EcsClient {
      */
     public detachServerVolume(detachServerVolumeRequest?: DetachServerVolumeRequest): Promise<DetachServerVolumeResponse> {
         const options = ParamCreater().detachServerVolume(detachServerVolumeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -815,8 +863,10 @@ export class EcsClient {
      */
     public disassociateServerVirtualIp(disassociateServerVirtualIpRequest?: DisassociateServerVirtualIpRequest): Promise<DisassociateServerVirtualIpResponse> {
         const options = ParamCreater().disassociateServerVirtualIp(disassociateServerVirtualIpRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -832,8 +882,10 @@ export class EcsClient {
      */
     public listFlavors(listFlavorsRequest?: ListFlavorsRequest): Promise<ListFlavorsResponse> {
         const options = ParamCreater().listFlavors(listFlavorsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -855,8 +907,10 @@ export class EcsClient {
      */
     public listResizeFlavors(listResizeFlavorsRequest?: ListResizeFlavorsRequest): Promise<ListResizeFlavorsResponse> {
         const options = ParamCreater().listResizeFlavors(listResizeFlavorsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -872,8 +926,10 @@ export class EcsClient {
      */
     public listServerBlockDevices(listServerBlockDevicesRequest?: ListServerBlockDevicesRequest): Promise<ListServerBlockDevicesResponse> {
         const options = ParamCreater().listServerBlockDevices(listServerBlockDevicesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -892,8 +948,10 @@ export class EcsClient {
      */
     public listServerGroups(listServerGroupsRequest?: ListServerGroupsRequest): Promise<ListServerGroupsResponse> {
         const options = ParamCreater().listServerGroups(listServerGroupsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -909,8 +967,10 @@ export class EcsClient {
      */
     public listServerInterfaces(listServerInterfacesRequest?: ListServerInterfacesRequest): Promise<ListServerInterfacesResponse> {
         const options = ParamCreater().listServerInterfaces(listServerInterfacesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -927,8 +987,10 @@ export class EcsClient {
      */
     public listServerTags(): Promise<ListServerTagsResponse> {
         const options = ParamCreater().listServerTags();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -944,8 +1006,10 @@ export class EcsClient {
      */
     public listServersByTag(listServersByTagRequest?: ListServersByTagRequest): Promise<ListServersByTagResponse> {
         const options = ParamCreater().listServersByTag(listServersByTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -974,8 +1038,10 @@ export class EcsClient {
      */
     public listServersDetails(listServersDetailsRequest?: ListServersDetailsRequest): Promise<ListServersDetailsResponse> {
         const options = ParamCreater().listServersDetails(listServersDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -994,8 +1060,10 @@ export class EcsClient {
      */
     public migrateServer(migrateServerRequest?: MigrateServerRequest): Promise<MigrateServerResponse> {
         const options = ParamCreater().migrateServer(migrateServerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1014,8 +1082,10 @@ export class EcsClient {
      */
     public novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest?: NovaAssociateSecurityGroupRequest): Promise<void> {
         const options = ParamCreater().novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1034,8 +1104,10 @@ export class EcsClient {
      */
     public novaCreateKeypair(novaCreateKeypairRequest?: NovaCreateKeypairRequest): Promise<NovaCreateKeypairResponse> {
         const options = ParamCreater().novaCreateKeypair(novaCreateKeypairRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1056,8 +1128,10 @@ export class EcsClient {
      */
     public novaCreateServers(novaCreateServersRequest?: NovaCreateServersRequest): Promise<NovaCreateServersResponse> {
         const options = ParamCreater().novaCreateServers(novaCreateServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1073,8 +1147,10 @@ export class EcsClient {
      */
     public novaDeleteKeypair(novaDeleteKeypairRequest?: NovaDeleteKeypairRequest): Promise<void> {
         const options = ParamCreater().novaDeleteKeypair(novaDeleteKeypairRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1090,8 +1166,10 @@ export class EcsClient {
      */
     public novaDeleteServer(novaDeleteServerRequest?: NovaDeleteServerRequest): Promise<void> {
         const options = ParamCreater().novaDeleteServer(novaDeleteServerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1108,8 +1186,10 @@ export class EcsClient {
      */
     public novaDisassociateSecurityGroup(novaDisassociateSecurityGroupRequest?: NovaDisassociateSecurityGroupRequest): Promise<void> {
         const options = ParamCreater().novaDisassociateSecurityGroup(novaDisassociateSecurityGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1124,8 +1204,10 @@ export class EcsClient {
      */
     public novaListAvailabilityZones(): Promise<NovaListAvailabilityZonesResponse> {
         const options = ParamCreater().novaListAvailabilityZones();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1143,8 +1225,10 @@ export class EcsClient {
      */
     public novaListKeypairs(novaListKeypairsRequest?: NovaListKeypairsRequest): Promise<NovaListKeypairsResponse> {
         const options = ParamCreater().novaListKeypairs(novaListKeypairsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1160,8 +1244,10 @@ export class EcsClient {
      */
     public novaListServerSecurityGroups(novaListServerSecurityGroupsRequest?: NovaListServerSecurityGroupsRequest): Promise<NovaListServerSecurityGroupsResponse> {
         const options = ParamCreater().novaListServerSecurityGroups(novaListServerSecurityGroupsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1189,8 +1275,10 @@ export class EcsClient {
      */
     public novaListServersDetails(novaListServersDetailsRequest?: NovaListServersDetailsRequest): Promise<NovaListServersDetailsResponse> {
         const options = ParamCreater().novaListServersDetails(novaListServersDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1207,8 +1295,10 @@ export class EcsClient {
      */
     public novaShowKeypair(novaShowKeypairRequest?: NovaShowKeypairRequest): Promise<NovaShowKeypairResponse> {
         const options = ParamCreater().novaShowKeypair(novaShowKeypairRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1225,8 +1315,10 @@ export class EcsClient {
      */
     public novaShowServer(novaShowServerRequest?: NovaShowServerRequest): Promise<NovaShowServerResponse> {
         const options = ParamCreater().novaShowServer(novaShowServerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1243,8 +1335,10 @@ export class EcsClient {
      */
     public registerServerAutoRecovery(registerServerAutoRecoveryRequest?: RegisterServerAutoRecoveryRequest): Promise<void> {
         const options = ParamCreater().registerServerAutoRecovery(registerServerAutoRecoveryRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1263,8 +1357,10 @@ export class EcsClient {
      */
     public registerServerMonitor(registerServerMonitorRequest?: RegisterServerMonitorRequest): Promise<void> {
         const options = ParamCreater().registerServerMonitor(registerServerMonitorRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1283,8 +1379,10 @@ export class EcsClient {
      */
     public reinstallServerWithCloudInit(reinstallServerWithCloudInitRequest?: ReinstallServerWithCloudInitRequest): Promise<ReinstallServerWithCloudInitResponse> {
         const options = ParamCreater().reinstallServerWithCloudInit(reinstallServerWithCloudInitRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1303,8 +1401,10 @@ export class EcsClient {
      */
     public reinstallServerWithoutCloudInit(reinstallServerWithoutCloudInitRequest?: ReinstallServerWithoutCloudInitRequest): Promise<ReinstallServerWithoutCloudInitResponse> {
         const options = ParamCreater().reinstallServerWithoutCloudInit(reinstallServerWithoutCloudInitRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1321,8 +1421,10 @@ export class EcsClient {
      */
     public resetServerPassword(resetServerPasswordRequest?: ResetServerPasswordRequest): Promise<void> {
         const options = ParamCreater().resetServerPassword(resetServerPasswordRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1343,8 +1445,10 @@ export class EcsClient {
      */
     public resizePostPaidServer(resizePostPaidServerRequest?: ResizePostPaidServerRequest): Promise<ResizePostPaidServerResponse> {
         const options = ParamCreater().resizePostPaidServer(resizePostPaidServerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1369,8 +1473,10 @@ export class EcsClient {
      */
     public resizeServer(resizeServerRequest?: ResizeServerRequest): Promise<ResizeServerResponse> {
         const options = ParamCreater().resizeServer(resizeServerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1386,8 +1492,10 @@ export class EcsClient {
      */
     public showResetPasswordFlag(showResetPasswordFlagRequest?: ShowResetPasswordFlagRequest): Promise<ShowResetPasswordFlagResponse> {
         const options = ParamCreater().showResetPasswordFlag(showResetPasswordFlagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1405,8 +1513,10 @@ export class EcsClient {
      */
     public showServer(showServerRequest?: ShowServerRequest): Promise<ShowServerResponse> {
         const options = ParamCreater().showServer(showServerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1422,8 +1532,10 @@ export class EcsClient {
      */
     public showServerAutoRecovery(showServerAutoRecoveryRequest?: ShowServerAutoRecoveryRequest): Promise<ShowServerAutoRecoveryResponse> {
         const options = ParamCreater().showServerAutoRecovery(showServerAutoRecoveryRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1440,8 +1552,10 @@ export class EcsClient {
      */
     public showServerBlockDevice(showServerBlockDeviceRequest?: ShowServerBlockDeviceRequest): Promise<ShowServerBlockDeviceResponse> {
         const options = ParamCreater().showServerBlockDevice(showServerBlockDeviceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1459,8 +1573,10 @@ export class EcsClient {
      */
     public showServerGroup(showServerGroupRequest?: ShowServerGroupRequest): Promise<ShowServerGroupResponse> {
         const options = ParamCreater().showServerGroup(showServerGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1475,8 +1591,10 @@ export class EcsClient {
      */
     public showServerLimits(): Promise<ShowServerLimitsResponse> {
         const options = ParamCreater().showServerLimits();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1492,8 +1610,10 @@ export class EcsClient {
      */
     public showServerPassword(showServerPasswordRequest?: ShowServerPasswordRequest): Promise<ShowServerPasswordResponse> {
         const options = ParamCreater().showServerPassword(showServerPasswordRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1510,8 +1630,10 @@ export class EcsClient {
      */
     public showServerRemoteConsole(showServerRemoteConsoleRequest?: ShowServerRemoteConsoleRequest): Promise<ShowServerRemoteConsoleResponse> {
         const options = ParamCreater().showServerRemoteConsole(showServerRemoteConsoleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1529,8 +1651,10 @@ export class EcsClient {
      */
     public showServerTags(showServerTagsRequest?: ShowServerTagsRequest): Promise<ShowServerTagsResponse> {
         const options = ParamCreater().showServerTags(showServerTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1547,8 +1671,10 @@ export class EcsClient {
      */
     public updateServer(updateServerRequest?: UpdateServerRequest): Promise<UpdateServerResponse> {
         const options = ParamCreater().updateServer(updateServerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1567,8 +1693,10 @@ export class EcsClient {
      */
     public updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest?: UpdateServerAutoTerminateTimeRequest): Promise<void> {
         const options = ParamCreater().updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1586,8 +1714,10 @@ export class EcsClient {
      */
     public updateServerBlockDevice(updateServerBlockDeviceRequest?: UpdateServerBlockDeviceRequest): Promise<void> {
         const options = ParamCreater().updateServerBlockDevice(updateServerBlockDeviceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1610,8 +1740,10 @@ export class EcsClient {
      */
     public updateServerMetadata(updateServerMetadataRequest?: UpdateServerMetadataRequest): Promise<UpdateServerMetadataResponse> {
         const options = ParamCreater().updateServerMetadata(updateServerMetadataRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1629,8 +1761,10 @@ export class EcsClient {
      */
     public showJob(showJobRequest?: ShowJobRequest): Promise<ShowJobResponse> {
         const options = ParamCreater().showJob(showJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -1656,6 +1790,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverGroupId;
 
             if (addServerGroupMemberRequest !== null && addServerGroupMemberRequest !== undefined) {
@@ -1707,6 +1842,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let nicId;
 
             if (associateServerVirtualIpRequest !== null && associateServerVirtualIpRequest !== undefined) {
@@ -1752,6 +1888,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (attachServerVolumeRequest !== null && attachServerVolumeRequest !== undefined) {
@@ -1797,6 +1934,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (batchAddServerNicsRequest !== null && batchAddServerNicsRequest !== undefined) {
@@ -1842,6 +1980,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let volumeId;
 
             if (batchAttachSharableVolumesRequest !== null && batchAttachSharableVolumesRequest !== undefined) {
@@ -1889,6 +2028,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (batchCreateServerTagsRequest !== null && batchCreateServerTagsRequest !== undefined) {
@@ -1934,6 +2074,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (batchDeleteServerNicsRequest !== null && batchDeleteServerNicsRequest !== undefined) {
@@ -1981,6 +2122,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (batchDeleteServerTagsRequest !== null && batchDeleteServerTagsRequest !== undefined) {
@@ -2219,6 +2361,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (changeServerOsWithCloudInitRequest !== null && changeServerOsWithCloudInitRequest !== undefined) {
@@ -2266,6 +2409,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (changeServerOsWithoutCloudInitRequest !== null && changeServerOsWithoutCloudInitRequest !== undefined) {
@@ -2324,6 +2468,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let xClientToken;
 
             if (createPostPaidServersRequest !== null && createPostPaidServersRequest !== undefined) {
@@ -2430,6 +2575,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let xClientToken;
 
             if (createServersRequest !== null && createServersRequest !== undefined) {
@@ -2475,6 +2621,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverGroupId;
 
             if (deleteServerGroupRequest !== null && deleteServerGroupRequest !== undefined) {
@@ -2513,6 +2660,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverGroupId;
 
             if (deleteServerGroupMemberRequest !== null && deleteServerGroupMemberRequest !== undefined) {
@@ -2557,7 +2705,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let key;
+            
             let serverId;
 
             if (deleteServerMetadataRequest !== null && deleteServerMetadataRequest !== undefined) {
@@ -2600,6 +2750,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (deleteServerPasswordRequest !== null && deleteServerPasswordRequest !== undefined) {
@@ -2677,8 +2828,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let serverId;
+            
             let volumeId;
+            
             let deleteFlag;
 
             if (detachServerVolumeRequest !== null && detachServerVolumeRequest !== undefined) {
@@ -2730,6 +2884,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let nicId;
 
             if (disassociateServerVirtualIpRequest !== null && disassociateServerVirtualIpRequest !== undefined) {
@@ -2774,6 +2929,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let availabilityZone;
 
             if (listFlavorsRequest !== null && listFlavorsRequest !== undefined) {
@@ -2811,12 +2967,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let instanceUuid;
+            
             let limit;
+            
             let marker;
+            
             let sortDir;
+            
             let sortKey;
+            
             let sourceFlavorId;
+            
             let sourceFlavorName;
 
             if (listResizeFlavorsRequest !== null && listResizeFlavorsRequest !== undefined) {
@@ -2884,6 +3047,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (listServerBlockDevicesRequest !== null && listServerBlockDevicesRequest !== undefined) {
@@ -2923,7 +3087,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
 
             if (listServerGroupsRequest !== null && listServerGroupsRequest !== undefined) {
@@ -2966,6 +3132,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (listServerInterfacesRequest !== null && listServerInterfacesRequest !== undefined) {
@@ -3067,17 +3234,29 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let enterpriseProjectId;
+            
             let flavor;
+            
             let ip;
+            
             let limit;
+            
             let name;
+            
             let notTags;
+            
             let offset;
+            
             let reservationId;
+            
             let status;
+            
             let tags;
+            
             let ipEq;
+            
             let serverId;
 
             if (listServersDetailsRequest !== null && listServersDetailsRequest !== undefined) {
@@ -3173,6 +3352,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (migrateServerRequest !== null && migrateServerRequest !== undefined) {
@@ -3220,6 +3400,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (novaAssociateSecurityGroupRequest !== null && novaAssociateSecurityGroupRequest !== undefined) {
@@ -3267,6 +3448,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let openStackAPIVersion;
 
             if (novaCreateKeypairRequest !== null && novaCreateKeypairRequest !== undefined) {
@@ -3315,6 +3497,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let openStackAPIVersion;
 
             if (novaCreateServersRequest !== null && novaCreateServersRequest !== undefined) {
@@ -3358,6 +3541,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let keypairName;
 
             if (novaDeleteKeypairRequest !== null && novaDeleteKeypairRequest !== undefined) {
@@ -3395,6 +3579,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (novaDeleteServerRequest !== null && novaDeleteServerRequest !== undefined) {
@@ -3433,6 +3618,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (novaDisassociateSecurityGroupRequest !== null && novaDisassociateSecurityGroupRequest !== undefined) {
@@ -3499,8 +3685,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let openStackAPIVersion;
 
             if (novaListKeypairsRequest !== null && novaListKeypairsRequest !== undefined) {
@@ -3548,6 +3737,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (novaListServerSecurityGroupsRequest !== null && novaListServerSecurityGroupsRequest !== undefined) {
@@ -3585,18 +3775,31 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let changesSince;
+            
             let flavor;
+            
             let image;
+            
             let ip;
+            
             let limit;
+            
             let marker;
+            
             let name;
+            
             let notTags;
+            
             let reservationId;
+            
             let sortKey;
+            
             let status;
+            
             let tags;
+            
             let openStackAPIVersion;
 
             if (novaListServersDetailsRequest !== null && novaListServersDetailsRequest !== undefined) {
@@ -3694,7 +3897,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let keypairName;
+            
             let openStackAPIVersion;
 
             if (novaShowKeypairRequest !== null && novaShowKeypairRequest !== undefined) {
@@ -3737,7 +3942,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
+            
             let openStackAPIVersion;
 
             if (novaShowServerRequest !== null && novaShowServerRequest !== undefined) {
@@ -3781,6 +3988,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (registerServerAutoRecoveryRequest !== null && registerServerAutoRecoveryRequest !== undefined) {
@@ -3828,6 +4036,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (registerServerMonitorRequest !== null && registerServerMonitorRequest !== undefined) {
@@ -3875,6 +4084,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (reinstallServerWithCloudInitRequest !== null && reinstallServerWithCloudInitRequest !== undefined) {
@@ -3922,6 +4132,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (reinstallServerWithoutCloudInitRequest !== null && reinstallServerWithoutCloudInitRequest !== undefined) {
@@ -3967,6 +4178,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (resetServerPasswordRequest !== null && resetServerPasswordRequest !== undefined) {
@@ -4016,6 +4228,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (resizePostPaidServerRequest !== null && resizePostPaidServerRequest !== undefined) {
@@ -4069,6 +4282,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (resizeServerRequest !== null && resizeServerRequest !== undefined) {
@@ -4113,6 +4327,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (showResetPasswordFlagRequest !== null && showResetPasswordFlagRequest !== undefined) {
@@ -4152,6 +4367,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (showServerRequest !== null && showServerRequest !== undefined) {
@@ -4189,6 +4405,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (showServerAutoRecoveryRequest !== null && showServerAutoRecoveryRequest !== undefined) {
@@ -4226,7 +4443,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
+            
             let volumeId;
 
             if (showServerBlockDeviceRequest !== null && showServerBlockDeviceRequest !== undefined) {
@@ -4271,6 +4490,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverGroupId;
 
             if (showServerGroupRequest !== null && showServerGroupRequest !== undefined) {
@@ -4330,6 +4550,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (showServerPasswordRequest !== null && showServerPasswordRequest !== undefined) {
@@ -4368,6 +4589,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (showServerRemoteConsoleRequest !== null && showServerRemoteConsoleRequest !== undefined) {
@@ -4414,6 +4636,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (showServerTagsRequest !== null && showServerTagsRequest !== undefined) {
@@ -4452,6 +4675,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (updateServerRequest !== null && updateServerRequest !== undefined) {
@@ -4499,6 +4723,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (updateServerAutoTerminateTimeRequest !== null && updateServerAutoTerminateTimeRequest !== undefined) {
@@ -4544,7 +4769,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
+            
             let volumeId;
 
             if (updateServerBlockDeviceRequest !== null && updateServerBlockDeviceRequest !== undefined) {
@@ -4601,6 +4828,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (updateServerMetadataRequest !== null && updateServerMetadataRequest !== undefined) {
@@ -4647,6 +4875,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let jobId;
 
             if (showJobRequest !== null && showJobRequest !== undefined) {

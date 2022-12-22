@@ -152,7 +152,7 @@ import { VpcObject } from './model/VpcObject';
 
 export class SmsClient {
     public static newBuilder(): ClientBuilder<SmsClient> {
-        return new ClientBuilder<SmsClient>(newClient);
+            return new ClientBuilder<SmsClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -180,8 +180,10 @@ export class SmsClient {
      */
     public checkNetAcl(checkNetAclRequest?: CheckNetAclRequest): Promise<void> {
         const options = ParamCreater().checkNetAcl(checkNetAclRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -198,8 +200,10 @@ export class SmsClient {
      */
     public collectLog(collectLogRequest?: CollectLogRequest): Promise<void> {
         const options = ParamCreater().collectLog(collectLogRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -215,8 +219,10 @@ export class SmsClient {
      */
     public createMigproject(createMigprojectRequest?: CreateMigprojectRequest): Promise<CreateMigprojectResponse> {
         const options = ParamCreater().createMigproject(createMigprojectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -232,8 +238,10 @@ export class SmsClient {
      */
     public createTask(createTaskRequest?: CreateTaskRequest): Promise<CreateTaskResponse> {
         const options = ParamCreater().createTask(createTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -249,8 +257,10 @@ export class SmsClient {
      */
     public createTemplate(createTemplateRequest?: CreateTemplateRequest): Promise<CreateTemplateResponse> {
         const options = ParamCreater().createTemplate(createTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -266,8 +276,10 @@ export class SmsClient {
      */
     public deleteMigproject(deleteMigprojectRequest?: DeleteMigprojectRequest): Promise<void> {
         const options = ParamCreater().deleteMigproject(deleteMigprojectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -283,8 +295,10 @@ export class SmsClient {
      */
     public deleteServer(deleteServerRequest?: DeleteServerRequest): Promise<void> {
         const options = ParamCreater().deleteServer(deleteServerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -300,8 +314,10 @@ export class SmsClient {
      */
     public deleteServers(deleteServersRequest?: DeleteServersRequest): Promise<void> {
         const options = ParamCreater().deleteServers(deleteServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -317,8 +333,10 @@ export class SmsClient {
      */
     public deleteTask(deleteTaskRequest?: DeleteTaskRequest): Promise<void> {
         const options = ParamCreater().deleteTask(deleteTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -334,8 +352,10 @@ export class SmsClient {
      */
     public deleteTasks(deleteTasksRequest?: DeleteTasksRequest): Promise<void> {
         const options = ParamCreater().deleteTasks(deleteTasksRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -351,8 +371,10 @@ export class SmsClient {
      */
     public deleteTemplate(deleteTemplateRequest?: DeleteTemplateRequest): Promise<void> {
         const options = ParamCreater().deleteTemplate(deleteTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -368,8 +390,10 @@ export class SmsClient {
      */
     public deleteTemplates(deleteTemplatesRequest?: DeleteTemplatesRequest): Promise<void> {
         const options = ParamCreater().deleteTemplates(deleteTemplatesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -388,8 +412,10 @@ export class SmsClient {
      */
     public listErrorServers(listErrorServersRequest?: ListErrorServersRequest): Promise<ListErrorServersResponse> {
         const options = ParamCreater().listErrorServers(listErrorServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -406,8 +432,10 @@ export class SmsClient {
      */
     public listMigprojects(listMigprojectsRequest?: ListMigprojectsRequest): Promise<ListMigprojectsResponse> {
         const options = ParamCreater().listMigprojects(listMigprojectsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -432,8 +460,10 @@ export class SmsClient {
      */
     public listServers(listServersRequest?: ListServersRequest): Promise<ListServersResponse> {
         const options = ParamCreater().listServers(listServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -455,8 +485,10 @@ export class SmsClient {
      */
     public listTasks(listTasksRequest?: ListTasksRequest): Promise<ListTasksResponse> {
         const options = ParamCreater().listTasks(listTasksRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -476,8 +508,10 @@ export class SmsClient {
      */
     public listTemplates(listTemplatesRequest?: ListTemplatesRequest): Promise<ListTemplatesResponse> {
         const options = ParamCreater().listTemplates(listTemplatesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -493,8 +527,10 @@ export class SmsClient {
      */
     public registerServer(registerServerRequest?: RegisterServerRequest): Promise<RegisterServerResponse> {
         const options = ParamCreater().registerServer(registerServerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -510,8 +546,10 @@ export class SmsClient {
      */
     public showCertKey(showCertKeyRequest?: ShowCertKeyRequest): Promise<ShowCertKeyResponse> {
         const options = ParamCreater().showCertKey(showCertKeyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -527,8 +565,10 @@ export class SmsClient {
      */
     public showCommand(showCommandRequest?: ShowCommandRequest): Promise<ShowCommandResponse> {
         const options = ParamCreater().showCommand(showCommandRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -544,8 +584,10 @@ export class SmsClient {
      */
     public showMigproject(showMigprojectRequest?: ShowMigprojectRequest): Promise<ShowMigprojectResponse> {
         const options = ParamCreater().showMigproject(showMigprojectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -560,8 +602,10 @@ export class SmsClient {
      */
     public showOverview(): Promise<ShowOverviewResponse> {
         const options = ParamCreater().showOverview();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -577,8 +621,10 @@ export class SmsClient {
      */
     public showPassphrase(showPassphraseRequest?: ShowPassphraseRequest): Promise<ShowPassphraseResponse> {
         const options = ParamCreater().showPassphrase(showPassphraseRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -594,8 +640,10 @@ export class SmsClient {
      */
     public showServer(showServerRequest?: ShowServerRequest): Promise<ShowServerResponse> {
         const options = ParamCreater().showServer(showServerRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -611,8 +659,10 @@ export class SmsClient {
      */
     public showSha256(showSha256Request?: ShowSha256Request): Promise<ShowSha256Response> {
         const options = ParamCreater().showSha256(showSha256Request);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -628,8 +678,10 @@ export class SmsClient {
      */
     public showTargetPassword(showTargetPasswordRequest?: ShowTargetPasswordRequest): Promise<ShowTargetPasswordResponse> {
         const options = ParamCreater().showTargetPassword(showTargetPasswordRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -645,8 +697,10 @@ export class SmsClient {
      */
     public showTask(showTaskRequest?: ShowTaskRequest): Promise<ShowTaskResponse> {
         const options = ParamCreater().showTask(showTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -662,8 +716,10 @@ export class SmsClient {
      */
     public showTemplate(showTemplateRequest?: ShowTemplateRequest): Promise<ShowTemplateResponse> {
         const options = ParamCreater().showTemplate(showTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -679,8 +735,10 @@ export class SmsClient {
      */
     public showsSpeedLimits(showsSpeedLimitsRequest?: ShowsSpeedLimitsRequest): Promise<ShowsSpeedLimitsResponse> {
         const options = ParamCreater().showsSpeedLimits(showsSpeedLimitsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -696,8 +754,10 @@ export class SmsClient {
      */
     public unlockTargetEcs(unlockTargetEcsRequest?: UnlockTargetEcsRequest): Promise<void> {
         const options = ParamCreater().unlockTargetEcs(unlockTargetEcsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -714,8 +774,10 @@ export class SmsClient {
      */
     public updateCommandResult(updateCommandResultRequest?: UpdateCommandResultRequest): Promise<void> {
         const options = ParamCreater().updateCommandResult(updateCommandResultRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -732,8 +794,10 @@ export class SmsClient {
      */
     public updateCopyState(updateCopyStateRequest?: UpdateCopyStateRequest): Promise<void> {
         const options = ParamCreater().updateCopyState(updateCopyStateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -749,8 +813,10 @@ export class SmsClient {
      */
     public updateDefaultMigproject(updateDefaultMigprojectRequest?: UpdateDefaultMigprojectRequest): Promise<void> {
         const options = ParamCreater().updateDefaultMigproject(updateDefaultMigprojectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -767,8 +833,10 @@ export class SmsClient {
      */
     public updateDiskInfo(updateDiskInfoRequest?: UpdateDiskInfoRequest): Promise<void> {
         const options = ParamCreater().updateDiskInfo(updateDiskInfoRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -785,8 +853,10 @@ export class SmsClient {
      */
     public updateMigproject(updateMigprojectRequest?: UpdateMigprojectRequest): Promise<string> {
         const options = ParamCreater().updateMigproject(updateMigprojectRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -803,8 +873,10 @@ export class SmsClient {
      */
     public updateServerName(updateServerNameRequest?: UpdateServerNameRequest): Promise<void> {
         const options = ParamCreater().updateServerName(updateServerNameRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -821,8 +893,10 @@ export class SmsClient {
      */
     public updateSpeed(updateSpeedRequest?: UpdateSpeedRequest): Promise<void> {
         const options = ParamCreater().updateSpeed(updateSpeedRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -839,8 +913,10 @@ export class SmsClient {
      */
     public updateTask(updateTaskRequest?: UpdateTaskRequest): Promise<string> {
         const options = ParamCreater().updateTask(updateTaskRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -859,8 +935,10 @@ export class SmsClient {
      */
     public updateTaskSpeed(updateTaskSpeedRequest?: UpdateTaskSpeedRequest): Promise<void> {
         const options = ParamCreater().updateTaskSpeed(updateTaskSpeedRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -877,8 +955,10 @@ export class SmsClient {
      */
     public updateTaskStatus(updateTaskStatusRequest?: UpdateTaskStatusRequest): Promise<void> {
         const options = ParamCreater().updateTaskStatus(updateTaskStatusRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -895,8 +975,10 @@ export class SmsClient {
      */
     public updateTemplate(updateTemplateRequest?: UpdateTemplateRequest): Promise<void> {
         const options = ParamCreater().updateTemplate(updateTemplateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -921,9 +1003,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let tProjectId;
+            
             let tNetworkId;
+            
             let regionId;
+            
             let osType;
 
             if (checkNetAclRequest !== null && checkNetAclRequest !== undefined) {
@@ -984,6 +1070,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let taskId;
 
             if (collectLogRequest !== null && collectLogRequest !== undefined) {
@@ -1142,6 +1229,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let migProjectId;
 
             if (deleteMigprojectRequest !== null && deleteMigprojectRequest !== undefined) {
@@ -1179,6 +1267,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let sourceId;
 
             if (deleteServerRequest !== null && deleteServerRequest !== undefined) {
@@ -1254,6 +1343,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let taskId;
 
             if (deleteTaskRequest !== null && deleteTaskRequest !== undefined) {
@@ -1329,6 +1419,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let id;
 
             if (deleteTemplateRequest !== null && deleteTemplateRequest !== undefined) {
@@ -1401,9 +1492,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let offset;
+            
             let limit;
+            
             let migproject;
+            
             let enterpriseProjectId;
 
             if (listErrorServersRequest !== null && listErrorServersRequest !== undefined) {
@@ -1459,7 +1554,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let offset;
 
             if (listMigprojectsRequest !== null && listMigprojectsRequest !== undefined) {
@@ -1502,15 +1599,25 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let state;
+            
             let name;
+            
             let id;
+            
             let ip;
+            
             let migproject;
+            
             let limit;
+            
             let offset;
+            
             let migrationCycle;
+            
             let connected;
+            
             let enterpriseProjectId;
 
             if (listServersRequest !== null && listServersRequest !== undefined) {
@@ -1593,12 +1700,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let state;
+            
             let name;
+            
             let id;
+            
             let sourceServerId;
+            
             let limit;
+            
             let offset;
+            
             let enterpriseProjectId;
 
             if (listTasksRequest !== null && listTasksRequest !== undefined) {
@@ -1666,10 +1780,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let name;
+            
             let availabilityZone;
+            
             let region;
+            
             let limit;
+            
             let offset;
 
             if (listTemplatesRequest !== null && listTemplatesRequest !== undefined) {
@@ -1765,6 +1884,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let taskId;
 
             if (showCertKeyRequest !== null && showCertKeyRequest !== undefined) {
@@ -1802,6 +1922,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let serverId;
 
             if (showCommandRequest !== null && showCommandRequest !== undefined) {
@@ -1839,6 +1960,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let migProjectId;
 
             if (showMigprojectRequest !== null && showMigprojectRequest !== undefined) {
@@ -1898,6 +2020,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let taskId;
 
             if (showPassphraseRequest !== null && showPassphraseRequest !== undefined) {
@@ -1935,6 +2058,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let sourceId;
 
             if (showServerRequest !== null && showServerRequest !== undefined) {
@@ -1972,6 +2096,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let key;
 
             if (showSha256Request !== null && showSha256Request !== undefined) {
@@ -2009,6 +2134,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let id;
 
             if (showTargetPasswordRequest !== null && showTargetPasswordRequest !== undefined) {
@@ -2046,6 +2172,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let taskId;
 
             if (showTaskRequest !== null && showTaskRequest !== undefined) {
@@ -2083,6 +2210,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let id;
 
             if (showTemplateRequest !== null && showTemplateRequest !== undefined) {
@@ -2120,6 +2248,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let taskId;
 
             if (showsSpeedLimitsRequest !== null && showsSpeedLimitsRequest !== undefined) {
@@ -2157,6 +2286,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let taskId;
 
             if (unlockTargetEcsRequest !== null && unlockTargetEcsRequest !== undefined) {
@@ -2195,6 +2325,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let serverId;
 
             if (updateCommandResultRequest !== null && updateCommandResultRequest !== undefined) {
@@ -2240,6 +2371,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let sourceId;
 
             if (updateCopyStateRequest !== null && updateCopyStateRequest !== undefined) {
@@ -2284,6 +2416,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let migProjectId;
 
             if (updateDefaultMigprojectRequest !== null && updateDefaultMigprojectRequest !== undefined) {
@@ -2322,6 +2455,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let sourceId;
 
             if (updateDiskInfoRequest !== null && updateDiskInfoRequest !== undefined) {
@@ -2364,6 +2498,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let migProjectId;
 
             if (updateMigprojectRequest !== null && updateMigprojectRequest !== undefined) {
@@ -2406,6 +2541,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let sourceId;
 
             if (updateServerNameRequest !== null && updateServerNameRequest !== undefined) {
@@ -2451,6 +2587,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let taskId;
 
             if (updateSpeedRequest !== null && updateSpeedRequest !== undefined) {
@@ -2496,6 +2633,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let taskId;
 
             if (updateTaskRequest !== null && updateTaskRequest !== undefined) {
@@ -2540,6 +2678,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let taskId;
 
             if (updateTaskSpeedRequest !== null && updateTaskSpeedRequest !== undefined) {
@@ -2582,6 +2721,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let taskId;
 
             if (updateTaskStatusRequest !== null && updateTaskStatusRequest !== undefined) {
@@ -2627,6 +2767,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let id;
 
             if (updateTemplateRequest !== null && updateTemplateRequest !== undefined) {

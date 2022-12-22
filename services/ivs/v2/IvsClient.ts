@@ -35,7 +35,7 @@ import { StandardRespDataByNameAndId } from './model/StandardRespDataByNameAndId
 
 export class IvsClient {
     public static newBuilder(): ClientBuilder<IvsClient> {
-        return new ClientBuilder<IvsClient>(newClient);
+            return new ClientBuilder<IvsClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -60,8 +60,10 @@ export class IvsClient {
      */
     public detectExtentionByIdCardImage(detectExtentionByIdCardImageRequest?: DetectExtentionByIdCardImageRequest): Promise<DetectExtentionByIdCardImageResponse> {
         const options = ParamCreater().detectExtentionByIdCardImage(detectExtentionByIdCardImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -77,8 +79,10 @@ export class IvsClient {
      */
     public detectExtentionByNameAndId(detectExtentionByNameAndIdRequest?: DetectExtentionByNameAndIdRequest): Promise<DetectExtentionByNameAndIdResponse> {
         const options = ParamCreater().detectExtentionByNameAndId(detectExtentionByNameAndIdRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -95,8 +99,10 @@ export class IvsClient {
      */
     public detectStandardByIdCardImage(detectStandardByIdCardImageRequest?: DetectStandardByIdCardImageRequest): Promise<DetectStandardByIdCardImageResponse> {
         const options = ParamCreater().detectStandardByIdCardImage(detectStandardByIdCardImageRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -112,8 +118,10 @@ export class IvsClient {
      */
     public detectStandardByNameAndId(detectStandardByNameAndIdRequest?: DetectStandardByNameAndIdRequest): Promise<DetectStandardByNameAndIdResponse> {
         const options = ParamCreater().detectStandardByNameAndId(detectStandardByNameAndIdRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }

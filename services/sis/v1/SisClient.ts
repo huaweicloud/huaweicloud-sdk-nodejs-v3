@@ -61,7 +61,7 @@ import { WordPronunciation } from './model/WordPronunciation';
 
 export class SisClient {
     public static newBuilder(): ClientBuilder<SisClient> {
-        return new ClientBuilder<SisClient>(newClient);
+            return new ClientBuilder<SisClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -86,8 +86,10 @@ export class SisClient {
      */
     public collectTranscriberJob(collectTranscriberJobRequest?: CollectTranscriberJobRequest): Promise<CollectTranscriberJobResponse> {
         const options = ParamCreater().collectTranscriberJob(collectTranscriberJobRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -103,8 +105,10 @@ export class SisClient {
      */
     public createVocabulary(createVocabularyRequest?: CreateVocabularyRequest): Promise<CreateVocabularyResponse> {
         const options = ParamCreater().createVocabulary(createVocabularyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -120,8 +124,10 @@ export class SisClient {
      */
     public deleteVocabulary(deleteVocabularyRequest?: DeleteVocabularyRequest): Promise<void> {
         const options = ParamCreater().deleteVocabulary(deleteVocabularyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -146,8 +152,10 @@ export class SisClient {
      */
     public pushTranscriberJobs(pushTranscriberJobsRequest?: PushTranscriberJobsRequest): Promise<PushTranscriberJobsResponse> {
         const options = ParamCreater().pushTranscriberJobs(pushTranscriberJobsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -172,8 +180,10 @@ export class SisClient {
      */
     public recognizeFlashAsr(recognizeFlashAsrRequest?: RecognizeFlashAsrRequest): Promise<RecognizeFlashAsrResponse> {
         const options = ParamCreater().recognizeFlashAsr(recognizeFlashAsrRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -189,8 +199,10 @@ export class SisClient {
      */
     public recognizeShortAudio(recognizeShortAudioRequest?: RecognizeShortAudioRequest): Promise<RecognizeShortAudioResponse> {
         const options = ParamCreater().recognizeShortAudio(recognizeShortAudioRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -206,8 +218,10 @@ export class SisClient {
      */
     public runAudioAssessment(runAudioAssessmentRequest?: RunAudioAssessmentRequest): Promise<RunAudioAssessmentResponse> {
         const options = ParamCreater().runAudioAssessment(runAudioAssessmentRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -223,8 +237,10 @@ export class SisClient {
      */
     public runMultiModalAssessment(runMultiModalAssessmentRequest?: RunMultiModalAssessmentRequest): Promise<RunMultiModalAssessmentResponse> {
         const options = ParamCreater().runMultiModalAssessment(runMultiModalAssessmentRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -240,8 +256,10 @@ export class SisClient {
      */
     public runTts(runTtsRequest?: RunTtsRequest): Promise<RunTtsResponse> {
         const options = ParamCreater().runTts(runTtsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -257,8 +275,10 @@ export class SisClient {
      */
     public showVocabularies(showVocabulariesRequest?: ShowVocabulariesRequest): Promise<ShowVocabulariesResponse> {
         const options = ParamCreater().showVocabularies(showVocabulariesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -274,8 +294,10 @@ export class SisClient {
      */
     public showVocabulary(showVocabularyRequest?: ShowVocabularyRequest): Promise<ShowVocabularyResponse> {
         const options = ParamCreater().showVocabulary(showVocabularyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -292,8 +314,10 @@ export class SisClient {
      */
     public updateVocabulary(updateVocabularyRequest?: UpdateVocabularyRequest): Promise<UpdateVocabularyResponse> {
         const options = ParamCreater().updateVocabulary(updateVocabularyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -318,6 +342,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let jobId;
 
             if (collectTranscriberJobRequest !== null && collectTranscriberJobRequest !== undefined) {
@@ -393,6 +418,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let vocabularyId;
 
             if (deleteVocabularyRequest !== null && deleteVocabularyRequest !== undefined) {
@@ -475,14 +501,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let property;
+            
             let audioFormat;
+            
             let addPunc;
+            
             let digitNorm;
+            
             let needWordInfo;
+            
             let vocabularyId;
+            
             let obsBucketName;
+            
             let obsObjectKey;
+            
             let firstChannelOnly;
 
             if (recognizeFlashAsrRequest !== null && recognizeFlashAsrRequest !== undefined) {
@@ -753,6 +788,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let vocabularyId;
 
             if (showVocabularyRequest !== null && showVocabularyRequest !== undefined) {
@@ -791,6 +827,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let vocabularyId;
 
             if (updateVocabularyRequest !== null && updateVocabularyRequest !== undefined) {

@@ -255,7 +255,7 @@ import { WhiteBlackIpResponseBody } from './model/WhiteBlackIpResponseBody';
 
 export class WafClient {
     public static newBuilder(): ClientBuilder<WafClient> {
-        return new ClientBuilder<WafClient>(newClient);
+            return new ClientBuilder<WafClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -283,8 +283,10 @@ export class WafClient {
      */
     public applyCertificateToHost(applyCertificateToHostRequest?: ApplyCertificateToHostRequest): Promise<ApplyCertificateToHostResponse> {
         const options = ParamCreater().applyCertificateToHost(applyCertificateToHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -305,8 +307,10 @@ export class WafClient {
      */
     public changePrepaidCloudWaf(changePrepaidCloudWafRequest?: ChangePrepaidCloudWafRequest): Promise<ChangePrepaidCloudWafResponse> {
         const options = ParamCreater().changePrepaidCloudWaf(changePrepaidCloudWafRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -325,8 +329,10 @@ export class WafClient {
      */
     public createAntiTamperRule(createAntiTamperRuleRequest?: CreateAntiTamperRuleRequest): Promise<CreateAntiTamperRuleResponse> {
         const options = ParamCreater().createAntiTamperRule(createAntiTamperRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -344,8 +350,10 @@ export class WafClient {
      */
     public createCertificate(createCertificateRequest?: CreateCertificateRequest): Promise<CreateCertificateResponse> {
         const options = ParamCreater().createCertificate(createCertificateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -364,8 +372,10 @@ export class WafClient {
      */
     public createGeoipRule(createGeoipRuleRequest?: CreateGeoipRuleRequest): Promise<CreateGeoipRuleResponse> {
         const options = ParamCreater().createGeoipRule(createGeoipRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -383,8 +393,10 @@ export class WafClient {
      */
     public createHost(createHostRequest?: CreateHostRequest): Promise<CreateHostResponse> {
         const options = ParamCreater().createHost(createHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -403,8 +415,10 @@ export class WafClient {
      */
     public createIgnoreRule(createIgnoreRuleRequest?: CreateIgnoreRuleRequest): Promise<CreateIgnoreRuleResponse> {
         const options = ParamCreater().createIgnoreRule(createIgnoreRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -422,8 +436,10 @@ export class WafClient {
      */
     public createInstance(createInstanceRequest?: CreateInstanceRequest): Promise<CreateInstanceResponse> {
         const options = ParamCreater().createInstance(createInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -441,8 +457,10 @@ export class WafClient {
      */
     public createIpGroup(createIpGroupRequest?: CreateIpGroupRequest): Promise<CreateIpGroupResponse> {
         const options = ParamCreater().createIpGroup(createIpGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -460,8 +478,10 @@ export class WafClient {
      */
     public createPolicy(createPolicyRequest?: CreatePolicyRequest): Promise<CreatePolicyResponse> {
         const options = ParamCreater().createPolicy(createPolicyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -479,8 +499,10 @@ export class WafClient {
      */
     public createPremiumHost(createPremiumHostRequest?: CreatePremiumHostRequest): Promise<CreatePremiumHostResponse> {
         const options = ParamCreater().createPremiumHost(createPremiumHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -498,8 +520,10 @@ export class WafClient {
      */
     public createPrepaidCloudWaf(createPrepaidCloudWafRequest?: CreatePrepaidCloudWafRequest): Promise<CreatePrepaidCloudWafResponse> {
         const options = ParamCreater().createPrepaidCloudWaf(createPrepaidCloudWafRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -518,8 +542,10 @@ export class WafClient {
      */
     public createPrivacyRule(createPrivacyRuleRequest?: CreatePrivacyRuleRequest): Promise<CreatePrivacyRuleResponse> {
         const options = ParamCreater().createPrivacyRule(createPrivacyRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -537,8 +563,10 @@ export class WafClient {
      */
     public createValueList(createValueListRequest?: CreateValueListRequest): Promise<CreateValueListResponse> {
         const options = ParamCreater().createValueList(createValueListRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -557,8 +585,10 @@ export class WafClient {
      */
     public createWhiteblackipRule(createWhiteblackipRuleRequest?: CreateWhiteblackipRuleRequest): Promise<CreateWhiteblackipRuleResponse> {
         const options = ParamCreater().createWhiteblackipRule(createWhiteblackipRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -577,8 +607,10 @@ export class WafClient {
      */
     public deleteAntitamperRule(deleteAntitamperRuleRequest?: DeleteAntitamperRuleRequest): Promise<DeleteAntitamperRuleResponse> {
         const options = ParamCreater().deleteAntitamperRule(deleteAntitamperRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -596,8 +628,10 @@ export class WafClient {
      */
     public deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest): Promise<DeleteCertificateResponse> {
         const options = ParamCreater().deleteCertificate(deleteCertificateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -616,8 +650,10 @@ export class WafClient {
      */
     public deleteGeoipRule(deleteGeoipRuleRequest?: DeleteGeoipRuleRequest): Promise<DeleteGeoipRuleResponse> {
         const options = ParamCreater().deleteGeoipRule(deleteGeoipRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -635,8 +671,10 @@ export class WafClient {
      */
     public deleteHost(deleteHostRequest?: DeleteHostRequest): Promise<DeleteHostResponse> {
         const options = ParamCreater().deleteHost(deleteHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -655,8 +693,10 @@ export class WafClient {
      */
     public deleteIgnoreRule(deleteIgnoreRuleRequest?: DeleteIgnoreRuleRequest): Promise<DeleteIgnoreRuleResponse> {
         const options = ParamCreater().deleteIgnoreRule(deleteIgnoreRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -674,8 +714,10 @@ export class WafClient {
      */
     public deleteInstance(deleteInstanceRequest?: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
         const options = ParamCreater().deleteInstance(deleteInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -693,8 +735,10 @@ export class WafClient {
      */
     public deleteIpGroup(deleteIpGroupRequest?: DeleteIpGroupRequest): Promise<DeleteIpGroupResponse> {
         const options = ParamCreater().deleteIpGroup(deleteIpGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -712,8 +756,10 @@ export class WafClient {
      */
     public deletePolicy(deletePolicyRequest?: DeletePolicyRequest): Promise<DeletePolicyResponse> {
         const options = ParamCreater().deletePolicy(deletePolicyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -732,8 +778,10 @@ export class WafClient {
      */
     public deletePremiumHost(deletePremiumHostRequest?: DeletePremiumHostRequest): Promise<DeletePremiumHostResponse> {
         const options = ParamCreater().deletePremiumHost(deletePremiumHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -752,8 +800,10 @@ export class WafClient {
      */
     public deletePrivacyRule(deletePrivacyRuleRequest?: DeletePrivacyRuleRequest): Promise<DeletePrivacyRuleResponse> {
         const options = ParamCreater().deletePrivacyRule(deletePrivacyRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -771,8 +821,10 @@ export class WafClient {
      */
     public deleteValueList(deleteValueListRequest?: DeleteValueListRequest): Promise<DeleteValueListResponse> {
         const options = ParamCreater().deleteValueList(deleteValueListRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -791,8 +843,10 @@ export class WafClient {
      */
     public deleteWhiteBlackIpRule(deleteWhiteBlackIpRuleRequest?: DeleteWhiteBlackIpRuleRequest): Promise<DeleteWhiteBlackIpRuleResponse> {
         const options = ParamCreater().deleteWhiteBlackIpRule(deleteWhiteBlackIpRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -812,8 +866,10 @@ export class WafClient {
      */
     public listAntitamperRule(listAntitamperRuleRequest?: ListAntitamperRuleRequest): Promise<ListAntitamperRuleResponse> {
         const options = ParamCreater().listAntitamperRule(listAntitamperRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -835,8 +891,10 @@ export class WafClient {
      */
     public listBandwidthTimeline(listBandwidthTimelineRequest?: ListBandwidthTimelineRequest): Promise<Array<BandwidthStatisticsTimelineItem>> {
         const options = ParamCreater().listBandwidthTimeline(listBandwidthTimelineRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -858,8 +916,10 @@ export class WafClient {
      */
     public listCertificates(listCertificatesRequest?: ListCertificatesRequest): Promise<ListCertificatesResponse> {
         const options = ParamCreater().listCertificates(listCertificatesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -883,8 +943,10 @@ export class WafClient {
      */
     public listCompositeHosts(listCompositeHostsRequest?: ListCompositeHostsRequest): Promise<ListCompositeHostsResponse> {
         const options = ParamCreater().listCompositeHosts(listCompositeHostsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -908,8 +970,10 @@ export class WafClient {
      */
     public listEvent(listEventRequest?: ListEventRequest): Promise<ListEventResponse> {
         const options = ParamCreater().listEvent(listEventRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -929,8 +993,10 @@ export class WafClient {
      */
     public listGeoipRule(listGeoipRuleRequest?: ListGeoipRuleRequest): Promise<ListGeoipRuleResponse> {
         const options = ParamCreater().listGeoipRule(listGeoipRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -951,8 +1017,10 @@ export class WafClient {
      */
     public listHost(listHostRequest?: ListHostRequest): Promise<ListHostResponse> {
         const options = ParamCreater().listHost(listHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -970,8 +1038,10 @@ export class WafClient {
      */
     public listHostRoute(listHostRouteRequest?: ListHostRouteRequest): Promise<ListHostRouteResponse> {
         const options = ParamCreater().listHostRoute(listHostRouteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -991,8 +1061,10 @@ export class WafClient {
      */
     public listIgnoreRule(listIgnoreRuleRequest?: ListIgnoreRuleRequest): Promise<ListIgnoreRuleResponse> {
         const options = ParamCreater().listIgnoreRule(listIgnoreRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1012,8 +1084,10 @@ export class WafClient {
      */
     public listInstance(listInstanceRequest?: ListInstanceRequest): Promise<ListInstanceResponse> {
         const options = ParamCreater().listInstance(listInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1034,8 +1108,10 @@ export class WafClient {
      */
     public listIpGroup(listIpGroupRequest?: ListIpGroupRequest): Promise<ListIpGroupResponse> {
         const options = ParamCreater().listIpGroup(listIpGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1052,8 +1128,10 @@ export class WafClient {
      */
     public listNoticeConfigs(listNoticeConfigsRequest?: ListNoticeConfigsRequest): Promise<ListNoticeConfigsResponse> {
         const options = ParamCreater().listNoticeConfigs(listNoticeConfigsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1075,8 +1153,10 @@ export class WafClient {
      */
     public listOverviewsClassification(listOverviewsClassificationRequest?: ListOverviewsClassificationRequest): Promise<ListOverviewsClassificationResponse> {
         const options = ParamCreater().listOverviewsClassification(listOverviewsClassificationRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1096,8 +1176,10 @@ export class WafClient {
      */
     public listPolicy(listPolicyRequest?: ListPolicyRequest): Promise<ListPolicyResponse> {
         const options = ParamCreater().listPolicy(listPolicyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1119,8 +1201,10 @@ export class WafClient {
      */
     public listPremiumHost(listPremiumHostRequest?: ListPremiumHostRequest): Promise<ListPremiumHostResponse> {
         const options = ParamCreater().listPremiumHost(listPremiumHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1140,8 +1224,10 @@ export class WafClient {
      */
     public listPrivacyRule(listPrivacyRuleRequest?: ListPrivacyRuleRequest): Promise<ListPrivacyRuleResponse> {
         const options = ParamCreater().listPrivacyRule(listPrivacyRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1163,8 +1249,10 @@ export class WafClient {
      */
     public listQpsTimeline(listQpsTimelineRequest?: ListQpsTimelineRequest): Promise<Array<StatisticsTimelineItem>> {
         const options = ParamCreater().listQpsTimeline(listQpsTimelineRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1186,8 +1274,10 @@ export class WafClient {
      */
     public listRequestTimeline(listRequestTimelineRequest?: ListRequestTimelineRequest): Promise<Array<StatisticsTimelineItem>> {
         const options = ParamCreater().listRequestTimeline(listRequestTimelineRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1208,8 +1298,10 @@ export class WafClient {
      */
     public listStatistics(listStatisticsRequest?: ListStatisticsRequest): Promise<Array<CountItem>> {
         const options = ParamCreater().listStatistics(listStatisticsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1232,8 +1324,10 @@ export class WafClient {
      */
     public listTopAbnormal(listTopAbnormalRequest?: ListTopAbnormalRequest): Promise<ListTopAbnormalResponse> {
         const options = ParamCreater().listTopAbnormal(listTopAbnormalRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1252,8 +1346,10 @@ export class WafClient {
      */
     public listValueList(listValueListRequest?: ListValueListRequest): Promise<ListValueListResponse> {
         const options = ParamCreater().listValueList(listValueListRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1274,8 +1370,10 @@ export class WafClient {
      */
     public listWhiteblackipRule(listWhiteblackipRuleRequest?: ListWhiteblackipRuleRequest): Promise<ListWhiteblackipRuleResponse> {
         const options = ParamCreater().listWhiteblackipRule(listWhiteblackipRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1294,8 +1392,10 @@ export class WafClient {
      */
     public migrateCompositeHosts(migrateCompositeHostsRequest?: MigrateCompositeHostsRequest): Promise<MigrateCompositeHostsResponse> {
         const options = ParamCreater().migrateCompositeHosts(migrateCompositeHostsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1314,8 +1414,10 @@ export class WafClient {
      */
     public renameInstance(renameInstanceRequest?: RenameInstanceRequest): Promise<RenameInstanceResponse> {
         const options = ParamCreater().renameInstance(renameInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1333,8 +1435,10 @@ export class WafClient {
      */
     public showCertificate(showCertificateRequest?: ShowCertificateRequest): Promise<ShowCertificateResponse> {
         const options = ParamCreater().showCertificate(showCertificateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1352,8 +1456,10 @@ export class WafClient {
      */
     public showCompositeHost(showCompositeHostRequest?: ShowCompositeHostRequest): Promise<ShowCompositeHostResponse> {
         const options = ParamCreater().showCompositeHost(showCompositeHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1369,8 +1475,10 @@ export class WafClient {
      */
     public showConsoleConfig(showConsoleConfigRequest?: ShowConsoleConfigRequest): Promise<ShowConsoleConfigResponse> {
         const options = ParamCreater().showConsoleConfig(showConsoleConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1388,8 +1496,10 @@ export class WafClient {
      */
     public showEvent(showEventRequest?: ShowEventRequest): Promise<ShowEventResponse> {
         const options = ParamCreater().showEvent(showEventRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1407,8 +1517,10 @@ export class WafClient {
      */
     public showHost(showHostRequest?: ShowHostRequest): Promise<ShowHostResponse> {
         const options = ParamCreater().showHost(showHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1426,8 +1538,10 @@ export class WafClient {
      */
     public showInstance(showInstanceRequest?: ShowInstanceRequest): Promise<ShowInstanceResponse> {
         const options = ParamCreater().showInstance(showInstanceRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1445,8 +1559,10 @@ export class WafClient {
      */
     public showIpGroup(showIpGroupRequest?: ShowIpGroupRequest): Promise<ShowIpGroupResponse> {
         const options = ParamCreater().showIpGroup(showIpGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1463,8 +1579,10 @@ export class WafClient {
      */
     public showLtsInfoConfig(showLtsInfoConfigRequest?: ShowLtsInfoConfigRequest): Promise<ShowLtsInfoConfigResponse> {
         const options = ParamCreater().showLtsInfoConfig(showLtsInfoConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1482,8 +1600,10 @@ export class WafClient {
      */
     public showPolicy(showPolicyRequest?: ShowPolicyRequest): Promise<ShowPolicyResponse> {
         const options = ParamCreater().showPolicy(showPolicyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1501,8 +1621,10 @@ export class WafClient {
      */
     public showPremiumHost(showPremiumHostRequest?: ShowPremiumHostRequest): Promise<ShowPremiumHostResponse> {
         const options = ParamCreater().showPremiumHost(showPremiumHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1518,8 +1640,10 @@ export class WafClient {
      */
     public showSourceIp(showSourceIpRequest?: ShowSourceIpRequest): Promise<ShowSourceIpResponse> {
         const options = ParamCreater().showSourceIp(showSourceIpRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1535,8 +1659,10 @@ export class WafClient {
      */
     public showSubscriptionInfo(showSubscriptionInfoRequest?: ShowSubscriptionInfoRequest): Promise<ShowSubscriptionInfoResponse> {
         const options = ParamCreater().showSubscriptionInfo(showSubscriptionInfoRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1555,8 +1681,10 @@ export class WafClient {
      */
     public updateAlertNoticeConfig(updateAlertNoticeConfigRequest?: UpdateAlertNoticeConfigRequest): Promise<UpdateAlertNoticeConfigResponse> {
         const options = ParamCreater().updateAlertNoticeConfig(updateAlertNoticeConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1575,8 +1703,10 @@ export class WafClient {
      */
     public updateCertificate(updateCertificateRequest?: UpdateCertificateRequest): Promise<UpdateCertificateResponse> {
         const options = ParamCreater().updateCertificate(updateCertificateRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1596,8 +1726,10 @@ export class WafClient {
      */
     public updateGeoipRule(updateGeoipRuleRequest?: UpdateGeoipRuleRequest): Promise<UpdateGeoipRuleResponse> {
         const options = ParamCreater().updateGeoipRule(updateGeoipRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1616,8 +1748,10 @@ export class WafClient {
      */
     public updateHost(updateHostRequest?: UpdateHostRequest): Promise<UpdateHostResponse> {
         const options = ParamCreater().updateHost(updateHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1636,8 +1770,10 @@ export class WafClient {
      */
     public updateHostProtectStatus(updateHostProtectStatusRequest?: UpdateHostProtectStatusRequest): Promise<UpdateHostProtectStatusResponse> {
         const options = ParamCreater().updateHostProtectStatus(updateHostProtectStatusRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1656,8 +1792,10 @@ export class WafClient {
      */
     public updateIpGroup(updateIpGroupRequest?: UpdateIpGroupRequest): Promise<UpdateIpGroupResponse> {
         const options = ParamCreater().updateIpGroup(updateIpGroupRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1676,8 +1814,10 @@ export class WafClient {
      */
     public updateLtsInfoConfig(updateLtsInfoConfigRequest?: UpdateLtsInfoConfigRequest): Promise<UpdateLtsInfoConfigResponse> {
         const options = ParamCreater().updateLtsInfoConfig(updateLtsInfoConfigRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1696,8 +1836,10 @@ export class WafClient {
      */
     public updatePolicy(updatePolicyRequest?: UpdatePolicyRequest): Promise<UpdatePolicyResponse> {
         const options = ParamCreater().updatePolicy(updatePolicyRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1716,8 +1858,10 @@ export class WafClient {
      */
     public updatePolicyProtectHost(updatePolicyProtectHostRequest?: UpdatePolicyProtectHostRequest): Promise<UpdatePolicyProtectHostResponse> {
         const options = ParamCreater().updatePolicyProtectHost(updatePolicyProtectHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1738,8 +1882,10 @@ export class WafClient {
      */
     public updatePolicyRuleStatus(updatePolicyRuleStatusRequest?: UpdatePolicyRuleStatusRequest): Promise<UpdatePolicyRuleStatusResponse> {
         const options = ParamCreater().updatePolicyRuleStatus(updatePolicyRuleStatusRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1758,8 +1904,10 @@ export class WafClient {
      */
     public updatePremiumHost(updatePremiumHostRequest?: UpdatePremiumHostRequest): Promise<UpdatePremiumHostResponse> {
         const options = ParamCreater().updatePremiumHost(updatePremiumHostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1778,8 +1926,10 @@ export class WafClient {
      */
     public updatePremiumHostProtectStatus(updatePremiumHostProtectStatusRequest?: UpdatePremiumHostProtectStatusRequest): Promise<UpdatePremiumHostProtectStatusResponse> {
         const options = ParamCreater().updatePremiumHostProtectStatus(updatePremiumHostProtectStatusRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1799,8 +1949,10 @@ export class WafClient {
      */
     public updatePrivacyRule(updatePrivacyRuleRequest?: UpdatePrivacyRuleRequest): Promise<UpdatePrivacyRuleResponse> {
         const options = ParamCreater().updatePrivacyRule(updatePrivacyRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1819,8 +1971,10 @@ export class WafClient {
      */
     public updateValueList(updateValueListRequest?: UpdateValueListRequest): Promise<UpdateValueListResponse> {
         const options = ParamCreater().updateValueList(updateValueListRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1840,8 +1994,10 @@ export class WafClient {
      */
     public updateWhiteblackipRule(updateWhiteblackipRuleRequest?: UpdateWhiteblackipRuleRequest): Promise<UpdateWhiteblackipRuleResponse> {
         const options = ParamCreater().updateWhiteblackipRule(updateWhiteblackipRuleRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -1867,8 +2023,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let certificateId;
+            
             let enterpriseProjectId;
 
             if (applyCertificateToHostRequest !== null && applyCertificateToHostRequest !== undefined) {
@@ -1925,7 +2084,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (changePrepaidCloudWafRequest !== null && changePrepaidCloudWafRequest !== undefined) {
@@ -1976,8 +2137,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
 
             if (createAntiTamperRuleRequest !== null && createAntiTamperRuleRequest !== undefined) {
@@ -2034,7 +2198,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (createCertificateRequest !== null && createCertificateRequest !== undefined) {
@@ -2085,8 +2251,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
 
             if (createGeoipRuleRequest !== null && createGeoipRuleRequest !== undefined) {
@@ -2143,7 +2312,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (createHostRequest !== null && createHostRequest !== undefined) {
@@ -2194,8 +2365,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
 
             if (createIgnoreRuleRequest !== null && createIgnoreRuleRequest !== undefined) {
@@ -2252,7 +2426,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (createInstanceRequest !== null && createInstanceRequest !== undefined) {
@@ -2303,7 +2479,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (createIpGroupRequest !== null && createIpGroupRequest !== undefined) {
@@ -2354,7 +2532,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (createPolicyRequest !== null && createPolicyRequest !== undefined) {
@@ -2405,7 +2585,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (createPremiumHostRequest !== null && createPremiumHostRequest !== undefined) {
@@ -2453,7 +2635,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (createPrepaidCloudWafRequest !== null && createPrepaidCloudWafRequest !== undefined) {
@@ -2504,8 +2688,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
 
             if (createPrivacyRuleRequest !== null && createPrivacyRuleRequest !== undefined) {
@@ -2562,7 +2749,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (createValueListRequest !== null && createValueListRequest !== undefined) {
@@ -2613,8 +2802,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
 
             if (createWhiteblackipRuleRequest !== null && createWhiteblackipRuleRequest !== undefined) {
@@ -2670,9 +2862,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let ruleId;
+            
             let enterpriseProjectId;
 
             if (deleteAntitamperRuleRequest !== null && deleteAntitamperRuleRequest !== undefined) {
@@ -2726,8 +2922,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let certificateId;
+            
             let enterpriseProjectId;
 
             if (deleteCertificateRequest !== null && deleteCertificateRequest !== undefined) {
@@ -2776,9 +2975,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let ruleId;
+            
             let enterpriseProjectId;
 
             if (deleteGeoipRuleRequest !== null && deleteGeoipRuleRequest !== undefined) {
@@ -2832,8 +3035,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let instanceId;
+            
             let enterpriseProjectId;
 
             if (deleteHostRequest !== null && deleteHostRequest !== undefined) {
@@ -2882,9 +3088,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let ruleId;
+            
             let enterpriseProjectId;
 
             if (deleteIgnoreRuleRequest !== null && deleteIgnoreRuleRequest !== undefined) {
@@ -2938,8 +3148,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let instanceId;
+            
             let enterpriseProjectId;
 
             if (deleteInstanceRequest !== null && deleteInstanceRequest !== undefined) {
@@ -2988,8 +3201,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let id;
+            
             let enterpriseProjectId;
 
             if (deleteIpGroupRequest !== null && deleteIpGroupRequest !== undefined) {
@@ -3038,8 +3254,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
 
             if (deletePolicyRequest !== null && deletePolicyRequest !== undefined) {
@@ -3088,9 +3307,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let hostId;
+            
             let enterpriseProjectId;
+            
             let keepPolicy;
 
             if (deletePremiumHostRequest !== null && deletePremiumHostRequest !== undefined) {
@@ -3144,9 +3367,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let ruleId;
+            
             let enterpriseProjectId;
 
             if (deletePrivacyRuleRequest !== null && deletePrivacyRuleRequest !== undefined) {
@@ -3200,8 +3427,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let valuelistid;
+            
             let enterpriseProjectId;
 
             if (deleteValueListRequest !== null && deleteValueListRequest !== undefined) {
@@ -3250,9 +3480,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let ruleId;
+            
             let enterpriseProjectId;
 
             if (deleteWhiteBlackIpRuleRequest !== null && deleteWhiteBlackIpRuleRequest !== undefined) {
@@ -3306,10 +3540,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
 
             if (listAntitamperRuleRequest !== null && listAntitamperRuleRequest !== undefined) {
@@ -3368,12 +3607,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let from;
+            
             let to;
+            
             let enterpriseProjectId;
+            
             let hosts;
+            
             let instances;
+            
             let groupBy;
 
             if (listBandwidthTimelineRequest !== null && listBandwidthTimelineRequest !== undefined) {
@@ -3447,12 +3693,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
+            
             let name;
+            
             let host;
+            
             let expStatus;
 
             if (listCertificatesRequest !== null && listCertificatesRequest !== undefined) {
@@ -3520,14 +3773,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
+            
             let hostname;
+            
             let policyname;
+            
             let protectStatus;
+            
             let wafType;
+            
             let isHttps;
 
             if (listCompositeHostsRequest !== null && listCompositeHostsRequest !== undefined) {
@@ -3605,14 +3867,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let enterpriseProjectId;
+            
             let recent;
+            
             let from;
+            
             let to;
+            
             let attacks;
+            
             let hosts;
+            
             let page;
+            
             let pagesize;
 
             if (listEventRequest !== null && listEventRequest !== undefined) {
@@ -3690,10 +3961,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
 
             if (listGeoipRuleRequest !== null && listGeoipRuleRequest !== undefined) {
@@ -3752,11 +4028,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
+            
             let hostname;
+            
             let policyname;
 
             if (listHostRequest !== null && listHostRequest !== undefined) {
@@ -3819,8 +4101,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let instanceId;
+            
             let enterpriseProjectId;
 
             if (listHostRouteRequest !== null && listHostRouteRequest !== undefined) {
@@ -3869,10 +4154,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
 
             if (listIgnoreRuleRequest !== null && listIgnoreRuleRequest !== undefined) {
@@ -3931,10 +4221,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
+            
             let instancename;
 
             if (listInstanceRequest !== null && listInstanceRequest !== undefined) {
@@ -3992,11 +4287,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
+            
             let name;
+            
             let ip;
 
             if (listIpGroupRequest !== null && listIpGroupRequest !== undefined) {
@@ -4059,7 +4360,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (listNoticeConfigsRequest !== null && listNoticeConfigsRequest !== undefined) {
@@ -4102,12 +4405,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let from;
+            
             let to;
+            
             let enterpriseProjectId;
+            
             let top;
+            
             let hosts;
+            
             let instances;
 
             if (listOverviewsClassificationRequest !== null && listOverviewsClassificationRequest !== undefined) {
@@ -4181,10 +4491,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
+            
             let name;
 
             if (listPolicyRequest !== null && listPolicyRequest !== undefined) {
@@ -4242,12 +4557,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
+            
             let hostname;
+            
             let policyname;
+            
             let protectStatus;
 
             if (listPremiumHostRequest !== null && listPremiumHostRequest !== undefined) {
@@ -4315,10 +4637,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
 
             if (listPrivacyRuleRequest !== null && listPrivacyRuleRequest !== undefined) {
@@ -4377,12 +4704,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let from;
+            
             let to;
+            
             let enterpriseProjectId;
+            
             let hosts;
+            
             let instances;
+            
             let groupBy;
 
             if (listQpsTimelineRequest !== null && listQpsTimelineRequest !== undefined) {
@@ -4456,12 +4790,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let from;
+            
             let to;
+            
             let enterpriseProjectId;
+            
             let hosts;
+            
             let instances;
+            
             let groupBy;
 
             if (listRequestTimelineRequest !== null && listRequestTimelineRequest !== undefined) {
@@ -4535,11 +4876,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let from;
+            
             let to;
+            
             let enterpriseProjectId;
+            
             let hosts;
+            
             let instances;
 
             if (listStatisticsRequest !== null && listStatisticsRequest !== undefined) {
@@ -4608,13 +4955,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let from;
+            
             let to;
+            
             let enterpriseProjectId;
+            
             let top;
+            
             let code;
+            
             let hosts;
+            
             let instances;
 
             if (listTopAbnormalRequest !== null && listTopAbnormalRequest !== undefined) {
@@ -4693,9 +5048,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let page;
+            
             let pagesize;
+            
             let name;
 
             if (listValueListRequest !== null && listValueListRequest !== undefined) {
@@ -4748,11 +5107,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
+            
             let page;
+            
             let pagesize;
+            
             let name;
 
             if (listWhiteblackipRuleRequest !== null && listWhiteblackipRuleRequest !== undefined) {
@@ -4817,8 +5182,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let enterpriseProjectId;
+            
             let targetEnterpriseProjectId;
 
             if (migrateCompositeHostsRequest !== null && migrateCompositeHostsRequest !== undefined) {
@@ -4877,8 +5245,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let instanceId;
+            
             let enterpriseProjectId;
 
             if (renameInstanceRequest !== null && renameInstanceRequest !== undefined) {
@@ -4931,8 +5302,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let certificateId;
+            
             let enterpriseProjectId;
 
             if (showCertificateRequest !== null && showCertificateRequest !== undefined) {
@@ -4981,8 +5355,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let hostId;
+            
             let enterpriseProjectId;
 
             if (showCompositeHostRequest !== null && showCompositeHostRequest !== undefined) {
@@ -5031,6 +5408,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
 
             if (showConsoleConfigRequest !== null && showConsoleConfigRequest !== undefined) {
@@ -5067,8 +5445,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let eventid;
+            
             let enterpriseProjectId;
 
             if (showEventRequest !== null && showEventRequest !== undefined) {
@@ -5117,8 +5498,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let instanceId;
+            
             let enterpriseProjectId;
 
             if (showHostRequest !== null && showHostRequest !== undefined) {
@@ -5167,8 +5551,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let instanceId;
+            
             let enterpriseProjectId;
 
             if (showInstanceRequest !== null && showInstanceRequest !== undefined) {
@@ -5217,8 +5604,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let id;
+            
             let enterpriseProjectId;
 
             if (showIpGroupRequest !== null && showIpGroupRequest !== undefined) {
@@ -5267,7 +5657,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let enterpriseProjectId;
 
             if (showLtsInfoConfigRequest !== null && showLtsInfoConfigRequest !== undefined) {
@@ -5310,8 +5702,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
 
             if (showPolicyRequest !== null && showPolicyRequest !== undefined) {
@@ -5360,8 +5755,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let hostId;
+            
             let enterpriseProjectId;
 
             if (showPremiumHostRequest !== null && showPremiumHostRequest !== undefined) {
@@ -5410,6 +5808,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
 
             if (showSourceIpRequest !== null && showSourceIpRequest !== undefined) {
@@ -5446,6 +5845,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let contentType;
 
             if (showSubscriptionInfoRequest !== null && showSubscriptionInfoRequest !== undefined) {
@@ -5483,8 +5883,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let contentType;
+            
             let xLanguage;
+            
             let alertId;
 
             if (updateAlertNoticeConfigRequest !== null && updateAlertNoticeConfigRequest !== undefined) {
@@ -5540,8 +5943,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let certificateId;
+            
             let enterpriseProjectId;
 
             if (updateCertificateRequest !== null && updateCertificateRequest !== undefined) {
@@ -5595,9 +6001,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let policyId;
+            
             let ruleId;
+            
             let enterpriseProjectId;
 
             if (updateGeoipRuleRequest !== null && updateGeoipRuleRequest !== undefined) {
@@ -5659,8 +6069,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let instanceId;
+            
             let enterpriseProjectId;
 
             if (updateHostRequest !== null && updateHostRequest !== undefined) {
@@ -5714,8 +6127,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let instanceId;
+            
             let enterpriseProjectId;
 
             if (updateHostProtectStatusRequest !== null && updateHostProtectStatusRequest !== undefined) {
@@ -5769,8 +6185,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let id;
+            
             let enterpriseProjectId;
 
             if (updateIpGroupRequest !== null && updateIpGroupRequest !== undefined) {
@@ -5827,8 +6246,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let ltsconfigId;
+            
             let enterpriseProjectId;
 
             if (updateLtsInfoConfigRequest !== null && updateLtsInfoConfigRequest !== undefined) {
@@ -5885,8 +6307,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let policyId;
+            
             let enterpriseProjectId;
 
             if (updatePolicyRequest !== null && updatePolicyRequest !== undefined) {
@@ -5942,9 +6367,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let contentType;
+            
             let policyId;
+            
             let hosts;
+            
             let enterpriseProjectId;
 
             if (updatePolicyProtectHostRequest !== null && updatePolicyProtectHostRequest !== undefined) {
@@ -6002,10 +6431,15 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let policyId;
+            
             let ruletype;
+            
             let ruleId;
+            
             let enterpriseProjectId;
 
             if (updatePolicyRuleStatusRequest !== null && updatePolicyRuleStatusRequest !== undefined) {
@@ -6072,8 +6506,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let hostId;
+            
             let enterpriseProjectId;
 
             if (updatePremiumHostRequest !== null && updatePremiumHostRequest !== undefined) {
@@ -6127,8 +6564,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let hostId;
+            
             let enterpriseProjectId;
 
             if (updatePremiumHostProtectStatusRequest !== null && updatePremiumHostProtectStatusRequest !== undefined) {
@@ -6182,9 +6622,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let policyId;
+            
             let ruleId;
+            
             let enterpriseProjectId;
 
             if (updatePrivacyRuleRequest !== null && updatePrivacyRuleRequest !== undefined) {
@@ -6246,8 +6690,11 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let valuelistid;
+            
             let enterpriseProjectId;
 
             if (updateValueListRequest !== null && updateValueListRequest !== undefined) {
@@ -6301,9 +6748,13 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             var body: any;
+            
             let contentType;
+            
             let policyId;
+            
             let ruleId;
+            
             let enterpriseProjectId;
 
             if (updateWhiteblackipRuleRequest !== null && updateWhiteblackipRuleRequest !== undefined) {

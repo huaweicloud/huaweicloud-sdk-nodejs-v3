@@ -43,7 +43,7 @@ import { RunQueryCustomTagsResponse } from './model/RunQueryCustomTagsResponse';
 
 export class ImageClient {
     public static newBuilder(): ClientBuilder<ImageClient> {
-        return new ClientBuilder<ImageClient>(newClient);
+            return new ClientBuilder<ImageClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -68,8 +68,10 @@ export class ImageClient {
      */
     public runCelebrityRecognition(runCelebrityRecognitionRequest?: RunCelebrityRecognitionRequest): Promise<RunCelebrityRecognitionResponse> {
         const options = ParamCreater().runCelebrityRecognition(runCelebrityRecognitionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -84,8 +86,10 @@ export class ImageClient {
      */
     public runDeleteCustomTags(): Promise<RunDeleteCustomTagsResponse> {
         const options = ParamCreater().runDeleteCustomTags();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -101,8 +105,10 @@ export class ImageClient {
      */
     public runImageDescription(runImageDescriptionRequest?: RunImageDescriptionRequest): Promise<RunImageDescriptionResponse> {
         const options = ParamCreater().runImageDescription(runImageDescriptionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -118,8 +124,10 @@ export class ImageClient {
      */
     public runImageMainObjectDetection(runImageMainObjectDetectionRequest?: RunImageMainObjectDetectionRequest): Promise<RunImageMainObjectDetectionResponse> {
         const options = ParamCreater().runImageMainObjectDetection(runImageMainObjectDetectionRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -135,8 +143,10 @@ export class ImageClient {
      */
     public runImageMediaTagging(runImageMediaTaggingRequest?: RunImageMediaTaggingRequest): Promise<RunImageMediaTaggingResponse> {
         const options = ParamCreater().runImageMediaTagging(runImageMediaTaggingRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -152,8 +162,10 @@ export class ImageClient {
      */
     public runImageMediaTaggingDet(runImageMediaTaggingDetRequest?: RunImageMediaTaggingDetRequest): Promise<RunImageMediaTaggingDetResponse> {
         const options = ParamCreater().runImageMediaTaggingDet(runImageMediaTaggingDetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -169,8 +181,10 @@ export class ImageClient {
      */
     public runImageTagging(runImageTaggingRequest?: RunImageTaggingRequest): Promise<RunImageTaggingResponse> {
         const options = ParamCreater().runImageTagging(runImageTaggingRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -185,8 +199,10 @@ export class ImageClient {
      */
     public runQueryCustomTags(): Promise<RunQueryCustomTagsResponse> {
         const options = ParamCreater().runQueryCustomTags();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }

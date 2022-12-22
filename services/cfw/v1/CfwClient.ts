@@ -167,7 +167,7 @@ import { VpcDetail } from './model/VpcDetail';
 
 export class CfwClient {
     public static newBuilder(): ClientBuilder<CfwClient> {
-        return new ClientBuilder<CfwClient>(newClient);
+            return new ClientBuilder<CfwClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -193,8 +193,10 @@ export class CfwClient {
      */
     public addAddressItemsUsingPost(addAddressItemsUsingPostRequest?: AddAddressItemsUsingPostRequest): Promise<AddAddressItemsUsingPostResponse> {
         const options = ParamCreater().addAddressItemsUsingPost(addAddressItemsUsingPostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -211,8 +213,10 @@ export class CfwClient {
      */
     public addAddressSetInfoUsingPost(addAddressSetInfoUsingPostRequest?: AddAddressSetInfoUsingPostRequest): Promise<AddAddressSetInfoUsingPostResponse> {
         const options = ParamCreater().addAddressSetInfoUsingPost(addAddressSetInfoUsingPostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -229,8 +233,10 @@ export class CfwClient {
      */
     public addBlackWhiteListUsingPost(addBlackWhiteListUsingPostRequest?: AddBlackWhiteListUsingPostRequest): Promise<AddBlackWhiteListUsingPostResponse> {
         const options = ParamCreater().addBlackWhiteListUsingPost(addBlackWhiteListUsingPostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -247,8 +253,10 @@ export class CfwClient {
      */
     public addServiceItemsUsingPost(addServiceItemsUsingPostRequest?: AddServiceItemsUsingPostRequest): Promise<AddServiceItemsUsingPostResponse> {
         const options = ParamCreater().addServiceItemsUsingPost(addServiceItemsUsingPostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -265,8 +273,10 @@ export class CfwClient {
      */
     public addServiceSetUsingPost(addServiceSetUsingPostRequest?: AddServiceSetUsingPostRequest): Promise<AddServiceSetUsingPostResponse> {
         const options = ParamCreater().addServiceSetUsingPost(addServiceSetUsingPostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -283,8 +293,10 @@ export class CfwClient {
      */
     public changeEwProtectStatus(changeEwProtectStatusRequest?: ChangeEwProtectStatusRequest): Promise<ChangeEwProtectStatusResponse> {
         const options = ParamCreater().changeEwProtectStatus(changeEwProtectStatusRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -301,8 +313,10 @@ export class CfwClient {
      */
     public changeIpsProtectModeUsingPost(changeIpsProtectModeUsingPostRequest?: ChangeIpsProtectModeUsingPostRequest): Promise<ChangeIpsProtectModeUsingPostResponse> {
         const options = ParamCreater().changeIpsProtectModeUsingPost(changeIpsProtectModeUsingPostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -319,8 +333,10 @@ export class CfwClient {
      */
     public deleteAclRuleCount(deleteAclRuleCountRequest?: DeleteAclRuleCountRequest): Promise<string> {
         const options = ParamCreater().deleteAclRuleCount(deleteAclRuleCountRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -337,8 +353,10 @@ export class CfwClient {
      */
     public deleteAddressItemUsingDelete(deleteAddressItemUsingDeleteRequest?: DeleteAddressItemUsingDeleteRequest): Promise<DeleteAddressItemUsingDeleteResponse> {
         const options = ParamCreater().deleteAddressItemUsingDelete(deleteAddressItemUsingDeleteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -355,8 +373,10 @@ export class CfwClient {
      */
     public deleteAddressSetInfoUsingDelete(deleteAddressSetInfoUsingDeleteRequest?: DeleteAddressSetInfoUsingDeleteRequest): Promise<DeleteAddressSetInfoUsingDeleteResponse> {
         const options = ParamCreater().deleteAddressSetInfoUsingDelete(deleteAddressSetInfoUsingDeleteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -373,8 +393,10 @@ export class CfwClient {
      */
     public deleteBlackWhiteListUsingDelete(deleteBlackWhiteListUsingDeleteRequest?: DeleteBlackWhiteListUsingDeleteRequest): Promise<DeleteBlackWhiteListUsingDeleteResponse> {
         const options = ParamCreater().deleteBlackWhiteListUsingDelete(deleteBlackWhiteListUsingDeleteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -391,8 +413,10 @@ export class CfwClient {
      */
     public deleteServiceItemUsingDelete(deleteServiceItemUsingDeleteRequest?: DeleteServiceItemUsingDeleteRequest): Promise<DeleteServiceItemUsingDeleteResponse> {
         const options = ParamCreater().deleteServiceItemUsingDelete(deleteServiceItemUsingDeleteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -409,8 +433,10 @@ export class CfwClient {
      */
     public deleteServiceSetUsingDelete(deleteServiceSetUsingDeleteRequest?: DeleteServiceSetUsingDeleteRequest): Promise<DeleteServiceSetUsingDeleteResponse> {
         const options = ParamCreater().deleteServiceSetUsingDelete(deleteServiceSetUsingDeleteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -421,7 +447,7 @@ export class CfwClient {
      *
      * @summary 查询访问控制日志
      * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例ID
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {number} startTime 开始时间
      * @param {number} endTime 结束时间
      * @param {number} limit 每页显示个数
@@ -441,8 +467,10 @@ export class CfwClient {
      */
     public listAccessControlLogs(listAccessControlLogsRequest?: ListAccessControlLogsRequest): Promise<ListAccessControlLogsResponse> {
         const options = ParamCreater().listAccessControlLogs(listAccessControlLogsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -463,8 +491,10 @@ export class CfwClient {
      */
     public listAddressItemsUsingGet(listAddressItemsUsingGetRequest?: ListAddressItemsUsingGetRequest): Promise<ListAddressItemsUsingGetResponse> {
         const options = ParamCreater().listAddressItemsUsingGet(listAddressItemsUsingGetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -481,8 +511,10 @@ export class CfwClient {
      */
     public listAddressSetDetailUsingGet(listAddressSetDetailUsingGetRequest?: ListAddressSetDetailUsingGetRequest): Promise<ListAddressSetDetailUsingGetResponse> {
         const options = ParamCreater().listAddressSetDetailUsingGet(listAddressSetDetailUsingGetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -493,7 +525,7 @@ export class CfwClient {
      *
      * @summary 查询地址组列表
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
      * @param {number} limit 每页显示个数
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [keyWord] 关键字
@@ -504,8 +536,10 @@ export class CfwClient {
      */
     public listAddressSetListUsingGet(listAddressSetListUsingGetRequest?: ListAddressSetListUsingGetRequest): Promise<ListAddressSetListUsingGetResponse> {
         const options = ParamCreater().listAddressSetListUsingGet(listAddressSetListUsingGetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -519,7 +553,7 @@ export class CfwClient {
      * @param {number} startTime 开始时间
      * @param {number} endTime 结束时间
      * @param {number} limit 每页显示个数
-     * @param {string} fwInstanceId 防火墙实例ID
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {string} [srcIp] 源IP
      * @param {number} [srcPort] 源端口号
      * @param {string} [dstIp] 目的IP
@@ -540,8 +574,10 @@ export class CfwClient {
      */
     public listAttackLogs(listAttackLogsRequest?: ListAttackLogsRequest): Promise<ListAttackLogsResponse> {
         const options = ParamCreater().listAttackLogs(listAttackLogsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -552,7 +588,7 @@ export class CfwClient {
      *
      * @summary 查询黑白名单列表
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
      * @param {4 | 5} listType 黑白名单类型4：黑名单，5：白名单
      * @param {number} limit 每页显示个数
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
@@ -564,8 +600,10 @@ export class CfwClient {
      */
     public listBlackWhiteListsUsingGet(listBlackWhiteListsUsingGetRequest?: ListBlackWhiteListsUsingGetRequest): Promise<ListBlackWhiteListsUsingGetResponse> {
         const options = ParamCreater().listBlackWhiteListsUsingGet(listBlackWhiteListsUsingGetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -583,8 +621,10 @@ export class CfwClient {
      */
     public listDnsServers(listDnsServersRequest?: ListDnsServersRequest): Promise<ListDnsServersResponse> {
         const options = ParamCreater().listDnsServers(listDnsServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -602,8 +642,10 @@ export class CfwClient {
      */
     public listEastWestFirewall(listEastWestFirewallRequest?: ListEastWestFirewallRequest): Promise<ListEastWestFirewallResponse> {
         const options = ParamCreater().listEastWestFirewall(listEastWestFirewallRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -622,8 +664,10 @@ export class CfwClient {
      */
     public listFirewallUsingGet(listFirewallUsingGetRequest?: ListFirewallUsingGetRequest): Promise<ListFirewallUsingGetResponse> {
         const options = ParamCreater().listFirewallUsingGet(listFirewallUsingGetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -634,7 +678,7 @@ export class CfwClient {
      *
      * @summary 查询流日志
      * @param {string} projectId 租户项目id
-     * @param {string} fwInstanceId 防火墙实例ID
+     * @param {string} fwInstanceId 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {number} startTime 开始时间
      * @param {number} endTime 结束时间
      * @param {number} limit 每页显示个数
@@ -654,8 +698,10 @@ export class CfwClient {
      */
     public listFlowLogs(listFlowLogsRequest?: ListFlowLogsRequest): Promise<ListFlowLogsResponse> {
         const options = ParamCreater().listFlowLogs(listFlowLogsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -666,14 +712,16 @@ export class CfwClient {
      *
      * @summary 查询防护模式
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listIpsProtectModeUsingPost(listIpsProtectModeUsingPostRequest?: ListIpsProtectModeUsingPostRequest): Promise<ListIpsProtectModeUsingPostResponse> {
         const options = ParamCreater().listIpsProtectModeUsingPost(listIpsProtectModeUsingPostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -690,8 +738,10 @@ export class CfwClient {
      */
     public listParseDomainDetails(listParseDomainDetailsRequest?: ListParseDomainDetailsRequest): Promise<ListParseDomainDetailsResponse> {
         const options = ParamCreater().listParseDomainDetails(listParseDomainDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -708,8 +758,10 @@ export class CfwClient {
      */
     public listRuleHitCount(listRuleHitCountRequest?: ListRuleHitCountRequest): Promise<ListRuleHitCountResponse> {
         const options = ParamCreater().listRuleHitCount(listRuleHitCountRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -729,8 +781,10 @@ export class CfwClient {
      */
     public listServiceItemsDetails(listServiceItemsDetailsRequest?: ListServiceItemsDetailsRequest): Promise<ListServiceItemsDetailsResponse> {
         const options = ParamCreater().listServiceItemsDetails(listServiceItemsDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -741,7 +795,7 @@ export class CfwClient {
      *
      * @summary 获取服务组列表
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
      * @param {number} limit 每页查询个数
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [keyWord] 关键字
@@ -750,8 +804,10 @@ export class CfwClient {
      */
     public listServiceSet(listServiceSetRequest?: ListServiceSetRequest): Promise<ListServiceSetResponse> {
         const options = ParamCreater().listServiceSet(listServiceSetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -768,8 +824,10 @@ export class CfwClient {
      */
     public listServiceSetDetails(listServiceSetDetailsRequest?: ListServiceSetDetailsRequest): Promise<ListServiceSetDetailsResponse> {
         const options = ParamCreater().listServiceSetDetails(listServiceSetDetailsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -787,8 +845,10 @@ export class CfwClient {
      */
     public updateAddressSetInfoUsingPut(updateAddressSetInfoUsingPutRequest?: UpdateAddressSetInfoUsingPutRequest): Promise<UpdateAddressSetInfoUsingPutResponse> {
         const options = ParamCreater().updateAddressSetInfoUsingPut(updateAddressSetInfoUsingPutRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -806,8 +866,10 @@ export class CfwClient {
      */
     public updateBlackWhiteListUsingPut(updateBlackWhiteListUsingPutRequest?: UpdateBlackWhiteListUsingPutRequest): Promise<UpdateBlackWhiteListUsingPutResponse> {
         const options = ParamCreater().updateBlackWhiteListUsingPut(updateBlackWhiteListUsingPutRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -824,8 +886,10 @@ export class CfwClient {
      */
     public updateDnsServers(updateDnsServersRequest?: UpdateDnsServersRequest): Promise<UpdateDnsServersResponse> {
         const options = ParamCreater().updateDnsServers(updateDnsServersRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -843,8 +907,10 @@ export class CfwClient {
      */
     public updateServiceSetUsingPut(updateServiceSetUsingPutRequest?: UpdateServiceSetUsingPutRequest): Promise<UpdateServiceSetUsingPutResponse> {
         const options = ParamCreater().updateServiceSetUsingPut(updateServiceSetUsingPutRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -861,8 +927,10 @@ export class CfwClient {
      */
     public addRuleAclUsingPost(addRuleAclUsingPostRequest?: AddRuleAclUsingPostRequest): Promise<AddRuleAclUsingPostResponse> {
         const options = ParamCreater().addRuleAclUsingPost(addRuleAclUsingPostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -879,8 +947,10 @@ export class CfwClient {
      */
     public deleteRuleAclUsingDelete(deleteRuleAclUsingDeleteRequest?: DeleteRuleAclUsingDeleteRequest): Promise<DeleteRuleAclUsingDeleteResponse> {
         const options = ParamCreater().deleteRuleAclUsingDelete(deleteRuleAclUsingDeleteRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -898,8 +968,10 @@ export class CfwClient {
      */
     public listRuleAclUsingPut(listRuleAclUsingPutRequest?: ListRuleAclUsingPutRequest): Promise<ListRuleAclUsingPutResponse> {
         const options = ParamCreater().listRuleAclUsingPut(listRuleAclUsingPutRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -910,7 +982,7 @@ export class CfwClient {
      *
      * @summary 查询防护规则
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象Id
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
      * @param {number} limit 每页显示个数
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {0 | 1 | 2} [type] 规则Type0：互联网规则,1：vpc规则, 2:nat规则
@@ -926,8 +998,10 @@ export class CfwClient {
      */
     public listRuleAclsUsingGet(listRuleAclsUsingGetRequest?: ListRuleAclsUsingGetRequest): Promise<ListRuleAclsUsingGetResponse> {
         const options = ParamCreater().listRuleAclsUsingGet(listRuleAclsUsingGetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -945,8 +1019,10 @@ export class CfwClient {
      */
     public updateRuleAclUsingPut(updateRuleAclUsingPutRequest?: UpdateRuleAclUsingPutRequest): Promise<UpdateRuleAclUsingPutResponse> {
         const options = ParamCreater().updateRuleAclUsingPut(updateRuleAclUsingPutRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -963,8 +1039,10 @@ export class CfwClient {
      */
     public changeProtectEip(changeProtectEipRequest?: ChangeProtectEipRequest): Promise<ChangeProtectEipResponse> {
         const options = ParamCreater().changeProtectEip(changeProtectEipRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -975,14 +1053,16 @@ export class CfwClient {
      *
      * @summary 查询Eip个数
      * @param {string} projectId 租户项目ID
-     * @param {string} objectId 防护对象ID
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public countEips(countEipsRequest?: CountEipsRequest): Promise<CountEipsResponse> {
         const options = ParamCreater().countEips(countEipsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -993,7 +1073,7 @@ export class CfwClient {
      *
      * @summary 弹性IP列表查询
      * @param {string} projectId 租户项目ID
-     * @param {string} objectId 防护对象ID
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
      * @param {number} limit 每页显示个数
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [keyWord] 弹性公网ID/弹性公网IP
@@ -1007,8 +1087,10 @@ export class CfwClient {
      */
     public listEipResources(listEipResourcesRequest?: ListEipResourcesRequest): Promise<ListEipResourcesResponse> {
         const options = ParamCreater().listEipResources(listEipResourcesRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1025,8 +1107,10 @@ export class CfwClient {
      */
     public changeIpsSwitchUsingPost(changeIpsSwitchUsingPostRequest?: ChangeIpsSwitchUsingPostRequest): Promise<ChangeIpsSwitchUsingPostResponse> {
         const options = ParamCreater().changeIpsSwitchUsingPost(changeIpsSwitchUsingPostRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1037,14 +1121,16 @@ export class CfwClient {
      *
      * @summary 查询IPS特性开关状态
      * @param {string} projectId project_id
-     * @param {string} objectId 防护对象id
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listIpsSwitchStatusUsingGet(listIpsSwitchStatusUsingGetRequest?: ListIpsSwitchStatusUsingGetRequest): Promise<ListIpsSwitchStatusUsingGetResponse> {
         const options = ParamCreater().listIpsSwitchStatusUsingGet(listIpsSwitchStatusUsingGetRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -1055,14 +1141,16 @@ export class CfwClient {
      *
      * @summary 查询防护VPC数
      * @param {string} projectId 租户项目id
-     * @param {string} objectId 防护对象id
+     * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listVpcProtects(listVpcProtectsRequest?: ListVpcProtectsRequest): Promise<ListVpcProtectsResponse> {
         const options = ParamCreater().listVpcProtects(listVpcProtectsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -1088,6 +1176,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (addAddressItemsUsingPostRequest !== null && addAddressItemsUsingPostRequest !== undefined) {
@@ -1133,6 +1222,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (addAddressSetInfoUsingPostRequest !== null && addAddressSetInfoUsingPostRequest !== undefined) {
@@ -1178,6 +1268,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (addBlackWhiteListUsingPostRequest !== null && addBlackWhiteListUsingPostRequest !== undefined) {
@@ -1223,6 +1314,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (addServiceItemsUsingPostRequest !== null && addServiceItemsUsingPostRequest !== undefined) {
@@ -1268,6 +1360,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (addServiceSetUsingPostRequest !== null && addServiceSetUsingPostRequest !== undefined) {
@@ -1313,6 +1406,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (changeEwProtectStatusRequest !== null && changeEwProtectStatusRequest !== undefined) {
@@ -1358,6 +1452,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (changeIpsProtectModeUsingPostRequest !== null && changeIpsProtectModeUsingPostRequest !== undefined) {
@@ -1403,6 +1498,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (deleteAclRuleCountRequest !== null && deleteAclRuleCountRequest !== undefined) {
@@ -1447,7 +1543,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let itemId;
+            
             let projectId;
 
             if (deleteAddressItemUsingDeleteRequest !== null && deleteAddressItemUsingDeleteRequest !== undefined) {
@@ -1490,7 +1588,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let projectId;
+            
             let setId;
 
             if (deleteAddressSetInfoUsingDeleteRequest !== null && deleteAddressSetInfoUsingDeleteRequest !== undefined) {
@@ -1533,7 +1633,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let projectId;
+            
             let listId;
 
             if (deleteBlackWhiteListUsingDeleteRequest !== null && deleteBlackWhiteListUsingDeleteRequest !== undefined) {
@@ -1576,7 +1678,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let projectId;
+            
             let itemId;
 
             if (deleteServiceItemUsingDeleteRequest !== null && deleteServiceItemUsingDeleteRequest !== undefined) {
@@ -1619,7 +1723,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let projectId;
+            
             let setId;
 
             if (deleteServiceSetUsingDeleteRequest !== null && deleteServiceSetUsingDeleteRequest !== undefined) {
@@ -1662,21 +1768,37 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let fwInstanceId;
+            
             let startTime;
+            
             let endTime;
+            
             let limit;
+            
             let ruleId;
+            
             let srcIp;
+            
             let srcPort;
+            
             let dstIp;
+            
             let dstPort;
+            
             let protocol;
+            
             let app;
+            
             let logId;
+            
             let nextDate;
+            
             let offset;
+            
             let logType;
 
             if (listAccessControlLogsRequest !== null && listAccessControlLogsRequest !== undefined) {
@@ -1802,11 +1924,17 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let setId;
+            
             let limit;
+            
             let offset;
+            
             let keyWord;
+            
             let address;
 
             if (listAddressItemsUsingGetRequest !== null && listAddressItemsUsingGetRequest !== undefined) {
@@ -1879,7 +2007,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let projectId;
+            
             let setId;
 
             if (listAddressSetDetailUsingGetRequest !== null && listAddressSetDetailUsingGetRequest !== undefined) {
@@ -1922,12 +2052,19 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let objectId;
+            
             let limit;
+            
             let offset;
+            
             let keyWord;
+            
             let address;
+            
             let addressType;
 
             if (listAddressSetListUsingGetRequest !== null && listAddressSetListUsingGetRequest !== undefined) {
@@ -2005,25 +2142,45 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let startTime;
+            
             let endTime;
+            
             let limit;
+            
             let fwInstanceId;
+            
             let srcIp;
+            
             let srcPort;
+            
             let dstIp;
+            
             let dstPort;
+            
             let protocol;
+            
             let app;
+            
             let logId;
+            
             let nextDate;
+            
             let offset;
+            
             let action;
+            
             let direction;
+            
             let attackType;
+            
             let attackRule;
+            
             let level;
+            
             let source;
 
             if (listAttackLogsRequest !== null && listAttackLogsRequest !== undefined) {
@@ -2169,13 +2326,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let objectId;
+            
             let listType;
+            
             let limit;
+            
             let offset;
+            
             let addressType;
+            
             let address;
+            
             let port;
 
             if (listBlackWhiteListsUsingGetRequest !== null && listBlackWhiteListsUsingGetRequest !== undefined) {
@@ -2261,8 +2426,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let limit;
+            
             let offset;
 
             if (listDnsServersRequest !== null && listDnsServersRequest !== undefined) {
@@ -2311,8 +2479,11 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let limit;
+            
             let offset;
 
             if (listEastWestFirewallRequest !== null && listEastWestFirewallRequest !== undefined) {
@@ -2367,9 +2538,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let offset;
+            
             let limit;
+            
             let serviceType;
 
             if (listFirewallUsingGetRequest !== null && listFirewallUsingGetRequest !== undefined) {
@@ -2432,21 +2607,37 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let fwInstanceId;
+            
             let startTime;
+            
             let endTime;
+            
             let limit;
+            
             let direction;
+            
             let logType;
+            
             let srcIp;
+            
             let srcPort;
+            
             let dstIp;
+            
             let dstPort;
+            
             let protocol;
+            
             let app;
+            
             let logId;
+            
             let nextDate;
+            
             let offset;
 
             if (listFlowLogsRequest !== null && listFlowLogsRequest !== undefined) {
@@ -2572,7 +2763,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let objectId;
 
             if (listIpsProtectModeUsingPostRequest !== null && listIpsProtectModeUsingPostRequest !== undefined) {
@@ -2619,7 +2812,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let projectId;
+            
             let domainName;
 
             if (listParseDomainDetailsRequest !== null && listParseDomainDetailsRequest !== undefined) {
@@ -2663,6 +2858,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (listRuleHitCountRequest !== null && listRuleHitCountRequest !== undefined) {
@@ -2704,10 +2900,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let setId;
+            
             let limit;
+            
             let offset;
+            
             let keyWord;
 
             if (listServiceItemsDetailsRequest !== null && listServiceItemsDetailsRequest !== undefined) {
@@ -2775,10 +2976,15 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let objectId;
+            
             let limit;
+            
             let offset;
+            
             let keyWord;
 
             if (listServiceSetRequest !== null && listServiceSetRequest !== undefined) {
@@ -2846,7 +3052,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let projectId;
+            
             let setId;
 
             if (listServiceSetDetailsRequest !== null && listServiceSetDetailsRequest !== undefined) {
@@ -2890,7 +3098,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
+            
             let setId;
 
             if (updateAddressSetInfoUsingPutRequest !== null && updateAddressSetInfoUsingPutRequest !== undefined) {
@@ -2941,7 +3151,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
+            
             let listId;
 
             if (updateBlackWhiteListUsingPutRequest !== null && updateBlackWhiteListUsingPutRequest !== undefined) {
@@ -2992,6 +3204,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (updateDnsServersRequest !== null && updateDnsServersRequest !== undefined) {
@@ -3037,7 +3250,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
+            
             let setId;
 
             if (updateServiceSetUsingPutRequest !== null && updateServiceSetUsingPutRequest !== undefined) {
@@ -3088,6 +3303,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (addRuleAclUsingPostRequest !== null && addRuleAclUsingPostRequest !== undefined) {
@@ -3132,7 +3348,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let projectId;
+            
             let aclRuleId;
 
             if (deleteRuleAclUsingDeleteRequest !== null && deleteRuleAclUsingDeleteRequest !== undefined) {
@@ -3176,7 +3394,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
+            
             let aclRuleId;
 
             if (listRuleAclUsingPutRequest !== null && listRuleAclUsingPutRequest !== undefined) {
@@ -3226,17 +3446,29 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let objectId;
+            
             let limit;
+            
             let offset;
+            
             let type;
+            
             let protocol;
+            
             let ip;
+            
             let name;
+            
             let direction;
+            
             let status;
+            
             let actionType;
+            
             let addressType;
 
             if (listRuleAclsUsingGetRequest !== null && listRuleAclsUsingGetRequest !== undefined) {
@@ -3340,7 +3572,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
+            
             let aclRuleId;
 
             if (updateRuleAclUsingPutRequest !== null && updateRuleAclUsingPutRequest !== undefined) {
@@ -3391,6 +3625,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (changeProtectEipRequest !== null && changeProtectEipRequest !== undefined) {
@@ -3435,7 +3670,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let projectId;
+            
             let objectId;
 
             if (countEipsRequest !== null && countEipsRequest !== undefined) {
@@ -3478,15 +3715,25 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let objectId;
+            
             let limit;
+            
             let offset;
+            
             let keyWord;
+            
             let status;
+            
             let sync;
+            
             let enterpriseProjectId;
+            
             let deviceKey;
+            
             let addressType;
 
             if (listEipResourcesRequest !== null && listEipResourcesRequest !== undefined) {
@@ -3580,6 +3827,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let projectId;
 
             if (changeIpsSwitchUsingPostRequest !== null && changeIpsSwitchUsingPostRequest !== undefined) {
@@ -3624,7 +3872,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let objectId;
 
             if (listIpsSwitchStatusUsingGetRequest !== null && listIpsSwitchStatusUsingGetRequest !== undefined) {
@@ -3671,7 +3921,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let projectId;
+            
             let objectId;
 
             if (listVpcProtectsRequest !== null && listVpcProtectsRequest !== undefined) {

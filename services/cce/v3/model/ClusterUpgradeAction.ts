@@ -5,7 +5,7 @@ import { UpgradeStrategy } from './UpgradeStrategy';
 
 export class ClusterUpgradeAction {
     public addons?: Array<UpgradeAddonConfig>;
-    public nodeOrder?: { [key: string]: Array; };
+    public nodeOrder?: { [key: string]: Array<NodePriority>; };
     public nodePoolOrder?: { [key: string]: number; };
     public strategy: UpgradeStrategy;
     public targetVersion: string;
@@ -17,7 +17,7 @@ export class ClusterUpgradeAction {
         this['addons'] = addons;
         return this;
     }
-    public withNodeOrder(nodeOrder: { [key: string]: Array; }): ClusterUpgradeAction {
+    public withNodeOrder(nodeOrder: { [key: string]: Array<NodePriority>; }): ClusterUpgradeAction {
         this['nodeOrder'] = nodeOrder;
         return this;
     }

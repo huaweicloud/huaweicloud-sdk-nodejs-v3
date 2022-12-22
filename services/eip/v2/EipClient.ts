@@ -142,7 +142,7 @@ import { UpdatePublicipsRequestBody } from './model/UpdatePublicipsRequestBody';
 
 export class EipClient {
     public static newBuilder(): ClientBuilder<EipClient> {
-        return new ClientBuilder<EipClient>(newClient);
+            return new ClientBuilder<EipClient>(newClient);
     }
 
     private hcClient: HcClient;
@@ -168,8 +168,10 @@ export class EipClient {
      */
     public addPublicipsIntoSharedBandwidth(addPublicipsIntoSharedBandwidthRequest?: AddPublicipsIntoSharedBandwidthRequest): Promise<AddPublicipsIntoSharedBandwidthResponse> {
         const options = ParamCreater().addPublicipsIntoSharedBandwidth(addPublicipsIntoSharedBandwidthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -185,8 +187,10 @@ export class EipClient {
      */
     public batchCreateSharedBandwidths(batchCreateSharedBandwidthsRequest?: BatchCreateSharedBandwidthsRequest): Promise<BatchCreateSharedBandwidthsResponse> {
         const options = ParamCreater().batchCreateSharedBandwidths(batchCreateSharedBandwidthsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -202,8 +206,10 @@ export class EipClient {
      */
     public changeBandwidthToPeriod(changeBandwidthToPeriodRequest?: ChangeBandwidthToPeriodRequest): Promise<ChangeBandwidthToPeriodResponse> {
         const options = ParamCreater().changeBandwidthToPeriod(changeBandwidthToPeriodRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -219,8 +225,10 @@ export class EipClient {
      */
     public createSharedBandwidth(createSharedBandwidthRequest?: CreateSharedBandwidthRequest): Promise<CreateSharedBandwidthResponse> {
         const options = ParamCreater().createSharedBandwidth(createSharedBandwidthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -236,8 +244,10 @@ export class EipClient {
      */
     public deleteSharedBandwidth(deleteSharedBandwidthRequest?: DeleteSharedBandwidthRequest): Promise<void> {
         const options = ParamCreater().deleteSharedBandwidth(deleteSharedBandwidthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -252,8 +262,10 @@ export class EipClient {
      */
     public listBandwidthPkg(): Promise<ListBandwidthPkgResponse> {
         const options = ParamCreater().listBandwidthPkg();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -272,8 +284,10 @@ export class EipClient {
      */
     public listBandwidths(listBandwidthsRequest?: ListBandwidthsRequest): Promise<ListBandwidthsResponse> {
         const options = ParamCreater().listBandwidths(listBandwidthsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -289,8 +303,10 @@ export class EipClient {
      */
     public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
         const options = ParamCreater().listQuotas(listQuotasRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -307,8 +323,10 @@ export class EipClient {
      */
     public removePublicipsFromSharedBandwidth(removePublicipsFromSharedBandwidthRequest?: RemovePublicipsFromSharedBandwidthRequest): Promise<void> {
         const options = ParamCreater().removePublicipsFromSharedBandwidth(removePublicipsFromSharedBandwidthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -324,8 +342,10 @@ export class EipClient {
      */
     public showBandwidth(showBandwidthRequest?: ShowBandwidthRequest): Promise<ShowBandwidthResponse> {
         const options = ParamCreater().showBandwidth(showBandwidthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -342,8 +362,10 @@ export class EipClient {
      */
     public updateBandwidth(updateBandwidthRequest?: UpdateBandwidthRequest): Promise<UpdateBandwidthResponse> {
         const options = ParamCreater().updateBandwidth(updateBandwidthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -360,8 +382,10 @@ export class EipClient {
      */
     public updatePrePaidBandwidth(updatePrePaidBandwidthRequest?: UpdatePrePaidBandwidthRequest): Promise<UpdatePrePaidBandwidthResponse> {
         const options = ParamCreater().updatePrePaidBandwidth(updatePrePaidBandwidthRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -378,8 +402,10 @@ export class EipClient {
      */
     public batchCreatePublicipTags(batchCreatePublicipTagsRequest?: BatchCreatePublicipTagsRequest): Promise<void> {
         const options = ParamCreater().batchCreatePublicipTags(batchCreatePublicipTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -395,8 +421,10 @@ export class EipClient {
      */
     public batchCreatePublicips(batchCreatePublicipsRequest?: BatchCreatePublicipsRequest): Promise<BatchCreatePublicipsResponse> {
         const options = ParamCreater().batchCreatePublicips(batchCreatePublicipsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -412,8 +440,10 @@ export class EipClient {
      */
     public batchDeletePublicIp(batchDeletePublicIpRequest?: BatchDeletePublicIpRequest): Promise<BatchDeletePublicIpResponse> {
         const options = ParamCreater().batchDeletePublicIp(batchDeletePublicIpRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -430,8 +460,10 @@ export class EipClient {
      */
     public batchDeletePublicipTags(batchDeletePublicipTagsRequest?: BatchDeletePublicipTagsRequest): Promise<void> {
         const options = ParamCreater().batchDeletePublicipTags(batchDeletePublicipTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -447,8 +479,10 @@ export class EipClient {
      */
     public batchDisassociatePublicips(batchDisassociatePublicipsRequest?: BatchDisassociatePublicipsRequest): Promise<BatchDisassociatePublicipsResponse> {
         const options = ParamCreater().batchDisassociatePublicips(batchDisassociatePublicipsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -464,8 +498,10 @@ export class EipClient {
      */
     public changePublicipToPeriod(changePublicipToPeriodRequest?: ChangePublicipToPeriodRequest): Promise<ChangePublicipToPeriodResponse> {
         const options = ParamCreater().changePublicipToPeriod(changePublicipToPeriodRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -480,8 +516,10 @@ export class EipClient {
      */
     public countPublicIp(): Promise<CountPublicIpResponse> {
         const options = ParamCreater().countPublicIp();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -496,8 +534,10 @@ export class EipClient {
      */
     public countPublicIpInstance(): Promise<string> {
         const options = ParamCreater().countPublicIpInstance();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -513,8 +553,10 @@ export class EipClient {
      */
     public createPrePaidPublicip(createPrePaidPublicipRequest?: CreatePrePaidPublicipRequest): Promise<CreatePrePaidPublicipResponse> {
         const options = ParamCreater().createPrePaidPublicip(createPrePaidPublicipRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -531,8 +573,10 @@ export class EipClient {
      */
     public createPublicip(createPublicipRequest?: CreatePublicipRequest): Promise<CreatePublicipResponse> {
         const options = ParamCreater().createPublicip(createPublicipRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -549,8 +593,10 @@ export class EipClient {
      */
     public createPublicipTag(createPublicipTagRequest?: CreatePublicipTagRequest): Promise<void> {
         const options = ParamCreater().createPublicipTag(createPublicipTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -566,8 +612,10 @@ export class EipClient {
      */
     public deletePublicip(deletePublicipRequest?: DeletePublicipRequest): Promise<void> {
         const options = ParamCreater().deletePublicip(deletePublicipRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -584,8 +632,10 @@ export class EipClient {
      */
     public deletePublicipTag(deletePublicipTagRequest?: DeletePublicipTagRequest): Promise<void> {
         const options = ParamCreater().deletePublicipTag(deletePublicipTagRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -600,8 +650,10 @@ export class EipClient {
      */
     public listPublicipTags(): Promise<ListPublicipTagsResponse> {
         const options = ParamCreater().listPublicipTags();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -625,8 +677,10 @@ export class EipClient {
      */
     public listPublicips(listPublicipsRequest?: ListPublicipsRequest): Promise<ListPublicipsResponse> {
         const options = ParamCreater().listPublicips(listPublicipsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -642,8 +696,10 @@ export class EipClient {
      */
     public listPublicipsByTags(listPublicipsByTagsRequest?: ListPublicipsByTagsRequest): Promise<ListPublicipsByTagsResponse> {
         const options = ParamCreater().listPublicipsByTags(listPublicipsByTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -658,8 +714,10 @@ export class EipClient {
      */
     public showPublicIpType(): Promise<string> {
         const options = ParamCreater().showPublicIpType();
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -675,8 +733,10 @@ export class EipClient {
      */
     public showPublicip(showPublicipRequest?: ShowPublicipRequest): Promise<ShowPublicipResponse> {
         const options = ParamCreater().showPublicip(showPublicipRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -692,8 +752,10 @@ export class EipClient {
      */
     public showPublicipTags(showPublicipTagsRequest?: ShowPublicipTagsRequest): Promise<ShowPublicipTagsResponse> {
         const options = ParamCreater().showPublicipTags(showPublicipTagsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -710,8 +772,10 @@ export class EipClient {
      */
     public updatePublicip(updatePublicipRequest?: UpdatePublicipRequest): Promise<UpdatePublicipResponse> {
         const options = ParamCreater().updatePublicip(updatePublicipRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -727,8 +791,10 @@ export class EipClient {
      */
     public showResourcesJobDetail(showResourcesJobDetailRequest?: ShowResourcesJobDetailRequest): Promise<ShowResourcesJobDetailResponse> {
         const options = ParamCreater().showResourcesJobDetail(showResourcesJobDetailRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -744,8 +810,10 @@ export class EipClient {
      */
     public neutronCreateFloatingIp(neutronCreateFloatingIpRequest?: NeutronCreateFloatingIpRequest): Promise<NeutronCreateFloatingIpResponse> {
         const options = ParamCreater().neutronCreateFloatingIp(neutronCreateFloatingIpRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -761,8 +829,10 @@ export class EipClient {
      */
     public neutronDeleteFloatingIp(neutronDeleteFloatingIpRequest?: NeutronDeleteFloatingIpRequest): Promise<void> {
         const options = ParamCreater().neutronDeleteFloatingIp(neutronDeleteFloatingIpRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -787,8 +857,10 @@ export class EipClient {
      */
     public neutronListFloatingIps(neutronListFloatingIpsRequest?: NeutronListFloatingIpsRequest): Promise<NeutronListFloatingIpsResponse> {
         const options = ParamCreater().neutronListFloatingIps(neutronListFloatingIpsRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -804,8 +876,10 @@ export class EipClient {
      */
     public neutronShowFloatingIp(neutronShowFloatingIpRequest?: NeutronShowFloatingIpRequest): Promise<NeutronShowFloatingIpResponse> {
         const options = ParamCreater().neutronShowFloatingIp(neutronShowFloatingIpRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 
@@ -824,8 +898,10 @@ export class EipClient {
      */
     public neutronUpdateFloatingIp(neutronUpdateFloatingIpRequest?: NeutronUpdateFloatingIpRequest): Promise<NeutronUpdateFloatingIpResponse> {
         const options = ParamCreater().neutronUpdateFloatingIp(neutronUpdateFloatingIpRequest);
+
+         // @ts-ignore
         options['responseHeaders'] = [''];
-        // @ts-ignore
+
         return this.hcClient.sendRequest(options);
     }
 }
@@ -851,6 +927,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let bandwidthId;
 
             if (addPublicipsIntoSharedBandwidthRequest !== null && addPublicipsIntoSharedBandwidthRequest !== undefined) {
@@ -1009,6 +1086,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let bandwidthId;
 
             if (deleteSharedBandwidthRequest !== null && deleteSharedBandwidthRequest !== undefined) {
@@ -1068,9 +1146,13 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let marker;
+            
             let limit;
+            
             let enterpriseProjectId;
+            
             let shareType;
 
             if (listBandwidthsRequest !== null && listBandwidthsRequest !== undefined) {
@@ -1123,6 +1205,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let type;
 
             if (listQuotasRequest !== null && listQuotasRequest !== undefined) {
@@ -1161,6 +1244,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let bandwidthId;
 
             if (removePublicipsFromSharedBandwidthRequest !== null && removePublicipsFromSharedBandwidthRequest !== undefined) {
@@ -1205,6 +1289,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let bandwidthId;
 
             if (showBandwidthRequest !== null && showBandwidthRequest !== undefined) {
@@ -1243,6 +1328,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let bandwidthId;
 
             if (updateBandwidthRequest !== null && updateBandwidthRequest !== undefined) {
@@ -1288,6 +1374,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let bandwidthId;
 
             if (updatePrePaidBandwidthRequest !== null && updatePrePaidBandwidthRequest !== undefined) {
@@ -1333,6 +1420,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let publicipId;
 
             if (batchCreatePublicipTagsRequest !== null && batchCreatePublicipTagsRequest !== undefined) {
@@ -1454,6 +1542,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let publicipId;
 
             if (batchDeletePublicipTagsRequest !== null && batchDeletePublicipTagsRequest !== undefined) {
@@ -1696,6 +1785,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let publicipId;
 
             if (createPublicipTagRequest !== null && createPublicipTagRequest !== undefined) {
@@ -1740,6 +1830,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let publicipId;
 
             if (deletePublicipRequest !== null && deletePublicipRequest !== undefined) {
@@ -1777,7 +1868,9 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let publicipId;
+            
             let key;
 
             if (deletePublicipTagRequest !== null && deletePublicipTagRequest !== undefined) {
@@ -1842,14 +1935,23 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let marker;
+            
             let limit;
+            
             let ipVersion;
+            
             let enterpriseProjectId;
+            
             let portId;
+            
             let publicIpAddress;
+            
             let privateIpAddress;
+            
             let id;
+            
             let allowShareBandwidthTypeAny;
 
             if (listPublicipsRequest !== null && listPublicipsRequest !== undefined) {
@@ -1987,6 +2089,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let publicipId;
 
             if (showPublicipRequest !== null && showPublicipRequest !== undefined) {
@@ -2024,6 +2127,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let publicipId;
 
             if (showPublicipTagsRequest !== null && showPublicipTagsRequest !== undefined) {
@@ -2062,6 +2166,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let publicipId;
 
             if (updatePublicipRequest !== null && updatePublicipRequest !== undefined) {
@@ -2106,6 +2211,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let jobId;
 
             if (showResourcesJobDetailRequest !== null && showResourcesJobDetailRequest !== undefined) {
@@ -2181,6 +2287,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let floatingipId;
 
             if (neutronDeleteFloatingIpRequest !== null && neutronDeleteFloatingIpRequest !== undefined) {
@@ -2218,15 +2325,25 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            
             let limit;
+            
             let marker;
+            
             let pageReverse;
+            
             let id;
+            
             let floatingIpAddress;
+            
             let routerId;
+            
             let portId;
+            
             let fixedIpAddress;
+            
             let tenantId;
+            
             let floatingNetworkId;
 
             if (neutronListFloatingIpsRequest !== null && neutronListFloatingIpsRequest !== undefined) {
@@ -2309,6 +2426,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
             let floatingipId;
 
             if (neutronShowFloatingIpRequest !== null && neutronShowFloatingIpRequest !== undefined) {
@@ -2349,6 +2467,7 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
             let floatingipId;
 
             if (neutronUpdateFloatingIpRequest !== null && neutronUpdateFloatingIpRequest !== undefined) {
