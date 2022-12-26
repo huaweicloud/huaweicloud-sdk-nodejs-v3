@@ -4,10 +4,12 @@ export class VideoInfo {
     public quality: VideoInfoQualityEnum;
     public width?: number;
     public height?: number;
-    public bitrate?: number;
-    private 'frame_rate'?: number | undefined;
-    public constructor(quality?: any) { 
+    public bitrate: number;
+    private 'frame_rate': number | undefined;
+    public constructor(quality?: any, bitrate?: any, frameRate?: any) { 
         this['quality'] = quality;
+        this['bitrate'] = bitrate;
+        this['frame_rate'] = frameRate;
     }
     public withQuality(quality: VideoInfoQualityEnum): VideoInfo {
         this['quality'] = quality;

@@ -1,10 +1,12 @@
 
 
 export class TransTemplateGroupCollection {
-    public name?: string;
+    public name: string;
     public description?: string;
-    private 'template_group_list'?: Array<string> | undefined;
-    public constructor() { 
+    private 'template_group_list': Array<string> | undefined;
+    public constructor(name?: any, templateGroupList?: any) { 
+        this['name'] = name;
+        this['template_group_list'] = templateGroupList;
     }
     public withName(name: string): TransTemplateGroupCollection {
         this['name'] = name;

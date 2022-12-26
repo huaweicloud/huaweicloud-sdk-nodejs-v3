@@ -1,11 +1,13 @@
 
 
 export class ModifyTemplateGroupCollection {
-    public name?: string;
+    public name: string;
     private 'collection_id'?: string | undefined;
     public description?: string;
-    private 'template_group_list'?: Array<string> | undefined;
-    public constructor() { 
+    private 'template_group_list': Array<string> | undefined;
+    public constructor(name?: any, templateGroupList?: any) { 
+        this['name'] = name;
+        this['template_group_list'] = templateGroupList;
     }
     public withName(name: string): ModifyTemplateGroupCollection {
         this['name'] = name;

@@ -3,14 +3,17 @@ import { QualityInfoList } from './QualityInfoList';
 
 
 export class CreateTranscodeTemplate {
-    public name?: string;
+    public name: string;
     private 'is_default'?: boolean | undefined;
     private 'is_auto_encrypt'?: boolean | undefined;
-    private 'quality_info_list'?: Array<QualityInfoList> | undefined;
-    public common?: CommonInfo;
+    private 'quality_info_list': Array<QualityInfoList> | undefined;
+    public common: CommonInfo;
     private 'watermark_template_ids'?: Array<string> | undefined;
     public description?: string;
-    public constructor() { 
+    public constructor(name?: any, qualityInfoList?: any, common?: any) { 
+        this['name'] = name;
+        this['quality_info_list'] = qualityInfoList;
+        this['common'] = common;
     }
     public withName(name: string): CreateTranscodeTemplate {
         this['name'] = name;

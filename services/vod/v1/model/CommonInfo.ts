@@ -2,15 +2,18 @@
 
 export class CommonInfo {
     public pvc: boolean;
-    private 'video_codec'?: CommonInfoVideoCodecEnum | undefined;
+    private 'video_codec': CommonInfoVideoCodecEnum | undefined;
     private 'audio_codec'?: CommonInfoAudioCodecEnum | undefined;
     private 'is_black_cut'?: boolean | undefined;
-    public format?: CommonInfoFormatEnum;
-    private 'hls_interval'?: number | undefined;
+    public format: CommonInfoFormatEnum;
+    private 'hls_interval': number | undefined;
     public upsample?: boolean;
     public adaptation?: CommonInfoAdaptationEnum;
-    public constructor(pvc?: any) { 
+    public constructor(pvc?: any, videoCodec?: any, format?: any, hlsInterval?: any) { 
         this['pvc'] = pvc;
+        this['video_codec'] = videoCodec;
+        this['format'] = format;
+        this['hls_interval'] = hlsInterval;
     }
     public withPvc(pvc: boolean): CommonInfo {
         this['pvc'] = pvc;

@@ -3,9 +3,10 @@ import { VideoInfo } from './VideoInfo';
 
 
 export class QualityInfoList {
-    public video?: VideoInfo;
+    public video: VideoInfo;
     public audio?: AudioInfo;
-    public constructor() { 
+    public constructor(video?: any) { 
+        this['video'] = video;
     }
     public withVideo(video: VideoInfo): QualityInfoList {
         this['video'] = video;
