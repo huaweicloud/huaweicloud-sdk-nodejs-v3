@@ -6,17 +6,18 @@ export class BandwidthPkgResp {
     public processedTime: string;
     public bandwidthId: string;
     public pkgSize: number;
-    private 'tenant_id'?: string | undefined;
+    public tenantId: string;
     public billingInfo: string;
     public startTime: string;
     public endTime: string;
     public status: string;
-    public constructor(resourceId?: any, resourceName?: any, processedTime?: any, bandwidthId?: any, pkgSize?: any, billingInfo?: any, startTime?: any, endTime?: any, status?: any) { 
+    public constructor(resourceId?: any, resourceName?: any, processedTime?: any, bandwidthId?: any, pkgSize?: any, tenantId?: any, billingInfo?: any, startTime?: any, endTime?: any, status?: any) { 
         this['resourceId'] = resourceId;
         this['resourceName'] = resourceName;
         this['processedTime'] = processedTime;
         this['bandwidthId'] = bandwidthId;
         this['pkgSize'] = pkgSize;
+        this['tenantId'] = tenantId;
         this['billingInfo'] = billingInfo;
         this['startTime'] = startTime;
         this['endTime'] = endTime;
@@ -43,14 +44,8 @@ export class BandwidthPkgResp {
         return this;
     }
     public withTenantId(tenantId: string): BandwidthPkgResp {
-        this['tenant_id'] = tenantId;
+        this['tenantId'] = tenantId;
         return this;
-    }
-    public set tenantId(tenantId: string | undefined) {
-        this['tenant_id'] = tenantId;
-    }
-    public get tenantId() {
-        return this['tenant_id'];
     }
     public withBillingInfo(billingInfo: string): BandwidthPkgResp {
         this['billingInfo'] = billingInfo;

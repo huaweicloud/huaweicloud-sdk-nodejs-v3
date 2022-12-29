@@ -10,6 +10,9 @@ export class EipResource {
     private 'device_name'?: string | undefined;
     private 'device_owner'?: string | undefined;
     private 'associate_instance_type'?: string | undefined;
+    private 'fw_instance_name'?: string | undefined;
+    private 'fw_instance_id'?: string | undefined;
+    private 'fw_enterprise_project_id'?: string | undefined;
     public constructor() { 
     }
     public withId(id: string): EipResource {
@@ -89,6 +92,36 @@ export class EipResource {
     }
     public get associateInstanceType() {
         return this['associate_instance_type'];
+    }
+    public withFwInstanceName(fwInstanceName: string): EipResource {
+        this['fw_instance_name'] = fwInstanceName;
+        return this;
+    }
+    public set fwInstanceName(fwInstanceName: string | undefined) {
+        this['fw_instance_name'] = fwInstanceName;
+    }
+    public get fwInstanceName() {
+        return this['fw_instance_name'];
+    }
+    public withFwInstanceId(fwInstanceId: string): EipResource {
+        this['fw_instance_id'] = fwInstanceId;
+        return this;
+    }
+    public set fwInstanceId(fwInstanceId: string | undefined) {
+        this['fw_instance_id'] = fwInstanceId;
+    }
+    public get fwInstanceId() {
+        return this['fw_instance_id'];
+    }
+    public withFwEnterpriseProjectId(fwEnterpriseProjectId: string): EipResource {
+        this['fw_enterprise_project_id'] = fwEnterpriseProjectId;
+        return this;
+    }
+    public set fwEnterpriseProjectId(fwEnterpriseProjectId: string | undefined) {
+        this['fw_enterprise_project_id'] = fwEnterpriseProjectId;
+    }
+    public get fwEnterpriseProjectId() {
+        return this['fw_enterprise_project_id'];
     }
 }
 

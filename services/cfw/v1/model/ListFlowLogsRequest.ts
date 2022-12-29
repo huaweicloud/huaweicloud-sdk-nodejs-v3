@@ -17,6 +17,7 @@ export class ListFlowLogsRequest {
     private 'next_date'?: number | undefined;
     public offset?: number;
     public limit: number;
+    private 'enterprise_project_id'?: string | undefined;
     public constructor(projectId?: any, fwInstanceId?: any, startTime?: any, endTime?: any, limit?: any) { 
         this['project_id'] = projectId;
         this['fw_instance_id'] = fwInstanceId;
@@ -153,6 +154,16 @@ export class ListFlowLogsRequest {
     public withLimit(limit: number): ListFlowLogsRequest {
         this['limit'] = limit;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListFlowLogsRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
     }
 }
 

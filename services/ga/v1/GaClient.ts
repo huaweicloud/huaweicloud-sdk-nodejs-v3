@@ -650,11 +650,11 @@ export class GaClient {
     }
 
     /**
-     * 批量添加标签。
+     * 创建资源标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量添加标签
+     * @summary 创建资源标签
      * @param {ResourceType} resourceType 资源类型。
      * @param {string} resourceId 资源ID。
      * @param {CreateTagsRequestBody} createTagsRequestBody 
@@ -671,11 +671,11 @@ export class GaClient {
     }
 
     /**
-     * 批量删除标签。
+     * 删除资源标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量删除标签
+     * @summary 删除资源标签
      * @param {ResourceType} resourceType 资源类型。
      * @param {string} resourceId 资源ID。
      * @param {DeleteTagsRequestBody} deleteTagsRequestBody 
@@ -692,11 +692,11 @@ export class GaClient {
     }
 
     /**
-     * 查询资源已打标签。
+     * 查询特定资源标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询资源已打标签
+     * @summary 查询特定资源标签
      * @param {ResourceType} resourceType 资源类型。
      * @param {string} resourceId 资源ID。
      * @param {*} [options] Override http request option.
@@ -1954,7 +1954,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量添加标签。
+         * 创建资源标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2007,7 +2007,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 批量删除标签。
+         * 删除资源标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2060,7 +2060,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询资源已打标签。
+         * 查询特定资源标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

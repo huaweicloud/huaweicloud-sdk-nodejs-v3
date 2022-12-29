@@ -17,6 +17,8 @@ export class GetFirewallInstanceResponseRecord {
     private 'support_ipv6'?: boolean | undefined;
     private 'feature_toggle'?: { [key: string]: boolean; } | undefined;
     public resources?: Array<FirewallInstanceResource>;
+    private 'fw_instance_name'?: string | undefined;
+    private 'enterprise_project_id'?: string | undefined;
     public constructor() { 
     }
     public withFwInstanceId(fwInstanceId: string): GetFirewallInstanceResponseRecord {
@@ -124,6 +126,26 @@ export class GetFirewallInstanceResponseRecord {
     public withResources(resources: Array<FirewallInstanceResource>): GetFirewallInstanceResponseRecord {
         this['resources'] = resources;
         return this;
+    }
+    public withFwInstanceName(fwInstanceName: string): GetFirewallInstanceResponseRecord {
+        this['fw_instance_name'] = fwInstanceName;
+        return this;
+    }
+    public set fwInstanceName(fwInstanceName: string | undefined) {
+        this['fw_instance_name'] = fwInstanceName;
+    }
+    public get fwInstanceName() {
+        return this['fw_instance_name'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): GetFirewallInstanceResponseRecord {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
     }
 }
 

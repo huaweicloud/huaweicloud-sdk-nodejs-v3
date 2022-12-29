@@ -4,16 +4,17 @@ import { QualityInfoList } from './QualityInfoList';
 
 export class ModifyTransTemplate {
     private 'group_id': string | undefined;
-    public name: string;
+    public name?: string;
     private 'is_default'?: boolean | undefined;
     private 'is_auto_encrypt'?: boolean | undefined;
-    private 'quality_info_list'?: Array<QualityInfoList> | undefined;
+    private 'quality_info_list': Array<QualityInfoList> | undefined;
     private 'watermark_template_ids'?: Array<string> | undefined;
     public description?: string;
-    public common?: CommonInfo;
-    public constructor(groupId?: any, name?: any) { 
+    public common: CommonInfo;
+    public constructor(groupId?: any, qualityInfoList?: any, common?: any) { 
         this['group_id'] = groupId;
-        this['name'] = name;
+        this['quality_info_list'] = qualityInfoList;
+        this['common'] = common;
     }
     public withGroupId(groupId: string): ModifyTransTemplate {
         this['group_id'] = groupId;

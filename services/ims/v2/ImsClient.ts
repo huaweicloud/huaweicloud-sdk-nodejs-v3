@@ -123,6 +123,8 @@ import { ShowJobRequest } from './model/ShowJobRequest';
 import { ShowJobResponse } from './model/ShowJobResponse';
 import { ShowVersionRequest } from './model/ShowVersionRequest';
 import { ShowVersionResponse } from './model/ShowVersionResponse';
+import { SubJobEntities } from './model/SubJobEntities';
+import { SubJobResult } from './model/SubJobResult';
 import { TagKeyValue } from './model/TagKeyValue';
 import { Tags } from './model/Tags';
 import { UpdateImageRequest } from './model/UpdateImageRequest';

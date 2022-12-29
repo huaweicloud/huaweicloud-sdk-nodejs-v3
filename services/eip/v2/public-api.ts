@@ -120,7 +120,7 @@ export * from './model/ShowPublicipTagsRequest';
 export * from './model/ShowPublicipTagsResponse';
 export * from './model/ShowResourcesJobDetailRequest';
 export * from './model/ShowResourcesJobDetailResponse';
-export * from './model/SubJobs';
+export * from './model/SubJobsInfo';
 export * from './model/TagReq';
 export * from './model/TagResp';
 export * from './model/UpdateBandwidthOption';

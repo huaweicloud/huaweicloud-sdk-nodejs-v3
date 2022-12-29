@@ -1,3 +1,4 @@
+import { SubJobResult } from './SubJobResult';
 
 
 export class JobProgressEntities {
@@ -6,6 +7,8 @@ export class JobProgressEntities {
     private 'image_name'?: string | undefined;
     private 'process_percent'?: number | undefined;
     public subJobId?: string;
+    private 'sub_jobs_result'?: Array<SubJobResult> | undefined;
+    private 'sub_jobs_list'?: Array<string> | undefined;
     public constructor() { 
     }
     public withImageId(imageId: string): JobProgressEntities {
@@ -51,5 +54,25 @@ export class JobProgressEntities {
     public withSubJobId(subJobId: string): JobProgressEntities {
         this['subJobId'] = subJobId;
         return this;
+    }
+    public withSubJobsResult(subJobsResult: Array<SubJobResult>): JobProgressEntities {
+        this['sub_jobs_result'] = subJobsResult;
+        return this;
+    }
+    public set subJobsResult(subJobsResult: Array<SubJobResult> | undefined) {
+        this['sub_jobs_result'] = subJobsResult;
+    }
+    public get subJobsResult() {
+        return this['sub_jobs_result'];
+    }
+    public withSubJobsList(subJobsList: Array<string>): JobProgressEntities {
+        this['sub_jobs_list'] = subJobsList;
+        return this;
+    }
+    public set subJobsList(subJobsList: Array<string> | undefined) {
+        this['sub_jobs_list'] = subJobsList;
+    }
+    public get subJobsList() {
+        return this['sub_jobs_list'];
     }
 }

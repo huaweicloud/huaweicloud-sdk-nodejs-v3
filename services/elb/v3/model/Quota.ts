@@ -12,7 +12,9 @@ export class Quota {
     private 'members_per_pool': number | undefined;
     public ipgroup: number;
     private 'security_policy': number | undefined;
-    public constructor(projectId?: any, loadbalancer?: any, certificate?: any, listener?: any, l7policy?: any, pool?: any, healthmonitor?: any, member?: any, membersPerPool?: any, ipgroup?: any, securityPolicy?: any) { 
+    private 'ipgroup_bindings': string | undefined;
+    private 'ipgroup_max_length': string | undefined;
+    public constructor(projectId?: any, loadbalancer?: any, certificate?: any, listener?: any, l7policy?: any, pool?: any, healthmonitor?: any, member?: any, membersPerPool?: any, ipgroup?: any, securityPolicy?: any, ipgroupBindings?: any, ipgroupMaxLength?: any) { 
         this['project_id'] = projectId;
         this['loadbalancer'] = loadbalancer;
         this['certificate'] = certificate;
@@ -24,6 +26,8 @@ export class Quota {
         this['members_per_pool'] = membersPerPool;
         this['ipgroup'] = ipgroup;
         this['security_policy'] = securityPolicy;
+        this['ipgroup_bindings'] = ipgroupBindings;
+        this['ipgroup_max_length'] = ipgroupMaxLength;
     }
     public withProjectId(projectId: string): Quota {
         this['project_id'] = projectId;
@@ -86,5 +90,25 @@ export class Quota {
     }
     public get securityPolicy() {
         return this['security_policy'];
+    }
+    public withIpgroupBindings(ipgroupBindings: string): Quota {
+        this['ipgroup_bindings'] = ipgroupBindings;
+        return this;
+    }
+    public set ipgroupBindings(ipgroupBindings: string | undefined) {
+        this['ipgroup_bindings'] = ipgroupBindings;
+    }
+    public get ipgroupBindings() {
+        return this['ipgroup_bindings'];
+    }
+    public withIpgroupMaxLength(ipgroupMaxLength: string): Quota {
+        this['ipgroup_max_length'] = ipgroupMaxLength;
+        return this;
+    }
+    public set ipgroupMaxLength(ipgroupMaxLength: string | undefined) {
+        this['ipgroup_max_length'] = ipgroupMaxLength;
+    }
+    public get ipgroupMaxLength() {
+        return this['ipgroup_max_length'];
     }
 }

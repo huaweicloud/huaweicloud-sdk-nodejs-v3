@@ -11,7 +11,9 @@ export class RouteTableResp {
     private 'tenant_id': string | undefined;
     private 'vpc_id': string | undefined;
     public description: string;
-    public constructor(id?: any, name?: any, _default?: any, routes?: any, subnets?: any, tenantId?: any, vpcId?: any, description?: any) { 
+    private 'created_at': Date | undefined;
+    private 'updated_at': Date | undefined;
+    public constructor(id?: any, name?: any, _default?: any, routes?: any, subnets?: any, tenantId?: any, vpcId?: any, description?: any, createdAt?: any, updatedAt?: any) { 
         this['id'] = id;
         this['name'] = name;
         this['default'] = _default;
@@ -20,6 +22,8 @@ export class RouteTableResp {
         this['tenant_id'] = tenantId;
         this['vpc_id'] = vpcId;
         this['description'] = description;
+        this['created_at'] = createdAt;
+        this['updated_at'] = updatedAt;
     }
     public withId(id: string): RouteTableResp {
         this['id'] = id;
@@ -70,5 +74,25 @@ export class RouteTableResp {
     public withDescription(description: string): RouteTableResp {
         this['description'] = description;
         return this;
+    }
+    public withCreatedAt(createdAt: Date): RouteTableResp {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: Date | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt() {
+        return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: Date): RouteTableResp {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: Date | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt() {
+        return this['updated_at'];
     }
 }

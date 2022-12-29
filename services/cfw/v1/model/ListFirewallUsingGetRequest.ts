@@ -5,6 +5,8 @@ export class ListFirewallUsingGetRequest {
     public offset: number;
     public limit: number;
     private 'service_type': ListFirewallUsingGetRequestServiceTypeEnum | undefined;
+    private 'enterprise_project_id'?: string | undefined;
+    private 'fw_instance_id'?: string | undefined;
     public constructor(projectId?: any, offset?: any, limit?: any, serviceType?: any) { 
         this['project_id'] = projectId;
         this['offset'] = offset;
@@ -38,6 +40,26 @@ export class ListFirewallUsingGetRequest {
     }
     public get serviceType() {
         return this['service_type'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListFirewallUsingGetRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
+    }
+    public withFwInstanceId(fwInstanceId: string): ListFirewallUsingGetRequest {
+        this['fw_instance_id'] = fwInstanceId;
+        return this;
+    }
+    public set fwInstanceId(fwInstanceId: string | undefined) {
+        this['fw_instance_id'] = fwInstanceId;
+    }
+    public get fwInstanceId() {
+        return this['fw_instance_id'];
     }
 }
 

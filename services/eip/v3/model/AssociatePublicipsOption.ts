@@ -1,9 +1,11 @@
 
 
 export class AssociatePublicipsOption {
-    private 'associate_instance_type'?: AssociatePublicipsOptionAssociateInstanceTypeEnum | undefined;
-    private 'associate_instance_id'?: string | undefined;
-    public constructor() { 
+    private 'associate_instance_type': AssociatePublicipsOptionAssociateInstanceTypeEnum | undefined;
+    private 'associate_instance_id': string | undefined;
+    public constructor(associateInstanceType?: any, associateInstanceId?: any) { 
+        this['associate_instance_type'] = associateInstanceType;
+        this['associate_instance_id'] = associateInstanceId;
     }
     public withAssociateInstanceType(associateInstanceType: AssociatePublicipsOptionAssociateInstanceTypeEnum): AssociatePublicipsOption {
         this['associate_instance_type'] = associateInstanceType;

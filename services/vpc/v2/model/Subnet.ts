@@ -22,7 +22,10 @@ export class Subnet {
     private 'neutron_subnet_id_v6': string | undefined;
     private 'extra_dhcp_opts': Array<ExtraDhcpOption> | undefined;
     public scope?: string;
-    public constructor(id?: any, name?: any, description?: any, cidr?: any, gatewayIp?: any, ipv6Enable?: any, cidrV6?: any, gatewayIpV6?: any, dhcpEnable?: any, primaryDns?: any, secondaryDns?: any, dnsList?: any, availabilityZone?: any, vpcId?: any, status?: any, neutronNetworkId?: any, neutronSubnetId?: any, neutronSubnetIdV6?: any, extraDhcpOpts?: any) { 
+    private 'tenant_id': string | undefined;
+    private 'created_at': Date | undefined;
+    private 'updated_at': Date | undefined;
+    public constructor(id?: any, name?: any, description?: any, cidr?: any, gatewayIp?: any, ipv6Enable?: any, cidrV6?: any, gatewayIpV6?: any, dhcpEnable?: any, primaryDns?: any, secondaryDns?: any, dnsList?: any, availabilityZone?: any, vpcId?: any, status?: any, neutronNetworkId?: any, neutronSubnetId?: any, neutronSubnetIdV6?: any, extraDhcpOpts?: any, tenantId?: any, createdAt?: any, updatedAt?: any) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -42,6 +45,9 @@ export class Subnet {
         this['neutron_subnet_id'] = neutronSubnetId;
         this['neutron_subnet_id_v6'] = neutronSubnetIdV6;
         this['extra_dhcp_opts'] = extraDhcpOpts;
+        this['tenant_id'] = tenantId;
+        this['created_at'] = createdAt;
+        this['updated_at'] = updatedAt;
     }
     public withId(id: string): Subnet {
         this['id'] = id;
@@ -200,6 +206,36 @@ export class Subnet {
     public withScope(scope: string): Subnet {
         this['scope'] = scope;
         return this;
+    }
+    public withTenantId(tenantId: string): Subnet {
+        this['tenant_id'] = tenantId;
+        return this;
+    }
+    public set tenantId(tenantId: string | undefined) {
+        this['tenant_id'] = tenantId;
+    }
+    public get tenantId() {
+        return this['tenant_id'];
+    }
+    public withCreatedAt(createdAt: Date): Subnet {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: Date | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt() {
+        return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: Date): Subnet {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: Date | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt() {
+        return this['updated_at'];
     }
 }
 

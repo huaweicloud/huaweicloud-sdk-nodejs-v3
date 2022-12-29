@@ -9,6 +9,8 @@ export class ListBlackWhiteListsUsingGetRequest {
     public port?: string;
     public limit: number;
     public offset: number;
+    private 'enterprise_project_id'?: string | undefined;
+    private 'fw_instance_id'?: string | undefined;
     public constructor(projectId?: any, objectId?: any, listType?: any, limit?: any, offset?: any) { 
         this['project_id'] = projectId;
         this['object_id'] = objectId;
@@ -71,6 +73,26 @@ export class ListBlackWhiteListsUsingGetRequest {
     public withOffset(offset: number): ListBlackWhiteListsUsingGetRequest {
         this['offset'] = offset;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListBlackWhiteListsUsingGetRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
+    }
+    public withFwInstanceId(fwInstanceId: string): ListBlackWhiteListsUsingGetRequest {
+        this['fw_instance_id'] = fwInstanceId;
+        return this;
+    }
+    public set fwInstanceId(fwInstanceId: string | undefined) {
+        this['fw_instance_id'] = fwInstanceId;
+    }
+    public get fwInstanceId() {
+        return this['fw_instance_id'];
     }
 }
 

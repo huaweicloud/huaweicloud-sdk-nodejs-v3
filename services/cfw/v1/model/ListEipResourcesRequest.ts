@@ -11,6 +11,9 @@ export class ListEipResourcesRequest {
     private 'enterprise_project_id'?: string | undefined;
     private 'device_key'?: string | undefined;
     private 'address_type'?: number | undefined;
+    private 'fw_instance_id'?: string | undefined;
+    private 'fw_key_word'?: string | undefined;
+    private 'eps_id'?: string | undefined;
     public constructor(projectId?: any, objectId?: any, limit?: any, offset?: any) { 
         this['project_id'] = projectId;
         this['object_id'] = objectId;
@@ -92,6 +95,36 @@ export class ListEipResourcesRequest {
     }
     public get addressType() {
         return this['address_type'];
+    }
+    public withFwInstanceId(fwInstanceId: string): ListEipResourcesRequest {
+        this['fw_instance_id'] = fwInstanceId;
+        return this;
+    }
+    public set fwInstanceId(fwInstanceId: string | undefined) {
+        this['fw_instance_id'] = fwInstanceId;
+    }
+    public get fwInstanceId() {
+        return this['fw_instance_id'];
+    }
+    public withFwKeyWord(fwKeyWord: string): ListEipResourcesRequest {
+        this['fw_key_word'] = fwKeyWord;
+        return this;
+    }
+    public set fwKeyWord(fwKeyWord: string | undefined) {
+        this['fw_key_word'] = fwKeyWord;
+    }
+    public get fwKeyWord() {
+        return this['fw_key_word'];
+    }
+    public withEpsId(epsId: string): ListEipResourcesRequest {
+        this['eps_id'] = epsId;
+        return this;
+    }
+    public set epsId(epsId: string | undefined) {
+        this['eps_id'] = epsId;
+    }
+    public get epsId() {
+        return this['eps_id'];
     }
 }
 

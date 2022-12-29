@@ -188,6 +188,8 @@ export class CfwClient {
      * @summary 添加地址组成员
      * @param {string} projectId 租户项目id
      * @param {AddAddressItemsInfoDto} addAddressItemsUsingPOSTRequestBody 添加地址组成员请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -208,6 +210,8 @@ export class CfwClient {
      * @summary 添加地址组
      * @param {string} projectId 租户项目id
      * @param {AddAddressSetDto} addAddressSetInfoUsingPOSTRequestBody 添加地址组请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -228,6 +232,8 @@ export class CfwClient {
      * @summary 创建黑白名单规则
      * @param {string} projectId 租户项目id
      * @param {AddBlackWhiteListDto} addBlackWhiteListUsingPOSTRequestBody 添加黑白名单请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -248,6 +254,8 @@ export class CfwClient {
      * @summary 新建服务成员
      * @param {string} projectId 租户项目id
      * @param {AddServiceItemsUsingPOSTRequestBody} addServiceItemsUsingPOSTRequestBody 创建服务组成员请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -268,6 +276,8 @@ export class CfwClient {
      * @summary 新建服务组
      * @param {string} projectId 租户项目id
      * @param {AddServiceSetUsingPOSTRequestBody} addServiceSetUsingPOSTRequestBody 创建服务组请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -288,6 +298,8 @@ export class CfwClient {
      * @summary 修改东西向防火墙防护状态
      * @param {string} projectId 租户项目id
      * @param {ChangeProtectStatusRequestBody} changeEwProtectStatusRequestBody 修改东西向防护状态请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -308,6 +320,8 @@ export class CfwClient {
      * @summary 切换防护模式
      * @param {string} projectId 租户项目id
      * @param {IpsProtectDTO} changeIpsProtectModeUsingPOSTRequestBody ChangeIpsProtectModeUsingPOSTRequestBody
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -328,6 +342,8 @@ export class CfwClient {
      * @summary 删除规则击中次数
      * @param {string} projectId project id
      * @param {ClearAccessLogRuleHitCountsDto} deleteAclRuleCountRequestBody clear access log rule hit counts dto
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -348,6 +364,8 @@ export class CfwClient {
      * @summary 删除地址组成员
      * @param {string} itemId 地址组成员id
      * @param {string} projectId 租户项目id
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -368,6 +386,8 @@ export class CfwClient {
      * @summary 删除地址组
      * @param {string} projectId 租户项目id
      * @param {string} setId 地址组id
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -388,6 +408,8 @@ export class CfwClient {
      * @summary 删除黑白名单规则
      * @param {string} projectId 租户项目id
      * @param {string} listId 黑白名单id
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -408,6 +430,8 @@ export class CfwClient {
      * @summary 删除服务成员
      * @param {string} projectId 租户项目id
      * @param {string} itemId 服务组成员id
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -428,6 +452,8 @@ export class CfwClient {
      * @summary 删除服务组
      * @param {string} projectId 租户项目id
      * @param {string} setId 服务集合id
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -462,6 +488,7 @@ export class CfwClient {
      * @param {number} [nextDate] 日期,第一页为空，其他页不为空
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {'internet' | 'nat' | 'vpc'} [logType] 日志类型
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -486,6 +513,8 @@ export class CfwClient {
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [keyWord] 关键字
      * @param {string} [address] ip地址
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -506,6 +535,8 @@ export class CfwClient {
      * @summary 查询地址组详细信息
      * @param {string} projectId 租户项目id
      * @param {string} setId 地址组id
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -531,6 +562,8 @@ export class CfwClient {
      * @param {string} [keyWord] 关键字
      * @param {string} [address] ip地址
      * @param {0 | 1} [addressType] 地址类型0 ipv4,1 ipv6
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -569,6 +602,7 @@ export class CfwClient {
      * @param {string} [attackRule] 入侵事件规则
      * @param {string} [level] 威胁等级
      * @param {string} [source] 判断来源
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -595,6 +629,8 @@ export class CfwClient {
      * @param {0 | 1 | 2} [addressType] IP地址类型0：ipv4,1:ipv6,2:domain
      * @param {string} [address] ip地址
      * @param {string} [port] 端口
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -616,6 +652,8 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {number} [limit] 每页显示个数
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -637,6 +675,8 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {number} limit 每页显示个数
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -659,6 +699,8 @@ export class CfwClient {
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {number} limit 每页显示个数
      * @param {0 | 1} serviceType 服务类型 0 南北向防火墙 1 东西向防火墙
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -693,6 +735,7 @@ export class CfwClient {
      * @param {string} [logId] 文档ID，首页时为null，非首页时不为null
      * @param {number} [nextDate] 日期，首页时为null，非首页时不为null
      * @param {number} [offset] 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -713,6 +756,8 @@ export class CfwClient {
      * @summary 查询防护模式
      * @param {string} projectId 租户项目id
      * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -733,6 +778,8 @@ export class CfwClient {
      * @summary 查询域名解析ip地址
      * @param {string} projectId 租户项目id
      * @param {string} domainName 域名
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -752,6 +799,8 @@ export class CfwClient {
      *
      * @summary 获取规则击中次数
      * @param {string} projectId 租户项目id
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {ListRuleHitCountDto} [listRuleHitCountRequestBody] 获取规则击中次数DTO
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -776,6 +825,8 @@ export class CfwClient {
      * @param {number} limit 每页显示个数
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [keyWord] 查询字段
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -799,6 +850,8 @@ export class CfwClient {
      * @param {number} limit 每页查询个数
      * @param {number} offset 偏移量：指定返回记录的开始位置，必须为数字，取值范围为大于或等于0，默认0
      * @param {string} [keyWord] 关键字
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -819,6 +872,8 @@ export class CfwClient {
      * @summary 查询服务组详情
      * @param {string} projectId 租户项目id
      * @param {string} setId 服务组id
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -840,6 +895,8 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} setId 地址组id
      * @param {UpdateAddressSetDto} updateAddressSetInfoUsingPUTRequestBody UpdateAddressSetInfoUsingPUTRequestBody
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -861,6 +918,8 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} listId 黑白名单列表id
      * @param {UpdateBlackWhiteListDto} updateBlackWhiteListUsingPUTRequestBody 更新黑白名单请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -881,6 +940,8 @@ export class CfwClient {
      * @summary 更新dns服务器列表
      * @param {string} projectId 租户项目id
      * @param {UpdateDnsServersRequestBody} updateDnsServersRequestBody 更新dns服务器列表请求体
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -902,6 +963,8 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} setId 服务组id
      * @param {UpdateServiceSetUsingPUTRequestBody} updateServiceSetUsingPUTRequestBody 更新服务组的请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -922,6 +985,8 @@ export class CfwClient {
      * @summary 创建ACL规则
      * @param {string} projectId 租户项目id
      * @param {AddRuleAclDto} addRuleAclUsingPOSTRequestBody 添加aclDto
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -942,6 +1007,8 @@ export class CfwClient {
      * @summary 删除ACL规则组
      * @param {string} projectId 租户项目Id
      * @param {string} aclRuleId 规则Id
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -963,6 +1030,8 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} aclRuleId 规则id
      * @param {OrderRuleAclDto} listRuleAclUsingPUTRequestBody 规则排序请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -993,6 +1062,8 @@ export class CfwClient {
      * @param {0 | 1} [status] 规则下发状态 0：禁用,1：启用
      * @param {0 | 1} [actionType] 动作0：permit,1：deny
      * @param {0 | 1 | 2} [addressType] 地址类型0 ipv4,1 ipv6,2 domain
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1014,6 +1085,8 @@ export class CfwClient {
      * @param {string} projectId 租户项目id
      * @param {string} aclRuleId 规则Id
      * @param {UpdateRuleAclDto} updateRuleAclUsingPUTRequestBody 更新规则请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1034,6 +1107,8 @@ export class CfwClient {
      * @summary 弹性IP开启关闭
      * @param {string} projectId 租户项目ID
      * @param {EipOperateProtectReq} changeProtectEipRequestBody 开启关闭EIP请求体
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1054,6 +1129,8 @@ export class CfwClient {
      * @summary 查询Eip个数
      * @param {string} projectId 租户项目ID
      * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1079,9 +1156,12 @@ export class CfwClient {
      * @param {string} [keyWord] 弹性公网ID/弹性公网IP
      * @param {'null' | '0' | '1'} [status] 防护状态 null-全部 0-开启防护 1-关闭防护
      * @param {0 | 1} [sync] 是否同步租户EIP数据 0-不同步 1-同步
-     * @param {string} [enterpriseProjectId] 企业项目id
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
      * @param {string} [deviceKey] 设备键
      * @param {number} [addressType] 地址类型0 ipv4,1 ipv6
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} [fwKeyWord] 所绑定防火墙id防火墙名称
+     * @param {string} [epsId] 弹性公网ip的企业项目id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1102,6 +1182,8 @@ export class CfwClient {
      * @summary IPS特性开关操作
      * @param {string} projectId project_id
      * @param {IpsSwitchDTO} changeIpsSwitchUsingPOSTRequestBody ChangeIpsSwitchUsingPOSTRequestBody
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1122,6 +1204,8 @@ export class CfwClient {
      * @summary 查询IPS特性开关状态
      * @param {string} projectId project_id
      * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1142,6 +1226,8 @@ export class CfwClient {
      * @summary 查询防护VPC数
      * @param {string} projectId 租户项目id
      * @param {string} objectId 防护对象id，是创建云防火墙后用于区分互联网边界防护和VPC边界防护的标志id，可通过调用查询防火墙实例接口获得，注意type为0的为互联网边界防护对象id，type为1的为VPC边界防护对象id。具体可参考APIExlorer和帮助中心FAQ。
+     * @param {string} [enterpriseProjectId] 企业项目id，用户支持企业项目后，由企业项目生成的id。
+     * @param {string} [fwInstanceId] 防火墙实例id，创建云防火墙后用于标志防火墙由系统自动生成的标志id，可通过调用查询防火墙实例接口获得。具体可参考APIExlorer和帮助中心FAQ。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1174,18 +1260,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (addAddressItemsUsingPostRequest !== null && addAddressItemsUsingPostRequest !== undefined) {
                 if (addAddressItemsUsingPostRequest instanceof AddAddressItemsUsingPostRequest) {
                     projectId = addAddressItemsUsingPostRequest.projectId;
                     body = addAddressItemsUsingPostRequest.body
+                    enterpriseProjectId = addAddressItemsUsingPostRequest.enterpriseProjectId;
+                    fwInstanceId = addAddressItemsUsingPostRequest.fwInstanceId;
                 } else {
                     projectId = addAddressItemsUsingPostRequest['project_id'];
                     body = addAddressItemsUsingPostRequest['body'];
+                    enterpriseProjectId = addAddressItemsUsingPostRequest['enterprise_project_id'];
+                    fwInstanceId = addAddressItemsUsingPostRequest['fw_instance_id'];
                 }
             }
 
@@ -1196,9 +1290,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1220,18 +1321,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (addAddressSetInfoUsingPostRequest !== null && addAddressSetInfoUsingPostRequest !== undefined) {
                 if (addAddressSetInfoUsingPostRequest instanceof AddAddressSetInfoUsingPostRequest) {
                     projectId = addAddressSetInfoUsingPostRequest.projectId;
                     body = addAddressSetInfoUsingPostRequest.body
+                    enterpriseProjectId = addAddressSetInfoUsingPostRequest.enterpriseProjectId;
+                    fwInstanceId = addAddressSetInfoUsingPostRequest.fwInstanceId;
                 } else {
                     projectId = addAddressSetInfoUsingPostRequest['project_id'];
                     body = addAddressSetInfoUsingPostRequest['body'];
+                    enterpriseProjectId = addAddressSetInfoUsingPostRequest['enterprise_project_id'];
+                    fwInstanceId = addAddressSetInfoUsingPostRequest['fw_instance_id'];
                 }
             }
 
@@ -1242,9 +1351,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1266,18 +1382,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (addBlackWhiteListUsingPostRequest !== null && addBlackWhiteListUsingPostRequest !== undefined) {
                 if (addBlackWhiteListUsingPostRequest instanceof AddBlackWhiteListUsingPostRequest) {
                     projectId = addBlackWhiteListUsingPostRequest.projectId;
                     body = addBlackWhiteListUsingPostRequest.body
+                    enterpriseProjectId = addBlackWhiteListUsingPostRequest.enterpriseProjectId;
+                    fwInstanceId = addBlackWhiteListUsingPostRequest.fwInstanceId;
                 } else {
                     projectId = addBlackWhiteListUsingPostRequest['project_id'];
                     body = addBlackWhiteListUsingPostRequest['body'];
+                    enterpriseProjectId = addBlackWhiteListUsingPostRequest['enterprise_project_id'];
+                    fwInstanceId = addBlackWhiteListUsingPostRequest['fw_instance_id'];
                 }
             }
 
@@ -1288,9 +1412,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1312,18 +1443,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (addServiceItemsUsingPostRequest !== null && addServiceItemsUsingPostRequest !== undefined) {
                 if (addServiceItemsUsingPostRequest instanceof AddServiceItemsUsingPostRequest) {
                     projectId = addServiceItemsUsingPostRequest.projectId;
                     body = addServiceItemsUsingPostRequest.body
+                    enterpriseProjectId = addServiceItemsUsingPostRequest.enterpriseProjectId;
+                    fwInstanceId = addServiceItemsUsingPostRequest.fwInstanceId;
                 } else {
                     projectId = addServiceItemsUsingPostRequest['project_id'];
                     body = addServiceItemsUsingPostRequest['body'];
+                    enterpriseProjectId = addServiceItemsUsingPostRequest['enterprise_project_id'];
+                    fwInstanceId = addServiceItemsUsingPostRequest['fw_instance_id'];
                 }
             }
 
@@ -1334,9 +1473,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1358,18 +1504,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (addServiceSetUsingPostRequest !== null && addServiceSetUsingPostRequest !== undefined) {
                 if (addServiceSetUsingPostRequest instanceof AddServiceSetUsingPostRequest) {
                     projectId = addServiceSetUsingPostRequest.projectId;
                     body = addServiceSetUsingPostRequest.body
+                    enterpriseProjectId = addServiceSetUsingPostRequest.enterpriseProjectId;
+                    fwInstanceId = addServiceSetUsingPostRequest.fwInstanceId;
                 } else {
                     projectId = addServiceSetUsingPostRequest['project_id'];
                     body = addServiceSetUsingPostRequest['body'];
+                    enterpriseProjectId = addServiceSetUsingPostRequest['enterprise_project_id'];
+                    fwInstanceId = addServiceSetUsingPostRequest['fw_instance_id'];
                 }
             }
 
@@ -1380,9 +1534,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1404,18 +1565,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (changeEwProtectStatusRequest !== null && changeEwProtectStatusRequest !== undefined) {
                 if (changeEwProtectStatusRequest instanceof ChangeEwProtectStatusRequest) {
                     projectId = changeEwProtectStatusRequest.projectId;
                     body = changeEwProtectStatusRequest.body
+                    enterpriseProjectId = changeEwProtectStatusRequest.enterpriseProjectId;
+                    fwInstanceId = changeEwProtectStatusRequest.fwInstanceId;
                 } else {
                     projectId = changeEwProtectStatusRequest['project_id'];
                     body = changeEwProtectStatusRequest['body'];
+                    enterpriseProjectId = changeEwProtectStatusRequest['enterprise_project_id'];
+                    fwInstanceId = changeEwProtectStatusRequest['fw_instance_id'];
                 }
             }
 
@@ -1426,9 +1595,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1450,18 +1626,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (changeIpsProtectModeUsingPostRequest !== null && changeIpsProtectModeUsingPostRequest !== undefined) {
                 if (changeIpsProtectModeUsingPostRequest instanceof ChangeIpsProtectModeUsingPostRequest) {
                     projectId = changeIpsProtectModeUsingPostRequest.projectId;
                     body = changeIpsProtectModeUsingPostRequest.body
+                    enterpriseProjectId = changeIpsProtectModeUsingPostRequest.enterpriseProjectId;
+                    fwInstanceId = changeIpsProtectModeUsingPostRequest.fwInstanceId;
                 } else {
                     projectId = changeIpsProtectModeUsingPostRequest['project_id'];
                     body = changeIpsProtectModeUsingPostRequest['body'];
+                    enterpriseProjectId = changeIpsProtectModeUsingPostRequest['enterprise_project_id'];
+                    fwInstanceId = changeIpsProtectModeUsingPostRequest['fw_instance_id'];
                 }
             }
 
@@ -1472,9 +1656,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1496,18 +1687,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (deleteAclRuleCountRequest !== null && deleteAclRuleCountRequest !== undefined) {
                 if (deleteAclRuleCountRequest instanceof DeleteAclRuleCountRequest) {
                     projectId = deleteAclRuleCountRequest.projectId;
                     body = deleteAclRuleCountRequest.body
+                    enterpriseProjectId = deleteAclRuleCountRequest.enterpriseProjectId;
+                    fwInstanceId = deleteAclRuleCountRequest.fwInstanceId;
                 } else {
                     projectId = deleteAclRuleCountRequest['project_id'];
                     body = deleteAclRuleCountRequest['body'];
+                    enterpriseProjectId = deleteAclRuleCountRequest['enterprise_project_id'];
+                    fwInstanceId = deleteAclRuleCountRequest['fw_instance_id'];
                 }
             }
 
@@ -1518,9 +1717,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1542,19 +1748,27 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let itemId;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (deleteAddressItemUsingDeleteRequest !== null && deleteAddressItemUsingDeleteRequest !== undefined) {
                 if (deleteAddressItemUsingDeleteRequest instanceof DeleteAddressItemUsingDeleteRequest) {
                     itemId = deleteAddressItemUsingDeleteRequest.itemId;
                     projectId = deleteAddressItemUsingDeleteRequest.projectId;
+                    enterpriseProjectId = deleteAddressItemUsingDeleteRequest.enterpriseProjectId;
+                    fwInstanceId = deleteAddressItemUsingDeleteRequest.fwInstanceId;
                 } else {
                     itemId = deleteAddressItemUsingDeleteRequest['item_id'];
                     projectId = deleteAddressItemUsingDeleteRequest['project_id'];
+                    enterpriseProjectId = deleteAddressItemUsingDeleteRequest['enterprise_project_id'];
+                    fwInstanceId = deleteAddressItemUsingDeleteRequest['fw_instance_id'];
                 }
             }
 
@@ -1565,7 +1779,14 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling deleteAddressItemUsingDelete.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'item_id': itemId,'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1587,19 +1808,27 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
             
             let setId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (deleteAddressSetInfoUsingDeleteRequest !== null && deleteAddressSetInfoUsingDeleteRequest !== undefined) {
                 if (deleteAddressSetInfoUsingDeleteRequest instanceof DeleteAddressSetInfoUsingDeleteRequest) {
                     projectId = deleteAddressSetInfoUsingDeleteRequest.projectId;
                     setId = deleteAddressSetInfoUsingDeleteRequest.setId;
+                    enterpriseProjectId = deleteAddressSetInfoUsingDeleteRequest.enterpriseProjectId;
+                    fwInstanceId = deleteAddressSetInfoUsingDeleteRequest.fwInstanceId;
                 } else {
                     projectId = deleteAddressSetInfoUsingDeleteRequest['project_id'];
                     setId = deleteAddressSetInfoUsingDeleteRequest['set_id'];
+                    enterpriseProjectId = deleteAddressSetInfoUsingDeleteRequest['enterprise_project_id'];
+                    fwInstanceId = deleteAddressSetInfoUsingDeleteRequest['fw_instance_id'];
                 }
             }
 
@@ -1610,7 +1839,14 @@ export const ParamCreater = function () {
             if (setId === null || setId === undefined) {
             throw new RequiredError('setId','Required parameter setId was null or undefined when calling deleteAddressSetInfoUsingDelete.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'set_id': setId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1632,19 +1868,27 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
             
             let listId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (deleteBlackWhiteListUsingDeleteRequest !== null && deleteBlackWhiteListUsingDeleteRequest !== undefined) {
                 if (deleteBlackWhiteListUsingDeleteRequest instanceof DeleteBlackWhiteListUsingDeleteRequest) {
                     projectId = deleteBlackWhiteListUsingDeleteRequest.projectId;
                     listId = deleteBlackWhiteListUsingDeleteRequest.listId;
+                    enterpriseProjectId = deleteBlackWhiteListUsingDeleteRequest.enterpriseProjectId;
+                    fwInstanceId = deleteBlackWhiteListUsingDeleteRequest.fwInstanceId;
                 } else {
                     projectId = deleteBlackWhiteListUsingDeleteRequest['project_id'];
                     listId = deleteBlackWhiteListUsingDeleteRequest['list_id'];
+                    enterpriseProjectId = deleteBlackWhiteListUsingDeleteRequest['enterprise_project_id'];
+                    fwInstanceId = deleteBlackWhiteListUsingDeleteRequest['fw_instance_id'];
                 }
             }
 
@@ -1655,7 +1899,14 @@ export const ParamCreater = function () {
             if (listId === null || listId === undefined) {
             throw new RequiredError('listId','Required parameter listId was null or undefined when calling deleteBlackWhiteListUsingDelete.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'list_id': listId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1677,19 +1928,27 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
             
             let itemId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (deleteServiceItemUsingDeleteRequest !== null && deleteServiceItemUsingDeleteRequest !== undefined) {
                 if (deleteServiceItemUsingDeleteRequest instanceof DeleteServiceItemUsingDeleteRequest) {
                     projectId = deleteServiceItemUsingDeleteRequest.projectId;
                     itemId = deleteServiceItemUsingDeleteRequest.itemId;
+                    enterpriseProjectId = deleteServiceItemUsingDeleteRequest.enterpriseProjectId;
+                    fwInstanceId = deleteServiceItemUsingDeleteRequest.fwInstanceId;
                 } else {
                     projectId = deleteServiceItemUsingDeleteRequest['project_id'];
                     itemId = deleteServiceItemUsingDeleteRequest['item_id'];
+                    enterpriseProjectId = deleteServiceItemUsingDeleteRequest['enterprise_project_id'];
+                    fwInstanceId = deleteServiceItemUsingDeleteRequest['fw_instance_id'];
                 }
             }
 
@@ -1700,7 +1959,14 @@ export const ParamCreater = function () {
             if (itemId === null || itemId === undefined) {
             throw new RequiredError('itemId','Required parameter itemId was null or undefined when calling deleteServiceItemUsingDelete.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'item_id': itemId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1722,19 +1988,27 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
             
             let setId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (deleteServiceSetUsingDeleteRequest !== null && deleteServiceSetUsingDeleteRequest !== undefined) {
                 if (deleteServiceSetUsingDeleteRequest instanceof DeleteServiceSetUsingDeleteRequest) {
                     projectId = deleteServiceSetUsingDeleteRequest.projectId;
                     setId = deleteServiceSetUsingDeleteRequest.setId;
+                    enterpriseProjectId = deleteServiceSetUsingDeleteRequest.enterpriseProjectId;
+                    fwInstanceId = deleteServiceSetUsingDeleteRequest.fwInstanceId;
                 } else {
                     projectId = deleteServiceSetUsingDeleteRequest['project_id'];
                     setId = deleteServiceSetUsingDeleteRequest['set_id'];
+                    enterpriseProjectId = deleteServiceSetUsingDeleteRequest['enterprise_project_id'];
+                    fwInstanceId = deleteServiceSetUsingDeleteRequest['fw_instance_id'];
                 }
             }
 
@@ -1745,7 +2019,14 @@ export const ParamCreater = function () {
             if (setId === null || setId === undefined) {
             throw new RequiredError('setId','Required parameter setId was null or undefined when calling deleteServiceSetUsingDelete.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'set_id': setId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -1800,6 +2081,8 @@ export const ParamCreater = function () {
             let offset;
             
             let logType;
+            
+            let enterpriseProjectId;
 
             if (listAccessControlLogsRequest !== null && listAccessControlLogsRequest !== undefined) {
                 if (listAccessControlLogsRequest instanceof ListAccessControlLogsRequest) {
@@ -1819,6 +2102,7 @@ export const ParamCreater = function () {
                     nextDate = listAccessControlLogsRequest.nextDate;
                     offset = listAccessControlLogsRequest.offset;
                     logType = listAccessControlLogsRequest.logType;
+                    enterpriseProjectId = listAccessControlLogsRequest.enterpriseProjectId;
                 } else {
                     projectId = listAccessControlLogsRequest['project_id'];
                     fwInstanceId = listAccessControlLogsRequest['fw_instance_id'];
@@ -1836,6 +2120,7 @@ export const ParamCreater = function () {
                     nextDate = listAccessControlLogsRequest['next_date'];
                     offset = listAccessControlLogsRequest['offset'];
                     logType = listAccessControlLogsRequest['log_type'];
+                    enterpriseProjectId = listAccessControlLogsRequest['enterprise_project_id'];
                 }
             }
 
@@ -1900,6 +2185,9 @@ export const ParamCreater = function () {
             if (logType !== null && logType !== undefined) {
                 localVarQueryParameter['log_type'] = logType;
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
@@ -1936,6 +2224,10 @@ export const ParamCreater = function () {
             let keyWord;
             
             let address;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listAddressItemsUsingGetRequest !== null && listAddressItemsUsingGetRequest !== undefined) {
                 if (listAddressItemsUsingGetRequest instanceof ListAddressItemsUsingGetRequest) {
@@ -1945,6 +2237,8 @@ export const ParamCreater = function () {
                     offset = listAddressItemsUsingGetRequest.offset;
                     keyWord = listAddressItemsUsingGetRequest.keyWord;
                     address = listAddressItemsUsingGetRequest.address;
+                    enterpriseProjectId = listAddressItemsUsingGetRequest.enterpriseProjectId;
+                    fwInstanceId = listAddressItemsUsingGetRequest.fwInstanceId;
                 } else {
                     projectId = listAddressItemsUsingGetRequest['project_id'];
                     setId = listAddressItemsUsingGetRequest['set_id'];
@@ -1952,6 +2246,8 @@ export const ParamCreater = function () {
                     offset = listAddressItemsUsingGetRequest['offset'];
                     keyWord = listAddressItemsUsingGetRequest['key_word'];
                     address = listAddressItemsUsingGetRequest['address'];
+                    enterpriseProjectId = listAddressItemsUsingGetRequest['enterprise_project_id'];
+                    fwInstanceId = listAddressItemsUsingGetRequest['fw_instance_id'];
                 }
             }
 
@@ -1983,6 +2279,12 @@ export const ParamCreater = function () {
             if (address !== null && address !== undefined) {
                 localVarQueryParameter['address'] = address;
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
@@ -2006,19 +2308,27 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
             
             let setId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listAddressSetDetailUsingGetRequest !== null && listAddressSetDetailUsingGetRequest !== undefined) {
                 if (listAddressSetDetailUsingGetRequest instanceof ListAddressSetDetailUsingGetRequest) {
                     projectId = listAddressSetDetailUsingGetRequest.projectId;
                     setId = listAddressSetDetailUsingGetRequest.setId;
+                    enterpriseProjectId = listAddressSetDetailUsingGetRequest.enterpriseProjectId;
+                    fwInstanceId = listAddressSetDetailUsingGetRequest.fwInstanceId;
                 } else {
                     projectId = listAddressSetDetailUsingGetRequest['project_id'];
                     setId = listAddressSetDetailUsingGetRequest['set_id'];
+                    enterpriseProjectId = listAddressSetDetailUsingGetRequest['enterprise_project_id'];
+                    fwInstanceId = listAddressSetDetailUsingGetRequest['fw_instance_id'];
                 }
             }
 
@@ -2029,7 +2339,14 @@ export const ParamCreater = function () {
             if (setId === null || setId === undefined) {
             throw new RequiredError('setId','Required parameter setId was null or undefined when calling listAddressSetDetailUsingGet.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'set_id': setId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2066,6 +2383,10 @@ export const ParamCreater = function () {
             let address;
             
             let addressType;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listAddressSetListUsingGetRequest !== null && listAddressSetListUsingGetRequest !== undefined) {
                 if (listAddressSetListUsingGetRequest instanceof ListAddressSetListUsingGetRequest) {
@@ -2076,6 +2397,8 @@ export const ParamCreater = function () {
                     keyWord = listAddressSetListUsingGetRequest.keyWord;
                     address = listAddressSetListUsingGetRequest.address;
                     addressType = listAddressSetListUsingGetRequest.addressType;
+                    enterpriseProjectId = listAddressSetListUsingGetRequest.enterpriseProjectId;
+                    fwInstanceId = listAddressSetListUsingGetRequest.fwInstanceId;
                 } else {
                     projectId = listAddressSetListUsingGetRequest['project_id'];
                     objectId = listAddressSetListUsingGetRequest['object_id'];
@@ -2084,6 +2407,8 @@ export const ParamCreater = function () {
                     keyWord = listAddressSetListUsingGetRequest['key_word'];
                     address = listAddressSetListUsingGetRequest['address'];
                     addressType = listAddressSetListUsingGetRequest['address_type'];
+                    enterpriseProjectId = listAddressSetListUsingGetRequest['enterprise_project_id'];
+                    fwInstanceId = listAddressSetListUsingGetRequest['fw_instance_id'];
                 }
             }
 
@@ -2117,6 +2442,12 @@ export const ParamCreater = function () {
             }
             if (addressType !== null && addressType !== undefined) {
                 localVarQueryParameter['address_type'] = addressType;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2182,6 +2513,8 @@ export const ParamCreater = function () {
             let level;
             
             let source;
+            
+            let enterpriseProjectId;
 
             if (listAttackLogsRequest !== null && listAttackLogsRequest !== undefined) {
                 if (listAttackLogsRequest instanceof ListAttackLogsRequest) {
@@ -2205,6 +2538,7 @@ export const ParamCreater = function () {
                     attackRule = listAttackLogsRequest.attackRule;
                     level = listAttackLogsRequest.level;
                     source = listAttackLogsRequest.source;
+                    enterpriseProjectId = listAttackLogsRequest.enterpriseProjectId;
                 } else {
                     projectId = listAttackLogsRequest['project_id'];
                     startTime = listAttackLogsRequest['start_time'];
@@ -2226,6 +2560,7 @@ export const ParamCreater = function () {
                     attackRule = listAttackLogsRequest['attack_rule'];
                     level = listAttackLogsRequest['level'];
                     source = listAttackLogsRequest['source'];
+                    enterpriseProjectId = listAttackLogsRequest['enterprise_project_id'];
                 }
             }
 
@@ -2302,6 +2637,9 @@ export const ParamCreater = function () {
             if (source !== null && source !== undefined) {
                 localVarQueryParameter['source'] = source;
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
@@ -2342,6 +2680,10 @@ export const ParamCreater = function () {
             let address;
             
             let port;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listBlackWhiteListsUsingGetRequest !== null && listBlackWhiteListsUsingGetRequest !== undefined) {
                 if (listBlackWhiteListsUsingGetRequest instanceof ListBlackWhiteListsUsingGetRequest) {
@@ -2353,6 +2695,8 @@ export const ParamCreater = function () {
                     addressType = listBlackWhiteListsUsingGetRequest.addressType;
                     address = listBlackWhiteListsUsingGetRequest.address;
                     port = listBlackWhiteListsUsingGetRequest.port;
+                    enterpriseProjectId = listBlackWhiteListsUsingGetRequest.enterpriseProjectId;
+                    fwInstanceId = listBlackWhiteListsUsingGetRequest.fwInstanceId;
                 } else {
                     projectId = listBlackWhiteListsUsingGetRequest['project_id'];
                     objectId = listBlackWhiteListsUsingGetRequest['object_id'];
@@ -2362,6 +2706,8 @@ export const ParamCreater = function () {
                     addressType = listBlackWhiteListsUsingGetRequest['address_type'];
                     address = listBlackWhiteListsUsingGetRequest['address'];
                     port = listBlackWhiteListsUsingGetRequest['port'];
+                    enterpriseProjectId = listBlackWhiteListsUsingGetRequest['enterprise_project_id'];
+                    fwInstanceId = listBlackWhiteListsUsingGetRequest['fw_instance_id'];
                 }
             }
 
@@ -2402,6 +2748,12 @@ export const ParamCreater = function () {
             if (port !== null && port !== undefined) {
                 localVarQueryParameter['port'] = port;
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
@@ -2432,16 +2784,24 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let fwInstanceId;
+            
+            let enterpriseProjectId;
 
             if (listDnsServersRequest !== null && listDnsServersRequest !== undefined) {
                 if (listDnsServersRequest instanceof ListDnsServersRequest) {
                     projectId = listDnsServersRequest.projectId;
                     limit = listDnsServersRequest.limit;
                     offset = listDnsServersRequest.offset;
+                    fwInstanceId = listDnsServersRequest.fwInstanceId;
+                    enterpriseProjectId = listDnsServersRequest.enterpriseProjectId;
                 } else {
                     projectId = listDnsServersRequest['project_id'];
                     limit = listDnsServersRequest['limit'];
                     offset = listDnsServersRequest['offset'];
+                    fwInstanceId = listDnsServersRequest['fw_instance_id'];
+                    enterpriseProjectId = listDnsServersRequest['enterprise_project_id'];
                 }
             }
 
@@ -2454,6 +2814,12 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2485,16 +2851,24 @@ export const ParamCreater = function () {
             let limit;
             
             let offset;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listEastWestFirewallRequest !== null && listEastWestFirewallRequest !== undefined) {
                 if (listEastWestFirewallRequest instanceof ListEastWestFirewallRequest) {
                     projectId = listEastWestFirewallRequest.projectId;
                     limit = listEastWestFirewallRequest.limit;
                     offset = listEastWestFirewallRequest.offset;
+                    enterpriseProjectId = listEastWestFirewallRequest.enterpriseProjectId;
+                    fwInstanceId = listEastWestFirewallRequest.fwInstanceId;
                 } else {
                     projectId = listEastWestFirewallRequest['project_id'];
                     limit = listEastWestFirewallRequest['limit'];
                     offset = listEastWestFirewallRequest['offset'];
+                    enterpriseProjectId = listEastWestFirewallRequest['enterprise_project_id'];
+                    fwInstanceId = listEastWestFirewallRequest['fw_instance_id'];
                 }
             }
 
@@ -2513,6 +2887,12 @@ export const ParamCreater = function () {
             }
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2546,6 +2926,10 @@ export const ParamCreater = function () {
             let limit;
             
             let serviceType;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listFirewallUsingGetRequest !== null && listFirewallUsingGetRequest !== undefined) {
                 if (listFirewallUsingGetRequest instanceof ListFirewallUsingGetRequest) {
@@ -2553,11 +2937,15 @@ export const ParamCreater = function () {
                     offset = listFirewallUsingGetRequest.offset;
                     limit = listFirewallUsingGetRequest.limit;
                     serviceType = listFirewallUsingGetRequest.serviceType;
+                    enterpriseProjectId = listFirewallUsingGetRequest.enterpriseProjectId;
+                    fwInstanceId = listFirewallUsingGetRequest.fwInstanceId;
                 } else {
                     projectId = listFirewallUsingGetRequest['project_id'];
                     offset = listFirewallUsingGetRequest['offset'];
                     limit = listFirewallUsingGetRequest['limit'];
                     serviceType = listFirewallUsingGetRequest['service_type'];
+                    enterpriseProjectId = listFirewallUsingGetRequest['enterprise_project_id'];
+                    fwInstanceId = listFirewallUsingGetRequest['fw_instance_id'];
                 }
             }
 
@@ -2582,6 +2970,12 @@ export const ParamCreater = function () {
             }
             if (serviceType !== null && serviceType !== undefined) {
                 localVarQueryParameter['service_type'] = serviceType;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2639,6 +3033,8 @@ export const ParamCreater = function () {
             let nextDate;
             
             let offset;
+            
+            let enterpriseProjectId;
 
             if (listFlowLogsRequest !== null && listFlowLogsRequest !== undefined) {
                 if (listFlowLogsRequest instanceof ListFlowLogsRequest) {
@@ -2658,6 +3054,7 @@ export const ParamCreater = function () {
                     logId = listFlowLogsRequest.logId;
                     nextDate = listFlowLogsRequest.nextDate;
                     offset = listFlowLogsRequest.offset;
+                    enterpriseProjectId = listFlowLogsRequest.enterpriseProjectId;
                 } else {
                     projectId = listFlowLogsRequest['project_id'];
                     fwInstanceId = listFlowLogsRequest['fw_instance_id'];
@@ -2675,6 +3072,7 @@ export const ParamCreater = function () {
                     logId = listFlowLogsRequest['log_id'];
                     nextDate = listFlowLogsRequest['next_date'];
                     offset = listFlowLogsRequest['offset'];
+                    enterpriseProjectId = listFlowLogsRequest['enterprise_project_id'];
                 }
             }
 
@@ -2739,6 +3137,9 @@ export const ParamCreater = function () {
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
@@ -2767,14 +3168,22 @@ export const ParamCreater = function () {
             let projectId;
             
             let objectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listIpsProtectModeUsingPostRequest !== null && listIpsProtectModeUsingPostRequest !== undefined) {
                 if (listIpsProtectModeUsingPostRequest instanceof ListIpsProtectModeUsingPostRequest) {
                     projectId = listIpsProtectModeUsingPostRequest.projectId;
                     objectId = listIpsProtectModeUsingPostRequest.objectId;
+                    enterpriseProjectId = listIpsProtectModeUsingPostRequest.enterpriseProjectId;
+                    fwInstanceId = listIpsProtectModeUsingPostRequest.fwInstanceId;
                 } else {
                     projectId = listIpsProtectModeUsingPostRequest['project_id'];
                     objectId = listIpsProtectModeUsingPostRequest['object_id'];
+                    enterpriseProjectId = listIpsProtectModeUsingPostRequest['enterprise_project_id'];
+                    fwInstanceId = listIpsProtectModeUsingPostRequest['fw_instance_id'];
                 }
             }
 
@@ -2787,6 +3196,12 @@ export const ParamCreater = function () {
             }
             if (objectId !== null && objectId !== undefined) {
                 localVarQueryParameter['object_id'] = objectId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2811,19 +3226,27 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
             
             let domainName;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listParseDomainDetailsRequest !== null && listParseDomainDetailsRequest !== undefined) {
                 if (listParseDomainDetailsRequest instanceof ListParseDomainDetailsRequest) {
                     projectId = listParseDomainDetailsRequest.projectId;
                     domainName = listParseDomainDetailsRequest.domainName;
+                    enterpriseProjectId = listParseDomainDetailsRequest.enterpriseProjectId;
+                    fwInstanceId = listParseDomainDetailsRequest.fwInstanceId;
                 } else {
                     projectId = listParseDomainDetailsRequest['project_id'];
                     domainName = listParseDomainDetailsRequest['domain_name'];
+                    enterpriseProjectId = listParseDomainDetailsRequest['enterprise_project_id'];
+                    fwInstanceId = listParseDomainDetailsRequest['fw_instance_id'];
                 }
             }
 
@@ -2834,7 +3257,14 @@ export const ParamCreater = function () {
             if (domainName === null || domainName === undefined) {
             throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listParseDomainDetails.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'domain_name': domainName, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2856,17 +3286,25 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listRuleHitCountRequest !== null && listRuleHitCountRequest !== undefined) {
                 if (listRuleHitCountRequest instanceof ListRuleHitCountRequest) {
                     projectId = listRuleHitCountRequest.projectId;
+                    enterpriseProjectId = listRuleHitCountRequest.enterpriseProjectId;
+                    fwInstanceId = listRuleHitCountRequest.fwInstanceId;
                     body = listRuleHitCountRequest.body
                 } else {
                     projectId = listRuleHitCountRequest['project_id'];
+                    enterpriseProjectId = listRuleHitCountRequest['enterprise_project_id'];
+                    fwInstanceId = listRuleHitCountRequest['fw_instance_id'];
                     body = listRuleHitCountRequest['body'];
                 }
             }
@@ -2875,9 +3313,16 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listRuleHitCount.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2910,6 +3355,10 @@ export const ParamCreater = function () {
             let offset;
             
             let keyWord;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listServiceItemsDetailsRequest !== null && listServiceItemsDetailsRequest !== undefined) {
                 if (listServiceItemsDetailsRequest instanceof ListServiceItemsDetailsRequest) {
@@ -2918,12 +3367,16 @@ export const ParamCreater = function () {
                     limit = listServiceItemsDetailsRequest.limit;
                     offset = listServiceItemsDetailsRequest.offset;
                     keyWord = listServiceItemsDetailsRequest.keyWord;
+                    enterpriseProjectId = listServiceItemsDetailsRequest.enterpriseProjectId;
+                    fwInstanceId = listServiceItemsDetailsRequest.fwInstanceId;
                 } else {
                     projectId = listServiceItemsDetailsRequest['project_id'];
                     setId = listServiceItemsDetailsRequest['set_id'];
                     limit = listServiceItemsDetailsRequest['limit'];
                     offset = listServiceItemsDetailsRequest['offset'];
                     keyWord = listServiceItemsDetailsRequest['key_word'];
+                    enterpriseProjectId = listServiceItemsDetailsRequest['enterprise_project_id'];
+                    fwInstanceId = listServiceItemsDetailsRequest['fw_instance_id'];
                 }
             }
 
@@ -2951,6 +3404,12 @@ export const ParamCreater = function () {
             }
             if (keyWord !== null && keyWord !== undefined) {
                 localVarQueryParameter['key_word'] = keyWord;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2986,6 +3445,10 @@ export const ParamCreater = function () {
             let offset;
             
             let keyWord;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listServiceSetRequest !== null && listServiceSetRequest !== undefined) {
                 if (listServiceSetRequest instanceof ListServiceSetRequest) {
@@ -2994,12 +3457,16 @@ export const ParamCreater = function () {
                     limit = listServiceSetRequest.limit;
                     offset = listServiceSetRequest.offset;
                     keyWord = listServiceSetRequest.keyWord;
+                    enterpriseProjectId = listServiceSetRequest.enterpriseProjectId;
+                    fwInstanceId = listServiceSetRequest.fwInstanceId;
                 } else {
                     projectId = listServiceSetRequest['project_id'];
                     objectId = listServiceSetRequest['object_id'];
                     limit = listServiceSetRequest['limit'];
                     offset = listServiceSetRequest['offset'];
                     keyWord = listServiceSetRequest['key_word'];
+                    enterpriseProjectId = listServiceSetRequest['enterprise_project_id'];
+                    fwInstanceId = listServiceSetRequest['fw_instance_id'];
                 }
             }
 
@@ -3028,6 +3495,12 @@ export const ParamCreater = function () {
             if (keyWord !== null && keyWord !== undefined) {
                 localVarQueryParameter['key_word'] = keyWord;
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
@@ -3051,19 +3524,27 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
             
             let setId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listServiceSetDetailsRequest !== null && listServiceSetDetailsRequest !== undefined) {
                 if (listServiceSetDetailsRequest instanceof ListServiceSetDetailsRequest) {
                     projectId = listServiceSetDetailsRequest.projectId;
                     setId = listServiceSetDetailsRequest.setId;
+                    enterpriseProjectId = listServiceSetDetailsRequest.enterpriseProjectId;
+                    fwInstanceId = listServiceSetDetailsRequest.fwInstanceId;
                 } else {
                     projectId = listServiceSetDetailsRequest['project_id'];
                     setId = listServiceSetDetailsRequest['set_id'];
+                    enterpriseProjectId = listServiceSetDetailsRequest['enterprise_project_id'];
+                    fwInstanceId = listServiceSetDetailsRequest['fw_instance_id'];
                 }
             }
 
@@ -3074,7 +3555,14 @@ export const ParamCreater = function () {
             if (setId === null || setId === undefined) {
             throw new RequiredError('setId','Required parameter setId was null or undefined when calling listServiceSetDetails.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'set_id': setId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3096,22 +3584,30 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
             
             let setId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (updateAddressSetInfoUsingPutRequest !== null && updateAddressSetInfoUsingPutRequest !== undefined) {
                 if (updateAddressSetInfoUsingPutRequest instanceof UpdateAddressSetInfoUsingPutRequest) {
                     projectId = updateAddressSetInfoUsingPutRequest.projectId;
                     setId = updateAddressSetInfoUsingPutRequest.setId;
                     body = updateAddressSetInfoUsingPutRequest.body
+                    enterpriseProjectId = updateAddressSetInfoUsingPutRequest.enterpriseProjectId;
+                    fwInstanceId = updateAddressSetInfoUsingPutRequest.fwInstanceId;
                 } else {
                     projectId = updateAddressSetInfoUsingPutRequest['project_id'];
                     setId = updateAddressSetInfoUsingPutRequest['set_id'];
                     body = updateAddressSetInfoUsingPutRequest['body'];
+                    enterpriseProjectId = updateAddressSetInfoUsingPutRequest['enterprise_project_id'];
+                    fwInstanceId = updateAddressSetInfoUsingPutRequest['fw_instance_id'];
                 }
             }
 
@@ -3125,9 +3621,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'set_id': setId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3149,22 +3652,30 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
             
             let listId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (updateBlackWhiteListUsingPutRequest !== null && updateBlackWhiteListUsingPutRequest !== undefined) {
                 if (updateBlackWhiteListUsingPutRequest instanceof UpdateBlackWhiteListUsingPutRequest) {
                     projectId = updateBlackWhiteListUsingPutRequest.projectId;
                     listId = updateBlackWhiteListUsingPutRequest.listId;
                     body = updateBlackWhiteListUsingPutRequest.body
+                    enterpriseProjectId = updateBlackWhiteListUsingPutRequest.enterpriseProjectId;
+                    fwInstanceId = updateBlackWhiteListUsingPutRequest.fwInstanceId;
                 } else {
                     projectId = updateBlackWhiteListUsingPutRequest['project_id'];
                     listId = updateBlackWhiteListUsingPutRequest['list_id'];
                     body = updateBlackWhiteListUsingPutRequest['body'];
+                    enterpriseProjectId = updateBlackWhiteListUsingPutRequest['enterprise_project_id'];
+                    fwInstanceId = updateBlackWhiteListUsingPutRequest['fw_instance_id'];
                 }
             }
 
@@ -3178,9 +3689,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'list_id': listId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3202,18 +3720,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let fwInstanceId;
+            
+            let enterpriseProjectId;
 
             if (updateDnsServersRequest !== null && updateDnsServersRequest !== undefined) {
                 if (updateDnsServersRequest instanceof UpdateDnsServersRequest) {
                     projectId = updateDnsServersRequest.projectId;
                     body = updateDnsServersRequest.body
+                    fwInstanceId = updateDnsServersRequest.fwInstanceId;
+                    enterpriseProjectId = updateDnsServersRequest.enterpriseProjectId;
                 } else {
                     projectId = updateDnsServersRequest['project_id'];
                     body = updateDnsServersRequest['body'];
+                    fwInstanceId = updateDnsServersRequest['fw_instance_id'];
+                    enterpriseProjectId = updateDnsServersRequest['enterprise_project_id'];
                 }
             }
 
@@ -3224,9 +3750,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3248,22 +3781,30 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
             
             let setId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (updateServiceSetUsingPutRequest !== null && updateServiceSetUsingPutRequest !== undefined) {
                 if (updateServiceSetUsingPutRequest instanceof UpdateServiceSetUsingPutRequest) {
                     projectId = updateServiceSetUsingPutRequest.projectId;
                     setId = updateServiceSetUsingPutRequest.setId;
                     body = updateServiceSetUsingPutRequest.body
+                    enterpriseProjectId = updateServiceSetUsingPutRequest.enterpriseProjectId;
+                    fwInstanceId = updateServiceSetUsingPutRequest.fwInstanceId;
                 } else {
                     projectId = updateServiceSetUsingPutRequest['project_id'];
                     setId = updateServiceSetUsingPutRequest['set_id'];
                     body = updateServiceSetUsingPutRequest['body'];
+                    enterpriseProjectId = updateServiceSetUsingPutRequest['enterprise_project_id'];
+                    fwInstanceId = updateServiceSetUsingPutRequest['fw_instance_id'];
                 }
             }
 
@@ -3277,9 +3818,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'set_id': setId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3301,18 +3849,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (addRuleAclUsingPostRequest !== null && addRuleAclUsingPostRequest !== undefined) {
                 if (addRuleAclUsingPostRequest instanceof AddRuleAclUsingPostRequest) {
                     projectId = addRuleAclUsingPostRequest.projectId;
                     body = addRuleAclUsingPostRequest.body
+                    enterpriseProjectId = addRuleAclUsingPostRequest.enterpriseProjectId;
+                    fwInstanceId = addRuleAclUsingPostRequest.fwInstanceId;
                 } else {
                     projectId = addRuleAclUsingPostRequest['project_id'];
                     body = addRuleAclUsingPostRequest['body'];
+                    enterpriseProjectId = addRuleAclUsingPostRequest['enterprise_project_id'];
+                    fwInstanceId = addRuleAclUsingPostRequest['fw_instance_id'];
                 }
             }
 
@@ -3323,9 +3879,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3347,19 +3910,27 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
             
             let aclRuleId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (deleteRuleAclUsingDeleteRequest !== null && deleteRuleAclUsingDeleteRequest !== undefined) {
                 if (deleteRuleAclUsingDeleteRequest instanceof DeleteRuleAclUsingDeleteRequest) {
                     projectId = deleteRuleAclUsingDeleteRequest.projectId;
                     aclRuleId = deleteRuleAclUsingDeleteRequest.aclRuleId;
+                    enterpriseProjectId = deleteRuleAclUsingDeleteRequest.enterpriseProjectId;
+                    fwInstanceId = deleteRuleAclUsingDeleteRequest.fwInstanceId;
                 } else {
                     projectId = deleteRuleAclUsingDeleteRequest['project_id'];
                     aclRuleId = deleteRuleAclUsingDeleteRequest['acl_rule_id'];
+                    enterpriseProjectId = deleteRuleAclUsingDeleteRequest['enterprise_project_id'];
+                    fwInstanceId = deleteRuleAclUsingDeleteRequest['fw_instance_id'];
                 }
             }
 
@@ -3370,7 +3941,14 @@ export const ParamCreater = function () {
             if (aclRuleId === null || aclRuleId === undefined) {
             throw new RequiredError('aclRuleId','Required parameter aclRuleId was null or undefined when calling deleteRuleAclUsingDelete.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'acl_rule_id': aclRuleId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3392,22 +3970,30 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
             
             let aclRuleId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listRuleAclUsingPutRequest !== null && listRuleAclUsingPutRequest !== undefined) {
                 if (listRuleAclUsingPutRequest instanceof ListRuleAclUsingPutRequest) {
                     projectId = listRuleAclUsingPutRequest.projectId;
                     aclRuleId = listRuleAclUsingPutRequest.aclRuleId;
                     body = listRuleAclUsingPutRequest.body
+                    enterpriseProjectId = listRuleAclUsingPutRequest.enterpriseProjectId;
+                    fwInstanceId = listRuleAclUsingPutRequest.fwInstanceId;
                 } else {
                     projectId = listRuleAclUsingPutRequest['project_id'];
                     aclRuleId = listRuleAclUsingPutRequest['acl_rule_id'];
                     body = listRuleAclUsingPutRequest['body'];
+                    enterpriseProjectId = listRuleAclUsingPutRequest['enterprise_project_id'];
+                    fwInstanceId = listRuleAclUsingPutRequest['fw_instance_id'];
                 }
             }
 
@@ -3421,9 +4007,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'acl_rule_id': aclRuleId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3470,6 +4063,10 @@ export const ParamCreater = function () {
             let actionType;
             
             let addressType;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listRuleAclsUsingGetRequest !== null && listRuleAclsUsingGetRequest !== undefined) {
                 if (listRuleAclsUsingGetRequest instanceof ListRuleAclsUsingGetRequest) {
@@ -3485,6 +4082,8 @@ export const ParamCreater = function () {
                     status = listRuleAclsUsingGetRequest.status;
                     actionType = listRuleAclsUsingGetRequest.actionType;
                     addressType = listRuleAclsUsingGetRequest.addressType;
+                    enterpriseProjectId = listRuleAclsUsingGetRequest.enterpriseProjectId;
+                    fwInstanceId = listRuleAclsUsingGetRequest.fwInstanceId;
                 } else {
                     projectId = listRuleAclsUsingGetRequest['project_id'];
                     objectId = listRuleAclsUsingGetRequest['object_id'];
@@ -3498,6 +4097,8 @@ export const ParamCreater = function () {
                     status = listRuleAclsUsingGetRequest['status'];
                     actionType = listRuleAclsUsingGetRequest['action_type'];
                     addressType = listRuleAclsUsingGetRequest['address_type'];
+                    enterpriseProjectId = listRuleAclsUsingGetRequest['enterprise_project_id'];
+                    fwInstanceId = listRuleAclsUsingGetRequest['fw_instance_id'];
                 }
             }
 
@@ -3547,6 +4148,12 @@ export const ParamCreater = function () {
             if (addressType !== null && addressType !== undefined) {
                 localVarQueryParameter['address_type'] = addressType;
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
@@ -3570,22 +4177,30 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
             
             let aclRuleId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (updateRuleAclUsingPutRequest !== null && updateRuleAclUsingPutRequest !== undefined) {
                 if (updateRuleAclUsingPutRequest instanceof UpdateRuleAclUsingPutRequest) {
                     projectId = updateRuleAclUsingPutRequest.projectId;
                     aclRuleId = updateRuleAclUsingPutRequest.aclRuleId;
                     body = updateRuleAclUsingPutRequest.body
+                    enterpriseProjectId = updateRuleAclUsingPutRequest.enterpriseProjectId;
+                    fwInstanceId = updateRuleAclUsingPutRequest.fwInstanceId;
                 } else {
                     projectId = updateRuleAclUsingPutRequest['project_id'];
                     aclRuleId = updateRuleAclUsingPutRequest['acl_rule_id'];
                     body = updateRuleAclUsingPutRequest['body'];
+                    enterpriseProjectId = updateRuleAclUsingPutRequest['enterprise_project_id'];
+                    fwInstanceId = updateRuleAclUsingPutRequest['fw_instance_id'];
                 }
             }
 
@@ -3599,9 +4214,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'acl_rule_id': aclRuleId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3623,18 +4245,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (changeProtectEipRequest !== null && changeProtectEipRequest !== undefined) {
                 if (changeProtectEipRequest instanceof ChangeProtectEipRequest) {
                     projectId = changeProtectEipRequest.projectId;
                     body = changeProtectEipRequest.body
+                    enterpriseProjectId = changeProtectEipRequest.enterpriseProjectId;
+                    fwInstanceId = changeProtectEipRequest.fwInstanceId;
                 } else {
                     projectId = changeProtectEipRequest['project_id'];
                     body = changeProtectEipRequest['body'];
+                    enterpriseProjectId = changeProtectEipRequest['enterprise_project_id'];
+                    fwInstanceId = changeProtectEipRequest['fw_instance_id'];
                 }
             }
 
@@ -3645,9 +4275,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3669,19 +4306,27 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             
             let projectId;
             
             let objectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (countEipsRequest !== null && countEipsRequest !== undefined) {
                 if (countEipsRequest instanceof CountEipsRequest) {
                     projectId = countEipsRequest.projectId;
                     objectId = countEipsRequest.objectId;
+                    enterpriseProjectId = countEipsRequest.enterpriseProjectId;
+                    fwInstanceId = countEipsRequest.fwInstanceId;
                 } else {
                     projectId = countEipsRequest['project_id'];
                     objectId = countEipsRequest['object_id'];
+                    enterpriseProjectId = countEipsRequest['enterprise_project_id'];
+                    fwInstanceId = countEipsRequest['fw_instance_id'];
                 }
             }
 
@@ -3692,7 +4337,14 @@ export const ParamCreater = function () {
             if (objectId === null || objectId === undefined) {
             throw new RequiredError('objectId','Required parameter objectId was null or undefined when calling countEips.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
 
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'object_id': objectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3735,6 +4387,12 @@ export const ParamCreater = function () {
             let deviceKey;
             
             let addressType;
+            
+            let fwInstanceId;
+            
+            let fwKeyWord;
+            
+            let epsId;
 
             if (listEipResourcesRequest !== null && listEipResourcesRequest !== undefined) {
                 if (listEipResourcesRequest instanceof ListEipResourcesRequest) {
@@ -3748,6 +4406,9 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listEipResourcesRequest.enterpriseProjectId;
                     deviceKey = listEipResourcesRequest.deviceKey;
                     addressType = listEipResourcesRequest.addressType;
+                    fwInstanceId = listEipResourcesRequest.fwInstanceId;
+                    fwKeyWord = listEipResourcesRequest.fwKeyWord;
+                    epsId = listEipResourcesRequest.epsId;
                 } else {
                     projectId = listEipResourcesRequest['project_id'];
                     objectId = listEipResourcesRequest['object_id'];
@@ -3759,6 +4420,9 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listEipResourcesRequest['enterprise_project_id'];
                     deviceKey = listEipResourcesRequest['device_key'];
                     addressType = listEipResourcesRequest['address_type'];
+                    fwInstanceId = listEipResourcesRequest['fw_instance_id'];
+                    fwKeyWord = listEipResourcesRequest['fw_key_word'];
+                    epsId = listEipResourcesRequest['eps_id'];
                 }
             }
 
@@ -3802,6 +4466,15 @@ export const ParamCreater = function () {
             if (addressType !== null && addressType !== undefined) {
                 localVarQueryParameter['address_type'] = addressType;
             }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
+            if (fwKeyWord !== null && fwKeyWord !== undefined) {
+                localVarQueryParameter['fw_key_word'] = fwKeyWord;
+            }
+            if (epsId !== null && epsId !== undefined) {
+                localVarQueryParameter['eps_id'] = epsId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
@@ -3825,18 +4498,26 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             var body: any;
             
             let projectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (changeIpsSwitchUsingPostRequest !== null && changeIpsSwitchUsingPostRequest !== undefined) {
                 if (changeIpsSwitchUsingPostRequest instanceof ChangeIpsSwitchUsingPostRequest) {
                     projectId = changeIpsSwitchUsingPostRequest.projectId;
                     body = changeIpsSwitchUsingPostRequest.body
+                    enterpriseProjectId = changeIpsSwitchUsingPostRequest.enterpriseProjectId;
+                    fwInstanceId = changeIpsSwitchUsingPostRequest.fwInstanceId;
                 } else {
                     projectId = changeIpsSwitchUsingPostRequest['project_id'];
                     body = changeIpsSwitchUsingPostRequest['body'];
+                    enterpriseProjectId = changeIpsSwitchUsingPostRequest['enterprise_project_id'];
+                    fwInstanceId = changeIpsSwitchUsingPostRequest['fw_instance_id'];
                 }
             }
 
@@ -3847,9 +4528,16 @@ export const ParamCreater = function () {
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
             }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -3876,14 +4564,22 @@ export const ParamCreater = function () {
             let projectId;
             
             let objectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listIpsSwitchStatusUsingGetRequest !== null && listIpsSwitchStatusUsingGetRequest !== undefined) {
                 if (listIpsSwitchStatusUsingGetRequest instanceof ListIpsSwitchStatusUsingGetRequest) {
                     projectId = listIpsSwitchStatusUsingGetRequest.projectId;
                     objectId = listIpsSwitchStatusUsingGetRequest.objectId;
+                    enterpriseProjectId = listIpsSwitchStatusUsingGetRequest.enterpriseProjectId;
+                    fwInstanceId = listIpsSwitchStatusUsingGetRequest.fwInstanceId;
                 } else {
                     projectId = listIpsSwitchStatusUsingGetRequest['project_id'];
                     objectId = listIpsSwitchStatusUsingGetRequest['object_id'];
+                    enterpriseProjectId = listIpsSwitchStatusUsingGetRequest['enterprise_project_id'];
+                    fwInstanceId = listIpsSwitchStatusUsingGetRequest['fw_instance_id'];
                 }
             }
 
@@ -3896,6 +4592,12 @@ export const ParamCreater = function () {
             }
             if (objectId !== null && objectId !== undefined) {
                 localVarQueryParameter['object_id'] = objectId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -3925,14 +4627,22 @@ export const ParamCreater = function () {
             let projectId;
             
             let objectId;
+            
+            let enterpriseProjectId;
+            
+            let fwInstanceId;
 
             if (listVpcProtectsRequest !== null && listVpcProtectsRequest !== undefined) {
                 if (listVpcProtectsRequest instanceof ListVpcProtectsRequest) {
                     projectId = listVpcProtectsRequest.projectId;
                     objectId = listVpcProtectsRequest.objectId;
+                    enterpriseProjectId = listVpcProtectsRequest.enterpriseProjectId;
+                    fwInstanceId = listVpcProtectsRequest.fwInstanceId;
                 } else {
                     projectId = listVpcProtectsRequest['project_id'];
                     objectId = listVpcProtectsRequest['object_id'];
+                    enterpriseProjectId = listVpcProtectsRequest['enterprise_project_id'];
+                    fwInstanceId = listVpcProtectsRequest['fw_instance_id'];
                 }
             }
 
@@ -3945,6 +4655,12 @@ export const ParamCreater = function () {
             }
             if (objectId !== null && objectId !== undefined) {
                 localVarQueryParameter['object_id'] = objectId;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (fwInstanceId !== null && fwInstanceId !== undefined) {
+                localVarQueryParameter['fw_instance_id'] = fwInstanceId;
             }
 
             options.queryParams = localVarQueryParameter;

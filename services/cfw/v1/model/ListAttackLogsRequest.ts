@@ -21,6 +21,7 @@ export class ListAttackLogsRequest {
     private 'attack_rule'?: string | undefined;
     public level?: string;
     public source?: string;
+    private 'enterprise_project_id'?: string | undefined;
     public constructor(projectId?: any, startTime?: any, endTime?: any, limit?: any, fwInstanceId?: any) { 
         this['project_id'] = projectId;
         this['start_time'] = startTime;
@@ -179,6 +180,16 @@ export class ListAttackLogsRequest {
     public withSource(source: string): ListAttackLogsRequest {
         this['source'] = source;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListAttackLogsRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
     }
 }
 

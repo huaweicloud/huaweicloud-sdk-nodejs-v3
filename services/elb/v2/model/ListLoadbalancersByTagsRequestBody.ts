@@ -8,7 +8,6 @@ export class ListLoadbalancersByTagsRequestBody {
     public action: string;
     public matches?: Array<ActionMatch>;
     public tags?: Array<ActionTag>;
-    private 'without_any_tag'?: boolean | undefined;
     public constructor(action?: any) { 
         this['action'] = action;
     }
@@ -31,15 +30,5 @@ export class ListLoadbalancersByTagsRequestBody {
     public withTags(tags: Array<ActionTag>): ListLoadbalancersByTagsRequestBody {
         this['tags'] = tags;
         return this;
-    }
-    public withWithoutAnyTag(withoutAnyTag: boolean): ListLoadbalancersByTagsRequestBody {
-        this['without_any_tag'] = withoutAnyTag;
-        return this;
-    }
-    public set withoutAnyTag(withoutAnyTag: boolean | undefined) {
-        this['without_any_tag'] = withoutAnyTag;
-    }
-    public get withoutAnyTag() {
-        return this['without_any_tag'];
     }
 }

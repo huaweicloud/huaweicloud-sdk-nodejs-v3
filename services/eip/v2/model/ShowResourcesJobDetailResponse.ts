@@ -1,4 +1,4 @@
-import { SubJobs } from './SubJobs';
+import { SubJobsInfo } from './SubJobsInfo';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -10,7 +10,7 @@ export class ShowResourcesJobDetailResponse extends SdkResponse {
     public status?: string;
     private 'error_code'?: string | undefined;
     private 'fail_reason'?: string | undefined;
-    public entities?: SubJobs;
+    public entities?: SubJobsInfo;
     public constructor() { 
         super();
     }
@@ -78,7 +78,7 @@ export class ShowResourcesJobDetailResponse extends SdkResponse {
     public get failReason() {
         return this['fail_reason'];
     }
-    public withEntities(entities: SubJobs): ShowResourcesJobDetailResponse {
+    public withEntities(entities: SubJobsInfo): ShowResourcesJobDetailResponse {
         this['entities'] = entities;
         return this;
     }

@@ -17,6 +17,7 @@ export class ListAccessControlLogsRequest {
     public offset?: number;
     public limit: number;
     private 'log_type'?: ListAccessControlLogsRequestLogTypeEnum | undefined;
+    private 'enterprise_project_id'?: string | undefined;
     public constructor(projectId?: any, fwInstanceId?: any, startTime?: any, endTime?: any, limit?: any) { 
         this['project_id'] = projectId;
         this['fw_instance_id'] = fwInstanceId;
@@ -159,6 +160,16 @@ export class ListAccessControlLogsRequest {
     }
     public get logType() {
         return this['log_type'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListAccessControlLogsRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
     }
 }
 

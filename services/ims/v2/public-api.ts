@@ -121,6 +121,8 @@ export * from './model/ShowJobRequest';
 export * from './model/ShowJobResponse';
 export * from './model/ShowVersionRequest';
 export * from './model/ShowVersionResponse';
+export * from './model/SubJobEntities';
+export * from './model/SubJobResult';
 export * from './model/TagKeyValue';
 export * from './model/Tags';
 export * from './model/UpdateImageRequest';

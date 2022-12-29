@@ -9,7 +9,10 @@ export class Vpc {
     public routes: Array<Route>;
     public status: VpcStatusEnum;
     private 'enterprise_project_id': string | undefined;
-    public constructor(id?: any, name?: any, cidr?: any, description?: any, routes?: any, status?: any, enterpriseProjectId?: any) { 
+    private 'tenant_id': string | undefined;
+    private 'created_at': Date | undefined;
+    private 'updated_at': Date | undefined;
+    public constructor(id?: any, name?: any, cidr?: any, description?: any, routes?: any, status?: any, enterpriseProjectId?: any, tenantId?: any, createdAt?: any, updatedAt?: any) { 
         this['id'] = id;
         this['name'] = name;
         this['cidr'] = cidr;
@@ -17,6 +20,9 @@ export class Vpc {
         this['routes'] = routes;
         this['status'] = status;
         this['enterprise_project_id'] = enterpriseProjectId;
+        this['tenant_id'] = tenantId;
+        this['created_at'] = createdAt;
+        this['updated_at'] = updatedAt;
     }
     public withId(id: string): Vpc {
         this['id'] = id;
@@ -51,6 +57,36 @@ export class Vpc {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withTenantId(tenantId: string): Vpc {
+        this['tenant_id'] = tenantId;
+        return this;
+    }
+    public set tenantId(tenantId: string | undefined) {
+        this['tenant_id'] = tenantId;
+    }
+    public get tenantId() {
+        return this['tenant_id'];
+    }
+    public withCreatedAt(createdAt: Date): Vpc {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: Date | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt() {
+        return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: Date): Vpc {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: Date | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt() {
+        return this['updated_at'];
     }
 }
 

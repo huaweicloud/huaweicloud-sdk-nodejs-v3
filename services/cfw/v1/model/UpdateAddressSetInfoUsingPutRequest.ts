@@ -4,6 +4,8 @@ import { UpdateAddressSetDto } from './UpdateAddressSetDto';
 export class UpdateAddressSetInfoUsingPutRequest {
     private 'project_id': string | undefined;
     private 'set_id': string | undefined;
+    private 'enterprise_project_id'?: string | undefined;
+    private 'fw_instance_id'?: string | undefined;
     public body?: UpdateAddressSetDto;
     public constructor(projectId?: any, setId?: any) { 
         this['project_id'] = projectId;
@@ -28,6 +30,26 @@ export class UpdateAddressSetInfoUsingPutRequest {
     }
     public get setId() {
         return this['set_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): UpdateAddressSetInfoUsingPutRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
+    }
+    public withFwInstanceId(fwInstanceId: string): UpdateAddressSetInfoUsingPutRequest {
+        this['fw_instance_id'] = fwInstanceId;
+        return this;
+    }
+    public set fwInstanceId(fwInstanceId: string | undefined) {
+        this['fw_instance_id'] = fwInstanceId;
+    }
+    public get fwInstanceId() {
+        return this['fw_instance_id'];
     }
     public withBody(body: UpdateAddressSetDto): UpdateAddressSetInfoUsingPutRequest {
         this['body'] = body;

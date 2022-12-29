@@ -122,7 +122,7 @@ import { ShowPublicipTagsRequest } from './model/ShowPublicipTagsRequest';
 import { ShowPublicipTagsResponse } from './model/ShowPublicipTagsResponse';
 import { ShowResourcesJobDetailRequest } from './model/ShowResourcesJobDetailRequest';
 import { ShowResourcesJobDetailResponse } from './model/ShowResourcesJobDetailResponse';
-import { SubJobs } from './model/SubJobs';
+import { SubJobsInfo } from './model/SubJobsInfo';
 import { TagReq } from './model/TagReq';
 import { TagResp } from './model/TagResp';
 import { UpdateBandwidthOption } from './model/UpdateBandwidthOption';

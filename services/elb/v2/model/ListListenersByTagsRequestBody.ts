@@ -8,7 +8,6 @@ export class ListListenersByTagsRequestBody {
     public action: string;
     public matches?: Array<ActionMatch>;
     public tags?: Array<ActionTag>;
-    private 'without_any_tag'?: boolean | undefined;
     public constructor(action?: any) { 
         this['action'] = action;
     }
@@ -31,15 +30,5 @@ export class ListListenersByTagsRequestBody {
     public withTags(tags: Array<ActionTag>): ListListenersByTagsRequestBody {
         this['tags'] = tags;
         return this;
-    }
-    public withWithoutAnyTag(withoutAnyTag: boolean): ListListenersByTagsRequestBody {
-        this['without_any_tag'] = withoutAnyTag;
-        return this;
-    }
-    public set withoutAnyTag(withoutAnyTag: boolean | undefined) {
-        this['without_any_tag'] = withoutAnyTag;
-    }
-    public get withoutAnyTag() {
-        return this['without_any_tag'];
     }
 }
