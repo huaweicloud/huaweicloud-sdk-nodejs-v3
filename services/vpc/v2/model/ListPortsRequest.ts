@@ -10,8 +10,9 @@ export class ListPortsRequest {
     private 'device_id'?: string | undefined;
     private 'device_owner'?: ListPortsRequestDeviceOwnerEnum | undefined;
     public status?: ListPortsRequestStatusEnum;
+    private 'security_groups'?: Array<string> | undefined;
     public marker?: string;
-    private 'fixed_ips'?: string | undefined;
+    private 'fixed_ips'?: Array<string> | undefined;
     private 'enterprise_project_id'?: string | undefined;
     public constructor() { 
     }
@@ -81,15 +82,25 @@ export class ListPortsRequest {
         this['status'] = status;
         return this;
     }
+    public withSecurityGroups(securityGroups: Array<string>): ListPortsRequest {
+        this['security_groups'] = securityGroups;
+        return this;
+    }
+    public set securityGroups(securityGroups: Array<string> | undefined) {
+        this['security_groups'] = securityGroups;
+    }
+    public get securityGroups() {
+        return this['security_groups'];
+    }
     public withMarker(marker: string): ListPortsRequest {
         this['marker'] = marker;
         return this;
     }
-    public withFixedIps(fixedIps: string): ListPortsRequest {
+    public withFixedIps(fixedIps: Array<string>): ListPortsRequest {
         this['fixed_ips'] = fixedIps;
         return this;
     }
-    public set fixedIps(fixedIps: string | undefined) {
+    public set fixedIps(fixedIps: Array<string> | undefined) {
         this['fixed_ips'] = fixedIps;
     }
     public get fixedIps() {

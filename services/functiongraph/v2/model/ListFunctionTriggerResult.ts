@@ -105,5 +105,5 @@ export enum ListFunctionTriggerResultTriggerTypeCodeEnum {
     */
 export enum ListFunctionTriggerResultTriggerStatusEnum {
     ACTIVE = 'ACTIVE',
-    DISABLE = 'DISABLE'
+    DISABLED = 'DISABLED'
 }

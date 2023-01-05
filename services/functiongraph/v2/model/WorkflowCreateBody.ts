@@ -17,6 +17,7 @@ export class WorkflowCreateBody {
     public mode?: WorkflowCreateBodyModeEnum;
     private 'express_config'?: ExpressConfig | undefined;
     private 'enterprise_project_id'?: string | undefined;
+    private 'enable_stream_response'?: boolean | undefined;
     public constructor(name?: any, start?: any, functions?: any, states?: any, constants?: any, retries?: any) { 
         this['name'] = name;
         this['start'] = start;
@@ -80,6 +81,16 @@ export class WorkflowCreateBody {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withEnableStreamResponse(enableStreamResponse: boolean): WorkflowCreateBody {
+        this['enable_stream_response'] = enableStreamResponse;
+        return this;
+    }
+    public set enableStreamResponse(enableStreamResponse: boolean | undefined) {
+        this['enable_stream_response'] = enableStreamResponse;
+    }
+    public get enableStreamResponse() {
+        return this['enable_stream_response'];
     }
 }
 

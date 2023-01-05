@@ -507,7 +507,7 @@ export class WafClient {
     }
 
     /**
-     * 购买包周期云模式waf
+     * 购买包周期云模式waf。入门版waf不支持购买扩展包
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -874,18 +874,18 @@ export class WafClient {
     }
 
     /**
-     * 查询安全统计带宽数据。需要注意的是，安全统计相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
+     * 查询安全统计带宽数据，统计的带宽数据为平均值，单位为bit/s。需要注意的是，安全统计相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询安全统计带宽数据
      * @param {string} contentType 内容类型
-     * @param {number} from 起始时间（13位毫秒时间戳），需要和to同时使用
-     * @param {number} to 结束时间（13位毫秒时间戳），需要和from同时使用
+     * @param {number} from 查询的带宽统计数据的起始时间（13位毫秒时间戳），需要和to同时使用
+     * @param {number} to 查询的带宽统计数据的结束时间（13位毫秒时间戳），需要和from同时使用
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
-     * @param {string} [hosts] 域名id，通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id
-     * @param {string} [instances] 要查询引擎实例id
-     * @param {string} [groupBy] 展示维度，按天展示时传\&quot;DAY\&quot;；默认不传，按照分钟展示
+     * @param {string} [hosts] 域名id，用于查询指定的防护域名在from到to这段时间内的带宽数据。通过查询云模式防护域名列表（ListHost）获取域名id或者通过独享模式域名列表（ListPremiumHost）获取域名id
+     * @param {string} [instances] 引擎实例id，用于查询指定的独享引擎实例所防护的域名在from到to这段时间内的带宽数据。
+     * @param {string} [groupBy] 展示维度，按天展示时传\&quot;DAY\&quot;；默认不传，按照分钟展示。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -2618,7 +2618,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 购买包周期云模式waf
+         * 购买包周期云模式waf。入门版waf不支持购买扩展包
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3591,7 +3591,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询安全统计带宽数据。需要注意的是，安全统计相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
+         * 查询安全统计带宽数据，统计的带宽数据为平均值，单位为bit/s。需要注意的是，安全统计相关的接口，暂时不能支持任意时间的查询。只能支持 console上显示的 昨天，今天，3天，7天和30天 数据查询。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

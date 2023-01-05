@@ -674,8 +674,9 @@ export class VpcClient {
      * @param {string} [deviceId] 按照device_id过滤查询
      * @param {'network:dhcp' | 'neutron:VIP_PORT' | 'network:router_interface_distributed' | 'network:router_centralized_snat'} [deviceOwner] 按照device_owner过滤查询
      * @param {'ACTIVE' | 'BUILD' | 'DOWN'} [status] 功能说明：按照status过滤查询  取值范围：ACTIVE、BUILD、DOWN
+     * @param {Array<string>} [securityGroups] 按照安全组ID列表过滤查询
      * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
-     * @param {string} [fixedIps] 按照fixed_ips&#x3D;ip_address或者fixed_ips&#x3D;subnet_id过滤查询
+     * @param {Array<string>} [fixedIps] 按照fixed_ips&#x3D;ip_address或者fixed_ips&#x3D;subnet_id过滤查询
      * @param {string} [enterpriseProjectId] 功能说明：企业项目ID，用于基于企业项目的权限管理。  取值范围：最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。“0”表示默认企业项目。  若需要查询当前用户所有企业项目绑定的端口，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2870,6 +2871,8 @@ export const ParamCreater = function () {
             
             let status;
             
+            let securityGroups;
+            
             let marker;
             
             let fixedIps;
@@ -2887,6 +2890,7 @@ export const ParamCreater = function () {
                     deviceId = listPortsRequest.deviceId;
                     deviceOwner = listPortsRequest.deviceOwner;
                     status = listPortsRequest.status;
+                    securityGroups = listPortsRequest.securityGroups;
                     marker = listPortsRequest.marker;
                     fixedIps = listPortsRequest.fixedIps;
                     enterpriseProjectId = listPortsRequest.enterpriseProjectId;
@@ -2900,6 +2904,7 @@ export const ParamCreater = function () {
                     deviceId = listPortsRequest['device_id'];
                     deviceOwner = listPortsRequest['device_owner'];
                     status = listPortsRequest['status'];
+                    securityGroups = listPortsRequest['security_groups'];
                     marker = listPortsRequest['marker'];
                     fixedIps = listPortsRequest['fixed_ips'];
                     enterpriseProjectId = listPortsRequest['enterprise_project_id'];
@@ -2933,6 +2938,9 @@ export const ParamCreater = function () {
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
+            }
+            if (securityGroups !== null && securityGroups !== undefined) {
+                localVarQueryParameter['security_groups'] = securityGroups;
             }
             if (marker !== null && marker !== undefined) {
                 localVarQueryParameter['marker'] = marker;

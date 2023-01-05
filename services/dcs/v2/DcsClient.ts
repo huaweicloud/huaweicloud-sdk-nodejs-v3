@@ -84,6 +84,7 @@ import { Features } from './model/Features';
 import { Files } from './model/Files';
 import { FlavorAzObject } from './model/FlavorAzObject';
 import { FlavorsItems } from './model/FlavorsItems';
+import { HistoryInfo } from './model/HistoryInfo';
 import { HotkeysBody } from './model/HotkeysBody';
 import { InstanceBackupPolicy } from './model/InstanceBackupPolicy';
 import { InstanceGroupListInfo } from './model/InstanceGroupListInfo';
@@ -106,6 +107,8 @@ import { ListBackupRecordsRequest } from './model/ListBackupRecordsRequest';
 import { ListBackupRecordsResponse } from './model/ListBackupRecordsResponse';
 import { ListBigkeyScanTasksRequest } from './model/ListBigkeyScanTasksRequest';
 import { ListBigkeyScanTasksResponse } from './model/ListBigkeyScanTasksResponse';
+import { ListConfigHistoriesRequest } from './model/ListConfigHistoriesRequest';
+import { ListConfigHistoriesResponse } from './model/ListConfigHistoriesResponse';
 import { ListConfigurationsRequest } from './model/ListConfigurationsRequest';
 import { ListConfigurationsResponse } from './model/ListConfigurationsResponse';
 import { ListDiagnosisTasksRequest } from './model/ListDiagnosisTasksRequest';
@@ -752,6 +755,27 @@ export class DcsClient {
      */
     public listBigkeyScanTasks(listBigkeyScanTasksRequest?: ListBigkeyScanTasksRequest): Promise<ListBigkeyScanTasksResponse> {
         const options = ParamCreater().listBigkeyScanTasks(listBigkeyScanTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询实例的参数修改记录列表，支持按照关键字查询
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询实例参数修改记录列表
+     * @param {string} instanceId 实例ID
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0
+     * @param {number} [limit] 每页显示条数，最小值为1，最大值为1000，若不设置该参数，则为10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConfigHistories(listConfigHistoriesRequest?: ListConfigHistoriesRequest): Promise<ListConfigHistoriesResponse> {
+        const options = ParamCreater().listConfigHistories(listConfigHistoriesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2749,6 +2773,59 @@ export const ParamCreater = function () {
             }
             if (status !== null && status !== undefined) {
                 localVarQueryParameter['status'] = status;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询实例的参数修改记录列表，支持按照关键字查询
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConfigHistories(listConfigHistoriesRequest?: ListConfigHistoriesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/instances/{instance_id}/config-histories",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let offset;
+            
+            let limit;
+
+            if (listConfigHistoriesRequest !== null && listConfigHistoriesRequest !== undefined) {
+                if (listConfigHistoriesRequest instanceof ListConfigHistoriesRequest) {
+                    instanceId = listConfigHistoriesRequest.instanceId;
+                    offset = listConfigHistoriesRequest.offset;
+                    limit = listConfigHistoriesRequest.limit;
+                } else {
+                    instanceId = listConfigHistoriesRequest['instance_id'];
+                    offset = listConfigHistoriesRequest['offset'];
+                    limit = listConfigHistoriesRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listConfigHistories.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
             options.queryParams = localVarQueryParameter;

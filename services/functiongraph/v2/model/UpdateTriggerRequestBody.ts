@@ -22,5 +22,5 @@ export class UpdateTriggerRequestBody {
     */
 export enum UpdateTriggerRequestBodyTriggerStatusEnum {
     ACTIVE = 'ACTIVE',
-    DISABLE = 'DISABLE'
+    DISABLED = 'DISABLED'
 }

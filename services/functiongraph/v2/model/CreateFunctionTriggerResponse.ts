@@ -101,5 +101,5 @@ export enum CreateFunctionTriggerResponseTriggerTypeCodeEnum {
     */
 export enum CreateFunctionTriggerResponseTriggerStatusEnum {
     ACTIVE = 'ACTIVE',
-    DISABLE = 'DISABLE'
+    DISABLED = 'DISABLED'
 }
