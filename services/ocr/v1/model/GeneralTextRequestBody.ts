@@ -6,6 +6,7 @@ export class GeneralTextRequestBody {
     private 'detect_direction'?: boolean | undefined;
     private 'quick_mode'?: boolean | undefined;
     private 'character_mode'?: boolean | undefined;
+    public language?: string;
     public constructor() { 
     }
     public withImage(image: string): GeneralTextRequestBody {
@@ -45,5 +46,9 @@ export class GeneralTextRequestBody {
     }
     public get characterMode() {
         return this['character_mode'];
+    }
+    public withLanguage(language: string): GeneralTextRequestBody {
+        this['language'] = language;
+        return this;
     }
 }

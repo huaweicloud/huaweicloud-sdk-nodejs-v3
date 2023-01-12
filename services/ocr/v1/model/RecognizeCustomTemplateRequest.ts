@@ -1,12 +1,12 @@
-import { LiveDetectFaceBase64Req } from './LiveDetectFaceBase64Req';
+import { CustomTemplateRequestBody } from './CustomTemplateRequestBody';
 
 
-export class DetectLiveFaceByBase64Request {
+export class RecognizeCustomTemplateRequest {
     private 'Enterprise-Project-Id'?: string | undefined;
-    public body?: LiveDetectFaceBase64Req;
+    public body?: CustomTemplateRequestBody;
     public constructor() { 
     }
-    public withEnterpriseProjectId(enterpriseProjectId: string): DetectLiveFaceByBase64Request {
+    public withEnterpriseProjectId(enterpriseProjectId: string): RecognizeCustomTemplateRequest {
         this['Enterprise-Project-Id'] = enterpriseProjectId;
         return this;
     }
@@ -16,7 +16,7 @@ export class DetectLiveFaceByBase64Request {
     public get enterpriseProjectId() {
         return this['Enterprise-Project-Id'];
     }
-    public withBody(body: LiveDetectFaceBase64Req): DetectLiveFaceByBase64Request {
+    public withBody(body: CustomTemplateRequestBody): RecognizeCustomTemplateRequest {
         this['body'] = body;
         return this;
     }

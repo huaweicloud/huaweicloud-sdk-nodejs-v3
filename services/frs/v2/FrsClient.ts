@@ -136,6 +136,7 @@ export class FrsClient {
      * @summary 添加人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {AddFacesBase64Req} addFacesBase64Req This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -156,6 +157,7 @@ export class FrsClient {
      * @summary 添加人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {any} imageFile 本地图片文件，图片不能超过8MB，建议小于1MB。上传文件时，请求格式为multipart。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {string} [externalImageId] 用户指定的图片外部ID，与当前图像绑定。用户没提供，系统会生成一个。 该ID长度范围为1～36位，可以包含字母、数字、中划线或者下划线，不包含其他的特殊字符。
      * @param {string} [externalFields] [根据用户自定义数据类型，填入相应的数值。创建faceset时定义该字段，Json字符串不校验重复性，参考[自定义字段](https://support.huaweicloud.com/api-face/face_02_0012.html)。](tag:hc) [根据用户自定义数据类型，填入相应的数值。创建faceset时定义该字段，Json字符串不校验重复性，参考[自定义字段](https://support.huaweicloud.com/intl/zh-cn/api-face/face_02_0012.html)。](tag:hk)
      * @param {boolean} [single] 是否将图片中的最大人脸添加至人脸库。可选值包括: • true: 传入的单张图片中如果包含多张人脸，则只将最大人脸添加到人脸库中。 • false: 默认为false。传入的单张图片中如果包含多张人脸，则将所有人脸添加至人脸库中。
@@ -179,6 +181,7 @@ export class FrsClient {
      * @summary 添加人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {AddFacesUrlReq} addFacesUrlReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -199,6 +202,7 @@ export class FrsClient {
      * @summary 批量删除人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {DeleteFacesBatchReq} deleteFacesBatchReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -218,6 +222,7 @@ export class FrsClient {
      *
      * @summary 人脸比对
      * @param {FaceCompareBase64Req} faceCompareBase64Req This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -238,6 +243,7 @@ export class FrsClient {
      * @summary 人脸比对
      * @param {any} image1File 本地图片文件，图片不能超过8MB。上传文件时，请求格式为multipart。
      * @param {any} image2File 本地图片文件，图片不能超过8MB。上传文件时，请求格式为multipart。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -257,6 +263,7 @@ export class FrsClient {
      *
      * @summary 人脸比对
      * @param {FaceCompareUrlReq} faceCompareUrlReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -276,6 +283,7 @@ export class FrsClient {
      *
      * @summary 创建人脸库
      * @param {CreateFaceSetReq} createFaceSetReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -296,6 +304,7 @@ export class FrsClient {
      * @summary 删除人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {string} externalImageId external_image_id。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -316,6 +325,7 @@ export class FrsClient {
      * @summary 删除人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {string} faceId 人脸ID。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -335,6 +345,7 @@ export class FrsClient {
      *
      * @summary 删除人脸库
      * @param {string} faceSetName 人脸库名称。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -354,6 +365,7 @@ export class FrsClient {
      *
      * @summary 人脸检测
      * @param {FaceDetectBase64Req} faceDetectBase64Req This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -373,6 +385,7 @@ export class FrsClient {
      *
      * @summary 人脸检测
      * @param {FaceDetectBase64Req} faceDetectBase64Req This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -392,6 +405,7 @@ export class FrsClient {
      *
      * @summary 人脸检测
      * @param {any} imageFile 本地图片文件，图片不能超过8MB。上传文件时，请求格式为multipart。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {string} [attributes] 是否返回人脸属性，希望获取的属性列表，多个属性间使用逗号（,）隔开。目前支持的属性有： • 2：年龄 • 4：装束（帽子、眼镜） • 6：口罩 • 7：发型 • 8：胡须 • 11：图片类型 • 12：质量 • 13：表情 • 21：人脸图片旋转角（顺时针偏转角度），支持0°、90°、180°和270°图片旋转
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -412,6 +426,7 @@ export class FrsClient {
      *
      * @summary 人脸检测
      * @param {any} imageFile 本地图片文件，图片不能超过8MB。上传文件时，请求格式为multipart。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -431,6 +446,7 @@ export class FrsClient {
      *
      * @summary 人脸检测
      * @param {FaceDetectUrlReq} faceDetectUrlReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -450,6 +466,7 @@ export class FrsClient {
      *
      * @summary 人脸检测
      * @param {FaceDetectUrlReq} faceDetectUrlReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -469,6 +486,7 @@ export class FrsClient {
      *
      * @summary 动作活体检测
      * @param {LiveDetectBase64Req} liveDetectBase64Req This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -488,6 +506,7 @@ export class FrsClient {
      *
      * @summary 动作活体检测
      * @param {LiveDetectBase64Req} liveDetectBase64Req This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -508,6 +527,7 @@ export class FrsClient {
      * @summary 动作活体检测
      * @param {any} videoFile 本地视频文件。上传文件时，请求格式为multipart。 视频要求： • 视频文件大小不超过8MB，建议客户端压缩到200KB~2MB。 • 限制视频时长1～15秒。 • 建议帧率10fps～30fps。 • 封装格式：mp4、avi、flv、webm、asf、mov。 • 视频编码格式： h261、h263、h264、hevc、vc1、vp8、vp9、wmv3。
      * @param {string} actions 动作代码顺序列表，英文逗号（,）分隔。建议单动作，目前支持的动作有： • 1：左摇头 • 2：右摇头 • 3：点头 • 4：嘴部动作
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {string} [actionTime] 该参数为动作时间数组拼接的字符串，数组的长度和actions的数量一致，每一项代表了对应次序动作的起始时间和结束时间，单位为距视频开始的毫秒数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -529,6 +549,7 @@ export class FrsClient {
      * @summary 动作活体检测
      * @param {any} videoFile 本地视频文件。上传文件时，请求格式为multipart。 视频要求： • 视频文件大小不超过8MB，建议客户端压缩到200KB~2MB。 • 限制视频时长1～15秒。 • 建议帧率10fps～30fps。 • 封装格式：mp4、avi、flv、webm、asf、mov。 • 视频编码格式： h261、h263、h264、hevc、vc1、vp8、vp9、wmv3。
      * @param {string} actions 动作代码顺序列表，英文逗号（,）分隔。建议单动作，目前支持的动作有： • 1：左摇头 • 2：右摇头 • 3：点头 • 4：嘴部动作
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {string} [actionTime] 该参数为动作时间数组拼接的字符串，数组的长度和actions的数量一致，每一项代表了对应次序动作的起始时间和结束时间，单位为距视频开始的毫秒数。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -549,6 +570,7 @@ export class FrsClient {
      *
      * @summary 动作活体检测
      * @param {LiveDetectUrlReq} liveDetectUrlReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -568,6 +590,7 @@ export class FrsClient {
      *
      * @summary 动作活体检测
      * @param {LiveDetectUrlReq} liveDetectUrlReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -587,6 +610,7 @@ export class FrsClient {
      *
      * @summary 静默活体检测
      * @param {LiveDetectFaceBase64Req} liveDetectFaceBase64Req This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -606,6 +630,7 @@ export class FrsClient {
      *
      * @summary 静默活体检测
      * @param {any} imageFile 本地图片文件。上传文件时，请求格式为multipart。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -625,6 +650,7 @@ export class FrsClient {
      *
      * @summary 静默活体检测
      * @param {LiveDetectFaceUrlReq} liveDetectFaceUrlReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -646,6 +672,7 @@ export class FrsClient {
      * @summary 人脸搜索
      * @param {string} faceSetName 人脸库名称。
      * @param {FaceSearchBase64Req} faceSearchBase64Req This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -667,6 +694,7 @@ export class FrsClient {
      * @summary 人脸搜索
      * @param {string} faceSetName 人脸库名称。
      * @param {FaceSearchFaceIdReq} faceSearchFaceIdReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -688,6 +716,7 @@ export class FrsClient {
      * @summary 人脸搜索
      * @param {string} faceSetName 人脸库名称。
      * @param {any} imageFile 本地图片文件，图片不能超过8MB,建议小于1MB。上传文件时，请求格式为multipart。  必选，与image_url、image_base64、face_id四选一。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {number} [topN] 返回查询到的最相似的N张人脸，N默认为10。
      * @param {number} [threshold] 人脸相似度阈值，低于这个阈值则不返回，取值范围0~1，一般情况下建议取值0.93，默认为0。
      * @param {string} [sort] [支持字段排序，参考[sort语法](https://support.huaweicloud.com/api-face/face_02_0013.html)。](tag:hc) [支持字段排序，参考[sort语法](https://support.huaweicloud.com/intl/zh-cn/api-face/face_02_0013.html)。](tag:hk)
@@ -714,6 +743,7 @@ export class FrsClient {
      * @summary 人脸搜索
      * @param {string} faceSetName 人脸库名称。
      * @param {FaceSearchUrlReq} faceSearchUrlReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -732,11 +762,12 @@ export class FrsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有人脸库
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showAllFaceSets(): Promise<ShowAllFaceSetsResponse> {
-        const options = ParamCreater().showAllFaceSets();
+    public showAllFaceSets(showAllFaceSetsRequest?: ShowAllFaceSetsRequest): Promise<ShowAllFaceSetsResponse> {
+        const options = ParamCreater().showAllFaceSets(showAllFaceSetsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -751,6 +782,7 @@ export class FrsClient {
      *
      * @summary 查询人脸库
      * @param {string} faceSetName 人脸库名称。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -771,6 +803,7 @@ export class FrsClient {
      * @summary 查询人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {string} faceId 人脸ID。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -792,6 +825,7 @@ export class FrsClient {
      * @param {string} faceSetName 人脸库名称。
      * @param {number} offset 从第几条数据读起，默认为0。
      * @param {number} limit 读取多少条，默认为5。
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -812,6 +846,7 @@ export class FrsClient {
      * @summary 更新人脸
      * @param {string} faceSetName 人脸库名称。
      * @param {UpdateFaceReq} updateFaceReq This is a auto create Body Object
+     * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -848,14 +883,18 @@ export const ParamCreater = function () {
             var body: any;
             
             let faceSetName;
+            
+            let enterpriseProjectId;
 
             if (addFacesByBase64Request !== null && addFacesByBase64Request !== undefined) {
                 if (addFacesByBase64Request instanceof AddFacesByBase64Request) {
                     faceSetName = addFacesByBase64Request.faceSetName;
                     body = addFacesByBase64Request.body
+                    enterpriseProjectId = addFacesByBase64Request.enterpriseProjectId;
                 } else {
                     faceSetName = addFacesByBase64Request['face_set_name'];
                     body = addFacesByBase64Request['body'];
+                    enterpriseProjectId = addFacesByBase64Request['Enterprise-Project-Id'];
                 }
             }
 
@@ -865,6 +904,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -896,6 +938,8 @@ export const ParamCreater = function () {
             let faceSetName;
             var imageFile;
             
+            
+            let enterpriseProjectId;
             var externalImageId;
             
             var externalFields;
@@ -907,12 +951,14 @@ export const ParamCreater = function () {
                 if (addFacesByFileRequest instanceof AddFacesByFileRequest) {
                     faceSetName = addFacesByFileRequest.faceSetName;
                     imageFile = addFacesByFileRequest.body?.imageFile;
+                    enterpriseProjectId = addFacesByFileRequest.enterpriseProjectId;
                     externalImageId = addFacesByFileRequest.body?.externalImageId;
                     externalFields = addFacesByFileRequest.body?.externalFields;
                     single = addFacesByFileRequest.body?.single;
                 } else {
                     faceSetName = addFacesByFileRequest['face_set_name'];
                     imageFile = addFacesByFileRequest['body']['imageFile'];
+                    enterpriseProjectId = addFacesByFileRequest['Enterprise-Project-Id'];
                     externalImageId = addFacesByFileRequest['body']['externalImageId'];
                     externalFields = addFacesByFileRequest['body']['externalFields'];
                     single = addFacesByFileRequest['body']['single'];
@@ -937,6 +983,9 @@ export const ParamCreater = function () {
             }
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
@@ -966,14 +1015,18 @@ export const ParamCreater = function () {
             var body: any;
             
             let faceSetName;
+            
+            let enterpriseProjectId;
 
             if (addFacesByUrlRequest !== null && addFacesByUrlRequest !== undefined) {
                 if (addFacesByUrlRequest instanceof AddFacesByUrlRequest) {
                     faceSetName = addFacesByUrlRequest.faceSetName;
                     body = addFacesByUrlRequest.body
+                    enterpriseProjectId = addFacesByUrlRequest.enterpriseProjectId;
                 } else {
                     faceSetName = addFacesByUrlRequest['face_set_name'];
                     body = addFacesByUrlRequest['body'];
+                    enterpriseProjectId = addFacesByUrlRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -983,6 +1036,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1012,14 +1068,18 @@ export const ParamCreater = function () {
             var body: any;
             
             let faceSetName;
+            
+            let enterpriseProjectId;
 
             if (batchDeleteFacesRequest !== null && batchDeleteFacesRequest !== undefined) {
                 if (batchDeleteFacesRequest instanceof BatchDeleteFacesRequest) {
                     faceSetName = batchDeleteFacesRequest.faceSetName;
                     body = batchDeleteFacesRequest.body
+                    enterpriseProjectId = batchDeleteFacesRequest.enterpriseProjectId;
                 } else {
                     faceSetName = batchDeleteFacesRequest['face_set_name'];
                     body = batchDeleteFacesRequest['body'];
+                    enterpriseProjectId = batchDeleteFacesRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -1029,6 +1089,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1056,18 +1119,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (compareFaceByBase64Request !== null && compareFaceByBase64Request !== undefined) {
                 if (compareFaceByBase64Request instanceof CompareFaceByBase64Request) {
                     body = compareFaceByBase64Request.body
+                    enterpriseProjectId = compareFaceByBase64Request.enterpriseProjectId;
                 } else {
                     body = compareFaceByBase64Request['body'];
+                    enterpriseProjectId = compareFaceByBase64Request['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1098,14 +1168,18 @@ export const ParamCreater = function () {
             
             var image2File;
             
+            
+            let enterpriseProjectId;
 
             if (compareFaceByFileRequest !== null && compareFaceByFileRequest !== undefined) {
                 if (compareFaceByFileRequest instanceof CompareFaceByFileRequest) {
                     image1File = compareFaceByFileRequest.body?.image1File;
                     image2File = compareFaceByFileRequest.body?.image2File;
+                    enterpriseProjectId = compareFaceByFileRequest.enterpriseProjectId;
                 } else {
                     image1File = compareFaceByFileRequest['body']['image1File'];
                     image2File = compareFaceByFileRequest['body']['image2File'];
+                    enterpriseProjectId = compareFaceByFileRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -1121,6 +1195,9 @@ export const ParamCreater = function () {
             }
             if (image2File !== undefined) { 
                 localVarFormParams.append('image2_file', image2File as any);
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
@@ -1147,18 +1224,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (compareFaceByUrlRequest !== null && compareFaceByUrlRequest !== undefined) {
                 if (compareFaceByUrlRequest instanceof CompareFaceByUrlRequest) {
                     body = compareFaceByUrlRequest.body
+                    enterpriseProjectId = compareFaceByUrlRequest.enterpriseProjectId;
                 } else {
                     body = compareFaceByUrlRequest['body'];
+                    enterpriseProjectId = compareFaceByUrlRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1185,18 +1269,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (createFaceSetRequest !== null && createFaceSetRequest !== undefined) {
                 if (createFaceSetRequest instanceof CreateFaceSetRequest) {
                     body = createFaceSetRequest.body
+                    enterpriseProjectId = createFaceSetRequest.enterpriseProjectId;
                 } else {
                     body = createFaceSetRequest['body'];
+                    enterpriseProjectId = createFaceSetRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1226,14 +1317,18 @@ export const ParamCreater = function () {
             let faceSetName;
             
             let externalImageId;
+            
+            let enterpriseProjectId;
 
             if (deleteFaceByExternalImageIdRequest !== null && deleteFaceByExternalImageIdRequest !== undefined) {
                 if (deleteFaceByExternalImageIdRequest instanceof DeleteFaceByExternalImageIdRequest) {
                     faceSetName = deleteFaceByExternalImageIdRequest.faceSetName;
                     externalImageId = deleteFaceByExternalImageIdRequest.externalImageId;
+                    enterpriseProjectId = deleteFaceByExternalImageIdRequest.enterpriseProjectId;
                 } else {
                     faceSetName = deleteFaceByExternalImageIdRequest['face_set_name'];
                     externalImageId = deleteFaceByExternalImageIdRequest['external_image_id'];
+                    enterpriseProjectId = deleteFaceByExternalImageIdRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -1246,6 +1341,9 @@ export const ParamCreater = function () {
             }
             if (externalImageId !== null && externalImageId !== undefined) {
                 localVarQueryParameter['external_image_id'] = externalImageId;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1275,14 +1373,18 @@ export const ParamCreater = function () {
             let faceSetName;
             
             let faceId;
+            
+            let enterpriseProjectId;
 
             if (deleteFaceByFaceIdRequest !== null && deleteFaceByFaceIdRequest !== undefined) {
                 if (deleteFaceByFaceIdRequest instanceof DeleteFaceByFaceIdRequest) {
                     faceSetName = deleteFaceByFaceIdRequest.faceSetName;
                     faceId = deleteFaceByFaceIdRequest.faceId;
+                    enterpriseProjectId = deleteFaceByFaceIdRequest.enterpriseProjectId;
                 } else {
                     faceSetName = deleteFaceByFaceIdRequest['face_set_name'];
                     faceId = deleteFaceByFaceIdRequest['face_id'];
+                    enterpriseProjectId = deleteFaceByFaceIdRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -1295,6 +1397,9 @@ export const ParamCreater = function () {
             }
             if (faceId !== null && faceId !== undefined) {
                 localVarQueryParameter['face_id'] = faceId;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1322,18 +1427,25 @@ export const ParamCreater = function () {
 
             
             let faceSetName;
+            
+            let enterpriseProjectId;
 
             if (deleteFaceSetRequest !== null && deleteFaceSetRequest !== undefined) {
                 if (deleteFaceSetRequest instanceof DeleteFaceSetRequest) {
                     faceSetName = deleteFaceSetRequest.faceSetName;
+                    enterpriseProjectId = deleteFaceSetRequest.enterpriseProjectId;
                 } else {
                     faceSetName = deleteFaceSetRequest['face_set_name'];
+                    enterpriseProjectId = deleteFaceSetRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (faceSetName === null || faceSetName === undefined) {
             throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling deleteFaceSet.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
 
             options.pathParams = { 'face_set_name': faceSetName, };
@@ -1359,18 +1471,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (detectFaceByBase64Request !== null && detectFaceByBase64Request !== undefined) {
                 if (detectFaceByBase64Request instanceof DetectFaceByBase64Request) {
                     body = detectFaceByBase64Request.body
+                    enterpriseProjectId = detectFaceByBase64Request.enterpriseProjectId;
                 } else {
                     body = detectFaceByBase64Request['body'];
+                    enterpriseProjectId = detectFaceByBase64Request['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1397,18 +1516,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (detectFaceByBase64IntlRequest !== null && detectFaceByBase64IntlRequest !== undefined) {
                 if (detectFaceByBase64IntlRequest instanceof DetectFaceByBase64IntlRequest) {
                     body = detectFaceByBase64IntlRequest.body
+                    enterpriseProjectId = detectFaceByBase64IntlRequest.enterpriseProjectId;
                 } else {
                     body = detectFaceByBase64IntlRequest['body'];
+                    enterpriseProjectId = detectFaceByBase64IntlRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1437,15 +1563,19 @@ export const ParamCreater = function () {
             const localVarFormParams = new FormData();
             var imageFile;
             
+            
+            let enterpriseProjectId;
             var attributes;
             
 
             if (detectFaceByFileRequest !== null && detectFaceByFileRequest !== undefined) {
                 if (detectFaceByFileRequest instanceof DetectFaceByFileRequest) {
                     imageFile = detectFaceByFileRequest.body?.imageFile;
+                    enterpriseProjectId = detectFaceByFileRequest.enterpriseProjectId;
                     attributes = detectFaceByFileRequest.body?.attributes;
                 } else {
                     imageFile = detectFaceByFileRequest['body']['imageFile'];
+                    enterpriseProjectId = detectFaceByFileRequest['Enterprise-Project-Id'];
                     attributes = detectFaceByFileRequest['body']['attributes'];
                 }
             }
@@ -1459,6 +1589,9 @@ export const ParamCreater = function () {
             }
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
@@ -1487,12 +1620,16 @@ export const ParamCreater = function () {
             const localVarFormParams = new FormData();
             var imageFile;
             
+            
+            let enterpriseProjectId;
 
             if (detectFaceByFileIntlRequest !== null && detectFaceByFileIntlRequest !== undefined) {
                 if (detectFaceByFileIntlRequest instanceof DetectFaceByFileIntlRequest) {
                     imageFile = detectFaceByFileIntlRequest.body?.imageFile;
+                    enterpriseProjectId = detectFaceByFileIntlRequest.enterpriseProjectId;
                 } else {
                     imageFile = detectFaceByFileIntlRequest['body']['imageFile'];
+                    enterpriseProjectId = detectFaceByFileIntlRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -1502,6 +1639,9 @@ export const ParamCreater = function () {
             }
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
@@ -1528,18 +1668,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (detectFaceByUrlRequest !== null && detectFaceByUrlRequest !== undefined) {
                 if (detectFaceByUrlRequest instanceof DetectFaceByUrlRequest) {
                     body = detectFaceByUrlRequest.body
+                    enterpriseProjectId = detectFaceByUrlRequest.enterpriseProjectId;
                 } else {
                     body = detectFaceByUrlRequest['body'];
+                    enterpriseProjectId = detectFaceByUrlRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1566,18 +1713,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (detectFaceByUrlIntlRequest !== null && detectFaceByUrlIntlRequest !== undefined) {
                 if (detectFaceByUrlIntlRequest instanceof DetectFaceByUrlIntlRequest) {
                     body = detectFaceByUrlIntlRequest.body
+                    enterpriseProjectId = detectFaceByUrlIntlRequest.enterpriseProjectId;
                 } else {
                     body = detectFaceByUrlIntlRequest['body'];
+                    enterpriseProjectId = detectFaceByUrlIntlRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1604,18 +1758,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (detectLiveByBase64Request !== null && detectLiveByBase64Request !== undefined) {
                 if (detectLiveByBase64Request instanceof DetectLiveByBase64Request) {
                     body = detectLiveByBase64Request.body
+                    enterpriseProjectId = detectLiveByBase64Request.enterpriseProjectId;
                 } else {
                     body = detectLiveByBase64Request['body'];
+                    enterpriseProjectId = detectLiveByBase64Request['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1642,18 +1803,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (detectLiveByBase64IntlRequest !== null && detectLiveByBase64IntlRequest !== undefined) {
                 if (detectLiveByBase64IntlRequest instanceof DetectLiveByBase64IntlRequest) {
                     body = detectLiveByBase64IntlRequest.body
+                    enterpriseProjectId = detectLiveByBase64IntlRequest.enterpriseProjectId;
                 } else {
                     body = detectLiveByBase64IntlRequest['body'];
+                    enterpriseProjectId = detectLiveByBase64IntlRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1684,6 +1852,8 @@ export const ParamCreater = function () {
             
             var actions;
             
+            
+            let enterpriseProjectId;
             var actionTime;
             
 
@@ -1691,10 +1861,12 @@ export const ParamCreater = function () {
                 if (detectLiveByFileRequest instanceof DetectLiveByFileRequest) {
                     videoFile = detectLiveByFileRequest.body?.videoFile;
                     actions = detectLiveByFileRequest.body?.actions;
+                    enterpriseProjectId = detectLiveByFileRequest.enterpriseProjectId;
                     actionTime = detectLiveByFileRequest.body?.actionTime;
                 } else {
                     videoFile = detectLiveByFileRequest['body']['videoFile'];
                     actions = detectLiveByFileRequest['body']['actions'];
+                    enterpriseProjectId = detectLiveByFileRequest['Enterprise-Project-Id'];
                     actionTime = detectLiveByFileRequest['body']['actionTime'];
                 }
             }
@@ -1714,6 +1886,9 @@ export const ParamCreater = function () {
             }
             if (videoFile !== undefined) { 
                 localVarFormParams.append('video_file', videoFile as any);
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
@@ -1744,6 +1919,8 @@ export const ParamCreater = function () {
             
             var actions;
             
+            
+            let enterpriseProjectId;
             var actionTime;
             
 
@@ -1751,10 +1928,12 @@ export const ParamCreater = function () {
                 if (detectLiveByFileIntlRequest instanceof DetectLiveByFileIntlRequest) {
                     videoFile = detectLiveByFileIntlRequest.body?.videoFile;
                     actions = detectLiveByFileIntlRequest.body?.actions;
+                    enterpriseProjectId = detectLiveByFileIntlRequest.enterpriseProjectId;
                     actionTime = detectLiveByFileIntlRequest.body?.actionTime;
                 } else {
                     videoFile = detectLiveByFileIntlRequest['body']['videoFile'];
                     actions = detectLiveByFileIntlRequest['body']['actions'];
+                    enterpriseProjectId = detectLiveByFileIntlRequest['Enterprise-Project-Id'];
                     actionTime = detectLiveByFileIntlRequest['body']['actionTime'];
                 }
             }
@@ -1774,6 +1953,9 @@ export const ParamCreater = function () {
             }
             if (videoFile !== undefined) { 
                 localVarFormParams.append('video_file', videoFile as any);
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
@@ -1800,18 +1982,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (detectLiveByUrlRequest !== null && detectLiveByUrlRequest !== undefined) {
                 if (detectLiveByUrlRequest instanceof DetectLiveByUrlRequest) {
                     body = detectLiveByUrlRequest.body
+                    enterpriseProjectId = detectLiveByUrlRequest.enterpriseProjectId;
                 } else {
                     body = detectLiveByUrlRequest['body'];
+                    enterpriseProjectId = detectLiveByUrlRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1838,18 +2027,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (detectLiveByUrlIntlRequest !== null && detectLiveByUrlIntlRequest !== undefined) {
                 if (detectLiveByUrlIntlRequest instanceof DetectLiveByUrlIntlRequest) {
                     body = detectLiveByUrlIntlRequest.body
+                    enterpriseProjectId = detectLiveByUrlIntlRequest.enterpriseProjectId;
                 } else {
                     body = detectLiveByUrlIntlRequest['body'];
+                    enterpriseProjectId = detectLiveByUrlIntlRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1876,18 +2072,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (detectLiveFaceByBase64Request !== null && detectLiveFaceByBase64Request !== undefined) {
                 if (detectLiveFaceByBase64Request instanceof DetectLiveFaceByBase64Request) {
                     body = detectLiveFaceByBase64Request.body
+                    enterpriseProjectId = detectLiveFaceByBase64Request.enterpriseProjectId;
                 } else {
                     body = detectLiveFaceByBase64Request['body'];
+                    enterpriseProjectId = detectLiveFaceByBase64Request['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1916,12 +2119,16 @@ export const ParamCreater = function () {
             const localVarFormParams = new FormData();
             var imageFile;
             
+            
+            let enterpriseProjectId;
 
             if (detectLiveFaceByFileRequest !== null && detectLiveFaceByFileRequest !== undefined) {
                 if (detectLiveFaceByFileRequest instanceof DetectLiveFaceByFileRequest) {
                     imageFile = detectLiveFaceByFileRequest.body?.imageFile;
+                    enterpriseProjectId = detectLiveFaceByFileRequest.enterpriseProjectId;
                 } else {
                     imageFile = detectLiveFaceByFileRequest['body']['imageFile'];
+                    enterpriseProjectId = detectLiveFaceByFileRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -1931,6 +2138,9 @@ export const ParamCreater = function () {
             }
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
@@ -1957,18 +2167,25 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             var body: any;
+            
+            let enterpriseProjectId;
 
             if (detectLiveFaceByUrlRequest !== null && detectLiveFaceByUrlRequest !== undefined) {
                 if (detectLiveFaceByUrlRequest instanceof DetectLiveFaceByUrlRequest) {
                     body = detectLiveFaceByUrlRequest.body
+                    enterpriseProjectId = detectLiveFaceByUrlRequest.enterpriseProjectId;
                 } else {
                     body = detectLiveFaceByUrlRequest['body'];
+                    enterpriseProjectId = detectLiveFaceByUrlRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -1998,14 +2215,18 @@ export const ParamCreater = function () {
             var body: any;
             
             let faceSetName;
+            
+            let enterpriseProjectId;
 
             if (searchFaceByBase64Request !== null && searchFaceByBase64Request !== undefined) {
                 if (searchFaceByBase64Request instanceof SearchFaceByBase64Request) {
                     faceSetName = searchFaceByBase64Request.faceSetName;
                     body = searchFaceByBase64Request.body
+                    enterpriseProjectId = searchFaceByBase64Request.enterpriseProjectId;
                 } else {
                     faceSetName = searchFaceByBase64Request['face_set_name'];
                     body = searchFaceByBase64Request['body'];
+                    enterpriseProjectId = searchFaceByBase64Request['Enterprise-Project-Id'];
                 }
             }
 
@@ -2015,6 +2236,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2045,14 +2269,18 @@ export const ParamCreater = function () {
             var body: any;
             
             let faceSetName;
+            
+            let enterpriseProjectId;
 
             if (searchFaceByFaceIdRequest !== null && searchFaceByFaceIdRequest !== undefined) {
                 if (searchFaceByFaceIdRequest instanceof SearchFaceByFaceIdRequest) {
                     faceSetName = searchFaceByFaceIdRequest.faceSetName;
                     body = searchFaceByFaceIdRequest.body
+                    enterpriseProjectId = searchFaceByFaceIdRequest.enterpriseProjectId;
                 } else {
                     faceSetName = searchFaceByFaceIdRequest['face_set_name'];
                     body = searchFaceByFaceIdRequest['body'];
+                    enterpriseProjectId = searchFaceByFaceIdRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -2062,6 +2290,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2094,6 +2325,8 @@ export const ParamCreater = function () {
             let faceSetName;
             var imageFile;
             
+            
+            let enterpriseProjectId;
             var topN;
             
             var threshold;
@@ -2109,6 +2342,7 @@ export const ParamCreater = function () {
                 if (searchFaceByFileRequest instanceof SearchFaceByFileRequest) {
                     faceSetName = searchFaceByFileRequest.faceSetName;
                     imageFile = searchFaceByFileRequest.body?.imageFile;
+                    enterpriseProjectId = searchFaceByFileRequest.enterpriseProjectId;
                     topN = searchFaceByFileRequest.body?.topN;
                     threshold = searchFaceByFileRequest.body?.threshold;
                     sort = searchFaceByFileRequest.body?.sort;
@@ -2117,6 +2351,7 @@ export const ParamCreater = function () {
                 } else {
                     faceSetName = searchFaceByFileRequest['face_set_name'];
                     imageFile = searchFaceByFileRequest['body']['imageFile'];
+                    enterpriseProjectId = searchFaceByFileRequest['Enterprise-Project-Id'];
                     topN = searchFaceByFileRequest['body']['topN'];
                     threshold = searchFaceByFileRequest['body']['threshold'];
                     sort = searchFaceByFileRequest['body']['sort'];
@@ -2150,6 +2385,9 @@ export const ParamCreater = function () {
             if (imageFile !== undefined) { 
                 localVarFormParams.append('image_file', imageFile as any);
             }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
             localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
             options.data = localVarFormParams;
@@ -2179,14 +2417,18 @@ export const ParamCreater = function () {
             var body: any;
             
             let faceSetName;
+            
+            let enterpriseProjectId;
 
             if (searchFaceByUrlRequest !== null && searchFaceByUrlRequest !== undefined) {
                 if (searchFaceByUrlRequest instanceof SearchFaceByUrlRequest) {
                     faceSetName = searchFaceByUrlRequest.faceSetName;
                     body = searchFaceByUrlRequest.body
+                    enterpriseProjectId = searchFaceByUrlRequest.enterpriseProjectId;
                 } else {
                     faceSetName = searchFaceByUrlRequest['face_set_name'];
                     body = searchFaceByUrlRequest['body'];
+                    enterpriseProjectId = searchFaceByUrlRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -2196,6 +2438,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -2210,7 +2455,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showAllFaceSets() {
+        showAllFaceSets(showAllFaceSetsRequest?: ShowAllFaceSetsRequest) {
             const options = {
                 method: "GET",
                 url: "/v2/{project_id}/face-sets",
@@ -2222,6 +2467,21 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
+            
+            let enterpriseProjectId;
+
+            if (showAllFaceSetsRequest !== null && showAllFaceSetsRequest !== undefined) {
+                if (showAllFaceSetsRequest instanceof ShowAllFaceSetsRequest) {
+                    enterpriseProjectId = showAllFaceSetsRequest.enterpriseProjectId;
+                } else {
+                    enterpriseProjectId = showAllFaceSetsRequest['Enterprise-Project-Id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
+            }
 
             options.headers = localVarHeaderParameter;
             return options;
@@ -2246,18 +2506,25 @@ export const ParamCreater = function () {
 
             
             let faceSetName;
+            
+            let enterpriseProjectId;
 
             if (showFaceSetRequest !== null && showFaceSetRequest !== undefined) {
                 if (showFaceSetRequest instanceof ShowFaceSetRequest) {
                     faceSetName = showFaceSetRequest.faceSetName;
+                    enterpriseProjectId = showFaceSetRequest.enterpriseProjectId;
                 } else {
                     faceSetName = showFaceSetRequest['face_set_name'];
+                    enterpriseProjectId = showFaceSetRequest['Enterprise-Project-Id'];
                 }
             }
 
         
             if (faceSetName === null || faceSetName === undefined) {
             throw new RequiredError('faceSetName','Required parameter faceSetName was null or undefined when calling showFaceSet.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
 
             options.pathParams = { 'face_set_name': faceSetName, };
@@ -2286,14 +2553,18 @@ export const ParamCreater = function () {
             let faceSetName;
             
             let faceId;
+            
+            let enterpriseProjectId;
 
             if (showFacesByFaceIdRequest !== null && showFacesByFaceIdRequest !== undefined) {
                 if (showFacesByFaceIdRequest instanceof ShowFacesByFaceIdRequest) {
                     faceSetName = showFacesByFaceIdRequest.faceSetName;
                     faceId = showFacesByFaceIdRequest.faceId;
+                    enterpriseProjectId = showFacesByFaceIdRequest.enterpriseProjectId;
                 } else {
                     faceSetName = showFacesByFaceIdRequest['face_set_name'];
                     faceId = showFacesByFaceIdRequest['face_id'];
+                    enterpriseProjectId = showFacesByFaceIdRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -2306,6 +2577,9 @@ export const ParamCreater = function () {
             }
             if (faceId !== null && faceId !== undefined) {
                 localVarQueryParameter['face_id'] = faceId;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2337,16 +2611,20 @@ export const ParamCreater = function () {
             let offset;
             
             let limit;
+            
+            let enterpriseProjectId;
 
             if (showFacesByLimitRequest !== null && showFacesByLimitRequest !== undefined) {
                 if (showFacesByLimitRequest instanceof ShowFacesByLimitRequest) {
                     faceSetName = showFacesByLimitRequest.faceSetName;
                     offset = showFacesByLimitRequest.offset;
                     limit = showFacesByLimitRequest.limit;
+                    enterpriseProjectId = showFacesByLimitRequest.enterpriseProjectId;
                 } else {
                     faceSetName = showFacesByLimitRequest['face_set_name'];
                     offset = showFacesByLimitRequest['offset'];
                     limit = showFacesByLimitRequest['limit'];
+                    enterpriseProjectId = showFacesByLimitRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -2365,6 +2643,9 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
 
             options.queryParams = localVarQueryParameter;
@@ -2393,14 +2674,18 @@ export const ParamCreater = function () {
             var body: any;
             
             let faceSetName;
+            
+            let enterpriseProjectId;
 
             if (updateFaceRequest !== null && updateFaceRequest !== undefined) {
                 if (updateFaceRequest instanceof UpdateFaceRequest) {
                     faceSetName = updateFaceRequest.faceSetName;
                     body = updateFaceRequest.body
+                    enterpriseProjectId = updateFaceRequest.enterpriseProjectId;
                 } else {
                     faceSetName = updateFaceRequest['face_set_name'];
                     body = updateFaceRequest['body'];
+                    enterpriseProjectId = updateFaceRequest['Enterprise-Project-Id'];
                 }
             }
 
@@ -2410,6 +2695,9 @@ export const ParamCreater = function () {
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== undefined && enterpriseProjectId !== null) {
+                localVarHeaderParameter['Enterprise-Project-Id'] = String(enterpriseProjectId);
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
