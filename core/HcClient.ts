@@ -28,6 +28,7 @@ import { ExceptionUtil } from "./exception/ExceptionUtil";
 import { getLogger, Logger, LogLevel } from './logger';
 import { DefaultHttpResponse } from "./http/DefaultHttpResponse";
 import { Region } from "./region/region";
+import { SdkStreamResponse } from "./SdkStreamResponse";
 
 export class HcClient {
     private httpClient: HttpClient;
@@ -132,15 +133,20 @@ export class HcClient {
     private extractResponse<T extends SdkResponse>(result: DefaultHttpResponse<T>): T {
         const headers = result.headers;
         let contentType = headers['content-type'];
-        contentType = contentType.toLowerCase();
-        if (contentType && (contentType.startsWith('application/octet-stream') || contentType.startsWith("image"))) {
-            return result.data as T;
+        contentType = contentType?.toLowerCase();
+        if (contentType
+            && (contentType.startsWith('application/octet-stream')
+                || contentType.startsWith("image")
+                || contentType.startsWith("application/zip"))) {
+            const streamRes = new SdkStreamResponse();
+            streamRes.body = result.data;
+            streamRes.httpStatusCode = result.statusCode;
+            return streamRes as T;
         } else {
-            let response = result.data instanceof Object ? result.data : {} as T;
-            let sdkRespone = response as SdkResponse;
+            const response = result.data instanceof Object ? result.data : {} as T;
+            const sdkRespone = response as SdkResponse;
             sdkRespone.httpStatusCode = result.statusCode;
-
-            return response;
+            return sdkRespone as T;
         }
     }
 }

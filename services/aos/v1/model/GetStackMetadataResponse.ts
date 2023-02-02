@@ -1,24 +1,36 @@
+import { AgenciesPrimitiveTypeHolder } from './AgenciesPrimitiveTypeHolder';
 import { Agency } from './Agency';
+import { EnableAutoRollbackPrimitiveTypeHolder } from './EnableAutoRollbackPrimitiveTypeHolder';
+import { EnableDeletionProtectionPrimitiveTypeHolder } from './EnableDeletionProtectionPrimitiveTypeHolder';
+import { StackDescriptionPrimitiveTypeHolder } from './StackDescriptionPrimitiveTypeHolder';
+import { StackIdPrimitiveTypeHolder } from './StackIdPrimitiveTypeHolder';
+import { StackNamePrimitiveTypeHolder } from './StackNamePrimitiveTypeHolder';
+import { StackStatusMessagePrimitiveTypeHolder } from './StackStatusMessagePrimitiveTypeHolder';
+import { StackStatusPrimitiveTypeHolder } from './StackStatusPrimitiveTypeHolder';
+import { VarsBodyPrimitiveTypeHolder } from './VarsBodyPrimitiveTypeHolder';
 import { VarsStructure } from './VarsStructure';
+import { VarsStructurePrimitiveTypeHolder } from './VarsStructurePrimitiveTypeHolder';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class GetStackMetadataResponse extends SdkResponse {
     private 'stack_id'?: string | undefined;
-    private 'stack_name'?: string | undefined;
+    private 'stack_name': string | undefined;
     public description?: string;
     private 'vars_structure'?: Array<VarsStructure> | undefined;
-    private 'vars_uri_content'?: string | undefined;
     private 'vars_body'?: string | undefined;
-    private 'create_time'?: string | undefined;
-    private 'update_time'?: string | undefined;
     private 'enable_deletion_protection'?: boolean | undefined;
     private 'enable_auto_rollback'?: boolean | undefined;
     public status?: GetStackMetadataResponseStatusEnum;
-    private 'status_message'?: string | undefined;
     public agencies?: Array<Agency>;
-    public constructor() { 
+    private 'status_message'?: string | undefined;
+    private 'vars_uri_content'?: string | undefined;
+    private 'processed_vars'?: string | undefined;
+    private 'create_time'?: string | undefined;
+    private 'update_time'?: string | undefined;
+    public constructor(stackName?: any) { 
         super();
+        this['stack_name'] = stackName;
     }
     public withStackId(stackId: string): GetStackMetadataResponse {
         this['stack_id'] = stackId;
@@ -54,16 +66,6 @@ export class GetStackMetadataResponse extends SdkResponse {
     public get varsStructure() {
         return this['vars_structure'];
     }
-    public withVarsUriContent(varsUriContent: string): GetStackMetadataResponse {
-        this['vars_uri_content'] = varsUriContent;
-        return this;
-    }
-    public set varsUriContent(varsUriContent: string | undefined) {
-        this['vars_uri_content'] = varsUriContent;
-    }
-    public get varsUriContent() {
-        return this['vars_uri_content'];
-    }
     public withVarsBody(varsBody: string): GetStackMetadataResponse {
         this['vars_body'] = varsBody;
         return this;
@@ -73,26 +75,6 @@ export class GetStackMetadataResponse extends SdkResponse {
     }
     public get varsBody() {
         return this['vars_body'];
-    }
-    public withCreateTime(createTime: string): GetStackMetadataResponse {
-        this['create_time'] = createTime;
-        return this;
-    }
-    public set createTime(createTime: string | undefined) {
-        this['create_time'] = createTime;
-    }
-    public get createTime() {
-        return this['create_time'];
-    }
-    public withUpdateTime(updateTime: string): GetStackMetadataResponse {
-        this['update_time'] = updateTime;
-        return this;
-    }
-    public set updateTime(updateTime: string | undefined) {
-        this['update_time'] = updateTime;
-    }
-    public get updateTime() {
-        return this['update_time'];
     }
     public withEnableDeletionProtection(enableDeletionProtection: boolean): GetStackMetadataResponse {
         this['enable_deletion_protection'] = enableDeletionProtection;
@@ -118,6 +100,10 @@ export class GetStackMetadataResponse extends SdkResponse {
         this['status'] = status;
         return this;
     }
+    public withAgencies(agencies: Array<Agency>): GetStackMetadataResponse {
+        this['agencies'] = agencies;
+        return this;
+    }
     public withStatusMessage(statusMessage: string): GetStackMetadataResponse {
         this['status_message'] = statusMessage;
         return this;
@@ -128,9 +114,45 @@ export class GetStackMetadataResponse extends SdkResponse {
     public get statusMessage() {
         return this['status_message'];
     }
-    public withAgencies(agencies: Array<Agency>): GetStackMetadataResponse {
-        this['agencies'] = agencies;
+    public withVarsUriContent(varsUriContent: string): GetStackMetadataResponse {
+        this['vars_uri_content'] = varsUriContent;
         return this;
+    }
+    public set varsUriContent(varsUriContent: string | undefined) {
+        this['vars_uri_content'] = varsUriContent;
+    }
+    public get varsUriContent() {
+        return this['vars_uri_content'];
+    }
+    public withProcessedVars(processedVars: string): GetStackMetadataResponse {
+        this['processed_vars'] = processedVars;
+        return this;
+    }
+    public set processedVars(processedVars: string | undefined) {
+        this['processed_vars'] = processedVars;
+    }
+    public get processedVars() {
+        return this['processed_vars'];
+    }
+    public withCreateTime(createTime: string): GetStackMetadataResponse {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: string | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime() {
+        return this['create_time'];
+    }
+    public withUpdateTime(updateTime: string): GetStackMetadataResponse {
+        this['update_time'] = updateTime;
+        return this;
+    }
+    public set updateTime(updateTime: string | undefined) {
+        this['update_time'] = updateTime;
+    }
+    public get updateTime() {
+        return this['update_time'];
     }
 }
 
@@ -139,6 +161,7 @@ export class GetStackMetadataResponse extends SdkResponse {
     * @enum {string}
     */
 export enum GetStackMetadataResponseStatusEnum {
+    CREATION_COMPLETE = 'CREATION_COMPLETE',
     DEPLOYMENT_IN_PROGRESS = 'DEPLOYMENT_IN_PROGRESS',
     DEPLOYMENT_FAILED = 'DEPLOYMENT_FAILED',
     DEPLOYMENT_COMPLETE = 'DEPLOYMENT_COMPLETE',
@@ -146,6 +169,5 @@ export enum GetStackMetadataResponseStatusEnum {
     ROLLBACK_FAILED = 'ROLLBACK_FAILED',
     ROLLBACK_COMPLETE = 'ROLLBACK_COMPLETE',
     DELETION_IN_PROGRESS = 'DELETION_IN_PROGRESS',
-    DELETION_FAILED = 'DELETION_FAILED',
-    CREATION_COMPLETE = 'CREATION_COMPLETE'
+    DELETION_FAILED = 'DELETION_FAILED'
 }

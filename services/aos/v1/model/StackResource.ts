@@ -5,6 +5,7 @@ export class StackResource {
     private 'physical_resource_name'?: string | undefined;
     private 'logical_resource_name'?: string | undefined;
     private 'logical_resource_type'?: string | undefined;
+    private 'index_key'?: string | undefined;
     private 'resource_status'?: StackResourceResourceStatusEnum | undefined;
     private 'status_message'?: string | undefined;
     public constructor() { 
@@ -49,6 +50,16 @@ export class StackResource {
     public get logicalResourceType() {
         return this['logical_resource_type'];
     }
+    public withIndexKey(indexKey: string): StackResource {
+        this['index_key'] = indexKey;
+        return this;
+    }
+    public set indexKey(indexKey: string | undefined) {
+        this['index_key'] = indexKey;
+    }
+    public get indexKey() {
+        return this['index_key'];
+    }
     public withResourceStatus(resourceStatus: StackResourceResourceStatusEnum): StackResource {
         this['resource_status'] = resourceStatus;
         return this;
@@ -82,7 +93,6 @@ export enum StackResourceResourceStatusEnum {
     DELETION_IN_PROGRESS = 'DELETION_IN_PROGRESS',
     DELETION_FAILED = 'DELETION_FAILED',
     DELETION_COMPLETE = 'DELETION_COMPLETE',
-    DELETION_SKIPPED = 'DELETION_SKIPPED',
     UPDATE_IN_PROGRESS = 'UPDATE_IN_PROGRESS',
     UPDATE_FAILED = 'UPDATE_FAILED',
     UPDATE_COMPLETE = 'UPDATE_COMPLETE'

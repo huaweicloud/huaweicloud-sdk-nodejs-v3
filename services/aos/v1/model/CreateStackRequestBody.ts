@@ -2,6 +2,7 @@ import { AgenciesPrimitiveTypeHolder } from './AgenciesPrimitiveTypeHolder';
 import { Agency } from './Agency';
 import { EnableAutoRollbackPrimitiveTypeHolder } from './EnableAutoRollbackPrimitiveTypeHolder';
 import { EnableDeletionProtectionPrimitiveTypeHolder } from './EnableDeletionProtectionPrimitiveTypeHolder';
+import { ExecutorPrimitiveTypeHolder } from './ExecutorPrimitiveTypeHolder';
 import { StackDescriptionPrimitiveTypeHolder } from './StackDescriptionPrimitiveTypeHolder';
 import { StackNamePrimitiveTypeHolder } from './StackNamePrimitiveTypeHolder';
 import { TemplateBodyPrimitiveTypeHolder } from './TemplateBodyPrimitiveTypeHolder';
@@ -14,6 +15,7 @@ import { VarsURIPrimitiveTypeHolder } from './VarsURIPrimitiveTypeHolder';
 
 export class CreateStackRequestBody {
     private 'stack_name': string | undefined;
+    public executor?: string;
     public agencies?: Array<Agency>;
     public description?: string;
     private 'enable_deletion_protection'?: boolean | undefined;
@@ -35,6 +37,10 @@ export class CreateStackRequestBody {
     }
     public get stackName() {
         return this['stack_name'];
+    }
+    public withExecutor(executor: string): CreateStackRequestBody {
+        this['executor'] = executor;
+        return this;
     }
     public withAgencies(agencies: Array<Agency>): CreateStackRequestBody {
         this['agencies'] = agencies;

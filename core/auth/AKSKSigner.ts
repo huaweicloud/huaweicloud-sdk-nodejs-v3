@@ -79,7 +79,7 @@ export class AKSKSigner {
         let allHeaders = {};
         let current_headers:any = {};
         Object.assign(current_headers, request.headers);
-        if (current_headers['content-type'].indexOf('multipart/form-data') !== -1) {
+        if (current_headers['content-type']?.indexOf('multipart/form-data') !== -1) {
             delete current_headers['content-type'];
         }
         Object.assign(allHeaders, current_headers, authenticationHeaders);

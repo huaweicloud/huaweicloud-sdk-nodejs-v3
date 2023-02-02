@@ -9,6 +9,7 @@ export class ErRegion {
     public static AP_SOUTHEAST_1 = new Region("ap-southeast-1", "https://er.ap-southeast-1.myhuaweicloud.com");
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", "https://er.ap-southeast-2.myhuaweicloud.com");
     public static AP_SOUTHEAST_3 = new Region("ap-southeast-3", "https://er.ap-southeast-3.myhuaweicloud.com");
+    public static CN_SOUTHWEST_2 = new Region("cn-southwest-2", "https://er.cn-southwest-2.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = ErRegion.createStaticFields();
@@ -22,6 +23,7 @@ export class ErRegion {
         map.set("ap-southeast-1", ErRegion.AP_SOUTHEAST_1);
         map.set("ap-southeast-2", ErRegion.AP_SOUTHEAST_2);
         map.set("ap-southeast-3", ErRegion.AP_SOUTHEAST_3);
+        map.set("cn-southwest-2", ErRegion.CN_SOUTHWEST_2);
         return map;
     }
     public static valueOf(regionId: String) {

@@ -1,17 +1,18 @@
 
 
-export class StackEventResponse {
+export class StackEvent {
     private 'resource_id_key'?: string | undefined;
     private 'resource_id_value'?: string | undefined;
     private 'resource_name'?: string | undefined;
     private 'resource_type'?: string | undefined;
+    private 'resource_key'?: string | undefined;
     public time?: string;
-    private 'event_type'?: StackEventResponseEventTypeEnum | undefined;
+    private 'event_type'?: StackEventEventTypeEnum | undefined;
     private 'event_message'?: string | undefined;
     private 'elapsed_seconds'?: number | undefined;
     public constructor() { 
     }
-    public withResourceIdKey(resourceIdKey: string): StackEventResponse {
+    public withResourceIdKey(resourceIdKey: string): StackEvent {
         this['resource_id_key'] = resourceIdKey;
         return this;
     }
@@ -21,7 +22,7 @@ export class StackEventResponse {
     public get resourceIdKey() {
         return this['resource_id_key'];
     }
-    public withResourceIdValue(resourceIdValue: string): StackEventResponse {
+    public withResourceIdValue(resourceIdValue: string): StackEvent {
         this['resource_id_value'] = resourceIdValue;
         return this;
     }
@@ -31,7 +32,7 @@ export class StackEventResponse {
     public get resourceIdValue() {
         return this['resource_id_value'];
     }
-    public withResourceName(resourceName: string): StackEventResponse {
+    public withResourceName(resourceName: string): StackEvent {
         this['resource_name'] = resourceName;
         return this;
     }
@@ -41,7 +42,7 @@ export class StackEventResponse {
     public get resourceName() {
         return this['resource_name'];
     }
-    public withResourceType(resourceType: string): StackEventResponse {
+    public withResourceType(resourceType: string): StackEvent {
         this['resource_type'] = resourceType;
         return this;
     }
@@ -51,21 +52,31 @@ export class StackEventResponse {
     public get resourceType() {
         return this['resource_type'];
     }
-    public withTime(time: string): StackEventResponse {
+    public withResourceKey(resourceKey: string): StackEvent {
+        this['resource_key'] = resourceKey;
+        return this;
+    }
+    public set resourceKey(resourceKey: string | undefined) {
+        this['resource_key'] = resourceKey;
+    }
+    public get resourceKey() {
+        return this['resource_key'];
+    }
+    public withTime(time: string): StackEvent {
         this['time'] = time;
         return this;
     }
-    public withEventType(eventType: StackEventResponseEventTypeEnum): StackEventResponse {
+    public withEventType(eventType: StackEventEventTypeEnum): StackEvent {
         this['event_type'] = eventType;
         return this;
     }
-    public set eventType(eventType: StackEventResponseEventTypeEnum | undefined) {
+    public set eventType(eventType: StackEventEventTypeEnum | undefined) {
         this['event_type'] = eventType;
     }
     public get eventType() {
         return this['event_type'];
     }
-    public withEventMessage(eventMessage: string): StackEventResponse {
+    public withEventMessage(eventMessage: string): StackEvent {
         this['event_message'] = eventMessage;
         return this;
     }
@@ -75,7 +86,7 @@ export class StackEventResponse {
     public get eventMessage() {
         return this['event_message'];
     }
-    public withElapsedSeconds(elapsedSeconds: number): StackEventResponse {
+    public withElapsedSeconds(elapsedSeconds: number): StackEvent {
         this['elapsed_seconds'] = elapsedSeconds;
         return this;
     }
@@ -91,7 +102,7 @@ export class StackEventResponse {
     * @export
     * @enum {string}
     */
-export enum StackEventResponseEventTypeEnum {
+export enum StackEventEventTypeEnum {
     LOG = 'LOG',
     ERROR = 'ERROR',
     DRIFT = 'DRIFT',
@@ -102,7 +113,6 @@ export enum StackEventResponseEventTypeEnum {
     DELETION_IN_PROGRESS = 'DELETION_IN_PROGRESS',
     DELETION_FAILED = 'DELETION_FAILED',
     DELETION_COMPLETE = 'DELETION_COMPLETE',
-    DELETION_SKIPPED = 'DELETION_SKIPPED',
     UPDATE_IN_PROGRESS = 'UPDATE_IN_PROGRESS',
     UPDATE_FAILED = 'UPDATE_FAILED',
     UPDATE_COMPLETE = 'UPDATE_COMPLETE'

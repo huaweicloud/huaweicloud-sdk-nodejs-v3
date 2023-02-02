@@ -12,6 +12,7 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     private 'vars_structure'?: Array<VarsStructure> | undefined;
     private 'vars_uri_content'?: string | undefined;
     private 'vars_body'?: string | undefined;
+    private 'processed_vars'?: string | undefined;
     private 'create_time'?: string | undefined;
     private 'apply_time'?: string | undefined;
     public status?: DescribeExecutionPlanResponseStatusEnum;
@@ -93,6 +94,16 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     }
     public get varsBody() {
         return this['vars_body'];
+    }
+    public withProcessedVars(processedVars: string): DescribeExecutionPlanResponse {
+        this['processed_vars'] = processedVars;
+        return this;
+    }
+    public set processedVars(processedVars: string | undefined) {
+        this['processed_vars'] = processedVars;
+    }
+    public get processedVars() {
+        return this['processed_vars'];
     }
     public withCreateTime(createTime: string): DescribeExecutionPlanResponse {
         this['create_time'] = createTime;

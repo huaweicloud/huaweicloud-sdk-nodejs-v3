@@ -118,7 +118,7 @@ export class DefaultHttpClient implements HttpClient {
             const result = this._convertResponse<T>(httpRequest, res);
 
             return {
-                data: result instanceof String ? undefined : result,
+                data: result,
                 statusCode: res.status,
                 headers: res.headers
             };
@@ -143,7 +143,7 @@ export class DefaultHttpClient implements HttpClient {
         if (this.defaultOption.headers) {
             const customUserAgent = this.defaultOption.headers['User-Agent'];
             if (customUserAgent) {
-                headers['User-Agent'] = ["huaweicloud-usdk-nodejs/3.0",customUserAgent].join(" ");
+                headers['User-Agent'] = ["huaweicloud-usdk-nodejs/3.0", customUserAgent].join(" ");
             } else {
                 headers['User-Agent'] = "huaweicloud-usdk-nodejs/3.0"
             }
@@ -204,7 +204,7 @@ export class DefaultHttpClient implements HttpClient {
             data: error.response ? error.response.data : undefined,
             status: error.response ? error.response.status : undefined,
             headers: error.response ? error.response.headers : undefined,
-            message: error.message || undefined,  
+            message: error.message || undefined,
             requestId: error.response?.headers['x-request-id']
         }
         return transformedResponse;

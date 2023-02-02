@@ -184,7 +184,8 @@ export enum CreateImageRequestBodyTypeEnum {
     ECS = 'ECS',
     BMS = 'BMS',
     FUSIONCOMPUTE = 'FusionCompute',
-    IRONIC = 'Ironic'
+    IRONIC = 'Ironic',
+    ISOIMAGE = 'IsoImage'
 }
 /**
     * @export
