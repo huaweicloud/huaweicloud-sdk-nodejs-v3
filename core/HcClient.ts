@@ -127,6 +127,10 @@ export class HcClient {
             httpRequest['responseHeaders'] = options['responseHeaders'];
         }
         httpRequest.proxy = this.proxyAgent;
+        if(options.axiosRequestConfig){
+            httpRequest.axiosRequestConfig= options.axiosRequestConfig;
+        }
+       
         return httpRequest;
     }
 

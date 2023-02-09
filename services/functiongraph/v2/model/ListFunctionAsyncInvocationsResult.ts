@@ -4,6 +4,7 @@ export class ListFunctionAsyncInvocationsResult {
     private 'request_id'?: string | undefined;
     public status?: ListFunctionAsyncInvocationsResultStatusEnum;
     private 'error_message'?: string | undefined;
+    private 'error_code'?: number | undefined;
     private 'start_time'?: Date | undefined;
     private 'end_time'?: Date | undefined;
     public constructor() { 
@@ -31,6 +32,16 @@ export class ListFunctionAsyncInvocationsResult {
     }
     public get errorMessage() {
         return this['error_message'];
+    }
+    public withErrorCode(errorCode: number): ListFunctionAsyncInvocationsResult {
+        this['error_code'] = errorCode;
+        return this;
+    }
+    public set errorCode(errorCode: number | undefined) {
+        this['error_code'] = errorCode;
+    }
+    public get errorCode() {
+        return this['error_code'];
     }
     public withStartTime(startTime: Date): ListFunctionAsyncInvocationsResult {
         this['start_time'] = startTime;

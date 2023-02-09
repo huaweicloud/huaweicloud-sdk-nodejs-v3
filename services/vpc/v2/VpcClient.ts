@@ -22,6 +22,10 @@ import { BatchDeleteVpcTagsRequest } from './model/BatchDeleteVpcTagsRequest';
 import { BatchDeleteVpcTagsRequestBody } from './model/BatchDeleteVpcTagsRequestBody';
 import { BatchDeleteVpcTagsResponse } from './model/BatchDeleteVpcTagsResponse';
 import { BindingVifDetails } from './model/BindingVifDetails';
+import { CreateFlowLogReq } from './model/CreateFlowLogReq';
+import { CreateFlowLogReqBody } from './model/CreateFlowLogReqBody';
+import { CreateFlowLogRequest } from './model/CreateFlowLogRequest';
+import { CreateFlowLogResponse } from './model/CreateFlowLogResponse';
 import { CreatePortOption } from './model/CreatePortOption';
 import { CreatePortRequest } from './model/CreatePortRequest';
 import { CreatePortRequestBody } from './model/CreatePortRequestBody';
@@ -64,6 +68,8 @@ import { CreateVpcRouteOption } from './model/CreateVpcRouteOption';
 import { CreateVpcRouteRequest } from './model/CreateVpcRouteRequest';
 import { CreateVpcRouteRequestBody } from './model/CreateVpcRouteRequestBody';
 import { CreateVpcRouteResponse } from './model/CreateVpcRouteResponse';
+import { DeleteFlowLogRequest } from './model/DeleteFlowLogRequest';
+import { DeleteFlowLogResponse } from './model/DeleteFlowLogResponse';
 import { DeletePortRequest } from './model/DeletePortRequest';
 import { DeletePortResponse } from './model/DeletePortResponse';
 import { DeletePrivateipRequest } from './model/DeletePrivateipRequest';
@@ -92,6 +98,9 @@ import { DnsAssignMent } from './model/DnsAssignMent';
 import { ExtraDhcpOpt } from './model/ExtraDhcpOpt';
 import { ExtraDhcpOption } from './model/ExtraDhcpOption';
 import { FixedIp } from './model/FixedIp';
+import { FlowLogResp } from './model/FlowLogResp';
+import { ListFlowLogsRequest } from './model/ListFlowLogsRequest';
+import { ListFlowLogsResponse } from './model/ListFlowLogsResponse';
 import { ListPortsRequest } from './model/ListPortsRequest';
 import { ListPortsResponse } from './model/ListPortsResponse';
 import { ListPrivateipsRequest } from './model/ListPrivateipsRequest';
@@ -216,6 +225,8 @@ import { RouteTableRoute } from './model/RouteTableRoute';
 import { RoutetableAssociateReqbody } from './model/RoutetableAssociateReqbody';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityGroupRule } from './model/SecurityGroupRule';
+import { ShowFlowLogRequest } from './model/ShowFlowLogRequest';
+import { ShowFlowLogResponse } from './model/ShowFlowLogResponse';
 import { ShowNetworkIpAvailabilitiesRequest } from './model/ShowNetworkIpAvailabilitiesRequest';
 import { ShowNetworkIpAvailabilitiesResponse } from './model/ShowNetworkIpAvailabilitiesResponse';
 import { ShowPortRequest } from './model/ShowPortRequest';
@@ -246,6 +257,10 @@ import { Subnet } from './model/Subnet';
 import { SubnetIpAvailability } from './model/SubnetIpAvailability';
 import { SubnetList } from './model/SubnetList';
 import { SubnetResult } from './model/SubnetResult';
+import { UpdateFlowLogReq } from './model/UpdateFlowLogReq';
+import { UpdateFlowLogReqBody } from './model/UpdateFlowLogReqBody';
+import { UpdateFlowLogRequest } from './model/UpdateFlowLogRequest';
+import { UpdateFlowLogResponse } from './model/UpdateFlowLogResponse';
 import { UpdatePortOption } from './model/UpdatePortOption';
 import { UpdatePortRequest } from './model/UpdatePortRequest';
 import { UpdatePortRequestBody } from './model/UpdatePortRequestBody';
@@ -360,6 +375,27 @@ export class VpcClient {
      */
     public batchDeleteSubnetTags(batchDeleteSubnetTagsRequest?: BatchDeleteSubnetTagsRequest): Promise<void> {
         const options = ParamCreater().batchDeleteSubnetTags(batchDeleteSubnetTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建流日志。
+     * 流日志功能可以记录虚拟私有云中的流量信息，帮助您检查和优化安全组和网络ACL防火墙控制规则、监控网络流量、进行网络攻击分析等。
+     * VPC流日志功能需要与云日志服务LTS结合使用，请先在云日志服务中创建日志组和日志主题，然后再创建VPC流日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建流日志
+     * @param {CreateFlowLogReqBody} flowLog 创建流日志的请求体，参见CreateFlowLogReq对象。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createFlowLog(createFlowLogRequest?: CreateFlowLogRequest): Promise<CreateFlowLogResponse> {
+        const options = ParamCreater().createFlowLog(createFlowLogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -495,6 +531,25 @@ export class VpcClient {
      */
     public createVpcPeering(createVpcPeeringRequest?: CreateVpcPeeringRequest): Promise<CreateVpcPeeringResponse> {
         const options = ParamCreater().createVpcPeering(createVpcPeeringRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除流日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除流日志
+     * @param {string} flowlogId 流日志资源唯一标识
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteFlowLog(deleteFlowLogRequest?: DeleteFlowLogRequest): Promise<void> {
+        const options = ParamCreater().deleteFlowLog(deleteFlowLogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -652,6 +707,37 @@ export class VpcClient {
      */
     public disassociateRouteTable(disassociateRouteTableRequest?: DisassociateRouteTableRequest): Promise<DisassociateRouteTableResponse> {
         const options = ParamCreater().disassociateRouteTable(disassociateRouteTableRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询提交请求的租户的所有流日志列表，并根据过滤条件进行过滤
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询流日志列表
+     * @param {string} [id] 流日志资源唯一标识
+     * @param {string} [name] 功能说明：流日志名称 取值范围：0-64个字符，支持数字、字母、中文、_（下划线）、-（中划线）、.（点）
+     * @param {string} [tenantId] 项目ID
+     * @param {string} [description] 功能说明：流日志描述 取值范围：0-255个字符，不能包含“&lt;”和“&gt;”
+     * @param {'port' | 'network' | 'vpc'} [resourceType] 功能说明：流日志所属资源类型 取值范围：支持port、network、vpc 3种类型。
+     * @param {string} [resourceId] resource_type对应资源的唯一ID
+     * @param {'all' | 'reject' | 'accept'} [trafficType] 功能说明：流日志采集类型 取值范围：     1）all：采集指定资源的全部流量。     2）accept：采集指定资源允许传入、传出的流量。     3）reject：采集指定资源拒绝传入、传出的流量。
+     * @param {string} [logGroupId] 日志组ID 请在云日志服务中获取，详情请参见《云日志服务用户指南》。
+     * @param {string} [logTopicId] 日志主题ID 请在云日志服务中获取，详情请参见《云日志服务用户指南》。
+     * @param {'lts'} [logStoreType] 功能说明：流日志存储类型 取值范围：     lts：存储类型为云日志服务（LTS）。
+     * @param {'ACTIVE' | 'DOWN' | 'ERROR'} [status] 功能说明：流日志状态 取值范围：     ACTIVE：开启     DOWN：关闭     ERROR：异常故障
+     * @param {string} [limit] 功能说明：每页返回的个数 取值范围：0 ~ intmax
+     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFlowLogs(listFlowLogsRequest?: ListFlowLogsRequest): Promise<ListFlowLogsResponse> {
+        const options = ParamCreater().listFlowLogs(listFlowLogsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -859,6 +945,25 @@ export class VpcClient {
     }
 
     /**
+     * 查询流日志详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询流日志
+     * @param {string} flowlogId 流日志资源唯一标识
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFlowLog(showFlowLogRequest?: ShowFlowLogRequest): Promise<ShowFlowLogResponse> {
+        const options = ParamCreater().showFlowLog(showFlowLogRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询单个端口详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1003,6 +1108,26 @@ export class VpcClient {
      */
     public showVpcPeering(showVpcPeeringRequest?: ShowVpcPeeringRequest): Promise<ShowVpcPeeringResponse> {
         const options = ParamCreater().showVpcPeering(showVpcPeeringRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新流日志
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新流日志
+     * @param {string} flowlogId 流日志资源唯一标识
+     * @param {UpdateFlowLogReqBody} flowLog 更新流日志的请求体，参见UpdateFlowLogReq对象。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateFlowLog(updateFlowLogRequest?: UpdateFlowLogRequest): Promise<UpdateFlowLogResponse> {
+        const options = ParamCreater().updateFlowLog(updateFlowLogRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2233,6 +2358,46 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建流日志。
+         * 流日志功能可以记录虚拟私有云中的流量信息，帮助您检查和优化安全组和网络ACL防火墙控制规则、监控网络流量、进行网络攻击分析等。
+         * VPC流日志功能需要与云日志服务LTS结合使用，请先在云日志服务中创建日志组和日志主题，然后再创建VPC流日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createFlowLog(createFlowLogRequest?: CreateFlowLogRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/fl/flow_logs",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createFlowLogRequest !== null && createFlowLogRequest !== undefined) {
+                if (createFlowLogRequest instanceof CreateFlowLogRequest) {
+                    body = createFlowLogRequest.body
+                } else {
+                    body = createFlowLogRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建端口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2503,6 +2668,44 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除流日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteFlowLog(deleteFlowLogRequest?: DeleteFlowLogRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/fl/flow_logs/{flowlog_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let flowlogId;
+
+            if (deleteFlowLogRequest !== null && deleteFlowLogRequest !== undefined) {
+                if (deleteFlowLogRequest instanceof DeleteFlowLogRequest) {
+                    flowlogId = deleteFlowLogRequest.flowlogId;
+                } else {
+                    flowlogId = deleteFlowLogRequest['flowlog_id'];
+                }
+            }
+
+        
+            if (flowlogId === null || flowlogId === undefined) {
+            throw new RequiredError('flowlogId','Required parameter flowlogId was null or undefined when calling deleteFlowLog.');
+            }
+
+            options.pathParams = { 'flowlog_id': flowlogId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2831,6 +3034,128 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'routetable_id': routetableId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询提交请求的租户的所有流日志列表，并根据过滤条件进行过滤
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFlowLogs(listFlowLogsRequest?: ListFlowLogsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/fl/flow_logs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let id;
+            
+            let name;
+            
+            let tenantId;
+            
+            let description;
+            
+            let resourceType;
+            
+            let resourceId;
+            
+            let trafficType;
+            
+            let logGroupId;
+            
+            let logTopicId;
+            
+            let logStoreType;
+            
+            let status;
+            
+            let limit;
+            
+            let marker;
+
+            if (listFlowLogsRequest !== null && listFlowLogsRequest !== undefined) {
+                if (listFlowLogsRequest instanceof ListFlowLogsRequest) {
+                    id = listFlowLogsRequest.id;
+                    name = listFlowLogsRequest.name;
+                    tenantId = listFlowLogsRequest.tenantId;
+                    description = listFlowLogsRequest.description;
+                    resourceType = listFlowLogsRequest.resourceType;
+                    resourceId = listFlowLogsRequest.resourceId;
+                    trafficType = listFlowLogsRequest.trafficType;
+                    logGroupId = listFlowLogsRequest.logGroupId;
+                    logTopicId = listFlowLogsRequest.logTopicId;
+                    logStoreType = listFlowLogsRequest.logStoreType;
+                    status = listFlowLogsRequest.status;
+                    limit = listFlowLogsRequest.limit;
+                    marker = listFlowLogsRequest.marker;
+                } else {
+                    id = listFlowLogsRequest['id'];
+                    name = listFlowLogsRequest['name'];
+                    tenantId = listFlowLogsRequest['tenant_id'];
+                    description = listFlowLogsRequest['description'];
+                    resourceType = listFlowLogsRequest['resource_type'];
+                    resourceId = listFlowLogsRequest['resource_id'];
+                    trafficType = listFlowLogsRequest['traffic_type'];
+                    logGroupId = listFlowLogsRequest['log_group_id'];
+                    logTopicId = listFlowLogsRequest['log_topic_id'];
+                    logStoreType = listFlowLogsRequest['log_store_type'];
+                    status = listFlowLogsRequest['status'];
+                    limit = listFlowLogsRequest['limit'];
+                    marker = listFlowLogsRequest['marker'];
+                }
+            }
+
+        
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (tenantId !== null && tenantId !== undefined) {
+                localVarQueryParameter['tenant_id'] = tenantId;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (trafficType !== null && trafficType !== undefined) {
+                localVarQueryParameter['traffic_type'] = trafficType;
+            }
+            if (logGroupId !== null && logGroupId !== undefined) {
+                localVarQueryParameter['log_group_id'] = logGroupId;
+            }
+            if (logTopicId !== null && logTopicId !== undefined) {
+                localVarQueryParameter['log_topic_id'] = logTopicId;
+            }
+            if (logStoreType !== null && logStoreType !== undefined) {
+                localVarQueryParameter['log_store_type'] = logStoreType;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3365,6 +3690,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询流日志详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFlowLog(showFlowLogRequest?: ShowFlowLogRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/fl/flow_logs/{flowlog_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let flowlogId;
+
+            if (showFlowLogRequest !== null && showFlowLogRequest !== undefined) {
+                if (showFlowLogRequest instanceof ShowFlowLogRequest) {
+                    flowlogId = showFlowLogRequest.flowlogId;
+                } else {
+                    flowlogId = showFlowLogRequest['flowlog_id'];
+                }
+            }
+
+        
+            if (flowlogId === null || flowlogId === undefined) {
+            throw new RequiredError('flowlogId','Required parameter flowlogId was null or undefined when calling showFlowLog.');
+            }
+
+            options.pathParams = { 'flowlog_id': flowlogId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询单个端口详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3664,6 +4027,52 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'peering_id': peeringId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新流日志
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateFlowLog(updateFlowLogRequest?: UpdateFlowLogRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/fl/flow_logs/{flowlog_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            
+            let flowlogId;
+
+            if (updateFlowLogRequest !== null && updateFlowLogRequest !== undefined) {
+                if (updateFlowLogRequest instanceof UpdateFlowLogRequest) {
+                    flowlogId = updateFlowLogRequest.flowlogId;
+                    body = updateFlowLogRequest.body
+                } else {
+                    flowlogId = updateFlowLogRequest['flowlog_id'];
+                    body = updateFlowLogRequest['body'];
+                }
+            }
+
+        
+            if (flowlogId === null || flowlogId === undefined) {
+            throw new RequiredError('flowlogId','Required parameter flowlogId was null or undefined when calling updateFlowLog.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'flowlog_id': flowlogId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -11,6 +11,7 @@ export class TollInvoiceResult {
     public date?: string;
     public time?: string;
     public confidence?: object;
+    private 'text_location'?: object | undefined;
     public constructor() { 
     }
     public withCode(code: string): TollInvoiceResult {
@@ -64,5 +65,15 @@ export class TollInvoiceResult {
     public withConfidence(confidence: object): TollInvoiceResult {
         this['confidence'] = confidence;
         return this;
+    }
+    public withTextLocation(textLocation: object): TollInvoiceResult {
+        this['text_location'] = textLocation;
+        return this;
+    }
+    public set textLocation(textLocation: object | undefined) {
+        this['text_location'] = textLocation;
+    }
+    public get textLocation() {
+        return this['text_location'];
     }
 }

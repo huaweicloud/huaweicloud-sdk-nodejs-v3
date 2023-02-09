@@ -19,7 +19,7 @@
  * under the License.
  */
 
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
 import { IHttpRequest } from './IHttpRequest';
 import { stringify as qsStringify } from 'querystring';
 import { HttpClient } from './HttpClient';
@@ -66,8 +66,7 @@ export class DefaultHttpClient implements HttpClient {
         if (this.defaultOption.proxy && this.defaultOption.proxy !== '') {
             proxyAgent = HttpsProxyAgent(this.defaultOption.proxy);
         }
-
-        this.axiosInstance = axios.create({
+        const axiosRequestConfig: AxiosRequestConfig = {
             maxContentLength: Infinity,
             headers: Object.assign(
                 this.DEFAULT_HEADERS,
@@ -76,7 +75,13 @@ export class DefaultHttpClient implements HttpClient {
             proxy: false,
             httpAgent: proxyAgent,
             httpsAgent: proxyAgent
-        });
+        };
+
+        if (this.defaultOption.axiosRequestConfig) {
+            Object.assign(axiosRequestConfig, this.defaultOption.axiosRequestConfig);
+        }
+
+        this.axiosInstance = axios.create(axiosRequestConfig);
 
         this.axiosInstance.interceptors.request.use((request: any) => {
             const { url, method, data, headers } = request;
@@ -159,6 +164,11 @@ export class DefaultHttpClient implements HttpClient {
                 return qsStringify(params);
             },
         };
+        
+        if (httpRequest.axiosRequestConfig) {
+            Object.assign(requestParams, httpRequest.axiosRequestConfig);
+        }
+
         const methods: string[] = ['PUT', 'POST', 'PATCH', 'DELETE'];
         if (method && methods.indexOf(method.toUpperCase()) !== -1) {
             requestParams = Object.assign(requestParams, {
@@ -223,4 +233,5 @@ export interface ClientOptions {
     headers?: any,
     logger?: Logger,
     logLevel?: LogLevel;
+    axiosRequestConfig?: AxiosRequestConfig
 }

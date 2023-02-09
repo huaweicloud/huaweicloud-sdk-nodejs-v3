@@ -37,6 +37,7 @@ import { ChannelDetail } from './model/ChannelDetail';
 import { CheckCertificateRequest } from './model/CheckCertificateRequest';
 import { CheckCertificateResponse } from './model/CheckCertificateResponse';
 import { Cmd } from './model/Cmd';
+import { ColumnMapping } from './model/ColumnMapping';
 import { ConditionGroup } from './model/ConditionGroup';
 import { CreateAccessCodeRequest } from './model/CreateAccessCodeRequest';
 import { CreateAccessCodeRequestBody } from './model/CreateAccessCodeRequestBody';
@@ -93,11 +94,14 @@ import { DeviceShadowProperties } from './model/DeviceShadowProperties';
 import { DeviceSide } from './model/DeviceSide';
 import { DisForwarding } from './model/DisForwarding';
 import { DmsKafkaForwarding } from './model/DmsKafkaForwarding';
+import { DmsRocketMQForwarding } from './model/DmsRocketMQForwarding';
 import { ErrorInfo } from './model/ErrorInfo';
 import { ErrorInfoDTO } from './model/ErrorInfoDTO';
 import { FreezeDeviceRequest } from './model/FreezeDeviceRequest';
 import { FreezeDeviceResponse } from './model/FreezeDeviceResponse';
+import { FunctionGraphForwarding } from './model/FunctionGraphForwarding';
 import { HttpForwarding } from './model/HttpForwarding';
+import { InfluxDBForwarding } from './model/InfluxDBForwarding';
 import { InitialDesired } from './model/InitialDesired';
 import { ListBatchTaskFilesRequest } from './model/ListBatchTaskFilesRequest';
 import { ListBatchTaskFilesResponse } from './model/ListBatchTaskFilesResponse';
@@ -124,6 +128,7 @@ import { ListRuleActionsResponse } from './model/ListRuleActionsResponse';
 import { ListRulesRequest } from './model/ListRulesRequest';
 import { ListRulesResponse } from './model/ListRulesResponse';
 import { MessageResult } from './model/MessageResult';
+import { MrsKafkaForwarding } from './model/MrsKafkaForwarding';
 import { NetAddress } from './model/NetAddress';
 import { ObsForwarding } from './model/ObsForwarding';
 import { Page } from './model/Page';
@@ -141,6 +146,7 @@ import { ResetFingerprint } from './model/ResetFingerprint';
 import { ResetFingerprintRequest } from './model/ResetFingerprintRequest';
 import { ResetFingerprintResponse } from './model/ResetFingerprintResponse';
 import { ResourceDTO } from './model/ResourceDTO';
+import { RomaForwarding } from './model/RomaForwarding';
 import { RoutingRule } from './model/RoutingRule';
 import { RoutingRuleAction } from './model/RoutingRuleAction';
 import { RoutingRuleSubject } from './model/RoutingRuleSubject';
@@ -429,7 +435,9 @@ export class IoTDAClient {
 
     /**
      * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)](tag:hws)[[设备命令状态变更通知](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_01212.html)](tag:hws_hk)。
-     * 注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。
+     * 注意：
+     * - 此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。
+     * - 此接口仅支持单个设备异步命令下发，如需多个设备异步命令下发，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -671,8 +679,10 @@ export class IoTDAClient {
     }
 
     /**
-     * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是20秒。
-     * 注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。
+     * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时时间是20秒。如果命令下发需要超过20秒，建议采用[[消息下发](https://support.huaweicloud.com/api-iothub/iot_06_v5_0059.html)](tag:hws)[[消息下发](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0059.html)](tag:hws_hk)。
+     * 注意：
+     * - 此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。
+     * - 此接口仅支持单个设备同步命令下发，如需多个设备同步命令下发，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -848,6 +858,7 @@ export class IoTDAClient {
      * - 该接口支持使用gateway_id参数指定在父设备下创建一个子设备，并且支持多级子设备，当前最大支持二级子设备。
      * - 该接口同时还支持对设备进行初始配置，接口会读取创建设备请求参数product_id对应的产品详情，如果产品的属性有定义默认值，则会将该属性默认值写入该设备的设备影子中。
      * - 用户还可以使用创建设备请求参数shadow字段为设备指定初始配置，指定后将会根据service_id和desired设置的属性值与产品中对应属性的默认值比对，如果不同，则将以shadow字段中设置的属性值为准写入到设备影子中。
+     * - 该接口仅支持创建单个设备，如需批量注册设备，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -867,7 +878,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口在物联网平台上删除指定设备。若设备下连接了非直连设备，则必须把设备下的非直连设备都删除后，才能删除该设备。
+     * 应用服务器可调用此接口在物联网平台上删除指定设备。若设备下连接了非直连设备，则必须把设备下的非直连设备都删除后，才能删除该设备。该接口仅支持删除单个设备，如需批量删除设备，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -887,7 +898,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口冻结设备，设备冻结后不能再连接上线，可以通过解冻设备接口解除设备冻结。注意，当前仅支持冻结与平台直连的设备。
+     * 应用服务器可调用此接口冻结设备，设备冻结后不能再连接上线，可以通过解冻设备接口解除设备冻结。注意，当前仅支持冻结与平台直连的设备。该接口仅支持冻结单个设备，如需批量冻结设备，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1133,7 +1144,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口解冻设备，解除冻结后，设备可以连接上线。
+     * 应用服务器可调用此接口解冻设备，解除冻结后，设备可以连接上线。该接口仅支持解冻单个设备，如需批量解冻设备，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1179,7 +1190,7 @@ export class IoTDAClient {
      * 设备影子介绍：
      * 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。
      * - 每个设备有且只有一个设备影子，由设备ID唯一标识
-     * - 设备影子仅保存最近一次设备的上报数据和预期数据
+     * - 设备影子用于存储设备上报的(状态)属性和应用程序期望的设备(状态)属性
      * - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性
      * - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发
      * 
@@ -1209,9 +1220,10 @@ export class IoTDAClient {
      * 设备影子介绍：
      * 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。
      * - 每个设备有且只有一个设备影子，由设备ID唯一标识
-     * - 设备影子仅保存最近一次设备的上报数据和预期数据
+     * - 设备影子用于存储设备上报的(状态)属性和应用程序期望的设备(状态)属性
      * - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性
      * - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发
+     * - 该接口仅支持配置单个设备的设备影子的预期数据，如需多个设备的设备影子配置，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
      * 
      * 限制：
      * 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。
@@ -1236,7 +1248,9 @@ export class IoTDAClient {
 
     /**
      * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。平台返回应用响应结果不一定是设备接收结果，建议用户应用通过订阅[[设备消息状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01203.html)](tag:hws)[[设备消息状态变更通知](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_01203.html)](tag:hws_hk)，订阅后平台会将设备接收结果推送给订阅的应用。
-     * 注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。
+     * 注意：
+     * - 此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。
+     * - 此接口仅支持单个设备消息下发，如需多个设备消息下发，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1562,7 +1576,7 @@ export class IoTDAClient {
      * @summary 查询规则动作列表
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
      * @param {string} [ruleId] **参数说明**：规则触发条件ID。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
-     * @param {string} [channel] **参数说明**：规则动作的类型。 **取值范围**： - HTTP_FORWARDING：HTTP服务消息类型。 - DIS_FORWARDING：转发DIS服务消息类型。 - OBS_FORWARDING：转发OBS服务消息类型。 - AMQP_FORWARDING：转发AMQP服务消息类型。 - DMS_KAFKA_FORWARDING：转发kafka消息类型。
+     * @param {string} [channel] **参数说明**：规则动作的类型。 **取值范围**： - HTTP_FORWARDING：HTTP服务消息类型。 - DIS_FORWARDING：转发DIS服务消息类型。 - OBS_FORWARDING：转发OBS服务消息类型。 - AMQP_FORWARDING：转发AMQP服务消息类型。 - DMS_KAFKA_FORWARDING：转发kafka消息类型。[ - ROMA_FORWARDING：转发Roma消息类型。（仅企业版支持） - INFLUXDB_FORWARDING：转发InfluxDB消息类型。（仅标准版和企业版支持） - FUNCTIONGRAPH_FORWARDING：转发FunctionGraph消息类型。（仅标准版和企业版支持） - MRS_KAFKA_FORWARDING：转发MRS_KAFKA消息类型。（仅企业版支持） - DMS_ROCKETMQ_FORWARDING：转发RocketMQ消息类型。（仅标准版和企业版支持）](tag:hws)[ - INFLUXDB_FORWARDING：转发InfluxDB消息类型。 - FUNCTIONGRAPH_FORWARDING：转发FunctionGraph消息类型。](tag:hws_hk)
      * @param {string} [appType] **参数说明**：租户规则的生效范围。 **取值范围**： - GLOBAL：生效范围为租户级。 - APP：生效范围为资源空间级。如果类型为APP，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)](tag:hws)[[默认资源空间](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0006.html#section0)](tag:hws_hk)下的规则动作列表。
      * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，rule_id不携带且app_type为APP时，该参数生效，可携带app_id查询指定资源空间下的规则动作列表，不携带app_id则查询[[默认资源空间](https://support.huaweicloud.com/usermanual-iothub/iot_01_0006.html#section0)](tag:hws)[[默认资源空间](https://support.huaweicloud.com/intl/zh-cn/usermanual-iothub/iot_01_0006.html#section0)](tag:hws_hk)下的规则动作列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。默认每页10条记录，最大设定每页50条记录。 **取值范围**：1-50的整数，默认值为10。
@@ -2283,7 +2297,9 @@ export const ParamCreater = function () {
     
         /**
          * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发异步命令，以实现对设备的控制。平台负责将命令发送给设备，并将设备执行命令结果异步通知应用服务器。 命令执行结果支持灵活的数据流转，应用服务器通过调用物联网平台的创建规则触发条件（Resource:device.command.status，Event:update）、创建规则动作并激活规则后，当命令状态变更时，物联网平台会根据规则将结果发送到规则指定的服务器，如用户自定义的HTTP服务器，AMQP服务器，以及华为云的其他储存服务器等, 详情参考[[设备命令状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01212.html)](tag:hws)[[设备命令状态变更通知](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_01212.html)](tag:hws_hk)。
-         * 注意：此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。
+         * 注意：
+         * - 此接口适用于NB设备异步命令下发，暂不支持其他协议类型设备命令下发。
+         * - 此接口仅支持单个设备异步命令下发，如需多个设备异步命令下发，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2941,8 +2957,10 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时间是20秒。
-         * 注意：此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。
+         * 设备的产品模型中定义了物联网平台可向设备下发的命令，应用服务器可调用此接口向指定设备下发命令，以实现对设备的同步控制。平台负责将命令以同步方式发送给设备，并将设备执行命令结果同步返回, 如果设备没有响应，平台会返回给应用服务器超时，平台超时时间是20秒。如果命令下发需要超过20秒，建议采用[[消息下发](https://support.huaweicloud.com/api-iothub/iot_06_v5_0059.html)](tag:hws)[[消息下发](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0059.html)](tag:hws_hk)。
+         * 注意：
+         * - 此接口适用于MQTT设备同步命令下发，暂不支持NB-IoT设备命令下发。
+         * - 此接口仅支持单个设备同步命令下发，如需多个设备同步命令下发，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3391,6 +3409,7 @@ export const ParamCreater = function () {
          * - 该接口支持使用gateway_id参数指定在父设备下创建一个子设备，并且支持多级子设备，当前最大支持二级子设备。
          * - 该接口同时还支持对设备进行初始配置，接口会读取创建设备请求参数product_id对应的产品详情，如果产品的属性有定义默认值，则会将该属性默认值写入该设备的设备影子中。
          * - 用户还可以使用创建设备请求参数shadow字段为设备指定初始配置，指定后将会根据service_id和desired设置的属性值与产品中对应属性的默认值比对，如果不同，则将以shadow字段中设置的属性值为准写入到设备影子中。
+         * - 该接口仅支持创建单个设备，如需批量注册设备，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3435,7 +3454,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口在物联网平台上删除指定设备。若设备下连接了非直连设备，则必须把设备下的非直连设备都删除后，才能删除该设备。
+         * 应用服务器可调用此接口在物联网平台上删除指定设备。若设备下连接了非直连设备，则必须把设备下的非直连设备都删除后，才能删除该设备。该接口仅支持删除单个设备，如需批量删除设备，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3480,7 +3499,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口冻结设备，设备冻结后不能再连接上线，可以通过解冻设备接口解除设备冻结。注意，当前仅支持冻结与平台直连的设备。
+         * 应用服务器可调用此接口冻结设备，设备冻结后不能再连接上线，可以通过解冻设备接口解除设备冻结。注意，当前仅支持冻结与平台直连的设备。该接口仅支持冻结单个设备，如需批量冻结设备，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3960,7 +3979,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口解冻设备，解除冻结后，设备可以连接上线。
+         * 应用服务器可调用此接口解冻设备，解除冻结后，设备可以连接上线。该接口仅支持解冻单个设备，如需批量解冻设备，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4063,7 +4082,7 @@ export const ParamCreater = function () {
          * 设备影子介绍：
          * 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。
          * - 每个设备有且只有一个设备影子，由设备ID唯一标识
-         * - 设备影子仅保存最近一次设备的上报数据和预期数据
+         * - 设备影子用于存储设备上报的(状态)属性和应用程序期望的设备(状态)属性
          * - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性
          * - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发
          * 
@@ -4118,9 +4137,10 @@ export const ParamCreater = function () {
          * 设备影子介绍：
          * 设备影子是一个用于存储和检索设备当前状态信息的JSON文档。
          * - 每个设备有且只有一个设备影子，由设备ID唯一标识
-         * - 设备影子仅保存最近一次设备的上报数据和预期数据
+         * - 设备影子用于存储设备上报的(状态)属性和应用程序期望的设备(状态)属性
          * - 无论该设备是否在线，都可以通过该影子获取和设置设备的属性
          * - 设备上线或者设备上报属性时，如果desired区和reported区存在差异，则将差异部分下发给设备，配置的预期属性需在产品模型中定义且method具有可写属性“W”才可下发
+         * - 该接口仅支持配置单个设备的设备影子的预期数据，如需多个设备的设备影子配置，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
          * 
          * 限制：
          * 设备影子JSON文档中的key不允许特殊字符：点(.)、dollar符号($)、空char(十六进制的ASCII码为00)。如果包含了以上特殊字符则无法正常刷新影子文档。
@@ -4177,7 +4197,9 @@ export const ParamCreater = function () {
     
         /**
          * 物联网平台可向设备下发消息，应用服务器可调用此接口向指定设备下发消息，以实现对设备的控制。应用将消息下发给平台后，平台返回应用响应结果，平台再将消息发送给设备。平台返回应用响应结果不一定是设备接收结果，建议用户应用通过订阅[[设备消息状态变更通知](https://support.huaweicloud.com/api-iothub/iot_06_v5_01203.html)](tag:hws)[[设备消息状态变更通知](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_01203.html)](tag:hws_hk)，订阅后平台会将设备接收结果推送给订阅的应用。
-         * 注意：此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。
+         * 注意：
+         * - 此接口适用于MQTT设备消息下发，暂不支持其他协议接入的设备消息下发。
+         * - 此接口仅支持单个设备消息下发，如需多个设备消息下发，请参见 [[创建批量任务](https://support.huaweicloud.com/api-iothub/iot_06_v5_0045.html)](tag:hws)[[创建批量任务](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0045.html)](tag:hws_hk)。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

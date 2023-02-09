@@ -19,6 +19,8 @@
  * under the License.
  */
 
+import { AxiosRequestConfig } from "axios";
+
 
 export interface IHttpRequest {
     params?: any;
@@ -33,9 +35,11 @@ export interface IHttpRequest {
 
     getPathParams?: () => any;
     responseHeaders?: any;
+    axiosRequestConfig?: AxiosRequestConfig;
 }
 
 export class HttpRequestImpl implements IHttpRequest {
+    axiosRequestConfig?: AxiosRequestConfig;
     public params: any;
     public endpoint: string | undefined;
     public contentType: string | undefined;

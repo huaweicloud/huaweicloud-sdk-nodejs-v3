@@ -90,6 +90,10 @@ export class ClientBuilder<T> {
             axiosOptions.headers["User-Agent"] = this.userOptions.customUserAgent;
         }
 
+        if (this.userOptions?.axiosRequestConfig) {
+            axiosOptions.axiosRequestConfig = this.userOptions.axiosRequestConfig;
+        }
+
         if (!this.credential) {
             this.credential = this.getCredentialFromEnvironment();
         }
