@@ -18,12 +18,17 @@ import { ImageMediaTaggingItemBodyI18nTag } from './model/ImageMediaTaggingItemB
 import { ImageMediaTaggingItemBodyI18nType } from './model/ImageMediaTaggingItemBodyI18nType';
 import { ImageMediaTaggingReq } from './model/ImageMediaTaggingReq';
 import { ImageMediaTaggingResponseResult } from './model/ImageMediaTaggingResponseResult';
+import { ImageSuperResolutionReq } from './model/ImageSuperResolutionReq';
+import { ImageSuperResolutionResponseResult } from './model/ImageSuperResolutionResponseResult';
 import { ImageTaggingInstance } from './model/ImageTaggingInstance';
 import { ImageTaggingItemBody } from './model/ImageTaggingItemBody';
 import { ImageTaggingItemBodyI18nTag } from './model/ImageTaggingItemBodyI18nTag';
 import { ImageTaggingItemBodyI18nType } from './model/ImageTaggingItemBodyI18nType';
 import { ImageTaggingReq } from './model/ImageTaggingReq';
 import { ImageTaggingResponseResult } from './model/ImageTaggingResponseResult';
+import { RecaptureDetectReq } from './model/RecaptureDetectReq';
+import { RecaptureDetectResponseResult } from './model/RecaptureDetectResponseResult';
+import { RecaptureDetectResponseResultDetail } from './model/RecaptureDetectResponseResultDetail';
 import { RunCelebrityRecognitionRequest } from './model/RunCelebrityRecognitionRequest';
 import { RunCelebrityRecognitionResponse } from './model/RunCelebrityRecognitionResponse';
 import { RunDeleteCustomTagsRequest } from './model/RunDeleteCustomTagsRequest';
@@ -36,10 +41,14 @@ import { RunImageMediaTaggingDetRequest } from './model/RunImageMediaTaggingDetR
 import { RunImageMediaTaggingDetResponse } from './model/RunImageMediaTaggingDetResponse';
 import { RunImageMediaTaggingRequest } from './model/RunImageMediaTaggingRequest';
 import { RunImageMediaTaggingResponse } from './model/RunImageMediaTaggingResponse';
+import { RunImageSuperResolutionRequest } from './model/RunImageSuperResolutionRequest';
+import { RunImageSuperResolutionResponse } from './model/RunImageSuperResolutionResponse';
 import { RunImageTaggingRequest } from './model/RunImageTaggingRequest';
 import { RunImageTaggingResponse } from './model/RunImageTaggingResponse';
 import { RunQueryCustomTagsRequest } from './model/RunQueryCustomTagsRequest';
 import { RunQueryCustomTagsResponse } from './model/RunQueryCustomTagsResponse';
+import { RunRecaptureDetectRequest } from './model/RunRecaptureDetectRequest';
+import { RunRecaptureDetectResponse } from './model/RunRecaptureDetectResponse';
 
 export class ImageClient {
     public static newBuilder(): ClientBuilder<ImageClient> {
@@ -170,6 +179,25 @@ export class ImageClient {
     }
 
     /**
+     * 图像数据，base64编码，输入图像范围200px ~ 1080px，支持JPG/PNG/BMP/JPEG/WEBP格式
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 图像超分
+     * @param {ImageSuperResolutionReq} runImageSuperResolutionRequestBody 图像超分接口请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runImageSuperResolution(runImageSuperResolutionRequest?: RunImageSuperResolutionRequest): Promise<RunImageSuperResolutionResponse> {
+        const options = ParamCreater().runImageSuperResolution(runImageSuperResolutionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 自然图像的语义内容非常丰富，一个图像包含多个标签内容，图像标签服务准确识别自然图片中数百种场景、上千种通用物体及其属性，让智能相册管理、照片检索和分类、基于场景内容或者物体的广告推荐等功能更加直观。使用时用户发送待处理图片，返回图片标签内容及相应置信度。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -199,6 +227,25 @@ export class ImageClient {
      */
     public runQueryCustomTags(): Promise<RunQueryCustomTagsResponse> {
         const options = ParamCreater().runQueryCustomTags();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 零售行业通常根据零售店的销售量进行销售奖励，拍摄售出商品的条形码上传后台是常用的统计方式。翻拍识别利用深度神经网络算法判断条形码图片为原始拍摄，还是经过二次翻拍、打印翻拍等手法二次处理的图片。利用翻拍识别，可以检测出经过二次处理的不合规范图片，使得统计数据更准确、有效。。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 翻拍识别
+     * @param {RecaptureDetectReq} runRecaptureDetectRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public runRecaptureDetect(runRecaptureDetectRequest?: RunRecaptureDetectRequest): Promise<RunRecaptureDetectResponse> {
+        const options = ParamCreater().runRecaptureDetect(runRecaptureDetectRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -423,6 +470,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 图像数据，base64编码，输入图像范围200px ~ 1080px，支持JPG/PNG/BMP/JPEG/WEBP格式
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runImageSuperResolution(runImageSuperResolutionRequest?: RunImageSuperResolutionRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/image/image-super-resolution",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (runImageSuperResolutionRequest !== null && runImageSuperResolutionRequest !== undefined) {
+                if (runImageSuperResolutionRequest instanceof RunImageSuperResolutionRequest) {
+                    body = runImageSuperResolutionRequest.body
+                } else {
+                    body = runImageSuperResolutionRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 自然图像的语义内容非常丰富，一个图像包含多个标签内容，图像标签服务准确识别自然图片中数百种场景、上千种通用物体及其属性，让智能相册管理、照片检索和分类、基于场景内容或者物体的广告推荐等功能更加直观。使用时用户发送待处理图片，返回图片标签内容及相应置信度。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -478,6 +563,44 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 零售行业通常根据零售店的销售量进行销售奖励，拍摄售出商品的条形码上传后台是常用的统计方式。翻拍识别利用深度神经网络算法判断条形码图片为原始拍摄，还是经过二次翻拍、打印翻拍等手法二次处理的图片。利用翻拍识别，可以检测出经过二次处理的不合规范图片，使得统计数据更准确、有效。。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        runRecaptureDetect(runRecaptureDetectRequest?: RunRecaptureDetectRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/image/recapture-detect",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (runRecaptureDetectRequest !== null && runRecaptureDetectRequest !== undefined) {
+                if (runRecaptureDetectRequest instanceof RunRecaptureDetectRequest) {
+                    body = runRecaptureDetectRequest.body
+                } else {
+                    body = runRecaptureDetectRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

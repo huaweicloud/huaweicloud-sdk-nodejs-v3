@@ -1,3 +1,54 @@
+# 3.1.24 2023-02-16
+
+### HuaweiCloud SDK DCS
+
+- _Features_
+  - Support the interfaces `CreateCustomTemplate`, `CreateAutoExpireScanTask`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK FRS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `nod_threshold` to the interface `DetectLiveByUrl`
+  - Add the request parameter `nod_threshold` to the interface `DetectLiveByUrlIntl`
+  - Add the request parameter `nod_threshold` to the interface `DetectLiveByFile`
+  - Add the request parameter `nod_threshold` to the interface `DetectLiveByFileIntl`
+  - Add the request parameter `nod_threshold` to the interface `DetectLiveByBase64`
+  - Add the request parameter `nod_threshold` to the interface `DetectLiveByBase64Intl`
+
+### HuaweiCloud SDK Image
+
+- _Features_
+  - Support the interfaces `RunImageSuperResolution`, `RunRecaptureDetect`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK WAF
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Changes of the interface `UpdateHost`:
+    - Remove the enum values `TLS v1.3` from the request parameter `tls`
+    - Remove the enum values `TLS v1.3` from the response parameter `tls`
+  - Remove the enum values `TLS v1.3` from the response parameter `tls` from the interface `ShowHost`
+  - Remove the enum values `TLS v1.3` from the response parameter `tls` from the interface `CreatePremiumHost`
+  - Remove the enum values `TLS v1.3` from the response parameter `tls` from the interface `ShowPremiumHost`
+  - Changes of the interface `UpdatePremiumHost`:
+    - Remove the enum values `TLS v1.3` from the request parameter `tls`
+    - Remove the enum values `TLS v1.3` from the response parameter `tls`
+
 # 3.1.23 2023-02-09
 
 ### HuaweiCloud SDK CDN

@@ -1,3 +1,54 @@
+# 3.1.24 2023-02-16
+
+### HuaweiCloud SDK DCS
+
+- _新增特性_
+  - 支持接口`CreateCustomTemplate`、`CreateAutoExpireScanTask`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK FRS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`DetectLiveByUrl`新增请求参数 `nod_threshold`
+  - 接口`DetectLiveByUrlIntl`新增请求参数 `nod_threshold`
+  - 接口`DetectLiveByFile`新增请求参数 `nod_threshold`
+  - 接口`DetectLiveByFileIntl`新增请求参数 `nod_threshold`
+  - 接口`DetectLiveByBase64`新增请求参数 `nod_threshold`
+  - 接口`DetectLiveByBase64Intl`新增请求参数 `nod_threshold`
+
+### HuaweiCloud SDK Image
+
+- _新增特性_
+  - 支持接口`RunImageSuperResolution`、`RunRecaptureDetect`
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK WAF
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`UpdateHost`:
+    - 请求参数`tls`移除枚举值`TLS v1.3`
+    - 响应参数`tls`移除枚举值`TLS v1.3`
+  - 接口`ShowHost`响应参数`tls`移除枚举值`TLS v1.3`
+  - 接口`CreatePremiumHost`响应参数`tls`移除枚举值`TLS v1.3`
+  - 接口`ShowPremiumHost`响应参数`tls`移除枚举值`TLS v1.3`
+  - 接口`UpdatePremiumHost`:
+    - 请求参数`tls`移除枚举值`TLS v1.3`
+    - 响应参数`tls`移除枚举值`TLS v1.3`
+
 # 3.1.23 2023-02-09
 
 ### HuaweiCloud SDK CDN

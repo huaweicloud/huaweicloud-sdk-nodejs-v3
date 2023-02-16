@@ -249,8 +249,7 @@ export class ShowHostResponse extends SdkResponse {
 export enum ShowHostResponseTlsEnum {
     TLS_V1_0 = 'TLS v1.0',
     TLS_V1_1 = 'TLS v1.1',
-    TLS_V1_2 = 'TLS v1.2',
-    TLS_V1_3 = 'TLS v1.3'
+    TLS_V1_2 = 'TLS v1.2'
 }
 /**
     * @export

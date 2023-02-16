@@ -529,6 +529,7 @@ export class FrsClient {
      * @param {string} actions 动作代码顺序列表，英文逗号（,）分隔。建议单动作，目前支持的动作有： • 1：左摇头 • 2：右摇头 • 3：点头 • 4：嘴部动作
      * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {string} [actionTime] 该参数为动作时间数组拼接的字符串，数组的长度和actions的数量一致，每一项代表了对应次序动作的起始时间和结束时间，单位为距视频开始的毫秒数。
+     * @param {number} [nodThreshold] 该参数为点头动作幅度的判断门限，取值范围：[1,90]，默认为10，单位为度。该值设置越大，则越难判断为点头。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -551,6 +552,7 @@ export class FrsClient {
      * @param {string} actions 动作代码顺序列表，英文逗号（,）分隔。建议单动作，目前支持的动作有： • 1：左摇头 • 2：右摇头 • 3：点头 • 4：嘴部动作
      * @param {string} [enterpriseProjectId] 企业项目ID。FRS支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。  获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。  企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用FRS服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用FRS服务，账单的企业项目会被分类为“未归集”。
      * @param {string} [actionTime] 该参数为动作时间数组拼接的字符串，数组的长度和actions的数量一致，每一项代表了对应次序动作的起始时间和结束时间，单位为距视频开始的毫秒数。
+     * @param {number} [nodThreshold] 该参数为点头动作幅度的判断门限，取值范围：[1,90]，默认为10，单位为度。该值设置越大，则越难判断为点头。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1856,6 +1858,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             var actionTime;
             
+            var nodThreshold;
+            
 
             if (detectLiveByFileRequest !== null && detectLiveByFileRequest !== undefined) {
                 if (detectLiveByFileRequest instanceof DetectLiveByFileRequest) {
@@ -1863,11 +1867,13 @@ export const ParamCreater = function () {
                     actions = detectLiveByFileRequest.body?.actions;
                     enterpriseProjectId = detectLiveByFileRequest.enterpriseProjectId;
                     actionTime = detectLiveByFileRequest.body?.actionTime;
+                    nodThreshold = detectLiveByFileRequest.body?.nodThreshold;
                 } else {
                     videoFile = detectLiveByFileRequest['body']['videoFile'];
                     actions = detectLiveByFileRequest['body']['actions'];
                     enterpriseProjectId = detectLiveByFileRequest['Enterprise-Project-Id'];
                     actionTime = detectLiveByFileRequest['body']['actionTime'];
+                    nodThreshold = detectLiveByFileRequest['body']['nodThreshold'];
                 }
             }
 
@@ -1883,6 +1889,9 @@ export const ParamCreater = function () {
             }
             if (actionTime !== undefined) { 
                 localVarFormParams.append('action_time', actionTime as any);
+            }
+            if (nodThreshold !== undefined) { 
+                localVarFormParams.append('nod_threshold', nodThreshold as any);
             }
             if (videoFile !== undefined) { 
                 localVarFormParams.append('video_file', videoFile as any);
@@ -1923,6 +1932,8 @@ export const ParamCreater = function () {
             let enterpriseProjectId;
             var actionTime;
             
+            var nodThreshold;
+            
 
             if (detectLiveByFileIntlRequest !== null && detectLiveByFileIntlRequest !== undefined) {
                 if (detectLiveByFileIntlRequest instanceof DetectLiveByFileIntlRequest) {
@@ -1930,11 +1941,13 @@ export const ParamCreater = function () {
                     actions = detectLiveByFileIntlRequest.body?.actions;
                     enterpriseProjectId = detectLiveByFileIntlRequest.enterpriseProjectId;
                     actionTime = detectLiveByFileIntlRequest.body?.actionTime;
+                    nodThreshold = detectLiveByFileIntlRequest.body?.nodThreshold;
                 } else {
                     videoFile = detectLiveByFileIntlRequest['body']['videoFile'];
                     actions = detectLiveByFileIntlRequest['body']['actions'];
                     enterpriseProjectId = detectLiveByFileIntlRequest['Enterprise-Project-Id'];
                     actionTime = detectLiveByFileIntlRequest['body']['actionTime'];
+                    nodThreshold = detectLiveByFileIntlRequest['body']['nodThreshold'];
                 }
             }
 
@@ -1950,6 +1963,9 @@ export const ParamCreater = function () {
             }
             if (actionTime !== undefined) { 
                 localVarFormParams.append('action_time', actionTime as any);
+            }
+            if (nodThreshold !== undefined) { 
+                localVarFormParams.append('nod_threshold', nodThreshold as any);
             }
             if (videoFile !== undefined) { 
                 localVarFormParams.append('video_file', videoFile as any);

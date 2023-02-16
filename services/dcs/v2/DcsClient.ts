@@ -35,8 +35,13 @@ import { ConclusionItem } from './model/ConclusionItem';
 import { ConfigMigrationInstanceBody } from './model/ConfigMigrationInstanceBody';
 import { CopyInstanceRequest } from './model/CopyInstanceRequest';
 import { CopyInstanceResponse } from './model/CopyInstanceResponse';
+import { CreateAutoExpireScanTaskRequest } from './model/CreateAutoExpireScanTaskRequest';
+import { CreateAutoExpireScanTaskResponse } from './model/CreateAutoExpireScanTaskResponse';
 import { CreateBigkeyScanTaskRequest } from './model/CreateBigkeyScanTaskRequest';
 import { CreateBigkeyScanTaskResponse } from './model/CreateBigkeyScanTaskResponse';
+import { CreateCustomTemplateBody } from './model/CreateCustomTemplateBody';
+import { CreateCustomTemplateRequest } from './model/CreateCustomTemplateRequest';
+import { CreateCustomTemplateResponse } from './model/CreateCustomTemplateResponse';
 import { CreateDiagnosisTaskBody } from './model/CreateDiagnosisTaskBody';
 import { CreateDiagnosisTaskRequest } from './model/CreateDiagnosisTaskRequest';
 import { CreateDiagnosisTaskResponse } from './model/CreateDiagnosisTaskResponse';
@@ -356,6 +361,27 @@ export class DcsClient {
     }
 
     /**
+     * 创建过期key扫描任务（Redis 3.0 不支持过期key扫描）。
+     * 过期key扫描会对键空间进行Redis的scan扫描，释放内存中已过期但是由于惰性删除机制而没有释放的内存空间。
+     * 过期key扫描在主节点上执行，会对实例性能有一定的影响，建议不要在业务高峰期进行。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建过期key扫描任务
+     * @param {string} instanceId 实例ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createAutoExpireScanTask(createAutoExpireScanTaskRequest?: CreateAutoExpireScanTaskRequest): Promise<CreateAutoExpireScanTaskResponse> {
+        const options = ParamCreater().createAutoExpireScanTask(createAutoExpireScanTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 为Redis实例创建大key分析任务。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -367,6 +393,25 @@ export class DcsClient {
      */
     public createBigkeyScanTask(createBigkeyScanTaskRequest?: CreateBigkeyScanTaskRequest): Promise<CreateBigkeyScanTaskResponse> {
         const options = ParamCreater().createBigkeyScanTask(createBigkeyScanTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建自定义模板
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建自定义模板
+     * @param {CreateCustomTemplateBody} createCustomTemplateRequestBody This is a auto create BodyParameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCustomTemplate(createCustomTemplateRequest?: CreateCustomTemplateRequest): Promise<CreateCustomTemplateResponse> {
+        const options = ParamCreater().createCustomTemplate(createCustomTemplateRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -902,7 +947,7 @@ export class DcsClient {
      * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0
      * @param {number} [limit] 每页显示条数，最小值为1，最大值为1000，若不设置该参数，则为10。
      * @param {string} [status] 实例状态。详细状态说明见[缓存实例状态说明](https://support.huaweicloud.com/api-dcs/dcs-api-0312047.html)
-     * @param {string} [nameEqual] 是否按照实例名称进行精确匹配查询。  默认为“false”，表示模糊匹配实例名称查询。若参数值为“true”表示按照实例名称进行精确匹配查询。
+     * @param {string} [nameEqual] 是否按照实例名称进行精确匹配查询。  和name字段对应，name字段为模糊匹配的用例名，name_equal是精确匹配的用例名。
      * @param {string} [tags] 根据实例标签键值对进行查询。{key}表示标签键，{value}表示标签值。  如果同时使用多个标签键值对进行查询，中间使用逗号分隔开，表示查询同时包含指定标签键值对的实例。 
      * @param {string} [ip] 连接缓存实例的IP地址。
      * @param {*} [options] Override http request option.
@@ -1857,6 +1902,46 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建过期key扫描任务（Redis 3.0 不支持过期key扫描）。
+         * 过期key扫描会对键空间进行Redis的scan扫描，释放内存中已过期但是由于惰性删除机制而没有释放的内存空间。
+         * 过期key扫描在主节点上执行，会对实例性能有一定的影响，建议不要在业务高峰期进行。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createAutoExpireScanTask(createAutoExpireScanTaskRequest?: CreateAutoExpireScanTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/scan-expire-keys-task",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (createAutoExpireScanTaskRequest !== null && createAutoExpireScanTaskRequest !== undefined) {
+                if (createAutoExpireScanTaskRequest instanceof CreateAutoExpireScanTaskRequest) {
+                    instanceId = createAutoExpireScanTaskRequest.instanceId;
+                } else {
+                    instanceId = createAutoExpireScanTaskRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling createAutoExpireScanTask.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 为Redis实例创建大key分析任务。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1890,6 +1975,44 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建自定义模板
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCustomTemplate(createCustomTemplateRequest?: CreateCustomTemplateRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/config-templates",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createCustomTemplateRequest !== null && createCustomTemplateRequest !== undefined) {
+                if (createCustomTemplateRequest instanceof CreateCustomTemplateRequest) {
+                    body = createCustomTemplateRequest.body
+                } else {
+                    body = createCustomTemplateRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -4,6 +4,7 @@ export class DetectLiveByFileIntlRequestBody {
     private 'video_file': any | undefined;
     public actions: string;
     private 'action_time'?: string | undefined;
+    private 'nod_threshold'?: number | undefined;
     public constructor(videoFile?: any, actions?: any) { 
         this['video_file'] = videoFile;
         this['actions'] = actions;
@@ -31,5 +32,15 @@ export class DetectLiveByFileIntlRequestBody {
     }
     public get actionTime() {
         return this['action_time'];
+    }
+    public withNodThreshold(nodThreshold: number): DetectLiveByFileIntlRequestBody {
+        this['nod_threshold'] = nodThreshold;
+        return this;
+    }
+    public set nodThreshold(nodThreshold: number | undefined) {
+        this['nod_threshold'] = nodThreshold;
+    }
+    public get nodThreshold() {
+        return this['nod_threshold'];
     }
 }
