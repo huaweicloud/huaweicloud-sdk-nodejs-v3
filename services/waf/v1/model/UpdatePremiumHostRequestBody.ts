@@ -1,5 +1,6 @@
 import { BlockPage } from './BlockPage';
 import { CircuitBreaker } from './CircuitBreaker';
+import { HostFlag } from './HostFlag';
 import { TimeoutConfig } from './TimeoutConfig';
 import { TrafficMark } from './TrafficMark';
 
@@ -20,6 +21,7 @@ export class UpdatePremiumHostRequestBody {
     private 'traffic_mark'?: TrafficMark | undefined;
     private 'circuit_breaker'?: CircuitBreaker | undefined;
     private 'timeout_config'?: TimeoutConfig | undefined;
+    public flag?: HostFlag;
     public constructor() { 
     }
     public withProxy(proxy: boolean): UpdatePremiumHostRequestBody {
@@ -123,6 +125,10 @@ export class UpdatePremiumHostRequestBody {
     }
     public get timeoutConfig() {
         return this['timeout_config'];
+    }
+    public withFlag(flag: HostFlag): UpdatePremiumHostRequestBody {
+        this['flag'] = flag;
+        return this;
     }
 }
 

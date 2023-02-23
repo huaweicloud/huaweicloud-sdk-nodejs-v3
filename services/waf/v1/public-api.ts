@@ -97,6 +97,7 @@ export * from './model/Flag';
 export * from './model/GeOIpItem';
 export * from './model/GeoClassificationItem';
 export * from './model/GeoItem';
+export * from './model/HostFlag';
 export * from './model/IdHostnameEntry';
 export * from './model/IgnoreRuleBody';
 export * from './model/InstanceInfo';

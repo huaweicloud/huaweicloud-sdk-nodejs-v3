@@ -128,7 +128,6 @@ export class DefaultHttpClient implements HttpClient {
                 headers: res.headers
             };
         }).catch((err) => {
-            // TODO:
             DefaultHttpClient.httpResponse = err;
             const errorRespone = this.formatError(err);
             this.logger.error('some error found:', errorRespone);
@@ -169,13 +168,9 @@ export class DefaultHttpClient implements HttpClient {
             Object.assign(requestParams, httpRequest.axiosRequestConfig);
         }
 
-        const methods: string[] = ['PUT', 'POST', 'PATCH', 'DELETE'];
-        if (method && methods.indexOf(method.toUpperCase()) !== -1) {
-            requestParams = Object.assign(requestParams, {
-                transformRequest: [this.transformOptions.bind(this)]
-            })
-        }
-        // TODO
+        if (headers['content-type'] === 'multipart/form-data') {
+            requestParams.headers = data.getHeaders();
+        }  
         DefaultHttpClient.httpReqParam = requestParams;
 
         const res: AxiosResponse = await this.axiosInstance(requestParams);
@@ -194,19 +189,6 @@ export class DefaultHttpClient implements HttpClient {
             }
         }
         return axiosResult.data as T;
-    }
-
-    public transformOptions(data: any, headers: any) {
-        if (headers['content-type'] === 'multipart/form-data') {
-            // data is form-data object
-            for (const [header, value] of Object.entries(data.getHeaders())) {
-                headers[header] = value;
-            }
-            return data;
-        }
-
-        headers['content-type'] = 'application/json';
-        return JSON.stringify(data);
     }
 
     private formatError(error: AxiosError): ExceptionResponse {

@@ -658,9 +658,9 @@ export class FunctionGraphClient {
      *
      * @summary 导出函数
      * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
-     * @param {boolean} [config] 是否导出函数配置
-     * @param {boolean} [code] 是否导出函数代码
-     * @param {string} [type] 兼容老的方式，type&#x3D;code代表导出代码,type&#x3D;config代码导出配置
+     * @param {boolean} [config] 是否导出函数配置，默认为false
+     * @param {boolean} [code] 是否导出函数代码，默认为false
+     * @param {string} [type] 不兼容与code、config参数混用；type&#x3D;code代表导出代码,type&#x3D;config代码导出配置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

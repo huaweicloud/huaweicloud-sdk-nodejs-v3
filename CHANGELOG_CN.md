@@ -1,3 +1,29 @@
+# 3.1.25 2023-02-23
+
+### HuaweiCloud SDK IoTDA
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`ListRoutingRules`新增请求参数 `active`
+  - 接口`CreateRuleAction`新增请求参数 `mysql_forwarding`
+  - 接口`ListRuleActions`新增响应参数 `mysql_forwarding`
+  - 接口`UpdateRuleAction`:
+    - 新增请求参数 `mysql_forwarding`
+    - 新增响应参数 `mysql_forwarding`
+  - 接口`ShowRuleAction`新增响应参数 `mysql_forwarding`
+
+### HuaweiCloud SDK WAF
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 接口`UpdatePremiumHost`新增请求参数 `flag`
+
 # 3.1.24 2023-02-16
 
 ### HuaweiCloud SDK DCS

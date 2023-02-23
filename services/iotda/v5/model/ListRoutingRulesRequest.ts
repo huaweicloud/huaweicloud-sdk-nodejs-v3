@@ -7,6 +7,7 @@ export class ListRoutingRulesRequest {
     private 'app_type'?: string | undefined;
     private 'app_id'?: string | undefined;
     private 'rule_name'?: string | undefined;
+    public active?: boolean;
     public limit?: number;
     public marker?: string;
     public offset?: number;
@@ -59,6 +60,10 @@ export class ListRoutingRulesRequest {
     }
     public get ruleName() {
         return this['rule_name'];
+    }
+    public withActive(active: boolean): ListRoutingRulesRequest {
+        this['active'] = active;
+        return this;
     }
     public withLimit(limit: number): ListRoutingRulesRequest {
         this['limit'] = limit;

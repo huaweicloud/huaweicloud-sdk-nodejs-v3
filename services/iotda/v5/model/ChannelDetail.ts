@@ -6,6 +6,7 @@ import { FunctionGraphForwarding } from './FunctionGraphForwarding';
 import { HttpForwarding } from './HttpForwarding';
 import { InfluxDBForwarding } from './InfluxDBForwarding';
 import { MrsKafkaForwarding } from './MrsKafkaForwarding';
+import { MysqlForwarding } from './MysqlForwarding';
 import { ObsForwarding } from './ObsForwarding';
 import { RomaForwarding } from './RomaForwarding';
 
@@ -17,6 +18,7 @@ export class ChannelDetail {
     private 'amqp_forwarding'?: AmqpForwarding | undefined;
     private 'dms_kafka_forwarding'?: DmsKafkaForwarding | undefined;
     private 'roma_forwarding'?: RomaForwarding | undefined;
+    private 'mysql_forwarding'?: MysqlForwarding | undefined;
     private 'influxdb_forwarding'?: InfluxDBForwarding | undefined;
     private 'functiongraph_forwarding'?: FunctionGraphForwarding | undefined;
     private 'mrs_kafka_forwarding'?: MrsKafkaForwarding | undefined;
@@ -82,6 +84,16 @@ export class ChannelDetail {
     }
     public get romaForwarding() {
         return this['roma_forwarding'];
+    }
+    public withMysqlForwarding(mysqlForwarding: MysqlForwarding): ChannelDetail {
+        this['mysql_forwarding'] = mysqlForwarding;
+        return this;
+    }
+    public set mysqlForwarding(mysqlForwarding: MysqlForwarding | undefined) {
+        this['mysql_forwarding'] = mysqlForwarding;
+    }
+    public get mysqlForwarding() {
+        return this['mysql_forwarding'];
     }
     public withInfluxdbForwarding(influxdbForwarding: InfluxDBForwarding): ChannelDetail {
         this['influxdb_forwarding'] = influxdbForwarding;

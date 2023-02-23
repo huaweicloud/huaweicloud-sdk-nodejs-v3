@@ -99,6 +99,7 @@ import { Flag } from './model/Flag';
 import { GeOIpItem } from './model/GeOIpItem';
 import { GeoClassificationItem } from './model/GeoClassificationItem';
 import { GeoItem } from './model/GeoItem';
+import { HostFlag } from './model/HostFlag';
 import { IdHostnameEntry } from './model/IdHostnameEntry';
 import { IgnoreRuleBody } from './model/IgnoreRuleBody';
 import { InstanceInfo } from './model/InstanceInfo';

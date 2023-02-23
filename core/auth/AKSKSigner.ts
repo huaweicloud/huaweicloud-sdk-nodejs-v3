@@ -20,8 +20,8 @@
  */
 
 import * as crypto from "crypto";
-import moment = require('moment');
-import url = require('url')
+import moment from 'moment';
+import url from "url";
 import { IHttpRequest } from "../http/IHttpRequest";
 import * as _ from "lodash";
 import { ICredential } from "./ICredential";
@@ -77,7 +77,7 @@ export class AKSKSigner {
         Object.assign(authenticationHeaders, { "host": host });
 
         let allHeaders = {};
-        let current_headers:any = {};
+        let current_headers: any = {};
         Object.assign(current_headers, request.headers);
         if (current_headers['content-type']?.indexOf('multipart/form-data') !== -1) {
             delete current_headers['content-type'];
@@ -111,10 +111,10 @@ export class AKSKSigner {
         if (!inputUri) {
             return inputUri;
         }
-        var uriList = inputUri.split('/');
-        var uri = [];
-        for (var item in uriList) {
-            var uriValue = uriList[item];
+        const uriList = inputUri.split('/');
+        const uri: string[] = [];
+        for (let i = 0; i < uriList.length; i++) {
+            const uriValue: string = uriList[i];
             uri.push(encodeURIComponent(uriValue))
         }
         var urlpath = uri.join('/');
@@ -164,31 +164,27 @@ export class AKSKSigner {
     }
 
     private static buildCanonicalHeaders(allHeaders: any) {
-        let sortedKeys = _.sortBy(Object.keys(allHeaders), (x: string) => {
-            return x.toLocaleLowerCase();
-        });
+        const headers = Object.keys(allHeaders).map(key => ({ key, value: allHeaders[key] }));
+        headers.sort((a, b) => a.key.toLocaleLowerCase().localeCompare(b.key.toLocaleLowerCase()));
         let canonicalHeaders = "";
-        for (const key of sortedKeys) {
-            const lowerKey = key.toLocaleLowerCase();
-            canonicalHeaders += `${lowerKey}:${allHeaders[key]}\n`;
+        for (let i = 0; i < headers.length; i++) {
+            const lowerKey = headers[i].key.toLocaleLowerCase();
+            canonicalHeaders += `${lowerKey}:${headers[i].value}\n`;
         }
         return canonicalHeaders;
     }
 
     private static CanonicalQueryString(r: any) {
-        const keys = [];
-        for (let key in r.queryParams) {
-            keys.push(key)
-        }
+        const keys = Object.keys(r.queryParams);
         keys.sort();
-        const a = [];
-        for (let i in keys) {
+        const a: string[] = [];
+        for (let i = 0; i < keys.length; i++) {
             const key = this.urlEncode(keys[i]);
             const value = r.queryParams[keys[i]];
             if (Array.isArray(value)) {
                 value.sort();
-                for (let iv in value) {
-                    a.push(key + '=' + this.urlEncode(value[iv]))
+                for (let j = 0; j < value.length; j++) {
+                    a.push(key + '=' + this.urlEncode(value[j]))
                 }
             } else {
                 a.push(key + '=' + this.urlEncode(value))

@@ -127,6 +127,7 @@ export * from './model/ListRulesRequest';
 export * from './model/ListRulesResponse';
 export * from './model/MessageResult';
 export * from './model/MrsKafkaForwarding';
+export * from './model/MysqlForwarding';
 export * from './model/NetAddress';
 export * from './model/ObsForwarding';
 export * from './model/Page';

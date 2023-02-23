@@ -1,3 +1,29 @@
+# 3.1.25 2023-02-23
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `active` to the interface `ListRoutingRules`
+  - Add the request parameter `mysql_forwarding` to the interface `CreateRuleAction`
+  - Add the response parameter `mysql_forwarding` to the interface `ListRuleActions`
+  - Changes of the interface `UpdateRuleAction`:
+    - Add the request parameter `mysql_forwarding`
+    - Add the response parameter `mysql_forwarding`
+  - Add the response parameter `mysql_forwarding` to the interface `ShowRuleAction`
+
+### HuaweiCloud SDK WAF
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Add the request parameter `flag` to the interface `UpdatePremiumHost`
+
 # 3.1.24 2023-02-16
 
 ### HuaweiCloud SDK DCS

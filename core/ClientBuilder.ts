@@ -22,13 +22,12 @@
 import { HcClient } from "./HcClient";
 import { ICredential } from "./auth/ICredential";
 import { ClientOptions, DefaultHttpClient } from "./http/DefaultHttpClient";
-import { RequiredError } from "./auth/AKSKSigner";
 import { BasicCredentials } from "./auth/BasicCredentials";
 import { GlobalCredentials } from "./auth/GlobalCredentials";
 import { SdkException } from "./exception/SdkException";
 import { Region } from "./region/region";
 import { UserOptions } from "./UserOptions";
-const path = require('path');
+import * as path from "path";
 
 interface CredParams {
     ak?: string;
