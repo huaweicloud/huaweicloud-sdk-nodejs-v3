@@ -178,6 +178,7 @@ import { StrategyConfig } from './model/StrategyConfig';
 import { SyncExecutionNodeErrorDetail } from './model/SyncExecutionNodeErrorDetail';
 import { TacticsConfig } from './model/TacticsConfig';
 import { Trigger } from './model/Trigger';
+import { TriggerEventData } from './model/TriggerEventData';
 import { UpdateDependcyRequest } from './model/UpdateDependcyRequest';
 import { UpdateDependcyResponse } from './model/UpdateDependcyResponse';
 import { UpdateDependencyRequestBody } from './model/UpdateDependencyRequestBody';
@@ -1638,7 +1639,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateTrigger(updateTriggerRequest?: UpdateTriggerRequest): Promise<void> {
+    public updateTrigger(updateTriggerRequest?: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
         const options = ParamCreater().updateTrigger(updateTriggerRequest);
 
          // @ts-ignore

@@ -176,6 +176,7 @@ export * from './model/StrategyConfig';
 export * from './model/SyncExecutionNodeErrorDetail';
 export * from './model/TacticsConfig';
 export * from './model/Trigger';
+export * from './model/TriggerEventData';
 export * from './model/UpdateDependcyRequest';
 export * from './model/UpdateDependcyResponse';
 export * from './model/UpdateDependencyRequestBody';

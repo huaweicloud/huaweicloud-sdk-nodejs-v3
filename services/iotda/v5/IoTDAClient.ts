@@ -54,6 +54,9 @@ import { CreateMessageRequest } from './model/CreateMessageRequest';
 import { CreateMessageResponse } from './model/CreateMessageResponse';
 import { CreateOrDeleteDeviceInGroupRequest } from './model/CreateOrDeleteDeviceInGroupRequest';
 import { CreateOrDeleteDeviceInGroupResponse } from './model/CreateOrDeleteDeviceInGroupResponse';
+import { CreateOtaPackage } from './model/CreateOtaPackage';
+import { CreateOtaPackageRequest } from './model/CreateOtaPackageRequest';
+import { CreateOtaPackageResponse } from './model/CreateOtaPackageResponse';
 import { CreateProductRequest } from './model/CreateProductRequest';
 import { CreateProductResponse } from './model/CreateProductResponse';
 import { CreateRoutingRuleRequest } from './model/CreateRoutingRuleRequest';
@@ -73,6 +76,8 @@ import { DeleteDeviceGroupRequest } from './model/DeleteDeviceGroupRequest';
 import { DeleteDeviceGroupResponse } from './model/DeleteDeviceGroupResponse';
 import { DeleteDeviceRequest } from './model/DeleteDeviceRequest';
 import { DeleteDeviceResponse } from './model/DeleteDeviceResponse';
+import { DeleteOtaPackageRequest } from './model/DeleteOtaPackageRequest';
+import { DeleteOtaPackageResponse } from './model/DeleteOtaPackageResponse';
 import { DeleteProductRequest } from './model/DeleteProductRequest';
 import { DeleteProductResponse } from './model/DeleteProductResponse';
 import { DeleteQueueRequest } from './model/DeleteQueueRequest';
@@ -97,6 +102,7 @@ import { DmsKafkaForwarding } from './model/DmsKafkaForwarding';
 import { DmsRocketMQForwarding } from './model/DmsRocketMQForwarding';
 import { ErrorInfo } from './model/ErrorInfo';
 import { ErrorInfoDTO } from './model/ErrorInfoDTO';
+import { FileLocation } from './model/FileLocation';
 import { FreezeDeviceRequest } from './model/FreezeDeviceRequest';
 import { FreezeDeviceResponse } from './model/FreezeDeviceResponse';
 import { FunctionGraphForwarding } from './model/FunctionGraphForwarding';
@@ -115,6 +121,8 @@ import { ListDeviceMessagesRequest } from './model/ListDeviceMessagesRequest';
 import { ListDeviceMessagesResponse } from './model/ListDeviceMessagesResponse';
 import { ListDevicesRequest } from './model/ListDevicesRequest';
 import { ListDevicesResponse } from './model/ListDevicesResponse';
+import { ListOtaPackageInfoRequest } from './model/ListOtaPackageInfoRequest';
+import { ListOtaPackageInfoResponse } from './model/ListOtaPackageInfoResponse';
 import { ListProductsRequest } from './model/ListProductsRequest';
 import { ListProductsResponse } from './model/ListProductsResponse';
 import { ListPropertiesRequest } from './model/ListPropertiesRequest';
@@ -132,7 +140,10 @@ import { MrsKafkaForwarding } from './model/MrsKafkaForwarding';
 import { MysqlForwarding } from './model/MysqlForwarding';
 import { NetAddress } from './model/NetAddress';
 import { ObsForwarding } from './model/ObsForwarding';
+import { ObsLocation } from './model/ObsLocation';
+import { OtaPackageInfo } from './model/OtaPackageInfo';
 import { Page } from './model/Page';
+import { PageInfo } from './model/PageInfo';
 import { ProductSummary } from './model/ProductSummary';
 import { PropertiesDTO } from './model/PropertiesDTO';
 import { PropertyFilter } from './model/PropertyFilter';
@@ -184,6 +195,8 @@ import { ShowDeviceShadowRequest } from './model/ShowDeviceShadowRequest';
 import { ShowDeviceShadowResponse } from './model/ShowDeviceShadowResponse';
 import { ShowDevicesInGroupRequest } from './model/ShowDevicesInGroupRequest';
 import { ShowDevicesInGroupResponse } from './model/ShowDevicesInGroupResponse';
+import { ShowOtaPackageRequest } from './model/ShowOtaPackageRequest';
+import { ShowOtaPackageResponse } from './model/ShowOtaPackageResponse';
 import { ShowProductRequest } from './model/ShowProductRequest';
 import { ShowProductResponse } from './model/ShowProductResponse';
 import { ShowQueueRequest } from './model/ShowQueueRequest';
@@ -1305,6 +1318,97 @@ export class IoTDAClient {
      */
     public showDeviceMessage(showDeviceMessageRequest?: ShowDeviceMessageRequest): Promise<ShowDeviceMessageResponse> {
         const options = ParamCreater().showDeviceMessage(showDeviceMessageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 用户可调用此接口创建升级包关联OBS对象
+     * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam/?region&#x3D;cn-north-4#/iam/agencies)](tag:hws) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建OTA升级包
+     * @param {CreateOtaPackage} createOtaPackageRequestBody request
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
+     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createOtaPackage(createOtaPackageRequest?: CreateOtaPackageRequest): Promise<CreateOtaPackageResponse> {
+        const options = ParamCreater().createOtaPackage(createOtaPackageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 只删除升级包信息，不会删除OBS上对象
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除OTA升级包
+     * @param {string} packageId **参数说明**：升级包ID，用于唯一标识一个升级包。由物联网平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、连接符（-）的组合。
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
+     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteOtaPackage(deleteOtaPackageRequest?: DeleteOtaPackageRequest): Promise<string> {
+        const options = ParamCreater().deleteOtaPackage(deleteOtaPackageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询OTA升级包列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询OTA升级包列表
+     * @param {string} packageType **参数说明**：升级包类型。 **取值范围**：软件包必须设置为：softwarePackage，固件包必须设置为：firmwarePackage。
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
+     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [appId] **参数说明**：资源空间ID。存在多资源空间的用户需要使用该接口时，建议携带该参数指定查询指定资源空间的升级包列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [productId] **参数说明**：设备关联的产品ID，用于唯一标识一个产品模型，创建产品后获得。方法请参见 [[创建产品](https://support.huaweicloud.com/api-iothub/iot_06_v5_0050.html)](tag:hws)[[创建产品](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0050.html)](tag:hws_hk)。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [version] **参数说明**：升级包版本号。 **取值范围**：长度不超过256，只允许字母、数字、下划线（_）、连接符（-）、英文点（.）的组合。
+     * @param {number} [limit] |- **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listOtaPackageInfo(listOtaPackageInfoRequest?: ListOtaPackageInfoRequest): Promise<ListOtaPackageInfoResponse> {
+        const options = ParamCreater().listOtaPackageInfo(listOtaPackageInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 获取OTA升级包详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取OTA升级包详情
+     * @param {string} packageId **参数说明**：升级包ID，用于唯一标识一个升级包。由物联网平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、连接符（-）的组合。
+     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
+     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showOtaPackage(showOtaPackageRequest?: ShowOtaPackageRequest): Promise<ShowOtaPackageResponse> {
+        const options = ParamCreater().showOtaPackage(showOtaPackageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4346,6 +4450,260 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'device_id': deviceId,'message_id': messageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 用户可调用此接口创建升级包关联OBS对象
+         * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam/?region&#x3D;cn-north-4#/iam/agencies)](tag:hws) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createOtaPackage(createOtaPackageRequest?: CreateOtaPackageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/ota-upgrades/packages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            
+            let spAuthToken;
+            
+            let instanceId;
+
+            if (createOtaPackageRequest !== null && createOtaPackageRequest !== undefined) {
+                if (createOtaPackageRequest instanceof CreateOtaPackageRequest) {
+                    body = createOtaPackageRequest.body
+                    spAuthToken = createOtaPackageRequest.spAuthToken;
+                    instanceId = createOtaPackageRequest.instanceId;
+                } else {
+                    body = createOtaPackageRequest['body'];
+                    spAuthToken = createOtaPackageRequest['Sp-Auth-Token'];
+                    instanceId = createOtaPackageRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 只删除升级包信息，不会删除OBS上对象
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteOtaPackage(deleteOtaPackageRequest?: DeleteOtaPackageRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/ota-upgrades/packages/{package_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let packageId;
+            
+            let spAuthToken;
+            
+            let instanceId;
+
+            if (deleteOtaPackageRequest !== null && deleteOtaPackageRequest !== undefined) {
+                if (deleteOtaPackageRequest instanceof DeleteOtaPackageRequest) {
+                    packageId = deleteOtaPackageRequest.packageId;
+                    spAuthToken = deleteOtaPackageRequest.spAuthToken;
+                    instanceId = deleteOtaPackageRequest.instanceId;
+                } else {
+                    packageId = deleteOtaPackageRequest['package_id'];
+                    spAuthToken = deleteOtaPackageRequest['Sp-Auth-Token'];
+                    instanceId = deleteOtaPackageRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (packageId === null || packageId === undefined) {
+            throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling deleteOtaPackage.');
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'package_id': packageId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询OTA升级包列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listOtaPackageInfo(listOtaPackageInfoRequest?: ListOtaPackageInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/ota-upgrades/packages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let packageType;
+            
+            let spAuthToken;
+            
+            let instanceId;
+            
+            let appId;
+            
+            let productId;
+            
+            let version;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
+
+            if (listOtaPackageInfoRequest !== null && listOtaPackageInfoRequest !== undefined) {
+                if (listOtaPackageInfoRequest instanceof ListOtaPackageInfoRequest) {
+                    packageType = listOtaPackageInfoRequest.packageType;
+                    spAuthToken = listOtaPackageInfoRequest.spAuthToken;
+                    instanceId = listOtaPackageInfoRequest.instanceId;
+                    appId = listOtaPackageInfoRequest.appId;
+                    productId = listOtaPackageInfoRequest.productId;
+                    version = listOtaPackageInfoRequest.version;
+                    limit = listOtaPackageInfoRequest.limit;
+                    marker = listOtaPackageInfoRequest.marker;
+                    offset = listOtaPackageInfoRequest.offset;
+                } else {
+                    packageType = listOtaPackageInfoRequest['package_type'];
+                    spAuthToken = listOtaPackageInfoRequest['Sp-Auth-Token'];
+                    instanceId = listOtaPackageInfoRequest['Instance-Id'];
+                    appId = listOtaPackageInfoRequest['app_id'];
+                    productId = listOtaPackageInfoRequest['product_id'];
+                    version = listOtaPackageInfoRequest['version'];
+                    limit = listOtaPackageInfoRequest['limit'];
+                    marker = listOtaPackageInfoRequest['marker'];
+                    offset = listOtaPackageInfoRequest['offset'];
+                }
+            }
+
+        
+            if (packageType === null || packageType === undefined) {
+                throw new RequiredError('packageType','Required parameter packageType was null or undefined when calling listOtaPackageInfo.');
+            }
+            if (packageType !== null && packageType !== undefined) {
+                localVarQueryParameter['package_type'] = packageType;
+            }
+            if (appId !== null && appId !== undefined) {
+                localVarQueryParameter['app_id'] = appId;
+            }
+            if (productId !== null && productId !== undefined) {
+                localVarQueryParameter['product_id'] = productId;
+            }
+            if (version !== null && version !== undefined) {
+                localVarQueryParameter['version'] = version;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 获取OTA升级包详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showOtaPackage(showOtaPackageRequest?: ShowOtaPackageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v5/iot/{project_id}/ota-upgrades/packages/{package_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let packageId;
+            
+            let spAuthToken;
+            
+            let instanceId;
+
+            if (showOtaPackageRequest !== null && showOtaPackageRequest !== undefined) {
+                if (showOtaPackageRequest instanceof ShowOtaPackageRequest) {
+                    packageId = showOtaPackageRequest.packageId;
+                    spAuthToken = showOtaPackageRequest.spAuthToken;
+                    instanceId = showOtaPackageRequest.instanceId;
+                } else {
+                    packageId = showOtaPackageRequest['package_id'];
+                    spAuthToken = showOtaPackageRequest['Sp-Auth-Token'];
+                    instanceId = showOtaPackageRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (packageId === null || packageId === undefined) {
+            throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling showOtaPackage.');
+            }
+            if (spAuthToken !== undefined && spAuthToken !== null) {
+                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'package_id': packageId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

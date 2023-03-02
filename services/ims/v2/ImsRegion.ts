@@ -19,6 +19,7 @@ export class ImsRegion {
     public static LA_NORTH_2 = new Region("la-north-2", "https://ims.la-north-2.myhuaweicloud.com");
     public static NA_MEXICO_1 = new Region("na-mexico-1", "https://ims.na-mexico-1.myhuaweicloud.com");
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", "https://ims.ap-southeast-4.myhuaweicloud.com");
+    public static CN_SOUTH_4 = new Region("cn-south-4", "https://ims.cn-south-4.myhuaweicloud.com");
     
 
     private static STATIC_FIELDS = ImsRegion.createStaticFields();
@@ -42,6 +43,7 @@ export class ImsRegion {
         map.set("la-north-2", ImsRegion.LA_NORTH_2);
         map.set("na-mexico-1", ImsRegion.NA_MEXICO_1);
         map.set("ap-southeast-4", ImsRegion.AP_SOUTHEAST_4);
+        map.set("cn-south-4", ImsRegion.CN_SOUTH_4);
         return map;
     }
     public static valueOf(regionId: String) {

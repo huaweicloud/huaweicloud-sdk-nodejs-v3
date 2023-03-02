@@ -1,3 +1,70 @@
+# 3.1.26 2023-03-02
+
+### HuaweiCloud SDK CDN
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Changes of the interface `ShowDomainFullConfig`:
+    - Modify the type `string` -> `int32` of the response parameter `error_code`
+    - Modify the type `string` -> `int32` of the response parameter `target_code`
+  - Changes of the interface `UpdateDomainFullConfig`:
+    - Modify the type `string` -> `int32` of the request parameter `error_code`
+    - Modify the type `string` -> `int32` of the request parameter `target_code`
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Changes of the interface `UpdateTrigger`:
+    - Add the request parameter `event_data`
+    - Add the response parameters `trigger_id`, `trigger_type_code`, `trigger_status`, `event_data`, `last_updated_time`, `created_time`
+
+### HuaweiCloud SDK Image
+
+- _Features_
+  - Support the following interfaces：
+    - `CreateVideoSynthesisTask`
+    - `ShowVideoSynthesisTask`
+    - `CreateImageToVideoTask`
+    - `ShowImageToVideoTask`
+    - `CreateVideoCuttingTask`
+    - `ShowVideoCuttingTask`
+    - `CreateVideoTranslateTask`
+    - `ShowVideoTranslateTask`
+    - `CreateImageHighresolutionMattingTask`
+    - `ShowImageHighresolutionMattingTask`
+    - `CreateImageTranslateTask`
+    - `ShowImageTranslateTask`
+    - `CreateVideoCoverAnalysisTask`
+    - `ShowVideoCoverAnalysisTask`
+    - `CreateVideoSummarizationAnalysisTask`
+    - `ShowVideoSummarizationAnalysisTask`
+    - `CreateVideoShotSplitTask`
+    - `ShowVideoShotSplitTask`
+    - `RunImageWisedesignCrop`
+    - `RunImageWisedesignInpainting`
+    - `RunImageWisedesignColorfilter`
+    - `RunImageWisedesignCombine`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - Support the interfaces `ListOtaPackageInfo`, `CreateOtaPackage`, `ShowOtaPackage`, `DeleteOtaPackage`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.1.25 2023-02-23
 
 ### HuaweiCloud SDK IoTDA
