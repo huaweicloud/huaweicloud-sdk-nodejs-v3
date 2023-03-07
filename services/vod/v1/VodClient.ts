@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddSubtitle } from './model/AddSubtitle';
 import { AssetDetails } from './model/AssetDetails';
 import { AssetInfo } from './model/AssetInfo';
 import { AssetProcessReq } from './model/AssetProcessReq';
@@ -59,6 +60,7 @@ import { DeleteAssetCategoryResponse } from './model/DeleteAssetCategoryResponse
 import { DeleteAssetsRequest } from './model/DeleteAssetsRequest';
 import { DeleteAssetsResponse } from './model/DeleteAssetsResponse';
 import { DeleteResult } from './model/DeleteResult';
+import { DeleteSubtitle } from './model/DeleteSubtitle';
 import { DeleteTemplateGroupCollectionRequest } from './model/DeleteTemplateGroupCollectionRequest';
 import { DeleteTemplateGroupCollectionResponse } from './model/DeleteTemplateGroupCollectionResponse';
 import { DeleteTemplateGroupRequest } from './model/DeleteTemplateGroupRequest';
@@ -88,9 +90,12 @@ import { ListTranscodeTemplateResponse } from './model/ListTranscodeTemplateResp
 import { ListWatermarkTemplateRequest } from './model/ListWatermarkTemplateRequest';
 import { ListWatermarkTemplateResponse } from './model/ListWatermarkTemplateResponse';
 import { MetaData } from './model/MetaData';
+import { ModifySubtitleRequest } from './model/ModifySubtitleRequest';
+import { ModifySubtitleResponse } from './model/ModifySubtitleResponse';
 import { ModifyTemplateGroupCollection } from './model/ModifyTemplateGroupCollection';
 import { ModifyTransTemplate } from './model/ModifyTransTemplate';
 import { ModifyTransTemplateGroup } from './model/ModifyTransTemplateGroup';
+import { ObsInfo } from './model/ObsInfo';
 import { Output } from './model/Output';
 import { Parameter } from './model/Parameter';
 import { PictureReviewRet } from './model/PictureReviewRet';
@@ -128,6 +133,7 @@ import { ShowVodStatisticsRequest } from './model/ShowVodStatisticsRequest';
 import { ShowVodStatisticsResponse } from './model/ShowVodStatisticsResponse';
 import { Subtitle } from './model/Subtitle';
 import { SubtitleInfo } from './model/SubtitleInfo';
+import { SubtitleModifyReq } from './model/SubtitleModifyReq';
 import { TakeOverTask } from './model/TakeOverTask';
 import { TemplateGroup } from './model/TemplateGroup';
 import { TemplateGroupCollection } from './model/TemplateGroupCollection';
@@ -1372,6 +1378,25 @@ export class VodClient {
      */
     public showTakeOverTaskDetails(showTakeOverTaskDetailsRequest?: ShowTakeOverTaskDetailsRequest): Promise<ShowTakeOverTaskDetailsResponse> {
         const options = ParamCreater().showTakeOverTaskDetails(showTakeOverTaskDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 多字幕封装，仅支持 HLS VTT格式
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 多字幕封装
+     * @param {SubtitleModifyReq} subtitleModifyReq 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public modifySubtitle(modifySubtitleRequest?: ModifySubtitleRequest): Promise<ModifySubtitleResponse> {
+        const options = ParamCreater().modifySubtitle(modifySubtitleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4614,6 +4639,44 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 多字幕封装，仅支持 HLS VTT格式
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        modifySubtitle(modifySubtitleRequest?: ModifySubtitleRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/{project_id}/asset/subtitles",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (modifySubtitleRequest !== null && modifySubtitleRequest !== undefined) {
+                if (modifySubtitleRequest instanceof ModifySubtitleRequest) {
+                    body = modifySubtitleRequest.body
+                } else {
+                    body = modifySubtitleRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
