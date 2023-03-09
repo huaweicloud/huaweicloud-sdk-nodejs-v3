@@ -210,7 +210,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public cancelAssetTranscodeTask(cancelAssetTranscodeTaskRequest?: CancelAssetTranscodeTaskRequest): Promise<void> {
+    public cancelAssetTranscodeTask(cancelAssetTranscodeTaskRequest?: CancelAssetTranscodeTaskRequest): Promise<CancelAssetTranscodeTaskResponse> {
         const options = ParamCreater().cancelAssetTranscodeTask(cancelAssetTranscodeTaskRequest);
 
          // @ts-ignore
@@ -231,7 +231,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public cancelExtractAudioTask(cancelExtractAudioTaskRequest?: CancelExtractAudioTaskRequest): Promise<void> {
+    public cancelExtractAudioTask(cancelExtractAudioTaskRequest?: CancelExtractAudioTaskRequest): Promise<CancelExtractAudioTaskResponse> {
         const options = ParamCreater().cancelExtractAudioTask(cancelExtractAudioTaskRequest);
 
          // @ts-ignore
@@ -553,7 +553,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteAssetCategory(deleteAssetCategoryRequest?: DeleteAssetCategoryRequest): Promise<void> {
+    public deleteAssetCategory(deleteAssetCategoryRequest?: DeleteAssetCategoryRequest): Promise<DeleteAssetCategoryResponse> {
         const options = ParamCreater().deleteAssetCategory(deleteAssetCategoryRequest);
 
          // @ts-ignore
@@ -596,7 +596,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteTemplateGroup(deleteTemplateGroupRequest?: DeleteTemplateGroupRequest): Promise<void> {
+    public deleteTemplateGroup(deleteTemplateGroupRequest?: DeleteTemplateGroupRequest): Promise<DeleteTemplateGroupResponse> {
         const options = ParamCreater().deleteTemplateGroup(deleteTemplateGroupRequest);
 
          // @ts-ignore
@@ -617,7 +617,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteTemplateGroupCollection(deleteTemplateGroupCollectionRequest?: DeleteTemplateGroupCollectionRequest): Promise<void> {
+    public deleteTemplateGroupCollection(deleteTemplateGroupCollectionRequest?: DeleteTemplateGroupCollectionRequest): Promise<DeleteTemplateGroupCollectionResponse> {
         const options = ParamCreater().deleteTemplateGroupCollection(deleteTemplateGroupCollectionRequest);
 
          // @ts-ignore
@@ -638,7 +638,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteTranscodeTemplate(deleteTranscodeTemplateRequest?: DeleteTranscodeTemplateRequest): Promise<void> {
+    public deleteTranscodeTemplate(deleteTranscodeTemplateRequest?: DeleteTranscodeTemplateRequest): Promise<DeleteTranscodeTemplateResponse> {
         const options = ParamCreater().deleteTranscodeTemplate(deleteTranscodeTemplateRequest);
 
          // @ts-ignore
@@ -659,7 +659,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteWatermarkTemplate(deleteWatermarkTemplateRequest?: DeleteWatermarkTemplateRequest): Promise<void> {
+    public deleteWatermarkTemplate(deleteWatermarkTemplateRequest?: DeleteWatermarkTemplateRequest): Promise<DeleteWatermarkTemplateResponse> {
         const options = ParamCreater().deleteWatermarkTemplate(deleteWatermarkTemplateRequest);
 
          // @ts-ignore
@@ -680,7 +680,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listAssetCategory(listAssetCategoryRequest?: ListAssetCategoryRequest): Promise<Array<QueryCategoryRsp>> {
+    public listAssetCategory(listAssetCategoryRequest?: ListAssetCategoryRequest): Promise<ListAssetCategoryResponse> {
         const options = ParamCreater().listAssetCategory(listAssetCategoryRequest);
 
          // @ts-ignore
@@ -1160,7 +1160,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateAssetMeta(updateAssetMetaRequest?: UpdateAssetMetaRequest): Promise<void> {
+    public updateAssetMeta(updateAssetMetaRequest?: UpdateAssetMetaRequest): Promise<UpdateAssetMetaResponse> {
         const options = ParamCreater().updateAssetMeta(updateAssetMetaRequest);
 
          // @ts-ignore
@@ -1181,7 +1181,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateBucketAuthorized(updateBucketAuthorizedRequest?: UpdateBucketAuthorizedRequest): Promise<void> {
+    public updateBucketAuthorized(updateBucketAuthorizedRequest?: UpdateBucketAuthorizedRequest): Promise<UpdateBucketAuthorizedResponse> {
         const options = ParamCreater().updateBucketAuthorized(updateBucketAuthorizedRequest);
 
          // @ts-ignore
@@ -1202,7 +1202,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateCoverByThumbnail(updateCoverByThumbnailRequest?: UpdateCoverByThumbnailRequest): Promise<void> {
+    public updateCoverByThumbnail(updateCoverByThumbnailRequest?: UpdateCoverByThumbnailRequest): Promise<UpdateCoverByThumbnailResponse> {
         const options = ParamCreater().updateCoverByThumbnail(updateCoverByThumbnailRequest);
 
          // @ts-ignore
@@ -1223,7 +1223,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateTemplateGroup(updateTemplateGroupRequest?: UpdateTemplateGroupRequest): Promise<void> {
+    public updateTemplateGroup(updateTemplateGroupRequest?: UpdateTemplateGroupRequest): Promise<UpdateTemplateGroupResponse> {
         const options = ParamCreater().updateTemplateGroup(updateTemplateGroupRequest);
 
          // @ts-ignore
@@ -1244,7 +1244,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateTemplateGroupCollection(updateTemplateGroupCollectionRequest?: UpdateTemplateGroupCollectionRequest): Promise<void> {
+    public updateTemplateGroupCollection(updateTemplateGroupCollectionRequest?: UpdateTemplateGroupCollectionRequest): Promise<UpdateTemplateGroupCollectionResponse> {
         const options = ParamCreater().updateTemplateGroupCollection(updateTemplateGroupCollectionRequest);
 
          // @ts-ignore
@@ -1265,7 +1265,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateTranscodeTemplate(updateTranscodeTemplateRequest?: UpdateTranscodeTemplateRequest): Promise<void> {
+    public updateTranscodeTemplate(updateTranscodeTemplateRequest?: UpdateTranscodeTemplateRequest): Promise<UpdateTranscodeTemplateResponse> {
         const options = ParamCreater().updateTranscodeTemplate(updateTranscodeTemplateRequest);
 
          // @ts-ignore
@@ -1286,7 +1286,7 @@ export class VodClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateWatermarkTemplate(updateWatermarkTemplateRequest?: UpdateWatermarkTemplateRequest): Promise<void> {
+    public updateWatermarkTemplate(updateWatermarkTemplateRequest?: UpdateWatermarkTemplateRequest): Promise<UpdateWatermarkTemplateResponse> {
         const options = ParamCreater().updateWatermarkTemplate(updateWatermarkTemplateRequest);
 
          // @ts-ignore

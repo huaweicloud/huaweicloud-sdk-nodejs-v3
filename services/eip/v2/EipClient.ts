@@ -242,7 +242,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteSharedBandwidth(deleteSharedBandwidthRequest?: DeleteSharedBandwidthRequest): Promise<void> {
+    public deleteSharedBandwidth(deleteSharedBandwidthRequest?: DeleteSharedBandwidthRequest): Promise<DeleteSharedBandwidthResponse> {
         const options = ParamCreater().deleteSharedBandwidth(deleteSharedBandwidthRequest);
 
          // @ts-ignore
@@ -321,7 +321,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public removePublicipsFromSharedBandwidth(removePublicipsFromSharedBandwidthRequest?: RemovePublicipsFromSharedBandwidthRequest): Promise<void> {
+    public removePublicipsFromSharedBandwidth(removePublicipsFromSharedBandwidthRequest?: RemovePublicipsFromSharedBandwidthRequest): Promise<RemovePublicipsFromSharedBandwidthResponse> {
         const options = ParamCreater().removePublicipsFromSharedBandwidth(removePublicipsFromSharedBandwidthRequest);
 
          // @ts-ignore
@@ -400,7 +400,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchCreatePublicipTags(batchCreatePublicipTagsRequest?: BatchCreatePublicipTagsRequest): Promise<void> {
+    public batchCreatePublicipTags(batchCreatePublicipTagsRequest?: BatchCreatePublicipTagsRequest): Promise<BatchCreatePublicipTagsResponse> {
         const options = ParamCreater().batchCreatePublicipTags(batchCreatePublicipTagsRequest);
 
          // @ts-ignore
@@ -458,7 +458,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchDeletePublicipTags(batchDeletePublicipTagsRequest?: BatchDeletePublicipTagsRequest): Promise<void> {
+    public batchDeletePublicipTags(batchDeletePublicipTagsRequest?: BatchDeletePublicipTagsRequest): Promise<BatchDeletePublicipTagsResponse> {
         const options = ParamCreater().batchDeletePublicipTags(batchDeletePublicipTagsRequest);
 
          // @ts-ignore
@@ -532,7 +532,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public countPublicIpInstance(): Promise<string> {
+    public countPublicIpInstance(): Promise<CountPublicIpInstanceResponse> {
         const options = ParamCreater().countPublicIpInstance();
 
          // @ts-ignore
@@ -591,7 +591,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createPublicipTag(createPublicipTagRequest?: CreatePublicipTagRequest): Promise<void> {
+    public createPublicipTag(createPublicipTagRequest?: CreatePublicipTagRequest): Promise<CreatePublicipTagResponse> {
         const options = ParamCreater().createPublicipTag(createPublicipTagRequest);
 
          // @ts-ignore
@@ -610,7 +610,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deletePublicip(deletePublicipRequest?: DeletePublicipRequest): Promise<void> {
+    public deletePublicip(deletePublicipRequest?: DeletePublicipRequest): Promise<DeletePublicipResponse> {
         const options = ParamCreater().deletePublicip(deletePublicipRequest);
 
          // @ts-ignore
@@ -630,7 +630,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deletePublicipTag(deletePublicipTagRequest?: DeletePublicipTagRequest): Promise<void> {
+    public deletePublicipTag(deletePublicipTagRequest?: DeletePublicipTagRequest): Promise<DeletePublicipTagResponse> {
         const options = ParamCreater().deletePublicipTag(deletePublicipTagRequest);
 
          // @ts-ignore
@@ -712,7 +712,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showPublicIpType(): Promise<string> {
+    public showPublicIpType(): Promise<ShowPublicIpTypeResponse> {
         const options = ParamCreater().showPublicIpType();
 
          // @ts-ignore
@@ -827,7 +827,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public neutronDeleteFloatingIp(neutronDeleteFloatingIpRequest?: NeutronDeleteFloatingIpRequest): Promise<void> {
+    public neutronDeleteFloatingIp(neutronDeleteFloatingIpRequest?: NeutronDeleteFloatingIpRequest): Promise<NeutronDeleteFloatingIpResponse> {
         const options = ParamCreater().neutronDeleteFloatingIp(neutronDeleteFloatingIpRequest);
 
          // @ts-ignore

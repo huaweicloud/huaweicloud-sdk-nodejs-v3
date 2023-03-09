@@ -347,7 +347,7 @@ export class CfwClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteAclRuleCount(deleteAclRuleCountRequest?: DeleteAclRuleCountRequest): Promise<string> {
+    public deleteAclRuleCount(deleteAclRuleCountRequest?: DeleteAclRuleCountRequest): Promise<DeleteAclRuleCountResponse> {
         const options = ParamCreater().deleteAclRuleCount(deleteAclRuleCountRequest);
 
          // @ts-ignore

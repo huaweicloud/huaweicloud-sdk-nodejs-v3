@@ -1,3 +1,4 @@
+import { DeploymentIdPrimitiveTypeHolder } from './DeploymentIdPrimitiveTypeHolder';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 

@@ -565,7 +565,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public associateAgencyWithAllProjectsPermission(associateAgencyWithAllProjectsPermissionRequest?: AssociateAgencyWithAllProjectsPermissionRequest): Promise<void> {
+    public associateAgencyWithAllProjectsPermission(associateAgencyWithAllProjectsPermissionRequest?: AssociateAgencyWithAllProjectsPermissionRequest): Promise<AssociateAgencyWithAllProjectsPermissionResponse> {
         const options = ParamCreater().associateAgencyWithAllProjectsPermission(associateAgencyWithAllProjectsPermissionRequest);
 
          // @ts-ignore
@@ -588,7 +588,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public associateAgencyWithDomainPermission(associateAgencyWithDomainPermissionRequest?: AssociateAgencyWithDomainPermissionRequest): Promise<void> {
+    public associateAgencyWithDomainPermission(associateAgencyWithDomainPermissionRequest?: AssociateAgencyWithDomainPermissionRequest): Promise<AssociateAgencyWithDomainPermissionResponse> {
         const options = ParamCreater().associateAgencyWithDomainPermission(associateAgencyWithDomainPermissionRequest);
 
          // @ts-ignore
@@ -610,7 +610,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public associateAgencyWithProjectPermission(associateAgencyWithProjectPermissionRequest?: AssociateAgencyWithProjectPermissionRequest): Promise<void> {
+    public associateAgencyWithProjectPermission(associateAgencyWithProjectPermissionRequest?: AssociateAgencyWithProjectPermissionRequest): Promise<AssociateAgencyWithProjectPermissionResponse> {
         const options = ParamCreater().associateAgencyWithProjectPermission(associateAgencyWithProjectPermissionRequest);
 
          // @ts-ignore
@@ -633,7 +633,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public associateRoleToGroupOnEnterpriseProject(associateRoleToGroupOnEnterpriseProjectRequest?: AssociateRoleToGroupOnEnterpriseProjectRequest): Promise<void> {
+    public associateRoleToGroupOnEnterpriseProject(associateRoleToGroupOnEnterpriseProjectRequest?: AssociateRoleToGroupOnEnterpriseProjectRequest): Promise<AssociateRoleToGroupOnEnterpriseProjectResponse> {
         const options = ParamCreater().associateRoleToGroupOnEnterpriseProject(associateRoleToGroupOnEnterpriseProjectRequest);
 
          // @ts-ignore
@@ -655,7 +655,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public associateRoleToUserOnEnterpriseProject(associateRoleToUserOnEnterpriseProjectRequest?: AssociateRoleToUserOnEnterpriseProjectRequest): Promise<void> {
+    public associateRoleToUserOnEnterpriseProject(associateRoleToUserOnEnterpriseProjectRequest?: AssociateRoleToUserOnEnterpriseProjectRequest): Promise<AssociateRoleToUserOnEnterpriseProjectResponse> {
         const options = ParamCreater().associateRoleToUserOnEnterpriseProject(associateRoleToUserOnEnterpriseProjectRequest);
 
          // @ts-ignore
@@ -678,7 +678,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public checkAllProjectsPermissionForAgency(checkAllProjectsPermissionForAgencyRequest?: CheckAllProjectsPermissionForAgencyRequest): Promise<void> {
+    public checkAllProjectsPermissionForAgency(checkAllProjectsPermissionForAgencyRequest?: CheckAllProjectsPermissionForAgencyRequest): Promise<CheckAllProjectsPermissionForAgencyResponse> {
         const options = ParamCreater().checkAllProjectsPermissionForAgency(checkAllProjectsPermissionForAgencyRequest);
 
          // @ts-ignore
@@ -701,7 +701,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public checkDomainPermissionForAgency(checkDomainPermissionForAgencyRequest?: CheckDomainPermissionForAgencyRequest): Promise<void> {
+    public checkDomainPermissionForAgency(checkDomainPermissionForAgencyRequest?: CheckDomainPermissionForAgencyRequest): Promise<CheckDomainPermissionForAgencyResponse> {
         const options = ParamCreater().checkDomainPermissionForAgency(checkDomainPermissionForAgencyRequest);
 
          // @ts-ignore
@@ -723,7 +723,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public checkProjectPermissionForAgency(checkProjectPermissionForAgencyRequest?: CheckProjectPermissionForAgencyRequest): Promise<void> {
+    public checkProjectPermissionForAgency(checkProjectPermissionForAgencyRequest?: CheckProjectPermissionForAgencyRequest): Promise<CheckProjectPermissionForAgencyResponse> {
         const options = ParamCreater().checkProjectPermissionForAgency(checkProjectPermissionForAgencyRequest);
 
          // @ts-ignore
@@ -916,7 +916,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteAgency(deleteAgencyRequest?: DeleteAgencyRequest): Promise<void> {
+    public deleteAgency(deleteAgencyRequest?: DeleteAgencyRequest): Promise<DeleteAgencyResponse> {
         const options = ParamCreater().deleteAgency(deleteAgencyRequest);
 
          // @ts-ignore
@@ -937,7 +937,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteCustomPolicy(deleteCustomPolicyRequest?: DeleteCustomPolicyRequest): Promise<void> {
+    public deleteCustomPolicy(deleteCustomPolicyRequest?: DeleteCustomPolicyRequest): Promise<DeleteCustomPolicyResponse> {
         const options = ParamCreater().deleteCustomPolicy(deleteCustomPolicyRequest);
 
          // @ts-ignore
@@ -960,7 +960,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteDomainGroupInheritedRole(deleteDomainGroupInheritedRoleRequest?: DeleteDomainGroupInheritedRoleRequest): Promise<void> {
+    public deleteDomainGroupInheritedRole(deleteDomainGroupInheritedRoleRequest?: DeleteDomainGroupInheritedRoleRequest): Promise<DeleteDomainGroupInheritedRoleResponse> {
         const options = ParamCreater().deleteDomainGroupInheritedRole(deleteDomainGroupInheritedRoleRequest);
 
          // @ts-ignore
@@ -982,7 +982,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneAddUserToGroup(keystoneAddUserToGroupRequest?: KeystoneAddUserToGroupRequest): Promise<void> {
+    public keystoneAddUserToGroup(keystoneAddUserToGroupRequest?: KeystoneAddUserToGroupRequest): Promise<KeystoneAddUserToGroupResponse> {
         const options = ParamCreater().keystoneAddUserToGroup(keystoneAddUserToGroupRequest);
 
          // @ts-ignore
@@ -1005,7 +1005,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneAssociateGroupWithDomainPermission(keystoneAssociateGroupWithDomainPermissionRequest?: KeystoneAssociateGroupWithDomainPermissionRequest): Promise<void> {
+    public keystoneAssociateGroupWithDomainPermission(keystoneAssociateGroupWithDomainPermissionRequest?: KeystoneAssociateGroupWithDomainPermissionRequest): Promise<KeystoneAssociateGroupWithDomainPermissionResponse> {
         const options = ParamCreater().keystoneAssociateGroupWithDomainPermission(keystoneAssociateGroupWithDomainPermissionRequest);
 
          // @ts-ignore
@@ -1027,7 +1027,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneAssociateGroupWithProjectPermission(keystoneAssociateGroupWithProjectPermissionRequest?: KeystoneAssociateGroupWithProjectPermissionRequest): Promise<void> {
+    public keystoneAssociateGroupWithProjectPermission(keystoneAssociateGroupWithProjectPermissionRequest?: KeystoneAssociateGroupWithProjectPermissionRequest): Promise<KeystoneAssociateGroupWithProjectPermissionResponse> {
         const options = ParamCreater().keystoneAssociateGroupWithProjectPermission(keystoneAssociateGroupWithProjectPermissionRequest);
 
          // @ts-ignore
@@ -1050,7 +1050,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneCheckDomainPermissionForGroup(keystoneCheckDomainPermissionForGroupRequest?: KeystoneCheckDomainPermissionForGroupRequest): Promise<void> {
+    public keystoneCheckDomainPermissionForGroup(keystoneCheckDomainPermissionForGroupRequest?: KeystoneCheckDomainPermissionForGroupRequest): Promise<KeystoneCheckDomainPermissionForGroupResponse> {
         const options = ParamCreater().keystoneCheckDomainPermissionForGroup(keystoneCheckDomainPermissionForGroupRequest);
 
          // @ts-ignore
@@ -1072,7 +1072,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneCheckProjectPermissionForGroup(keystoneCheckProjectPermissionForGroupRequest?: KeystoneCheckProjectPermissionForGroupRequest): Promise<void> {
+    public keystoneCheckProjectPermissionForGroup(keystoneCheckProjectPermissionForGroupRequest?: KeystoneCheckProjectPermissionForGroupRequest): Promise<KeystoneCheckProjectPermissionForGroupResponse> {
         const options = ParamCreater().keystoneCheckProjectPermissionForGroup(keystoneCheckProjectPermissionForGroupRequest);
 
          // @ts-ignore
@@ -1094,7 +1094,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneCheckUserInGroup(keystoneCheckUserInGroupRequest?: KeystoneCheckUserInGroupRequest): Promise<void> {
+    public keystoneCheckUserInGroup(keystoneCheckUserInGroupRequest?: KeystoneCheckUserInGroupRequest): Promise<KeystoneCheckUserInGroupResponse> {
         const options = ParamCreater().keystoneCheckUserInGroup(keystoneCheckUserInGroupRequest);
 
          // @ts-ignore
@@ -1117,7 +1117,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneCheckroleForGroup(keystoneCheckroleForGroupRequest?: KeystoneCheckroleForGroupRequest): Promise<void> {
+    public keystoneCheckroleForGroup(keystoneCheckroleForGroupRequest?: KeystoneCheckroleForGroupRequest): Promise<KeystoneCheckroleForGroupResponse> {
         const options = ParamCreater().keystoneCheckroleForGroup(keystoneCheckroleForGroupRequest);
 
          // @ts-ignore
@@ -1269,7 +1269,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneDeleteGroup(keystoneDeleteGroupRequest?: KeystoneDeleteGroupRequest): Promise<void> {
+    public keystoneDeleteGroup(keystoneDeleteGroupRequest?: KeystoneDeleteGroupRequest): Promise<KeystoneDeleteGroupResponse> {
         const options = ParamCreater().keystoneDeleteGroup(keystoneDeleteGroupRequest);
 
          // @ts-ignore
@@ -1290,7 +1290,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneDeleteIdentityProvider(keystoneDeleteIdentityProviderRequest?: KeystoneDeleteIdentityProviderRequest): Promise<void> {
+    public keystoneDeleteIdentityProvider(keystoneDeleteIdentityProviderRequest?: KeystoneDeleteIdentityProviderRequest): Promise<KeystoneDeleteIdentityProviderResponse> {
         const options = ParamCreater().keystoneDeleteIdentityProvider(keystoneDeleteIdentityProviderRequest);
 
          // @ts-ignore
@@ -1311,7 +1311,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneDeleteMapping(keystoneDeleteMappingRequest?: KeystoneDeleteMappingRequest): Promise<void> {
+    public keystoneDeleteMapping(keystoneDeleteMappingRequest?: KeystoneDeleteMappingRequest): Promise<KeystoneDeleteMappingResponse> {
         const options = ParamCreater().keystoneDeleteMapping(keystoneDeleteMappingRequest);
 
          // @ts-ignore
@@ -1333,7 +1333,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneDeleteProtocol(keystoneDeleteProtocolRequest?: KeystoneDeleteProtocolRequest): Promise<void> {
+    public keystoneDeleteProtocol(keystoneDeleteProtocolRequest?: KeystoneDeleteProtocolRequest): Promise<KeystoneDeleteProtocolResponse> {
         const options = ParamCreater().keystoneDeleteProtocol(keystoneDeleteProtocolRequest);
 
          // @ts-ignore
@@ -1720,7 +1720,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneListVersions(): Promise<void> {
+    public keystoneListVersions(): Promise<KeystoneListVersionsResponse> {
         const options = ParamCreater().keystoneListVersions();
 
          // @ts-ignore
@@ -1743,7 +1743,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneRemoveDomainPermissionFromGroup(keystoneRemoveDomainPermissionFromGroupRequest?: KeystoneRemoveDomainPermissionFromGroupRequest): Promise<void> {
+    public keystoneRemoveDomainPermissionFromGroup(keystoneRemoveDomainPermissionFromGroupRequest?: KeystoneRemoveDomainPermissionFromGroupRequest): Promise<KeystoneRemoveDomainPermissionFromGroupResponse> {
         const options = ParamCreater().keystoneRemoveDomainPermissionFromGroup(keystoneRemoveDomainPermissionFromGroupRequest);
 
          // @ts-ignore
@@ -1765,7 +1765,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneRemoveProjectPermissionFromGroup(keystoneRemoveProjectPermissionFromGroupRequest?: KeystoneRemoveProjectPermissionFromGroupRequest): Promise<void> {
+    public keystoneRemoveProjectPermissionFromGroup(keystoneRemoveProjectPermissionFromGroupRequest?: KeystoneRemoveProjectPermissionFromGroupRequest): Promise<KeystoneRemoveProjectPermissionFromGroupResponse> {
         const options = ParamCreater().keystoneRemoveProjectPermissionFromGroup(keystoneRemoveProjectPermissionFromGroupRequest);
 
          // @ts-ignore
@@ -1787,7 +1787,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneRemoveUserFromGroup(keystoneRemoveUserFromGroupRequest?: KeystoneRemoveUserFromGroupRequest): Promise<void> {
+    public keystoneRemoveUserFromGroup(keystoneRemoveUserFromGroupRequest?: KeystoneRemoveUserFromGroupRequest): Promise<KeystoneRemoveUserFromGroupResponse> {
         const options = ParamCreater().keystoneRemoveUserFromGroup(keystoneRemoveUserFromGroupRequest);
 
          // @ts-ignore
@@ -2428,7 +2428,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public removeAllProjectsPermissionFromAgency(removeAllProjectsPermissionFromAgencyRequest?: RemoveAllProjectsPermissionFromAgencyRequest): Promise<void> {
+    public removeAllProjectsPermissionFromAgency(removeAllProjectsPermissionFromAgencyRequest?: RemoveAllProjectsPermissionFromAgencyRequest): Promise<RemoveAllProjectsPermissionFromAgencyResponse> {
         const options = ParamCreater().removeAllProjectsPermissionFromAgency(removeAllProjectsPermissionFromAgencyRequest);
 
          // @ts-ignore
@@ -2451,7 +2451,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public removeDomainPermissionFromAgency(removeDomainPermissionFromAgencyRequest?: RemoveDomainPermissionFromAgencyRequest): Promise<void> {
+    public removeDomainPermissionFromAgency(removeDomainPermissionFromAgencyRequest?: RemoveDomainPermissionFromAgencyRequest): Promise<RemoveDomainPermissionFromAgencyResponse> {
         const options = ParamCreater().removeDomainPermissionFromAgency(removeDomainPermissionFromAgencyRequest);
 
          // @ts-ignore
@@ -2473,7 +2473,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public removeProjectPermissionFromAgency(removeProjectPermissionFromAgencyRequest?: RemoveProjectPermissionFromAgencyRequest): Promise<void> {
+    public removeProjectPermissionFromAgency(removeProjectPermissionFromAgencyRequest?: RemoveProjectPermissionFromAgencyRequest): Promise<RemoveProjectPermissionFromAgencyResponse> {
         const options = ParamCreater().removeProjectPermissionFromAgency(removeProjectPermissionFromAgencyRequest);
 
          // @ts-ignore
@@ -2496,7 +2496,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public revokeRoleFromGroupOnEnterpriseProject(revokeRoleFromGroupOnEnterpriseProjectRequest?: RevokeRoleFromGroupOnEnterpriseProjectRequest): Promise<void> {
+    public revokeRoleFromGroupOnEnterpriseProject(revokeRoleFromGroupOnEnterpriseProjectRequest?: RevokeRoleFromGroupOnEnterpriseProjectRequest): Promise<RevokeRoleFromGroupOnEnterpriseProjectResponse> {
         const options = ParamCreater().revokeRoleFromGroupOnEnterpriseProject(revokeRoleFromGroupOnEnterpriseProjectRequest);
 
          // @ts-ignore
@@ -2518,7 +2518,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public revokeRoleFromUserOnEnterpriseProject(revokeRoleFromUserOnEnterpriseProjectRequest?: RevokeRoleFromUserOnEnterpriseProjectRequest): Promise<void> {
+    public revokeRoleFromUserOnEnterpriseProject(revokeRoleFromUserOnEnterpriseProjectRequest?: RevokeRoleFromUserOnEnterpriseProjectRequest): Promise<RevokeRoleFromUserOnEnterpriseProjectResponse> {
         const options = ParamCreater().revokeRoleFromUserOnEnterpriseProject(revokeRoleFromUserOnEnterpriseProjectRequest);
 
          // @ts-ignore
@@ -2934,7 +2934,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateDomainGroupInheritRole(updateDomainGroupInheritRoleRequest?: UpdateDomainGroupInheritRoleRequest): Promise<void> {
+    public updateDomainGroupInheritRole(updateDomainGroupInheritRoleRequest?: UpdateDomainGroupInheritRoleRequest): Promise<UpdateDomainGroupInheritRoleResponse> {
         const options = ParamCreater().updateDomainGroupInheritRole(updateDomainGroupInheritRoleRequest);
 
          // @ts-ignore
@@ -3041,7 +3041,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateProjectStatus(updateProjectStatusRequest?: UpdateProjectStatusRequest): Promise<void> {
+    public updateProjectStatus(updateProjectStatusRequest?: UpdateProjectStatusRequest): Promise<UpdateProjectStatusResponse> {
         const options = ParamCreater().updateProjectStatus(updateProjectStatusRequest);
 
          // @ts-ignore
@@ -3131,7 +3131,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deletePermanentAccessKey(deletePermanentAccessKeyRequest?: DeletePermanentAccessKeyRequest): Promise<void> {
+    public deletePermanentAccessKey(deletePermanentAccessKeyRequest?: DeletePermanentAccessKeyRequest): Promise<DeletePermanentAccessKeyResponse> {
         const options = ParamCreater().deletePermanentAccessKey(deletePermanentAccessKeyRequest);
 
          // @ts-ignore
@@ -3216,7 +3216,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createBindingDevice(createBindingDeviceRequest?: CreateBindingDeviceRequest): Promise<void> {
+    public createBindingDevice(createBindingDeviceRequest?: CreateBindingDeviceRequest): Promise<CreateBindingDeviceResponse> {
         const options = ParamCreater().createBindingDevice(createBindingDeviceRequest);
 
          // @ts-ignore
@@ -3279,7 +3279,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteBindingDevice(deleteBindingDeviceRequest?: DeleteBindingDeviceRequest): Promise<void> {
+    public deleteBindingDevice(deleteBindingDeviceRequest?: DeleteBindingDeviceRequest): Promise<DeleteBindingDeviceResponse> {
         const options = ParamCreater().deleteBindingDevice(deleteBindingDeviceRequest);
 
          // @ts-ignore
@@ -3301,7 +3301,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteMfaDevice(deleteMfaDeviceRequest?: DeleteMfaDeviceRequest): Promise<void> {
+    public deleteMfaDevice(deleteMfaDeviceRequest?: DeleteMfaDeviceRequest): Promise<DeleteMfaDeviceResponse> {
         const options = ParamCreater().deleteMfaDevice(deleteMfaDeviceRequest);
 
          // @ts-ignore
@@ -3343,7 +3343,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneDeleteUser(keystoneDeleteUserRequest?: KeystoneDeleteUserRequest): Promise<void> {
+    public keystoneDeleteUser(keystoneDeleteUserRequest?: KeystoneDeleteUserRequest): Promise<KeystoneDeleteUserResponse> {
         const options = ParamCreater().keystoneDeleteUser(keystoneDeleteUserRequest);
 
          // @ts-ignore
@@ -3453,7 +3453,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneUpdateUserPassword(keystoneUpdateUserPasswordRequest?: KeystoneUpdateUserPasswordRequest): Promise<void> {
+    public keystoneUpdateUserPassword(keystoneUpdateUserPasswordRequest?: KeystoneUpdateUserPasswordRequest): Promise<KeystoneUpdateUserPasswordResponse> {
         const options = ParamCreater().keystoneUpdateUserPassword(keystoneUpdateUserPasswordRequest);
 
          // @ts-ignore
@@ -3622,7 +3622,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateUserInformation(updateUserInformationRequest?: UpdateUserInformationRequest): Promise<void> {
+    public updateUserInformation(updateUserInformationRequest?: UpdateUserInformationRequest): Promise<UpdateUserInformationResponse> {
         const options = ParamCreater().updateUserInformation(updateUserInformationRequest);
 
          // @ts-ignore

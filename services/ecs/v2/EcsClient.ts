@@ -331,7 +331,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public addServerGroupMember(addServerGroupMemberRequest?: AddServerGroupMemberRequest): Promise<void> {
+    public addServerGroupMember(addServerGroupMemberRequest?: AddServerGroupMemberRequest): Promise<AddServerGroupMemberResponse> {
         const options = ParamCreater().addServerGroupMember(addServerGroupMemberRequest);
 
          // @ts-ignore
@@ -439,7 +439,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchCreateServerTags(batchCreateServerTagsRequest?: BatchCreateServerTagsRequest): Promise<void> {
+    public batchCreateServerTags(batchCreateServerTagsRequest?: BatchCreateServerTagsRequest): Promise<BatchCreateServerTagsResponse> {
         const options = ParamCreater().batchCreateServerTags(batchCreateServerTagsRequest);
 
          // @ts-ignore
@@ -481,7 +481,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchDeleteServerTags(batchDeleteServerTagsRequest?: BatchDeleteServerTagsRequest): Promise<void> {
+    public batchDeleteServerTags(batchDeleteServerTagsRequest?: BatchDeleteServerTagsRequest): Promise<BatchDeleteServerTagsResponse> {
         const options = ParamCreater().batchDeleteServerTags(batchDeleteServerTagsRequest);
 
          // @ts-ignore
@@ -738,7 +738,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteServerGroup(deleteServerGroupRequest?: DeleteServerGroupRequest): Promise<void> {
+    public deleteServerGroup(deleteServerGroupRequest?: DeleteServerGroupRequest): Promise<DeleteServerGroupResponse> {
         const options = ParamCreater().deleteServerGroup(deleteServerGroupRequest);
 
          // @ts-ignore
@@ -758,7 +758,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteServerGroupMember(deleteServerGroupMemberRequest?: DeleteServerGroupMemberRequest): Promise<void> {
+    public deleteServerGroupMember(deleteServerGroupMemberRequest?: DeleteServerGroupMemberRequest): Promise<DeleteServerGroupMemberResponse> {
         const options = ParamCreater().deleteServerGroupMember(deleteServerGroupMemberRequest);
 
          // @ts-ignore
@@ -778,7 +778,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteServerMetadata(deleteServerMetadataRequest?: DeleteServerMetadataRequest): Promise<void> {
+    public deleteServerMetadata(deleteServerMetadataRequest?: DeleteServerMetadataRequest): Promise<DeleteServerMetadataResponse> {
         const options = ParamCreater().deleteServerMetadata(deleteServerMetadataRequest);
 
          // @ts-ignore
@@ -797,7 +797,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteServerPassword(deleteServerPasswordRequest?: DeleteServerPasswordRequest): Promise<void> {
+    public deleteServerPassword(deleteServerPasswordRequest?: DeleteServerPasswordRequest): Promise<DeleteServerPasswordResponse> {
         const options = ParamCreater().deleteServerPassword(deleteServerPasswordRequest);
 
          // @ts-ignore
@@ -1080,7 +1080,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest?: NovaAssociateSecurityGroupRequest): Promise<void> {
+    public novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest?: NovaAssociateSecurityGroupRequest): Promise<NovaAssociateSecurityGroupResponse> {
         const options = ParamCreater().novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest);
 
          // @ts-ignore
@@ -1145,7 +1145,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public novaDeleteKeypair(novaDeleteKeypairRequest?: NovaDeleteKeypairRequest): Promise<void> {
+    public novaDeleteKeypair(novaDeleteKeypairRequest?: NovaDeleteKeypairRequest): Promise<NovaDeleteKeypairResponse> {
         const options = ParamCreater().novaDeleteKeypair(novaDeleteKeypairRequest);
 
          // @ts-ignore
@@ -1164,7 +1164,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public novaDeleteServer(novaDeleteServerRequest?: NovaDeleteServerRequest): Promise<void> {
+    public novaDeleteServer(novaDeleteServerRequest?: NovaDeleteServerRequest): Promise<NovaDeleteServerResponse> {
         const options = ParamCreater().novaDeleteServer(novaDeleteServerRequest);
 
          // @ts-ignore
@@ -1184,7 +1184,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public novaDisassociateSecurityGroup(novaDisassociateSecurityGroupRequest?: NovaDisassociateSecurityGroupRequest): Promise<void> {
+    public novaDisassociateSecurityGroup(novaDisassociateSecurityGroupRequest?: NovaDisassociateSecurityGroupRequest): Promise<NovaDisassociateSecurityGroupResponse> {
         const options = ParamCreater().novaDisassociateSecurityGroup(novaDisassociateSecurityGroupRequest);
 
          // @ts-ignore
@@ -1333,7 +1333,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public registerServerAutoRecovery(registerServerAutoRecoveryRequest?: RegisterServerAutoRecoveryRequest): Promise<void> {
+    public registerServerAutoRecovery(registerServerAutoRecoveryRequest?: RegisterServerAutoRecoveryRequest): Promise<RegisterServerAutoRecoveryResponse> {
         const options = ParamCreater().registerServerAutoRecovery(registerServerAutoRecoveryRequest);
 
          // @ts-ignore
@@ -1355,7 +1355,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public registerServerMonitor(registerServerMonitorRequest?: RegisterServerMonitorRequest): Promise<void> {
+    public registerServerMonitor(registerServerMonitorRequest?: RegisterServerMonitorRequest): Promise<RegisterServerMonitorResponse> {
         const options = ParamCreater().registerServerMonitor(registerServerMonitorRequest);
 
          // @ts-ignore
@@ -1419,7 +1419,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public resetServerPassword(resetServerPasswordRequest?: ResetServerPasswordRequest): Promise<void> {
+    public resetServerPassword(resetServerPasswordRequest?: ResetServerPasswordRequest): Promise<ResetServerPasswordResponse> {
         const options = ParamCreater().resetServerPassword(resetServerPasswordRequest);
 
          // @ts-ignore
@@ -1691,7 +1691,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest?: UpdateServerAutoTerminateTimeRequest): Promise<void> {
+    public updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest?: UpdateServerAutoTerminateTimeRequest): Promise<UpdateServerAutoTerminateTimeResponse> {
         const options = ParamCreater().updateServerAutoTerminateTime(updateServerAutoTerminateTimeRequest);
 
          // @ts-ignore
@@ -1712,7 +1712,7 @@ export class EcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateServerBlockDevice(updateServerBlockDeviceRequest?: UpdateServerBlockDeviceRequest): Promise<void> {
+    public updateServerBlockDevice(updateServerBlockDeviceRequest?: UpdateServerBlockDeviceRequest): Promise<UpdateServerBlockDeviceResponse> {
         const options = ParamCreater().updateServerBlockDevice(updateServerBlockDeviceRequest);
 
          // @ts-ignore

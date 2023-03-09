@@ -250,7 +250,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest?: BatchCreateOrDeleteTagsRequest): Promise<void> {
+    public batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest?: BatchCreateOrDeleteTagsRequest): Promise<BatchCreateOrDeleteTagsResponse> {
         const options = ParamCreater().batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest);
 
          // @ts-ignore
@@ -330,7 +330,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public changeMasterStandby(changeMasterStandbyRequest?: ChangeMasterStandbyRequest): Promise<void> {
+    public changeMasterStandby(changeMasterStandbyRequest?: ChangeMasterStandbyRequest): Promise<ChangeMasterStandbyResponse> {
         const options = ParamCreater().changeMasterStandby(changeMasterStandbyRequest);
 
          // @ts-ignore
@@ -530,7 +530,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createRedislog(createRedislogRequest?: CreateRedislogRequest): Promise<void> {
+    public createRedislog(createRedislogRequest?: CreateRedislogRequest): Promise<CreateRedislogResponse> {
         const options = ParamCreater().createRedislog(createRedislogRequest);
 
          // @ts-ignore
@@ -570,7 +570,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteBackgroundTask(deleteBackgroundTaskRequest?: DeleteBackgroundTaskRequest): Promise<void> {
+    public deleteBackgroundTask(deleteBackgroundTaskRequest?: DeleteBackgroundTaskRequest): Promise<DeleteBackgroundTaskResponse> {
         const options = ParamCreater().deleteBackgroundTask(deleteBackgroundTaskRequest);
 
          // @ts-ignore
@@ -590,7 +590,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteBackupFile(deleteBackupFileRequest?: DeleteBackupFileRequest): Promise<void> {
+    public deleteBackupFile(deleteBackupFileRequest?: DeleteBackupFileRequest): Promise<DeleteBackupFileResponse> {
         const options = ParamCreater().deleteBackupFile(deleteBackupFileRequest);
 
          // @ts-ignore
@@ -610,7 +610,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteBigkeyScanTask(deleteBigkeyScanTaskRequest?: DeleteBigkeyScanTaskRequest): Promise<void> {
+    public deleteBigkeyScanTask(deleteBigkeyScanTaskRequest?: DeleteBigkeyScanTaskRequest): Promise<DeleteBigkeyScanTaskResponse> {
         const options = ParamCreater().deleteBigkeyScanTask(deleteBigkeyScanTaskRequest);
 
          // @ts-ignore
@@ -630,7 +630,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteHotkeyScanTask(deleteHotkeyScanTaskRequest?: DeleteHotkeyScanTaskRequest): Promise<void> {
+    public deleteHotkeyScanTask(deleteHotkeyScanTaskRequest?: DeleteHotkeyScanTaskRequest): Promise<DeleteHotkeyScanTaskResponse> {
         const options = ParamCreater().deleteHotkeyScanTask(deleteHotkeyScanTaskRequest);
 
          // @ts-ignore
@@ -691,7 +691,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteSingleInstance(deleteSingleInstanceRequest?: DeleteSingleInstanceRequest): Promise<void> {
+    public deleteSingleInstance(deleteSingleInstanceRequest?: DeleteSingleInstanceRequest): Promise<DeleteSingleInstanceResponse> {
         const options = ParamCreater().deleteSingleInstance(deleteSingleInstanceRequest);
 
          // @ts-ignore
@@ -1180,7 +1180,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public resizeInstance(resizeInstanceRequest?: ResizeInstanceRequest): Promise<void> {
+    public resizeInstance(resizeInstanceRequest?: ResizeInstanceRequest): Promise<ResizeInstanceResponse> {
         const options = ParamCreater().resizeInstance(resizeInstanceRequest);
 
          // @ts-ignore
@@ -1471,7 +1471,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public stopMigrationTaskSync(stopMigrationTaskSyncRequest?: StopMigrationTaskSyncRequest): Promise<void> {
+    public stopMigrationTaskSync(stopMigrationTaskSyncRequest?: StopMigrationTaskSyncRequest): Promise<StopMigrationTaskSyncResponse> {
         const options = ParamCreater().stopMigrationTaskSync(stopMigrationTaskSyncRequest);
 
          // @ts-ignore
@@ -1511,7 +1511,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateConfigurations(updateConfigurationsRequest?: UpdateConfigurationsRequest): Promise<void> {
+    public updateConfigurations(updateConfigurationsRequest?: UpdateConfigurationsRequest): Promise<UpdateConfigurationsResponse> {
         const options = ParamCreater().updateConfigurations(updateConfigurationsRequest);
 
          // @ts-ignore
@@ -1551,7 +1551,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateInstance(updateInstanceRequest?: UpdateInstanceRequest): Promise<void> {
+    public updateInstance(updateInstanceRequest?: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
         const options = ParamCreater().updateInstance(updateInstanceRequest);
 
          // @ts-ignore
@@ -1593,7 +1593,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateSlavePriority(updateSlavePriorityRequest?: UpdateSlavePriorityRequest): Promise<void> {
+    public updateSlavePriority(updateSlavePriorityRequest?: UpdateSlavePriorityRequest): Promise<UpdateSlavePriorityResponse> {
         const options = ParamCreater().updateSlavePriority(updateSlavePriorityRequest);
 
          // @ts-ignore
@@ -1632,7 +1632,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateIpWhitelist(updateIpWhitelistRequest?: UpdateIpWhitelistRequest): Promise<void> {
+    public updateIpWhitelist(updateIpWhitelistRequest?: UpdateIpWhitelistRequest): Promise<UpdateIpWhitelistResponse> {
         const options = ParamCreater().updateIpWhitelist(updateIpWhitelistRequest);
 
          // @ts-ignore

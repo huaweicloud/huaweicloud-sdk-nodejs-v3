@@ -268,7 +268,7 @@ export class VpcepClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteEndpoint(deleteEndpointRequest?: DeleteEndpointRequest): Promise<void> {
+    public deleteEndpoint(deleteEndpointRequest?: DeleteEndpointRequest): Promise<DeleteEndpointResponse> {
         const options = ParamCreater().deleteEndpoint(deleteEndpointRequest);
 
          // @ts-ignore
@@ -310,7 +310,7 @@ export class VpcepClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteEndpointService(deleteEndpointServiceRequest?: DeleteEndpointServiceRequest): Promise<void> {
+    public deleteEndpointService(deleteEndpointServiceRequest?: DeleteEndpointServiceRequest): Promise<DeleteEndpointServiceResponse> {
         const options = ParamCreater().deleteEndpointService(deleteEndpointServiceRequest);
 
          // @ts-ignore
@@ -752,7 +752,7 @@ export class VpcepClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchAddOrRemoveResourceInstance(batchAddOrRemoveResourceInstanceRequest?: BatchAddOrRemoveResourceInstanceRequest): Promise<void> {
+    public batchAddOrRemoveResourceInstance(batchAddOrRemoveResourceInstanceRequest?: BatchAddOrRemoveResourceInstanceRequest): Promise<BatchAddOrRemoveResourceInstanceResponse> {
         const options = ParamCreater().batchAddOrRemoveResourceInstance(batchAddOrRemoveResourceInstanceRequest);
 
          // @ts-ignore

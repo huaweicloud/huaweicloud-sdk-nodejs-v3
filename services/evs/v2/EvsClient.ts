@@ -155,7 +155,7 @@ export class EvsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchCreateVolumeTags(batchCreateVolumeTagsRequest?: BatchCreateVolumeTagsRequest): Promise<void> {
+    public batchCreateVolumeTags(batchCreateVolumeTagsRequest?: BatchCreateVolumeTagsRequest): Promise<BatchCreateVolumeTagsResponse> {
         const options = ParamCreater().batchCreateVolumeTags(batchCreateVolumeTagsRequest);
 
          // @ts-ignore
@@ -175,7 +175,7 @@ export class EvsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchDeleteVolumeTags(batchDeleteVolumeTagsRequest?: BatchDeleteVolumeTagsRequest): Promise<void> {
+    public batchDeleteVolumeTags(batchDeleteVolumeTagsRequest?: BatchDeleteVolumeTagsRequest): Promise<BatchDeleteVolumeTagsResponse> {
         const options = ParamCreater().batchDeleteVolumeTags(batchDeleteVolumeTagsRequest);
 
          // @ts-ignore
@@ -234,7 +234,7 @@ export class EvsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public cinderDeleteVolumeTransfer(cinderDeleteVolumeTransferRequest?: CinderDeleteVolumeTransferRequest): Promise<void> {
+    public cinderDeleteVolumeTransfer(cinderDeleteVolumeTransferRequest?: CinderDeleteVolumeTransferRequest): Promise<CinderDeleteVolumeTransferResponse> {
         const options = ParamCreater().cinderDeleteVolumeTransfer(cinderDeleteVolumeTransferRequest);
 
          // @ts-ignore
@@ -391,7 +391,7 @@ export class EvsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteSnapshot(deleteSnapshotRequest?: DeleteSnapshotRequest): Promise<void> {
+    public deleteSnapshot(deleteSnapshotRequest?: DeleteSnapshotRequest): Promise<DeleteSnapshotResponse> {
         const options = ParamCreater().deleteSnapshot(deleteSnapshotRequest);
 
          // @ts-ignore
@@ -692,7 +692,7 @@ export class EvsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listVersions(): Promise<void> {
+    public listVersions(): Promise<ListVersionsResponse> {
         const options = ParamCreater().listVersions();
 
          // @ts-ignore

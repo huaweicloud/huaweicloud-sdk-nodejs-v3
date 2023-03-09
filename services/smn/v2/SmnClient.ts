@@ -161,7 +161,7 @@ export class SmnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchCreateOrDeleteResourceTags(batchCreateOrDeleteResourceTagsRequest?: BatchCreateOrDeleteResourceTagsRequest): Promise<void> {
+    public batchCreateOrDeleteResourceTags(batchCreateOrDeleteResourceTagsRequest?: BatchCreateOrDeleteResourceTagsRequest): Promise<BatchCreateOrDeleteResourceTagsResponse> {
         const options = ParamCreater().batchCreateOrDeleteResourceTags(batchCreateOrDeleteResourceTagsRequest);
 
          // @ts-ignore
@@ -221,7 +221,7 @@ export class SmnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createResourceTag(createResourceTagRequest?: CreateResourceTagRequest): Promise<void> {
+    public createResourceTag(createResourceTagRequest?: CreateResourceTagRequest): Promise<CreateResourceTagResponse> {
         const options = ParamCreater().createResourceTag(createResourceTagRequest);
 
          // @ts-ignore
@@ -281,7 +281,7 @@ export class SmnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteResourceTag(deleteResourceTagRequest?: DeleteResourceTagRequest): Promise<void> {
+    public deleteResourceTag(deleteResourceTagRequest?: DeleteResourceTagRequest): Promise<DeleteResourceTagResponse> {
         const options = ParamCreater().deleteResourceTag(deleteResourceTagRequest);
 
          // @ts-ignore

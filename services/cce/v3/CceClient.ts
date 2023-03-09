@@ -263,7 +263,7 @@ export class CceClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public awakeCluster(awakeClusterRequest?: AwakeClusterRequest): Promise<void> {
+    public awakeCluster(awakeClusterRequest?: AwakeClusterRequest): Promise<AwakeClusterResponse> {
         const options = ParamCreater().awakeCluster(awakeClusterRequest);
 
          // @ts-ignore
@@ -284,7 +284,7 @@ export class CceClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public continueUpgradeClusterTask(continueUpgradeClusterTaskRequest?: ContinueUpgradeClusterTaskRequest): Promise<void> {
+    public continueUpgradeClusterTask(continueUpgradeClusterTaskRequest?: ContinueUpgradeClusterTaskRequest): Promise<ContinueUpgradeClusterTaskResponse> {
         const options = ParamCreater().continueUpgradeClusterTask(continueUpgradeClusterTaskRequest);
 
          // @ts-ignore
@@ -447,7 +447,7 @@ export class CceClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteAddonInstance(deleteAddonInstanceRequest?: DeleteAddonInstanceRequest): Promise<string> {
+    public deleteAddonInstance(deleteAddonInstanceRequest?: DeleteAddonInstanceRequest): Promise<DeleteAddonInstanceResponse> {
         const options = ParamCreater().deleteAddonInstance(deleteAddonInstanceRequest);
 
          // @ts-ignore
@@ -566,7 +566,7 @@ export class CceClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public hibernateCluster(hibernateClusterRequest?: HibernateClusterRequest): Promise<void> {
+    public hibernateCluster(hibernateClusterRequest?: HibernateClusterRequest): Promise<HibernateClusterResponse> {
         const options = ParamCreater().hibernateCluster(hibernateClusterRequest);
 
          // @ts-ignore
@@ -719,7 +719,7 @@ export class CceClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public pauseUpgradeClusterTask(pauseUpgradeClusterTaskRequest?: PauseUpgradeClusterTaskRequest): Promise<void> {
+    public pauseUpgradeClusterTask(pauseUpgradeClusterTaskRequest?: PauseUpgradeClusterTaskRequest): Promise<PauseUpgradeClusterTaskResponse> {
         const options = ParamCreater().pauseUpgradeClusterTask(pauseUpgradeClusterTaskRequest);
 
          // @ts-ignore
@@ -784,7 +784,7 @@ export class CceClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public retryUpgradeClusterTask(retryUpgradeClusterTaskRequest?: RetryUpgradeClusterTaskRequest): Promise<void> {
+    public retryUpgradeClusterTask(retryUpgradeClusterTaskRequest?: RetryUpgradeClusterTaskRequest): Promise<RetryUpgradeClusterTaskResponse> {
         const options = ParamCreater().retryUpgradeClusterTask(retryUpgradeClusterTaskRequest);
 
          // @ts-ignore

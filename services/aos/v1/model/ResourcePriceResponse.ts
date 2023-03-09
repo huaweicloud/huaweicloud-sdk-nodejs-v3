@@ -2,9 +2,9 @@
 
 export class ResourcePriceResponse {
     private 'charge_mode'?: ResourcePriceResponseChargeModeEnum | undefined;
-    private 'sale_price'?: object | undefined;
-    public discount?: object;
-    private 'original_price'?: object | undefined;
+    private 'sale_price'?: number | undefined;
+    public discount?: number;
+    private 'original_price'?: number | undefined;
     private 'period_type'?: ResourcePriceResponsePeriodTypeEnum | undefined;
     private 'period_count'?: number | undefined;
     public constructor() { 
@@ -19,25 +19,25 @@ export class ResourcePriceResponse {
     public get chargeMode() {
         return this['charge_mode'];
     }
-    public withSalePrice(salePrice: object): ResourcePriceResponse {
+    public withSalePrice(salePrice: number): ResourcePriceResponse {
         this['sale_price'] = salePrice;
         return this;
     }
-    public set salePrice(salePrice: object | undefined) {
+    public set salePrice(salePrice: number | undefined) {
         this['sale_price'] = salePrice;
     }
     public get salePrice() {
         return this['sale_price'];
     }
-    public withDiscount(discount: object): ResourcePriceResponse {
+    public withDiscount(discount: number): ResourcePriceResponse {
         this['discount'] = discount;
         return this;
     }
-    public withOriginalPrice(originalPrice: object): ResourcePriceResponse {
+    public withOriginalPrice(originalPrice: number): ResourcePriceResponse {
         this['original_price'] = originalPrice;
         return this;
     }
-    public set originalPrice(originalPrice: object | undefined) {
+    public set originalPrice(originalPrice: number | undefined) {
         this['original_price'] = originalPrice;
     }
     public get originalPrice() {
@@ -81,7 +81,6 @@ export enum ResourcePriceResponseChargeModeEnum {
 export enum ResourcePriceResponsePeriodTypeEnum {
     HOUR = 'HOUR',
     DAY = 'DAY',
-    WEEK = 'WEEK',
     MONTH = 'MONTH',
     YEAR = 'YEAR',
     BYTE = 'BYTE',

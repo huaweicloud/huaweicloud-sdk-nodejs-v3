@@ -20,16 +20,15 @@
  */
 
 export class SignerUtil {
-    constructor() { } 
     // 返回请求的绝对路径
-    static checkUrl(method: string, url: string) {
+    static checkUrl(url: string) {
         return this.getUrl(url) + "/";
     }
     static getUrl(url: string) {
-        var arrUrl = url.split("//");
+        const arrUrl = url.split("//");
 
-        var start = arrUrl[1].indexOf("/");
-        var relUrl = arrUrl[1].substring(start); //stop省略，截取从start开始到结尾的所有字符
+        const start = arrUrl[1].indexOf("/");
+        let relUrl = arrUrl[1].substring(start); //stop省略，截取从start开始到结尾的所有字符
 
         if (relUrl.indexOf("?") != -1) {
             relUrl = relUrl.split("?")[0];
@@ -48,7 +47,7 @@ export class SignerUtil {
                 } else if (obj.code) {
                     code = obj.code
                 } else {
-                    for (let key in obj) {
+                    for (const key in obj) {
                         if (obj[key].code) {
                             code = obj[key].code
                         }
@@ -63,7 +62,7 @@ export class SignerUtil {
                 } else if (obj.message) {
                     mes = obj.message
                 } else {
-                    for (let key in obj) {
+                    for (const key in obj) {
                         if (obj[key].message) {
                             mes = obj[key].message
                         }

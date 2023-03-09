@@ -1,27 +1,38 @@
+import { ExecutionPlanDescriptionPrimitiveTypeHolder } from './ExecutionPlanDescriptionPrimitiveTypeHolder';
+import { ExecutionPlanIdPrimitiveTypeHolder } from './ExecutionPlanIdPrimitiveTypeHolder';
+import { ExecutionPlanNamePrimitiveTypeHolder } from './ExecutionPlanNamePrimitiveTypeHolder';
+import { ExecutionPlanStatusMessagePrimitiveTypeHolder } from './ExecutionPlanStatusMessagePrimitiveTypeHolder';
+import { ExecutionPlanStatusPrimitiveTypeHolder } from './ExecutionPlanStatusPrimitiveTypeHolder';
 import { ExecutionPlanSummary } from './ExecutionPlanSummary';
+import { StackIdPrimitiveTypeHolder } from './StackIdPrimitiveTypeHolder';
+import { StackNamePrimitiveTypeHolder } from './StackNamePrimitiveTypeHolder';
+import { VarsBodyPrimitiveTypeHolder } from './VarsBodyPrimitiveTypeHolder';
 import { VarsStructure } from './VarsStructure';
+import { VarsStructurePrimitiveTypeHolder } from './VarsStructurePrimitiveTypeHolder';
+import { VarsUriContentPrimitiveTypeHolder } from './VarsUriContentPrimitiveTypeHolder';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
-export class DescribeExecutionPlanResponse extends SdkResponse {
+export class GetExecutionPlanMetadataResponse extends SdkResponse {
     private 'stack_id'?: string | undefined;
-    private 'stack_name'?: string | undefined;
+    private 'stack_name': string | undefined;
     private 'execution_plan_id'?: string | undefined;
-    private 'execution_plan_name'?: string | undefined;
+    private 'execution_plan_name': string | undefined;
     public description?: string;
     private 'vars_structure'?: Array<VarsStructure> | undefined;
     private 'vars_uri_content'?: string | undefined;
     private 'vars_body'?: string | undefined;
-    private 'processed_vars'?: string | undefined;
+    public status?: GetExecutionPlanMetadataResponseStatusEnum;
+    private 'status_message'?: string | undefined;
     private 'create_time'?: string | undefined;
     private 'apply_time'?: string | undefined;
-    public status?: DescribeExecutionPlanResponseStatusEnum;
-    private 'status_message'?: string | undefined;
     public summary?: ExecutionPlanSummary;
-    public constructor() { 
+    public constructor(stackName?: any, executionPlanName?: any) { 
         super();
+        this['stack_name'] = stackName;
+        this['execution_plan_name'] = executionPlanName;
     }
-    public withStackId(stackId: string): DescribeExecutionPlanResponse {
+    public withStackId(stackId: string): GetExecutionPlanMetadataResponse {
         this['stack_id'] = stackId;
         return this;
     }
@@ -31,7 +42,7 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     public get stackId() {
         return this['stack_id'];
     }
-    public withStackName(stackName: string): DescribeExecutionPlanResponse {
+    public withStackName(stackName: string): GetExecutionPlanMetadataResponse {
         this['stack_name'] = stackName;
         return this;
     }
@@ -41,7 +52,7 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     public get stackName() {
         return this['stack_name'];
     }
-    public withExecutionPlanId(executionPlanId: string): DescribeExecutionPlanResponse {
+    public withExecutionPlanId(executionPlanId: string): GetExecutionPlanMetadataResponse {
         this['execution_plan_id'] = executionPlanId;
         return this;
     }
@@ -51,7 +62,7 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     public get executionPlanId() {
         return this['execution_plan_id'];
     }
-    public withExecutionPlanName(executionPlanName: string): DescribeExecutionPlanResponse {
+    public withExecutionPlanName(executionPlanName: string): GetExecutionPlanMetadataResponse {
         this['execution_plan_name'] = executionPlanName;
         return this;
     }
@@ -61,11 +72,11 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     public get executionPlanName() {
         return this['execution_plan_name'];
     }
-    public withDescription(description: string): DescribeExecutionPlanResponse {
+    public withDescription(description: string): GetExecutionPlanMetadataResponse {
         this['description'] = description;
         return this;
     }
-    public withVarsStructure(varsStructure: Array<VarsStructure>): DescribeExecutionPlanResponse {
+    public withVarsStructure(varsStructure: Array<VarsStructure>): GetExecutionPlanMetadataResponse {
         this['vars_structure'] = varsStructure;
         return this;
     }
@@ -75,7 +86,7 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     public get varsStructure() {
         return this['vars_structure'];
     }
-    public withVarsUriContent(varsUriContent: string): DescribeExecutionPlanResponse {
+    public withVarsUriContent(varsUriContent: string): GetExecutionPlanMetadataResponse {
         this['vars_uri_content'] = varsUriContent;
         return this;
     }
@@ -85,7 +96,7 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     public get varsUriContent() {
         return this['vars_uri_content'];
     }
-    public withVarsBody(varsBody: string): DescribeExecutionPlanResponse {
+    public withVarsBody(varsBody: string): GetExecutionPlanMetadataResponse {
         this['vars_body'] = varsBody;
         return this;
     }
@@ -95,41 +106,11 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     public get varsBody() {
         return this['vars_body'];
     }
-    public withProcessedVars(processedVars: string): DescribeExecutionPlanResponse {
-        this['processed_vars'] = processedVars;
-        return this;
-    }
-    public set processedVars(processedVars: string | undefined) {
-        this['processed_vars'] = processedVars;
-    }
-    public get processedVars() {
-        return this['processed_vars'];
-    }
-    public withCreateTime(createTime: string): DescribeExecutionPlanResponse {
-        this['create_time'] = createTime;
-        return this;
-    }
-    public set createTime(createTime: string | undefined) {
-        this['create_time'] = createTime;
-    }
-    public get createTime() {
-        return this['create_time'];
-    }
-    public withApplyTime(applyTime: string): DescribeExecutionPlanResponse {
-        this['apply_time'] = applyTime;
-        return this;
-    }
-    public set applyTime(applyTime: string | undefined) {
-        this['apply_time'] = applyTime;
-    }
-    public get applyTime() {
-        return this['apply_time'];
-    }
-    public withStatus(status: DescribeExecutionPlanResponseStatusEnum): DescribeExecutionPlanResponse {
+    public withStatus(status: GetExecutionPlanMetadataResponseStatusEnum): GetExecutionPlanMetadataResponse {
         this['status'] = status;
         return this;
     }
-    public withStatusMessage(statusMessage: string): DescribeExecutionPlanResponse {
+    public withStatusMessage(statusMessage: string): GetExecutionPlanMetadataResponse {
         this['status_message'] = statusMessage;
         return this;
     }
@@ -139,7 +120,27 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     public get statusMessage() {
         return this['status_message'];
     }
-    public withSummary(summary: ExecutionPlanSummary): DescribeExecutionPlanResponse {
+    public withCreateTime(createTime: string): GetExecutionPlanMetadataResponse {
+        this['create_time'] = createTime;
+        return this;
+    }
+    public set createTime(createTime: string | undefined) {
+        this['create_time'] = createTime;
+    }
+    public get createTime() {
+        return this['create_time'];
+    }
+    public withApplyTime(applyTime: string): GetExecutionPlanMetadataResponse {
+        this['apply_time'] = applyTime;
+        return this;
+    }
+    public set applyTime(applyTime: string | undefined) {
+        this['apply_time'] = applyTime;
+    }
+    public get applyTime() {
+        return this['apply_time'];
+    }
+    public withSummary(summary: ExecutionPlanSummary): GetExecutionPlanMetadataResponse {
         this['summary'] = summary;
         return this;
     }
@@ -149,7 +150,7 @@ export class DescribeExecutionPlanResponse extends SdkResponse {
     * @export
     * @enum {string}
     */
-export enum DescribeExecutionPlanResponseStatusEnum {
+export enum GetExecutionPlanMetadataResponseStatusEnum {
     CREATION_IN_PROGRESS = 'CREATION_IN_PROGRESS',
     CREATION_FAILED = 'CREATION_FAILED',
     AVAILABLE = 'AVAILABLE',

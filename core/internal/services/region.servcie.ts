@@ -28,7 +28,7 @@ export class RegionService {
         this.client = client;
     }
 
-    keystoneListRegions(): Promise<KeystoneListRegionsResponse> {
+    async keystoneListRegions(): Promise<KeystoneListRegionsResponse> {
         const options = {
             method: "GET",
             url: "/v3/regions",
@@ -40,7 +40,6 @@ export class RegionService {
         };
         const localVarHeaderParameter = {} as any;
         options.headers = localVarHeaderParameter;
-        options['responseHeaders'] = [''];
-        return this.client.sendRequest(options);
+        return await this.client.sendRequest(options);
     }
 }

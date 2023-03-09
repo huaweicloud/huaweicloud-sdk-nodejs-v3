@@ -157,7 +157,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public addImageTag(addImageTagRequest?: AddImageTagRequest): Promise<void> {
+    public addImageTag(addImageTagRequest?: AddImageTagRequest): Promise<AddImageTagResponse> {
         const options = ParamCreater().addImageTag(addImageTagRequest);
 
          // @ts-ignore
@@ -197,7 +197,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchAddOrDeleteTags(batchAddOrDeleteTagsRequest?: BatchAddOrDeleteTagsRequest): Promise<void> {
+    public batchAddOrDeleteTags(batchAddOrDeleteTagsRequest?: BatchAddOrDeleteTagsRequest): Promise<BatchAddOrDeleteTagsResponse> {
         const options = ParamCreater().batchAddOrDeleteTags(batchAddOrDeleteTagsRequest);
 
          // @ts-ignore
@@ -348,7 +348,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createOrUpdateTags(createOrUpdateTagsRequest?: CreateOrUpdateTagsRequest): Promise<void> {
+    public createOrUpdateTags(createOrUpdateTagsRequest?: CreateOrUpdateTagsRequest): Promise<CreateOrUpdateTagsResponse> {
         const options = ParamCreater().createOrUpdateTags(createOrUpdateTagsRequest);
 
          // @ts-ignore
@@ -387,7 +387,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteImageTag(deleteImageTagRequest?: DeleteImageTagRequest): Promise<void> {
+    public deleteImageTag(deleteImageTagRequest?: DeleteImageTagRequest): Promise<DeleteImageTagResponse> {
         const options = ParamCreater().deleteImageTag(deleteImageTagRequest);
 
          // @ts-ignore
@@ -559,7 +559,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listOsVersions(listOsVersionsRequest?: ListOsVersionsRequest): Promise<Array<ListOsVersionsResponseBody>> {
+    public listOsVersions(listOsVersionsRequest?: ListOsVersionsRequest): Promise<ListOsVersionsResponse> {
         const options = ParamCreater().listOsVersions(listOsVersionsRequest);
 
          // @ts-ignore
@@ -790,7 +790,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public glanceCreateTag(glanceCreateTagRequest?: GlanceCreateTagRequest): Promise<void> {
+    public glanceCreateTag(glanceCreateTagRequest?: GlanceCreateTagRequest): Promise<GlanceCreateTagResponse> {
         const options = ParamCreater().glanceCreateTag(glanceCreateTagRequest);
 
          // @ts-ignore
@@ -810,7 +810,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public glanceDeleteImage(glanceDeleteImageRequest?: GlanceDeleteImageRequest): Promise<void> {
+    public glanceDeleteImage(glanceDeleteImageRequest?: GlanceDeleteImageRequest): Promise<GlanceDeleteImageResponse> {
         const options = ParamCreater().glanceDeleteImage(glanceDeleteImageRequest);
 
          // @ts-ignore
@@ -830,7 +830,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public glanceDeleteImageMember(glanceDeleteImageMemberRequest?: GlanceDeleteImageMemberRequest): Promise<void> {
+    public glanceDeleteImageMember(glanceDeleteImageMemberRequest?: GlanceDeleteImageMemberRequest): Promise<GlanceDeleteImageMemberResponse> {
         const options = ParamCreater().glanceDeleteImageMember(glanceDeleteImageMemberRequest);
 
          // @ts-ignore
@@ -850,7 +850,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public glanceDeleteTag(glanceDeleteTagRequest?: GlanceDeleteTagRequest): Promise<void> {
+    public glanceDeleteTag(glanceDeleteTagRequest?: GlanceDeleteTagRequest): Promise<GlanceDeleteTagResponse> {
         const options = ParamCreater().glanceDeleteTag(glanceDeleteTagRequest);
 
          // @ts-ignore

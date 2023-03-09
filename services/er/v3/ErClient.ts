@@ -162,7 +162,7 @@ export class ErClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public disassociateRouteTable(disassociateRouteTableRequest?: DisassociateRouteTableRequest): Promise<void> {
+    public disassociateRouteTable(disassociateRouteTableRequest?: DisassociateRouteTableRequest): Promise<DisassociateRouteTableResponse> {
         const options = ParamCreater().disassociateRouteTable(disassociateRouteTableRequest);
 
          // @ts-ignore
@@ -334,7 +334,7 @@ export class ErClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteEnterpriseRouter(deleteEnterpriseRouterRequest?: DeleteEnterpriseRouterRequest): Promise<void> {
+    public deleteEnterpriseRouter(deleteEnterpriseRouterRequest?: DeleteEnterpriseRouterRequest): Promise<DeleteEnterpriseRouterResponse> {
         const options = ParamCreater().deleteEnterpriseRouter(deleteEnterpriseRouterRequest);
 
          // @ts-ignore
@@ -420,7 +420,7 @@ export class ErClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public disablePropagation(disablePropagationRequest?: DisablePropagationRequest): Promise<void> {
+    public disablePropagation(disablePropagationRequest?: DisablePropagationRequest): Promise<DisablePropagationResponse> {
         const options = ParamCreater().disablePropagation(disablePropagationRequest);
 
          // @ts-ignore
@@ -510,7 +510,7 @@ export class ErClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteStaticRoute(deleteStaticRouteRequest?: DeleteStaticRouteRequest): Promise<void> {
+    public deleteStaticRoute(deleteStaticRouteRequest?: DeleteStaticRouteRequest): Promise<DeleteStaticRouteResponse> {
         const options = ParamCreater().deleteStaticRoute(deleteStaticRouteRequest);
 
          // @ts-ignore
@@ -641,7 +641,7 @@ export class ErClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteRouteTable(deleteRouteTableRequest?: DeleteRouteTableRequest): Promise<void> {
+    public deleteRouteTable(deleteRouteTableRequest?: DeleteRouteTableRequest): Promise<DeleteRouteTableResponse> {
         const options = ParamCreater().deleteRouteTable(deleteRouteTableRequest);
 
          // @ts-ignore
@@ -729,7 +729,7 @@ export class ErClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createResourceTag(createResourceTagRequest?: CreateResourceTagRequest): Promise<string> {
+    public createResourceTag(createResourceTagRequest?: CreateResourceTagRequest): Promise<CreateResourceTagResponse> {
         const options = ParamCreater().createResourceTag(createResourceTagRequest);
 
          // @ts-ignore
@@ -750,7 +750,7 @@ export class ErClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteResourceTag(deleteResourceTagRequest?: DeleteResourceTagRequest): Promise<string> {
+    public deleteResourceTag(deleteResourceTagRequest?: DeleteResourceTagRequest): Promise<DeleteResourceTagResponse> {
         const options = ParamCreater().deleteResourceTag(deleteResourceTagRequest);
 
          // @ts-ignore
@@ -830,7 +830,7 @@ export class ErClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteVpcAttachment(deleteVpcAttachmentRequest?: DeleteVpcAttachmentRequest): Promise<void> {
+    public deleteVpcAttachment(deleteVpcAttachmentRequest?: DeleteVpcAttachmentRequest): Promise<DeleteVpcAttachmentResponse> {
         const options = ParamCreater().deleteVpcAttachment(deleteVpcAttachmentRequest);
 
          // @ts-ignore

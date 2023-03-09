@@ -1,4 +1,13 @@
+import { ExecutionPlanDescriptionPrimitiveTypeHolder } from './ExecutionPlanDescriptionPrimitiveTypeHolder';
+import { ExecutionPlanNamePrimitiveTypeHolder } from './ExecutionPlanNamePrimitiveTypeHolder';
+import { ExecutorPrimitiveTypeHolder } from './ExecutorPrimitiveTypeHolder';
+import { StackIdPrimitiveTypeHolder } from './StackIdPrimitiveTypeHolder';
+import { TemplateBodyPrimitiveTypeHolder } from './TemplateBodyPrimitiveTypeHolder';
+import { TemplateURIPrimitiveTypeHolder } from './TemplateURIPrimitiveTypeHolder';
+import { VarsBodyPrimitiveTypeHolder } from './VarsBodyPrimitiveTypeHolder';
 import { VarsStructure } from './VarsStructure';
+import { VarsStructurePrimitiveTypeHolder } from './VarsStructurePrimitiveTypeHolder';
+import { VarsURIPrimitiveTypeHolder } from './VarsURIPrimitiveTypeHolder';
 
 
 export class CreateExecutionPlanRequestBody {

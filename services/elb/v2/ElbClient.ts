@@ -217,7 +217,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchCreateListenerTags(batchCreateListenerTagsRequest?: BatchCreateListenerTagsRequest): Promise<void> {
+    public batchCreateListenerTags(batchCreateListenerTagsRequest?: BatchCreateListenerTagsRequest): Promise<BatchCreateListenerTagsResponse> {
         const options = ParamCreater().batchCreateListenerTags(batchCreateListenerTagsRequest);
 
          // @ts-ignore
@@ -237,7 +237,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchCreateLoadbalancerTags(batchCreateLoadbalancerTagsRequest?: BatchCreateLoadbalancerTagsRequest): Promise<void> {
+    public batchCreateLoadbalancerTags(batchCreateLoadbalancerTagsRequest?: BatchCreateLoadbalancerTagsRequest): Promise<BatchCreateLoadbalancerTagsResponse> {
         const options = ParamCreater().batchCreateLoadbalancerTags(batchCreateLoadbalancerTagsRequest);
 
          // @ts-ignore
@@ -257,7 +257,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchDeleteListenerTags(batchDeleteListenerTagsRequest?: BatchDeleteListenerTagsRequest): Promise<void> {
+    public batchDeleteListenerTags(batchDeleteListenerTagsRequest?: BatchDeleteListenerTagsRequest): Promise<BatchDeleteListenerTagsResponse> {
         const options = ParamCreater().batchDeleteListenerTags(batchDeleteListenerTagsRequest);
 
          // @ts-ignore
@@ -277,7 +277,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchDeleteLoadbalancerTags(batchDeleteLoadbalancerTagsRequest?: BatchDeleteLoadbalancerTagsRequest): Promise<void> {
+    public batchDeleteLoadbalancerTags(batchDeleteLoadbalancerTagsRequest?: BatchDeleteLoadbalancerTagsRequest): Promise<BatchDeleteLoadbalancerTagsResponse> {
         const options = ParamCreater().batchDeleteLoadbalancerTags(batchDeleteLoadbalancerTagsRequest);
 
          // @ts-ignore
@@ -374,7 +374,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createListenerTags(createListenerTagsRequest?: CreateListenerTagsRequest): Promise<void> {
+    public createListenerTags(createListenerTagsRequest?: CreateListenerTagsRequest): Promise<CreateListenerTagsResponse> {
         const options = ParamCreater().createListenerTags(createListenerTagsRequest);
 
          // @ts-ignore
@@ -413,7 +413,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createLoadbalancerTags(createLoadbalancerTagsRequest?: CreateLoadbalancerTagsRequest): Promise<void> {
+    public createLoadbalancerTags(createLoadbalancerTagsRequest?: CreateLoadbalancerTagsRequest): Promise<CreateLoadbalancerTagsResponse> {
         const options = ParamCreater().createLoadbalancerTags(createLoadbalancerTagsRequest);
 
          // @ts-ignore
@@ -490,7 +490,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteHealthmonitor(deleteHealthmonitorRequest?: DeleteHealthmonitorRequest): Promise<void> {
+    public deleteHealthmonitor(deleteHealthmonitorRequest?: DeleteHealthmonitorRequest): Promise<DeleteHealthmonitorResponse> {
         const options = ParamCreater().deleteHealthmonitor(deleteHealthmonitorRequest);
 
          // @ts-ignore
@@ -509,7 +509,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteL7policy(deleteL7policyRequest?: DeleteL7policyRequest): Promise<void> {
+    public deleteL7policy(deleteL7policyRequest?: DeleteL7policyRequest): Promise<DeleteL7policyResponse> {
         const options = ParamCreater().deleteL7policy(deleteL7policyRequest);
 
          // @ts-ignore
@@ -529,7 +529,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteL7rule(deleteL7ruleRequest?: DeleteL7ruleRequest): Promise<void> {
+    public deleteL7rule(deleteL7ruleRequest?: DeleteL7ruleRequest): Promise<DeleteL7ruleResponse> {
         const options = ParamCreater().deleteL7rule(deleteL7ruleRequest);
 
          // @ts-ignore
@@ -548,7 +548,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteListener(deleteListenerRequest?: DeleteListenerRequest): Promise<void> {
+    public deleteListener(deleteListenerRequest?: DeleteListenerRequest): Promise<DeleteListenerResponse> {
         const options = ParamCreater().deleteListener(deleteListenerRequest);
 
          // @ts-ignore
@@ -568,7 +568,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteListenerTags(deleteListenerTagsRequest?: DeleteListenerTagsRequest): Promise<void> {
+    public deleteListenerTags(deleteListenerTagsRequest?: DeleteListenerTagsRequest): Promise<DeleteListenerTagsResponse> {
         const options = ParamCreater().deleteListenerTags(deleteListenerTagsRequest);
 
          // @ts-ignore
@@ -587,7 +587,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteLoadbalancer(deleteLoadbalancerRequest?: DeleteLoadbalancerRequest): Promise<void> {
+    public deleteLoadbalancer(deleteLoadbalancerRequest?: DeleteLoadbalancerRequest): Promise<DeleteLoadbalancerResponse> {
         const options = ParamCreater().deleteLoadbalancer(deleteLoadbalancerRequest);
 
          // @ts-ignore
@@ -607,7 +607,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteLoadbalancerTags(deleteLoadbalancerTagsRequest?: DeleteLoadbalancerTagsRequest): Promise<void> {
+    public deleteLoadbalancerTags(deleteLoadbalancerTagsRequest?: DeleteLoadbalancerTagsRequest): Promise<DeleteLoadbalancerTagsResponse> {
         const options = ParamCreater().deleteLoadbalancerTags(deleteLoadbalancerTagsRequest);
 
          // @ts-ignore
@@ -627,7 +627,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteMember(deleteMemberRequest?: DeleteMemberRequest): Promise<void> {
+    public deleteMember(deleteMemberRequest?: DeleteMemberRequest): Promise<DeleteMemberResponse> {
         const options = ParamCreater().deleteMember(deleteMemberRequest);
 
          // @ts-ignore
@@ -646,7 +646,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deletePool(deletePoolRequest?: DeletePoolRequest): Promise<void> {
+    public deletePool(deletePoolRequest?: DeletePoolRequest): Promise<DeletePoolResponse> {
         const options = ParamCreater().deletePool(deletePoolRequest);
 
          // @ts-ignore
@@ -665,7 +665,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteWhitelist(deleteWhitelistRequest?: DeleteWhitelistRequest): Promise<void> {
+    public deleteWhitelist(deleteWhitelistRequest?: DeleteWhitelistRequest): Promise<DeleteWhitelistResponse> {
         const options = ParamCreater().deleteWhitelist(deleteWhitelistRequest);
 
          // @ts-ignore
@@ -1402,7 +1402,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest): Promise<void> {
+    public deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest): Promise<DeleteCertificateResponse> {
         const options = ParamCreater().deleteCertificate(deleteCertificateRequest);
 
          // @ts-ignore

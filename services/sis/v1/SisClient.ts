@@ -122,7 +122,7 @@ export class SisClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteVocabulary(deleteVocabularyRequest?: DeleteVocabularyRequest): Promise<void> {
+    public deleteVocabulary(deleteVocabularyRequest?: DeleteVocabularyRequest): Promise<DeleteVocabularyResponse> {
         const options = ParamCreater().deleteVocabulary(deleteVocabularyRequest);
 
          // @ts-ignore

@@ -10,6 +10,7 @@ import { StackStatusPrimitiveTypeHolder } from './StackStatusPrimitiveTypeHolder
 import { VarsBodyPrimitiveTypeHolder } from './VarsBodyPrimitiveTypeHolder';
 import { VarsStructure } from './VarsStructure';
 import { VarsStructurePrimitiveTypeHolder } from './VarsStructurePrimitiveTypeHolder';
+import { VarsUriContentPrimitiveTypeHolder } from './VarsUriContentPrimitiveTypeHolder';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -25,7 +26,6 @@ export class GetStackMetadataResponse extends SdkResponse {
     public agencies?: Array<Agency>;
     private 'status_message'?: string | undefined;
     private 'vars_uri_content'?: string | undefined;
-    private 'processed_vars'?: string | undefined;
     private 'create_time'?: string | undefined;
     private 'update_time'?: string | undefined;
     public constructor(stackName?: any) { 
@@ -123,16 +123,6 @@ export class GetStackMetadataResponse extends SdkResponse {
     }
     public get varsUriContent() {
         return this['vars_uri_content'];
-    }
-    public withProcessedVars(processedVars: string): GetStackMetadataResponse {
-        this['processed_vars'] = processedVars;
-        return this;
-    }
-    public set processedVars(processedVars: string | undefined) {
-        this['processed_vars'] = processedVars;
-    }
-    public get processedVars() {
-        return this['processed_vars'];
     }
     public withCreateTime(createTime: string): GetStackMetadataResponse {
         this['create_time'] = createTime;

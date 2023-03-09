@@ -148,7 +148,7 @@ export class GaClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteAccelerator(deleteAcceleratorRequest?: DeleteAcceleratorRequest): Promise<void> {
+    public deleteAccelerator(deleteAcceleratorRequest?: DeleteAcceleratorRequest): Promise<DeleteAcceleratorResponse> {
         const options = ParamCreater().deleteAccelerator(deleteAcceleratorRequest);
 
          // @ts-ignore
@@ -252,7 +252,7 @@ export class GaClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteEndpoint(deleteEndpointRequest?: DeleteEndpointRequest): Promise<void> {
+    public deleteEndpoint(deleteEndpointRequest?: DeleteEndpointRequest): Promise<DeleteEndpointResponse> {
         const options = ParamCreater().deleteEndpoint(deleteEndpointRequest);
 
          // @ts-ignore
@@ -355,7 +355,7 @@ export class GaClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteEndpointGroup(deleteEndpointGroupRequest?: DeleteEndpointGroupRequest): Promise<void> {
+    public deleteEndpointGroup(deleteEndpointGroupRequest?: DeleteEndpointGroupRequest): Promise<DeleteEndpointGroupResponse> {
         const options = ParamCreater().deleteEndpointGroup(deleteEndpointGroupRequest);
 
          // @ts-ignore
@@ -457,7 +457,7 @@ export class GaClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteHealthCheck(deleteHealthCheckRequest?: DeleteHealthCheckRequest): Promise<void> {
+    public deleteHealthCheck(deleteHealthCheckRequest?: DeleteHealthCheckRequest): Promise<DeleteHealthCheckResponse> {
         const options = ParamCreater().deleteHealthCheck(deleteHealthCheckRequest);
 
          // @ts-ignore
@@ -558,7 +558,7 @@ export class GaClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteListener(deleteListenerRequest?: DeleteListenerRequest): Promise<void> {
+    public deleteListener(deleteListenerRequest?: DeleteListenerRequest): Promise<DeleteListenerResponse> {
         const options = ParamCreater().deleteListener(deleteListenerRequest);
 
          // @ts-ignore

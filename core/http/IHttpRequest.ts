@@ -23,10 +23,11 @@ import { AxiosRequestConfig } from "axios";
 
 
 export interface IHttpRequest {
+    endpoint?:any;
     params?: any;
-    endpoint?: string | undefined;
-    contentType?: string | undefined;
-    method?: string | undefined;
+    url?:string;
+    contentType?: string;
+    method?: string;
     queryParams?: any;
     pathParams?: any;
     headers?: any;
@@ -40,8 +41,10 @@ export interface IHttpRequest {
 
 export class HttpRequestImpl implements IHttpRequest {
     axiosRequestConfig?: AxiosRequestConfig;
+    
+    public endpoint?:string;
     public params: any;
-    public endpoint: string | undefined;
+    public url?:string;
     public contentType: string | undefined;
     public method: string | undefined;
     public queryParams: any;

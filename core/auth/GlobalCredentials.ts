@@ -19,11 +19,10 @@
  * under the License.
  */
 
-import { ICredential } from "./ICredential";
+import { ICredential, isJsonContentType } from "./ICredential";
 import { IHttpRequest } from "../http/IHttpRequest";
-import { AKSKSigner } from "./AKSKSigner";
+import { AKSKSigner, RequiredError } from "./AKSKSigner";
 import { HttpRequestBuilder } from "../http/IHttpRequestBuilder";
-import { RequiredError } from "./AKSKSigner";
 import { HcClient } from "../HcClient";
 import { IamService } from "../internal/services/iam.service";
 import { AuthCache } from "../internal/services/authcache";
@@ -94,36 +93,31 @@ export class GlobalCredentials implements ICredential {
         return pathParams;
     }
     public processAuthRequest(httpRequest: IHttpRequest): IHttpRequest {
-
-        if (this.ak === null || this.ak === undefined) {
+        if (!this.ak) {
             throw new RequiredError('AK cannot be empty or undefined.');
         }
-        if (this.sk === null || this.sk === undefined) {
+
+        if (!this.sk) {
             throw new RequiredError('SK cannot be empty or undefined.');
         }
 
-        const builder = new HttpRequestBuilder();
-        builder.addPathParams(this.getPathParams());
+        const builder = new HttpRequestBuilder()
+            .addPathParams(this.getPathParams());
 
         // 替换所有的path参数
+        let url = httpRequest.url;
         if (this.domainId) {
-            let url = parsePath(httpRequest.endpoint, this.getPathParams());
-            builder.withEndpoint(url);
+            url = parsePath(url, this.getPathParams());
+            builder.withUrl(url)
+                .addHeaders("X-Domain-Id", this.domainId);
         }
-
-        if (this.domainId) {
-            builder.addHeaders("X-Domain-Id", this.domainId);
-        }
+        builder.withEndpoint(`${httpRequest.endpoint}${url}`);
 
         if (this.securityToken) {
             builder.addHeaders("X-Security-Token", this.securityToken);
         }
 
-        if (httpRequest.headers
-            && ((Object.prototype.hasOwnProperty.call(httpRequest.headers,"content-type") 
-            && httpRequest.headers!["content-type"] !== "application/json") ||
-                (Object.prototype.hasOwnProperty.call(httpRequest.headers,"Content-Type")
-                && httpRequest.headers!["Content-Type"] !== "application/json"))) {
+        if (!isJsonContentType(httpRequest.headers)) {
             builder.addHeaders("X-Sdk-Content-Sha256", "UNSIGNED-PAYLOAD");
         }
 
@@ -136,32 +130,35 @@ export class GlobalCredentials implements ICredential {
         return Object.assign(httpRequest, builder.build());
     }
 
-    public processAuthParams(hcClient: HcClient): Promise<ICredential> {
+    public async processAuthParams(hcClient: HcClient): Promise<this> {
         if (this.domainId) {
-            return Promise.resolve(this);
+            return this;
         }
 
         const authCacheInstance = AuthCache.instance();
         const akWithName = this.getAk();
         if (authCacheInstance.getCache(akWithName)) {
             this.domainId = authCacheInstance.getCache(akWithName);
-            return Promise.resolve(this);
+            return this;
         }
 
-        return new IamService(hcClient, this.iamEndpoint).getDomainId().then(domainId => {
-            authCacheInstance.putCache(akWithName, domainId);
-            this.domainId = domainId;
-            return this;
-        });
+        const domainId = await new IamService(hcClient, this.iamEndpoint).getDomainId();
+        authCacheInstance.putCache(akWithName, domainId);
+        this.domainId = domainId;
+
+        return this;
     }
 }
 
-function parsePath(path: string | undefined, params: any): string {
+function parsePath(path: string | undefined, params: Record<string, any>): string {
     if (!path || !params) {
-        return <string>path;
+        return path || "";
     }
-    return Object.keys(params).reduce((parsedPath, param) => {
-        const value = encodeURIComponent(params[param]);
-        return parsedPath.replace(new RegExp(`{${param}}`), value);
-    }, path);
+
+    const replacePathParam = (parsedPath: string, [param, value]: [string, any]): string => {
+        const encodedValue = encodeURIComponent(value);
+        return parsedPath.replace(new RegExp(`{${param}}`, "g"), encodedValue);
+    };
+
+    return Object.entries(params).reduce(replacePathParam, path);
 }

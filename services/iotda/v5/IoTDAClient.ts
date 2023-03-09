@@ -338,7 +338,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteQueue(deleteQueueRequest?: DeleteQueueRequest): Promise<string> {
+    public deleteQueue(deleteQueueRequest?: DeleteQueueRequest): Promise<DeleteQueueResponse> {
         const options = ParamCreater().deleteQueue(deleteQueueRequest);
 
          // @ts-ignore
@@ -398,7 +398,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteApplication(deleteApplicationRequest?: DeleteApplicationRequest): Promise<string> {
+    public deleteApplication(deleteApplicationRequest?: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
         const options = ParamCreater().deleteApplication(deleteApplicationRequest);
 
          // @ts-ignore
@@ -571,7 +571,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteBatchTaskFile(deleteBatchTaskFileRequest?: DeleteBatchTaskFileRequest): Promise<string> {
+    public deleteBatchTaskFile(deleteBatchTaskFileRequest?: DeleteBatchTaskFileRequest): Promise<DeleteBatchTaskFileResponse> {
         const options = ParamCreater().deleteBatchTaskFile(deleteBatchTaskFileRequest);
 
          // @ts-ignore
@@ -636,7 +636,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public checkCertificate(checkCertificateRequest?: CheckCertificateRequest): Promise<string> {
+    public checkCertificate(checkCertificateRequest?: CheckCertificateRequest): Promise<CheckCertificateResponse> {
         const options = ParamCreater().checkCertificate(checkCertificateRequest);
 
          // @ts-ignore
@@ -658,7 +658,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest): Promise<string> {
+    public deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest): Promise<DeleteCertificateResponse> {
         const options = ParamCreater().deleteCertificate(deleteCertificateRequest);
 
          // @ts-ignore
@@ -749,7 +749,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createOrDeleteDeviceInGroup(createOrDeleteDeviceInGroupRequest?: CreateOrDeleteDeviceInGroupRequest): Promise<string> {
+    public createOrDeleteDeviceInGroup(createOrDeleteDeviceInGroupRequest?: CreateOrDeleteDeviceInGroupRequest): Promise<CreateOrDeleteDeviceInGroupResponse> {
         const options = ParamCreater().createOrDeleteDeviceInGroup(createOrDeleteDeviceInGroupRequest);
 
          // @ts-ignore
@@ -769,7 +769,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteDeviceGroup(deleteDeviceGroupRequest?: DeleteDeviceGroupRequest): Promise<string> {
+    public deleteDeviceGroup(deleteDeviceGroupRequest?: DeleteDeviceGroupRequest): Promise<DeleteDeviceGroupResponse> {
         const options = ParamCreater().deleteDeviceGroup(deleteDeviceGroupRequest);
 
          // @ts-ignore
@@ -902,7 +902,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteDevice(deleteDeviceRequest?: DeleteDeviceRequest): Promise<string> {
+    public deleteDevice(deleteDeviceRequest?: DeleteDeviceRequest): Promise<DeleteDeviceResponse> {
         const options = ParamCreater().deleteDevice(deleteDeviceRequest);
 
          // @ts-ignore
@@ -922,7 +922,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public freezeDevice(freezeDeviceRequest?: FreezeDeviceRequest): Promise<string> {
+    public freezeDevice(freezeDeviceRequest?: FreezeDeviceRequest): Promise<FreezeDeviceResponse> {
         const options = ParamCreater().freezeDevice(freezeDeviceRequest);
 
          // @ts-ignore
@@ -1168,7 +1168,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public unfreezeDevice(unfreezeDeviceRequest?: UnfreezeDeviceRequest): Promise<string> {
+    public unfreezeDevice(unfreezeDeviceRequest?: UnfreezeDeviceRequest): Promise<UnfreezeDeviceResponse> {
         const options = ParamCreater().unfreezeDevice(unfreezeDeviceRequest);
 
          // @ts-ignore
@@ -1359,7 +1359,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteOtaPackage(deleteOtaPackageRequest?: DeleteOtaPackageRequest): Promise<string> {
+    public deleteOtaPackage(deleteOtaPackageRequest?: DeleteOtaPackageRequest): Promise<DeleteOtaPackageResponse> {
         const options = ParamCreater().deleteOtaPackage(deleteOtaPackageRequest);
 
          // @ts-ignore
@@ -1448,7 +1448,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteProduct(deleteProductRequest?: DeleteProductRequest): Promise<string> {
+    public deleteProduct(deleteProductRequest?: DeleteProductRequest): Promise<DeleteProductResponse> {
         const options = ParamCreater().deleteProduct(deleteProductRequest);
 
          // @ts-ignore
@@ -1617,7 +1617,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteRoutingRule(deleteRoutingRuleRequest?: DeleteRoutingRuleRequest): Promise<string> {
+    public deleteRoutingRule(deleteRoutingRuleRequest?: DeleteRoutingRuleRequest): Promise<DeleteRoutingRuleResponse> {
         const options = ParamCreater().deleteRoutingRule(deleteRoutingRuleRequest);
 
          // @ts-ignore
@@ -1637,7 +1637,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteRuleAction(deleteRuleActionRequest?: DeleteRuleActionRequest): Promise<string> {
+    public deleteRuleAction(deleteRuleActionRequest?: DeleteRuleActionRequest): Promise<DeleteRuleActionResponse> {
         const options = ParamCreater().deleteRuleAction(deleteRuleActionRequest);
 
          // @ts-ignore
@@ -1834,7 +1834,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteRule(deleteRuleRequest?: DeleteRuleRequest): Promise<string> {
+    public deleteRule(deleteRuleRequest?: DeleteRuleRequest): Promise<DeleteRuleResponse> {
         const options = ParamCreater().deleteRule(deleteRuleRequest);
 
          // @ts-ignore
@@ -1942,7 +1942,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public tagDevice(tagDeviceRequest?: TagDeviceRequest): Promise<string> {
+    public tagDevice(tagDeviceRequest?: TagDeviceRequest): Promise<TagDeviceResponse> {
         const options = ParamCreater().tagDevice(tagDeviceRequest);
 
          // @ts-ignore
@@ -1962,7 +1962,7 @@ export class IoTDAClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public untagDevice(untagDeviceRequest?: UntagDeviceRequest): Promise<string> {
+    public untagDevice(untagDeviceRequest?: UntagDeviceRequest): Promise<UntagDeviceResponse> {
         const options = ParamCreater().untagDevice(untagDeviceRequest);
 
          // @ts-ignore

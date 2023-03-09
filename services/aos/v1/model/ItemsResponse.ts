@@ -1,4 +1,7 @@
+import { IndexPrimitiveTypeHolder } from './IndexPrimitiveTypeHolder';
+import { ResourceNamePrimitiveTypeHolder } from './ResourceNamePrimitiveTypeHolder';
 import { ResourcePriceResponse } from './ResourcePriceResponse';
+import { ResourceTypePrimitiveTypeHolder } from './ResourceTypePrimitiveTypeHolder';
 
 
 export class ItemsResponse {
@@ -6,6 +9,7 @@ export class ItemsResponse {
     private 'resource_name'?: string | undefined;
     public index?: string;
     public supported?: boolean;
+    private 'unsupported_message'?: string | undefined;
     private 'resource_price'?: Array<ResourcePriceResponse> | undefined;
     public constructor() { 
     }
@@ -36,6 +40,16 @@ export class ItemsResponse {
     public withSupported(supported: boolean): ItemsResponse {
         this['supported'] = supported;
         return this;
+    }
+    public withUnsupportedMessage(unsupportedMessage: string): ItemsResponse {
+        this['unsupported_message'] = unsupportedMessage;
+        return this;
+    }
+    public set unsupportedMessage(unsupportedMessage: string | undefined) {
+        this['unsupported_message'] = unsupportedMessage;
+    }
+    public get unsupportedMessage() {
+        return this['unsupported_message'];
     }
     public withResourcePrice(resourcePrice: Array<ResourcePriceResponse>): ItemsResponse {
         this['resource_price'] = resourcePrice;

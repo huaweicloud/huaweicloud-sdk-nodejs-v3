@@ -31,9 +31,12 @@ export class HttpRequestBuilder {
   public build(): IHttpRequest {
     return this.httpRequest;
   }
-
-  public withEndpoint(value: string) {
-    this.httpRequest.endpoint = value;
+  public withEndpoint(endpoints: string) {
+    this.httpRequest.endpoint = endpoints;
+    return this;
+  }
+  public withUrl(value?: string) {
+    this.httpRequest.url = value;
     return this;
   }
 
@@ -75,7 +78,7 @@ export class HttpRequestBuilder {
   }
 
   public addHeaders(key: string, value: string) {
-    let headers = this.httpRequest.getHeaders();
+    const headers = this.httpRequest.getHeaders();
     if (!headers![key]) {
       this.httpRequest.headers[key] = value;
     }

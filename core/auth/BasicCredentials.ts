@@ -19,11 +19,10 @@
  * under the License.
  */
 
-import { ICredential } from "./ICredential";
+import { ICredential, isJsonContentType } from "./ICredential";
 import { IHttpRequest } from "../http/IHttpRequest";
-import { AKSKSigner } from "./AKSKSigner";
+import { AKSKSigner, RequiredError } from "./AKSKSigner";
 import { HttpRequestBuilder } from "../http/IHttpRequestBuilder";
-import { RequiredError } from "./AKSKSigner";
 import { HcClient } from "../HcClient";
 import { IamService } from "../internal/services/iam.service";
 import { AuthCache } from "../internal/services/authcache";
@@ -88,22 +87,23 @@ export class BasicCredentials implements ICredential {
     }
 
     public processAuthRequest(httpRequest: IHttpRequest): IHttpRequest {
-
         if (!this.ak) {
             throw new RequiredError('AK cannot be empty or undefined.');
         }
         if (!this.sk) {
             throw new RequiredError('SK cannot be empty or undefined.');
-        }
-
+        } 
+        
         const builder = new HttpRequestBuilder();
         builder.addPathParams(this.getPathParams());
 
         // 替换所有的path参数
+        let url = httpRequest.url;
         if (this.projectId) {
-            let url = this.parsePath(httpRequest.endpoint, this.getPathParams());
-            builder.withEndpoint(url);
+            url = this.parsePath(url, this.getPathParams());
+            builder.withUrl(url);
         }
+        builder.withEndpoint(`${httpRequest.endpoint}${url}`);
 
         if (this.projectId) {
             builder.addHeaders("X-Project-Id", this.projectId);
@@ -113,16 +113,13 @@ export class BasicCredentials implements ICredential {
             builder.addHeaders("X-Security-Token", this.securityToken);
         }
 
-        if (httpRequest.headers
-            && ((Object.prototype.hasOwnProperty.call(httpRequest.headers, "content-type")
-                && httpRequest.headers!["content-type"] !== "application/json") ||
-                (Object.prototype.hasOwnProperty.call(httpRequest.headers, "Content-Type")
-                    && httpRequest.headers!["Content-Type"] !== "application/json"))) {
+        if (!isJsonContentType(httpRequest.headers)) {
             builder.addHeaders("X-Sdk-Content-Sha256", "UNSIGNED-PAYLOAD");
         }
 
         builder.addAllHeaders(httpRequest.headers);
         Object.assign(httpRequest, builder.build());
+
         const headers = AKSKSigner.sign(httpRequest, this);
 
         builder.addAllHeaders(headers);
@@ -130,23 +127,26 @@ export class BasicCredentials implements ICredential {
         return Object.assign(httpRequest, builder.build());
     }
 
-    processAuthParams(hcClient: HcClient, region: string): Promise<ICredential> {
+    public async processAuthParams(hcClient: HcClient, region: string): Promise<ICredential> {
         if (this.projectId) {
-            return Promise.resolve(this);
+            return this;
         }
 
         const authCacheInstance = AuthCache.instance();
         const akWithName = this.getAk() + region;
-        if (authCacheInstance.getCache(akWithName)) {
-            this.projectId = authCacheInstance.getCache(akWithName);
-            return Promise.resolve(this);
+        const cachedProjectId = authCacheInstance.getCache(akWithName);
+        if (cachedProjectId) {
+            this.projectId = cachedProjectId;
+            return this;
         }
 
-        return new IamService(hcClient, this.iamEndpoint).getProjecId(region).then(projectId => {
-            authCacheInstance.putCache(akWithName, projectId);
-            this.projectId = projectId;
-            return this;
-        });
+        const projectId = 
+        
+        
+        await new IamService(hcClient, this.iamEndpoint).getProjecId(region);
+        authCacheInstance.putCache(akWithName, projectId);
+        this.projectId = projectId;
+        return this;
     }
 
     parsePath(path: string | undefined, params: any): string {

@@ -1,6 +1,6 @@
 
 
-export class DescribeExecutionPlanRequest {
+export class GetExecutionPlanMetadataRequest {
     private 'Client-Request-Id': string | undefined;
     private 'project_id': string | undefined;
     private 'stack_name': string | undefined;
@@ -14,7 +14,7 @@ export class DescribeExecutionPlanRequest {
         this['stack_name'] = stackName;
         this['execution_plan_name'] = executionPlanName;
     }
-    public withClientRequestId(clientRequestId: string): DescribeExecutionPlanRequest {
+    public withClientRequestId(clientRequestId: string): GetExecutionPlanMetadataRequest {
         this['Client-Request-Id'] = clientRequestId;
         return this;
     }
@@ -24,7 +24,7 @@ export class DescribeExecutionPlanRequest {
     public get clientRequestId() {
         return this['Client-Request-Id'];
     }
-    public withProjectId(projectId: string): DescribeExecutionPlanRequest {
+    public withProjectId(projectId: string): GetExecutionPlanMetadataRequest {
         this['project_id'] = projectId;
         return this;
     }
@@ -34,7 +34,7 @@ export class DescribeExecutionPlanRequest {
     public get projectId() {
         return this['project_id'];
     }
-    public withStackName(stackName: string): DescribeExecutionPlanRequest {
+    public withStackName(stackName: string): GetExecutionPlanMetadataRequest {
         this['stack_name'] = stackName;
         return this;
     }
@@ -44,7 +44,7 @@ export class DescribeExecutionPlanRequest {
     public get stackName() {
         return this['stack_name'];
     }
-    public withExecutionPlanName(executionPlanName: string): DescribeExecutionPlanRequest {
+    public withExecutionPlanName(executionPlanName: string): GetExecutionPlanMetadataRequest {
         this['execution_plan_name'] = executionPlanName;
         return this;
     }
@@ -54,7 +54,7 @@ export class DescribeExecutionPlanRequest {
     public get executionPlanName() {
         return this['execution_plan_name'];
     }
-    public withStackId(stackId: string): DescribeExecutionPlanRequest {
+    public withStackId(stackId: string): GetExecutionPlanMetadataRequest {
         this['stack_id'] = stackId;
         return this;
     }
@@ -64,7 +64,7 @@ export class DescribeExecutionPlanRequest {
     public get stackId() {
         return this['stack_id'];
     }
-    public withExecutionPlanId(executionPlanId: string): DescribeExecutionPlanRequest {
+    public withExecutionPlanId(executionPlanId: string): GetExecutionPlanMetadataRequest {
         this['execution_plan_id'] = executionPlanId;
         return this;
     }
@@ -74,7 +74,7 @@ export class DescribeExecutionPlanRequest {
     public get executionPlanId() {
         return this['execution_plan_id'];
     }
-    public withExecutor(executor: string): DescribeExecutionPlanRequest {
+    public withExecutor(executor: string): GetExecutionPlanMetadataRequest {
         this['executor'] = executor;
         return this;
     }

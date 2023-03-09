@@ -1,13 +1,22 @@
+import { AgenciesPrimitiveTypeHolder } from './AgenciesPrimitiveTypeHolder';
 import { Agency } from './Agency';
+import { EnableAutoRollbackPrimitiveTypeHolder } from './EnableAutoRollbackPrimitiveTypeHolder';
+import { EnableDeletionProtectionPrimitiveTypeHolder } from './EnableDeletionProtectionPrimitiveTypeHolder';
+import { StackDescriptionPrimitiveTypeHolder } from './StackDescriptionPrimitiveTypeHolder';
+import { StackIdPrimitiveTypeHolder } from './StackIdPrimitiveTypeHolder';
 
 
 export class UpdateStackRequestBody {
-    private 'stack_id'?: string | undefined;
     public description?: string;
+    private 'stack_id'?: string | undefined;
     private 'enable_deletion_protection'?: boolean | undefined;
     private 'enable_auto_rollback'?: boolean | undefined;
     public agencies?: Array<Agency>;
     public constructor() { 
+    }
+    public withDescription(description: string): UpdateStackRequestBody {
+        this['description'] = description;
+        return this;
     }
     public withStackId(stackId: string): UpdateStackRequestBody {
         this['stack_id'] = stackId;
@@ -18,10 +27,6 @@ export class UpdateStackRequestBody {
     }
     public get stackId() {
         return this['stack_id'];
-    }
-    public withDescription(description: string): UpdateStackRequestBody {
-        this['description'] = description;
-        return this;
     }
     public withEnableDeletionProtection(enableDeletionProtection: boolean): UpdateStackRequestBody {
         this['enable_deletion_protection'] = enableDeletionProtection;

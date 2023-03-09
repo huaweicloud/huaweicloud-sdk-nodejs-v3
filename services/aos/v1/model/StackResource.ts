@@ -1,3 +1,4 @@
+import { ResourceAttribute } from './ResourceAttribute';
 
 
 export class StackResource {
@@ -8,6 +9,7 @@ export class StackResource {
     private 'index_key'?: string | undefined;
     private 'resource_status'?: StackResourceResourceStatusEnum | undefined;
     private 'status_message'?: string | undefined;
+    private 'resource_attributes'?: Array<ResourceAttribute> | undefined;
     public constructor() { 
     }
     public withPhysicalResourceId(physicalResourceId: string): StackResource {
@@ -79,6 +81,16 @@ export class StackResource {
     }
     public get statusMessage() {
         return this['status_message'];
+    }
+    public withResourceAttributes(resourceAttributes: Array<ResourceAttribute>): StackResource {
+        this['resource_attributes'] = resourceAttributes;
+        return this;
+    }
+    public set resourceAttributes(resourceAttributes: Array<ResourceAttribute> | undefined) {
+        this['resource_attributes'] = resourceAttributes;
+    }
+    public get resourceAttributes() {
+        return this['resource_attributes'];
     }
 }
 

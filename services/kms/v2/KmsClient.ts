@@ -164,7 +164,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchCreateKmsTags(batchCreateKmsTagsRequest?: BatchCreateKmsTagsRequest): Promise<void> {
+    public batchCreateKmsTags(batchCreateKmsTagsRequest?: BatchCreateKmsTagsRequest): Promise<BatchCreateKmsTagsResponse> {
         const options = ParamCreater().batchCreateKmsTags(batchCreateKmsTagsRequest);
 
          // @ts-ignore
@@ -185,7 +185,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public cancelGrant(cancelGrantRequest?: CancelGrantRequest): Promise<void> {
+    public cancelGrant(cancelGrantRequest?: CancelGrantRequest): Promise<CancelGrantResponse> {
         const options = ParamCreater().cancelGrant(cancelGrantRequest);
 
          // @ts-ignore
@@ -231,7 +231,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public cancelSelfGrant(cancelSelfGrantRequest?: CancelSelfGrantRequest): Promise<void> {
+    public cancelSelfGrant(cancelSelfGrantRequest?: CancelSelfGrantRequest): Promise<CancelSelfGrantResponse> {
         const options = ParamCreater().cancelSelfGrant(cancelSelfGrantRequest);
 
          // @ts-ignore
@@ -350,7 +350,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createKmsTag(createKmsTagRequest?: CreateKmsTagRequest): Promise<void> {
+    public createKmsTag(createKmsTagRequest?: CreateKmsTagRequest): Promise<CreateKmsTagResponse> {
         const options = ParamCreater().createKmsTag(createKmsTagRequest);
 
          // @ts-ignore
@@ -447,7 +447,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteImportedKeyMaterial(deleteImportedKeyMaterialRequest?: DeleteImportedKeyMaterialRequest): Promise<void> {
+    public deleteImportedKeyMaterial(deleteImportedKeyMaterialRequest?: DeleteImportedKeyMaterialRequest): Promise<DeleteImportedKeyMaterialResponse> {
         const options = ParamCreater().deleteImportedKeyMaterial(deleteImportedKeyMaterialRequest);
 
          // @ts-ignore
@@ -485,7 +485,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteKeyStore(deleteKeyStoreRequest?: DeleteKeyStoreRequest): Promise<void> {
+    public deleteKeyStore(deleteKeyStoreRequest?: DeleteKeyStoreRequest): Promise<DeleteKeyStoreResponse> {
         const options = ParamCreater().deleteKeyStore(deleteKeyStoreRequest);
 
          // @ts-ignore
@@ -505,7 +505,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteTag(deleteTagRequest?: DeleteTagRequest): Promise<void> {
+    public deleteTag(deleteTagRequest?: DeleteTagRequest): Promise<DeleteTagResponse> {
         const options = ParamCreater().deleteTag(deleteTagRequest);
 
          // @ts-ignore
@@ -544,7 +544,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public disableKeyRotation(disableKeyRotationRequest?: DisableKeyRotationRequest): Promise<void> {
+    public disableKeyRotation(disableKeyRotationRequest?: DisableKeyRotationRequest): Promise<DisableKeyRotationResponse> {
         const options = ParamCreater().disableKeyRotation(disableKeyRotationRequest);
 
          // @ts-ignore
@@ -605,7 +605,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public enableKeyRotation(enableKeyRotationRequest?: EnableKeyRotationRequest): Promise<void> {
+    public enableKeyRotation(enableKeyRotationRequest?: EnableKeyRotationRequest): Promise<EnableKeyRotationResponse> {
         const options = ParamCreater().enableKeyRotation(enableKeyRotationRequest);
 
          // @ts-ignore
@@ -681,7 +681,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public importKeyMaterial(importKeyMaterialRequest?: ImportKeyMaterialRequest): Promise<void> {
+    public importKeyMaterial(importKeyMaterialRequest?: ImportKeyMaterialRequest): Promise<ImportKeyMaterialResponse> {
         const options = ParamCreater().importKeyMaterial(importKeyMaterialRequest);
 
          // @ts-ignore
@@ -1009,7 +1009,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateKeyRotationInterval(updateKeyRotationIntervalRequest?: UpdateKeyRotationIntervalRequest): Promise<void> {
+    public updateKeyRotationInterval(updateKeyRotationIntervalRequest?: UpdateKeyRotationIntervalRequest): Promise<UpdateKeyRotationIntervalResponse> {
         const options = ParamCreater().updateKeyRotationInterval(updateKeyRotationIntervalRequest);
 
          // @ts-ignore

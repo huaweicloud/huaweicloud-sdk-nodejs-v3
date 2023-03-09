@@ -285,7 +285,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest?: BatchDeleteFunctionTriggersRequest): Promise<void> {
+    public batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest?: BatchDeleteFunctionTriggersRequest): Promise<BatchDeleteFunctionTriggersResponse> {
         const options = ParamCreater().batchDeleteFunctionTriggers(batchDeleteFunctionTriggersRequest);
 
          // @ts-ignore
@@ -324,7 +324,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public cancelAsyncInvocation(cancelAsyncInvocationRequest?: CancelAsyncInvocationRequest): Promise<void> {
+    public cancelAsyncInvocation(cancelAsyncInvocationRequest?: CancelAsyncInvocationRequest): Promise<CancelAsyncInvocationResponse> {
         const options = ParamCreater().cancelAsyncInvocation(cancelAsyncInvocationRequest);
 
          // @ts-ignore
@@ -503,7 +503,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteDependency(deleteDependencyRequest?: DeleteDependencyRequest): Promise<void> {
+    public deleteDependency(deleteDependencyRequest?: DeleteDependencyRequest): Promise<DeleteDependencyResponse> {
         const options = ParamCreater().deleteDependency(deleteDependencyRequest);
 
          // @ts-ignore
@@ -523,7 +523,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteDependencyVersion(deleteDependencyVersionRequest?: DeleteDependencyVersionRequest): Promise<void> {
+    public deleteDependencyVersion(deleteDependencyVersionRequest?: DeleteDependencyVersionRequest): Promise<DeleteDependencyVersionResponse> {
         const options = ParamCreater().deleteDependencyVersion(deleteDependencyVersionRequest);
 
          // @ts-ignore
@@ -543,7 +543,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteEvent(deleteEventRequest?: DeleteEventRequest): Promise<void> {
+    public deleteEvent(deleteEventRequest?: DeleteEventRequest): Promise<DeleteEventResponse> {
         const options = ParamCreater().deleteEvent(deleteEventRequest);
 
          // @ts-ignore
@@ -565,7 +565,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteFunction(deleteFunctionRequest?: DeleteFunctionRequest): Promise<void> {
+    public deleteFunction(deleteFunctionRequest?: DeleteFunctionRequest): Promise<DeleteFunctionResponse> {
         const options = ParamCreater().deleteFunction(deleteFunctionRequest);
 
          // @ts-ignore
@@ -584,7 +584,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteFunctionAsyncInvokeConfig(deleteFunctionAsyncInvokeConfigRequest?: DeleteFunctionAsyncInvokeConfigRequest): Promise<void> {
+    public deleteFunctionAsyncInvokeConfig(deleteFunctionAsyncInvokeConfigRequest?: DeleteFunctionAsyncInvokeConfigRequest): Promise<DeleteFunctionAsyncInvokeConfigResponse> {
         const options = ParamCreater().deleteFunctionAsyncInvokeConfig(deleteFunctionAsyncInvokeConfigRequest);
 
          // @ts-ignore
@@ -605,7 +605,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteFunctionTrigger(deleteFunctionTriggerRequest?: DeleteFunctionTriggerRequest): Promise<void> {
+    public deleteFunctionTrigger(deleteFunctionTriggerRequest?: DeleteFunctionTriggerRequest): Promise<DeleteFunctionTriggerResponse> {
         const options = ParamCreater().deleteFunctionTrigger(deleteFunctionTriggerRequest);
 
          // @ts-ignore
@@ -625,7 +625,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteVersionAlias(deleteVersionAliasRequest?: DeleteVersionAliasRequest): Promise<void> {
+    public deleteVersionAlias(deleteVersionAliasRequest?: DeleteVersionAliasRequest): Promise<DeleteVersionAliasResponse> {
         const options = ParamCreater().deleteVersionAlias(deleteVersionAliasRequest);
 
          // @ts-ignore
@@ -643,7 +643,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public enableLtsLogs(): Promise<void> {
+    public enableLtsLogs(): Promise<EnableLtsLogsResponse> {
         const options = ParamCreater().enableLtsLogs();
 
          // @ts-ignore
@@ -665,7 +665,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public exportFunction(exportFunctionRequest?: ExportFunctionRequest): Promise<void> {
+    public exportFunction(exportFunctionRequest?: ExportFunctionRequest): Promise<ExportFunctionResponse> {
         const options = ParamCreater().exportFunction(exportFunctionRequest);
 
          // @ts-ignore
@@ -901,7 +901,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listFunctionTriggers(listFunctionTriggersRequest?: ListFunctionTriggersRequest): Promise<Array<ListFunctionTriggerResult>> {
+    public listFunctionTriggers(listFunctionTriggersRequest?: ListFunctionTriggersRequest): Promise<ListFunctionTriggersResponse> {
         const options = ParamCreater().listFunctionTriggers(listFunctionTriggersRequest);
 
          // @ts-ignore
@@ -1025,7 +1025,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listVersionAliases(listVersionAliasesRequest?: ListVersionAliasesRequest): Promise<Array<ListVersionAliasResult>> {
+    public listVersionAliases(listVersionAliasesRequest?: ListVersionAliasesRequest): Promise<ListVersionAliasesResponse> {
         const options = ParamCreater().listVersionAliases(listVersionAliasesRequest);
 
          // @ts-ignore
@@ -1091,7 +1091,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public retryWorkFlow(retryWorkFlowRequest?: RetryWorkFlowRequest): Promise<void> {
+    public retryWorkFlow(retryWorkFlowRequest?: RetryWorkFlowRequest): Promise<RetryWorkFlowResponse> {
         const options = ParamCreater().retryWorkFlow(retryWorkFlowRequest);
 
          // @ts-ignore
@@ -1456,7 +1456,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public stopWorkFlow(stopWorkFlowRequest?: StopWorkFlowRequest): Promise<void> {
+    public stopWorkFlow(stopWorkFlowRequest?: StopWorkFlowRequest): Promise<StopWorkFlowResponse> {
         const options = ParamCreater().stopWorkFlow(stopWorkFlowRequest);
 
          // @ts-ignore
@@ -1617,7 +1617,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateTracing(updateTracingRequest?: UpdateTracingRequest): Promise<void> {
+    public updateTracing(updateTracingRequest?: UpdateTracingRequest): Promise<UpdateTracingResponse> {
         const options = ParamCreater().updateTracing(updateTracingRequest);
 
          // @ts-ignore

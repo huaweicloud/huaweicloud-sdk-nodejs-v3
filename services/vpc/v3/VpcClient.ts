@@ -199,7 +199,7 @@ export class VpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteSecurityGroup(deleteSecurityGroupRequest?: DeleteSecurityGroupRequest): Promise<void> {
+    public deleteSecurityGroup(deleteSecurityGroupRequest?: DeleteSecurityGroupRequest): Promise<DeleteSecurityGroupResponse> {
         const options = ParamCreater().deleteSecurityGroup(deleteSecurityGroupRequest);
 
          // @ts-ignore
@@ -218,7 +218,7 @@ export class VpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteSecurityGroupRule(deleteSecurityGroupRuleRequest?: DeleteSecurityGroupRuleRequest): Promise<void> {
+    public deleteSecurityGroupRule(deleteSecurityGroupRuleRequest?: DeleteSecurityGroupRuleRequest): Promise<DeleteSecurityGroupRuleResponse> {
         const options = ParamCreater().deleteSecurityGroupRule(deleteSecurityGroupRuleRequest);
 
          // @ts-ignore
@@ -237,7 +237,7 @@ export class VpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteSubNetworkInterface(deleteSubNetworkInterfaceRequest?: DeleteSubNetworkInterfaceRequest): Promise<void> {
+    public deleteSubNetworkInterface(deleteSubNetworkInterfaceRequest?: DeleteSubNetworkInterfaceRequest): Promise<DeleteSubNetworkInterfaceResponse> {
         const options = ParamCreater().deleteSubNetworkInterface(deleteSubNetworkInterfaceRequest);
 
          // @ts-ignore
@@ -487,7 +487,7 @@ export class VpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteAddressGroup(deleteAddressGroupRequest?: DeleteAddressGroupRequest): Promise<void> {
+    public deleteAddressGroup(deleteAddressGroupRequest?: DeleteAddressGroupRequest): Promise<DeleteAddressGroupResponse> {
         const options = ParamCreater().deleteAddressGroup(deleteAddressGroupRequest);
 
          // @ts-ignore
@@ -506,7 +506,7 @@ export class VpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteIpAddressGroupForce(deleteIpAddressGroupForceRequest?: DeleteIpAddressGroupForceRequest): Promise<void> {
+    public deleteIpAddressGroupForce(deleteIpAddressGroupForceRequest?: DeleteIpAddressGroupForceRequest): Promise<DeleteIpAddressGroupForceResponse> {
         const options = ParamCreater().deleteIpAddressGroupForce(deleteIpAddressGroupForceRequest);
 
          // @ts-ignore
@@ -627,7 +627,7 @@ export class VpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteVpc(deleteVpcRequest?: DeleteVpcRequest): Promise<void> {
+    public deleteVpc(deleteVpcRequest?: DeleteVpcRequest): Promise<DeleteVpcResponse> {
         const options = ParamCreater().deleteVpc(deleteVpcRequest);
 
          // @ts-ignore

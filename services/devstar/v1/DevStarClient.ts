@@ -210,7 +210,7 @@ export class DevStarClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateApplication(updateApplicationRequest?: UpdateApplicationRequest): Promise<void> {
+    public updateApplication(updateApplicationRequest?: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
         const options = ParamCreater().updateApplication(updateApplicationRequest);
 
          // @ts-ignore
@@ -231,7 +231,7 @@ export class DevStarClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteApplicationV4(deleteApplicationV4Request?: DeleteApplicationV4Request): Promise<void> {
+    public deleteApplicationV4(deleteApplicationV4Request?: DeleteApplicationV4Request): Promise<DeleteApplicationV4Response> {
         const options = ParamCreater().deleteApplicationV4(deleteApplicationV4Request);
 
          // @ts-ignore
@@ -281,7 +281,7 @@ export class DevStarClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public downloadApplicationCode(downloadApplicationCodeRequest?: DownloadApplicationCodeRequest): Promise<any> {
+    public downloadApplicationCode(downloadApplicationCodeRequest?: DownloadApplicationCodeRequest): Promise<DownloadApplicationCodeResponse> {
         const options = ParamCreater().downloadApplicationCode(downloadApplicationCodeRequest);
 
          // @ts-ignore
@@ -303,7 +303,7 @@ export class DevStarClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public confirmDeploymentJob(confirmDeploymentJobRequest?: ConfirmDeploymentJobRequest): Promise<void> {
+    public confirmDeploymentJob(confirmDeploymentJobRequest?: ConfirmDeploymentJobRequest): Promise<ConfirmDeploymentJobResponse> {
         const options = ParamCreater().confirmDeploymentJob(confirmDeploymentJobRequest);
 
          // @ts-ignore

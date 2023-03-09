@@ -19,9 +19,13 @@
  * under the License.
  */
 
+import { ICredential } from "../auth/ICredential";
+import { SdkResponse } from "../SdkResponse";
 import { DefaultHttpResponse } from "./DefaultHttpResponse";
 import { IHttpRequest } from "./IHttpRequest";
 
 export interface HttpClient {
-    sendRequest<T>(httpRequest: IHttpRequest): Promise<DefaultHttpResponse<T>>;
+    sendRequest<T extends SdkResponse>(httpRequest: IHttpRequest): Promise<DefaultHttpResponse<T>>;
+    credentials?: ICredential;
+    httpRequest?: IHttpRequest;
 }

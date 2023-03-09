@@ -20,6 +20,8 @@ export class AddDeviceResponse extends SdkResponse {
     private 'product_name'?: string | undefined;
     public status?: string;
     private 'create_time'?: string | undefined;
+    private 'connection_status_update_time'?: string | undefined;
+    private 'active_time'?: string | undefined;
     public tags?: Array<TagV5DTO>;
     private 'extension_info'?: object | undefined;
     public constructor() { 
@@ -172,6 +174,26 @@ export class AddDeviceResponse extends SdkResponse {
     }
     public get createTime() {
         return this['create_time'];
+    }
+    public withConnectionStatusUpdateTime(connectionStatusUpdateTime: string): AddDeviceResponse {
+        this['connection_status_update_time'] = connectionStatusUpdateTime;
+        return this;
+    }
+    public set connectionStatusUpdateTime(connectionStatusUpdateTime: string | undefined) {
+        this['connection_status_update_time'] = connectionStatusUpdateTime;
+    }
+    public get connectionStatusUpdateTime() {
+        return this['connection_status_update_time'];
+    }
+    public withActiveTime(activeTime: string): AddDeviceResponse {
+        this['active_time'] = activeTime;
+        return this;
+    }
+    public set activeTime(activeTime: string | undefined) {
+        this['active_time'] = activeTime;
+    }
+    public get activeTime() {
+        return this['active_time'];
     }
     public withTags(tags: Array<TagV5DTO>): AddDeviceResponse {
         this['tags'] = tags;

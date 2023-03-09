@@ -27,62 +27,60 @@ This document introduces how to obtain and use Huawei Cloud Node.js SDK.
 The recommended way to install SDK is with npm.
 
 You must depended on `@huaweicloud/huaweicloud-sdk-core` library no matter which product/service development kit you
-need to use. Take using Devstar SDK for example, you need to install `@huaweicloud/huaweicloud-sdk-devstar` library:
+need to use. Take using VPC SDK for example, you need to install `@huaweicloud/huaweicloud-sdk-vpc` library:
 
 ``` bash
 npm install @huaweicloud/huaweicloud-sdk-core
-npm install @huaweicloud/huaweicloud-sdk-devstar
+npm install @huaweicloud/huaweicloud-sdk-vpc
 ```
 
 ## Code Example
 
-- The following example shows how to query job detail, you need to substitute your real `{Service}Client`
-  for `DevStarClient` in actual use.
-- Substitute the values for `{your ak string}`, `{your sk string}`, `{your endpoint}`, `{your domain id}`
-  and `{your job id}`.
+- The following example shows how to query vpcs, you need to substitute your real `{Service}Client`
+  for `VpcClient` in actual use.
+- Substitute the values for `{your ak string}`, `{your sk string}`, `{your endpoint}`, `{your project id}`.
 
 ``` javascript
-import express = require('express');
-import { DevStarClient } from "@huaweicloud/huaweicloud-sdk-devstar/v1/DevStarClient";
-import { GlobalCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/GlobalCredentials";
-import { ShowJobDetailRequest } from '@huaweicloud/huaweicloud-sdk-devstar/v1/model/ShowJobDetailRequest';
+// index.ts
+import { ListVpcsRequest, VpcClient } from "@huaweicloud/huaweicloud-sdk-vpc";
+import { BasicCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/BasicCredentials";
 
-// Create a new express application instance
-const app: express.Application = express();
-app.get('/', function (req: any, res: { send: (arg0: string) => void; }) {
-    const client = DevStarClient.newBuilder()
-        .withCredential(new GlobalCredentials()
-            .withAk("{your ak string}")
-            .withSk("{your sk string}")
-            .withProjectId("{your project id}"))
-        .withEndpoint("{your endpoint}")
-        .withProxyAgent("")
-        .build();
+const ak = '{your ak string}';
+const sk = '{your sk string}';
+const projectId = '{your project id}';
+const endpoint = '{your endpoint}';
 
-    const result = client.showJobDetail(new ShowJobDetailRequest("{your job id}"));
-    result.then(result => {
-    res.send("JSON.stringify(result)::" + JSON.stringify(result))
-    }).catch(ex => {
-    res.send("exception:" + JSON.stringify(ex))
-    });
-});
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
-});
+const credentials = new BasicCredentials()
+  .withAk(ak)
+  .withSk(sk)
+  .withProjectId(projectId);
+
+const client = VpcClient.newBuilder()
+  .withCredential(credentials)
+  .withEndpoint(endpoint)
+  .build();
+
+
+(async () => {
+  try {
+    const request = new ListVpcsRequest();
+    const result = await client.listVpcs(request);
+    console.log("Result:", JSON.stringify(result, null, 2));
+  } catch (error:any) {
+    console.error("Exception:", JSON.stringify(error, null, 2));
+  }
+})();
 ```
 
 - Debug the example above
 
 ``` bash
-# Run command：
-npm install ts-node-dev
-npm install express
-npm install typescript
-# Add scripts：
-"dev": "ts-node-dev ./index.ts"
-# Run command：
-npm run dev
-# After commands above completed, you could enter `http://localhost:3000/` in your broswer to check the response
+# Add npm dependencies
+npm install -g ts-node typescript
+
+# Run the command
+ts-node ./index.ts
+
 ```
 
 ## Online Debugging
@@ -115,7 +113,7 @@ the [CHANGELOG.md](https://github.com/huaweicloud/huaweicloud-sdk-nodejs-v3/blob
 
 ``` javascript
 // Use default configuration
-const client = DevStarClient.newBuilder()
+const client = VpcClient.newBuilder()
 ```
 
 #### 1.2 Network Proxy [:top:](#user-manual-top)
@@ -136,7 +134,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
 There are two types of Huawei Cloud services, `regional` services and `global` services.
 
-Global services contain DevStar, IAM.
+Global-level services include IAM, etc.
 
 For `Regional` services' authentication, projectId is required. 
 
@@ -203,8 +201,8 @@ const globalCredentials = new GlobalCredentials()
 #### 3.1 Initialize the {Service}Client with specified Endpoint [:top:](#user-manual-top)
 
 ``` javascript
-const client = DevStarClient.newBuilder()
-    .withCredential(globalCredentials)
+const client = VpcClient.newBuilder()
+    .withCredential(basicCredentials)
     .withEndpoint(endpoint)
     .withProxyAgent(proxy)
     .build()

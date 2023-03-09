@@ -1,42 +1,21 @@
 import { ExecutionPlanDiffAttribute } from './ExecutionPlanDiffAttribute';
+import { IndexPrimitiveTypeHolder } from './IndexPrimitiveTypeHolder';
+import { ResourceNamePrimitiveTypeHolder } from './ResourceNamePrimitiveTypeHolder';
+import { ResourceTypePrimitiveTypeHolder } from './ResourceTypePrimitiveTypeHolder';
 
 
 export class ExecutionPlanItem {
-    public action?: ExecutionPlanItemActionEnum;
-    private 'action_reason'?: string | undefined;
-    private 'provider_name'?: string | undefined;
     private 'resource_type'?: string | undefined;
     private 'resource_name'?: string | undefined;
     public index?: string;
+    public action?: ExecutionPlanItemActionEnum;
+    private 'action_reason'?: string | undefined;
+    private 'provider_name'?: string | undefined;
     public mode?: ExecutionPlanItemModeEnum;
     public drifted?: boolean;
     private 'resource_id'?: string | undefined;
     public attributes?: Array<ExecutionPlanDiffAttribute>;
     public constructor() { 
-    }
-    public withAction(action: ExecutionPlanItemActionEnum): ExecutionPlanItem {
-        this['action'] = action;
-        return this;
-    }
-    public withActionReason(actionReason: string): ExecutionPlanItem {
-        this['action_reason'] = actionReason;
-        return this;
-    }
-    public set actionReason(actionReason: string | undefined) {
-        this['action_reason'] = actionReason;
-    }
-    public get actionReason() {
-        return this['action_reason'];
-    }
-    public withProviderName(providerName: string): ExecutionPlanItem {
-        this['provider_name'] = providerName;
-        return this;
-    }
-    public set providerName(providerName: string | undefined) {
-        this['provider_name'] = providerName;
-    }
-    public get providerName() {
-        return this['provider_name'];
     }
     public withResourceType(resourceType: string): ExecutionPlanItem {
         this['resource_type'] = resourceType;
@@ -61,6 +40,30 @@ export class ExecutionPlanItem {
     public withIndex(index: string): ExecutionPlanItem {
         this['index'] = index;
         return this;
+    }
+    public withAction(action: ExecutionPlanItemActionEnum): ExecutionPlanItem {
+        this['action'] = action;
+        return this;
+    }
+    public withActionReason(actionReason: string): ExecutionPlanItem {
+        this['action_reason'] = actionReason;
+        return this;
+    }
+    public set actionReason(actionReason: string | undefined) {
+        this['action_reason'] = actionReason;
+    }
+    public get actionReason() {
+        return this['action_reason'];
+    }
+    public withProviderName(providerName: string): ExecutionPlanItem {
+        this['provider_name'] = providerName;
+        return this;
+    }
+    public set providerName(providerName: string | undefined) {
+        this['provider_name'] = providerName;
+    }
+    public get providerName() {
+        return this['provider_name'];
     }
     public withMode(mode: ExecutionPlanItemModeEnum): ExecutionPlanItem {
         this['mode'] = mode;
@@ -96,7 +99,6 @@ export enum ExecutionPlanItemActionEnum {
     DELETE = 'DELETE',
     DELETE_THEN_ADD = 'DELETE_THEN_ADD',
     UPDATE = 'UPDATE',
-    IN_PLACE_UPDATE = 'IN_PLACE_UPDATE',
     NO_OPERATION = 'NO_OPERATION'
 }
 /**

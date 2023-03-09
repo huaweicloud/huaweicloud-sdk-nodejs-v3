@@ -178,7 +178,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public checkNetAcl(checkNetAclRequest?: CheckNetAclRequest): Promise<void> {
+    public checkNetAcl(checkNetAclRequest?: CheckNetAclRequest): Promise<CheckNetAclResponse> {
         const options = ParamCreater().checkNetAcl(checkNetAclRequest);
 
          // @ts-ignore
@@ -198,7 +198,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public collectLog(collectLogRequest?: CollectLogRequest): Promise<void> {
+    public collectLog(collectLogRequest?: CollectLogRequest): Promise<CollectLogResponse> {
         const options = ParamCreater().collectLog(collectLogRequest);
 
          // @ts-ignore
@@ -274,7 +274,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteMigproject(deleteMigprojectRequest?: DeleteMigprojectRequest): Promise<void> {
+    public deleteMigproject(deleteMigprojectRequest?: DeleteMigprojectRequest): Promise<DeleteMigprojectResponse> {
         const options = ParamCreater().deleteMigproject(deleteMigprojectRequest);
 
          // @ts-ignore
@@ -293,7 +293,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteServer(deleteServerRequest?: DeleteServerRequest): Promise<void> {
+    public deleteServer(deleteServerRequest?: DeleteServerRequest): Promise<DeleteServerResponse> {
         const options = ParamCreater().deleteServer(deleteServerRequest);
 
          // @ts-ignore
@@ -312,7 +312,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteServers(deleteServersRequest?: DeleteServersRequest): Promise<void> {
+    public deleteServers(deleteServersRequest?: DeleteServersRequest): Promise<DeleteServersResponse> {
         const options = ParamCreater().deleteServers(deleteServersRequest);
 
          // @ts-ignore
@@ -331,7 +331,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteTask(deleteTaskRequest?: DeleteTaskRequest): Promise<void> {
+    public deleteTask(deleteTaskRequest?: DeleteTaskRequest): Promise<DeleteTaskResponse> {
         const options = ParamCreater().deleteTask(deleteTaskRequest);
 
          // @ts-ignore
@@ -350,7 +350,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteTasks(deleteTasksRequest?: DeleteTasksRequest): Promise<void> {
+    public deleteTasks(deleteTasksRequest?: DeleteTasksRequest): Promise<DeleteTasksResponse> {
         const options = ParamCreater().deleteTasks(deleteTasksRequest);
 
          // @ts-ignore
@@ -369,7 +369,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteTemplate(deleteTemplateRequest?: DeleteTemplateRequest): Promise<void> {
+    public deleteTemplate(deleteTemplateRequest?: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
         const options = ParamCreater().deleteTemplate(deleteTemplateRequest);
 
          // @ts-ignore
@@ -388,7 +388,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteTemplates(deleteTemplatesRequest?: DeleteTemplatesRequest): Promise<void> {
+    public deleteTemplates(deleteTemplatesRequest?: DeleteTemplatesRequest): Promise<DeleteTemplatesResponse> {
         const options = ParamCreater().deleteTemplates(deleteTemplatesRequest);
 
          // @ts-ignore
@@ -752,7 +752,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public unlockTargetEcs(unlockTargetEcsRequest?: UnlockTargetEcsRequest): Promise<void> {
+    public unlockTargetEcs(unlockTargetEcsRequest?: UnlockTargetEcsRequest): Promise<UnlockTargetEcsResponse> {
         const options = ParamCreater().unlockTargetEcs(unlockTargetEcsRequest);
 
          // @ts-ignore
@@ -772,7 +772,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateCommandResult(updateCommandResultRequest?: UpdateCommandResultRequest): Promise<void> {
+    public updateCommandResult(updateCommandResultRequest?: UpdateCommandResultRequest): Promise<UpdateCommandResultResponse> {
         const options = ParamCreater().updateCommandResult(updateCommandResultRequest);
 
          // @ts-ignore
@@ -792,7 +792,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateCopyState(updateCopyStateRequest?: UpdateCopyStateRequest): Promise<void> {
+    public updateCopyState(updateCopyStateRequest?: UpdateCopyStateRequest): Promise<UpdateCopyStateResponse> {
         const options = ParamCreater().updateCopyState(updateCopyStateRequest);
 
          // @ts-ignore
@@ -811,7 +811,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateDefaultMigproject(updateDefaultMigprojectRequest?: UpdateDefaultMigprojectRequest): Promise<void> {
+    public updateDefaultMigproject(updateDefaultMigprojectRequest?: UpdateDefaultMigprojectRequest): Promise<UpdateDefaultMigprojectResponse> {
         const options = ParamCreater().updateDefaultMigproject(updateDefaultMigprojectRequest);
 
          // @ts-ignore
@@ -831,7 +831,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateDiskInfo(updateDiskInfoRequest?: UpdateDiskInfoRequest): Promise<void> {
+    public updateDiskInfo(updateDiskInfoRequest?: UpdateDiskInfoRequest): Promise<UpdateDiskInfoResponse> {
         const options = ParamCreater().updateDiskInfo(updateDiskInfoRequest);
 
          // @ts-ignore
@@ -851,7 +851,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateMigproject(updateMigprojectRequest?: UpdateMigprojectRequest): Promise<string> {
+    public updateMigproject(updateMigprojectRequest?: UpdateMigprojectRequest): Promise<UpdateMigprojectResponse> {
         const options = ParamCreater().updateMigproject(updateMigprojectRequest);
 
          // @ts-ignore
@@ -871,7 +871,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateServerName(updateServerNameRequest?: UpdateServerNameRequest): Promise<void> {
+    public updateServerName(updateServerNameRequest?: UpdateServerNameRequest): Promise<UpdateServerNameResponse> {
         const options = ParamCreater().updateServerName(updateServerNameRequest);
 
          // @ts-ignore
@@ -891,7 +891,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateSpeed(updateSpeedRequest?: UpdateSpeedRequest): Promise<void> {
+    public updateSpeed(updateSpeedRequest?: UpdateSpeedRequest): Promise<UpdateSpeedResponse> {
         const options = ParamCreater().updateSpeed(updateSpeedRequest);
 
          // @ts-ignore
@@ -911,7 +911,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateTask(updateTaskRequest?: UpdateTaskRequest): Promise<string> {
+    public updateTask(updateTaskRequest?: UpdateTaskRequest): Promise<UpdateTaskResponse> {
         const options = ParamCreater().updateTask(updateTaskRequest);
 
          // @ts-ignore
@@ -933,7 +933,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateTaskSpeed(updateTaskSpeedRequest?: UpdateTaskSpeedRequest): Promise<void> {
+    public updateTaskSpeed(updateTaskSpeedRequest?: UpdateTaskSpeedRequest): Promise<UpdateTaskSpeedResponse> {
         const options = ParamCreater().updateTaskSpeed(updateTaskSpeedRequest);
 
          // @ts-ignore
@@ -953,7 +953,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateTaskStatus(updateTaskStatusRequest?: UpdateTaskStatusRequest): Promise<void> {
+    public updateTaskStatus(updateTaskStatusRequest?: UpdateTaskStatusRequest): Promise<UpdateTaskStatusResponse> {
         const options = ParamCreater().updateTaskStatus(updateTaskStatusRequest);
 
          // @ts-ignore
@@ -973,7 +973,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateTemplate(updateTemplateRequest?: UpdateTemplateRequest): Promise<void> {
+    public updateTemplate(updateTemplateRequest?: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
         const options = ParamCreater().updateTemplate(updateTemplateRequest);
 
          // @ts-ignore

@@ -1,3 +1,5 @@
+import { TemplateBodyPrimitiveTypeHolder } from './TemplateBodyPrimitiveTypeHolder';
+import { TemplateURIPrimitiveTypeHolder } from './TemplateURIPrimitiveTypeHolder';
 
 
 export class ParseTemplateVariablesRequestBody {

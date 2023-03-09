@@ -890,7 +890,7 @@ export class WafClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listBandwidthTimeline(listBandwidthTimelineRequest?: ListBandwidthTimelineRequest): Promise<Array<BandwidthStatisticsTimelineItem>> {
+    public listBandwidthTimeline(listBandwidthTimelineRequest?: ListBandwidthTimelineRequest): Promise<ListBandwidthTimelineResponse> {
         const options = ParamCreater().listBandwidthTimeline(listBandwidthTimelineRequest);
 
          // @ts-ignore
@@ -1248,7 +1248,7 @@ export class WafClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listQpsTimeline(listQpsTimelineRequest?: ListQpsTimelineRequest): Promise<Array<StatisticsTimelineItem>> {
+    public listQpsTimeline(listQpsTimelineRequest?: ListQpsTimelineRequest): Promise<ListQpsTimelineResponse> {
         const options = ParamCreater().listQpsTimeline(listQpsTimelineRequest);
 
          // @ts-ignore
@@ -1273,7 +1273,7 @@ export class WafClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listRequestTimeline(listRequestTimelineRequest?: ListRequestTimelineRequest): Promise<Array<StatisticsTimelineItem>> {
+    public listRequestTimeline(listRequestTimelineRequest?: ListRequestTimelineRequest): Promise<ListRequestTimelineResponse> {
         const options = ParamCreater().listRequestTimeline(listRequestTimelineRequest);
 
          // @ts-ignore
@@ -1297,7 +1297,7 @@ export class WafClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listStatistics(listStatisticsRequest?: ListStatisticsRequest): Promise<Array<CountItem>> {
+    public listStatistics(listStatisticsRequest?: ListStatisticsRequest): Promise<ListStatisticsResponse> {
         const options = ParamCreater().listStatistics(listStatisticsRequest);
 
          // @ts-ignore

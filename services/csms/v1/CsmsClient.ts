@@ -88,7 +88,7 @@ export class CsmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest?: BatchCreateOrDeleteTagsRequest): Promise<void> {
+    public batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest?: BatchCreateOrDeleteTagsRequest): Promise<BatchCreateOrDeleteTagsResponse> {
         const options = ParamCreater().batchCreateOrDeleteTags(batchCreateOrDeleteTagsRequest);
 
          // @ts-ignore
@@ -131,7 +131,7 @@ export class CsmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createSecretTag(createSecretTagRequest?: CreateSecretTagRequest): Promise<void> {
+    public createSecretTag(createSecretTagRequest?: CreateSecretTagRequest): Promise<CreateSecretTagResponse> {
         const options = ParamCreater().createSecretTag(createSecretTagRequest);
 
          // @ts-ignore
@@ -170,7 +170,7 @@ export class CsmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteSecret(deleteSecretRequest?: DeleteSecretRequest): Promise<void> {
+    public deleteSecret(deleteSecretRequest?: DeleteSecretRequest): Promise<DeleteSecretResponse> {
         const options = ParamCreater().deleteSecret(deleteSecretRequest);
 
          // @ts-ignore
@@ -210,7 +210,7 @@ export class CsmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteSecretStage(deleteSecretStageRequest?: DeleteSecretStageRequest): Promise<void> {
+    public deleteSecretStage(deleteSecretStageRequest?: DeleteSecretStageRequest): Promise<DeleteSecretStageResponse> {
         const options = ParamCreater().deleteSecretStage(deleteSecretStageRequest);
 
          // @ts-ignore
@@ -230,7 +230,7 @@ export class CsmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteSecretTag(deleteSecretTagRequest?: DeleteSecretTagRequest): Promise<void> {
+    public deleteSecretTag(deleteSecretTagRequest?: DeleteSecretTagRequest): Promise<DeleteSecretTagResponse> {
         const options = ParamCreater().deleteSecretTag(deleteSecretTagRequest);
 
          // @ts-ignore

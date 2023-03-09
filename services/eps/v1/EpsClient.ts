@@ -87,7 +87,7 @@ export class EpsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public disableEnterpriseProject(disableEnterpriseProjectRequest?: DisableEnterpriseProjectRequest): Promise<void> {
+    public disableEnterpriseProject(disableEnterpriseProjectRequest?: DisableEnterpriseProjectRequest): Promise<DisableEnterpriseProjectResponse> {
         const options = ParamCreater().disableEnterpriseProject(disableEnterpriseProjectRequest);
 
          // @ts-ignore
@@ -107,7 +107,7 @@ export class EpsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public enableEnterpriseProject(enableEnterpriseProjectRequest?: EnableEnterpriseProjectRequest): Promise<void> {
+    public enableEnterpriseProject(enableEnterpriseProjectRequest?: EnableEnterpriseProjectRequest): Promise<EnableEnterpriseProjectResponse> {
         const options = ParamCreater().enableEnterpriseProject(enableEnterpriseProjectRequest);
 
          // @ts-ignore
@@ -192,7 +192,7 @@ export class EpsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public migrateResource(migrateResourceRequest?: MigrateResourceRequest): Promise<void> {
+    public migrateResource(migrateResourceRequest?: MigrateResourceRequest): Promise<MigrateResourceResponse> {
         const options = ParamCreater().migrateResource(migrateResourceRequest);
 
          // @ts-ignore

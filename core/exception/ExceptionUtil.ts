@@ -21,34 +21,35 @@
 
 import { ClientRequestException } from "./ClientRequestException";
 import { ExceptionResponse } from "./ExceptionResponse";
+import { SdkException } from "./SdkException";
 import { ServerResponseException } from "./ServerResponseException";
 import { ServiceResponseException } from "./ServiceResponseException";
 
 export class ExceptionUtil {
-    static generalException(exception: ExceptionResponse) {
-        const data = exception.data || {};
-        let errorMsg;
-        let errorCode;
-        if (data.error) {
-            errorCode = data.error.code;
-            errorMsg = data.error.message;
-        } else if (data.error_code) {
-            errorCode = data.error_code;
-            errorMsg = data.error_msg;
-        } else {
-            errorCode = exception.status;
-            errorMsg = exception.message;
+    static generalException(exception: ExceptionResponse): SdkException {
+      const { data = {}, status, message, requestId } = exception;
+      const { error, error_code, error_msg } = data;
+  
+      const errorCode = error?.code ?? error_code ?? status;
+      const errorMsg = error?.message ?? error_msg ?? message;
+      const httpStatusCode = status;
+  
+      if (httpStatusCode) {
+        if (isClientError(httpStatusCode)) {
+          return new ClientRequestException(httpStatusCode, errorMsg, errorCode, requestId);
+        } else if (isServerError(httpStatusCode)) {
+          return new ServerResponseException(httpStatusCode, errorMsg, errorCode, requestId);
         }
-        let requestId = exception.requestId;
-
-        const httpStatusCode = exception.status;
-        if (httpStatusCode) {
-            if (httpStatusCode >= 400 && httpStatusCode < 500) {
-                return new ClientRequestException(httpStatusCode, errorMsg, errorCode, requestId);
-            } else if (httpStatusCode >= 500 && httpStatusCode < 600) {
-                return new ServerResponseException(httpStatusCode, errorMsg, errorCode, requestId);
-            }
-        }
-        return new ServiceResponseException(httpStatusCode, errorMsg, errorCode, requestId);
+      }
+      return new ServiceResponseException(httpStatusCode, errorMsg, errorCode, requestId);
     }
-}
+  }
+  
+  function isClientError(statusCode: number): boolean {
+    return statusCode >= 400 && statusCode < 500;
+  }
+  
+  function isServerError(statusCode: number): boolean {
+    return statusCode >= 500 && statusCode < 600;
+  }
+  

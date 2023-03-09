@@ -1,16 +1,38 @@
+import { ResourceNamePrimitiveTypeHolder } from './ResourceNamePrimitiveTypeHolder';
+import { ResourceTypePrimitiveTypeHolder } from './ResourceTypePrimitiveTypeHolder';
 
 
 export class StackEvent {
+    private 'resource_type'?: string | undefined;
+    private 'resource_name'?: string | undefined;
     private 'resource_id_key'?: string | undefined;
     private 'resource_id_value'?: string | undefined;
-    private 'resource_name'?: string | undefined;
-    private 'resource_type'?: string | undefined;
     private 'resource_key'?: string | undefined;
     public time?: string;
     private 'event_type'?: StackEventEventTypeEnum | undefined;
     private 'event_message'?: string | undefined;
     private 'elapsed_seconds'?: number | undefined;
     public constructor() { 
+    }
+    public withResourceType(resourceType: string): StackEvent {
+        this['resource_type'] = resourceType;
+        return this;
+    }
+    public set resourceType(resourceType: string | undefined) {
+        this['resource_type'] = resourceType;
+    }
+    public get resourceType() {
+        return this['resource_type'];
+    }
+    public withResourceName(resourceName: string): StackEvent {
+        this['resource_name'] = resourceName;
+        return this;
+    }
+    public set resourceName(resourceName: string | undefined) {
+        this['resource_name'] = resourceName;
+    }
+    public get resourceName() {
+        return this['resource_name'];
     }
     public withResourceIdKey(resourceIdKey: string): StackEvent {
         this['resource_id_key'] = resourceIdKey;
@@ -31,26 +53,6 @@ export class StackEvent {
     }
     public get resourceIdValue() {
         return this['resource_id_value'];
-    }
-    public withResourceName(resourceName: string): StackEvent {
-        this['resource_name'] = resourceName;
-        return this;
-    }
-    public set resourceName(resourceName: string | undefined) {
-        this['resource_name'] = resourceName;
-    }
-    public get resourceName() {
-        return this['resource_name'];
-    }
-    public withResourceType(resourceType: string): StackEvent {
-        this['resource_type'] = resourceType;
-        return this;
-    }
-    public set resourceType(resourceType: string | undefined) {
-        this['resource_type'] = resourceType;
-    }
-    public get resourceType() {
-        return this['resource_type'];
     }
     public withResourceKey(resourceKey: string): StackEvent {
         this['resource_key'] = resourceKey;

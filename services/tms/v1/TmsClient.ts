@@ -80,7 +80,7 @@ export class TmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createPredefineTags(createPredefineTagsRequest?: CreatePredefineTagsRequest): Promise<void> {
+    public createPredefineTags(createPredefineTagsRequest?: CreatePredefineTagsRequest): Promise<CreatePredefineTagsResponse> {
         const options = ParamCreater().createPredefineTags(createPredefineTagsRequest);
 
          // @ts-ignore
@@ -118,7 +118,7 @@ export class TmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deletePredefineTags(deletePredefineTagsRequest?: DeletePredefineTagsRequest): Promise<void> {
+    public deletePredefineTags(deletePredefineTagsRequest?: DeletePredefineTagsRequest): Promise<DeletePredefineTagsResponse> {
         const options = ParamCreater().deletePredefineTags(deletePredefineTagsRequest);
 
          // @ts-ignore
@@ -340,7 +340,7 @@ export class TmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updatePredefineTags(updatePredefineTagsRequest?: UpdatePredefineTagsRequest): Promise<void> {
+    public updatePredefineTags(updatePredefineTagsRequest?: UpdatePredefineTagsRequest): Promise<UpdatePredefineTagsResponse> {
         const options = ParamCreater().updatePredefineTags(updatePredefineTagsRequest);
 
          // @ts-ignore

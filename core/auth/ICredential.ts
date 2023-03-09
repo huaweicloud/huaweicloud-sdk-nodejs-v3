@@ -28,3 +28,7 @@ export interface ICredential {
     processAuthRequest: (httpRequest: IHttpRequest) => IHttpRequest;
     processAuthParams: (hcClient: HcClient, region: string) => Promise<ICredential>;
 }
+export function isJsonContentType(headers: any) {
+    const contentType = headers && (headers["content-type"] || headers["Content-Type"]);
+    return !contentType || contentType.toLowerCase() === "application/json";
+  }

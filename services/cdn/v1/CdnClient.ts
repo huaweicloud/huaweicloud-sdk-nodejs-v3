@@ -184,7 +184,7 @@ export class CdnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public batchDeleteTags(batchDeleteTagsRequest?: BatchDeleteTagsRequest): Promise<void> {
+    public batchDeleteTags(batchDeleteTagsRequest?: BatchDeleteTagsRequest): Promise<BatchDeleteTagsResponse> {
         const options = ParamCreater().batchDeleteTags(batchDeleteTagsRequest);
 
          // @ts-ignore
@@ -262,7 +262,7 @@ export class CdnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createTags(createTagsRequest?: CreateTagsRequest): Promise<void> {
+    public createTags(createTagsRequest?: CreateTagsRequest): Promise<CreateTagsResponse> {
         const options = ParamCreater().createTags(createTagsRequest);
 
          // @ts-ignore
@@ -936,7 +936,7 @@ export class CdnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateDomainFullConfig(updateDomainFullConfigRequest?: UpdateDomainFullConfigRequest): Promise<void> {
+    public updateDomainFullConfig(updateDomainFullConfigRequest?: UpdateDomainFullConfigRequest): Promise<UpdateDomainFullConfigResponse> {
         const options = ParamCreater().updateDomainFullConfig(updateDomainFullConfigRequest);
 
          // @ts-ignore

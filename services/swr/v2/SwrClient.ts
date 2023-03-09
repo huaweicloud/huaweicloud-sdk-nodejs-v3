@@ -151,7 +151,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createImageSyncRepo(createImageSyncRepoRequest?: CreateImageSyncRepoRequest): Promise<void> {
+    public createImageSyncRepo(createImageSyncRepoRequest?: CreateImageSyncRepoRequest): Promise<CreateImageSyncRepoResponse> {
         const options = ParamCreater().createImageSyncRepo(createImageSyncRepoRequest);
 
          // @ts-ignore
@@ -173,7 +173,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createManualImageSyncRepo(createManualImageSyncRepoRequest?: CreateManualImageSyncRepoRequest): Promise<Array<string>> {
+    public createManualImageSyncRepo(createManualImageSyncRepoRequest?: CreateManualImageSyncRepoRequest): Promise<CreateManualImageSyncRepoResponse> {
         const options = ParamCreater().createManualImageSyncRepo(createManualImageSyncRepoRequest);
 
          // @ts-ignore
@@ -193,7 +193,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createNamespace(createNamespaceRequest?: CreateNamespaceRequest): Promise<void> {
+    public createNamespace(createNamespaceRequest?: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
         const options = ParamCreater().createNamespace(createNamespaceRequest);
 
          // @ts-ignore
@@ -214,7 +214,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createNamespaceAuth(createNamespaceAuthRequest?: CreateNamespaceAuthRequest): Promise<void> {
+    public createNamespaceAuth(createNamespaceAuthRequest?: CreateNamespaceAuthRequest): Promise<CreateNamespaceAuthResponse> {
         const options = ParamCreater().createNamespaceAuth(createNamespaceAuthRequest);
 
          // @ts-ignore
@@ -235,7 +235,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createRepo(createRepoRequest?: CreateRepoRequest): Promise<void> {
+    public createRepo(createRepoRequest?: CreateRepoRequest): Promise<CreateRepoResponse> {
         const options = ParamCreater().createRepo(createRepoRequest);
 
          // @ts-ignore
@@ -257,7 +257,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createRepoDomains(createRepoDomainsRequest?: CreateRepoDomainsRequest): Promise<void> {
+    public createRepoDomains(createRepoDomainsRequest?: CreateRepoDomainsRequest): Promise<CreateRepoDomainsResponse> {
         const options = ParamCreater().createRepoDomains(createRepoDomainsRequest);
 
          // @ts-ignore
@@ -321,7 +321,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createTrigger(createTriggerRequest?: CreateTriggerRequest): Promise<void> {
+    public createTrigger(createTriggerRequest?: CreateTriggerRequest): Promise<CreateTriggerResponse> {
         const options = ParamCreater().createTrigger(createTriggerRequest);
 
          // @ts-ignore
@@ -343,7 +343,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public createUserRepositoryAuth(createUserRepositoryAuthRequest?: CreateUserRepositoryAuthRequest): Promise<void> {
+    public createUserRepositoryAuth(createUserRepositoryAuthRequest?: CreateUserRepositoryAuthRequest): Promise<CreateUserRepositoryAuthResponse> {
         const options = ParamCreater().createUserRepositoryAuth(createUserRepositoryAuthRequest);
 
          // @ts-ignore
@@ -365,7 +365,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteImageSyncRepo(deleteImageSyncRepoRequest?: DeleteImageSyncRepoRequest): Promise<void> {
+    public deleteImageSyncRepo(deleteImageSyncRepoRequest?: DeleteImageSyncRepoRequest): Promise<DeleteImageSyncRepoResponse> {
         const options = ParamCreater().deleteImageSyncRepo(deleteImageSyncRepoRequest);
 
          // @ts-ignore
@@ -386,7 +386,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteNamespaceAuth(deleteNamespaceAuthRequest?: DeleteNamespaceAuthRequest): Promise<void> {
+    public deleteNamespaceAuth(deleteNamespaceAuthRequest?: DeleteNamespaceAuthRequest): Promise<DeleteNamespaceAuthResponse> {
         const options = ParamCreater().deleteNamespaceAuth(deleteNamespaceAuthRequest);
 
          // @ts-ignore
@@ -406,7 +406,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteNamespaces(deleteNamespacesRequest?: DeleteNamespacesRequest): Promise<void> {
+    public deleteNamespaces(deleteNamespacesRequest?: DeleteNamespacesRequest): Promise<DeleteNamespacesResponse> {
         const options = ParamCreater().deleteNamespaces(deleteNamespacesRequest);
 
          // @ts-ignore
@@ -427,7 +427,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteRepo(deleteRepoRequest?: DeleteRepoRequest): Promise<void> {
+    public deleteRepo(deleteRepoRequest?: DeleteRepoRequest): Promise<DeleteRepoResponse> {
         const options = ParamCreater().deleteRepo(deleteRepoRequest);
 
          // @ts-ignore
@@ -449,7 +449,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteRepoDomains(deleteRepoDomainsRequest?: DeleteRepoDomainsRequest): Promise<void> {
+    public deleteRepoDomains(deleteRepoDomainsRequest?: DeleteRepoDomainsRequest): Promise<DeleteRepoDomainsResponse> {
         const options = ParamCreater().deleteRepoDomains(deleteRepoDomainsRequest);
 
          // @ts-ignore
@@ -471,7 +471,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteRepoTag(deleteRepoTagRequest?: DeleteRepoTagRequest): Promise<void> {
+    public deleteRepoTag(deleteRepoTagRequest?: DeleteRepoTagRequest): Promise<DeleteRepoTagResponse> {
         const options = ParamCreater().deleteRepoTag(deleteRepoTagRequest);
 
          // @ts-ignore
@@ -493,7 +493,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteRetention(deleteRetentionRequest?: DeleteRetentionRequest): Promise<void> {
+    public deleteRetention(deleteRetentionRequest?: DeleteRetentionRequest): Promise<DeleteRetentionResponse> {
         const options = ParamCreater().deleteRetention(deleteRetentionRequest);
 
          // @ts-ignore
@@ -515,7 +515,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteTrigger(deleteTriggerRequest?: DeleteTriggerRequest): Promise<void> {
+    public deleteTrigger(deleteTriggerRequest?: DeleteTriggerRequest): Promise<DeleteTriggerResponse> {
         const options = ParamCreater().deleteTrigger(deleteTriggerRequest);
 
          // @ts-ignore
@@ -537,7 +537,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteUserRepositoryAuth(deleteUserRepositoryAuthRequest?: DeleteUserRepositoryAuthRequest): Promise<void> {
+    public deleteUserRepositoryAuth(deleteUserRepositoryAuthRequest?: DeleteUserRepositoryAuthRequest): Promise<DeleteUserRepositoryAuthResponse> {
         const options = ParamCreater().deleteUserRepositoryAuth(deleteUserRepositoryAuthRequest);
 
          // @ts-ignore
@@ -558,7 +558,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listImageAutoSyncReposDetails(listImageAutoSyncReposDetailsRequest?: ListImageAutoSyncReposDetailsRequest): Promise<Array<SyncRepo>> {
+    public listImageAutoSyncReposDetails(listImageAutoSyncReposDetailsRequest?: ListImageAutoSyncReposDetailsRequest): Promise<ListImageAutoSyncReposDetailsResponse> {
         const options = ParamCreater().listImageAutoSyncReposDetails(listImageAutoSyncReposDetailsRequest);
 
          // @ts-ignore
@@ -619,7 +619,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listRepoDomains(listRepoDomainsRequest?: ListRepoDomainsRequest): Promise<Array<ShowRepoDomainsResponse>> {
+    public listRepoDomains(listRepoDomainsRequest?: ListRepoDomainsRequest): Promise<ListRepoDomainsResponse> {
         const options = ParamCreater().listRepoDomains(listRepoDomainsRequest);
 
          // @ts-ignore
@@ -646,7 +646,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listReposDetails(listReposDetailsRequest?: ListReposDetailsRequest): Promise<Array<ShowReposResp>> {
+    public listReposDetails(listReposDetailsRequest?: ListReposDetailsRequest): Promise<ListReposDetailsResponse> {
         const options = ParamCreater().listReposDetails(listReposDetailsRequest);
 
          // @ts-ignore
@@ -673,7 +673,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listRepositoryTags(listRepositoryTagsRequest?: ListRepositoryTagsRequest): Promise<Array<ShowReposTagResp>> {
+    public listRepositoryTags(listRepositoryTagsRequest?: ListRepositoryTagsRequest): Promise<ListRepositoryTagsResponse> {
         const options = ParamCreater().listRepositoryTags(listRepositoryTagsRequest);
 
          // @ts-ignore
@@ -716,7 +716,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listRetentions(listRetentionsRequest?: ListRetentionsRequest): Promise<Array<Retention>> {
+    public listRetentions(listRetentionsRequest?: ListRetentionsRequest): Promise<ListRetentionsResponse> {
         const options = ParamCreater().listRetentions(listRetentionsRequest);
 
          // @ts-ignore
@@ -743,7 +743,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listSharedReposDetails(listSharedReposDetailsRequest?: ListSharedReposDetailsRequest): Promise<Array<ShowReposResp>> {
+    public listSharedReposDetails(listSharedReposDetailsRequest?: ListSharedReposDetailsRequest): Promise<ListSharedReposDetailsResponse> {
         const options = ParamCreater().listSharedReposDetails(listSharedReposDetailsRequest);
 
          // @ts-ignore
@@ -764,7 +764,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listTriggersDetails(listTriggersDetailsRequest?: ListTriggersDetailsRequest): Promise<Array<Trigger>> {
+    public listTriggersDetails(listTriggersDetailsRequest?: ListTriggersDetailsRequest): Promise<ListTriggersDetailsResponse> {
         const options = ParamCreater().listTriggersDetails(listTriggersDetailsRequest);
 
          // @ts-ignore
@@ -891,7 +891,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showSyncJob(showSyncJobRequest?: ShowSyncJobRequest): Promise<Array<SyncJob>> {
+    public showSyncJob(showSyncJobRequest?: ShowSyncJobRequest): Promise<ShowSyncJobResponse> {
         const options = ParamCreater().showSyncJob(showSyncJobRequest);
 
          // @ts-ignore
@@ -955,7 +955,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateNamespaceAuth(updateNamespaceAuthRequest?: UpdateNamespaceAuthRequest): Promise<void> {
+    public updateNamespaceAuth(updateNamespaceAuthRequest?: UpdateNamespaceAuthRequest): Promise<UpdateNamespaceAuthResponse> {
         const options = ParamCreater().updateNamespaceAuth(updateNamespaceAuthRequest);
 
          // @ts-ignore
@@ -977,7 +977,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateRepo(updateRepoRequest?: UpdateRepoRequest): Promise<void> {
+    public updateRepo(updateRepoRequest?: UpdateRepoRequest): Promise<UpdateRepoResponse> {
         const options = ParamCreater().updateRepo(updateRepoRequest);
 
          // @ts-ignore
@@ -1000,7 +1000,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateRepoDomains(updateRepoDomainsRequest?: UpdateRepoDomainsRequest): Promise<void> {
+    public updateRepoDomains(updateRepoDomainsRequest?: UpdateRepoDomainsRequest): Promise<UpdateRepoDomainsResponse> {
         const options = ParamCreater().updateRepoDomains(updateRepoDomainsRequest);
 
          // @ts-ignore
@@ -1023,7 +1023,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateRetention(updateRetentionRequest?: UpdateRetentionRequest): Promise<void> {
+    public updateRetention(updateRetentionRequest?: UpdateRetentionRequest): Promise<UpdateRetentionResponse> {
         const options = ParamCreater().updateRetention(updateRetentionRequest);
 
          // @ts-ignore
@@ -1046,7 +1046,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateTrigger(updateTriggerRequest?: UpdateTriggerRequest): Promise<void> {
+    public updateTrigger(updateTriggerRequest?: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
         const options = ParamCreater().updateTrigger(updateTriggerRequest);
 
          // @ts-ignore
@@ -1068,7 +1068,7 @@ export class SwrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateUserRepositoryAuth(updateUserRepositoryAuthRequest?: UpdateUserRepositoryAuthRequest): Promise<void> {
+    public updateUserRepositoryAuth(updateUserRepositoryAuthRequest?: UpdateUserRepositoryAuthRequest): Promise<UpdateUserRepositoryAuthResponse> {
         const options = ParamCreater().updateUserRepositoryAuth(updateUserRepositoryAuthRequest);
 
          // @ts-ignore

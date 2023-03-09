@@ -107,7 +107,7 @@ export class KpsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteAllFailedTask(): Promise<void> {
+    public deleteAllFailedTask(): Promise<DeleteAllFailedTaskResponse> {
         const options = ParamCreater().deleteAllFailedTask();
 
          // @ts-ignore
@@ -126,7 +126,7 @@ export class KpsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteFailedTask(deleteFailedTaskRequest?: DeleteFailedTaskRequest): Promise<void> {
+    public deleteFailedTask(deleteFailedTaskRequest?: DeleteFailedTaskRequest): Promise<DeleteFailedTaskResponse> {
         const options = ParamCreater().deleteFailedTask(deleteFailedTaskRequest);
 
          // @ts-ignore
@@ -145,7 +145,7 @@ export class KpsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteKeypair(deleteKeypairRequest?: DeleteKeypairRequest): Promise<void> {
+    public deleteKeypair(deleteKeypairRequest?: DeleteKeypairRequest): Promise<DeleteKeypairResponse> {
         const options = ParamCreater().deleteKeypair(deleteKeypairRequest);
 
          // @ts-ignore
@@ -282,7 +282,7 @@ export class KpsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public updateKeypairDescription(updateKeypairDescriptionRequest?: UpdateKeypairDescriptionRequest): Promise<void> {
+    public updateKeypairDescription(updateKeypairDescriptionRequest?: UpdateKeypairDescriptionRequest): Promise<UpdateKeypairDescriptionResponse> {
         const options = ParamCreater().updateKeypairDescription(updateKeypairDescriptionRequest);
 
          // @ts-ignore

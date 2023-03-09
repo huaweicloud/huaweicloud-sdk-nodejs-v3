@@ -95,7 +95,7 @@ export class CdnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public downloadRegionCarrierExcel(downloadRegionCarrierExcelRequest?: DownloadRegionCarrierExcelRequest): Promise<void> {
+    public downloadRegionCarrierExcel(downloadRegionCarrierExcelRequest?: DownloadRegionCarrierExcelRequest): Promise<DownloadRegionCarrierExcelResponse> {
         const options = ParamCreater().downloadRegionCarrierExcel(downloadRegionCarrierExcelRequest);
 
          // @ts-ignore
@@ -131,7 +131,7 @@ export class CdnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public downloadStatisticsExcel(downloadStatisticsExcelRequest?: DownloadStatisticsExcelRequest): Promise<void> {
+    public downloadStatisticsExcel(downloadStatisticsExcelRequest?: DownloadStatisticsExcelRequest): Promise<DownloadStatisticsExcelResponse> {
         const options = ParamCreater().downloadStatisticsExcel(downloadStatisticsExcelRequest);
 
          // @ts-ignore

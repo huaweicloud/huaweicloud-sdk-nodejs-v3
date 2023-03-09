@@ -26,56 +26,58 @@
 
 推荐您使用 npm 安装 SDK 。
  
-无论您要使用哪个产品/服务的开发工具包，都必须依赖 `@huaweicloud/huaweicloud-sdk-core`。以使用 Devstar SDK为例，您需要安装 `@huaweicloud/huaweicloud-sdk-devstar`：
+无论您要使用哪个产品/服务的开发工具包，都必须依赖 `@huaweicloud/huaweicloud-sdk-core`。以使用 Vpc SDK为例，您需要安装 `@huaweicloud/huaweicloud-sdk-vpc`：
 ``` bash
 npm install @huaweicloud/huaweicloud-sdk-core
-npm install @huaweicloud/huaweicloud-sdk-devstar
+npm install @huaweicloud/huaweicloud-sdk-vpc
 ```
 
 ## 代码示例
 
-- 使用如下代码同步查询任务详情，调用前请根据实际情况替换如下变量： `{your ak string}`、`{your sk string}`、`{your endpoint}`、`{your domain id}`以及`{your job id}`
+- 使用如下代码查询VPC列表，调用前请根据实际情况替换如下变量： `{your ak string}`、`{your sk string}`、`{your endpoint}`、`{your project id}`
 
 ``` javascript
-import express = require('express');
-import { DevStarClient } from "@huaweicloud/huaweicloud-sdk-devstar/v1/DevStarClient";
-import { GlobalCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/GlobalCredentials";
-import { ShowJobDetailRequest } from '@huaweicloud/huaweicloud-sdk-devstar/v1/model/ShowJobDetailRequest';
+// index.ts
+import { ListVpcsRequest, VpcClient } from "@huaweicloud/huaweicloud-sdk-vpc";
+import { BasicCredentials } from "@huaweicloud/huaweicloud-sdk-core/auth/BasicCredentials";
 
-// Create a new express application instance
-const app: express.Application = express();
-app.get('/', function (req: any, res: { send: (arg0: string) => void; }) {
-    const client = DevStarClient.newBuilder()
-        .withCredential(new GlobalCredentials()
-            .withAk("{your ak string}")
-            .withSk("{your sk string}")
-            .withDomainId("{your domain id}"))
-        .withEndpoint("{your endpoint}")
-        .withProxyAgent("")
-        .build();
+const ak = '{your ak string}';
+const sk = '{your sk string}';
+const projectId = '{your project id}';
+const endpoint = '{your endpoint}';
 
-    const result = client.showJobDetail(new ShowJobDetailRequest("{your job id}"));
-    result.then(result => {
-    res.send("JSON.stringify(result)::" + JSON.stringify(result))
-    }).catch(ex => {
-    res.send("exception:" + JSON.stringify(ex))
-    });
-});
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
-});
+const credentials = new BasicCredentials()
+  .withAk(ak)
+  .withSk(sk)
+  .withProjectId(projectId);
+
+const client = VpcClient.newBuilder()
+  .withCredential(credentials)
+  .withEndpoint(endpoint)
+  .build();
+
+
+(async () => {
+  try {
+    const request = new ListVpcsRequest();
+    const result = await client.listVpcs(request);
+    console.log("Result:", JSON.stringify(result, null, 2));
+  } catch (error:any) {
+    console.error("Exception:", JSON.stringify(error, null, 2));
+  }
+})();
+
 ```
 
 - 示例调试
 
 ``` bash
-npm install ts-node-dev
-npm install express
-npm install typescript
-# 添加scripts
-"dev": "ts-node-dev ./index.ts"
-npm run dev
-# 运行完成后，本地浏览器访问：http://localhost:3000/ 查看运行结果
+# 添加依赖
+npm install -g ts-node typescript
+
+# 运行
+ts-node ./index.ts
+
 ```
 
 ## 变更日志
@@ -103,7 +105,7 @@ npm run dev
 
 ``` javascript
 // 使用默认配置
-const client = DevStarClient.newBuilder()
+const client = VpcClient.newBuilder()
 ```
 
 #### 1.2 网络代理 [:top:](#用户手册-top)
@@ -124,7 +126,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
 华为云服务存在两种部署方式，Region 级服务和 Global 级服务。
 
-Global 级服务有 DevStar、IAM 。
+Global 级服务有 IAM 等。
 
 Region 级服务需要提供 projectId 。
 
@@ -189,9 +191,9 @@ const globalCredentials = new GlobalCredentials()
 #### 3.1 指定云服务 Endpoint 方式 [:top:](#用户手册-top)
 
 ``` javascript
-// 初始化指定云服务的客户端 {Service}Client ，以初始化 DevStarClient 为例
-const client = DevStarClient.newBuilder()
-    .withCredential(globalCredentials)
+// 初始化指定云服务的客户端 {Service}Client ，以初始化 VpcClient 为例
+const client = VpcClient.newBuilder()
+    .withCredential(basicCredentials)
     .withEndpoint(endpoint)
     .withProxyAgent(proxy)
     .build()

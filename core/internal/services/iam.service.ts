@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Huawei Technologies Co.,Ltd.
+ * Copyright 2023 Huawei Technologies Co.,Ltd.
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -26,7 +26,7 @@ import { KeystoneCreateProjectResponse } from "../model/KeystoneCreateProjectRes
 import { KeystoneListProjectsRequest } from "../model/KeystoneListProjectsRequest";
 import { KeystoneListProjectsResponse } from "../model/KeystoneListProjectsResponse";
 import { KeystoneListRegionsResponse } from "../model/KeystoneListRegionsResponse";
-import { filter, includes, cloneDeep } from "lodash";
+import { filter, includes } from "lodash";
 import { Region } from "../model/Region";
 import { KeystoneListAuthDomainsResponse } from "../model/KeystoneListAuthDomainsResponse";
 import { Constants } from "../../utils/constant";
@@ -34,26 +34,19 @@ import { Constants } from "../../utils/constant";
 export class IamService {
     private client: HcClient;
     constructor(hclient: HcClient, iamEndpoint?: string) {
-        this.client = cloneDeep(hclient);
-        this.client.withEndpoint(iamEndpoint ?? Constants.DEFAULT_IAM_ENDPOINT);
-        this.client.withRegion(undefined);
+        this.client = hclient.overrideEndpoints(iamEndpoint ? [iamEndpoint] : [Constants.DEFAULT_IAM_ENDPOINT]);
     }
 
     async getProjecId(regionId: string): Promise<string> {
-        let request = new KeystoneListProjectsRequest();
+        const request = new KeystoneListProjectsRequest();
         request.name = regionId;
 
-        return this.keystoneListProjects(request).then(projectRes => {
-            if (projectRes.projects && projectRes.projects.length == 1) {
-                return projectRes.projects[0].id;
-            } else {
-                return this.getCreateProjectId(regionId);
-            }
-
-        }).catch(error => {
-            console.log(error);
-            throw new SdkException(error);
-        });
+        const projectRes = await this.keystoneListProjects(request);
+        if (projectRes.projects && projectRes.projects.length == 1) {
+            return projectRes.projects[0].id;
+        } else {
+            return this.getCreateProjectId(regionId);
+        }
     }
 
     async getDomainId(): Promise<string> {
@@ -126,7 +119,7 @@ export class IamService {
 
     }
 
-    protected keystoneListRegions(): Promise<KeystoneListRegionsResponse> {
+    protected async keystoneListRegions(): Promise<KeystoneListRegionsResponse> {
         const options = {
             method: "GET",
             url: "/v3/regions",
@@ -138,10 +131,10 @@ export class IamService {
         };
         const localVarHeaderParameter = {} as any;
         options.headers = localVarHeaderParameter;
-        return this.client.sendRequest(options);
+        return await this.client.sendRequest(options);
     }
 
-    private keystoneListProjects(keystoneListProjectsRequest?: KeystoneListProjectsRequest): Promise<KeystoneListProjectsResponse> {
+    async keystoneListProjects(keystoneListProjectsRequest?: KeystoneListProjectsRequest): Promise<KeystoneListProjectsResponse> {
         const options = {
             method: "GET",
             url: "/v3/projects",
@@ -206,10 +199,10 @@ export class IamService {
         options.queryParams = localVarQueryParameter;
         options.headers = localVarHeaderParameter;
 
-        return this.client.sendRequest(options);
+        return await this.client.sendRequest(options);
     }
 
-    private keystoneCreateProject(keystoneCreateProjectRequest?: KeystoneCreateProjectRequest): Promise<KeystoneCreateProjectResponse> {
+    private async keystoneCreateProject(keystoneCreateProjectRequest?: KeystoneCreateProjectRequest): Promise<KeystoneCreateProjectResponse> {
         const options = {
             method: "POST",
             url: "/v3/projects",
@@ -221,7 +214,7 @@ export class IamService {
         };
         const localVarHeaderParameter = {} as any;
 
-        var body: any;
+        let body: any;
 
         if (keystoneCreateProjectRequest !== null && keystoneCreateProjectRequest !== undefined) {
             if (keystoneCreateProjectRequest instanceof KeystoneCreateProjectRequest) {
@@ -233,10 +226,10 @@ export class IamService {
 
         options.data = body !== undefined ? body : {};
         options.headers = localVarHeaderParameter;
-        return this.client.sendRequest(options);
+        return await this.client.sendRequest(options);
     }
 
-    private keystoneListAuthDomains(): Promise<KeystoneListAuthDomainsResponse> {
+    private async keystoneListAuthDomains(): Promise<KeystoneListAuthDomainsResponse> {
         const options = {
             method: "GET",
             url: "/v3/auth/domains",
@@ -247,6 +240,6 @@ export class IamService {
             data: {}
         };
         options.headers = {};
-        return this.client.sendRequest(options);
+        return await this.client.sendRequest(options);
     }
 }
