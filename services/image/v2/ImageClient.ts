@@ -10,6 +10,12 @@ import { CreateImageToVideoTaskRequest } from './model/CreateImageToVideoTaskReq
 import { CreateImageToVideoTaskResponse } from './model/CreateImageToVideoTaskResponse';
 import { CreateImageTranslateTaskRequest } from './model/CreateImageTranslateTaskRequest';
 import { CreateImageTranslateTaskResponse } from './model/CreateImageTranslateTaskResponse';
+import { CreateImageVariationTaskRequest } from './model/CreateImageVariationTaskRequest';
+import { CreateImageVariationTaskRequestBody } from './model/CreateImageVariationTaskRequestBody';
+import { CreateImageVariationTaskResponse } from './model/CreateImageVariationTaskResponse';
+import { CreateTextToImageTaskRequest } from './model/CreateTextToImageTaskRequest';
+import { CreateTextToImageTaskRequestBody } from './model/CreateTextToImageTaskRequestBody';
+import { CreateTextToImageTaskResponse } from './model/CreateTextToImageTaskResponse';
 import { CreateVideoCoverAnalysisTaskRequest } from './model/CreateVideoCoverAnalysisTaskRequest';
 import { CreateVideoCoverAnalysisTaskResponse } from './model/CreateVideoCoverAnalysisTaskResponse';
 import { CreateVideoCuttingTaskRequest } from './model/CreateVideoCuttingTaskRequest';
@@ -58,11 +64,9 @@ import { ImageTranslateConfig } from './model/ImageTranslateConfig';
 import { ImageTranslateConfigCommon } from './model/ImageTranslateConfigCommon';
 import { ImageTranslateInference } from './model/ImageTranslateInference';
 import { ImageTranslateRequestBody } from './model/ImageTranslateRequestBody';
-import { ImageWisedesignColorfilterReq } from './model/ImageWisedesignColorfilterReq';
-import { ImageWisedesignColorfilterResponseResult } from './model/ImageWisedesignColorfilterResponseResult';
-import { ImageWisedesignCombineBody } from './model/ImageWisedesignCombineBody';
-import { ImageWisedesignCombineBodyBackgroundattrs } from './model/ImageWisedesignCombineBodyBackgroundattrs';
-import { ImageWisedesignCombineReq } from './model/ImageWisedesignCombineReq';
+import { ImageVariationInference } from './model/ImageVariationInference';
+import { ImageVariationTaskConfig } from './model/ImageVariationTaskConfig';
+import { ImageVariationTaskConfigCommon } from './model/ImageVariationTaskConfigCommon';
 import { ImageWisedesignCropReq } from './model/ImageWisedesignCropReq';
 import { ImageWisedesignCropResponseResult } from './model/ImageWisedesignCropResponseResult';
 import { ImageWisedesignInpaintingReq } from './model/ImageWisedesignInpaintingReq';
@@ -86,10 +90,6 @@ import { RunImageSuperResolutionRequest } from './model/RunImageSuperResolutionR
 import { RunImageSuperResolutionResponse } from './model/RunImageSuperResolutionResponse';
 import { RunImageTaggingRequest } from './model/RunImageTaggingRequest';
 import { RunImageTaggingResponse } from './model/RunImageTaggingResponse';
-import { RunImageWisedesignColorfilterRequest } from './model/RunImageWisedesignColorfilterRequest';
-import { RunImageWisedesignColorfilterResponse } from './model/RunImageWisedesignColorfilterResponse';
-import { RunImageWisedesignCombineRequest } from './model/RunImageWisedesignCombineRequest';
-import { RunImageWisedesignCombineResponse } from './model/RunImageWisedesignCombineResponse';
 import { RunImageWisedesignCropRequest } from './model/RunImageWisedesignCropRequest';
 import { RunImageWisedesignCropResponse } from './model/RunImageWisedesignCropResponse';
 import { RunImageWisedesignInpaintingRequest } from './model/RunImageWisedesignInpaintingRequest';
@@ -104,6 +104,10 @@ import { ShowImageToVideoTaskRequest } from './model/ShowImageToVideoTaskRequest
 import { ShowImageToVideoTaskResponse } from './model/ShowImageToVideoTaskResponse';
 import { ShowImageTranslateTaskRequest } from './model/ShowImageTranslateTaskRequest';
 import { ShowImageTranslateTaskResponse } from './model/ShowImageTranslateTaskResponse';
+import { ShowImageVariationTaskRequest } from './model/ShowImageVariationTaskRequest';
+import { ShowImageVariationTaskResponse } from './model/ShowImageVariationTaskResponse';
+import { ShowTextToImageTaskRequest } from './model/ShowTextToImageTaskRequest';
+import { ShowTextToImageTaskResponse } from './model/ShowTextToImageTaskResponse';
 import { ShowVideoCoverAnalysisTaskRequest } from './model/ShowVideoCoverAnalysisTaskRequest';
 import { ShowVideoCoverAnalysisTaskResponse } from './model/ShowVideoCoverAnalysisTaskResponse';
 import { ShowVideoCuttingTaskRequest } from './model/ShowVideoCuttingTaskRequest';
@@ -124,6 +128,9 @@ import { TaskInput } from './model/TaskInput';
 import { TaskInputData } from './model/TaskInputData';
 import { TaskOutput } from './model/TaskOutput';
 import { TaskOutputObs } from './model/TaskOutputObs';
+import { TextToImageInference } from './model/TextToImageInference';
+import { TextToImageTaskConfig } from './model/TextToImageTaskConfig';
+import { TextToImageTaskConfigCommon } from './model/TextToImageTaskConfigCommon';
 import { VideoCoverAnalysisConfig } from './model/VideoCoverAnalysisConfig';
 import { VideoCoverAnalysisConfigCommon } from './model/VideoCoverAnalysisConfigCommon';
 import { VideoCoverAnalysisCreateTaskRequestBody } from './model/VideoCoverAnalysisCreateTaskRequestBody';
@@ -217,6 +224,44 @@ export class ImageClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Create Task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建图像重构任务
+     * @param {CreateImageVariationTaskRequestBody} createImageVariationTaskRequestBody Create task request body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createImageVariationTask(createImageVariationTaskRequest?: CreateImageVariationTaskRequest): Promise<CreateImageVariationTaskResponse> {
+        const options = ParamCreater().createImageVariationTask(createImageVariationTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Create Task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建文生图任务
+     * @param {CreateTextToImageTaskRequestBody} createTextToImageTaskRequestBody Create task request body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTextToImageTask(createTextToImageTaskRequest?: CreateTextToImageTaskRequest): Promise<CreateTextToImageTaskResponse> {
+        const options = ParamCreater().createTextToImageTask(createTextToImageTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -487,44 +532,6 @@ export class ImageClient {
     }
 
     /**
-     * 智能设计图像滤镜服务
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 智能设计图像滤镜
-     * @param {ImageWisedesignColorfilterReq} runImageWisedesignColorfilterRequestBody This is a auto create Body Object
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public runImageWisedesignColorfilter(runImageWisedesignColorfilterRequest?: RunImageWisedesignColorfilterRequest): Promise<RunImageWisedesignColorfilterResponse> {
-        const options = ParamCreater().runImageWisedesignColorfilter(runImageWisedesignColorfilterRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 智能设计图像合图服务
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 智能设计图像合图
-     * @param {ImageWisedesignCombineReq} runImageWisedesignCombineRequestBody This is a auto create Body Object
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public runImageWisedesignCombine(runImageWisedesignCombineRequest?: RunImageWisedesignCombineRequest): Promise<RunImageWisedesignCombineResponse> {
-        const options = ParamCreater().runImageWisedesignCombine(runImageWisedesignCombineRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 智能设计图像裁剪服务
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -649,6 +656,44 @@ export class ImageClient {
      */
     public showImageTranslateTask(showImageTranslateTaskRequest?: ShowImageTranslateTaskRequest): Promise<ShowImageTranslateTaskResponse> {
         const options = ParamCreater().showImageTranslateTask(showImageTranslateTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * show task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary show task 查询任务信息
+     * @param {string} taskId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showImageVariationTask(showImageVariationTaskRequest?: ShowImageVariationTaskRequest): Promise<ShowImageVariationTaskResponse> {
+        const options = ParamCreater().showImageVariationTask(showImageVariationTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * show task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary show task 查询任务信息
+     * @param {string} taskId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showTextToImageTask(showTextToImageTaskRequest?: ShowTextToImageTaskRequest): Promise<ShowTextToImageTaskResponse> {
+        const options = ParamCreater().showTextToImageTask(showTextToImageTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
@@ -874,6 +919,82 @@ export const ParamCreater = function () {
                     body = createImageTranslateTaskRequest.body
                 } else {
                     body = createImageTranslateTaskRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Create Task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createImageVariationTask(createImageVariationTaskRequest?: CreateImageVariationTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/image/image-variation/tasks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createImageVariationTaskRequest !== null && createImageVariationTaskRequest !== undefined) {
+                if (createImageVariationTaskRequest instanceof CreateImageVariationTaskRequest) {
+                    body = createImageVariationTaskRequest.body
+                } else {
+                    body = createImageVariationTaskRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Create Task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTextToImageTask(createTextToImageTaskRequest?: CreateTextToImageTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/image/text-to-image/tasks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createTextToImageTaskRequest !== null && createTextToImageTaskRequest !== undefined) {
+                if (createTextToImageTaskRequest instanceof CreateTextToImageTaskRequest) {
+                    body = createTextToImageTaskRequest.body
+                } else {
+                    body = createTextToImageTaskRequest['body'];
                 }
             }
 
@@ -1405,82 +1526,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 智能设计图像滤镜服务
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        runImageWisedesignColorfilter(runImageWisedesignColorfilterRequest?: RunImageWisedesignColorfilterRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/image-wisedesign-colorfilter",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-
-            if (runImageWisedesignColorfilterRequest !== null && runImageWisedesignColorfilterRequest !== undefined) {
-                if (runImageWisedesignColorfilterRequest instanceof RunImageWisedesignColorfilterRequest) {
-                    body = runImageWisedesignColorfilterRequest.body
-                } else {
-                    body = runImageWisedesignColorfilterRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 智能设计图像合图服务
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        runImageWisedesignCombine(runImageWisedesignCombineRequest?: RunImageWisedesignCombineRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/image-wisedesign-combine",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-
-            if (runImageWisedesignCombineRequest !== null && runImageWisedesignCombineRequest !== undefined) {
-                if (runImageWisedesignCombineRequest instanceof RunImageWisedesignCombineRequest) {
-                    body = runImageWisedesignCombineRequest.body
-                } else {
-                    body = runImageWisedesignCombineRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 智能设计图像裁剪服务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1723,6 +1768,82 @@ export const ParamCreater = function () {
         
             if (taskId === null || taskId === undefined) {
             throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showImageTranslateTask.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * show task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showImageVariationTask(showImageVariationTaskRequest?: ShowImageVariationTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/image/image-variation/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (showImageVariationTaskRequest !== null && showImageVariationTaskRequest !== undefined) {
+                if (showImageVariationTaskRequest instanceof ShowImageVariationTaskRequest) {
+                    taskId = showImageVariationTaskRequest.taskId;
+                } else {
+                    taskId = showImageVariationTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showImageVariationTask.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * show task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showTextToImageTask(showTextToImageTaskRequest?: ShowTextToImageTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/image/text-to-image/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (showTextToImageTaskRequest !== null && showTextToImageTaskRequest !== undefined) {
+                if (showTextToImageTaskRequest instanceof ShowTextToImageTaskRequest) {
+                    taskId = showTextToImageTaskRequest.taskId;
+                } else {
+                    taskId = showTextToImageTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showTextToImageTask.');
             }
 
             options.pathParams = { 'task_id': taskId, };

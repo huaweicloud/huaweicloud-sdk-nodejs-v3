@@ -895,13 +895,13 @@ export class EcsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询云服务器规格变更支持列表
-     * @param {string} [instanceUuid] 进行规格切换的云服务器ID，UUID格式。
+     * @param {string} [instanceUuid] 进行规格切换的云服务器ID，UUID格式。(instance_uuid,source_flavor_id and source_flavor_name 不能都为空)
      * @param {number} [limit] 单页面可显示的flavor条数最大值，默认是1000。
      * @param {string} [marker] 以单页最后一条flavor的ID作为分页标记。
      * @param {'asc' | 'desc'} [sortDir] 升序/降序排序，默认值为：asc。  取值范围：  - asc：表示升序。 - desc：表示降序
      * @param {'flavorid' | 'sort_key' | 'name' | 'memory_mb' | 'vcpus' | 'root_gb'} [sortKey] 排序字段。  key的取值范围：  - flavorid：表示规格ID。 - sort_key的默认值为“flavorid”。 - name：表示规格名称。 - memory_mb：表示内存大小。 - vcpus：表示CPU大小。 - root_gb：表示系统盘大小。
-     * @param {string} [sourceFlavorId] 进行规格切换的云服务器源规格ID。
-     * @param {string} [sourceFlavorName] 进行规格切换的云服务器源规格名称。
+     * @param {string} [sourceFlavorId] 进行规格切换的云服务器源规格ID。(instance_uuid,source_flavor_id and source_flavor_name 不能都为空)
+     * @param {string} [sourceFlavorName] 进行规格切换的云服务器源规格名称。(instance_uuid,source_flavor_id and source_flavor_name 不能都为空)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
