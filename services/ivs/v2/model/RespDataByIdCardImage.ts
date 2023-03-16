@@ -2,12 +2,17 @@ import { IdcardResult } from './IdcardResult';
 
 
 export class RespDataByIdCardImage {
-    private 'verification_result'?: string | undefined;
-    private 'verification_message'?: string | undefined;
-    private 'verification_code'?: number | undefined;
-    public similarity?: string;
-    private 'idcard_result'?: IdcardResult | undefined;
-    public constructor() { 
+    private 'verification_result': string | undefined;
+    private 'verification_message': string | undefined;
+    private 'verification_code': number | undefined;
+    public similarity: string;
+    private 'idcard_result': IdcardResult | undefined;
+    public constructor(verificationResult?: any, verificationMessage?: any, verificationCode?: any, similarity?: any, idcardResult?: any) { 
+        this['verification_result'] = verificationResult;
+        this['verification_message'] = verificationMessage;
+        this['verification_code'] = verificationCode;
+        this['similarity'] = similarity;
+        this['idcard_result'] = idcardResult;
     }
     public withVerificationResult(verificationResult: string): RespDataByIdCardImage {
         this['verification_result'] = verificationResult;

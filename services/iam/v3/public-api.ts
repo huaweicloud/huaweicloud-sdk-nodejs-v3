@@ -401,7 +401,6 @@ export * from './model/RoleUserAssignmentId';
 export * from './model/RolesItem';
 export * from './model/RulesLocal';
 export * from './model/RulesLocalGroup';
-export * from './model/RulesLocalGroups';
 export * from './model/RulesLocalUser';
 export * from './model/RulesRemote';
 export * from './model/ScopeDomainOption';

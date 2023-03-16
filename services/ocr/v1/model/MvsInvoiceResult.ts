@@ -10,11 +10,16 @@ export class MvsInvoiceResult {
     private 'buyer_name'?: string | undefined;
     private 'buyer_organization_number'?: string | undefined;
     private 'buyer_id'?: string | undefined;
+    private 'buyer_address'?: string | undefined;
+    private 'buyer_phone'?: string | undefined;
     private 'seller_name'?: string | undefined;
     private 'seller_phone'?: string | undefined;
     private 'seller_id'?: string | undefined;
     private 'seller_account'?: string | undefined;
     private 'seller_address'?: string | undefined;
+    private 'licence_plate_number'?: string | undefined;
+    private 'registration_number'?: string | undefined;
+    private 'dept_motor_vehicles'?: string | undefined;
     private 'seller_bank'?: string | undefined;
     private 'vehicle_type'?: string | undefined;
     private 'brand_model'?: string | undefined;
@@ -35,6 +40,21 @@ export class MvsInvoiceResult {
     public total?: string;
     private 'total_chinese'?: string | undefined;
     private 'fiscal_code'?: string | undefined;
+    private 'auction_org_name'?: string | undefined;
+    private 'auction_org_address'?: string | undefined;
+    private 'auction_org_id'?: string | undefined;
+    private 'auction_org_bank_account'?: string | undefined;
+    private 'auction_org_phone'?: string | undefined;
+    private 'used_vehicle_market_name'?: string | undefined;
+    private 'used_vehicle_market_id'?: string | undefined;
+    private 'used_vehicle_market_address'?: string | undefined;
+    private 'used_vehicle_market_bank_account'?: string | undefined;
+    private 'used_vehicle_market_phone'?: string | undefined;
+    public remark?: string;
+    private 'drawer_name'?: string | undefined;
+    public type?: string;
+    private 'text_location'?: object | undefined;
+    public confidence?: object;
     public constructor() { 
     }
     public withCode(code: string): MvsInvoiceResult {
@@ -121,6 +141,26 @@ export class MvsInvoiceResult {
     public get buyerId() {
         return this['buyer_id'];
     }
+    public withBuyerAddress(buyerAddress: string): MvsInvoiceResult {
+        this['buyer_address'] = buyerAddress;
+        return this;
+    }
+    public set buyerAddress(buyerAddress: string | undefined) {
+        this['buyer_address'] = buyerAddress;
+    }
+    public get buyerAddress() {
+        return this['buyer_address'];
+    }
+    public withBuyerPhone(buyerPhone: string): MvsInvoiceResult {
+        this['buyer_phone'] = buyerPhone;
+        return this;
+    }
+    public set buyerPhone(buyerPhone: string | undefined) {
+        this['buyer_phone'] = buyerPhone;
+    }
+    public get buyerPhone() {
+        return this['buyer_phone'];
+    }
     public withSellerName(sellerName: string): MvsInvoiceResult {
         this['seller_name'] = sellerName;
         return this;
@@ -170,6 +210,36 @@ export class MvsInvoiceResult {
     }
     public get sellerAddress() {
         return this['seller_address'];
+    }
+    public withLicencePlateNumber(licencePlateNumber: string): MvsInvoiceResult {
+        this['licence_plate_number'] = licencePlateNumber;
+        return this;
+    }
+    public set licencePlateNumber(licencePlateNumber: string | undefined) {
+        this['licence_plate_number'] = licencePlateNumber;
+    }
+    public get licencePlateNumber() {
+        return this['licence_plate_number'];
+    }
+    public withRegistrationNumber(registrationNumber: string): MvsInvoiceResult {
+        this['registration_number'] = registrationNumber;
+        return this;
+    }
+    public set registrationNumber(registrationNumber: string | undefined) {
+        this['registration_number'] = registrationNumber;
+    }
+    public get registrationNumber() {
+        return this['registration_number'];
+    }
+    public withDeptMotorVehicles(deptMotorVehicles: string): MvsInvoiceResult {
+        this['dept_motor_vehicles'] = deptMotorVehicles;
+        return this;
+    }
+    public set deptMotorVehicles(deptMotorVehicles: string | undefined) {
+        this['dept_motor_vehicles'] = deptMotorVehicles;
+    }
+    public get deptMotorVehicles() {
+        return this['dept_motor_vehicles'];
     }
     public withSellerBank(sellerBank: string): MvsInvoiceResult {
         this['seller_bank'] = sellerBank;
@@ -352,5 +422,137 @@ export class MvsInvoiceResult {
     }
     public get fiscalCode() {
         return this['fiscal_code'];
+    }
+    public withAuctionOrgName(auctionOrgName: string): MvsInvoiceResult {
+        this['auction_org_name'] = auctionOrgName;
+        return this;
+    }
+    public set auctionOrgName(auctionOrgName: string | undefined) {
+        this['auction_org_name'] = auctionOrgName;
+    }
+    public get auctionOrgName() {
+        return this['auction_org_name'];
+    }
+    public withAuctionOrgAddress(auctionOrgAddress: string): MvsInvoiceResult {
+        this['auction_org_address'] = auctionOrgAddress;
+        return this;
+    }
+    public set auctionOrgAddress(auctionOrgAddress: string | undefined) {
+        this['auction_org_address'] = auctionOrgAddress;
+    }
+    public get auctionOrgAddress() {
+        return this['auction_org_address'];
+    }
+    public withAuctionOrgId(auctionOrgId: string): MvsInvoiceResult {
+        this['auction_org_id'] = auctionOrgId;
+        return this;
+    }
+    public set auctionOrgId(auctionOrgId: string | undefined) {
+        this['auction_org_id'] = auctionOrgId;
+    }
+    public get auctionOrgId() {
+        return this['auction_org_id'];
+    }
+    public withAuctionOrgBankAccount(auctionOrgBankAccount: string): MvsInvoiceResult {
+        this['auction_org_bank_account'] = auctionOrgBankAccount;
+        return this;
+    }
+    public set auctionOrgBankAccount(auctionOrgBankAccount: string | undefined) {
+        this['auction_org_bank_account'] = auctionOrgBankAccount;
+    }
+    public get auctionOrgBankAccount() {
+        return this['auction_org_bank_account'];
+    }
+    public withAuctionOrgPhone(auctionOrgPhone: string): MvsInvoiceResult {
+        this['auction_org_phone'] = auctionOrgPhone;
+        return this;
+    }
+    public set auctionOrgPhone(auctionOrgPhone: string | undefined) {
+        this['auction_org_phone'] = auctionOrgPhone;
+    }
+    public get auctionOrgPhone() {
+        return this['auction_org_phone'];
+    }
+    public withUsedVehicleMarketName(usedVehicleMarketName: string): MvsInvoiceResult {
+        this['used_vehicle_market_name'] = usedVehicleMarketName;
+        return this;
+    }
+    public set usedVehicleMarketName(usedVehicleMarketName: string | undefined) {
+        this['used_vehicle_market_name'] = usedVehicleMarketName;
+    }
+    public get usedVehicleMarketName() {
+        return this['used_vehicle_market_name'];
+    }
+    public withUsedVehicleMarketId(usedVehicleMarketId: string): MvsInvoiceResult {
+        this['used_vehicle_market_id'] = usedVehicleMarketId;
+        return this;
+    }
+    public set usedVehicleMarketId(usedVehicleMarketId: string | undefined) {
+        this['used_vehicle_market_id'] = usedVehicleMarketId;
+    }
+    public get usedVehicleMarketId() {
+        return this['used_vehicle_market_id'];
+    }
+    public withUsedVehicleMarketAddress(usedVehicleMarketAddress: string): MvsInvoiceResult {
+        this['used_vehicle_market_address'] = usedVehicleMarketAddress;
+        return this;
+    }
+    public set usedVehicleMarketAddress(usedVehicleMarketAddress: string | undefined) {
+        this['used_vehicle_market_address'] = usedVehicleMarketAddress;
+    }
+    public get usedVehicleMarketAddress() {
+        return this['used_vehicle_market_address'];
+    }
+    public withUsedVehicleMarketBankAccount(usedVehicleMarketBankAccount: string): MvsInvoiceResult {
+        this['used_vehicle_market_bank_account'] = usedVehicleMarketBankAccount;
+        return this;
+    }
+    public set usedVehicleMarketBankAccount(usedVehicleMarketBankAccount: string | undefined) {
+        this['used_vehicle_market_bank_account'] = usedVehicleMarketBankAccount;
+    }
+    public get usedVehicleMarketBankAccount() {
+        return this['used_vehicle_market_bank_account'];
+    }
+    public withUsedVehicleMarketPhone(usedVehicleMarketPhone: string): MvsInvoiceResult {
+        this['used_vehicle_market_phone'] = usedVehicleMarketPhone;
+        return this;
+    }
+    public set usedVehicleMarketPhone(usedVehicleMarketPhone: string | undefined) {
+        this['used_vehicle_market_phone'] = usedVehicleMarketPhone;
+    }
+    public get usedVehicleMarketPhone() {
+        return this['used_vehicle_market_phone'];
+    }
+    public withRemark(remark: string): MvsInvoiceResult {
+        this['remark'] = remark;
+        return this;
+    }
+    public withDrawerName(drawerName: string): MvsInvoiceResult {
+        this['drawer_name'] = drawerName;
+        return this;
+    }
+    public set drawerName(drawerName: string | undefined) {
+        this['drawer_name'] = drawerName;
+    }
+    public get drawerName() {
+        return this['drawer_name'];
+    }
+    public withType(type: string): MvsInvoiceResult {
+        this['type'] = type;
+        return this;
+    }
+    public withTextLocation(textLocation: object): MvsInvoiceResult {
+        this['text_location'] = textLocation;
+        return this;
+    }
+    public set textLocation(textLocation: object | undefined) {
+        this['text_location'] = textLocation;
+    }
+    public get textLocation() {
+        return this['text_location'];
+    }
+    public withConfidence(confidence: object): MvsInvoiceResult {
+        this['confidence'] = confidence;
+        return this;
     }
 }

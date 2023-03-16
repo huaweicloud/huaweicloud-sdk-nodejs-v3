@@ -2,10 +2,13 @@ import { StandardRespDataByNameAndId } from './StandardRespDataByNameAndId';
 
 
 export class IvsStandardByNameAndIdResponseBodyResult {
-    private 'service_name'?: string | undefined;
-    public count?: number;
-    private 'resp_data'?: Array<StandardRespDataByNameAndId> | undefined;
-    public constructor() { 
+    private 'service_name': string | undefined;
+    public count: number;
+    private 'resp_data': Array<StandardRespDataByNameAndId> | undefined;
+    public constructor(serviceName?: any, count?: any, respData?: any) { 
+        this['service_name'] = serviceName;
+        this['count'] = count;
+        this['resp_data'] = respData;
     }
     public withServiceName(serviceName: string): IvsStandardByNameAndIdResponseBodyResult {
         this['service_name'] = serviceName;

@@ -39,6 +39,7 @@ export * from './model/Domains';
 export * from './model/DomainsWithPort';
 export * from './model/EnableDomainRequest';
 export * from './model/EnableDomainResponse';
+export * from './model/EpResourceTag';
 export * from './model/ErrorCodeCache';
 export * from './model/ErrorCodeRedirectRules';
 export * from './model/Follow302StatusBody';

@@ -1,11 +1,15 @@
 
 
 export class StandardRespDataByNameAndId {
-    private 'verification_result'?: string | undefined;
-    private 'verification_message'?: string | undefined;
-    private 'verification_code'?: number | undefined;
-    public similarity?: string;
-    public constructor() { 
+    private 'verification_result': string | undefined;
+    private 'verification_message': string | undefined;
+    private 'verification_code': number | undefined;
+    public similarity: string;
+    public constructor(verificationResult?: any, verificationMessage?: any, verificationCode?: any, similarity?: any) { 
+        this['verification_result'] = verificationResult;
+        this['verification_message'] = verificationMessage;
+        this['verification_code'] = verificationCode;
+        this['similarity'] = similarity;
     }
     public withVerificationResult(verificationResult: string): StandardRespDataByNameAndId {
         this['verification_result'] = verificationResult;

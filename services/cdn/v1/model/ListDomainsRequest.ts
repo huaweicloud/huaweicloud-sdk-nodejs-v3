@@ -7,6 +7,8 @@ export class ListDomainsRequest {
     private 'service_area'?: ListDomainsRequestServiceAreaEnum | undefined;
     private 'page_size'?: number | undefined;
     private 'page_number'?: number | undefined;
+    private 'show_tags'?: boolean | undefined;
+    private 'exact_match'?: boolean | undefined;
     private 'enterprise_project_id'?: string | undefined;
     public constructor() { 
     }
@@ -69,6 +71,26 @@ export class ListDomainsRequest {
     }
     public get pageNumber() {
         return this['page_number'];
+    }
+    public withShowTags(showTags: boolean): ListDomainsRequest {
+        this['show_tags'] = showTags;
+        return this;
+    }
+    public set showTags(showTags: boolean | undefined) {
+        this['show_tags'] = showTags;
+    }
+    public get showTags() {
+        return this['show_tags'];
+    }
+    public withExactMatch(exactMatch: boolean): ListDomainsRequest {
+        this['exact_match'] = exactMatch;
+        return this;
+    }
+    public set exactMatch(exactMatch: boolean | undefined) {
+        this['exact_match'] = exactMatch;
+    }
+    public get exactMatch() {
+        return this['exact_match'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListDomainsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;

@@ -1,12 +1,11 @@
 import { RulesLocalGroup } from './RulesLocalGroup';
-import { RulesLocalGroups } from './RulesLocalGroups';
 import { RulesLocalUser } from './RulesLocalUser';
 
 
 export class RulesLocal {
     public user?: RulesLocalUser;
     public group?: RulesLocalGroup;
-    public groups?: RulesLocalGroups;
+    public groups?: string;
     public constructor() { 
     }
     public withUser(user: RulesLocalUser): RulesLocal {
@@ -17,7 +16,7 @@ export class RulesLocal {
         this['group'] = group;
         return this;
     }
-    public withGroups(groups: RulesLocalGroups): RulesLocal {
+    public withGroups(groups: string): RulesLocal {
         this['groups'] = groups;
         return this;
     }

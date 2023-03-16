@@ -257,11 +257,14 @@ export class EipClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询带宽加油包列表
+     * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
+     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
+     * @param {number} [offset] 分页查询起始的资源序号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listBandwidthPkg(): Promise<ListBandwidthPkgResponse> {
-        const options = ParamCreater().listBandwidthPkg();
+    public listBandwidthPkg(listBandwidthPkgRequest?: ListBandwidthPkgRequest): Promise<ListBandwidthPkgResponse> {
+        const options = ParamCreater().listBandwidthPkg(listBandwidthPkgRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1112,7 +1115,7 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listBandwidthPkg() {
+        listBandwidthPkg(listBandwidthPkgRequest?: ListBandwidthPkgRequest) {
             const options = {
                 method: "GET",
                 url: "/v2/{project_id}/bandwidthpkgs",
@@ -1123,8 +1126,38 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let offset;
 
+            if (listBandwidthPkgRequest !== null && listBandwidthPkgRequest !== undefined) {
+                if (listBandwidthPkgRequest instanceof ListBandwidthPkgRequest) {
+                    limit = listBandwidthPkgRequest.limit;
+                    marker = listBandwidthPkgRequest.marker;
+                    offset = listBandwidthPkgRequest.offset;
+                } else {
+                    limit = listBandwidthPkgRequest['limit'];
+                    marker = listBandwidthPkgRequest['marker'];
+                    offset = listBandwidthPkgRequest['offset'];
+                }
+            }
 
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

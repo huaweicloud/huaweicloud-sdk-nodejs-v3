@@ -2,10 +2,13 @@ import { RespDataByIdCardImage } from './RespDataByIdCardImage';
 
 
 export class IvsStandardByIdCardImageResponseBodyResult {
-    private 'service_name'?: string | undefined;
-    public count?: number;
-    private 'resp_data'?: Array<RespDataByIdCardImage> | undefined;
-    public constructor() { 
+    private 'service_name': string | undefined;
+    public count: number;
+    private 'resp_data': Array<RespDataByIdCardImage> | undefined;
+    public constructor(serviceName?: any, count?: any, respData?: any) { 
+        this['service_name'] = serviceName;
+        this['count'] = count;
+        this['resp_data'] = respData;
     }
     public withServiceName(serviceName: string): IvsStandardByIdCardImageResponseBodyResult {
         this['service_name'] = serviceName;

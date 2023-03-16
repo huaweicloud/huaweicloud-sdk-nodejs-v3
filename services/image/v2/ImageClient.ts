@@ -20,6 +20,9 @@ import { CreateVideoCoverAnalysisTaskRequest } from './model/CreateVideoCoverAna
 import { CreateVideoCoverAnalysisTaskResponse } from './model/CreateVideoCoverAnalysisTaskResponse';
 import { CreateVideoCuttingTaskRequest } from './model/CreateVideoCuttingTaskRequest';
 import { CreateVideoCuttingTaskResponse } from './model/CreateVideoCuttingTaskResponse';
+import { CreateVideoObjectMaskingTaskRequest } from './model/CreateVideoObjectMaskingTaskRequest';
+import { CreateVideoObjectMaskingTaskRequestBody } from './model/CreateVideoObjectMaskingTaskRequestBody';
+import { CreateVideoObjectMaskingTaskResponse } from './model/CreateVideoObjectMaskingTaskResponse';
 import { CreateVideoShotSplitTaskRequest } from './model/CreateVideoShotSplitTaskRequest';
 import { CreateVideoShotSplitTaskResponse } from './model/CreateVideoShotSplitTaskResponse';
 import { CreateVideoSplitTaskRequestBody } from './model/CreateVideoSplitTaskRequestBody';
@@ -112,6 +115,8 @@ import { ShowVideoCoverAnalysisTaskRequest } from './model/ShowVideoCoverAnalysi
 import { ShowVideoCoverAnalysisTaskResponse } from './model/ShowVideoCoverAnalysisTaskResponse';
 import { ShowVideoCuttingTaskRequest } from './model/ShowVideoCuttingTaskRequest';
 import { ShowVideoCuttingTaskResponse } from './model/ShowVideoCuttingTaskResponse';
+import { ShowVideoObjectMaskingTaskRequest } from './model/ShowVideoObjectMaskingTaskRequest';
+import { ShowVideoObjectMaskingTaskResponse } from './model/ShowVideoObjectMaskingTaskResponse';
 import { ShowVideoShotSplitTaskRequest } from './model/ShowVideoShotSplitTaskRequest';
 import { ShowVideoShotSplitTaskResponse } from './model/ShowVideoShotSplitTaskResponse';
 import { ShowVideoSummarizationAnalysisTaskRequest } from './model/ShowVideoSummarizationAnalysisTaskRequest';
@@ -139,6 +144,9 @@ import { VideoCuttingConfig } from './model/VideoCuttingConfig';
 import { VideoCuttingConfigCommon } from './model/VideoCuttingConfigCommon';
 import { VideoCuttingInference } from './model/VideoCuttingInference';
 import { VideoCuttingRequestBody } from './model/VideoCuttingRequestBody';
+import { VideoObjectMaskingInference } from './model/VideoObjectMaskingInference';
+import { VideoObjectMaskingTaskConfig } from './model/VideoObjectMaskingTaskConfig';
+import { VideoObjectMaskingTaskConfigCommon } from './model/VideoObjectMaskingTaskConfigCommon';
 import { VideoSegmentInfo } from './model/VideoSegmentInfo';
 import { VideoSplitTaskInput } from './model/VideoSplitTaskInput';
 import { VideoSplitTaskInputData } from './model/VideoSplitTaskInputData';
@@ -300,6 +308,25 @@ export class ImageClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * Create Task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建司乘敏感擦除任务
+     * @param {CreateVideoObjectMaskingTaskRequestBody} createVideoObjectMaskingTaskRequestBody Create task request body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVideoObjectMaskingTask(createVideoObjectMaskingTaskRequest?: CreateVideoObjectMaskingTaskRequest): Promise<CreateVideoObjectMaskingTaskResponse> {
+        const options = ParamCreater().createVideoObjectMaskingTask(createVideoObjectMaskingTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -740,6 +767,25 @@ export class ImageClient {
     }
 
     /**
+     * show task
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary show task 查询任务信息
+     * @param {string} taskId 任务ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVideoObjectMaskingTask(showVideoObjectMaskingTaskRequest?: ShowVideoObjectMaskingTaskRequest): Promise<ShowVideoObjectMaskingTaskResponse> {
+        const options = ParamCreater().showVideoObjectMaskingTask(showVideoObjectMaskingTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询拆条任务状态
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1071,6 +1117,44 @@ export const ParamCreater = function () {
                     body = createVideoCuttingTaskRequest.body
                 } else {
                     body = createVideoCuttingTaskRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * Create Task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVideoObjectMaskingTask(createVideoObjectMaskingTaskRequest?: CreateVideoObjectMaskingTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/image/video-object-masking/tasks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+
+            if (createVideoObjectMaskingTaskRequest !== null && createVideoObjectMaskingTaskRequest !== undefined) {
+                if (createVideoObjectMaskingTaskRequest instanceof CreateVideoObjectMaskingTaskRequest) {
+                    body = createVideoObjectMaskingTaskRequest.body
+                } else {
+                    body = createVideoObjectMaskingTaskRequest['body'];
                 }
             }
 
@@ -1920,6 +2004,44 @@ export const ParamCreater = function () {
         
             if (taskId === null || taskId === undefined) {
             throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoCuttingTask.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * show task
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVideoObjectMaskingTask(showVideoObjectMaskingTaskRequest?: ShowVideoObjectMaskingTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/image/video-object-masking/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (showVideoObjectMaskingTaskRequest !== null && showVideoObjectMaskingTaskRequest !== undefined) {
+                if (showVideoObjectMaskingTaskRequest instanceof ShowVideoObjectMaskingTaskRequest) {
+                    taskId = showVideoObjectMaskingTaskRequest.taskId;
+                } else {
+                    taskId = showVideoObjectMaskingTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoObjectMaskingTask.');
             }
 
             options.pathParams = { 'task_id': taskId, };

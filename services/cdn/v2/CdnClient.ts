@@ -9,12 +9,18 @@ import { BatchCopyDomainResponse } from './model/BatchCopyDomainResponse';
 import { BatchCopyErrorRsp } from './model/BatchCopyErrorRsp';
 import { BatchCopyErrorRspError } from './model/BatchCopyErrorRspError';
 import { BatchCopyResultVo } from './model/BatchCopyResultVo';
+import { DomainOriginHost } from './model/DomainOriginHost';
+import { Domains } from './model/Domains';
+import { DomainsWithPort } from './model/DomainsWithPort';
 import { DownloadRegionCarrierExcelRequest } from './model/DownloadRegionCarrierExcelRequest';
 import { DownloadRegionCarrierExcelResponse } from './model/DownloadRegionCarrierExcelResponse';
 import { DownloadStatisticsExcelRequest } from './model/DownloadStatisticsExcelRequest';
 import { DownloadStatisticsExcelResponse } from './model/DownloadStatisticsExcelResponse';
+import { EpResourceTag } from './model/EpResourceTag';
 import { ErrMsg } from './model/ErrMsg';
 import { ErrRsp } from './model/ErrRsp';
+import { ListDomainsRequest } from './model/ListDomainsRequest';
+import { ListDomainsResponse } from './model/ListDomainsResponse';
 import { SetChargeModesBody } from './model/SetChargeModesBody';
 import { SetChargeModesRequest } from './model/SetChargeModesRequest';
 import { SetChargeModesResponse } from './model/SetChargeModesResponse';
@@ -22,6 +28,8 @@ import { ShowBandwidthCalcRequest } from './model/ShowBandwidthCalcRequest';
 import { ShowBandwidthCalcResponse } from './model/ShowBandwidthCalcResponse';
 import { ShowChargeModesRequest } from './model/ShowChargeModesRequest';
 import { ShowChargeModesResponse } from './model/ShowChargeModesResponse';
+import { ShowDomainDetailByNameRequest } from './model/ShowDomainDetailByNameRequest';
+import { ShowDomainDetailByNameResponse } from './model/ShowDomainDetailByNameResponse';
 import { ShowDomainLocationStatsRequest } from './model/ShowDomainLocationStatsRequest';
 import { ShowDomainLocationStatsResponse } from './model/ShowDomainLocationStatsResponse';
 import { ShowDomainStatsRequest } from './model/ShowDomainStatsRequest';
@@ -30,6 +38,8 @@ import { ShowTopDomainNamesRequest } from './model/ShowTopDomainNamesRequest';
 import { ShowTopDomainNamesResponse } from './model/ShowTopDomainNamesResponse';
 import { ShowTopUrlRequest } from './model/ShowTopUrlRequest';
 import { ShowTopUrlResponse } from './model/ShowTopUrlResponse';
+import { Sources } from './model/Sources';
+import { SourcesConfig } from './model/SourcesConfig';
 import { TopUrlSummary } from './model/TopUrlSummary';
 
 export class CdnClient {
@@ -141,6 +151,33 @@ export class CdnClient {
     }
 
     /**
+     * 查询加速域名
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询加速域名
+     * @param {string} [domainName] 加速域名，采用模糊匹配的方式。（长度限制为1-255字符）。
+     * @param {string} [businessType] 加速域名的业务类型。取值： - web（网站加速） - download（文件下载加速） - video（点播加速） - wholeSite（全站加速）
+     * @param {string} [domainStatus] 加速域名状态。取值意义： - online表示“已开启” - offline表示“已停用” - configuring表示“配置中” - configure_failed表示“配置失败” - checking表示“审核中” - check_failed表示“审核未通过” - deleting表示“删除中”。
+     * @param {string} [serviceArea] 华为云CDN提供的加速服务范围，包含： - mainland_china 中国大陆 - outside_mainland_china 中国大陆境外 - global 全球。
+     * @param {number} [pageSize] 每页的数量，取值范围1-10000，不设值时默认值为30。
+     * @param {number} [pageNumber] 查询的页码。取值范围1-65535，不设值时默认值为1。
+     * @param {boolean} [showTags] 展示标签标识 true：不展示 false：展示。
+     * @param {boolean} [exactMatch] 精准匹配 true：开启 false：关闭。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDomains(listDomainsRequest?: ListDomainsRequest): Promise<ListDomainsResponse> {
+        const options = ParamCreater().listDomains(listDomainsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 设置用户计费模式。
      * 
      * - 服务区域仅支持mainland_china（国内）
@@ -225,6 +262,26 @@ export class CdnClient {
      */
     public showChargeModes(showChargeModesRequest?: ShowChargeModesRequest): Promise<ShowChargeModesResponse> {
         const options = ParamCreater().showChargeModes(showChargeModesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 加速域名详情信息接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询加速域名详情
+     * @param {string} domainName 加速域名名称,获取方法请参见查询加速域名。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainDetailByName(showDomainDetailByNameRequest?: ShowDomainDetailByNameRequest): Promise<ShowDomainDetailByNameResponse> {
+        const options = ParamCreater().showDomainDetailByName(showDomainDetailByNameRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -659,6 +716,100 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询加速域名
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDomains(listDomainsRequest?: ListDomainsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/domains",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainName;
+            
+            let businessType;
+            
+            let domainStatus;
+            
+            let serviceArea;
+            
+            let pageSize;
+            
+            let pageNumber;
+            
+            let showTags;
+            
+            let exactMatch;
+            
+            let enterpriseProjectId;
+
+            if (listDomainsRequest !== null && listDomainsRequest !== undefined) {
+                if (listDomainsRequest instanceof ListDomainsRequest) {
+                    domainName = listDomainsRequest.domainName;
+                    businessType = listDomainsRequest.businessType;
+                    domainStatus = listDomainsRequest.domainStatus;
+                    serviceArea = listDomainsRequest.serviceArea;
+                    pageSize = listDomainsRequest.pageSize;
+                    pageNumber = listDomainsRequest.pageNumber;
+                    showTags = listDomainsRequest.showTags;
+                    exactMatch = listDomainsRequest.exactMatch;
+                    enterpriseProjectId = listDomainsRequest.enterpriseProjectId;
+                } else {
+                    domainName = listDomainsRequest['domain_name'];
+                    businessType = listDomainsRequest['business_type'];
+                    domainStatus = listDomainsRequest['domain_status'];
+                    serviceArea = listDomainsRequest['service_area'];
+                    pageSize = listDomainsRequest['page_size'];
+                    pageNumber = listDomainsRequest['page_number'];
+                    showTags = listDomainsRequest['show_tags'];
+                    exactMatch = listDomainsRequest['exact_match'];
+                    enterpriseProjectId = listDomainsRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (domainName !== null && domainName !== undefined) {
+                localVarQueryParameter['domain_name'] = domainName;
+            }
+            if (businessType !== null && businessType !== undefined) {
+                localVarQueryParameter['business_type'] = businessType;
+            }
+            if (domainStatus !== null && domainStatus !== undefined) {
+                localVarQueryParameter['domain_status'] = domainStatus;
+            }
+            if (serviceArea !== null && serviceArea !== undefined) {
+                localVarQueryParameter['service_area'] = serviceArea;
+            }
+            if (pageSize !== null && pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (pageNumber !== null && pageNumber !== undefined) {
+                localVarQueryParameter['page_number'] = pageNumber;
+            }
+            if (showTags !== null && showTags !== undefined) {
+                localVarQueryParameter['show_tags'] = showTags;
+            }
+            if (exactMatch !== null && exactMatch !== undefined) {
+                localVarQueryParameter['exact_match'] = exactMatch;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 设置用户计费模式。
          * 
          * - 服务区域仅支持mainland_china（国内）
@@ -860,6 +1011,52 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 加速域名详情信息接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainDetailByName(showDomainDetailByNameRequest?: ShowDomainDetailByNameRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.0/cdn/configuration/domains/{domain_name}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainName;
+            
+            let enterpriseProjectId;
+
+            if (showDomainDetailByNameRequest !== null && showDomainDetailByNameRequest !== undefined) {
+                if (showDomainDetailByNameRequest instanceof ShowDomainDetailByNameRequest) {
+                    domainName = showDomainDetailByNameRequest.domainName;
+                    enterpriseProjectId = showDomainDetailByNameRequest.enterpriseProjectId;
+                } else {
+                    domainName = showDomainDetailByNameRequest['domain_name'];
+                    enterpriseProjectId = showDomainDetailByNameRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling showDomainDetailByName.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'domain_name': domainName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

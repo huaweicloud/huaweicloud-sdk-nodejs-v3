@@ -403,7 +403,6 @@ import { RoleUserAssignmentId } from './model/RoleUserAssignmentId';
 import { RolesItem } from './model/RolesItem';
 import { RulesLocal } from './model/RulesLocal';
 import { RulesLocalGroup } from './model/RulesLocalGroup';
-import { RulesLocalGroups } from './model/RulesLocalGroups';
 import { RulesLocalUser } from './model/RulesLocalUser';
 import { RulesRemote } from './model/RulesRemote';
 import { ScopeDomainOption } from './model/ScopeDomainOption';

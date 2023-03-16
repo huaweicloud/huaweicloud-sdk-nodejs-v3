@@ -10,6 +10,8 @@ export class ListShareBandwidthTypesRequest {
     private 'sort_key'?: string | undefined;
     private 'sort_dir'?: string | undefined;
     public limit?: number;
+    public marker?: string;
+    public offset?: number;
     public constructor() { 
     }
     public withFields(fields: string): ListShareBandwidthTypesRequest {
@@ -82,6 +84,14 @@ export class ListShareBandwidthTypesRequest {
     }
     public withLimit(limit: number): ListShareBandwidthTypesRequest {
         this['limit'] = limit;
+        return this;
+    }
+    public withMarker(marker: string): ListShareBandwidthTypesRequest {
+        this['marker'] = marker;
+        return this;
+    }
+    public withOffset(offset: number): ListShareBandwidthTypesRequest {
+        this['offset'] = offset;
         return this;
     }
 }

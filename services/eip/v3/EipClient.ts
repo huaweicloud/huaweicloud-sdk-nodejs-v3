@@ -67,6 +67,8 @@ export class EipClient {
      *
      * @summary 查询公共池列表
      * @param {string} [fields] 显示，形式为\&quot;fields&#x3D;id&amp;fields&#x3D;name&amp;...\&quot;  支持字段：id/name/status/type/used/allow_share_bandwidth_types/public_border_group
+     * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
+     * @param {number} [offset] 分页查询起始的资源序号
      * @param {string} [name] 公共池名称
      * @param {string} [publicBorderGroup] 公共池位于中心还是边缘
      * @param {*} [options] Override http request option.
@@ -145,6 +147,8 @@ export class EipClient {
      * @param {string} [sortKey] 排序，形式为\&quot;sort_key&#x3D;id&amp;sort_dir&#x3D;asc\&quot;  支持字段：id/bandwidth_type/public_border_group
      * @param {string} [sortDir] 排序方向  取值范围：asc、desc
      * @param {number} [limit] 每页返回的个数取值范围：0~[2000]，其中2000为局点差异项，具体取值由局点决定
+     * @param {string} [marker] 分页查询起始的资源ID，为空时为查询第一页
+     * @param {number} [offset] 分页查询起始的资源序号
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -378,6 +382,10 @@ export const ParamCreater = function () {
             
             let fields;
             
+            let limit;
+            
+            let offset;
+            
             let name;
             
             let publicBorderGroup;
@@ -385,10 +393,14 @@ export const ParamCreater = function () {
             if (listCommonPoolsRequest !== null && listCommonPoolsRequest !== undefined) {
                 if (listCommonPoolsRequest instanceof ListCommonPoolsRequest) {
                     fields = listCommonPoolsRequest.fields;
+                    limit = listCommonPoolsRequest.limit;
+                    offset = listCommonPoolsRequest.offset;
                     name = listCommonPoolsRequest.name;
                     publicBorderGroup = listCommonPoolsRequest.publicBorderGroup;
                 } else {
                     fields = listCommonPoolsRequest['fields'];
+                    limit = listCommonPoolsRequest['limit'];
+                    offset = listCommonPoolsRequest['offset'];
                     name = listCommonPoolsRequest['name'];
                     publicBorderGroup = listCommonPoolsRequest['public_border_group'];
                 }
@@ -397,6 +409,12 @@ export const ParamCreater = function () {
         
             if (fields !== null && fields !== undefined) {
                 localVarQueryParameter['fields'] = fields;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
             if (name !== null && name !== undefined) {
                 localVarQueryParameter['name'] = name;
@@ -598,6 +616,10 @@ export const ParamCreater = function () {
             let sortDir;
             
             let limit;
+            
+            let marker;
+            
+            let offset;
 
             if (listShareBandwidthTypesRequest !== null && listShareBandwidthTypesRequest !== undefined) {
                 if (listShareBandwidthTypesRequest instanceof ListShareBandwidthTypesRequest) {
@@ -610,6 +632,8 @@ export const ParamCreater = function () {
                     sortKey = listShareBandwidthTypesRequest.sortKey;
                     sortDir = listShareBandwidthTypesRequest.sortDir;
                     limit = listShareBandwidthTypesRequest.limit;
+                    marker = listShareBandwidthTypesRequest.marker;
+                    offset = listShareBandwidthTypesRequest.offset;
                 } else {
                     fields = listShareBandwidthTypesRequest['fields'];
                     id = listShareBandwidthTypesRequest['id'];
@@ -620,6 +644,8 @@ export const ParamCreater = function () {
                     sortKey = listShareBandwidthTypesRequest['sort_key'];
                     sortDir = listShareBandwidthTypesRequest['sort_dir'];
                     limit = listShareBandwidthTypesRequest['limit'];
+                    marker = listShareBandwidthTypesRequest['marker'];
+                    offset = listShareBandwidthTypesRequest['offset'];
                 }
             }
 
@@ -650,6 +676,12 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             options.queryParams = localVarQueryParameter;

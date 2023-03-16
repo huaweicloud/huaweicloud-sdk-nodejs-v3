@@ -41,6 +41,7 @@ import { Domains } from './model/Domains';
 import { DomainsWithPort } from './model/DomainsWithPort';
 import { EnableDomainRequest } from './model/EnableDomainRequest';
 import { EnableDomainResponse } from './model/EnableDomainResponse';
+import { EpResourceTag } from './model/EpResourceTag';
 import { ErrorCodeCache } from './model/ErrorCodeCache';
 import { ErrorCodeRedirectRules } from './model/ErrorCodeRedirectRules';
 import { Follow302StatusBody } from './model/Follow302StatusBody';
@@ -343,6 +344,8 @@ export class CdnClient {
      * @param {'mainland_china' | 'outside_mainland_china' | 'global'} [serviceArea] 华为云CDN提供的加速服务范围，包含： - mainland_china 中国大陆 - outside_mainland_china 中国大陆境外 - global 全球。
      * @param {number} [pageSize] 每页的数量，取值范围1-10000，不设值时默认值为30。
      * @param {number} [pageNumber] 查询的页码。取值范围1-65535，不设值时默认值为1。
+     * @param {boolean} [showTags] 展示标签标识 true：不展示 false：展示。
+     * @param {boolean} [exactMatch] 精准匹配 on：开启 off：关闭。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1513,6 +1516,10 @@ export const ParamCreater = function () {
             
             let pageNumber;
             
+            let showTags;
+            
+            let exactMatch;
+            
             let enterpriseProjectId;
 
             if (listDomainsRequest !== null && listDomainsRequest !== undefined) {
@@ -1523,6 +1530,8 @@ export const ParamCreater = function () {
                     serviceArea = listDomainsRequest.serviceArea;
                     pageSize = listDomainsRequest.pageSize;
                     pageNumber = listDomainsRequest.pageNumber;
+                    showTags = listDomainsRequest.showTags;
+                    exactMatch = listDomainsRequest.exactMatch;
                     enterpriseProjectId = listDomainsRequest.enterpriseProjectId;
                 } else {
                     domainName = listDomainsRequest['domain_name'];
@@ -1531,6 +1540,8 @@ export const ParamCreater = function () {
                     serviceArea = listDomainsRequest['service_area'];
                     pageSize = listDomainsRequest['page_size'];
                     pageNumber = listDomainsRequest['page_number'];
+                    showTags = listDomainsRequest['show_tags'];
+                    exactMatch = listDomainsRequest['exact_match'];
                     enterpriseProjectId = listDomainsRequest['enterprise_project_id'];
                 }
             }
@@ -1553,6 +1564,12 @@ export const ParamCreater = function () {
             }
             if (pageNumber !== null && pageNumber !== undefined) {
                 localVarQueryParameter['page_number'] = pageNumber;
+            }
+            if (showTags !== null && showTags !== undefined) {
+                localVarQueryParameter['show_tags'] = showTags;
+            }
+            if (exactMatch !== null && exactMatch !== undefined) {
+                localVarQueryParameter['exact_match'] = exactMatch;
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;

@@ -2,12 +2,22 @@
 
 export class ListCommonPoolsRequest {
     public fields?: string;
+    public limit?: number;
+    public offset?: number;
     public name?: string;
     private 'public_border_group'?: string | undefined;
     public constructor() { 
     }
     public withFields(fields: string): ListCommonPoolsRequest {
         this['fields'] = fields;
+        return this;
+    }
+    public withLimit(limit: number): ListCommonPoolsRequest {
+        this['limit'] = limit;
+        return this;
+    }
+    public withOffset(offset: number): ListCommonPoolsRequest {
+        this['offset'] = offset;
         return this;
     }
     public withName(name: string): ListCommonPoolsRequest {

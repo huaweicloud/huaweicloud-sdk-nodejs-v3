@@ -1,16 +1,22 @@
 
 
 export class IdcardResult {
-    public name?: string;
-    private 'number'?: string | undefined;
-    public sex?: string;
-    public birth?: string;
-    public ethnicity?: string;
-    public address?: string;
+    public name: string;
+    private 'number': string | undefined;
+    public sex: string;
+    public birth: string;
+    public ethnicity: string;
+    public address: string;
     public issue?: string;
     private 'valid_from'?: string | undefined;
     private 'valid_to'?: string | undefined;
-    public constructor() { 
+    public constructor(name?: any, modelNumber?: any, sex?: any, birth?: any, ethnicity?: any, address?: any) { 
+        this['name'] = name;
+        this['number'] = modelNumber;
+        this['sex'] = sex;
+        this['birth'] = birth;
+        this['ethnicity'] = ethnicity;
+        this['address'] = address;
     }
     public withName(name: string): IdcardResult {
         this['name'] = name;

@@ -1032,7 +1032,7 @@ export class EcsClient {
      * @param {string} [status] 云服务器状态。  取值范围：  ACTIVE， BUILD，DELETED，ERROR，HARD_REBOOT，MIGRATING，REBOOT，RESIZE，REVERT_RESIZE，SHELVED，SHELVED_OFFLOADED，SHUTOFF，UNKNOWN，VERIFY_RESIZE  只有管理员可以使用“deleted”状态过滤查询已经删除的弹性云服务器。  弹性云服务器状态说明请参考[云服务器状态](https://support.huaweicloud.com/api-ecs/ecs_08_0002.html)
      * @param {string} [tags] 查询tag字段中包含该值的云服务器。
      * @param {string} [ipEq] IPv4地址过滤结果，匹配规则为精确匹配。
-     * @param {string} [serverId] 云服务器ID，格式为UUID，匹配规则为精确匹配  示例: server_id&#x3D;{id1}&amp;server_id&#x3D;{id2}
+     * @param {string} [serverId] 云服务器ID，格式为UUID，匹配规则为精确匹配  示例: server_id&#x3D;id1,id2
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
