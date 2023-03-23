@@ -13,9 +13,6 @@ export class DomainsWithPort {
     public disabled?: number;
     public locked?: number;
     private 'service_area'?: DomainsWithPortServiceAreaEnum | undefined;
-    private 'banned_reason'?: string | undefined;
-    private 'locked_reason'?: string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
     public constructor() { 
     }
     public withId(id: string): DomainsWithPort {
@@ -97,36 +94,6 @@ export class DomainsWithPort {
     }
     public get serviceArea() {
         return this['service_area'];
-    }
-    public withBannedReason(bannedReason: string): DomainsWithPort {
-        this['banned_reason'] = bannedReason;
-        return this;
-    }
-    public set bannedReason(bannedReason: string | undefined) {
-        this['banned_reason'] = bannedReason;
-    }
-    public get bannedReason() {
-        return this['banned_reason'];
-    }
-    public withLockedReason(lockedReason: string): DomainsWithPort {
-        this['locked_reason'] = lockedReason;
-        return this;
-    }
-    public set lockedReason(lockedReason: string | undefined) {
-        this['locked_reason'] = lockedReason;
-    }
-    public get lockedReason() {
-        return this['locked_reason'];
-    }
-    public withEnterpriseProjectId(enterpriseProjectId: string): DomainsWithPort {
-        this['enterprise_project_id'] = enterpriseProjectId;
-        return this;
-    }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
-        this['enterprise_project_id'] = enterpriseProjectId;
-    }
-    public get enterpriseProjectId() {
-        return this['enterprise_project_id'];
     }
 }
 

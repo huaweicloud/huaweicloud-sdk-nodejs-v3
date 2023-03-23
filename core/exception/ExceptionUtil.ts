@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Huawei Technologies Co.,Ltd.
+ * Copyright 2023 Huawei Technologies Co.,Ltd.
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -26,30 +26,49 @@ import { ServerResponseException } from "./ServerResponseException";
 import { ServiceResponseException } from "./ServiceResponseException";
 
 export class ExceptionUtil {
-    static generalException(exception: ExceptionResponse): SdkException {
-      const { data = {}, status, message, requestId } = exception;
-      const { error, error_code, error_msg } = data;
-  
-      const errorCode = error?.code ?? error_code ?? status;
-      const errorMsg = error?.message ?? error_msg ?? message;
-      const httpStatusCode = status;
-  
-      if (httpStatusCode) {
-        if (isClientError(httpStatusCode)) {
-          return new ClientRequestException(httpStatusCode, errorMsg, errorCode, requestId);
-        } else if (isServerError(httpStatusCode)) {
-          return new ServerResponseException(httpStatusCode, errorMsg, errorCode, requestId);
-        }
+  static generalException(exception: ExceptionResponse): SdkException {
+    const { data = {}, status, message, requestId } = exception;
+    const { error, error_code, error_msg, encoded_authorization_message } = data;
+
+    const errorCode = error?.code ?? error_code;
+    const errorMsg = error?.message ?? error_msg ?? message;
+    const encodedAuthorizationMessage =
+      error?.encoded_authorization_message ?? encoded_authorization_message;
+    const httpStatusCode = status;
+
+    if (httpStatusCode) {
+      if (isClientError(httpStatusCode)) {
+        return new ClientRequestException(
+          httpStatusCode,
+          errorMsg,
+          errorCode,
+          requestId,
+          encodedAuthorizationMessage
+        );
+      } else if (isServerError(httpStatusCode)) {
+        return new ServerResponseException(
+          httpStatusCode,
+          errorMsg,
+          errorCode,
+          requestId,
+          encodedAuthorizationMessage
+        );
       }
-      return new ServiceResponseException(httpStatusCode, errorMsg, errorCode, requestId);
     }
+    return new ServiceResponseException(
+      httpStatusCode,
+      errorMsg,
+      errorCode,
+      requestId,
+      encodedAuthorizationMessage
+    );
   }
-  
-  function isClientError(statusCode: number): boolean {
-    return statusCode >= 400 && statusCode < 500;
-  }
-  
-  function isServerError(statusCode: number): boolean {
-    return statusCode >= 500 && statusCode < 600;
-  }
-  
+}
+
+function isClientError(statusCode: number): boolean {
+  return statusCode >= 400 && statusCode < 500;
+}
+
+function isServerError(statusCode: number): boolean {
+  return statusCode >= 500 && statusCode < 600;
+}

@@ -1,3 +1,121 @@
+# 3.1.31 2023-03-23
+
+### HuaweiCloud SDK CCE
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowNode**
+    - 响应参数变更
+      - `+ spec.extendParam.agency_name`
+  - **UpdateNode**
+    - 响应参数变更
+      - `+ spec.extendParam.agency_name`
+  - **DeleteNode**
+    - 响应参数变更
+      - `+ spec.extendParam.agency_name`
+  - **CreateNode**
+    - 请求参数变更
+      - `+ spec.extendParam.agency_name`
+    - 响应参数变更
+      - `+ spec.extendParam.agency_name`
+  - **ListNodes**
+    - 响应参数变更
+      - `+ items.spec.extendParam.agency_name`
+  - **ShowNodePool**
+    - 响应参数变更
+      - `+ spec.nodeTemplate.extendParam.agency_name`
+  - **UpdateNodePool**
+    - 响应参数变更
+      - `+ spec.nodeTemplate.extendParam.agency_name`
+  - **DeleteNodePool**
+    - 响应参数变更
+      - `+ spec.nodeTemplate.extendParam.agency_name`
+  - **CreateNodePool**
+    - 请求参数变更
+      - `+ spec.nodeTemplate.extendParam.agency_name`
+    - 响应参数变更
+      - `+ spec.nodeTemplate.extendParam.agency_name`
+  - **ListNodePools**
+    - 响应参数变更
+      - `+ items.spec.nodeTemplate.extendParam.agency_name`
+
+### HuaweiCloud SDK CDN
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowDomainDetailByName**
+    - 响应参数变更
+      - `- domain.banned_reason`
+      - `- domain.locked_reason`
+      - `- domain.enterprise_project_id`
+
+### HuaweiCloud SDK DCS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateMigrationTask**
+    - 请求参数变更
+      - `+ backup_files.file_source: enum value [backup_record]`
+  - **ShowMigrationTask**
+    - 响应参数变更
+      - `+ backup_files.file_source: enum value [backup_record]`
+  - **StopMigrationTask**
+    - 响应参数变更
+      - `+ backup_files.file_source: enum value [backup_record]`
+
+### HuaweiCloud SDK WAF
+
+- _新增特性_
+  - 支持以下接口：
+    - `ListCcRules`
+    - `CreateCcRule`
+    - `ShowCcRule`
+    - `UpdateCcRule`
+    - `DeleteCcRule`
+    - `ListCustomRules`
+    - `CreateCustomRule`
+    - `ShowCustomRule`
+    - `UpdateCustomRule`
+    - `DeleteCustomRule`
+    - `ListAnticrawlerRules`
+    - `UpdateAnticrawlerRuleType`
+    - `CreateAnticrawlerRule`
+    - `ShowAnticrawlerRule`
+    - `UpdateAnticrawlerRule`
+    - `DeleteAnticrawlerRule`
+    - `ListPunishmentRules`
+    - `CreatePunishmentRule`
+    - `ShowPunishmentRule`
+    - `UpdatePunishmentRule`
+    - `DeletePunishmentRule`
+    - `ListAntileakageRules`
+    - `CreateAntileakageRule`
+    - `ShowAntileakageRule`
+    - `UpdateAntileakageRule`
+    - `DeleteAntileakageRule`
+    - `UpdateAntiTamperRuleRefresh`
+    - `ShowGeoipRule`
+    - `ShowIgnoreRule`
+    - `UpdateIgnoreRule`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListHost**
+    - 响应参数变更
+      - `- items.paid_type: enum value [prePaid]`
+  - **DeleteHost**
+    - 响应参数变更
+      - `- paid_type: enum value [prePaid]`
+
 # 3.1.30 2023-03-16
 
 ### HuaweiCloud SDK CDN

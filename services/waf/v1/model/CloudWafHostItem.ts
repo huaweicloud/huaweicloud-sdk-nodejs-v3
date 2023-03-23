@@ -15,7 +15,7 @@ export class CloudWafHostItem {
     private 'protect_status'?: number | undefined;
     private 'access_status'?: number | undefined;
     private 'exclusive_ip'?: boolean | undefined;
-    private 'paid_type'?: CloudWafHostItemPaidTypeEnum | undefined;
+    private 'paid_type'?: string | undefined;
     private 'web_tag'?: string | undefined;
     public flag?: Flag;
     public constructor() { 
@@ -96,11 +96,11 @@ export class CloudWafHostItem {
     public get exclusiveIp() {
         return this['exclusive_ip'];
     }
-    public withPaidType(paidType: CloudWafHostItemPaidTypeEnum): CloudWafHostItem {
+    public withPaidType(paidType: string): CloudWafHostItem {
         this['paid_type'] = paidType;
         return this;
     }
-    public set paidType(paidType: CloudWafHostItemPaidTypeEnum | undefined) {
+    public set paidType(paidType: string | undefined) {
         this['paid_type'] = paidType;
     }
     public get paidType() {
@@ -120,12 +120,4 @@ export class CloudWafHostItem {
         this['flag'] = flag;
         return this;
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CloudWafHostItemPaidTypeEnum {
-    PREPAID = 'prePaid'
 }

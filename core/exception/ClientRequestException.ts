@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Huawei Technologies Co.,Ltd.
+ * Copyright 2023 Huawei Technologies Co.,Ltd.
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -22,9 +22,20 @@
 import { ServiceResponseException } from "./ServiceResponseException";
 
 export class ClientRequestException extends ServiceResponseException {
-
-    constructor(httpStatusCode: string | number, errorMsg: string, errorCode: string, requestId?: string) {
-        super(httpStatusCode, errorMsg, errorCode, requestId);
-        this.name = 'ClientRequestException';
+    constructor(
+      httpStatusCode: string | number,
+      errorMsg?: string,
+      errorCode?: string,
+      requestId?: string,
+      encodedAuthorizationMessage?: string
+    ) {
+      super(
+        httpStatusCode,
+        errorMsg,
+        errorCode,
+        requestId,
+        encodedAuthorizationMessage
+      );
+      this.name = "ClientRequestException";
     }
-}
+  }

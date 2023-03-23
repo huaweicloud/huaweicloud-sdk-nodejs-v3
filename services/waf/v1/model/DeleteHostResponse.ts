@@ -16,7 +16,7 @@ export class DeleteHostResponse extends SdkResponse {
     private 'protect_status'?: number | undefined;
     private 'access_status'?: number | undefined;
     private 'exclusive_ip'?: boolean | undefined;
-    private 'paid_type'?: DeleteHostResponsePaidTypeEnum | undefined;
+    private 'paid_type'?: string | undefined;
     private 'web_tag'?: string | undefined;
     public constructor() { 
         super();
@@ -97,11 +97,11 @@ export class DeleteHostResponse extends SdkResponse {
     public get exclusiveIp() {
         return this['exclusive_ip'];
     }
-    public withPaidType(paidType: DeleteHostResponsePaidTypeEnum): DeleteHostResponse {
+    public withPaidType(paidType: string): DeleteHostResponse {
         this['paid_type'] = paidType;
         return this;
     }
-    public set paidType(paidType: DeleteHostResponsePaidTypeEnum | undefined) {
+    public set paidType(paidType: string | undefined) {
         this['paid_type'] = paidType;
     }
     public get paidType() {
@@ -117,12 +117,4 @@ export class DeleteHostResponse extends SdkResponse {
     public get webTag() {
         return this['web_tag'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum DeleteHostResponsePaidTypeEnum {
-    PREPAID = 'prePaid'
 }

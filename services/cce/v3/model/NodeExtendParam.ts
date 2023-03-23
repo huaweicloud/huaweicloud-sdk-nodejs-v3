@@ -19,6 +19,7 @@ export class NodeExtendParam {
     public nicThreshold?: string;
     private 'enterprise_project_id'?: string | undefined;
     public chargingMode?: number;
+    private 'agency_name'?: string | undefined;
     public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): NodeExtendParam {
@@ -128,5 +129,15 @@ export class NodeExtendParam {
     public withChargingMode(chargingMode: number): NodeExtendParam {
         this['chargingMode'] = chargingMode;
         return this;
+    }
+    public withAgencyName(agencyName: string): NodeExtendParam {
+        this['agency_name'] = agencyName;
+        return this;
+    }
+    public set agencyName(agencyName: string | undefined) {
+        this['agency_name'] = agencyName;
+    }
+    public get agencyName() {
+        return this['agency_name'];
     }
 }

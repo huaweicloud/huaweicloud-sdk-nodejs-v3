@@ -140,10 +140,7 @@ export class BasicCredentials implements ICredential {
             return this;
         }
 
-        const projectId = 
-        
-        
-        await new IamService(hcClient, this.iamEndpoint).getProjecId(region);
+        const projectId = await new IamService(hcClient, this.iamEndpoint).getProjectId(region);
         authCacheInstance.putCache(akWithName, projectId);
         this.projectId = projectId;
         return this;

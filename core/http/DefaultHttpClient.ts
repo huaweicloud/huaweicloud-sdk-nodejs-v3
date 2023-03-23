@@ -230,6 +230,9 @@ export class DefaultHttpClient implements HttpClient {
             message: error.message || error.code,
             requestId: error.response?.headers['x-request-id'],
         };
+        if (error.isAxiosError) {
+            transformedResponse.config = error.config;
+        }
         return transformedResponse;
     }
 }

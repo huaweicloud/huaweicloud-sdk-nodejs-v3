@@ -18,14 +18,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
-export interface ExceptionResponse {
-    data?: any;
+export type ExceptionResponse = {
+    data?: {
+        error?: {
+            code: string;
+            message: string;
+            encoded_authorization_message?: string;
+        };
+        error_code?: string;
+        error_msg?: string;
+        encoded_authorization_message?: string;
+    };
     status?: number;
-    headers?: any;
-    request?: any;
     message?: string;
+    requestId?: string;
+
+    headers?: any;
+    request?: any; 
     config?: any;
     originalError?: any;
-    requestId?: string;
-}
+};

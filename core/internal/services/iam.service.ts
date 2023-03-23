@@ -37,7 +37,7 @@ export class IamService {
         this.client = hclient.overrideEndpoints(iamEndpoint ? [iamEndpoint] : [Constants.DEFAULT_IAM_ENDPOINT]);
     }
 
-    async getProjecId(regionId: string): Promise<string> {
+    async getProjectId(regionId: string): Promise<string> {
         const request = new KeystoneListProjectsRequest();
         request.name = regionId;
 

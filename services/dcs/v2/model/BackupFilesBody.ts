@@ -51,5 +51,6 @@ export class BackupFilesBody {
     * @enum {string}
     */
 export enum BackupFilesBodyFileSourceEnum {
-    SELF_BUILD_OBS = 'self_build_obs'
+    SELF_BUILD_OBS = 'self_build_obs',
+    BACKUP_RECORD = 'backup_record'
 }

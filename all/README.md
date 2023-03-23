@@ -1,0 +1,1 @@
+# Huawei Cloud SDK for Node.js includes all cloud services
