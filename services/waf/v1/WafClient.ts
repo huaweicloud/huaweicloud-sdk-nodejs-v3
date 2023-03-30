@@ -230,6 +230,8 @@ import { ShowAnticrawlerRuleRequest } from './model/ShowAnticrawlerRuleRequest';
 import { ShowAnticrawlerRuleResponse } from './model/ShowAnticrawlerRuleResponse';
 import { ShowAntileakageRuleRequest } from './model/ShowAntileakageRuleRequest';
 import { ShowAntileakageRuleResponse } from './model/ShowAntileakageRuleResponse';
+import { ShowAntitamperRuleRequest } from './model/ShowAntitamperRuleRequest';
+import { ShowAntitamperRuleResponse } from './model/ShowAntitamperRuleResponse';
 import { ShowCcRuleRequest } from './model/ShowCcRuleRequest';
 import { ShowCcRuleResponse } from './model/ShowCcRuleResponse';
 import { ShowCertificateRequest } from './model/ShowCertificateRequest';
@@ -259,12 +261,18 @@ import { ShowPolicyRequest } from './model/ShowPolicyRequest';
 import { ShowPolicyResponse } from './model/ShowPolicyResponse';
 import { ShowPremiumHostRequest } from './model/ShowPremiumHostRequest';
 import { ShowPremiumHostResponse } from './model/ShowPremiumHostResponse';
+import { ShowPrivacyRuleRequest } from './model/ShowPrivacyRuleRequest';
+import { ShowPrivacyRuleResponse } from './model/ShowPrivacyRuleResponse';
 import { ShowPunishmentRuleRequest } from './model/ShowPunishmentRuleRequest';
 import { ShowPunishmentRuleResponse } from './model/ShowPunishmentRuleResponse';
 import { ShowSourceIpRequest } from './model/ShowSourceIpRequest';
 import { ShowSourceIpResponse } from './model/ShowSourceIpResponse';
 import { ShowSubscriptionInfoRequest } from './model/ShowSubscriptionInfoRequest';
 import { ShowSubscriptionInfoResponse } from './model/ShowSubscriptionInfoResponse';
+import { ShowValueListRequest } from './model/ShowValueListRequest';
+import { ShowValueListResponse } from './model/ShowValueListResponse';
+import { ShowWhiteBlackIpRuleRequest } from './model/ShowWhiteBlackIpRuleRequest';
+import { ShowWhiteBlackIpRuleResponse } from './model/ShowWhiteBlackIpRuleResponse';
 import { SimplePremiumWafHost } from './model/SimplePremiumWafHost';
 import { StatisticsTimelineItem } from './model/StatisticsTimelineItem';
 import { TimeLineItem } from './model/TimeLineItem';
@@ -1893,6 +1901,28 @@ export class WafClient {
     }
 
     /**
+     * 查询防篡改防护规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询防篡改防护规则
+     * @param {string} contentType 内容类型
+     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} ruleId 防篡改规则id，通过查询防篡改规则列表接口（ListAntitamperRule）获取
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAntitamperRule(showAntitamperRuleRequest?: ShowAntitamperRuleRequest): Promise<ShowAntitamperRuleResponse> {
+        const options = ParamCreater().showAntitamperRule(showAntitamperRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据Id查询cc防护规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2188,6 +2218,28 @@ export class WafClient {
     }
 
     /**
+     * 删除隐私屏蔽防护规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询隐私屏蔽防护规则
+     * @param {string} contentType 内容类型
+     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} ruleId 隐私屏蔽规则id，您可以通过调用查询隐私屏蔽规则列表（ListPrivacyRule）获取规则id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showPrivacyRule(showPrivacyRuleRequest?: ShowPrivacyRuleRequest): Promise<ShowPrivacyRuleResponse> {
+        const options = ParamCreater().showPrivacyRule(showPrivacyRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 根据Id查询攻击惩罚防护规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -2240,6 +2292,49 @@ export class WafClient {
      */
     public showSubscriptionInfo(showSubscriptionInfoRequest?: ShowSubscriptionInfoRequest): Promise<ShowSubscriptionInfoResponse> {
         const options = ParamCreater().showSubscriptionInfo(showSubscriptionInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询引用表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询引用表
+     * @param {string} contentType 内容类型
+     * @param {string} valuelistid 引用表id，通过查询引用表列表（ListValueList）接口获取
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showValueList(showValueListRequest?: ShowValueListRequest): Promise<ShowValueListResponse> {
+        const options = ParamCreater().showValueList(showValueListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询黑白名单防护规则
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询黑白名单防护规则
+     * @param {string} contentType 内容类型
+     * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
+     * @param {string} ruleId 黑白名单规则id，您可以通过调用查询黑白名单规则列表（ListWhiteblackipRule）获取黑白名单规则id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showWhiteBlackIpRule(showWhiteBlackIpRuleRequest?: ShowWhiteBlackIpRuleRequest): Promise<ShowWhiteBlackIpRuleResponse> {
+        const options = ParamCreater().showWhiteBlackIpRule(showWhiteBlackIpRuleRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -7143,6 +7238,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询防篡改防护规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAntitamperRule(showAntitamperRuleRequest?: ShowAntitamperRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/policy/{policy_id}/antitamper/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let policyId;
+            
+            let ruleId;
+            
+            let enterpriseProjectId;
+
+            if (showAntitamperRuleRequest !== null && showAntitamperRuleRequest !== undefined) {
+                if (showAntitamperRuleRequest instanceof ShowAntitamperRuleRequest) {
+                    contentType = showAntitamperRuleRequest.contentType;
+                    policyId = showAntitamperRuleRequest.policyId;
+                    ruleId = showAntitamperRuleRequest.ruleId;
+                    enterpriseProjectId = showAntitamperRuleRequest.enterpriseProjectId;
+                } else {
+                    contentType = showAntitamperRuleRequest['Content-Type'];
+                    policyId = showAntitamperRuleRequest['policy_id'];
+                    ruleId = showAntitamperRuleRequest['rule_id'];
+                    enterpriseProjectId = showAntitamperRuleRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showAntitamperRule.');
+            }
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showAntitamperRule.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'policy_id': policyId,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据Id查询cc防护规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -7889,6 +8044,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除隐私屏蔽防护规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showPrivacyRule(showPrivacyRuleRequest?: ShowPrivacyRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/policy/{policy_id}/privacy/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let policyId;
+            
+            let ruleId;
+            
+            let enterpriseProjectId;
+
+            if (showPrivacyRuleRequest !== null && showPrivacyRuleRequest !== undefined) {
+                if (showPrivacyRuleRequest instanceof ShowPrivacyRuleRequest) {
+                    contentType = showPrivacyRuleRequest.contentType;
+                    policyId = showPrivacyRuleRequest.policyId;
+                    ruleId = showPrivacyRuleRequest.ruleId;
+                    enterpriseProjectId = showPrivacyRuleRequest.enterpriseProjectId;
+                } else {
+                    contentType = showPrivacyRuleRequest['Content-Type'];
+                    policyId = showPrivacyRuleRequest['policy_id'];
+                    ruleId = showPrivacyRuleRequest['rule_id'];
+                    enterpriseProjectId = showPrivacyRuleRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showPrivacyRule.');
+            }
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showPrivacyRule.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'policy_id': policyId,'rule_id': ruleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据Id查询攻击惩罚防护规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -8018,6 +8233,119 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询引用表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showValueList(showValueListRequest?: ShowValueListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/valuelist/{valuelistid}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let valuelistid;
+            
+            let enterpriseProjectId;
+
+            if (showValueListRequest !== null && showValueListRequest !== undefined) {
+                if (showValueListRequest instanceof ShowValueListRequest) {
+                    contentType = showValueListRequest.contentType;
+                    valuelistid = showValueListRequest.valuelistid;
+                    enterpriseProjectId = showValueListRequest.enterpriseProjectId;
+                } else {
+                    contentType = showValueListRequest['Content-Type'];
+                    valuelistid = showValueListRequest['valuelistid'];
+                    enterpriseProjectId = showValueListRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (valuelistid === null || valuelistid === undefined) {
+            throw new RequiredError('valuelistid','Required parameter valuelistid was null or undefined when calling showValueList.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'valuelistid': valuelistid, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询黑白名单防护规则
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showWhiteBlackIpRule(showWhiteBlackIpRuleRequest?: ShowWhiteBlackIpRuleRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/waf/policy/{policy_id}/whiteblackip/{rule_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let policyId;
+            
+            let ruleId;
+            
+            let enterpriseProjectId;
+
+            if (showWhiteBlackIpRuleRequest !== null && showWhiteBlackIpRuleRequest !== undefined) {
+                if (showWhiteBlackIpRuleRequest instanceof ShowWhiteBlackIpRuleRequest) {
+                    contentType = showWhiteBlackIpRuleRequest.contentType;
+                    policyId = showWhiteBlackIpRuleRequest.policyId;
+                    ruleId = showWhiteBlackIpRuleRequest.ruleId;
+                    enterpriseProjectId = showWhiteBlackIpRuleRequest.enterpriseProjectId;
+                } else {
+                    contentType = showWhiteBlackIpRuleRequest['Content-Type'];
+                    policyId = showWhiteBlackIpRuleRequest['policy_id'];
+                    ruleId = showWhiteBlackIpRuleRequest['rule_id'];
+                    enterpriseProjectId = showWhiteBlackIpRuleRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (policyId === null || policyId === undefined) {
+            throw new RequiredError('policyId','Required parameter policyId was null or undefined when calling showWhiteBlackIpRule.');
+            }
+            if (ruleId === null || ruleId === undefined) {
+            throw new RequiredError('ruleId','Required parameter ruleId was null or undefined when calling showWhiteBlackIpRule.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'policy_id': policyId,'rule_id': ruleId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

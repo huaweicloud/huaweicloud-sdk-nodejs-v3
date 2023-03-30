@@ -1,3 +1,135 @@
+# 3.1.32 2023-03-30
+
+### HuaweiCloud SDK IoTDA
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListOtaPackageInfo**
+    - 请求参数变更
+      - `- Sp-Auth-Token`
+  - **CreateOtaPackage**
+    - 请求参数变更
+      - `- Sp-Auth-Token`
+  - **DeleteOtaPackage**
+    - 请求参数变更
+      - `- Sp-Auth-Token`
+  - **ShowOtaPackage**
+    - 请求参数变更
+      - `- Sp-Auth-Token`
+  - **ShowRuleAction**
+    - 响应参数变更
+      - `+ channel_detail.http_forwarding.signature_enable`
+      - `+ channel_detail.http_forwarding.token`
+  - **UpdateRuleAction**
+    - 请求参数变更
+      - `+ channel_detail.http_forwarding.signature_enable`
+      - `+ channel_detail.http_forwarding.token`
+    - 响应参数变更
+      - `+ channel_detail.http_forwarding.signature_enable`
+      - `+ channel_detail.http_forwarding.token`
+  - **CreateRuleAction**
+    - 请求参数变更
+      - `+ channel_detail.http_forwarding.signature_enable`
+      - `+ channel_detail.http_forwarding.token`
+    - 响应参数变更
+      - `+ channel_detail.http_forwarding.signature_enable`
+      - `+ channel_detail.http_forwarding.token`
+  - **ListRuleActions**
+    - 响应参数变更
+      - `+ actions.channel_detail.http_forwarding.signature_enable`
+      - `+ actions.channel_detail.http_forwarding.token`
+  - **ShowRule**
+    - 响应参数变更
+      - `+ actions.device_alarm.dimension`
+      - `+ condition_group.conditions.device_linkage_status_condition`
+      - `+ condition_group.conditions.device_property_condition.filters.in_values`
+  - **UpdateRule**
+    - 请求参数变更
+      - `+ actions.device_alarm.dimension`
+      - `+ condition_group.conditions.device_linkage_status_condition`
+      - `+ condition_group.conditions.device_property_condition.filters.in_values`
+    - 响应参数变更
+      - `+ actions.device_alarm.dimension`
+      - `+ condition_group.conditions.device_linkage_status_condition`
+      - `+ condition_group.conditions.device_property_condition.filters.in_values`
+  - **CreateRule**
+    - 请求参数变更
+      - `+ actions.device_alarm.dimension`
+      - `+ condition_group.conditions.device_linkage_status_condition`
+      - `+ condition_group.conditions.device_property_condition.filters.in_values`
+    - 响应参数变更
+      - `+ actions.device_alarm.dimension`
+      - `+ condition_group.conditions.device_linkage_status_condition`
+      - `+ condition_group.conditions.device_property_condition.filters.in_values`
+  - **ListRules**
+    - 响应参数变更
+      - `+ rules.actions.device_alarm.dimension`
+      - `+ rules.condition_group.conditions.device_linkage_status_condition`
+      - `+ rules.condition_group.conditions.device_property_condition.filters.in_values`
+
+### HuaweiCloud SDK VOD
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **PublishAssetFromObs**
+    - 请求参数变更
+      - `+ video_type: enum value [RMVB,WEBM]`
+
+### HuaweiCloud SDK WAF
+
+- _新增特性_
+  - 支持接口`ShowValueList`、`ShowPrivacyRule`、`ShowAntitamperRule`、`ShowWhiteBlackIpRule`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowCcRule**
+    - 响应参数变更
+      - `+ name`
+      - `* mode: number -> int32`
+  - **UpdateCcRule**
+    - 请求参数变更
+      - `+ name`
+    - 响应参数变更
+      - `+ name`
+      - `* mode: number -> int32`
+  - **DeleteCcRule**
+    - 响应参数变更
+      - `+ name`
+      - `* mode: number -> int32`
+  - **ShowCustomRule**
+    - 响应参数变更
+      - `+ time`
+  - **UpdateCustomRule**
+    - 响应参数变更
+      - `+ time`
+  - **DeleteCustomRule**
+    - 响应参数变更
+      - `+ time`
+  - **ListAntileakageRules**
+    - 响应参数变更
+      - `+ items.description`
+  - **CreateCcRule**
+    - 请求参数变更
+      - `+ name`
+    - 响应参数变更
+      - `+ name`
+      - `* mode: number -> int32`
+  - **ListCcRules**
+    - 响应参数变更
+      - `+ items.name`
+  - **CreateCustomRule**
+    - 响应参数变更
+      - `+ time`
+  - **ListCustomRules**
+    - 响应参数变更
+      - `+ items.time`
+
 # 3.1.31 2023-03-23
 
 ### HuaweiCloud SDK CCE

@@ -1,5 +1,6 @@
 import { DailyTimerType } from './DailyTimerType';
 import { DeviceDataCondition } from './DeviceDataCondition';
+import { DeviceLinkageStatusCondition } from './DeviceLinkageStatusCondition';
 import { SimpleTimerType } from './SimpleTimerType';
 
 
@@ -8,6 +9,7 @@ export class RuleCondition {
     private 'device_property_condition'?: DeviceDataCondition | undefined;
     private 'simple_timer_condition'?: SimpleTimerType | undefined;
     private 'daily_timer_condition'?: DailyTimerType | undefined;
+    private 'device_linkage_status_condition'?: DeviceLinkageStatusCondition | undefined;
     public constructor(type?: any) { 
         this['type'] = type;
     }
@@ -44,5 +46,15 @@ export class RuleCondition {
     }
     public get dailyTimerCondition() {
         return this['daily_timer_condition'];
+    }
+    public withDeviceLinkageStatusCondition(deviceLinkageStatusCondition: DeviceLinkageStatusCondition): RuleCondition {
+        this['device_linkage_status_condition'] = deviceLinkageStatusCondition;
+        return this;
+    }
+    public set deviceLinkageStatusCondition(deviceLinkageStatusCondition: DeviceLinkageStatusCondition | undefined) {
+        this['device_linkage_status_condition'] = deviceLinkageStatusCondition;
+    }
+    public get deviceLinkageStatusCondition() {
+        return this['device_linkage_status_condition'];
     }
 }

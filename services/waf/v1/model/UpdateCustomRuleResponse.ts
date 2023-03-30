@@ -13,6 +13,7 @@ export class UpdateCustomRuleResponse extends SdkResponse {
     public action?: CustomAction;
     private 'action_mode'?: boolean | undefined;
     public priority?: number;
+    public time?: boolean;
     public start?: number;
     public terminal?: number;
     public producer?: number;
@@ -59,6 +60,10 @@ export class UpdateCustomRuleResponse extends SdkResponse {
     }
     public withPriority(priority: number): UpdateCustomRuleResponse {
         this['priority'] = priority;
+        return this;
+    }
+    public withTime(time: boolean): UpdateCustomRuleResponse {
+        this['time'] = time;
         return this;
     }
     public withStart(start: number): UpdateCustomRuleResponse {

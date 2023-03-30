@@ -4,6 +4,7 @@ import { CcrulesListInfoTagCondition } from './CcrulesListInfoTagCondition';
 
 
 export class CcrulesListInfo {
+    public name?: string;
     public id?: string;
     public policyid?: string;
     public url?: string;
@@ -28,6 +29,10 @@ export class CcrulesListInfo {
     public producer?: number;
     public timestamp?: number;
     public constructor() { 
+    }
+    public withName(name: string): CcrulesListInfo {
+        this['name'] = name;
+        return this;
     }
     public withId(id: string): CcrulesListInfo {
         this['id'] = id;

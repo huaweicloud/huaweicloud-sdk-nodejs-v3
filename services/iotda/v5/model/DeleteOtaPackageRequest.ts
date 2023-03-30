@@ -1,21 +1,10 @@
 
 
 export class DeleteOtaPackageRequest {
-    private 'Sp-Auth-Token'?: string | undefined;
     private 'Instance-Id'?: string | undefined;
     private 'package_id': string | undefined;
     public constructor(packageId?: any) { 
         this['package_id'] = packageId;
-    }
-    public withSpAuthToken(spAuthToken: string): DeleteOtaPackageRequest {
-        this['Sp-Auth-Token'] = spAuthToken;
-        return this;
-    }
-    public set spAuthToken(spAuthToken: string | undefined) {
-        this['Sp-Auth-Token'] = spAuthToken;
-    }
-    public get spAuthToken() {
-        return this['Sp-Auth-Token'];
     }
     public withInstanceId(instanceId: string): DeleteOtaPackageRequest {
         this['Instance-Id'] = instanceId;

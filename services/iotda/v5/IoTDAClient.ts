@@ -90,7 +90,8 @@ import { DeleteRuleRequest } from './model/DeleteRuleRequest';
 import { DeleteRuleResponse } from './model/DeleteRuleResponse';
 import { DeviceCommandRequest } from './model/DeviceCommandRequest';
 import { DeviceDataCondition } from './model/DeviceDataCondition';
-import { DeviceGroupResponseDTO } from './model/DeviceGroupResponseDTO';
+import { DeviceGroupResponseSummary } from './model/DeviceGroupResponseSummary';
+import { DeviceLinkageStatusCondition } from './model/DeviceLinkageStatusCondition';
 import { DeviceMessage } from './model/DeviceMessage';
 import { DeviceMessageRequest } from './model/DeviceMessageRequest';
 import { DevicePropertiesRequest } from './model/DevicePropertiesRequest';
@@ -717,7 +718,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口新建设备组，一个华为云账号下最多可有1,000个分组，包括父分组和子分组。设备组的最大层级关系不超过5层，即群组形成的关系树最大深度不超过5。
+     * 应用服务器可调用此接口新建设备组，一个华为云账号下最多可有1,000个设备组，包括父设备组和子设备组。设备组的最大层级关系不超过5层，即群组形成的关系树最大深度不超过5。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1109,8 +1110,8 @@ export class IoTDAClient {
      * | &gt;       | create_time、marker                      |
      * | &lt;       | create_time、marker                      |
      * | like    | device_name、node_id、tag_key、tag_value |
-     * | in      | 所有                                     |
-     * | not  in | 所有                                     |
+     * | in      | 除tag_key、tag_value以外字段             |
+     * | not  in | 除tag_key、tag_value以外字段             |
      * 
      * #### SQL 限制
      * 
@@ -1215,7 +1216,7 @@ export class IoTDAClient {
      *
      * @summary 查询设备影子数据
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
-     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1247,7 +1248,7 @@ export class IoTDAClient {
      * @summary 配置设备影子预期数据
      * @param {string} deviceId **参数说明**：设备ID，用于唯一标识一个设备。在注册设备时直接指定，或者由物联网平台分配获得。由物联网平台分配时，生成规则为\&quot;product_id\&quot; + \&quot;_\&quot; + \&quot;node_id\&quot;拼接而成。 **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {UpdateDesireds} updateDeviceShadowDesiredDataRequestBody request
-     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1327,14 +1328,13 @@ export class IoTDAClient {
 
     /**
      * 用户可调用此接口创建升级包关联OBS对象
-     * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam/?region&#x3D;cn-north-4#/iam/agencies)](tag:hws) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
+     * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam)](tag:hws)[[统一身份认证服务（IAM）](https://console-intl.huaweicloud.com/iam)](tag:hws_hk) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建OTA升级包
      * @param {CreateOtaPackage} createOtaPackageRequestBody request
-     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1348,14 +1348,14 @@ export class IoTDAClient {
     }
 
     /**
-     * 只删除升级包信息，不会删除OBS上对象
+     * 用户可调用此接口删除关联OBS对象的升级包信息，不会删除OBS上对象
+     * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam)](tag:hws)[[统一身份认证服务（IAM）](https://console-intl.huaweicloud.com/iam)](tag:hws_hk) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除OTA升级包
      * @param {string} packageId **参数说明**：升级包ID，用于唯一标识一个升级包。由物联网平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、连接符（-）的组合。
-     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1369,19 +1369,19 @@ export class IoTDAClient {
     }
 
     /**
-     * 查询OTA升级包列表
+     * 用户可调用此接口查询关联OBS对象的升级包列表
+     * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam)](tag:hws)[[统一身份认证服务（IAM）](https://console-intl.huaweicloud.com/iam)](tag:hws_hk) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询OTA升级包列表
      * @param {string} packageType **参数说明**：升级包类型。 **取值范围**：软件包必须设置为：softwarePackage，固件包必须设置为：firmwarePackage。
-     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {string} [appId] **参数说明**：资源空间ID。存在多资源空间的用户需要使用该接口时，建议携带该参数指定查询指定资源空间的升级包列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [productId] **参数说明**：设备关联的产品ID，用于唯一标识一个产品模型，创建产品后获得。方法请参见 [[创建产品](https://support.huaweicloud.com/api-iothub/iot_06_v5_0050.html)](tag:hws)[[创建产品](https://support.huaweicloud.com/intl/zh-cn/api-iothub/iot_06_v5_0050.html)](tag:hws_hk)。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [version] **参数说明**：升级包版本号。 **取值范围**：长度不超过256，只允许字母、数字、下划线（_）、连接符（-）、英文点（.）的组合。
-     * @param {number} [limit] |- **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
-     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
+     * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
+     * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。**取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
      * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1396,14 +1396,14 @@ export class IoTDAClient {
     }
 
     /**
-     * 获取OTA升级包详情
+     * 用户可调用此接口查询关联OBS对象的升级包详情
+     * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam)](tag:hws)[[统一身份认证服务（IAM）](https://console-intl.huaweicloud.com/iam)](tag:hws_hk) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 获取OTA升级包详情
      * @param {string} packageId **参数说明**：升级包ID，用于唯一标识一个升级包。由物联网平台分配获得。 **取值范围**：长度不超过36，只允许字母、数字、连接符（-）的组合。
-     * @param {string} [spAuthToken] Sp用户Token。通过调用IoBPS服务获取SP用户Token
-     * @param {string} [instanceId] 实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1417,7 +1417,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口创建产品。
+     * 应用服务器可调用此接口创建产品。此接口仅创建了产品，没有创建和安装插件，如果需要对数据进行编解码，还需要在平台开发和安装插件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1437,7 +1437,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口删除已导入物联网平台的指定产品模型。
+     * 应用服务器可调用此接口删除已导入物联网平台的指定产品模型。此接口仅删除了产品，未删除关联的插件，在产品下存在设备时，该产品不允许删除。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -1502,7 +1502,7 @@ export class IoTDAClient {
     }
 
     /**
-     * 应用服务器可调用此接口修改已导入物联网平台的指定产品模型，包括产品模型的服务、属性、命令等。
+     * 应用服务器可调用此接口修改已导入物联网平台的指定产品模型，包括产品模型的服务、属性、命令等。此接口仅修改了产品，未修改和安装插件，如果修改了产品中的service定义，且在平台中有对应的插件，请修改并重新安装插件。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -3119,7 +3119,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口新建设备组，一个华为云账号下最多可有1,000个分组，包括父分组和子分组。设备组的最大层级关系不超过5层，即群组形成的关系树最大深度不超过5。
+         * 应用服务器可调用此接口新建设备组，一个华为云账号下最多可有1,000个设备组，包括父设备组和子设备组。设备组的最大层级关系不超过5层，即群组形成的关系树最大深度不超过5。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3986,8 +3986,8 @@ export const ParamCreater = function () {
          * | &gt;       | create_time、marker                      |
          * | &lt;       | create_time、marker                      |
          * | like    | device_name、node_id、tag_key、tag_value |
-         * | in      | 所有                                     |
-         * | not  in | 所有                                     |
+         * | in      | 除tag_key、tag_value以外字段             |
+         * | not  in | 除tag_key、tag_value以外字段             |
          * 
          * #### SQL 限制
          * 
@@ -4456,7 +4456,7 @@ export const ParamCreater = function () {
     
         /**
          * 用户可调用此接口创建升级包关联OBS对象
-         * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam/?region&#x3D;cn-north-4#/iam/agencies)](tag:hws) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
+         * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam)](tag:hws)[[统一身份认证服务（IAM）](https://console-intl.huaweicloud.com/iam)](tag:hws_hk) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4474,18 +4474,14 @@ export const ParamCreater = function () {
 
             var body: any;
             
-            let spAuthToken;
-            
             let instanceId;
 
             if (createOtaPackageRequest !== null && createOtaPackageRequest !== undefined) {
                 if (createOtaPackageRequest instanceof CreateOtaPackageRequest) {
                     body = createOtaPackageRequest.body
-                    spAuthToken = createOtaPackageRequest.spAuthToken;
                     instanceId = createOtaPackageRequest.instanceId;
                 } else {
                     body = createOtaPackageRequest['body'];
-                    spAuthToken = createOtaPackageRequest['Sp-Auth-Token'];
                     instanceId = createOtaPackageRequest['Instance-Id'];
                 }
             }
@@ -4493,9 +4489,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (spAuthToken !== undefined && spAuthToken !== null) {
-                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4508,7 +4501,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 只删除升级包信息，不会删除OBS上对象
+         * 用户可调用此接口删除关联OBS对象的升级包信息，不会删除OBS上对象
+         * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam)](tag:hws)[[统一身份认证服务（IAM）](https://console-intl.huaweicloud.com/iam)](tag:hws_hk) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4527,18 +4521,14 @@ export const ParamCreater = function () {
             
             let packageId;
             
-            let spAuthToken;
-            
             let instanceId;
 
             if (deleteOtaPackageRequest !== null && deleteOtaPackageRequest !== undefined) {
                 if (deleteOtaPackageRequest instanceof DeleteOtaPackageRequest) {
                     packageId = deleteOtaPackageRequest.packageId;
-                    spAuthToken = deleteOtaPackageRequest.spAuthToken;
                     instanceId = deleteOtaPackageRequest.instanceId;
                 } else {
                     packageId = deleteOtaPackageRequest['package_id'];
-                    spAuthToken = deleteOtaPackageRequest['Sp-Auth-Token'];
                     instanceId = deleteOtaPackageRequest['Instance-Id'];
                 }
             }
@@ -4546,9 +4536,6 @@ export const ParamCreater = function () {
         
             if (packageId === null || packageId === undefined) {
             throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling deleteOtaPackage.');
-            }
-            if (spAuthToken !== undefined && spAuthToken !== null) {
-                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4560,7 +4547,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询OTA升级包列表
+         * 用户可调用此接口查询关联OBS对象的升级包列表
+         * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam)](tag:hws)[[统一身份认证服务（IAM）](https://console-intl.huaweicloud.com/iam)](tag:hws_hk) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4579,8 +4567,6 @@ export const ParamCreater = function () {
             
             let packageType;
             
-            let spAuthToken;
-            
             let instanceId;
             
             let appId;
@@ -4598,7 +4584,6 @@ export const ParamCreater = function () {
             if (listOtaPackageInfoRequest !== null && listOtaPackageInfoRequest !== undefined) {
                 if (listOtaPackageInfoRequest instanceof ListOtaPackageInfoRequest) {
                     packageType = listOtaPackageInfoRequest.packageType;
-                    spAuthToken = listOtaPackageInfoRequest.spAuthToken;
                     instanceId = listOtaPackageInfoRequest.instanceId;
                     appId = listOtaPackageInfoRequest.appId;
                     productId = listOtaPackageInfoRequest.productId;
@@ -4608,7 +4593,6 @@ export const ParamCreater = function () {
                     offset = listOtaPackageInfoRequest.offset;
                 } else {
                     packageType = listOtaPackageInfoRequest['package_type'];
-                    spAuthToken = listOtaPackageInfoRequest['Sp-Auth-Token'];
                     instanceId = listOtaPackageInfoRequest['Instance-Id'];
                     appId = listOtaPackageInfoRequest['app_id'];
                     productId = listOtaPackageInfoRequest['product_id'];
@@ -4644,9 +4628,6 @@ export const ParamCreater = function () {
             if (offset !== null && offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            if (spAuthToken !== undefined && spAuthToken !== null) {
-                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
-            }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
             }
@@ -4657,7 +4638,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 获取OTA升级包详情
+         * 用户可调用此接口查询关联OBS对象的升级包详情
+         * 使用前提：使用该API需要您授权设备接入服务(IoTDA)的实例访问对象存储服务(OBS)以及 密钥管理服务(KMS Administrator)的权限。在“[[统一身份认证服务（IAM）](https://console.huaweicloud.com/iam)](tag:hws)[[统一身份认证服务（IAM）](https://console-intl.huaweicloud.com/iam)](tag:hws_hk) - 委托”中将委托名称为iotda_admin_trust的委托授权KMS Administrator和OBS OperateAccess
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4676,18 +4658,14 @@ export const ParamCreater = function () {
             
             let packageId;
             
-            let spAuthToken;
-            
             let instanceId;
 
             if (showOtaPackageRequest !== null && showOtaPackageRequest !== undefined) {
                 if (showOtaPackageRequest instanceof ShowOtaPackageRequest) {
                     packageId = showOtaPackageRequest.packageId;
-                    spAuthToken = showOtaPackageRequest.spAuthToken;
                     instanceId = showOtaPackageRequest.instanceId;
                 } else {
                     packageId = showOtaPackageRequest['package_id'];
-                    spAuthToken = showOtaPackageRequest['Sp-Auth-Token'];
                     instanceId = showOtaPackageRequest['Instance-Id'];
                 }
             }
@@ -4695,9 +4673,6 @@ export const ParamCreater = function () {
         
             if (packageId === null || packageId === undefined) {
             throw new RequiredError('packageId','Required parameter packageId was null or undefined when calling showOtaPackage.');
-            }
-            if (spAuthToken !== undefined && spAuthToken !== null) {
-                localVarHeaderParameter['Sp-Auth-Token'] = String(spAuthToken);
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4709,7 +4684,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口创建产品。
+         * 应用服务器可调用此接口创建产品。此接口仅创建了产品，没有创建和安装插件，如果需要对数据进行编解码，还需要在平台开发和安装插件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4751,7 +4726,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口删除已导入物联网平台的指定产品模型。
+         * 应用服务器可调用此接口删除已导入物联网平台的指定产品模型。此接口仅删除了产品，未删除关联的插件，在产品下存在设备时，该产品不允许删除。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -4923,7 +4898,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 应用服务器可调用此接口修改已导入物联网平台的指定产品模型，包括产品模型的服务、属性、命令等。
+         * 应用服务器可调用此接口修改已导入物联网平台的指定产品模型，包括产品模型的服务、属性、命令等。此接口仅修改了产品，未修改和安装插件，如果修改了产品中的service定义，且在平台中有对应的插件，请修改并重新安装插件。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

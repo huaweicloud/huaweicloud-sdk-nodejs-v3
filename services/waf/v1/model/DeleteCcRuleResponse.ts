@@ -5,6 +5,7 @@ import { CcrulesListInfoTagCondition } from './CcrulesListInfoTagCondition';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteCcRuleResponse extends SdkResponse {
+    public name?: string;
     public id?: string;
     public policyid?: string;
     public url?: string;
@@ -30,6 +31,10 @@ export class DeleteCcRuleResponse extends SdkResponse {
     public timestamp?: number;
     public constructor() { 
         super();
+    }
+    public withName(name: string): DeleteCcRuleResponse {
+        this['name'] = name;
+        return this;
     }
     public withId(id: string): DeleteCcRuleResponse {
         this['id'] = id;

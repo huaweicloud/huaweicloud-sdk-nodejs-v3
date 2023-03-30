@@ -144,5 +144,7 @@ export enum VideoTypeRefVideoTypeEnum {
     M4A = 'M4A',
     M4R = 'M4R',
     WV = 'WV',
-    MP2 = 'MP2'
+    MP2 = 'MP2',
+    RMVB = 'RMVB',
+    WEBM = 'WEBM'
 }

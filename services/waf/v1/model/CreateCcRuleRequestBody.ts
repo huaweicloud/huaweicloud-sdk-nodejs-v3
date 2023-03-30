@@ -4,6 +4,7 @@ import { CreateCcRuleRequestBodyAction } from './CreateCcRuleRequestBodyAction';
 
 
 export class CreateCcRuleRequestBody {
+    public name?: string;
     public mode: number;
     public conditions: Array<CcCondition>;
     public action: CreateCcRuleRequestBodyAction;
@@ -24,6 +25,10 @@ export class CreateCcRuleRequestBody {
         this['tag_type'] = tagType;
         this['limit_num'] = limitNum;
         this['limit_period'] = limitPeriod;
+    }
+    public withName(name: string): CreateCcRuleRequestBody {
+        this['name'] = name;
+        return this;
     }
     public withMode(mode: number): CreateCcRuleRequestBody {
         this['mode'] = mode;

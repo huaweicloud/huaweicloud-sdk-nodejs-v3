@@ -5,6 +5,8 @@ export class HttpForwarding {
     private 'cert_id'?: string | undefined;
     private 'cn_name'?: string | undefined;
     private 'sni_enable'?: boolean | undefined;
+    private 'signature_enable'?: boolean | undefined;
+    public token?: string;
     public constructor(url?: any) { 
         this['url'] = url;
     }
@@ -41,5 +43,19 @@ export class HttpForwarding {
     }
     public get sniEnable() {
         return this['sni_enable'];
+    }
+    public withSignatureEnable(signatureEnable: boolean): HttpForwarding {
+        this['signature_enable'] = signatureEnable;
+        return this;
+    }
+    public set signatureEnable(signatureEnable: boolean | undefined) {
+        this['signature_enable'] = signatureEnable;
+    }
+    public get signatureEnable() {
+        return this['signature_enable'];
+    }
+    public withToken(token: string): HttpForwarding {
+        this['token'] = token;
+        return this;
     }
 }

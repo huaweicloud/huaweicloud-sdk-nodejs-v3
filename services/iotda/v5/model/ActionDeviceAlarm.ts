@@ -4,6 +4,7 @@ export class ActionDeviceAlarm {
     public name: string;
     private 'alarm_status': string | undefined;
     public severity: string;
+    public dimension?: string;
     public description?: string;
     public constructor(name?: any, alarmStatus?: any, severity?: any) { 
         this['name'] = name;
@@ -26,6 +27,10 @@ export class ActionDeviceAlarm {
     }
     public withSeverity(severity: string): ActionDeviceAlarm {
         this['severity'] = severity;
+        return this;
+    }
+    public withDimension(dimension: string): ActionDeviceAlarm {
+        this['dimension'] = dimension;
         return this;
     }
     public withDescription(description: string): ActionDeviceAlarm {

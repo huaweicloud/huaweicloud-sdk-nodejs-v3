@@ -1,3 +1,135 @@
+# 3.1.32 2023-03-30
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListOtaPackageInfo**
+    - changes of request param
+      - `- Sp-Auth-Token`
+  - **CreateOtaPackage**
+    - changes of request param
+      - `- Sp-Auth-Token`
+  - **DeleteOtaPackage**
+    - changes of request param
+      - `- Sp-Auth-Token`
+  - **ShowOtaPackage**
+    - changes of request param
+      - `- Sp-Auth-Token`
+  - **ShowRuleAction**
+    - changes of response param
+      - `+ channel_detail.http_forwarding.signature_enable`
+      - `+ channel_detail.http_forwarding.token`
+  - **UpdateRuleAction**
+    - changes of request param
+      - `+ channel_detail.http_forwarding.signature_enable`
+      - `+ channel_detail.http_forwarding.token`
+    - changes of response param
+      - `+ channel_detail.http_forwarding.signature_enable`
+      - `+ channel_detail.http_forwarding.token`
+  - **CreateRuleAction**
+    - changes of request param
+      - `+ channel_detail.http_forwarding.signature_enable`
+      - `+ channel_detail.http_forwarding.token`
+    - changes of response param
+      - `+ channel_detail.http_forwarding.signature_enable`
+      - `+ channel_detail.http_forwarding.token`
+  - **ListRuleActions**
+    - changes of response param
+      - `+ actions.channel_detail.http_forwarding.signature_enable`
+      - `+ actions.channel_detail.http_forwarding.token`
+  - **ShowRule**
+    - changes of response param
+      - `+ actions.device_alarm.dimension`
+      - `+ condition_group.conditions.device_linkage_status_condition`
+      - `+ condition_group.conditions.device_property_condition.filters.in_values`
+  - **UpdateRule**
+    - changes of request param
+      - `+ actions.device_alarm.dimension`
+      - `+ condition_group.conditions.device_linkage_status_condition`
+      - `+ condition_group.conditions.device_property_condition.filters.in_values`
+    - changes of response param
+      - `+ actions.device_alarm.dimension`
+      - `+ condition_group.conditions.device_linkage_status_condition`
+      - `+ condition_group.conditions.device_property_condition.filters.in_values`
+  - **CreateRule**
+    - changes of request param
+      - `+ actions.device_alarm.dimension`
+      - `+ condition_group.conditions.device_linkage_status_condition`
+      - `+ condition_group.conditions.device_property_condition.filters.in_values`
+    - changes of response param
+      - `+ actions.device_alarm.dimension`
+      - `+ condition_group.conditions.device_linkage_status_condition`
+      - `+ condition_group.conditions.device_property_condition.filters.in_values`
+  - **ListRules**
+    - changes of response param
+      - `+ rules.actions.device_alarm.dimension`
+      - `+ rules.condition_group.conditions.device_linkage_status_condition`
+      - `+ rules.condition_group.conditions.device_property_condition.filters.in_values`
+
+### HuaweiCloud SDK VOD
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **PublishAssetFromObs**
+    - changes of request param
+      - `+ video_type: enum value [RMVB,WEBM]`
+
+### HuaweiCloud SDK WAF
+
+- _Features_
+  - Support the interfaces `ShowValueList`, `ShowPrivacyRule`, `ShowAntitamperRule`, `ShowWhiteBlackIpRule`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowCcRule**
+    - changes of response param
+      - `+ name`
+      - `* mode: number -> int32`
+  - **UpdateCcRule**
+    - changes of request param
+      - `+ name`
+    - changes of response param
+      - `+ name`
+      - `* mode: number -> int32`
+  - **DeleteCcRule**
+    - changes of response param
+      - `+ name`
+      - `* mode: number -> int32`
+  - **ShowCustomRule**
+    - changes of response param
+      - `+ time`
+  - **UpdateCustomRule**
+    - changes of response param
+      - `+ time`
+  - **DeleteCustomRule**
+    - changes of response param
+      - `+ time`
+  - **ListAntileakageRules**
+    - changes of response param
+      - `+ items.description`
+  - **CreateCcRule**
+    - changes of request param
+      - `+ name`
+    - changes of response param
+      - `+ name`
+      - `* mode: number -> int32`
+  - **ListCcRules**
+    - changes of response param
+      - `+ items.name`
+  - **CreateCustomRule**
+    - changes of response param
+      - `+ time`
+  - **ListCustomRules**
+    - changes of response param
+      - `+ items.time`
+
 # 3.1.31 2023-03-23
 
 ### HuaweiCloud SDK CCE

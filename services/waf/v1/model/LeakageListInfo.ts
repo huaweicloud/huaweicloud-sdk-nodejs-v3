@@ -8,6 +8,7 @@ export class LeakageListInfo {
     public contents?: Array<string>;
     public timestamp?: number;
     public status?: number;
+    public description?: string;
     public constructor() { 
     }
     public withId(id: string): LeakageListInfo {
@@ -36,6 +37,10 @@ export class LeakageListInfo {
     }
     public withStatus(status: number): LeakageListInfo {
         this['status'] = status;
+        return this;
+    }
+    public withDescription(description: string): LeakageListInfo {
+        this['description'] = description;
         return this;
     }
 }

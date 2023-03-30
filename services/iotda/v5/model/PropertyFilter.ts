@@ -4,12 +4,12 @@ import { Strategy } from './Strategy';
 export class PropertyFilter {
     public path: string;
     public operator: string;
-    public value: string;
+    public value?: string;
+    private 'in_values'?: Array<string> | undefined;
     public strategy?: Strategy;
-    public constructor(path?: any, operator?: any, value?: any) { 
+    public constructor(path?: any, operator?: any) { 
         this['path'] = path;
         this['operator'] = operator;
-        this['value'] = value;
     }
     public withPath(path: string): PropertyFilter {
         this['path'] = path;
@@ -22,6 +22,16 @@ export class PropertyFilter {
     public withValue(value: string): PropertyFilter {
         this['value'] = value;
         return this;
+    }
+    public withInValues(inValues: Array<string>): PropertyFilter {
+        this['in_values'] = inValues;
+        return this;
+    }
+    public set inValues(inValues: Array<string> | undefined) {
+        this['in_values'] = inValues;
+    }
+    public get inValues() {
+        return this['in_values'];
     }
     public withStrategy(strategy: Strategy): PropertyFilter {
         this['strategy'] = strategy;

@@ -1,7 +1,6 @@
 
 
 export class ListOtaPackageInfoRequest {
-    private 'Sp-Auth-Token'?: string | undefined;
     private 'Instance-Id'?: string | undefined;
     private 'app_id'?: string | undefined;
     private 'package_type': string | undefined;
@@ -12,16 +11,6 @@ export class ListOtaPackageInfoRequest {
     public offset?: number;
     public constructor(packageType?: any) { 
         this['package_type'] = packageType;
-    }
-    public withSpAuthToken(spAuthToken: string): ListOtaPackageInfoRequest {
-        this['Sp-Auth-Token'] = spAuthToken;
-        return this;
-    }
-    public set spAuthToken(spAuthToken: string | undefined) {
-        this['Sp-Auth-Token'] = spAuthToken;
-    }
-    public get spAuthToken() {
-        return this['Sp-Auth-Token'];
     }
     public withInstanceId(instanceId: string): ListOtaPackageInfoRequest {
         this['Instance-Id'] = instanceId;

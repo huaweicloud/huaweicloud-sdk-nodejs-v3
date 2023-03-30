@@ -14,6 +14,7 @@ export class ShowCustomRuleResponse extends SdkResponse {
     private 'action_mode'?: boolean | undefined;
     public priority?: number;
     public timestamp?: number;
+    public time?: boolean;
     public start?: number;
     public terminal?: number;
     public producer?: number;
@@ -64,6 +65,10 @@ export class ShowCustomRuleResponse extends SdkResponse {
     }
     public withTimestamp(timestamp: number): ShowCustomRuleResponse {
         this['timestamp'] = timestamp;
+        return this;
+    }
+    public withTime(time: boolean): ShowCustomRuleResponse {
+        this['time'] = time;
         return this;
     }
     public withStart(start: number): ShowCustomRuleResponse {
