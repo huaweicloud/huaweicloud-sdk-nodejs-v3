@@ -2,12 +2,17 @@
 
 export class RefreshTaskRequestBody {
     public type?: RefreshTaskRequestBodyTypeEnum;
+    public mode?: boolean;
     public urls: Array<string>;
     public constructor(urls?: any) { 
         this['urls'] = urls;
     }
     public withType(type: RefreshTaskRequestBodyTypeEnum): RefreshTaskRequestBody {
         this['type'] = type;
+        return this;
+    }
+    public withMode(mode: boolean): RefreshTaskRequestBody {
+        this['mode'] = mode;
         return this;
     }
     public withUrls(urls: Array<string>): RefreshTaskRequestBody {

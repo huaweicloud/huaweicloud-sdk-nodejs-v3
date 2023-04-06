@@ -1,3 +1,38 @@
+# 3.1.33 2023-04-06
+
+### HuaweiCloud SDK CDN
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **CreateRefreshTasks**
+    - 请求参数变更
+      - `+ refresh_task.mode`
+
+### HuaweiCloud SDK Image
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - 移除接口`CreateTextToImageTask`、`ShowTextToImageTask`、`CreateImageVariationTask`、`ShowImageVariationTask`
+
+### HuaweiCloud SDK OCR
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **RecognizeFinancialStatement**
+    - 请求参数变更
+      - `+ return_rectification_matrix`
+    - 响应参数变更
+      - `+ result.rectification_matrix`
+
 # 3.1.32 2023-03-30
 
 ### HuaweiCloud SDK IoTDA

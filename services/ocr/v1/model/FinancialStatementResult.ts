@@ -7,6 +7,7 @@ export class FinancialStatementResult {
     private 'words_region_list': Array<FinancialStatementWordsRegionList> | undefined;
     public excel?: string;
     private 'image_size'?: FinancialStatementResultImageSize | undefined;
+    private 'rectification_matrix'?: Array<Array<number>> | undefined;
     public constructor(wordsRegionCount?: any, wordsRegionList?: any) { 
         this['words_region_count'] = wordsRegionCount;
         this['words_region_list'] = wordsRegionList;
@@ -44,5 +45,15 @@ export class FinancialStatementResult {
     }
     public get imageSize() {
         return this['image_size'];
+    }
+    public withRectificationMatrix(rectificationMatrix: Array<Array<number>>): FinancialStatementResult {
+        this['rectification_matrix'] = rectificationMatrix;
+        return this;
+    }
+    public set rectificationMatrix(rectificationMatrix: Array<Array<number>> | undefined) {
+        this['rectification_matrix'] = rectificationMatrix;
+    }
+    public get rectificationMatrix() {
+        return this['rectification_matrix'];
     }
 }

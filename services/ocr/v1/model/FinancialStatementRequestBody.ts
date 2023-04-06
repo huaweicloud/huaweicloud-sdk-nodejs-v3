@@ -8,6 +8,7 @@ export class FinancialStatementRequestBody {
     private 'return_excel'?: boolean | undefined;
     private 'return_table_location'?: boolean | undefined;
     private 'return_image_size'?: boolean | undefined;
+    private 'return_rectification_matrix'?: boolean | undefined;
     public constructor() { 
     }
     public withImage(image: string): FinancialStatementRequestBody {
@@ -67,5 +68,15 @@ export class FinancialStatementRequestBody {
     }
     public get returnImageSize() {
         return this['return_image_size'];
+    }
+    public withReturnRectificationMatrix(returnRectificationMatrix: boolean): FinancialStatementRequestBody {
+        this['return_rectification_matrix'] = returnRectificationMatrix;
+        return this;
+    }
+    public set returnRectificationMatrix(returnRectificationMatrix: boolean | undefined) {
+        this['return_rectification_matrix'] = returnRectificationMatrix;
+    }
+    public get returnRectificationMatrix() {
+        return this['return_rectification_matrix'];
     }
 }
