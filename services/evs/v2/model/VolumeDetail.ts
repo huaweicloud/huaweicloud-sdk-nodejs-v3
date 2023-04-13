@@ -1,5 +1,7 @@
 import { Attachment } from './Attachment';
+import { Iops } from './Iops';
 import { Link } from './Link';
+import { Throughput } from './Throughput';
 
 
 export class VolumeDetail {
@@ -37,6 +39,8 @@ export class VolumeDetail {
     public wwn?: string;
     private 'enterprise_project_id'?: string | undefined;
     private 'serial_number'?: string | undefined;
+    public iops?: Iops;
+    public throughput?: Throughput;
     public constructor(id?: any, links?: any, name?: any, status?: any, attachments?: any, availabilityZone?: any, osVolHostAttrHost?: any, snapshotId?: any, description?: any, createdAt?: any, osVolTenantAttrTenantId?: any, volumeImageMetadata?: any, volumeType?: any, size?: any, bootable?: any, metadata?: any, updatedAt?: any, replicationStatus?: any, osVolumeReplicationExtendedStatus?: any, osVolMigStatusAttrMigstat?: any, osVolMigStatusAttrNameId?: any, shareable?: any, userId?: any, serviceType?: any, multiattach?: any, tags?: any) { 
         this['id'] = id;
         this['links'] = links;
@@ -320,5 +324,13 @@ export class VolumeDetail {
     }
     public get serialNumber() {
         return this['serial_number'];
+    }
+    public withIops(iops: Iops): VolumeDetail {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: Throughput): VolumeDetail {
+        this['throughput'] = throughput;
+        return this;
     }
 }

@@ -1,7 +1,7 @@
 import { TaskCallback } from './TaskCallback';
-import { TaskInput } from './TaskInput';
 import { TaskOutput } from './TaskOutput';
 import { VideoTranslateConfig } from './VideoTranslateConfig';
+import { VideoTranslateTaskInput } from './VideoTranslateTaskInput';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -10,7 +10,7 @@ export class ShowVideoTranslateTaskResponse extends SdkResponse {
     private 'create_time'?: string | undefined;
     private 'update_time'?: string | undefined;
     public state?: string;
-    public input?: TaskInput;
+    public input?: VideoTranslateTaskInput;
     public output?: TaskOutput;
     public config?: VideoTranslateConfig;
     public callback?: TaskCallback;
@@ -52,7 +52,7 @@ export class ShowVideoTranslateTaskResponse extends SdkResponse {
         this['state'] = state;
         return this;
     }
-    public withInput(input: TaskInput): ShowVideoTranslateTaskResponse {
+    public withInput(input: VideoTranslateTaskInput): ShowVideoTranslateTaskResponse {
         this['input'] = input;
         return this;
     }

@@ -1,11 +1,11 @@
+import { ObjectMaskingTaskInput } from './ObjectMaskingTaskInput';
 import { TaskCallback } from './TaskCallback';
-import { TaskInput } from './TaskInput';
 import { TaskOutput } from './TaskOutput';
 import { VideoObjectMaskingTaskConfig } from './VideoObjectMaskingTaskConfig';
 
 
 export class CreateVideoObjectMaskingTaskRequestBody {
-    public input: TaskInput;
+    public input: ObjectMaskingTaskInput;
     public output: TaskOutput;
     public callback?: TaskCallback;
     public config: VideoObjectMaskingTaskConfig;
@@ -14,7 +14,7 @@ export class CreateVideoObjectMaskingTaskRequestBody {
         this['output'] = output;
         this['config'] = config;
     }
-    public withInput(input: TaskInput): CreateVideoObjectMaskingTaskRequestBody {
+    public withInput(input: ObjectMaskingTaskInput): CreateVideoObjectMaskingTaskRequestBody {
         this['input'] = input;
         return this;
     }

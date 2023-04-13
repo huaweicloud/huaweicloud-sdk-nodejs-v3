@@ -1,6 +1,6 @@
+import { ImageMediaTaggingInstance } from './ImageMediaTaggingInstance';
 import { ImageMediaTaggingItemBodyI18nTag } from './ImageMediaTaggingItemBodyI18nTag';
 import { ImageMediaTaggingItemBodyI18nType } from './ImageMediaTaggingItemBodyI18nType';
-import { ImageTaggingInstance } from './ImageTaggingInstance';
 
 
 export class ImageMediaTaggingItemBody {
@@ -9,7 +9,7 @@ export class ImageMediaTaggingItemBody {
     public tag?: string;
     private 'i18n_tag'?: ImageMediaTaggingItemBodyI18nTag | undefined;
     private 'i18n_type'?: ImageMediaTaggingItemBodyI18nType | undefined;
-    public instances?: Array<ImageTaggingInstance>;
+    public instances?: Array<ImageMediaTaggingInstance>;
     public constructor() { 
     }
     public withConfidence(confidence: string): ImageMediaTaggingItemBody {
@@ -44,7 +44,7 @@ export class ImageMediaTaggingItemBody {
     public get i18nType() {
         return this['i18n_type'];
     }
-    public withInstances(instances: Array<ImageTaggingInstance>): ImageMediaTaggingItemBody {
+    public withInstances(instances: Array<ImageMediaTaggingInstance>): ImageMediaTaggingItemBody {
         this['instances'] = instances;
         return this;
     }

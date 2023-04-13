@@ -1,11 +1,11 @@
-import { VideoTranslateRequestBody } from './VideoTranslateRequestBody';
+import { CreateVideoTranslateTaskRequestBody } from './CreateVideoTranslateTaskRequestBody';
 
 
 export class CreateVideoTranslateTaskRequest {
-    public body?: VideoTranslateRequestBody;
+    public body?: CreateVideoTranslateTaskRequestBody;
     public constructor() { 
     }
-    public withBody(body: VideoTranslateRequestBody): CreateVideoTranslateTaskRequest {
+    public withBody(body: CreateVideoTranslateTaskRequestBody): CreateVideoTranslateTaskRequest {
         this['body'] = body;
         return this;
     }

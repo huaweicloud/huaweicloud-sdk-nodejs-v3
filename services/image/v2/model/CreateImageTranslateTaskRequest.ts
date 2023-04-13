@@ -1,11 +1,11 @@
-import { ImageTranslateRequestBody } from './ImageTranslateRequestBody';
+import { CreateImageTranslateRequestBody } from './CreateImageTranslateRequestBody';
 
 
 export class CreateImageTranslateTaskRequest {
-    public body?: ImageTranslateRequestBody;
+    public body?: CreateImageTranslateRequestBody;
     public constructor() { 
     }
-    public withBody(body: ImageTranslateRequestBody): CreateImageTranslateTaskRequest {
+    public withBody(body: CreateImageTranslateRequestBody): CreateImageTranslateTaskRequest {
         this['body'] = body;
         return this;
     }

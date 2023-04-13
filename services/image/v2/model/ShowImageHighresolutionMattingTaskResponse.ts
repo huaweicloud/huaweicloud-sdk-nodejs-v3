@@ -1,6 +1,6 @@
 import { ImageHighresolutionMattingConfig } from './ImageHighresolutionMattingConfig';
+import { ImageHighresolutionMattingInput } from './ImageHighresolutionMattingInput';
 import { TaskCallback } from './TaskCallback';
-import { TaskInput } from './TaskInput';
 import { TaskOutput } from './TaskOutput';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -10,7 +10,7 @@ export class ShowImageHighresolutionMattingTaskResponse extends SdkResponse {
     private 'create_time'?: string | undefined;
     private 'update_time'?: string | undefined;
     public state?: string;
-    public input?: TaskInput;
+    public input?: ImageHighresolutionMattingInput;
     public output?: TaskOutput;
     public config?: ImageHighresolutionMattingConfig;
     public callback?: TaskCallback;
@@ -52,7 +52,7 @@ export class ShowImageHighresolutionMattingTaskResponse extends SdkResponse {
         this['state'] = state;
         return this;
     }
-    public withInput(input: TaskInput): ShowImageHighresolutionMattingTaskResponse {
+    public withInput(input: ImageHighresolutionMattingInput): ShowImageHighresolutionMattingTaskResponse {
         this['input'] = input;
         return this;
     }

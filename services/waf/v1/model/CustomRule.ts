@@ -16,6 +16,7 @@ export class CustomRule {
     public start?: number;
     public terminal?: number;
     public producer?: number;
+    public name?: string;
     public constructor() { 
     }
     public withId(id: string): CustomRule {
@@ -74,6 +75,10 @@ export class CustomRule {
     }
     public withProducer(producer: number): CustomRule {
         this['producer'] = producer;
+        return this;
+    }
+    public withName(name: string): CustomRule {
+        this['name'] = name;
         return this;
     }
 }

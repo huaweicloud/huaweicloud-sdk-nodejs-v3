@@ -3,6 +3,7 @@ import { Segment } from './Segment';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CollectTranscriberJobResponse extends SdkResponse {
+    private 'job_id'?: string | undefined;
     public status?: string;
     private 'create_time'?: string | undefined;
     private 'start_time'?: string | undefined;
@@ -11,6 +12,16 @@ export class CollectTranscriberJobResponse extends SdkResponse {
     private 'audio_duration'?: number | undefined;
     public constructor() { 
         super();
+    }
+    public withJobId(jobId: string): CollectTranscriberJobResponse {
+        this['job_id'] = jobId;
+        return this;
+    }
+    public set jobId(jobId: string | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId() {
+        return this['job_id'];
     }
     public withStatus(status: string): CollectTranscriberJobResponse {
         this['status'] = status;

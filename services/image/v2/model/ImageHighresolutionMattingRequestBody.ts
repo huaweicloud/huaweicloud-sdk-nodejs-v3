@@ -1,11 +1,11 @@
 import { ImageHighresolutionMattingConfig } from './ImageHighresolutionMattingConfig';
+import { ImageHighresolutionMattingInput } from './ImageHighresolutionMattingInput';
 import { TaskCallback } from './TaskCallback';
-import { TaskInput } from './TaskInput';
 import { TaskOutput } from './TaskOutput';
 
 
 export class ImageHighresolutionMattingRequestBody {
-    public input: TaskInput;
+    public input: ImageHighresolutionMattingInput;
     public output: TaskOutput;
     public callback?: TaskCallback;
     public config: ImageHighresolutionMattingConfig;
@@ -14,7 +14,7 @@ export class ImageHighresolutionMattingRequestBody {
         this['output'] = output;
         this['config'] = config;
     }
-    public withInput(input: TaskInput): ImageHighresolutionMattingRequestBody {
+    public withInput(input: ImageHighresolutionMattingInput): ImageHighresolutionMattingRequestBody {
         this['input'] = input;
         return this;
     }

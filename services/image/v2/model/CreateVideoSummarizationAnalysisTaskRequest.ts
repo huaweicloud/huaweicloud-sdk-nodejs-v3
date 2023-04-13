@@ -1,11 +1,11 @@
-import { VideoSummarizationCreateTaskRequestBody } from './VideoSummarizationCreateTaskRequestBody';
+import { CreateVideoSummarizationTaskRequestBody } from './CreateVideoSummarizationTaskRequestBody';
 
 
 export class CreateVideoSummarizationAnalysisTaskRequest {
-    public body?: VideoSummarizationCreateTaskRequestBody;
+    public body?: CreateVideoSummarizationTaskRequestBody;
     public constructor() { 
     }
-    public withBody(body: VideoSummarizationCreateTaskRequestBody): CreateVideoSummarizationAnalysisTaskRequest {
+    public withBody(body: CreateVideoSummarizationTaskRequestBody): CreateVideoSummarizationAnalysisTaskRequest {
         this['body'] = body;
         return this;
     }

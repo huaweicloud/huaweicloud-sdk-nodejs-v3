@@ -8,7 +8,7 @@ export class ShowVideoShotSplitTaskResponse extends SdkResponse {
     private 'task_id'?: string | undefined;
     private 'create_time'?: string | undefined;
     private 'update_time'?: string | undefined;
-    public state?: ShowVideoShotSplitTaskResponseStateEnum;
+    public state?: string;
     public input?: VideoSplitTaskInput;
     public output?: TaskOutput;
     public callback?: TaskCallback;
@@ -46,7 +46,7 @@ export class ShowVideoShotSplitTaskResponse extends SdkResponse {
     public get updateTime() {
         return this['update_time'];
     }
-    public withState(state: ShowVideoShotSplitTaskResponseStateEnum): ShowVideoShotSplitTaskResponse {
+    public withState(state: string): ShowVideoShotSplitTaskResponse {
         this['state'] = state;
         return this;
     }
@@ -72,14 +72,4 @@ export class ShowVideoShotSplitTaskResponse extends SdkResponse {
     public get xRequestId() {
         return this['X-request-id'];
     }
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum ShowVideoShotSplitTaskResponseStateEnum {
-    SUCCEEDED = 'SUCCEEDED',
-    FAILED = 'FAILED',
-    RUNNING = 'RUNNING'
 }

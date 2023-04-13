@@ -1,6 +1,6 @@
 import { ImageTranslateConfig } from './ImageTranslateConfig';
+import { ImageTranslateTaskInput } from './ImageTranslateTaskInput';
 import { TaskCallback } from './TaskCallback';
-import { TaskInput } from './TaskInput';
 import { TaskOutput } from './TaskOutput';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
@@ -10,7 +10,7 @@ export class ShowImageTranslateTaskResponse extends SdkResponse {
     private 'create_time'?: string | undefined;
     private 'update_time'?: string | undefined;
     public state?: string;
-    public input?: TaskInput;
+    public input?: ImageTranslateTaskInput;
     public output?: TaskOutput;
     public config?: ImageTranslateConfig;
     public callback?: TaskCallback;
@@ -52,7 +52,7 @@ export class ShowImageTranslateTaskResponse extends SdkResponse {
         this['state'] = state;
         return this;
     }
-    public withInput(input: TaskInput): ShowImageTranslateTaskResponse {
+    public withInput(input: ImageTranslateTaskInput): ShowImageTranslateTaskResponse {
         this['input'] = input;
         return this;
     }

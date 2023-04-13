@@ -53,6 +53,9 @@ import { CreateCcRuleResponse } from './model/CreateCcRuleResponse';
 import { CreateCertificateRequest } from './model/CreateCertificateRequest';
 import { CreateCertificateRequestBody } from './model/CreateCertificateRequestBody';
 import { CreateCertificateResponse } from './model/CreateCertificateResponse';
+import { CreateCloudWafPostPaidResourceRequest } from './model/CreateCloudWafPostPaidResourceRequest';
+import { CreateCloudWafPostPaidResourceRequestbody } from './model/CreateCloudWafPostPaidResourceRequestbody';
+import { CreateCloudWafPostPaidResourceResponse } from './model/CreateCloudWafPostPaidResourceResponse';
 import { CreateCondition } from './model/CreateCondition';
 import { CreateCustomRuleRequest } from './model/CreateCustomRuleRequest';
 import { CreateCustomRuleRequestBody } from './model/CreateCustomRuleRequestBody';
@@ -108,6 +111,8 @@ import { DeleteCcRuleRequest } from './model/DeleteCcRuleRequest';
 import { DeleteCcRuleResponse } from './model/DeleteCcRuleResponse';
 import { DeleteCertificateRequest } from './model/DeleteCertificateRequest';
 import { DeleteCertificateResponse } from './model/DeleteCertificateResponse';
+import { DeleteCloudWafPostPaidResourceRequest } from './model/DeleteCloudWafPostPaidResourceRequest';
+import { DeleteCloudWafPostPaidResourceResponse } from './model/DeleteCloudWafPostPaidResourceResponse';
 import { DeleteCustomRuleRequest } from './model/DeleteCustomRuleRequest';
 import { DeleteCustomRuleResponse } from './model/DeleteCustomRuleResponse';
 import { DeleteGeoipRuleRequest } from './model/DeleteGeoipRuleRequest';
@@ -523,6 +528,28 @@ export class WafClient {
     }
 
     /**
+     * 开通云模式按需计费接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 开通云模式按需计费接口
+     * @param {string} contentType 内容类型
+     * @param {string} region 区域id
+     * @param {CreateCloudWafPostPaidResourceRequestbody} createCloudWafPostPaidResourceRequestBody 请求body
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createCloudWafPostPaidResource(createCloudWafPostPaidResourceRequest?: CreateCloudWafPostPaidResourceRequest): Promise<CreateCloudWafPostPaidResourceResponse> {
+        const options = ParamCreater().createCloudWafPostPaidResource(createCloudWafPostPaidResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建精准防护规则
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -903,6 +930,27 @@ export class WafClient {
      */
     public deleteCertificate(deleteCertificateRequest?: DeleteCertificateRequest): Promise<DeleteCertificateResponse> {
         const options = ParamCreater().deleteCertificate(deleteCertificateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 关闭云模式按需计费接口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 关闭云模式按需计费接口
+     * @param {string} contentType 内容类型
+     * @param {string} [region] 区域id
+     * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteCloudWafPostPaidResource(deleteCloudWafPostPaidResourceRequest?: DeleteCloudWafPostPaidResourceRequest): Promise<DeleteCloudWafPostPaidResourceResponse> {
+        const options = ParamCreater().deleteCloudWafPostPaidResource(deleteCloudWafPostPaidResourceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1621,11 +1669,11 @@ export class WafClient {
     }
 
     /**
-     * 查询隐私屏蔽防护规则
+     * 查询隐私屏蔽防护规则列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询隐私屏蔽防护规则
+     * @summary 查询隐私屏蔽防护规则列表
      * @param {string} contentType 内容类型
      * @param {string} policyId 防护策略id，您可以通过调用查询防护策略列表（ListPolicy）获取策略id
      * @param {string} [enterpriseProjectId] 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id
@@ -3272,6 +3320,66 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 开通云模式按需计费接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createCloudWafPostPaidResource(createCloudWafPostPaidResourceRequest?: CreateCloudWafPostPaidResourceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/waf/postpaid",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            var body: any;
+            
+            let contentType;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (createCloudWafPostPaidResourceRequest !== null && createCloudWafPostPaidResourceRequest !== undefined) {
+                if (createCloudWafPostPaidResourceRequest instanceof CreateCloudWafPostPaidResourceRequest) {
+                    contentType = createCloudWafPostPaidResourceRequest.contentType;
+                    region = createCloudWafPostPaidResourceRequest.region;
+                    body = createCloudWafPostPaidResourceRequest.body
+                    enterpriseProjectId = createCloudWafPostPaidResourceRequest.enterpriseProjectId;
+                } else {
+                    contentType = createCloudWafPostPaidResourceRequest['Content-Type'];
+                    region = createCloudWafPostPaidResourceRequest['region'];
+                    body = createCloudWafPostPaidResourceRequest['body'];
+                    enterpriseProjectId = createCloudWafPostPaidResourceRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建精准防护规则
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4294,6 +4402,58 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'certificate_id': certificateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 关闭云模式按需计费接口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteCloudWafPostPaidResource(deleteCloudWafPostPaidResourceRequest?: DeleteCloudWafPostPaidResourceRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/{project_id}/waf/postpaid",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let contentType;
+            
+            let region;
+            
+            let enterpriseProjectId;
+
+            if (deleteCloudWafPostPaidResourceRequest !== null && deleteCloudWafPostPaidResourceRequest !== undefined) {
+                if (deleteCloudWafPostPaidResourceRequest instanceof DeleteCloudWafPostPaidResourceRequest) {
+                    contentType = deleteCloudWafPostPaidResourceRequest.contentType;
+                    region = deleteCloudWafPostPaidResourceRequest.region;
+                    enterpriseProjectId = deleteCloudWafPostPaidResourceRequest.enterpriseProjectId;
+                } else {
+                    contentType = deleteCloudWafPostPaidResourceRequest['Content-Type'];
+                    region = deleteCloudWafPostPaidResourceRequest['region'];
+                    enterpriseProjectId = deleteCloudWafPostPaidResourceRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (region !== undefined && region !== null) {
+                localVarHeaderParameter['region'] = String(region);
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -6380,7 +6540,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询隐私屏蔽防护规则
+         * 查询隐私屏蔽防护规则列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

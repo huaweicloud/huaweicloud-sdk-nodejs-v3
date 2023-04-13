@@ -1,7 +1,7 @@
 import { SummarizationAnalysisConfig } from './SummarizationAnalysisConfig';
 import { TaskCallback } from './TaskCallback';
-import { TaskInput } from './TaskInput';
 import { TaskOutput } from './TaskOutput';
+import { VideoSummarizationTaskInput } from './VideoSummarizationTaskInput';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -10,7 +10,7 @@ export class ShowVideoSummarizationAnalysisTaskResponse extends SdkResponse {
     private 'create_time'?: string | undefined;
     private 'update_time'?: string | undefined;
     public state?: ShowVideoSummarizationAnalysisTaskResponseStateEnum;
-    public input?: TaskInput;
+    public input?: VideoSummarizationTaskInput;
     public output?: TaskOutput;
     public config?: SummarizationAnalysisConfig;
     public callback?: TaskCallback;
@@ -52,7 +52,7 @@ export class ShowVideoSummarizationAnalysisTaskResponse extends SdkResponse {
         this['state'] = state;
         return this;
     }
-    public withInput(input: TaskInput): ShowVideoSummarizationAnalysisTaskResponse {
+    public withInput(input: VideoSummarizationTaskInput): ShowVideoSummarizationAnalysisTaskResponse {
         this['input'] = input;
         return this;
     }

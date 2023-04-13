@@ -1,7 +1,7 @@
 import { TaskCallback } from './TaskCallback';
-import { TaskInput } from './TaskInput';
 import { TaskOutput } from './TaskOutput';
 import { VideoCoverAnalysisConfig } from './VideoCoverAnalysisConfig';
+import { VideoCoverAnalysisTaskInput } from './VideoCoverAnalysisTaskInput';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
@@ -10,7 +10,7 @@ export class ShowVideoCoverAnalysisTaskResponse extends SdkResponse {
     private 'create_time'?: string | undefined;
     private 'update_time'?: string | undefined;
     public state?: ShowVideoCoverAnalysisTaskResponseStateEnum;
-    public input?: TaskInput;
+    public input?: VideoCoverAnalysisTaskInput;
     public output?: TaskOutput;
     public config?: VideoCoverAnalysisConfig;
     public callback?: TaskCallback;
@@ -52,7 +52,7 @@ export class ShowVideoCoverAnalysisTaskResponse extends SdkResponse {
         this['state'] = state;
         return this;
     }
-    public withInput(input: TaskInput): ShowVideoCoverAnalysisTaskResponse {
+    public withInput(input: VideoCoverAnalysisTaskInput): ShowVideoCoverAnalysisTaskResponse {
         this['input'] = input;
         return this;
     }

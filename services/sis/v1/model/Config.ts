@@ -96,7 +96,9 @@ export enum ConfigPropertyEnum {
     CHINESE_16K_COMMON = 'chinese_16k_common',
     SICHUAN_16K_COMMON = 'sichuan_16k_common',
     CANTONESE_16K_COMMON = 'cantonese_16k_common',
-    SHANGHAI_16K_COMMON = 'shanghai_16k_common'
+    SHANGHAI_16K_COMMON = 'shanghai_16k_common',
+    ENGLISH_8K_COMMON = 'english_8k_common',
+    ENGLISH_16K_COMMON = 'english_16k_common'
 }
 /**
     * @export

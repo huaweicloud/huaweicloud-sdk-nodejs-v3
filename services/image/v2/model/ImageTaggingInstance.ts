@@ -1,15 +1,16 @@
+import { ImageTaggingBoundingBox } from './ImageTaggingBoundingBox';
 
 
 export class ImageTaggingInstance {
-    private 'bounding_box'?: object | undefined;
+    private 'bounding_box'?: ImageTaggingBoundingBox | undefined;
     public confidence?: string;
     public constructor() { 
     }
-    public withBoundingBox(boundingBox: object): ImageTaggingInstance {
+    public withBoundingBox(boundingBox: ImageTaggingBoundingBox): ImageTaggingInstance {
         this['bounding_box'] = boundingBox;
         return this;
     }
-    public set boundingBox(boundingBox: object | undefined) {
+    public set boundingBox(boundingBox: ImageTaggingBoundingBox | undefined) {
         this['bounding_box'] = boundingBox;
     }
     public get boundingBox() {
