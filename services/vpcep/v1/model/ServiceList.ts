@@ -23,6 +23,7 @@ export class ServiceList {
     public error?: Array<Error>;
     public description?: string;
     private 'public_border_group'?: string | undefined;
+    private 'enable_policy'?: boolean | undefined;
     public constructor() { 
     }
     public withId(id: string): ServiceList {
@@ -189,6 +190,16 @@ export class ServiceList {
     public get publicBorderGroup() {
         return this['public_border_group'];
     }
+    public withEnablePolicy(enablePolicy: boolean): ServiceList {
+        this['enable_policy'] = enablePolicy;
+        return this;
+    }
+    public set enablePolicy(enablePolicy: boolean | undefined) {
+        this['enable_policy'] = enablePolicy;
+    }
+    public get enablePolicy() {
+        return this['enable_policy'];
+    }
 }
 
 /**
@@ -217,5 +228,6 @@ export enum ServiceListTcpProxyEnum {
     CLOSE = 'close',
     TOA_OPEN = 'toa_open',
     PROXY_OPEN = 'proxy_open',
-    OPEN = 'open'
+    OPEN = 'open',
+    PROXY_VNI = 'proxy_vni'
 }

@@ -14,6 +14,7 @@ export class CreateEndpointServiceRequestBody {
     private 'tcp_proxy'?: CreateEndpointServiceRequestBodyTcpProxyEnum | undefined;
     public tags?: Array<TagList>;
     public description?: string;
+    private 'enable_policy'?: boolean | undefined;
     public constructor(portId?: any, vpcId?: any, serverType?: any, ports?: any) { 
         this['port_id'] = portId;
         this['vpc_id'] = vpcId;
@@ -112,6 +113,16 @@ export class CreateEndpointServiceRequestBody {
         this['description'] = description;
         return this;
     }
+    public withEnablePolicy(enablePolicy: boolean): CreateEndpointServiceRequestBody {
+        this['enable_policy'] = enablePolicy;
+        return this;
+    }
+    public set enablePolicy(enablePolicy: boolean | undefined) {
+        this['enable_policy'] = enablePolicy;
+    }
+    public get enablePolicy() {
+        return this['enable_policy'];
+    }
 }
 
 /**
@@ -131,5 +142,6 @@ export enum CreateEndpointServiceRequestBodyTcpProxyEnum {
     CLOSE = 'close',
     TOA_OPEN = 'toa_open',
     PROXY_OPEN = 'proxy_open',
-    OPEN = 'open'
+    OPEN = 'open',
+    PROXY_VNI = 'proxy_vni'
 }

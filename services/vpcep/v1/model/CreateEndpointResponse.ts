@@ -6,6 +6,7 @@ export class CreateEndpointResponse extends SdkResponse {
     public id?: string;
     private 'service_type'?: CreateEndpointResponseServiceTypeEnum | undefined;
     public status?: CreateEndpointResponseStatusEnum;
+    public ip?: string;
     private 'active_status'?: Array<string> | undefined;
     private 'endpoint_service_name'?: string | undefined;
     private 'marker_id'?: number | undefined;
@@ -25,6 +26,8 @@ export class CreateEndpointResponse extends SdkResponse {
     public description?: string;
     private 'policy_statement'?: Array<string> | undefined;
     private 'enable_status'?: string | undefined;
+    private 'endpoint_pool_id'?: string | undefined;
+    private 'public_border_group'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -44,6 +47,10 @@ export class CreateEndpointResponse extends SdkResponse {
     }
     public withStatus(status: CreateEndpointResponseStatusEnum): CreateEndpointResponse {
         this['status'] = status;
+        return this;
+    }
+    public withIp(ip: string): CreateEndpointResponse {
+        this['ip'] = ip;
         return this;
     }
     public withActiveStatus(activeStatus: Array<string>): CreateEndpointResponse {
@@ -211,6 +218,26 @@ export class CreateEndpointResponse extends SdkResponse {
     }
     public get enableStatus() {
         return this['enable_status'];
+    }
+    public withEndpointPoolId(endpointPoolId: string): CreateEndpointResponse {
+        this['endpoint_pool_id'] = endpointPoolId;
+        return this;
+    }
+    public set endpointPoolId(endpointPoolId: string | undefined) {
+        this['endpoint_pool_id'] = endpointPoolId;
+    }
+    public get endpointPoolId() {
+        return this['endpoint_pool_id'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): CreateEndpointResponse {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup() {
+        return this['public_border_group'];
     }
 }
 

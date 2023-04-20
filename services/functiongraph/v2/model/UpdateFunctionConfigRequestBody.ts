@@ -1,6 +1,8 @@
 import { CustomImage } from './CustomImage';
+import { FuncLogConfig } from './FuncLogConfig';
 import { FuncVpc } from './FuncVpc';
 import { MountConfig } from './MountConfig';
+import { NetworkControlConfig } from './NetworkControlConfig';
 import { StrategyConfig } from './StrategyConfig';
 
 
@@ -10,6 +12,7 @@ export class UpdateFunctionConfigRequestBody {
     public timeout: number;
     public handler: string;
     private 'memory_size': number | undefined;
+    private 'gpu_memory'?: number | undefined;
     private 'user_data'?: string | undefined;
     private 'encrypted_user_data'?: string | undefined;
     public xrole?: string;
@@ -22,11 +25,16 @@ export class UpdateFunctionConfigRequestBody {
     private 'extend_config'?: string | undefined;
     private 'initializer_handler'?: string | undefined;
     private 'initializer_timeout'?: number | undefined;
+    private 'ephemeral_storage'?: number | undefined;
     private 'enterprise_project_id'?: string | undefined;
+    private 'log_config'?: FuncLogConfig | undefined;
+    private 'network_controller'?: NetworkControlConfig | undefined;
     private 'is_stateful_function'?: boolean | undefined;
     private 'enable_dynamic_memory'?: boolean | undefined;
     private 'enable_auth_in_header'?: boolean | undefined;
     private 'domain_names'?: string | undefined;
+    private 'restore_hook_handler'?: string | undefined;
+    private 'restore_hook_timeout'?: number | undefined;
     public constructor(funcName?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any) { 
         this['func_name'] = funcName;
         this['runtime'] = runtime;
@@ -65,6 +73,16 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get memorySize() {
         return this['memory_size'];
+    }
+    public withGpuMemory(gpuMemory: number): UpdateFunctionConfigRequestBody {
+        this['gpu_memory'] = gpuMemory;
+        return this;
+    }
+    public set gpuMemory(gpuMemory: number | undefined) {
+        this['gpu_memory'] = gpuMemory;
+    }
+    public get gpuMemory() {
+        return this['gpu_memory'];
     }
     public withUserData(userData: string): UpdateFunctionConfigRequestBody {
         this['user_data'] = userData;
@@ -174,6 +192,16 @@ export class UpdateFunctionConfigRequestBody {
     public get initializerTimeout() {
         return this['initializer_timeout'];
     }
+    public withEphemeralStorage(ephemeralStorage: number): UpdateFunctionConfigRequestBody {
+        this['ephemeral_storage'] = ephemeralStorage;
+        return this;
+    }
+    public set ephemeralStorage(ephemeralStorage: number | undefined) {
+        this['ephemeral_storage'] = ephemeralStorage;
+    }
+    public get ephemeralStorage() {
+        return this['ephemeral_storage'];
+    }
     public withEnterpriseProjectId(enterpriseProjectId: string): UpdateFunctionConfigRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
@@ -183,6 +211,26 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withLogConfig(logConfig: FuncLogConfig): UpdateFunctionConfigRequestBody {
+        this['log_config'] = logConfig;
+        return this;
+    }
+    public set logConfig(logConfig: FuncLogConfig | undefined) {
+        this['log_config'] = logConfig;
+    }
+    public get logConfig() {
+        return this['log_config'];
+    }
+    public withNetworkController(networkController: NetworkControlConfig): UpdateFunctionConfigRequestBody {
+        this['network_controller'] = networkController;
+        return this;
+    }
+    public set networkController(networkController: NetworkControlConfig | undefined) {
+        this['network_controller'] = networkController;
+    }
+    public get networkController() {
+        return this['network_controller'];
     }
     public withIsStatefulFunction(isStatefulFunction: boolean): UpdateFunctionConfigRequestBody {
         this['is_stateful_function'] = isStatefulFunction;
@@ -223,6 +271,26 @@ export class UpdateFunctionConfigRequestBody {
     }
     public get domainNames() {
         return this['domain_names'];
+    }
+    public withRestoreHookHandler(restoreHookHandler: string): UpdateFunctionConfigRequestBody {
+        this['restore_hook_handler'] = restoreHookHandler;
+        return this;
+    }
+    public set restoreHookHandler(restoreHookHandler: string | undefined) {
+        this['restore_hook_handler'] = restoreHookHandler;
+    }
+    public get restoreHookHandler() {
+        return this['restore_hook_handler'];
+    }
+    public withRestoreHookTimeout(restoreHookTimeout: number): UpdateFunctionConfigRequestBody {
+        this['restore_hook_timeout'] = restoreHookTimeout;
+        return this;
+    }
+    public set restoreHookTimeout(restoreHookTimeout: number | undefined) {
+        this['restore_hook_timeout'] = restoreHookTimeout;
+    }
+    public get restoreHookTimeout() {
+        return this['restore_hook_timeout'];
     }
 }
 

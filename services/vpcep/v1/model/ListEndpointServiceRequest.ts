@@ -1,7 +1,7 @@
 
 
 export class ListEndpointServiceRequest {
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     private 'endpoint_service_name'?: string | undefined;
     public id?: string;
     public status?: ListEndpointServiceRequestStatusEnum;
@@ -10,8 +10,7 @@ export class ListEndpointServiceRequest {
     public limit?: number;
     public offset?: number;
     private 'public_border_group'?: string | undefined;
-    public constructor(contentType?: any) { 
-        this['Content-Type'] = contentType;
+    public constructor() { 
     }
     public withContentType(contentType: string): ListEndpointServiceRequest {
         this['Content-Type'] = contentType;

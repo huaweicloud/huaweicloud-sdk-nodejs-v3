@@ -1,15 +1,14 @@
 
 
 export class ListServicePermissionsDetailsRequest {
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     private 'vpc_endpoint_service_id': string | undefined;
     public permission?: string;
     public limit?: number;
     public offset?: number;
     private 'sort_key'?: ListServicePermissionsDetailsRequestSortKeyEnum | undefined;
     private 'sort_dir'?: ListServicePermissionsDetailsRequestSortDirEnum | undefined;
-    public constructor(contentType?: any, vpcEndpointServiceId?: any) { 
-        this['Content-Type'] = contentType;
+    public constructor(vpcEndpointServiceId?: any) { 
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
     }
     public withContentType(contentType: string): ListServicePermissionsDetailsRequest {

@@ -3,6 +3,8 @@
 export class ThailandIdcardConfidence {
     private 'id_number'?: number | undefined;
     private 'name_th'?: number | undefined;
+    private 'name_en'?: number | undefined;
+    private 'ref_number'?: number | undefined;
     private 'first_name_en'?: number | undefined;
     private 'last_name_en'?: number | undefined;
     private 'date_of_birth_th'?: number | undefined;
@@ -37,6 +39,26 @@ export class ThailandIdcardConfidence {
     }
     public get nameTh() {
         return this['name_th'];
+    }
+    public withNameEn(nameEn: number): ThailandIdcardConfidence {
+        this['name_en'] = nameEn;
+        return this;
+    }
+    public set nameEn(nameEn: number | undefined) {
+        this['name_en'] = nameEn;
+    }
+    public get nameEn() {
+        return this['name_en'];
+    }
+    public withRefNumber(refNumber: number): ThailandIdcardConfidence {
+        this['ref_number'] = refNumber;
+        return this;
+    }
+    public set refNumber(refNumber: number | undefined) {
+        this['ref_number'] = refNumber;
+    }
+    public get refNumber() {
+        return this['ref_number'];
     }
     public withFirstNameEn(firstNameEn: number): ThailandIdcardConfidence {
         this['first_name_en'] = firstNameEn;

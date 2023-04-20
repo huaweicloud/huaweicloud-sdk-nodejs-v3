@@ -2,11 +2,10 @@ import { AcceptOrRejectEndpointRequestBody } from './AcceptOrRejectEndpointReque
 
 
 export class AcceptOrRejectEndpointRequest {
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     private 'vpc_endpoint_service_id': string | undefined;
     public body?: AcceptOrRejectEndpointRequestBody;
-    public constructor(contentType?: any, vpcEndpointServiceId?: any) { 
-        this['Content-Type'] = contentType;
+    public constructor(vpcEndpointServiceId?: any) { 
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
     }
     public withContentType(contentType: string): AcceptOrRejectEndpointRequest {

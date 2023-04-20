@@ -21,6 +21,7 @@ export class ListServiceDetailsResponse extends SdkResponse {
     private 'tcp_proxy'?: ListServiceDetailsResponseTcpProxyEnum | undefined;
     public tags?: Array<TagList>;
     public error?: Array<Error>;
+    private 'enable_policy'?: boolean | undefined;
     public description?: string;
     public constructor() { 
         super();
@@ -165,6 +166,16 @@ export class ListServiceDetailsResponse extends SdkResponse {
         this['error'] = error;
         return this;
     }
+    public withEnablePolicy(enablePolicy: boolean): ListServiceDetailsResponse {
+        this['enable_policy'] = enablePolicy;
+        return this;
+    }
+    public set enablePolicy(enablePolicy: boolean | undefined) {
+        this['enable_policy'] = enablePolicy;
+    }
+    public get enablePolicy() {
+        return this['enable_policy'];
+    }
     public withDescription(description: string): ListServiceDetailsResponse {
         this['description'] = description;
         return this;
@@ -205,5 +216,6 @@ export enum ListServiceDetailsResponseTcpProxyEnum {
     CLOSE = 'close',
     TOA_OPEN = 'toa_open',
     PROXY_OPEN = 'proxy_open',
-    OPEN = 'open'
+    OPEN = 'open',
+    PROXY_VNI = 'proxy_vni'
 }

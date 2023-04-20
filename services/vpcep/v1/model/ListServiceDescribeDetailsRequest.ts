@@ -1,11 +1,10 @@
 
 
 export class ListServiceDescribeDetailsRequest {
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     private 'endpoint_service_name'?: string | undefined;
     public id?: string;
-    public constructor(contentType?: any) { 
-        this['Content-Type'] = contentType;
+    public constructor() { 
     }
     public withContentType(contentType: string): ListServiceDescribeDetailsRequest {
         this['Content-Type'] = contentType;

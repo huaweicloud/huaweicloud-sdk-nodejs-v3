@@ -44,7 +44,6 @@ import { ExecutionPlanNamePrimitiveTypeHolder } from './model/ExecutionPlanNameP
 import { ExecutionPlanStatusMessagePrimitiveTypeHolder } from './model/ExecutionPlanStatusMessagePrimitiveTypeHolder';
 import { ExecutionPlanStatusPrimitiveTypeHolder } from './model/ExecutionPlanStatusPrimitiveTypeHolder';
 import { ExecutionPlanSummary } from './model/ExecutionPlanSummary';
-import { ExecutorPrimitiveTypeHolder } from './model/ExecutorPrimitiveTypeHolder';
 import { GetExecutionPlanMetadataRequest } from './model/GetExecutionPlanMetadataRequest';
 import { GetExecutionPlanMetadataResponse } from './model/GetExecutionPlanMetadataResponse';
 import { GetExecutionPlanRequest } from './model/GetExecutionPlanRequest';
@@ -214,7 +213,6 @@ export class AosClient {
      * @param {string} executionPlanName 执行计划的名称。此名字在domain_id+区域+project_id+stack_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400 
      * @param {string} [executionPlanId] 执行计划（execution_plan）的唯一Id。  此Id由资源编排服务在生成执行计划的时候生成，为UUID。  由于执行计划名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的执行计划，删除，再重新创建一个同名执行计划。  对于团队并行开发，用户可能希望确保，当前我操作的执行计划就是我认为的那个，而不是其他队友删除后创建的同名执行计划。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的执行计划所对应的ID都不相同，更新不会影响ID。如果给与的execution_plan_id和当前执行计划的ID不一致，则返回400 
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -238,27 +236,7 @@ export class AosClient {
      *   * 若用户在模板中使用了depends_on参数，如A资源询价必要字段依赖于B资源的创建，则A资源不支持询价。
      *   * 暂不支持传入data sources的flavor.id的场景的询价。
      *   * 暂不支持镜像询价。
-     * 
-     * 支持询价的资源列表和询价必要参数如下
-     * 
-     * | 资源类型          | 模板类型                               | 计费模式（按需/包周期/免费） | 询价必要参数                                                                                                                                                                                                                                                                            |
-     * |---------------|------------------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-     * | cce           | huaweicloud_cce_cluster            | 包周期、按需          | -                                                                                                                                                                                                                                                                                 |
-     * | css           | huaweicloud_css_cluster            | 按需              | -                                                                                                                                                                                                                                                                                 |
-     * | evs           | huaweicloud_evs_volume             | 包周期、按需          | **包周期：**&lt;br/&gt;size：磁盘规格&lt;br/&gt;&lt;br/&gt;**按需：**&lt;br/&gt;size：磁盘规格                                                                                                                                                                                                                             |
-     * | ecs           | huaweicloud_compute_instance       | 包周期、按需          | **包周期：**&lt;br/&gt;flavor_id：规格ID。flavor_id和flavor_name至少给出一个&lt;br/&gt;flavor_name：规格名称。flavor_id和flavor_name至少给出一个&lt;br/&gt;system_disk_size：系统磁盘大小&lt;br/&gt;&lt;br/&gt;**按需：**&lt;br/&gt;flavor_id：规格ID。flavor_id和flavor_name至少给出一个&lt;br/&gt;flavor_name：规格名称。flavor_id和flavor_name至少给出一个&lt;br/&gt;system_disk_size：系统磁盘大小 |
-     * | bandwidth     | huaweicloud_vpc_bandwidth          | 按需              | charge_mode: 仅支持bandwidth                                                                                                                                                                                                                                                         |
-     * | eip           | huaweicloud_vpc_eip                | 包周期、按需          | **包周期：**&lt;br/&gt;bandwidth.size：带宽大小&lt;br/&gt;&lt;br/&gt;**按需：**&lt;br/&gt;bandwidth.size：带宽大小                                                                                                                                                                                                         |
-     * | gaussdb_redis | huaweicloud_gaussdb_redis_instance | 包周期、按需          | -                                                                                                                                                                                                                                                                                 |
-     * | nat           | huaweicloud_nat_gateway            | 按需              | -                                                                                                                                                                                                                                                                                 |
-     * | rds           | huaweicloud_rds_instance           | 包周期、按需          | -                                                                                                                                                                                                                                                                                 |
-     * | sfs_turbo     | huaweicloud_sfs_turbo              | 按需              | share_type：文件系统类型                                                                                                                                                                                                                                                                 |
-     * | dms_kafka     | huaweicloud_dms_kafka_instance     | 按需              | flavor_id：规格ID。flavor_id和product_id至少给出一个&lt;br/&gt;product_id：产品ID。flavor_id和product_id至少给出一个&lt;br/&gt;storage_space：存储容量                                                                                                                                                                   |
-     * | dcs           | huaweicloud_dcs_instance           | 包周期、按需          | -                                                                                                                                                                                                                                                                                 |
-     * | gaussdb_mysql | huaweicloud_gaussdb_mysql_instance | 包周期、按需          | **包周期：**&lt;br/&gt;proxy_node_number：代理节点数量&lt;br/&gt;volume_size：挂载卷的存储空间&lt;br/&gt;&lt;br/&gt;**按需：**&lt;br/&gt;proxy_node_number：代理节点数量&lt;br/&gt;volume_size：挂载卷的存储空间                                                                                                                                             |
-     * | vpc           | huaweicloud_vpc                    | 免费              | -                                                                                                                                                                                                                                                                                 |
-     * | drs           | huaweicloud_drs_job                | 按需              | -                                                                                                                                                                                                                                                                                 |
-     * | apig          | huaweicloud_apig_instance          | 按需              | -                                                                                                                                                                                                                                                                                 |
+     *   * 模板中询价的资源的个数是有限制的。当前一个模板中最多支持12个包周期计费资源和24个按需计费资源。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -297,7 +275,6 @@ export class AosClient {
      * @param {string} executionPlanName 执行计划的名称。此名字在domain_id+区域+project_id+stack_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400 
      * @param {string} [executionPlanId] 执行计划（execution_plan）的唯一Id。  此Id由资源编排服务在生成执行计划的时候生成，为UUID。  由于执行计划名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的执行计划，删除，再重新创建一个同名执行计划。  对于团队并行开发，用户可能希望确保，当前我操作的执行计划就是我认为的那个，而不是其他队友删除后创建的同名执行计划。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的执行计划所对应的ID都不相同，更新不会影响ID。如果给与的execution_plan_id和当前执行计划的ID不一致，则返回400 
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -328,7 +305,6 @@ export class AosClient {
      * @param {string} executionPlanName 执行计划的名称。此名字在domain_id+区域+project_id+stack_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400 
      * @param {string} [executionPlanId] 执行计划（execution_plan）的唯一Id。  此Id由资源编排服务在生成执行计划的时候生成，为UUID。  由于执行计划名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的执行计划，删除，再重新创建一个同名执行计划。  对于团队并行开发，用户可能希望确保，当前我操作的执行计划就是我认为的那个，而不是其他队友删除后创建的同名执行计划。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的执行计划所对应的ID都不相同，更新不会影响ID。如果给与的execution_plan_id和当前执行计划的ID不一致，则返回400 
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -359,7 +335,6 @@ export class AosClient {
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html) 
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -449,7 +424,6 @@ export class AosClient {
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html) 
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400 
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -527,7 +501,6 @@ export class AosClient {
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html) 
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400 
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -557,7 +530,6 @@ export class AosClient {
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html) 
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400 
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -589,7 +561,6 @@ export class AosClient {
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400 
      * @param {string} [deploymentId] 标识部署的唯一Id，此Id由资源编排服务在触发部署、回滚等操作时生成，为UUID。
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {string} [filter] 过滤条件  * 与（AND）运算符使用逗号（，）定义 * 或（OR）运算符使用竖线（|）定义，OR运算符优先级高于AND运算符 * 不支持括号 * 过滤运算符仅支持等号（&#x3D;&#x3D;） * 过滤参数名及其值仅支持包含大小写英文、数字和下划线 * 过滤条件中禁止使用分号，若有分号，则此条过滤会被忽略 * 一个过滤参数仅能与一个与条件相关，一个与条件中的多个或条件仅能与一个过滤参数相关 
      * @param {string} [field] 选择的属性名称  * 属性名仅支持包含大小写英文、数字和下划线 * 多个属性名称之间以逗号（，）分隔 
      * @param {*} [options] Override http request option.
@@ -625,7 +596,6 @@ export class AosClient {
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html) 
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400 
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -655,7 +625,6 @@ export class AosClient {
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html) 
      * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
      * @param {string} [stackId] 资源栈（stack）的唯一Id。  此Id由资源编排服务在生成资源栈的时候生成，为UUID。  由于资源栈名仅仅在同一时间下唯一，即用户允许先生成一个叫HelloWorld的资源栈，删除，再重新创建一个同名资源栈。  对于团队并行开发，用户可能希望确保，当前我操作的资源栈就是我认为的那个，而不是其他队友删除后创建的同名资源栈。因此，使用ID就可以做到强匹配。  资源编排服务保证每次创建的资源栈所对应的ID都不相同，更新不会影响ID。如果给与的stack_id和当前资源栈的ID不一致，则返回400 
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -684,7 +653,6 @@ export class AosClient {
      * @summary 列举资源栈
      * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
      * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html) 
-     * @param {string} [executor] 执行操作者的名字，将用做未来的审计工作。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1143,8 +1111,6 @@ export const ParamCreater = function () {
             let stackId;
             
             let executionPlanId;
-            
-            let executor;
 
             if (deleteExecutionPlanRequest !== null && deleteExecutionPlanRequest !== undefined) {
                 if (deleteExecutionPlanRequest instanceof DeleteExecutionPlanRequest) {
@@ -1154,7 +1120,6 @@ export const ParamCreater = function () {
                     executionPlanName = deleteExecutionPlanRequest.executionPlanName;
                     stackId = deleteExecutionPlanRequest.stackId;
                     executionPlanId = deleteExecutionPlanRequest.executionPlanId;
-                    executor = deleteExecutionPlanRequest.executor;
                 } else {
                     clientRequestId = deleteExecutionPlanRequest['Client-Request-Id'];
                     projectId = deleteExecutionPlanRequest['project_id'];
@@ -1162,7 +1127,6 @@ export const ParamCreater = function () {
                     executionPlanName = deleteExecutionPlanRequest['execution_plan_name'];
                     stackId = deleteExecutionPlanRequest['stack_id'];
                     executionPlanId = deleteExecutionPlanRequest['execution_plan_id'];
-                    executor = deleteExecutionPlanRequest['executor'];
                 }
             }
 
@@ -1181,9 +1145,6 @@ export const ParamCreater = function () {
             }
             if (executionPlanId !== null && executionPlanId !== undefined) {
                 localVarQueryParameter['execution_plan_id'] = executionPlanId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -1206,27 +1167,7 @@ export const ParamCreater = function () {
          *   * 若用户在模板中使用了depends_on参数，如A资源询价必要字段依赖于B资源的创建，则A资源不支持询价。
          *   * 暂不支持传入data sources的flavor.id的场景的询价。
          *   * 暂不支持镜像询价。
-         * 
-         * 支持询价的资源列表和询价必要参数如下
-         * 
-         * | 资源类型          | 模板类型                               | 计费模式（按需/包周期/免费） | 询价必要参数                                                                                                                                                                                                                                                                            |
-         * |---------------|------------------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-         * | cce           | huaweicloud_cce_cluster            | 包周期、按需          | -                                                                                                                                                                                                                                                                                 |
-         * | css           | huaweicloud_css_cluster            | 按需              | -                                                                                                                                                                                                                                                                                 |
-         * | evs           | huaweicloud_evs_volume             | 包周期、按需          | **包周期：**&lt;br/&gt;size：磁盘规格&lt;br/&gt;&lt;br/&gt;**按需：**&lt;br/&gt;size：磁盘规格                                                                                                                                                                                                                             |
-         * | ecs           | huaweicloud_compute_instance       | 包周期、按需          | **包周期：**&lt;br/&gt;flavor_id：规格ID。flavor_id和flavor_name至少给出一个&lt;br/&gt;flavor_name：规格名称。flavor_id和flavor_name至少给出一个&lt;br/&gt;system_disk_size：系统磁盘大小&lt;br/&gt;&lt;br/&gt;**按需：**&lt;br/&gt;flavor_id：规格ID。flavor_id和flavor_name至少给出一个&lt;br/&gt;flavor_name：规格名称。flavor_id和flavor_name至少给出一个&lt;br/&gt;system_disk_size：系统磁盘大小 |
-         * | bandwidth     | huaweicloud_vpc_bandwidth          | 按需              | charge_mode: 仅支持bandwidth                                                                                                                                                                                                                                                         |
-         * | eip           | huaweicloud_vpc_eip                | 包周期、按需          | **包周期：**&lt;br/&gt;bandwidth.size：带宽大小&lt;br/&gt;&lt;br/&gt;**按需：**&lt;br/&gt;bandwidth.size：带宽大小                                                                                                                                                                                                         |
-         * | gaussdb_redis | huaweicloud_gaussdb_redis_instance | 包周期、按需          | -                                                                                                                                                                                                                                                                                 |
-         * | nat           | huaweicloud_nat_gateway            | 按需              | -                                                                                                                                                                                                                                                                                 |
-         * | rds           | huaweicloud_rds_instance           | 包周期、按需          | -                                                                                                                                                                                                                                                                                 |
-         * | sfs_turbo     | huaweicloud_sfs_turbo              | 按需              | share_type：文件系统类型                                                                                                                                                                                                                                                                 |
-         * | dms_kafka     | huaweicloud_dms_kafka_instance     | 按需              | flavor_id：规格ID。flavor_id和product_id至少给出一个&lt;br/&gt;product_id：产品ID。flavor_id和product_id至少给出一个&lt;br/&gt;storage_space：存储容量                                                                                                                                                                   |
-         * | dcs           | huaweicloud_dcs_instance           | 包周期、按需          | -                                                                                                                                                                                                                                                                                 |
-         * | gaussdb_mysql | huaweicloud_gaussdb_mysql_instance | 包周期、按需          | **包周期：**&lt;br/&gt;proxy_node_number：代理节点数量&lt;br/&gt;volume_size：挂载卷的存储空间&lt;br/&gt;&lt;br/&gt;**按需：**&lt;br/&gt;proxy_node_number：代理节点数量&lt;br/&gt;volume_size：挂载卷的存储空间                                                                                                                                             |
-         * | vpc           | huaweicloud_vpc                    | 免费              | -                                                                                                                                                                                                                                                                                 |
-         * | drs           | huaweicloud_drs_job                | 按需              | -                                                                                                                                                                                                                                                                                 |
-         * | apig          | huaweicloud_apig_instance          | 按需              | -                                                                                                                                                                                                                                                                                 |
+         *   * 模板中询价的资源的个数是有限制的。当前一个模板中最多支持12个包周期计费资源和24个按需计费资源。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1332,8 +1273,6 @@ export const ParamCreater = function () {
             let stackId;
             
             let executionPlanId;
-            
-            let executor;
 
             if (getExecutionPlanRequest !== null && getExecutionPlanRequest !== undefined) {
                 if (getExecutionPlanRequest instanceof GetExecutionPlanRequest) {
@@ -1343,7 +1282,6 @@ export const ParamCreater = function () {
                     executionPlanName = getExecutionPlanRequest.executionPlanName;
                     stackId = getExecutionPlanRequest.stackId;
                     executionPlanId = getExecutionPlanRequest.executionPlanId;
-                    executor = getExecutionPlanRequest.executor;
                 } else {
                     clientRequestId = getExecutionPlanRequest['Client-Request-Id'];
                     projectId = getExecutionPlanRequest['project_id'];
@@ -1351,7 +1289,6 @@ export const ParamCreater = function () {
                     executionPlanName = getExecutionPlanRequest['execution_plan_name'];
                     stackId = getExecutionPlanRequest['stack_id'];
                     executionPlanId = getExecutionPlanRequest['execution_plan_id'];
-                    executor = getExecutionPlanRequest['executor'];
                 }
             }
 
@@ -1370,9 +1307,6 @@ export const ParamCreater = function () {
             }
             if (executionPlanId !== null && executionPlanId !== undefined) {
                 localVarQueryParameter['execution_plan_id'] = executionPlanId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -1419,8 +1353,6 @@ export const ParamCreater = function () {
             let stackId;
             
             let executionPlanId;
-            
-            let executor;
 
             if (getExecutionPlanMetadataRequest !== null && getExecutionPlanMetadataRequest !== undefined) {
                 if (getExecutionPlanMetadataRequest instanceof GetExecutionPlanMetadataRequest) {
@@ -1430,7 +1362,6 @@ export const ParamCreater = function () {
                     executionPlanName = getExecutionPlanMetadataRequest.executionPlanName;
                     stackId = getExecutionPlanMetadataRequest.stackId;
                     executionPlanId = getExecutionPlanMetadataRequest.executionPlanId;
-                    executor = getExecutionPlanMetadataRequest.executor;
                 } else {
                     clientRequestId = getExecutionPlanMetadataRequest['Client-Request-Id'];
                     projectId = getExecutionPlanMetadataRequest['project_id'];
@@ -1438,7 +1369,6 @@ export const ParamCreater = function () {
                     executionPlanName = getExecutionPlanMetadataRequest['execution_plan_name'];
                     stackId = getExecutionPlanMetadataRequest['stack_id'];
                     executionPlanId = getExecutionPlanMetadataRequest['execution_plan_id'];
-                    executor = getExecutionPlanMetadataRequest['executor'];
                 }
             }
 
@@ -1457,9 +1387,6 @@ export const ParamCreater = function () {
             }
             if (executionPlanId !== null && executionPlanId !== undefined) {
                 localVarQueryParameter['execution_plan_id'] = executionPlanId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -1504,8 +1431,6 @@ export const ParamCreater = function () {
             
             let stackName;
             
-            let executor;
-            
             let stackId;
 
             if (listExecutionPlansRequest !== null && listExecutionPlansRequest !== undefined) {
@@ -1513,13 +1438,11 @@ export const ParamCreater = function () {
                     clientRequestId = listExecutionPlansRequest.clientRequestId;
                     projectId = listExecutionPlansRequest.projectId;
                     stackName = listExecutionPlansRequest.stackName;
-                    executor = listExecutionPlansRequest.executor;
                     stackId = listExecutionPlansRequest.stackId;
                 } else {
                     clientRequestId = listExecutionPlansRequest['Client-Request-Id'];
                     projectId = listExecutionPlansRequest['project_id'];
                     stackName = listExecutionPlansRequest['stack_name'];
-                    executor = listExecutionPlansRequest['executor'];
                     stackId = listExecutionPlansRequest['stack_id'];
                 }
             }
@@ -1530,9 +1453,6 @@ export const ParamCreater = function () {
             }
             if (stackName === null || stackName === undefined) {
             throw new RequiredError('stackName','Required parameter stackName was null or undefined when calling listExecutionPlans.');
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
@@ -1705,8 +1625,6 @@ export const ParamCreater = function () {
             let stackName;
             
             let stackId;
-            
-            let executor;
 
             if (deleteStackRequest !== null && deleteStackRequest !== undefined) {
                 if (deleteStackRequest instanceof DeleteStackRequest) {
@@ -1714,13 +1632,11 @@ export const ParamCreater = function () {
                     projectId = deleteStackRequest.projectId;
                     stackName = deleteStackRequest.stackName;
                     stackId = deleteStackRequest.stackId;
-                    executor = deleteStackRequest.executor;
                 } else {
                     clientRequestId = deleteStackRequest['Client-Request-Id'];
                     projectId = deleteStackRequest['project_id'];
                     stackName = deleteStackRequest['stack_name'];
                     stackId = deleteStackRequest['stack_id'];
-                    executor = deleteStackRequest['executor'];
                 }
             }
 
@@ -1733,9 +1649,6 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -1865,8 +1778,6 @@ export const ParamCreater = function () {
             let stackName;
             
             let stackId;
-            
-            let executor;
 
             if (getStackMetadataRequest !== null && getStackMetadataRequest !== undefined) {
                 if (getStackMetadataRequest instanceof GetStackMetadataRequest) {
@@ -1874,13 +1785,11 @@ export const ParamCreater = function () {
                     projectId = getStackMetadataRequest.projectId;
                     stackName = getStackMetadataRequest.stackName;
                     stackId = getStackMetadataRequest.stackId;
-                    executor = getStackMetadataRequest.executor;
                 } else {
                     clientRequestId = getStackMetadataRequest['Client-Request-Id'];
                     projectId = getStackMetadataRequest['project_id'];
                     stackName = getStackMetadataRequest['stack_name'];
                     stackId = getStackMetadataRequest['stack_id'];
-                    executor = getStackMetadataRequest['executor'];
                 }
             }
 
@@ -1893,9 +1802,6 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -1939,8 +1845,6 @@ export const ParamCreater = function () {
             let stackName;
             
             let stackId;
-            
-            let executor;
 
             if (getStackTemplateRequest !== null && getStackTemplateRequest !== undefined) {
                 if (getStackTemplateRequest instanceof GetStackTemplateRequest) {
@@ -1948,13 +1852,11 @@ export const ParamCreater = function () {
                     projectId = getStackTemplateRequest.projectId;
                     stackName = getStackTemplateRequest.stackName;
                     stackId = getStackTemplateRequest.stackId;
-                    executor = getStackTemplateRequest.executor;
                 } else {
                     clientRequestId = getStackTemplateRequest['Client-Request-Id'];
                     projectId = getStackTemplateRequest['project_id'];
                     stackName = getStackTemplateRequest['stack_name'];
                     stackId = getStackTemplateRequest['stack_id'];
-                    executor = getStackTemplateRequest['executor'];
                 }
             }
 
@@ -1967,9 +1869,6 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -2017,8 +1916,6 @@ export const ParamCreater = function () {
             
             let deploymentId;
             
-            let executor;
-            
             let filter;
             
             let field;
@@ -2030,7 +1927,6 @@ export const ParamCreater = function () {
                     stackName = listStackEventsRequest.stackName;
                     stackId = listStackEventsRequest.stackId;
                     deploymentId = listStackEventsRequest.deploymentId;
-                    executor = listStackEventsRequest.executor;
                     filter = listStackEventsRequest.filter;
                     field = listStackEventsRequest.field;
                 } else {
@@ -2039,7 +1935,6 @@ export const ParamCreater = function () {
                     stackName = listStackEventsRequest['stack_name'];
                     stackId = listStackEventsRequest['stack_id'];
                     deploymentId = listStackEventsRequest['deployment_id'];
-                    executor = listStackEventsRequest['executor'];
                     filter = listStackEventsRequest['filter'];
                     field = listStackEventsRequest['field'];
                 }
@@ -2057,9 +1952,6 @@ export const ParamCreater = function () {
             }
             if (deploymentId !== null && deploymentId !== undefined) {
                 localVarQueryParameter['deployment_id'] = deploymentId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (filter !== null && filter !== undefined) {
                 localVarQueryParameter['filter'] = filter;
@@ -2113,8 +2005,6 @@ export const ParamCreater = function () {
             let stackName;
             
             let stackId;
-            
-            let executor;
 
             if (listStackOutputsRequest !== null && listStackOutputsRequest !== undefined) {
                 if (listStackOutputsRequest instanceof ListStackOutputsRequest) {
@@ -2122,13 +2012,11 @@ export const ParamCreater = function () {
                     projectId = listStackOutputsRequest.projectId;
                     stackName = listStackOutputsRequest.stackName;
                     stackId = listStackOutputsRequest.stackId;
-                    executor = listStackOutputsRequest.executor;
                 } else {
                     clientRequestId = listStackOutputsRequest['Client-Request-Id'];
                     projectId = listStackOutputsRequest['project_id'];
                     stackName = listStackOutputsRequest['stack_name'];
                     stackId = listStackOutputsRequest['stack_id'];
-                    executor = listStackOutputsRequest['executor'];
                 }
             }
 
@@ -2141,9 +2029,6 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -2187,8 +2072,6 @@ export const ParamCreater = function () {
             let stackName;
             
             let stackId;
-            
-            let executor;
 
             if (listStackResourcesRequest !== null && listStackResourcesRequest !== undefined) {
                 if (listStackResourcesRequest instanceof ListStackResourcesRequest) {
@@ -2196,13 +2079,11 @@ export const ParamCreater = function () {
                     projectId = listStackResourcesRequest.projectId;
                     stackName = listStackResourcesRequest.stackName;
                     stackId = listStackResourcesRequest.stackId;
-                    executor = listStackResourcesRequest.executor;
                 } else {
                     clientRequestId = listStackResourcesRequest['Client-Request-Id'];
                     projectId = listStackResourcesRequest['project_id'];
                     stackName = listStackResourcesRequest['stack_name'];
                     stackId = listStackResourcesRequest['stack_id'];
-                    executor = listStackResourcesRequest['executor'];
                 }
             }
 
@@ -2215,9 +2096,6 @@ export const ParamCreater = function () {
             }
             if (stackId !== null && stackId !== undefined) {
                 localVarQueryParameter['stack_id'] = stackId;
-            }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
             }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
@@ -2253,23 +2131,19 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+
             
             let clientRequestId;
             
             let projectId;
-            
-            let executor;
 
             if (listStacksRequest !== null && listStacksRequest !== undefined) {
                 if (listStacksRequest instanceof ListStacksRequest) {
                     clientRequestId = listStacksRequest.clientRequestId;
                     projectId = listStacksRequest.projectId;
-                    executor = listStacksRequest.executor;
                 } else {
                     clientRequestId = listStacksRequest['Client-Request-Id'];
                     projectId = listStacksRequest['project_id'];
-                    executor = listStacksRequest['executor'];
                 }
             }
 
@@ -2277,14 +2151,10 @@ export const ParamCreater = function () {
             if (projectId === null || projectId === undefined) {
             throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listStacks.');
             }
-            if (executor !== null && executor !== undefined) {
-                localVarQueryParameter['executor'] = executor;
-            }
             if (clientRequestId !== undefined && clientRequestId !== null) {
                 localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
             }
 
-            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId, };
             options.headers = localVarHeaderParameter;
             return options;

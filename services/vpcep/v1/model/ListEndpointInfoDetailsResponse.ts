@@ -28,6 +28,8 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     public routetables?: Array<string>;
     public description?: string;
     private 'policy_statement'?: Array<string> | undefined;
+    private 'endpoint_pool_id'?: string | undefined;
+    private 'public_border_group'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -222,6 +224,26 @@ export class ListEndpointInfoDetailsResponse extends SdkResponse {
     }
     public get policyStatement() {
         return this['policy_statement'];
+    }
+    public withEndpointPoolId(endpointPoolId: string): ListEndpointInfoDetailsResponse {
+        this['endpoint_pool_id'] = endpointPoolId;
+        return this;
+    }
+    public set endpointPoolId(endpointPoolId: string | undefined) {
+        this['endpoint_pool_id'] = endpointPoolId;
+    }
+    public get endpointPoolId() {
+        return this['endpoint_pool_id'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): ListEndpointInfoDetailsResponse {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup() {
+        return this['public_border_group'];
     }
 }
 

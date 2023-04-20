@@ -1,7 +1,7 @@
 
 
 export class ListServiceConnectionsRequest {
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     private 'vpc_endpoint_service_id': string | undefined;
     public id?: string;
     private 'marker_id'?: string | undefined;
@@ -10,8 +10,7 @@ export class ListServiceConnectionsRequest {
     private 'sort_dir'?: ListServiceConnectionsRequestSortDirEnum | undefined;
     public limit?: number;
     public offset?: number;
-    public constructor(contentType?: any, vpcEndpointServiceId?: any) { 
-        this['Content-Type'] = contentType;
+    public constructor(vpcEndpointServiceId?: any) { 
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
     }
     public withContentType(contentType: string): ListServiceConnectionsRequest {

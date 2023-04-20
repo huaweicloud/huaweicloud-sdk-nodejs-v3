@@ -3,11 +3,10 @@ import { UpdateEndpointPolicyRequestBody } from './UpdateEndpointPolicyRequestBo
 
 export class UpdateEndpointPolicyRequest {
     private 'vpc_endpoint_id': string | undefined;
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     public body?: UpdateEndpointPolicyRequestBody;
-    public constructor(vpcEndpointId?: any, contentType?: any) { 
+    public constructor(vpcEndpointId?: any) { 
         this['vpc_endpoint_id'] = vpcEndpointId;
-        this['Content-Type'] = contentType;
     }
     public withVpcEndpointId(vpcEndpointId: string): UpdateEndpointPolicyRequest {
         this['vpc_endpoint_id'] = vpcEndpointId;

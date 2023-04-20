@@ -16,6 +16,7 @@ export class CreateFunctionResponse extends SdkResponse {
     public timeout?: number;
     public handler?: string;
     private 'memory_size'?: number | undefined;
+    private 'gpu_memory'?: number | undefined;
     public cpu?: number;
     private 'code_type'?: CreateFunctionResponseCodeTypeEnum | undefined;
     private 'code_url'?: string | undefined;
@@ -121,6 +122,16 @@ export class CreateFunctionResponse extends SdkResponse {
     }
     public get memorySize() {
         return this['memory_size'];
+    }
+    public withGpuMemory(gpuMemory: number): CreateFunctionResponse {
+        this['gpu_memory'] = gpuMemory;
+        return this;
+    }
+    public set gpuMemory(gpuMemory: number | undefined) {
+        this['gpu_memory'] = gpuMemory;
+    }
+    public get gpuMemory() {
+        return this['gpu_memory'];
     }
     public withCpu(cpu: number): CreateFunctionResponse {
         this['cpu'] = cpu;

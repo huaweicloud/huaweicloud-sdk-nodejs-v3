@@ -30,6 +30,8 @@ import { BatchShowQueueRequest } from './model/BatchShowQueueRequest';
 import { BatchShowQueueResponse } from './model/BatchShowQueueResponse';
 import { BatchTaskFile } from './model/BatchTaskFile';
 import { BindTagsDTO } from './model/BindTagsDTO';
+import { BroadcastMessageRequest } from './model/BroadcastMessageRequest';
+import { BroadcastMessageResponse } from './model/BroadcastMessageResponse';
 import { CertificatesRspDTO } from './model/CertificatesRspDTO';
 import { ChangeRuleStatusRequest } from './model/ChangeRuleStatusRequest';
 import { ChangeRuleStatusResponse } from './model/ChangeRuleStatusResponse';
@@ -88,9 +90,10 @@ import { DeleteRuleActionRequest } from './model/DeleteRuleActionRequest';
 import { DeleteRuleActionResponse } from './model/DeleteRuleActionResponse';
 import { DeleteRuleRequest } from './model/DeleteRuleRequest';
 import { DeleteRuleResponse } from './model/DeleteRuleResponse';
+import { DeviceBroadcastRequest } from './model/DeviceBroadcastRequest';
 import { DeviceCommandRequest } from './model/DeviceCommandRequest';
 import { DeviceDataCondition } from './model/DeviceDataCondition';
-import { DeviceGroupResponseSummary } from './model/DeviceGroupResponseSummary';
+import { DeviceGroupResponsSummery } from './model/DeviceGroupResponsSummery';
 import { DeviceLinkageStatusCondition } from './model/DeviceLinkageStatusCondition';
 import { DeviceMessage } from './model/DeviceMessage';
 import { DeviceMessageRequest } from './model/DeviceMessageRequest';
@@ -519,7 +522,7 @@ export class IoTDAClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询批量任务列表
-     * @param {string} taskType **参数说明**：批量任务类型。 **取值范围**： - softwareUpgrade: 软件升级任务 - firmwareUpgrade: 固件升级任务 - createDevices: 批量创建设备任务 - deleteDevices: 批量删除设备任务 - freezeDevices: 批量冻结设备任务 - unfreezeDevices: 批量解冻设备任务 - createCommands: 批量创建同步命令任务 - createAsyncCommands: 批量创建异步命令任务 - createMessages: 批量创建消息任务 - updateDeviceShadows：批量配置设备影子任务
+     * @param {string} taskType **参数说明**：批量任务类型。 **取值范围**： - softwareUpgrade: 软件升级任务 - firmwareUpgrade: 固件升级任务 - createDevices: 批量创建设备任务 - deleteDevices: 批量删除设备任务 - freezeDevices: 批量冻结设备任务 - unfreezeDevices: 批量解冻设备任务 - createCommands: 批量创建同步命令任务 - createAsyncCommands: 批量创建异步命令任务 - createMessages: 批量创建消息任务 - updateDeviceShadows：批量配置设备影子任务 - updateDevices：批量更新设备任务
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的任务列表，不携带该参数则会查询该用户下所有任务列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {string} [status] **参数说明**：批量任务的状态，可选参数。 **取值范围**： - Initializing: 初始化中。 - Waitting: 等待中。 - Processing: 执行中。 - Success: 成功。 - Fail: 失败。 - PartialSuccess: 部分成功。 - Stopped: 停止。
@@ -593,6 +596,28 @@ export class IoTDAClient {
      */
     public listBatchTaskFiles(listBatchTaskFilesRequest?: ListBatchTaskFilesRequest): Promise<ListBatchTaskFilesResponse> {
         const options = ParamCreater().listBatchTaskFiles(listBatchTaskFilesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口向订阅了指定Topic的所有在线设备发布广播消息。应用将广播消息下发给平台后，平台会先返回应用响应结果，再将消息广播给设备。
+     * 注意：
+     * - 此接口只适用于使用MQTT协议接入的设备。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 下发广播消息
+     * @param {DeviceBroadcastRequest} broadcastMessageRequestBody 请求结构体，见请求结构体说明
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public broadcastMessage(broadcastMessageRequest?: BroadcastMessageRequest): Promise<BroadcastMessageResponse> {
+        const options = ParamCreater().broadcastMessage(broadcastMessageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2782,6 +2807,53 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
             }
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口向订阅了指定Topic的所有在线设备发布广播消息。应用将广播消息下发给平台后，平台会先返回应用响应结果，再将消息广播给设备。
+         * 注意：
+         * - 此接口只适用于使用MQTT协议接入的设备。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        broadcastMessage(broadcastMessageRequest?: BroadcastMessageRequest) {
+            const options = {
+                method: "POST",
+                url: "/v5/iot/{project_id}/broadcast-messages",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            var body: any;
+            
+            let instanceId;
+
+            if (broadcastMessageRequest !== null && broadcastMessageRequest !== undefined) {
+                if (broadcastMessageRequest instanceof BroadcastMessageRequest) {
+                    body = broadcastMessageRequest.body
+                    instanceId = broadcastMessageRequest.instanceId;
+                } else {
+                    body = broadcastMessageRequest['body'];
+                    instanceId = broadcastMessageRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -7,6 +7,7 @@ export class FuncVpc {
     private 'subnet_id': string | undefined;
     public cidr: string;
     public gateway: string;
+    private 'security_groups'?: Array<string> | undefined;
     public constructor(vpcName?: any, vpcId?: any, subnetName?: any, subnetId?: any, cidr?: any, gateway?: any) { 
         this['vpc_name'] = vpcName;
         this['vpc_id'] = vpcId;
@@ -62,5 +63,15 @@ export class FuncVpc {
     public withGateway(gateway: string): FuncVpc {
         this['gateway'] = gateway;
         return this;
+    }
+    public withSecurityGroups(securityGroups: Array<string>): FuncVpc {
+        this['security_groups'] = securityGroups;
+        return this;
+    }
+    public set securityGroups(securityGroups: Array<string> | undefined) {
+        this['security_groups'] = securityGroups;
+    }
+    public get securityGroups() {
+        return this['security_groups'];
     }
 }

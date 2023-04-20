@@ -1,10 +1,9 @@
 
 
 export class ListQuotaDetailsRequest {
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     public type?: ListQuotaDetailsRequestTypeEnum;
-    public constructor(contentType?: any) { 
-        this['Content-Type'] = contentType;
+    public constructor() { 
     }
     public withContentType(contentType: string): ListQuotaDetailsRequest {
         this['Content-Type'] = contentType;

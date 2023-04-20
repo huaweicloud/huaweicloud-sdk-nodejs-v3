@@ -12,8 +12,8 @@ export class CreateInstanceRequestBody {
     private 'subnet_id': string | undefined;
     private 'security_group': Array<string> | undefined;
     public count: number;
-    private 'res_tenant': boolean | undefined;
-    public constructor(region?: any, availableZone?: any, arch?: any, instancename?: any, specification?: any, cpuFlavor?: any, vpcId?: any, subnetId?: any, securityGroup?: any, count?: any, resTenant?: any) { 
+    private 'res_tenant'?: boolean | undefined;
+    public constructor(region?: any, availableZone?: any, arch?: any, instancename?: any, specification?: any, cpuFlavor?: any, vpcId?: any, subnetId?: any, securityGroup?: any, count?: any) { 
         this['region'] = region;
         this['available_zone'] = availableZone;
         this['arch'] = arch;
@@ -24,7 +24,6 @@ export class CreateInstanceRequestBody {
         this['subnet_id'] = subnetId;
         this['security_group'] = securityGroup;
         this['count'] = count;
-        this['res_tenant'] = resTenant;
     }
     public withChargemode(chargemode: number): CreateInstanceRequestBody {
         this['chargemode'] = chargemode;

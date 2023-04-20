@@ -1,6 +1,5 @@
 import { ExecutionPlanDescriptionPrimitiveTypeHolder } from './ExecutionPlanDescriptionPrimitiveTypeHolder';
 import { ExecutionPlanNamePrimitiveTypeHolder } from './ExecutionPlanNamePrimitiveTypeHolder';
-import { ExecutorPrimitiveTypeHolder } from './ExecutorPrimitiveTypeHolder';
 import { StackIdPrimitiveTypeHolder } from './StackIdPrimitiveTypeHolder';
 import { TemplateBodyPrimitiveTypeHolder } from './TemplateBodyPrimitiveTypeHolder';
 import { TemplateURIPrimitiveTypeHolder } from './TemplateURIPrimitiveTypeHolder';
@@ -15,7 +14,6 @@ export class CreateExecutionPlanRequestBody {
     private 'template_body'?: string | undefined;
     private 'template_uri'?: string | undefined;
     private 'execution_plan_name': string | undefined;
-    public executor?: string;
     public description?: string;
     private 'vars_structure'?: Array<VarsStructure> | undefined;
     private 'vars_body'?: string | undefined;
@@ -62,10 +60,6 @@ export class CreateExecutionPlanRequestBody {
     }
     public get executionPlanName() {
         return this['execution_plan_name'];
-    }
-    public withExecutor(executor: string): CreateExecutionPlanRequestBody {
-        this['executor'] = executor;
-        return this;
     }
     public withDescription(description: string): CreateExecutionPlanRequestBody {
         this['description'] = description;

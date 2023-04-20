@@ -125,9 +125,9 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 接受或拒绝终端节点的连接
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
      * @param {AcceptOrRejectEndpointRequestBody} acceptOrRejectEndpointRequestBody 接受或拒绝终端节点接口请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -149,9 +149,9 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量添加或移除终端节点服务的白名单
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
      * @param {AddOrRemoveServicePermissionsRequestBody} addOrRemoveServicePermissionsRequestBody 批量添加或移除终端节点服务白名单接口的请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -172,10 +172,10 @@ export class VpcepClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量添加或移除终端节点服务的白名单
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @summary 批量添加终端节点服务的白名单
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
      * @param {BatchAddPermissionRequest} batchAddPermission 批量添加终端节点服务白名单接口的请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -194,10 +194,10 @@ export class VpcepClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 批量添加或移除终端节点服务的白名单
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @summary 批量删除终端节点服务的白名单
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
      * @param {BatchRemovePermissionRequest} batchRemovePermissionRequest 批量删除终端节点服务白名单接口的请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -217,8 +217,8 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建终端节点
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {CreateEndpointRequestBody} createEndpointRequestBody 创建终端节点接口请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -242,8 +242,8 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建终端节点服务
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {CreateEndpointServiceRequestBody} createEndpointServiceRequestBody 创建终端节点服务接口请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -263,8 +263,8 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除终端节点
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} vpcEndpointId 终端节点的ID。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -283,9 +283,9 @@ export class VpcepClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改终端节点路由表
+     * @summary 删除网关型终端节点policy
      * @param {string} vpcEndpointId 终端节点的ID。
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -305,8 +305,8 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除终端节点服务
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -326,8 +326,8 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点详情
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} vpcEndpointId 终端节点的ID。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -347,7 +347,7 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点服务列表
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} [endpointServiceName] 终端节点服务的名称，支持大小写，前后模糊匹配。
      * @param {string} [id] 终端节点服务的ID，唯一标识。
      * @param {'creating' | 'available' | 'failed' | 'deleting'} [status] 终端节点服务的状态。 ● creating：创建中 ● available：可连接 ● failed：失败 ● deleting：删除中
@@ -375,7 +375,7 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点列表
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} [endpointServiceName] 终端节点服务的名称，支持大小写，前后模糊匹配。
      * @param {string} [vpcId] 终端节点所在的VPC的ID。
      * @param {string} [id] 终端节点的ID，唯一标识。
@@ -403,7 +403,7 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询配额
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {'endpoint_service' | 'endpoint'} [type] 资源类型。 ● endpoint_service：终端节点服务 ● endpoint：终端节点
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -424,8 +424,8 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询连接终端节点服务的连接列表
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} [id] 终端节点的ID，唯一标识。
      * @param {string} [markerId] 终端节点的报文标识。
      * @param {string} [status] 终端节点的连接状态。 ● pendingAcceptance：待接受 ● accepted：已接受 ● rejected：已拒绝 ● failed：失败
@@ -446,13 +446,12 @@ export class VpcepClient {
     }
 
     /**
-     * 功能介绍
-     * 查询终端节点服务的概要信息， 此接口是供创建终端节点的用户来查询需要连接的终端节点服务信息。 此接口既可以方便其他用户查询到您的终端节点服务概要信息, 又可以避免您的终端节点服务的细节信息暴露给其他用户。
+     * 功能介绍查询终端节点服务的概要信息， 此接口是供创建终端节点的用户来查询需要连接的终端节点服务信息。 此接口既可以方便其他用户查询到您的终端节点服务概要信息, 又可以避免您的终端节点服务的细节信息暴露给其他用户。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点服务概要
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} [endpointServiceName] 终端节点服务的名称。说明：该字段和id字段必须二选一，否则会出现错误。
      * @param {string} [id] 终端节点服务的ID，唯一标识。 说明：该字段必须和endpoint_service_name字段二选一，否则会出现错误。
      * @param {*} [options] Override http request option.
@@ -474,8 +473,8 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点服务详情
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -497,8 +496,8 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询终端节点服务的白名单列表
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} [permission] 权限帐号ID，格式为“iam:domain::domain_id”。 其中“domain_id”为授权用户的帐号ID， 例如“iam:domain::6e9dfd51d1124e8d8498dce894923a0d”，支持模糊搜索。
      * @param {number} [limit] 查询返回终端节点服务的白名单数量限制，即每页返回的个数。 取值范围：0~500，取值一般为10，20或者50，默认为10。
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
@@ -524,7 +523,7 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询公共终端节点服务列表
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {number} [limit] 查询返回公共的终端节点服务数量限制，即每页返回的个数。 取值范围：0~1000，取值一般为10，20或者50，默认为10。
      * @param {number} [offset] 偏移量。 偏移量为一个大于0小于终端节点服务总个数的整数， 表示从偏移量后面的终端节点服务开始查询。
      * @param {string} [endpointServiceName] 公共终端节点服务的名称，支持大小写以及模糊匹配。
@@ -550,8 +549,8 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定VPC终端节点接口版本信息
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} version 待查询版本号。 取值以v开头，例如v1。若为空，表示查询所有API的版本号。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -571,7 +570,7 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询VPC终端节点接口版本列表
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -611,10 +610,10 @@ export class VpcepClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改终端节点路由表
+     * @summary 修改网关型终端节点policy
      * @param {string} vpcEndpointId 终端节点的ID。
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {UpdateEndpointPolicyRequestBody} updateEndpointPolicyRequestBody 更新网关型终端节点policy请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -629,14 +628,14 @@ export class VpcepClient {
 
     /**
      * 功能介绍
-     * 修改终端节点路由表。
+     * 修改终端节点的路由表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改终端节点路由表
+     * @summary 修改终端节点的路由表
      * @param {string} vpcEndpointId 终端节点的ID。
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {UpdateEndpointRoutetableRequestBody} updateEndpointRoutetableRequestBody 更新终端节点路由表请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -656,9 +655,9 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改终端节点服务
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} vpcEndpointServiceId 终端节点服务的ID
      * @param {UpdateEndpointServiceRequestBody} updateEndpointServiceRequestBody 修改终端节点服务接口请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -699,10 +698,10 @@ export class VpcepClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新终端节点服务白名单描述
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {string} vpcEndpointServiceId 终端节点服务的ID。
      * @param {string} permissionId 白名单的ID。
      * @param {UpdatePermissionDescRequest} updatePermissionDescRequest 更新终端节点服务白名单描述接口的请求结构体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -723,8 +722,8 @@ export class VpcepClient {
      *
      * @summary 更新终端节点的白名单
      * @param {string} vpcEndpointId 终端节点的ID。
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {UpdateEndpointWhiteRequestBody} updateEndpointWhiteRequestBody 更新终端节点白名单接口请求体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -747,7 +746,7 @@ export class VpcepClient {
      * @summary 批量添加或删除资源标签接口
      * @param {string} resourceType 资源类型，值为：endpoint_service或endpoint。
      * @param {string} resourceId 资源ID，Endpoint ServiceID或Endpoint ID。
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {BatchAddOrRemoveResourceInstanceBody} [batchAddOrRemoveResourceInstanceBody] 批量添加或删除资源标签请求结构体
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -769,7 +768,7 @@ export class VpcepClient {
      *
      * @summary 查询租户资源标签接口
      * @param {string} resourceType 资源类型，值为：endpoint_service或endpoint。
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -790,8 +789,8 @@ export class VpcepClient {
      *
      * @summary 查询资源实例接口
      * @param {string} resourceType 资源类型，值为：endpoint_service或endpoint。
-     * @param {string} contentType 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {QueryResourceInstanceTagsBody} queryResourceInstanceTagsBody 查询资源实例接口请求接口体
+     * @param {string} [contentType] 发送的实体的MIME类型。推荐用户默认使用application/json， 如果API是对象、镜像上传等接口，媒体类型可按照流类型的不同进行确定。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -828,19 +827,19 @@ export const ParamCreater = function () {
 
             var body: any;
             
-            let contentType;
-            
             let vpcEndpointServiceId;
+            
+            let contentType;
 
             if (acceptOrRejectEndpointRequest !== null && acceptOrRejectEndpointRequest !== undefined) {
                 if (acceptOrRejectEndpointRequest instanceof AcceptOrRejectEndpointRequest) {
-                    contentType = acceptOrRejectEndpointRequest.contentType;
                     vpcEndpointServiceId = acceptOrRejectEndpointRequest.vpcEndpointServiceId;
                     body = acceptOrRejectEndpointRequest.body
+                    contentType = acceptOrRejectEndpointRequest.contentType;
                 } else {
-                    contentType = acceptOrRejectEndpointRequest['Content-Type'];
                     vpcEndpointServiceId = acceptOrRejectEndpointRequest['vpc_endpoint_service_id'];
                     body = acceptOrRejectEndpointRequest['body'];
+                    contentType = acceptOrRejectEndpointRequest['Content-Type'];
                 }
             }
 
@@ -884,19 +883,19 @@ export const ParamCreater = function () {
 
             var body: any;
             
-            let contentType;
-            
             let vpcEndpointServiceId;
+            
+            let contentType;
 
             if (addOrRemoveServicePermissionsRequest !== null && addOrRemoveServicePermissionsRequest !== undefined) {
                 if (addOrRemoveServicePermissionsRequest instanceof AddOrRemoveServicePermissionsRequest) {
-                    contentType = addOrRemoveServicePermissionsRequest.contentType;
                     vpcEndpointServiceId = addOrRemoveServicePermissionsRequest.vpcEndpointServiceId;
                     body = addOrRemoveServicePermissionsRequest.body
+                    contentType = addOrRemoveServicePermissionsRequest.contentType;
                 } else {
-                    contentType = addOrRemoveServicePermissionsRequest['Content-Type'];
                     vpcEndpointServiceId = addOrRemoveServicePermissionsRequest['vpc_endpoint_service_id'];
                     body = addOrRemoveServicePermissionsRequest['body'];
+                    contentType = addOrRemoveServicePermissionsRequest['Content-Type'];
                 }
             }
 
@@ -940,19 +939,19 @@ export const ParamCreater = function () {
 
             var body: any;
             
-            let contentType;
-            
             let vpcEndpointServiceId;
+            
+            let contentType;
 
             if (batchAddEndpointServicePermissionsRequest !== null && batchAddEndpointServicePermissionsRequest !== undefined) {
                 if (batchAddEndpointServicePermissionsRequest instanceof BatchAddEndpointServicePermissionsRequest) {
-                    contentType = batchAddEndpointServicePermissionsRequest.contentType;
                     vpcEndpointServiceId = batchAddEndpointServicePermissionsRequest.vpcEndpointServiceId;
                     body = batchAddEndpointServicePermissionsRequest.body
+                    contentType = batchAddEndpointServicePermissionsRequest.contentType;
                 } else {
-                    contentType = batchAddEndpointServicePermissionsRequest['Content-Type'];
                     vpcEndpointServiceId = batchAddEndpointServicePermissionsRequest['vpc_endpoint_service_id'];
                     body = batchAddEndpointServicePermissionsRequest['body'];
+                    contentType = batchAddEndpointServicePermissionsRequest['Content-Type'];
                 }
             }
 
@@ -994,19 +993,19 @@ export const ParamCreater = function () {
 
             var body: any;
             
-            let contentType;
-            
             let vpcEndpointServiceId;
+            
+            let contentType;
 
             if (batchRemoveEndpointServicePermissionsRequest !== null && batchRemoveEndpointServicePermissionsRequest !== undefined) {
                 if (batchRemoveEndpointServicePermissionsRequest instanceof BatchRemoveEndpointServicePermissionsRequest) {
-                    contentType = batchRemoveEndpointServicePermissionsRequest.contentType;
                     vpcEndpointServiceId = batchRemoveEndpointServicePermissionsRequest.vpcEndpointServiceId;
                     body = batchRemoveEndpointServicePermissionsRequest.body
+                    contentType = batchRemoveEndpointServicePermissionsRequest.contentType;
                 } else {
-                    contentType = batchRemoveEndpointServicePermissionsRequest['Content-Type'];
                     vpcEndpointServiceId = batchRemoveEndpointServicePermissionsRequest['vpc_endpoint_service_id'];
                     body = batchRemoveEndpointServicePermissionsRequest['body'];
+                    contentType = batchRemoveEndpointServicePermissionsRequest['Content-Type'];
                 }
             }
 
@@ -1052,11 +1051,11 @@ export const ParamCreater = function () {
 
             if (createEndpointRequest !== null && createEndpointRequest !== undefined) {
                 if (createEndpointRequest instanceof CreateEndpointRequest) {
-                    contentType = createEndpointRequest.contentType;
                     body = createEndpointRequest.body
+                    contentType = createEndpointRequest.contentType;
                 } else {
-                    contentType = createEndpointRequest['Content-Type'];
                     body = createEndpointRequest['body'];
+                    contentType = createEndpointRequest['Content-Type'];
                 }
             }
 
@@ -1102,11 +1101,11 @@ export const ParamCreater = function () {
 
             if (createEndpointServiceRequest !== null && createEndpointServiceRequest !== undefined) {
                 if (createEndpointServiceRequest instanceof CreateEndpointServiceRequest) {
-                    contentType = createEndpointServiceRequest.contentType;
                     body = createEndpointServiceRequest.body
+                    contentType = createEndpointServiceRequest.contentType;
                 } else {
-                    contentType = createEndpointServiceRequest['Content-Type'];
                     body = createEndpointServiceRequest['body'];
+                    contentType = createEndpointServiceRequest['Content-Type'];
                 }
             }
 
@@ -1143,17 +1142,17 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
-            
             let vpcEndpointId;
+            
+            let contentType;
 
             if (deleteEndpointRequest !== null && deleteEndpointRequest !== undefined) {
                 if (deleteEndpointRequest instanceof DeleteEndpointRequest) {
-                    contentType = deleteEndpointRequest.contentType;
                     vpcEndpointId = deleteEndpointRequest.vpcEndpointId;
+                    contentType = deleteEndpointRequest.contentType;
                 } else {
-                    contentType = deleteEndpointRequest['Content-Type'];
                     vpcEndpointId = deleteEndpointRequest['vpc_endpoint_id'];
+                    contentType = deleteEndpointRequest['Content-Type'];
                 }
             }
 
@@ -1235,17 +1234,17 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
-            
             let vpcEndpointServiceId;
+            
+            let contentType;
 
             if (deleteEndpointServiceRequest !== null && deleteEndpointServiceRequest !== undefined) {
                 if (deleteEndpointServiceRequest instanceof DeleteEndpointServiceRequest) {
-                    contentType = deleteEndpointServiceRequest.contentType;
                     vpcEndpointServiceId = deleteEndpointServiceRequest.vpcEndpointServiceId;
+                    contentType = deleteEndpointServiceRequest.contentType;
                 } else {
-                    contentType = deleteEndpointServiceRequest['Content-Type'];
                     vpcEndpointServiceId = deleteEndpointServiceRequest['vpc_endpoint_service_id'];
+                    contentType = deleteEndpointServiceRequest['Content-Type'];
                 }
             }
 
@@ -1281,17 +1280,17 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
-            
             let vpcEndpointId;
+            
+            let contentType;
 
             if (listEndpointInfoDetailsRequest !== null && listEndpointInfoDetailsRequest !== undefined) {
                 if (listEndpointInfoDetailsRequest instanceof ListEndpointInfoDetailsRequest) {
-                    contentType = listEndpointInfoDetailsRequest.contentType;
                     vpcEndpointId = listEndpointInfoDetailsRequest.vpcEndpointId;
+                    contentType = listEndpointInfoDetailsRequest.contentType;
                 } else {
-                    contentType = listEndpointInfoDetailsRequest['Content-Type'];
                     vpcEndpointId = listEndpointInfoDetailsRequest['vpc_endpoint_id'];
+                    contentType = listEndpointInfoDetailsRequest['Content-Type'];
                 }
             }
 
@@ -1563,9 +1562,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let contentType;
-            
             let vpcEndpointServiceId;
+            
+            let contentType;
             
             let id;
             
@@ -1583,8 +1582,8 @@ export const ParamCreater = function () {
 
             if (listServiceConnectionsRequest !== null && listServiceConnectionsRequest !== undefined) {
                 if (listServiceConnectionsRequest instanceof ListServiceConnectionsRequest) {
-                    contentType = listServiceConnectionsRequest.contentType;
                     vpcEndpointServiceId = listServiceConnectionsRequest.vpcEndpointServiceId;
+                    contentType = listServiceConnectionsRequest.contentType;
                     id = listServiceConnectionsRequest.id;
                     markerId = listServiceConnectionsRequest.markerId;
                     status = listServiceConnectionsRequest.status;
@@ -1593,8 +1592,8 @@ export const ParamCreater = function () {
                     limit = listServiceConnectionsRequest.limit;
                     offset = listServiceConnectionsRequest.offset;
                 } else {
-                    contentType = listServiceConnectionsRequest['Content-Type'];
                     vpcEndpointServiceId = listServiceConnectionsRequest['vpc_endpoint_service_id'];
+                    contentType = listServiceConnectionsRequest['Content-Type'];
                     id = listServiceConnectionsRequest['id'];
                     markerId = listServiceConnectionsRequest['marker_id'];
                     status = listServiceConnectionsRequest['status'];
@@ -1641,8 +1640,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 功能介绍
-         * 查询终端节点服务的概要信息， 此接口是供创建终端节点的用户来查询需要连接的终端节点服务信息。 此接口既可以方便其他用户查询到您的终端节点服务概要信息, 又可以避免您的终端节点服务的细节信息暴露给其他用户。
+         * 功能介绍查询终端节点服务的概要信息， 此接口是供创建终端节点的用户来查询需要连接的终端节点服务信息。 此接口既可以方便其他用户查询到您的终端节点服务概要信息, 又可以避免您的终端节点服务的细节信息暴露给其他用户。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1712,17 +1710,17 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
-            
             let vpcEndpointServiceId;
+            
+            let contentType;
 
             if (listServiceDetailsRequest !== null && listServiceDetailsRequest !== undefined) {
                 if (listServiceDetailsRequest instanceof ListServiceDetailsRequest) {
-                    contentType = listServiceDetailsRequest.contentType;
                     vpcEndpointServiceId = listServiceDetailsRequest.vpcEndpointServiceId;
+                    contentType = listServiceDetailsRequest.contentType;
                 } else {
-                    contentType = listServiceDetailsRequest['Content-Type'];
                     vpcEndpointServiceId = listServiceDetailsRequest['vpc_endpoint_service_id'];
+                    contentType = listServiceDetailsRequest['Content-Type'];
                 }
             }
 
@@ -1760,9 +1758,9 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let contentType;
-            
             let vpcEndpointServiceId;
+            
+            let contentType;
             
             let permission;
             
@@ -1776,16 +1774,16 @@ export const ParamCreater = function () {
 
             if (listServicePermissionsDetailsRequest !== null && listServicePermissionsDetailsRequest !== undefined) {
                 if (listServicePermissionsDetailsRequest instanceof ListServicePermissionsDetailsRequest) {
-                    contentType = listServicePermissionsDetailsRequest.contentType;
                     vpcEndpointServiceId = listServicePermissionsDetailsRequest.vpcEndpointServiceId;
+                    contentType = listServicePermissionsDetailsRequest.contentType;
                     permission = listServicePermissionsDetailsRequest.permission;
                     limit = listServicePermissionsDetailsRequest.limit;
                     offset = listServicePermissionsDetailsRequest.offset;
                     sortKey = listServicePermissionsDetailsRequest.sortKey;
                     sortDir = listServicePermissionsDetailsRequest.sortDir;
                 } else {
-                    contentType = listServicePermissionsDetailsRequest['Content-Type'];
                     vpcEndpointServiceId = listServicePermissionsDetailsRequest['vpc_endpoint_service_id'];
+                    contentType = listServicePermissionsDetailsRequest['Content-Type'];
                     permission = listServicePermissionsDetailsRequest['permission'];
                     limit = listServicePermissionsDetailsRequest['limit'];
                     offset = listServicePermissionsDetailsRequest['offset'];
@@ -1924,17 +1922,17 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let contentType;
-            
             let version;
+            
+            let contentType;
 
             if (listSpecifiedVersionDetailsRequest !== null && listSpecifiedVersionDetailsRequest !== undefined) {
                 if (listSpecifiedVersionDetailsRequest instanceof ListSpecifiedVersionDetailsRequest) {
-                    contentType = listSpecifiedVersionDetailsRequest.contentType;
                     version = listSpecifiedVersionDetailsRequest.version;
+                    contentType = listSpecifiedVersionDetailsRequest.contentType;
                 } else {
-                    contentType = listSpecifiedVersionDetailsRequest['Content-Type'];
                     version = listSpecifiedVersionDetailsRequest['version'];
+                    contentType = listSpecifiedVersionDetailsRequest['Content-Type'];
                 }
             }
 
@@ -2063,12 +2061,12 @@ export const ParamCreater = function () {
             if (updateEndpointPolicyRequest !== null && updateEndpointPolicyRequest !== undefined) {
                 if (updateEndpointPolicyRequest instanceof UpdateEndpointPolicyRequest) {
                     vpcEndpointId = updateEndpointPolicyRequest.vpcEndpointId;
-                    contentType = updateEndpointPolicyRequest.contentType;
                     body = updateEndpointPolicyRequest.body
+                    contentType = updateEndpointPolicyRequest.contentType;
                 } else {
                     vpcEndpointId = updateEndpointPolicyRequest['vpc_endpoint_id'];
-                    contentType = updateEndpointPolicyRequest['Content-Type'];
                     body = updateEndpointPolicyRequest['body'];
+                    contentType = updateEndpointPolicyRequest['Content-Type'];
                 }
             }
 
@@ -2092,7 +2090,7 @@ export const ParamCreater = function () {
     
         /**
          * 功能介绍
-         * 修改终端节点路由表。
+         * 修改终端节点的路由表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2117,12 +2115,12 @@ export const ParamCreater = function () {
             if (updateEndpointRoutetableRequest !== null && updateEndpointRoutetableRequest !== undefined) {
                 if (updateEndpointRoutetableRequest instanceof UpdateEndpointRoutetableRequest) {
                     vpcEndpointId = updateEndpointRoutetableRequest.vpcEndpointId;
-                    contentType = updateEndpointRoutetableRequest.contentType;
                     body = updateEndpointRoutetableRequest.body
+                    contentType = updateEndpointRoutetableRequest.contentType;
                 } else {
                     vpcEndpointId = updateEndpointRoutetableRequest['vpc_endpoint_id'];
-                    contentType = updateEndpointRoutetableRequest['Content-Type'];
                     body = updateEndpointRoutetableRequest['body'];
+                    contentType = updateEndpointRoutetableRequest['Content-Type'];
                 }
             }
 
@@ -2164,19 +2162,19 @@ export const ParamCreater = function () {
 
             var body: any;
             
-            let contentType;
-            
             let vpcEndpointServiceId;
+            
+            let contentType;
 
             if (updateEndpointServiceRequest !== null && updateEndpointServiceRequest !== undefined) {
                 if (updateEndpointServiceRequest instanceof UpdateEndpointServiceRequest) {
-                    contentType = updateEndpointServiceRequest.contentType;
                     vpcEndpointServiceId = updateEndpointServiceRequest.vpcEndpointServiceId;
                     body = updateEndpointServiceRequest.body
+                    contentType = updateEndpointServiceRequest.contentType;
                 } else {
-                    contentType = updateEndpointServiceRequest['Content-Type'];
                     vpcEndpointServiceId = updateEndpointServiceRequest['vpc_endpoint_service_id'];
                     body = updateEndpointServiceRequest['body'];
+                    contentType = updateEndpointServiceRequest['Content-Type'];
                 }
             }
 
@@ -2262,23 +2260,23 @@ export const ParamCreater = function () {
 
             var body: any;
             
-            let contentType;
-            
             let vpcEndpointServiceId;
             
             let permissionId;
+            
+            let contentType;
 
             if (updateEndpointServicePermissionDescRequest !== null && updateEndpointServicePermissionDescRequest !== undefined) {
                 if (updateEndpointServicePermissionDescRequest instanceof UpdateEndpointServicePermissionDescRequest) {
-                    contentType = updateEndpointServicePermissionDescRequest.contentType;
                     vpcEndpointServiceId = updateEndpointServicePermissionDescRequest.vpcEndpointServiceId;
                     permissionId = updateEndpointServicePermissionDescRequest.permissionId;
                     body = updateEndpointServicePermissionDescRequest.body
+                    contentType = updateEndpointServicePermissionDescRequest.contentType;
                 } else {
-                    contentType = updateEndpointServicePermissionDescRequest['Content-Type'];
                     vpcEndpointServiceId = updateEndpointServicePermissionDescRequest['vpc_endpoint_service_id'];
                     permissionId = updateEndpointServicePermissionDescRequest['permission_id'];
                     body = updateEndpointServicePermissionDescRequest['body'];
+                    contentType = updateEndpointServicePermissionDescRequest['Content-Type'];
                 }
             }
 
@@ -2330,12 +2328,12 @@ export const ParamCreater = function () {
             if (updateEndpointWhiteRequest !== null && updateEndpointWhiteRequest !== undefined) {
                 if (updateEndpointWhiteRequest instanceof UpdateEndpointWhiteRequest) {
                     vpcEndpointId = updateEndpointWhiteRequest.vpcEndpointId;
-                    contentType = updateEndpointWhiteRequest.contentType;
                     body = updateEndpointWhiteRequest.body
+                    contentType = updateEndpointWhiteRequest.contentType;
                 } else {
                     vpcEndpointId = updateEndpointWhiteRequest['vpc_endpoint_id'];
-                    contentType = updateEndpointWhiteRequest['Content-Type'];
                     body = updateEndpointWhiteRequest['body'];
+                    contentType = updateEndpointWhiteRequest['Content-Type'];
                 }
             }
 
@@ -2489,12 +2487,12 @@ export const ParamCreater = function () {
             if (listResourceInstancesRequest !== null && listResourceInstancesRequest !== undefined) {
                 if (listResourceInstancesRequest instanceof ListResourceInstancesRequest) {
                     resourceType = listResourceInstancesRequest.resourceType;
-                    contentType = listResourceInstancesRequest.contentType;
                     body = listResourceInstancesRequest.body
+                    contentType = listResourceInstancesRequest.contentType;
                 } else {
                     resourceType = listResourceInstancesRequest['resource_type'];
-                    contentType = listResourceInstancesRequest['Content-Type'];
                     body = listResourceInstancesRequest['body'];
+                    contentType = listResourceInstancesRequest['Content-Type'];
                 }
             }
 

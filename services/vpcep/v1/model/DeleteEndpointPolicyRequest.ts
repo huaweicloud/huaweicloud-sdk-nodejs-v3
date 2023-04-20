@@ -2,10 +2,9 @@
 
 export class DeleteEndpointPolicyRequest {
     private 'vpc_endpoint_id': string | undefined;
-    private 'Content-Type': string | undefined;
-    public constructor(vpcEndpointId?: any, contentType?: any) { 
+    private 'Content-Type'?: string | undefined;
+    public constructor(vpcEndpointId?: any) { 
         this['vpc_endpoint_id'] = vpcEndpointId;
-        this['Content-Type'] = contentType;
     }
     public withVpcEndpointId(vpcEndpointId: string): DeleteEndpointPolicyRequest {
         this['vpc_endpoint_id'] = vpcEndpointId;

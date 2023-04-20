@@ -1,7 +1,7 @@
 
 
 export class ListEndpointsRequest {
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     private 'endpoint_service_name'?: string | undefined;
     private 'vpc_id'?: string | undefined;
     public id?: string;
@@ -10,8 +10,7 @@ export class ListEndpointsRequest {
     private 'sort_key'?: string | undefined;
     private 'sort_dir'?: string | undefined;
     private 'public_border_group'?: string | undefined;
-    public constructor(contentType?: any) { 
-        this['Content-Type'] = contentType;
+    public constructor() { 
     }
     public withContentType(contentType: string): ListEndpointsRequest {
         this['Content-Type'] = contentType;

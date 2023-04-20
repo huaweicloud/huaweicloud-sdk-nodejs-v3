@@ -17,6 +17,7 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     public timeout?: number;
     public handler?: string;
     private 'memory_size'?: number | undefined;
+    private 'gpu_memory'?: number | undefined;
     public cpu?: number;
     private 'code_type'?: ShowFunctionConfigResponseCodeTypeEnum | undefined;
     private 'code_url'?: string | undefined;
@@ -31,6 +32,7 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     private 'app_xrole'?: string | undefined;
     public description?: string;
     private 'last_modified'?: Date | undefined;
+    private 'ephemeral_storage'?: number | undefined;
     private 'func_vpc'?: FuncVpc | undefined;
     private 'mount_config'?: MountConfig | undefined;
     private 'depend_list'?: Array<string> | undefined;
@@ -126,6 +128,16 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     }
     public get memorySize() {
         return this['memory_size'];
+    }
+    public withGpuMemory(gpuMemory: number): ShowFunctionConfigResponse {
+        this['gpu_memory'] = gpuMemory;
+        return this;
+    }
+    public set gpuMemory(gpuMemory: number | undefined) {
+        this['gpu_memory'] = gpuMemory;
+    }
+    public get gpuMemory() {
+        return this['gpu_memory'];
     }
     public withCpu(cpu: number): ShowFunctionConfigResponse {
         this['cpu'] = cpu;
@@ -236,6 +248,16 @@ export class ShowFunctionConfigResponse extends SdkResponse {
     }
     public get lastModified() {
         return this['last_modified'];
+    }
+    public withEphemeralStorage(ephemeralStorage: number): ShowFunctionConfigResponse {
+        this['ephemeral_storage'] = ephemeralStorage;
+        return this;
+    }
+    public set ephemeralStorage(ephemeralStorage: number | undefined) {
+        this['ephemeral_storage'] = ephemeralStorage;
+    }
+    public get ephemeralStorage() {
+        return this['ephemeral_storage'];
     }
     public withFuncVpc(funcVpc: FuncVpc): ShowFunctionConfigResponse {
         this['func_vpc'] = funcVpc;

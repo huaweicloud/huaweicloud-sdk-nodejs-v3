@@ -1,10 +1,10 @@
-import { RouteTableRoute } from './RouteTableRoute';
+import { RouteTableRouteAction } from './RouteTableRouteAction';
 
 
 export class UpdateRouteTableReq {
     public name?: string;
     public description?: string;
-    public routes?: { [key: string]: Array<RouteTableRoute>; };
+    public routes?: RouteTableRouteAction;
     public constructor() { 
     }
     public withName(name: string): UpdateRouteTableReq {
@@ -15,7 +15,7 @@ export class UpdateRouteTableReq {
         this['description'] = description;
         return this;
     }
-    public withRoutes(routes: { [key: string]: Array<RouteTableRoute>; }): UpdateRouteTableReq {
+    public withRoutes(routes: RouteTableRouteAction): UpdateRouteTableReq {
         this['routes'] = routes;
         return this;
     }

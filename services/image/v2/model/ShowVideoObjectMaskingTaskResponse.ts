@@ -1,5 +1,5 @@
-import { ObjectMaskingTaskInput } from './ObjectMaskingTaskInput';
 import { TaskCallback } from './TaskCallback';
+import { TaskInput } from './TaskInput';
 import { TaskOutput } from './TaskOutput';
 import { VideoObjectMaskingTaskConfig } from './VideoObjectMaskingTaskConfig';
 
@@ -10,7 +10,7 @@ export class ShowVideoObjectMaskingTaskResponse extends SdkResponse {
     private 'create_time'?: string | undefined;
     private 'update_time'?: string | undefined;
     public state?: ShowVideoObjectMaskingTaskResponseStateEnum;
-    public input?: ObjectMaskingTaskInput;
+    public input?: TaskInput;
     public output?: TaskOutput;
     public config?: VideoObjectMaskingTaskConfig;
     public callback?: TaskCallback;
@@ -52,7 +52,7 @@ export class ShowVideoObjectMaskingTaskResponse extends SdkResponse {
         this['state'] = state;
         return this;
     }
-    public withInput(input: ObjectMaskingTaskInput): ShowVideoObjectMaskingTaskResponse {
+    public withInput(input: TaskInput): ShowVideoObjectMaskingTaskResponse {
         this['input'] = input;
         return this;
     }

@@ -22,6 +22,7 @@ export class CreateEndpointServiceResponse extends SdkResponse {
     private 'tcp_proxy'?: CreateEndpointServiceResponseTcpProxyEnum | undefined;
     public tags?: Array<TagList>;
     public description?: string;
+    private 'enable_policy'?: boolean | undefined;
     public constructor() { 
         super();
     }
@@ -175,6 +176,16 @@ export class CreateEndpointServiceResponse extends SdkResponse {
         this['description'] = description;
         return this;
     }
+    public withEnablePolicy(enablePolicy: boolean): CreateEndpointServiceResponse {
+        this['enable_policy'] = enablePolicy;
+        return this;
+    }
+    public set enablePolicy(enablePolicy: boolean | undefined) {
+        this['enable_policy'] = enablePolicy;
+    }
+    public get enablePolicy() {
+        return this['enable_policy'];
+    }
 }
 
 /**
@@ -211,5 +222,6 @@ export enum CreateEndpointServiceResponseTcpProxyEnum {
     CLOSE = 'close',
     TOA_OPEN = 'toa_open',
     PROXY_OPEN = 'proxy_open',
-    OPEN = 'open'
+    OPEN = 'open',
+    PROXY_VNI = 'proxy_vni'
 }

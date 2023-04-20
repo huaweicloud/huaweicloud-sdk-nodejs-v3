@@ -4,12 +4,11 @@ import { BatchAddOrRemoveResourceInstanceBody } from './BatchAddOrRemoveResource
 export class BatchAddOrRemoveResourceInstanceRequest {
     private 'resource_type': string | undefined;
     private 'resource_id': string | undefined;
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     public body?: BatchAddOrRemoveResourceInstanceBody;
-    public constructor(resourceType?: any, resourceId?: any, contentType?: any) { 
+    public constructor(resourceType?: any, resourceId?: any) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
-        this['Content-Type'] = contentType;
     }
     public withResourceType(resourceType: string): BatchAddOrRemoveResourceInstanceRequest {
         this['resource_type'] = resourceType;

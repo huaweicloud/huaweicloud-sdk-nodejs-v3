@@ -6,7 +6,6 @@ export class ListStackEventsRequest {
     private 'stack_name': string | undefined;
     private 'stack_id'?: string | undefined;
     private 'deployment_id'?: string | undefined;
-    public executor?: string;
     public filter?: string;
     public field?: string;
     public constructor(clientRequestId?: any, projectId?: any, stackName?: any) { 
@@ -63,10 +62,6 @@ export class ListStackEventsRequest {
     }
     public get deploymentId() {
         return this['deployment_id'];
-    }
-    public withExecutor(executor: string): ListStackEventsRequest {
-        this['executor'] = executor;
-        return this;
     }
     public withFilter(filter: string): ListStackEventsRequest {
         this['filter'] = filter;

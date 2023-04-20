@@ -42,7 +42,6 @@ export * from './model/ExecutionPlanNamePrimitiveTypeHolder';
 export * from './model/ExecutionPlanStatusMessagePrimitiveTypeHolder';
 export * from './model/ExecutionPlanStatusPrimitiveTypeHolder';
 export * from './model/ExecutionPlanSummary';
-export * from './model/ExecutorPrimitiveTypeHolder';
 export * from './model/GetExecutionPlanMetadataRequest';
 export * from './model/GetExecutionPlanMetadataResponse';
 export * from './model/GetExecutionPlanRequest';

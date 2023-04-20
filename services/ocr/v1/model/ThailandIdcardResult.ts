@@ -2,6 +2,9 @@ import { ThailandIdcardConfidence } from './ThailandIdcardConfidence';
 
 
 export class ThailandIdcardResult {
+    public type?: string;
+    private 'name_en'?: string | undefined;
+    private 'ref_number'?: string | undefined;
     public side?: string;
     private 'id_number'?: string | undefined;
     private 'name_th'?: string | undefined;
@@ -24,6 +27,30 @@ export class ThailandIdcardResult {
     private 'idcard_type'?: string | undefined;
     private 'text_location'?: object | undefined;
     public constructor() { 
+    }
+    public withType(type: string): ThailandIdcardResult {
+        this['type'] = type;
+        return this;
+    }
+    public withNameEn(nameEn: string): ThailandIdcardResult {
+        this['name_en'] = nameEn;
+        return this;
+    }
+    public set nameEn(nameEn: string | undefined) {
+        this['name_en'] = nameEn;
+    }
+    public get nameEn() {
+        return this['name_en'];
+    }
+    public withRefNumber(refNumber: string): ThailandIdcardResult {
+        this['ref_number'] = refNumber;
+        return this;
+    }
+    public set refNumber(refNumber: string | undefined) {
+        this['ref_number'] = refNumber;
+    }
+    public get refNumber() {
+        return this['ref_number'];
     }
     public withSide(side: string): ThailandIdcardResult {
         this['side'] = side;

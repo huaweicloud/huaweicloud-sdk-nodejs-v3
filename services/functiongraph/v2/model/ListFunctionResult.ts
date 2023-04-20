@@ -12,6 +12,7 @@ export class ListFunctionResult {
     public timeout: number;
     public handler: string;
     private 'memory_size': number | undefined;
+    private 'gpu_memory'?: number | undefined;
     public cpu: number;
     private 'code_type': ListFunctionResultCodeTypeEnum | undefined;
     private 'code_url'?: string | undefined;
@@ -37,6 +38,8 @@ export class ListFunctionResult {
     private 'log_stream_id'?: string | undefined;
     public type?: ListFunctionResultTypeEnum;
     private 'fail_count'?: number | undefined;
+    private 'is_bridge_function'?: boolean | undefined;
+    private 'bind_bridge_funcUrns'?: Array<string> | undefined;
     public constructor(funcUrn?: any, funcName?: any, domainId?: any, namespace?: any, projectName?: any, _package?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any, cpu?: any, codeType?: any, codeSize?: any, digest?: any, version?: any, imageName?: any, lastModified?: any) { 
         this['func_urn'] = funcUrn;
         this['func_name'] = funcName;
@@ -131,6 +134,16 @@ export class ListFunctionResult {
     }
     public get memorySize() {
         return this['memory_size'];
+    }
+    public withGpuMemory(gpuMemory: number): ListFunctionResult {
+        this['gpu_memory'] = gpuMemory;
+        return this;
+    }
+    public set gpuMemory(gpuMemory: number | undefined) {
+        this['gpu_memory'] = gpuMemory;
+    }
+    public get gpuMemory() {
+        return this['gpu_memory'];
     }
     public withCpu(cpu: number): ListFunctionResult {
         this['cpu'] = cpu;
@@ -345,6 +358,26 @@ export class ListFunctionResult {
     }
     public get failCount() {
         return this['fail_count'];
+    }
+    public withIsBridgeFunction(isBridgeFunction: boolean): ListFunctionResult {
+        this['is_bridge_function'] = isBridgeFunction;
+        return this;
+    }
+    public set isBridgeFunction(isBridgeFunction: boolean | undefined) {
+        this['is_bridge_function'] = isBridgeFunction;
+    }
+    public get isBridgeFunction() {
+        return this['is_bridge_function'];
+    }
+    public withBindBridgeFuncUrns(bindBridgeFuncUrns: Array<string>): ListFunctionResult {
+        this['bind_bridge_funcUrns'] = bindBridgeFuncUrns;
+        return this;
+    }
+    public set bindBridgeFuncUrns(bindBridgeFuncUrns: Array<string> | undefined) {
+        this['bind_bridge_funcUrns'] = bindBridgeFuncUrns;
+    }
+    public get bindBridgeFuncUrns() {
+        return this['bind_bridge_funcUrns'];
     }
 }
 

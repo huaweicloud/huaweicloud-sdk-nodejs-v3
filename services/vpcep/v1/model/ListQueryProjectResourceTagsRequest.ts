@@ -2,10 +2,9 @@
 
 export class ListQueryProjectResourceTagsRequest {
     private 'resource_type': string | undefined;
-    private 'Content-Type': string | undefined;
-    public constructor(resourceType?: any, contentType?: any) { 
+    private 'Content-Type'?: string | undefined;
+    public constructor(resourceType?: any) { 
         this['resource_type'] = resourceType;
-        this['Content-Type'] = contentType;
     }
     public withResourceType(resourceType: string): ListQueryProjectResourceTagsRequest {
         this['resource_type'] = resourceType;

@@ -5,7 +5,6 @@ export class GetStackMetadataRequest {
     private 'project_id': string | undefined;
     private 'stack_name': string | undefined;
     private 'stack_id'?: string | undefined;
-    public executor?: string;
     public constructor(clientRequestId?: any, projectId?: any, stackName?: any) { 
         this['Client-Request-Id'] = clientRequestId;
         this['project_id'] = projectId;
@@ -50,9 +49,5 @@ export class GetStackMetadataRequest {
     }
     public get stackId() {
         return this['stack_id'];
-    }
-    public withExecutor(executor: string): GetStackMetadataRequest {
-        this['executor'] = executor;
-        return this;
     }
 }

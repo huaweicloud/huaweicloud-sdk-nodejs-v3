@@ -1,15 +1,14 @@
 
 
 export class ListServicePublicDetailsRequest {
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     public limit?: number;
     public offset?: number;
     private 'endpoint_service_name'?: string | undefined;
     public id?: string;
     private 'sort_key'?: ListServicePublicDetailsRequestSortKeyEnum | undefined;
     private 'sort_dir'?: ListServicePublicDetailsRequestSortDirEnum | undefined;
-    public constructor(contentType?: any) { 
-        this['Content-Type'] = contentType;
+    public constructor() { 
     }
     public withContentType(contentType: string): ListServicePublicDetailsRequest {
         this['Content-Type'] = contentType;

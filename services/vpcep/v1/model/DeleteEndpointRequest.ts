@@ -1,10 +1,9 @@
 
 
 export class DeleteEndpointRequest {
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     private 'vpc_endpoint_id': string | undefined;
-    public constructor(contentType?: any, vpcEndpointId?: any) { 
-        this['Content-Type'] = contentType;
+    public constructor(vpcEndpointId?: any) { 
         this['vpc_endpoint_id'] = vpcEndpointId;
     }
     public withContentType(contentType: string): DeleteEndpointRequest {

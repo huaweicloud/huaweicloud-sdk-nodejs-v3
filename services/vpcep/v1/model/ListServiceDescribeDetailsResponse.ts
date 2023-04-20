@@ -7,6 +7,7 @@ export class ListServiceDescribeDetailsResponse extends SdkResponse {
     private 'service_type'?: ListServiceDescribeDetailsResponseServiceTypeEnum | undefined;
     private 'created_at'?: string | undefined;
     private 'is_charge'?: boolean | undefined;
+    private 'public_border_group'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -53,6 +54,16 @@ export class ListServiceDescribeDetailsResponse extends SdkResponse {
     }
     public get isCharge() {
         return this['is_charge'];
+    }
+    public withPublicBorderGroup(publicBorderGroup: string): ListServiceDescribeDetailsResponse {
+        this['public_border_group'] = publicBorderGroup;
+        return this;
+    }
+    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+        this['public_border_group'] = publicBorderGroup;
+    }
+    public get publicBorderGroup() {
+        return this['public_border_group'];
     }
 }
 

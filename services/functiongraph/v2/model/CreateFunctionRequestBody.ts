@@ -1,5 +1,7 @@
 import { FuncCode } from './FuncCode';
+import { FuncLogConfig } from './FuncLogConfig';
 import { FuncVpc } from './FuncVpc';
+import { NetworkControlConfig } from './NetworkControlConfig';
 
 
 export class CreateFunctionRequestBody {
@@ -11,6 +13,7 @@ export class CreateFunctionRequestBody {
     private 'depend_version_list'?: Array<string> | undefined;
     private 'func_vpc'?: FuncVpc | undefined;
     private 'memory_size': number | undefined;
+    private 'gpu_memory'?: number | undefined;
     private 'code_type': CreateFunctionRequestBodyCodeTypeEnum | undefined;
     private 'code_url'?: string | undefined;
     private 'code_filename'?: string | undefined;
@@ -23,6 +26,8 @@ export class CreateFunctionRequestBody {
     private 'initializer_timeout'?: number | undefined;
     private 'enterprise_project_id'?: string | undefined;
     public type?: CreateFunctionRequestBodyTypeEnum;
+    private 'log_config'?: FuncLogConfig | undefined;
+    private 'network_controller'?: NetworkControlConfig | undefined;
     public constructor(funcName?: any, _package?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any, codeType?: any) { 
         this['func_name'] = funcName;
         this['package'] = _package;
@@ -93,6 +98,16 @@ export class CreateFunctionRequestBody {
     }
     public get memorySize() {
         return this['memory_size'];
+    }
+    public withGpuMemory(gpuMemory: number): CreateFunctionRequestBody {
+        this['gpu_memory'] = gpuMemory;
+        return this;
+    }
+    public set gpuMemory(gpuMemory: number | undefined) {
+        this['gpu_memory'] = gpuMemory;
+    }
+    public get gpuMemory() {
+        return this['gpu_memory'];
     }
     public withCodeType(codeType: CreateFunctionRequestBodyCodeTypeEnum): CreateFunctionRequestBody {
         this['code_type'] = codeType;
@@ -195,6 +210,26 @@ export class CreateFunctionRequestBody {
     public withType(type: CreateFunctionRequestBodyTypeEnum): CreateFunctionRequestBody {
         this['type'] = type;
         return this;
+    }
+    public withLogConfig(logConfig: FuncLogConfig): CreateFunctionRequestBody {
+        this['log_config'] = logConfig;
+        return this;
+    }
+    public set logConfig(logConfig: FuncLogConfig | undefined) {
+        this['log_config'] = logConfig;
+    }
+    public get logConfig() {
+        return this['log_config'];
+    }
+    public withNetworkController(networkController: NetworkControlConfig): CreateFunctionRequestBody {
+        this['network_controller'] = networkController;
+        return this;
+    }
+    public set networkController(networkController: NetworkControlConfig | undefined) {
+        this['network_controller'] = networkController;
+    }
+    public get networkController() {
+        return this['network_controller'];
     }
 }
 

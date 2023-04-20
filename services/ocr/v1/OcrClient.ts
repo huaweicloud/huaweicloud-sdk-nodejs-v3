@@ -19,6 +19,8 @@ import { ChileIdCardConfidence } from './model/ChileIdCardConfidence';
 import { ChileIdCardRequestBody } from './model/ChileIdCardRequestBody';
 import { ChileIdCardResult } from './model/ChileIdCardResult';
 import { CustomTemplateRequestBody } from './model/CustomTemplateRequestBody';
+import { DriverLicenseBack } from './model/DriverLicenseBack';
+import { DriverLicenseFront } from './model/DriverLicenseFront';
 import { DriverLicenseRequestBody } from './model/DriverLicenseRequestBody';
 import { DriverLicenseResult } from './model/DriverLicenseResult';
 import { ExitEntryPermitConfidence } from './model/ExitEntryPermitConfidence';

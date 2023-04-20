@@ -1,9 +1,8 @@
 
 
 export class ListVersionDetailsRequest {
-    private 'Content-Type': string | undefined;
-    public constructor(contentType?: any) { 
-        this['Content-Type'] = contentType;
+    private 'Content-Type'?: string | undefined;
+    public constructor() { 
     }
     public withContentType(contentType: string): ListVersionDetailsRequest {
         this['Content-Type'] = contentType;

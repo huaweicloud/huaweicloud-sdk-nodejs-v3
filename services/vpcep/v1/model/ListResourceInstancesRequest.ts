@@ -3,11 +3,10 @@ import { QueryResourceInstanceTagsBody } from './QueryResourceInstanceTagsBody';
 
 export class ListResourceInstancesRequest {
     private 'resource_type': string | undefined;
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     public body?: QueryResourceInstanceTagsBody;
-    public constructor(resourceType?: any, contentType?: any) { 
+    public constructor(resourceType?: any) { 
         this['resource_type'] = resourceType;
-        this['Content-Type'] = contentType;
     }
     public withResourceType(resourceType: string): ListResourceInstancesRequest {
         this['resource_type'] = resourceType;

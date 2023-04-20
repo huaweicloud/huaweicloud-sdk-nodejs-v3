@@ -3,11 +3,10 @@ import { UpdateEndpointWhiteRequestBody } from './UpdateEndpointWhiteRequestBody
 
 export class UpdateEndpointWhiteRequest {
     private 'vpc_endpoint_id': string | undefined;
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     public body?: UpdateEndpointWhiteRequestBody;
-    public constructor(vpcEndpointId?: any, contentType?: any) { 
+    public constructor(vpcEndpointId?: any) { 
         this['vpc_endpoint_id'] = vpcEndpointId;
-        this['Content-Type'] = contentType;
     }
     public withVpcEndpointId(vpcEndpointId: string): UpdateEndpointWhiteRequest {
         this['vpc_endpoint_id'] = vpcEndpointId;

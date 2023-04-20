@@ -7,6 +7,7 @@ export class UpdateEndpointServiceRequestBody {
     public ports?: Array<PortList>;
     private 'port_id'?: string | undefined;
     private 'vip_port_id'?: string | undefined;
+    private 'tcp_proxy'?: UpdateEndpointServiceRequestBodyTcpProxyEnum | undefined;
     public description?: string;
     public constructor() { 
     }
@@ -54,8 +55,30 @@ export class UpdateEndpointServiceRequestBody {
     public get vipPortId() {
         return this['vip_port_id'];
     }
+    public withTcpProxy(tcpProxy: UpdateEndpointServiceRequestBodyTcpProxyEnum): UpdateEndpointServiceRequestBody {
+        this['tcp_proxy'] = tcpProxy;
+        return this;
+    }
+    public set tcpProxy(tcpProxy: UpdateEndpointServiceRequestBodyTcpProxyEnum | undefined) {
+        this['tcp_proxy'] = tcpProxy;
+    }
+    public get tcpProxy() {
+        return this['tcp_proxy'];
+    }
     public withDescription(description: string): UpdateEndpointServiceRequestBody {
         this['description'] = description;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateEndpointServiceRequestBodyTcpProxyEnum {
+    CLOSE = 'close',
+    TOA_OPEN = 'toa_open',
+    PROXY_OPEN = 'proxy_open',
+    OPEN = 'open',
+    PROXY_VNI = 'proxy_vni'
 }

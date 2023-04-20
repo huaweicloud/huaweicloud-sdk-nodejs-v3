@@ -17,6 +17,8 @@ export * from './model/ChileIdCardConfidence';
 export * from './model/ChileIdCardRequestBody';
 export * from './model/ChileIdCardResult';
 export * from './model/CustomTemplateRequestBody';
+export * from './model/DriverLicenseBack';
+export * from './model/DriverLicenseFront';
 export * from './model/DriverLicenseRequestBody';
 export * from './model/DriverLicenseResult';
 export * from './model/ExitEntryPermitConfidence';

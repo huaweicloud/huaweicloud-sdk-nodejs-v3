@@ -1,10 +1,9 @@
 
 
 export class ListServiceDetailsRequest {
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string | undefined;
     private 'vpc_endpoint_service_id': string | undefined;
-    public constructor(contentType?: any, vpcEndpointServiceId?: any) { 
-        this['Content-Type'] = contentType;
+    public constructor(vpcEndpointServiceId?: any) { 
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
     }
     public withContentType(contentType: string): ListServiceDetailsRequest {

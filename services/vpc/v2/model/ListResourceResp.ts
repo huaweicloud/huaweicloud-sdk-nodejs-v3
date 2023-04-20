@@ -2,24 +2,24 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class ListResourceResp {
-    private 'resouce_detail': object | undefined;
+    private 'resource_detail': object | undefined;
     private 'resource_id': string | undefined;
     private 'resource_name': string | undefined;
     public tags?: Array<ResourceTag>;
-    public constructor(resouceDetail?: any, resourceId?: any, resourceName?: any) { 
-        this['resouce_detail'] = resouceDetail;
+    public constructor(resourceDetail?: any, resourceId?: any, resourceName?: any) { 
+        this['resource_detail'] = resourceDetail;
         this['resource_id'] = resourceId;
         this['resource_name'] = resourceName;
     }
-    public withResouceDetail(resouceDetail: object): ListResourceResp {
-        this['resouce_detail'] = resouceDetail;
+    public withResourceDetail(resourceDetail: object): ListResourceResp {
+        this['resource_detail'] = resourceDetail;
         return this;
     }
-    public set resouceDetail(resouceDetail: object | undefined) {
-        this['resouce_detail'] = resouceDetail;
+    public set resourceDetail(resourceDetail: object | undefined) {
+        this['resource_detail'] = resourceDetail;
     }
-    public get resouceDetail() {
-        return this['resouce_detail'];
+    public get resourceDetail() {
+        return this['resource_detail'];
     }
     public withResourceId(resourceId: string): ListResourceResp {
         this['resource_id'] = resourceId;

@@ -7,24 +7,9 @@ import { CelebrityRecognitionReq } from './model/CelebrityRecognitionReq';
 import { CelebrityRecognitionResultBody } from './model/CelebrityRecognitionResultBody';
 import { CreateImageHighresolutionMattingTaskRequest } from './model/CreateImageHighresolutionMattingTaskRequest';
 import { CreateImageHighresolutionMattingTaskResponse } from './model/CreateImageHighresolutionMattingTaskResponse';
-import { CreateImageTranslateRequestBody } from './model/CreateImageTranslateRequestBody';
-import { CreateImageTranslateTaskRequest } from './model/CreateImageTranslateTaskRequest';
-import { CreateImageTranslateTaskResponse } from './model/CreateImageTranslateTaskResponse';
-import { CreateVideoCoverAnalysisTaskRequest } from './model/CreateVideoCoverAnalysisTaskRequest';
-import { CreateVideoCoverAnalysisTaskRequestBody } from './model/CreateVideoCoverAnalysisTaskRequestBody';
-import { CreateVideoCoverAnalysisTaskResponse } from './model/CreateVideoCoverAnalysisTaskResponse';
 import { CreateVideoObjectMaskingTaskRequest } from './model/CreateVideoObjectMaskingTaskRequest';
 import { CreateVideoObjectMaskingTaskRequestBody } from './model/CreateVideoObjectMaskingTaskRequestBody';
 import { CreateVideoObjectMaskingTaskResponse } from './model/CreateVideoObjectMaskingTaskResponse';
-import { CreateVideoShotSplitTaskRequest } from './model/CreateVideoShotSplitTaskRequest';
-import { CreateVideoShotSplitTaskResponse } from './model/CreateVideoShotSplitTaskResponse';
-import { CreateVideoSplitTaskRequestBody } from './model/CreateVideoSplitTaskRequestBody';
-import { CreateVideoSummarizationAnalysisTaskRequest } from './model/CreateVideoSummarizationAnalysisTaskRequest';
-import { CreateVideoSummarizationAnalysisTaskResponse } from './model/CreateVideoSummarizationAnalysisTaskResponse';
-import { CreateVideoSummarizationTaskRequestBody } from './model/CreateVideoSummarizationTaskRequestBody';
-import { CreateVideoTranslateTaskRequest } from './model/CreateVideoTranslateTaskRequest';
-import { CreateVideoTranslateTaskRequestBody } from './model/CreateVideoTranslateTaskRequestBody';
-import { CreateVideoTranslateTaskResponse } from './model/CreateVideoTranslateTaskResponse';
 import { ImageDescriptionReq } from './model/ImageDescriptionReq';
 import { ImageDescriptionResponseResult } from './model/ImageDescriptionResponseResult';
 import { ImageHighresolutionMattingConfig } from './model/ImageHighresolutionMattingConfig';
@@ -55,13 +40,6 @@ import { ImageTaggingItemBodyI18nTag } from './model/ImageTaggingItemBodyI18nTag
 import { ImageTaggingItemBodyI18nType } from './model/ImageTaggingItemBodyI18nType';
 import { ImageTaggingReq } from './model/ImageTaggingReq';
 import { ImageTaggingResponseResult } from './model/ImageTaggingResponseResult';
-import { ImageTranslateConfig } from './model/ImageTranslateConfig';
-import { ImageTranslateConfigCommon } from './model/ImageTranslateConfigCommon';
-import { ImageTranslateInference } from './model/ImageTranslateInference';
-import { ImageTranslateTaskInput } from './model/ImageTranslateTaskInput';
-import { ImageTranslateTaskInputData } from './model/ImageTranslateTaskInputData';
-import { ObjectMaskingTaskInput } from './model/ObjectMaskingTaskInput';
-import { ObjectMaskingTaskInputData } from './model/ObjectMaskingTaskInputData';
 import { RecaptureDetectReq } from './model/RecaptureDetectReq';
 import { RecaptureDetectResponseResult } from './model/RecaptureDetectResponseResult';
 import { RecaptureDetectResponseResultDetail } from './model/RecaptureDetectResponseResultDetail';
@@ -87,44 +65,16 @@ import { RunRecaptureDetectRequest } from './model/RunRecaptureDetectRequest';
 import { RunRecaptureDetectResponse } from './model/RunRecaptureDetectResponse';
 import { ShowImageHighresolutionMattingTaskRequest } from './model/ShowImageHighresolutionMattingTaskRequest';
 import { ShowImageHighresolutionMattingTaskResponse } from './model/ShowImageHighresolutionMattingTaskResponse';
-import { ShowImageTranslateTaskRequest } from './model/ShowImageTranslateTaskRequest';
-import { ShowImageTranslateTaskResponse } from './model/ShowImageTranslateTaskResponse';
-import { ShowVideoCoverAnalysisTaskRequest } from './model/ShowVideoCoverAnalysisTaskRequest';
-import { ShowVideoCoverAnalysisTaskResponse } from './model/ShowVideoCoverAnalysisTaskResponse';
 import { ShowVideoObjectMaskingTaskRequest } from './model/ShowVideoObjectMaskingTaskRequest';
 import { ShowVideoObjectMaskingTaskResponse } from './model/ShowVideoObjectMaskingTaskResponse';
-import { ShowVideoShotSplitTaskRequest } from './model/ShowVideoShotSplitTaskRequest';
-import { ShowVideoShotSplitTaskResponse } from './model/ShowVideoShotSplitTaskResponse';
-import { ShowVideoSummarizationAnalysisTaskRequest } from './model/ShowVideoSummarizationAnalysisTaskRequest';
-import { ShowVideoSummarizationAnalysisTaskResponse } from './model/ShowVideoSummarizationAnalysisTaskResponse';
-import { ShowVideoTranslateTaskRequest } from './model/ShowVideoTranslateTaskRequest';
-import { ShowVideoTranslateTaskResponse } from './model/ShowVideoTranslateTaskResponse';
-import { SummarizationAnalysisConfig } from './model/SummarizationAnalysisConfig';
-import { SummarizationAnalysisConfigCommon } from './model/SummarizationAnalysisConfigCommon';
-import { SummarizationAnalysisInference } from './model/SummarizationAnalysisInference';
 import { TaskCallback } from './model/TaskCallback';
+import { TaskInput } from './model/TaskInput';
+import { TaskInputData } from './model/TaskInputData';
 import { TaskOutput } from './model/TaskOutput';
 import { TaskOutputObs } from './model/TaskOutputObs';
-import { VideoCoverAnalysisConfig } from './model/VideoCoverAnalysisConfig';
-import { VideoCoverAnalysisConfigCommon } from './model/VideoCoverAnalysisConfigCommon';
-import { VideoCoverAnalysisTaskInput } from './model/VideoCoverAnalysisTaskInput';
-import { VideoCoverAnalysisTaskInputData } from './model/VideoCoverAnalysisTaskInputData';
-import { VideoCoverAnalysisinference } from './model/VideoCoverAnalysisinference';
 import { VideoObjectMaskingInference } from './model/VideoObjectMaskingInference';
 import { VideoObjectMaskingTaskConfig } from './model/VideoObjectMaskingTaskConfig';
 import { VideoObjectMaskingTaskConfigCommon } from './model/VideoObjectMaskingTaskConfigCommon';
-import { VideoSplitTaskInput } from './model/VideoSplitTaskInput';
-import { VideoSplitTaskInputData } from './model/VideoSplitTaskInputData';
-import { VideoSummarizationTaskInput } from './model/VideoSummarizationTaskInput';
-import { VideoSummarizationTaskInputData } from './model/VideoSummarizationTaskInputData';
-import { VideoTranslateConfig } from './model/VideoTranslateConfig';
-import { VideoTranslateConfigCommon } from './model/VideoTranslateConfigCommon';
-import { VideoTranslateInference } from './model/VideoTranslateInference';
-import { VideoTranslateInferenceRewriteConfig } from './model/VideoTranslateInferenceRewriteConfig';
-import { VideoTranslateInferenceRewriteConfigBackground } from './model/VideoTranslateInferenceRewriteConfigBackground';
-import { VideoTranslateInferenceRewriteConfigStroke } from './model/VideoTranslateInferenceRewriteConfigStroke';
-import { VideoTranslateTaskInput } from './model/VideoTranslateTaskInput';
-import { VideoTranslateTaskInputData } from './model/VideoTranslateTaskInputData';
 
 export class ImageClient {
     public static newBuilder(): ClientBuilder<ImageClient> {
@@ -161,44 +111,6 @@ export class ImageClient {
     }
 
     /**
-     * Create Task
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建任务
-     * @param {CreateImageTranslateRequestBody} createTaskRequestBody Create task request body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createImageTranslateTask(createImageTranslateTaskRequest?: CreateImageTranslateTaskRequest): Promise<CreateImageTranslateTaskResponse> {
-        const options = ParamCreater().createImageTranslateTask(createImageTranslateTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建视频封面任务
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建任务
-     * @param {CreateVideoCoverAnalysisTaskRequestBody} createTaskRequestBody Create task request body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createVideoCoverAnalysisTask(createVideoCoverAnalysisTaskRequest?: CreateVideoCoverAnalysisTaskRequest): Promise<CreateVideoCoverAnalysisTaskResponse> {
-        const options = ParamCreater().createVideoCoverAnalysisTask(createVideoCoverAnalysisTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 创建视频脱敏除任务，将输入视频的图像敏感信息模糊化，包括视频中的人脸和车牌
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -213,63 +125,6 @@ export class ImageClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建视频拆条任务
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建任务
-     * @param {CreateVideoSplitTaskRequestBody} createTaskRequestBody Create task request body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createVideoShotSplitTask(createVideoShotSplitTaskRequest?: CreateVideoShotSplitTaskRequest): Promise<CreateVideoShotSplitTaskResponse> {
-        const options = ParamCreater().createVideoShotSplitTask(createVideoShotSplitTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * Create Task
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建任务
-     * @param {CreateVideoSummarizationTaskRequestBody} createTaskRequestBody Create task request body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createVideoSummarizationAnalysisTask(createVideoSummarizationAnalysisTaskRequest?: CreateVideoSummarizationAnalysisTaskRequest): Promise<CreateVideoSummarizationAnalysisTaskResponse> {
-        const options = ParamCreater().createVideoSummarizationAnalysisTask(createVideoSummarizationAnalysisTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * Create Task
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建任务
-     * @param {CreateVideoTranslateTaskRequestBody} createTaskRequestBody Create task request body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createVideoTranslateTask(createVideoTranslateTaskRequest?: CreateVideoTranslateTaskRequest): Promise<CreateVideoTranslateTaskResponse> {
-        const options = ParamCreater().createVideoTranslateTask(createVideoTranslateTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -486,44 +341,6 @@ export class ImageClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询任务
-     * @param {string} taskId 任务id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showImageTranslateTask(showImageTranslateTaskRequest?: ShowImageTranslateTaskRequest): Promise<ShowImageTranslateTaskResponse> {
-        const options = ParamCreater().showImageTranslateTask(showImageTranslateTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询视频封面任务完成状态
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询任务
-     * @param {string} taskId 任务id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showVideoCoverAnalysisTask(showVideoCoverAnalysisTaskRequest?: ShowVideoCoverAnalysisTaskRequest): Promise<ShowVideoCoverAnalysisTaskResponse> {
-        const options = ParamCreater().showVideoCoverAnalysisTask(showVideoCoverAnalysisTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * show task
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
      * @summary 查询视频脱敏任务详情
      * @param {string} taskId 任务ID
      * @param {*} [options] Override http request option.
@@ -531,63 +348,6 @@ export class ImageClient {
      */
     public showVideoObjectMaskingTask(showVideoObjectMaskingTaskRequest?: ShowVideoObjectMaskingTaskRequest): Promise<ShowVideoObjectMaskingTaskResponse> {
         const options = ParamCreater().showVideoObjectMaskingTask(showVideoObjectMaskingTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 查询拆条任务状态
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询任务
-     * @param {string} taskId 待查询任务ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showVideoShotSplitTask(showVideoShotSplitTaskRequest?: ShowVideoShotSplitTaskRequest): Promise<ShowVideoShotSplitTaskResponse> {
-        const options = ParamCreater().showVideoShotSplitTask(showVideoShotSplitTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * show task
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询任务
-     * @param {string} taskId 任务ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showVideoSummarizationAnalysisTask(showVideoSummarizationAnalysisTaskRequest?: ShowVideoSummarizationAnalysisTaskRequest): Promise<ShowVideoSummarizationAnalysisTaskResponse> {
-        const options = ParamCreater().showVideoSummarizationAnalysisTask(showVideoSummarizationAnalysisTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * show task
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询任务
-     * @param {string} taskId 任务id
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showVideoTranslateTask(showVideoTranslateTaskRequest?: ShowVideoTranslateTaskRequest): Promise<ShowVideoTranslateTaskResponse> {
-        const options = ParamCreater().showVideoTranslateTask(showVideoTranslateTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
@@ -638,82 +398,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * Create Task
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createImageTranslateTask(createImageTranslateTaskRequest?: CreateImageTranslateTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/image-wisedesign-translate/tasks",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-
-            if (createImageTranslateTaskRequest !== null && createImageTranslateTaskRequest !== undefined) {
-                if (createImageTranslateTaskRequest instanceof CreateImageTranslateTaskRequest) {
-                    body = createImageTranslateTaskRequest.body
-                } else {
-                    body = createImageTranslateTaskRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建视频封面任务
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createVideoCoverAnalysisTask(createVideoCoverAnalysisTaskRequest?: CreateVideoCoverAnalysisTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/video-cover-analysis/tasks",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-
-            if (createVideoCoverAnalysisTaskRequest !== null && createVideoCoverAnalysisTaskRequest !== undefined) {
-                if (createVideoCoverAnalysisTaskRequest instanceof CreateVideoCoverAnalysisTaskRequest) {
-                    body = createVideoCoverAnalysisTaskRequest.body
-                } else {
-                    body = createVideoCoverAnalysisTaskRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 创建视频脱敏除任务，将输入视频的图像敏感信息模糊化，包括视频中的人脸和车牌
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -737,120 +421,6 @@ export const ParamCreater = function () {
                     body = createVideoObjectMaskingTaskRequest.body
                 } else {
                     body = createVideoObjectMaskingTaskRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建视频拆条任务
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createVideoShotSplitTask(createVideoShotSplitTaskRequest?: CreateVideoShotSplitTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/video-shot-split/tasks",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-
-            if (createVideoShotSplitTaskRequest !== null && createVideoShotSplitTaskRequest !== undefined) {
-                if (createVideoShotSplitTaskRequest instanceof CreateVideoShotSplitTaskRequest) {
-                    body = createVideoShotSplitTaskRequest.body
-                } else {
-                    body = createVideoShotSplitTaskRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Create Task
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createVideoSummarizationAnalysisTask(createVideoSummarizationAnalysisTaskRequest?: CreateVideoSummarizationAnalysisTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/video-summarization-analysis/tasks",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-
-            if (createVideoSummarizationAnalysisTaskRequest !== null && createVideoSummarizationAnalysisTaskRequest !== undefined) {
-                if (createVideoSummarizationAnalysisTaskRequest instanceof CreateVideoSummarizationAnalysisTaskRequest) {
-                    body = createVideoSummarizationAnalysisTaskRequest.body
-                } else {
-                    body = createVideoSummarizationAnalysisTaskRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * Create Task
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createVideoTranslateTask(createVideoTranslateTaskRequest?: CreateVideoTranslateTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/video-translate/tasks",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            var body: any;
-
-            if (createVideoTranslateTaskRequest !== null && createVideoTranslateTaskRequest !== undefined) {
-                if (createVideoTranslateTaskRequest instanceof CreateVideoTranslateTaskRequest) {
-                    body = createVideoTranslateTaskRequest.body
-                } else {
-                    body = createVideoTranslateTaskRequest['body'];
                 }
             }
 
@@ -1256,82 +826,6 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        showImageTranslateTask(showImageTranslateTaskRequest?: ShowImageTranslateTaskRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/image/image-wisedesign-translate/tasks/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let taskId;
-
-            if (showImageTranslateTaskRequest !== null && showImageTranslateTaskRequest !== undefined) {
-                if (showImageTranslateTaskRequest instanceof ShowImageTranslateTaskRequest) {
-                    taskId = showImageTranslateTaskRequest.taskId;
-                } else {
-                    taskId = showImageTranslateTaskRequest['task_id'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showImageTranslateTask.');
-            }
-
-            options.pathParams = { 'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询视频封面任务完成状态
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showVideoCoverAnalysisTask(showVideoCoverAnalysisTaskRequest?: ShowVideoCoverAnalysisTaskRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/image/video-cover-analysis/tasks/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let taskId;
-
-            if (showVideoCoverAnalysisTaskRequest !== null && showVideoCoverAnalysisTaskRequest !== undefined) {
-                if (showVideoCoverAnalysisTaskRequest instanceof ShowVideoCoverAnalysisTaskRequest) {
-                    taskId = showVideoCoverAnalysisTaskRequest.taskId;
-                } else {
-                    taskId = showVideoCoverAnalysisTaskRequest['task_id'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoCoverAnalysisTask.');
-            }
-
-            options.pathParams = { 'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * show task
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
         showVideoObjectMaskingTask(showVideoObjectMaskingTaskRequest?: ShowVideoObjectMaskingTaskRequest) {
             const options = {
                 method: "GET",
@@ -1358,120 +852,6 @@ export const ParamCreater = function () {
         
             if (taskId === null || taskId === undefined) {
             throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoObjectMaskingTask.');
-            }
-
-            options.pathParams = { 'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 查询拆条任务状态
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showVideoShotSplitTask(showVideoShotSplitTaskRequest?: ShowVideoShotSplitTaskRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/image/video-shot-split/tasks/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let taskId;
-
-            if (showVideoShotSplitTaskRequest !== null && showVideoShotSplitTaskRequest !== undefined) {
-                if (showVideoShotSplitTaskRequest instanceof ShowVideoShotSplitTaskRequest) {
-                    taskId = showVideoShotSplitTaskRequest.taskId;
-                } else {
-                    taskId = showVideoShotSplitTaskRequest['task_id'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoShotSplitTask.');
-            }
-
-            options.pathParams = { 'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * show task
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showVideoSummarizationAnalysisTask(showVideoSummarizationAnalysisTaskRequest?: ShowVideoSummarizationAnalysisTaskRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/image/video-summarization-analysis/tasks/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let taskId;
-
-            if (showVideoSummarizationAnalysisTaskRequest !== null && showVideoSummarizationAnalysisTaskRequest !== undefined) {
-                if (showVideoSummarizationAnalysisTaskRequest instanceof ShowVideoSummarizationAnalysisTaskRequest) {
-                    taskId = showVideoSummarizationAnalysisTaskRequest.taskId;
-                } else {
-                    taskId = showVideoSummarizationAnalysisTaskRequest['task_id'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoSummarizationAnalysisTask.');
-            }
-
-            options.pathParams = { 'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * show task
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showVideoTranslateTask(showVideoTranslateTaskRequest?: ShowVideoTranslateTaskRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/image/video-translate/tasks/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let taskId;
-
-            if (showVideoTranslateTaskRequest !== null && showVideoTranslateTaskRequest !== undefined) {
-                if (showVideoTranslateTaskRequest instanceof ShowVideoTranslateTaskRequest) {
-                    taskId = showVideoTranslateTaskRequest.taskId;
-                } else {
-                    taskId = showVideoTranslateTaskRequest['task_id'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoTranslateTask.');
             }
 
             options.pathParams = { 'task_id': taskId, };

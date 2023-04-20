@@ -1,3 +1,5 @@
+import { DriverLicenseBack } from './DriverLicenseBack';
+import { DriverLicenseFront } from './DriverLicenseFront';
 
 
 export class DriverLicenseResult {
@@ -20,6 +22,8 @@ export class DriverLicenseResult {
     private 'generation_date'?: string | undefined;
     private 'current_time'?: string | undefined;
     private 'text_location'?: object | undefined;
+    public front?: DriverLicenseFront;
+    public back?: DriverLicenseBack;
     public constructor() { 
     }
     public withType(type: string): DriverLicenseResult {
@@ -163,5 +167,13 @@ export class DriverLicenseResult {
     }
     public get textLocation() {
         return this['text_location'];
+    }
+    public withFront(front: DriverLicenseFront): DriverLicenseResult {
+        this['front'] = front;
+        return this;
+    }
+    public withBack(back: DriverLicenseBack): DriverLicenseResult {
+        this['back'] = back;
+        return this;
     }
 }

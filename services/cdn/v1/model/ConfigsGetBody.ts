@@ -1,3 +1,4 @@
+import { CacheRules } from './CacheRules';
 import { CacheUrlParameterFilter } from './CacheUrlParameterFilter';
 import { Compress } from './Compress';
 import { ErrorCodeCache } from './ErrorCodeCache';
@@ -5,8 +6,10 @@ import { ErrorCodeRedirectRules } from './ErrorCodeRedirectRules';
 import { ForceRedirectConfig } from './ForceRedirectConfig';
 import { HttpGetBody } from './HttpGetBody';
 import { HttpResponseHeader } from './HttpResponseHeader';
+import { IpFilter } from './IpFilter';
 import { OriginRequestHeader } from './OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './OriginRequestUrlRewrite';
+import { RefererConfig } from './RefererConfig';
 import { SourcesConfig } from './SourcesConfig';
 import { UrlAuthGetBody } from './UrlAuthGetBody';
 import { UserAgentFilter } from './UserAgentFilter';
@@ -18,6 +21,10 @@ export class ConfigsGetBody {
     private 'url_auth'?: UrlAuthGetBody | undefined;
     public https?: HttpGetBody;
     public sources?: Array<SourcesConfig>;
+    private 'origin_follow302_status'?: string | undefined;
+    private 'cache_rules'?: Array<CacheRules> | undefined;
+    private 'ip_filter'?: IpFilter | undefined;
+    public referer?: RefererConfig;
     private 'origin_protocol'?: string | undefined;
     private 'force_redirect'?: ForceRedirectConfig | undefined;
     public compress?: Compress;
@@ -66,6 +73,40 @@ export class ConfigsGetBody {
     }
     public withSources(sources: Array<SourcesConfig>): ConfigsGetBody {
         this['sources'] = sources;
+        return this;
+    }
+    public withOriginFollow302Status(originFollow302Status: string): ConfigsGetBody {
+        this['origin_follow302_status'] = originFollow302Status;
+        return this;
+    }
+    public set originFollow302Status(originFollow302Status: string | undefined) {
+        this['origin_follow302_status'] = originFollow302Status;
+    }
+    public get originFollow302Status() {
+        return this['origin_follow302_status'];
+    }
+    public withCacheRules(cacheRules: Array<CacheRules>): ConfigsGetBody {
+        this['cache_rules'] = cacheRules;
+        return this;
+    }
+    public set cacheRules(cacheRules: Array<CacheRules> | undefined) {
+        this['cache_rules'] = cacheRules;
+    }
+    public get cacheRules() {
+        return this['cache_rules'];
+    }
+    public withIpFilter(ipFilter: IpFilter): ConfigsGetBody {
+        this['ip_filter'] = ipFilter;
+        return this;
+    }
+    public set ipFilter(ipFilter: IpFilter | undefined) {
+        this['ip_filter'] = ipFilter;
+    }
+    public get ipFilter() {
+        return this['ip_filter'];
+    }
+    public withReferer(referer: RefererConfig): ConfigsGetBody {
+        this['referer'] = referer;
         return this;
     }
     public withOriginProtocol(originProtocol: string): ConfigsGetBody {

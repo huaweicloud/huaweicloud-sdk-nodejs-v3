@@ -4,7 +4,6 @@ export class ListExecutionPlansRequest {
     private 'Client-Request-Id': string | undefined;
     private 'project_id': string | undefined;
     private 'stack_name': string | undefined;
-    public executor?: string;
     private 'stack_id'?: string | undefined;
     public constructor(clientRequestId?: any, projectId?: any, stackName?: any) { 
         this['Client-Request-Id'] = clientRequestId;
@@ -40,10 +39,6 @@ export class ListExecutionPlansRequest {
     }
     public get stackName() {
         return this['stack_name'];
-    }
-    public withExecutor(executor: string): ListExecutionPlansRequest {
-        this['executor'] = executor;
-        return this;
     }
     public withStackId(stackId: string): ListExecutionPlansRequest {
         this['stack_id'] = stackId;

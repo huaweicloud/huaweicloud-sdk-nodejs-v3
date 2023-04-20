@@ -9,6 +9,11 @@ import { BatchCopyDomainResponse } from './model/BatchCopyDomainResponse';
 import { BatchCopyErrorRsp } from './model/BatchCopyErrorRsp';
 import { BatchCopyErrorRspError } from './model/BatchCopyErrorRspError';
 import { BatchCopyResultVo } from './model/BatchCopyResultVo';
+import { CacheRules } from './model/CacheRules';
+import { CacheUrlParameterFilter } from './model/CacheUrlParameterFilter';
+import { Compress } from './model/Compress';
+import { Configs } from './model/Configs';
+import { ConfigsGetBody } from './model/ConfigsGetBody';
 import { DomainOriginHost } from './model/DomainOriginHost';
 import { Domains } from './model/Domains';
 import { DomainsWithPort } from './model/DomainsWithPort';
@@ -19,8 +24,19 @@ import { DownloadStatisticsExcelResponse } from './model/DownloadStatisticsExcel
 import { EpResourceTag } from './model/EpResourceTag';
 import { ErrMsg } from './model/ErrMsg';
 import { ErrRsp } from './model/ErrRsp';
+import { ErrorCodeCache } from './model/ErrorCodeCache';
+import { ErrorCodeRedirectRules } from './model/ErrorCodeRedirectRules';
+import { ForceRedirectConfig } from './model/ForceRedirectConfig';
+import { HttpGetBody } from './model/HttpGetBody';
+import { HttpPutBody } from './model/HttpPutBody';
+import { HttpResponseHeader } from './model/HttpResponseHeader';
+import { IpFilter } from './model/IpFilter';
 import { ListDomainsRequest } from './model/ListDomainsRequest';
 import { ListDomainsResponse } from './model/ListDomainsResponse';
+import { ModifyDomainConfigRequestBody } from './model/ModifyDomainConfigRequestBody';
+import { OriginRequestHeader } from './model/OriginRequestHeader';
+import { OriginRequestUrlRewrite } from './model/OriginRequestUrlRewrite';
+import { RefererConfig } from './model/RefererConfig';
 import { SetChargeModesBody } from './model/SetChargeModesBody';
 import { SetChargeModesRequest } from './model/SetChargeModesRequest';
 import { SetChargeModesResponse } from './model/SetChargeModesResponse';
@@ -30,6 +46,8 @@ import { ShowChargeModesRequest } from './model/ShowChargeModesRequest';
 import { ShowChargeModesResponse } from './model/ShowChargeModesResponse';
 import { ShowDomainDetailByNameRequest } from './model/ShowDomainDetailByNameRequest';
 import { ShowDomainDetailByNameResponse } from './model/ShowDomainDetailByNameResponse';
+import { ShowDomainFullConfigRequest } from './model/ShowDomainFullConfigRequest';
+import { ShowDomainFullConfigResponse } from './model/ShowDomainFullConfigResponse';
 import { ShowDomainLocationStatsRequest } from './model/ShowDomainLocationStatsRequest';
 import { ShowDomainLocationStatsResponse } from './model/ShowDomainLocationStatsResponse';
 import { ShowDomainStatsRequest } from './model/ShowDomainStatsRequest';
@@ -41,6 +59,11 @@ import { ShowTopUrlResponse } from './model/ShowTopUrlResponse';
 import { Sources } from './model/Sources';
 import { SourcesConfig } from './model/SourcesConfig';
 import { TopUrlSummary } from './model/TopUrlSummary';
+import { UpdateDomainFullConfigRequest } from './model/UpdateDomainFullConfigRequest';
+import { UpdateDomainFullConfigResponse } from './model/UpdateDomainFullConfigResponse';
+import { UrlAuth } from './model/UrlAuth';
+import { UrlAuthGetBody } from './model/UrlAuthGetBody';
+import { UserAgentFilter } from './model/UserAgentFilter';
 
 export class CdnClient {
     public static newBuilder(): ClientBuilder<CdnClient> {
@@ -290,6 +313,26 @@ export class CdnClient {
     }
 
     /**
+     * 查询域名配置接口，支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6开关、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询域名配置接口
+     * @param {string} domainName 加速域名
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainFullConfig(showDomainFullConfigRequest?: ShowDomainFullConfigRequest): Promise<ShowDomainFullConfigResponse> {
+        const options = ParamCreater().showDomainFullConfig(showDomainFullConfigRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * - 支持查询90天内的数据。
      * 
      * - 支持多指标同时查询，不超过5个。
@@ -434,6 +477,27 @@ export class CdnClient {
      */
     public showTopUrl(showTopUrlRequest?: ShowTopUrlRequest): Promise<ShowTopUrlResponse> {
         const options = ParamCreater().showTopUrl(showTopUrlRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改域名全量配置接口，支持配置回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改域名全量配置接口
+     * @param {string} domainName 加速域名
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {ModifyDomainConfigRequestBody} [modifyDomainConfigRequestBody] 域名配置
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDomainFullConfig(updateDomainFullConfigRequest?: UpdateDomainFullConfigRequest): Promise<UpdateDomainFullConfigResponse> {
+        const options = ParamCreater().updateDomainFullConfig(updateDomainFullConfigRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1062,6 +1126,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询域名配置接口，支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6开关、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainFullConfig(showDomainFullConfigRequest?: ShowDomainFullConfigRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1.1/cdn/configuration/domains/{domain_name}/configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainName;
+            
+            let enterpriseProjectId;
+
+            if (showDomainFullConfigRequest !== null && showDomainFullConfigRequest !== undefined) {
+                if (showDomainFullConfigRequest instanceof ShowDomainFullConfigRequest) {
+                    domainName = showDomainFullConfigRequest.domainName;
+                    enterpriseProjectId = showDomainFullConfigRequest.enterpriseProjectId;
+                } else {
+                    domainName = showDomainFullConfigRequest['domain_name'];
+                    enterpriseProjectId = showDomainFullConfigRequest['enterprise_project_id'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling showDomainFullConfig.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'domain_name': domainName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * - 支持查询90天内的数据。
          * 
          * - 支持多指标同时查询，不超过5个。
@@ -1504,6 +1614,57 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改域名全量配置接口，支持配置回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDomainFullConfig(updateDomainFullConfigRequest?: UpdateDomainFullConfigRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1.1/cdn/configuration/domains/{domain_name}/configs",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            var body: any;
+            
+            let domainName;
+            
+            let enterpriseProjectId;
+
+            if (updateDomainFullConfigRequest !== null && updateDomainFullConfigRequest !== undefined) {
+                if (updateDomainFullConfigRequest instanceof UpdateDomainFullConfigRequest) {
+                    domainName = updateDomainFullConfigRequest.domainName;
+                    enterpriseProjectId = updateDomainFullConfigRequest.enterpriseProjectId;
+                    body = updateDomainFullConfigRequest.body
+                } else {
+                    domainName = updateDomainFullConfigRequest['domain_name'];
+                    enterpriseProjectId = updateDomainFullConfigRequest['enterprise_project_id'];
+                    body = updateDomainFullConfigRequest['body'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling updateDomainFullConfig.');
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'domain_name': domainName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
