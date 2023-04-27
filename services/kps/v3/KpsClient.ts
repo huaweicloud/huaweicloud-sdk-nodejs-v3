@@ -312,7 +312,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (associateKeypairRequest !== null && associateKeypairRequest !== undefined) {
                 if (associateKeypairRequest instanceof AssociateKeypairRequest) {
@@ -350,7 +350,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createKeypairRequest !== null && createKeypairRequest !== undefined) {
                 if (createKeypairRequest instanceof CreateKeypairRequest) {
@@ -383,8 +383,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -405,8 +404,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -443,8 +441,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -486,7 +483,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (disassociateKeypairRequest !== null && disassociateKeypairRequest !== undefined) {
                 if (disassociateKeypairRequest instanceof DisassociateKeypairRequest) {
@@ -519,8 +516,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -564,8 +560,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -602,8 +597,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -640,8 +634,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -685,8 +678,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -735,7 +727,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let keypairName;
 

@@ -1789,7 +1789,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverGroupId;
 
@@ -1841,7 +1841,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let nicId;
 
@@ -1887,7 +1887,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -1933,7 +1933,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -1979,7 +1979,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let volumeId;
 
@@ -2027,7 +2027,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -2073,7 +2073,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -2121,7 +2121,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -2167,7 +2167,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (batchRebootServersRequest !== null && batchRebootServersRequest !== undefined) {
                 if (batchRebootServersRequest instanceof BatchRebootServersRequest) {
@@ -2205,7 +2205,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (batchResetServersPasswordRequest !== null && batchResetServersPasswordRequest !== undefined) {
                 if (batchResetServersPasswordRequest instanceof BatchResetServersPasswordRequest) {
@@ -2243,7 +2243,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (batchStartServersRequest !== null && batchStartServersRequest !== undefined) {
                 if (batchStartServersRequest instanceof BatchStartServersRequest) {
@@ -2281,7 +2281,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (batchStopServersRequest !== null && batchStopServersRequest !== undefined) {
                 if (batchStopServersRequest instanceof BatchStopServersRequest) {
@@ -2320,7 +2320,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (batchUpdateServersNameRequest !== null && batchUpdateServersNameRequest !== undefined) {
                 if (batchUpdateServersNameRequest instanceof BatchUpdateServersNameRequest) {
@@ -2360,7 +2360,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -2408,7 +2408,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -2467,7 +2467,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let xClientToken;
 
@@ -2514,7 +2514,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createServerGroupRequest !== null && createServerGroupRequest !== undefined) {
                 if (createServerGroupRequest instanceof CreateServerGroupRequest) {
@@ -2574,7 +2574,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let xClientToken;
 
@@ -2616,8 +2616,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2659,7 +2658,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverGroupId;
 
@@ -2700,8 +2699,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2745,8 +2743,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2790,7 +2787,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (deleteServersRequest !== null && deleteServersRequest !== undefined) {
                 if (deleteServersRequest instanceof DeleteServersRequest) {
@@ -2823,8 +2820,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -2883,7 +2879,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let nicId;
 
@@ -2924,8 +2920,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -2962,8 +2957,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3042,8 +3036,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3082,8 +3075,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3127,8 +3119,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3167,8 +3158,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3194,7 +3184,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (listServersByTagRequest !== null && listServersByTagRequest !== undefined) {
                 if (listServersByTagRequest instanceof ListServersByTagRequest) {
@@ -3229,8 +3219,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3351,7 +3340,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -3399,7 +3388,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -3447,7 +3436,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let openStackAPIVersion;
 
@@ -3496,7 +3485,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let openStackAPIVersion;
 
@@ -3536,8 +3525,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3574,8 +3562,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3617,7 +3604,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -3658,8 +3645,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3680,8 +3666,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3732,8 +3717,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3770,8 +3754,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3892,8 +3875,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3937,8 +3919,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3987,7 +3968,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4035,7 +4016,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4083,7 +4064,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4131,7 +4112,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4177,7 +4158,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4227,7 +4208,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4281,7 +4262,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4322,8 +4303,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4362,8 +4342,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4400,8 +4379,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4438,8 +4416,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4485,8 +4462,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4523,8 +4499,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4545,8 +4520,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4588,7 +4562,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4631,8 +4605,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4674,7 +4647,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4722,7 +4695,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4768,7 +4741,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
             
@@ -4827,7 +4800,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -4870,8 +4843,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 

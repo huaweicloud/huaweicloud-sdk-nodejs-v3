@@ -77,6 +77,7 @@ export * from './model/HttpQueryCfwFlowLogsResponseDTOData';
 export * from './model/HttpQueryCfwFlowLogsResponseDTODataRecords';
 export * from './model/IdObject';
 export * from './model/IpsProtectDTO';
+export * from './model/IpsProtectModeObject';
 export * from './model/IpsSwitchDTO';
 export * from './model/IpsSwitchResponseDTO';
 export * from './model/ListAccessControlLogsRequest';

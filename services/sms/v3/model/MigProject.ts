@@ -15,6 +15,7 @@ export class MigProject {
     public type: MigProjectTypeEnum;
     private 'enterprise_project'?: string | undefined;
     public syncing: boolean;
+    private 'start_network_check'?: boolean | undefined;
     public constructor(name?: any, region?: any, usePublicIp?: any, existServer?: any, type?: any, syncing?: any) { 
         this['name'] = name;
         this['region'] = region;
@@ -104,6 +105,16 @@ export class MigProject {
     public withSyncing(syncing: boolean): MigProject {
         this['syncing'] = syncing;
         return this;
+    }
+    public withStartNetworkCheck(startNetworkCheck: boolean): MigProject {
+        this['start_network_check'] = startNetworkCheck;
+        return this;
+    }
+    public set startNetworkCheck(startNetworkCheck: boolean | undefined) {
+        this['start_network_check'] = startNetworkCheck;
+    }
+    public get startNetworkCheck() {
+        return this['start_network_check'];
     }
 }
 

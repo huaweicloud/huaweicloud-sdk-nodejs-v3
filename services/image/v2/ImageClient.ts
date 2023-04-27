@@ -45,8 +45,6 @@ import { RecaptureDetectResponseResult } from './model/RecaptureDetectResponseRe
 import { RecaptureDetectResponseResultDetail } from './model/RecaptureDetectResponseResultDetail';
 import { RunCelebrityRecognitionRequest } from './model/RunCelebrityRecognitionRequest';
 import { RunCelebrityRecognitionResponse } from './model/RunCelebrityRecognitionResponse';
-import { RunDeleteCustomTagsRequest } from './model/RunDeleteCustomTagsRequest';
-import { RunDeleteCustomTagsResponse } from './model/RunDeleteCustomTagsResponse';
 import { RunImageDescriptionRequest } from './model/RunImageDescriptionRequest';
 import { RunImageDescriptionResponse } from './model/RunImageDescriptionResponse';
 import { RunImageMainObjectDetectionRequest } from './model/RunImageMainObjectDetectionRequest';
@@ -59,8 +57,6 @@ import { RunImageSuperResolutionRequest } from './model/RunImageSuperResolutionR
 import { RunImageSuperResolutionResponse } from './model/RunImageSuperResolutionResponse';
 import { RunImageTaggingRequest } from './model/RunImageTaggingRequest';
 import { RunImageTaggingResponse } from './model/RunImageTaggingResponse';
-import { RunQueryCustomTagsRequest } from './model/RunQueryCustomTagsRequest';
-import { RunQueryCustomTagsResponse } from './model/RunQueryCustomTagsResponse';
 import { RunRecaptureDetectRequest } from './model/RunRecaptureDetectRequest';
 import { RunRecaptureDetectResponse } from './model/RunRecaptureDetectResponse';
 import { ShowImageHighresolutionMattingTaskRequest } from './model/ShowImageHighresolutionMattingTaskRequest';
@@ -141,24 +137,6 @@ export class ImageClient {
      */
     public runCelebrityRecognition(runCelebrityRecognitionRequest?: RunCelebrityRecognitionRequest): Promise<RunCelebrityRecognitionResponse> {
         const options = ParamCreater().runCelebrityRecognition(runCelebrityRecognitionRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 用于用户删除自定义的标签。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 删除媒资图像标签
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public runDeleteCustomTags(): Promise<RunDeleteCustomTagsResponse> {
-        const options = ParamCreater().runDeleteCustomTags();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -281,24 +259,6 @@ export class ImageClient {
     }
 
     /**
-     * 用于用户自查是否存在自定义的标签。
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询媒资图像标签
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public runQueryCustomTags(): Promise<RunQueryCustomTagsResponse> {
-        const options = ParamCreater().runQueryCustomTags();
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 零售行业通常根据零售店的销售量进行销售奖励，拍摄售出商品的条形码上传后台是常用的统计方式。翻拍识别利用深度神经网络算法判断条形码图片为原始拍摄，还是经过二次翻拍、打印翻拍等手法二次处理的图片。利用翻拍识别，可以检测出经过二次处理的不合规范图片，使得统计数据更准确、有效。。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -376,7 +336,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createImageHighresolutionMattingTaskRequest !== null && createImageHighresolutionMattingTaskRequest !== undefined) {
                 if (createImageHighresolutionMattingTaskRequest instanceof CreateImageHighresolutionMattingTaskRequest) {
@@ -414,7 +374,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createVideoObjectMaskingTaskRequest !== null && createVideoObjectMaskingTaskRequest !== undefined) {
                 if (createVideoObjectMaskingTaskRequest instanceof CreateVideoObjectMaskingTaskRequest) {
@@ -452,7 +412,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runCelebrityRecognitionRequest !== null && runCelebrityRecognitionRequest !== undefined) {
                 if (runCelebrityRecognitionRequest instanceof RunCelebrityRecognitionRequest) {
@@ -474,28 +434,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于用户删除自定义的标签。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        runDeleteCustomTags() {
-            const options = {
-                method: "DELETE",
-                url: "/v2/{project_id}/image/media-tagging/custom-tags",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 图像描述
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -512,7 +450,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runImageDescriptionRequest !== null && runImageDescriptionRequest !== undefined) {
                 if (runImageDescriptionRequest instanceof RunImageDescriptionRequest) {
@@ -550,7 +488,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runImageMainObjectDetectionRequest !== null && runImageMainObjectDetectionRequest !== undefined) {
                 if (runImageMainObjectDetectionRequest instanceof RunImageMainObjectDetectionRequest) {
@@ -588,7 +526,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runImageMediaTaggingRequest !== null && runImageMediaTaggingRequest !== undefined) {
                 if (runImageMediaTaggingRequest instanceof RunImageMediaTaggingRequest) {
@@ -626,7 +564,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runImageMediaTaggingDetRequest !== null && runImageMediaTaggingDetRequest !== undefined) {
                 if (runImageMediaTaggingDetRequest instanceof RunImageMediaTaggingDetRequest) {
@@ -664,7 +602,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runImageSuperResolutionRequest !== null && runImageSuperResolutionRequest !== undefined) {
                 if (runImageSuperResolutionRequest instanceof RunImageSuperResolutionRequest) {
@@ -702,7 +640,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runImageTaggingRequest !== null && runImageTaggingRequest !== undefined) {
                 if (runImageTaggingRequest instanceof RunImageTaggingRequest) {
@@ -724,28 +662,6 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于用户自查是否存在自定义的标签。
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        runQueryCustomTags() {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/image/media-tagging/custom-tags/check",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
          * 零售行业通常根据零售店的销售量进行销售奖励，拍摄售出商品的条形码上传后台是常用的统计方式。翻拍识别利用深度神经网络算法判断条形码图片为原始拍摄，还是经过二次翻拍、打印翻拍等手法二次处理的图片。利用翻拍识别，可以检测出经过二次处理的不合规范图片，使得统计数据更准确、有效。。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -762,7 +678,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runRecaptureDetectRequest !== null && runRecaptureDetectRequest !== undefined) {
                 if (runRecaptureDetectRequest instanceof RunRecaptureDetectRequest) {
@@ -795,8 +711,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -833,8 +748,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 

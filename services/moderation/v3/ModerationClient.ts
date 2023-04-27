@@ -194,7 +194,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (checkImageModerationRequest !== null && checkImageModerationRequest !== undefined) {
                 if (checkImageModerationRequest instanceof CheckImageModerationRequest) {
@@ -232,7 +232,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runCreateAudioModerationJobRequest !== null && runCreateAudioModerationJobRequest !== undefined) {
                 if (runCreateAudioModerationJobRequest instanceof RunCreateAudioModerationJobRequest) {
@@ -270,7 +270,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runCreateVideoModerationJobRequest !== null && runCreateVideoModerationJobRequest !== undefined) {
                 if (runCreateVideoModerationJobRequest instanceof RunCreateVideoModerationJobRequest) {
@@ -302,8 +302,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -340,8 +339,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -383,7 +381,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runTextModerationRequest !== null && runTextModerationRequest !== undefined) {
                 if (runTextModerationRequest instanceof RunTextModerationRequest) {

@@ -7,6 +7,7 @@ export class ActionResources {
     private 'resource_detail'?: Secret | undefined;
     private 'resource_name'?: string | undefined;
     public tags?: Array<TagItem>;
+    private 'sys_tags'?: Array<TagItem> | undefined;
     public constructor() { 
     }
     public withResourceId(resourceId: string): ActionResources {
@@ -42,5 +43,15 @@ export class ActionResources {
     public withTags(tags: Array<TagItem>): ActionResources {
         this['tags'] = tags;
         return this;
+    }
+    public withSysTags(sysTags: Array<TagItem>): ActionResources {
+        this['sys_tags'] = sysTags;
+        return this;
+    }
+    public set sysTags(sysTags: Array<TagItem> | undefined) {
+        this['sys_tags'] = sysTags;
+    }
+    public get sysTags() {
+        return this['sys_tags'];
     }
 }

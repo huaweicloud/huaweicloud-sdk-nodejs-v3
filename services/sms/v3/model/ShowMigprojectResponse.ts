@@ -16,6 +16,7 @@ export class ShowMigprojectResponse extends SdkResponse {
     public type?: ShowMigprojectResponseTypeEnum;
     private 'enterprise_project'?: string | undefined;
     public syncing?: boolean;
+    private 'start_network_check'?: boolean | undefined;
     public constructor() { 
         super();
     }
@@ -100,6 +101,16 @@ export class ShowMigprojectResponse extends SdkResponse {
     public withSyncing(syncing: boolean): ShowMigprojectResponse {
         this['syncing'] = syncing;
         return this;
+    }
+    public withStartNetworkCheck(startNetworkCheck: boolean): ShowMigprojectResponse {
+        this['start_network_check'] = startNetworkCheck;
+        return this;
+    }
+    public set startNetworkCheck(startNetworkCheck: boolean | undefined) {
+        this['start_network_check'] = startNetworkCheck;
+    }
+    public get startNetworkCheck() {
+        return this['start_network_check'];
     }
 }
 

@@ -33,6 +33,7 @@ import { CommandTimeTaken } from './model/CommandTimeTaken';
 import { CommandTimeTakenList } from './model/CommandTimeTakenList';
 import { ConclusionItem } from './model/ConclusionItem';
 import { ConfigMigrationInstanceBody } from './model/ConfigMigrationInstanceBody';
+import { ConfigTemplatesListInfo } from './model/ConfigTemplatesListInfo';
 import { CopyInstanceRequest } from './model/CopyInstanceRequest';
 import { CopyInstanceResponse } from './model/CopyInstanceResponse';
 import { CreateAutoExpireScanTaskRequest } from './model/CreateAutoExpireScanTaskRequest';
@@ -114,6 +115,8 @@ import { ListBigkeyScanTasksRequest } from './model/ListBigkeyScanTasksRequest';
 import { ListBigkeyScanTasksResponse } from './model/ListBigkeyScanTasksResponse';
 import { ListConfigHistoriesRequest } from './model/ListConfigHistoriesRequest';
 import { ListConfigHistoriesResponse } from './model/ListConfigHistoriesResponse';
+import { ListConfigTemplatesRequest } from './model/ListConfigTemplatesRequest';
+import { ListConfigTemplatesResponse } from './model/ListConfigTemplatesResponse';
 import { ListConfigurationsRequest } from './model/ListConfigurationsRequest';
 import { ListConfigurationsResponse } from './model/ListConfigurationsResponse';
 import { ListDiagnosisTasksRequest } from './model/ListDiagnosisTasksRequest';
@@ -161,6 +164,9 @@ import { QueryTenantQuotaRespQuotas } from './model/QueryTenantQuotaRespQuotas';
 import { RecordsResponse } from './model/RecordsResponse';
 import { RedisConfig } from './model/RedisConfig';
 import { RenameCommandResp } from './model/RenameCommandResp';
+import { ResetInstancePasswordBody } from './model/ResetInstancePasswordBody';
+import { ResetPasswordRequest } from './model/ResetPasswordRequest';
+import { ResetPasswordResponse } from './model/ResetPasswordResponse';
 import { ResizeInstanceBody } from './model/ResizeInstanceBody';
 import { ResizeInstanceRequest } from './model/ResizeInstanceRequest';
 import { ResizeInstanceResponse } from './model/ResizeInstanceResponse';
@@ -214,6 +220,8 @@ import { UpdateConfigurationsRequest } from './model/UpdateConfigurationsRequest
 import { UpdateConfigurationsResponse } from './model/UpdateConfigurationsResponse';
 import { UpdateHotkeyAutoScanConfigRequest } from './model/UpdateHotkeyAutoScanConfigRequest';
 import { UpdateHotkeyAutoScanConfigResponse } from './model/UpdateHotkeyAutoScanConfigResponse';
+import { UpdateInstanceBandwidthRequest } from './model/UpdateInstanceBandwidthRequest';
+import { UpdateInstanceBandwidthResponse } from './model/UpdateInstanceBandwidthResponse';
 import { UpdateInstanceRequest } from './model/UpdateInstanceRequest';
 import { UpdateInstanceResponse } from './model/UpdateInstanceResponse';
 import { UpdateIpWhitelistRequest } from './model/UpdateIpWhitelistRequest';
@@ -829,6 +837,33 @@ export class DcsClient {
     }
 
     /**
+     * 查询租户的参数模板列表，支持按照条件查询
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询参数模板列表
+     * @param {'sys' | 'user'} type 模板类型
+     * @param {string} [name] 参数模板名称，支持模糊查找
+     * @param {string} [templateId] 模板ID
+     * @param {string} [engine] 缓存引擎：Redis[和Memcached](tag:hws,hws_hk,ocb,sbc,tm,ctc,cmcc)。
+     * @param {string} [engineVersion] 缓存版本。  当缓存引擎为Redis时，取值为[3.0/4.0/5.0](tag:ctc,cmc)[3.0/4.0/5.0/6.0](tag:ocb,otc,sbc,g42,tm)[4.0/5.0/6.0](tag:hws,hws_hk)。  [当缓存引擎为Memcached时，该字段为可选，取值为空。](tag:hws,hws_hk,ocb,sbc,tm,ctc,cmcc) 
+     * @param {string} [cacheMode] 缓存实例类型。取值范围如下： - single：表示单机实例 - ha：表示主备实例 - cluster：表示cluster集群实例 - proxy：表示Proxy集群实例 [- ha_rw_split：表示读写分离实例](tag:hws) 
+     * @param {string} [description] 模板的描述信息
+     * @param {number} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0
+     * @param {number} [limit] 每页显示条数，最小值为1，最大值为1000，若不设置该参数，则为10。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listConfigTemplates(listConfigTemplatesRequest?: ListConfigTemplatesRequest): Promise<ListConfigTemplatesResponse> {
+        const options = ParamCreater().listConfigTemplates(listConfigTemplatesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定实例的配置参数信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1162,6 +1197,26 @@ export class DcsClient {
      */
     public listTagsOfTenant(): Promise<ListTagsOfTenantResponse> {
         const options = ParamCreater().listTagsOfTenant();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 重置缓存实例的密码。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重置密码
+     * @param {string} instanceId 实例ID。
+     * @param {ResetInstancePasswordBody} [resetPasswordRequestBody] This is a auto create BodyParameter
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetPassword(resetPasswordRequest?: ResetPasswordRequest): Promise<ResetPasswordResponse> {
+        const options = ParamCreater().resetPassword(resetPasswordRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1561,6 +1616,25 @@ export class DcsClient {
     }
 
     /**
+     * 变更指定实例的带宽
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 变更指定实例的带宽
+     * @param {string} instanceId 实例ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateInstanceBandwidth(updateInstanceBandwidthRequest?: UpdateInstanceBandwidthRequest): Promise<UpdateInstanceBandwidthResponse> {
+        const options = ParamCreater().updateInstanceBandwidth(updateInstanceBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改缓存实例的密码。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1662,7 +1736,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 
@@ -1708,7 +1782,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-            var body: any;
+            let body: any;
             
             let allFailure;
 
@@ -1748,8 +1822,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -1798,7 +1871,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (batchStopMigrationTasksRequest !== null && batchStopMigrationTasksRequest !== undefined) {
                 if (batchStopMigrationTasksRequest instanceof BatchStopMigrationTasksRequest) {
@@ -1831,8 +1904,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1875,7 +1947,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 
@@ -1915,8 +1987,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1953,8 +2024,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1996,7 +2066,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createCustomTemplateRequest !== null && createCustomTemplateRequest !== undefined) {
                 if (createCustomTemplateRequest instanceof CreateCustomTemplateRequest) {
@@ -2034,7 +2104,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 
@@ -2077,8 +2147,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2120,7 +2189,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createInstanceRequest !== null && createInstanceRequest !== undefined) {
                 if (createInstanceRequest instanceof CreateInstanceRequest) {
@@ -2158,7 +2227,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createMigrationTaskRequest !== null && createMigrationTaskRequest !== undefined) {
                 if (createMigrationTaskRequest instanceof CreateMigrationTaskRequest) {
@@ -2196,7 +2265,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createOnlineMigrationTaskRequest !== null && createOnlineMigrationTaskRequest !== undefined) {
                 if (createOnlineMigrationTaskRequest instanceof CreateOnlineMigrationTaskRequest) {
@@ -2229,8 +2298,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -2292,8 +2360,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2337,8 +2404,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2382,8 +2448,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2427,8 +2492,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2472,8 +2536,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2517,8 +2580,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2574,7 +2636,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (deleteMigrationTaskRequest !== null && deleteMigrationTaskRequest !== undefined) {
                 if (deleteMigrationTaskRequest instanceof DeleteMigrationTaskRequest) {
@@ -2609,8 +2671,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2647,8 +2708,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2669,8 +2729,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -2741,7 +2800,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
             
@@ -2789,8 +2848,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -2856,8 +2914,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -2916,8 +2973,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -2958,6 +3014,102 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询租户的参数模板列表，支持按照条件查询
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listConfigTemplates(listConfigTemplatesRequest?: ListConfigTemplatesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/config-templates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let type;
+            
+            let name;
+            
+            let templateId;
+            
+            let engine;
+            
+            let engineVersion;
+            
+            let cacheMode;
+            
+            let description;
+            
+            let offset;
+            
+            let limit;
+
+            if (listConfigTemplatesRequest !== null && listConfigTemplatesRequest !== undefined) {
+                if (listConfigTemplatesRequest instanceof ListConfigTemplatesRequest) {
+                    type = listConfigTemplatesRequest.type;
+                    name = listConfigTemplatesRequest.name;
+                    templateId = listConfigTemplatesRequest.templateId;
+                    engine = listConfigTemplatesRequest.engine;
+                    engineVersion = listConfigTemplatesRequest.engineVersion;
+                    cacheMode = listConfigTemplatesRequest.cacheMode;
+                    description = listConfigTemplatesRequest.description;
+                    offset = listConfigTemplatesRequest.offset;
+                    limit = listConfigTemplatesRequest.limit;
+                } else {
+                    type = listConfigTemplatesRequest['type'];
+                    name = listConfigTemplatesRequest['name'];
+                    templateId = listConfigTemplatesRequest['template_id'];
+                    engine = listConfigTemplatesRequest['engine'];
+                    engineVersion = listConfigTemplatesRequest['engine_version'];
+                    cacheMode = listConfigTemplatesRequest['cache_mode'];
+                    description = listConfigTemplatesRequest['description'];
+                    offset = listConfigTemplatesRequest['offset'];
+                    limit = listConfigTemplatesRequest['limit'];
+                }
+            }
+
+        
+            if (type === null || type === undefined) {
+                throw new RequiredError('type','Required parameter type was null or undefined when calling listConfigTemplates.');
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (templateId !== null && templateId !== undefined) {
+                localVarQueryParameter['template_id'] = templateId;
+            }
+            if (engine !== null && engine !== undefined) {
+                localVarQueryParameter['engine'] = engine;
+            }
+            if (engineVersion !== null && engineVersion !== undefined) {
+                localVarQueryParameter['engine_version'] = engineVersion;
+            }
+            if (cacheMode !== null && cacheMode !== undefined) {
+                localVarQueryParameter['cache_mode'] = cacheMode;
+            }
+            if (description !== null && description !== undefined) {
+                localVarQueryParameter['description'] = description;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定实例的配置参数信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2969,8 +3121,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3007,8 +3158,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3060,8 +3210,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3140,8 +3289,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3178,8 +3326,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3238,8 +3385,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3339,8 +3485,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3361,8 +3506,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3414,8 +3558,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3470,8 +3613,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3519,8 +3661,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3557,8 +3698,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3620,8 +3760,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3687,8 +3826,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -3774,8 +3912,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -3796,12 +3933,54 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 重置缓存实例的密码。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        resetPassword(resetPasswordRequest?: ResetPasswordRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instances/{instance_id}/password/reset",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
                 headers: {},
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
 
+            let body: any;
+            
+            let instanceId;
 
+            if (resetPasswordRequest !== null && resetPasswordRequest !== undefined) {
+                if (resetPasswordRequest instanceof ResetPasswordRequest) {
+                    instanceId = resetPasswordRequest.instanceId;
+                    body = resetPasswordRequest.body
+                } else {
+                    instanceId = resetPasswordRequest['instance_id'];
+                    body = resetPasswordRequest['body'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling resetPassword.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3823,7 +4002,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 
@@ -3871,7 +4050,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (restartOrFlushInstancesRequest !== null && restartOrFlushInstancesRequest !== undefined) {
                 if (restartOrFlushInstancesRequest instanceof RestartOrFlushInstancesRequest) {
@@ -3910,7 +4089,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 
@@ -3953,7 +4132,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let taskId;
 
@@ -3994,8 +4173,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4032,8 +4210,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4077,8 +4254,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4115,8 +4291,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4153,8 +4328,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4198,8 +4372,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4236,8 +4409,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4274,8 +4446,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4312,8 +4483,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4334,8 +4504,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4372,8 +4541,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4410,8 +4578,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4453,7 +4620,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 
@@ -4499,7 +4666,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 
@@ -4545,7 +4712,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 
@@ -4591,7 +4758,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 
@@ -4618,6 +4785,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 变更指定实例的带宽
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateInstanceBandwidth(updateInstanceBandwidthRequest?: UpdateInstanceBandwidthRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/instances/{instance_id}/bandwidth",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+
+            if (updateInstanceBandwidthRequest !== null && updateInstanceBandwidthRequest !== undefined) {
+                if (updateInstanceBandwidthRequest instanceof UpdateInstanceBandwidthRequest) {
+                    instanceId = updateInstanceBandwidthRequest.instanceId;
+                } else {
+                    instanceId = updateInstanceBandwidthRequest['instance_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling updateInstanceBandwidth.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改缓存实例的密码。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4634,7 +4838,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 
@@ -4677,7 +4881,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
             
@@ -4732,8 +4936,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -4775,7 +4978,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let instanceId;
 

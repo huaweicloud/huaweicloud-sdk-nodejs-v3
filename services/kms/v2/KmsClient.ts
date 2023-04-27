@@ -1095,7 +1095,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let keyId;
 
@@ -1143,7 +1143,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (cancelGrantRequest !== null && cancelGrantRequest !== undefined) {
                 if (cancelGrantRequest instanceof CancelGrantRequest) {
@@ -1182,7 +1182,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (cancelKeyDeletionRequest !== null && cancelKeyDeletionRequest !== undefined) {
                 if (cancelKeyDeletionRequest instanceof CancelKeyDeletionRequest) {
@@ -1227,7 +1227,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (cancelSelfGrantRequest !== null && cancelSelfGrantRequest !== undefined) {
                 if (cancelSelfGrantRequest instanceof CancelSelfGrantRequest) {
@@ -1265,7 +1265,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createDatakeyRequest !== null && createDatakeyRequest !== undefined) {
                 if (createDatakeyRequest instanceof CreateDatakeyRequest) {
@@ -1303,7 +1303,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createDatakeyWithoutPlaintextRequest !== null && createDatakeyWithoutPlaintextRequest !== undefined) {
                 if (createDatakeyWithoutPlaintextRequest instanceof CreateDatakeyWithoutPlaintextRequest) {
@@ -1343,7 +1343,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createGrantRequest !== null && createGrantRequest !== undefined) {
                 if (createGrantRequest instanceof CreateGrantRequest) {
@@ -1383,7 +1383,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createKeyRequest !== null && createKeyRequest !== undefined) {
                 if (createKeyRequest instanceof CreateKeyRequest) {
@@ -1421,7 +1421,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createKeyStoreRequest !== null && createKeyStoreRequest !== undefined) {
                 if (createKeyStoreRequest instanceof CreateKeyStoreRequest) {
@@ -1459,7 +1459,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let keyId;
 
@@ -1506,7 +1506,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createParametersForImportRequest !== null && createParametersForImportRequest !== undefined) {
                 if (createParametersForImportRequest instanceof CreateParametersForImportRequest) {
@@ -1545,7 +1545,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createRandomRequest !== null && createRandomRequest !== undefined) {
                 if (createRandomRequest instanceof CreateRandomRequest) {
@@ -1583,7 +1583,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (decryptDataRequest !== null && decryptDataRequest !== undefined) {
                 if (decryptDataRequest instanceof DecryptDataRequest) {
@@ -1621,7 +1621,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (decryptDatakeyRequest !== null && decryptDatakeyRequest !== undefined) {
                 if (decryptDatakeyRequest instanceof DecryptDatakeyRequest) {
@@ -1659,7 +1659,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (deleteImportedKeyMaterialRequest !== null && deleteImportedKeyMaterialRequest !== undefined) {
                 if (deleteImportedKeyMaterialRequest instanceof DeleteImportedKeyMaterialRequest) {
@@ -1697,7 +1697,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (deleteKeyRequest !== null && deleteKeyRequest !== undefined) {
                 if (deleteKeyRequest instanceof DeleteKeyRequest) {
@@ -1730,8 +1730,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1768,8 +1767,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1819,7 +1817,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (disableKeyRequest !== null && disableKeyRequest !== undefined) {
                 if (disableKeyRequest instanceof DisableKeyRequest) {
@@ -1857,7 +1855,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (disableKeyRotationRequest !== null && disableKeyRotationRequest !== undefined) {
                 if (disableKeyRotationRequest instanceof DisableKeyRotationRequest) {
@@ -1890,8 +1888,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1934,7 +1931,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (enableKeyRequest !== null && enableKeyRequest !== undefined) {
                 if (enableKeyRequest instanceof EnableKeyRequest) {
@@ -1975,7 +1972,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (enableKeyRotationRequest !== null && enableKeyRotationRequest !== undefined) {
                 if (enableKeyRotationRequest instanceof EnableKeyRotationRequest) {
@@ -2008,8 +2005,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2051,7 +2047,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (encryptDataRequest !== null && encryptDataRequest !== undefined) {
                 if (encryptDataRequest instanceof EncryptDataRequest) {
@@ -2089,7 +2085,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (encryptDatakeyRequest !== null && encryptDatakeyRequest !== undefined) {
                 if (encryptDatakeyRequest instanceof EncryptDatakeyRequest) {
@@ -2127,7 +2123,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (importKeyMaterialRequest !== null && importKeyMaterialRequest !== undefined) {
                 if (importKeyMaterialRequest instanceof ImportKeyMaterialRequest) {
@@ -2165,7 +2161,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (listGrantsRequest !== null && listGrantsRequest !== undefined) {
                 if (listGrantsRequest instanceof ListGrantsRequest) {
@@ -2203,7 +2199,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (listKeyDetailRequest !== null && listKeyDetailRequest !== undefined) {
                 if (listKeyDetailRequest instanceof ListKeyDetailRequest) {
@@ -2236,8 +2232,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -2286,7 +2281,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (listKeysRequest !== null && listKeysRequest !== undefined) {
                 if (listKeysRequest instanceof ListKeysRequest) {
@@ -2324,7 +2319,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let resourceInstances;
 
@@ -2365,8 +2360,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2392,7 +2386,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (listRetirableGrantsRequest !== null && listRetirableGrantsRequest !== undefined) {
                 if (listRetirableGrantsRequest instanceof ListRetirableGrantsRequest) {
@@ -2430,7 +2424,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (showKeyRotationStatusRequest !== null && showKeyRotationStatusRequest !== undefined) {
                 if (showKeyRotationStatusRequest instanceof ShowKeyRotationStatusRequest) {
@@ -2463,8 +2457,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2501,8 +2494,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2544,7 +2536,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (showPublicKeyRequest !== null && showPublicKeyRequest !== undefined) {
                 if (showPublicKeyRequest instanceof ShowPublicKeyRequest) {
@@ -2577,8 +2569,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2599,8 +2590,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2626,7 +2616,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (signRequest !== null && signRequest !== undefined) {
                 if (signRequest instanceof SignRequest) {
@@ -2667,7 +2657,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (updateKeyAliasRequest !== null && updateKeyAliasRequest !== undefined) {
                 if (updateKeyAliasRequest instanceof UpdateKeyAliasRequest) {
@@ -2708,7 +2698,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (updateKeyDescriptionRequest !== null && updateKeyDescriptionRequest !== undefined) {
                 if (updateKeyDescriptionRequest instanceof UpdateKeyDescriptionRequest) {
@@ -2746,7 +2736,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (updateKeyRotationIntervalRequest !== null && updateKeyRotationIntervalRequest !== undefined) {
                 if (updateKeyRotationIntervalRequest instanceof UpdateKeyRotationIntervalRequest) {
@@ -2784,7 +2774,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (validateSignatureRequest !== null && validateSignatureRequest !== undefined) {
                 if (validateSignatureRequest instanceof ValidateSignatureRequest) {
@@ -2817,8 +2807,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2855,8 +2844,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 

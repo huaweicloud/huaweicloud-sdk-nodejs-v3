@@ -12,6 +12,7 @@ export class PostMigProjectBody {
     public type: PostMigProjectBodyTypeEnum;
     private 'enterprise_project'?: string | undefined;
     public syncing: boolean;
+    private 'start_networck_check'?: boolean | undefined;
     public constructor(name?: any, region?: any, usePublicIp?: any, existServer?: any, type?: any, syncing?: any) { 
         this['name'] = name;
         this['region'] = region;
@@ -93,6 +94,16 @@ export class PostMigProjectBody {
     public withSyncing(syncing: boolean): PostMigProjectBody {
         this['syncing'] = syncing;
         return this;
+    }
+    public withStartNetworckCheck(startNetworckCheck: boolean): PostMigProjectBody {
+        this['start_networck_check'] = startNetworckCheck;
+        return this;
+    }
+    public set startNetworckCheck(startNetworckCheck: boolean | undefined) {
+        this['start_networck_check'] = startNetworckCheck;
+    }
+    public get startNetworckCheck() {
+        return this['start_networck_check'];
     }
 }
 

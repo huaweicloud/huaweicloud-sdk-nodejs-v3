@@ -1,4 +1,6 @@
 import { CloneServerBrief } from './CloneServerBrief';
+import { ConfigBody } from './ConfigBody';
+import { NetworkCheckInfoRequestBody } from './NetworkCheckInfoRequestBody';
 import { SourceServerAssociatedWithTask } from './SourceServerAssociatedWithTask';
 import { SubTaskAssociatedWithTask } from './SubTaskAssociatedWithTask';
 import { TargetServerAssociatedWithTask } from './TargetServerAssociatedWithTask';
@@ -27,6 +29,8 @@ export class TasksResponseBody {
     private 'log_collect_status'?: TasksResponseBodyLogCollectStatusEnum | undefined;
     private 'clone_server'?: CloneServerBrief | undefined;
     public syncing?: boolean;
+    private 'network_check_info'?: NetworkCheckInfoRequestBody | undefined;
+    private 'special_config'?: Array<ConfigBody> | undefined;
     public constructor() { 
     }
     public withId(id: string): TasksResponseBody {
@@ -212,6 +216,26 @@ export class TasksResponseBody {
     public withSyncing(syncing: boolean): TasksResponseBody {
         this['syncing'] = syncing;
         return this;
+    }
+    public withNetworkCheckInfo(networkCheckInfo: NetworkCheckInfoRequestBody): TasksResponseBody {
+        this['network_check_info'] = networkCheckInfo;
+        return this;
+    }
+    public set networkCheckInfo(networkCheckInfo: NetworkCheckInfoRequestBody | undefined) {
+        this['network_check_info'] = networkCheckInfo;
+    }
+    public get networkCheckInfo() {
+        return this['network_check_info'];
+    }
+    public withSpecialConfig(specialConfig: Array<ConfigBody>): TasksResponseBody {
+        this['special_config'] = specialConfig;
+        return this;
+    }
+    public set specialConfig(specialConfig: Array<ConfigBody> | undefined) {
+        this['special_config'] = specialConfig;
+    }
+    public get specialConfig() {
+        return this['special_config'];
     }
 }
 

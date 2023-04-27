@@ -13,6 +13,7 @@ export class MigprojectsResponseBody {
     public type?: MigprojectsResponseBodyTypeEnum;
     private 'enterprise_project'?: string | undefined;
     public syncing?: boolean;
+    private 'start_network_check'?: boolean | undefined;
     public constructor() { 
     }
     public withId(id: string): MigprojectsResponseBody {
@@ -92,6 +93,16 @@ export class MigprojectsResponseBody {
     public withSyncing(syncing: boolean): MigprojectsResponseBody {
         this['syncing'] = syncing;
         return this;
+    }
+    public withStartNetworkCheck(startNetworkCheck: boolean): MigprojectsResponseBody {
+        this['start_network_check'] = startNetworkCheck;
+        return this;
+    }
+    public set startNetworkCheck(startNetworkCheck: boolean | undefined) {
+        this['start_network_check'] = startNetworkCheck;
+    }
+    public get startNetworkCheck() {
+        return this['start_network_check'];
     }
 }
 

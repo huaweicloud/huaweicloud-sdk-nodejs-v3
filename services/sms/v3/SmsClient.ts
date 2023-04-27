@@ -12,6 +12,8 @@ import { CollectLogRequest } from './model/CollectLogRequest';
 import { CollectLogResponse } from './model/CollectLogResponse';
 import { ComandParam } from './model/ComandParam';
 import { CommandBody } from './model/CommandBody';
+import { ConfigBody } from './model/ConfigBody';
+import { ConfigurationRequestBody } from './model/ConfigurationRequestBody';
 import { CreateMigprojectRequest } from './model/CreateMigprojectRequest';
 import { CreateMigprojectResponse } from './model/CreateMigprojectResponse';
 import { CreateTaskRequest } from './model/CreateTaskRequest';
@@ -40,6 +42,9 @@ import { Disk } from './model/Disk';
 import { DiskIntargetServer } from './model/DiskIntargetServer';
 import { EnvironmentCheck } from './model/EnvironmentCheck';
 import { InitTargetServer } from './model/InitTargetServer';
+import { Link } from './model/Link';
+import { ListApiVersionRequest } from './model/ListApiVersionRequest';
+import { ListApiVersionResponse } from './model/ListApiVersionResponse';
 import { ListErrorServersRequest } from './model/ListErrorServersRequest';
 import { ListErrorServersResponse } from './model/ListErrorServersResponse';
 import { ListMigprojectsRequest } from './model/ListMigprojectsRequest';
@@ -55,6 +60,7 @@ import { MigProject } from './model/MigProject';
 import { MigprojectsResponseBody } from './model/MigprojectsResponseBody';
 import { MigrationErrors } from './model/MigrationErrors';
 import { NetWork } from './model/NetWork';
+import { NetworkCheckInfoRequestBody } from './model/NetworkCheckInfoRequestBody';
 import { Nics } from './model/Nics';
 import { PhysicalVolume } from './model/PhysicalVolume';
 import { PhysicalVolumes } from './model/PhysicalVolumes';
@@ -75,10 +81,16 @@ import { RegisterServerResponse } from './model/RegisterServerResponse';
 import { Server } from './model/Server';
 import { ServerDisk } from './model/ServerDisk';
 import { SgObject } from './model/SgObject';
+import { ShowApiVersionRequest } from './model/ShowApiVersionRequest';
+import { ShowApiVersionResponse } from './model/ShowApiVersionResponse';
 import { ShowCertKeyRequest } from './model/ShowCertKeyRequest';
 import { ShowCertKeyResponse } from './model/ShowCertKeyResponse';
 import { ShowCommandRequest } from './model/ShowCommandRequest';
 import { ShowCommandResponse } from './model/ShowCommandResponse';
+import { ShowConfigRequest } from './model/ShowConfigRequest';
+import { ShowConfigResponse } from './model/ShowConfigResponse';
+import { ShowConfigSettingRequest } from './model/ShowConfigSettingRequest';
+import { ShowConfigSettingResponse } from './model/ShowConfigSettingResponse';
 import { ShowMigprojectRequest } from './model/ShowMigprojectRequest';
 import { ShowMigprojectResponse } from './model/ShowMigprojectResponse';
 import { ShowOverviewRequest } from './model/ShowOverviewRequest';
@@ -131,6 +143,8 @@ import { UpdateDiskInfoRequest } from './model/UpdateDiskInfoRequest';
 import { UpdateDiskInfoResponse } from './model/UpdateDiskInfoResponse';
 import { UpdateMigprojectRequest } from './model/UpdateMigprojectRequest';
 import { UpdateMigprojectResponse } from './model/UpdateMigprojectResponse';
+import { UpdateNetworkCheckInfoRequest } from './model/UpdateNetworkCheckInfoRequest';
+import { UpdateNetworkCheckInfoResponse } from './model/UpdateNetworkCheckInfoResponse';
 import { UpdateServerNameRequest } from './model/UpdateServerNameRequest';
 import { UpdateServerNameResponse } from './model/UpdateServerNameResponse';
 import { UpdateSpeedRequest } from './model/UpdateSpeedRequest';
@@ -147,6 +161,9 @@ import { UpdateTemplateReq } from './model/UpdateTemplateReq';
 import { UpdateTemplateRequest } from './model/UpdateTemplateRequest';
 import { UpdateTemplateResponse } from './model/UpdateTemplateResponse';
 import { UploadLogRequestBody } from './model/UploadLogRequestBody';
+import { UploadSpecialConfigurationSettingRequest } from './model/UploadSpecialConfigurationSettingRequest';
+import { UploadSpecialConfigurationSettingResponse } from './model/UploadSpecialConfigurationSettingResponse';
+import { Version } from './model/Version';
 import { VolumeGroups } from './model/VolumeGroups';
 import { VpcObject } from './model/VpcObject';
 
@@ -573,6 +590,26 @@ export class SmsClient {
     }
 
     /**
+     * 使用该接口查询任指定任务的指定配置类型的配置信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询配置资源
+     * @param {string} taskId 任务id
+     * @param {string} [configKey] 具体请求配置项
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showConfigSetting(showConfigSettingRequest?: ShowConfigSettingRequest): Promise<ShowConfigSettingResponse> {
+        const options = ParamCreater().showConfigSetting(showConfigSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定ID的迁移项目详情。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -861,6 +898,26 @@ export class SmsClient {
     }
 
     /**
+     * Agent 上报网络检测相关的信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新网络检测相关的信息
+     * @param {string} taskId 任务id
+     * @param {NetworkCheckInfoRequestBody} updateNetworkCheckInfoRequestBody 网络检测相关结果信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateNetworkCheckInfo(updateNetworkCheckInfoRequest?: UpdateNetworkCheckInfoRequest): Promise<UpdateNetworkCheckInfoResponse> {
+        const options = ParamCreater().updateNetworkCheckInfo(updateNetworkCheckInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该功能用来修改SMS服务端的源端名称，方便用户对源端进行管理。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -981,6 +1038,81 @@ export class SmsClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 配置迁移任务特殊设置，例如配置指定同步的文件或路径
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 迁移任务配置设置
+     * @param {string} taskId 任务id
+     * @param {ConfigurationRequestBody} uploadSpecialConfigurationSettingRequestBody 配置参数相关值
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public uploadSpecialConfigurationSetting(uploadSpecialConfigurationSettingRequest?: UploadSpecialConfigurationSettingRequest): Promise<UploadSpecialConfigurationSettingResponse> {
+        const options = ParamCreater().uploadSpecialConfigurationSetting(uploadSpecialConfigurationSettingRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 源端Agent启动后，访问此接口获取配置信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 获取Agent配置信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showConfig(): Promise<ShowConfigResponse> {
+        const options = ParamCreater().showConfig();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询主机迁移服务的API版本信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询主机迁移服务的API版本信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listApiVersion(): Promise<ListApiVersionResponse> {
+        const options = ParamCreater().listApiVersion();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询主机迁移服务指定API版本信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询主机迁移服务指定API版本信息
+     * @param {string} version 版本信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showApiVersion(showApiVersionRequest?: ShowApiVersionRequest): Promise<ShowApiVersionResponse> {
+        const options = ParamCreater().showApiVersion(showApiVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -998,8 +1130,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -1069,7 +1200,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let taskId;
 
@@ -1115,7 +1246,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createMigprojectRequest !== null && createMigprojectRequest !== undefined) {
                 if (createMigprojectRequest instanceof CreateMigprojectRequest) {
@@ -1153,7 +1284,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createTaskRequest !== null && createTaskRequest !== undefined) {
                 if (createTaskRequest instanceof CreateTaskRequest) {
@@ -1191,7 +1322,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createTemplateRequest !== null && createTemplateRequest !== undefined) {
                 if (createTemplateRequest instanceof CreateTemplateRequest) {
@@ -1224,8 +1355,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1262,8 +1392,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1305,7 +1434,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (deleteServersRequest !== null && deleteServersRequest !== undefined) {
                 if (deleteServersRequest instanceof DeleteServersRequest) {
@@ -1338,8 +1467,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1381,7 +1509,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (deleteTasksRequest !== null && deleteTasksRequest !== undefined) {
                 if (deleteTasksRequest instanceof DeleteTasksRequest) {
@@ -1414,8 +1542,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1457,7 +1584,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (deleteTemplatesRequest !== null && deleteTemplatesRequest !== undefined) {
                 if (deleteTemplatesRequest instanceof DeleteTemplatesRequest) {
@@ -1487,8 +1614,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -1549,8 +1675,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -1594,8 +1719,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -1695,8 +1819,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -1775,8 +1898,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -1846,7 +1968,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (registerServerRequest !== null && registerServerRequest !== undefined) {
                 if (registerServerRequest instanceof RegisterServerRequest) {
@@ -1879,8 +2001,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1917,8 +2038,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1944,6 +2064,51 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 使用该接口查询任指定任务的指定配置类型的配置信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showConfigSetting(showConfigSettingRequest?: ShowConfigSettingRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/tasks/{task_id}/configuration-setting",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let taskId;
+            
+            let configKey;
+
+            if (showConfigSettingRequest !== null && showConfigSettingRequest !== undefined) {
+                if (showConfigSettingRequest instanceof ShowConfigSettingRequest) {
+                    taskId = showConfigSettingRequest.taskId;
+                    configKey = showConfigSettingRequest.configKey;
+                } else {
+                    taskId = showConfigSettingRequest['task_id'];
+                    configKey = showConfigSettingRequest['config_key'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showConfigSetting.');
+            }
+            if (configKey !== null && configKey !== undefined) {
+                localVarQueryParameter['config_key'] = configKey;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定ID的迁移项目详情。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1955,8 +2120,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -1993,8 +2157,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2015,8 +2178,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2053,8 +2215,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2091,8 +2252,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2129,8 +2289,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2167,8 +2326,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2205,8 +2363,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2243,8 +2400,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2281,8 +2437,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2324,7 +2479,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let serverId;
 
@@ -2370,7 +2525,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let sourceId;
 
@@ -2411,8 +2566,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -2454,7 +2608,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let sourceId;
 
@@ -2497,7 +2651,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let migProjectId;
 
@@ -2524,6 +2678,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * Agent 上报网络检测相关的信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateNetworkCheckInfo(updateNetworkCheckInfoRequest?: UpdateNetworkCheckInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{task_id}/update-network-check-info",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (updateNetworkCheckInfoRequest !== null && updateNetworkCheckInfoRequest !== undefined) {
+                if (updateNetworkCheckInfoRequest instanceof UpdateNetworkCheckInfoRequest) {
+                    taskId = updateNetworkCheckInfoRequest.taskId;
+                    body = updateNetworkCheckInfoRequest.body
+                } else {
+                    taskId = updateNetworkCheckInfoRequest['task_id'];
+                    body = updateNetworkCheckInfoRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling updateNetworkCheckInfo.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该功能用来修改SMS服务端的源端名称，方便用户对源端进行管理。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2540,7 +2740,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let sourceId;
 
@@ -2586,7 +2786,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let taskId;
 
@@ -2632,7 +2832,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let taskId;
 
@@ -2677,7 +2877,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let taskId;
 
@@ -2720,7 +2920,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let taskId;
 
@@ -2766,7 +2966,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let id;
 
@@ -2788,6 +2988,131 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'id': id, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 配置迁移任务特殊设置，例如配置指定同步的文件或路径
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        uploadSpecialConfigurationSetting(uploadSpecialConfigurationSettingRequest?: UploadSpecialConfigurationSettingRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/tasks/{task_id}/configuration-setting",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+
+            if (uploadSpecialConfigurationSettingRequest !== null && uploadSpecialConfigurationSettingRequest !== undefined) {
+                if (uploadSpecialConfigurationSettingRequest instanceof UploadSpecialConfigurationSettingRequest) {
+                    taskId = uploadSpecialConfigurationSettingRequest.taskId;
+                    body = uploadSpecialConfigurationSettingRequest.body
+                } else {
+                    taskId = uploadSpecialConfigurationSettingRequest['task_id'];
+                    body = uploadSpecialConfigurationSettingRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling uploadSpecialConfigurationSetting.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 源端Agent启动后，访问此接口获取配置信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showConfig() {
+            const options = {
+                method: "GET",
+                url: "/v3/config",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询主机迁移服务的API版本信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listApiVersion() {
+            const options = {
+                method: "GET",
+                url: "/",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询主机迁移服务指定API版本信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showApiVersion(showApiVersionRequest?: ShowApiVersionRequest) {
+            const options = {
+                method: "GET",
+                url: "/{version}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let version;
+
+            if (showApiVersionRequest !== null && showApiVersionRequest !== undefined) {
+                if (showApiVersionRequest instanceof ShowApiVersionRequest) {
+                    version = showApiVersionRequest.version;
+                } else {
+                    version = showApiVersionRequest['version'];
+                }
+            }
+
+        
+            if (version === null || version === undefined) {
+            throw new RequiredError('version','Required parameter version was null or undefined when calling showApiVersion.');
+            }
+
+            options.pathParams = { 'version': version, };
             options.headers = localVarHeaderParameter;
             return options;
         },

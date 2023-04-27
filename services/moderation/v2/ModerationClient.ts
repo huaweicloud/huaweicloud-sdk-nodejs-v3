@@ -208,8 +208,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -249,8 +248,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -306,7 +304,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runImageBatchModerationRequest !== null && runImageBatchModerationRequest !== undefined) {
                 if (runImageBatchModerationRequest instanceof RunImageBatchModerationRequest) {
@@ -344,7 +342,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runImageModerationRequest !== null && runImageModerationRequest !== undefined) {
                 if (runImageModerationRequest instanceof RunImageModerationRequest) {
@@ -382,7 +380,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runModerationAudioRequest !== null && runModerationAudioRequest !== undefined) {
                 if (runModerationAudioRequest instanceof RunModerationAudioRequest) {
@@ -420,7 +418,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runTaskSumbitRequest !== null && runTaskSumbitRequest !== undefined) {
                 if (runTaskSumbitRequest instanceof RunTaskSumbitRequest) {
@@ -458,7 +456,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runTextModerationRequest !== null && runTextModerationRequest !== undefined) {
                 if (runTextModerationRequest instanceof RunTextModerationRequest) {

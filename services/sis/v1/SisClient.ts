@@ -337,8 +337,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -380,7 +379,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (createVocabularyRequest !== null && createVocabularyRequest !== undefined) {
                 if (createVocabularyRequest instanceof CreateVocabularyRequest) {
@@ -413,8 +412,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -465,7 +463,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (pushTranscriberJobsRequest !== null && pushTranscriberJobsRequest !== undefined) {
                 if (pushTranscriberJobsRequest instanceof PushTranscriberJobsRequest) {
@@ -496,8 +494,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -601,7 +598,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (recognizeShortAudioRequest !== null && recognizeShortAudioRequest !== undefined) {
                 if (recognizeShortAudioRequest instanceof RecognizeShortAudioRequest) {
@@ -639,7 +636,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runAudioAssessmentRequest !== null && runAudioAssessmentRequest !== undefined) {
                 if (runAudioAssessmentRequest instanceof RunAudioAssessmentRequest) {
@@ -677,7 +674,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runMultiModalAssessmentRequest !== null && runMultiModalAssessmentRequest !== undefined) {
                 if (runMultiModalAssessmentRequest instanceof RunMultiModalAssessmentRequest) {
@@ -715,7 +712,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (runTtsRequest !== null && runTtsRequest !== undefined) {
                 if (runTtsRequest instanceof RunTtsRequest) {
@@ -753,7 +750,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
 
             if (showVocabulariesRequest !== null && showVocabulariesRequest !== undefined) {
                 if (showVocabulariesRequest instanceof ShowVocabulariesRequest) {
@@ -783,8 +780,7 @@ export const ParamCreater = function () {
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
-                headers: {},
-                data: {}
+                headers: {}
             };
             const localVarHeaderParameter = {} as any;
 
@@ -826,7 +822,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            var body: any;
+            let body: any;
             
             let vocabularyId;
 

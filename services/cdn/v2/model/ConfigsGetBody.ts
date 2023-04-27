@@ -29,7 +29,9 @@ export class ConfigsGetBody {
     private 'force_redirect'?: ForceRedirectConfig | undefined;
     public compress?: Compress;
     private 'cache_url_parameter_filter'?: CacheUrlParameterFilter | undefined;
+    private 'ipv6_accelerate'?: number | undefined;
     private 'error_code_cache'?: Array<ErrorCodeCache> | undefined;
+    private 'origin_range_status'?: string | undefined;
     private 'user_agent_filter'?: UserAgentFilter | undefined;
     private 'origin_request_url_rewrite'?: Array<OriginRequestUrlRewrite> | undefined;
     private 'error_code_redirect_rules'?: Array<ErrorCodeRedirectRules> | undefined;
@@ -141,6 +143,16 @@ export class ConfigsGetBody {
     public get cacheUrlParameterFilter() {
         return this['cache_url_parameter_filter'];
     }
+    public withIpv6Accelerate(ipv6Accelerate: number): ConfigsGetBody {
+        this['ipv6_accelerate'] = ipv6Accelerate;
+        return this;
+    }
+    public set ipv6Accelerate(ipv6Accelerate: number | undefined) {
+        this['ipv6_accelerate'] = ipv6Accelerate;
+    }
+    public get ipv6Accelerate() {
+        return this['ipv6_accelerate'];
+    }
     public withErrorCodeCache(errorCodeCache: Array<ErrorCodeCache>): ConfigsGetBody {
         this['error_code_cache'] = errorCodeCache;
         return this;
@@ -150,6 +162,16 @@ export class ConfigsGetBody {
     }
     public get errorCodeCache() {
         return this['error_code_cache'];
+    }
+    public withOriginRangeStatus(originRangeStatus: string): ConfigsGetBody {
+        this['origin_range_status'] = originRangeStatus;
+        return this;
+    }
+    public set originRangeStatus(originRangeStatus: string | undefined) {
+        this['origin_range_status'] = originRangeStatus;
+    }
+    public get originRangeStatus() {
+        return this['origin_range_status'];
     }
     public withUserAgentFilter(userAgentFilter: UserAgentFilter): ConfigsGetBody {
         this['user_agent_filter'] = userAgentFilter;

@@ -1,3 +1,112 @@
+# 3.1.36 2023-04-27
+
+### HuaweiCloud SDK CBR
+
+- _Features_
+    - Support Cloud Backup and Recovery service.
+- _Bug Fix_
+    - None
+- _Change_
+    - None
+
+### HuaweiCloud SDK LTS
+
+- _Features_
+    - Support `Log Tank Service`.
+- _Bug Fix_
+    - None
+- _Change_
+    - None
+
+### HuaweiCloud SDK CDN
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowDomainFullConfig**
+    - changes of response param
+      - `+ configs.ipv6_accelerate`
+      - `+ configs.origin_range_status`
+
+### HuaweiCloud SDK CFW
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListIpsProtectModeUsingPost**
+    - changes of response param
+      - `+ data`
+      - `- object_id`
+      - `- status`
+
+### HuaweiCloud SDK CSMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListResourceInstances**
+    - changes of response param
+      - `+ resources.sys_tags`
+
+### HuaweiCloud SDK DCS
+
+- _Features_
+  - Support the interfaces `ResetPassword`, `UpdateInstanceBandwidth`, `ListConfigTemplates`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK Image
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - Remove the interfaces `RunQueryCustomTags`, `RunDeleteCustomTags`
+
+### HuaweiCloud SDK KMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListKeys**
+    - changes of response param
+      - `+ key_details.partition_type`
+  - **ListKeyDetail**
+    - changes of response param
+      - `+ key_info.partition_type`
+  - **ListRetirableGrants**
+    - changes of response param
+      - `+ total`
+  - **ListKmsByTags**
+    - changes of response param
+      - `+ resources.resource_detail.partition_type`
+
+### HuaweiCloud SDK SMS
+
+- _Features_
+  - Support the following interfaces：
+    - `ListApiVersion`
+    - `ShowApiVersion`
+    - `ShowConfig`
+    - `UpdateNetworkCheckInfo`
+    - `ShowConfigSetting`
+    - `UploadSpecialConfigurationSetting`
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
 # 3.1.35 2023-04-20
 
 ### HuaweiCloud SDK AOS

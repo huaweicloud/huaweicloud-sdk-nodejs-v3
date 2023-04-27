@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListRetirableGrantsResponse extends SdkResponse {
     public grants?: Array<Grants>;
     private 'next_marker'?: string | undefined;
+    public total?: number;
     public truncated?: ListRetirableGrantsResponseTruncatedEnum;
     public constructor() { 
         super();
@@ -22,6 +23,10 @@ export class ListRetirableGrantsResponse extends SdkResponse {
     }
     public get nextMarker() {
         return this['next_marker'];
+    }
+    public withTotal(total: number): ListRetirableGrantsResponse {
+        this['total'] = total;
+        return this;
     }
     public withTruncated(truncated: ListRetirableGrantsResponseTruncatedEnum): ListRetirableGrantsResponse {
         this['truncated'] = truncated;

@@ -8,6 +8,7 @@ export class UpdateTaskSpeedReq {
     private 'process_trace': string | undefined;
     private 'migrate_speed'?: number | undefined;
     private 'compress_rate'?: number | undefined;
+    private 'remain_time'?: number | undefined;
     public constructor(subtaskName?: any, progress?: any, replicatesize?: any, totalsize?: any, processTrace?: any) { 
         this['subtask_name'] = subtaskName;
         this['progress'] = progress;
@@ -66,6 +67,16 @@ export class UpdateTaskSpeedReq {
     }
     public get compressRate() {
         return this['compress_rate'];
+    }
+    public withRemainTime(remainTime: number): UpdateTaskSpeedReq {
+        this['remain_time'] = remainTime;
+        return this;
+    }
+    public set remainTime(remainTime: number | undefined) {
+        this['remain_time'] = remainTime;
+    }
+    public get remainTime() {
+        return this['remain_time'];
     }
 }
 

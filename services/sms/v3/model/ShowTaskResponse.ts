@@ -1,4 +1,5 @@
 import { CloneServer } from './CloneServer';
+import { NetworkCheckInfoRequestBody } from './NetworkCheckInfoRequestBody';
 import { SourceServerResponse } from './SourceServerResponse';
 import { SubTask } from './SubTask';
 import { TaskTargetServer } from './TaskTargetServer';
@@ -37,6 +38,7 @@ export class ShowTaskResponse extends SdkResponse {
     private 'target_snapshot_id'?: string | undefined;
     private 'clone_server'?: CloneServer | undefined;
     private 'sub_tasks'?: Array<SubTask> | undefined;
+    private 'network_check_info'?: NetworkCheckInfoRequestBody | undefined;
     public constructor() { 
         super();
     }
@@ -313,6 +315,16 @@ export class ShowTaskResponse extends SdkResponse {
     }
     public get subTasks() {
         return this['sub_tasks'];
+    }
+    public withNetworkCheckInfo(networkCheckInfo: NetworkCheckInfoRequestBody): ShowTaskResponse {
+        this['network_check_info'] = networkCheckInfo;
+        return this;
+    }
+    public set networkCheckInfo(networkCheckInfo: NetworkCheckInfoRequestBody | undefined) {
+        this['network_check_info'] = networkCheckInfo;
+    }
+    public get networkCheckInfo() {
+        return this['network_check_info'];
     }
 }
 

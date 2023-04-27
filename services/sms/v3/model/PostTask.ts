@@ -18,6 +18,7 @@ export class PostTask {
     private 'use_public_ip'?: boolean | undefined;
     public syncing?: boolean;
     private 'exist_server'?: boolean | undefined;
+    private 'start_network_check'?: boolean | undefined;
     public constructor(name?: any, type?: any, osType?: any, sourceServer?: any, targetServer?: any, regionName?: any, regionId?: any, projectName?: any, projectId?: any) { 
         this['name'] = name;
         this['type'] = type;
@@ -160,6 +161,16 @@ export class PostTask {
     }
     public get existServer() {
         return this['exist_server'];
+    }
+    public withStartNetworkCheck(startNetworkCheck: boolean): PostTask {
+        this['start_network_check'] = startNetworkCheck;
+        return this;
+    }
+    public set startNetworkCheck(startNetworkCheck: boolean | undefined) {
+        this['start_network_check'] = startNetworkCheck;
+    }
+    public get startNetworkCheck() {
+        return this['start_network_check'];
     }
 }
 
