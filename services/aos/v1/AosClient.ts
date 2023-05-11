@@ -9,6 +9,9 @@ import { ApplyExecutionPlanRequestBody } from './model/ApplyExecutionPlanRequest
 import { ApplyExecutionPlanResponse } from './model/ApplyExecutionPlanResponse';
 import { BaseTemplate } from './model/BaseTemplate';
 import { BaseTemplateVersion } from './model/BaseTemplateVersion';
+import { ContinueDeployStackRequest } from './model/ContinueDeployStackRequest';
+import { ContinueDeployStackRequestBody } from './model/ContinueDeployStackRequestBody';
+import { ContinueDeployStackResponse } from './model/ContinueDeployStackResponse';
 import { ContinueRollbackStackRequest } from './model/ContinueRollbackStackRequest';
 import { ContinueRollbackStackRequestBody } from './model/ContinueRollbackStackRequestBody';
 import { ContinueRollbackStackResponse } from './model/ContinueRollbackStackResponse';
@@ -341,6 +344,34 @@ export class AosClient {
      */
     public listExecutionPlans(listExecutionPlansRequest?: ListExecutionPlansRequest): Promise<ListExecutionPlansResponse> {
         const options = ParamCreater().listExecutionPlans(listExecutionPlansRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 继续部署资源栈（ContinueDeployStack）
+     * 
+     * 此API用于继续部署一个已有的资源栈
+     * 
+     * * 如果资源栈当前可以继续部署，即处于&#x60;DEPLOYMENT_FAILED&#x60;，则返回202与对应生成的deploymentId，否则将不允许继续部署并返回相应的错误码
+     * 
+     * * 继续部署操作依然有可能部署失败，用户可以从ListStackEvents获取对应的log，解决后可再次调用此API触发继续部署
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 继续部署资源栈
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html) 
+     * @param {string} stackName 资源栈的名称。此名字在domain_id+区域+project_id下应唯一，可以使用中文、大小写英文、数字、下划线、中划线。首字符需为中文或者英文，区分大小写。
+     * @param {ContinueDeployStackRequestBody} [continueDeployStackRequestBody] ContinueDeployStack API的请求Body体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public continueDeployStack(continueDeployStackRequest?: ContinueDeployStackRequest): Promise<ContinueDeployStackResponse> {
+        const options = ParamCreater().continueDeployStack(continueDeployStackRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1457,6 +1488,69 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'stack_name': stackName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 继续部署资源栈（ContinueDeployStack）
+         * 
+         * 此API用于继续部署一个已有的资源栈
+         * 
+         * * 如果资源栈当前可以继续部署，即处于&#x60;DEPLOYMENT_FAILED&#x60;，则返回202与对应生成的deploymentId，否则将不允许继续部署并返回相应的错误码
+         * 
+         * * 继续部署操作依然有可能部署失败，用户可以从ListStackEvents获取对应的log，解决后可再次调用此API触发继续部署
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        continueDeployStack(continueDeployStackRequest?: ContinueDeployStackRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/stacks/{stack_name}/continuations",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let clientRequestId;
+            
+            let projectId;
+            
+            let stackName;
+
+            if (continueDeployStackRequest !== null && continueDeployStackRequest !== undefined) {
+                if (continueDeployStackRequest instanceof ContinueDeployStackRequest) {
+                    clientRequestId = continueDeployStackRequest.clientRequestId;
+                    projectId = continueDeployStackRequest.projectId;
+                    stackName = continueDeployStackRequest.stackName;
+                    body = continueDeployStackRequest.body
+                } else {
+                    clientRequestId = continueDeployStackRequest['Client-Request-Id'];
+                    projectId = continueDeployStackRequest['project_id'];
+                    stackName = continueDeployStackRequest['stack_name'];
+                    body = continueDeployStackRequest['body'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling continueDeployStack.');
+            }
+            if (stackName === null || stackName === undefined) {
+            throw new RequiredError('stackName','Required parameter stackName was null or undefined when calling continueDeployStack.');
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'project_id': projectId,'stack_name': stackName, };
             options.headers = localVarHeaderParameter;
             return options;

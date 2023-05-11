@@ -22,7 +22,6 @@ import { BackupSyncReq } from './model/BackupSyncReq';
 import { BackupSyncRespBody } from './model/BackupSyncRespBody';
 import { BatchCreateAndDeleteVaultTagsRequest } from './model/BatchCreateAndDeleteVaultTagsRequest';
 import { BatchCreateAndDeleteVaultTagsResponse } from './model/BatchCreateAndDeleteVaultTagsResponse';
-import { BillbingCreateExtraInfo } from './model/BillbingCreateExtraInfo';
 import { Billing } from './model/Billing';
 import { BillingCreate } from './model/BillingCreate';
 import { BillingUpdate } from './model/BillingUpdate';
@@ -66,6 +65,7 @@ import { DisassociateVaultPolicyResponse } from './model/DisassociateVaultPolicy
 import { ImageData } from './model/ImageData';
 import { ImportBackupRequest } from './model/ImportBackupRequest';
 import { ImportBackupResponse } from './model/ImportBackupResponse';
+import { InstancesResourceDetail } from './model/InstancesResourceDetail';
 import { ListBackupsRequest } from './model/ListBackupsRequest';
 import { ListBackupsResponse } from './model/ListBackupsResponse';
 import { ListOpLogsRequest } from './model/ListOpLogsRequest';

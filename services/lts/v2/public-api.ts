@@ -245,6 +245,7 @@ export * from './model/UpdateAccessConfigRequestBody';
 export * from './model/UpdateAccessConfigResponse';
 export * from './model/UpdateAlarmRuleStatusRequest';
 export * from './model/UpdateAlarmRuleStatusResponse';
+export * from './model/UpdateAomMappingRequest';
 export * from './model/UpdateAomMappingRulesRequest';
 export * from './model/UpdateAomMappingRulesResponse';
 export * from './model/UpdateHostGroupRequest';

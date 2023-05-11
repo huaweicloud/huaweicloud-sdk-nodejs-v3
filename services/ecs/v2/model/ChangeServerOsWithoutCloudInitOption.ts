@@ -1,3 +1,4 @@
+import { ChangeSeversOsMetadataWithoutCloudInitOption } from './ChangeSeversOsMetadataWithoutCloudInitOption';
 
 
 export class ChangeServerOsWithoutCloudInitOption {
@@ -6,6 +7,7 @@ export class ChangeServerOsWithoutCloudInitOption {
     public userid?: string;
     public imageid: string;
     public mode?: string;
+    public metadata?: ChangeSeversOsMetadataWithoutCloudInitOption;
     public constructor(imageid?: any) { 
         this['imageid'] = imageid;
     }
@@ -27,6 +29,10 @@ export class ChangeServerOsWithoutCloudInitOption {
     }
     public withMode(mode: string): ChangeServerOsWithoutCloudInitOption {
         this['mode'] = mode;
+        return this;
+    }
+    public withMetadata(metadata: ChangeSeversOsMetadataWithoutCloudInitOption): ChangeServerOsWithoutCloudInitOption {
+        this['metadata'] = metadata;
         return this;
     }
 }

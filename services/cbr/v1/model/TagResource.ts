@@ -1,11 +1,11 @@
+import { InstancesResourceDetail } from './InstancesResourceDetail';
 import { SysTag } from './SysTag';
 import { Tag } from './Tag';
-import { Vault } from './Vault';
 
 
 export class TagResource {
     private 'resource_id': string | undefined;
-    private 'resource_detail': Array<Vault> | undefined;
+    private 'resource_detail': InstancesResourceDetail | undefined;
     public tags: Array<Tag>;
     private 'resource_name': string | undefined;
     private 'sys_tags': Array<SysTag> | undefined;
@@ -26,11 +26,11 @@ export class TagResource {
     public get resourceId() {
         return this['resource_id'];
     }
-    public withResourceDetail(resourceDetail: Array<Vault>): TagResource {
+    public withResourceDetail(resourceDetail: InstancesResourceDetail): TagResource {
         this['resource_detail'] = resourceDetail;
         return this;
     }
-    public set resourceDetail(resourceDetail: Array<Vault> | undefined) {
+    public set resourceDetail(resourceDetail: InstancesResourceDetail | undefined) {
         this['resource_detail'] = resourceDetail;
     }
     public get resourceDetail() {

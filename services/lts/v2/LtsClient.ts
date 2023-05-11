@@ -247,6 +247,7 @@ import { UpdateAccessConfigRequestBody } from './model/UpdateAccessConfigRequest
 import { UpdateAccessConfigResponse } from './model/UpdateAccessConfigResponse';
 import { UpdateAlarmRuleStatusRequest } from './model/UpdateAlarmRuleStatusRequest';
 import { UpdateAlarmRuleStatusResponse } from './model/UpdateAlarmRuleStatusResponse';
+import { UpdateAomMappingRequest } from './model/UpdateAomMappingRequest';
 import { UpdateAomMappingRulesRequest } from './model/UpdateAomMappingRulesRequest';
 import { UpdateAomMappingRulesResponse } from './model/UpdateAomMappingRulesResponse';
 import { UpdateHostGroupRequest } from './model/UpdateHostGroupRequest';
@@ -1661,7 +1662,7 @@ export class LtsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改接入规则
-     * @param {AomMappingRequestInfo} updateAomMappingRulesRequestBody 接入规则详情
+     * @param {UpdateAomMappingRequest} updateAomMappingRulesRequestBody 接入规则详情
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

@@ -59,6 +59,7 @@ import { ChangeServerOsWithoutCloudInitRequest } from './model/ChangeServerOsWit
 import { ChangeServerOsWithoutCloudInitRequestBody } from './model/ChangeServerOsWithoutCloudInitRequestBody';
 import { ChangeServerOsWithoutCloudInitResponse } from './model/ChangeServerOsWithoutCloudInitResponse';
 import { ChangeSeversOsMetadata } from './model/ChangeSeversOsMetadata';
+import { ChangeSeversOsMetadataWithoutCloudInitOption } from './model/ChangeSeversOsMetadataWithoutCloudInitOption';
 import { CpuOptions } from './model/CpuOptions';
 import { CreatePostPaidServersRequest } from './model/CreatePostPaidServersRequest';
 import { CreatePostPaidServersRequestBody } from './model/CreatePostPaidServersRequestBody';
@@ -127,6 +128,11 @@ import { NovaAddSecurityGroupOption } from './model/NovaAddSecurityGroupOption';
 import { NovaAssociateSecurityGroupRequest } from './model/NovaAssociateSecurityGroupRequest';
 import { NovaAssociateSecurityGroupRequestBody } from './model/NovaAssociateSecurityGroupRequestBody';
 import { NovaAssociateSecurityGroupResponse } from './model/NovaAssociateSecurityGroupResponse';
+import { NovaAttachInterfaceFixedIp } from './model/NovaAttachInterfaceFixedIp';
+import { NovaAttachInterfaceOption } from './model/NovaAttachInterfaceOption';
+import { NovaAttachInterfaceRequest } from './model/NovaAttachInterfaceRequest';
+import { NovaAttachInterfaceRequestBody } from './model/NovaAttachInterfaceRequestBody';
+import { NovaAttachInterfaceResponse } from './model/NovaAttachInterfaceResponse';
 import { NovaAvailabilityZone } from './model/NovaAvailabilityZone';
 import { NovaAvailabilityZoneState } from './model/NovaAvailabilityZoneState';
 import { NovaCreateKeypairOption } from './model/NovaCreateKeypairOption';
@@ -169,6 +175,8 @@ import { NovaServerBlockDeviceMapping } from './model/NovaServerBlockDeviceMappi
 import { NovaServerFault } from './model/NovaServerFault';
 import { NovaServerFlavor } from './model/NovaServerFlavor';
 import { NovaServerImage } from './model/NovaServerImage';
+import { NovaServerInterfaceDetail } from './model/NovaServerInterfaceDetail';
+import { NovaServerInterfaceFixedIp } from './model/NovaServerInterfaceFixedIp';
 import { NovaServerNetwork } from './model/NovaServerNetwork';
 import { NovaServerSchedulerHints } from './model/NovaServerSchedulerHints';
 import { NovaServerSecurityGroup } from './model/NovaServerSecurityGroup';
@@ -228,6 +236,7 @@ import { ReinstallServerWithoutCloudInitRequest } from './model/ReinstallServerW
 import { ReinstallServerWithoutCloudInitRequestBody } from './model/ReinstallServerWithoutCloudInitRequestBody';
 import { ReinstallServerWithoutCloudInitResponse } from './model/ReinstallServerWithoutCloudInitResponse';
 import { ReinstallSeverMetadata } from './model/ReinstallSeverMetadata';
+import { ReinstallSeverMetadataWithoutCloudInitOption } from './model/ReinstallSeverMetadataWithoutCloudInitOption';
 import { ResetServerPasswordOption } from './model/ResetServerPasswordOption';
 import { ResetServerPasswordRequest } from './model/ResetServerPasswordRequest';
 import { ResetServerPasswordRequestBody } from './model/ResetServerPasswordRequestBody';
@@ -1082,6 +1091,26 @@ export class EcsClient {
      */
     public novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest?: NovaAssociateSecurityGroupRequest): Promise<NovaAssociateSecurityGroupResponse> {
         const options = ParamCreater().novaAssociateSecurityGroup(novaAssociateSecurityGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 给云服务器添加一张网卡。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加云服务器网卡
+     * @param {string} serverId 云服务器ID。
+     * @param {NovaAttachInterfaceRequestBody} novaAttachInterfaceRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public novaAttachInterface(novaAttachInterfaceRequest?: NovaAttachInterfaceRequest): Promise<NovaAttachInterfaceResponse> {
+        const options = ParamCreater().novaAttachInterface(novaAttachInterfaceRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -3405,6 +3434,52 @@ export const ParamCreater = function () {
         
             if (serverId === null || serverId === undefined) {
             throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaAssociateSecurityGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'server_id': serverId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 给云服务器添加一张网卡。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        novaAttachInterface(novaAttachInterfaceRequest?: NovaAttachInterfaceRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.1/{project_id}/servers/{server_id}/os-interface",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let serverId;
+
+            if (novaAttachInterfaceRequest !== null && novaAttachInterfaceRequest !== undefined) {
+                if (novaAttachInterfaceRequest instanceof NovaAttachInterfaceRequest) {
+                    serverId = novaAttachInterfaceRequest.serverId;
+                    body = novaAttachInterfaceRequest.body
+                } else {
+                    serverId = novaAttachInterfaceRequest['server_id'];
+                    body = novaAttachInterfaceRequest['body'];
+                }
+            }
+
+        
+            if (serverId === null || serverId === undefined) {
+            throw new RequiredError('serverId','Required parameter serverId was null or undefined when calling novaAttachInterface.');
             }
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');

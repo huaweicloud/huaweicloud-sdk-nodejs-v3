@@ -4,12 +4,11 @@ import { AomMappingRuleInfo } from './AomMappingRuleInfo';
 export class AomMappingRequestInfo {
     private 'project_id': string | undefined;
     private 'rule_name': string | undefined;
-    private 'rule_id': string | undefined;
+    private 'rule_id'?: string | undefined;
     private 'rule_info': AomMappingRuleInfo | undefined;
-    public constructor(projectId?: any, ruleName?: any, ruleId?: any, ruleInfo?: any) { 
+    public constructor(projectId?: any, ruleName?: any, ruleInfo?: any) { 
         this['project_id'] = projectId;
         this['rule_name'] = ruleName;
-        this['rule_id'] = ruleId;
         this['rule_info'] = ruleInfo;
     }
     public withProjectId(projectId: string): AomMappingRequestInfo {

@@ -11,6 +11,7 @@ export class PolicyoODCreate {
     public timezone?: string;
     private 'week_backups'?: number | undefined;
     private 'year_backups'?: number | undefined;
+    private 'full_backup_interval'?: number | undefined;
     public constructor() { 
     }
     public withDayBackups(dayBackups: number): PolicyoODCreate {
@@ -106,5 +107,15 @@ export class PolicyoODCreate {
     }
     public get yearBackups() {
         return this['year_backups'];
+    }
+    public withFullBackupInterval(fullBackupInterval: number): PolicyoODCreate {
+        this['full_backup_interval'] = fullBackupInterval;
+        return this;
+    }
+    public set fullBackupInterval(fullBackupInterval: number | undefined) {
+        this['full_backup_interval'] = fullBackupInterval;
+    }
+    public get fullBackupInterval() {
+        return this['full_backup_interval'];
     }
 }

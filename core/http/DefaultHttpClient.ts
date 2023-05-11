@@ -73,7 +73,7 @@ export class DefaultHttpClient implements HttpClient {
         } catch (error: any) {
             const exceptionResponse = this._formatExceptionResponse(error);
             this._logger.error('Some error found:', exceptionResponse);
-            throw ExceptionUtil.generalException(exceptionResponse);
+            throw exceptionResponse;
         }
     }
 

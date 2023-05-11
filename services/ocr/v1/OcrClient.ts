@@ -226,7 +226,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 智能分类识别
-     * @param {AutoClassificationRequestBody} autoClassificationRequestBody This is a auto create Body Object
+     * @param {AutoClassificationRequestBody} recognizeAutoClassificationRequestBody This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -248,7 +248,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 银行卡识别
-     * @param {BankcardRequestBody} bankcardRequestBody This is a auto create Body Object Object
+     * @param {BankcardRequestBody} recognizeBankcardRequestBody This is a auto create Body Object Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -268,7 +268,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 名片识别
-     * @param {BusinessCardRequestBody} businessCardRequestBody This is a businesscard Body Object
+     * @param {BusinessCardRequestBody} recognizeBusinessCardRequestBody This is a businesscard Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -292,7 +292,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 营业执照识别
-     * @param {BusinessLicenseRequestBody} businessLicenseRequestBody This is a auto create Body Object
+     * @param {BusinessLicenseRequestBody} recognizeBusinessLicenseRequestBody This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -312,7 +312,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 柬文身份证识别
-     * @param {CambodianIdCardRequestBody} cambodianIdCardRequestBody This is a Cambodian ID Card OCR Body Object
+     * @param {CambodianIdCardRequestBody} recognizeCambodianIdCardRequestBody This is a Cambodian ID Card OCR Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-3#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -332,7 +332,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 智利身份证识别
-     * @param {ChileIdCardRequestBody} chileIdCardRequestBody This is a chile id-card Body Object
+     * @param {ChileIdCardRequestBody} recognizeChileIdCardRequestBody This is a chile id-card Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;la-south-2#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -356,7 +356,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 驾驶证识别
-     * @param {DriverLicenseRequestBody} driverLicenseRequestBody This is a driverlicense Body Object
+     * @param {DriverLicenseRequestBody} recognizeDriverLicenseRequestBody This is a driverlicense Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -376,7 +376,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 往来港澳台通行证识别
-     * @param {ExitEntryPermitRequestBody} exitEntryPermitRequestBody This is a Exit-Entry Permit for Traveling to and from Hong Kong, Macao, and Taiwan Body Object
+     * @param {ExitEntryPermitRequestBody} recognizeExitEntryPermitRequestBody This is a Exit-Entry Permit for Traveling to and from Hong Kong, Macao, and Taiwan Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -396,7 +396,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 财务报表识别
-     * @param {FinancialStatementRequestBody} financialStatementRequestBody This is a financial statement Body Object
+     * @param {FinancialStatementRequestBody} recognizeFinancialStatementRequestBody This is a financial statement Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -419,7 +419,7 @@ export class OcrClient {
      *
      * @summary 飞机行程单识别
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
-     * @param {FlightItineraryRequestBody} [flightItineraryRequestBody] This is a flightitinerary Body Object
+     * @param {FlightItineraryRequestBody} [recognizeFlightItineraryRequestBody] This is a flightitinerary Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -439,7 +439,7 @@ export class OcrClient {
      *
      * @summary 通用表格识别
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
-     * @param {GeneralTableRequestBody} [generalTableRequestBody] This is a generaltable Body Object
+     * @param {GeneralTableRequestBody} [recognizeGeneralTableRequestBody] This is a generaltable Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -459,7 +459,7 @@ export class OcrClient {
      *
      * @summary 通用文字识别
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
-     * @param {GeneralTextRequestBody} [generalTextRequestBody] This is a generaltext Body Object
+     * @param {GeneralTextRequestBody} [recognizeGeneralTextRequestBody] This is a generaltext Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -478,7 +478,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 手写文字识别
-     * @param {HandwritingRequestBody} handwritingRequestBody This is a auto create Body Object
+     * @param {HandwritingRequestBody} recognizeHandwritingRequestBody This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -499,7 +499,7 @@ export class OcrClient {
      *
      * @summary 防疫健康码识别
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
-     * @param {HealthCodeRequestBody} [healthCodeRequestBody] This is a healthcode Body Object
+     * @param {HealthCodeRequestBody} [recognizeHealthCodeRequestBody] This is a healthcode Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -518,7 +518,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 香港身份证识别
-     * @param {HkIdCardRequestBody} hkIdCardRequestBody This is a hk id card Body Object
+     * @param {HkIdCardRequestBody} recognizeHkIdCardRequestBody This is a hk id card Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -544,7 +544,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 身份证识别
-     * @param {IdCardRequestBody} idCardRequestBody This is a idcard Body Object
+     * @param {IdCardRequestBody} recognizeIdCardRequestBody This is a idcard Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -588,7 +588,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 通用证件识别
-     * @param {IdDocumentRequestBody} idDocumentRequestBody This is a General Identity Document Body Object
+     * @param {IdDocumentRequestBody} recognizeIdDocumentRequestBody This is a General Identity Document Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -608,7 +608,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 保险单识别
-     * @param {InsurancePolicyRequestBody} insurancePolicyRequestBody This is a insurance policy request Body Object
+     * @param {InsurancePolicyRequestBody} recognizeInsurancePolicyRequestBody This is a insurance policy request Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -628,7 +628,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 发票验真
-     * @param {InvoiceVerificationRequestBody} invoiceVerificationRequestBody This is a invoice verification Body Object
+     * @param {InvoiceVerificationRequestBody} recognizeInvoiceVerificationRequestBody This is a invoice verification Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -648,7 +648,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 车牌识别
-     * @param {LicensePlateRequestBody} licensePlateRequestBody This is a auto create Body Object
+     * @param {LicensePlateRequestBody} recognizeLicensePlateRequestBody This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -668,7 +668,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 澳门身份证识别
-     * @param {MacaoIdCardRequestBody} macaoIdCardRequestBody This is a macao id card Body Object
+     * @param {MacaoIdCardRequestBody} recognizeMacaoIdCardRequestBody This is a macao id card Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -688,7 +688,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 港澳台居民来往内地通行证识别
-     * @param {MainlandTravelPermitRequestBody} mainlandTravelPermitRequestBody This is a Mainland Travel Permit for Hong Kong, Macao, and Taiwan Residents Body Object
+     * @param {MainlandTravelPermitRequestBody} recognizeMainlandTravelPermitRequestBody This is a Mainland Travel Permit for Hong Kong, Macao, and Taiwan Residents Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -711,7 +711,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 机动车销售发票识别
-     * @param {MvsInvoiceRequestBody} mvsInvoiceRequestBody This is a MvsInvoice Body Object
+     * @param {MvsInvoiceRequestBody} recognizeMvsInvoiceRequestBody This is a MvsInvoice Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -731,7 +731,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 缅文驾驶证识别
-     * @param {MyanmarDriverLicenseRequestBody} myanmarDriverLicenseRequestBody This is a Myanmar driver license Body Object
+     * @param {MyanmarDriverLicenseRequestBody} recognizeMyanmarDriverLicenseRequestBody This is a Myanmar driver license Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -751,7 +751,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 缅文身份证识别
-     * @param {MyanmarIdcardRequestBody} myanmarIdcardRequestBody This is a Myanmar Idcard Body Object
+     * @param {MyanmarIdcardRequestBody} recognizeMyanmarIdcardRequestBody This is a Myanmar Idcard Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-1#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -773,7 +773,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 护照识别
-     * @param {PassportRequestBody} passportRequestBody This is a Passport Body Object
+     * @param {PassportRequestBody} recognizePassportRequestBody This is a Passport Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -794,7 +794,7 @@ export class OcrClient {
      *
      * @summary 核酸检测记录识别
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
-     * @param {PcrTestRecordRequestBody} [pcrTestRecordRequestBody] This is a pcr test record Body Object
+     * @param {PcrTestRecordRequestBody} [recognizePcrTestRecordRequestBody] This is a pcr test record Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -813,7 +813,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 道路运输从业资格证识别
-     * @param {QualificationCertificateRequestBody} qualificationCertificateRequestBody This is a transportation qualification certificate Body Object.
+     * @param {QualificationCertificateRequestBody} recognizeQualificationCertificateRequestBody This is a transportation qualification certificate Body Object.
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -837,7 +837,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 定额发票识别
-     * @param {QuotaInvoiceRequestBody} quotaInvoiceRequestBody This is a auto create Body Object
+     * @param {QuotaInvoiceRequestBody} recognizeQuotaInvoiceRequestBody This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -860,7 +860,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 出租车发票识别
-     * @param {TaxiInvoiceRequestBody} taxiInvoiceRequestBody This is a taxiinvoice Body Object
+     * @param {TaxiInvoiceRequestBody} recognizeTaxiInvoiceRequestBody This is a taxiinvoice Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -880,7 +880,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 泰文身份证识别
-     * @param {ThailandIdcardRequestBody} thailandIdcardRequestBody This is a Thailand Idcard Body Object
+     * @param {ThailandIdcardRequestBody} recognizeThailandIdcardRequestBody This is a Thailand Idcard Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-2#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -900,7 +900,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 泰国车牌识别
-     * @param {ThailandLicensePlateRequestBody} thailandLicensePlateRequestBody This is a thailand license plate Body Object
+     * @param {ThailandLicensePlateRequestBody} recognizeThailandLicensePlateRequestBody This is a thailand license plate Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console-intl.huaweicloud.com/eps/?region&#x3D;ap-southeast-2#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -922,7 +922,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 车辆通行费发票识别
-     * @param {TollInvoiceRequestBody} tollInvoiceRequestBody This is a auto create Body Object
+     * @param {TollInvoiceRequestBody} recognizeTollInvoiceRequestBody This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -944,7 +944,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 火车票识别
-     * @param {TrainTicketRequestBody} trainTicketRequestBody This is a train ticket Body Object
+     * @param {TrainTicketRequestBody} recognizeTrainTicketRequestBody This is a train ticket Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -965,7 +965,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 道路运输证识别
-     * @param {TransportationLicenseRequestBody} transportationLicenseRequestBody This is a train ticket Body Object
+     * @param {TransportationLicenseRequestBody} recognizeTransportationLicenseRequestBody This is a train ticket Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -989,7 +989,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 增值税发票识别
-     * @param {VatInvoiceRequestBody} vatInvoiceRequestBody This is a auto create Body Object
+     * @param {VatInvoiceRequestBody} recognizeVatInvoiceRequestBody This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1011,7 +1011,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 行驶证识别
-     * @param {VehicleLicenseRequestBody} vehicleLicenseRequestBody This is a auto create Body Object
+     * @param {VehicleLicenseRequestBody} recognizeVehicleLicenseRequestBody This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1031,7 +1031,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 电子面单识别
-     * @param {WaybillElectronicRequestBody} waybillElectronicRequestBody This is a waybill electronic Body Object
+     * @param {WaybillElectronicRequestBody} recognizeWaybillElectronicRequestBody This is a waybill electronic Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1051,7 +1051,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 网络图片识别
-     * @param {WebImageRequestBody} webImageRequestBody This is a Web Image Body Object
+     * @param {WebImageRequestBody} recognizeWebImageRequestBody This is a Web Image Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1071,7 +1071,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 自定义模板OCR
-     * @param {CustomTemplateRequestBody} customTemplateRequestBody This is a custom template Body Object
+     * @param {CustomTemplateRequestBody} recognizeCustomTemplateRequestBody This is a custom template Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1091,7 +1091,7 @@ export class OcrClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary VIN码识别
-     * @param {VinRequestBody} vinRequestBody This is a Vin Body Object
+     * @param {VinRequestBody} recognizeVinRequestBody This is a Vin Body Object
      * @param {string} [enterpriseProjectId] 企业项目ID。OCR支持通过企业项目管理（EPS）对不同用户组和用户的资源使用，进行分账。 获取方法：进入“[企业项目管理](https://console.huaweicloud.com/eps/?region&#x3D;cn-north-4#/projects/list)”页面，单击企业项目名称，在企业项目详情页获取Enterprise-Project-Id（企业项目ID）。 企业项目创建步骤请参见用户指南。 &gt; 说明： 创建企业项目后，在传参时，有以下三类场景。 - 携带正确的ID，正常使用OCR服务，账单归到企业ID对应的企业项目中。 - 携带错误的ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。 - 不携带ID，正常使用OCR服务，账单的企业项目会被分类为“未归集”。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

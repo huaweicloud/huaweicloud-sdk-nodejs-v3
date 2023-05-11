@@ -1,11 +1,11 @@
-import { AomMappingRequestInfo } from './AomMappingRequestInfo';
+import { UpdateAomMappingRequest } from './UpdateAomMappingRequest';
 
 
 export class UpdateAomMappingRulesRequest {
-    public body?: AomMappingRequestInfo;
+    public body?: UpdateAomMappingRequest;
     public constructor() { 
     }
-    public withBody(body: AomMappingRequestInfo): UpdateAomMappingRulesRequest {
+    public withBody(body: UpdateAomMappingRequest): UpdateAomMappingRulesRequest {
         this['body'] = body;
         return this;
     }

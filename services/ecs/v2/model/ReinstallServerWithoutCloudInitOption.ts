@@ -1,3 +1,4 @@
+import { ReinstallSeverMetadataWithoutCloudInitOption } from './ReinstallSeverMetadataWithoutCloudInitOption';
 
 
 export class ReinstallServerWithoutCloudInitOption {
@@ -5,6 +6,7 @@ export class ReinstallServerWithoutCloudInitOption {
     public keyname?: string;
     public userid?: string;
     public mode?: string;
+    public metadata?: ReinstallSeverMetadataWithoutCloudInitOption;
     public constructor() { 
     }
     public withAdminpass(adminpass: string): ReinstallServerWithoutCloudInitOption {
@@ -21,6 +23,10 @@ export class ReinstallServerWithoutCloudInitOption {
     }
     public withMode(mode: string): ReinstallServerWithoutCloudInitOption {
         this['mode'] = mode;
+        return this;
+    }
+    public withMetadata(metadata: ReinstallSeverMetadataWithoutCloudInitOption): ReinstallServerWithoutCloudInitOption {
+        this['metadata'] = metadata;
         return this;
     }
 }

@@ -1,4 +1,3 @@
-import { BillbingCreateExtraInfo } from './BillbingCreateExtraInfo';
 
 
 export class BillingCreate {
@@ -13,7 +12,6 @@ export class BillingCreate {
     private 'is_auto_renew'?: boolean | undefined;
     private 'is_auto_pay'?: boolean | undefined;
     private 'console_url'?: string | undefined;
-    private 'extra_info'?: BillbingCreateExtraInfo | undefined;
     private 'is_multi_az'?: boolean | undefined;
     private 'promotion_info'?: string | undefined;
     private 'purchase_mode'?: string | undefined;
@@ -127,16 +125,6 @@ export class BillingCreate {
     }
     public get consoleUrl() {
         return this['console_url'];
-    }
-    public withExtraInfo(extraInfo: BillbingCreateExtraInfo): BillingCreate {
-        this['extra_info'] = extraInfo;
-        return this;
-    }
-    public set extraInfo(extraInfo: BillbingCreateExtraInfo | undefined) {
-        this['extra_info'] = extraInfo;
-    }
-    public get extraInfo() {
-        return this['extra_info'];
     }
     public withIsMultiAz(isMultiAz: boolean): BillingCreate {
         this['is_multi_az'] = isMultiAz;

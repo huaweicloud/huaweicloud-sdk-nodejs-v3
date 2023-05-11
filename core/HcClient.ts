@@ -38,7 +38,7 @@ export interface HttpRequestOptions {
     queryParams: Record<string, any>;
     pathParams: Record<string, any>;
     headers: Record<string, string>;
-    data: Record<string, any>;
+    data?: Record<string, any>;
 }
 
 export class HcClient {

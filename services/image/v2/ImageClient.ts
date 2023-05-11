@@ -10,6 +10,9 @@ import { CreateImageHighresolutionMattingTaskResponse } from './model/CreateImag
 import { CreateVideoObjectMaskingTaskRequest } from './model/CreateVideoObjectMaskingTaskRequest';
 import { CreateVideoObjectMaskingTaskRequestBody } from './model/CreateVideoObjectMaskingTaskRequestBody';
 import { CreateVideoObjectMaskingTaskResponse } from './model/CreateVideoObjectMaskingTaskResponse';
+import { CreateVideoTaggingMediaTaskRequest } from './model/CreateVideoTaggingMediaTaskRequest';
+import { CreateVideoTaggingMediaTaskRequestBody } from './model/CreateVideoTaggingMediaTaskRequestBody';
+import { CreateVideoTaggingMediaTaskResponse } from './model/CreateVideoTaggingMediaTaskResponse';
 import { ImageDescriptionReq } from './model/ImageDescriptionReq';
 import { ImageDescriptionResponseResult } from './model/ImageDescriptionResponseResult';
 import { ImageHighresolutionMattingConfig } from './model/ImageHighresolutionMattingConfig';
@@ -63,6 +66,8 @@ import { ShowImageHighresolutionMattingTaskRequest } from './model/ShowImageHigh
 import { ShowImageHighresolutionMattingTaskResponse } from './model/ShowImageHighresolutionMattingTaskResponse';
 import { ShowVideoObjectMaskingTaskRequest } from './model/ShowVideoObjectMaskingTaskRequest';
 import { ShowVideoObjectMaskingTaskResponse } from './model/ShowVideoObjectMaskingTaskResponse';
+import { ShowVideoTaggingMediaTaskRequest } from './model/ShowVideoTaggingMediaTaskRequest';
+import { ShowVideoTaggingMediaTaskResponse } from './model/ShowVideoTaggingMediaTaskResponse';
 import { TaskCallback } from './model/TaskCallback';
 import { TaskInput } from './model/TaskInput';
 import { TaskInputData } from './model/TaskInputData';
@@ -71,6 +76,11 @@ import { TaskOutputObs } from './model/TaskOutputObs';
 import { VideoObjectMaskingInference } from './model/VideoObjectMaskingInference';
 import { VideoObjectMaskingTaskConfig } from './model/VideoObjectMaskingTaskConfig';
 import { VideoObjectMaskingTaskConfigCommon } from './model/VideoObjectMaskingTaskConfigCommon';
+import { VideoTaggingMediaTaskInput } from './model/VideoTaggingMediaTaskInput';
+import { VideoTaggingMediaTaskInputData } from './model/VideoTaggingMediaTaskInputData';
+import { VideoTaggingTaskConfig } from './model/VideoTaggingTaskConfig';
+import { VideoTaggingTaskConfigCommon } from './model/VideoTaggingTaskConfigCommon';
+import { VideoTagginginference } from './model/VideoTagginginference';
 
 export class ImageClient {
     public static newBuilder(): ClientBuilder<ImageClient> {
@@ -121,6 +131,25 @@ export class ImageClient {
 
          // @ts-ignore
         options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建视频标签任务，输入一段视频，通过AI模型分析视频中的信息，输出视频所包含的媒资标签、名人标签、logo标签、语音标签、OCR标签等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建视频标签任务
+     * @param {CreateVideoTaggingMediaTaskRequestBody} createVideoTaggingMediaTaskRequestBody 创建任务请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVideoTaggingMediaTask(createVideoTaggingMediaTaskRequest?: CreateVideoTaggingMediaTaskRequest): Promise<CreateVideoTaggingMediaTaskResponse> {
+        const options = ParamCreater().createVideoTaggingMediaTask(createVideoTaggingMediaTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
 
         return this.hcClient.sendRequest(options);
     }
@@ -314,6 +343,25 @@ export class ImageClient {
 
         return this.hcClient.sendRequest(options);
     }
+
+    /**
+     * 查询视频标签任务详情，返回参数配置以及任务状态信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询视频标签任务
+     * @param {string} taskId 任务id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showVideoTaggingMediaTask(showVideoTaggingMediaTaskRequest?: ShowVideoTaggingMediaTaskRequest): Promise<ShowVideoTaggingMediaTaskResponse> {
+        const options = ParamCreater().showVideoTaggingMediaTask(showVideoTaggingMediaTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = ['X-request-id'];
+
+        return this.hcClient.sendRequest(options);
+    }
 }
 
 export const ParamCreater = function () {
@@ -381,6 +429,44 @@ export const ParamCreater = function () {
                     body = createVideoObjectMaskingTaskRequest.body
                 } else {
                     body = createVideoObjectMaskingTaskRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建视频标签任务，输入一段视频，通过AI模型分析视频中的信息，输出视频所包含的媒资标签、名人标签、logo标签、语音标签、OCR标签等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVideoTaggingMediaTask(createVideoTaggingMediaTaskRequest?: CreateVideoTaggingMediaTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/image/video-tagging-media/tasks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createVideoTaggingMediaTaskRequest !== null && createVideoTaggingMediaTaskRequest !== undefined) {
+                if (createVideoTaggingMediaTaskRequest instanceof CreateVideoTaggingMediaTaskRequest) {
+                    body = createVideoTaggingMediaTaskRequest.body
+                } else {
+                    body = createVideoTaggingMediaTaskRequest['body'];
                 }
             }
 
@@ -766,6 +852,43 @@ export const ParamCreater = function () {
         
             if (taskId === null || taskId === undefined) {
             throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoObjectMaskingTask.');
+            }
+
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询视频标签任务详情，返回参数配置以及任务状态信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showVideoTaggingMediaTask(showVideoTaggingMediaTaskRequest?: ShowVideoTaggingMediaTaskRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/image/video-tagging-media/tasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+
+            if (showVideoTaggingMediaTaskRequest !== null && showVideoTaggingMediaTaskRequest !== undefined) {
+                if (showVideoTaggingMediaTaskRequest instanceof ShowVideoTaggingMediaTaskRequest) {
+                    taskId = showVideoTaggingMediaTaskRequest.taskId;
+                } else {
+                    taskId = showVideoTaggingMediaTaskRequest['task_id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoTaggingMediaTask.');
             }
 
             options.pathParams = { 'task_id': taskId, };

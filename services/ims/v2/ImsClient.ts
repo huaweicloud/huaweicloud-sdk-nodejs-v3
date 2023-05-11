@@ -482,7 +482,7 @@ export class ImsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询镜像列表
-     * @param {'gold' | 'private' | 'shared'} [imagetype] 镜像类型，目前支持以下类型： 公共镜像：gold 私有镜像：private 共享镜像：shared 市场镜像：market
+     * @param {'gold' | 'private' | 'shared' | 'market'} [imagetype] 镜像类型，目前支持以下类型： 公共镜像：gold 私有镜像：private 共享镜像：shared 市场镜像：market
      * @param {'true' | 'false'} [isregistered] 镜像是否可用，取值为true，扩展接口会默认为true，普通用户只能查询取值为true的镜像。
      * @param {'32' | '64'} [osBit] 操作系统位数，一般取值为32或者64。
      * @param {'Linux' | 'Windows' | 'Other'} [osType] 镜像系统类型，取值为Linux，Windows，Other。
