@@ -1,19 +1,19 @@
-import { DeviceGroupResponsSummery } from './DeviceGroupResponsSummery';
+import { DeviceGroupResponseSummary } from './DeviceGroupResponseSummary';
 import { Page } from './Page';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListDeviceGroupsResponse extends SdkResponse {
-    private 'device_groups'?: Array<DeviceGroupResponsSummery> | undefined;
+    private 'device_groups'?: Array<DeviceGroupResponseSummary> | undefined;
     public page?: Page;
     public constructor() { 
         super();
     }
-    public withDeviceGroups(deviceGroups: Array<DeviceGroupResponsSummery>): ListDeviceGroupsResponse {
+    public withDeviceGroups(deviceGroups: Array<DeviceGroupResponseSummary>): ListDeviceGroupsResponse {
         this['device_groups'] = deviceGroups;
         return this;
     }
-    public set deviceGroups(deviceGroups: Array<DeviceGroupResponsSummery> | undefined) {
+    public set deviceGroups(deviceGroups: Array<DeviceGroupResponseSummary> | undefined) {
         this['device_groups'] = deviceGroups;
     }
     public get deviceGroups() {

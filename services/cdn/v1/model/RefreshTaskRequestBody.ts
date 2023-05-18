@@ -2,7 +2,7 @@
 
 export class RefreshTaskRequestBody {
     public type?: RefreshTaskRequestBodyTypeEnum;
-    public mode?: boolean;
+    public mode?: RefreshTaskRequestBodyModeEnum;
     public urls: Array<string>;
     public constructor(urls?: any) { 
         this['urls'] = urls;
@@ -11,7 +11,7 @@ export class RefreshTaskRequestBody {
         this['type'] = type;
         return this;
     }
-    public withMode(mode: boolean): RefreshTaskRequestBody {
+    public withMode(mode: RefreshTaskRequestBodyModeEnum): RefreshTaskRequestBody {
         this['mode'] = mode;
         return this;
     }
@@ -28,4 +28,12 @@ export class RefreshTaskRequestBody {
 export enum RefreshTaskRequestBodyTypeEnum {
     FILE = 'file',
     DIRECTORY = 'directory'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RefreshTaskRequestBodyModeEnum {
+    ALL = 'all',
+    DETECT_MODIFY_REFRESH = 'detect_modify_refresh'
 }

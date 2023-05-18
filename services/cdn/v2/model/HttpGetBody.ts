@@ -4,9 +4,12 @@ export class HttpGetBody {
     private 'https_status'?: string | undefined;
     private 'certificate_name'?: string | undefined;
     private 'certificate_value'?: string | undefined;
+    private 'expire_time'?: number | undefined;
     private 'certificate_source'?: number | undefined;
+    private 'certificate_type'?: string | undefined;
     private 'http2_status'?: string | undefined;
     private 'tls_version'?: string | undefined;
+    private 'ocsp_stapling_status'?: string | undefined;
     public constructor() { 
     }
     public withHttpsStatus(httpsStatus: string): HttpGetBody {
@@ -39,6 +42,16 @@ export class HttpGetBody {
     public get certificateValue() {
         return this['certificate_value'];
     }
+    public withExpireTime(expireTime: number): HttpGetBody {
+        this['expire_time'] = expireTime;
+        return this;
+    }
+    public set expireTime(expireTime: number | undefined) {
+        this['expire_time'] = expireTime;
+    }
+    public get expireTime() {
+        return this['expire_time'];
+    }
     public withCertificateSource(certificateSource: number): HttpGetBody {
         this['certificate_source'] = certificateSource;
         return this;
@@ -48,6 +61,16 @@ export class HttpGetBody {
     }
     public get certificateSource() {
         return this['certificate_source'];
+    }
+    public withCertificateType(certificateType: string): HttpGetBody {
+        this['certificate_type'] = certificateType;
+        return this;
+    }
+    public set certificateType(certificateType: string | undefined) {
+        this['certificate_type'] = certificateType;
+    }
+    public get certificateType() {
+        return this['certificate_type'];
     }
     public withHttp2Status(http2Status: string): HttpGetBody {
         this['http2_status'] = http2Status;
@@ -68,5 +91,15 @@ export class HttpGetBody {
     }
     public get tlsVersion() {
         return this['tls_version'];
+    }
+    public withOcspStaplingStatus(ocspStaplingStatus: string): HttpGetBody {
+        this['ocsp_stapling_status'] = ocspStaplingStatus;
+        return this;
+    }
+    public set ocspStaplingStatus(ocspStaplingStatus: string | undefined) {
+        this['ocsp_stapling_status'] = ocspStaplingStatus;
+    }
+    public get ocspStaplingStatus() {
+        return this['ocsp_stapling_status'];
     }
 }

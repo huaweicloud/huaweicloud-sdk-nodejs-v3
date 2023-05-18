@@ -2,11 +2,20 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AddAgentPathRequest } from './model/AddAgentPathRequest';
+import { AddAgentPathResponse } from './model/AddAgentPathResponse';
 import { AddMemberRequest } from './model/AddMemberRequest';
 import { AddMemberResponse } from './model/AddMemberResponse';
 import { AddMembersReq } from './model/AddMembersReq';
 import { AddVaultResourceRequest } from './model/AddVaultResourceRequest';
 import { AddVaultResourceResponse } from './model/AddVaultResourceResponse';
+import { Agent } from './model/Agent';
+import { AgentAddPathReq } from './model/AgentAddPathReq';
+import { AgentRegister } from './model/AgentRegister';
+import { AgentRegisterReq } from './model/AgentRegisterReq';
+import { AgentRemovePathReq } from './model/AgentRemovePathReq';
+import { AgentUpdate } from './model/AgentUpdate';
+import { AgentUpdateReq } from './model/AgentUpdateReq';
 import { AssociateVaultPolicyRequest } from './model/AssociateVaultPolicyRequest';
 import { AssociateVaultPolicyResponse } from './model/AssociateVaultPolicyResponse';
 import { BackupExtendInfo } from './model/BackupExtendInfo';
@@ -66,6 +75,8 @@ import { ImageData } from './model/ImageData';
 import { ImportBackupRequest } from './model/ImportBackupRequest';
 import { ImportBackupResponse } from './model/ImportBackupResponse';
 import { InstancesResourceDetail } from './model/InstancesResourceDetail';
+import { ListAgentRequest } from './model/ListAgentRequest';
+import { ListAgentResponse } from './model/ListAgentResponse';
 import { ListBackupsRequest } from './model/ListBackupsRequest';
 import { ListBackupsResponse } from './model/ListBackupsResponse';
 import { ListOpLogsRequest } from './model/ListOpLogsRequest';
@@ -91,6 +102,7 @@ import { OpExtendInfoSync } from './model/OpExtendInfoSync';
 import { OpExtendInfoVaultDelete } from './model/OpExtendInfoVaultDelete';
 import { OpExtraInfo } from './model/OpExtraInfo';
 import { OperationLog } from './model/OperationLog';
+import { Path } from './model/Path';
 import { Policy } from './model/Policy';
 import { PolicyAssociateVault } from './model/PolicyAssociateVault';
 import { PolicyCreate } from './model/PolicyCreate';
@@ -105,6 +117,10 @@ import { PolicyoODCreate } from './model/PolicyoODCreate';
 import { ProtectableReplicationCapabilitiesRespRegion } from './model/ProtectableReplicationCapabilitiesRespRegion';
 import { ProtectableResult } from './model/ProtectableResult';
 import { ProtectablesResp } from './model/ProtectablesResp';
+import { RegisterAgentRequest } from './model/RegisterAgentRequest';
+import { RegisterAgentResponse } from './model/RegisterAgentResponse';
+import { RemoveAgentPathRequest } from './model/RemoveAgentPathRequest';
+import { RemoveAgentPathResponse } from './model/RemoveAgentPathResponse';
 import { RemoveVaultResourceRequest } from './model/RemoveVaultResourceRequest';
 import { RemoveVaultResourceResponse } from './model/RemoveVaultResourceResponse';
 import { ReplicationRecordGet } from './model/ReplicationRecordGet';
@@ -116,6 +132,8 @@ import { ResourceExtraInfoIncludeVolumes } from './model/ResourceExtraInfoInclud
 import { ResourceResp } from './model/ResourceResp';
 import { RestoreBackupRequest } from './model/RestoreBackupRequest';
 import { RestoreBackupResponse } from './model/RestoreBackupResponse';
+import { ShowAgentRequest } from './model/ShowAgentRequest';
+import { ShowAgentResponse } from './model/ShowAgentResponse';
 import { ShowBackupRequest } from './model/ShowBackupRequest';
 import { ShowBackupResponse } from './model/ShowBackupResponse';
 import { ShowCheckpointRequest } from './model/ShowCheckpointRequest';
@@ -146,6 +164,10 @@ import { Tag } from './model/Tag';
 import { TagResource } from './model/TagResource';
 import { TagsReq } from './model/TagsReq';
 import { TagsResp } from './model/TagsResp';
+import { UnregisterAgentRequest } from './model/UnregisterAgentRequest';
+import { UnregisterAgentResponse } from './model/UnregisterAgentResponse';
+import { UpdateAgentRequest } from './model/UpdateAgentRequest';
+import { UpdateAgentResponse } from './model/UpdateAgentResponse';
 import { UpdateMember } from './model/UpdateMember';
 import { UpdateMemberStatusRequest } from './model/UpdateMemberStatusRequest';
 import { UpdateMemberStatusResponse } from './model/UpdateMemberStatusResponse';
@@ -186,6 +208,26 @@ export class CbrClient {
         return __dirname;
     }
 
+
+    /**
+     * 对客户端新增备份路径，新增的路径不会校验是否存在。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 新增备份路径
+     * @param {string} agentId 客户端ID
+     * @param {AgentAddPathReq} addAgentPathRequestBody 新增文件备份路径参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addAgentPath(addAgentPathRequest?: AddAgentPathRequest): Promise<AddAgentPathResponse> {
+        const options = ParamCreater().addAgentPath(addAgentPathRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 添加备份可共享的成员，只有云服务器备份可以添加备份共享成员，且仅支持在同一区域的不同用户间共享。
@@ -528,6 +570,28 @@ export class CbrClient {
     }
 
     /**
+     * 查询客户端列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询客户端列表
+     * @param {string} [limit] 每页显示条目数，正整数
+     * @param {number} [offset] 偏移值,正整数
+     * @param {string} [status] 状态
+     * @param {string} [agentId] 客户端ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAgent(listAgentRequest?: ListAgentRequest): Promise<ListAgentResponse> {
+        const options = ParamCreater().listAgent(listAgentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询所有副本
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -694,6 +758,45 @@ export class CbrClient {
     }
 
     /**
+     * 注册客户端，安装时候由Agent调用，无需手动注册。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 注册客户端
+     * @param {AgentRegisterReq} registerAgentRequestBody 注册客户端参数明细
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public registerAgent(registerAgentRequest?: RegisterAgentRequest): Promise<RegisterAgentResponse> {
+        const options = ParamCreater().registerAgent(registerAgentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 移除已添加的文件备份路径。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 移除备份路径
+     * @param {string} agentId 客户端ID
+     * @param {AgentRemovePathReq} removeAgentPathRequestBody 移除文件备份路径参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeAgentPath(removeAgentPathRequest?: RemoveAgentPathRequest): Promise<RemoveAgentPathResponse> {
+        const options = ParamCreater().removeAgentPath(removeAgentPathRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 移除存储库中的资源，若移除资源，将一并删除该资源在保管库中的备份
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -726,6 +829,25 @@ export class CbrClient {
      */
     public restoreBackup(restoreBackupRequest?: RestoreBackupRequest): Promise<RestoreBackupResponse> {
         const options = ParamCreater().restoreBackup(restoreBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定客户端
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询指定客户端
+     * @param {string} agentId 客户端ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showAgent(showAgentRequest?: ShowAgentRequest): Promise<ShowAgentResponse> {
+        const options = ParamCreater().showAgent(showAgentRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -973,6 +1095,45 @@ export class CbrClient {
     }
 
     /**
+     * 移除客户端，移除客户端时将会删除该客户端所有备份，请谨慎操作。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 移除客户端
+     * @param {string} agentId 客户端ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public unregisterAgent(unregisterAgentRequest?: UnregisterAgentRequest): Promise<UnregisterAgentResponse> {
+        const options = ParamCreater().unregisterAgent(unregisterAgentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 修改客户端状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 修改客户端
+     * @param {string} agentId 
+     * @param {AgentUpdateReq} updateAgentRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateAgent(updateAgentRequest?: UpdateAgentRequest): Promise<UpdateAgentResponse> {
+        const options = ParamCreater().updateAgent(updateAgentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新备份共享成员的状态，需要接收方执行此API。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1036,6 +1197,52 @@ export class CbrClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 对客户端新增备份路径，新增的路径不会校验是否存在。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addAgentPath(addAgentPathRequest?: AddAgentPathRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/agents/{agent_id}/add-path",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let agentId;
+
+            if (addAgentPathRequest !== null && addAgentPathRequest !== undefined) {
+                if (addAgentPathRequest instanceof AddAgentPathRequest) {
+                    agentId = addAgentPathRequest.agentId;
+                    body = addAgentPathRequest.body
+                } else {
+                    agentId = addAgentPathRequest['agent_id'];
+                    body = addAgentPathRequest['body'];
+                }
+            }
+
+        
+            if (agentId === null || agentId === undefined) {
+            throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling addAgentPath.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'agent_id': agentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 添加备份可共享的成员，只有云服务器备份可以添加备份共享成员，且仅支持在同一区域的不同用户间共享。
@@ -1751,6 +1958,64 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询客户端列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAgent(listAgentRequest?: ListAgentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/agents",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let status;
+            
+            let agentId;
+
+            if (listAgentRequest !== null && listAgentRequest !== undefined) {
+                if (listAgentRequest instanceof ListAgentRequest) {
+                    limit = listAgentRequest.limit;
+                    offset = listAgentRequest.offset;
+                    status = listAgentRequest.status;
+                    agentId = listAgentRequest.agentId;
+                } else {
+                    limit = listAgentRequest['limit'];
+                    offset = listAgentRequest['offset'];
+                    status = listAgentRequest['status'];
+                    agentId = listAgentRequest['agent_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (agentId !== null && agentId !== undefined) {
+                localVarQueryParameter['agent_id'] = agentId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询所有副本
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2340,6 +2605,90 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 注册客户端，安装时候由Agent调用，无需手动注册。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        registerAgent(registerAgentRequest?: RegisterAgentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/agents",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (registerAgentRequest !== null && registerAgentRequest !== undefined) {
+                if (registerAgentRequest instanceof RegisterAgentRequest) {
+                    body = registerAgentRequest.body
+                } else {
+                    body = registerAgentRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 移除已添加的文件备份路径。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeAgentPath(removeAgentPathRequest?: RemoveAgentPathRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/agents/{agent_id}/remove-path",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let agentId;
+
+            if (removeAgentPathRequest !== null && removeAgentPathRequest !== undefined) {
+                if (removeAgentPathRequest instanceof RemoveAgentPathRequest) {
+                    agentId = removeAgentPathRequest.agentId;
+                    body = removeAgentPathRequest.body
+                } else {
+                    agentId = removeAgentPathRequest['agent_id'];
+                    body = removeAgentPathRequest['body'];
+                }
+            }
+
+        
+            if (agentId === null || agentId === undefined) {
+            throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling removeAgentPath.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'agent_id': agentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 移除存储库中的资源，若移除资源，将一并删除该资源在保管库中的备份
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2427,6 +2776,43 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定客户端
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showAgent(showAgentRequest?: ShowAgentRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/agents/{agent_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let agentId;
+
+            if (showAgentRequest !== null && showAgentRequest !== undefined) {
+                if (showAgentRequest instanceof ShowAgentRequest) {
+                    agentId = showAgentRequest.agentId;
+                } else {
+                    agentId = showAgentRequest['agent_id'];
+                }
+            }
+
+        
+            if (agentId === null || agentId === undefined) {
+            throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling showAgent.');
+            }
+
+            options.pathParams = { 'agent_id': agentId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2914,6 +3300,89 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'vault_id': vaultId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 移除客户端，移除客户端时将会删除该客户端所有备份，请谨慎操作。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        unregisterAgent(unregisterAgentRequest?: UnregisterAgentRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3/{project_id}/agents/{agent_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let agentId;
+
+            if (unregisterAgentRequest !== null && unregisterAgentRequest !== undefined) {
+                if (unregisterAgentRequest instanceof UnregisterAgentRequest) {
+                    agentId = unregisterAgentRequest.agentId;
+                } else {
+                    agentId = unregisterAgentRequest['agent_id'];
+                }
+            }
+
+        
+            if (agentId === null || agentId === undefined) {
+            throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling unregisterAgent.');
+            }
+
+            options.pathParams = { 'agent_id': agentId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 修改客户端状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateAgent(updateAgentRequest?: UpdateAgentRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/agents/{agent_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let agentId;
+
+            if (updateAgentRequest !== null && updateAgentRequest !== undefined) {
+                if (updateAgentRequest instanceof UpdateAgentRequest) {
+                    agentId = updateAgentRequest.agentId;
+                    body = updateAgentRequest.body
+                } else {
+                    agentId = updateAgentRequest['agent_id'];
+                    body = updateAgentRequest['body'];
+                }
+            }
+
+        
+            if (agentId === null || agentId === undefined) {
+            throw new RequiredError('agentId','Required parameter agentId was null or undefined when calling updateAgent.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'agent_id': agentId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

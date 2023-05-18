@@ -6,8 +6,10 @@ export class HttpPutBody {
     private 'certificate_value'?: string | undefined;
     private 'private_key'?: string | undefined;
     private 'certificate_source'?: number | undefined;
+    private 'certificate_type'?: string | undefined;
     private 'http2_status'?: string | undefined;
     private 'tls_version'?: string | undefined;
+    private 'ocsp_stapling_status'?: string | undefined;
     public constructor() { 
     }
     public withHttpsStatus(httpsStatus: string): HttpPutBody {
@@ -60,6 +62,16 @@ export class HttpPutBody {
     public get certificateSource() {
         return this['certificate_source'];
     }
+    public withCertificateType(certificateType: string): HttpPutBody {
+        this['certificate_type'] = certificateType;
+        return this;
+    }
+    public set certificateType(certificateType: string | undefined) {
+        this['certificate_type'] = certificateType;
+    }
+    public get certificateType() {
+        return this['certificate_type'];
+    }
     public withHttp2Status(http2Status: string): HttpPutBody {
         this['http2_status'] = http2Status;
         return this;
@@ -79,5 +91,15 @@ export class HttpPutBody {
     }
     public get tlsVersion() {
         return this['tls_version'];
+    }
+    public withOcspStaplingStatus(ocspStaplingStatus: string): HttpPutBody {
+        this['ocsp_stapling_status'] = ocspStaplingStatus;
+        return this;
+    }
+    public set ocspStaplingStatus(ocspStaplingStatus: string | undefined) {
+        this['ocsp_stapling_status'] = ocspStaplingStatus;
+    }
+    public get ocspStaplingStatus() {
+        return this['ocsp_stapling_status'];
     }
 }

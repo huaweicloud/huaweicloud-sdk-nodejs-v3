@@ -8,6 +8,7 @@ export class SourcesConfig {
     private 'http_port'?: number | undefined;
     private 'https_port'?: number | undefined;
     private 'host_name'?: string | undefined;
+    private 'obs_bucket_type'?: string | undefined;
     public constructor(originAddr?: any, originType?: any, priority?: any) { 
         this['origin_addr'] = originAddr;
         this['origin_type'] = originType;
@@ -76,5 +77,15 @@ export class SourcesConfig {
     }
     public get hostName() {
         return this['host_name'];
+    }
+    public withObsBucketType(obsBucketType: string): SourcesConfig {
+        this['obs_bucket_type'] = obsBucketType;
+        return this;
+    }
+    public set obsBucketType(obsBucketType: string | undefined) {
+        this['obs_bucket_type'] = obsBucketType;
+    }
+    public get obsBucketType() {
+        return this['obs_bucket_type'];
     }
 }

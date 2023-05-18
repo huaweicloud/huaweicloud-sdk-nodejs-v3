@@ -13,6 +13,7 @@ export class SearchDevice {
     private 'device_sdk_version'?: string | undefined;
     private 'product_id'?: string | undefined;
     private 'product_name'?: string | undefined;
+    public groups?: object;
     public status?: string;
     public tags?: object;
     public marker?: string;
@@ -137,6 +138,10 @@ export class SearchDevice {
     }
     public get productName() {
         return this['product_name'];
+    }
+    public withGroups(groups: object): SearchDevice {
+        this['groups'] = groups;
+        return this;
     }
     public withStatus(status: string): SearchDevice {
         this['status'] = status;

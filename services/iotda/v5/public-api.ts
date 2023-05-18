@@ -91,7 +91,7 @@ export * from './model/DeleteRuleResponse';
 export * from './model/DeviceBroadcastRequest';
 export * from './model/DeviceCommandRequest';
 export * from './model/DeviceDataCondition';
-export * from './model/DeviceGroupResponsSummery';
+export * from './model/DeviceGroupResponseSummary';
 export * from './model/DeviceLinkageStatusCondition';
 export * from './model/DeviceMessage';
 export * from './model/DeviceMessageRequest';

@@ -36,6 +36,8 @@ import { CancelReadonlyClusterRequest } from './model/CancelReadonlyClusterReque
 import { CancelReadonlyClusterResponse } from './model/CancelReadonlyClusterResponse';
 import { CheckClusterRequest } from './model/CheckClusterRequest';
 import { CheckClusterResponse } from './model/CheckClusterResponse';
+import { CheckDisasterNameRequest } from './model/CheckDisasterNameRequest';
+import { CheckDisasterNameResponse } from './model/CheckDisasterNameResponse';
 import { Cluster } from './model/Cluster';
 import { ClusterCheckBody } from './model/ClusterCheckBody';
 import { ClusterCheckRequestBody } from './model/ClusterCheckRequestBody';
@@ -106,6 +108,8 @@ import { DisassociateEipResponse } from './model/DisassociateEipResponse';
 import { DisassociateElbRequest } from './model/DisassociateElbRequest';
 import { DisassociateElbResponse } from './model/DisassociateElbResponse';
 import { DisasterRecovery } from './model/DisasterRecovery';
+import { DisasterRecoveryCluster } from './model/DisasterRecoveryCluster';
+import { DisasterRecoveryClusterVo } from './model/DisasterRecoveryClusterVo';
 import { DisasterRecoveryId } from './model/DisasterRecoveryId';
 import { DiskResp } from './model/DiskResp';
 import { DssPool } from './model/DssPool';
@@ -140,6 +144,8 @@ import { ListAuditLogRequest } from './model/ListAuditLogRequest';
 import { ListAuditLogResponse } from './model/ListAuditLogResponse';
 import { ListAvailabilityZonesRequest } from './model/ListAvailabilityZonesRequest';
 import { ListAvailabilityZonesResponse } from './model/ListAvailabilityZonesResponse';
+import { ListAvailableDisasterClustersRequest } from './model/ListAvailableDisasterClustersRequest';
+import { ListAvailableDisasterClustersResponse } from './model/ListAvailableDisasterClustersResponse';
 import { ListClusterCnRequest } from './model/ListClusterCnRequest';
 import { ListClusterCnResponse } from './model/ListClusterCnResponse';
 import { ListClusterConfigurationsParameterRequest } from './model/ListClusterConfigurationsParameterRequest';
@@ -243,6 +249,8 @@ import { RestoreDisasterRequest } from './model/RestoreDisasterRequest';
 import { RestoreDisasterResponse } from './model/RestoreDisasterResponse';
 import { RestorePoint } from './model/RestorePoint';
 import { ScaleOut } from './model/ScaleOut';
+import { ShowDisasterDetailRequest } from './model/ShowDisasterDetailRequest';
+import { ShowDisasterDetailResponse } from './model/ShowDisasterDetailResponse';
 import { ShrinkClusterRequest } from './model/ShrinkClusterRequest';
 import { ShrinkClusterResponse } from './model/ShrinkClusterResponse';
 import { Snapshot } from './model/Snapshot';
@@ -271,6 +279,10 @@ import { UpdateConfigurationRequest } from './model/UpdateConfigurationRequest';
 import { UpdateConfigurationResponse } from './model/UpdateConfigurationResponse';
 import { UpdateDataSourceRequest } from './model/UpdateDataSourceRequest';
 import { UpdateDataSourceResponse } from './model/UpdateDataSourceResponse';
+import { UpdateDisasterInfoRequest } from './model/UpdateDisasterInfoRequest';
+import { UpdateDisasterInfoResponse } from './model/UpdateDisasterInfoResponse';
+import { UpdateDisasterRecoveryReq } from './model/UpdateDisasterRecoveryReq';
+import { UpdateDisasterRecoveryRequest } from './model/UpdateDisasterRecoveryRequest';
 import { UpdateEventSubRequest } from './model/UpdateEventSubRequest';
 import { UpdateEventSubResponse } from './model/UpdateEventSubResponse';
 import { UpdateMaintenanceWindowRequest } from './model/UpdateMaintenanceWindowRequest';
@@ -479,6 +491,28 @@ export class DwsClient {
      */
     public checkCluster(checkClusterRequest?: CheckClusterRequest): Promise<CheckClusterResponse> {
         const options = ParamCreater().checkCluster(checkClusterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 检查容灾名称
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 检查容灾名称
+     * @param {string} drName 容灾名称
+     * @param {string} [type] 容灾类型
+     * @param {string} [standbyRegion] 备集群所在region
+     * @param {string} [standbyProjectId] 备集群所在项目ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkDisasterName(checkDisasterNameRequest?: CheckDisasterNameRequest): Promise<CheckDisasterNameResponse> {
+        const options = ParamCreater().checkDisasterName(checkDisasterNameRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1093,6 +1127,33 @@ export class DwsClient {
      */
     public listAvailabilityZones(): Promise<ListAvailabilityZonesResponse> {
         const options = ParamCreater().listAvailabilityZones();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询可用容灾集群列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询可用容灾集群列表
+     * @param {string} [primaryClusterId] 主集群ID
+     * @param {string} [primarySpecId] 主集群规格ID
+     * @param {string} [primaryClusterDnNum] 主集群DN数量
+     * @param {string} [standbyRegion] 备集群所在region
+     * @param {string} [standbyProjectId] 备集群项目ID
+     * @param {string} [standbyAzCode] 备集群所在AZ
+     * @param {string} [drType] 容灾类型
+     * @param {string} [datastoreType] 数仓类型
+     * @param {string} [datastoreVersion] 数仓版本
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listAvailableDisasterClusters(listAvailableDisasterClustersRequest?: ListAvailableDisasterClustersRequest): Promise<ListAvailableDisasterClustersResponse> {
+        const options = ParamCreater().listAvailableDisasterClusters(listAvailableDisasterClustersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1827,6 +1888,25 @@ export class DwsClient {
     }
 
     /**
+     * 查询容灾详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询容灾详情
+     * @param {string} disasterRecoveryId 容灾ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDisasterDetail(showDisasterDetailRequest?: ShowDisasterDetailRequest): Promise<ShowDisasterDetailResponse> {
+        const options = ParamCreater().showDisasterDetail(showDisasterDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于缩容集群。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1999,6 +2079,26 @@ export class DwsClient {
      */
     public updateDataSource(updateDataSourceRequest?: UpdateDataSourceRequest): Promise<UpdateDataSourceResponse> {
         const options = ParamCreater().updateDataSource(updateDataSourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新容灾配置
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新容灾配置
+     * @param {string} disasterRecoveryId 容灾ID
+     * @param {UpdateDisasterRecoveryRequest} [updateDisasterInfoRequestBody] 更新容灾配置请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateDisasterInfo(updateDisasterInfoRequest?: UpdateDisasterInfoRequest): Promise<UpdateDisasterInfoResponse> {
+        const options = ParamCreater().updateDisasterInfo(updateDisasterInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2443,6 +2543,67 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检查容灾名称
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkDisasterName(checkDisasterNameRequest?: CheckDisasterNameRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/disaster-recovery/check-name",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let drName;
+            
+            let type;
+            
+            let standbyRegion;
+            
+            let standbyProjectId;
+
+            if (checkDisasterNameRequest !== null && checkDisasterNameRequest !== undefined) {
+                if (checkDisasterNameRequest instanceof CheckDisasterNameRequest) {
+                    drName = checkDisasterNameRequest.drName;
+                    type = checkDisasterNameRequest.type;
+                    standbyRegion = checkDisasterNameRequest.standbyRegion;
+                    standbyProjectId = checkDisasterNameRequest.standbyProjectId;
+                } else {
+                    drName = checkDisasterNameRequest['dr_name'];
+                    type = checkDisasterNameRequest['type'];
+                    standbyRegion = checkDisasterNameRequest['standby_region'];
+                    standbyProjectId = checkDisasterNameRequest['standby_project_id'];
+                }
+            }
+
+        
+            if (drName === null || drName === undefined) {
+                throw new RequiredError('drName','Required parameter drName was null or undefined when calling checkDisasterName.');
+            }
+            if (drName !== null && drName !== undefined) {
+                localVarQueryParameter['dr_name'] = drName;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+            if (standbyRegion !== null && standbyRegion !== undefined) {
+                localVarQueryParameter['standby_region'] = standbyRegion;
+            }
+            if (standbyProjectId !== null && standbyProjectId !== undefined) {
+                localVarQueryParameter['standby_project_id'] = standbyProjectId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3752,6 +3913,99 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询可用容灾集群列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listAvailableDisasterClusters(listAvailableDisasterClustersRequest?: ListAvailableDisasterClustersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/disaster-recovery-clusters",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let primaryClusterId;
+            
+            let primarySpecId;
+            
+            let primaryClusterDnNum;
+            
+            let standbyRegion;
+            
+            let standbyProjectId;
+            
+            let standbyAzCode;
+            
+            let drType;
+            
+            let datastoreType;
+            
+            let datastoreVersion;
+
+            if (listAvailableDisasterClustersRequest !== null && listAvailableDisasterClustersRequest !== undefined) {
+                if (listAvailableDisasterClustersRequest instanceof ListAvailableDisasterClustersRequest) {
+                    primaryClusterId = listAvailableDisasterClustersRequest.primaryClusterId;
+                    primarySpecId = listAvailableDisasterClustersRequest.primarySpecId;
+                    primaryClusterDnNum = listAvailableDisasterClustersRequest.primaryClusterDnNum;
+                    standbyRegion = listAvailableDisasterClustersRequest.standbyRegion;
+                    standbyProjectId = listAvailableDisasterClustersRequest.standbyProjectId;
+                    standbyAzCode = listAvailableDisasterClustersRequest.standbyAzCode;
+                    drType = listAvailableDisasterClustersRequest.drType;
+                    datastoreType = listAvailableDisasterClustersRequest.datastoreType;
+                    datastoreVersion = listAvailableDisasterClustersRequest.datastoreVersion;
+                } else {
+                    primaryClusterId = listAvailableDisasterClustersRequest['primary_cluster_id'];
+                    primarySpecId = listAvailableDisasterClustersRequest['primary_spec_id'];
+                    primaryClusterDnNum = listAvailableDisasterClustersRequest['primary_cluster_dn_num'];
+                    standbyRegion = listAvailableDisasterClustersRequest['standby_region'];
+                    standbyProjectId = listAvailableDisasterClustersRequest['standby_project_id'];
+                    standbyAzCode = listAvailableDisasterClustersRequest['standby_az_code'];
+                    drType = listAvailableDisasterClustersRequest['dr_type'];
+                    datastoreType = listAvailableDisasterClustersRequest['datastore_type'];
+                    datastoreVersion = listAvailableDisasterClustersRequest['datastore_version'];
+                }
+            }
+
+        
+            if (primaryClusterId !== null && primaryClusterId !== undefined) {
+                localVarQueryParameter['primary_cluster_id'] = primaryClusterId;
+            }
+            if (primarySpecId !== null && primarySpecId !== undefined) {
+                localVarQueryParameter['primary_spec_id'] = primarySpecId;
+            }
+            if (primaryClusterDnNum !== null && primaryClusterDnNum !== undefined) {
+                localVarQueryParameter['primary_cluster_dn_num'] = primaryClusterDnNum;
+            }
+            if (standbyRegion !== null && standbyRegion !== undefined) {
+                localVarQueryParameter['standby_region'] = standbyRegion;
+            }
+            if (standbyProjectId !== null && standbyProjectId !== undefined) {
+                localVarQueryParameter['standby_project_id'] = standbyProjectId;
+            }
+            if (standbyAzCode !== null && standbyAzCode !== undefined) {
+                localVarQueryParameter['standby_az_code'] = standbyAzCode;
+            }
+            if (drType !== null && drType !== undefined) {
+                localVarQueryParameter['dr_type'] = drType;
+            }
+            if (datastoreType !== null && datastoreType !== undefined) {
+                localVarQueryParameter['datastore_type'] = datastoreType;
+            }
+            if (datastoreVersion !== null && datastoreVersion !== undefined) {
+                localVarQueryParameter['datastore_version'] = datastoreVersion;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5242,6 +5496,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询容灾详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDisasterDetail(showDisasterDetailRequest?: ShowDisasterDetailRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/disaster-recovery/{disaster_recovery_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let disasterRecoveryId;
+
+            if (showDisasterDetailRequest !== null && showDisasterDetailRequest !== undefined) {
+                if (showDisasterDetailRequest instanceof ShowDisasterDetailRequest) {
+                    disasterRecoveryId = showDisasterDetailRequest.disasterRecoveryId;
+                } else {
+                    disasterRecoveryId = showDisasterDetailRequest['disaster_recovery_id'];
+                }
+            }
+
+        
+            if (disasterRecoveryId === null || disasterRecoveryId === undefined) {
+            throw new RequiredError('disasterRecoveryId','Required parameter disasterRecoveryId was null or undefined when calling showDisasterDetail.');
+            }
+
+            options.pathParams = { 'disaster_recovery_id': disasterRecoveryId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 该接口用于缩容集群。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -5628,6 +5919,49 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'cluster_id': clusterId,'ext_data_source_id': extDataSourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新容灾配置
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateDisasterInfo(updateDisasterInfoRequest?: UpdateDisasterInfoRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/disaster-recovery/{disaster_recovery_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let disasterRecoveryId;
+
+            if (updateDisasterInfoRequest !== null && updateDisasterInfoRequest !== undefined) {
+                if (updateDisasterInfoRequest instanceof UpdateDisasterInfoRequest) {
+                    disasterRecoveryId = updateDisasterInfoRequest.disasterRecoveryId;
+                    body = updateDisasterInfoRequest.body
+                } else {
+                    disasterRecoveryId = updateDisasterInfoRequest['disaster_recovery_id'];
+                    body = updateDisasterInfoRequest['body'];
+                }
+            }
+
+        
+            if (disasterRecoveryId === null || disasterRecoveryId === undefined) {
+            throw new RequiredError('disasterRecoveryId','Required parameter disasterRecoveryId was null or undefined when calling updateDisasterInfo.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'disaster_recovery_id': disasterRecoveryId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

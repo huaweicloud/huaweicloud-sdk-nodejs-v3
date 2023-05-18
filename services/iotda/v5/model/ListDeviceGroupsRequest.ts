@@ -7,6 +7,8 @@ export class ListDeviceGroupsRequest {
     public offset?: number;
     private 'last_modified_time'?: string | undefined;
     private 'app_id'?: string | undefined;
+    private 'group_type'?: string | undefined;
+    public name?: string;
     public constructor() { 
     }
     public withInstanceId(instanceId: string): ListDeviceGroupsRequest {
@@ -50,5 +52,19 @@ export class ListDeviceGroupsRequest {
     }
     public get appId() {
         return this['app_id'];
+    }
+    public withGroupType(groupType: string): ListDeviceGroupsRequest {
+        this['group_type'] = groupType;
+        return this;
+    }
+    public set groupType(groupType: string | undefined) {
+        this['group_type'] = groupType;
+    }
+    public get groupType() {
+        return this['group_type'];
+    }
+    public withName(name: string): ListDeviceGroupsRequest {
+        this['name'] = name;
+        return this;
     }
 }

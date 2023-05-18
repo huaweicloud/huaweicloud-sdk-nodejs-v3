@@ -1,4 +1,5 @@
 import { PostPaidServerRootVolumeExtendParam } from './PostPaidServerRootVolumeExtendParam';
+import { PostPaidServerRootVolumeMetadata } from './PostPaidServerRootVolumeMetadata';
 
 
 export class PostPaidServerRootVolume {
@@ -8,6 +9,7 @@ export class PostPaidServerRootVolume {
     private 'cluster_type'?: PostPaidServerRootVolumeClusterTypeEnum | undefined;
     private 'cluster_id'?: string | undefined;
     public extendparam?: PostPaidServerRootVolumeExtendParam;
+    public metadata?: PostPaidServerRootVolumeMetadata;
     public constructor(volumetype?: any) { 
         this['volumetype'] = volumetype;
     }
@@ -51,6 +53,10 @@ export class PostPaidServerRootVolume {
     }
     public withExtendparam(extendparam: PostPaidServerRootVolumeExtendParam): PostPaidServerRootVolume {
         this['extendparam'] = extendparam;
+        return this;
+    }
+    public withMetadata(metadata: PostPaidServerRootVolumeMetadata): PostPaidServerRootVolume {
+        this['metadata'] = metadata;
         return this;
     }
 }

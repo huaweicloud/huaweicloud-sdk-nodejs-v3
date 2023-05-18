@@ -4,6 +4,8 @@ export class DeviceBroadcastRequest {
     private 'app_id'?: string | undefined;
     private 'topic_full_name': string | undefined;
     public message: string;
+    public ttl?: number;
+    private 'message_id'?: string | undefined;
     public constructor(topicFullName?: any, message?: any) { 
         this['topic_full_name'] = topicFullName;
         this['message'] = message;
@@ -31,5 +33,19 @@ export class DeviceBroadcastRequest {
     public withMessage(message: string): DeviceBroadcastRequest {
         this['message'] = message;
         return this;
+    }
+    public withTtl(ttl: number): DeviceBroadcastRequest {
+        this['ttl'] = ttl;
+        return this;
+    }
+    public withMessageId(messageId: string): DeviceBroadcastRequest {
+        this['message_id'] = messageId;
+        return this;
+    }
+    public set messageId(messageId: string | undefined) {
+        this['message_id'] = messageId;
+    }
+    public get messageId() {
+        return this['message_id'];
     }
 }

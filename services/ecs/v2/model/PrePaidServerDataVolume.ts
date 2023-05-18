@@ -13,6 +13,7 @@ export class PrePaidServerDataVolume {
     private 'cluster_id'?: string | undefined;
     public metadata?: PrePaidServerDataVolumeMetadata;
     private 'data_image_id'?: string | undefined;
+    private 'delete_on_termination'?: boolean | undefined;
     public constructor(volumetype?: any, size?: any) { 
         this['volumetype'] = volumetype;
         this['size'] = size;
@@ -80,6 +81,16 @@ export class PrePaidServerDataVolume {
     }
     public get dataImageId() {
         return this['data_image_id'];
+    }
+    public withDeleteOnTermination(deleteOnTermination: boolean): PrePaidServerDataVolume {
+        this['delete_on_termination'] = deleteOnTermination;
+        return this;
+    }
+    public set deleteOnTermination(deleteOnTermination: boolean | undefined) {
+        this['delete_on_termination'] = deleteOnTermination;
+    }
+    public get deleteOnTermination() {
+        return this['delete_on_termination'];
     }
 }
 

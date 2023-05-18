@@ -3,6 +3,7 @@ import { DeleteStatus } from './DeleteStatus';
 
 export class NodeStatus {
     public phase?: NodeStatusPhaseEnum;
+    public lastProbeTime?: string;
     public jobID?: string;
     public serverId?: string;
     public privateIP?: string;
@@ -13,6 +14,10 @@ export class NodeStatus {
     }
     public withPhase(phase: NodeStatusPhaseEnum): NodeStatus {
         this['phase'] = phase;
+        return this;
+    }
+    public withLastProbeTime(lastProbeTime: string): NodeStatus {
+        this['lastProbeTime'] = lastProbeTime;
         return this;
     }
     public withJobID(jobID: string): NodeStatus {

@@ -1,4 +1,5 @@
 import { PublicIp } from './PublicIp';
+import { Tags } from './Tags';
 
 
 export class CreateClusterInfo {
@@ -15,6 +16,7 @@ export class CreateClusterInfo {
     private 'public_ip'?: PublicIp | undefined;
     private 'number_of_cn'?: number | undefined;
     private 'enterprise_project_id'?: string | undefined;
+    public tags?: Tags;
     public constructor(nodeType?: any, numberOfNode?: any, subnetId?: any, securityGroupId?: any, vpcId?: any, name?: any, userName?: any, userPwd?: any) { 
         this['node_type'] = nodeType;
         this['number_of_node'] = numberOfNode;
@@ -142,5 +144,9 @@ export class CreateClusterInfo {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withTags(tags: Tags): CreateClusterInfo {
+        this['tags'] = tags;
+        return this;
     }
 }

@@ -13,6 +13,7 @@ export class PostPaidServerDataVolume {
     private 'cluster_id'?: string | undefined;
     public metadata?: PostPaidServerDataVolumeMetadata;
     private 'data_image_id'?: string | undefined;
+    private 'delete_on_termination'?: boolean | undefined;
     public constructor(volumetype?: any, size?: any) { 
         this['volumetype'] = volumetype;
         this['size'] = size;
@@ -80,6 +81,16 @@ export class PostPaidServerDataVolume {
     }
     public get dataImageId() {
         return this['data_image_id'];
+    }
+    public withDeleteOnTermination(deleteOnTermination: boolean): PostPaidServerDataVolume {
+        this['delete_on_termination'] = deleteOnTermination;
+        return this;
+    }
+    public set deleteOnTermination(deleteOnTermination: boolean | undefined) {
+        this['delete_on_termination'] = deleteOnTermination;
+    }
+    public get deleteOnTermination() {
+        return this['delete_on_termination'];
     }
 }
 

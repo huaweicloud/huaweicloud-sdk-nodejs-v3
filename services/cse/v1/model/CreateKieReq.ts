@@ -1,12 +1,17 @@
 
 
 export class CreateKieReq {
+    public id?: string;
     public key?: string;
     public labels?: object;
     public value?: string;
     private 'value_type'?: string | undefined;
     public status?: string;
     public constructor() { 
+    }
+    public withId(id: string): CreateKieReq {
+        this['id'] = id;
+        return this;
     }
     public withKey(key: string): CreateKieReq {
         this['key'] = key;

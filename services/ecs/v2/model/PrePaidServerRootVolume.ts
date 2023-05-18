@@ -1,10 +1,12 @@
 import { PrePaidServerRootVolumeExtendParam } from './PrePaidServerRootVolumeExtendParam';
+import { PrePaidServerRootVolumeMetadata } from './PrePaidServerRootVolumeMetadata';
 
 
 export class PrePaidServerRootVolume {
     public volumetype: PrePaidServerRootVolumeVolumetypeEnum;
     public size?: number;
     public extendparam?: PrePaidServerRootVolumeExtendParam;
+    public metadata?: PrePaidServerRootVolumeMetadata;
     private 'cluster_type'?: PrePaidServerRootVolumeClusterTypeEnum | undefined;
     private 'cluster_id'?: string | undefined;
     private 'hw:passthrough'?: boolean | undefined;
@@ -21,6 +23,10 @@ export class PrePaidServerRootVolume {
     }
     public withExtendparam(extendparam: PrePaidServerRootVolumeExtendParam): PrePaidServerRootVolume {
         this['extendparam'] = extendparam;
+        return this;
+    }
+    public withMetadata(metadata: PrePaidServerRootVolumeMetadata): PrePaidServerRootVolume {
+        this['metadata'] = metadata;
         return this;
     }
     public withClusterType(clusterType: PrePaidServerRootVolumeClusterTypeEnum): PrePaidServerRootVolume {

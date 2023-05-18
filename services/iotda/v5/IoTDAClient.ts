@@ -93,7 +93,7 @@ import { DeleteRuleResponse } from './model/DeleteRuleResponse';
 import { DeviceBroadcastRequest } from './model/DeviceBroadcastRequest';
 import { DeviceCommandRequest } from './model/DeviceCommandRequest';
 import { DeviceDataCondition } from './model/DeviceDataCondition';
-import { DeviceGroupResponsSummery } from './model/DeviceGroupResponsSummery';
+import { DeviceGroupResponseSummary } from './model/DeviceGroupResponseSummary';
 import { DeviceLinkageStatusCondition } from './model/DeviceLinkageStatusCondition';
 import { DeviceMessage } from './model/DeviceMessage';
 import { DeviceMessageRequest } from './model/DeviceMessageRequest';
@@ -816,6 +816,8 @@ export class IoTDAClient {
      * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。 **取值范围**：0-500的整数，默认为0。
      * @param {string} [lastModifiedTime] **参数说明**：查询设备组在last_modified_time之后修改的记录。 **取值范围**：格式为yyyyMMdd\&#39;T\&#39;HHmmss\&#39;Z\&#39;，如20151212T121212Z。
      * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的产品列表，不携带该参数则会查询该用户下所有产品列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
+     * @param {string} [groupType] **参数说明**：设备组类型，默认为静态设备组；当设备组类型为动态设备组时，需要填写动态设备组规则
+     * @param {string} [name] **参数说明**：设备组名称，单个资源空间下不可重复。 **取值范围**：长度不超过64，只允许中文、字母、数字、以及_? \&#39;#().,&amp;%@!-等字符的组合。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1123,6 +1125,7 @@ export class IoTDAClient {
      * | tag_value   | string | 标签值           | 长度不超过128，只允许中文、字母、数字、以及_.-等字符的组合。 |
      * | sw_version  | string | 软件版本         | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）、英文点(.)的组合。 |
      * | fw_version  | string | 固件版本         | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）、英文点(.)的组合。 |
+     * | group_id    | string | 群组Id           | 长度不超过36，十六进制字符串和连接符（-）的组合              |
      * | create_time | string | 设备注册时间     | 格式：yyyy-MM-dd\&#39;T\&#39;HH:mm:ss.SSS\&#39;Z\&#39;，如：2015-06-06T12:10:10.000Z |
      * | marker      | string | 结果记录ID       | 长度为24的十六进制字符串，如ffffffffffffffffffffffff         |
      * 
@@ -3356,6 +3359,10 @@ export const ParamCreater = function () {
             let lastModifiedTime;
             
             let appId;
+            
+            let groupType;
+            
+            let name;
 
             if (listDeviceGroupsRequest !== null && listDeviceGroupsRequest !== undefined) {
                 if (listDeviceGroupsRequest instanceof ListDeviceGroupsRequest) {
@@ -3365,6 +3372,8 @@ export const ParamCreater = function () {
                     offset = listDeviceGroupsRequest.offset;
                     lastModifiedTime = listDeviceGroupsRequest.lastModifiedTime;
                     appId = listDeviceGroupsRequest.appId;
+                    groupType = listDeviceGroupsRequest.groupType;
+                    name = listDeviceGroupsRequest.name;
                 } else {
                     instanceId = listDeviceGroupsRequest['Instance-Id'];
                     limit = listDeviceGroupsRequest['limit'];
@@ -3372,6 +3381,8 @@ export const ParamCreater = function () {
                     offset = listDeviceGroupsRequest['offset'];
                     lastModifiedTime = listDeviceGroupsRequest['last_modified_time'];
                     appId = listDeviceGroupsRequest['app_id'];
+                    groupType = listDeviceGroupsRequest['group_type'];
+                    name = listDeviceGroupsRequest['name'];
                 }
             }
 
@@ -3390,6 +3401,12 @@ export const ParamCreater = function () {
             }
             if (appId !== null && appId !== undefined) {
                 localVarQueryParameter['app_id'] = appId;
+            }
+            if (groupType !== null && groupType !== undefined) {
+                localVarQueryParameter['group_type'] = groupType;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
             }
             if (instanceId !== undefined && instanceId !== null) {
                 localVarHeaderParameter['Instance-Id'] = String(instanceId);
@@ -4025,6 +4042,7 @@ export const ParamCreater = function () {
          * | tag_value   | string | 标签值           | 长度不超过128，只允许中文、字母、数字、以及_.-等字符的组合。 |
          * | sw_version  | string | 软件版本         | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）、英文点(.)的组合。 |
          * | fw_version  | string | 固件版本         | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）、英文点(.)的组合。 |
+         * | group_id    | string | 群组Id           | 长度不超过36，十六进制字符串和连接符（-）的组合              |
          * | create_time | string | 设备注册时间     | 格式：yyyy-MM-dd\&#39;T\&#39;HH:mm:ss.SSS\&#39;Z\&#39;，如：2015-06-06T12:10:10.000Z |
          * | marker      | string | 结果记录ID       | 长度为24的十六进制字符串，如ffffffffffffffffffffffff         |
          * 

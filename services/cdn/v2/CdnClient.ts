@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { BackSources } from './model/BackSources';
 import { BatchCopyConfigs } from './model/BatchCopyConfigs';
 import { BatchCopyDRequestBody } from './model/BatchCopyDRequestBody';
 import { BatchCopyDomainRequest } from './model/BatchCopyDomainRequest';
@@ -11,9 +12,11 @@ import { BatchCopyErrorRspError } from './model/BatchCopyErrorRspError';
 import { BatchCopyResultVo } from './model/BatchCopyResultVo';
 import { CacheRules } from './model/CacheRules';
 import { CacheUrlParameterFilter } from './model/CacheUrlParameterFilter';
+import { CommonRemoteAuth } from './model/CommonRemoteAuth';
 import { Compress } from './model/Compress';
 import { Configs } from './model/Configs';
 import { ConfigsGetBody } from './model/ConfigsGetBody';
+import { CustomArgs } from './model/CustomArgs';
 import { DomainOriginHost } from './model/DomainOriginHost';
 import { Domains } from './model/Domains';
 import { DomainsWithPort } from './model/DomainsWithPort';
@@ -26,6 +29,7 @@ import { ErrMsg } from './model/ErrMsg';
 import { ErrRsp } from './model/ErrRsp';
 import { ErrorCodeCache } from './model/ErrorCodeCache';
 import { ErrorCodeRedirectRules } from './model/ErrorCodeRedirectRules';
+import { FlexibleOrigins } from './model/FlexibleOrigins';
 import { ForceRedirectConfig } from './model/ForceRedirectConfig';
 import { HttpGetBody } from './model/HttpGetBody';
 import { HttpPutBody } from './model/HttpPutBody';
@@ -37,6 +41,8 @@ import { ModifyDomainConfigRequestBody } from './model/ModifyDomainConfigRequest
 import { OriginRequestHeader } from './model/OriginRequestHeader';
 import { OriginRequestUrlRewrite } from './model/OriginRequestUrlRewrite';
 import { RefererConfig } from './model/RefererConfig';
+import { RemoteAuthRuleVo } from './model/RemoteAuthRuleVo';
+import { RequestLimitRules } from './model/RequestLimitRules';
 import { SetChargeModesBody } from './model/SetChargeModesBody';
 import { SetChargeModesRequest } from './model/SetChargeModesRequest';
 import { SetChargeModesResponse } from './model/SetChargeModesResponse';
@@ -64,6 +70,8 @@ import { UpdateDomainFullConfigResponse } from './model/UpdateDomainFullConfigRe
 import { UrlAuth } from './model/UrlAuth';
 import { UrlAuthGetBody } from './model/UrlAuthGetBody';
 import { UserAgentFilter } from './model/UserAgentFilter';
+import { VideoSeek } from './model/VideoSeek';
+import { WebSocketSeek } from './model/WebSocketSeek';
 
 export class CdnClient {
     public static newBuilder(): ClientBuilder<CdnClient> {

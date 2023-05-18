@@ -122,7 +122,7 @@ export class ModerationClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询音频内容审核作业
-     * @param {string} jobId 
+     * @param {string} jobId 创建作业成功时，接口返回的job_id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
