@@ -14,6 +14,7 @@ export class CreateSubnetOption {
     public dnsList?: Array<string>;
     private 'availability_zone'?: string | undefined;
     private 'extra_dhcp_opts'?: Array<ExtraDhcpOption> | undefined;
+    public tags?: Array<string>;
     public constructor(name?: any, cidr?: any, vpcId?: any, gatewayIp?: any) { 
         this['name'] = name;
         this['cidr'] = cidr;
@@ -115,5 +116,9 @@ export class CreateSubnetOption {
     }
     public get extraDhcpOpts() {
         return this['extra_dhcp_opts'];
+    }
+    public withTags(tags: Array<string>): CreateSubnetOption {
+        this['tags'] = tags;
+        return this;
     }
 }

@@ -1,7 +1,6 @@
 
 
 export class ShowCdnStatisticsRequest {
-    private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     private 'start_time'?: string | undefined;
     private 'end_time'?: string | undefined;
@@ -11,16 +10,6 @@ export class ShowCdnStatisticsRequest {
     public constructor(statType?: any, domain?: any) { 
         this['stat_type'] = statType;
         this['domain'] = domain;
-    }
-    public withAuthorization(authorization: string): ShowCdnStatisticsRequest {
-        this['Authorization'] = authorization;
-        return this;
-    }
-    public set authorization(authorization: string | undefined) {
-        this['Authorization'] = authorization;
-    }
-    public get authorization() {
-        return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ShowCdnStatisticsRequest {
         this['X-Sdk-Date'] = xSdkDate;

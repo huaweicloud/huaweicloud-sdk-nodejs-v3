@@ -1,22 +1,11 @@
 
 
 export class ListTemplateGroupCollectionRequest {
-    private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     private 'group_collection_id'?: string | undefined;
     public offset?: number;
     public limit?: number;
     public constructor() { 
-    }
-    public withAuthorization(authorization: string): ListTemplateGroupCollectionRequest {
-        this['Authorization'] = authorization;
-        return this;
-    }
-    public set authorization(authorization: string | undefined) {
-        this['Authorization'] = authorization;
-    }
-    public get authorization() {
-        return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ListTemplateGroupCollectionRequest {
         this['X-Sdk-Date'] = xSdkDate;

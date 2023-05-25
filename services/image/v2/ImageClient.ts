@@ -7,9 +7,6 @@ import { CelebrityRecognitionReq } from './model/CelebrityRecognitionReq';
 import { CelebrityRecognitionResultBody } from './model/CelebrityRecognitionResultBody';
 import { CreateImageHighresolutionMattingTaskRequest } from './model/CreateImageHighresolutionMattingTaskRequest';
 import { CreateImageHighresolutionMattingTaskResponse } from './model/CreateImageHighresolutionMattingTaskResponse';
-import { CreateVideoObjectMaskingTaskRequest } from './model/CreateVideoObjectMaskingTaskRequest';
-import { CreateVideoObjectMaskingTaskRequestBody } from './model/CreateVideoObjectMaskingTaskRequestBody';
-import { CreateVideoObjectMaskingTaskResponse } from './model/CreateVideoObjectMaskingTaskResponse';
 import { CreateVideoTaggingMediaTaskRequest } from './model/CreateVideoTaggingMediaTaskRequest';
 import { CreateVideoTaggingMediaTaskRequestBody } from './model/CreateVideoTaggingMediaTaskRequestBody';
 import { CreateVideoTaggingMediaTaskResponse } from './model/CreateVideoTaggingMediaTaskResponse';
@@ -64,18 +61,11 @@ import { RunRecaptureDetectRequest } from './model/RunRecaptureDetectRequest';
 import { RunRecaptureDetectResponse } from './model/RunRecaptureDetectResponse';
 import { ShowImageHighresolutionMattingTaskRequest } from './model/ShowImageHighresolutionMattingTaskRequest';
 import { ShowImageHighresolutionMattingTaskResponse } from './model/ShowImageHighresolutionMattingTaskResponse';
-import { ShowVideoObjectMaskingTaskRequest } from './model/ShowVideoObjectMaskingTaskRequest';
-import { ShowVideoObjectMaskingTaskResponse } from './model/ShowVideoObjectMaskingTaskResponse';
 import { ShowVideoTaggingMediaTaskRequest } from './model/ShowVideoTaggingMediaTaskRequest';
 import { ShowVideoTaggingMediaTaskResponse } from './model/ShowVideoTaggingMediaTaskResponse';
 import { TaskCallback } from './model/TaskCallback';
-import { TaskInput } from './model/TaskInput';
-import { TaskInputData } from './model/TaskInputData';
 import { TaskOutput } from './model/TaskOutput';
 import { TaskOutputObs } from './model/TaskOutputObs';
-import { VideoObjectMaskingInference } from './model/VideoObjectMaskingInference';
-import { VideoObjectMaskingTaskConfig } from './model/VideoObjectMaskingTaskConfig';
-import { VideoObjectMaskingTaskConfigCommon } from './model/VideoObjectMaskingTaskConfigCommon';
 import { VideoTaggingMediaTaskInput } from './model/VideoTaggingMediaTaskInput';
 import { VideoTaggingMediaTaskInputData } from './model/VideoTaggingMediaTaskInputData';
 import { VideoTaggingTaskConfig } from './model/VideoTaggingTaskConfig';
@@ -112,25 +102,6 @@ export class ImageClient {
 
          // @ts-ignore
         options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
-     * 创建视频脱敏除任务，将输入视频的图像敏感信息模糊化，包括视频中的人脸和车牌
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 创建视频脱敏任务
-     * @param {CreateVideoObjectMaskingTaskRequestBody} createVideoObjectMaskingTaskRequestBody Create task request body
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public createVideoObjectMaskingTask(createVideoObjectMaskingTaskRequest?: CreateVideoObjectMaskingTaskRequest): Promise<CreateVideoObjectMaskingTaskResponse> {
-        const options = ParamCreater().createVideoObjectMaskingTask(createVideoObjectMaskingTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = [''];
 
         return this.hcClient.sendRequest(options);
     }
@@ -326,25 +297,6 @@ export class ImageClient {
     }
 
     /**
-     * show task
-     * 
-     * Please refer to HUAWEI cloud API Explorer for details.
-     *
-     * @summary 查询视频脱敏任务详情
-     * @param {string} taskId 任务ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public showVideoObjectMaskingTask(showVideoObjectMaskingTaskRequest?: ShowVideoObjectMaskingTaskRequest): Promise<ShowVideoObjectMaskingTaskResponse> {
-        const options = ParamCreater().showVideoObjectMaskingTask(showVideoObjectMaskingTaskRequest);
-
-         // @ts-ignore
-        options['responseHeaders'] = ['X-request-id'];
-
-        return this.hcClient.sendRequest(options);
-    }
-
-    /**
      * 查询视频标签任务详情，返回参数配置以及任务状态信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -391,44 +343,6 @@ export const ParamCreater = function () {
                     body = createImageHighresolutionMattingTaskRequest.body
                 } else {
                     body = createImageHighresolutionMattingTaskRequest['body'];
-                }
-            }
-
-        
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
-
-            options.data = body !== undefined ? body : {};
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * 创建视频脱敏除任务，将输入视频的图像敏感信息模糊化，包括视频中的人脸和车牌
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        createVideoObjectMaskingTask(createVideoObjectMaskingTaskRequest?: CreateVideoObjectMaskingTaskRequest) {
-            const options = {
-                method: "POST",
-                url: "/v2/{project_id}/image/video-object-masking/tasks",
-                contentType: "application/json;charset=UTF-8",
-                queryParams: {},
-                pathParams: {},
-                headers: {},
-                data: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            let body: any;
-
-            if (createVideoObjectMaskingTaskRequest !== null && createVideoObjectMaskingTaskRequest !== undefined) {
-                if (createVideoObjectMaskingTaskRequest instanceof CreateVideoObjectMaskingTaskRequest) {
-                    body = createVideoObjectMaskingTaskRequest.body
-                } else {
-                    body = createVideoObjectMaskingTaskRequest['body'];
                 }
             }
 
@@ -815,43 +729,6 @@ export const ParamCreater = function () {
         
             if (taskId === null || taskId === undefined) {
             throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showImageHighresolutionMattingTask.');
-            }
-
-            options.pathParams = { 'task_id': taskId, };
-            options.headers = localVarHeaderParameter;
-            return options;
-        },
-    
-        /**
-         * show task
-         * 
-         * Please refer to HUAWEI cloud API Explorer for details.
-         */
-        showVideoObjectMaskingTask(showVideoObjectMaskingTaskRequest?: ShowVideoObjectMaskingTaskRequest) {
-            const options = {
-                method: "GET",
-                url: "/v2/{project_id}/image/video-object-masking/tasks/{task_id}",
-                contentType: "application/json",
-                queryParams: {},
-                pathParams: {},
-                headers: {}
-            };
-            const localVarHeaderParameter = {} as any;
-
-            
-            let taskId;
-
-            if (showVideoObjectMaskingTaskRequest !== null && showVideoObjectMaskingTaskRequest !== undefined) {
-                if (showVideoObjectMaskingTaskRequest instanceof ShowVideoObjectMaskingTaskRequest) {
-                    taskId = showVideoObjectMaskingTaskRequest.taskId;
-                } else {
-                    taskId = showVideoObjectMaskingTaskRequest['task_id'];
-                }
-            }
-
-        
-            if (taskId === null || taskId === undefined) {
-            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showVideoObjectMaskingTask.');
             }
 
             options.pathParams = { 'task_id': taskId, };

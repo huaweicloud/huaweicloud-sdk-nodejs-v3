@@ -4,7 +4,7 @@ import { SmsTemplateVariableAttrReq } from './SmsTemplateVariableAttrReq';
 export class SmsTemplateReq {
     private 'app_id': string | undefined;
     public brackets?: string;
-    public region?: string;
+    public region: string;
     private 'send_country'?: Array<number> | undefined;
     private 'sign_id'?: string | undefined;
     private 'template_content': string | undefined;
@@ -13,8 +13,9 @@ export class SmsTemplateReq {
     private 'template_type': string | undefined;
     private 'universal_template'?: number | undefined;
     private 'variable_attributes'?: Array<SmsTemplateVariableAttrReq> | undefined;
-    public constructor(appId?: any, templateContent?: any, templateName?: any, templateType?: any) { 
+    public constructor(appId?: any, region?: any, templateContent?: any, templateName?: any, templateType?: any) { 
         this['app_id'] = appId;
+        this['region'] = region;
         this['template_content'] = templateContent;
         this['template_name'] = templateName;
         this['template_type'] = templateType;

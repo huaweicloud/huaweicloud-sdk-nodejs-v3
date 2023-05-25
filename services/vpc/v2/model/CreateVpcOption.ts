@@ -5,6 +5,7 @@ export class CreateVpcOption {
     public name?: string;
     public description?: string;
     private 'enterprise_project_id'?: string | undefined;
+    public tags?: Array<string>;
     public constructor() { 
     }
     public withCidr(cidr: string): CreateVpcOption {
@@ -28,5 +29,9 @@ export class CreateVpcOption {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withTags(tags: Array<string>): CreateVpcOption {
+        this['tags'] = tags;
+        return this;
     }
 }

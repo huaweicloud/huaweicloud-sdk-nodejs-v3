@@ -25,6 +25,10 @@ export class VaultCreateResource {
     public errText?: string;
     public retCode?: string;
     public orders?: Array<CbcOrderResult>;
+    private 'backup_name_prefix'?: string | undefined;
+    private 'demand_billing'?: boolean | undefined;
+    private 'cbc_delete_count'?: number | undefined;
+    public frozen?: boolean;
     public constructor(billing?: any, id?: any, name?: any, projectId?: any, providerId?: any, resources?: any) { 
         this['billing'] = billing;
         this['id'] = id;
@@ -161,6 +165,40 @@ export class VaultCreateResource {
     }
     public withOrders(orders: Array<CbcOrderResult>): VaultCreateResource {
         this['orders'] = orders;
+        return this;
+    }
+    public withBackupNamePrefix(backupNamePrefix: string): VaultCreateResource {
+        this['backup_name_prefix'] = backupNamePrefix;
+        return this;
+    }
+    public set backupNamePrefix(backupNamePrefix: string | undefined) {
+        this['backup_name_prefix'] = backupNamePrefix;
+    }
+    public get backupNamePrefix() {
+        return this['backup_name_prefix'];
+    }
+    public withDemandBilling(demandBilling: boolean): VaultCreateResource {
+        this['demand_billing'] = demandBilling;
+        return this;
+    }
+    public set demandBilling(demandBilling: boolean | undefined) {
+        this['demand_billing'] = demandBilling;
+    }
+    public get demandBilling() {
+        return this['demand_billing'];
+    }
+    public withCbcDeleteCount(cbcDeleteCount: number): VaultCreateResource {
+        this['cbc_delete_count'] = cbcDeleteCount;
+        return this;
+    }
+    public set cbcDeleteCount(cbcDeleteCount: number | undefined) {
+        this['cbc_delete_count'] = cbcDeleteCount;
+    }
+    public get cbcDeleteCount() {
+        return this['cbc_delete_count'];
+    }
+    public withFrozen(frozen: boolean): VaultCreateResource {
+        this['frozen'] = frozen;
         return this;
     }
 }

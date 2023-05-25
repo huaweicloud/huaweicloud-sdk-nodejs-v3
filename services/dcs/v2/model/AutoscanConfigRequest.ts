@@ -1,9 +1,11 @@
 
 
 export class AutoscanConfigRequest {
-    private 'enable_auto_scan'?: boolean | undefined;
-    private 'schedule_at'?: Array<string> | undefined;
-    public constructor() { 
+    private 'enable_auto_scan': boolean | undefined;
+    private 'schedule_at': Array<string> | undefined;
+    public constructor(enableAutoScan?: any, scheduleAt?: any) { 
+        this['enable_auto_scan'] = enableAutoScan;
+        this['schedule_at'] = scheduleAt;
     }
     public withEnableAutoScan(enableAutoScan: boolean): AutoscanConfigRequest {
         this['enable_auto_scan'] = enableAutoScan;

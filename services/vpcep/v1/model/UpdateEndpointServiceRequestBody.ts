@@ -6,7 +6,6 @@ export class UpdateEndpointServiceRequestBody {
     private 'service_name'?: string | undefined;
     public ports?: Array<PortList>;
     private 'port_id'?: string | undefined;
-    private 'vip_port_id'?: string | undefined;
     private 'tcp_proxy'?: UpdateEndpointServiceRequestBodyTcpProxyEnum | undefined;
     public description?: string;
     public constructor() { 
@@ -44,16 +43,6 @@ export class UpdateEndpointServiceRequestBody {
     }
     public get portId() {
         return this['port_id'];
-    }
-    public withVipPortId(vipPortId: string): UpdateEndpointServiceRequestBody {
-        this['vip_port_id'] = vipPortId;
-        return this;
-    }
-    public set vipPortId(vipPortId: string | undefined) {
-        this['vip_port_id'] = vipPortId;
-    }
-    public get vipPortId() {
-        return this['vip_port_id'];
     }
     public withTcpProxy(tcpProxy: UpdateEndpointServiceRequestBodyTcpProxyEnum): UpdateEndpointServiceRequestBody {
         this['tcp_proxy'] = tcpProxy;

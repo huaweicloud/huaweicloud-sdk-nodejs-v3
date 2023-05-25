@@ -9,6 +9,7 @@ export class ShowSignatureFileResponse extends SdkResponse {
     private 'file_type'?: number | undefined;
     private 'module_type'?: number | undefined;
     public operator?: string;
+    private 'file_desc'?: string | undefined;
     private 'update_time'?: string | undefined;
     public constructor() { 
         super();
@@ -76,6 +77,16 @@ export class ShowSignatureFileResponse extends SdkResponse {
     public withOperator(operator: string): ShowSignatureFileResponse {
         this['operator'] = operator;
         return this;
+    }
+    public withFileDesc(fileDesc: string): ShowSignatureFileResponse {
+        this['file_desc'] = fileDesc;
+        return this;
+    }
+    public set fileDesc(fileDesc: string | undefined) {
+        this['file_desc'] = fileDesc;
+    }
+    public get fileDesc() {
+        return this['file_desc'];
     }
     public withUpdateTime(updateTime: string): ShowSignatureFileResponse {
         this['update_time'] = updateTime;

@@ -3,6 +3,7 @@
 export class ClusterMetadata {
     public name: string;
     public uid?: string;
+    public alias?: string;
     public annotations?: { [key: string]: string; };
     public labels?: { [key: string]: string; };
     public creationTimestamp?: string;
@@ -16,6 +17,10 @@ export class ClusterMetadata {
     }
     public withUid(uid: string): ClusterMetadata {
         this['uid'] = uid;
+        return this;
+    }
+    public withAlias(alias: string): ClusterMetadata {
+        this['alias'] = alias;
         return this;
     }
     public withAnnotations(annotations: { [key: string]: string; }): ClusterMetadata {

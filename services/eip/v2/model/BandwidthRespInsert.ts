@@ -1,3 +1,4 @@
+import { BandWidthRules } from './BandWidthRules';
 import { PublicipInfoResp } from './PublicipInfoResp';
 
 
@@ -13,6 +14,9 @@ export class BandwidthRespInsert {
     private 'tenant_id'?: string | undefined;
     private 'enterprise_project_id'?: string | undefined;
     public status?: BandwidthRespInsertStatusEnum;
+    private 'enable_bandwidth_rules'?: boolean | undefined;
+    private 'rule_quota'?: number | undefined;
+    private 'bandwidth_rules'?: Array<BandWidthRules> | undefined;
     public constructor() { 
     }
     public withBandwidthType(bandwidthType: string): BandwidthRespInsert {
@@ -100,6 +104,36 @@ export class BandwidthRespInsert {
     public withStatus(status: BandwidthRespInsertStatusEnum): BandwidthRespInsert {
         this['status'] = status;
         return this;
+    }
+    public withEnableBandwidthRules(enableBandwidthRules: boolean): BandwidthRespInsert {
+        this['enable_bandwidth_rules'] = enableBandwidthRules;
+        return this;
+    }
+    public set enableBandwidthRules(enableBandwidthRules: boolean | undefined) {
+        this['enable_bandwidth_rules'] = enableBandwidthRules;
+    }
+    public get enableBandwidthRules() {
+        return this['enable_bandwidth_rules'];
+    }
+    public withRuleQuota(ruleQuota: number): BandwidthRespInsert {
+        this['rule_quota'] = ruleQuota;
+        return this;
+    }
+    public set ruleQuota(ruleQuota: number | undefined) {
+        this['rule_quota'] = ruleQuota;
+    }
+    public get ruleQuota() {
+        return this['rule_quota'];
+    }
+    public withBandwidthRules(bandwidthRules: Array<BandWidthRules>): BandwidthRespInsert {
+        this['bandwidth_rules'] = bandwidthRules;
+        return this;
+    }
+    public set bandwidthRules(bandwidthRules: Array<BandWidthRules> | undefined) {
+        this['bandwidth_rules'] = bandwidthRules;
+    }
+    public get bandwidthRules() {
+        return this['bandwidth_rules'];
     }
 }
 

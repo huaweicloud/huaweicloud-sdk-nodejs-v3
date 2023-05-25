@@ -1,23 +1,12 @@
 
 
 export class ListTakeOverTaskRequest {
-    private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     public status?: string;
     private 'task_id'?: string | undefined;
     public page?: number;
     public size?: number;
     public constructor() { 
-    }
-    public withAuthorization(authorization: string): ListTakeOverTaskRequest {
-        this['Authorization'] = authorization;
-        return this;
-    }
-    public set authorization(authorization: string | undefined) {
-        this['Authorization'] = authorization;
-    }
-    public get authorization() {
-        return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ListTakeOverTaskRequest {
         this['X-Sdk-Date'] = xSdkDate;

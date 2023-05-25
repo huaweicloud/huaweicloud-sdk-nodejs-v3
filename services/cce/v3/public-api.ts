@@ -22,6 +22,7 @@ export * from './model/ClusterInformation';
 export * from './model/ClusterInformationSpec';
 export * from './model/ClusterInformationSpecHostNetwork';
 export * from './model/ClusterMetadata';
+export * from './model/ClusterMetadataForUpdate';
 export * from './model/ClusterNodeInformation';
 export * from './model/ClusterNodeInformationMetadata';
 export * from './model/ClusterSpec';

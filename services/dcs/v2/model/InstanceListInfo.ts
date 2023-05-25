@@ -10,6 +10,7 @@ export class InstanceListInfo {
     private 'subnet_id'?: string | undefined;
     private 'security_group_id'?: string | undefined;
     private 'created_at'?: string | undefined;
+    private 'updated_at'?: string | undefined;
     private 'enable_ssl'?: boolean | undefined;
     private 'max_memory'?: number | undefined;
     private 'used_memory'?: number | undefined;
@@ -114,6 +115,16 @@ export class InstanceListInfo {
     }
     public get createdAt() {
         return this['created_at'];
+    }
+    public withUpdatedAt(updatedAt: string): InstanceListInfo {
+        this['updated_at'] = updatedAt;
+        return this;
+    }
+    public set updatedAt(updatedAt: string | undefined) {
+        this['updated_at'] = updatedAt;
+    }
+    public get updatedAt() {
+        return this['updated_at'];
     }
     public withEnableSsl(enableSsl: boolean): InstanceListInfo {
         this['enable_ssl'] = enableSsl;

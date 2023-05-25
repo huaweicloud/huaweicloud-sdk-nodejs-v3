@@ -8,6 +8,7 @@ export class ListServiceDescribeDetailsResponse extends SdkResponse {
     private 'created_at'?: string | undefined;
     private 'is_charge'?: boolean | undefined;
     private 'public_border_group'?: string | undefined;
+    private 'enable_policy'?: boolean | undefined;
     public constructor() { 
         super();
     }
@@ -64,6 +65,16 @@ export class ListServiceDescribeDetailsResponse extends SdkResponse {
     }
     public get publicBorderGroup() {
         return this['public_border_group'];
+    }
+    public withEnablePolicy(enablePolicy: boolean): ListServiceDescribeDetailsResponse {
+        this['enable_policy'] = enablePolicy;
+        return this;
+    }
+    public set enablePolicy(enablePolicy: boolean | undefined) {
+        this['enable_policy'] = enablePolicy;
+    }
+    public get enablePolicy() {
+        return this['enable_policy'];
     }
 }
 

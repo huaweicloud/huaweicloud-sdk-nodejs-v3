@@ -5,7 +5,6 @@ export class UpdateAppResponse extends SdkResponse {
     private 'app_key'?: string | undefined;
     private 'app_name'?: string | undefined;
     public id?: string;
-    private 'app_secret'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -32,15 +31,5 @@ export class UpdateAppResponse extends SdkResponse {
     public withId(id: string): UpdateAppResponse {
         this['id'] = id;
         return this;
-    }
-    public withAppSecret(appSecret: string): UpdateAppResponse {
-        this['app_secret'] = appSecret;
-        return this;
-    }
-    public set appSecret(appSecret: string | undefined) {
-        this['app_secret'] = appSecret;
-    }
-    public get appSecret() {
-        return this['app_secret'];
     }
 }

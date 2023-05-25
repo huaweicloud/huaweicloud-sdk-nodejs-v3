@@ -1,7 +1,6 @@
 
 
 export class ListDomainLogsRequest {
-    private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     private 'domain_name': string | undefined;
     private 'query_date': string | undefined;
@@ -10,16 +9,6 @@ export class ListDomainLogsRequest {
     public constructor(domainName?: any, queryDate?: any) { 
         this['domain_name'] = domainName;
         this['query_date'] = queryDate;
-    }
-    public withAuthorization(authorization: string): ListDomainLogsRequest {
-        this['Authorization'] = authorization;
-        return this;
-    }
-    public set authorization(authorization: string | undefined) {
-        this['Authorization'] = authorization;
-    }
-    public get authorization() {
-        return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ListDomainLogsRequest {
         this['X-Sdk-Date'] = xSdkDate;

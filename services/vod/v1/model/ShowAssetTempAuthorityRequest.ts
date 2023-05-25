@@ -1,7 +1,6 @@
 
 
 export class ShowAssetTempAuthorityRequest {
-    private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     private 'http_verb': string | undefined;
     public bucket: string;
@@ -14,16 +13,6 @@ export class ShowAssetTempAuthorityRequest {
         this['http_verb'] = httpVerb;
         this['bucket'] = bucket;
         this['object_key'] = objectKey;
-    }
-    public withAuthorization(authorization: string): ShowAssetTempAuthorityRequest {
-        this['Authorization'] = authorization;
-        return this;
-    }
-    public set authorization(authorization: string | undefined) {
-        this['Authorization'] = authorization;
-    }
-    public get authorization() {
-        return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ShowAssetTempAuthorityRequest {
         this['X-Sdk-Date'] = xSdkDate;

@@ -1,7 +1,6 @@
 
 
 export class ListAssetListRequest {
-    private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     private 'asset_id'?: Array<string> | undefined;
     public status?: Array<ListAssetListRequestStatusEnum>;
@@ -15,16 +14,6 @@ export class ListAssetListRequest {
     public size?: number;
     public order?: ListAssetListRequestOrderEnum;
     public constructor() { 
-    }
-    public withAuthorization(authorization: string): ListAssetListRequest {
-        this['Authorization'] = authorization;
-        return this;
-    }
-    public set authorization(authorization: string | undefined) {
-        this['Authorization'] = authorization;
-    }
-    public get authorization() {
-        return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ListAssetListRequest {
         this['X-Sdk-Date'] = xSdkDate;

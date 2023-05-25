@@ -1,23 +1,12 @@
 
 
 export class ShowTakeOverAssetDetailsRequest {
-    private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     private 'source_bucket': string | undefined;
     private 'source_object': string | undefined;
     public constructor(sourceBucket?: any, sourceObject?: any) { 
         this['source_bucket'] = sourceBucket;
         this['source_object'] = sourceObject;
-    }
-    public withAuthorization(authorization: string): ShowTakeOverAssetDetailsRequest {
-        this['Authorization'] = authorization;
-        return this;
-    }
-    public set authorization(authorization: string | undefined) {
-        this['Authorization'] = authorization;
-    }
-    public get authorization() {
-        return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ShowTakeOverAssetDetailsRequest {
         this['X-Sdk-Date'] = xSdkDate;

@@ -93,6 +93,7 @@ import { DisassociateServerVirtualIpResponse } from './model/DisassociateServerV
 import { Flavor } from './model/Flavor';
 import { FlavorExtraSpec } from './model/FlavorExtraSpec';
 import { FlavorLink } from './model/FlavorLink';
+import { FlavorSpotOptions } from './model/FlavorSpotOptions';
 import { GetServerRemoteConsoleOption } from './model/GetServerRemoteConsoleOption';
 import { Hypervisor } from './model/Hypervisor';
 import { InterfaceAttachableQuantity } from './model/InterfaceAttachableQuantity';
@@ -100,6 +101,9 @@ import { InterfaceAttachment } from './model/InterfaceAttachment';
 import { Ipv6Bandwidth } from './model/Ipv6Bandwidth';
 import { JobEntities } from './model/JobEntities';
 import { Link } from './model/Link';
+import { ListFlavorSellPoliciesRequest } from './model/ListFlavorSellPoliciesRequest';
+import { ListFlavorSellPoliciesResponse } from './model/ListFlavorSellPoliciesResponse';
+import { ListFlavorSellPoliciesResult } from './model/ListFlavorSellPoliciesResult';
 import { ListFlavorsRequest } from './model/ListFlavorsRequest';
 import { ListFlavorsResponse } from './model/ListFlavorsResponse';
 import { ListResizeFlavorsRequest } from './model/ListResizeFlavorsRequest';
@@ -874,6 +878,35 @@ export class EcsClient {
      */
     public disassociateServerVirtualIp(disassociateServerVirtualIpRequest?: DisassociateServerVirtualIpRequest): Promise<DisassociateServerVirtualIpResponse> {
         const options = ParamCreater().disassociateServerVirtualIp(disassociateServerVirtualIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询规格销售策略。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询规格销售策略
+     * @param {string} [flavorId] 云服务器的系统规格的ID
+     * @param {'available' | 'sellout'} [sellStatus] 云服务器的系统规格销售状态。  取值范围：  - available：正常售卖 - sellout：售罄
+     * @param {'postPaid' | 'prePaid' | 'spot' | 'ri'} [sellMode] 计费模式。  key的取值范围：  - postPaid：按需计费实例。 - prePaid：包年/包月计费实例。 - spot：竞价实例。 - ri：预留实例。
+     * @param {string} [availabilityZoneId] 可用区，需要指定可用区（AZ）
+     * @param {number} [longestSpotDurationHoursGt] 查询竞价实例时长大于设置值的策略
+     * @param {number} [largestSpotDurationCountGt] 查询“竞价实例时长”的个数大于设置值的策略
+     * @param {number} [longestSpotDurationHours] 查询竞价实例时长等于设置值的策略
+     * @param {number} [largestSpotDurationCount] 查询“竞价实例时长”的个数等于设置值的策略
+     * @param {'immediate' | 'delay'} [interruptionPolicy] 中断策略。  取值范围：  - immediate：立即释放 - delay：延迟释放
+     * @param {number} [limit] 单页面可显示的flavor条数最大值，默认是1000。
+     * @param {string} [marker] 以单页最后一条flavor的ID作为分页标记。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listFlavorSellPolicies(listFlavorSellPoliciesRequest?: ListFlavorSellPoliciesRequest): Promise<ListFlavorSellPoliciesResponse> {
+        const options = ParamCreater().listFlavorSellPolicies(listFlavorSellPoliciesRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2935,6 +2968,113 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'nic_id': nicId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询规格销售策略。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listFlavorSellPolicies(listFlavorSellPoliciesRequest?: ListFlavorSellPoliciesRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/cloudservers/flavor-sell-policies",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let flavorId;
+            
+            let sellStatus;
+            
+            let sellMode;
+            
+            let availabilityZoneId;
+            
+            let longestSpotDurationHoursGt;
+            
+            let largestSpotDurationCountGt;
+            
+            let longestSpotDurationHours;
+            
+            let largestSpotDurationCount;
+            
+            let interruptionPolicy;
+            
+            let limit;
+            
+            let marker;
+
+            if (listFlavorSellPoliciesRequest !== null && listFlavorSellPoliciesRequest !== undefined) {
+                if (listFlavorSellPoliciesRequest instanceof ListFlavorSellPoliciesRequest) {
+                    flavorId = listFlavorSellPoliciesRequest.flavorId;
+                    sellStatus = listFlavorSellPoliciesRequest.sellStatus;
+                    sellMode = listFlavorSellPoliciesRequest.sellMode;
+                    availabilityZoneId = listFlavorSellPoliciesRequest.availabilityZoneId;
+                    longestSpotDurationHoursGt = listFlavorSellPoliciesRequest.longestSpotDurationHoursGt;
+                    largestSpotDurationCountGt = listFlavorSellPoliciesRequest.largestSpotDurationCountGt;
+                    longestSpotDurationHours = listFlavorSellPoliciesRequest.longestSpotDurationHours;
+                    largestSpotDurationCount = listFlavorSellPoliciesRequest.largestSpotDurationCount;
+                    interruptionPolicy = listFlavorSellPoliciesRequest.interruptionPolicy;
+                    limit = listFlavorSellPoliciesRequest.limit;
+                    marker = listFlavorSellPoliciesRequest.marker;
+                } else {
+                    flavorId = listFlavorSellPoliciesRequest['flavor_id'];
+                    sellStatus = listFlavorSellPoliciesRequest['sell_status'];
+                    sellMode = listFlavorSellPoliciesRequest['sell_mode'];
+                    availabilityZoneId = listFlavorSellPoliciesRequest['availability_zone_id'];
+                    longestSpotDurationHoursGt = listFlavorSellPoliciesRequest['longest_spot_duration_hours_gt'];
+                    largestSpotDurationCountGt = listFlavorSellPoliciesRequest['largest_spot_duration_count_gt'];
+                    longestSpotDurationHours = listFlavorSellPoliciesRequest['longest_spot_duration_hours'];
+                    largestSpotDurationCount = listFlavorSellPoliciesRequest['largest_spot_duration_count'];
+                    interruptionPolicy = listFlavorSellPoliciesRequest['interruption_policy'];
+                    limit = listFlavorSellPoliciesRequest['limit'];
+                    marker = listFlavorSellPoliciesRequest['marker'];
+                }
+            }
+
+        
+            if (flavorId !== null && flavorId !== undefined) {
+                localVarQueryParameter['flavor_id'] = flavorId;
+            }
+            if (sellStatus !== null && sellStatus !== undefined) {
+                localVarQueryParameter['sell_status'] = sellStatus;
+            }
+            if (sellMode !== null && sellMode !== undefined) {
+                localVarQueryParameter['sell_mode'] = sellMode;
+            }
+            if (availabilityZoneId !== null && availabilityZoneId !== undefined) {
+                localVarQueryParameter['availability_zone_id'] = availabilityZoneId;
+            }
+            if (longestSpotDurationHoursGt !== null && longestSpotDurationHoursGt !== undefined) {
+                localVarQueryParameter['longest_spot_duration_hours_gt'] = longestSpotDurationHoursGt;
+            }
+            if (largestSpotDurationCountGt !== null && largestSpotDurationCountGt !== undefined) {
+                localVarQueryParameter['largest_spot_duration_count_gt'] = largestSpotDurationCountGt;
+            }
+            if (longestSpotDurationHours !== null && longestSpotDurationHours !== undefined) {
+                localVarQueryParameter['longest_spot_duration_hours'] = longestSpotDurationHours;
+            }
+            if (largestSpotDurationCount !== null && largestSpotDurationCount !== undefined) {
+                localVarQueryParameter['largest_spot_duration_count'] = largestSpotDurationCount;
+            }
+            if (interruptionPolicy !== null && interruptionPolicy !== undefined) {
+                localVarQueryParameter['interruption_policy'] = interruptionPolicy;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

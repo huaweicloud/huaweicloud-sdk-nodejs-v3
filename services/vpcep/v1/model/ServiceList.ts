@@ -5,7 +5,6 @@ import { TagList } from './TagList';
 export class ServiceList {
     public id?: string;
     private 'port_id'?: string | undefined;
-    private 'vip_port_id'?: string | undefined;
     private 'service_name'?: string | undefined;
     private 'server_type'?: string | undefined;
     private 'vpc_id'?: string | undefined;
@@ -39,16 +38,6 @@ export class ServiceList {
     }
     public get portId() {
         return this['port_id'];
-    }
-    public withVipPortId(vipPortId: string): ServiceList {
-        this['vip_port_id'] = vipPortId;
-        return this;
-    }
-    public set vipPortId(vipPortId: string | undefined) {
-        this['vip_port_id'] = vipPortId;
-    }
-    public get vipPortId() {
-        return this['vip_port_id'];
     }
     public withServiceName(serviceName: string): ServiceList {
         this['service_name'] = serviceName;

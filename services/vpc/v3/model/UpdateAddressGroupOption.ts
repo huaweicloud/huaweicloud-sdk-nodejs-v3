@@ -4,6 +4,7 @@ export class UpdateAddressGroupOption {
     public name?: string;
     public description?: string;
     private 'ip_set'?: Array<string> | undefined;
+    private 'max_capacity'?: number | undefined;
     public constructor() { 
     }
     public withName(name: string): UpdateAddressGroupOption {
@@ -23,5 +24,15 @@ export class UpdateAddressGroupOption {
     }
     public get ipSet() {
         return this['ip_set'];
+    }
+    public withMaxCapacity(maxCapacity: number): UpdateAddressGroupOption {
+        this['max_capacity'] = maxCapacity;
+        return this;
+    }
+    public set maxCapacity(maxCapacity: number | undefined) {
+        this['max_capacity'] = maxCapacity;
+    }
+    public get maxCapacity() {
+        return this['max_capacity'];
     }
 }

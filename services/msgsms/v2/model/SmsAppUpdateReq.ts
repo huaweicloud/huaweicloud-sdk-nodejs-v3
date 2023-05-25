@@ -3,14 +3,13 @@
 export class SmsAppUpdateReq {
     private 'app_name': string | undefined;
     private 'create_sign_and_template'?: boolean | undefined;
-    private 'enterprise_project_id': string | undefined;
-    private 'enterprise_project_name': string | undefined;
-    public region?: string;
+    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_name'?: string | undefined;
+    public region: string;
     private 'up_link_addr'?: string | undefined;
-    public constructor(appName?: any, enterpriseProjectId?: any, enterpriseProjectName?: any) { 
+    public constructor(appName?: any, region?: any) { 
         this['app_name'] = appName;
-        this['enterprise_project_id'] = enterpriseProjectId;
-        this['enterprise_project_name'] = enterpriseProjectName;
+        this['region'] = region;
     }
     public withAppName(appName: string): SmsAppUpdateReq {
         this['app_name'] = appName;

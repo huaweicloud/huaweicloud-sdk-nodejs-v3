@@ -39,6 +39,8 @@ import { AssociateAgencyWithDomainPermissionRequest } from './model/AssociateAge
 import { AssociateAgencyWithDomainPermissionResponse } from './model/AssociateAgencyWithDomainPermissionResponse';
 import { AssociateAgencyWithProjectPermissionRequest } from './model/AssociateAgencyWithProjectPermissionRequest';
 import { AssociateAgencyWithProjectPermissionResponse } from './model/AssociateAgencyWithProjectPermissionResponse';
+import { AssociateRoleToAgencyOnEnterpriseProjectRequest } from './model/AssociateRoleToAgencyOnEnterpriseProjectRequest';
+import { AssociateRoleToAgencyOnEnterpriseProjectResponse } from './model/AssociateRoleToAgencyOnEnterpriseProjectResponse';
 import { AssociateRoleToGroupOnEnterpriseProjectRequest } from './model/AssociateRoleToGroupOnEnterpriseProjectRequest';
 import { AssociateRoleToGroupOnEnterpriseProjectResponse } from './model/AssociateRoleToGroupOnEnterpriseProjectResponse';
 import { AssociateRoleToUserOnEnterpriseProjectRequest } from './model/AssociateRoleToUserOnEnterpriseProjectRequest';
@@ -62,6 +64,8 @@ import { ConfigByOption } from './model/ConfigByOption';
 import { CreateAgencyCustomPolicyRequest } from './model/CreateAgencyCustomPolicyRequest';
 import { CreateAgencyCustomPolicyRequestBody } from './model/CreateAgencyCustomPolicyRequestBody';
 import { CreateAgencyCustomPolicyResponse } from './model/CreateAgencyCustomPolicyResponse';
+import { CreateAgencyEpPolicyAssignmentReqBody } from './model/CreateAgencyEpPolicyAssignmentReqBody';
+import { CreateAgencyEpPolicyAssignmentReqBodyRoleAssignments } from './model/CreateAgencyEpPolicyAssignmentReqBodyRoleAssignments';
 import { CreateAgencyOption } from './model/CreateAgencyOption';
 import { CreateAgencyRequest } from './model/CreateAgencyRequest';
 import { CreateAgencyRequestBody } from './model/CreateAgencyRequestBody';
@@ -88,6 +92,7 @@ import { CreateOpenIdConnectConfig } from './model/CreateOpenIdConnectConfig';
 import { CreateOpenIdConnectConfigRequest } from './model/CreateOpenIdConnectConfigRequest';
 import { CreateOpenIdConnectConfigRequestBody } from './model/CreateOpenIdConnectConfigRequestBody';
 import { CreateOpenIdConnectConfigResponse } from './model/CreateOpenIdConnectConfigResponse';
+import { CreateOrDelAgencyEpPolicyAssignmentReqBody } from './model/CreateOrDelAgencyEpPolicyAssignmentReqBody';
 import { CreatePermanentAccessKeyRequest } from './model/CreatePermanentAccessKeyRequest';
 import { CreatePermanentAccessKeyRequestBody } from './model/CreatePermanentAccessKeyRequestBody';
 import { CreatePermanentAccessKeyResponse } from './model/CreatePermanentAccessKeyResponse';
@@ -385,6 +390,8 @@ import { RemoveDomainPermissionFromAgencyResponse } from './model/RemoveDomainPe
 import { RemoveProjectPermissionFromAgencyRequest } from './model/RemoveProjectPermissionFromAgencyRequest';
 import { RemoveProjectPermissionFromAgencyResponse } from './model/RemoveProjectPermissionFromAgencyResponse';
 import { Resources } from './model/Resources';
+import { RevokeRoleFromAgencyOnEnterpriseProjectRequest } from './model/RevokeRoleFromAgencyOnEnterpriseProjectRequest';
+import { RevokeRoleFromAgencyOnEnterpriseProjectResponse } from './model/RevokeRoleFromAgencyOnEnterpriseProjectResponse';
 import { RevokeRoleFromGroupOnEnterpriseProjectRequest } from './model/RevokeRoleFromGroupOnEnterpriseProjectRequest';
 import { RevokeRoleFromGroupOnEnterpriseProjectResponse } from './model/RevokeRoleFromGroupOnEnterpriseProjectResponse';
 import { RevokeRoleFromUserOnEnterpriseProjectRequest } from './model/RevokeRoleFromUserOnEnterpriseProjectRequest';
@@ -611,6 +618,26 @@ export class IamClient {
      */
     public associateAgencyWithProjectPermission(associateAgencyWithProjectPermissionRequest?: AssociateAgencyWithProjectPermissionRequest): Promise<AssociateAgencyWithProjectPermissionResponse> {
         const options = ParamCreater().associateAgencyWithProjectPermission(associateAgencyWithProjectPermissionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 该接口可以基于委托为企业项目授权
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary application/json
+     * @param {string} contentType application/json
+     * @param {CreateAgencyEpPolicyAssignmentReqBody} createAgencyEpPolicyAssignmentReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateRoleToAgencyOnEnterpriseProject(associateRoleToAgencyOnEnterpriseProjectRequest?: AssociateRoleToAgencyOnEnterpriseProjectRequest): Promise<AssociateRoleToAgencyOnEnterpriseProjectResponse> {
+        const options = ParamCreater().associateRoleToAgencyOnEnterpriseProject(associateRoleToAgencyOnEnterpriseProjectRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2482,6 +2509,25 @@ export class IamClient {
     }
 
     /**
+     * 该接口可以删除企业项目委托上的授权
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @param {string} contentType application/json
+     * @param {CreateOrDelAgencyEpPolicyAssignmentReqBody} delAgencyEpPolicyAssignmentReqBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public revokeRoleFromAgencyOnEnterpriseProject(revokeRoleFromAgencyOnEnterpriseProjectRequest?: RevokeRoleFromAgencyOnEnterpriseProjectRequest): Promise<RevokeRoleFromAgencyOnEnterpriseProjectResponse> {
+        const options = ParamCreater().revokeRoleFromAgencyOnEnterpriseProject(revokeRoleFromAgencyOnEnterpriseProjectRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 该接口用于删除企业项目关联用户组的权限。
      * 
      * 该接口可以使用全局区域的Endpoint和其他区域的Endpoint调用。IAM的Endpoint请参见：[地区和终端节点](https://developer.huaweicloud.com/endpoint?IAM)。
@@ -3886,6 +3932,51 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'agency_id': agencyId,'role_id': roleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以基于委托为企业项目授权
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateRoleToAgencyOnEnterpriseProject(associateRoleToAgencyOnEnterpriseProjectRequest?: AssociateRoleToAgencyOnEnterpriseProjectRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3.0/OS-PERMISSION/subjects/agency/scopes/enterprise-project/role-assignments",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (associateRoleToAgencyOnEnterpriseProjectRequest !== null && associateRoleToAgencyOnEnterpriseProjectRequest !== undefined) {
+                if (associateRoleToAgencyOnEnterpriseProjectRequest instanceof AssociateRoleToAgencyOnEnterpriseProjectRequest) {
+                    contentType = associateRoleToAgencyOnEnterpriseProjectRequest.contentType;
+                    body = associateRoleToAgencyOnEnterpriseProjectRequest.body
+                } else {
+                    contentType = associateRoleToAgencyOnEnterpriseProjectRequest['Content-Type'];
+                    body = associateRoleToAgencyOnEnterpriseProjectRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -7615,6 +7706,51 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'agency_id': agencyId,'role_id': roleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 该接口可以删除企业项目委托上的授权
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        revokeRoleFromAgencyOnEnterpriseProject(revokeRoleFromAgencyOnEnterpriseProjectRequest?: RevokeRoleFromAgencyOnEnterpriseProjectRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v3.0/OS-PERMISSION/subjects/agency/scopes/enterprise-project/role-assignments",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let contentType;
+
+            if (revokeRoleFromAgencyOnEnterpriseProjectRequest !== null && revokeRoleFromAgencyOnEnterpriseProjectRequest !== undefined) {
+                if (revokeRoleFromAgencyOnEnterpriseProjectRequest instanceof RevokeRoleFromAgencyOnEnterpriseProjectRequest) {
+                    contentType = revokeRoleFromAgencyOnEnterpriseProjectRequest.contentType;
+                    body = revokeRoleFromAgencyOnEnterpriseProjectRequest.body
+                } else {
+                    contentType = revokeRoleFromAgencyOnEnterpriseProjectRequest['Content-Type'];
+                    body = revokeRoleFromAgencyOnEnterpriseProjectRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },

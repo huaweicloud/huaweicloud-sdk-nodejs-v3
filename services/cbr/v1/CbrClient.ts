@@ -29,14 +29,23 @@ import { BackupRestoreServerMapping } from './model/BackupRestoreServerMapping';
 import { BackupSync } from './model/BackupSync';
 import { BackupSyncReq } from './model/BackupSyncReq';
 import { BackupSyncRespBody } from './model/BackupSyncRespBody';
+import { BackupUpdate } from './model/BackupUpdate';
+import { BackupUpdateReq } from './model/BackupUpdateReq';
 import { BatchCreateAndDeleteVaultTagsRequest } from './model/BatchCreateAndDeleteVaultTagsRequest';
 import { BatchCreateAndDeleteVaultTagsResponse } from './model/BatchCreateAndDeleteVaultTagsResponse';
+import { BatchUpdateVaultRequest } from './model/BatchUpdateVaultRequest';
+import { BatchUpdateVaultRequestBody } from './model/BatchUpdateVaultRequestBody';
+import { BatchUpdateVaultResponse } from './model/BatchUpdateVaultResponse';
 import { Billing } from './model/Billing';
 import { BillingCreate } from './model/BillingCreate';
 import { BillingUpdate } from './model/BillingUpdate';
 import { BindRulesTags } from './model/BindRulesTags';
 import { BulkCreateAndDeleteVaultTagsReq } from './model/BulkCreateAndDeleteVaultTagsReq';
 import { CbcOrderResult } from './model/CbcOrderResult';
+import { CbcProductInfoUpdate } from './model/CbcProductInfoUpdate';
+import { CbcUpdate } from './model/CbcUpdate';
+import { CheckAgentRequest } from './model/CheckAgentRequest';
+import { CheckAgentResponse } from './model/CheckAgentResponse';
 import { CheckpointCreate } from './model/CheckpointCreate';
 import { CheckpointCreateSkippedResource } from './model/CheckpointCreateSkippedResource';
 import { CheckpointExtraInfoResp } from './model/CheckpointExtraInfoResp';
@@ -47,6 +56,7 @@ import { CheckpointReplicateReq } from './model/CheckpointReplicateReq';
 import { CheckpointReplicateRespBody } from './model/CheckpointReplicateRespBody';
 import { CheckpointReplicateRespbackups } from './model/CheckpointReplicateRespbackups';
 import { CheckpointResourceResp } from './model/CheckpointResourceResp';
+import { CombinedOrder } from './model/CombinedOrder';
 import { CopyBackupRequest } from './model/CopyBackupRequest';
 import { CopyBackupResponse } from './model/CopyBackupResponse';
 import { CopyCheckpointRequest } from './model/CopyCheckpointRequest';
@@ -55,6 +65,8 @@ import { CreateCheckpointRequest } from './model/CreateCheckpointRequest';
 import { CreateCheckpointResponse } from './model/CreateCheckpointResponse';
 import { CreatePolicyRequest } from './model/CreatePolicyRequest';
 import { CreatePolicyResponse } from './model/CreatePolicyResponse';
+import { CreatePostPaidVaultRequest } from './model/CreatePostPaidVaultRequest';
+import { CreatePostPaidVaultResponse } from './model/CreatePostPaidVaultResponse';
 import { CreateVaultRequest } from './model/CreateVaultRequest';
 import { CreateVaultResponse } from './model/CreateVaultResponse';
 import { CreateVaultTagsRequest } from './model/CreateVaultTagsRequest';
@@ -71,24 +83,37 @@ import { DeleteVaultTagRequest } from './model/DeleteVaultTagRequest';
 import { DeleteVaultTagResponse } from './model/DeleteVaultTagResponse';
 import { DisassociateVaultPolicyRequest } from './model/DisassociateVaultPolicyRequest';
 import { DisassociateVaultPolicyResponse } from './model/DisassociateVaultPolicyResponse';
+import { DomainMigrate } from './model/DomainMigrate';
+import { DomainMigrateProjectStatus } from './model/DomainMigrateProjectStatus';
+import { DomainProjectsInfo } from './model/DomainProjectsInfo';
 import { ImageData } from './model/ImageData';
 import { ImportBackupRequest } from './model/ImportBackupRequest';
 import { ImportBackupResponse } from './model/ImportBackupResponse';
+import { ImportCheckpointRequest } from './model/ImportCheckpointRequest';
+import { ImportCheckpointResponse } from './model/ImportCheckpointResponse';
 import { InstancesResourceDetail } from './model/InstancesResourceDetail';
 import { ListAgentRequest } from './model/ListAgentRequest';
 import { ListAgentResponse } from './model/ListAgentResponse';
 import { ListBackupsRequest } from './model/ListBackupsRequest';
 import { ListBackupsResponse } from './model/ListBackupsResponse';
+import { ListDomainProjectsRequest } from './model/ListDomainProjectsRequest';
+import { ListDomainProjectsResponse } from './model/ListDomainProjectsResponse';
+import { ListExternalVaultRequest } from './model/ListExternalVaultRequest';
+import { ListExternalVaultResponse } from './model/ListExternalVaultResponse';
 import { ListOpLogsRequest } from './model/ListOpLogsRequest';
 import { ListOpLogsResponse } from './model/ListOpLogsResponse';
 import { ListPoliciesRequest } from './model/ListPoliciesRequest';
 import { ListPoliciesResponse } from './model/ListPoliciesResponse';
+import { ListProjectsRequest } from './model/ListProjectsRequest';
+import { ListProjectsResponse } from './model/ListProjectsResponse';
 import { ListProtectableRequest } from './model/ListProtectableRequest';
 import { ListProtectableResponse } from './model/ListProtectableResponse';
 import { ListVaultRequest } from './model/ListVaultRequest';
 import { ListVaultResponse } from './model/ListVaultResponse';
 import { Match } from './model/Match';
 import { Member } from './model/Member';
+import { MigrateDomainRequest } from './model/MigrateDomainRequest';
+import { MigrateDomainResponse } from './model/MigrateDomainResponse';
 import { MigrateVaultResourceRequest } from './model/MigrateVaultResourceRequest';
 import { MigrateVaultResourceResponse } from './model/MigrateVaultResourceResponse';
 import { OpErrorInfo } from './model/OpErrorInfo';
@@ -114,6 +139,10 @@ import { PolicyTriggerResp } from './model/PolicyTriggerResp';
 import { PolicyUpdate } from './model/PolicyUpdate';
 import { PolicyUpdateReq } from './model/PolicyUpdateReq';
 import { PolicyoODCreate } from './model/PolicyoODCreate';
+import { ProjectsListInfo } from './model/ProjectsListInfo';
+import { ProtectableAgentReq } from './model/ProtectableAgentReq';
+import { ProtectableAgentStatus } from './model/ProtectableAgentStatus';
+import { ProtectableAgentStatusResource } from './model/ProtectableAgentStatusResource';
 import { ProtectableReplicationCapabilitiesRespRegion } from './model/ProtectableReplicationCapabilitiesRespRegion';
 import { ProtectableResult } from './model/ProtectableResult';
 import { ProtectablesResp } from './model/ProtectablesResp';
@@ -132,16 +161,25 @@ import { ResourceExtraInfoIncludeVolumes } from './model/ResourceExtraInfoInclud
 import { ResourceResp } from './model/ResourceResp';
 import { RestoreBackupRequest } from './model/RestoreBackupRequest';
 import { RestoreBackupResponse } from './model/RestoreBackupResponse';
+import { SelfLinksInfo } from './model/SelfLinksInfo';
+import { SetVaultResourceRequest } from './model/SetVaultResourceRequest';
+import { SetVaultResourceResponse } from './model/SetVaultResourceResponse';
 import { ShowAgentRequest } from './model/ShowAgentRequest';
 import { ShowAgentResponse } from './model/ShowAgentResponse';
 import { ShowBackupRequest } from './model/ShowBackupRequest';
 import { ShowBackupResponse } from './model/ShowBackupResponse';
 import { ShowCheckpointRequest } from './model/ShowCheckpointRequest';
 import { ShowCheckpointResponse } from './model/ShowCheckpointResponse';
+import { ShowDomainRequest } from './model/ShowDomainRequest';
+import { ShowDomainResponse } from './model/ShowDomainResponse';
 import { ShowMemberDetailRequest } from './model/ShowMemberDetailRequest';
 import { ShowMemberDetailResponse } from './model/ShowMemberDetailResponse';
 import { ShowMembersDetailRequest } from './model/ShowMembersDetailRequest';
 import { ShowMembersDetailResponse } from './model/ShowMembersDetailResponse';
+import { ShowMetadataRequest } from './model/ShowMetadataRequest';
+import { ShowMetadataResponse } from './model/ShowMetadataResponse';
+import { ShowMigrateStatusRequest } from './model/ShowMigrateStatusRequest';
+import { ShowMigrateStatusResponse } from './model/ShowMigrateStatusResponse';
 import { ShowOpLogRequest } from './model/ShowOpLogRequest';
 import { ShowOpLogResponse } from './model/ShowOpLogResponse';
 import { ShowPolicyRequest } from './model/ShowPolicyRequest';
@@ -150,6 +188,8 @@ import { ShowProtectableRequest } from './model/ShowProtectableRequest';
 import { ShowProtectableResponse } from './model/ShowProtectableResponse';
 import { ShowReplicationCapabilitiesRequest } from './model/ShowReplicationCapabilitiesRequest';
 import { ShowReplicationCapabilitiesResponse } from './model/ShowReplicationCapabilitiesResponse';
+import { ShowStorageUsageRequest } from './model/ShowStorageUsageRequest';
+import { ShowStorageUsageResponse } from './model/ShowStorageUsageResponse';
 import { ShowVaultProjectTagRequest } from './model/ShowVaultProjectTagRequest';
 import { ShowVaultProjectTagResponse } from './model/ShowVaultProjectTagResponse';
 import { ShowVaultRequest } from './model/ShowVaultRequest';
@@ -158,6 +198,10 @@ import { ShowVaultResourceInstancesResponse } from './model/ShowVaultResourceIns
 import { ShowVaultResponse } from './model/ShowVaultResponse';
 import { ShowVaultTagRequest } from './model/ShowVaultTagRequest';
 import { ShowVaultTagResponse } from './model/ShowVaultTagResponse';
+import { StorageUsage } from './model/StorageUsage';
+import { SyncParam } from './model/SyncParam';
+import { SyncReq } from './model/SyncReq';
+import { SyncRespBody } from './model/SyncRespBody';
 import { SysTag } from './model/SysTag';
 import { SysTags } from './model/SysTags';
 import { Tag } from './model/Tag';
@@ -168,9 +212,13 @@ import { UnregisterAgentRequest } from './model/UnregisterAgentRequest';
 import { UnregisterAgentResponse } from './model/UnregisterAgentResponse';
 import { UpdateAgentRequest } from './model/UpdateAgentRequest';
 import { UpdateAgentResponse } from './model/UpdateAgentResponse';
+import { UpdateBackupRequest } from './model/UpdateBackupRequest';
+import { UpdateBackupResponse } from './model/UpdateBackupResponse';
 import { UpdateMember } from './model/UpdateMember';
 import { UpdateMemberStatusRequest } from './model/UpdateMemberStatusRequest';
 import { UpdateMemberStatusResponse } from './model/UpdateMemberStatusResponse';
+import { UpdateOrderRequest } from './model/UpdateOrderRequest';
+import { UpdateOrderResponse } from './model/UpdateOrderResponse';
 import { UpdatePolicyRequest } from './model/UpdatePolicyRequest';
 import { UpdatePolicyResponse } from './model/UpdatePolicyResponse';
 import { UpdateVaultRequest } from './model/UpdateVaultRequest';
@@ -180,16 +228,21 @@ import { VaultAddResourceReq } from './model/VaultAddResourceReq';
 import { VaultAssociate } from './model/VaultAssociate';
 import { VaultBackup } from './model/VaultBackup';
 import { VaultBackupReq } from './model/VaultBackupReq';
+import { VaultBatchUpdate } from './model/VaultBatchUpdate';
 import { VaultBindRules } from './model/VaultBindRules';
 import { VaultCreate } from './model/VaultCreate';
+import { VaultCreateParameters } from './model/VaultCreateParameters';
 import { VaultCreateReq } from './model/VaultCreateReq';
 import { VaultCreateResource } from './model/VaultCreateResource';
 import { VaultDissociate } from './model/VaultDissociate';
 import { VaultGet } from './model/VaultGet';
 import { VaultMigrateResourceReq } from './model/VaultMigrateResourceReq';
+import { VaultOrder } from './model/VaultOrder';
+import { VaultOrderCreateReqs } from './model/VaultOrderCreateReqs';
 import { VaultPolicyResp } from './model/VaultPolicyResp';
 import { VaultRemoveResourceReq } from './model/VaultRemoveResourceReq';
 import { VaultResourceInstancesReq } from './model/VaultResourceInstancesReq';
+import { VaultSetResourceReq } from './model/VaultSetResourceReq';
 import { VaultTagsCreateReq } from './model/VaultTagsCreateReq';
 import { VaultUpdate } from './model/VaultUpdate';
 import { VaultUpdateReq } from './model/VaultUpdateReq';
@@ -317,6 +370,44 @@ export class CbrClient {
     }
 
     /**
+     * 批量修改项目下所有存储库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 批量修改存储库
+     * @param {BatchUpdateVaultRequestBody} updateVaultRequestBody 存储批量修改参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public batchUpdateVault(batchUpdateVaultRequest?: BatchUpdateVaultRequest): Promise<BatchUpdateVaultResponse> {
+        const options = ParamCreater().batchUpdateVault(batchUpdateVaultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 检查应用一致性Agent状态
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询agent状态
+     * @param {ProtectableAgentReq} checkAgentRequestBody Agent状态检查参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public checkAgent(checkAgentRequest?: CheckAgentRequest): Promise<CheckAgentResponse> {
+        const options = ParamCreater().checkAgent(checkAgentRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 跨区域复制备份。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -386,6 +477,25 @@ export class CbrClient {
      */
     public createPolicy(createPolicyRequest?: CreatePolicyRequest): Promise<CreatePolicyResponse> {
         const options = ParamCreater().createPolicy(createPolicyRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建包周期存储库
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建包周期存储库
+     * @param {VaultOrderCreateReqs} createPostPaidVaultRequestBody 请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createPostPaidVault(createPostPaidVaultRequest?: CreatePostPaidVaultRequest): Promise<CreatePostPaidVaultResponse> {
+        const options = ParamCreater().createPostPaidVault(createPostPaidVaultRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -570,6 +680,25 @@ export class CbrClient {
     }
 
     /**
+     * 针对vault同步备份副本
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 同步备份还原点
+     * @param {SyncReq} importCheckpointRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public importCheckpoint(importCheckpointRequest?: ImportCheckpointRequest): Promise<ImportCheckpointResponse> {
+        const options = ParamCreater().importCheckpoint(importCheckpointRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询客户端列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -633,6 +762,51 @@ export class CbrClient {
     }
 
     /**
+     * 根据指定租户名称查询项目列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户项目列表
+     * @param {string} domainName 租户名称
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listDomainProjects(listDomainProjectsRequest?: ListDomainProjectsRequest): Promise<ListDomainProjectsResponse> {
+        const options = ParamCreater().listDomainProjects(listDomainProjectsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询其他区域的存储库列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询其他区域存储库列表
+     * @param {string} externalProjectId 其他区域的项目ID
+     * @param {string} regionId 区域ID
+     * @param {number} [limit] 每页显示条目数
+     * @param {number} [offset] 偏移值
+     * @param {'backup;replication;hybrid'} [protectType] [保护类型。取值为backup，replication和hybrid。](tag:hws,hws_hk) [保护类型。取值为backup和replication。](tag:ocb) [保护类型。取值为backup。](tag:g42,hk-g42,sbc,dt,fcs_vm,ctc,tm,tlf,cmcc,hcso_dt)
+     * @param {string} [objcetType] 资源类型
+     * @param {string} [cloudType] [云类型。取值为public和hybrid。](tag:hws,hws_hk) [云类型。取值为public。](tag:g42,hk-g42,sbc,dt,fcs_vm,ctc,ocb,tm,tlf,cmcc,hcso_dt)
+     * @param {string} [vaultId] 存储库ID，指定存储ID时其他过滤条件不生效。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listExternalVault(listExternalVaultRequest?: ListExternalVaultRequest): Promise<ListExternalVaultResponse> {
+        const options = ParamCreater().listExternalVault(listExternalVaultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询任务列表
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -675,6 +849,24 @@ export class CbrClient {
      */
     public listPolicies(listPoliciesRequest?: ListPoliciesRequest): Promise<ListPoliciesResponse> {
         const options = ParamCreater().listPolicies(listPoliciesRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户的企业项目信息
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户的项目信息
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listProjects(): Promise<ListProjectsResponse> {
+        const options = ParamCreater().listProjects();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -730,6 +922,25 @@ export class CbrClient {
      */
     public listVault(listVaultRequest?: ListVaultRequest): Promise<ListVaultResponse> {
         const options = ParamCreater().listVault(listVaultRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 将CSBS/VBS资源迁移到CBR。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 租户迁移
+     * @param {DomainMigrate} migrateDomainRequestBody 迁移参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public migrateDomain(migrateDomainRequest?: MigrateDomainRequest): Promise<MigrateDomainResponse> {
+        const options = ParamCreater().migrateDomain(migrateDomainRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -837,6 +1048,26 @@ export class CbrClient {
     }
 
     /**
+     * 设置存储库资源是否自动备份
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 设置存储库资源
+     * @param {string} vaultId 存储库id
+     * @param {VaultSetResourceReq} vaultSetResourceBody 存储库设置资源请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public setVaultResource(setVaultResourceRequest?: SetVaultResourceRequest): Promise<SetVaultResourceResponse> {
+        const options = ParamCreater().setVaultResource(setVaultResourceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询指定客户端
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -894,6 +1125,25 @@ export class CbrClient {
     }
 
     /**
+     * 由控制台调用的内部接口，用于仅在查询共享备份时获取源project_id的域名信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户信息
+     * @param {string} sourceProjectId 源项目ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomain(showDomainRequest?: ShowDomainRequest): Promise<ShowDomainResponse> {
+        const options = ParamCreater().showDomain(showDomainRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取备份成员的详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -933,6 +1183,44 @@ export class CbrClient {
      */
     public showMembersDetail(showMembersDetailRequest?: ShowMembersDetailRequest): Promise<ShowMembersDetailResponse> {
         const options = ParamCreater().showMembersDetail(showMembersDetailRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询备份时资源的元数据
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询备份元数据
+     * @param {string} backupId 备份ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMetadata(showMetadataRequest?: ShowMetadataRequest): Promise<ShowMetadataResponse> {
+        const options = ParamCreater().showMetadata(showMetadataRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询迁移结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询迁移
+     * @param {boolean} [allRegions] 是否查询其他区域结果
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showMigrateStatus(showMigrateStatusRequest?: ShowMigrateStatusRequest): Promise<ShowMigrateStatusResponse> {
+        const options = ParamCreater().showMigrateStatus(showMigrateStatusRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1009,6 +1297,28 @@ export class CbrClient {
      */
     public showReplicationCapabilities(): Promise<ShowReplicationCapabilitiesResponse> {
         const options = ParamCreater().showReplicationCapabilities();
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询容量统计
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询容量统计
+     * @param {number} [limit] 查询条数
+     * @param {number} [offset] 偏移值
+     * @param {string} [resourceId] 支持按照备份对象ID过滤
+     * @param {'OS::Nova::Server' | 'OS::Ironic::BareMetalServer'} [resourceType] 支持按照备份对象类型过滤
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showStorageUsage(showStorageUsageRequest?: ShowStorageUsageRequest): Promise<ShowStorageUsageResponse> {
+        const options = ParamCreater().showStorageUsage(showStorageUsageRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1134,6 +1444,26 @@ export class CbrClient {
     }
 
     /**
+     * 根据备份id更改备份
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新备份
+     * @param {string} backupId 备份ID
+     * @param {BackupUpdateReq} [backupUpdateRequestBody] 备份修改参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateBackup(updateBackupRequest?: UpdateBackupRequest): Promise<UpdateBackupResponse> {
+        const options = ParamCreater().updateBackup(updateBackupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新备份共享成员的状态，需要接收方执行此API。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1147,6 +1477,26 @@ export class CbrClient {
      */
     public updateMemberStatus(updateMemberStatusRequest?: UpdateMemberStatusRequest): Promise<UpdateMemberStatusResponse> {
         const options = ParamCreater().updateMemberStatus(updateMemberStatusRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 订单更新，支付cbc订单后，调用该接口更新包周期产品订单信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 变更
+     * @param {string} orderId 订单ID
+     * @param {CbcUpdate} updateOrderRequestBody 变更请求body
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateOrder(updateOrderRequest?: UpdateOrderRequest): Promise<UpdateOrderResponse> {
+        const options = ParamCreater().updateOrder(updateOrderRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1433,6 +1783,82 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 批量修改项目下所有存储库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        batchUpdateVault(batchUpdateVaultRequest?: BatchUpdateVaultRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vaults/batch-update",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (batchUpdateVaultRequest !== null && batchUpdateVaultRequest !== undefined) {
+                if (batchUpdateVaultRequest instanceof BatchUpdateVaultRequest) {
+                    body = batchUpdateVaultRequest.body
+                } else {
+                    body = batchUpdateVaultRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 检查应用一致性Agent状态
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        checkAgent(checkAgentRequest?: CheckAgentRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/agent/check",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (checkAgentRequest !== null && checkAgentRequest !== undefined) {
+                if (checkAgentRequest instanceof CheckAgentRequest) {
+                    body = checkAgentRequest.body
+                } else {
+                    body = checkAgentRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 跨区域复制备份。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -1578,6 +2004,44 @@ export const ParamCreater = function () {
                     body = createPolicyRequest.body
                 } else {
                     body = createPolicyRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建包周期存储库
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createPostPaidVault(createPostPaidVaultRequest?: CreatePostPaidVaultRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/vaults/order",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createPostPaidVaultRequest !== null && createPostPaidVaultRequest !== undefined) {
+                if (createPostPaidVaultRequest instanceof CreatePostPaidVaultRequest) {
+                    body = createPostPaidVaultRequest.body
+                } else {
+                    body = createPostPaidVaultRequest['body'];
                 }
             }
 
@@ -1958,6 +2422,44 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 针对vault同步备份副本
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        importCheckpoint(importCheckpointRequest?: ImportCheckpointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/checkpoints/sync",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (importCheckpointRequest !== null && importCheckpointRequest !== undefined) {
+                if (importCheckpointRequest instanceof ImportCheckpointRequest) {
+                    body = importCheckpointRequest.body
+                } else {
+                    body = importCheckpointRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询客户端列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2207,6 +2709,135 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据指定租户名称查询项目列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listDomainProjects(listDomainProjectsRequest?: ListDomainProjectsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/domain/{domain_name}/projects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let domainName;
+
+            if (listDomainProjectsRequest !== null && listDomainProjectsRequest !== undefined) {
+                if (listDomainProjectsRequest instanceof ListDomainProjectsRequest) {
+                    domainName = listDomainProjectsRequest.domainName;
+                } else {
+                    domainName = listDomainProjectsRequest['domain_name'];
+                }
+            }
+
+        
+            if (domainName === null || domainName === undefined) {
+            throw new RequiredError('domainName','Required parameter domainName was null or undefined when calling listDomainProjects.');
+            }
+
+            options.pathParams = { 'domain_name': domainName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询其他区域的存储库列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listExternalVault(listExternalVaultRequest?: ListExternalVaultRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vaults/external",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let externalProjectId;
+            
+            let regionId;
+            
+            let limit;
+            
+            let offset;
+            
+            let protectType;
+            
+            let objcetType;
+            
+            let cloudType;
+            
+            let vaultId;
+
+            if (listExternalVaultRequest !== null && listExternalVaultRequest !== undefined) {
+                if (listExternalVaultRequest instanceof ListExternalVaultRequest) {
+                    externalProjectId = listExternalVaultRequest.externalProjectId;
+                    regionId = listExternalVaultRequest.regionId;
+                    limit = listExternalVaultRequest.limit;
+                    offset = listExternalVaultRequest.offset;
+                    protectType = listExternalVaultRequest.protectType;
+                    objcetType = listExternalVaultRequest.objcetType;
+                    cloudType = listExternalVaultRequest.cloudType;
+                    vaultId = listExternalVaultRequest.vaultId;
+                } else {
+                    externalProjectId = listExternalVaultRequest['external_project_id'];
+                    regionId = listExternalVaultRequest['region_id'];
+                    limit = listExternalVaultRequest['limit'];
+                    offset = listExternalVaultRequest['offset'];
+                    protectType = listExternalVaultRequest['protect_type'];
+                    objcetType = listExternalVaultRequest['objcet_type'];
+                    cloudType = listExternalVaultRequest['cloud_type'];
+                    vaultId = listExternalVaultRequest['vault_id'];
+                }
+            }
+
+        
+            if (externalProjectId === null || externalProjectId === undefined) {
+                throw new RequiredError('externalProjectId','Required parameter externalProjectId was null or undefined when calling listExternalVault.');
+            }
+            if (externalProjectId !== null && externalProjectId !== undefined) {
+                localVarQueryParameter['external_project_id'] = externalProjectId;
+            }
+            if (regionId === null || regionId === undefined) {
+                throw new RequiredError('regionId','Required parameter regionId was null or undefined when calling listExternalVault.');
+            }
+            if (regionId !== null && regionId !== undefined) {
+                localVarQueryParameter['region_id'] = regionId;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (protectType !== null && protectType !== undefined) {
+                localVarQueryParameter['protect_type'] = protectType;
+            }
+            if (objcetType !== null && objcetType !== undefined) {
+                localVarQueryParameter['objcet_type'] = objcetType;
+            }
+            if (cloudType !== null && cloudType !== undefined) {
+                localVarQueryParameter['cloud_type'] = cloudType;
+            }
+            if (vaultId !== null && vaultId !== undefined) {
+                localVarQueryParameter['vault_id'] = vaultId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询任务列表
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2360,6 +2991,27 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户的企业项目信息
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listProjects() {
+            const options = {
+                method: "GET",
+                url: "/v3/region-projects",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2554,6 +3206,44 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 将CSBS/VBS资源迁移到CBR。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        migrateDomain(migrateDomainRequest?: MigrateDomainRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/migrates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (migrateDomainRequest !== null && migrateDomainRequest !== undefined) {
+                if (migrateDomainRequest instanceof MigrateDomainRequest) {
+                    body = migrateDomainRequest.body
+                } else {
+                    body = migrateDomainRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2781,6 +3471,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 设置存储库资源是否自动备份
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        setVaultResource(setVaultResourceRequest?: SetVaultResourceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/vaults/{vault_id}/set-resources",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let vaultId;
+
+            if (setVaultResourceRequest !== null && setVaultResourceRequest !== undefined) {
+                if (setVaultResourceRequest instanceof SetVaultResourceRequest) {
+                    vaultId = setVaultResourceRequest.vaultId;
+                    body = setVaultResourceRequest.body
+                } else {
+                    vaultId = setVaultResourceRequest['vault_id'];
+                    body = setVaultResourceRequest['body'];
+                }
+            }
+
+        
+            if (vaultId === null || vaultId === undefined) {
+            throw new RequiredError('vaultId','Required parameter vaultId was null or undefined when calling setVaultResource.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'vault_id': vaultId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询指定客户端
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2887,6 +3623,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'checkpoint_id': checkpointId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 由控制台调用的内部接口，用于仅在查询共享备份时获取源project_id的域名信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomain(showDomainRequest?: ShowDomainRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/domain/{source_project_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let sourceProjectId;
+
+            if (showDomainRequest !== null && showDomainRequest !== undefined) {
+                if (showDomainRequest instanceof ShowDomainRequest) {
+                    sourceProjectId = showDomainRequest.sourceProjectId;
+                } else {
+                    sourceProjectId = showDomainRequest['source_project_id'];
+                }
+            }
+
+        
+            if (sourceProjectId === null || sourceProjectId === undefined) {
+            throw new RequiredError('sourceProjectId','Required parameter sourceProjectId was null or undefined when calling showDomain.');
+            }
+
+            options.pathParams = { 'source_project_id': sourceProjectId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3030,6 +3803,80 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询备份时资源的元数据
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMetadata(showMetadataRequest?: ShowMetadataRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/backups/{backup_id}/metadata",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let backupId;
+
+            if (showMetadataRequest !== null && showMetadataRequest !== undefined) {
+                if (showMetadataRequest instanceof ShowMetadataRequest) {
+                    backupId = showMetadataRequest.backupId;
+                } else {
+                    backupId = showMetadataRequest['backup_id'];
+                }
+            }
+
+        
+            if (backupId === null || backupId === undefined) {
+            throw new RequiredError('backupId','Required parameter backupId was null or undefined when calling showMetadata.');
+            }
+
+            options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询迁移结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showMigrateStatus(showMigrateStatusRequest?: ShowMigrateStatusRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/migrates",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let allRegions;
+
+            if (showMigrateStatusRequest !== null && showMigrateStatusRequest !== undefined) {
+                if (showMigrateStatusRequest instanceof ShowMigrateStatusRequest) {
+                    allRegions = showMigrateStatusRequest.allRegions;
+                } else {
+                    allRegions = showMigrateStatusRequest['all_regions'];
+                }
+            }
+
+        
+            if (allRegions !== null && allRegions !== undefined) {
+                localVarQueryParameter['all_regions'] = allRegions;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 根据指定任务ID查询任务
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3164,6 +4011,64 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
 
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询容量统计
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showStorageUsage(showStorageUsageRequest?: ShowStorageUsageRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/storage_usage",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let offset;
+            
+            let resourceId;
+            
+            let resourceType;
+
+            if (showStorageUsageRequest !== null && showStorageUsageRequest !== undefined) {
+                if (showStorageUsageRequest instanceof ShowStorageUsageRequest) {
+                    limit = showStorageUsageRequest.limit;
+                    offset = showStorageUsageRequest.offset;
+                    resourceId = showStorageUsageRequest.resourceId;
+                    resourceType = showStorageUsageRequest.resourceType;
+                } else {
+                    limit = showStorageUsageRequest['limit'];
+                    offset = showStorageUsageRequest['offset'];
+                    resourceId = showStorageUsageRequest['resource_id'];
+                    resourceType = showStorageUsageRequest['resource_type'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (resourceId !== null && resourceId !== undefined) {
+                localVarQueryParameter['resource_id'] = resourceId;
+            }
+            if (resourceType !== null && resourceType !== undefined) {
+                localVarQueryParameter['resource_type'] = resourceType;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3388,6 +4293,49 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 根据备份id更改备份
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateBackup(updateBackupRequest?: UpdateBackupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/backups/{backup_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let backupId;
+
+            if (updateBackupRequest !== null && updateBackupRequest !== undefined) {
+                if (updateBackupRequest instanceof UpdateBackupRequest) {
+                    backupId = updateBackupRequest.backupId;
+                    body = updateBackupRequest.body
+                } else {
+                    backupId = updateBackupRequest['backup_id'];
+                    body = updateBackupRequest['body'];
+                }
+            }
+
+        
+            if (backupId === null || backupId === undefined) {
+            throw new RequiredError('backupId','Required parameter backupId was null or undefined when calling updateBackup.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新备份共享成员的状态，需要接收方执行此API。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3433,6 +4381,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'member_id': memberId,'backup_id': backupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 订单更新，支付cbc订单后，调用该接口更新包周期产品订单信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateOrder(updateOrderRequest?: UpdateOrderRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v3/{project_id}/orders/{order_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let orderId;
+
+            if (updateOrderRequest !== null && updateOrderRequest !== undefined) {
+                if (updateOrderRequest instanceof UpdateOrderRequest) {
+                    orderId = updateOrderRequest.orderId;
+                    body = updateOrderRequest.body
+                } else {
+                    orderId = updateOrderRequest['order_id'];
+                    body = updateOrderRequest['body'];
+                }
+            }
+
+        
+            if (orderId === null || orderId === undefined) {
+            throw new RequiredError('orderId','Required parameter orderId was null or undefined when calling updateOrder.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'order_id': orderId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

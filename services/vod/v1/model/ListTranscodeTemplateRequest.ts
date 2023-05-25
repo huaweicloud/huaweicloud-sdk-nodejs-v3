@@ -1,7 +1,6 @@
 
 
 export class ListTranscodeTemplateRequest {
-    private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     private 'group_id'?: string | undefined;
     private 'is_default'?: boolean | undefined;
@@ -9,16 +8,6 @@ export class ListTranscodeTemplateRequest {
     public limit?: number;
     private 'query_string'?: string | undefined;
     public constructor() { 
-    }
-    public withAuthorization(authorization: string): ListTranscodeTemplateRequest {
-        this['Authorization'] = authorization;
-        return this;
-    }
-    public set authorization(authorization: string | undefined) {
-        this['Authorization'] = authorization;
-    }
-    public get authorization() {
-        return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ListTranscodeTemplateRequest {
         this['X-Sdk-Date'] = xSdkDate;

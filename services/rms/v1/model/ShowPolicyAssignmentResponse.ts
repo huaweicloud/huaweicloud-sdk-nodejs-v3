@@ -17,6 +17,7 @@ export class ShowPolicyAssignmentResponse extends SdkResponse {
     private 'policy_definition_id'?: string | undefined;
     private 'custom_policy'?: CustomPolicy | undefined;
     public parameters?: { [key: string]: PolicyParameterValue; };
+    private 'created_by'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -91,6 +92,16 @@ export class ShowPolicyAssignmentResponse extends SdkResponse {
     public withParameters(parameters: { [key: string]: PolicyParameterValue; }): ShowPolicyAssignmentResponse {
         this['parameters'] = parameters;
         return this;
+    }
+    public withCreatedBy(createdBy: string): ShowPolicyAssignmentResponse {
+        this['created_by'] = createdBy;
+        return this;
+    }
+    public set createdBy(createdBy: string | undefined) {
+        this['created_by'] = createdBy;
+    }
+    public get createdBy() {
+        return this['created_by'];
     }
 }
 

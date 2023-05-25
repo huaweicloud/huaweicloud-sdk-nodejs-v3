@@ -5,6 +5,7 @@ export class CreateAddressGroupOption {
     public description?: string;
     private 'ip_version': number | undefined;
     private 'ip_set'?: Array<string> | undefined;
+    private 'max_capacity'?: number | undefined;
     public constructor(name?: any, ipVersion?: any) { 
         this['name'] = name;
         this['ip_version'] = ipVersion;
@@ -36,5 +37,15 @@ export class CreateAddressGroupOption {
     }
     public get ipSet() {
         return this['ip_set'];
+    }
+    public withMaxCapacity(maxCapacity: number): CreateAddressGroupOption {
+        this['max_capacity'] = maxCapacity;
+        return this;
+    }
+    public set maxCapacity(maxCapacity: number | undefined) {
+        this['max_capacity'] = maxCapacity;
+    }
+    public get maxCapacity() {
+        return this['max_capacity'];
     }
 }

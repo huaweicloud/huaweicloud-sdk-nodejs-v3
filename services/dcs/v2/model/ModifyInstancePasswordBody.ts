@@ -1,9 +1,11 @@
 
 
 export class ModifyInstancePasswordBody {
-    private 'old_password'?: string | undefined;
-    private 'new_password'?: string | undefined;
-    public constructor() { 
+    private 'old_password': string | undefined;
+    private 'new_password': string | undefined;
+    public constructor(oldPassword?: any, newPassword?: any) { 
+        this['old_password'] = oldPassword;
+        this['new_password'] = newPassword;
     }
     public withOldPassword(oldPassword: string): ModifyInstancePasswordBody {
         this['old_password'] = oldPassword;

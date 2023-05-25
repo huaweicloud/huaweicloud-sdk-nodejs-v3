@@ -24,6 +24,7 @@ import { ClusterInformation } from './model/ClusterInformation';
 import { ClusterInformationSpec } from './model/ClusterInformationSpec';
 import { ClusterInformationSpecHostNetwork } from './model/ClusterInformationSpecHostNetwork';
 import { ClusterMetadata } from './model/ClusterMetadata';
+import { ClusterMetadataForUpdate } from './model/ClusterMetadataForUpdate';
 import { ClusterNodeInformation } from './model/ClusterNodeInformation';
 import { ClusterNodeInformationMetadata } from './model/ClusterNodeInformationMetadata';
 import { ClusterSpec } from './model/ClusterSpec';

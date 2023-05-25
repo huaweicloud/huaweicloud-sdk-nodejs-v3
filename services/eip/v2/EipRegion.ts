@@ -23,6 +23,7 @@ export class EipRegion {
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://vpc.la-south-2.myhuaweicloud.com"]);
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://vpc.na-mexico-1.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://vpc.ap-southeast-4.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://vpc.tr-west-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -42,7 +43,8 @@ export class EipRegion {
         "cn-north-2":EipRegion.CN_NORTH_2,
         "la-south-2":EipRegion.LA_SOUTH_2,
         "na-mexico-1":EipRegion.NA_MEXICO_1,
-        "ap-southeast-4":EipRegion.AP_SOUTHEAST_4
+        "ap-southeast-4":EipRegion.AP_SOUTHEAST_4,
+        "tr-west-1":EipRegion.TR_WEST_1
     };
   
     public static valueOf(regionId: string) {

@@ -1,22 +1,11 @@
 
 
 export class ShowVodStatisticsRequest {
-    private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     private 'start_time'?: string | undefined;
     private 'end_time'?: string | undefined;
     public interval?: number;
     public constructor() { 
-    }
-    public withAuthorization(authorization: string): ShowVodStatisticsRequest {
-        this['Authorization'] = authorization;
-        return this;
-    }
-    public set authorization(authorization: string | undefined) {
-        this['Authorization'] = authorization;
-    }
-    public get authorization() {
-        return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ShowVodStatisticsRequest {
         this['X-Sdk-Date'] = xSdkDate;

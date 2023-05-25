@@ -4,20 +4,26 @@ export class AddressGroup {
     public id: string;
     public name: string;
     public description: string;
+    private 'max_capacity': number | undefined;
     private 'ip_set': Array<string> | undefined;
     private 'ip_version': number | undefined;
     private 'created_at': Date | undefined;
     private 'updated_at': Date | undefined;
     private 'tenant_id': string | undefined;
-    public constructor(id?: any, name?: any, description?: any, ipSet?: any, ipVersion?: any, createdAt?: any, updatedAt?: any, tenantId?: any) { 
+    public status: string;
+    private 'status_message': string | undefined;
+    public constructor(id?: any, name?: any, description?: any, maxCapacity?: any, ipSet?: any, ipVersion?: any, createdAt?: any, updatedAt?: any, tenantId?: any, status?: any, statusMessage?: any) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
+        this['max_capacity'] = maxCapacity;
         this['ip_set'] = ipSet;
         this['ip_version'] = ipVersion;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
         this['tenant_id'] = tenantId;
+        this['status'] = status;
+        this['status_message'] = statusMessage;
     }
     public withId(id: string): AddressGroup {
         this['id'] = id;
@@ -30,6 +36,16 @@ export class AddressGroup {
     public withDescription(description: string): AddressGroup {
         this['description'] = description;
         return this;
+    }
+    public withMaxCapacity(maxCapacity: number): AddressGroup {
+        this['max_capacity'] = maxCapacity;
+        return this;
+    }
+    public set maxCapacity(maxCapacity: number | undefined) {
+        this['max_capacity'] = maxCapacity;
+    }
+    public get maxCapacity() {
+        return this['max_capacity'];
     }
     public withIpSet(ipSet: Array<string>): AddressGroup {
         this['ip_set'] = ipSet;
@@ -80,5 +96,19 @@ export class AddressGroup {
     }
     public get tenantId() {
         return this['tenant_id'];
+    }
+    public withStatus(status: string): AddressGroup {
+        this['status'] = status;
+        return this;
+    }
+    public withStatusMessage(statusMessage: string): AddressGroup {
+        this['status_message'] = statusMessage;
+        return this;
+    }
+    public set statusMessage(statusMessage: string | undefined) {
+        this['status_message'] = statusMessage;
+    }
+    public get statusMessage() {
+        return this['status_message'];
     }
 }

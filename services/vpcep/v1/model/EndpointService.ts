@@ -7,6 +7,7 @@ export class EndpointService {
     private 'service_type'?: EndpointServiceServiceTypeEnum | undefined;
     private 'created_at'?: string | undefined;
     private 'is_charge'?: boolean | undefined;
+    private 'enable_policy'?: boolean | undefined;
     public constructor() { 
     }
     public withId(id: string): EndpointService {
@@ -56,6 +57,16 @@ export class EndpointService {
     }
     public get isCharge() {
         return this['is_charge'];
+    }
+    public withEnablePolicy(enablePolicy: boolean): EndpointService {
+        this['enable_policy'] = enablePolicy;
+        return this;
+    }
+    public set enablePolicy(enablePolicy: boolean | undefined) {
+        this['enable_policy'] = enablePolicy;
+    }
+    public get enablePolicy() {
+        return this['enable_policy'];
     }
 }
 

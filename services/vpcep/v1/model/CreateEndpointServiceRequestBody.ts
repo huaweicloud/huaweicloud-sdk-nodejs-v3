@@ -4,7 +4,6 @@ import { TagList } from './TagList';
 
 export class CreateEndpointServiceRequestBody {
     private 'port_id': string | undefined;
-    private 'vip_port_id'?: string | undefined;
     private 'service_name'?: string | undefined;
     private 'vpc_id': string | undefined;
     private 'approval_enabled'?: boolean | undefined;
@@ -30,16 +29,6 @@ export class CreateEndpointServiceRequestBody {
     }
     public get portId() {
         return this['port_id'];
-    }
-    public withVipPortId(vipPortId: string): CreateEndpointServiceRequestBody {
-        this['vip_port_id'] = vipPortId;
-        return this;
-    }
-    public set vipPortId(vipPortId: string | undefined) {
-        this['vip_port_id'] = vipPortId;
-    }
-    public get vipPortId() {
-        return this['vip_port_id'];
     }
     public withServiceName(serviceName: string): CreateEndpointServiceRequestBody {
         this['service_name'] = serviceName;

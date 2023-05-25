@@ -3,6 +3,7 @@ import { SourcesConfig } from './SourcesConfig';
 
 export class DomainsWithPort {
     public id?: string;
+    private 'domain_name'?: string | undefined;
     private 'business_type'?: string | undefined;
     private 'domain_status'?: string | undefined;
     public cname?: string;
@@ -18,6 +19,16 @@ export class DomainsWithPort {
     public withId(id: string): DomainsWithPort {
         this['id'] = id;
         return this;
+    }
+    public withDomainName(domainName: string): DomainsWithPort {
+        this['domain_name'] = domainName;
+        return this;
+    }
+    public set domainName(domainName: string | undefined) {
+        this['domain_name'] = domainName;
+    }
+    public get domainName() {
+        return this['domain_name'];
     }
     public withBusinessType(businessType: string): DomainsWithPort {
         this['business_type'] = businessType;

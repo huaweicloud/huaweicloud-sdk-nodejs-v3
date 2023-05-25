@@ -205,7 +205,6 @@ export class VodClient {
      *
      * @summary 取消媒资转码任务
      * @param {string} assetId 媒资ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -226,7 +225,6 @@ export class VodClient {
      *
      * @summary 取消提取音频任务
      * @param {string} assetId 媒资ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -248,7 +246,6 @@ export class VodClient {
      * @summary 上传检验
      * @param {number} size 文件大小
      * @param {string} md5 文件MD5。  建议参考[上传校验](https://support.huaweicloud.com/api-vod/vod_04_0212.html#vod_04_0212__section575102165412)生成对应的MD5值。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -269,7 +266,6 @@ export class VodClient {
      *
      * @summary 确认媒资上传
      * @param {ConfirmAssetUploadReq} confirmAssetUploadReq 确认媒资上传
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -290,7 +286,6 @@ export class VodClient {
      *
      * @summary 确认水印图片上传
      * @param {ConfirmImageUploadReq} confirmImageUploadReq 上传方式创建媒资
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -315,7 +310,6 @@ export class VodClient {
      *
      * @summary 创建媒资：上传方式
      * @param {CreateAssetByFileUploadReq} createAssetByFileReq 上传方式创建媒资
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -336,7 +330,6 @@ export class VodClient {
      *
      * @summary 创建媒资分类
      * @param {CreateCategoryReq} createCategoryReq 创建媒资分类
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -356,7 +349,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 媒资处理
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {AssetProcessReq} [assetProcessReq] 
      * @param {*} [options] Override http request option.
@@ -378,7 +370,6 @@ export class VodClient {
      *
      * @summary 创建审核媒资任务
      * @param {AssetReviewReq} assetReviewReq 
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -399,7 +390,6 @@ export class VodClient {
      *
      * @summary 音频提取
      * @param {ExtractAudioTaskReq} extractAudioTaskReq 创建提取音频请求体
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -420,7 +410,6 @@ export class VodClient {
      *
      * @summary CDN预热
      * @param {CreatePreheatingAssetReq} createPreheatingAssetReq CDN预热
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -443,7 +432,6 @@ export class VodClient {
      *
      * @summary 创建媒资：OBS托管方式
      * @param {CreateTakeOverTaskReq} createTakeOverTaskReq 
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -464,7 +452,6 @@ export class VodClient {
      *
      * @summary 创建自定义转码模板组
      * @param {TransTemplateGroup} transTemplateGroup 创建自定义模板组
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -485,7 +472,6 @@ export class VodClient {
      *
      * @summary 创建转码模板组集合
      * @param {TransTemplateGroupCollection} createTemplateGroupCollectionRequestBody 创建自定义模板组集合 
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -506,7 +492,6 @@ export class VodClient {
      *
      * @summary 创建自定义转码模板
      * @param {CreateTranscodeTemplate} createTranscodeTemplateRequestBody 创建自定义模板 
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -527,7 +512,6 @@ export class VodClient {
      *
      * @summary 创建水印模板
      * @param {CreateWatermarkTemplateReq} createWatermarkTemplateReq 创建水印模板请求体
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -548,7 +532,6 @@ export class VodClient {
      *
      * @summary 删除媒资分类
      * @param {number} id 视频分类ID
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -569,7 +552,6 @@ export class VodClient {
      *
      * @summary 删除媒资
      * @param {Array<string>} assetId 媒资ID，支持一次删除多个媒资，批量删除时以逗号分隔。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {string} [deleteType] 删除类型，当值为origin时只删除源文件，保留转码后文件。
      * @param {*} [options] Override http request option.
@@ -591,7 +573,6 @@ export class VodClient {
      *
      * @summary 删除自定义转码模板组
      * @param {string} groupId 模板组id
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -612,7 +593,6 @@ export class VodClient {
      *
      * @summary 删除转码模板组集合
      * @param {string} groupCollectionId 模板组集合id 
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -633,7 +613,6 @@ export class VodClient {
      *
      * @summary 删除自定义模板
      * @param {string} groupId 模板id 
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -654,7 +633,6 @@ export class VodClient {
      *
      * @summary 删除水印模板
      * @param {string} id 水印模板配置id 
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -675,7 +653,6 @@ export class VodClient {
      *
      * @summary 查询指定分类信息
      * @param {number} id 视频分类ID。  若设置为0，则查询所有一级分类。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -695,7 +672,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询媒资列表
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {Array<string>} [assetId] 媒资ID，最多同时查询10个。
      * @param {Array<'CREATING' | 'FAILED' | 'CREATED' | 'PUBLISHED' | 'WAITING_TRANSCODE' | 'TRANSCODING' | 'TRANSCODE_SUCCEED' | 'TRANSCODE_FAILED' | 'THUMBNAILING' | 'THUMBNAIL_SUCCEED' | 'THUMBNAIL_FAILED' | 'UN_REVIEW' | 'REVIEWING' | 'REVIEW_SUSPICIOUS' | 'REVIEW_PASSED' | 'REVIEW_FAILED' | 'REVIEW_BLOCKED'>} [status] 媒资状态，同时查询多个状态的媒资。  取值如下： - CREATING：上传中 - FAILED：上传失败 - CREATED：上传成功 - PUBLISHED：已发布 - TRANSCODING：转码中 - TRANSCODE_SUCCEED：转码成功 - TRANSCODE_FAILED：转码失败 - THUMBNAILING：截图中 - THUMBNAIL_SUCCEED：截图成功 - THUMBNAIL_FAILED：截图失败 - UN_REVIEW：未审核 - REVIEWING：审核中 - REVIEW_SUSPICIOUS ：审核不过，待人工复审 - REVIEW_PASSED：审核通过 - REVIEW_FAILED：审核任务失败 - REVIEW_BLOCKED：已屏蔽
@@ -728,7 +704,6 @@ export class VodClient {
      * @summary 查询域名播放日志
      * @param {string} domainName 加速域名，参考格式：www.test1.com。
      * @param {string} queryDate 查询开始时间，格式为yyyyMMddHHmmss。 - 查询结果为开始时间之后24小时内的日志数据 - 只能查最近一个月内的数据
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {number} [pageSize] 每页显示日志数量。 
      * @param {number} [pageNumber] 当前页数。 
@@ -750,7 +725,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询转码模板组列表
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {string} [groupId] 模板组id
      * @param {string} [status] 模板启用状态
@@ -774,7 +748,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询自定义模板组集合
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {string} [groupCollectionId] 模板组集合id 
      * @param {number} [offset] 偏移量。默认为0。指定group_collection_id时该参数无效。&lt;br/&gt; 
@@ -799,7 +772,6 @@ export class VodClient {
      * @summary 查询TopN媒资信息
      * @param {string} domain 查询域名，暂只支持查询单个或者全部域名。  取值如下： - 单个加速域名，格式：example.test1.com。 - ALL：表示查询名下全部域名。
      * @param {string} date 查询日期，格式为yyyymmdd - date必须为昨天或之前的日期。 - 最多只能查最近一个月内的数据。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -819,7 +791,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询转码模板列表
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {string} [groupId] 模板id 
      * @param {boolean} [isDefault] 是否默认 
@@ -844,7 +815,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询水印列表
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {Array<string>} [id] 水印模板配置id，一次最多10个。
      * @param {number} [page] 分页编号。  默认为0。指定id时该参数无效。
@@ -868,7 +838,6 @@ export class VodClient {
      *
      * @summary 创建媒资：OBS转存方式
      * @param {PublishAssetFromObsReq} publishAssetFromObsReq 从OBS一键发布媒资
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -889,7 +858,6 @@ export class VodClient {
      *
      * @summary 媒资发布
      * @param {PublishAssetReq} publishAssetReq 媒资发布
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -910,7 +878,6 @@ export class VodClient {
      *
      * @summary 密钥查询
      * @param {string} assetId 媒资ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -931,7 +898,6 @@ export class VodClient {
      *
      * @summary 查询指定媒资的详细信息
      * @param {string} assetId 媒资ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {Array<'base_info' | 'transcode_info' | 'thumbnail_info' | 'review_info'>} [categories] 查询的信息类型。 - 为空时表示查询所有信息。 - 不为空时支持同时查询一个或者多个类型的信息，取值如下： - - base_info：媒资基本信息。 - - transcode_info：转码结果信息。 - - thumbnail_info：截图结果信息。 - - review_info：审核结果信息。
      * @param {*} [options] Override http request option.
@@ -952,7 +918,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询媒资信息
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {Array<string>} [assetId] 媒资id，最多同时查询10个媒资。
      * @param {Array<'UNCREATED' | 'DELETED' | 'CANCELLED' | 'SERVER_ERROR' | 'UPLOAD_FAILED' | 'CREATING' | 'PUBLISHED' | 'WAITING_TRANSCODE' | 'TRANSCODING' | 'TRANSCODE_FAILED' | 'TRANSCODE_SUCCEED' | 'CREATED'>} [status] 媒资状态。  取值如下： - UNCREATED：未创建（媒资ID不存在 ） - DELETED：已删除 - CANCELLED：上传取消 - SERVER_ERROR：上传失败（点播服务端故障） - UPLOAD_FAILED：上传失败（向OBS上传失败） - CREATING：创建中 - PUBLISHED：已发布 - TRANSCODING：待发布（转码中） - TRANSCODE_FAILED：待发布（转码失败） - TRANSCODE_SUCCEED：待发布（转码成功） - CREATED：待发布（未转码）
@@ -992,7 +957,6 @@ export class VodClient {
      * @param {string} httpVerb 分段上传时调用OBS接口的HTTP方法，具体操作需要的HTTP方法请参考OBS的接口文档。  - 初始化上传任务：POST - 上传段：PUT - 合并段：POST - 取消段：DELETE - 列举已上传段：GET
      * @param {string} bucket 桶名。  调用[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的bucket值。
      * @param {string} objectKey 对象名。  调用[创建媒资：上传方式](https://support.huaweicloud.com/api-vod/vod_04_0196.html)接口中返回的响应体中的target字段获得的object值。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {string} [contentType] 文件类型对应的content-type，如MP4对应video/mp4。
      * @param {string} [contentMd5] 上传段时每段的MD5。
@@ -1018,7 +982,6 @@ export class VodClient {
      * @summary 查询CDN统计信息
      * @param {string} statType 统计数据类型。  取值如下： - cdn_bw：CDN峰值带宽 - cdn_flux：CDN流量 - req_num：请求总数 - req_hit_rate：请求命中率 - flux_hit_rate：流量命中率  每次只能查询一种统计数据。
      * @param {string} domain 域名列表，多个域名以逗号（半角）分隔。  示例：example.test1.com,example.test2.com。  ALL表示查询名下全部域名。一次最多查询100个域名。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {string} [startTime] 起始时间，格式为yyyymmddhhmmss。
      * @param {string} [endTime] 结束时间，格式为yyyymmddhhmmss。  - “**start_time**”、“**end_time**”均不存在时，“**start_time**”取当天零点，“end_time”取当前时间。  - “**start_time**”不存在、“**end_time**”存在，请求非法。  - “**start_time**”存在、“**end_time**”不存在，“**end_time**”取当前时间。  - 只能查询最近三个月内的数据，且时间跨度不能超过31天。  - 起始时间和结束时间会自动规整，起始时间规整为指定时间所在的整点时刻，结束时间规整为指定时间所在时间的下一小时整点时刻。
@@ -1042,7 +1005,6 @@ export class VodClient {
      *
      * @summary 查询CDN预热
      * @param {string} taskId 任务ID
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1062,7 +1024,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询源站统计信息
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {string} [startTime] 起始时间，格式为yyyymmddhhmmss。
      * @param {string} [endTime] 结束时间，格式为yyyymmddhhmmss。 - “start_time”、“end_time”均不存在时，“start_time”取当天零点，“end_time”取当前时间。 - “start_time”不存在、“end_time”存在，请求非法。 - “start_time”存在、“end_time”不存在，“end_time”取当前时间。 - 只能查询最近三个月内的数据，且时间跨度不能超过31天。 - 起始时间和结束时间会自动规整，起始时间规整为指定时间所在的整点时刻，结束时间规整为指定时间所在时间的下一小时整点时刻。
@@ -1086,7 +1047,6 @@ export class VodClient {
      *
      * @summary 媒资发布取消
      * @param {PublishAssetReq} unpublishAssetReq 媒资取消发布
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1113,7 +1073,6 @@ export class VodClient {
      *
      * @summary 视频更新
      * @param {UploadAssetReq} uploadAssetReq 更新媒资文件或封面
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1134,7 +1093,6 @@ export class VodClient {
      *
      * @summary 修改媒资分类
      * @param {UpdateCategoryReq} updateCategoryReq 修改媒资分类
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1154,7 +1112,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改媒资属性
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {UpdateAssetMetaReq} [updateAssetMetaReq] 更新媒资信息的请求参数的封装
      * @param {*} [options] Override http request option.
@@ -1176,7 +1133,6 @@ export class VodClient {
      *
      * @summary 桶授权
      * @param {UpdateBucketAuthorizedReq} updateBucketAuthorizedReq 桶策略授权
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1197,7 +1153,6 @@ export class VodClient {
      *
      * @summary 设置封面
      * @param {UpdateCoverByThumbnailReq} updateCoverByThumbnailReq 截图文件的URL。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1218,7 +1173,6 @@ export class VodClient {
      *
      * @summary 修改自定义转码模板组
      * @param {ModifyTransTemplateGroup} transTemplateGroup 修改模板组
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1239,7 +1193,6 @@ export class VodClient {
      *
      * @summary 修改转码模板组集合
      * @param {ModifyTemplateGroupCollection} updateTemplateGroupCollectionRequestBody 修改自定义模板组集合 
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1260,7 +1213,6 @@ export class VodClient {
      *
      * @summary 修改转码模板
      * @param {ModifyTransTemplate} updateTranscodeTemplateRequestBody 修改模板 
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1280,7 +1232,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改水印模板
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {UpdateWatermarkTemplateReq} [updateWatermarkTemplateReq] 修改水印模板请求体 
      * @param {*} [options] Override http request option.
@@ -1302,7 +1253,6 @@ export class VodClient {
      *
      * @summary 创建媒资：URL拉取注入
      * @param {UploadMetaDataByUrlReq} uploadMetaDataByUrlReq 创建媒资：URL拉取注入
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1322,7 +1272,6 @@ export class VodClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询托管任务
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {string} [status] 任务状态。
      * @param {string} [taskId] 任务ID。
@@ -1348,7 +1297,6 @@ export class VodClient {
      * @summary 查询托管媒资详情
      * @param {string} sourceBucket 媒资原始输入存放的桶。
      * @param {string} sourceObject 媒资原始输入的objectKey。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1369,7 +1317,6 @@ export class VodClient {
      *
      * @summary 查询托管任务详情
      * @param {string} taskId 任务ID。
-     * @param {string} [authorization] 使用AK/SK方式认证时必选，携带的鉴权信息。 
      * @param {string} [xSdkDate] 使用AK/SK方式认证时必选，请求的发生时间。 
      * @param {number} [page] 分页编号，默认为0。
      * @param {number} [size] 每页记录数。  默认10，范围[1,100]
@@ -1427,18 +1374,14 @@ export const ParamCreater = function () {
             
             let assetId;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (cancelAssetTranscodeTaskRequest !== null && cancelAssetTranscodeTaskRequest !== undefined) {
                 if (cancelAssetTranscodeTaskRequest instanceof CancelAssetTranscodeTaskRequest) {
                     assetId = cancelAssetTranscodeTaskRequest.assetId;
-                    authorization = cancelAssetTranscodeTaskRequest.authorization;
                     xSdkDate = cancelAssetTranscodeTaskRequest.xSdkDate;
                 } else {
                     assetId = cancelAssetTranscodeTaskRequest['asset_id'];
-                    authorization = cancelAssetTranscodeTaskRequest['Authorization'];
                     xSdkDate = cancelAssetTranscodeTaskRequest['X-Sdk-Date'];
                 }
             }
@@ -1449,9 +1392,6 @@ export const ParamCreater = function () {
             }
             if (assetId !== null && assetId !== undefined) {
                 localVarQueryParameter['asset_id'] = assetId;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -1481,18 +1421,14 @@ export const ParamCreater = function () {
             
             let assetId;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (cancelExtractAudioTaskRequest !== null && cancelExtractAudioTaskRequest !== undefined) {
                 if (cancelExtractAudioTaskRequest instanceof CancelExtractAudioTaskRequest) {
                     assetId = cancelExtractAudioTaskRequest.assetId;
-                    authorization = cancelExtractAudioTaskRequest.authorization;
                     xSdkDate = cancelExtractAudioTaskRequest.xSdkDate;
                 } else {
                     assetId = cancelExtractAudioTaskRequest['asset_id'];
-                    authorization = cancelExtractAudioTaskRequest['Authorization'];
                     xSdkDate = cancelExtractAudioTaskRequest['X-Sdk-Date'];
                 }
             }
@@ -1503,9 +1439,6 @@ export const ParamCreater = function () {
             }
             if (assetId !== null && assetId !== undefined) {
                 localVarQueryParameter['asset_id'] = assetId;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -1537,20 +1470,16 @@ export const ParamCreater = function () {
             
             let md5;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (checkMd5DuplicationRequest !== null && checkMd5DuplicationRequest !== undefined) {
                 if (checkMd5DuplicationRequest instanceof CheckMd5DuplicationRequest) {
                     size = checkMd5DuplicationRequest.size;
                     md5 = checkMd5DuplicationRequest.md5;
-                    authorization = checkMd5DuplicationRequest.authorization;
                     xSdkDate = checkMd5DuplicationRequest.xSdkDate;
                 } else {
                     size = checkMd5DuplicationRequest['size'];
                     md5 = checkMd5DuplicationRequest['md5'];
-                    authorization = checkMd5DuplicationRequest['Authorization'];
                     xSdkDate = checkMd5DuplicationRequest['X-Sdk-Date'];
                 }
             }
@@ -1567,9 +1496,6 @@ export const ParamCreater = function () {
             }
             if (md5 !== null && md5 !== undefined) {
                 localVarQueryParameter['md5'] = md5;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -1599,18 +1525,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (confirmAssetUploadRequest !== null && confirmAssetUploadRequest !== undefined) {
                 if (confirmAssetUploadRequest instanceof ConfirmAssetUploadRequest) {
                     body = confirmAssetUploadRequest.body
-                    authorization = confirmAssetUploadRequest.authorization;
                     xSdkDate = confirmAssetUploadRequest.xSdkDate;
                 } else {
                     body = confirmAssetUploadRequest['body'];
-                    authorization = confirmAssetUploadRequest['Authorization'];
                     xSdkDate = confirmAssetUploadRequest['X-Sdk-Date'];
                 }
             }
@@ -1618,9 +1540,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -1651,18 +1570,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (confirmImageUploadRequest !== null && confirmImageUploadRequest !== undefined) {
                 if (confirmImageUploadRequest instanceof ConfirmImageUploadRequest) {
                     body = confirmImageUploadRequest.body
-                    authorization = confirmImageUploadRequest.authorization;
                     xSdkDate = confirmImageUploadRequest.xSdkDate;
                 } else {
                     body = confirmImageUploadRequest['body'];
-                    authorization = confirmImageUploadRequest['Authorization'];
                     xSdkDate = confirmImageUploadRequest['X-Sdk-Date'];
                 }
             }
@@ -1670,9 +1585,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -1707,18 +1619,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createAssetByFileUploadRequest !== null && createAssetByFileUploadRequest !== undefined) {
                 if (createAssetByFileUploadRequest instanceof CreateAssetByFileUploadRequest) {
                     body = createAssetByFileUploadRequest.body
-                    authorization = createAssetByFileUploadRequest.authorization;
                     xSdkDate = createAssetByFileUploadRequest.xSdkDate;
                 } else {
                     body = createAssetByFileUploadRequest['body'];
-                    authorization = createAssetByFileUploadRequest['Authorization'];
                     xSdkDate = createAssetByFileUploadRequest['X-Sdk-Date'];
                 }
             }
@@ -1726,9 +1634,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -1759,18 +1664,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createAssetCategoryRequest !== null && createAssetCategoryRequest !== undefined) {
                 if (createAssetCategoryRequest instanceof CreateAssetCategoryRequest) {
                     body = createAssetCategoryRequest.body
-                    authorization = createAssetCategoryRequest.authorization;
                     xSdkDate = createAssetCategoryRequest.xSdkDate;
                 } else {
                     body = createAssetCategoryRequest['body'];
-                    authorization = createAssetCategoryRequest['Authorization'];
                     xSdkDate = createAssetCategoryRequest['X-Sdk-Date'];
                 }
             }
@@ -1778,9 +1679,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -1811,26 +1709,19 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createAssetProcessTaskRequest !== null && createAssetProcessTaskRequest !== undefined) {
                 if (createAssetProcessTaskRequest instanceof CreateAssetProcessTaskRequest) {
-                    authorization = createAssetProcessTaskRequest.authorization;
                     xSdkDate = createAssetProcessTaskRequest.xSdkDate;
                     body = createAssetProcessTaskRequest.body
                 } else {
-                    authorization = createAssetProcessTaskRequest['Authorization'];
                     xSdkDate = createAssetProcessTaskRequest['X-Sdk-Date'];
                     body = createAssetProcessTaskRequest['body'];
                 }
             }
 
         
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
@@ -1860,18 +1751,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createAssetReviewTaskRequest !== null && createAssetReviewTaskRequest !== undefined) {
                 if (createAssetReviewTaskRequest instanceof CreateAssetReviewTaskRequest) {
                     body = createAssetReviewTaskRequest.body
-                    authorization = createAssetReviewTaskRequest.authorization;
                     xSdkDate = createAssetReviewTaskRequest.xSdkDate;
                 } else {
                     body = createAssetReviewTaskRequest['body'];
-                    authorization = createAssetReviewTaskRequest['Authorization'];
                     xSdkDate = createAssetReviewTaskRequest['X-Sdk-Date'];
                 }
             }
@@ -1879,9 +1766,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -1912,18 +1796,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createExtractAudioTaskRequest !== null && createExtractAudioTaskRequest !== undefined) {
                 if (createExtractAudioTaskRequest instanceof CreateExtractAudioTaskRequest) {
                     body = createExtractAudioTaskRequest.body
-                    authorization = createExtractAudioTaskRequest.authorization;
                     xSdkDate = createExtractAudioTaskRequest.xSdkDate;
                 } else {
                     body = createExtractAudioTaskRequest['body'];
-                    authorization = createExtractAudioTaskRequest['Authorization'];
                     xSdkDate = createExtractAudioTaskRequest['X-Sdk-Date'];
                 }
             }
@@ -1931,9 +1811,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -1964,18 +1841,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createPreheatingAssetRequest !== null && createPreheatingAssetRequest !== undefined) {
                 if (createPreheatingAssetRequest instanceof CreatePreheatingAssetRequest) {
                     body = createPreheatingAssetRequest.body
-                    authorization = createPreheatingAssetRequest.authorization;
                     xSdkDate = createPreheatingAssetRequest.xSdkDate;
                 } else {
                     body = createPreheatingAssetRequest['body'];
-                    authorization = createPreheatingAssetRequest['Authorization'];
                     xSdkDate = createPreheatingAssetRequest['X-Sdk-Date'];
                 }
             }
@@ -1983,9 +1856,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2018,18 +1888,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createTakeOverTaskRequest !== null && createTakeOverTaskRequest !== undefined) {
                 if (createTakeOverTaskRequest instanceof CreateTakeOverTaskRequest) {
                     body = createTakeOverTaskRequest.body
-                    authorization = createTakeOverTaskRequest.authorization;
                     xSdkDate = createTakeOverTaskRequest.xSdkDate;
                 } else {
                     body = createTakeOverTaskRequest['body'];
-                    authorization = createTakeOverTaskRequest['Authorization'];
                     xSdkDate = createTakeOverTaskRequest['X-Sdk-Date'];
                 }
             }
@@ -2037,9 +1903,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2070,18 +1933,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createTemplateGroupRequest !== null && createTemplateGroupRequest !== undefined) {
                 if (createTemplateGroupRequest instanceof CreateTemplateGroupRequest) {
                     body = createTemplateGroupRequest.body
-                    authorization = createTemplateGroupRequest.authorization;
                     xSdkDate = createTemplateGroupRequest.xSdkDate;
                 } else {
                     body = createTemplateGroupRequest['body'];
-                    authorization = createTemplateGroupRequest['Authorization'];
                     xSdkDate = createTemplateGroupRequest['X-Sdk-Date'];
                 }
             }
@@ -2089,9 +1948,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2122,18 +1978,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createTemplateGroupCollectionRequest !== null && createTemplateGroupCollectionRequest !== undefined) {
                 if (createTemplateGroupCollectionRequest instanceof CreateTemplateGroupCollectionRequest) {
                     body = createTemplateGroupCollectionRequest.body
-                    authorization = createTemplateGroupCollectionRequest.authorization;
                     xSdkDate = createTemplateGroupCollectionRequest.xSdkDate;
                 } else {
                     body = createTemplateGroupCollectionRequest['body'];
-                    authorization = createTemplateGroupCollectionRequest['Authorization'];
                     xSdkDate = createTemplateGroupCollectionRequest['X-Sdk-Date'];
                 }
             }
@@ -2141,9 +1993,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2174,18 +2023,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createTranscodeTemplateRequest !== null && createTranscodeTemplateRequest !== undefined) {
                 if (createTranscodeTemplateRequest instanceof CreateTranscodeTemplateRequest) {
                     body = createTranscodeTemplateRequest.body
-                    authorization = createTranscodeTemplateRequest.authorization;
                     xSdkDate = createTranscodeTemplateRequest.xSdkDate;
                 } else {
                     body = createTranscodeTemplateRequest['body'];
-                    authorization = createTranscodeTemplateRequest['Authorization'];
                     xSdkDate = createTranscodeTemplateRequest['X-Sdk-Date'];
                 }
             }
@@ -2193,9 +2038,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2226,18 +2068,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (createWatermarkTemplateRequest !== null && createWatermarkTemplateRequest !== undefined) {
                 if (createWatermarkTemplateRequest instanceof CreateWatermarkTemplateRequest) {
                     body = createWatermarkTemplateRequest.body
-                    authorization = createWatermarkTemplateRequest.authorization;
                     xSdkDate = createWatermarkTemplateRequest.xSdkDate;
                 } else {
                     body = createWatermarkTemplateRequest['body'];
-                    authorization = createWatermarkTemplateRequest['Authorization'];
                     xSdkDate = createWatermarkTemplateRequest['X-Sdk-Date'];
                 }
             }
@@ -2245,9 +2083,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2278,18 +2113,14 @@ export const ParamCreater = function () {
             
             let id;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (deleteAssetCategoryRequest !== null && deleteAssetCategoryRequest !== undefined) {
                 if (deleteAssetCategoryRequest instanceof DeleteAssetCategoryRequest) {
                     id = deleteAssetCategoryRequest.id;
-                    authorization = deleteAssetCategoryRequest.authorization;
                     xSdkDate = deleteAssetCategoryRequest.xSdkDate;
                 } else {
                     id = deleteAssetCategoryRequest['id'];
-                    authorization = deleteAssetCategoryRequest['Authorization'];
                     xSdkDate = deleteAssetCategoryRequest['X-Sdk-Date'];
                 }
             }
@@ -2300,9 +2131,6 @@ export const ParamCreater = function () {
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2332,8 +2160,6 @@ export const ParamCreater = function () {
             
             let assetId;
             
-            let authorization;
-            
             let xSdkDate;
             
             let deleteType;
@@ -2341,12 +2167,10 @@ export const ParamCreater = function () {
             if (deleteAssetsRequest !== null && deleteAssetsRequest !== undefined) {
                 if (deleteAssetsRequest instanceof DeleteAssetsRequest) {
                     assetId = deleteAssetsRequest.assetId;
-                    authorization = deleteAssetsRequest.authorization;
                     xSdkDate = deleteAssetsRequest.xSdkDate;
                     deleteType = deleteAssetsRequest.deleteType;
                 } else {
                     assetId = deleteAssetsRequest['asset_id'];
-                    authorization = deleteAssetsRequest['Authorization'];
                     xSdkDate = deleteAssetsRequest['X-Sdk-Date'];
                     deleteType = deleteAssetsRequest['delete_type'];
                 }
@@ -2361,9 +2185,6 @@ export const ParamCreater = function () {
             }
             if (deleteType !== null && deleteType !== undefined) {
                 localVarQueryParameter['delete_type'] = deleteType;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2393,18 +2214,14 @@ export const ParamCreater = function () {
             
             let groupId;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (deleteTemplateGroupRequest !== null && deleteTemplateGroupRequest !== undefined) {
                 if (deleteTemplateGroupRequest instanceof DeleteTemplateGroupRequest) {
                     groupId = deleteTemplateGroupRequest.groupId;
-                    authorization = deleteTemplateGroupRequest.authorization;
                     xSdkDate = deleteTemplateGroupRequest.xSdkDate;
                 } else {
                     groupId = deleteTemplateGroupRequest['group_id'];
-                    authorization = deleteTemplateGroupRequest['Authorization'];
                     xSdkDate = deleteTemplateGroupRequest['X-Sdk-Date'];
                 }
             }
@@ -2415,9 +2232,6 @@ export const ParamCreater = function () {
             }
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2447,18 +2261,14 @@ export const ParamCreater = function () {
             
             let groupCollectionId;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (deleteTemplateGroupCollectionRequest !== null && deleteTemplateGroupCollectionRequest !== undefined) {
                 if (deleteTemplateGroupCollectionRequest instanceof DeleteTemplateGroupCollectionRequest) {
                     groupCollectionId = deleteTemplateGroupCollectionRequest.groupCollectionId;
-                    authorization = deleteTemplateGroupCollectionRequest.authorization;
                     xSdkDate = deleteTemplateGroupCollectionRequest.xSdkDate;
                 } else {
                     groupCollectionId = deleteTemplateGroupCollectionRequest['group_collection_id'];
-                    authorization = deleteTemplateGroupCollectionRequest['Authorization'];
                     xSdkDate = deleteTemplateGroupCollectionRequest['X-Sdk-Date'];
                 }
             }
@@ -2469,9 +2279,6 @@ export const ParamCreater = function () {
             }
             if (groupCollectionId !== null && groupCollectionId !== undefined) {
                 localVarQueryParameter['group_collection_id'] = groupCollectionId;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2501,18 +2308,14 @@ export const ParamCreater = function () {
             
             let groupId;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (deleteTranscodeTemplateRequest !== null && deleteTranscodeTemplateRequest !== undefined) {
                 if (deleteTranscodeTemplateRequest instanceof DeleteTranscodeTemplateRequest) {
                     groupId = deleteTranscodeTemplateRequest.groupId;
-                    authorization = deleteTranscodeTemplateRequest.authorization;
                     xSdkDate = deleteTranscodeTemplateRequest.xSdkDate;
                 } else {
                     groupId = deleteTranscodeTemplateRequest['group_id'];
-                    authorization = deleteTranscodeTemplateRequest['Authorization'];
                     xSdkDate = deleteTranscodeTemplateRequest['X-Sdk-Date'];
                 }
             }
@@ -2523,9 +2326,6 @@ export const ParamCreater = function () {
             }
             if (groupId !== null && groupId !== undefined) {
                 localVarQueryParameter['group_id'] = groupId;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2555,18 +2355,14 @@ export const ParamCreater = function () {
             
             let id;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (deleteWatermarkTemplateRequest !== null && deleteWatermarkTemplateRequest !== undefined) {
                 if (deleteWatermarkTemplateRequest instanceof DeleteWatermarkTemplateRequest) {
                     id = deleteWatermarkTemplateRequest.id;
-                    authorization = deleteWatermarkTemplateRequest.authorization;
                     xSdkDate = deleteWatermarkTemplateRequest.xSdkDate;
                 } else {
                     id = deleteWatermarkTemplateRequest['id'];
-                    authorization = deleteWatermarkTemplateRequest['Authorization'];
                     xSdkDate = deleteWatermarkTemplateRequest['X-Sdk-Date'];
                 }
             }
@@ -2577,9 +2373,6 @@ export const ParamCreater = function () {
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2609,18 +2402,14 @@ export const ParamCreater = function () {
             
             let id;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (listAssetCategoryRequest !== null && listAssetCategoryRequest !== undefined) {
                 if (listAssetCategoryRequest instanceof ListAssetCategoryRequest) {
                     id = listAssetCategoryRequest.id;
-                    authorization = listAssetCategoryRequest.authorization;
                     xSdkDate = listAssetCategoryRequest.xSdkDate;
                 } else {
                     id = listAssetCategoryRequest['id'];
-                    authorization = listAssetCategoryRequest['Authorization'];
                     xSdkDate = listAssetCategoryRequest['X-Sdk-Date'];
                 }
             }
@@ -2631,9 +2420,6 @@ export const ParamCreater = function () {
             }
             if (id !== null && id !== undefined) {
                 localVarQueryParameter['id'] = id;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2661,8 +2447,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let authorization;
-            
             let xSdkDate;
             
             let assetId;
@@ -2689,7 +2473,6 @@ export const ParamCreater = function () {
 
             if (listAssetListRequest !== null && listAssetListRequest !== undefined) {
                 if (listAssetListRequest instanceof ListAssetListRequest) {
-                    authorization = listAssetListRequest.authorization;
                     xSdkDate = listAssetListRequest.xSdkDate;
                     assetId = listAssetListRequest.assetId;
                     status = listAssetListRequest.status;
@@ -2703,7 +2486,6 @@ export const ParamCreater = function () {
                     size = listAssetListRequest.size;
                     order = listAssetListRequest.order;
                 } else {
-                    authorization = listAssetListRequest['Authorization'];
                     xSdkDate = listAssetListRequest['X-Sdk-Date'];
                     assetId = listAssetListRequest['asset_id'];
                     status = listAssetListRequest['status'];
@@ -2753,9 +2535,6 @@ export const ParamCreater = function () {
             if (order !== null && order !== undefined) {
                 localVarQueryParameter['order'] = order;
             }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
@@ -2786,8 +2565,6 @@ export const ParamCreater = function () {
             
             let queryDate;
             
-            let authorization;
-            
             let xSdkDate;
             
             let pageSize;
@@ -2798,14 +2575,12 @@ export const ParamCreater = function () {
                 if (listDomainLogsRequest instanceof ListDomainLogsRequest) {
                     domainName = listDomainLogsRequest.domainName;
                     queryDate = listDomainLogsRequest.queryDate;
-                    authorization = listDomainLogsRequest.authorization;
                     xSdkDate = listDomainLogsRequest.xSdkDate;
                     pageSize = listDomainLogsRequest.pageSize;
                     pageNumber = listDomainLogsRequest.pageNumber;
                 } else {
                     domainName = listDomainLogsRequest['domain_name'];
                     queryDate = listDomainLogsRequest['query_date'];
-                    authorization = listDomainLogsRequest['Authorization'];
                     xSdkDate = listDomainLogsRequest['X-Sdk-Date'];
                     pageSize = listDomainLogsRequest['page_size'];
                     pageNumber = listDomainLogsRequest['page_number'];
@@ -2830,9 +2605,6 @@ export const ParamCreater = function () {
             }
             if (pageNumber !== null && pageNumber !== undefined) {
                 localVarQueryParameter['page_number'] = pageNumber;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2860,8 +2632,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let authorization;
-            
             let xSdkDate;
             
             let groupId;
@@ -2874,14 +2644,12 @@ export const ParamCreater = function () {
 
             if (listTemplateGroupRequest !== null && listTemplateGroupRequest !== undefined) {
                 if (listTemplateGroupRequest instanceof ListTemplateGroupRequest) {
-                    authorization = listTemplateGroupRequest.authorization;
                     xSdkDate = listTemplateGroupRequest.xSdkDate;
                     groupId = listTemplateGroupRequest.groupId;
                     status = listTemplateGroupRequest.status;
                     page = listTemplateGroupRequest.page;
                     size = listTemplateGroupRequest.size;
                 } else {
-                    authorization = listTemplateGroupRequest['Authorization'];
                     xSdkDate = listTemplateGroupRequest['X-Sdk-Date'];
                     groupId = listTemplateGroupRequest['group_id'];
                     status = listTemplateGroupRequest['status'];
@@ -2902,9 +2670,6 @@ export const ParamCreater = function () {
             }
             if (size !== null && size !== undefined) {
                 localVarQueryParameter['size'] = size;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -2932,8 +2697,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let authorization;
-            
             let xSdkDate;
             
             let groupCollectionId;
@@ -2944,13 +2707,11 @@ export const ParamCreater = function () {
 
             if (listTemplateGroupCollectionRequest !== null && listTemplateGroupCollectionRequest !== undefined) {
                 if (listTemplateGroupCollectionRequest instanceof ListTemplateGroupCollectionRequest) {
-                    authorization = listTemplateGroupCollectionRequest.authorization;
                     xSdkDate = listTemplateGroupCollectionRequest.xSdkDate;
                     groupCollectionId = listTemplateGroupCollectionRequest.groupCollectionId;
                     offset = listTemplateGroupCollectionRequest.offset;
                     limit = listTemplateGroupCollectionRequest.limit;
                 } else {
-                    authorization = listTemplateGroupCollectionRequest['Authorization'];
                     xSdkDate = listTemplateGroupCollectionRequest['X-Sdk-Date'];
                     groupCollectionId = listTemplateGroupCollectionRequest['group_collection_id'];
                     offset = listTemplateGroupCollectionRequest['offset'];
@@ -2967,9 +2728,6 @@ export const ParamCreater = function () {
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3001,20 +2759,16 @@ export const ParamCreater = function () {
             
             let date;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (listTopStatisticsRequest !== null && listTopStatisticsRequest !== undefined) {
                 if (listTopStatisticsRequest instanceof ListTopStatisticsRequest) {
                     domain = listTopStatisticsRequest.domain;
                     date = listTopStatisticsRequest.date;
-                    authorization = listTopStatisticsRequest.authorization;
                     xSdkDate = listTopStatisticsRequest.xSdkDate;
                 } else {
                     domain = listTopStatisticsRequest['domain'];
                     date = listTopStatisticsRequest['date'];
-                    authorization = listTopStatisticsRequest['Authorization'];
                     xSdkDate = listTopStatisticsRequest['X-Sdk-Date'];
                 }
             }
@@ -3031,9 +2785,6 @@ export const ParamCreater = function () {
             }
             if (date !== null && date !== undefined) {
                 localVarQueryParameter['date'] = date;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3061,8 +2812,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let authorization;
-            
             let xSdkDate;
             
             let groupId;
@@ -3077,7 +2826,6 @@ export const ParamCreater = function () {
 
             if (listTranscodeTemplateRequest !== null && listTranscodeTemplateRequest !== undefined) {
                 if (listTranscodeTemplateRequest instanceof ListTranscodeTemplateRequest) {
-                    authorization = listTranscodeTemplateRequest.authorization;
                     xSdkDate = listTranscodeTemplateRequest.xSdkDate;
                     groupId = listTranscodeTemplateRequest.groupId;
                     isDefault = listTranscodeTemplateRequest.isDefault;
@@ -3085,7 +2833,6 @@ export const ParamCreater = function () {
                     limit = listTranscodeTemplateRequest.limit;
                     queryString = listTranscodeTemplateRequest.queryString;
                 } else {
-                    authorization = listTranscodeTemplateRequest['Authorization'];
                     xSdkDate = listTranscodeTemplateRequest['X-Sdk-Date'];
                     groupId = listTranscodeTemplateRequest['group_id'];
                     isDefault = listTranscodeTemplateRequest['is_default'];
@@ -3110,9 +2857,6 @@ export const ParamCreater = function () {
             }
             if (queryString !== null && queryString !== undefined) {
                 localVarQueryParameter['query_string'] = queryString;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3140,8 +2884,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let authorization;
-            
             let xSdkDate;
             
             let id;
@@ -3152,13 +2894,11 @@ export const ParamCreater = function () {
 
             if (listWatermarkTemplateRequest !== null && listWatermarkTemplateRequest !== undefined) {
                 if (listWatermarkTemplateRequest instanceof ListWatermarkTemplateRequest) {
-                    authorization = listWatermarkTemplateRequest.authorization;
                     xSdkDate = listWatermarkTemplateRequest.xSdkDate;
                     id = listWatermarkTemplateRequest.id;
                     page = listWatermarkTemplateRequest.page;
                     size = listWatermarkTemplateRequest.size;
                 } else {
-                    authorization = listWatermarkTemplateRequest['Authorization'];
                     xSdkDate = listWatermarkTemplateRequest['X-Sdk-Date'];
                     id = listWatermarkTemplateRequest['id'];
                     page = listWatermarkTemplateRequest['page'];
@@ -3175,9 +2915,6 @@ export const ParamCreater = function () {
             }
             if (size !== null && size !== undefined) {
                 localVarQueryParameter['size'] = size;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3207,18 +2944,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (publishAssetFromObsRequest !== null && publishAssetFromObsRequest !== undefined) {
                 if (publishAssetFromObsRequest instanceof PublishAssetFromObsRequest) {
                     body = publishAssetFromObsRequest.body
-                    authorization = publishAssetFromObsRequest.authorization;
                     xSdkDate = publishAssetFromObsRequest.xSdkDate;
                 } else {
                     body = publishAssetFromObsRequest['body'];
-                    authorization = publishAssetFromObsRequest['Authorization'];
                     xSdkDate = publishAssetFromObsRequest['X-Sdk-Date'];
                 }
             }
@@ -3226,9 +2959,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3259,18 +2989,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (publishAssetsRequest !== null && publishAssetsRequest !== undefined) {
                 if (publishAssetsRequest instanceof PublishAssetsRequest) {
                     body = publishAssetsRequest.body
-                    authorization = publishAssetsRequest.authorization;
                     xSdkDate = publishAssetsRequest.xSdkDate;
                 } else {
                     body = publishAssetsRequest['body'];
-                    authorization = publishAssetsRequest['Authorization'];
                     xSdkDate = publishAssetsRequest['X-Sdk-Date'];
                 }
             }
@@ -3278,9 +3004,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3311,18 +3034,14 @@ export const ParamCreater = function () {
             
             let assetId;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (showAssetCipherRequest !== null && showAssetCipherRequest !== undefined) {
                 if (showAssetCipherRequest instanceof ShowAssetCipherRequest) {
                     assetId = showAssetCipherRequest.assetId;
-                    authorization = showAssetCipherRequest.authorization;
                     xSdkDate = showAssetCipherRequest.xSdkDate;
                 } else {
                     assetId = showAssetCipherRequest['asset_id'];
-                    authorization = showAssetCipherRequest['Authorization'];
                     xSdkDate = showAssetCipherRequest['X-Sdk-Date'];
                 }
             }
@@ -3333,9 +3052,6 @@ export const ParamCreater = function () {
             }
             if (assetId !== null && assetId !== undefined) {
                 localVarQueryParameter['asset_id'] = assetId;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3365,8 +3081,6 @@ export const ParamCreater = function () {
             
             let assetId;
             
-            let authorization;
-            
             let xSdkDate;
             
             let categories;
@@ -3374,12 +3088,10 @@ export const ParamCreater = function () {
             if (showAssetDetailRequest !== null && showAssetDetailRequest !== undefined) {
                 if (showAssetDetailRequest instanceof ShowAssetDetailRequest) {
                     assetId = showAssetDetailRequest.assetId;
-                    authorization = showAssetDetailRequest.authorization;
                     xSdkDate = showAssetDetailRequest.xSdkDate;
                     categories = showAssetDetailRequest.categories;
                 } else {
                     assetId = showAssetDetailRequest['asset_id'];
-                    authorization = showAssetDetailRequest['Authorization'];
                     xSdkDate = showAssetDetailRequest['X-Sdk-Date'];
                     categories = showAssetDetailRequest['categories'];
                 }
@@ -3394,9 +3106,6 @@ export const ParamCreater = function () {
             }
             if (categories !== null && categories !== undefined) {
                 localVarQueryParameter['categories'] = categories;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3424,8 +3133,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let authorization;
-            
             let xSdkDate;
             
             let assetId;
@@ -3452,7 +3159,6 @@ export const ParamCreater = function () {
 
             if (showAssetMetaRequest !== null && showAssetMetaRequest !== undefined) {
                 if (showAssetMetaRequest instanceof ShowAssetMetaRequest) {
-                    authorization = showAssetMetaRequest.authorization;
                     xSdkDate = showAssetMetaRequest.xSdkDate;
                     assetId = showAssetMetaRequest.assetId;
                     status = showAssetMetaRequest.status;
@@ -3466,7 +3172,6 @@ export const ParamCreater = function () {
                     page = showAssetMetaRequest.page;
                     size = showAssetMetaRequest.size;
                 } else {
-                    authorization = showAssetMetaRequest['Authorization'];
                     xSdkDate = showAssetMetaRequest['X-Sdk-Date'];
                     assetId = showAssetMetaRequest['asset_id'];
                     status = showAssetMetaRequest['status'];
@@ -3516,9 +3221,6 @@ export const ParamCreater = function () {
             if (size !== null && size !== undefined) {
                 localVarQueryParameter['size'] = size;
             }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
@@ -3557,8 +3259,6 @@ export const ParamCreater = function () {
             
             let objectKey;
             
-            let authorization;
-            
             let xSdkDate;
             
             let contentType;
@@ -3574,7 +3274,6 @@ export const ParamCreater = function () {
                     httpVerb = showAssetTempAuthorityRequest.httpVerb;
                     bucket = showAssetTempAuthorityRequest.bucket;
                     objectKey = showAssetTempAuthorityRequest.objectKey;
-                    authorization = showAssetTempAuthorityRequest.authorization;
                     xSdkDate = showAssetTempAuthorityRequest.xSdkDate;
                     contentType = showAssetTempAuthorityRequest.contentType;
                     contentMd5 = showAssetTempAuthorityRequest.contentMd5;
@@ -3584,7 +3283,6 @@ export const ParamCreater = function () {
                     httpVerb = showAssetTempAuthorityRequest['http_verb'];
                     bucket = showAssetTempAuthorityRequest['bucket'];
                     objectKey = showAssetTempAuthorityRequest['object_key'];
-                    authorization = showAssetTempAuthorityRequest['Authorization'];
                     xSdkDate = showAssetTempAuthorityRequest['X-Sdk-Date'];
                     contentType = showAssetTempAuthorityRequest['content_type'];
                     contentMd5 = showAssetTempAuthorityRequest['content_md5'];
@@ -3624,9 +3322,6 @@ export const ParamCreater = function () {
             if (partNumber !== null && partNumber !== undefined) {
                 localVarQueryParameter['part_number'] = partNumber;
             }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
@@ -3657,8 +3352,6 @@ export const ParamCreater = function () {
             
             let domain;
             
-            let authorization;
-            
             let xSdkDate;
             
             let startTime;
@@ -3671,7 +3364,6 @@ export const ParamCreater = function () {
                 if (showCdnStatisticsRequest instanceof ShowCdnStatisticsRequest) {
                     statType = showCdnStatisticsRequest.statType;
                     domain = showCdnStatisticsRequest.domain;
-                    authorization = showCdnStatisticsRequest.authorization;
                     xSdkDate = showCdnStatisticsRequest.xSdkDate;
                     startTime = showCdnStatisticsRequest.startTime;
                     endTime = showCdnStatisticsRequest.endTime;
@@ -3679,7 +3371,6 @@ export const ParamCreater = function () {
                 } else {
                     statType = showCdnStatisticsRequest['stat_type'];
                     domain = showCdnStatisticsRequest['domain'];
-                    authorization = showCdnStatisticsRequest['Authorization'];
                     xSdkDate = showCdnStatisticsRequest['X-Sdk-Date'];
                     startTime = showCdnStatisticsRequest['start_time'];
                     endTime = showCdnStatisticsRequest['end_time'];
@@ -3709,9 +3400,6 @@ export const ParamCreater = function () {
             if (interval !== null && interval !== undefined) {
                 localVarQueryParameter['interval'] = interval;
             }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
@@ -3740,18 +3428,14 @@ export const ParamCreater = function () {
             
             let taskId;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (showPreheatingAssetRequest !== null && showPreheatingAssetRequest !== undefined) {
                 if (showPreheatingAssetRequest instanceof ShowPreheatingAssetRequest) {
                     taskId = showPreheatingAssetRequest.taskId;
-                    authorization = showPreheatingAssetRequest.authorization;
                     xSdkDate = showPreheatingAssetRequest.xSdkDate;
                 } else {
                     taskId = showPreheatingAssetRequest['task_id'];
-                    authorization = showPreheatingAssetRequest['Authorization'];
                     xSdkDate = showPreheatingAssetRequest['X-Sdk-Date'];
                 }
             }
@@ -3762,9 +3446,6 @@ export const ParamCreater = function () {
             }
             if (taskId !== null && taskId !== undefined) {
                 localVarQueryParameter['task_id'] = taskId;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3792,8 +3473,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let authorization;
-            
             let xSdkDate;
             
             let startTime;
@@ -3804,13 +3483,11 @@ export const ParamCreater = function () {
 
             if (showVodStatisticsRequest !== null && showVodStatisticsRequest !== undefined) {
                 if (showVodStatisticsRequest instanceof ShowVodStatisticsRequest) {
-                    authorization = showVodStatisticsRequest.authorization;
                     xSdkDate = showVodStatisticsRequest.xSdkDate;
                     startTime = showVodStatisticsRequest.startTime;
                     endTime = showVodStatisticsRequest.endTime;
                     interval = showVodStatisticsRequest.interval;
                 } else {
-                    authorization = showVodStatisticsRequest['Authorization'];
                     xSdkDate = showVodStatisticsRequest['X-Sdk-Date'];
                     startTime = showVodStatisticsRequest['start_time'];
                     endTime = showVodStatisticsRequest['end_time'];
@@ -3827,9 +3504,6 @@ export const ParamCreater = function () {
             }
             if (interval !== null && interval !== undefined) {
                 localVarQueryParameter['interval'] = interval;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3859,18 +3533,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (unpublishAssetsRequest !== null && unpublishAssetsRequest !== undefined) {
                 if (unpublishAssetsRequest instanceof UnpublishAssetsRequest) {
                     body = unpublishAssetsRequest.body
-                    authorization = unpublishAssetsRequest.authorization;
                     xSdkDate = unpublishAssetsRequest.xSdkDate;
                 } else {
                     body = unpublishAssetsRequest['body'];
-                    authorization = unpublishAssetsRequest['Authorization'];
                     xSdkDate = unpublishAssetsRequest['X-Sdk-Date'];
                 }
             }
@@ -3878,9 +3548,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3917,18 +3584,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (updateAssetRequest !== null && updateAssetRequest !== undefined) {
                 if (updateAssetRequest instanceof UpdateAssetRequest) {
                     body = updateAssetRequest.body
-                    authorization = updateAssetRequest.authorization;
                     xSdkDate = updateAssetRequest.xSdkDate;
                 } else {
                     body = updateAssetRequest['body'];
-                    authorization = updateAssetRequest['Authorization'];
                     xSdkDate = updateAssetRequest['X-Sdk-Date'];
                 }
             }
@@ -3936,9 +3599,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -3969,18 +3629,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (updateAssetCategoryRequest !== null && updateAssetCategoryRequest !== undefined) {
                 if (updateAssetCategoryRequest instanceof UpdateAssetCategoryRequest) {
                     body = updateAssetCategoryRequest.body
-                    authorization = updateAssetCategoryRequest.authorization;
                     xSdkDate = updateAssetCategoryRequest.xSdkDate;
                 } else {
                     body = updateAssetCategoryRequest['body'];
-                    authorization = updateAssetCategoryRequest['Authorization'];
                     xSdkDate = updateAssetCategoryRequest['X-Sdk-Date'];
                 }
             }
@@ -3988,9 +3644,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -4021,26 +3674,19 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (updateAssetMetaRequest !== null && updateAssetMetaRequest !== undefined) {
                 if (updateAssetMetaRequest instanceof UpdateAssetMetaRequest) {
-                    authorization = updateAssetMetaRequest.authorization;
                     xSdkDate = updateAssetMetaRequest.xSdkDate;
                     body = updateAssetMetaRequest.body
                 } else {
-                    authorization = updateAssetMetaRequest['Authorization'];
                     xSdkDate = updateAssetMetaRequest['X-Sdk-Date'];
                     body = updateAssetMetaRequest['body'];
                 }
             }
 
         
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
@@ -4070,18 +3716,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (updateBucketAuthorizedRequest !== null && updateBucketAuthorizedRequest !== undefined) {
                 if (updateBucketAuthorizedRequest instanceof UpdateBucketAuthorizedRequest) {
                     body = updateBucketAuthorizedRequest.body
-                    authorization = updateBucketAuthorizedRequest.authorization;
                     xSdkDate = updateBucketAuthorizedRequest.xSdkDate;
                 } else {
                     body = updateBucketAuthorizedRequest['body'];
-                    authorization = updateBucketAuthorizedRequest['Authorization'];
                     xSdkDate = updateBucketAuthorizedRequest['X-Sdk-Date'];
                 }
             }
@@ -4089,9 +3731,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -4122,18 +3761,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (updateCoverByThumbnailRequest !== null && updateCoverByThumbnailRequest !== undefined) {
                 if (updateCoverByThumbnailRequest instanceof UpdateCoverByThumbnailRequest) {
                     body = updateCoverByThumbnailRequest.body
-                    authorization = updateCoverByThumbnailRequest.authorization;
                     xSdkDate = updateCoverByThumbnailRequest.xSdkDate;
                 } else {
                     body = updateCoverByThumbnailRequest['body'];
-                    authorization = updateCoverByThumbnailRequest['Authorization'];
                     xSdkDate = updateCoverByThumbnailRequest['X-Sdk-Date'];
                 }
             }
@@ -4141,9 +3776,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -4174,18 +3806,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (updateTemplateGroupRequest !== null && updateTemplateGroupRequest !== undefined) {
                 if (updateTemplateGroupRequest instanceof UpdateTemplateGroupRequest) {
                     body = updateTemplateGroupRequest.body
-                    authorization = updateTemplateGroupRequest.authorization;
                     xSdkDate = updateTemplateGroupRequest.xSdkDate;
                 } else {
                     body = updateTemplateGroupRequest['body'];
-                    authorization = updateTemplateGroupRequest['Authorization'];
                     xSdkDate = updateTemplateGroupRequest['X-Sdk-Date'];
                 }
             }
@@ -4193,9 +3821,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -4226,18 +3851,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (updateTemplateGroupCollectionRequest !== null && updateTemplateGroupCollectionRequest !== undefined) {
                 if (updateTemplateGroupCollectionRequest instanceof UpdateTemplateGroupCollectionRequest) {
                     body = updateTemplateGroupCollectionRequest.body
-                    authorization = updateTemplateGroupCollectionRequest.authorization;
                     xSdkDate = updateTemplateGroupCollectionRequest.xSdkDate;
                 } else {
                     body = updateTemplateGroupCollectionRequest['body'];
-                    authorization = updateTemplateGroupCollectionRequest['Authorization'];
                     xSdkDate = updateTemplateGroupCollectionRequest['X-Sdk-Date'];
                 }
             }
@@ -4245,9 +3866,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -4278,18 +3896,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (updateTranscodeTemplateRequest !== null && updateTranscodeTemplateRequest !== undefined) {
                 if (updateTranscodeTemplateRequest instanceof UpdateTranscodeTemplateRequest) {
                     body = updateTranscodeTemplateRequest.body
-                    authorization = updateTranscodeTemplateRequest.authorization;
                     xSdkDate = updateTranscodeTemplateRequest.xSdkDate;
                 } else {
                     body = updateTranscodeTemplateRequest['body'];
-                    authorization = updateTranscodeTemplateRequest['Authorization'];
                     xSdkDate = updateTranscodeTemplateRequest['X-Sdk-Date'];
                 }
             }
@@ -4297,9 +3911,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -4330,26 +3941,19 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (updateWatermarkTemplateRequest !== null && updateWatermarkTemplateRequest !== undefined) {
                 if (updateWatermarkTemplateRequest instanceof UpdateWatermarkTemplateRequest) {
-                    authorization = updateWatermarkTemplateRequest.authorization;
                     xSdkDate = updateWatermarkTemplateRequest.xSdkDate;
                     body = updateWatermarkTemplateRequest.body
                 } else {
-                    authorization = updateWatermarkTemplateRequest['Authorization'];
                     xSdkDate = updateWatermarkTemplateRequest['X-Sdk-Date'];
                     body = updateWatermarkTemplateRequest['body'];
                 }
             }
 
         
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
             }
@@ -4379,18 +3983,14 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (uploadMetaDataByUrlRequest !== null && uploadMetaDataByUrlRequest !== undefined) {
                 if (uploadMetaDataByUrlRequest instanceof UploadMetaDataByUrlRequest) {
                     body = uploadMetaDataByUrlRequest.body
-                    authorization = uploadMetaDataByUrlRequest.authorization;
                     xSdkDate = uploadMetaDataByUrlRequest.xSdkDate;
                 } else {
                     body = uploadMetaDataByUrlRequest['body'];
-                    authorization = uploadMetaDataByUrlRequest['Authorization'];
                     xSdkDate = uploadMetaDataByUrlRequest['X-Sdk-Date'];
                 }
             }
@@ -4398,9 +3998,6 @@ export const ParamCreater = function () {
         
             if (body === null || body === undefined) {
                 throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -4429,8 +4026,6 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
             
-            let authorization;
-            
             let xSdkDate;
             
             let status;
@@ -4443,14 +4038,12 @@ export const ParamCreater = function () {
 
             if (listTakeOverTaskRequest !== null && listTakeOverTaskRequest !== undefined) {
                 if (listTakeOverTaskRequest instanceof ListTakeOverTaskRequest) {
-                    authorization = listTakeOverTaskRequest.authorization;
                     xSdkDate = listTakeOverTaskRequest.xSdkDate;
                     status = listTakeOverTaskRequest.status;
                     taskId = listTakeOverTaskRequest.taskId;
                     page = listTakeOverTaskRequest.page;
                     size = listTakeOverTaskRequest.size;
                 } else {
-                    authorization = listTakeOverTaskRequest['Authorization'];
                     xSdkDate = listTakeOverTaskRequest['X-Sdk-Date'];
                     status = listTakeOverTaskRequest['status'];
                     taskId = listTakeOverTaskRequest['task_id'];
@@ -4471,9 +4064,6 @@ export const ParamCreater = function () {
             }
             if (size !== null && size !== undefined) {
                 localVarQueryParameter['size'] = size;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -4505,20 +4095,16 @@ export const ParamCreater = function () {
             
             let sourceObject;
             
-            let authorization;
-            
             let xSdkDate;
 
             if (showTakeOverAssetDetailsRequest !== null && showTakeOverAssetDetailsRequest !== undefined) {
                 if (showTakeOverAssetDetailsRequest instanceof ShowTakeOverAssetDetailsRequest) {
                     sourceBucket = showTakeOverAssetDetailsRequest.sourceBucket;
                     sourceObject = showTakeOverAssetDetailsRequest.sourceObject;
-                    authorization = showTakeOverAssetDetailsRequest.authorization;
                     xSdkDate = showTakeOverAssetDetailsRequest.xSdkDate;
                 } else {
                     sourceBucket = showTakeOverAssetDetailsRequest['source_bucket'];
                     sourceObject = showTakeOverAssetDetailsRequest['source_object'];
-                    authorization = showTakeOverAssetDetailsRequest['Authorization'];
                     xSdkDate = showTakeOverAssetDetailsRequest['X-Sdk-Date'];
                 }
             }
@@ -4535,9 +4121,6 @@ export const ParamCreater = function () {
             }
             if (sourceObject !== null && sourceObject !== undefined) {
                 localVarQueryParameter['source_object'] = sourceObject;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);
@@ -4567,8 +4150,6 @@ export const ParamCreater = function () {
             
             let taskId;
             
-            let authorization;
-            
             let xSdkDate;
             
             let page;
@@ -4578,13 +4159,11 @@ export const ParamCreater = function () {
             if (showTakeOverTaskDetailsRequest !== null && showTakeOverTaskDetailsRequest !== undefined) {
                 if (showTakeOverTaskDetailsRequest instanceof ShowTakeOverTaskDetailsRequest) {
                     taskId = showTakeOverTaskDetailsRequest.taskId;
-                    authorization = showTakeOverTaskDetailsRequest.authorization;
                     xSdkDate = showTakeOverTaskDetailsRequest.xSdkDate;
                     page = showTakeOverTaskDetailsRequest.page;
                     size = showTakeOverTaskDetailsRequest.size;
                 } else {
                     taskId = showTakeOverTaskDetailsRequest['task_id'];
-                    authorization = showTakeOverTaskDetailsRequest['Authorization'];
                     xSdkDate = showTakeOverTaskDetailsRequest['X-Sdk-Date'];
                     page = showTakeOverTaskDetailsRequest['page'];
                     size = showTakeOverTaskDetailsRequest['size'];
@@ -4603,9 +4182,6 @@ export const ParamCreater = function () {
             }
             if (size !== null && size !== undefined) {
                 localVarQueryParameter['size'] = size;
-            }
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
             }
             if (xSdkDate !== undefined && xSdkDate !== null) {
                 localVarHeaderParameter['X-Sdk-Date'] = String(xSdkDate);

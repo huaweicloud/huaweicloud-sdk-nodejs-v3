@@ -15,6 +15,10 @@ export class VaultCreate {
     private 'auto_bind'?: boolean | undefined;
     private 'bind_rules'?: VaultBindRules | undefined;
     private 'auto_expand'?: boolean | undefined;
+    public threshold?: number;
+    private 'smn_notify'?: boolean | undefined;
+    private 'backup_name_prefix'?: string | undefined;
+    private 'demand_billing'?: boolean | undefined;
     public constructor(billing?: any, name?: any, resources?: any) { 
         this['billing'] = billing;
         this['name'] = name;
@@ -89,5 +93,39 @@ export class VaultCreate {
     }
     public get autoExpand() {
         return this['auto_expand'];
+    }
+    public withThreshold(threshold: number): VaultCreate {
+        this['threshold'] = threshold;
+        return this;
+    }
+    public withSmnNotify(smnNotify: boolean): VaultCreate {
+        this['smn_notify'] = smnNotify;
+        return this;
+    }
+    public set smnNotify(smnNotify: boolean | undefined) {
+        this['smn_notify'] = smnNotify;
+    }
+    public get smnNotify() {
+        return this['smn_notify'];
+    }
+    public withBackupNamePrefix(backupNamePrefix: string): VaultCreate {
+        this['backup_name_prefix'] = backupNamePrefix;
+        return this;
+    }
+    public set backupNamePrefix(backupNamePrefix: string | undefined) {
+        this['backup_name_prefix'] = backupNamePrefix;
+    }
+    public get backupNamePrefix() {
+        return this['backup_name_prefix'];
+    }
+    public withDemandBilling(demandBilling: boolean): VaultCreate {
+        this['demand_billing'] = demandBilling;
+        return this;
+    }
+    public set demandBilling(demandBilling: boolean | undefined) {
+        this['demand_billing'] = demandBilling;
+    }
+    public get demandBilling() {
+        return this['demand_billing'];
     }
 }

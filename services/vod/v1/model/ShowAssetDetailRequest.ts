@@ -1,22 +1,11 @@
 
 
 export class ShowAssetDetailRequest {
-    private 'Authorization'?: string | undefined;
     private 'X-Sdk-Date'?: string | undefined;
     private 'asset_id': string | undefined;
     public categories?: Array<ShowAssetDetailRequestCategoriesEnum>;
     public constructor(assetId?: any) { 
         this['asset_id'] = assetId;
-    }
-    public withAuthorization(authorization: string): ShowAssetDetailRequest {
-        this['Authorization'] = authorization;
-        return this;
-    }
-    public set authorization(authorization: string | undefined) {
-        this['Authorization'] = authorization;
-    }
-    public get authorization() {
-        return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ShowAssetDetailRequest {
         this['X-Sdk-Date'] = xSdkDate;
