@@ -190,6 +190,8 @@ import { ShowReplicationCapabilitiesRequest } from './model/ShowReplicationCapab
 import { ShowReplicationCapabilitiesResponse } from './model/ShowReplicationCapabilitiesResponse';
 import { ShowStorageUsageRequest } from './model/ShowStorageUsageRequest';
 import { ShowStorageUsageResponse } from './model/ShowStorageUsageResponse';
+import { ShowSummaryRequest } from './model/ShowSummaryRequest';
+import { ShowSummaryResponse } from './model/ShowSummaryResponse';
 import { ShowVaultProjectTagRequest } from './model/ShowVaultProjectTagRequest';
 import { ShowVaultProjectTagResponse } from './model/ShowVaultProjectTagResponse';
 import { ShowVaultRequest } from './model/ShowVaultRequest';
@@ -1319,6 +1321,24 @@ export class CbrClient {
      */
     public showStorageUsage(showStorageUsageRequest?: ShowStorageUsageRequest): Promise<ShowStorageUsageResponse> {
         const options = ParamCreater().showStorageUsage(showStorageUsageRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询项目下所有存储库的总容量和总使用量
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 存储库容量总览
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showSummary(): Promise<ShowSummaryResponse> {
+        const options = ParamCreater().showSummary();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4069,6 +4089,27 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询项目下所有存储库的总容量和总使用量
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showSummary() {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/vaults/summary",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

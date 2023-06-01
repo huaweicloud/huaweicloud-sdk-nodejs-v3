@@ -321,13 +321,15 @@ export class CdnClient {
     }
 
     /**
-     * 查询域名配置接口，支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6开关、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+     * 查询域名配置接口，
+     * 支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名配置接口
-     * @param {string} domainName 加速域名
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {string} domainName 加速域名。
+     * @param {string} [enterpriseProjectId] 企业项目ID， all：所有项目。
+     * @param {string} [showSpecialConfigs] 取值为auth_key，用来查询鉴权KEY和鉴权备KEY的值。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -493,13 +495,14 @@ export class CdnClient {
     }
 
     /**
-     * 修改域名全量配置接口，支持配置回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+     * 修改域名配置接口，
+     * 支持修改回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改域名全量配置接口
      * @param {string} domainName 加速域名
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。  &gt; 当使用子帐号调用接口时，该参数必传。 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {ModifyDomainConfigRequestBody} [modifyDomainConfigRequestBody] 域名配置
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1128,7 +1131,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询域名配置接口，支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6开关、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+         * 查询域名配置接口，
+         * 支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1147,14 +1151,18 @@ export const ParamCreater = function () {
             let domainName;
             
             let enterpriseProjectId;
+            
+            let showSpecialConfigs;
 
             if (showDomainFullConfigRequest !== null && showDomainFullConfigRequest !== undefined) {
                 if (showDomainFullConfigRequest instanceof ShowDomainFullConfigRequest) {
                     domainName = showDomainFullConfigRequest.domainName;
                     enterpriseProjectId = showDomainFullConfigRequest.enterpriseProjectId;
+                    showSpecialConfigs = showDomainFullConfigRequest.showSpecialConfigs;
                 } else {
                     domainName = showDomainFullConfigRequest['domain_name'];
                     enterpriseProjectId = showDomainFullConfigRequest['enterprise_project_id'];
+                    showSpecialConfigs = showDomainFullConfigRequest['show_special_configs'];
                 }
             }
 
@@ -1164,6 +1172,9 @@ export const ParamCreater = function () {
             }
             if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
                 localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
+            }
+            if (showSpecialConfigs !== null && showSpecialConfigs !== undefined) {
+                localVarQueryParameter['show_special_configs'] = showSpecialConfigs;
             }
 
             options.queryParams = localVarQueryParameter;
@@ -1616,7 +1627,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改域名全量配置接口，支持配置回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+         * 修改域名配置接口，
+         * 支持修改回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

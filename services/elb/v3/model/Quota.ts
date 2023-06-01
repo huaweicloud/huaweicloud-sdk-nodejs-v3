@@ -6,28 +6,34 @@ export class Quota {
     public certificate: number;
     public listener: number;
     public l7policy: number;
+    private 'condition_per_policy': number | undefined;
     public pool: number;
     public healthmonitor: number;
     public member: number;
     private 'members_per_pool': number | undefined;
+    private 'listeners_per_pool': number | undefined;
     public ipgroup: number;
+    private 'ipgroup_bindings': number | undefined;
+    private 'ipgroup_max_length': number | undefined;
     private 'security_policy': number | undefined;
-    private 'ipgroup_bindings': string | undefined;
-    private 'ipgroup_max_length': string | undefined;
-    public constructor(projectId?: any, loadbalancer?: any, certificate?: any, listener?: any, l7policy?: any, pool?: any, healthmonitor?: any, member?: any, membersPerPool?: any, ipgroup?: any, securityPolicy?: any, ipgroupBindings?: any, ipgroupMaxLength?: any) { 
+    private 'listeners_per_loadbalancer': number | undefined;
+    public constructor(projectId?: any, loadbalancer?: any, certificate?: any, listener?: any, l7policy?: any, conditionPerPolicy?: any, pool?: any, healthmonitor?: any, member?: any, membersPerPool?: any, listenersPerPool?: any, ipgroup?: any, ipgroupBindings?: any, ipgroupMaxLength?: any, securityPolicy?: any, listenersPerLoadbalancer?: any) { 
         this['project_id'] = projectId;
         this['loadbalancer'] = loadbalancer;
         this['certificate'] = certificate;
         this['listener'] = listener;
         this['l7policy'] = l7policy;
+        this['condition_per_policy'] = conditionPerPolicy;
         this['pool'] = pool;
         this['healthmonitor'] = healthmonitor;
         this['member'] = member;
         this['members_per_pool'] = membersPerPool;
+        this['listeners_per_pool'] = listenersPerPool;
         this['ipgroup'] = ipgroup;
-        this['security_policy'] = securityPolicy;
         this['ipgroup_bindings'] = ipgroupBindings;
         this['ipgroup_max_length'] = ipgroupMaxLength;
+        this['security_policy'] = securityPolicy;
+        this['listeners_per_loadbalancer'] = listenersPerLoadbalancer;
     }
     public withProjectId(projectId: string): Quota {
         this['project_id'] = projectId;
@@ -55,6 +61,16 @@ export class Quota {
         this['l7policy'] = l7policy;
         return this;
     }
+    public withConditionPerPolicy(conditionPerPolicy: number): Quota {
+        this['condition_per_policy'] = conditionPerPolicy;
+        return this;
+    }
+    public set conditionPerPolicy(conditionPerPolicy: number | undefined) {
+        this['condition_per_policy'] = conditionPerPolicy;
+    }
+    public get conditionPerPolicy() {
+        return this['condition_per_policy'];
+    }
     public withPool(pool: number): Quota {
         this['pool'] = pool;
         return this;
@@ -77,9 +93,39 @@ export class Quota {
     public get membersPerPool() {
         return this['members_per_pool'];
     }
+    public withListenersPerPool(listenersPerPool: number): Quota {
+        this['listeners_per_pool'] = listenersPerPool;
+        return this;
+    }
+    public set listenersPerPool(listenersPerPool: number | undefined) {
+        this['listeners_per_pool'] = listenersPerPool;
+    }
+    public get listenersPerPool() {
+        return this['listeners_per_pool'];
+    }
     public withIpgroup(ipgroup: number): Quota {
         this['ipgroup'] = ipgroup;
         return this;
+    }
+    public withIpgroupBindings(ipgroupBindings: number): Quota {
+        this['ipgroup_bindings'] = ipgroupBindings;
+        return this;
+    }
+    public set ipgroupBindings(ipgroupBindings: number | undefined) {
+        this['ipgroup_bindings'] = ipgroupBindings;
+    }
+    public get ipgroupBindings() {
+        return this['ipgroup_bindings'];
+    }
+    public withIpgroupMaxLength(ipgroupMaxLength: number): Quota {
+        this['ipgroup_max_length'] = ipgroupMaxLength;
+        return this;
+    }
+    public set ipgroupMaxLength(ipgroupMaxLength: number | undefined) {
+        this['ipgroup_max_length'] = ipgroupMaxLength;
+    }
+    public get ipgroupMaxLength() {
+        return this['ipgroup_max_length'];
     }
     public withSecurityPolicy(securityPolicy: number): Quota {
         this['security_policy'] = securityPolicy;
@@ -91,24 +137,14 @@ export class Quota {
     public get securityPolicy() {
         return this['security_policy'];
     }
-    public withIpgroupBindings(ipgroupBindings: string): Quota {
-        this['ipgroup_bindings'] = ipgroupBindings;
+    public withListenersPerLoadbalancer(listenersPerLoadbalancer: number): Quota {
+        this['listeners_per_loadbalancer'] = listenersPerLoadbalancer;
         return this;
     }
-    public set ipgroupBindings(ipgroupBindings: string | undefined) {
-        this['ipgroup_bindings'] = ipgroupBindings;
+    public set listenersPerLoadbalancer(listenersPerLoadbalancer: number | undefined) {
+        this['listeners_per_loadbalancer'] = listenersPerLoadbalancer;
     }
-    public get ipgroupBindings() {
-        return this['ipgroup_bindings'];
-    }
-    public withIpgroupMaxLength(ipgroupMaxLength: string): Quota {
-        this['ipgroup_max_length'] = ipgroupMaxLength;
-        return this;
-    }
-    public set ipgroupMaxLength(ipgroupMaxLength: string | undefined) {
-        this['ipgroup_max_length'] = ipgroupMaxLength;
-    }
-    public get ipgroupMaxLength() {
-        return this['ipgroup_max_length'];
+    public get listenersPerLoadbalancer() {
+        return this['listeners_per_loadbalancer'];
     }
 }

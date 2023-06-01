@@ -1,9 +1,11 @@
+import { SubscriptionExtension } from './SubscriptionExtension';
 
 
 export class AddSubscriptionRequestBody {
     public protocol: string;
     public endpoint: string;
     public remark?: string;
+    public extension?: SubscriptionExtension;
     public constructor(protocol?: any, endpoint?: any) { 
         this['protocol'] = protocol;
         this['endpoint'] = endpoint;
@@ -18,6 +20,10 @@ export class AddSubscriptionRequestBody {
     }
     public withRemark(remark: string): AddSubscriptionRequestBody {
         this['remark'] = remark;
+        return this;
+    }
+    public withExtension(extension: SubscriptionExtension): AddSubscriptionRequestBody {
+        this['extension'] = extension;
         return this;
     }
 }

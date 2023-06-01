@@ -1,11 +1,11 @@
+import { AddonMetadata } from './AddonMetadata';
 import { InstanceRequestSpec } from './InstanceRequestSpec';
-import { Metadata } from './Metadata';
 
 
 export class InstanceRequest {
     public kind: string;
     public apiVersion: string;
-    public metadata: Metadata;
+    public metadata: AddonMetadata;
     public spec: InstanceRequestSpec;
     public constructor(kind?: any, apiVersion?: any, metadata?: any, spec?: any) { 
         this['kind'] = kind;
@@ -21,7 +21,7 @@ export class InstanceRequest {
         this['apiVersion'] = apiVersion;
         return this;
     }
-    public withMetadata(metadata: Metadata): InstanceRequest {
+    public withMetadata(metadata: AddonMetadata): InstanceRequest {
         this['metadata'] = metadata;
         return this;
     }

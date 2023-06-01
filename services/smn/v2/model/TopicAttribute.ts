@@ -1,43 +1,23 @@
-import { Statement } from './Statement';
+import { AccessPolicy } from './AccessPolicy';
 
 
 export class TopicAttribute {
-    private 'Version': string | undefined;
-    private 'Id': string | undefined;
-    private 'Statement': Array<Statement> | undefined;
-    public constructor(version?: any, id?: any, statement?: any) { 
-        this['Version'] = version;
-        this['Id'] = id;
-        this['Statement'] = statement;
+    private 'access_policy'?: AccessPolicy | undefined;
+    public introduction?: string;
+    public constructor() { 
     }
-    public withVersion(version: string): TopicAttribute {
-        this['Version'] = version;
+    public withAccessPolicy(accessPolicy: AccessPolicy): TopicAttribute {
+        this['access_policy'] = accessPolicy;
         return this;
     }
-    public set version(version: string | undefined) {
-        this['Version'] = version;
+    public set accessPolicy(accessPolicy: AccessPolicy | undefined) {
+        this['access_policy'] = accessPolicy;
     }
-    public get version() {
-        return this['Version'];
+    public get accessPolicy() {
+        return this['access_policy'];
     }
-    public withId(id: string): TopicAttribute {
-        this['Id'] = id;
+    public withIntroduction(introduction: string): TopicAttribute {
+        this['introduction'] = introduction;
         return this;
-    }
-    public set id(id: string | undefined) {
-        this['Id'] = id;
-    }
-    public get id() {
-        return this['Id'];
-    }
-    public withStatement(statement: Array<Statement>): TopicAttribute {
-        this['Statement'] = statement;
-        return this;
-    }
-    public set statement(statement: Array<Statement> | undefined) {
-        this['Statement'] = statement;
-    }
-    public get statement() {
-        return this['Statement'];
     }
 }

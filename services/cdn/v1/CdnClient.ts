@@ -446,13 +446,14 @@ export class CdnClient {
     }
 
     /**
-     * 查询域名配置接口，支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6开关、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+     * 查询域名配置接口，
+     * 支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、IPv6开关、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询域名配置接口
-     * @param {string} domainName 加速域名
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {string} domainName 加速域名。
+     * @param {string} [enterpriseProjectId] 企业项目ID， all：所有项目。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -706,13 +707,14 @@ export class CdnClient {
     }
 
     /**
-     * 日志查询。
+     * 查询日志下载链接，支持查询30天内的日志信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 日志查询
      * @param {string} domainName 只支持单个域名，如：www.test1.com。
-     * @param {number} queryDate 查询开始时间，查询开始时间到开始时间+1天内的日志数据，取值范围是距离当前30天内。
+     * @param {number} [startTime] 查询开始时间，时间格式为整点毫秒时间戳，此参数传空值时默认为当天0点。
+     * @param {number} [endTime] 查询结束时间（不包含结束时间），时间格式为整点毫秒时间戳，与开始时间的最大跨度为30天，此参数传空值时默认为开始时间加1天。
      * @param {number} [pageSize] 单页最大数量，取值范围为1-10000。
      * @param {number} [pageNumber] 当前查询第几页，取值范围为1-65535。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
@@ -931,14 +933,15 @@ export class CdnClient {
     }
 
     /**
-     * 修改域名全量配置接口，支持配置回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+     * 修改域名配置接口，
+     * 支持修改回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、IPv6开关、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改域名全量配置接口
      * @param {string} domainName 加速域名
      * @param {ModifyDomainConfigRequestBody} configs configs对象。
-     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
+     * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。  &gt; 当使用子帐号调用接口时，该参数必传。 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1780,7 +1783,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询域名配置接口，支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6开关、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+         * 查询域名配置接口，
+         * 支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、IPv6开关、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2544,7 +2548,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 日志查询。
+         * 查询日志下载链接，支持查询30天内的日志信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2562,7 +2566,9 @@ export const ParamCreater = function () {
             
             let domainName;
             
-            let queryDate;
+            let startTime;
+            
+            let endTime;
             
             let pageSize;
             
@@ -2573,13 +2579,15 @@ export const ParamCreater = function () {
             if (showLogsRequest !== null && showLogsRequest !== undefined) {
                 if (showLogsRequest instanceof ShowLogsRequest) {
                     domainName = showLogsRequest.domainName;
-                    queryDate = showLogsRequest.queryDate;
+                    startTime = showLogsRequest.startTime;
+                    endTime = showLogsRequest.endTime;
                     pageSize = showLogsRequest.pageSize;
                     pageNumber = showLogsRequest.pageNumber;
                     enterpriseProjectId = showLogsRequest.enterpriseProjectId;
                 } else {
                     domainName = showLogsRequest['domain_name'];
-                    queryDate = showLogsRequest['query_date'];
+                    startTime = showLogsRequest['start_time'];
+                    endTime = showLogsRequest['end_time'];
                     pageSize = showLogsRequest['page_size'];
                     pageNumber = showLogsRequest['page_number'];
                     enterpriseProjectId = showLogsRequest['enterprise_project_id'];
@@ -2593,11 +2601,11 @@ export const ParamCreater = function () {
             if (domainName !== null && domainName !== undefined) {
                 localVarQueryParameter['domain_name'] = domainName;
             }
-            if (queryDate === null || queryDate === undefined) {
-                throw new RequiredError('queryDate','Required parameter queryDate was null or undefined when calling showLogs.');
+            if (startTime !== null && startTime !== undefined) {
+                localVarQueryParameter['start_time'] = startTime;
             }
-            if (queryDate !== null && queryDate !== undefined) {
-                localVarQueryParameter['query_date'] = queryDate;
+            if (endTime !== null && endTime !== undefined) {
+                localVarQueryParameter['end_time'] = endTime;
             }
             if (pageSize !== null && pageSize !== undefined) {
                 localVarQueryParameter['page_size'] = pageSize;
@@ -3102,7 +3110,8 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改域名全量配置接口，支持配置回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、缓存URL参数、IPv6、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面
+         * 修改域名配置接口，
+         * 支持修改回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、强制重定向、智能压缩、IPv6开关、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

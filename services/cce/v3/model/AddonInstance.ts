@@ -1,12 +1,12 @@
 import { AddonInstanceStatus } from './AddonInstanceStatus';
+import { AddonMetadata } from './AddonMetadata';
 import { InstanceSpec } from './InstanceSpec';
-import { Metadata } from './Metadata';
 
 
 export class AddonInstance {
     public kind: string;
     public apiVersion: string;
-    public metadata?: Metadata;
+    public metadata?: AddonMetadata;
     public spec: InstanceSpec;
     public status: AddonInstanceStatus;
     public constructor(kind?: any, apiVersion?: any, spec?: any, status?: any) { 
@@ -23,7 +23,7 @@ export class AddonInstance {
         this['apiVersion'] = apiVersion;
         return this;
     }
-    public withMetadata(metadata: Metadata): AddonInstance {
+    public withMetadata(metadata: AddonMetadata): AddonInstance {
         this['metadata'] = metadata;
         return this;
     }

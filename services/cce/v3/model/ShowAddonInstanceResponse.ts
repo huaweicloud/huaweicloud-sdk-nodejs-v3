@@ -1,13 +1,13 @@
 import { AddonInstanceStatus } from './AddonInstanceStatus';
+import { AddonMetadata } from './AddonMetadata';
 import { InstanceSpec } from './InstanceSpec';
-import { Metadata } from './Metadata';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAddonInstanceResponse extends SdkResponse {
     public kind?: string;
     public apiVersion?: string;
-    public metadata?: Metadata;
+    public metadata?: AddonMetadata;
     public spec?: InstanceSpec;
     public status?: AddonInstanceStatus;
     public constructor() { 
@@ -21,7 +21,7 @@ export class ShowAddonInstanceResponse extends SdkResponse {
         this['apiVersion'] = apiVersion;
         return this;
     }
-    public withMetadata(metadata: Metadata): ShowAddonInstanceResponse {
+    public withMetadata(metadata: AddonMetadata): ShowAddonInstanceResponse {
         this['metadata'] = metadata;
         return this;
     }

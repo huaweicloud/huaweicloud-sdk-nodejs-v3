@@ -30,6 +30,9 @@ export class CreateListenerOption {
     private 'transparent_client_ip_enable'?: boolean | undefined;
     private 'enhance_l7policy_enable'?: boolean | undefined;
     private 'quic_config'?: CreateListenerQuicConfigOption | undefined;
+    private 'protection_status'?: CreateListenerOptionProtectionStatusEnum | undefined;
+    private 'protection_reason'?: string | undefined;
+    private 'gzip_enable'?: boolean | undefined;
     public constructor(loadbalancerId?: any, protocol?: any, protocolPort?: any) { 
         this['loadbalancer_id'] = loadbalancerId;
         this['protocol'] = protocol;
@@ -255,4 +258,43 @@ export class CreateListenerOption {
     public get quicConfig() {
         return this['quic_config'];
     }
+    public withProtectionStatus(protectionStatus: CreateListenerOptionProtectionStatusEnum): CreateListenerOption {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: CreateListenerOptionProtectionStatusEnum | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus() {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): CreateListenerOption {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason() {
+        return this['protection_reason'];
+    }
+    public withGzipEnable(gzipEnable: boolean): CreateListenerOption {
+        this['gzip_enable'] = gzipEnable;
+        return this;
+    }
+    public set gzipEnable(gzipEnable: boolean | undefined) {
+        this['gzip_enable'] = gzipEnable;
+    }
+    public get gzipEnable() {
+        return this['gzip_enable'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CreateListenerOptionProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

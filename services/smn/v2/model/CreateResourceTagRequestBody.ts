@@ -1,12 +1,12 @@
-import { CreateResourceTagRequestBodyTag } from './CreateResourceTagRequestBodyTag';
+import { ResourceTag } from './ResourceTag';
 
 
 export class CreateResourceTagRequestBody {
-    public tag: CreateResourceTagRequestBodyTag;
+    public tag: ResourceTag;
     public constructor(tag?: any) { 
         this['tag'] = tag;
     }
-    public withTag(tag: CreateResourceTagRequestBodyTag): CreateResourceTagRequestBody {
+    public withTag(tag: ResourceTag): CreateResourceTagRequestBody {
         this['tag'] = tag;
         return this;
     }

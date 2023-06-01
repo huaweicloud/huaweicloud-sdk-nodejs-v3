@@ -3,6 +3,7 @@
 export class ShowDomainFullConfigRequest {
     private 'domain_name': string | undefined;
     private 'enterprise_project_id'?: string | undefined;
+    private 'show_special_configs'?: string | undefined;
     public constructor(domainName?: any) { 
         this['domain_name'] = domainName;
     }
@@ -25,5 +26,15 @@ export class ShowDomainFullConfigRequest {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withShowSpecialConfigs(showSpecialConfigs: string): ShowDomainFullConfigRequest {
+        this['show_special_configs'] = showSpecialConfigs;
+        return this;
+    }
+    public set showSpecialConfigs(showSpecialConfigs: string | undefined) {
+        this['show_special_configs'] = showSpecialConfigs;
+    }
+    public get showSpecialConfigs() {
+        return this['show_special_configs'];
     }
 }

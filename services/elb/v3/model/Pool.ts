@@ -18,14 +18,16 @@ export class Pool {
     private 'project_id': string | undefined;
     public protocol: string;
     private 'session_persistence': SessionPersistence | undefined;
-    private 'ip_version': string | undefined;
+    private 'ip_version'?: string | undefined;
     private 'slow_start': SlowStart | undefined;
     private 'member_deletion_protection_enable': boolean | undefined;
     private 'created_at'?: string | undefined;
     private 'updated_at'?: string | undefined;
     private 'vpc_id': string | undefined;
     public type: string;
-    public constructor(adminStateUp?: any, description?: any, healthmonitorId?: any, id?: any, lbAlgorithm?: any, listeners?: any, loadbalancers?: any, members?: any, name?: any, projectId?: any, protocol?: any, sessionPersistence?: any, ipVersion?: any, slowStart?: any, memberDeletionProtectionEnable?: any, vpcId?: any, type?: any) { 
+    private 'protection_status'?: PoolProtectionStatusEnum | undefined;
+    private 'protection_reason'?: string | undefined;
+    public constructor(adminStateUp?: any, description?: any, healthmonitorId?: any, id?: any, lbAlgorithm?: any, listeners?: any, loadbalancers?: any, members?: any, name?: any, projectId?: any, protocol?: any, sessionPersistence?: any, slowStart?: any, memberDeletionProtectionEnable?: any, vpcId?: any, type?: any) { 
         this['admin_state_up'] = adminStateUp;
         this['description'] = description;
         this['healthmonitor_id'] = healthmonitorId;
@@ -38,7 +40,6 @@ export class Pool {
         this['project_id'] = projectId;
         this['protocol'] = protocol;
         this['session_persistence'] = sessionPersistence;
-        this['ip_version'] = ipVersion;
         this['slow_start'] = slowStart;
         this['member_deletion_protection_enable'] = memberDeletionProtectionEnable;
         this['vpc_id'] = vpcId;
@@ -186,4 +187,33 @@ export class Pool {
         this['type'] = type;
         return this;
     }
+    public withProtectionStatus(protectionStatus: PoolProtectionStatusEnum): Pool {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: PoolProtectionStatusEnum | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus() {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): Pool {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason() {
+        return this['protection_reason'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PoolProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

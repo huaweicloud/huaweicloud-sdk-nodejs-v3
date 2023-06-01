@@ -1,5 +1,5 @@
-import { CreateRedirectPoolsConfig } from './CreateRedirectPoolsConfig';
 import { FixtedResponseConfig } from './FixtedResponseConfig';
+import { RedirectPoolsExtendConfig } from './RedirectPoolsExtendConfig';
 import { RedirectUrlConfig } from './RedirectUrlConfig';
 import { RuleRef } from './RuleRef';
 
@@ -16,15 +16,15 @@ export class L7Policy {
     private 'project_id': string | undefined;
     private 'provisioning_status': string | undefined;
     private 'redirect_pool_id': string | undefined;
-    private 'redirect_pools_config': Array<CreateRedirectPoolsConfig> | undefined;
     private 'redirect_listener_id': string | undefined;
     private 'redirect_url': string | undefined;
     public rules: Array<RuleRef>;
     private 'redirect_url_config': RedirectUrlConfig | undefined;
+    private 'redirect_pools_extend_config'?: RedirectPoolsExtendConfig | undefined;
     private 'fixed_response_config': FixtedResponseConfig | undefined;
     private 'created_at'?: string | undefined;
     private 'updated_at'?: string | undefined;
-    public constructor(action?: any, adminStateUp?: any, description?: any, id?: any, listenerId?: any, name?: any, position?: any, projectId?: any, provisioningStatus?: any, redirectPoolId?: any, redirectPoolsConfig?: any, redirectListenerId?: any, redirectUrl?: any, rules?: any, redirectUrlConfig?: any, fixedResponseConfig?: any) { 
+    public constructor(action?: any, adminStateUp?: any, description?: any, id?: any, listenerId?: any, name?: any, position?: any, projectId?: any, provisioningStatus?: any, redirectPoolId?: any, redirectListenerId?: any, redirectUrl?: any, rules?: any, redirectUrlConfig?: any, fixedResponseConfig?: any) { 
         this['action'] = action;
         this['admin_state_up'] = adminStateUp;
         this['description'] = description;
@@ -35,7 +35,6 @@ export class L7Policy {
         this['project_id'] = projectId;
         this['provisioning_status'] = provisioningStatus;
         this['redirect_pool_id'] = redirectPoolId;
-        this['redirect_pools_config'] = redirectPoolsConfig;
         this['redirect_listener_id'] = redirectListenerId;
         this['redirect_url'] = redirectUrl;
         this['rules'] = rules;
@@ -116,16 +115,6 @@ export class L7Policy {
     public get redirectPoolId() {
         return this['redirect_pool_id'];
     }
-    public withRedirectPoolsConfig(redirectPoolsConfig: Array<CreateRedirectPoolsConfig>): L7Policy {
-        this['redirect_pools_config'] = redirectPoolsConfig;
-        return this;
-    }
-    public set redirectPoolsConfig(redirectPoolsConfig: Array<CreateRedirectPoolsConfig> | undefined) {
-        this['redirect_pools_config'] = redirectPoolsConfig;
-    }
-    public get redirectPoolsConfig() {
-        return this['redirect_pools_config'];
-    }
     public withRedirectListenerId(redirectListenerId: string): L7Policy {
         this['redirect_listener_id'] = redirectListenerId;
         return this;
@@ -159,6 +148,16 @@ export class L7Policy {
     }
     public get redirectUrlConfig() {
         return this['redirect_url_config'];
+    }
+    public withRedirectPoolsExtendConfig(redirectPoolsExtendConfig: RedirectPoolsExtendConfig): L7Policy {
+        this['redirect_pools_extend_config'] = redirectPoolsExtendConfig;
+        return this;
+    }
+    public set redirectPoolsExtendConfig(redirectPoolsExtendConfig: RedirectPoolsExtendConfig | undefined) {
+        this['redirect_pools_extend_config'] = redirectPoolsExtendConfig;
+    }
+    public get redirectPoolsExtendConfig() {
+        return this['redirect_pools_extend_config'];
     }
     public withFixedResponseConfig(fixedResponseConfig: FixtedResponseConfig): L7Policy {
         this['fixed_response_config'] = fixedResponseConfig;

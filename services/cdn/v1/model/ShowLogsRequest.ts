@@ -2,13 +2,13 @@
 
 export class ShowLogsRequest {
     private 'domain_name': string | undefined;
-    private 'query_date': number | undefined;
+    private 'start_time'?: number | undefined;
+    private 'end_time'?: number | undefined;
     private 'page_size'?: number | undefined;
     private 'page_number'?: number | undefined;
     private 'enterprise_project_id'?: string | undefined;
-    public constructor(domainName?: any, queryDate?: any) { 
+    public constructor(domainName?: any) { 
         this['domain_name'] = domainName;
-        this['query_date'] = queryDate;
     }
     public withDomainName(domainName: string): ShowLogsRequest {
         this['domain_name'] = domainName;
@@ -20,15 +20,25 @@ export class ShowLogsRequest {
     public get domainName() {
         return this['domain_name'];
     }
-    public withQueryDate(queryDate: number): ShowLogsRequest {
-        this['query_date'] = queryDate;
+    public withStartTime(startTime: number): ShowLogsRequest {
+        this['start_time'] = startTime;
         return this;
     }
-    public set queryDate(queryDate: number | undefined) {
-        this['query_date'] = queryDate;
+    public set startTime(startTime: number | undefined) {
+        this['start_time'] = startTime;
     }
-    public get queryDate() {
-        return this['query_date'];
+    public get startTime() {
+        return this['start_time'];
+    }
+    public withEndTime(endTime: number): ShowLogsRequest {
+        this['end_time'] = endTime;
+        return this;
+    }
+    public set endTime(endTime: number | undefined) {
+        this['end_time'] = endTime;
+    }
+    public get endTime() {
+        return this['end_time'];
     }
     public withPageSize(pageSize: number): ShowLogsRequest {
         this['page_size'] = pageSize;

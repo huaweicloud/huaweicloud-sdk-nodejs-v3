@@ -12,6 +12,8 @@ export class UpdatePoolOption {
     private 'member_deletion_protection_enable'?: boolean | undefined;
     private 'vpc_id'?: string | undefined;
     public type?: string;
+    private 'protection_status'?: UpdatePoolOptionProtectionStatusEnum | undefined;
+    private 'protection_reason'?: string | undefined;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdatePoolOption {
@@ -86,4 +88,33 @@ export class UpdatePoolOption {
         this['type'] = type;
         return this;
     }
+    public withProtectionStatus(protectionStatus: UpdatePoolOptionProtectionStatusEnum): UpdatePoolOption {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: UpdatePoolOptionProtectionStatusEnum | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus() {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): UpdatePoolOption {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason() {
+        return this['protection_reason'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatePoolOptionProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

@@ -49,6 +49,8 @@ export class LoadBalancer {
     public autoscaling?: AutoscalingRef;
     private 'public_border_group'?: string | undefined;
     private 'waf_failure_action'?: string | undefined;
+    private 'protection_status'?: LoadBalancerProtectionStatusEnum | undefined;
+    private 'protection_reason'?: string | undefined;
     public constructor(id?: any, description?: any, provisioningStatus?: any, adminStateUp?: any, provider?: any, pools?: any, listeners?: any, operatingStatus?: any, name?: any, projectId?: any, vipSubnetCidrId?: any, vipAddress?: any, vipPortId?: any, tags?: any, createdAt?: any, updatedAt?: any, guaranteed?: any, vpcId?: any, eips?: any, ipv6VipAddress?: any, ipv6VipVirsubnetId?: any, ipv6VipPortId?: any, availabilityZoneList?: any, enterpriseProjectId?: any, billingInfo?: any, l4FlavorId?: any, l4ScaleFlavorId?: any, l7FlavorId?: any, l7ScaleFlavorId?: any, publicips?: any, globalEips?: any, elbVirsubnetIds?: any, elbVirsubnetType?: any, ipTargetEnable?: any, frozenScene?: any, ipv6Bandwidth?: any) { 
         this['id'] = id;
         this['description'] = description;
@@ -421,6 +423,26 @@ export class LoadBalancer {
     public get wafFailureAction() {
         return this['waf_failure_action'];
     }
+    public withProtectionStatus(protectionStatus: LoadBalancerProtectionStatusEnum): LoadBalancer {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: LoadBalancerProtectionStatusEnum | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus() {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): LoadBalancer {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason() {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -430,4 +452,12 @@ export class LoadBalancer {
 export enum LoadBalancerElbVirsubnetTypeEnum {
     IPV4 = 'ipv4',
     DUALSTACK = 'dualstack'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum LoadBalancerProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

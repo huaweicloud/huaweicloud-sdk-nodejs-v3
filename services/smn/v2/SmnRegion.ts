@@ -23,6 +23,8 @@ export class SmnRegion {
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://smn.sa-brazil-1.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://smn.la-south-2.myhuaweicloud.com"]);
     public static CN_NORTH_9 = new Region("cn-north-9", ["https://smn.cn-north-9.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://smn.ap-southeast-4.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://smn.tr-west-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -42,7 +44,9 @@ export class SmnRegion {
         "la-north-2":SmnRegion.LA_NORTH_2,
         "sa-brazil-1":SmnRegion.SA_BRAZIL_1,
         "la-south-2":SmnRegion.LA_SOUTH_2,
-        "cn-north-9":SmnRegion.CN_NORTH_9
+        "cn-north-9":SmnRegion.CN_NORTH_9,
+        "ap-southeast-4":SmnRegion.AP_SOUTHEAST_4,
+        "tr-west-1":SmnRegion.TR_WEST_1
     };
   
     public static valueOf(regionId: string) {

@@ -10,6 +10,7 @@ export class ListTopicDetailsResponse extends SdkResponse {
     private 'display_name'?: string | undefined;
     private 'request_id'?: string | undefined;
     private 'enterprise_project_id'?: string | undefined;
+    private 'topic_id'?: string | undefined;
     public constructor() { 
         super();
     }
@@ -86,5 +87,15 @@ export class ListTopicDetailsResponse extends SdkResponse {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withTopicId(topicId: string): ListTopicDetailsResponse {
+        this['topic_id'] = topicId;
+        return this;
+    }
+    public set topicId(topicId: string | undefined) {
+        this['topic_id'] = topicId;
+    }
+    public get topicId() {
+        return this['topic_id'];
     }
 }

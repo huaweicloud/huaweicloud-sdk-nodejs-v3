@@ -1,11 +1,11 @@
-import { Metadata } from './Metadata';
+import { AddonMetadata } from './AddonMetadata';
 import { Templatespec } from './Templatespec';
 
 
 export class AddonTemplate {
     public kind: string;
     public apiVersion: string;
-    public metadata: Metadata;
+    public metadata: AddonMetadata;
     public spec: Templatespec;
     public constructor(kind?: any, apiVersion?: any, metadata?: any, spec?: any) { 
         this['kind'] = kind;
@@ -21,7 +21,7 @@ export class AddonTemplate {
         this['apiVersion'] = apiVersion;
         return this;
     }
-    public withMetadata(metadata: Metadata): AddonTemplate {
+    public withMetadata(metadata: AddonMetadata): AddonTemplate {
         this['metadata'] = metadata;
         return this;
     }

@@ -21,6 +21,7 @@ export class ListPoolsRequest {
     private 'member_instance_id'?: Array<string> | undefined;
     private 'vpc_id'?: Array<string> | undefined;
     public type?: Array<string>;
+    private 'protection_status'?: Array<string> | undefined;
     public constructor() { 
     }
     public withMarker(marker: string): ListPoolsRequest {
@@ -180,5 +181,15 @@ export class ListPoolsRequest {
     public withType(type: Array<string>): ListPoolsRequest {
         this['type'] = type;
         return this;
+    }
+    public withProtectionStatus(protectionStatus: Array<string>): ListPoolsRequest {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: Array<string> | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus() {
+        return this['protection_status'];
     }
 }

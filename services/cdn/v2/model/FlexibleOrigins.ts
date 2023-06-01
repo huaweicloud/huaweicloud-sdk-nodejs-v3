@@ -5,11 +5,12 @@ export class FlexibleOrigins {
     private 'match_type': string | undefined;
     private 'match_pattern': string | undefined;
     public priority: number;
-    private 'back_sources'?: Array<BackSources> | undefined;
-    public constructor(matchType?: any, matchPattern?: any, priority?: any) { 
+    private 'back_sources': Array<BackSources> | undefined;
+    public constructor(matchType?: any, matchPattern?: any, priority?: any, backSources?: any) { 
         this['match_type'] = matchType;
         this['match_pattern'] = matchPattern;
         this['priority'] = priority;
+        this['back_sources'] = backSources;
     }
     public withMatchType(matchType: string): FlexibleOrigins {
         this['match_type'] = matchType;

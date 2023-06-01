@@ -4,6 +4,8 @@ export class BackSources {
     private 'sources_type': string | undefined;
     private 'ip_or_domain': string | undefined;
     private 'obs_bucket_type'?: string | undefined;
+    private 'http_port'?: number | undefined;
+    private 'https_port'?: number | undefined;
     public constructor(sourcesType?: any, ipOrDomain?: any) { 
         this['sources_type'] = sourcesType;
         this['ip_or_domain'] = ipOrDomain;
@@ -37,5 +39,25 @@ export class BackSources {
     }
     public get obsBucketType() {
         return this['obs_bucket_type'];
+    }
+    public withHttpPort(httpPort: number): BackSources {
+        this['http_port'] = httpPort;
+        return this;
+    }
+    public set httpPort(httpPort: number | undefined) {
+        this['http_port'] = httpPort;
+    }
+    public get httpPort() {
+        return this['http_port'];
+    }
+    public withHttpsPort(httpsPort: number): BackSources {
+        this['https_port'] = httpsPort;
+        return this;
+    }
+    public set httpsPort(httpsPort: number | undefined) {
+        this['https_port'] = httpsPort;
+    }
+    public get httpsPort() {
+        return this['https_port'];
     }
 }

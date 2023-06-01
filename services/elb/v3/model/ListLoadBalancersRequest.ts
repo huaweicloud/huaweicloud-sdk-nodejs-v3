@@ -33,6 +33,8 @@ export class ListLoadBalancersRequest {
     private 'deletion_protection_enable'?: boolean | undefined;
     private 'elb_virsubnet_type'?: Array<string> | undefined;
     public autoscaling?: Array<string>;
+    private 'protection_status'?: Array<string> | undefined;
+    private 'global_eips'?: Array<string> | undefined;
     public constructor() { 
     }
     public withMarker(marker: string): ListLoadBalancersRequest {
@@ -300,5 +302,25 @@ export class ListLoadBalancersRequest {
     public withAutoscaling(autoscaling: Array<string>): ListLoadBalancersRequest {
         this['autoscaling'] = autoscaling;
         return this;
+    }
+    public withProtectionStatus(protectionStatus: Array<string>): ListLoadBalancersRequest {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: Array<string> | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus() {
+        return this['protection_status'];
+    }
+    public withGlobalEips(globalEips: Array<string>): ListLoadBalancersRequest {
+        this['global_eips'] = globalEips;
+        return this;
+    }
+    public set globalEips(globalEips: Array<string> | undefined) {
+        this['global_eips'] = globalEips;
+    }
+    public get globalEips() {
+        return this['global_eips'];
     }
 }

@@ -8,6 +8,7 @@ export * from './model/AddNodeRequest';
 export * from './model/AddNodeResponse';
 export * from './model/AddonInstance';
 export * from './model/AddonInstanceStatus';
+export * from './model/AddonMetadata';
 export * from './model/AddonTemplate';
 export * from './model/AuthenticatingProxy';
 export * from './model/Authentication';

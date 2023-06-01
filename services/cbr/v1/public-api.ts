@@ -188,6 +188,8 @@ export * from './model/ShowReplicationCapabilitiesRequest';
 export * from './model/ShowReplicationCapabilitiesResponse';
 export * from './model/ShowStorageUsageRequest';
 export * from './model/ShowStorageUsageResponse';
+export * from './model/ShowSummaryRequest';
+export * from './model/ShowSummaryResponse';
 export * from './model/ShowVaultProjectTagRequest';
 export * from './model/ShowVaultProjectTagResponse';
 export * from './model/ShowVaultRequest';

@@ -35,6 +35,9 @@ export class Listener {
     private 'transparent_client_ip_enable': boolean | undefined;
     private 'enhance_l7policy_enable': boolean | undefined;
     private 'quic_config'?: ListenerQuicConfig | undefined;
+    private 'protection_status'?: ListenerProtectionStatusEnum | undefined;
+    private 'protection_reason'?: string | undefined;
+    private 'gzip_enable'?: boolean | undefined;
     public constructor(adminStateUp?: any, clientCaTlsContainerRef?: any, connectionLimit?: any, createdAt?: any, defaultPoolId?: any, defaultTlsContainerRef?: any, description?: any, http2Enable?: any, id?: any, insertHeaders?: any, loadbalancers?: any, name?: any, projectId?: any, protocol?: any, protocolPort?: any, sniContainerRefs?: any, sniMatchAlgo?: any, tags?: any, updatedAt?: any, tlsCiphersPolicy?: any, securityPolicyId?: any, enableMemberRetry?: any, keepaliveTimeout?: any, clientTimeout?: any, memberTimeout?: any, ipgroup?: any, transparentClientIpEnable?: any, enhanceL7policyEnable?: any) { 
         this['admin_state_up'] = adminStateUp;
         this['client_ca_tls_container_ref'] = clientCaTlsContainerRef;
@@ -313,4 +316,43 @@ export class Listener {
     public get quicConfig() {
         return this['quic_config'];
     }
+    public withProtectionStatus(protectionStatus: ListenerProtectionStatusEnum): Listener {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: ListenerProtectionStatusEnum | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus() {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): Listener {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason() {
+        return this['protection_reason'];
+    }
+    public withGzipEnable(gzipEnable: boolean): Listener {
+        this['gzip_enable'] = gzipEnable;
+        return this;
+    }
+    public set gzipEnable(gzipEnable: boolean | undefined) {
+        this['gzip_enable'] = gzipEnable;
+    }
+    public get gzipEnable() {
+        return this['gzip_enable'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListenerProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

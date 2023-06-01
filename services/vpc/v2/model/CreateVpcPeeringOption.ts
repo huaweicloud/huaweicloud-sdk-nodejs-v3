@@ -3,6 +3,7 @@ import { VpcInfo } from './VpcInfo';
 
 export class CreateVpcPeeringOption {
     public name: string;
+    public description?: string;
     private 'request_vpc_info': VpcInfo | undefined;
     private 'accept_vpc_info': VpcInfo | undefined;
     public constructor(name?: any, requestVpcInfo?: any, acceptVpcInfo?: any) { 
@@ -12,6 +13,10 @@ export class CreateVpcPeeringOption {
     }
     public withName(name: string): CreateVpcPeeringOption {
         this['name'] = name;
+        return this;
+    }
+    public withDescription(description: string): CreateVpcPeeringOption {
+        this['description'] = description;
         return this;
     }
     public withRequestVpcInfo(requestVpcInfo: VpcInfo): CreateVpcPeeringOption {

@@ -27,6 +27,7 @@ export class ListListenersRequest {
     private 'transparent_client_ip_enable'?: boolean | undefined;
     private 'enhance_l7policy_enable'?: boolean | undefined;
     private 'member_instance_id'?: Array<string> | undefined;
+    private 'protection_status'?: Array<string> | undefined;
     public constructor() { 
     }
     public withLimit(limit: number): ListListenersRequest {
@@ -252,5 +253,15 @@ export class ListListenersRequest {
     }
     public get memberInstanceId() {
         return this['member_instance_id'];
+    }
+    public withProtectionStatus(protectionStatus: Array<string>): ListListenersRequest {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: Array<string> | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus() {
+        return this['protection_status'];
     }
 }

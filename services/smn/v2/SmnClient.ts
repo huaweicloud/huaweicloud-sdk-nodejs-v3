@@ -2,6 +2,7 @@ import { HcClient } from "@huaweicloud/huaweicloud-sdk-core/HcClient";
 import { ClientBuilder } from "@huaweicloud/huaweicloud-sdk-core/ClientBuilder";
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
+import { AccessPolicy } from './model/AccessPolicy';
 import { AddSubscriptionRequest } from './model/AddSubscriptionRequest';
 import { AddSubscriptionRequestBody } from './model/AddSubscriptionRequestBody';
 import { AddSubscriptionResponse } from './model/AddSubscriptionResponse';
@@ -18,12 +19,14 @@ import { CreateApplicationEndpointResponse } from './model/CreateApplicationEndp
 import { CreateApplicationRequest } from './model/CreateApplicationRequest';
 import { CreateApplicationRequestBody } from './model/CreateApplicationRequestBody';
 import { CreateApplicationResponse } from './model/CreateApplicationResponse';
+import { CreateLogtankRequest } from './model/CreateLogtankRequest';
+import { CreateLogtankRequestBody } from './model/CreateLogtankRequestBody';
+import { CreateLogtankResponse } from './model/CreateLogtankResponse';
 import { CreateMessageTemplateRequest } from './model/CreateMessageTemplateRequest';
 import { CreateMessageTemplateRequestBody } from './model/CreateMessageTemplateRequestBody';
 import { CreateMessageTemplateResponse } from './model/CreateMessageTemplateResponse';
 import { CreateResourceTagRequest } from './model/CreateResourceTagRequest';
 import { CreateResourceTagRequestBody } from './model/CreateResourceTagRequestBody';
-import { CreateResourceTagRequestBodyTag } from './model/CreateResourceTagRequestBodyTag';
 import { CreateResourceTagResponse } from './model/CreateResourceTagResponse';
 import { CreateTopicRequest } from './model/CreateTopicRequest';
 import { CreateTopicRequestBody } from './model/CreateTopicRequestBody';
@@ -32,6 +35,8 @@ import { DeleteApplicationEndpointRequest } from './model/DeleteApplicationEndpo
 import { DeleteApplicationEndpointResponse } from './model/DeleteApplicationEndpointResponse';
 import { DeleteApplicationRequest } from './model/DeleteApplicationRequest';
 import { DeleteApplicationResponse } from './model/DeleteApplicationResponse';
+import { DeleteLogtankRequest } from './model/DeleteLogtankRequest';
+import { DeleteLogtankResponse } from './model/DeleteLogtankResponse';
 import { DeleteMessageTemplateRequest } from './model/DeleteMessageTemplateRequest';
 import { DeleteMessageTemplateResponse } from './model/DeleteMessageTemplateResponse';
 import { DeleteResourceTagRequest } from './model/DeleteResourceTagRequest';
@@ -54,6 +59,8 @@ import { ListApplicationEndpointsResponse } from './model/ListApplicationEndpoin
 import { ListApplicationsRequest } from './model/ListApplicationsRequest';
 import { ListApplicationsResponse } from './model/ListApplicationsResponse';
 import { ListInstanceRequestBody } from './model/ListInstanceRequestBody';
+import { ListLogtankRequest } from './model/ListLogtankRequest';
+import { ListLogtankResponse } from './model/ListLogtankResponse';
 import { ListMessageTemplateDetailsRequest } from './model/ListMessageTemplateDetailsRequest';
 import { ListMessageTemplateDetailsResponse } from './model/ListMessageTemplateDetailsResponse';
 import { ListMessageTemplatesRequest } from './model/ListMessageTemplatesRequest';
@@ -80,6 +87,7 @@ import { ListVersionRequest } from './model/ListVersionRequest';
 import { ListVersionResponse } from './model/ListVersionResponse';
 import { ListVersionsRequest } from './model/ListVersionsRequest';
 import { ListVersionsResponse } from './model/ListVersionsResponse';
+import { LogtankItem } from './model/LogtankItem';
 import { MessageTemplate } from './model/MessageTemplate';
 import { PublishAppMessageRequest } from './model/PublishAppMessageRequest';
 import { PublishAppMessageRequestBody } from './model/PublishAppMessageRequestBody';
@@ -91,6 +99,7 @@ import { ResourceDetail } from './model/ResourceDetail';
 import { ResourceTag } from './model/ResourceTag';
 import { ResourceTags } from './model/ResourceTags';
 import { Statement } from './model/Statement';
+import { SubscriptionExtension } from './model/SubscriptionExtension';
 import { TagMatch } from './model/TagMatch';
 import { TagResource } from './model/TagResource';
 import { TopicAttribute } from './model/TopicAttribute';
@@ -100,9 +109,15 @@ import { UpdateApplicationEndpointResponse } from './model/UpdateApplicationEndp
 import { UpdateApplicationRequest } from './model/UpdateApplicationRequest';
 import { UpdateApplicationRequestBody } from './model/UpdateApplicationRequestBody';
 import { UpdateApplicationResponse } from './model/UpdateApplicationResponse';
+import { UpdateLogtankRequest } from './model/UpdateLogtankRequest';
+import { UpdateLogtankRequestBody } from './model/UpdateLogtankRequestBody';
+import { UpdateLogtankResponse } from './model/UpdateLogtankResponse';
 import { UpdateMessageTemplateRequest } from './model/UpdateMessageTemplateRequest';
 import { UpdateMessageTemplateRequestBody } from './model/UpdateMessageTemplateRequestBody';
 import { UpdateMessageTemplateResponse } from './model/UpdateMessageTemplateResponse';
+import { UpdateSubscriptionRequest } from './model/UpdateSubscriptionRequest';
+import { UpdateSubscriptionRequestBody } from './model/UpdateSubscriptionRequestBody';
+import { UpdateSubscriptionResponse } from './model/UpdateSubscriptionResponse';
 import { UpdateTopicAttributeRequest } from './model/UpdateTopicAttributeRequest';
 import { UpdateTopicAttributeRequestBody } from './model/UpdateTopicAttributeRequestBody';
 import { UpdateTopicAttributeResponse } from './model/UpdateTopicAttributeResponse';
@@ -132,7 +147,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 订阅
-     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](https://support.huaweicloud.com/api-smn/smn_api_51004.html)获取该标识。
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
      * @param {AddSubscriptionRequestBody} [addSubscriptionRequestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -176,12 +191,32 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 取消订阅
-     * @param {string} subscriptionUrn 订阅者的唯一的资源标识，可通过[查询订阅者列表](https://support.huaweicloud.com/api-smn/ListSubscriptions.html)获取该标识。
+     * @param {string} subscriptionUrn 订阅者的唯一的资源标识，可通过[查询订阅者列表](ListSubscriptions.xml)获取该标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public cancelSubscription(cancelSubscriptionRequest?: CancelSubscriptionRequest): Promise<CancelSubscriptionResponse> {
         const options = ParamCreater().cancelSubscription(cancelSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 为指定Topic绑定一个云日志，用于记录主题消息发送状态等信息。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定云日志
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {CreateLogtankRequestBody} createLogTankBody This is an auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createLogtank(createLogtankRequest?: CreateLogtankRequest): Promise<CreateLogtankResponse> {
+        const options = ParamCreater().createLogtank(createLogtankRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -251,12 +286,32 @@ export class SmnClient {
     }
 
     /**
+     * 解绑指定Topic绑定的云日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解绑云日志
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} logtankId 云日志信息唯一的资源标识。可通过[查询云日志](ListLogtank.xml)获取该标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteLogtank(deleteLogtankRequest?: DeleteLogtankRequest): Promise<DeleteLogtankResponse> {
+        const options = ParamCreater().deleteLogtank(deleteLogtankRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除消息模板。删除模板之前的消息请求都可以使用该模板发送，删除之后无法再使用该模板发送消息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除消息模板
-     * @param {string} messageTemplateId 模板唯一的资源标识，可通过查询[消息模板列表](https://support.huaweicloud.com/api-smn/ListMessageTemplates.html)获取该标识。
+     * @param {string} messageTemplateId 模板唯一的资源标识，可通过查询[消息模板列表](ListMessageTemplates.xml)获取该标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -296,7 +351,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除主题
-     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](https://support.huaweicloud.com/api-smn/smn_api_51004.html)获取该标识。
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -315,8 +370,8 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除指定名称的主题策略
-     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](https://support.huaweicloud.com/api-smn/smn_api_51004.html)获取该标识。
-     * @param {string} name 主题策略名称。 只支持特定的策略名称，请参见[Topic属性表](https://support.huaweicloud.com/intl/zh-cn/api-smn/smn_api_a1000.html)。
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} name 主题策略名称。 只支持特定的策略名称，请参见[Topic属性表](smn_api_a1000.xml)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -335,7 +390,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除所有主题策略
-     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](https://support.huaweicloud.com/api-smn/smn_api_51004.html)获取该标识。
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -349,12 +404,31 @@ export class SmnClient {
     }
 
     /**
+     * 查询指定Topic绑定的云日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询云日志
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listLogtank(listLogtankRequest?: ListLogtankRequest): Promise<ListLogtankResponse> {
+        const options = ParamCreater().listLogtank(listLogtankRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询模板详情，包括模板内容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询消息模板详情
-     * @param {string} messageTemplateId 模板唯一的资源标识，可通过查询[消息模板列表](https://support.huaweicloud.com/api-smn/ListMessageTemplates.html)获取该标识。
+     * @param {string} messageTemplateId 模板唯一的资源标识，可通过查询[消息模板列表](ListMessageTemplates.xml)获取该标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -477,7 +551,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询指定Topic的订阅者列表
-     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](https://support.huaweicloud.com/api-smn/smn_api_51004.html)获取该标识。
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
      * @param {number} [offset] 偏移量。  偏移量为一个大于0小于资源总个数的整数，表示查询该偏移量后面的所有的资源，默认值为0。
      * @param {number} [limit] 查询的数量限制。  取值范围：1~100，取值一般为10，20，50。功能说明：每页返回的资源个数。默认值为100。
      * @param {*} [options] Override http request option.
@@ -498,8 +572,8 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主题策略
-     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](https://support.huaweicloud.com/api-smn/smn_api_51004.html)获取该标识。
-     * @param {string} name 主题策略名称。  只支持特定的策略名称，请参见[Topic属性表](https://support.huaweicloud.com/intl/zh-cn/api-smn/smn_api_a1000.html)。
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} name 主题策略名称。  只支持特定的策略名称，请参见[Topic属性表](smn_api_a1000.xml)。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -518,7 +592,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询主题详情
-     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](https://support.huaweicloud.com/api-smn/smn_api_51004.html)获取该标识。
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -542,6 +616,7 @@ export class SmnClient {
      * @param {string} [enterpriseProjectId] 企业项目id，默认企业项目id为0。
      * @param {string} [name] 检索的主题名称，完全匹配。
      * @param {string} [fuzzyName] 检索的主题名称，模糊匹配，按照startwith模式进行匹配。
+     * @param {string} [topicId] 检索的主题ID，完全匹配。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -560,12 +635,11 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询SMN API V2版本信息
-     * @param {string} apiVersion 待查询版本号。当前仅支持v2。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listVersion(listVersionRequest?: ListVersionRequest): Promise<ListVersionResponse> {
-        const options = ParamCreater().listVersion(listVersionRequest);
+    public listVersion(): Promise<ListVersionResponse> {
+        const options = ParamCreater().listVersion();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -606,7 +680,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 消息发布
-     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](https://support.huaweicloud.com/api-smn/smn_api_51004.html)获取该标识。
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
      * @param {PublishMessageRequestBody} [publishMessageRequestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -621,12 +695,33 @@ export class SmnClient {
     }
 
     /**
+     * 更新指定Topic绑定的云日志。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新云日志
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} logtankId 云日志信息唯一的资源标识。可通过[查询云日志](ListLogtank.xml)获取该标识。
+     * @param {UpdateLogtankRequestBody} updateLogTankRequestBody This is an auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateLogtank(updateLogtankRequest?: UpdateLogtankRequest): Promise<UpdateLogtankResponse> {
+        const options = ParamCreater().updateLogtank(updateLogtankRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 修改消息模板的内容。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新消息模板
-     * @param {string} messageTemplateId 模板唯一的资源标识，可通过查询[消息模板列表](https://support.huaweicloud.com/api-smn/ListMessageTemplates.html)获取该标识。
+     * @param {string} messageTemplateId 模板唯一的资源标识，可通过查询[消息模板列表](ListMessageTemplates.xml)获取该标识。
      * @param {UpdateMessageTemplateRequestBody} [updateMessageTemplateRequestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -641,12 +736,33 @@ export class SmnClient {
     }
 
     /**
+     * 更新订阅者备注。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新订阅者
+     * @param {string} topicUrn Topic的唯一的资源标识。可以通过[查看主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} subscriptionUrn 订阅者的唯一的资源标识，可通过[查询订阅者列表](ListSubscriptions.xml)获取该标识。
+     * @param {UpdateSubscriptionRequestBody} updateSubscriptionRequestBody This is a auto create Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateSubscription(updateSubscriptionRequest?: UpdateSubscriptionRequest): Promise<UpdateSubscriptionResponse> {
+        const options = ParamCreater().updateSubscription(updateSubscriptionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新显示名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新主题
-     * @param {string} topicUrn Topic的唯一的资源标识。可以通过[查看主题列表](https://support.huaweicloud.com/api-smn/smn_api_51004.html)获取该标识。
+     * @param {string} topicUrn Topic的唯一的资源标识。可以通过[查看主题列表](smn_api_51004.xml)获取该标识。
      * @param {UpdateTopicRequestBody} updateTopicRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -666,8 +782,8 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新主题策略
-     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](https://support.huaweicloud.com/api-smn/smn_api_51004.html)获取该标识。
-     * @param {string} name 主题策略名称。  只支持特定的策略名称，请参见[Topic属性表](https://support.huaweicloud.com/intl/zh-cn/api-smn/smn_api_a1000.html)。
+     * @param {string} topicUrn Topic的唯一的资源标识，可通过[查询主题列表](smn_api_51004.xml)获取该标识。
+     * @param {string} name 主题策略名称。  只支持特定的策略名称，请参见[Topic属性表](smn_api_a1000.xml)。
      * @param {UpdateTopicAttributeRequestBody} updateTopicAttributeRequestBody This is a auto create Body Object
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -706,7 +822,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除Application
-     * @param {string} applicationUrn Application的唯一资源标识，可通过[查询Application](https://support.huaweicloud.com/api-smn/ListApplications.html)获取该标识。
+     * @param {string} applicationUrn Application的唯一资源标识，可通过[查询Application](smn_api_57004.xml)获取该标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -725,7 +841,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Application属性
-     * @param {string} applicationUrn Application的唯一资源标识，可通过[查询Application](https://support.huaweicloud.com/api-smn/ListApplications.html)获取该标识。
+     * @param {string} applicationUrn Application的唯一资源标识，可通过[查询Application](smn_api_57004.xml)获取该标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -766,7 +882,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary App消息发布
-     * @param {string} endpointUrn Endpoint的唯一资源标识，可通过[查询Application的Endpoint列表](https://support.huaweicloud.com/api-smn/ListApplicationEndpoints.html)获取该标识
+     * @param {string} endpointUrn Endpoint的唯一资源标识，可通过[查询Application的Endpoint列表](smn_api_58004.xml)获取该标识
      * @param {PublishAppMessageRequestBody} [publishAppMessageRequestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -786,7 +902,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新Application
-     * @param {string} applicationUrn Application的唯一资源标识，可通过[查询Application](https://support.huaweicloud.com/api-smn/ListApplications.html)获取该标识。
+     * @param {string} applicationUrn Application的唯一资源标识，可通过[查询Application](smn_api_57004.xml)获取该标识。
      * @param {UpdateApplicationRequestBody} [updateApplicationRequestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -806,7 +922,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建Application endpoint
-     * @param {string} applicationUrn Application的唯一资源标识，可通过[查询Application](https://support.huaweicloud.com/api-smn/ListApplications.html)获取该标识。
+     * @param {string} applicationUrn Application的唯一资源标识，可通过[查询Application](smn_api_57004.xml)获取该标识。
      * @param {CreateApplicationEndpointRequestBody} [createApplicationEndpointRequestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -826,7 +942,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除Application endpoint
-     * @param {string} endpointUrn Endpoint的唯一资源标识，可通过[查询Application的Endpoint列表](https://support.huaweicloud.com/api-smn/ListApplicationEndpoints.html)获取该标识。
+     * @param {string} endpointUrn Endpoint的唯一资源标识，可通过[查询Application的Endpoint列表](smn_api_58004.xml)获取该标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -845,7 +961,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Application的Endpoint属性
-     * @param {string} endpointUrn Endpoint的唯一资源标识，可通过[查询Application的Endpoint列表](https://support.huaweicloud.com/api-smn/ListApplicationEndpoints.html)获取该标识。
+     * @param {string} endpointUrn Endpoint的唯一资源标识，可通过[查询Application的Endpoint列表](smn_api_58004.xml)获取该标识。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -864,7 +980,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Application的Endpoint列表
-     * @param {string} applicationUrn Application的唯一资源标识，可通过[查询Application](https://support.huaweicloud.com/api-smn/ListApplications.html)获取该标识。
+     * @param {string} applicationUrn Application的唯一资源标识，可通过[查询Application](smn_api_57004.xml)获取该标识。
      * @param {number} [offset] 偏移量。  偏移量为一个大于0小于资源总个数的整数，表示查询该偏移量后面的所有的资源，默认值为0。
      * @param {number} [limit] 查询的数量限制。  取值范围：1~100，取值一般为10，20，50。功能说明：每页返回的资源个数。默认值为100。
      * @param {string} [enabled] 设备是否可用，值为true或false字符串。
@@ -888,7 +1004,7 @@ export class SmnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 更新Application endpoint
-     * @param {string} endpointUrn Endpoint的唯一资源标识，可通过[查询Application的Endpoint列表](https://support.huaweicloud.com/api-smn/ListApplicationEndpoints.html)获取该标识。
+     * @param {string} endpointUrn Endpoint的唯一资源标识，可通过[查询Application的Endpoint列表](smn_api_58004.xml)获取该标识。
      * @param {UpdateApplicationEndpointRequestBody} [updateApplicationEndpointRequestBody] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1040,6 +1156,52 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 为指定Topic绑定一个云日志，用于记录主题消息发送状态等信息。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createLogtank(createLogtankRequest?: CreateLogtankRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/logtanks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let topicUrn;
+
+            if (createLogtankRequest !== null && createLogtankRequest !== undefined) {
+                if (createLogtankRequest instanceof CreateLogtankRequest) {
+                    topicUrn = createLogtankRequest.topicUrn;
+                    body = createLogtankRequest.body
+                } else {
+                    topicUrn = createLogtankRequest['topic_urn'];
+                    body = createLogtankRequest['body'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling createLogtank.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建一个模板，用户可以按照模板去发送消息，这样可以减少请求的数据量。
          * 单用户默认可创建100个消息模板，高并发场景下，可能会出现消息模板数量超过100仍创建成功的情况，此为正常现象。
          * 
@@ -1160,6 +1322,50 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解绑指定Topic绑定的云日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteLogtank(deleteLogtankRequest?: DeleteLogtankRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/logtanks/{logtank_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let topicUrn;
+            
+            let logtankId;
+
+            if (deleteLogtankRequest !== null && deleteLogtankRequest !== undefined) {
+                if (deleteLogtankRequest instanceof DeleteLogtankRequest) {
+                    topicUrn = deleteLogtankRequest.topicUrn;
+                    logtankId = deleteLogtankRequest.logtankId;
+                } else {
+                    topicUrn = deleteLogtankRequest['topic_urn'];
+                    logtankId = deleteLogtankRequest['logtank_id'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling deleteLogtank.');
+            }
+            if (logtankId === null || logtankId === undefined) {
+            throw new RequiredError('logtankId','Required parameter logtankId was null or undefined when calling deleteLogtank.');
+            }
+
+            options.pathParams = { 'topic_urn': topicUrn,'logtank_id': logtankId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1363,6 +1569,43 @@ export const ParamCreater = function () {
         
             if (topicUrn === null || topicUrn === undefined) {
             throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling deleteTopicAttributes.');
+            }
+
+            options.pathParams = { 'topic_urn': topicUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定Topic绑定的云日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listLogtank(listLogtankRequest?: ListLogtankRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/logtanks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let topicUrn;
+
+            if (listLogtankRequest !== null && listLogtankRequest !== undefined) {
+                if (listLogtankRequest instanceof ListLogtankRequest) {
+                    topicUrn = listLogtankRequest.topicUrn;
+                } else {
+                    topicUrn = listLogtankRequest['topic_urn'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling listLogtank.');
             }
 
             options.pathParams = { 'topic_urn': topicUrn, };
@@ -1817,6 +2060,8 @@ export const ParamCreater = function () {
             let name;
             
             let fuzzyName;
+            
+            let topicId;
 
             if (listTopicsRequest !== null && listTopicsRequest !== undefined) {
                 if (listTopicsRequest instanceof ListTopicsRequest) {
@@ -1825,12 +2070,14 @@ export const ParamCreater = function () {
                     enterpriseProjectId = listTopicsRequest.enterpriseProjectId;
                     name = listTopicsRequest.name;
                     fuzzyName = listTopicsRequest.fuzzyName;
+                    topicId = listTopicsRequest.topicId;
                 } else {
                     offset = listTopicsRequest['offset'];
                     limit = listTopicsRequest['limit'];
                     enterpriseProjectId = listTopicsRequest['enterprise_project_id'];
                     name = listTopicsRequest['name'];
                     fuzzyName = listTopicsRequest['fuzzy_name'];
+                    topicId = listTopicsRequest['topic_id'];
                 }
             }
 
@@ -1850,6 +2097,9 @@ export const ParamCreater = function () {
             if (fuzzyName !== null && fuzzyName !== undefined) {
                 localVarQueryParameter['fuzzy_name'] = fuzzyName;
             }
+            if (topicId !== null && topicId !== undefined) {
+                localVarQueryParameter['topic_id'] = topicId;
+            }
 
             options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
@@ -1861,10 +2111,10 @@ export const ParamCreater = function () {
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
-        listVersion(listVersionRequest?: ListVersionRequest) {
+        listVersion() {
             const options = {
                 method: "GET",
-                url: "/{api_version}",
+                url: "/v2",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -1872,23 +2122,7 @@ export const ParamCreater = function () {
             };
             const localVarHeaderParameter = {} as any;
 
-            
-            let apiVersion;
 
-            if (listVersionRequest !== null && listVersionRequest !== undefined) {
-                if (listVersionRequest instanceof ListVersionRequest) {
-                    apiVersion = listVersionRequest.apiVersion;
-                } else {
-                    apiVersion = listVersionRequest['api_version'];
-                }
-            }
-
-        
-            if (apiVersion === null || apiVersion === undefined) {
-            throw new RequiredError('apiVersion','Required parameter apiVersion was null or undefined when calling listVersion.');
-            }
-
-            options.pathParams = { 'api_version': apiVersion, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -1967,6 +2201,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 更新指定Topic绑定的云日志。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateLogtank(updateLogtankRequest?: UpdateLogtankRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/logtanks/{logtank_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let topicUrn;
+            
+            let logtankId;
+
+            if (updateLogtankRequest !== null && updateLogtankRequest !== undefined) {
+                if (updateLogtankRequest instanceof UpdateLogtankRequest) {
+                    topicUrn = updateLogtankRequest.topicUrn;
+                    logtankId = updateLogtankRequest.logtankId;
+                    body = updateLogtankRequest.body
+                } else {
+                    topicUrn = updateLogtankRequest['topic_urn'];
+                    logtankId = updateLogtankRequest['logtank_id'];
+                    body = updateLogtankRequest['body'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling updateLogtank.');
+            }
+            if (logtankId === null || logtankId === undefined) {
+            throw new RequiredError('logtankId','Required parameter logtankId was null or undefined when calling updateLogtank.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'topic_urn': topicUrn,'logtank_id': logtankId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 修改消息模板的内容。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2005,6 +2292,59 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'message_template_id': messageTemplateId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新订阅者备注。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateSubscription(updateSubscriptionRequest?: UpdateSubscriptionRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2/{project_id}/notifications/topics/{topic_urn}/subscriptions/{subscription_urn}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let topicUrn;
+            
+            let subscriptionUrn;
+
+            if (updateSubscriptionRequest !== null && updateSubscriptionRequest !== undefined) {
+                if (updateSubscriptionRequest instanceof UpdateSubscriptionRequest) {
+                    topicUrn = updateSubscriptionRequest.topicUrn;
+                    subscriptionUrn = updateSubscriptionRequest.subscriptionUrn;
+                    body = updateSubscriptionRequest.body
+                } else {
+                    topicUrn = updateSubscriptionRequest['topic_urn'];
+                    subscriptionUrn = updateSubscriptionRequest['subscription_urn'];
+                    body = updateSubscriptionRequest['body'];
+                }
+            }
+
+        
+            if (topicUrn === null || topicUrn === undefined) {
+            throw new RequiredError('topicUrn','Required parameter topicUrn was null or undefined when calling updateSubscription.');
+            }
+            if (subscriptionUrn === null || subscriptionUrn === undefined) {
+            throw new RequiredError('subscriptionUrn','Required parameter subscriptionUrn was null or undefined when calling updateSubscription.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'topic_urn': topicUrn,'subscription_urn': subscriptionUrn, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -6,12 +6,14 @@ export class ListTopicsItem {
     private 'display_name': string | undefined;
     private 'push_policy': number | undefined;
     private 'enterprise_project_id': string | undefined;
-    public constructor(topicUrn?: any, name?: any, displayName?: any, pushPolicy?: any, enterpriseProjectId?: any) { 
+    private 'topic_id': string | undefined;
+    public constructor(topicUrn?: any, name?: any, displayName?: any, pushPolicy?: any, enterpriseProjectId?: any, topicId?: any) { 
         this['topic_urn'] = topicUrn;
         this['name'] = name;
         this['display_name'] = displayName;
         this['push_policy'] = pushPolicy;
         this['enterprise_project_id'] = enterpriseProjectId;
+        this['topic_id'] = topicId;
     }
     public withTopicUrn(topicUrn: string): ListTopicsItem {
         this['topic_urn'] = topicUrn;
@@ -56,5 +58,15 @@ export class ListTopicsItem {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withTopicId(topicId: string): ListTopicsItem {
+        this['topic_id'] = topicId;
+        return this;
+    }
+    public set topicId(topicId: string | undefined) {
+        this['topic_id'] = topicId;
+    }
+    public get topicId() {
+        return this['topic_id'];
     }
 }

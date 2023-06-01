@@ -10,6 +10,7 @@ import { AddNodeRequest } from './model/AddNodeRequest';
 import { AddNodeResponse } from './model/AddNodeResponse';
 import { AddonInstance } from './model/AddonInstance';
 import { AddonInstanceStatus } from './model/AddonInstanceStatus';
+import { AddonMetadata } from './model/AddonMetadata';
 import { AddonTemplate } from './model/AddonTemplate';
 import { AuthenticatingProxy } from './model/AuthenticatingProxy';
 import { Authentication } from './model/Authentication';
@@ -603,7 +604,7 @@ export class CceClient {
      *
      * @summary 查询AddonTemplates列表
      * @param {string} contentType 消息体的类型（格式）
-     * @param {string} [addonTemplateName] 指定的模板名称，不填写则查询列表。
+     * @param {string} [addonTemplateName] 指定的插件名称或插件别名，不填写则查询列表。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */

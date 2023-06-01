@@ -6,6 +6,7 @@ export class ListTopicsRequest {
     private 'enterprise_project_id'?: string | undefined;
     public name?: string;
     private 'fuzzy_name'?: string | undefined;
+    private 'topic_id'?: string | undefined;
     public constructor() { 
     }
     public withOffset(offset: number): ListTopicsRequest {
@@ -39,5 +40,15 @@ export class ListTopicsRequest {
     }
     public get fuzzyName() {
         return this['fuzzy_name'];
+    }
+    public withTopicId(topicId: string): ListTopicsRequest {
+        this['topic_id'] = topicId;
+        return this;
+    }
+    public set topicId(topicId: string | undefined) {
+        this['topic_id'] = topicId;
+    }
+    public get topicId() {
+        return this['topic_id'];
     }
 }

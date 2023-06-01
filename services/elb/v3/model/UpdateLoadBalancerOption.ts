@@ -19,6 +19,8 @@ export class UpdateLoadBalancerOption {
     private 'prepaid_options'?: PrepaidUpdateOption | undefined;
     public autoscaling?: UpdateLoadbalancerAutoscalingOption;
     private 'waf_failure_action'?: UpdateLoadBalancerOptionWafFailureActionEnum | undefined;
+    private 'protection_status'?: UpdateLoadBalancerOptionProtectionStatusEnum | undefined;
+    private 'protection_reason'?: string | undefined;
     public constructor() { 
     }
     public withName(name: string): UpdateLoadBalancerOption {
@@ -153,6 +155,26 @@ export class UpdateLoadBalancerOption {
     public get wafFailureAction() {
         return this['waf_failure_action'];
     }
+    public withProtectionStatus(protectionStatus: UpdateLoadBalancerOptionProtectionStatusEnum): UpdateLoadBalancerOption {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: UpdateLoadBalancerOptionProtectionStatusEnum | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus() {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): UpdateLoadBalancerOption {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason() {
+        return this['protection_reason'];
+    }
 }
 
 /**
@@ -162,4 +184,12 @@ export class UpdateLoadBalancerOption {
 export enum UpdateLoadBalancerOptionWafFailureActionEnum {
     DISCARD = 'discard',
     FORWARD = 'forward'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateLoadBalancerOptionProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }

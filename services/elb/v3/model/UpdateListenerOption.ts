@@ -24,6 +24,9 @@ export class UpdateListenerOption {
     private 'transparent_client_ip_enable'?: boolean | undefined;
     private 'enhance_l7policy_enable'?: boolean | undefined;
     private 'quic_config'?: UpdateListenerQuicConfigOption | undefined;
+    private 'protection_status'?: UpdateListenerOptionProtectionStatusEnum | undefined;
+    private 'protection_reason'?: string | undefined;
+    private 'gzip_enable'?: boolean | undefined;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdateListenerOption {
@@ -208,4 +211,43 @@ export class UpdateListenerOption {
     public get quicConfig() {
         return this['quic_config'];
     }
+    public withProtectionStatus(protectionStatus: UpdateListenerOptionProtectionStatusEnum): UpdateListenerOption {
+        this['protection_status'] = protectionStatus;
+        return this;
+    }
+    public set protectionStatus(protectionStatus: UpdateListenerOptionProtectionStatusEnum | undefined) {
+        this['protection_status'] = protectionStatus;
+    }
+    public get protectionStatus() {
+        return this['protection_status'];
+    }
+    public withProtectionReason(protectionReason: string): UpdateListenerOption {
+        this['protection_reason'] = protectionReason;
+        return this;
+    }
+    public set protectionReason(protectionReason: string | undefined) {
+        this['protection_reason'] = protectionReason;
+    }
+    public get protectionReason() {
+        return this['protection_reason'];
+    }
+    public withGzipEnable(gzipEnable: boolean): UpdateListenerOption {
+        this['gzip_enable'] = gzipEnable;
+        return this;
+    }
+    public set gzipEnable(gzipEnable: boolean | undefined) {
+        this['gzip_enable'] = gzipEnable;
+    }
+    public get gzipEnable() {
+        return this['gzip_enable'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateListenerOptionProtectionStatusEnum {
+    NONPROTECTION = 'nonProtection',
+    CONSOLEPROTECTION = 'consoleProtection'
 }
