@@ -2,6 +2,8 @@
 
 export class ShowBatchTaskRequest {
     private 'Instance-Id'?: string | undefined;
+    private 'task_detail_status'?: string | undefined;
+    public target?: string;
     private 'task_id': string | undefined;
     public limit?: number;
     public marker?: string;
@@ -18,6 +20,20 @@ export class ShowBatchTaskRequest {
     }
     public get instanceId() {
         return this['Instance-Id'];
+    }
+    public withTaskDetailStatus(taskDetailStatus: string): ShowBatchTaskRequest {
+        this['task_detail_status'] = taskDetailStatus;
+        return this;
+    }
+    public set taskDetailStatus(taskDetailStatus: string | undefined) {
+        this['task_detail_status'] = taskDetailStatus;
+    }
+    public get taskDetailStatus() {
+        return this['task_detail_status'];
+    }
+    public withTarget(target: string): ShowBatchTaskRequest {
+        this['target'] = target;
+        return this;
     }
     public withTaskId(taskId: string): ShowBatchTaskRequest {
         this['task_id'] = taskId;

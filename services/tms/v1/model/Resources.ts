@@ -1,3 +1,4 @@
+import { CreateTagRequest } from './CreateTagRequest';
 
 
 export class Resources {
@@ -7,6 +8,7 @@ export class Resources {
     private 'resource_id': string | undefined;
     private 'resource_name': string | undefined;
     private 'resource_type': string | undefined;
+    public tags?: Array<CreateTagRequest>;
     public constructor(projectId?: any, projectName?: any, resourceId?: any, resourceName?: any, resourceType?: any) { 
         this['project_id'] = projectId;
         this['project_name'] = projectName;
@@ -73,5 +75,9 @@ export class Resources {
     }
     public get resourceType() {
         return this['resource_type'];
+    }
+    public withTags(tags: Array<CreateTagRequest>): Resources {
+        this['tags'] = tags;
+        return this;
     }
 }

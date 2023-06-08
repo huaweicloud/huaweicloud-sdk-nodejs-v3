@@ -527,6 +527,7 @@ export class VpcClient {
      * @param {Array<string>} [name] 地址组名称，填写后按照名称进行过滤，支持多名称同时过滤
      * @param {number} [ipVersion] IP地址组ip版本，当前只支持ipv4，填写后按照ip版本进行过滤
      * @param {Array<string>} [description] 地址组描述信息，填写后按照地址组描述信息过滤，支持多描述同时过滤
+     * @param {string} [enterpriseProjectId] 功能说明：企业项目ID。可以使用该字段过滤某个企业项目下的IP地址组。 取值范围：最大长度36字节，带“-”连字符的UUID格式，或者是字符串“0”。“0”表示默认企业项目。若需要查询当前用户所有企业项目绑定的IP地址组，请传参all_granted_eps。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1646,6 +1647,8 @@ export const ParamCreater = function () {
             let ipVersion;
             
             let description;
+            
+            let enterpriseProjectId;
 
             if (listAddressGroupRequest !== null && listAddressGroupRequest !== undefined) {
                 if (listAddressGroupRequest instanceof ListAddressGroupRequest) {
@@ -1655,6 +1658,7 @@ export const ParamCreater = function () {
                     name = listAddressGroupRequest.name;
                     ipVersion = listAddressGroupRequest.ipVersion;
                     description = listAddressGroupRequest.description;
+                    enterpriseProjectId = listAddressGroupRequest.enterpriseProjectId;
                 } else {
                     limit = listAddressGroupRequest['limit'];
                     marker = listAddressGroupRequest['marker'];
@@ -1662,6 +1666,7 @@ export const ParamCreater = function () {
                     name = listAddressGroupRequest['name'];
                     ipVersion = listAddressGroupRequest['ip_version'];
                     description = listAddressGroupRequest['description'];
+                    enterpriseProjectId = listAddressGroupRequest['enterprise_project_id'];
                 }
             }
 
@@ -1683,6 +1688,9 @@ export const ParamCreater = function () {
             }
             if (description !== null && description !== undefined) {
                 localVarQueryParameter['description'] = description;
+            }
+            if (enterpriseProjectId !== null && enterpriseProjectId !== undefined) {
+                localVarQueryParameter['enterprise_project_id'] = enterpriseProjectId;
             }
 
             options.queryParams = localVarQueryParameter;

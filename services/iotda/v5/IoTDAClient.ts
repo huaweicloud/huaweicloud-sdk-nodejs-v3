@@ -28,6 +28,8 @@ import { AuthInfo } from './model/AuthInfo';
 import { AuthInfoWithoutSecret } from './model/AuthInfoWithoutSecret';
 import { BatchShowQueueRequest } from './model/BatchShowQueueRequest';
 import { BatchShowQueueResponse } from './model/BatchShowQueueResponse';
+import { BatchTargetResult } from './model/BatchTargetResult';
+import { BatchTargets } from './model/BatchTargets';
 import { BatchTaskFile } from './model/BatchTaskFile';
 import { BindTagsDTO } from './model/BindTagsDTO';
 import { BroadcastMessageRequest } from './model/BroadcastMessageRequest';
@@ -162,6 +164,8 @@ import { ResetFingerprint } from './model/ResetFingerprint';
 import { ResetFingerprintRequest } from './model/ResetFingerprintRequest';
 import { ResetFingerprintResponse } from './model/ResetFingerprintResponse';
 import { ResourceDTO } from './model/ResourceDTO';
+import { RetryBatchTaskRequest } from './model/RetryBatchTaskRequest';
+import { RetryBatchTaskResponse } from './model/RetryBatchTaskResponse';
 import { RomaForwarding } from './model/RomaForwarding';
 import { RoutingRule } from './model/RoutingRule';
 import { RoutingRuleAction } from './model/RoutingRuleAction';
@@ -213,6 +217,8 @@ import { ShowRuleRequest } from './model/ShowRuleRequest';
 import { ShowRuleResponse } from './model/ShowRuleResponse';
 import { SimpleTimerType } from './model/SimpleTimerType';
 import { SimplifyDevice } from './model/SimplifyDevice';
+import { StopBatchTaskRequest } from './model/StopBatchTaskRequest';
+import { StopBatchTaskResponse } from './model/StopBatchTaskResponse';
 import { Strategy } from './model/Strategy';
 import { TagDeviceRequest } from './model/TagDeviceRequest';
 import { TagDeviceResponse } from './model/TagDeviceResponse';
@@ -525,7 +531,7 @@ export class IoTDAClient {
      * @param {string} taskType **参数说明**：批量任务类型。 **取值范围**： - softwareUpgrade: 软件升级任务 - firmwareUpgrade: 固件升级任务 - createDevices: 批量创建设备任务 - deleteDevices: 批量删除设备任务 - freezeDevices: 批量冻结设备任务 - unfreezeDevices: 批量解冻设备任务 - createCommands: 批量创建同步命令任务 - createAsyncCommands: 批量创建异步命令任务 - createMessages: 批量创建消息任务 - updateDeviceShadows：批量配置设备影子任务 - updateDevices：批量更新设备任务
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
      * @param {string} [appId] **参数说明**：资源空间ID。此参数为非必选参数，存在多资源空间的用户需要使用该接口时，可以携带该参数查询指定资源空间下的任务列表，不携带该参数则会查询该用户下所有任务列表。 **取值范围**：长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。
-     * @param {string} [status] **参数说明**：批量任务的状态，可选参数。 **取值范围**： - Initializing: 初始化中。 - Waitting: 等待中。 - Processing: 执行中。 - Success: 成功。 - Fail: 失败。 - PartialSuccess: 部分成功。 - Stopped: 停止。
+     * @param {string} [status] **参数说明**：批量任务的状态，可选参数。 **取值范围**： - Initializing: 初始化中。 - Waitting: 等待中。 - Processing: 执行中。 - Success: 成功。 - Fail: 失败。 - PartialSuccess: 部分成功。 - Stopped: 停止。 - Stopping: 停止中。
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
      * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
      * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。  **取值范围**：0-500的整数，默认为0。
@@ -542,6 +548,27 @@ export class IoTDAClient {
     }
 
     /**
+     * 应用服务器可调用此接口重试批量任务，目前只支持task_type为firmwareUpgrade，softwareUpgrade。如果task_id对应任务已经成功、停止、正在停止、等待中或初始化中，则不可以调用该接口。如果请求Body为{}，则调用该接口后会重新执行所有状态为失败、失败待重试和已停止的子任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 重试批量任务
+     * @param {string} taskId **参数说明**：批量任务ID，创建批量任务时由物联网平台分配获得。 **取值范围**：长度不超过24，只允许小写字母a到f、数字的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {BatchTargets} [retryBatchTaskRequestBody] request
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public retryBatchTask(retryBatchTaskRequest?: RetryBatchTaskRequest): Promise<RetryBatchTaskResponse> {
+        const options = ParamCreater().retryBatchTask(retryBatchTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 应用服务器可调用此接口查询物联网平台中指定批量任务的信息，包括任务内容、任务状态、任务完成情况统计以及子任务列表等。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -549,6 +576,8 @@ export class IoTDAClient {
      * @summary 查询批量任务
      * @param {string} taskId **参数说明**：批量任务ID，创建批量任务时由物联网平台分配获得。 **取值范围**：长度不超过24，只允许小写字母a到f、数字的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {string} [taskDetailStatus] **参数说明**：子任务的执行状态，可选参数。 **取值范围**： - Success: 成功。 - Fail: 失败。 - Processing: 执行中。 - FailWaitRetry: 失败重试。 - Stopped: 已停止。 - Waitting: 等待执行。 - Removed: 已移除
+     * @param {string} [target] **参数说明**：执行批量任务的目标，当task_type为firmwareUpgrade，softwareUpgrade，deleteDevices，freezeDevices，unfreezeDevices，createCommands，createAsyncCommands，createMessages，updateDeviceShadows，此处填写device_id **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
      * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
      * @param {number} [offset] **参数说明**：表示从marker后偏移offset条记录开始查询。默认为0，取值范围为0-500的整数。当offset为0时，表示从marker后第一条记录开始输出。限制offset最大值是出于API性能考虑，您可以搭配marker使用该参数实现翻页，例如每页50条记录，1-11页内都可以直接使用offset跳转到指定页，但到11页后，由于offset限制为500，您需要使用第11页返回的marker作为下次查询的marker，以实现翻页到12-22页。  **取值范围**：0-500的整数，默认为0。
@@ -557,6 +586,27 @@ export class IoTDAClient {
      */
     public showBatchTask(showBatchTaskRequest?: ShowBatchTaskRequest): Promise<ShowBatchTaskResponse> {
         const options = ParamCreater().showBatchTask(showBatchTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口停止批量任务，目前只支持task_type为firmwareUpgrade，softwareUpgrade。如果task_id对应任务已经完成（成功、失败、部分成功，已经停止）或正在停止中，则不可以调用该接口。如果请求Body为{}，则调用该接口后会停止所有正在执行中、等待中和失败待重试状态的子任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 停止批量任务
+     * @param {string} taskId **参数说明**：批量任务ID，创建批量任务时由物联网平台分配获得。 **取值范围**：长度不超过24，只允许小写字母a到f、数字的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {BatchTargets} [stopBatchTaskRequestBody] request
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public stopBatchTask(stopBatchTaskRequest?: StopBatchTaskRequest): Promise<StopBatchTaskResponse> {
+        const options = ParamCreater().stopBatchTask(stopBatchTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2658,6 +2708,56 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 应用服务器可调用此接口重试批量任务，目前只支持task_type为firmwareUpgrade，softwareUpgrade。如果task_id对应任务已经成功、停止、正在停止、等待中或初始化中，则不可以调用该接口。如果请求Body为{}，则调用该接口后会重新执行所有状态为失败、失败待重试和已停止的子任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        retryBatchTask(retryBatchTaskRequest?: RetryBatchTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/{project_id}/batchtasks/{task_id}/retry",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+            
+            let instanceId;
+
+            if (retryBatchTaskRequest !== null && retryBatchTaskRequest !== undefined) {
+                if (retryBatchTaskRequest instanceof RetryBatchTaskRequest) {
+                    taskId = retryBatchTaskRequest.taskId;
+                    instanceId = retryBatchTaskRequest.instanceId;
+                    body = retryBatchTaskRequest.body
+                } else {
+                    taskId = retryBatchTaskRequest['task_id'];
+                    instanceId = retryBatchTaskRequest['Instance-Id'];
+                    body = retryBatchTaskRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling retryBatchTask.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 应用服务器可调用此接口查询物联网平台中指定批量任务的信息，包括任务内容、任务状态、任务完成情况统计以及子任务列表等。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2678,6 +2778,10 @@ export const ParamCreater = function () {
             
             let instanceId;
             
+            let taskDetailStatus;
+            
+            let target;
+            
             let limit;
             
             let marker;
@@ -2688,12 +2792,16 @@ export const ParamCreater = function () {
                 if (showBatchTaskRequest instanceof ShowBatchTaskRequest) {
                     taskId = showBatchTaskRequest.taskId;
                     instanceId = showBatchTaskRequest.instanceId;
+                    taskDetailStatus = showBatchTaskRequest.taskDetailStatus;
+                    target = showBatchTaskRequest.target;
                     limit = showBatchTaskRequest.limit;
                     marker = showBatchTaskRequest.marker;
                     offset = showBatchTaskRequest.offset;
                 } else {
                     taskId = showBatchTaskRequest['task_id'];
                     instanceId = showBatchTaskRequest['Instance-Id'];
+                    taskDetailStatus = showBatchTaskRequest['task_detail_status'];
+                    target = showBatchTaskRequest['target'];
                     limit = showBatchTaskRequest['limit'];
                     marker = showBatchTaskRequest['marker'];
                     offset = showBatchTaskRequest['offset'];
@@ -2703,6 +2811,12 @@ export const ParamCreater = function () {
         
             if (taskId === null || taskId === undefined) {
             throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling showBatchTask.');
+            }
+            if (taskDetailStatus !== null && taskDetailStatus !== undefined) {
+                localVarQueryParameter['task_detail_status'] = taskDetailStatus;
+            }
+            if (target !== null && target !== undefined) {
+                localVarQueryParameter['target'] = target;
             }
             if (limit !== null && limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -2718,6 +2832,56 @@ export const ParamCreater = function () {
             }
 
             options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'task_id': taskId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口停止批量任务，目前只支持task_type为firmwareUpgrade，softwareUpgrade。如果task_id对应任务已经完成（成功、失败、部分成功，已经停止）或正在停止中，则不可以调用该接口。如果请求Body为{}，则调用该接口后会停止所有正在执行中、等待中和失败待重试状态的子任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        stopBatchTask(stopBatchTaskRequest?: StopBatchTaskRequest) {
+            const options = {
+                method: "POST",
+                url: "/{project_id}/batchtasks/{task_id}/stop",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let taskId;
+            
+            let instanceId;
+
+            if (stopBatchTaskRequest !== null && stopBatchTaskRequest !== undefined) {
+                if (stopBatchTaskRequest instanceof StopBatchTaskRequest) {
+                    taskId = stopBatchTaskRequest.taskId;
+                    instanceId = stopBatchTaskRequest.instanceId;
+                    body = stopBatchTaskRequest.body
+                } else {
+                    taskId = stopBatchTaskRequest['task_id'];
+                    instanceId = stopBatchTaskRequest['Instance-Id'];
+                    body = stopBatchTaskRequest['body'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling stopBatchTask.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;

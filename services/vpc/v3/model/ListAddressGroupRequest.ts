@@ -7,6 +7,7 @@ export class ListAddressGroupRequest {
     public name?: Array<string>;
     private 'ip_version'?: number | undefined;
     public description?: Array<string>;
+    private 'enterprise_project_id'?: string | undefined;
     public constructor() { 
     }
     public withLimit(limit: number): ListAddressGroupRequest {
@@ -38,5 +39,15 @@ export class ListAddressGroupRequest {
     public withDescription(description: Array<string>): ListAddressGroupRequest {
         this['description'] = description;
         return this;
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): ListAddressGroupRequest {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
     }
 }

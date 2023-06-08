@@ -31,9 +31,14 @@ import { CreateFunctionTriggerResponse } from './model/CreateFunctionTriggerResp
 import { CreateFunctionVersionRequest } from './model/CreateFunctionVersionRequest';
 import { CreateFunctionVersionRequestBody } from './model/CreateFunctionVersionRequestBody';
 import { CreateFunctionVersionResponse } from './model/CreateFunctionVersionResponse';
+import { CreateTagsRequest } from './model/CreateTagsRequest';
+import { CreateTagsResponse } from './model/CreateTagsResponse';
 import { CreateVersionAliasRequest } from './model/CreateVersionAliasRequest';
 import { CreateVersionAliasRequestBody } from './model/CreateVersionAliasRequestBody';
 import { CreateVersionAliasResponse } from './model/CreateVersionAliasResponse';
+import { CreateVpcEndpointRequest } from './model/CreateVpcEndpointRequest';
+import { CreateVpcEndpointRequestBody } from './model/CreateVpcEndpointRequestBody';
+import { CreateVpcEndpointResponse } from './model/CreateVpcEndpointResponse';
 import { CreateWorkflowRequest } from './model/CreateWorkflowRequest';
 import { CreateWorkflowResponse } from './model/CreateWorkflowResponse';
 import { CronConfig } from './model/CronConfig';
@@ -50,8 +55,12 @@ import { DeleteFunctionRequest } from './model/DeleteFunctionRequest';
 import { DeleteFunctionResponse } from './model/DeleteFunctionResponse';
 import { DeleteFunctionTriggerRequest } from './model/DeleteFunctionTriggerRequest';
 import { DeleteFunctionTriggerResponse } from './model/DeleteFunctionTriggerResponse';
+import { DeleteTagsRequest } from './model/DeleteTagsRequest';
+import { DeleteTagsResponse } from './model/DeleteTagsResponse';
 import { DeleteVersionAliasRequest } from './model/DeleteVersionAliasRequest';
 import { DeleteVersionAliasResponse } from './model/DeleteVersionAliasResponse';
+import { DeleteVpcEndpointRequest } from './model/DeleteVpcEndpointRequest';
+import { DeleteVpcEndpointResponse } from './model/DeleteVpcEndpointResponse';
 import { Dependency } from './model/Dependency';
 import { EnableLtsLogsRequest } from './model/EnableLtsLogsRequest';
 import { EnableLtsLogsResponse } from './model/EnableLtsLogsResponse';
@@ -84,6 +93,8 @@ import { ListDependenciesResponse } from './model/ListDependenciesResponse';
 import { ListDependenciesResult } from './model/ListDependenciesResult';
 import { ListDependencyVersionRequest } from './model/ListDependencyVersionRequest';
 import { ListDependencyVersionResponse } from './model/ListDependencyVersionResponse';
+import { ListEnterpriseResourceRequestBody } from './model/ListEnterpriseResourceRequestBody';
+import { ListEnterpriseResourceResult } from './model/ListEnterpriseResourceResult';
 import { ListEventsRequest } from './model/ListEventsRequest';
 import { ListEventsResponse } from './model/ListEventsResponse';
 import { ListEventsResult } from './model/ListEventsResult';
@@ -144,6 +155,8 @@ import { ShowDependencyVersionRequest } from './model/ShowDependencyVersionReque
 import { ShowDependencyVersionResponse } from './model/ShowDependencyVersionResponse';
 import { ShowEventRequest } from './model/ShowEventRequest';
 import { ShowEventResponse } from './model/ShowEventResponse';
+import { ShowFuncSnapshotStateRequest } from './model/ShowFuncSnapshotStateRequest';
+import { ShowFuncSnapshotStateResponse } from './model/ShowFuncSnapshotStateResponse';
 import { ShowFunctionAsyncInvokeConfigRequest } from './model/ShowFunctionAsyncInvokeConfigRequest';
 import { ShowFunctionAsyncInvokeConfigResponse } from './model/ShowFunctionAsyncInvokeConfigResponse';
 import { ShowFunctionCodeRequest } from './model/ShowFunctionCodeRequest';
@@ -154,6 +167,10 @@ import { ShowFunctionTriggerRequest } from './model/ShowFunctionTriggerRequest';
 import { ShowFunctionTriggerResponse } from './model/ShowFunctionTriggerResponse';
 import { ShowLtsLogDetailsRequest } from './model/ShowLtsLogDetailsRequest';
 import { ShowLtsLogDetailsResponse } from './model/ShowLtsLogDetailsResponse';
+import { ShowProjectTagsListRequest } from './model/ShowProjectTagsListRequest';
+import { ShowProjectTagsListResponse } from './model/ShowProjectTagsListResponse';
+import { ShowResInstanceInfoRequest } from './model/ShowResInstanceInfoRequest';
+import { ShowResInstanceInfoResponse } from './model/ShowResInstanceInfoResponse';
 import { ShowTenantMetricRequest } from './model/ShowTenantMetricRequest';
 import { ShowTenantMetricResponse } from './model/ShowTenantMetricResponse';
 import { ShowTracingRequest } from './model/ShowTracingRequest';
@@ -179,6 +196,7 @@ import { StopWorkFlowResponse } from './model/StopWorkFlowResponse';
 import { StrategyConfig } from './model/StrategyConfig';
 import { SyncExecutionNodeErrorDetail } from './model/SyncExecutionNodeErrorDetail';
 import { TacticsConfig } from './model/TacticsConfig';
+import { TagItem } from './model/TagItem';
 import { Trigger } from './model/Trigger';
 import { TriggerEventData } from './model/TriggerEventData';
 import { UpdateDependcyRequest } from './model/UpdateDependcyRequest';
@@ -187,6 +205,8 @@ import { UpdateDependencyRequestBody } from './model/UpdateDependencyRequestBody
 import { UpdateEventRequest } from './model/UpdateEventRequest';
 import { UpdateEventRequestBody } from './model/UpdateEventRequestBody';
 import { UpdateEventResponse } from './model/UpdateEventResponse';
+import { UpdateFuncSnapshotRequest } from './model/UpdateFuncSnapshotRequest';
+import { UpdateFuncSnapshotResponse } from './model/UpdateFuncSnapshotResponse';
 import { UpdateFunctionAsyncInvokeConfigRequest } from './model/UpdateFunctionAsyncInvokeConfigRequest';
 import { UpdateFunctionAsyncInvokeConfigRequestBody } from './model/UpdateFunctionAsyncInvokeConfigRequestBody';
 import { UpdateFunctionAsyncInvokeConfigResponse } from './model/UpdateFunctionAsyncInvokeConfigResponse';
@@ -202,6 +222,7 @@ import { UpdateFunctionMaxInstanceConfigResponse } from './model/UpdateFunctionM
 import { UpdateFunctionReservedInstancesCountRequest } from './model/UpdateFunctionReservedInstancesCountRequest';
 import { UpdateFunctionReservedInstancesCountRequestBody } from './model/UpdateFunctionReservedInstancesCountRequestBody';
 import { UpdateFunctionReservedInstancesCountResponse } from './model/UpdateFunctionReservedInstancesCountResponse';
+import { UpdateFunctionTagsRequestBody } from './model/UpdateFunctionTagsRequestBody';
 import { UpdateTracingRequest } from './model/UpdateTracingRequest';
 import { UpdateTracingRequestBody } from './model/UpdateTracingRequestBody';
 import { UpdateTracingResponse } from './model/UpdateTracingResponse';
@@ -458,6 +479,27 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 创建资源标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建资源标签
+     * @param {string} resourceType 资源类型
+     * @param {string} resourceId 资源ID
+     * @param {UpdateFunctionTagsRequestBody} createTagsRequestBody 创建资源标签的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createTags(createTagsRequest?: CreateTagsRequest): Promise<CreateTagsResponse> {
+        const options = ParamCreater().createTags(createTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建函数灰度版本别名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -470,6 +512,25 @@ export class FunctionGraphClient {
      */
     public createVersionAlias(createVersionAliasRequest?: CreateVersionAliasRequest): Promise<CreateVersionAliasResponse> {
         const options = ParamCreater().createVersionAlias(createVersionAliasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建下沉入口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建下沉入口
+     * @param {CreateVpcEndpointRequestBody} createVpcEndpointRequestBody 创建下沉入口的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createVpcEndpoint(createVpcEndpointRequest?: CreateVpcEndpointRequest): Promise<CreateVpcEndpointResponse> {
+        const options = ParamCreater().createVpcEndpoint(createVpcEndpointRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -618,6 +679,27 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 删除资源标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除资源标签
+     * @param {string} resourceType 资源类型
+     * @param {string} resourceId 资源ID
+     * @param {UpdateFunctionTagsRequestBody} deleteTagsRequestBody 删除资源标签的请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteTags(deleteTagsRequest?: DeleteTagsRequest): Promise<DeleteTagsResponse> {
+        const options = ParamCreater().deleteTags(deleteTagsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除函数版本别名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -630,6 +712,26 @@ export class FunctionGraphClient {
      */
     public deleteVersionAlias(deleteVersionAliasRequest?: DeleteVersionAliasRequest): Promise<DeleteVersionAliasResponse> {
         const options = ParamCreater().deleteVersionAlias(deleteVersionAliasRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除下沉入口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除下沉入口
+     * @param {string} vpcId vpc ID
+     * @param {string} subnetId 子网编号
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteVpcEndpoint(deleteVpcEndpointRequest?: DeleteVpcEndpointRequest): Promise<DeleteVpcEndpointResponse> {
+        const options = ParamCreater().deleteVpcEndpoint(deleteVpcEndpointRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1163,6 +1265,25 @@ export class FunctionGraphClient {
     }
 
     /**
+     * 查询函数快照制作状态。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询函数快照制作状态
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showFuncSnapshotState(showFuncSnapshotStateRequest?: ShowFuncSnapshotStateRequest): Promise<ShowFuncSnapshotStateResponse> {
+        const options = ParamCreater().showFuncSnapshotState(showFuncSnapshotStateRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 获取指定函数某一版本的异步配置信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1252,6 +1373,46 @@ export class FunctionGraphClient {
      */
     public showLtsLogDetails(showLtsLogDetailsRequest?: ShowLtsLogDetailsRequest): Promise<ShowLtsLogDetailsResponse> {
         const options = ParamCreater().showLtsLogDetails(showLtsLogDetailsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资源标签。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源标签
+     * @param {string} resourceType 资源类型
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showProjectTagsList(showProjectTagsListRequest?: ShowProjectTagsListRequest): Promise<ShowProjectTagsListResponse> {
+        const options = ParamCreater().showProjectTagsList(showProjectTagsListRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询资源实例。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询资源实例
+     * @param {string} resourceType 资源类型
+     * @param {string} action 禁用/启用
+     * @param {ListEnterpriseResourceRequestBody} showResInstanceInfoRequestBody 查询资源实例请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showResInstanceInfo(showResInstanceInfoRequest?: ShowResInstanceInfoRequest): Promise<ShowResInstanceInfoResponse> {
+        const options = ParamCreater().showResInstanceInfo(showResInstanceInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1502,6 +1663,26 @@ export class FunctionGraphClient {
      */
     public updateEvent(updateEventRequest?: UpdateEventRequest): Promise<UpdateEventResponse> {
         const options = ParamCreater().updateEvent(updateEventRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 禁用/启动函数快照
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 禁用/启动函数快照
+     * @param {string} action 禁用/启用
+     * @param {string} functionUrn 函数的URN，详细解释见FunctionGraph函数模型的描述。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateFuncSnapshot(updateFuncSnapshotRequest?: UpdateFuncSnapshotRequest): Promise<UpdateFuncSnapshotResponse> {
+        const options = ParamCreater().updateFuncSnapshot(updateFuncSnapshotRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2167,6 +2348,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建资源标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createTags(createTagsRequest?: CreateTagsRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags/create",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (createTagsRequest !== null && createTagsRequest !== undefined) {
+                if (createTagsRequest instanceof CreateTagsRequest) {
+                    resourceType = createTagsRequest.resourceType;
+                    resourceId = createTagsRequest.resourceId;
+                    body = createTagsRequest.body
+                } else {
+                    resourceType = createTagsRequest['resource_type'];
+                    resourceId = createTagsRequest['resource_id'];
+                    body = createTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling createTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling createTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建函数灰度版本别名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2208,6 +2442,44 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建下沉入口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createVpcEndpoint(createVpcEndpointRequest?: CreateVpcEndpointRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/vpc-endpoint",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createVpcEndpointRequest !== null && createVpcEndpointRequest !== undefined) {
+                if (createVpcEndpointRequest instanceof CreateVpcEndpointRequest) {
+                    body = createVpcEndpointRequest.body
+                } else {
+                    body = createVpcEndpointRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -2504,6 +2776,59 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 删除资源标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteTags(deleteTagsRequest?: DeleteTagsRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/{resource_type}/{resource_id}/tags/delete",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let resourceId;
+
+            if (deleteTagsRequest !== null && deleteTagsRequest !== undefined) {
+                if (deleteTagsRequest instanceof DeleteTagsRequest) {
+                    resourceType = deleteTagsRequest.resourceType;
+                    resourceId = deleteTagsRequest.resourceId;
+                    body = deleteTagsRequest.body
+                } else {
+                    resourceType = deleteTagsRequest['resource_type'];
+                    resourceId = deleteTagsRequest['resource_id'];
+                    body = deleteTagsRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling deleteTags.');
+            }
+            if (resourceId === null || resourceId === undefined) {
+            throw new RequiredError('resourceId','Required parameter resourceId was null or undefined when calling deleteTags.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'resource_id': resourceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除函数版本别名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -2543,6 +2868,50 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn,'alias_name': aliasName, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除下沉入口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteVpcEndpoint(deleteVpcEndpointRequest?: DeleteVpcEndpointRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2/{project_id}/fgs/vpc-endpoint/{vpc_id}/{subnet_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let vpcId;
+            
+            let subnetId;
+
+            if (deleteVpcEndpointRequest !== null && deleteVpcEndpointRequest !== undefined) {
+                if (deleteVpcEndpointRequest instanceof DeleteVpcEndpointRequest) {
+                    vpcId = deleteVpcEndpointRequest.vpcId;
+                    subnetId = deleteVpcEndpointRequest.subnetId;
+                } else {
+                    vpcId = deleteVpcEndpointRequest['vpc_id'];
+                    subnetId = deleteVpcEndpointRequest['subnet_id'];
+                }
+            }
+
+        
+            if (vpcId === null || vpcId === undefined) {
+            throw new RequiredError('vpcId','Required parameter vpcId was null or undefined when calling deleteVpcEndpoint.');
+            }
+            if (subnetId === null || subnetId === undefined) {
+            throw new RequiredError('subnetId','Required parameter subnetId was null or undefined when calling deleteVpcEndpoint.');
+            }
+
+            options.pathParams = { 'vpc_id': vpcId,'subnet_id': subnetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -3787,6 +4156,43 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询函数快照制作状态。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showFuncSnapshotState(showFuncSnapshotStateRequest?: ShowFuncSnapshotStateRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/fgs/functions/{function_urn}/snapshots/state",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let functionUrn;
+
+            if (showFuncSnapshotStateRequest !== null && showFuncSnapshotStateRequest !== undefined) {
+                if (showFuncSnapshotStateRequest instanceof ShowFuncSnapshotStateRequest) {
+                    functionUrn = showFuncSnapshotStateRequest.functionUrn;
+                } else {
+                    functionUrn = showFuncSnapshotStateRequest['function_urn'];
+                }
+            }
+
+        
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling showFuncSnapshotState.');
+            }
+
+            options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 获取指定函数某一版本的异步配置信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -3981,6 +4387,96 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'function_urn': functionUrn, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资源标签。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showProjectTagsList(showProjectTagsListRequest?: ShowProjectTagsListRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/{resource_type}/tags",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let resourceType;
+
+            if (showProjectTagsListRequest !== null && showProjectTagsListRequest !== undefined) {
+                if (showProjectTagsListRequest instanceof ShowProjectTagsListRequest) {
+                    resourceType = showProjectTagsListRequest.resourceType;
+                } else {
+                    resourceType = showProjectTagsListRequest['resource_type'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showProjectTagsList.');
+            }
+
+            options.pathParams = { 'resource_type': resourceType, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询资源实例。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showResInstanceInfo(showResInstanceInfoRequest?: ShowResInstanceInfoRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/{resource_type}/resource-instances/{action}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let resourceType;
+            
+            let action;
+
+            if (showResInstanceInfoRequest !== null && showResInstanceInfoRequest !== undefined) {
+                if (showResInstanceInfoRequest instanceof ShowResInstanceInfoRequest) {
+                    resourceType = showResInstanceInfoRequest.resourceType;
+                    action = showResInstanceInfoRequest.action;
+                    body = showResInstanceInfoRequest.body
+                } else {
+                    resourceType = showResInstanceInfoRequest['resource_type'];
+                    action = showResInstanceInfoRequest['action'];
+                    body = showResInstanceInfoRequest['body'];
+                }
+            }
+
+        
+            if (resourceType === null || resourceType === undefined) {
+            throw new RequiredError('resourceType','Required parameter resourceType was null or undefined when calling showResInstanceInfo.');
+            }
+            if (action === null || action === undefined) {
+            throw new RequiredError('action','Required parameter action was null or undefined when calling showResInstanceInfo.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'resource_type': resourceType,'action': action, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4595,6 +5091,50 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'function_urn': functionUrn,'event_id': eventId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 禁用/启动函数快照
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateFuncSnapshot(updateFuncSnapshotRequest?: UpdateFuncSnapshotRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/fgs/functions/{function_urn}/snapshots/{action}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let action;
+            
+            let functionUrn;
+
+            if (updateFuncSnapshotRequest !== null && updateFuncSnapshotRequest !== undefined) {
+                if (updateFuncSnapshotRequest instanceof UpdateFuncSnapshotRequest) {
+                    action = updateFuncSnapshotRequest.action;
+                    functionUrn = updateFuncSnapshotRequest.functionUrn;
+                } else {
+                    action = updateFuncSnapshotRequest['action'];
+                    functionUrn = updateFuncSnapshotRequest['function_urn'];
+                }
+            }
+
+        
+            if (action === null || action === undefined) {
+            throw new RequiredError('action','Required parameter action was null or undefined when calling updateFuncSnapshot.');
+            }
+            if (functionUrn === null || functionUrn === undefined) {
+            throw new RequiredError('functionUrn','Required parameter functionUrn was null or undefined when calling updateFuncSnapshot.');
+            }
+
+            options.pathParams = { 'action': action,'function_urn': functionUrn, };
             options.headers = localVarHeaderParameter;
             return options;
         },

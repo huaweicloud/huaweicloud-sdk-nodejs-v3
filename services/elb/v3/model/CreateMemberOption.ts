@@ -5,12 +5,11 @@ export class CreateMemberOption {
     private 'admin_state_up'?: boolean | undefined;
     public name?: string;
     private 'project_id'?: string | undefined;
-    private 'protocol_port': number | undefined;
+    private 'protocol_port'?: number | undefined;
     private 'subnet_cidr_id'?: string | undefined;
     public weight?: number;
-    public constructor(address?: any, protocolPort?: any) { 
+    public constructor(address?: any) { 
         this['address'] = address;
-        this['protocol_port'] = protocolPort;
     }
     public withAddress(address: string): CreateMemberOption {
         this['address'] = address;

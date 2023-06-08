@@ -51,5 +51,6 @@ export class NodePoolSpec {
     */
 export enum NodePoolSpecTypeEnum {
     VM = 'vm',
-    ELASTICBMS = 'ElasticBMS'
+    ELASTICBMS = 'ElasticBMS',
+    PM = 'pm'
 }

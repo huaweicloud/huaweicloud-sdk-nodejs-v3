@@ -2,6 +2,7 @@ import { ListenerInsertHeaders } from './ListenerInsertHeaders';
 import { ListenerIpGroup } from './ListenerIpGroup';
 import { ListenerQuicConfig } from './ListenerQuicConfig';
 import { LoadBalancerRef } from './LoadBalancerRef';
+import { PortRange } from './PortRange';
 import { Tag } from './Tag';
 
 
@@ -38,6 +39,7 @@ export class Listener {
     private 'protection_status'?: ListenerProtectionStatusEnum | undefined;
     private 'protection_reason'?: string | undefined;
     private 'gzip_enable'?: boolean | undefined;
+    private 'port_ranges'?: Array<PortRange> | undefined;
     public constructor(adminStateUp?: any, clientCaTlsContainerRef?: any, connectionLimit?: any, createdAt?: any, defaultPoolId?: any, defaultTlsContainerRef?: any, description?: any, http2Enable?: any, id?: any, insertHeaders?: any, loadbalancers?: any, name?: any, projectId?: any, protocol?: any, protocolPort?: any, sniContainerRefs?: any, sniMatchAlgo?: any, tags?: any, updatedAt?: any, tlsCiphersPolicy?: any, securityPolicyId?: any, enableMemberRetry?: any, keepaliveTimeout?: any, clientTimeout?: any, memberTimeout?: any, ipgroup?: any, transparentClientIpEnable?: any, enhanceL7policyEnable?: any) { 
         this['admin_state_up'] = adminStateUp;
         this['client_ca_tls_container_ref'] = clientCaTlsContainerRef;
@@ -345,6 +347,16 @@ export class Listener {
     }
     public get gzipEnable() {
         return this['gzip_enable'];
+    }
+    public withPortRanges(portRanges: Array<PortRange>): Listener {
+        this['port_ranges'] = portRanges;
+        return this;
+    }
+    public set portRanges(portRanges: Array<PortRange> | undefined) {
+        this['port_ranges'] = portRanges;
+    }
+    public get portRanges() {
+        return this['port_ranges'];
     }
 }
 

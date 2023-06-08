@@ -18,6 +18,7 @@ export class CreatePoolOption {
     public type?: string;
     private 'protection_status'?: CreatePoolOptionProtectionStatusEnum | undefined;
     private 'protection_reason'?: string | undefined;
+    private 'any_port_enable'?: boolean | undefined;
     public constructor(lbAlgorithm?: any, protocol?: any) { 
         this['lb_algorithm'] = lbAlgorithm;
         this['protocol'] = protocol;
@@ -147,6 +148,16 @@ export class CreatePoolOption {
     }
     public get protectionReason() {
         return this['protection_reason'];
+    }
+    public withAnyPortEnable(anyPortEnable: boolean): CreatePoolOption {
+        this['any_port_enable'] = anyPortEnable;
+        return this;
+    }
+    public set anyPortEnable(anyPortEnable: boolean | undefined) {
+        this['any_port_enable'] = anyPortEnable;
+    }
+    public get anyPortEnable() {
+        return this['any_port_enable'];
     }
 }
 

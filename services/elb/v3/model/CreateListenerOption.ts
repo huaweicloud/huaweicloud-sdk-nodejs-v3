@@ -1,6 +1,7 @@
 import { CreateListenerIpGroupOption } from './CreateListenerIpGroupOption';
 import { CreateListenerQuicConfigOption } from './CreateListenerQuicConfigOption';
 import { ListenerInsertHeaders } from './ListenerInsertHeaders';
+import { PortRange } from './PortRange';
 import { Tag } from './Tag';
 
 
@@ -16,7 +17,7 @@ export class CreateListenerOption {
     public name?: string;
     private 'project_id'?: string | undefined;
     public protocol: string;
-    private 'protocol_port': number | undefined;
+    private 'protocol_port'?: number | undefined;
     private 'sni_container_refs'?: Array<string> | undefined;
     private 'sni_match_algo'?: string | undefined;
     public tags?: Array<Tag>;
@@ -33,10 +34,10 @@ export class CreateListenerOption {
     private 'protection_status'?: CreateListenerOptionProtectionStatusEnum | undefined;
     private 'protection_reason'?: string | undefined;
     private 'gzip_enable'?: boolean | undefined;
-    public constructor(loadbalancerId?: any, protocol?: any, protocolPort?: any) { 
+    private 'port_ranges'?: Array<PortRange> | undefined;
+    public constructor(loadbalancerId?: any, protocol?: any) { 
         this['loadbalancer_id'] = loadbalancerId;
         this['protocol'] = protocol;
-        this['protocol_port'] = protocolPort;
     }
     public withAdminStateUp(adminStateUp: boolean): CreateListenerOption {
         this['admin_state_up'] = adminStateUp;
@@ -287,6 +288,16 @@ export class CreateListenerOption {
     }
     public get gzipEnable() {
         return this['gzip_enable'];
+    }
+    public withPortRanges(portRanges: Array<PortRange>): CreateListenerOption {
+        this['port_ranges'] = portRanges;
+        return this;
+    }
+    public set portRanges(portRanges: Array<PortRange> | undefined) {
+        this['port_ranges'] = portRanges;
+    }
+    public get portRanges() {
+        return this['port_ranges'];
     }
 }
 

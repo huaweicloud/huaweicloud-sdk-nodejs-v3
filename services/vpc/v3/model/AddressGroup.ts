@@ -10,9 +10,10 @@ export class AddressGroup {
     private 'created_at': Date | undefined;
     private 'updated_at': Date | undefined;
     private 'tenant_id': string | undefined;
+    private 'enterprise_project_id': string | undefined;
     public status: string;
     private 'status_message': string | undefined;
-    public constructor(id?: any, name?: any, description?: any, maxCapacity?: any, ipSet?: any, ipVersion?: any, createdAt?: any, updatedAt?: any, tenantId?: any, status?: any, statusMessage?: any) { 
+    public constructor(id?: any, name?: any, description?: any, maxCapacity?: any, ipSet?: any, ipVersion?: any, createdAt?: any, updatedAt?: any, tenantId?: any, enterpriseProjectId?: any, status?: any, statusMessage?: any) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -22,6 +23,7 @@ export class AddressGroup {
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
         this['tenant_id'] = tenantId;
+        this['enterprise_project_id'] = enterpriseProjectId;
         this['status'] = status;
         this['status_message'] = statusMessage;
     }
@@ -96,6 +98,16 @@ export class AddressGroup {
     }
     public get tenantId() {
         return this['tenant_id'];
+    }
+    public withEnterpriseProjectId(enterpriseProjectId: string): AddressGroup {
+        this['enterprise_project_id'] = enterpriseProjectId;
+        return this;
+    }
+    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+        this['enterprise_project_id'] = enterpriseProjectId;
+    }
+    public get enterpriseProjectId() {
+        return this['enterprise_project_id'];
     }
     public withStatus(status: string): AddressGroup {
         this['status'] = status;

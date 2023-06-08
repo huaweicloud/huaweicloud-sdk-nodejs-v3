@@ -8,6 +8,7 @@ export class TaskProgress {
     public waitting?: number;
     private 'fail_wait_retry'?: number | undefined;
     public stopped?: number;
+    public removed?: number;
     public constructor() { 
     }
     public withTotal(total: number): TaskProgress {
@@ -42,6 +43,10 @@ export class TaskProgress {
     }
     public withStopped(stopped: number): TaskProgress {
         this['stopped'] = stopped;
+        return this;
+    }
+    public withRemoved(removed: number): TaskProgress {
+        this['removed'] = removed;
         return this;
     }
 }

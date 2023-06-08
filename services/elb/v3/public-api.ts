@@ -184,6 +184,7 @@ export * from './model/MemberStatus';
 export * from './model/PageInfo';
 export * from './model/Pool';
 export * from './model/PoolRef';
+export * from './model/PortRange';
 export * from './model/PreoccupyIp';
 export * from './model/PrepaidChangeChargeModeOption';
 export * from './model/PrepaidCreateOption';

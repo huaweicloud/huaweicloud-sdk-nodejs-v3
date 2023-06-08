@@ -50,6 +50,10 @@ import { BatchUpdateServersNameRequest } from './model/BatchUpdateServersNameReq
 import { BatchUpdateServersNameRequestBody } from './model/BatchUpdateServersNameRequestBody';
 import { BatchUpdateServersNameResponse } from './model/BatchUpdateServersNameResponse';
 import { BlockDeviceAttachableQuantity } from './model/BlockDeviceAttachableQuantity';
+import { ChangeServerChargeModePrepaidOption } from './model/ChangeServerChargeModePrepaidOption';
+import { ChangeServerChargeModeRequest } from './model/ChangeServerChargeModeRequest';
+import { ChangeServerChargeModeRequestBody } from './model/ChangeServerChargeModeRequestBody';
+import { ChangeServerChargeModeResponse } from './model/ChangeServerChargeModeResponse';
 import { ChangeServerOsWithCloudInitOption } from './model/ChangeServerOsWithCloudInitOption';
 import { ChangeServerOsWithCloudInitRequest } from './model/ChangeServerOsWithCloudInitRequest';
 import { ChangeServerOsWithCloudInitRequestBody } from './model/ChangeServerOsWithCloudInitRequestBody';
@@ -69,6 +73,7 @@ import { CreateServerGroupRequest } from './model/CreateServerGroupRequest';
 import { CreateServerGroupRequestBody } from './model/CreateServerGroupRequestBody';
 import { CreateServerGroupResponse } from './model/CreateServerGroupResponse';
 import { CreateServerGroupResult } from './model/CreateServerGroupResult';
+import { CreateServerNicAllowedAddressPairs } from './model/CreateServerNicAllowedAddressPairs';
 import { CreateServersRequest } from './model/CreateServersRequest';
 import { CreateServersRequestBody } from './model/CreateServersRequestBody';
 import { CreateServersResponse } from './model/CreateServersResponse';
@@ -594,6 +599,25 @@ export class EcsClient {
      */
     public batchUpdateServersName(batchUpdateServersNameRequest?: BatchUpdateServersNameRequest): Promise<BatchUpdateServersNameResponse> {
         const options = ParamCreater().batchUpdateServersName(batchUpdateServersNameRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更换云服务器的计费模式
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更换云服务器计费模式
+     * @param {ChangeServerChargeModeRequestBody} changeServerChargeModeRequestBody This is a change server charge mode Body Object
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public changeServerChargeMode(changeServerChargeModeRequest?: ChangeServerChargeModeRequest): Promise<ChangeServerChargeModeResponse> {
+        const options = ParamCreater().changeServerChargeMode(changeServerChargeModeRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2391,6 +2415,44 @@ export const ParamCreater = function () {
                     body = batchUpdateServersNameRequest.body
                 } else {
                     body = batchUpdateServersNameRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更换云服务器的计费模式
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        changeServerChargeMode(changeServerChargeModeRequest?: ChangeServerChargeModeRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/{project_id}/cloudservers/actions/change-charge-mode",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (changeServerChargeModeRequest !== null && changeServerChargeModeRequest !== undefined) {
+                if (changeServerChargeModeRequest instanceof ChangeServerChargeModeRequest) {
+                    body = changeServerChargeModeRequest.body
+                } else {
+                    body = changeServerChargeModeRequest['body'];
                 }
             }
 

@@ -1,3 +1,221 @@
+# 3.1.41 2023-06-08
+
+### HuaweiCloud SDK CCE
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowNode**
+    - changes of response param
+      - `+ spec.extendParam.kube-reserved-mem`
+      - `+ spec.extendParam.system-reserved-mem`
+  - **UpdateNode**
+    - changes of response param
+      - `+ spec.extendParam.kube-reserved-mem`
+      - `+ spec.extendParam.system-reserved-mem`
+  - **DeleteNode**
+    - changes of response param
+      - `+ spec.extendParam.kube-reserved-mem`
+      - `+ spec.extendParam.system-reserved-mem`
+  - **CreateNode**
+    - changes of request param
+      - `+ spec.extendParam.kube-reserved-mem`
+      - `+ spec.extendParam.system-reserved-mem`
+    - changes of response param
+      - `+ spec.extendParam.kube-reserved-mem`
+      - `+ spec.extendParam.system-reserved-mem`
+  - **ListNodes**
+    - changes of response param
+      - `+ items.spec.extendParam.kube-reserved-mem`
+      - `+ items.spec.extendParam.system-reserved-mem`
+  - **ShowNodePool**
+    - changes of response param
+      - `+ spec.type: enum value [pm]`
+      - `+ spec.nodeTemplate.extendParam.kube-reserved-mem`
+      - `+ spec.nodeTemplate.extendParam.system-reserved-mem`
+  - **UpdateNodePool**
+    - changes of response param
+      - `+ spec.type: enum value [pm]`
+      - `+ spec.nodeTemplate.extendParam.kube-reserved-mem`
+      - `+ spec.nodeTemplate.extendParam.system-reserved-mem`
+  - **DeleteNodePool**
+    - changes of response param
+      - `+ spec.type: enum value [pm]`
+      - `+ spec.nodeTemplate.extendParam.kube-reserved-mem`
+      - `+ spec.nodeTemplate.extendParam.system-reserved-mem`
+  - **CreateNodePool**
+    - changes of request param
+      - `+ spec.type: enum value [pm]`
+      - `+ spec.nodeTemplate.extendParam.kube-reserved-mem`
+      - `+ spec.nodeTemplate.extendParam.system-reserved-mem`
+    - changes of response param
+      - `+ spec.type: enum value [pm]`
+      - `+ spec.nodeTemplate.extendParam.kube-reserved-mem`
+      - `+ spec.nodeTemplate.extendParam.system-reserved-mem`
+  - **ListNodePools**
+    - changes of response param
+      - `+ items.spec.type: enum value [pm]`
+      - `+ items.spec.nodeTemplate.extendParam.kube-reserved-mem`
+      - `+ items.spec.nodeTemplate.extendParam.system-reserved-mem`
+
+### HuaweiCloud SDK DNS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListRecordSetsByZone**
+    - changes of request param
+      - `+ search_mode`
+  - **CreateRecordSet**
+    - changes of request param
+      - `* body: object<CreateRecordSetReq> -> object<CreateRecordSetRequestBody>`
+  - **CreateRecordSetWithLine**
+    - changes of request param
+      - `* body: object<CreateRecordSetWithLineReq> -> object<CreateRecordSetWithLineRequestBody>`
+  - **ListPublicZones**
+    - changes of request param
+      - `+ search_mode`
+  - **ListPrivateZones**
+    - changes of request param
+      - `+ search_mode`
+  - **ListRecordSets**
+    - changes of request param
+      - `+ search_mode`
+
+### HuaweiCloud SDK ECS
+
+- _Features_
+  - Support the interface `ChangeServerChargeMode`
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateServers**
+    - changes of request param
+      - `+ server.nics.allowed_address_pairs`
+  - **CreatePostPaidServers**
+    - changes of request param
+      - `+ server.nics.allowed_address_pairs`
+
+### HuaweiCloud SDK ELB
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListListeners**
+    - changes of response param
+      - `+ listeners.port_ranges`
+  - **CreateListener**
+    - changes of request param
+      - `+ listener.port_ranges`
+    - changes of response param
+      - `+ listener.port_ranges`
+  - **ShowListener**
+    - changes of response param
+      - `+ listener.port_ranges`
+  - **UpdateListener**
+    - changes of response param
+      - `+ listener.port_ranges`
+  - **ListPools**
+    - changes of response param
+      - `+ pools.any_port_enable`
+  - **CreatePool**
+    - changes of request param
+      - `+ pool.any_port_enable`
+    - changes of response param
+      - `+ pool.any_port_enable`
+  - **ShowPool**
+    - changes of response param
+      - `+ pool.any_port_enable`
+  - **UpdatePool**
+    - changes of response param
+      - `+ pool.any_port_enable`
+
+### HuaweiCloud SDK FunctionGraph
+
+- _Features_
+  - Support the following interfaces：
+    - `UpdateFuncSnapshot`
+    - `ShowFuncSnapshotState`
+    - `ShowResInstanceInfo`
+    - `ShowProjectTagsList`
+    - `CreateTags`
+    - `DeleteTags`
+    - `CreateVpcEndpoint`
+    - `DeleteVpcEndpoint`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListStatistics**
+    - changes of response param
+      - `* count.value: int32 -> number`
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - Support the interfaces `RetryBatchTask`, `StopBatchTask`
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateBatchTask**
+    - changes of response param
+      - `+ task_progress.removed`
+      - `+ task_progress.device_in_progress`
+      - `+ task_progress.rejected`
+  - **ListBatchTasks**
+    - changes of response param
+      - `+ batchtasks.task_progress.removed`
+      - `+ batchtasks.task_progress.device_in_progress`
+      - `+ batchtasks.task_progress.rejected`
+  - **ShowBatchTask**
+    - changes of request param
+      - `+ task_detail_status`
+      - `+ target`
+    - changes of response param
+      - `+ batchtask.task_progress.removed`
+      - `+ batchtask.task_progress.device_in_progress`
+      - `+ batchtask.task_progress.rejected`
+
+### HuaweiCloud SDK TMS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListResource**
+    - changes of response param
+      - `+ resources.tags`
+
+### HuaweiCloud SDK VPC
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowAddressGroup**
+    - changes of response param
+      - `+ address_group.enterprise_project_id`
+  - **UpdateAddressGroup**
+    - changes of response param
+      - `+ address_group.enterprise_project_id`
+  - **ListAddressGroup**
+    - changes of request param
+      - `+ enterprise_project_id`
+    - changes of response param
+      - `+ address_groups.enterprise_project_id`
+  - **CreateAddressGroup**
+    - changes of request param
+      - `+ address_group.enterprise_project_id`
+    - changes of response param
+      - `+ address_group.enterprise_project_id`
+
 # 3.1.40 2023-06-01
 
 ### HuaweiCloud SDK CBR

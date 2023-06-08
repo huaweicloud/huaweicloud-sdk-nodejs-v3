@@ -1,3 +1,4 @@
+import { CreateServerNicAllowedAddressPairs } from './CreateServerNicAllowedAddressPairs';
 import { PostPaidServerIpv6Bandwidth } from './PostPaidServerIpv6Bandwidth';
 
 
@@ -6,6 +7,7 @@ export class PostPaidServerNic {
     private 'ip_address'?: string | undefined;
     private 'ipv6_enable'?: boolean | undefined;
     private 'ipv6_bandwidth'?: PostPaidServerIpv6Bandwidth | undefined;
+    private 'allowed_address_pairs'?: Array<CreateServerNicAllowedAddressPairs> | undefined;
     public constructor(subnetId?: any) { 
         this['subnet_id'] = subnetId;
     }
@@ -48,5 +50,15 @@ export class PostPaidServerNic {
     }
     public get ipv6Bandwidth() {
         return this['ipv6_bandwidth'];
+    }
+    public withAllowedAddressPairs(allowedAddressPairs: Array<CreateServerNicAllowedAddressPairs>): PostPaidServerNic {
+        this['allowed_address_pairs'] = allowedAddressPairs;
+        return this;
+    }
+    public set allowedAddressPairs(allowedAddressPairs: Array<CreateServerNicAllowedAddressPairs> | undefined) {
+        this['allowed_address_pairs'] = allowedAddressPairs;
+    }
+    public get allowedAddressPairs() {
+        return this['allowed_address_pairs'];
     }
 }

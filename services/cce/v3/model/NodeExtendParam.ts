@@ -20,6 +20,8 @@ export class NodeExtendParam {
     private 'enterprise_project_id'?: string | undefined;
     public chargingMode?: number;
     private 'agency_name'?: string | undefined;
+    private 'kube-reserved-mem'?: number | undefined;
+    private 'system-reserved-mem'?: number | undefined;
     public constructor() { 
     }
     public withEcsPerformancetype(ecsPerformancetype: string): NodeExtendParam {
@@ -139,5 +141,25 @@ export class NodeExtendParam {
     }
     public get agencyName() {
         return this['agency_name'];
+    }
+    public withKubeReservedMem(kubeReservedMem: number): NodeExtendParam {
+        this['kube-reserved-mem'] = kubeReservedMem;
+        return this;
+    }
+    public set kubeReservedMem(kubeReservedMem: number | undefined) {
+        this['kube-reserved-mem'] = kubeReservedMem;
+    }
+    public get kubeReservedMem() {
+        return this['kube-reserved-mem'];
+    }
+    public withSystemReservedMem(systemReservedMem: number): NodeExtendParam {
+        this['system-reserved-mem'] = systemReservedMem;
+        return this;
+    }
+    public set systemReservedMem(systemReservedMem: number | undefined) {
+        this['system-reserved-mem'] = systemReservedMem;
+    }
+    public get systemReservedMem() {
+        return this['system-reserved-mem'];
     }
 }

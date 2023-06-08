@@ -186,6 +186,7 @@ import { MemberStatus } from './model/MemberStatus';
 import { PageInfo } from './model/PageInfo';
 import { Pool } from './model/Pool';
 import { PoolRef } from './model/PoolRef';
+import { PortRange } from './model/PortRange';
 import { PreoccupyIp } from './model/PreoccupyIp';
 import { PrepaidChangeChargeModeOption } from './model/PrepaidChangeChargeModeOption';
 import { PrepaidCreateOption } from './model/PrepaidCreateOption';

@@ -27,6 +27,7 @@ export class Pool {
     public type: string;
     private 'protection_status'?: PoolProtectionStatusEnum | undefined;
     private 'protection_reason'?: string | undefined;
+    private 'any_port_enable'?: boolean | undefined;
     public constructor(adminStateUp?: any, description?: any, healthmonitorId?: any, id?: any, lbAlgorithm?: any, listeners?: any, loadbalancers?: any, members?: any, name?: any, projectId?: any, protocol?: any, sessionPersistence?: any, slowStart?: any, memberDeletionProtectionEnable?: any, vpcId?: any, type?: any) { 
         this['admin_state_up'] = adminStateUp;
         this['description'] = description;
@@ -206,6 +207,16 @@ export class Pool {
     }
     public get protectionReason() {
         return this['protection_reason'];
+    }
+    public withAnyPortEnable(anyPortEnable: boolean): Pool {
+        this['any_port_enable'] = anyPortEnable;
+        return this;
+    }
+    public set anyPortEnable(anyPortEnable: boolean | undefined) {
+        this['any_port_enable'] = anyPortEnable;
+    }
+    public get anyPortEnable() {
+        return this['any_port_enable'];
     }
 }
 
