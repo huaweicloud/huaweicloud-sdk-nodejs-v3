@@ -32,6 +32,7 @@ export class ShowPremiumHostResponse extends SdkResponse {
     private 'block_page'?: BlockPage | undefined;
     private 'traffic_mark'?: TrafficMark | undefined;
     private 'timeout_config'?: TimeoutConfig | undefined;
+    private 'forward_header_map'?: { [key: string]: string; } | undefined;
     private 'access_progress'?: Array<AccessProgress> | undefined;
     public constructor() { 
         super();
@@ -173,6 +174,16 @@ export class ShowPremiumHostResponse extends SdkResponse {
     }
     public get timeoutConfig() {
         return this['timeout_config'];
+    }
+    public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): ShowPremiumHostResponse {
+        this['forward_header_map'] = forwardHeaderMap;
+        return this;
+    }
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+        this['forward_header_map'] = forwardHeaderMap;
+    }
+    public get forwardHeaderMap() {
+        return this['forward_header_map'];
     }
     public withAccessProgress(accessProgress: Array<AccessProgress>): ShowPremiumHostResponse {
         this['access_progress'] = accessProgress;

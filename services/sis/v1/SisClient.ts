@@ -269,6 +269,8 @@ export class SisClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询热词表列表
+     * @param {number} [offset] 页码偏移量，表示从此页码偏移量开始查询，offset大于等于0。
+     * @param {number} [limit] 每页显示的条目数量。
      * @param {ShowVocabulariesParams} [showVocabulariesParams] 请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -749,21 +751,36 @@ export const ParamCreater = function () {
                 data: {}
             };
             const localVarHeaderParameter = {} as any;
-
+            const localVarQueryParameter = {} as any;
             let body: any;
+            
+            let offset;
+            
+            let limit;
 
             if (showVocabulariesRequest !== null && showVocabulariesRequest !== undefined) {
                 if (showVocabulariesRequest instanceof ShowVocabulariesRequest) {
+                    offset = showVocabulariesRequest.offset;
+                    limit = showVocabulariesRequest.limit;
                     body = showVocabulariesRequest.body
                 } else {
+                    offset = showVocabulariesRequest['offset'];
+                    limit = showVocabulariesRequest['limit'];
                     body = showVocabulariesRequest['body'];
                 }
             }
 
         
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
 
             options.data = body !== undefined ? body : {};
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

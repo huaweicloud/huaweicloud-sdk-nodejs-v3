@@ -2,15 +2,14 @@
 
 export class AlarmSubRequest {
     public name: string;
-    public enable: string;
+    public enable?: number;
     private 'alarm_level'?: string | undefined;
     private 'notification_target': string | undefined;
     private 'notification_target_name': string | undefined;
     private 'notification_target_type': string | undefined;
     private 'time_zone': string | undefined;
-    public constructor(name?: any, enable?: any, notificationTarget?: any, notificationTargetName?: any, notificationTargetType?: any, timeZone?: any) { 
+    public constructor(name?: any, notificationTarget?: any, notificationTargetName?: any, notificationTargetType?: any, timeZone?: any) { 
         this['name'] = name;
-        this['enable'] = enable;
         this['notification_target'] = notificationTarget;
         this['notification_target_name'] = notificationTargetName;
         this['notification_target_type'] = notificationTargetType;
@@ -20,7 +19,7 @@ export class AlarmSubRequest {
         this['name'] = name;
         return this;
     }
-    public withEnable(enable: string): AlarmSubRequest {
+    public withEnable(enable: number): AlarmSubRequest {
         this['enable'] = enable;
         return this;
     }

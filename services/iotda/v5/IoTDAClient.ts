@@ -576,7 +576,7 @@ export class IoTDAClient {
      * @summary 查询批量任务
      * @param {string} taskId **参数说明**：批量任务ID，创建批量任务时由物联网平台分配获得。 **取值范围**：长度不超过24，只允许小写字母a到f、数字的组合。
      * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
-     * @param {string} [taskDetailStatus] **参数说明**：子任务的执行状态，可选参数。 **取值范围**： - Success: 成功。 - Fail: 失败。 - Processing: 执行中。 - FailWaitRetry: 失败重试。 - Stopped: 已停止。 - Waitting: 等待执行。 - Removed: 已移除
+     * @param {string} [taskDetailStatus] **参数说明**：子任务的执行状态，可选参数。 **取值范围**： - Success: 成功。 - Fail: 失败。 - Processing: 执行中。 - FailWaitRetry: 失败重试。 - Stopped: 已停止。 - Waitting: 等待执行。 - Removed: 已移除。
      * @param {string} [target] **参数说明**：执行批量任务的目标，当task_type为firmwareUpgrade，softwareUpgrade，deleteDevices，freezeDevices，unfreezeDevices，createCommands，createAsyncCommands，createMessages，updateDeviceShadows，此处填写device_id **取值范围**：长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。
      * @param {number} [limit] **参数说明**：分页查询时每页显示的记录数。 **取值范围**：1-50的整数，默认值为10。
      * @param {string} [marker] **参数说明**：上一次分页查询结果中最后一条记录的ID，在上一次分页查询时由物联网平台返回获得。分页查询时物联网平台是按marker也就是记录ID降序查询的，越新的数据记录ID也会越大。若填写marker，则本次只查询记录ID小于marker的数据记录。若不填写，则从记录ID最大也就是最新的一条数据开始查询。如果需要依次查询所有数据，则每次查询时必须填写上一次查询响应中的marker值。 **取值范围**：长度为24的十六进制字符串，默认值为ffffffffffffffffffffffff。
@@ -1164,11 +1164,11 @@ export class IoTDAClient {
      * | 字段名      | 类型   | 说明             | 取值范围                                                     |
      * | :---------- | :----- | :--------------- | :----------------------------------------------------------- |
      * | app_id      | string | 资源空间ID       | 长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
-     * | device_id   | string | 设备ID           | 长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合，建议不少于4个字符。 |
+     * | device_id   | string | 设备ID           | 长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
      * | gateway_id  | string | 网关ID           | 长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
      * | product_id  | string | 设备关联的产品ID | 长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
-     * | device_name | string | 设备名称         | 长度不超过256，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合，建议不少于4个字符。 |
-     * | node_id     | string | 设备标识码       | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）的组合，建议不少于4个字符 |
+     * | device_name | string | 设备名称         | 长度不超过256，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合符。 |
+     * | node_id     | string | 设备标识码       | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）的组合 |
      * | status      | string | 设备的状态       | ONLINE(在线)、OFFLINE(离线)、ABNORMAL(异常)、INACTIVE(未激活)、FROZEN(冻结) |
      * | node_type   | string | 设备节点类型     | GATEWAY(直连设备或网关)、ENDPOINT(非直连设备)                |
      * | tag_key     | string | 标签键           | 长度不超过64，只允许中文、字母、数字、以及_.-等字符的组合。  |
@@ -2715,7 +2715,7 @@ export const ParamCreater = function () {
         retryBatchTask(retryBatchTaskRequest?: RetryBatchTaskRequest) {
             const options = {
                 method: "POST",
-                url: "/{project_id}/batchtasks/{task_id}/retry",
+                url: "/v5/iot/{project_id}/batchtasks/{task_id}/retry",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -2845,7 +2845,7 @@ export const ParamCreater = function () {
         stopBatchTask(stopBatchTaskRequest?: StopBatchTaskRequest) {
             const options = {
                 method: "POST",
-                url: "/{project_id}/batchtasks/{task_id}/stop",
+                url: "/v5/iot/{project_id}/batchtasks/{task_id}/stop",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -4195,11 +4195,11 @@ export const ParamCreater = function () {
          * | 字段名      | 类型   | 说明             | 取值范围                                                     |
          * | :---------- | :----- | :--------------- | :----------------------------------------------------------- |
          * | app_id      | string | 资源空间ID       | 长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
-         * | device_id   | string | 设备ID           | 长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合，建议不少于4个字符。 |
+         * | device_id   | string | 设备ID           | 长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
          * | gateway_id  | string | 网关ID           | 长度不超过128，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
          * | product_id  | string | 设备关联的产品ID | 长度不超过36，只允许字母、数字、下划线（_）、连接符（-）的组合。 |
-         * | device_name | string | 设备名称         | 长度不超过256，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合，建议不少于4个字符。 |
-         * | node_id     | string | 设备标识码       | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）的组合，建议不少于4个字符 |
+         * | device_name | string | 设备名称         | 长度不超过256，只允许中文、字母、数字、以及_?\&#39;#().,&amp;%@!-等字符的组合符。 |
+         * | node_id     | string | 设备标识码       | 长度不超过64，只允许字母、数字、下划线（_）、连接符（-）的组合 |
          * | status      | string | 设备的状态       | ONLINE(在线)、OFFLINE(离线)、ABNORMAL(异常)、INACTIVE(未激活)、FROZEN(冻结) |
          * | node_type   | string | 设备节点类型     | GATEWAY(直连设备或网关)、ENDPOINT(非直连设备)                |
          * | tag_key     | string | 标签键           | 长度不超过64，只允许中文、字母、数字、以及_.-等字符的组合。  |

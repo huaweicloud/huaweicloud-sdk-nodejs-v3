@@ -24,6 +24,7 @@ export class CreateHostResponse extends SdkResponse {
     private 'block_page'?: BlockPage | undefined;
     public flag?: Flag;
     public extend?: { [key: string]: string; };
+    private 'forward_header_map'?: { [key: string]: string; } | undefined;
     public constructor() { 
         super();
     }
@@ -150,6 +151,16 @@ export class CreateHostResponse extends SdkResponse {
     public withExtend(extend: { [key: string]: string; }): CreateHostResponse {
         this['extend'] = extend;
         return this;
+    }
+    public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): CreateHostResponse {
+        this['forward_header_map'] = forwardHeaderMap;
+        return this;
+    }
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+        this['forward_header_map'] = forwardHeaderMap;
+    }
+    public get forwardHeaderMap() {
+        return this['forward_header_map'];
     }
 }
 

@@ -7,6 +7,7 @@ export class GeneralTextRequestBody {
     private 'quick_mode'?: boolean | undefined;
     private 'character_mode'?: boolean | undefined;
     public language?: string;
+    private 'single_orientation_mode'?: boolean | undefined;
     public constructor() { 
     }
     public withImage(image: string): GeneralTextRequestBody {
@@ -50,5 +51,15 @@ export class GeneralTextRequestBody {
     public withLanguage(language: string): GeneralTextRequestBody {
         this['language'] = language;
         return this;
+    }
+    public withSingleOrientationMode(singleOrientationMode: boolean): GeneralTextRequestBody {
+        this['single_orientation_mode'] = singleOrientationMode;
+        return this;
+    }
+    public set singleOrientationMode(singleOrientationMode: boolean | undefined) {
+        this['single_orientation_mode'] = singleOrientationMode;
+    }
+    public get singleOrientationMode() {
+        return this['single_orientation_mode'];
     }
 }

@@ -10,6 +10,7 @@ export class CreatePremiumHostRequestBody {
     public policyid?: string;
     public server: Array<PremiumWafServer>;
     private 'block_page'?: BlockPage | undefined;
+    private 'forward_header_map'?: { [key: string]: string; } | undefined;
     public description?: string;
     public constructor(hostname?: any, proxy?: any, server?: any) { 
         this['hostname'] = hostname;
@@ -49,6 +50,16 @@ export class CreatePremiumHostRequestBody {
     }
     public get blockPage() {
         return this['block_page'];
+    }
+    public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): CreatePremiumHostRequestBody {
+        this['forward_header_map'] = forwardHeaderMap;
+        return this;
+    }
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+        this['forward_header_map'] = forwardHeaderMap;
+    }
+    public get forwardHeaderMap() {
+        return this['forward_header_map'];
     }
     public withDescription(description: string): CreatePremiumHostRequestBody {
         this['description'] = description;

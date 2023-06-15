@@ -13,6 +13,7 @@ export class CreateHostRequestBody {
     public proxy: boolean;
     private 'lb_algorithm'?: CreateHostRequestBodyLbAlgorithmEnum | undefined;
     public description?: string;
+    private 'forward_header_map'?: { [key: string]: string; } | undefined;
     public constructor(hostname?: any, server?: any, proxy?: any) { 
         this['hostname'] = hostname;
         this['server'] = server;
@@ -85,6 +86,16 @@ export class CreateHostRequestBody {
     public withDescription(description: string): CreateHostRequestBody {
         this['description'] = description;
         return this;
+    }
+    public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): CreateHostRequestBody {
+        this['forward_header_map'] = forwardHeaderMap;
+        return this;
+    }
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+        this['forward_header_map'] = forwardHeaderMap;
+    }
+    public get forwardHeaderMap() {
+        return this['forward_header_map'];
     }
 }
 

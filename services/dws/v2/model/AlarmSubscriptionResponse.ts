@@ -3,7 +3,7 @@
 export class AlarmSubscriptionResponse {
     public id?: string;
     public name?: string;
-    public enable?: string;
+    public enable?: number;
     private 'alarm_level'?: string | undefined;
     private 'project_id'?: string | undefined;
     private 'name_space'?: string | undefined;
@@ -22,7 +22,7 @@ export class AlarmSubscriptionResponse {
         this['name'] = name;
         return this;
     }
-    public withEnable(enable: string): AlarmSubscriptionResponse {
+    public withEnable(enable: number): AlarmSubscriptionResponse {
         this['enable'] = enable;
         return this;
     }

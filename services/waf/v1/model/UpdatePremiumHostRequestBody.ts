@@ -22,6 +22,7 @@ export class UpdatePremiumHostRequestBody {
     private 'circuit_breaker'?: CircuitBreaker | undefined;
     private 'timeout_config'?: TimeoutConfig | undefined;
     public flag?: HostFlag;
+    private 'forward_header_map'?: { [key: string]: string; } | undefined;
     public constructor() { 
     }
     public withProxy(proxy: boolean): UpdatePremiumHostRequestBody {
@@ -129,6 +130,16 @@ export class UpdatePremiumHostRequestBody {
     public withFlag(flag: HostFlag): UpdatePremiumHostRequestBody {
         this['flag'] = flag;
         return this;
+    }
+    public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): UpdatePremiumHostRequestBody {
+        this['forward_header_map'] = forwardHeaderMap;
+        return this;
+    }
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+        this['forward_header_map'] = forwardHeaderMap;
+    }
+    public get forwardHeaderMap() {
+        return this['forward_header_map'];
     }
 }
 

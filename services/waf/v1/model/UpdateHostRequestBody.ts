@@ -24,6 +24,7 @@ export class UpdateHostRequestBody {
     public extend?: { [key: string]: string; };
     private 'circuit_breaker'?: CircuitBreaker | undefined;
     private 'timeout_config'?: TimeoutConfig | undefined;
+    private 'forward_header_map'?: { [key: string]: string; } | undefined;
     public constructor() { 
     }
     public withProxy(proxy: boolean): UpdateHostRequestBody {
@@ -147,6 +148,16 @@ export class UpdateHostRequestBody {
     }
     public get timeoutConfig() {
         return this['timeout_config'];
+    }
+    public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): UpdateHostRequestBody {
+        this['forward_header_map'] = forwardHeaderMap;
+        return this;
+    }
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+        this['forward_header_map'] = forwardHeaderMap;
+    }
+    public get forwardHeaderMap() {
+        return this['forward_header_map'];
     }
 }
 

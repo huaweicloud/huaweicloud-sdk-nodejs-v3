@@ -7,13 +7,12 @@ export class EventSubUpdateRequest {
     public category?: string;
     public severity?: string;
     public tag?: string;
-    public enable: number;
+    public enable?: number;
     private 'notification_target': string | undefined;
     private 'notification_target_name': string | undefined;
     private 'notification_target_type': string | undefined;
-    public constructor(name?: any, enable?: any, notificationTarget?: any, notificationTargetName?: any, notificationTargetType?: any) { 
+    public constructor(name?: any, notificationTarget?: any, notificationTargetName?: any, notificationTargetType?: any) { 
         this['name'] = name;
-        this['enable'] = enable;
         this['notification_target'] = notificationTarget;
         this['notification_target_name'] = notificationTargetName;
         this['notification_target_type'] = notificationTargetType;

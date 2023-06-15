@@ -1,3 +1,100 @@
+# 3.1.42 2023-06-15
+
+### HuaweiCloud SDK Live
+
+- _Features_
+    - Support Live service.
+- _Bug Fix_
+    - None
+- _Change_
+    - None
+
+### HuaweiCloud SDK DWS
+
+- _Features_
+  - Support the following interfaces：
+    - `ShowDatabaseAuthority`
+    - `UpdateDatabaseAuthority`
+    - `SyncIamUsers`
+    - `ListDatabaseUsers`
+    - `ShowDatabaseUser`
+    - `UpdateDatabaseUserInfo`
+    - `ShowDisasterProgress`
+- _Bug Fix_
+  - None
+- _Change_
+  - **UpdateAlarmSub**
+    - changes of request param
+      - `* enable: string -> int32`
+    - changes of response param
+      - `* enable: string -> int32`
+  - **DeleteAlarmSub**
+    - changes of response param
+      - `* enable: string -> int32`
+  - **ShowDisasterDetail**
+    - changes of response param
+      - `+ disaster_recovery`
+      - `- start_time`
+      - `- dr_type`
+      - `- create_time`
+      - `- name`
+      - `- standby_cluster`
+      - `- id`
+      - `- dr_sync_period`
+      - `- status`
+      - `- primary_cluster`
+  - **CreateAlarmSub**
+    - changes of request param
+      - `* enable: string -> int32`
+    - changes of response param
+      - `* enable: string -> int32`
+  - **ListAlarmSubs**
+    - changes of response param
+      - `* alarm_subscriptions.enable: string -> int32`
+
+### HuaweiCloud SDK IoTDA
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **CreateBatchTask**
+    - changes of response param
+      - `- task_progress.device_in_progress`
+      - `- task_progress.rejected`
+  - **ListBatchTasks**
+    - changes of response param
+      - `- batchtasks.task_progress.device_in_progress`
+      - `- batchtasks.task_progress.rejected`
+  - **ShowBatchTask**
+    - changes of response param
+      - `- batchtask.task_progress.device_in_progress`
+      - `- batchtask.task_progress.rejected`
+
+### HuaweiCloud SDK OCR
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **RecognizeGeneralText**
+    - changes of request param
+      - `+ single_orientation_mode`
+
+### HuaweiCloud SDK SIS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowVocabularies**
+    - changes of request param
+      - `+ offset`
+      - `+ limit`
+
 # 3.1.41 2023-06-08
 
 ### HuaweiCloud SDK CCE

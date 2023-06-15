@@ -39,6 +39,7 @@ export class UpdateHostResponse extends SdkResponse {
     private 'http2_enable'?: boolean | undefined;
     private 'exclusive_ip'?: boolean | undefined;
     private 'access_progress'?: Array<AccessProgress> | undefined;
+    private 'forward_header_map'?: { [key: string]: string; } | undefined;
     public constructor() { 
         super();
     }
@@ -239,6 +240,16 @@ export class UpdateHostResponse extends SdkResponse {
     }
     public get accessProgress() {
         return this['access_progress'];
+    }
+    public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): UpdateHostResponse {
+        this['forward_header_map'] = forwardHeaderMap;
+        return this;
+    }
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+        this['forward_header_map'] = forwardHeaderMap;
+    }
+    public get forwardHeaderMap() {
+        return this['forward_header_map'];
     }
 }
 

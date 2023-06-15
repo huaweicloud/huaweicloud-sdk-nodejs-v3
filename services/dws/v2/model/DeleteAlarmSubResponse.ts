@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class DeleteAlarmSubResponse extends SdkResponse {
     public id?: string;
     public name?: string;
-    public enable?: string;
+    public enable?: number;
     private 'alarm_level'?: string | undefined;
     private 'project_id'?: string | undefined;
     private 'name_space'?: string | undefined;
@@ -24,7 +24,7 @@ export class DeleteAlarmSubResponse extends SdkResponse {
         this['name'] = name;
         return this;
     }
-    public withEnable(enable: string): DeleteAlarmSubResponse {
+    public withEnable(enable: number): DeleteAlarmSubResponse {
         this['enable'] = enable;
         return this;
     }
