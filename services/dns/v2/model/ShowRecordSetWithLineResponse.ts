@@ -22,6 +22,7 @@ export class ShowRecordSetWithLineResponse extends SdkResponse {
     public weight?: number;
     private 'health_check_id'?: string | undefined;
     private 'alias_target'?: AliasTarget | undefined;
+    public bundle?: string;
     public constructor() { 
         super();
     }
@@ -144,5 +145,9 @@ export class ShowRecordSetWithLineResponse extends SdkResponse {
     }
     public get aliasTarget() {
         return this['alias_target'];
+    }
+    public withBundle(bundle: string): ShowRecordSetWithLineResponse {
+        this['bundle'] = bundle;
+        return this;
     }
 }

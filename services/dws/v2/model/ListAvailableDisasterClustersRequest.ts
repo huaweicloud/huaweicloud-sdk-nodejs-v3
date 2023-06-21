@@ -1,16 +1,18 @@
 
 
 export class ListAvailableDisasterClustersRequest {
-    private 'primary_cluster_id'?: string | undefined;
+    private 'primary_cluster_id': string | undefined;
     private 'primary_spec_id'?: string | undefined;
     private 'primary_cluster_dn_num'?: string | undefined;
     private 'standby_region'?: string | undefined;
     private 'standby_project_id'?: string | undefined;
-    private 'standby_az_code'?: string | undefined;
+    private 'standby_az_code': string | undefined;
     private 'dr_type'?: string | undefined;
     private 'datastore_type'?: string | undefined;
     private 'datastore_version'?: string | undefined;
-    public constructor() { 
+    public constructor(primaryClusterId?: any, standbyAzCode?: any) { 
+        this['primary_cluster_id'] = primaryClusterId;
+        this['standby_az_code'] = standbyAzCode;
     }
     public withPrimaryClusterId(primaryClusterId: string): ListAvailableDisasterClustersRequest {
         this['primary_cluster_id'] = primaryClusterId;

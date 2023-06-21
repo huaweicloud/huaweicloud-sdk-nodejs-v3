@@ -1164,12 +1164,12 @@ export class DwsClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询可用容灾集群列表
-     * @param {string} [primaryClusterId] 主集群ID
+     * @param {string} primaryClusterId 主集群ID
+     * @param {string} standbyAzCode 备集群所在AZ
      * @param {string} [primarySpecId] 主集群规格ID
      * @param {string} [primaryClusterDnNum] 主集群DN数量
      * @param {string} [standbyRegion] 备集群所在region
      * @param {string} [standbyProjectId] 备集群项目ID
-     * @param {string} [standbyAzCode] 备集群所在AZ
      * @param {string} [drType] 容灾类型
      * @param {string} [datastoreType] 数仓类型
      * @param {string} [datastoreVersion] 数仓版本
@@ -4102,6 +4102,8 @@ export const ParamCreater = function () {
             
             let primaryClusterId;
             
+            let standbyAzCode;
+            
             let primarySpecId;
             
             let primaryClusterDnNum;
@@ -4109,8 +4111,6 @@ export const ParamCreater = function () {
             let standbyRegion;
             
             let standbyProjectId;
-            
-            let standbyAzCode;
             
             let drType;
             
@@ -4121,21 +4121,21 @@ export const ParamCreater = function () {
             if (listAvailableDisasterClustersRequest !== null && listAvailableDisasterClustersRequest !== undefined) {
                 if (listAvailableDisasterClustersRequest instanceof ListAvailableDisasterClustersRequest) {
                     primaryClusterId = listAvailableDisasterClustersRequest.primaryClusterId;
+                    standbyAzCode = listAvailableDisasterClustersRequest.standbyAzCode;
                     primarySpecId = listAvailableDisasterClustersRequest.primarySpecId;
                     primaryClusterDnNum = listAvailableDisasterClustersRequest.primaryClusterDnNum;
                     standbyRegion = listAvailableDisasterClustersRequest.standbyRegion;
                     standbyProjectId = listAvailableDisasterClustersRequest.standbyProjectId;
-                    standbyAzCode = listAvailableDisasterClustersRequest.standbyAzCode;
                     drType = listAvailableDisasterClustersRequest.drType;
                     datastoreType = listAvailableDisasterClustersRequest.datastoreType;
                     datastoreVersion = listAvailableDisasterClustersRequest.datastoreVersion;
                 } else {
                     primaryClusterId = listAvailableDisasterClustersRequest['primary_cluster_id'];
+                    standbyAzCode = listAvailableDisasterClustersRequest['standby_az_code'];
                     primarySpecId = listAvailableDisasterClustersRequest['primary_spec_id'];
                     primaryClusterDnNum = listAvailableDisasterClustersRequest['primary_cluster_dn_num'];
                     standbyRegion = listAvailableDisasterClustersRequest['standby_region'];
                     standbyProjectId = listAvailableDisasterClustersRequest['standby_project_id'];
-                    standbyAzCode = listAvailableDisasterClustersRequest['standby_az_code'];
                     drType = listAvailableDisasterClustersRequest['dr_type'];
                     datastoreType = listAvailableDisasterClustersRequest['datastore_type'];
                     datastoreVersion = listAvailableDisasterClustersRequest['datastore_version'];
@@ -4143,8 +4143,17 @@ export const ParamCreater = function () {
             }
 
         
+            if (primaryClusterId === null || primaryClusterId === undefined) {
+                throw new RequiredError('primaryClusterId','Required parameter primaryClusterId was null or undefined when calling listAvailableDisasterClusters.');
+            }
             if (primaryClusterId !== null && primaryClusterId !== undefined) {
                 localVarQueryParameter['primary_cluster_id'] = primaryClusterId;
+            }
+            if (standbyAzCode === null || standbyAzCode === undefined) {
+                throw new RequiredError('standbyAzCode','Required parameter standbyAzCode was null or undefined when calling listAvailableDisasterClusters.');
+            }
+            if (standbyAzCode !== null && standbyAzCode !== undefined) {
+                localVarQueryParameter['standby_az_code'] = standbyAzCode;
             }
             if (primarySpecId !== null && primarySpecId !== undefined) {
                 localVarQueryParameter['primary_spec_id'] = primarySpecId;
@@ -4157,9 +4166,6 @@ export const ParamCreater = function () {
             }
             if (standbyProjectId !== null && standbyProjectId !== undefined) {
                 localVarQueryParameter['standby_project_id'] = standbyProjectId;
-            }
-            if (standbyAzCode !== null && standbyAzCode !== undefined) {
-                localVarQueryParameter['standby_az_code'] = standbyAzCode;
             }
             if (drType !== null && drType !== undefined) {
                 localVarQueryParameter['dr_type'] = drType;

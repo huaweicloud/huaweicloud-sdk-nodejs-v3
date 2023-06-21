@@ -1,3 +1,52 @@
+# 3.1.43 2023-06-21
+
+### HuaweiCloud SDK CloudRTC
+
+- _Features_
+  - Support the service `CloudRTC`.
+- _Bug Fix_
+  - None
+- _Change_
+  - None
+
+### HuaweiCloud SDK DNS
+
+- _Features_
+  - Support the interface `ShowDomainQuota`
+- _Bug Fix_
+  - None
+- _Change_
+  - **ShowRecordSetWithLine**
+    - changes of response param
+      - `+ bundle`
+  - **SetRecordSetsStatus**
+    - changes of response param
+      - `+ bundle`
+  - **BatchUpdateRecordSetWithLine**
+    - changes of response param
+      - `+ bundle`
+      - `+ recordsets.bundle`
+  - **BatchDeleteRecordSetWithLine**
+    - changes of response param
+      - `+ bundle`
+      - `+ recordsets.bundle`
+  - **CreateRecordSetWithBatchLines**
+    - changes of response param
+      - `+ bundle`
+      - `+ recordsets.bundle`
+
+### HuaweiCloud SDK DWS
+
+- _Features_
+  - None
+- _Bug Fix_
+  - None
+- _Change_
+  - **ListAvailableDisasterClusters**
+    - changes of request param
+      - `* primary_cluster_id: optional -> required`
+      - `* standby_az_code: optional -> required`
+
 # 3.1.42 2023-06-15
 
 ### HuaweiCloud SDK Live

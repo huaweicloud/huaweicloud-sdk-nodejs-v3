@@ -17,6 +17,10 @@ export class CfwRegion {
     public static AP_SOUTHEAST_2 = new Region("ap-southeast-2", ["https://cfw.ap-southeast-2.myhuaweicloud.com"]);
     public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://cfw.ap-southeast-4.myhuaweicloud.com"]);
     public static LA_SOUTH_2 = new Region("la-south-2", ["https://cfw.la-south-2.myhuaweicloud.com"]);
+    public static CN_NORTH_9 = new Region("cn-north-9", ["https://cfw.cn-north-9.myhuaweicloud.com"]);
+    public static CN_EAST_2 = new Region("cn-east-2", ["https://cfw.cn-east-2.myhuaweicloud.com"]);
+    public static AF_SOUTH_1 = new Region("af-south-1", ["https://cfw.la-south-2.myhuaweicloud.com"]);
+    public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://cfw.sa-brazil-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -30,7 +34,11 @@ export class CfwRegion {
         "la-north-2":CfwRegion.LA_NORTH_2,
         "ap-southeast-2":CfwRegion.AP_SOUTHEAST_2,
         "ap-southeast-4":CfwRegion.AP_SOUTHEAST_4,
-        "la-south-2":CfwRegion.LA_SOUTH_2
+        "la-south-2":CfwRegion.LA_SOUTH_2,
+        "cn-north-9":CfwRegion.CN_NORTH_9,
+        "cn-east-2":CfwRegion.CN_EAST_2,
+        "af-south-1":CfwRegion.AF_SOUTH_1,
+        "sa-brazil-1":CfwRegion.SA_BRAZIL_1
     };
   
     public static valueOf(regionId: string) {

@@ -1,3 +1,52 @@
+# 3.1.43 2023-06-21
+
+### HuaweiCloud SDK CloudRTC
+
+- _新增特性_
+  - 支持华为云实时音视频服务
+- _解决问题_
+  - 无
+- _特性变更_
+  - 无
+
+### HuaweiCloud SDK DNS
+
+- _新增特性_
+  - 支持接口`ShowDomainQuota`
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ShowRecordSetWithLine**
+    - 响应参数变更
+      - `+ bundle`
+  - **SetRecordSetsStatus**
+    - 响应参数变更
+      - `+ bundle`
+  - **BatchUpdateRecordSetWithLine**
+    - 响应参数变更
+      - `+ bundle`
+      - `+ recordsets.bundle`
+  - **BatchDeleteRecordSetWithLine**
+    - 响应参数变更
+      - `+ bundle`
+      - `+ recordsets.bundle`
+  - **CreateRecordSetWithBatchLines**
+    - 响应参数变更
+      - `+ bundle`
+      - `+ recordsets.bundle`
+
+### HuaweiCloud SDK DWS
+
+- _新增特性_
+  - 无
+- _解决问题_
+  - 无
+- _特性变更_
+  - **ListAvailableDisasterClusters**
+    - 请求参数变更
+      - `* primary_cluster_id: optional -> required`
+      - `* standby_az_code: optional -> required`
+
 # 3.1.42 2023-06-15
 
 ### HuaweiCloud SDK Live

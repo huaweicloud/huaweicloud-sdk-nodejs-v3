@@ -21,6 +21,8 @@ export class DnsRegion {
     public static LA_NORTH_2 = new Region("la-north-2", ["https://dns.la-north-2.myhuaweicloud.com"]);
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://dns.na-mexico-1.myhuaweicloud.com"]);
     public static CN_NORTH_9 = new Region("cn-north-9", ["https://dns.cn-north-9.myhuaweicloud.com"]);
+    public static CN_NORTH_2 = new Region("cn-north-2", ["https://dns.cn-north-2.myhuaweicloud.com"]);
+    public static CN_SOUTH_2 = new Region("cn-south-2", ["https://dns.cn-south-2.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -38,7 +40,9 @@ export class DnsRegion {
         "la-south-2":DnsRegion.LA_SOUTH_2,
         "la-north-2":DnsRegion.LA_NORTH_2,
         "na-mexico-1":DnsRegion.NA_MEXICO_1,
-        "cn-north-9":DnsRegion.CN_NORTH_9
+        "cn-north-9":DnsRegion.CN_NORTH_9,
+        "cn-north-2":DnsRegion.CN_NORTH_2,
+        "cn-south-2":DnsRegion.CN_SOUTH_2
     };
   
     public static valueOf(regionId: string) {

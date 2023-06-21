@@ -67,6 +67,7 @@ import { DisassociateHealthCheckResponse } from './model/DisassociateHealthCheck
 import { DisassociateRouterRequest } from './model/DisassociateRouterRequest';
 import { DisassociateRouterResponse } from './model/DisassociateRouterResponse';
 import { DisassociaterouterRequestBody } from './model/DisassociaterouterRequestBody';
+import { DomainQuotaResponseQuotas } from './model/DomainQuotaResponseQuotas';
 import { Line } from './model/Line';
 import { LinksItem } from './model/LinksItem';
 import { ListApiVersionsItem } from './model/ListApiVersionsItem';
@@ -120,6 +121,8 @@ import { SetRecordSetsStatusRequest } from './model/SetRecordSetsStatusRequest';
 import { SetRecordSetsStatusResponse } from './model/SetRecordSetsStatusResponse';
 import { ShowApiInfoRequest } from './model/ShowApiInfoRequest';
 import { ShowApiInfoResponse } from './model/ShowApiInfoResponse';
+import { ShowDomainQuotaRequest } from './model/ShowDomainQuotaRequest';
+import { ShowDomainQuotaResponse } from './model/ShowDomainQuotaResponse';
 import { ShowLineGroupRequest } from './model/ShowLineGroupRequest';
 import { ShowLineGroupResponse } from './model/ShowLineGroupResponse';
 import { ShowPrivateZoneNameServerRequest } from './model/ShowPrivateZoneNameServerRequest';
@@ -356,6 +359,25 @@ export class DnsClient {
      */
     public showApiInfo(showApiInfoRequest?: ShowApiInfoRequest): Promise<ShowApiInfoResponse> {
         const options = ParamCreater().showApiInfo(showApiInfoRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询单租户在DNS服务下的资源配额，包括公网zone配额、内网zone配额、Record Set配额、PTR Record配额、入站终端节点配额、出站终端节点配额、自定义线路配额、线路分组配额等。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户配额
+     * @param {string} domainId 租户ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showDomainQuota(showDomainQuotaRequest?: ShowDomainQuotaRequest): Promise<ShowDomainQuotaResponse> {
+        const options = ParamCreater().showDomainQuota(showDomainQuotaRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -755,7 +777,7 @@ export class DnsClient {
      * @param {number} [offset] 分页查询起始偏移量，表示从偏移量的下一个资源开始查询。  取值范围：0~2147483647  默认值为0。  当前设置marker不为空时，以marker为分页起始标识。
      * @param {string} [tags] 资源标签。  取值格式：key1,value1|key2,value2  多个标签之间用\&quot;|\&quot;分开，每个标签的键值用英文逗号\&quot;,\&quot;相隔。
      * @param {string} [status] 待查询的Record Set的状态。  取值范围：ACTIVE、ERROR、DISABLE、FREEZE、PENDING_CREATE、PENDING_UPDATE、PENDING_DELETE
-     * @param {string} [type] 待查询的Record Set的记录集类型。  取值范围：A,AAAA,MX,CNAME,TXT, NS（仅限公网Zone）,SRV,PTR（仅限内网Zone）,CAA（仅限公网Zone）。
+     * @param {string} [type] 待查询的Record Set的记录集类型。 公网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、NS、SRV、CAA。 内网域名场景的记录类型: A、AAAA、MX、CNAME、TXT、SRV。
      * @param {string} [name] 待查询的Record Set的域名中包含此name。  搜索模式默认为模糊搜索。  默认值为空。
      * @param {string} [id] 待查询的Record Set的id包含此id。  搜索模式默认为模糊搜索。  默认值为空。
      * @param {string} [sortKey] 查询结果中Record Set列表的排序字段。  取值范围为：  name：域名 type：记录集类型 默认值为空，表示不排序。
@@ -1738,6 +1760,46 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'version': version, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询单租户在DNS服务下的资源配额，包括公网zone配额、内网zone配额、Record Set配额、PTR Record配额、入站终端节点配额、出站终端节点配额、自定义线路配额、线路分组配额等。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showDomainQuota(showDomainQuotaRequest?: ShowDomainQuotaRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/quotamg/dns/quotas",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let domainId;
+
+            if (showDomainQuotaRequest !== null && showDomainQuotaRequest !== undefined) {
+                if (showDomainQuotaRequest instanceof ShowDomainQuotaRequest) {
+                    domainId = showDomainQuotaRequest.domainId;
+                } else {
+                    domainId = showDomainQuotaRequest['domain_id'];
+                }
+            }
+
+        
+            if (domainId === null || domainId === undefined) {
+                throw new RequiredError('domainId','Required parameter domainId was null or undefined when calling showDomainQuota.');
+            }
+            if (domainId !== null && domainId !== undefined) {
+                localVarQueryParameter['domain_id'] = domainId;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -21,6 +21,7 @@ export class QueryRecordSetWithLineResp {
     public weight?: number;
     private 'health_check_id'?: string | undefined;
     private 'alias_target'?: AliasTarget | undefined;
+    public bundle?: string;
     public constructor() { 
     }
     public withId(id: string): QueryRecordSetWithLineResp {
@@ -142,5 +143,9 @@ export class QueryRecordSetWithLineResp {
     }
     public get aliasTarget() {
         return this['alias_target'];
+    }
+    public withBundle(bundle: string): QueryRecordSetWithLineResp {
+        this['bundle'] = bundle;
+        return this;
     }
 }
