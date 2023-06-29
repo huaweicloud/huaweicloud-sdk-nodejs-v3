@@ -63,6 +63,7 @@ import { RemoveExtendCidrOption } from './model/RemoveExtendCidrOption';
 import { RemoveVpcExtendCidrRequest } from './model/RemoveVpcExtendCidrRequest';
 import { RemoveVpcExtendCidrRequestBody } from './model/RemoveVpcExtendCidrRequestBody';
 import { RemoveVpcExtendCidrResponse } from './model/RemoveVpcExtendCidrResponse';
+import { ResourceTag } from './model/ResourceTag';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityGroupInfo } from './model/SecurityGroupInfo';
 import { SecurityGroupRule } from './model/SecurityGroupRule';

@@ -68,6 +68,8 @@ import { ListStackResourcesRequest } from './model/ListStackResourcesRequest';
 import { ListStackResourcesResponse } from './model/ListStackResourcesResponse';
 import { ListStacksRequest } from './model/ListStacksRequest';
 import { ListStacksResponse } from './model/ListStacksResponse';
+import { ListTemplateVersionsRequest } from './model/ListTemplateVersionsRequest';
+import { ListTemplateVersionsResponse } from './model/ListTemplateVersionsResponse';
 import { ListTemplatesRequest } from './model/ListTemplatesRequest';
 import { ListTemplatesResponse } from './model/ListTemplatesResponse';
 import { ParseTemplateVariablesRequest } from './model/ParseTemplateVariablesRequest';
@@ -95,6 +97,7 @@ import { StackStatusPrimitiveTypeHolder } from './model/StackStatusPrimitiveType
 import { Template } from './model/Template';
 import { TemplateBodyPrimitiveTypeHolder } from './model/TemplateBodyPrimitiveTypeHolder';
 import { TemplateURIPrimitiveTypeHolder } from './model/TemplateURIPrimitiveTypeHolder';
+import { TemplateVersion } from './model/TemplateVersion';
 import { UpdateStackRequest } from './model/UpdateStackRequest';
 import { UpdateStackRequestBody } from './model/UpdateStackRequestBody';
 import { UpdateStackResponse } from './model/UpdateStackResponse';
@@ -684,7 +687,9 @@ export class AosClient {
      * 
      * 此API用于列举资源栈中当前管理的所有资源的信息
      * 
-     * 对于非终态的资源栈（状态以&#x60;IN_PROGRESS&#x60;结尾），不返回资源属性。非终态状态包括但不限于以下状态：
+     * 当资源栈处于非终态时，仅输出资源栈下资源的简要信息，包含逻辑资源名称（logical_resource_name），逻辑资源类型（logical_resource_type），物理资源id（physical_resource_id），物理资源名称（physical_resource_name），资源状态（status）等信息；当资源栈处于终态时，将额外输出具体信息，如资源属性（resource_attributes）
+     * 
+     * 非终态包括但不限于以下状态：
      *   * 正在部署（DEPLOYMENT_IN_PROGRESS）
      *   * 正在删除（DELETION_IN_PROGRESS）
      *   * 正在回滚（ROLLBACK_IN_PROGRESS）
@@ -841,6 +846,38 @@ export class AosClient {
      */
     public deleteTemplateVersion(deleteTemplateVersionRequest?: DeleteTemplateVersionRequest): Promise<DeleteTemplateVersionResponse> {
         const options = ParamCreater().deleteTemplateVersion(deleteTemplateVersionRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 列举模板版本信息（ListTemplateVersions）
+     * 
+     * 此API用于列举模板下所有的模板版本信息
+     * 
+     *   * 默认按照生成时间排序，最早生成的模板排列在最前面
+     *   * 注意：目前返回全量模板版本信息，即不支持分页
+     *   * 如果没有任何模板版本，则返回空list
+     *   * 若template_name和template_id同时存在，则模板服务会检查是否两个匹配
+     *   * 若模板不存在则返回404
+     * 
+     * ListTemplateVersions返回的信息只包含模板版本摘要信息（具体摘要信息见ListTemplateVersionsResponseBody），若用户需要了解模板版本内容，请调用ShowTemplateVersionContent
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 列举模板版本
+     * @param {string} clientRequestId 用户指定的，对于此请求的唯一ID，用于定位某个请求，推荐使用UUID
+     * @param {string} projectId 项目ID，可以从调用API处获取，也可以从控制台获取。  [项目ID获取方式](https://support.huaweicloud.com/api-ticket/ticket_api_20002.html) 
+     * @param {string} templateName 用户希望创建的模板名称
+     * @param {string} [templateId] 模板的ID。当template_id存在时，模板服务会检查template_id是否和template_name匹配，不匹配会返回400
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTemplateVersions(listTemplateVersionsRequest?: ListTemplateVersionsRequest): Promise<ListTemplateVersionsResponse> {
+        const options = ParamCreater().listTemplateVersions(listTemplateVersionsRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2209,7 +2246,9 @@ export const ParamCreater = function () {
          * 
          * 此API用于列举资源栈中当前管理的所有资源的信息
          * 
-         * 对于非终态的资源栈（状态以&#x60;IN_PROGRESS&#x60;结尾），不返回资源属性。非终态状态包括但不限于以下状态：
+         * 当资源栈处于非终态时，仅输出资源栈下资源的简要信息，包含逻辑资源名称（logical_resource_name），逻辑资源类型（logical_resource_type），物理资源id（physical_resource_id），物理资源名称（physical_resource_name），资源状态（status）等信息；当资源栈处于终态时，将额外输出具体信息，如资源属性（resource_attributes）
+         * 
+         * 非终态包括但不限于以下状态：
          *   * 正在部署（DEPLOYMENT_IN_PROGRESS）
          *   * 正在删除（DELETION_IN_PROGRESS）
          *   * 正在回滚（ROLLBACK_IN_PROGRESS）
@@ -2580,6 +2619,75 @@ export const ParamCreater = function () {
 
             options.queryParams = localVarQueryParameter;
             options.pathParams = { 'project_id': projectId,'template_name': templateName,'version_id': versionId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 列举模板版本信息（ListTemplateVersions）
+         * 
+         * 此API用于列举模板下所有的模板版本信息
+         * 
+         *   * 默认按照生成时间排序，最早生成的模板排列在最前面
+         *   * 注意：目前返回全量模板版本信息，即不支持分页
+         *   * 如果没有任何模板版本，则返回空list
+         *   * 若template_name和template_id同时存在，则模板服务会检查是否两个匹配
+         *   * 若模板不存在则返回404
+         * 
+         * ListTemplateVersions返回的信息只包含模板版本摘要信息（具体摘要信息见ListTemplateVersionsResponseBody），若用户需要了解模板版本内容，请调用ShowTemplateVersionContent
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTemplateVersions(listTemplateVersionsRequest?: ListTemplateVersionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/{project_id}/templates/{template_name}/versions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let clientRequestId;
+            
+            let projectId;
+            
+            let templateName;
+            
+            let templateId;
+
+            if (listTemplateVersionsRequest !== null && listTemplateVersionsRequest !== undefined) {
+                if (listTemplateVersionsRequest instanceof ListTemplateVersionsRequest) {
+                    clientRequestId = listTemplateVersionsRequest.clientRequestId;
+                    projectId = listTemplateVersionsRequest.projectId;
+                    templateName = listTemplateVersionsRequest.templateName;
+                    templateId = listTemplateVersionsRequest.templateId;
+                } else {
+                    clientRequestId = listTemplateVersionsRequest['Client-Request-Id'];
+                    projectId = listTemplateVersionsRequest['project_id'];
+                    templateName = listTemplateVersionsRequest['template_name'];
+                    templateId = listTemplateVersionsRequest['template_id'];
+                }
+            }
+
+        
+            if (projectId === null || projectId === undefined) {
+            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling listTemplateVersions.');
+            }
+            if (templateName === null || templateName === undefined) {
+            throw new RequiredError('templateName','Required parameter templateName was null or undefined when calling listTemplateVersions.');
+            }
+            if (templateId !== null && templateId !== undefined) {
+                localVarQueryParameter['template_id'] = templateId;
+            }
+            if (clientRequestId !== undefined && clientRequestId !== null) {
+                localVarHeaderParameter['Client-Request-Id'] = String(clientRequestId);
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'project_id': projectId,'template_name': templateName, };
             options.headers = localVarHeaderParameter;
             return options;
         },

@@ -2,27 +2,33 @@ import { AddComponentReq } from './AddComponentReq';
 
 
 export class EnableComponentRequest {
-    public projectId: string;
-    public clusterId: string;
-    public componentName: string;
+    private 'cluster_id': string | undefined;
+    private 'component_name': string | undefined;
     private 'X-Language'?: string | undefined;
     public body?: AddComponentReq;
-    public constructor(projectId?: any, clusterId?: any, componentName?: any) { 
-        this['projectId'] = projectId;
-        this['clusterId'] = clusterId;
-        this['componentName'] = componentName;
-    }
-    public withProjectId(projectId: string): EnableComponentRequest {
-        this['projectId'] = projectId;
-        return this;
+    public constructor(clusterId?: any, componentName?: any) { 
+        this['cluster_id'] = clusterId;
+        this['component_name'] = componentName;
     }
     public withClusterId(clusterId: string): EnableComponentRequest {
-        this['clusterId'] = clusterId;
+        this['cluster_id'] = clusterId;
         return this;
     }
+    public set clusterId(clusterId: string | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId() {
+        return this['cluster_id'];
+    }
     public withComponentName(componentName: string): EnableComponentRequest {
-        this['componentName'] = componentName;
+        this['component_name'] = componentName;
         return this;
+    }
+    public set componentName(componentName: string | undefined) {
+        this['component_name'] = componentName;
+    }
+    public get componentName() {
+        return this['component_name'];
     }
     public withXLanguage(xLanguage: string): EnableComponentRequest {
         this['X-Language'] = xLanguage;

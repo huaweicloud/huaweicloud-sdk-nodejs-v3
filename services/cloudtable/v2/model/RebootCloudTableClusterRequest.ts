@@ -2,21 +2,21 @@ import { HbaseClusterActionReq } from './HbaseClusterActionReq';
 
 
 export class RebootCloudTableClusterRequest {
-    public projectId: string;
-    public clusterId: string;
+    private 'cluster_id': string | undefined;
     private 'X-Language'?: string | undefined;
     public body?: HbaseClusterActionReq;
-    public constructor(projectId?: any, clusterId?: any) { 
-        this['projectId'] = projectId;
-        this['clusterId'] = clusterId;
-    }
-    public withProjectId(projectId: string): RebootCloudTableClusterRequest {
-        this['projectId'] = projectId;
-        return this;
+    public constructor(clusterId?: any) { 
+        this['cluster_id'] = clusterId;
     }
     public withClusterId(clusterId: string): RebootCloudTableClusterRequest {
-        this['clusterId'] = clusterId;
+        this['cluster_id'] = clusterId;
         return this;
+    }
+    public set clusterId(clusterId: string | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId() {
+        return this['cluster_id'];
     }
     public withXLanguage(xLanguage: string): RebootCloudTableClusterRequest {
         this['X-Language'] = xLanguage;

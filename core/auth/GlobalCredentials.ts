@@ -92,7 +92,7 @@ export class GlobalCredentials implements ICredential {
         }
         return pathParams;
     }
-    public processAuthRequest(httpRequest: IHttpRequest): IHttpRequest {
+    public async processAuthRequest(httpRequest: IHttpRequest): Promise<IHttpRequest> {
         if (!this.ak) {
             throw new RequiredError('AK cannot be empty or undefined.');
         }

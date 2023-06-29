@@ -4,8 +4,14 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 import { AccelerateIp } from './model/AccelerateIp';
 import { AcceleratorDetail } from './model/AcceleratorDetail';
+import { AddIpGroupIpRequest } from './model/AddIpGroupIpRequest';
+import { AddIpGroupIpRequestBody } from './model/AddIpGroupIpRequestBody';
+import { AddIpGroupIpResponse } from './model/AddIpGroupIpResponse';
 import { Area } from './model/Area';
 import { AreaRegion } from './model/AreaRegion';
+import { AssociateListenerRequest } from './model/AssociateListenerRequest';
+import { AssociateListenerRequestBody } from './model/AssociateListenerRequestBody';
+import { AssociateListenerResponse } from './model/AssociateListenerResponse';
 import { ClientAffinity } from './model/ClientAffinity';
 import { ConfigStatus } from './model/ConfigStatus';
 import { CreateAcceleratorOption } from './model/CreateAcceleratorOption';
@@ -25,6 +31,11 @@ import { CreateHealthCheckOption } from './model/CreateHealthCheckOption';
 import { CreateHealthCheckRequest } from './model/CreateHealthCheckRequest';
 import { CreateHealthCheckRequestBody } from './model/CreateHealthCheckRequestBody';
 import { CreateHealthCheckResponse } from './model/CreateHealthCheckResponse';
+import { CreateIpGroupIpOption } from './model/CreateIpGroupIpOption';
+import { CreateIpGroupOption } from './model/CreateIpGroupOption';
+import { CreateIpGroupRequest } from './model/CreateIpGroupRequest';
+import { CreateIpGroupRequestBody } from './model/CreateIpGroupRequestBody';
+import { CreateIpGroupResponse } from './model/CreateIpGroupResponse';
 import { CreateListenerOption } from './model/CreateListenerOption';
 import { CreateListenerRequest } from './model/CreateListenerRequest';
 import { CreateListenerRequestBody } from './model/CreateListenerRequestBody';
@@ -40,12 +51,17 @@ import { DeleteEndpointRequest } from './model/DeleteEndpointRequest';
 import { DeleteEndpointResponse } from './model/DeleteEndpointResponse';
 import { DeleteHealthCheckRequest } from './model/DeleteHealthCheckRequest';
 import { DeleteHealthCheckResponse } from './model/DeleteHealthCheckResponse';
+import { DeleteIpGroupRequest } from './model/DeleteIpGroupRequest';
+import { DeleteIpGroupResponse } from './model/DeleteIpGroupResponse';
 import { DeleteListenerRequest } from './model/DeleteListenerRequest';
 import { DeleteListenerResponse } from './model/DeleteListenerResponse';
 import { DeleteTagsRequest } from './model/DeleteTagsRequest';
 import { DeleteTagsRequestBody } from './model/DeleteTagsRequestBody';
 import { DeleteTagsResponse } from './model/DeleteTagsResponse';
 import { DeletingResourceTag } from './model/DeletingResourceTag';
+import { DisassociateListenerRequest } from './model/DisassociateListenerRequest';
+import { DisassociateListenerRequestBody } from './model/DisassociateListenerRequestBody';
+import { DisassociateListenerResponse } from './model/DisassociateListenerResponse';
 import { EndpointDetail } from './model/EndpointDetail';
 import { EndpointGroupDetail } from './model/EndpointGroupDetail';
 import { EndpointType } from './model/EndpointType';
@@ -53,6 +69,8 @@ import { FrozenInfo } from './model/FrozenInfo';
 import { HealthCheckDetail } from './model/HealthCheckDetail';
 import { HealthCheckProtocol } from './model/HealthCheckProtocol';
 import { Id } from './model/Id';
+import { IpGroupDetail } from './model/IpGroupDetail';
+import { IpInfo } from './model/IpInfo';
 import { ListAcceleratorsRequest } from './model/ListAcceleratorsRequest';
 import { ListAcceleratorsResponse } from './model/ListAcceleratorsResponse';
 import { ListEndpointGroupsRequest } from './model/ListEndpointGroupsRequest';
@@ -61,14 +79,21 @@ import { ListEndpointsRequest } from './model/ListEndpointsRequest';
 import { ListEndpointsResponse } from './model/ListEndpointsResponse';
 import { ListHealthChecksRequest } from './model/ListHealthChecksRequest';
 import { ListHealthChecksResponse } from './model/ListHealthChecksResponse';
+import { ListIpGroupsRequest } from './model/ListIpGroupsRequest';
+import { ListIpGroupsResponse } from './model/ListIpGroupsResponse';
 import { ListListenersRequest } from './model/ListListenersRequest';
 import { ListListenersResponse } from './model/ListListenersResponse';
 import { ListRegionsRequest } from './model/ListRegionsRequest';
 import { ListRegionsResponse } from './model/ListRegionsResponse';
+import { ListenerAccessControlPolicy } from './model/ListenerAccessControlPolicy';
+import { ListenerAccessControlType } from './model/ListenerAccessControlType';
 import { ListenerDetail } from './model/ListenerDetail';
 import { ListenerProtocol } from './model/ListenerProtocol';
 import { PageInfo } from './model/PageInfo';
 import { PortRange } from './model/PortRange';
+import { RemoveIpGroupIpRequest } from './model/RemoveIpGroupIpRequest';
+import { RemoveIpGroupIpRequestBody } from './model/RemoveIpGroupIpRequestBody';
+import { RemoveIpGroupIpResponse } from './model/RemoveIpGroupIpResponse';
 import { ResourceTag } from './model/ResourceTag';
 import { ResourceType } from './model/ResourceType';
 import { ShowAcceleratorRequest } from './model/ShowAcceleratorRequest';
@@ -79,6 +104,8 @@ import { ShowEndpointRequest } from './model/ShowEndpointRequest';
 import { ShowEndpointResponse } from './model/ShowEndpointResponse';
 import { ShowHealthCheckRequest } from './model/ShowHealthCheckRequest';
 import { ShowHealthCheckResponse } from './model/ShowHealthCheckResponse';
+import { ShowIpGroupRequest } from './model/ShowIpGroupRequest';
+import { ShowIpGroupResponse } from './model/ShowIpGroupResponse';
 import { ShowListenerRequest } from './model/ShowListenerRequest';
 import { ShowListenerResponse } from './model/ShowListenerResponse';
 import { ShowResourceTagsRequest } from './model/ShowResourceTagsRequest';
@@ -99,6 +126,10 @@ import { UpdateHealthCheckOption } from './model/UpdateHealthCheckOption';
 import { UpdateHealthCheckRequest } from './model/UpdateHealthCheckRequest';
 import { UpdateHealthCheckRequestBody } from './model/UpdateHealthCheckRequestBody';
 import { UpdateHealthCheckResponse } from './model/UpdateHealthCheckResponse';
+import { UpdateIpGroupOption } from './model/UpdateIpGroupOption';
+import { UpdateIpGroupRequest } from './model/UpdateIpGroupRequest';
+import { UpdateIpGroupRequestBody } from './model/UpdateIpGroupRequestBody';
+import { UpdateIpGroupResponse } from './model/UpdateIpGroupResponse';
 import { UpdateListenerOption } from './model/UpdateListenerOption';
 import { UpdateListenerRequest } from './model/UpdateListenerRequest';
 import { UpdateListenerRequestBody } from './model/UpdateListenerRequestBody';
@@ -522,6 +553,190 @@ export class GaClient {
      */
     public updateHealthCheck(updateHealthCheckRequest?: UpdateHealthCheckRequest): Promise<UpdateHealthCheckResponse> {
         const options = ParamCreater().updateHealthCheck(updateHealthCheckRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 添加IP地址组中的IP网段。
+     * 该接口属于异步接口，接口返回后，后台的添加任务仍在执行；可以使用查询IP地址组详情接口查询状态，当IP地址组状态为ACTIVE时，表示条目添加完成。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 添加IP地址组中的IP网段
+     * @param {string} ipGroupId IP地址组ID。
+     * @param {AddIpGroupIpRequestBody} addIpGroupIpRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public addIpGroupIp(addIpGroupIpRequest?: AddIpGroupIpRequest): Promise<AddIpGroupIpResponse> {
+        const options = ParamCreater().addIpGroupIp(addIpGroupIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 绑定IP地址组与监听器。
+     * 该接口属于异步接口，接口返回后，后台的绑定任务仍在执行；可以使用查询IP地址组详情接口查询状态，当IP地址组状态为ACTIVE时，表示绑定完成。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 绑定IP地址组与监听器
+     * @param {string} ipGroupId IP地址组ID。
+     * @param {AssociateListenerRequestBody} associateListenerRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public associateListener(associateListenerRequest?: AssociateListenerRequest): Promise<AssociateListenerResponse> {
+        const options = ParamCreater().associateListener(associateListenerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建IP地址组。
+     * 该接口属于异步接口，会先返回一个IP地址组ID，但后台的创建任务仍在执行；可以使用查询IP地址组详情接口查询状态，当IP地址组状态为ACTIVE时，表示IP地址组创建完成。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建IP地址组
+     * @param {CreateIpGroupRequestBody} createIpGroupRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public createIpGroup(createIpGroupRequest?: CreateIpGroupRequest): Promise<CreateIpGroupResponse> {
+        const options = ParamCreater().createIpGroup(createIpGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除IP地址组。
+     * 该接口属于异步接口，接口返回后，后台的删除任务仍在执行；可以使用查询IP地址组详情接口查询状态，当查询不到该IP地址组时，表示删除完成；删除IP地址组时，若IP地址组已经绑定了监听器，则需要先解绑IP地址组与监听器，再进行删除。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除IP地址组
+     * @param {string} ipGroupId IP地址组ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteIpGroup(deleteIpGroupRequest?: DeleteIpGroupRequest): Promise<DeleteIpGroupResponse> {
+        const options = ParamCreater().deleteIpGroup(deleteIpGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 解绑IP地址组与监听器。
+     * 该接口属于异步接口，接口返回后，后台的解绑任务仍在执行；可以使用查询IP地址组详情接口查询状态，当IP地址组状态为ACTIVE时，表示解绑完成。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 解绑IP地址组与监听器
+     * @param {string} ipGroupId IP地址组ID。
+     * @param {DisassociateListenerRequestBody} disassociateListenerRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disassociateListener(disassociateListenerRequest?: DisassociateListenerRequest): Promise<DisassociateListenerResponse> {
+        const options = ParamCreater().disassociateListener(disassociateListenerRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询IP地址组列表。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询IP地址组列表
+     * @param {number} [limit] 分页查询每页的资源个数。如果不设置，则默认为500。
+     * @param {string} [marker] 分页查询的起始的资源ID，表示上一页最后一条查询资源记录的ID。不指定时表示查询第一页。 必须与limit一起使用。
+     * @param {string} [listenerId] 监听器id,查询监听器绑定的IP地址组时使用该条件,当查询条件带listener_id时，结果中的associated_listeners也只包含该listener的记录
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listIpGroups(listIpGroupsRequest?: ListIpGroupsRequest): Promise<ListIpGroupsResponse> {
+        const options = ParamCreater().listIpGroups(listIpGroupsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除IP地址组中的IP网段。
+     * 该接口属于异步接口，接口返回后，后台的删除任务仍在执行；可以使用查询IP地址组详情接口查询状态，当IP地址组状态为ACTIVE时，表示条目删除完成。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除IP地址组中的IP网段
+     * @param {string} ipGroupId IP地址组ID。
+     * @param {RemoveIpGroupIpRequestBody} removeIpGroupIpRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public removeIpGroupIp(removeIpGroupIpRequest?: RemoveIpGroupIpRequest): Promise<RemoveIpGroupIpResponse> {
+        const options = ParamCreater().removeIpGroupIp(removeIpGroupIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询IP地址组详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询IP地址组详情
+     * @param {string} ipGroupId IP地址组ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showIpGroup(showIpGroupRequest?: ShowIpGroupRequest): Promise<ShowIpGroupResponse> {
+        const options = ParamCreater().showIpGroup(showIpGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新IP地址组。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新IP地址组
+     * @param {string} ipGroupId IP地址组ID。
+     * @param {UpdateIpGroupRequestBody} updateIpGroupRequestBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public updateIpGroup(updateIpGroupRequest?: UpdateIpGroupRequest): Promise<UpdateIpGroupResponse> {
+        const options = ParamCreater().updateIpGroup(updateIpGroupRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1675,6 +1890,405 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'health_check_id': healthCheckId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 添加IP地址组中的IP网段。
+         * 该接口属于异步接口，接口返回后，后台的添加任务仍在执行；可以使用查询IP地址组详情接口查询状态，当IP地址组状态为ACTIVE时，表示条目添加完成。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        addIpGroupIp(addIpGroupIpRequest?: AddIpGroupIpRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ip-groups/{ip_group_id}/add-ips",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let ipGroupId;
+
+            if (addIpGroupIpRequest !== null && addIpGroupIpRequest !== undefined) {
+                if (addIpGroupIpRequest instanceof AddIpGroupIpRequest) {
+                    ipGroupId = addIpGroupIpRequest.ipGroupId;
+                    body = addIpGroupIpRequest.body
+                } else {
+                    ipGroupId = addIpGroupIpRequest['ip_group_id'];
+                    body = addIpGroupIpRequest['body'];
+                }
+            }
+
+        
+            if (ipGroupId === null || ipGroupId === undefined) {
+            throw new RequiredError('ipGroupId','Required parameter ipGroupId was null or undefined when calling addIpGroupIp.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'ip_group_id': ipGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 绑定IP地址组与监听器。
+         * 该接口属于异步接口，接口返回后，后台的绑定任务仍在执行；可以使用查询IP地址组详情接口查询状态，当IP地址组状态为ACTIVE时，表示绑定完成。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        associateListener(associateListenerRequest?: AssociateListenerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ip-groups/{ip_group_id}/associate-listener",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let ipGroupId;
+
+            if (associateListenerRequest !== null && associateListenerRequest !== undefined) {
+                if (associateListenerRequest instanceof AssociateListenerRequest) {
+                    ipGroupId = associateListenerRequest.ipGroupId;
+                    body = associateListenerRequest.body
+                } else {
+                    ipGroupId = associateListenerRequest['ip_group_id'];
+                    body = associateListenerRequest['body'];
+                }
+            }
+
+        
+            if (ipGroupId === null || ipGroupId === undefined) {
+            throw new RequiredError('ipGroupId','Required parameter ipGroupId was null or undefined when calling associateListener.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'ip_group_id': ipGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建IP地址组。
+         * 该接口属于异步接口，会先返回一个IP地址组ID，但后台的创建任务仍在执行；可以使用查询IP地址组详情接口查询状态，当IP地址组状态为ACTIVE时，表示IP地址组创建完成。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        createIpGroup(createIpGroupRequest?: CreateIpGroupRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ip-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (createIpGroupRequest !== null && createIpGroupRequest !== undefined) {
+                if (createIpGroupRequest instanceof CreateIpGroupRequest) {
+                    body = createIpGroupRequest.body
+                } else {
+                    body = createIpGroupRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除IP地址组。
+         * 该接口属于异步接口，接口返回后，后台的删除任务仍在执行；可以使用查询IP地址组详情接口查询状态，当查询不到该IP地址组时，表示删除完成；删除IP地址组时，若IP地址组已经绑定了监听器，则需要先解绑IP地址组与监听器，再进行删除。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteIpGroup(deleteIpGroupRequest?: DeleteIpGroupRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v1/ip-groups/{ip_group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let ipGroupId;
+
+            if (deleteIpGroupRequest !== null && deleteIpGroupRequest !== undefined) {
+                if (deleteIpGroupRequest instanceof DeleteIpGroupRequest) {
+                    ipGroupId = deleteIpGroupRequest.ipGroupId;
+                } else {
+                    ipGroupId = deleteIpGroupRequest['ip_group_id'];
+                }
+            }
+
+        
+            if (ipGroupId === null || ipGroupId === undefined) {
+            throw new RequiredError('ipGroupId','Required parameter ipGroupId was null or undefined when calling deleteIpGroup.');
+            }
+
+            options.pathParams = { 'ip_group_id': ipGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 解绑IP地址组与监听器。
+         * 该接口属于异步接口，接口返回后，后台的解绑任务仍在执行；可以使用查询IP地址组详情接口查询状态，当IP地址组状态为ACTIVE时，表示解绑完成。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disassociateListener(disassociateListenerRequest?: DisassociateListenerRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ip-groups/{ip_group_id}/disassociate-listener",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let ipGroupId;
+
+            if (disassociateListenerRequest !== null && disassociateListenerRequest !== undefined) {
+                if (disassociateListenerRequest instanceof DisassociateListenerRequest) {
+                    ipGroupId = disassociateListenerRequest.ipGroupId;
+                    body = disassociateListenerRequest.body
+                } else {
+                    ipGroupId = disassociateListenerRequest['ip_group_id'];
+                    body = disassociateListenerRequest['body'];
+                }
+            }
+
+        
+            if (ipGroupId === null || ipGroupId === undefined) {
+            throw new RequiredError('ipGroupId','Required parameter ipGroupId was null or undefined when calling disassociateListener.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'ip_group_id': ipGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询IP地址组列表。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listIpGroups(listIpGroupsRequest?: ListIpGroupsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ip-groups",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let listenerId;
+
+            if (listIpGroupsRequest !== null && listIpGroupsRequest !== undefined) {
+                if (listIpGroupsRequest instanceof ListIpGroupsRequest) {
+                    limit = listIpGroupsRequest.limit;
+                    marker = listIpGroupsRequest.marker;
+                    listenerId = listIpGroupsRequest.listenerId;
+                } else {
+                    limit = listIpGroupsRequest['limit'];
+                    marker = listIpGroupsRequest['marker'];
+                    listenerId = listIpGroupsRequest['listener_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (listenerId !== null && listenerId !== undefined) {
+                localVarQueryParameter['listener_id'] = listenerId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除IP地址组中的IP网段。
+         * 该接口属于异步接口，接口返回后，后台的删除任务仍在执行；可以使用查询IP地址组详情接口查询状态，当IP地址组状态为ACTIVE时，表示条目删除完成。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        removeIpGroupIp(removeIpGroupIpRequest?: RemoveIpGroupIpRequest) {
+            const options = {
+                method: "POST",
+                url: "/v1/ip-groups/{ip_group_id}/remove-ips",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let ipGroupId;
+
+            if (removeIpGroupIpRequest !== null && removeIpGroupIpRequest !== undefined) {
+                if (removeIpGroupIpRequest instanceof RemoveIpGroupIpRequest) {
+                    ipGroupId = removeIpGroupIpRequest.ipGroupId;
+                    body = removeIpGroupIpRequest.body
+                } else {
+                    ipGroupId = removeIpGroupIpRequest['ip_group_id'];
+                    body = removeIpGroupIpRequest['body'];
+                }
+            }
+
+        
+            if (ipGroupId === null || ipGroupId === undefined) {
+            throw new RequiredError('ipGroupId','Required parameter ipGroupId was null or undefined when calling removeIpGroupIp.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'ip_group_id': ipGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询IP地址组详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showIpGroup(showIpGroupRequest?: ShowIpGroupRequest) {
+            const options = {
+                method: "GET",
+                url: "/v1/ip-groups/{ip_group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let ipGroupId;
+
+            if (showIpGroupRequest !== null && showIpGroupRequest !== undefined) {
+                if (showIpGroupRequest instanceof ShowIpGroupRequest) {
+                    ipGroupId = showIpGroupRequest.ipGroupId;
+                } else {
+                    ipGroupId = showIpGroupRequest['ip_group_id'];
+                }
+            }
+
+        
+            if (ipGroupId === null || ipGroupId === undefined) {
+            throw new RequiredError('ipGroupId','Required parameter ipGroupId was null or undefined when calling showIpGroup.');
+            }
+
+            options.pathParams = { 'ip_group_id': ipGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新IP地址组。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        updateIpGroup(updateIpGroupRequest?: UpdateIpGroupRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v1/ip-groups/{ip_group_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let ipGroupId;
+
+            if (updateIpGroupRequest !== null && updateIpGroupRequest !== undefined) {
+                if (updateIpGroupRequest instanceof UpdateIpGroupRequest) {
+                    ipGroupId = updateIpGroupRequest.ipGroupId;
+                    body = updateIpGroupRequest.body
+                } else {
+                    ipGroupId = updateIpGroupRequest['ip_group_id'];
+                    body = updateIpGroupRequest['body'];
+                }
+            }
+
+        
+            if (ipGroupId === null || ipGroupId === undefined) {
+            throw new RequiredError('ipGroupId','Required parameter ipGroupId was null or undefined when calling updateIpGroup.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'ip_group_id': ipGroupId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

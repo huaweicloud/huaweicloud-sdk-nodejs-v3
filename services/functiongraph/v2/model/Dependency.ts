@@ -79,5 +79,6 @@ export enum DependencyRuntimeEnum {
     C__NET_CORE_3_1 = 'C#(.NET Core 3.1)',
     PHP7_3 = 'PHP7.3',
     PYTHON3_9 = 'Python3.9',
+    CUSTOM = 'Custom',
     HTTP = 'http'
 }

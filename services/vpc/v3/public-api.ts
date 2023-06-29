@@ -61,6 +61,7 @@ export * from './model/RemoveExtendCidrOption';
 export * from './model/RemoveVpcExtendCidrRequest';
 export * from './model/RemoveVpcExtendCidrRequestBody';
 export * from './model/RemoveVpcExtendCidrResponse';
+export * from './model/ResourceTag';
 export * from './model/SecurityGroup';
 export * from './model/SecurityGroupInfo';
 export * from './model/SecurityGroupRule';

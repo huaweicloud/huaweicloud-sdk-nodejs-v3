@@ -86,6 +86,8 @@ import { DimChild } from './model/DimChild';
 import { DomainNameEntity } from './model/DomainNameEntity';
 import { DomainNameInfo } from './model/DomainNameInfo';
 import { DownloadBackupFilesReq } from './model/DownloadBackupFilesReq';
+import { ExecuteClusterSwitchoverRequest } from './model/ExecuteClusterSwitchoverRequest';
+import { ExecuteClusterSwitchoverResponse } from './model/ExecuteClusterSwitchoverResponse';
 import { Features } from './model/Features';
 import { Files } from './model/Files';
 import { FlavorAzObject } from './model/FlavorAzObject';
@@ -195,6 +197,8 @@ import { ShowInstanceRequest } from './model/ShowInstanceRequest';
 import { ShowInstanceResponse } from './model/ShowInstanceResponse';
 import { ShowIpWhitelistRequest } from './model/ShowIpWhitelistRequest';
 import { ShowIpWhitelistResponse } from './model/ShowIpWhitelistResponse';
+import { ShowJobInfoRequest } from './model/ShowJobInfoRequest';
+import { ShowJobInfoResponse } from './model/ShowJobInfoResponse';
 import { ShowMigrationTaskRequest } from './model/ShowMigrationTaskRequest';
 import { ShowMigrationTaskResponse } from './model/ShowMigrationTaskResponse';
 import { ShowMigrationTaskStatsRequest } from './model/ShowMigrationTaskStatsRequest';
@@ -701,6 +705,27 @@ export class DcsClient {
      */
     public deleteSingleInstance(deleteSingleInstanceRequest?: DeleteSingleInstanceRequest): Promise<DeleteSingleInstanceResponse> {
         const options = ParamCreater().deleteSingleInstance(deleteSingleInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 集群分片倒换，适用于proxy和cluster实例
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 集群分片倒换
+     * @param {string} instanceId 实例ID
+     * @param {string} groupId 分片ID
+     * @param {string} nodeId 升级为主节点的节点ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public executeClusterSwitchover(executeClusterSwitchoverRequest?: ExecuteClusterSwitchoverRequest): Promise<ExecuteClusterSwitchoverResponse> {
+        const options = ParamCreater().executeClusterSwitchover(executeClusterSwitchoverRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1415,6 +1440,25 @@ export class DcsClient {
      */
     public showInstance(showInstanceRequest?: ShowInstanceRequest): Promise<ShowInstanceResponse> {
         const options = ParamCreater().showInstance(showInstanceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询租户Job执行结果
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询租户Job执行结果
+     * @param {string} jobId Job任务ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public showJobInfo(showJobInfoRequest?: ShowJobInfoRequest): Promise<ShowJobInfoResponse> {
+        const options = ParamCreater().showJobInfo(showJobInfoRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2692,6 +2736,57 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 集群分片倒换，适用于proxy和cluster实例
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        executeClusterSwitchover(executeClusterSwitchoverRequest?: ExecuteClusterSwitchoverRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2/{project_id}/instance/{instance_id}/groups/{group_id}/replications/{node_id}/async-switchover",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let instanceId;
+            
+            let groupId;
+            
+            let nodeId;
+
+            if (executeClusterSwitchoverRequest !== null && executeClusterSwitchoverRequest !== undefined) {
+                if (executeClusterSwitchoverRequest instanceof ExecuteClusterSwitchoverRequest) {
+                    instanceId = executeClusterSwitchoverRequest.instanceId;
+                    groupId = executeClusterSwitchoverRequest.groupId;
+                    nodeId = executeClusterSwitchoverRequest.nodeId;
+                } else {
+                    instanceId = executeClusterSwitchoverRequest['instance_id'];
+                    groupId = executeClusterSwitchoverRequest['group_id'];
+                    nodeId = executeClusterSwitchoverRequest['node_id'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling executeClusterSwitchover.');
+            }
+            if (groupId === null || groupId === undefined) {
+            throw new RequiredError('groupId','Required parameter groupId was null or undefined when calling executeClusterSwitchover.');
+            }
+            if (nodeId === null || nodeId === undefined) {
+            throw new RequiredError('nodeId','Required parameter nodeId was null or undefined when calling executeClusterSwitchover.');
+            }
+
+            options.pathParams = { 'instance_id': instanceId,'group_id': groupId,'node_id': nodeId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4393,6 +4488,43 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'instance_id': instanceId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询租户Job执行结果
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        showJobInfo(showJobInfoRequest?: ShowJobInfoRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/jobs/{job_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let jobId;
+
+            if (showJobInfoRequest !== null && showJobInfoRequest !== undefined) {
+                if (showJobInfoRequest instanceof ShowJobInfoRequest) {
+                    jobId = showJobInfoRequest.jobId;
+                } else {
+                    jobId = showJobInfoRequest['job_id'];
+                }
+            }
+
+        
+            if (jobId === null || jobId === undefined) {
+            throw new RequiredError('jobId','Required parameter jobId was null or undefined when calling showJobInfo.');
+            }
+
+            options.pathParams = { 'job_id': jobId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

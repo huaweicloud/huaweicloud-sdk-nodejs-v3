@@ -2,17 +2,17 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateVpcEndpointResponse extends SdkResponse {
-    public state?: Array<string>;
-    public code?: string;
+    public endpoints?: Array<string>;
+    public address?: string;
     public constructor() { 
         super();
     }
-    public withState(state: Array<string>): CreateVpcEndpointResponse {
-        this['state'] = state;
+    public withEndpoints(endpoints: Array<string>): CreateVpcEndpointResponse {
+        this['endpoints'] = endpoints;
         return this;
     }
-    public withCode(code: string): CreateVpcEndpointResponse {
-        this['code'] = code;
+    public withAddress(address: string): CreateVpcEndpointResponse {
+        this['address'] = address;
         return this;
     }
 }

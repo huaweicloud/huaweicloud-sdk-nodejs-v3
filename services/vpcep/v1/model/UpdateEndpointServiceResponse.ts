@@ -16,7 +16,6 @@ export class UpdateEndpointServiceResponse extends SdkResponse {
     private 'created_at'?: string | undefined;
     private 'updated_at'?: string | undefined;
     private 'project_id'?: string | undefined;
-    private 'cidr_type'?: UpdateEndpointServiceResponseCidrTypeEnum | undefined;
     public ports?: Array<PortList>;
     private 'tcp_proxy'?: UpdateEndpointServiceResponseTcpProxyEnum | undefined;
     public tags?: Array<TagList>;
@@ -133,16 +132,6 @@ export class UpdateEndpointServiceResponse extends SdkResponse {
     public get projectId() {
         return this['project_id'];
     }
-    public withCidrType(cidrType: UpdateEndpointServiceResponseCidrTypeEnum): UpdateEndpointServiceResponse {
-        this['cidr_type'] = cidrType;
-        return this;
-    }
-    public set cidrType(cidrType: UpdateEndpointServiceResponseCidrTypeEnum | undefined) {
-        this['cidr_type'] = cidrType;
-    }
-    public get cidrType() {
-        return this['cidr_type'];
-    }
     public withPorts(ports: Array<PortList>): UpdateEndpointServiceResponse {
         this['ports'] = ports;
         return this;
@@ -194,14 +183,6 @@ export enum UpdateEndpointServiceResponseStatusEnum {
     CREATING = 'creating',
     AVAILABLE = 'available',
     FAILED = 'failed'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UpdateEndpointServiceResponseCidrTypeEnum {
-    PUBLIC = 'public',
-    INTERNAL = 'internal'
 }
 /**
     * @export

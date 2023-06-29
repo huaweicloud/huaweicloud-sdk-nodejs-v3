@@ -4,7 +4,7 @@ export class CreateFunctionTriggerRequestBody {
     private 'trigger_type_code': CreateFunctionTriggerRequestBodyTriggerTypeCodeEnum | undefined;
     private 'trigger_status'?: CreateFunctionTriggerRequestBodyTriggerStatusEnum | undefined;
     private 'event_type_code'?: string | undefined;
-    private 'event_data': { [key: string]: string; } | undefined;
+    private 'event_data': object | undefined;
     public constructor(triggerTypeCode?: any, eventData?: any) { 
         this['trigger_type_code'] = triggerTypeCode;
         this['event_data'] = eventData;
@@ -39,11 +39,11 @@ export class CreateFunctionTriggerRequestBody {
     public get eventTypeCode() {
         return this['event_type_code'];
     }
-    public withEventData(eventData: { [key: string]: string; }): CreateFunctionTriggerRequestBody {
+    public withEventData(eventData: object): CreateFunctionTriggerRequestBody {
         this['event_data'] = eventData;
         return this;
     }
-    public set eventData(eventData: { [key: string]: string; } | undefined) {
+    public set eventData(eventData: object | undefined) {
         this['event_data'] = eventData;
     }
     public get eventData() {

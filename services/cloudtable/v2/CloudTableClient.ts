@@ -104,7 +104,6 @@ export class CloudTableClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开启opentsdb组件
-     * @param {string} projectId 租户ID
      * @param {string} clusterId 集群ID
      * @param {string} componentName 组件类型，取值为tsdb
      * @param {AddComponentReq} addComponentReq 开启tsd组件的请求体
@@ -127,7 +126,6 @@ export class CloudTableClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 扩容组件
-     * @param {string} projectId 租户ID
      * @param {string} clusterId 集群ID
      * @param {string} xLanguage 语言类型
      * @param {GrowNodeReq} growNodeReq 扩容节点请求体
@@ -169,7 +167,6 @@ export class CloudTableClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 重启集群的api入口
-     * @param {string} projectId 租户ID
      * @param {string} clusterId 集群ID
      * @param {HbaseClusterActionReq} hbaseClusterActionReq 集群重启请求
      * @param {string} [xLanguage] 语言类型
@@ -211,7 +208,6 @@ export class CloudTableClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询集群配置
-     * @param {string} projectId 租户ID
      * @param {string} clusterId 项目ID
      * @param {string} [xLanguage] 语言类型
      * @param {*} [options] Override http request option.
@@ -232,7 +228,6 @@ export class CloudTableClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改集群配置
-     * @param {string} projectId 租户ID
      * @param {string} clusterId 集群ID
      * @param {HbaseModifySettingV2Req} hbaseModifySettingV2Req 请求参数
      * @param {string} [xLanguage] 语言类型
@@ -357,7 +352,7 @@ export const ParamCreater = function () {
         enableComponent(enableComponentRequest?: EnableComponentRequest) {
             const options = {
                 method: "POST",
-                url: "/v2/{projectId}/clusters/{clusterId}/components/{componentName}",
+                url: "/v2/{project_id}/clusters/{cluster_id}/components/{component_name}",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -368,8 +363,6 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let projectId;
-            
             let clusterId;
             
             let componentName;
@@ -378,24 +371,19 @@ export const ParamCreater = function () {
 
             if (enableComponentRequest !== null && enableComponentRequest !== undefined) {
                 if (enableComponentRequest instanceof EnableComponentRequest) {
-                    projectId = enableComponentRequest.projectId;
                     clusterId = enableComponentRequest.clusterId;
                     componentName = enableComponentRequest.componentName;
                     body = enableComponentRequest.body
                     xLanguage = enableComponentRequest.xLanguage;
                 } else {
-                    projectId = enableComponentRequest['projectId'];
-                    clusterId = enableComponentRequest['clusterId'];
-                    componentName = enableComponentRequest['componentName'];
+                    clusterId = enableComponentRequest['cluster_id'];
+                    componentName = enableComponentRequest['component_name'];
                     body = enableComponentRequest['body'];
                     xLanguage = enableComponentRequest['X-Language'];
                 }
             }
 
         
-            if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling enableComponent.');
-            }
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling enableComponent.');
             }
@@ -411,7 +399,7 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'projectId': projectId,'clusterId': clusterId,'componentName': componentName, };
+            options.pathParams = { 'cluster_id': clusterId,'component_name': componentName, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -424,7 +412,7 @@ export const ParamCreater = function () {
         expandClusterComponent(expandClusterComponentRequest?: ExpandClusterComponentRequest) {
             const options = {
                 method: "POST",
-                url: "/v2/{projectId}/clusters/{clusterId}/nodes",
+                url: "/v2/{project_id}/clusters/{cluster_id}/nodes",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -435,30 +423,23 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let projectId;
-            
             let clusterId;
             
             let xLanguage;
 
             if (expandClusterComponentRequest !== null && expandClusterComponentRequest !== undefined) {
                 if (expandClusterComponentRequest instanceof ExpandClusterComponentRequest) {
-                    projectId = expandClusterComponentRequest.projectId;
                     clusterId = expandClusterComponentRequest.clusterId;
                     xLanguage = expandClusterComponentRequest.xLanguage;
                     body = expandClusterComponentRequest.body
                 } else {
-                    projectId = expandClusterComponentRequest['projectId'];
-                    clusterId = expandClusterComponentRequest['clusterId'];
+                    clusterId = expandClusterComponentRequest['cluster_id'];
                     xLanguage = expandClusterComponentRequest['X-Language'];
                     body = expandClusterComponentRequest['body'];
                 }
             }
 
         
-            if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling expandClusterComponent.');
-            }
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling expandClusterComponent.');
             }
@@ -471,7 +452,7 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'projectId': projectId,'clusterId': clusterId, };
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -528,7 +509,7 @@ export const ParamCreater = function () {
         rebootCloudTableCluster(rebootCloudTableClusterRequest?: RebootCloudTableClusterRequest) {
             const options = {
                 method: "POST",
-                url: "/v2/{projectId}/clusters/{clusterId}/restart",
+                url: "/v2/{project_id}/clusters/{cluster_id}/restart",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -539,30 +520,23 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let projectId;
-            
             let clusterId;
             
             let xLanguage;
 
             if (rebootCloudTableClusterRequest !== null && rebootCloudTableClusterRequest !== undefined) {
                 if (rebootCloudTableClusterRequest instanceof RebootCloudTableClusterRequest) {
-                    projectId = rebootCloudTableClusterRequest.projectId;
                     clusterId = rebootCloudTableClusterRequest.clusterId;
                     body = rebootCloudTableClusterRequest.body
                     xLanguage = rebootCloudTableClusterRequest.xLanguage;
                 } else {
-                    projectId = rebootCloudTableClusterRequest['projectId'];
-                    clusterId = rebootCloudTableClusterRequest['clusterId'];
+                    clusterId = rebootCloudTableClusterRequest['cluster_id'];
                     body = rebootCloudTableClusterRequest['body'];
                     xLanguage = rebootCloudTableClusterRequest['X-Language'];
                 }
             }
 
         
-            if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling rebootCloudTableCluster.');
-            }
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling rebootCloudTableCluster.');
             }
@@ -575,7 +549,7 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'projectId': projectId,'clusterId': clusterId, };
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -632,7 +606,7 @@ export const ParamCreater = function () {
         showClusterSetting(showClusterSettingRequest?: ShowClusterSettingRequest) {
             const options = {
                 method: "GET",
-                url: "/v2/{projectId}/clusters/{clusterId}/setting",
+                url: "/v2/{project_id}/clusters/{cluster_id}/setting",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -641,28 +615,21 @@ export const ParamCreater = function () {
             const localVarHeaderParameter = {} as any;
 
             
-            let projectId;
-            
             let clusterId;
             
             let xLanguage;
 
             if (showClusterSettingRequest !== null && showClusterSettingRequest !== undefined) {
                 if (showClusterSettingRequest instanceof ShowClusterSettingRequest) {
-                    projectId = showClusterSettingRequest.projectId;
                     clusterId = showClusterSettingRequest.clusterId;
                     xLanguage = showClusterSettingRequest.xLanguage;
                 } else {
-                    projectId = showClusterSettingRequest['projectId'];
-                    clusterId = showClusterSettingRequest['clusterId'];
+                    clusterId = showClusterSettingRequest['cluster_id'];
                     xLanguage = showClusterSettingRequest['X-Language'];
                 }
             }
 
         
-            if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling showClusterSetting.');
-            }
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling showClusterSetting.');
             }
@@ -670,7 +637,7 @@ export const ParamCreater = function () {
                 localVarHeaderParameter['X-Language'] = String(xLanguage);
             }
 
-            options.pathParams = { 'projectId': projectId,'clusterId': clusterId, };
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -683,7 +650,7 @@ export const ParamCreater = function () {
         updateClusterSetting(updateClusterSettingRequest?: UpdateClusterSettingRequest) {
             const options = {
                 method: "PUT",
-                url: "/v2/{projectId}/clusters/{clusterId}/setting",
+                url: "/v2/{project_id}/clusters/{cluster_id}/setting",
                 contentType: "application/json",
                 queryParams: {},
                 pathParams: {},
@@ -694,30 +661,23 @@ export const ParamCreater = function () {
 
             let body: any;
             
-            let projectId;
-            
             let clusterId;
             
             let xLanguage;
 
             if (updateClusterSettingRequest !== null && updateClusterSettingRequest !== undefined) {
                 if (updateClusterSettingRequest instanceof UpdateClusterSettingRequest) {
-                    projectId = updateClusterSettingRequest.projectId;
                     clusterId = updateClusterSettingRequest.clusterId;
                     body = updateClusterSettingRequest.body
                     xLanguage = updateClusterSettingRequest.xLanguage;
                 } else {
-                    projectId = updateClusterSettingRequest['projectId'];
-                    clusterId = updateClusterSettingRequest['clusterId'];
+                    clusterId = updateClusterSettingRequest['cluster_id'];
                     body = updateClusterSettingRequest['body'];
                     xLanguage = updateClusterSettingRequest['X-Language'];
                 }
             }
 
         
-            if (projectId === null || projectId === undefined) {
-            throw new RequiredError('projectId','Required parameter projectId was null or undefined when calling updateClusterSetting.');
-            }
             if (clusterId === null || clusterId === undefined) {
             throw new RequiredError('clusterId','Required parameter clusterId was null or undefined when calling updateClusterSetting.');
             }
@@ -730,7 +690,7 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
-            options.pathParams = { 'projectId': projectId,'clusterId': clusterId, };
+            options.pathParams = { 'cluster_id': clusterId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

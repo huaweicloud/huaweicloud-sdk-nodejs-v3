@@ -16,7 +16,6 @@ export class CreateEndpointServiceResponse extends SdkResponse {
     private 'created_at'?: string | undefined;
     private 'updated_at'?: string | undefined;
     private 'project_id'?: string | undefined;
-    private 'cidr_type'?: CreateEndpointServiceResponseCidrTypeEnum | undefined;
     public ports?: Array<PortList>;
     private 'tcp_proxy'?: CreateEndpointServiceResponseTcpProxyEnum | undefined;
     public tags?: Array<TagList>;
@@ -133,16 +132,6 @@ export class CreateEndpointServiceResponse extends SdkResponse {
     public get projectId() {
         return this['project_id'];
     }
-    public withCidrType(cidrType: CreateEndpointServiceResponseCidrTypeEnum): CreateEndpointServiceResponse {
-        this['cidr_type'] = cidrType;
-        return this;
-    }
-    public set cidrType(cidrType: CreateEndpointServiceResponseCidrTypeEnum | undefined) {
-        this['cidr_type'] = cidrType;
-    }
-    public get cidrType() {
-        return this['cidr_type'];
-    }
     public withPorts(ports: Array<PortList>): CreateEndpointServiceResponse {
         this['ports'] = ports;
         return this;
@@ -194,14 +183,6 @@ export enum CreateEndpointServiceResponseStatusEnum {
     CREATING = 'creating',
     AVAILABLE = 'available',
     FAILED = 'failed'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CreateEndpointServiceResponseCidrTypeEnum {
-    PUBLIC = 'public',
-    INTERNAL = 'internal'
 }
 /**
     * @export

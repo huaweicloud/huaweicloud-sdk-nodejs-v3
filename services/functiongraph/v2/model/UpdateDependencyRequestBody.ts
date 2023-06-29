@@ -76,5 +76,7 @@ export enum UpdateDependencyRequestBodyRuntimeEnum {
     C__NET_CORE_2_0 = 'C#(.NET Core 2.0)',
     C__NET_CORE_2_1 = 'C#(.NET Core 2.1)',
     C__NET_CORE_3_1 = 'C#(.NET Core 3.1)',
-    PHP7_3 = 'PHP7.3'
+    PHP7_3 = 'PHP7.3',
+    CUSTOM = 'Custom',
+    HTTP = 'http'
 }

@@ -10,6 +10,7 @@ export class ConfigTemplatesListInfo {
     private 'product_type'?: ConfigTemplatesListInfoProductTypeEnum | undefined;
     private 'storage_type'?: ConfigTemplatesListInfoStorageTypeEnum | undefined;
     public type?: string;
+    private 'created_at'?: string | undefined;
     public constructor() { 
     }
     public withTemplateId(templateId: string): ConfigTemplatesListInfo {
@@ -77,6 +78,16 @@ export class ConfigTemplatesListInfo {
     public withType(type: string): ConfigTemplatesListInfo {
         this['type'] = type;
         return this;
+    }
+    public withCreatedAt(createdAt: string): ConfigTemplatesListInfo {
+        this['created_at'] = createdAt;
+        return this;
+    }
+    public set createdAt(createdAt: string | undefined) {
+        this['created_at'] = createdAt;
+    }
+    public get createdAt() {
+        return this['created_at'];
     }
 }
 

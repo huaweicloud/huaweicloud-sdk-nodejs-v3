@@ -1,3 +1,4 @@
+import { ResourceTag } from './ResourceTag';
 
 
 export class AddressGroup {
@@ -11,9 +12,10 @@ export class AddressGroup {
     private 'updated_at': Date | undefined;
     private 'tenant_id': string | undefined;
     private 'enterprise_project_id': string | undefined;
+    public tags: Array<ResourceTag>;
     public status: string;
     private 'status_message': string | undefined;
-    public constructor(id?: any, name?: any, description?: any, maxCapacity?: any, ipSet?: any, ipVersion?: any, createdAt?: any, updatedAt?: any, tenantId?: any, enterpriseProjectId?: any, status?: any, statusMessage?: any) { 
+    public constructor(id?: any, name?: any, description?: any, maxCapacity?: any, ipSet?: any, ipVersion?: any, createdAt?: any, updatedAt?: any, tenantId?: any, enterpriseProjectId?: any, tags?: any, status?: any, statusMessage?: any) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -24,6 +26,7 @@ export class AddressGroup {
         this['updated_at'] = updatedAt;
         this['tenant_id'] = tenantId;
         this['enterprise_project_id'] = enterpriseProjectId;
+        this['tags'] = tags;
         this['status'] = status;
         this['status_message'] = statusMessage;
     }
@@ -108,6 +111,10 @@ export class AddressGroup {
     }
     public get enterpriseProjectId() {
         return this['enterprise_project_id'];
+    }
+    public withTags(tags: Array<ResourceTag>): AddressGroup {
+        this['tags'] = tags;
+        return this;
     }
     public withStatus(status: string): AddressGroup {
         this['status'] = status;

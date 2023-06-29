@@ -2,22 +2,22 @@ import { GrowNodeReq } from './GrowNodeReq';
 
 
 export class ExpandClusterComponentRequest {
-    public projectId: string;
-    public clusterId: string;
+    private 'cluster_id': string | undefined;
     private 'X-Language': string | undefined;
     public body?: GrowNodeReq;
-    public constructor(projectId?: any, clusterId?: any, xLanguage?: any) { 
-        this['projectId'] = projectId;
-        this['clusterId'] = clusterId;
+    public constructor(clusterId?: any, xLanguage?: any) { 
+        this['cluster_id'] = clusterId;
         this['X-Language'] = xLanguage;
     }
-    public withProjectId(projectId: string): ExpandClusterComponentRequest {
-        this['projectId'] = projectId;
+    public withClusterId(clusterId: string): ExpandClusterComponentRequest {
+        this['cluster_id'] = clusterId;
         return this;
     }
-    public withClusterId(clusterId: string): ExpandClusterComponentRequest {
-        this['clusterId'] = clusterId;
-        return this;
+    public set clusterId(clusterId: string | undefined) {
+        this['cluster_id'] = clusterId;
+    }
+    public get clusterId() {
+        return this['cluster_id'];
     }
     public withXLanguage(xLanguage: string): ExpandClusterComponentRequest {
         this['X-Language'] = xLanguage;

@@ -25,7 +25,7 @@ import { IHttpRequest } from "../http/IHttpRequest";
 export interface ICredential {
     getAk: () => string | undefined;
     getSk: () => string | undefined;
-    processAuthRequest: (httpRequest: IHttpRequest) => IHttpRequest;
+    processAuthRequest: (httpRequest: IHttpRequest) => Promise<IHttpRequest>;
     processAuthParams: (hcClient: HcClient, region: string) => Promise<ICredential>;
 }
 export function isJsonContentType(headers: any) {

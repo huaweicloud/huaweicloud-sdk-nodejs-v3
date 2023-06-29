@@ -31,6 +31,7 @@ export class CreateInstanceBody {
     private 'enable_publicip'?: boolean | undefined;
     public port?: number;
     private 'rename_commands'?: object | undefined;
+    private 'template_id'?: string | undefined;
     public constructor(name?: any, engine?: any, capacity?: any, specCode?: any, azCodes?: any, vpcId?: any, subnetId?: any) { 
         this['name'] = name;
         this['engine'] = engine;
@@ -267,5 +268,15 @@ export class CreateInstanceBody {
     }
     public get renameCommands() {
         return this['rename_commands'];
+    }
+    public withTemplateId(templateId: string): CreateInstanceBody {
+        this['template_id'] = templateId;
+        return this;
+    }
+    public set templateId(templateId: string | undefined) {
+        this['template_id'] = templateId;
+    }
+    public get templateId() {
+        return this['template_id'];
     }
 }

@@ -3,6 +3,7 @@
 export class PermissionObject {
     public id?: string;
     public permission?: string;
+    private 'permission_type'?: PermissionObjectPermissionTypeEnum | undefined;
     private 'created_at'?: string | undefined;
     public constructor() { 
     }
@@ -14,6 +15,16 @@ export class PermissionObject {
         this['permission'] = permission;
         return this;
     }
+    public withPermissionType(permissionType: PermissionObjectPermissionTypeEnum): PermissionObject {
+        this['permission_type'] = permissionType;
+        return this;
+    }
+    public set permissionType(permissionType: PermissionObjectPermissionTypeEnum | undefined) {
+        this['permission_type'] = permissionType;
+    }
+    public get permissionType() {
+        return this['permission_type'];
+    }
     public withCreatedAt(createdAt: string): PermissionObject {
         this['created_at'] = createdAt;
         return this;
@@ -24,4 +35,13 @@ export class PermissionObject {
     public get createdAt() {
         return this['created_at'];
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum PermissionObjectPermissionTypeEnum {
+    DOMAINID = 'domainId',
+    ORGPATH = 'orgPath'
 }

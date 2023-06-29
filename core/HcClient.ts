@@ -139,7 +139,7 @@ export class HcClient {
             .withQueryParams(options.queryParams)
             .build();
 
-        httpRequest = this.credential!.processAuthRequest(httpRequest);
+        httpRequest = await this.credential!.processAuthRequest(httpRequest);
         if (options['responseHeaders']) {
             httpRequest['responseHeaders'] = options['responseHeaders'];
         }
