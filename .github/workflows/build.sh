@@ -10,7 +10,7 @@ npm install
 echo "tsc start"
 tsc
 echo "tsc end"
-ls -al "${GITHUB_WORKSPACE}
+ls -al "${GITHUB_WORKSPACE}"
 ls -al "${GITHUB_WORKSPACE}/core"
 ls -al "${GITHUB_WORKSPACE}/build"
 # for service in `ls "${GITHUB_WORKSPACE}/services`
