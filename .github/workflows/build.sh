@@ -13,7 +13,7 @@ echo "tsc end"
 echo "ls -al build/core"
 
 ls -al "${GITHUB_WORKSPACE}/build/core"
-cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-core.json" "${GITHUB_WORKSPACE}/core/package.json"
+cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-core.json" "${GITHUB_WORKSPACE}/build/core/package.json"
 cat "${GITHUB_WORKSPACE}/build/core/package.json"
 
 echo "build core end"
@@ -34,7 +34,7 @@ for service in "ls ${GITHUB_WORKSPACE}/services"
     cd "${GITHUB_WORKSPACE}/services/${service}" || exit 1
     # get the first version
     first=true
-    for version in "ls"
+    for version in `ls`
     do
         # do something
         if test -d "${version}"
