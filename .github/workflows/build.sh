@@ -1,9 +1,14 @@
 #bin/bash
 echo "build package"
 cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-core.json" "${GITHUB_WORKSPACE}/core/package.json"
-
+cp -r "${GITHUB_WORKSPACE}/.github/workflows/tsconfig-core.json" "${GITHUB_WORKSPACE}/core/tsconfig.json"
 # cd "${GITHUB_WORKSPACE}/core" || exit 1
 ls -al "${GITHUB_WORKSPACE}/core"
+cd "${GITHUB_WORKSPACE}/core" || exit 1
+npm install 
+tsc
+
+ls -al "${GITHUB_WORKSPACE}/build"
 # for service in `ls "${GITHUB_WORKSPACE}/services`
 #     do
 #     cd "${GITHUB_WORKSPACE}/services/${service}" || exit 1
