@@ -4,10 +4,14 @@ cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-core.json" "${GITHUB_WORKSP
 cp -r "${GITHUB_WORKSPACE}/.github/workflows/tsconfig-core.json" "${GITHUB_WORKSPACE}/core/tsconfig.json"
 # cd "${GITHUB_WORKSPACE}/core" || exit 1
 ls -al "${GITHUB_WORKSPACE}/core"
-cd "${GITHUB_WORKSPACE}/core" || exit 1
+cd "${GITHUB_WORKSPACE}/core"
 npm install 
-tsc
 
+echo "tsc start"
+tsc
+echo "tsc end"
+ls -al "${GITHUB_WORKSPACE}
+ls -al "${GITHUB_WORKSPACE}/core"
 ls -al "${GITHUB_WORKSPACE}/build"
 # for service in `ls "${GITHUB_WORKSPACE}/services`
 #     do
