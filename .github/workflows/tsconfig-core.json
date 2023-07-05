@@ -17,8 +17,7 @@
         "skipLibCheck": true
     },
     "include": [
-        "core/**/*ts",
-        "services/**/*.ts"
+        "**/*.ts"
     ],
     "exclude": [
         "node_modules",
