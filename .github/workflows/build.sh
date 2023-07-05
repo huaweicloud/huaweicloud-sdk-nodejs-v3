@@ -2,6 +2,8 @@
 echo "build package"
 cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-core.json" "${GITHUB_WORKSPACE}/core/package.json"
 
+# cd "${GITHUB_WORKSPACE}/core" || exit 1
+ls -al "${GITHUB_WORKSPACE}/core"
 # for service in `ls "${GITHUB_WORKSPACE}/services`
 #     do
 #     cd "${GITHUB_WORKSPACE}/services/${service}" || exit 1
