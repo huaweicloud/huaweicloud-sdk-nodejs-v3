@@ -12,18 +12,13 @@
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "moduleResolution": "node",
-        "noImplicitThis": false,
-        "baseUrl": ".",
-        "paths": {
-            "*": [
-                "./types/*"
-            ]
-        },
+        "noImplicitThis": false, 
         "esModuleInterop": true,
         "skipLibCheck": true
     },
     "include": [
-        "**/*.ts"
+        "core/**/*ts",
+        "services/**/*.ts"
     ],
     "exclude": [
         "node_modules",

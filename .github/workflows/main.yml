@@ -13,7 +13,7 @@ jobs:
           node-version: '16.15.1'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
-        run: npm install -g typescript@4.1.6
+        run: npm install -g typescript@4.9.5
       - name: Compile projects
         run: |
           chmod +x .github/workflows/build.sh
