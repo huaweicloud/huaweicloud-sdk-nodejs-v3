@@ -16,39 +16,6 @@ jobs:
         run: npm install -g typescript@4.1.6
       - name: Compile projects
         run: |
-          for service in `ls "${GITHUB_WORKSPACE}/services`
-          do
-            cd "${GITHUB_WORKSPACE}/services/${service}" || exit 1
-            first=true
-            for version in `ls`
-            do
-              if test -d "${version}"
-              then
-                if ${first}; then
-                  echo "export * from './${version}/public-api';" >> "huaweicloud-sdk-${service}.ts"
-                  first=false
-                fi
-
-               echo "export * as ${version} from './${version}/public-api';" >> "huaweicloud-sdk-${service}.ts"
-              fi
-            done
-          done
-          cd "${GITHUB_WORKSPACE}" || exit 1
-          tsc
+          chmod +x .github/workflows/build.sh
+          .github/workflows/build.sh
         shell: bash
-      - name: Publish package
-        run: |
-          version=$(grep -oP '(?<="version": ")[^"]+' "${GITHUB_WORKSPACE}/package.json")
-          cd "${GITHUB_WORKSPACE}/core" || exit 1
-          find "${GITHUB_WORKSPACE}" -maxdepth 1 -mindepth 1 -type f -exec cp {} . \;
-          npm publish --access public --dry-run true
-          cd "${GITHUB_WORKSPACE}/services" || exit 1
-          for each in $(ls .)
-          do
-            cd "${each}" || exit 1
-            echo -e "{\n  \"name\": \"@huaweicloud/huaweicloud-sdk-${each}\",\n  \"version\": \"${version}\",\n  \"description\": \"Huaweicloud SDK for ${each}\",\n  \"main\": \"huaweicloud-sdk-${each}.js\",\n  \"typings\": \"huaweicloud-sdk-${each}.d.ts\",\n  \"scripts\": {\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"https://github.com/huaweicloud-sdk/huaweicloud-sdk-nodejs\"\n  },\n  \"author\": \"HuaweiCloud_SDK\",\n  \"license\": \"Apache-2.0\",\n  \"dependencies\": {\n    \"@huaweicloud/huaweicloud-sdk-core\": \"^${version}\"\n  }" >> package.json
-            
-            cd - || exit 1
-        shell: bash
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
