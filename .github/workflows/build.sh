@@ -29,7 +29,7 @@ npm install
 
 cp -r "${GITHUB_WORKSPACE}/build/core" "${GITHUB_WORKSPACE}/services/node_modules/@huaweicloud/huaweicloud-sdk-core"
 
-for service in "ls ${GITHUB_WORKSPACE}/services"
+for service in `ls ${GITHUB_WORKSPACE}/services`
     do
     cd "${GITHUB_WORKSPACE}/services/${service}" || exit 1
     # get the first version
