@@ -29,25 +29,5 @@ npm install
 
 cp -r "${GITHUB_WORKSPACE}/build/core" "${GITHUB_WORKSPACE}/services/node_modules/@huaweicloud/huaweicloud-sdk-core"
 
-for service_path in `ls -d  ${GITHUB_WORKSPACE}/services/*/`
-    do
-    service=$(basename "${service_path}")
-    cd "${GITHUB_WORKSPACE}/services/${service}" || exit 1
-    # get the first version
-    first=true
-    for version in `ls`
-    do
-        # do something
-        if test -d "${version}"
-        then
-        if ${first}; then
-            echo "export * from './${version}/public-api';" >> "huaweicloud-sdk-${service}.ts"
-            first=false
-        fi
-
-        echo "export * as ${version} from './${version}/public-api';" >> "huaweicloud-sdk-${service}.ts"
-        fi
-    done
-done 
 tsc
 echo "build services end"
