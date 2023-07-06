@@ -23,6 +23,8 @@ export class ElbRegion {
     public static SA_BRAZIL_1 = new Region("sa-brazil-1", ["https://elb.sa-brazil-1.myhuaweicloud.com"]);
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://elb.na-mexico-1.myhuaweicloud.com"]);
     public static LA_NORTH_2 = new Region("la-north-2", ["https://elb.la-north-2.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://elb.ap-southeast-4.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://elb.tr-west-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -42,7 +44,9 @@ export class ElbRegion {
         "la-south-2":ElbRegion.LA_SOUTH_2,
         "sa-brazil-1":ElbRegion.SA_BRAZIL_1,
         "na-mexico-1":ElbRegion.NA_MEXICO_1,
-        "la-north-2":ElbRegion.LA_NORTH_2
+        "la-north-2":ElbRegion.LA_NORTH_2,
+        "ap-southeast-4":ElbRegion.AP_SOUTHEAST_4,
+        "tr-west-1":ElbRegion.TR_WEST_1
     };
   
     public static valueOf(regionId: string) {

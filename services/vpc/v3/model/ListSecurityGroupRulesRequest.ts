@@ -10,6 +10,7 @@ export class ListSecurityGroupRulesRequest {
     private 'remote_group_id'?: Array<string> | undefined;
     public direction?: string;
     public action?: string;
+    private 'remote_ip_prefix'?: string | undefined;
     public constructor() { 
     }
     public withLimit(limit: number): ListSecurityGroupRulesRequest {
@@ -59,5 +60,15 @@ export class ListSecurityGroupRulesRequest {
     public withAction(action: string): ListSecurityGroupRulesRequest {
         this['action'] = action;
         return this;
+    }
+    public withRemoteIpPrefix(remoteIpPrefix: string): ListSecurityGroupRulesRequest {
+        this['remote_ip_prefix'] = remoteIpPrefix;
+        return this;
+    }
+    public set remoteIpPrefix(remoteIpPrefix: string | undefined) {
+        this['remote_ip_prefix'] = remoteIpPrefix;
+    }
+    public get remoteIpPrefix() {
+        return this['remote_ip_prefix'];
     }
 }

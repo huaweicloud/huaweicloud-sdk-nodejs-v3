@@ -1,4 +1,4 @@
-import { AccessConfigDeatil } from './AccessConfigDeatil';
+import { AccessConfigDeatilCreate } from './AccessConfigDeatilCreate';
 import { AccessConfigHostGroupIdList } from './AccessConfigHostGroupIdList';
 import { AccessConfigQueryLogInfo } from './AccessConfigQueryLogInfo';
 import { AccessConfigTag } from './AccessConfigTag';
@@ -9,10 +9,12 @@ export class AccessConfigInfo {
     private 'access_config_name'?: string | undefined;
     private 'access_config_type'?: AccessConfigInfoAccessConfigTypeEnum | undefined;
     private 'create_time'?: number | undefined;
-    private 'access_config_detail'?: AccessConfigDeatil | undefined;
+    private 'access_config_detail'?: AccessConfigDeatilCreate | undefined;
     private 'log_info'?: AccessConfigQueryLogInfo | undefined;
     private 'host_group_info'?: AccessConfigHostGroupIdList | undefined;
     private 'access_config_tag'?: Array<AccessConfigTag> | undefined;
+    private 'log_split'?: boolean | undefined;
+    private 'binary_collect'?: boolean | undefined;
     public constructor() { 
     }
     public withAccessConfigId(accessConfigId: string): AccessConfigInfo {
@@ -55,11 +57,11 @@ export class AccessConfigInfo {
     public get createTime() {
         return this['create_time'];
     }
-    public withAccessConfigDetail(accessConfigDetail: AccessConfigDeatil): AccessConfigInfo {
+    public withAccessConfigDetail(accessConfigDetail: AccessConfigDeatilCreate): AccessConfigInfo {
         this['access_config_detail'] = accessConfigDetail;
         return this;
     }
-    public set accessConfigDetail(accessConfigDetail: AccessConfigDeatil | undefined) {
+    public set accessConfigDetail(accessConfigDetail: AccessConfigDeatilCreate | undefined) {
         this['access_config_detail'] = accessConfigDetail;
     }
     public get accessConfigDetail() {
@@ -95,6 +97,26 @@ export class AccessConfigInfo {
     public get accessConfigTag() {
         return this['access_config_tag'];
     }
+    public withLogSplit(logSplit: boolean): AccessConfigInfo {
+        this['log_split'] = logSplit;
+        return this;
+    }
+    public set logSplit(logSplit: boolean | undefined) {
+        this['log_split'] = logSplit;
+    }
+    public get logSplit() {
+        return this['log_split'];
+    }
+    public withBinaryCollect(binaryCollect: boolean): AccessConfigInfo {
+        this['binary_collect'] = binaryCollect;
+        return this;
+    }
+    public set binaryCollect(binaryCollect: boolean | undefined) {
+        this['binary_collect'] = binaryCollect;
+    }
+    public get binaryCollect() {
+        return this['binary_collect'];
+    }
 }
 
 /**
@@ -102,5 +124,6 @@ export class AccessConfigInfo {
     * @enum {string}
     */
 export enum AccessConfigInfoAccessConfigTypeEnum {
-    AGENT = 'AGENT'
+    AGENT = 'AGENT',
+    K8S_CCE = 'K8S_CCE'
 }

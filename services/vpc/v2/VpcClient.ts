@@ -812,6 +812,7 @@ export class VpcClient {
      * @param {string} [marker] 功能说明：分页查询起始的资源ID，为空时查询第一页
      * @param {number} [limit] 每页返回的个数
      * @param {string} [securityGroupId] 安全组ID
+     * @param {string} [remoteIpPrefix] 功能说明：远端IP地址 取值范围：cidr格式
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -3362,16 +3363,20 @@ export const ParamCreater = function () {
             let limit;
             
             let securityGroupId;
+            
+            let remoteIpPrefix;
 
             if (listSecurityGroupRulesRequest !== null && listSecurityGroupRulesRequest !== undefined) {
                 if (listSecurityGroupRulesRequest instanceof ListSecurityGroupRulesRequest) {
                     marker = listSecurityGroupRulesRequest.marker;
                     limit = listSecurityGroupRulesRequest.limit;
                     securityGroupId = listSecurityGroupRulesRequest.securityGroupId;
+                    remoteIpPrefix = listSecurityGroupRulesRequest.remoteIpPrefix;
                 } else {
                     marker = listSecurityGroupRulesRequest['marker'];
                     limit = listSecurityGroupRulesRequest['limit'];
                     securityGroupId = listSecurityGroupRulesRequest['security_group_id'];
+                    remoteIpPrefix = listSecurityGroupRulesRequest['remote_ip_prefix'];
                 }
             }
 
@@ -3384,6 +3389,9 @@ export const ParamCreater = function () {
             }
             if (securityGroupId !== null && securityGroupId !== undefined) {
                 localVarQueryParameter['security_group_id'] = securityGroupId;
+            }
+            if (remoteIpPrefix !== null && remoteIpPrefix !== undefined) {
+                localVarQueryParameter['remote_ip_prefix'] = remoteIpPrefix;
             }
 
             options.queryParams = localVarQueryParameter;

@@ -2,13 +2,13 @@
 
 export class Sources {
     private 'domain_id'?: string | undefined;
-    private 'ip_or_domain': string | undefined;
     private 'origin_type': SourcesOriginTypeEnum | undefined;
+    private 'ip_or_domain': string | undefined;
     private 'active_standby': number | undefined;
     private 'enable_obs_web_hosting'?: number | undefined;
-    public constructor(ipOrDomain?: any, originType?: any, activeStandby?: any) { 
-        this['ip_or_domain'] = ipOrDomain;
+    public constructor(originType?: any, ipOrDomain?: any, activeStandby?: any) { 
         this['origin_type'] = originType;
+        this['ip_or_domain'] = ipOrDomain;
         this['active_standby'] = activeStandby;
     }
     public withDomainId(domainId: string): Sources {
@@ -21,16 +21,6 @@ export class Sources {
     public get domainId() {
         return this['domain_id'];
     }
-    public withIpOrDomain(ipOrDomain: string): Sources {
-        this['ip_or_domain'] = ipOrDomain;
-        return this;
-    }
-    public set ipOrDomain(ipOrDomain: string | undefined) {
-        this['ip_or_domain'] = ipOrDomain;
-    }
-    public get ipOrDomain() {
-        return this['ip_or_domain'];
-    }
     public withOriginType(originType: SourcesOriginTypeEnum): Sources {
         this['origin_type'] = originType;
         return this;
@@ -40,6 +30,16 @@ export class Sources {
     }
     public get originType() {
         return this['origin_type'];
+    }
+    public withIpOrDomain(ipOrDomain: string): Sources {
+        this['ip_or_domain'] = ipOrDomain;
+        return this;
+    }
+    public set ipOrDomain(ipOrDomain: string | undefined) {
+        this['ip_or_domain'] = ipOrDomain;
+    }
+    public get ipOrDomain() {
+        return this['ip_or_domain'];
     }
     public withActiveStandby(activeStandby: number): Sources {
         this['active_standby'] = activeStandby;

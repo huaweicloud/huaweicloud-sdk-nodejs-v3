@@ -1,6 +1,6 @@
 import { Frequency } from './Frequency';
 import { KeywordsRequest } from './KeywordsRequest';
-import { NotificationSaveRule } from './NotificationSaveRule';
+import { SqlNotificationSaveRule } from './SqlNotificationSaveRule';
 
 
 export class UpdateKeywordsAlarmRuleRequestBody {
@@ -13,7 +13,7 @@ export class UpdateKeywordsAlarmRuleRequestBody {
     private 'keywords_alarm_send': boolean | undefined;
     private 'keywords_alarm_send_code': UpdateKeywordsAlarmRuleRequestBodyKeywordsAlarmSendCodeEnum | undefined;
     private 'domain_id': string | undefined;
-    private 'notification_save_rule'?: NotificationSaveRule | undefined;
+    private 'notification_save_rule'?: SqlNotificationSaveRule | undefined;
     private 'trigger_condition_count'?: number | undefined;
     private 'trigger_condition_frequency'?: number | undefined;
     private 'whether_recovery_policy'?: boolean | undefined;
@@ -112,11 +112,11 @@ export class UpdateKeywordsAlarmRuleRequestBody {
     public get domainId() {
         return this['domain_id'];
     }
-    public withNotificationSaveRule(notificationSaveRule: NotificationSaveRule): UpdateKeywordsAlarmRuleRequestBody {
+    public withNotificationSaveRule(notificationSaveRule: SqlNotificationSaveRule): UpdateKeywordsAlarmRuleRequestBody {
         this['notification_save_rule'] = notificationSaveRule;
         return this;
     }
-    public set notificationSaveRule(notificationSaveRule: NotificationSaveRule | undefined) {
+    public set notificationSaveRule(notificationSaveRule: SqlNotificationSaveRule | undefined) {
         this['notification_save_rule'] = notificationSaveRule;
     }
     public get notificationSaveRule() {

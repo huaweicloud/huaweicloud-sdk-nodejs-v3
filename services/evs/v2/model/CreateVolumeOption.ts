@@ -14,6 +14,8 @@ export class CreateVolumeOption {
     private 'snapshot_id'?: string | undefined;
     private 'volume_type': CreateVolumeOptionVolumeTypeEnum | undefined;
     public tags?: { [key: string]: string; };
+    public iops?: number;
+    public throughput?: number;
     public constructor(availabilityZone?: any, size?: any, volumeType?: any) { 
         this['availability_zone'] = availabilityZone;
         this['size'] = size;
@@ -101,6 +103,14 @@ export class CreateVolumeOption {
         this['tags'] = tags;
         return this;
     }
+    public withIops(iops: number): CreateVolumeOption {
+        this['iops'] = iops;
+        return this;
+    }
+    public withThroughput(throughput: number): CreateVolumeOption {
+        this['throughput'] = throughput;
+        return this;
+    }
 }
 
 /**
@@ -112,5 +122,7 @@ export enum CreateVolumeOptionVolumeTypeEnum {
     GPSSD = 'GPSSD',
     SAS = 'SAS',
     SATA = 'SATA',
-    ESSD = 'ESSD'
+    ESSD = 'ESSD',
+    GPSSD2 = 'GPSSD2',
+    ESSD2 = 'ESSD2'
 }

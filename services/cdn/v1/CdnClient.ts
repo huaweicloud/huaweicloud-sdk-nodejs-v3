@@ -179,7 +179,7 @@ export class CdnClient {
 
 
     /**
-     * 用于删除资源标签
+     * 用于删除资源标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -257,7 +257,7 @@ export class CdnClient {
     }
 
     /**
-     * 用于创建资源标签
+     * 用于创建资源标签。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -281,7 +281,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除加速域名
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -301,7 +301,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 停用加速域名
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -321,7 +321,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 启用加速域名
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -345,8 +345,8 @@ export class CdnClient {
      * @param {'web' | 'download' | 'video' | 'wholeSite'} [businessType] 加速域名的业务类型。取值： - web（网站加速） - download（文件下载加速） - video（点播加速） - wholeSite（全站加速）
      * @param {'online' | 'offline' | 'configuring' | 'configure_failed' | 'checking' | 'check_failed' | 'deleting'} [domainStatus] 加速域名状态。取值意义： - online表示“已开启” - offline表示“已停用” - configuring表示“配置中” - configure_failed表示“配置失败” - checking表示“审核中” - check_failed表示“审核未通过” - deleting表示“删除中”。
      * @param {'mainland_china' | 'outside_mainland_china' | 'global'} [serviceArea] 华为云CDN提供的加速服务范围，包含： - mainland_china 中国大陆 - outside_mainland_china 中国大陆境外 - global 全球。
-     * @param {number} [pageSize] 每页的数量，取值范围1-10000，不设值时默认值为30。
-     * @param {number} [pageNumber] 查询的页码。取值范围1-65535，不设值时默认值为1。
+     * @param {number} [pageSize] 每页加速域名的数量，取值范围1-10000，不设值时默认值为30。
+     * @param {number} [pageNumber] 查询的页码，即：从哪一页开始查询。取值范围1-65535，不设值时默认值为1。
      * @param {boolean} [showTags] 展示标签标识 true：不展示 false：展示。
      * @param {boolean} [exactMatch] 精准匹配 on：开启 off：关闭。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
@@ -388,7 +388,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询缓存规则
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -431,7 +431,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询加速域名详情
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -551,7 +551,7 @@ export class CdnClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询域名统计数据-区域运营商
+     * @summary 按区域运营商查询域名统计数据
      * @param {string} action - 动作名称，可选location_summary、location_detail。 - location_summary：查询汇总数据 - location_detail：查询数据详情。
      * @param {number} startTime - 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下：  - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00)  - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00)  - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
      * @param {number} endTime - 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下：  - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00)  - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00)  - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
@@ -672,7 +672,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询HTTPS配置
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -736,7 +736,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询回源HOST
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -774,7 +774,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询Referer过滤规则
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -794,7 +794,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询响应头配置
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -809,12 +809,12 @@ export class CdnClient {
     }
 
     /**
-     * 用于查询资源标签列表
+     * 用于查询资源标签列表。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询资源标签列表配置接口
-     * @param {string} resourceId 资源id
+     * @param {string} resourceId 资源id。  &gt; 域名ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -917,7 +917,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置缓存规则
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {CacheConfigRequestBody} cacheConfig This is a auto create Body Object 
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
@@ -961,7 +961,7 @@ export class CdnClient {
      *
      * @summary 一个证书批量设置多个域名
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
-     * @param {UpdateDomainMultiCertificatesRequestBody} [https] https对象。
+     * @param {UpdateDomainMultiCertificatesRequestBody} [https] https配置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -975,12 +975,12 @@ export class CdnClient {
     }
 
     /**
-     * 修改源站信息。源站IP地址或域名都可以指引CDN节点回源到对应的源站服务器，源站域名不能与加速域名相同。
+     * 修改加速域名的源站配置。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改源站信息
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @summary 修改源站信息。
+     * @param {string} domainId 加速域名ID。
      * @param {OriginRequest} origin This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
@@ -1001,7 +1001,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开启/关闭回源跟随
-     * @param {string} domainId 加速域名id。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名id。
      * @param {Follow302StatusRequest} followStatus This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
@@ -1022,8 +1022,8 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 配置HTTPS
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
-     * @param {HttpInfoRequest} https https对象。
+     * @param {string} domainId 加速域名ID。
+     * @param {HttpInfoRequest} https https配置。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1042,8 +1042,8 @@ export class CdnClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 修改回源HOST
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @summary 修改回源HOST。
+     * @param {string} domainId 加速域名ID。
      * @param {OriginHostRequest} originHost This is a auto create Body Object
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
@@ -1064,7 +1064,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改私有桶开启关闭状态
-     * @param {string} domainId 加速域名id。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名id。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {UpdatePrivateBucketAccessBody} [status] 桶开启关闭状态（true：开启；false：关闭），默认为关闭
      * @param {*} [options] Override http request option.
@@ -1087,7 +1087,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 开启/关闭Range回源
-     * @param {string} domainId 加速域名id。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名id。
      * @param {RangeStatusRequest} rangeStatus range状态（\&quot;off\&quot;/\&quot;on\&quot;）
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
@@ -1108,7 +1108,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 设置Referer过滤规则
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {RefererBody} refer 
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
@@ -1129,7 +1129,7 @@ export class CdnClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 新增/修改响应头配置
-     * @param {string} domainId 加速域名ID。获取方法请参见查询加速域名。
+     * @param {string} domainId 加速域名ID。
      * @param {HeaderBody} headers 置响应头的键和值。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
@@ -1149,7 +1149,7 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 用于删除资源标签
+         * 用于删除资源标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1317,7 +1317,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于创建资源标签
+         * 用于创建资源标签。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2779,7 +2779,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 用于查询资源标签列表
+         * 用于查询资源标签列表。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -3208,7 +3208,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 修改源站信息。源站IP地址或域名都可以指引CDN节点回源到对应的源站服务器，源站域名不能与加速域名相同。
+         * 修改加速域名的源站配置。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

@@ -1,28 +1,19 @@
 
 
 export class SourcesConfig {
-    private 'origin_addr': string | undefined;
     private 'origin_type': string | undefined;
+    private 'origin_addr': string | undefined;
     public priority: number;
+    public weight?: number;
     private 'obs_web_hosting_status'?: string | undefined;
     private 'http_port'?: number | undefined;
     private 'https_port'?: number | undefined;
     private 'host_name'?: string | undefined;
     private 'obs_bucket_type'?: string | undefined;
-    public constructor(originAddr?: any, originType?: any, priority?: any) { 
-        this['origin_addr'] = originAddr;
+    public constructor(originType?: any, originAddr?: any, priority?: any) { 
         this['origin_type'] = originType;
+        this['origin_addr'] = originAddr;
         this['priority'] = priority;
-    }
-    public withOriginAddr(originAddr: string): SourcesConfig {
-        this['origin_addr'] = originAddr;
-        return this;
-    }
-    public set originAddr(originAddr: string | undefined) {
-        this['origin_addr'] = originAddr;
-    }
-    public get originAddr() {
-        return this['origin_addr'];
     }
     public withOriginType(originType: string): SourcesConfig {
         this['origin_type'] = originType;
@@ -34,8 +25,22 @@ export class SourcesConfig {
     public get originType() {
         return this['origin_type'];
     }
+    public withOriginAddr(originAddr: string): SourcesConfig {
+        this['origin_addr'] = originAddr;
+        return this;
+    }
+    public set originAddr(originAddr: string | undefined) {
+        this['origin_addr'] = originAddr;
+    }
+    public get originAddr() {
+        return this['origin_addr'];
+    }
     public withPriority(priority: number): SourcesConfig {
         this['priority'] = priority;
+        return this;
+    }
+    public withWeight(weight: number): SourcesConfig {
+        this['weight'] = weight;
         return this;
     }
     public withObsWebHostingStatus(obsWebHostingStatus: string): SourcesConfig {

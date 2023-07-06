@@ -1,5 +1,5 @@
 import { Frequency } from './Frequency';
-import { NotificationSaveRule } from './NotificationSaveRule';
+import { SqlNotificationSaveRule } from './SqlNotificationSaveRule';
 import { SqlRequest } from './SqlRequest';
 
 
@@ -14,7 +14,7 @@ export class UpdateSqlAlarmRuleRequestBody {
     private 'sql_alarm_send': boolean | undefined;
     private 'sql_alarm_send_code': UpdateSqlAlarmRuleRequestBodySqlAlarmSendCodeEnum | undefined;
     private 'domain_id': string | undefined;
-    private 'notification_save_rule'?: NotificationSaveRule | undefined;
+    private 'notification_save_rule'?: SqlNotificationSaveRule | undefined;
     private 'trigger_condition_count'?: number | undefined;
     private 'trigger_condition_frequency'?: number | undefined;
     private 'whether_recovery_policy'?: boolean | undefined;
@@ -124,11 +124,11 @@ export class UpdateSqlAlarmRuleRequestBody {
     public get domainId() {
         return this['domain_id'];
     }
-    public withNotificationSaveRule(notificationSaveRule: NotificationSaveRule): UpdateSqlAlarmRuleRequestBody {
+    public withNotificationSaveRule(notificationSaveRule: SqlNotificationSaveRule): UpdateSqlAlarmRuleRequestBody {
         this['notification_save_rule'] = notificationSaveRule;
         return this;
     }
-    public set notificationSaveRule(notificationSaveRule: NotificationSaveRule | undefined) {
+    public set notificationSaveRule(notificationSaveRule: SqlNotificationSaveRule | undefined) {
         this['notification_save_rule'] = notificationSaveRule;
     }
     public get notificationSaveRule() {

@@ -262,6 +262,7 @@ export class VpcClient {
      * @param {Array<string>} [remoteGroupId] 功能说明：远端安全组ID，支持多ID过滤
      * @param {string} [direction] 功能说明：安全组规则方向
      * @param {string} [action] 功能说明：安全组规则生效策略
+     * @param {string} [remoteIpPrefix] 功能说明：远端IP地址 取值范围：cidr格式
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -1022,6 +1023,8 @@ export const ParamCreater = function () {
             let direction;
             
             let action;
+            
+            let remoteIpPrefix;
 
             if (listSecurityGroupRulesRequest !== null && listSecurityGroupRulesRequest !== undefined) {
                 if (listSecurityGroupRulesRequest instanceof ListSecurityGroupRulesRequest) {
@@ -1034,6 +1037,7 @@ export const ParamCreater = function () {
                     remoteGroupId = listSecurityGroupRulesRequest.remoteGroupId;
                     direction = listSecurityGroupRulesRequest.direction;
                     action = listSecurityGroupRulesRequest.action;
+                    remoteIpPrefix = listSecurityGroupRulesRequest.remoteIpPrefix;
                 } else {
                     limit = listSecurityGroupRulesRequest['limit'];
                     marker = listSecurityGroupRulesRequest['marker'];
@@ -1044,6 +1048,7 @@ export const ParamCreater = function () {
                     remoteGroupId = listSecurityGroupRulesRequest['remote_group_id'];
                     direction = listSecurityGroupRulesRequest['direction'];
                     action = listSecurityGroupRulesRequest['action'];
+                    remoteIpPrefix = listSecurityGroupRulesRequest['remote_ip_prefix'];
                 }
             }
 
@@ -1074,6 +1079,9 @@ export const ParamCreater = function () {
             }
             if (action !== null && action !== undefined) {
                 localVarQueryParameter['action'] = action;
+            }
+            if (remoteIpPrefix !== null && remoteIpPrefix !== undefined) {
+                localVarQueryParameter['remote_ip_prefix'] = remoteIpPrefix;
             }
 
             options.queryParams = localVarQueryParameter;

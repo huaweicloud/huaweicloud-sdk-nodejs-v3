@@ -89,12 +89,13 @@ export class CdnClient {
 
 
     /**
-     * 批量域名复制接口
+     * 批量域名复制接口。
+     *  &gt; 将某个加速域名的配置批量复制到其他域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 批量域名复制
-     * @param {BatchCopyDRequestBody} batchCopyDRequestBody 域名复制参数请求体
+     * @param {BatchCopyDRequestBody} batchCopyDRequestBody 域名复制参数请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -182,7 +183,7 @@ export class CdnClient {
     }
 
     /**
-     * 查询加速域名
+     * 查询加速域名。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -191,8 +192,8 @@ export class CdnClient {
      * @param {string} [businessType] 加速域名的业务类型。取值： - web（网站加速） - download（文件下载加速） - video（点播加速） - wholeSite（全站加速）
      * @param {string} [domainStatus] 加速域名状态。取值意义： - online表示“已开启” - offline表示“已停用” - configuring表示“配置中” - configure_failed表示“配置失败” - checking表示“审核中” - check_failed表示“审核未通过” - deleting表示“删除中”。
      * @param {string} [serviceArea] 华为云CDN提供的加速服务范围，包含： - mainland_china 中国大陆 - outside_mainland_china 中国大陆境外 - global 全球。
-     * @param {number} [pageSize] 每页的数量，取值范围1-10000，不设值时默认值为30。
-     * @param {number} [pageNumber] 查询的页码。取值范围1-65535，不设值时默认值为1。
+     * @param {number} [pageSize] 每页加速域名的数量。
+     * @param {number} [pageNumber] 查询的页码，即：从哪一页开始查询。
      * @param {boolean} [showTags] 展示标签标识 true：不展示 false：展示。
      * @param {boolean} [exactMatch] 精准匹配 true：开启 false：关闭。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用子帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
@@ -301,12 +302,12 @@ export class CdnClient {
     }
 
     /**
-     * 加速域名详情信息接口
+     * 加速域名详情信息接口。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询加速域名详情
-     * @param {string} domainName 加速域名名称,获取方法请参见查询加速域名。
+     * @param {string} domainName 加速域名名称。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示查询资源所属项目，\&quot;all\&quot;表示所有项目。注意：当使用帐号调用接口时，该参数必传。  您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -322,7 +323,7 @@ export class CdnClient {
 
     /**
      * 查询域名配置接口，
-     * 支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
+     * 支持查询回源请求头、业务类型、服务区域、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -359,7 +360,7 @@ export class CdnClient {
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
-     * @summary 查询域名统计区域运营商数据
+     * @summary 按区域运营商查询域名统计数据
      * @param {string} action - 动作名称，可选location_summary、location_detail。 - location_summary：查询汇总数据 - location_detail：查询数据详情。
      * @param {number} startTime - 查询起始时间戳，需与结束时间戳同时指定，左闭右开，设置方式如下： - interval为300时，start_time设置为整5分钟时刻点，如：1631240100000(对应2021-09-10 10:15:00) - interval为3600时，start_time设置为整小时时刻点，如：1631239200000(对应2021-09-10 10:00:00) - interval为86400时，start_time设置为东8区零点时刻点，如：1631203200000(对应2021-09-10 00:00:00)
      * @param {number} endTime - 查询结束时间戳，需与开始时间戳同时指定，左闭右开，设置方式如下： - interval为300时，end_time设置为整5分钟时刻点，如：1631243700000(对应2021-09-10 11:15:00) - interval为3600时，end_time设置为整小时时刻点，如：1631325600000(对应2021-09-11 10:00:00) - interval为86400时，end_time设置为东8区零点时刻点，如：1631376000000(对应2021-09-12 00:00:00)
@@ -496,14 +497,14 @@ export class CdnClient {
 
     /**
      * 修改域名配置接口，
-     * 支持修改回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
+     * 支持修改回源请求头、业务类型、服务区域、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改域名全量配置接口
-     * @param {string} domainName 加速域名
+     * @param {string} domainName 加速域名。
      * @param {string} [enterpriseProjectId] 当用户开启企业项目功能时，该参数生效，表示修改当前企业项目下加速域名的配置，\&quot;all\&quot;代表所有项目。  &gt; 当使用子帐号调用接口时，该参数必传。 您可以通过调用企业项目管理服务（EPS）的查询企业项目列表接口（ListEnterpriseProject）查询企业项目id。
-     * @param {ModifyDomainConfigRequestBody} [modifyDomainConfigRequestBody] 域名配置
+     * @param {ModifyDomainConfigRequestBody} [modifyDomainConfigRequestBody] 域名配置。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -521,7 +522,8 @@ export const ParamCreater = function () {
     return {
     
         /**
-         * 批量域名复制接口
+         * 批量域名复制接口。
+         *  &gt; 将某个加速域名的配置批量复制到其他域名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -789,7 +791,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 查询加速域名
+         * 查询加速域名。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1086,7 +1088,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 加速域名详情信息接口
+         * 加速域名详情信息接口。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1132,7 +1134,7 @@ export const ParamCreater = function () {
     
         /**
          * 查询域名配置接口，
-         * 支持查询回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
+         * 支持查询回源请求头、业务类型、服务区域、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -1628,7 +1630,7 @@ export const ParamCreater = function () {
     
         /**
          * 修改域名配置接口，
-         * 支持修改回源请求头、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
+         * 支持修改回源请求头、业务类型、服务区域、HTTP header配置、URL鉴权、证书、源站、回源协议、回源跟随、ipv6设置、智能压缩、状态码缓存时间、Range回源、User-Agent黑白名单、改写回源URL、自定义错误页面、缓存规则、IP黑白名单、防盗链、强制跳转、高级回源、回源是否校验Etag、回源超时时间、远程鉴权配置、webSocket配置、视频拖拽、请求限速。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

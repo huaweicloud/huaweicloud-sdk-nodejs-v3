@@ -21,6 +21,8 @@ import { WebSocketSeek } from './WebSocketSeek';
 
 
 export class Configs {
+    private 'business_type'?: string | undefined;
+    private 'service_area'?: string | undefined;
     private 'origin_request_header'?: Array<OriginRequestHeader> | undefined;
     private 'http_response_header'?: Array<HttpResponseHeader> | undefined;
     private 'url_auth'?: UrlAuth | undefined;
@@ -48,6 +50,26 @@ export class Configs {
     private 'request_limit_rules'?: Array<RequestLimitRules> | undefined;
     private 'error_code_redirect_rules'?: Array<ErrorCodeRedirectRules> | undefined;
     public constructor() { 
+    }
+    public withBusinessType(businessType: string): Configs {
+        this['business_type'] = businessType;
+        return this;
+    }
+    public set businessType(businessType: string | undefined) {
+        this['business_type'] = businessType;
+    }
+    public get businessType() {
+        return this['business_type'];
+    }
+    public withServiceArea(serviceArea: string): Configs {
+        this['service_area'] = serviceArea;
+        return this;
+    }
+    public set serviceArea(serviceArea: string | undefined) {
+        this['service_area'] = serviceArea;
+    }
+    public get serviceArea() {
+        return this['service_area'];
     }
     public withOriginRequestHeader(originRequestHeader: Array<OriginRequestHeader>): Configs {
         this['origin_request_header'] = originRequestHeader;

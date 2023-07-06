@@ -11,6 +11,8 @@ export class CreateAccessConfigRequestBody {
     private 'log_info': AccessConfigBaseLogInfoCreate | undefined;
     private 'host_group_info'?: AccessConfigHostGroupIdListCreate | undefined;
     private 'access_config_tag'?: Array<AccessConfigTag> | undefined;
+    private 'binary_collect'?: boolean | undefined;
+    private 'log_split'?: boolean | undefined;
     public constructor(accessConfigName?: any, accessConfigType?: any, accessConfigDetail?: any, logInfo?: any) { 
         this['access_config_name'] = accessConfigName;
         this['access_config_type'] = accessConfigType;
@@ -77,6 +79,26 @@ export class CreateAccessConfigRequestBody {
     public get accessConfigTag() {
         return this['access_config_tag'];
     }
+    public withBinaryCollect(binaryCollect: boolean): CreateAccessConfigRequestBody {
+        this['binary_collect'] = binaryCollect;
+        return this;
+    }
+    public set binaryCollect(binaryCollect: boolean | undefined) {
+        this['binary_collect'] = binaryCollect;
+    }
+    public get binaryCollect() {
+        return this['binary_collect'];
+    }
+    public withLogSplit(logSplit: boolean): CreateAccessConfigRequestBody {
+        this['log_split'] = logSplit;
+        return this;
+    }
+    public set logSplit(logSplit: boolean | undefined) {
+        this['log_split'] = logSplit;
+    }
+    public get logSplit() {
+        return this['log_split'];
+    }
 }
 
 /**
@@ -84,5 +106,6 @@ export class CreateAccessConfigRequestBody {
     * @enum {string}
     */
 export enum CreateAccessConfigRequestBodyAccessConfigTypeEnum {
-    AGENT = 'AGENT'
+    AGENT = 'AGENT',
+    K8S_CCE = 'K8S_CCE'
 }

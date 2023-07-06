@@ -1,4 +1,4 @@
-import { AccessConfigDeatil } from './AccessConfigDeatil';
+import { AccessConfigDeatilCreate } from './AccessConfigDeatilCreate';
 import { AccessConfigHostGroupIdList } from './AccessConfigHostGroupIdList';
 import { AccessConfigQueryLogInfo } from './AccessConfigQueryLogInfo';
 import { AccessConfigTag } from './AccessConfigTag';
@@ -10,10 +10,12 @@ export class UpdateAccessConfigResponse extends SdkResponse {
     private 'access_config_name'?: string | undefined;
     private 'access_config_type'?: UpdateAccessConfigResponseAccessConfigTypeEnum | undefined;
     private 'create_time'?: number | undefined;
-    private 'access_config_detail'?: AccessConfigDeatil | undefined;
+    private 'access_config_detail'?: AccessConfigDeatilCreate | undefined;
     private 'log_info'?: AccessConfigQueryLogInfo | undefined;
     private 'host_group_info'?: AccessConfigHostGroupIdList | undefined;
     private 'access_config_tag'?: Array<AccessConfigTag> | undefined;
+    private 'log_split'?: boolean | undefined;
+    private 'binary_collect'?: boolean | undefined;
     public constructor() { 
         super();
     }
@@ -57,11 +59,11 @@ export class UpdateAccessConfigResponse extends SdkResponse {
     public get createTime() {
         return this['create_time'];
     }
-    public withAccessConfigDetail(accessConfigDetail: AccessConfigDeatil): UpdateAccessConfigResponse {
+    public withAccessConfigDetail(accessConfigDetail: AccessConfigDeatilCreate): UpdateAccessConfigResponse {
         this['access_config_detail'] = accessConfigDetail;
         return this;
     }
-    public set accessConfigDetail(accessConfigDetail: AccessConfigDeatil | undefined) {
+    public set accessConfigDetail(accessConfigDetail: AccessConfigDeatilCreate | undefined) {
         this['access_config_detail'] = accessConfigDetail;
     }
     public get accessConfigDetail() {
@@ -97,6 +99,26 @@ export class UpdateAccessConfigResponse extends SdkResponse {
     public get accessConfigTag() {
         return this['access_config_tag'];
     }
+    public withLogSplit(logSplit: boolean): UpdateAccessConfigResponse {
+        this['log_split'] = logSplit;
+        return this;
+    }
+    public set logSplit(logSplit: boolean | undefined) {
+        this['log_split'] = logSplit;
+    }
+    public get logSplit() {
+        return this['log_split'];
+    }
+    public withBinaryCollect(binaryCollect: boolean): UpdateAccessConfigResponse {
+        this['binary_collect'] = binaryCollect;
+        return this;
+    }
+    public set binaryCollect(binaryCollect: boolean | undefined) {
+        this['binary_collect'] = binaryCollect;
+    }
+    public get binaryCollect() {
+        return this['binary_collect'];
+    }
 }
 
 /**
@@ -104,5 +126,6 @@ export class UpdateAccessConfigResponse extends SdkResponse {
     * @enum {string}
     */
 export enum UpdateAccessConfigResponseAccessConfigTypeEnum {
-    AGENT = 'AGENT'
+    AGENT = 'AGENT',
+    K8S_CCE = 'K8S_CCE'
 }
