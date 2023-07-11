@@ -31,3 +31,7 @@ cp -r "${GITHUB_WORKSPACE}/build/core" "${GITHUB_WORKSPACE}/services/node_module
 
 tsc
 echo "build services end"
+
+set -x
+ls -al "${GITHUB_WORKSPACE}/build/services"
+set +x

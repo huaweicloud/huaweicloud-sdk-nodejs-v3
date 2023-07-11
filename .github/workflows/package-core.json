@@ -1,5 +1,5 @@
 {
-  "name": "@huaweicloud/huaweicloud-sdk-core",
+  "name": "@huaweicloudtest/huaweicloud-sdk-core",
   "version": "3.1.44",
   "description": "Core code for Huaweicloud SDK for Node.js",
   "main": "huaweicloud-sdk-core.js",

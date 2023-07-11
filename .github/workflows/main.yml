@@ -19,3 +19,10 @@ jobs:
           chmod +x .github/workflows/build.sh
           .github/workflows/build.sh
         shell: bash
+      - name: Publish package
+        run: |
+          cd ./build/core
+          npm publish --access public --dry-run true
+        shell: bash
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
