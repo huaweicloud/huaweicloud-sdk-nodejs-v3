@@ -15,8 +15,10 @@ echo "ls -al build/core"
 ls -al "${GITHUB_WORKSPACE}/build/core"
 cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-core.json" "${GITHUB_WORKSPACE}/build/core/package.json"
 cat "${GITHUB_WORKSPACE}/build/core/package.json"
-
 echo "build core end"
+
+# Update core package.json
+sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/build/core/package.json"
 
 echo "build services start"
 
@@ -35,3 +37,13 @@ echo "build services end"
 set -x
 ls -al "${GITHUB_WORKSPACE}/build/services"
 set +x
+ 
+for service in "ls ${GITHUB_WORKSPACE}/build/services"
+do
+    cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-service.json" "${GITHUB_WORKSPACE}/build/services/package.json"
+    sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/build/services/${service}/package.json"
+    sed -i "s/PRODUCT/$service/g" "${GITHUB_WORKSPACE}/build/services/${service}/package.json"
+done 
+
+# echo ecs package.json
+cat "${GITHUB_WORKSPACE}/build/services/ecs/package.json"

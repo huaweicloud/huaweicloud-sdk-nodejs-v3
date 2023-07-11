@@ -1,9 +1,9 @@
 {
-  "name": "@huaweicloud/huaweicloud-sdk-ecs",
-  "version": "3.1.44",
-  "description": "Huaweicloud SDK for ecs",
-  "main": "huaweicloud-sdk-ecs.js",
-  "typings": "huaweicloud-sdk-ecs.d.ts",
+  "name": "@huaweicloudtest/huaweicloud-sdk-PRODUCT",
+  "version": "PRODUCT_VERSION",
+  "description": "Huaweicloud SDK for PRODUCT",
+  "main": "huaweicloud-sdk-PRODUCT.js",
+  "typings": "huaweicloud-sdk-PRODUCT.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +14,7 @@
   "author": "HuaweiCloud_SDK",
   "license": "Apache-2.0",
   "dependencies": {
-    "@huaweicloud/huaweicloud-sdk-core": "^3.1.44"
+    "@huaweicloud/huaweicloud-sdk-core": "^PRODUCT_VERSION"
   },
   "devDependencies": {
     "@types/node": "^14.14.37",
