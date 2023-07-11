@@ -2,10 +2,8 @@
 echo "build core start"
 cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-core.json" "${GITHUB_WORKSPACE}/core/package.json"
 cp -r "${GITHUB_WORKSPACE}/.github/workflows/tsconfig-core.json" "${GITHUB_WORKSPACE}/core/tsconfig.json"
-
 # Update core package.json
-sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/build/core/package.json"
-
+sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/core/package.json"
 # cd "${GITHUB_WORKSPACE}/core" || exit 1
 ls -al "${GITHUB_WORKSPACE}/core"
 cd "${GITHUB_WORKSPACE}/core"
@@ -18,6 +16,10 @@ echo "ls -al build/core"
 
 ls -al "${GITHUB_WORKSPACE}/build/core"
 cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-core.json" "${GITHUB_WORKSPACE}/build/core/package.json"
+
+# Update core package.json
+sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/build/core/package.json"
+
 cat "${GITHUB_WORKSPACE}/build/core/package.json"
 echo "build core end" 
 
