@@ -17,7 +17,6 @@ jobs:
       - name: Compile projects
         run: |
           echo "PUB_VERSION: $PUB_VERSION"
-          echo "PUB_VERSION1: $PUB_VERSION1"
           chmod +x .github/workflows/build.sh
           .github/workflows/build.sh
         shell: bash

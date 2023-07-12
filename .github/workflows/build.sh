@@ -50,7 +50,7 @@ set +x
  
 for service in `ls ${GITHUB_WORKSPACE}/build/services`
 do
-    cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-service.json" "${GITHUB_WORKSPACE}/build/services/package.json"
+    cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-service.json" "${GITHUB_WORKSPACE}/build/services/${service}/package.json"
     sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/build/services/${service}/package.json"
     sed -i "s/PRODUCT/$service/g" "${GITHUB_WORKSPACE}/build/services/${service}/package.json"
 done 
