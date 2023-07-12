@@ -35,11 +35,11 @@ jobs:
         run: |
           echo 'Published services to npmjs'
           cd ./build/services
-          for service in `ls -d */`
+          for service in `ls .`
           do
-            cd "$service"
-            pwd
+            cd "./$service"
             npm publish --access public
+            cd ..
           done 
         shell: bash
         env:
