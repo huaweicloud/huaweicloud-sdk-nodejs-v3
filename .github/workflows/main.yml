@@ -23,15 +23,19 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           PUB_VERSION: ${{ vars.PUB_VERSION }}
-      - name: Publish package
+      - name: Publish package for core
         run: |
           echo 'Publishing core to npmjs'
           cd ./build/core
           npm publish --access public
-
+        shell: bash
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish package for services
+        run: |
           echo 'Published services to npmjs'
           cd ./build/services
-          for service in "ls ."
+          for service in `ls .`
           do
             cd "./$service"
             npm publish --access public
