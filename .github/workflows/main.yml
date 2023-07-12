@@ -35,4 +35,4 @@ jobs:
         shell: bash
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          PUB_VERSION: ${{ env.PUB_VERSION }}
+          PUB_VERSION: ${{ vars.PUB_VERSION }}
