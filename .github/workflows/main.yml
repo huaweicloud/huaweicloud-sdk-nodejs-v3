@@ -24,7 +24,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           PUB_VERSION: ${{ vars.PUB_VERSION }}
-          PUB_VERSION1: ${{ env.PUB_VERSION }}
       - name: Publish package
         run: |
           echo 'Publishing core to npmjs'
@@ -40,6 +39,4 @@ jobs:
           done 
         shell: bash
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          PUB_VERSION: ${{ vars.PUB_VERSION }}
-          PUB_VERSION1: ${{ env.PUB_VERSION }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 

@@ -32,6 +32,8 @@ ls -al "${GITHUB_WORKSPACE}/services"
 cd "${GITHUB_WORKSPACE}/services"
 npm install 
 
+rm -f "${GITHUB_WORKSPACE}/services/node_modules/@huaweicloud/huaweicloud-sdk-core"
+mkdir -p "${GITHUB_WORKSPACE}/services/node_modules/@huaweicloud"
 cp -r "${GITHUB_WORKSPACE}/build/core" "${GITHUB_WORKSPACE}/services/node_modules/@huaweicloud/huaweicloud-sdk-core"
 
 tsc
