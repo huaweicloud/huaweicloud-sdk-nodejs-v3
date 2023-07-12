@@ -37,7 +37,7 @@ ls -al "${GITHUB_WORKSPACE}/services"
 cd "${GITHUB_WORKSPACE}/services"
 npm install 
 
-rm -f "${GITHUB_WORKSPACE}/services/node_modules/@huaweicloud/huaweicloud-sdk-core"
+rm -r "${GITHUB_WORKSPACE}/services/node_modules/@huaweicloud/huaweicloud-sdk-core"
 mkdir -p "${GITHUB_WORKSPACE}/services/node_modules/@huaweicloud"
 cp -r "${GITHUB_WORKSPACE}/build/core" "${GITHUB_WORKSPACE}/services/node_modules/@huaweicloud/huaweicloud-sdk-core"
 
@@ -48,7 +48,7 @@ set -x
 ls -al "${GITHUB_WORKSPACE}/build/services"
 set +x
  
-for service in "ls ${GITHUB_WORKSPACE}/build/services"
+for service in `ls ${GITHUB_WORKSPACE}/build/services`
 do
     cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-service.json" "${GITHUB_WORKSPACE}/build/services/package.json"
     sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/build/services/${service}/package.json"
