@@ -23,10 +23,15 @@ sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/build/core/packag
 cat "${GITHUB_WORKSPACE}/build/core/package.json"
 echo "build core end" 
 
+echo "=============================================************======================================================"
 echo "build services start"
 
 cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-service.json" "${GITHUB_WORKSPACE}/services/package.json"
 cp -r "${GITHUB_WORKSPACE}/.github/workflows/tsconfig-service.json" "${GITHUB_WORKSPACE}/services/tsconfig.json"
+
+# Update services package.json
+sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/build/service/package.json"
+
 # cd "${GITHUB_WORKSPACE}/core" || exit 1
 ls -al "${GITHUB_WORKSPACE}/services"
 cd "${GITHUB_WORKSPACE}/services"
