@@ -30,7 +30,7 @@ cp -r "${GITHUB_WORKSPACE}/.github/workflows/package-service.json" "${GITHUB_WOR
 cp -r "${GITHUB_WORKSPACE}/.github/workflows/tsconfig-service.json" "${GITHUB_WORKSPACE}/services/tsconfig.json"
 
 # Update services package.json
-sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/build/service/package.json"
+sed -i "s/PRODUCT_VERSION/$PUB_VERSION/g" "${GITHUB_WORKSPACE}/services/package.json"
 
 # cd "${GITHUB_WORKSPACE}/core" || exit 1
 ls -al "${GITHUB_WORKSPACE}/services"
