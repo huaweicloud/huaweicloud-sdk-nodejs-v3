@@ -1,7 +1,5 @@
 name: push && tag && release
 on:
-  push:
-    branches: [ "master-dev" ]
   workflow_dispatch:
 permissions: write-all
 jobs:
@@ -12,6 +10,7 @@ jobs:
       with:
         ssh-key: ${{ secrets.SSH_KEY }}
         fetch-depth: 0
+        ref: master-dev
     - name: config
       run: |
         git config user.name ${{ vars.SDK_USERNAME }}
@@ -19,7 +18,7 @@ jobs:
     - name: push && tag && release
       shell: bash
       run: |
-        version=$(grep -oP '(?<="version": ")[^"]+' "${GITHUB_WORKSPACE}/package.json")
+        version=$(cat VERSION)
         echo "version ${version} found on branch ${GITHUB_REF_NAME}"
         tag_name="v${version}"
         for tag in $(git tag --list)
