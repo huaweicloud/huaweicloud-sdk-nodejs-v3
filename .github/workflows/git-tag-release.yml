@@ -19,7 +19,7 @@ jobs:
     - name: push && tag && release
       shell: bash
       run: |
-        version=$(cat VERSION)
+        version=$(grep -oP '(?<="version": ")[^"]+' "${GITHUB_WORKSPACE}/package.json")
         echo "version ${version} found on branch ${GITHUB_REF_NAME}"
         tag_name="v${version}"
         for tag in $(git tag --list)
