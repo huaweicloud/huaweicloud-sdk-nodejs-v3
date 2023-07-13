@@ -23,6 +23,8 @@ export class KmsRegion {
     public static NA_MEXICO_1 = new Region("na-mexico-1", ["https://kms.na-mexico-1.myhuaweicloud.com"]);
     public static LA_NORTH_2 = new Region("la-north-2", ["https://kms.la-north-2.myhuaweicloud.com"]);
     public static CN_NORTH_9 = new Region("cn-north-9", ["https://kms.cn-north-9.myhuaweicloud.com"]);
+    public static AP_SOUTHEAST_4 = new Region("ap-southeast-4", ["https://kms.ap-southeast-4.myhuaweicloud.com"]);
+    public static TR_WEST_1 = new Region("tr-west-1", ["https://kms.tr-west-1.myhuaweicloud.com"]);
     
 
     private static REGION_MAP: RegionMap = {
@@ -42,7 +44,9 @@ export class KmsRegion {
         "sa-brazil-1":KmsRegion.SA_BRAZIL_1,
         "na-mexico-1":KmsRegion.NA_MEXICO_1,
         "la-north-2":KmsRegion.LA_NORTH_2,
-        "cn-north-9":KmsRegion.CN_NORTH_9
+        "cn-north-9":KmsRegion.CN_NORTH_9,
+        "ap-southeast-4":KmsRegion.AP_SOUTHEAST_4,
+        "tr-west-1":KmsRegion.TR_WEST_1
     };
   
     public static valueOf(regionId: string) {

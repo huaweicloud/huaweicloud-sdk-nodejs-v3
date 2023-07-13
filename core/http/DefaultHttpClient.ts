@@ -190,7 +190,7 @@ export class DefaultHttpClient implements HttpClient {
         }
 
         if (headers['content-type'] === 'multipart/form-data') {
-            const { ['content-type']: contentType } = data.getHeaders();
+            const { 'content-type': contentType } = data.getHeaders();
             requestParams.headers = { ...requestParams.headers, 'content-type': contentType };
         }
         // set axios config baseURL

@@ -5,6 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 import { AcceptVpcPeeringRequest } from './model/AcceptVpcPeeringRequest';
 import { AcceptVpcPeeringResponse } from './model/AcceptVpcPeeringResponse';
 import { AddRouteTableRoute } from './model/AddRouteTableRoute';
+import { AllocationPool } from './model/AllocationPool';
 import { AllowedAddressPair } from './model/AllowedAddressPair';
 import { AsscoiateReq } from './model/AsscoiateReq';
 import { AssociateRouteTableAndSubnetReq } from './model/AssociateRouteTableAndSubnetReq';
@@ -97,10 +98,15 @@ import { DeleteVpcTagResponse } from './model/DeleteVpcTagResponse';
 import { DisassociateRouteTableRequest } from './model/DisassociateRouteTableRequest';
 import { DisassociateRouteTableResponse } from './model/DisassociateRouteTableResponse';
 import { DnsAssignMent } from './model/DnsAssignMent';
+import { ExternalGatewayInfo } from './model/ExternalGatewayInfo';
+import { ExternalGatewayInfoOption } from './model/ExternalGatewayInfoOption';
 import { ExtraDhcpOpt } from './model/ExtraDhcpOpt';
 import { ExtraDhcpOption } from './model/ExtraDhcpOption';
 import { FixedIp } from './model/FixedIp';
 import { FlowLogResp } from './model/FlowLogResp';
+import { HostRoute } from './model/HostRoute';
+import { ListApiVersionRequest } from './model/ListApiVersionRequest';
+import { ListApiVersionResponse } from './model/ListApiVersionResponse';
 import { ListFlowLogsRequest } from './model/ListFlowLogsRequest';
 import { ListFlowLogsResponse } from './model/ListFlowLogsResponse';
 import { ListPortsRequest } from './model/ListPortsRequest';
@@ -138,6 +144,8 @@ import { ModRouteTableRoute } from './model/ModRouteTableRoute';
 import { NetworkIpAvailability } from './model/NetworkIpAvailability';
 import { NeutronAddFirewallRuleRequest } from './model/NeutronAddFirewallRuleRequest';
 import { NeutronAddFirewallRuleResponse } from './model/NeutronAddFirewallRuleResponse';
+import { NeutronAddRouterInterfaceRequest } from './model/NeutronAddRouterInterfaceRequest';
+import { NeutronAddRouterInterfaceResponse } from './model/NeutronAddRouterInterfaceResponse';
 import { NeutronCreateFirewallGroupOption } from './model/NeutronCreateFirewallGroupOption';
 import { NeutronCreateFirewallGroupRequest } from './model/NeutronCreateFirewallGroupRequest';
 import { NeutronCreateFirewallGroupRequestBody } from './model/NeutronCreateFirewallGroupRequestBody';
@@ -150,6 +158,18 @@ import { NeutronCreateFirewallRuleOption } from './model/NeutronCreateFirewallRu
 import { NeutronCreateFirewallRuleRequest } from './model/NeutronCreateFirewallRuleRequest';
 import { NeutronCreateFirewallRuleRequestBody } from './model/NeutronCreateFirewallRuleRequestBody';
 import { NeutronCreateFirewallRuleResponse } from './model/NeutronCreateFirewallRuleResponse';
+import { NeutronCreateNetworkOption } from './model/NeutronCreateNetworkOption';
+import { NeutronCreateNetworkRequest } from './model/NeutronCreateNetworkRequest';
+import { NeutronCreateNetworkRequestBody } from './model/NeutronCreateNetworkRequestBody';
+import { NeutronCreateNetworkResponse } from './model/NeutronCreateNetworkResponse';
+import { NeutronCreatePortOption } from './model/NeutronCreatePortOption';
+import { NeutronCreatePortRequest } from './model/NeutronCreatePortRequest';
+import { NeutronCreatePortRequestBody } from './model/NeutronCreatePortRequestBody';
+import { NeutronCreatePortResponse } from './model/NeutronCreatePortResponse';
+import { NeutronCreateRouterOption } from './model/NeutronCreateRouterOption';
+import { NeutronCreateRouterRequest } from './model/NeutronCreateRouterRequest';
+import { NeutronCreateRouterRequestBody } from './model/NeutronCreateRouterRequestBody';
+import { NeutronCreateRouterResponse } from './model/NeutronCreateRouterResponse';
 import { NeutronCreateSecurityGroupOption } from './model/NeutronCreateSecurityGroupOption';
 import { NeutronCreateSecurityGroupRequest } from './model/NeutronCreateSecurityGroupRequest';
 import { NeutronCreateSecurityGroupRequestBody } from './model/NeutronCreateSecurityGroupRequestBody';
@@ -158,16 +178,28 @@ import { NeutronCreateSecurityGroupRuleOption } from './model/NeutronCreateSecur
 import { NeutronCreateSecurityGroupRuleRequest } from './model/NeutronCreateSecurityGroupRuleRequest';
 import { NeutronCreateSecurityGroupRuleRequestBody } from './model/NeutronCreateSecurityGroupRuleRequestBody';
 import { NeutronCreateSecurityGroupRuleResponse } from './model/NeutronCreateSecurityGroupRuleResponse';
+import { NeutronCreateSubnetOption } from './model/NeutronCreateSubnetOption';
+import { NeutronCreateSubnetRequest } from './model/NeutronCreateSubnetRequest';
+import { NeutronCreateSubnetRequestBody } from './model/NeutronCreateSubnetRequestBody';
+import { NeutronCreateSubnetResponse } from './model/NeutronCreateSubnetResponse';
 import { NeutronDeleteFirewallGroupRequest } from './model/NeutronDeleteFirewallGroupRequest';
 import { NeutronDeleteFirewallGroupResponse } from './model/NeutronDeleteFirewallGroupResponse';
 import { NeutronDeleteFirewallPolicyRequest } from './model/NeutronDeleteFirewallPolicyRequest';
 import { NeutronDeleteFirewallPolicyResponse } from './model/NeutronDeleteFirewallPolicyResponse';
 import { NeutronDeleteFirewallRuleRequest } from './model/NeutronDeleteFirewallRuleRequest';
 import { NeutronDeleteFirewallRuleResponse } from './model/NeutronDeleteFirewallRuleResponse';
+import { NeutronDeleteNetworkRequest } from './model/NeutronDeleteNetworkRequest';
+import { NeutronDeleteNetworkResponse } from './model/NeutronDeleteNetworkResponse';
+import { NeutronDeletePortRequest } from './model/NeutronDeletePortRequest';
+import { NeutronDeletePortResponse } from './model/NeutronDeletePortResponse';
+import { NeutronDeleteRouterRequest } from './model/NeutronDeleteRouterRequest';
+import { NeutronDeleteRouterResponse } from './model/NeutronDeleteRouterResponse';
 import { NeutronDeleteSecurityGroupRequest } from './model/NeutronDeleteSecurityGroupRequest';
 import { NeutronDeleteSecurityGroupResponse } from './model/NeutronDeleteSecurityGroupResponse';
 import { NeutronDeleteSecurityGroupRuleRequest } from './model/NeutronDeleteSecurityGroupRuleRequest';
 import { NeutronDeleteSecurityGroupRuleResponse } from './model/NeutronDeleteSecurityGroupRuleResponse';
+import { NeutronDeleteSubnetRequest } from './model/NeutronDeleteSubnetRequest';
+import { NeutronDeleteSubnetResponse } from './model/NeutronDeleteSubnetResponse';
 import { NeutronFirewallGroup } from './model/NeutronFirewallGroup';
 import { NeutronFirewallPolicy } from './model/NeutronFirewallPolicy';
 import { NeutronFirewallRule } from './model/NeutronFirewallRule';
@@ -178,14 +210,27 @@ import { NeutronListFirewallPoliciesRequest } from './model/NeutronListFirewallP
 import { NeutronListFirewallPoliciesResponse } from './model/NeutronListFirewallPoliciesResponse';
 import { NeutronListFirewallRulesRequest } from './model/NeutronListFirewallRulesRequest';
 import { NeutronListFirewallRulesResponse } from './model/NeutronListFirewallRulesResponse';
+import { NeutronListNetworksRequest } from './model/NeutronListNetworksRequest';
+import { NeutronListNetworksResponse } from './model/NeutronListNetworksResponse';
+import { NeutronListPortsRequest } from './model/NeutronListPortsRequest';
+import { NeutronListPortsResponse } from './model/NeutronListPortsResponse';
+import { NeutronListRoutersRequest } from './model/NeutronListRoutersRequest';
+import { NeutronListRoutersResponse } from './model/NeutronListRoutersResponse';
 import { NeutronListSecurityGroupRulesRequest } from './model/NeutronListSecurityGroupRulesRequest';
 import { NeutronListSecurityGroupRulesResponse } from './model/NeutronListSecurityGroupRulesResponse';
 import { NeutronListSecurityGroupsRequest } from './model/NeutronListSecurityGroupsRequest';
 import { NeutronListSecurityGroupsResponse } from './model/NeutronListSecurityGroupsResponse';
+import { NeutronListSubnetsRequest } from './model/NeutronListSubnetsRequest';
+import { NeutronListSubnetsResponse } from './model/NeutronListSubnetsResponse';
+import { NeutronNetwork } from './model/NeutronNetwork';
 import { NeutronPageLink } from './model/NeutronPageLink';
+import { NeutronPort } from './model/NeutronPort';
 import { NeutronRemoveFirewallRuleRequest } from './model/NeutronRemoveFirewallRuleRequest';
 import { NeutronRemoveFirewallRuleRequestBody } from './model/NeutronRemoveFirewallRuleRequestBody';
 import { NeutronRemoveFirewallRuleResponse } from './model/NeutronRemoveFirewallRuleResponse';
+import { NeutronRemoveRouterInterfaceRequest } from './model/NeutronRemoveRouterInterfaceRequest';
+import { NeutronRemoveRouterInterfaceResponse } from './model/NeutronRemoveRouterInterfaceResponse';
+import { NeutronRouter } from './model/NeutronRouter';
 import { NeutronSecurityGroup } from './model/NeutronSecurityGroup';
 import { NeutronSecurityGroupRule } from './model/NeutronSecurityGroupRule';
 import { NeutronShowFirewallGroupRequest } from './model/NeutronShowFirewallGroupRequest';
@@ -194,10 +239,19 @@ import { NeutronShowFirewallPolicyRequest } from './model/NeutronShowFirewallPol
 import { NeutronShowFirewallPolicyResponse } from './model/NeutronShowFirewallPolicyResponse';
 import { NeutronShowFirewallRuleRequest } from './model/NeutronShowFirewallRuleRequest';
 import { NeutronShowFirewallRuleResponse } from './model/NeutronShowFirewallRuleResponse';
+import { NeutronShowNetworkRequest } from './model/NeutronShowNetworkRequest';
+import { NeutronShowNetworkResponse } from './model/NeutronShowNetworkResponse';
+import { NeutronShowPortRequest } from './model/NeutronShowPortRequest';
+import { NeutronShowPortResponse } from './model/NeutronShowPortResponse';
+import { NeutronShowRouterRequest } from './model/NeutronShowRouterRequest';
+import { NeutronShowRouterResponse } from './model/NeutronShowRouterResponse';
 import { NeutronShowSecurityGroupRequest } from './model/NeutronShowSecurityGroupRequest';
 import { NeutronShowSecurityGroupResponse } from './model/NeutronShowSecurityGroupResponse';
 import { NeutronShowSecurityGroupRuleRequest } from './model/NeutronShowSecurityGroupRuleRequest';
 import { NeutronShowSecurityGroupRuleResponse } from './model/NeutronShowSecurityGroupRuleResponse';
+import { NeutronShowSubnetRequest } from './model/NeutronShowSubnetRequest';
+import { NeutronShowSubnetResponse } from './model/NeutronShowSubnetResponse';
+import { NeutronSubnet } from './model/NeutronSubnet';
 import { NeutronUpdateFirewallGroupOption } from './model/NeutronUpdateFirewallGroupOption';
 import { NeutronUpdateFirewallGroupRequest } from './model/NeutronUpdateFirewallGroupRequest';
 import { NeutronUpdateFirewallGroupRequestBody } from './model/NeutronUpdateFirewallGroupRequestBody';
@@ -210,10 +264,26 @@ import { NeutronUpdateFirewallRuleOption } from './model/NeutronUpdateFirewallRu
 import { NeutronUpdateFirewallRuleRequest } from './model/NeutronUpdateFirewallRuleRequest';
 import { NeutronUpdateFirewallRuleRequestBody } from './model/NeutronUpdateFirewallRuleRequestBody';
 import { NeutronUpdateFirewallRuleResponse } from './model/NeutronUpdateFirewallRuleResponse';
+import { NeutronUpdateNetworkOption } from './model/NeutronUpdateNetworkOption';
+import { NeutronUpdateNetworkRequest } from './model/NeutronUpdateNetworkRequest';
+import { NeutronUpdateNetworkRequestBody } from './model/NeutronUpdateNetworkRequestBody';
+import { NeutronUpdateNetworkResponse } from './model/NeutronUpdateNetworkResponse';
+import { NeutronUpdatePortOption } from './model/NeutronUpdatePortOption';
+import { NeutronUpdatePortRequest } from './model/NeutronUpdatePortRequest';
+import { NeutronUpdatePortRequestBody } from './model/NeutronUpdatePortRequestBody';
+import { NeutronUpdatePortResponse } from './model/NeutronUpdatePortResponse';
+import { NeutronUpdateRouterOption } from './model/NeutronUpdateRouterOption';
+import { NeutronUpdateRouterRequest } from './model/NeutronUpdateRouterRequest';
+import { NeutronUpdateRouterRequestBody } from './model/NeutronUpdateRouterRequestBody';
+import { NeutronUpdateRouterResponse } from './model/NeutronUpdateRouterResponse';
 import { NeutronUpdateSecurityGroupOption } from './model/NeutronUpdateSecurityGroupOption';
 import { NeutronUpdateSecurityGroupRequest } from './model/NeutronUpdateSecurityGroupRequest';
 import { NeutronUpdateSecurityGroupRequestBody } from './model/NeutronUpdateSecurityGroupRequestBody';
 import { NeutronUpdateSecurityGroupResponse } from './model/NeutronUpdateSecurityGroupResponse';
+import { NeutronUpdateSubnetOption } from './model/NeutronUpdateSubnetOption';
+import { NeutronUpdateSubnetRequest } from './model/NeutronUpdateSubnetRequest';
+import { NeutronUpdateSubnetRequestBody } from './model/NeutronUpdateSubnetRequestBody';
+import { NeutronUpdateSubnetResponse } from './model/NeutronUpdateSubnetResponse';
 import { Port } from './model/Port';
 import { Privateip } from './model/Privateip';
 import { Quota } from './model/Quota';
@@ -226,6 +296,7 @@ import { RouteTableListResp } from './model/RouteTableListResp';
 import { RouteTableResp } from './model/RouteTableResp';
 import { RouteTableRoute } from './model/RouteTableRoute';
 import { RouteTableRouteAction } from './model/RouteTableRouteAction';
+import { RouterInterfaceRequestBody } from './model/RouterInterfaceRequestBody';
 import { RoutetableAssociateReqbody } from './model/RoutetableAssociateReqbody';
 import { SecurityGroup } from './model/SecurityGroup';
 import { SecurityGroupRule } from './model/SecurityGroupRule';
@@ -285,6 +356,7 @@ import { UpdateVpcPeeringResponse } from './model/UpdateVpcPeeringResponse';
 import { UpdateVpcRequest } from './model/UpdateVpcRequest';
 import { UpdateVpcRequestBody } from './model/UpdateVpcRequestBody';
 import { UpdateVpcResponse } from './model/UpdateVpcResponse';
+import { VersionResult } from './model/VersionResult';
 import { Vpc } from './model/Vpc';
 import { VpcInfo } from './model/VpcInfo';
 import { VpcPeering } from './model/VpcPeering';
@@ -1326,6 +1398,83 @@ export class VpcClient {
     }
 
     /**
+     * 添加路由器接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 路由器添加接口
+     * @param {string} routerId 路由器ID
+     * @param {RouterInterfaceRequestBody} addRouterInterface 路由器添加接口请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronAddRouterInterface(neutronAddRouterInterfaceRequest?: NeutronAddRouterInterfaceRequest): Promise<NeutronAddRouterInterfaceResponse> {
+        const options = ParamCreater().neutronAddRouterInterface(neutronAddRouterInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建网络
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建网络
+     * @param {NeutronCreateNetworkRequestBody} network 创建network对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronCreateNetwork(neutronCreateNetworkRequest?: NeutronCreateNetworkRequest): Promise<NeutronCreateNetworkResponse> {
+        const options = ParamCreater().neutronCreateNetwork(neutronCreateNetworkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建端口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建端口
+     * @param {NeutronCreatePortRequestBody} port port对象列表，port对象必选字段：network_id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronCreatePort(neutronCreatePortRequest?: NeutronCreatePortRequest): Promise<NeutronCreatePortResponse> {
+        const options = ParamCreater().neutronCreatePort(neutronCreatePortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 创建路由器。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建路由器
+     * @param {NeutronCreateRouterRequestBody} router 路由器对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronCreateRouter(neutronCreateRouterRequest?: NeutronCreateRouterRequest): Promise<NeutronCreateRouterResponse> {
+        const options = ParamCreater().neutronCreateRouter(neutronCreateRouterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 创建安全组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1364,6 +1513,82 @@ export class VpcClient {
     }
 
     /**
+     * 创建子网。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 创建子网
+     * @param {NeutronCreateSubnetRequestBody} subnet 子网对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronCreateSubnet(neutronCreateSubnetRequest?: NeutronCreateSubnetRequest): Promise<NeutronCreateSubnetResponse> {
+        const options = ParamCreater().neutronCreateSubnet(neutronCreateSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除网络
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除网络
+     * @param {string} networkId 网络ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronDeleteNetwork(neutronDeleteNetworkRequest?: NeutronDeleteNetworkRequest): Promise<NeutronDeleteNetworkResponse> {
+        const options = ParamCreater().neutronDeleteNetwork(neutronDeleteNetworkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除端口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除端口
+     * @param {string} portId 端口ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronDeletePort(neutronDeletePortRequest?: NeutronDeletePortRequest): Promise<NeutronDeletePortResponse> {
+        const options = ParamCreater().neutronDeletePort(neutronDeletePortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除路由器
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除路由器
+     * @param {string} routerId 路由器ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronDeleteRouter(neutronDeleteRouterRequest?: NeutronDeleteRouterRequest): Promise<NeutronDeleteRouterResponse> {
+        const options = ParamCreater().neutronDeleteRouter(neutronDeleteRouterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 删除安全组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1394,6 +1619,108 @@ export class VpcClient {
      */
     public neutronDeleteSecurityGroupRule(neutronDeleteSecurityGroupRuleRequest?: NeutronDeleteSecurityGroupRuleRequest): Promise<NeutronDeleteSecurityGroupRuleResponse> {
         const options = ParamCreater().neutronDeleteSecurityGroupRule(neutronDeleteSecurityGroupRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除子网
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除子网
+     * @param {string} subnetId 子网ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronDeleteSubnet(neutronDeleteSubnetRequest?: NeutronDeleteSubnetRequest): Promise<NeutronDeleteSubnetResponse> {
+        const options = ParamCreater().neutronDeleteSubnet(neutronDeleteSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询提交请求的租户的所有网络，单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询网络列表
+     * @param {number} [limit] 每页返回的个数
+     * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
+     * @param {string} [id] 按照网络对应的ID过滤查询
+     * @param {string} [name] 按照网络的名称过滤查询
+     * @param {string} [status] 按照网络的状态过滤查询，取值范围：ACTIVE、ERROR、DOWN
+     * @param {boolean} [shared] 按照网络是否支持跨租户共享过滤查询，取值范围：true or false
+     * @param {boolean} [routerExternal] 按照网络是否外部网络过滤查询，取值范围：true or false
+     * @param {boolean} [adminStateUp] 按照网络的管理状态过滤查询，取值范围：true or false
+     * @param {string} [providerNetworkType] 按照网络的类型过滤查询
+     * @param {string} [tenantId] 按照network所属的项目ID过滤
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronListNetworks(neutronListNetworksRequest?: NeutronListNetworksRequest): Promise<NeutronListNetworksResponse> {
+        const options = ParamCreater().neutronListNetworks(neutronListNetworksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询提交请求的租户的所有端口，单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询端口列表
+     * @param {number} [limit] 每页返回的个数
+     * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
+     * @param {string} [id] 按照端口的ID过滤查询
+     * @param {string} [name] 按照端口的名称过滤查询
+     * @param {boolean} [adminStateUp] 按照端口的管理状态过滤查询，取值范围：true or false
+     * @param {string} [networkId] 按照端口所属的网络ID过滤查询
+     * @param {string} [macAddress] 按照端口的mac地址过滤查询
+     * @param {string} [deviceId] 按照端口的设备ID过滤查询
+     * @param {string} [deviceOwner] 按照端口的设备所属过滤查询
+     * @param {string} [status] 按照端口状态过滤查询，取值范围：ACTIVE、BUILD、DOWN
+     * @param {Array<string>} [securityGroups] 按照安全组ID列表过滤查询
+     * @param {Array<string>} [fixedIps] 按照端口的IP地址过滤查询，fixed_ips&#x3D;ip_address或者fixed_ips&#x3D;subnet_id过滤查询
+     * @param {string} [tenantId] 按照端口所属的项目ID过滤查询
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronListPorts(neutronListPortsRequest?: NeutronListPortsRequest): Promise<NeutronListPortsResponse> {
+        const options = ParamCreater().neutronListPorts(neutronListPortsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询提交请求的租户有权限操作的所有路由器信息，单次查询最多返回2000条数据，超过2000后会返回分页标记。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询路由器列表
+     * @param {number} [limit] 每页返回的个数
+     * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
+     * @param {string} [id] 按照路由器的ID过滤查询
+     * @param {string} [status] 按照路由器的状态过滤查询，取值范围：ACTIVE， DOWN，ERROR
+     * @param {string} [tenantId] 按照路由器所属的项目ID过滤查询
+     * @param {boolean} [adminStateUp] 按照路由器的管理状态过滤查询，取值范围：true or false
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronListRouters(neutronListRoutersRequest?: NeutronListRoutersRequest): Promise<NeutronListRoutersResponse> {
+        const options = ParamCreater().neutronListRouters(neutronListRoutersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1457,6 +1784,111 @@ export class VpcClient {
     }
 
     /**
+     * 查询提交请求租户的所有子网，单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询 。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询子网列表
+     * @param {number} [limit] 每页返回的个数
+     * @param {string} [marker] 分页查询起始的资源ID，为空时查询第一页
+     * @param {string} [id] 按照子网对应的ID过滤查询
+     * @param {string} [cidr] 按照子网的cidr过滤查询
+     * @param {string} [name] 按照子网的名称过滤查询
+     * @param {boolean} [enableDhcp] 按照子网是否开启dhcp过滤查询，取值范围：true or false
+     * @param {string} [networkId] 按照子网所属network_id过滤查询
+     * @param {number} [ipVersion] 按照子网的IP协议版本过滤查询
+     * @param {string} [gatewayIp] 按照子网的网关IP过滤查询
+     * @param {string} [tenantId] 按照子网所属的项目ID过滤查询
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronListSubnets(neutronListSubnetsRequest?: NeutronListSubnetsRequest): Promise<NeutronListSubnetsResponse> {
+        const options = ParamCreater().neutronListSubnets(neutronListSubnetsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 删除路由器接口。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 路由器删除接口
+     * @param {string} routerId 路由器ID
+     * @param {RouterInterfaceRequestBody} removeRouterInterface 路由器删除接口请求体
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronRemoveRouterInterface(neutronRemoveRouterInterfaceRequest?: NeutronRemoveRouterInterfaceRequest): Promise<NeutronRemoveRouterInterfaceResponse> {
+        const options = ParamCreater().neutronRemoveRouterInterface(neutronRemoveRouterInterfaceRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询指定的网络详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询网络
+     * @param {string} networkId 网络ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronShowNetwork(neutronShowNetworkRequest?: NeutronShowNetworkRequest): Promise<NeutronShowNetworkResponse> {
+        const options = ParamCreater().neutronShowNetwork(neutronShowNetworkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询端口详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询端口
+     * @param {string} portId 端口ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronShowPort(neutronShowPortRequest?: NeutronShowPortRequest): Promise<NeutronShowPortResponse> {
+        const options = ParamCreater().neutronShowPort(neutronShowPortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询路由器详情。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询路由器
+     * @param {string} routerId 路由器ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronShowRouter(neutronShowRouterRequest?: NeutronShowRouterRequest): Promise<NeutronShowRouterResponse> {
+        const options = ParamCreater().neutronShowRouter(neutronShowRouterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 查询安全组详情
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1495,6 +1927,85 @@ export class VpcClient {
     }
 
     /**
+     * 查询子网详情
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询子网
+     * @param {string} subnetId 子网ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronShowSubnet(neutronShowSubnetRequest?: NeutronShowSubnetRequest): Promise<NeutronShowSubnetResponse> {
+        const options = ParamCreater().neutronShowSubnet(neutronShowSubnetRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新网络
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新网络
+     * @param {string} networkId 网络ID
+     * @param {NeutronUpdateNetworkRequestBody} network 网络对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronUpdateNetwork(neutronUpdateNetworkRequest?: NeutronUpdateNetworkRequest): Promise<NeutronUpdateNetworkResponse> {
+        const options = ParamCreater().neutronUpdateNetwork(neutronUpdateNetworkRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新端口
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新端口
+     * @param {string} portId 端口ID
+     * @param {NeutronUpdatePortRequestBody} port port对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronUpdatePort(neutronUpdatePortRequest?: NeutronUpdatePortRequest): Promise<NeutronUpdatePortResponse> {
+        const options = ParamCreater().neutronUpdatePort(neutronUpdatePortRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新路由器。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新路由器
+     * @param {string} routerId 路由器ID
+     * @param {NeutronUpdateRouterRequestBody} router 路由器对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronUpdateRouter(neutronUpdateRouterRequest?: NeutronUpdateRouterRequest): Promise<NeutronUpdateRouterResponse> {
+        const options = ParamCreater().neutronUpdateRouter(neutronUpdateRouterRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 更新安全组
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -1507,6 +2018,26 @@ export class VpcClient {
      */
     public neutronUpdateSecurityGroup(neutronUpdateSecurityGroupRequest?: NeutronUpdateSecurityGroupRequest): Promise<NeutronUpdateSecurityGroupResponse> {
         const options = ParamCreater().neutronUpdateSecurityGroup(neutronUpdateSecurityGroupRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 更新子网
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 更新子网
+     * @param {string} subnetId 子网ID
+     * @param {NeutronUpdateSubnetRequestBody} subnet 子网对象
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public neutronUpdateSubnet(neutronUpdateSubnetRequest?: NeutronUpdateSubnetRequest): Promise<NeutronUpdateSubnetResponse> {
+        const options = ParamCreater().neutronUpdateSubnet(neutronUpdateSubnetRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -1852,6 +2383,24 @@ export class VpcClient {
      */
     public neutronUpdateFirewallRule(neutronUpdateFirewallRuleRequest?: NeutronUpdateFirewallRuleRequest): Promise<NeutronUpdateFirewallRuleResponse> {
         const options = ParamCreater().neutronUpdateFirewallRule(neutronUpdateFirewallRuleRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 返回当前API所有可用的版本（仅针对OpenStack原生接口）。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询API版本信息列表
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listApiVersion(): Promise<ListApiVersionResponse> {
+        const options = ParamCreater().listApiVersion();
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -4462,6 +5011,166 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 添加路由器接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronAddRouterInterface(neutronAddRouterInterfaceRequest?: NeutronAddRouterInterfaceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.0/routers/{router_id}/add_router_interface",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let routerId;
+
+            if (neutronAddRouterInterfaceRequest !== null && neutronAddRouterInterfaceRequest !== undefined) {
+                if (neutronAddRouterInterfaceRequest instanceof NeutronAddRouterInterfaceRequest) {
+                    routerId = neutronAddRouterInterfaceRequest.routerId;
+                    body = neutronAddRouterInterfaceRequest.body
+                } else {
+                    routerId = neutronAddRouterInterfaceRequest['router_id'];
+                    body = neutronAddRouterInterfaceRequest['body'];
+                }
+            }
+
+        
+            if (routerId === null || routerId === undefined) {
+            throw new RequiredError('routerId','Required parameter routerId was null or undefined when calling neutronAddRouterInterface.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'router_id': routerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建网络
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronCreateNetwork(neutronCreateNetworkRequest?: NeutronCreateNetworkRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/networks",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (neutronCreateNetworkRequest !== null && neutronCreateNetworkRequest !== undefined) {
+                if (neutronCreateNetworkRequest instanceof NeutronCreateNetworkRequest) {
+                    body = neutronCreateNetworkRequest.body
+                } else {
+                    body = neutronCreateNetworkRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建端口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronCreatePort(neutronCreatePortRequest?: NeutronCreatePortRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/ports",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (neutronCreatePortRequest !== null && neutronCreatePortRequest !== undefined) {
+                if (neutronCreatePortRequest instanceof NeutronCreatePortRequest) {
+                    body = neutronCreatePortRequest.body
+                } else {
+                    body = neutronCreatePortRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 创建路由器。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronCreateRouter(neutronCreateRouterRequest?: NeutronCreateRouterRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/routers",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (neutronCreateRouterRequest !== null && neutronCreateRouterRequest !== undefined) {
+                if (neutronCreateRouterRequest instanceof NeutronCreateRouterRequest) {
+                    body = neutronCreateRouterRequest.body
+                } else {
+                    body = neutronCreateRouterRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 创建安全组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4538,6 +5247,155 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 创建子网。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronCreateSubnet(neutronCreateSubnetRequest?: NeutronCreateSubnetRequest) {
+            const options = {
+                method: "POST",
+                url: "/v2.0/subnets",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (neutronCreateSubnetRequest !== null && neutronCreateSubnetRequest !== undefined) {
+                if (neutronCreateSubnetRequest instanceof NeutronCreateSubnetRequest) {
+                    body = neutronCreateSubnetRequest.body
+                } else {
+                    body = neutronCreateSubnetRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除网络
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronDeleteNetwork(neutronDeleteNetworkRequest?: NeutronDeleteNetworkRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.0/networks/{network_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let networkId;
+
+            if (neutronDeleteNetworkRequest !== null && neutronDeleteNetworkRequest !== undefined) {
+                if (neutronDeleteNetworkRequest instanceof NeutronDeleteNetworkRequest) {
+                    networkId = neutronDeleteNetworkRequest.networkId;
+                } else {
+                    networkId = neutronDeleteNetworkRequest['network_id'];
+                }
+            }
+
+        
+            if (networkId === null || networkId === undefined) {
+            throw new RequiredError('networkId','Required parameter networkId was null or undefined when calling neutronDeleteNetwork.');
+            }
+
+            options.pathParams = { 'network_id': networkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除端口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronDeletePort(neutronDeletePortRequest?: NeutronDeletePortRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.0/ports/{port_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let portId;
+
+            if (neutronDeletePortRequest !== null && neutronDeletePortRequest !== undefined) {
+                if (neutronDeletePortRequest instanceof NeutronDeletePortRequest) {
+                    portId = neutronDeletePortRequest.portId;
+                } else {
+                    portId = neutronDeletePortRequest['port_id'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling neutronDeletePort.');
+            }
+
+            options.pathParams = { 'port_id': portId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除路由器
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronDeleteRouter(neutronDeleteRouterRequest?: NeutronDeleteRouterRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.0/routers/{router_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let routerId;
+
+            if (neutronDeleteRouterRequest !== null && neutronDeleteRouterRequest !== undefined) {
+                if (neutronDeleteRouterRequest instanceof NeutronDeleteRouterRequest) {
+                    routerId = neutronDeleteRouterRequest.routerId;
+                } else {
+                    routerId = neutronDeleteRouterRequest['router_id'];
+                }
+            }
+
+        
+            if (routerId === null || routerId === undefined) {
+            throw new RequiredError('routerId','Required parameter routerId was null or undefined when calling neutronDeleteRouter.');
+            }
+
+            options.pathParams = { 'router_id': routerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 删除安全组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4607,6 +5465,336 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'security_group_rule_id': securityGroupRuleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除子网
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronDeleteSubnet(neutronDeleteSubnetRequest?: NeutronDeleteSubnetRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v2.0/subnets/{subnet_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let subnetId;
+
+            if (neutronDeleteSubnetRequest !== null && neutronDeleteSubnetRequest !== undefined) {
+                if (neutronDeleteSubnetRequest instanceof NeutronDeleteSubnetRequest) {
+                    subnetId = neutronDeleteSubnetRequest.subnetId;
+                } else {
+                    subnetId = neutronDeleteSubnetRequest['subnet_id'];
+                }
+            }
+
+        
+            if (subnetId === null || subnetId === undefined) {
+            throw new RequiredError('subnetId','Required parameter subnetId was null or undefined when calling neutronDeleteSubnet.');
+            }
+
+            options.pathParams = { 'subnet_id': subnetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询提交请求的租户的所有网络，单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronListNetworks(neutronListNetworksRequest?: NeutronListNetworksRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/networks",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let name;
+            
+            let status;
+            
+            let shared;
+            
+            let routerExternal;
+            
+            let adminStateUp;
+            
+            let providerNetworkType;
+            
+            let tenantId;
+
+            if (neutronListNetworksRequest !== null && neutronListNetworksRequest !== undefined) {
+                if (neutronListNetworksRequest instanceof NeutronListNetworksRequest) {
+                    limit = neutronListNetworksRequest.limit;
+                    marker = neutronListNetworksRequest.marker;
+                    id = neutronListNetworksRequest.id;
+                    name = neutronListNetworksRequest.name;
+                    status = neutronListNetworksRequest.status;
+                    shared = neutronListNetworksRequest.shared;
+                    routerExternal = neutronListNetworksRequest.routerExternal;
+                    adminStateUp = neutronListNetworksRequest.adminStateUp;
+                    providerNetworkType = neutronListNetworksRequest.providerNetworkType;
+                    tenantId = neutronListNetworksRequest.tenantId;
+                } else {
+                    limit = neutronListNetworksRequest['limit'];
+                    marker = neutronListNetworksRequest['marker'];
+                    id = neutronListNetworksRequest['id'];
+                    name = neutronListNetworksRequest['name'];
+                    status = neutronListNetworksRequest['status'];
+                    shared = neutronListNetworksRequest['shared'];
+                    routerExternal = neutronListNetworksRequest['router:external'];
+                    adminStateUp = neutronListNetworksRequest['admin_state_up'];
+                    providerNetworkType = neutronListNetworksRequest['provider:network_type'];
+                    tenantId = neutronListNetworksRequest['tenant_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (shared !== null && shared !== undefined) {
+                localVarQueryParameter['shared'] = shared;
+            }
+            if (routerExternal !== null && routerExternal !== undefined) {
+                localVarQueryParameter['router:external'] = routerExternal;
+            }
+            if (adminStateUp !== null && adminStateUp !== undefined) {
+                localVarQueryParameter['admin_state_up'] = adminStateUp;
+            }
+            if (providerNetworkType !== null && providerNetworkType !== undefined) {
+                localVarQueryParameter['provider:network_type'] = providerNetworkType;
+            }
+            if (tenantId !== null && tenantId !== undefined) {
+                localVarQueryParameter['tenant_id'] = tenantId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询提交请求的租户的所有端口，单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronListPorts(neutronListPortsRequest?: NeutronListPortsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/ports",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let name;
+            
+            let adminStateUp;
+            
+            let networkId;
+            
+            let macAddress;
+            
+            let deviceId;
+            
+            let deviceOwner;
+            
+            let status;
+            
+            let securityGroups;
+            
+            let fixedIps;
+            
+            let tenantId;
+
+            if (neutronListPortsRequest !== null && neutronListPortsRequest !== undefined) {
+                if (neutronListPortsRequest instanceof NeutronListPortsRequest) {
+                    limit = neutronListPortsRequest.limit;
+                    marker = neutronListPortsRequest.marker;
+                    id = neutronListPortsRequest.id;
+                    name = neutronListPortsRequest.name;
+                    adminStateUp = neutronListPortsRequest.adminStateUp;
+                    networkId = neutronListPortsRequest.networkId;
+                    macAddress = neutronListPortsRequest.macAddress;
+                    deviceId = neutronListPortsRequest.deviceId;
+                    deviceOwner = neutronListPortsRequest.deviceOwner;
+                    status = neutronListPortsRequest.status;
+                    securityGroups = neutronListPortsRequest.securityGroups;
+                    fixedIps = neutronListPortsRequest.fixedIps;
+                    tenantId = neutronListPortsRequest.tenantId;
+                } else {
+                    limit = neutronListPortsRequest['limit'];
+                    marker = neutronListPortsRequest['marker'];
+                    id = neutronListPortsRequest['id'];
+                    name = neutronListPortsRequest['name'];
+                    adminStateUp = neutronListPortsRequest['admin_state_up'];
+                    networkId = neutronListPortsRequest['network_id'];
+                    macAddress = neutronListPortsRequest['mac_address'];
+                    deviceId = neutronListPortsRequest['device_id'];
+                    deviceOwner = neutronListPortsRequest['device_owner'];
+                    status = neutronListPortsRequest['status'];
+                    securityGroups = neutronListPortsRequest['security_groups'];
+                    fixedIps = neutronListPortsRequest['fixed_ips'];
+                    tenantId = neutronListPortsRequest['tenant_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (adminStateUp !== null && adminStateUp !== undefined) {
+                localVarQueryParameter['admin_state_up'] = adminStateUp;
+            }
+            if (networkId !== null && networkId !== undefined) {
+                localVarQueryParameter['network_id'] = networkId;
+            }
+            if (macAddress !== null && macAddress !== undefined) {
+                localVarQueryParameter['mac_address'] = macAddress;
+            }
+            if (deviceId !== null && deviceId !== undefined) {
+                localVarQueryParameter['device_id'] = deviceId;
+            }
+            if (deviceOwner !== null && deviceOwner !== undefined) {
+                localVarQueryParameter['device_owner'] = deviceOwner;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (securityGroups !== null && securityGroups !== undefined) {
+                localVarQueryParameter['security_groups'] = securityGroups;
+            }
+            if (fixedIps !== null && fixedIps !== undefined) {
+                localVarQueryParameter['fixed_ips'] = fixedIps;
+            }
+            if (tenantId !== null && tenantId !== undefined) {
+                localVarQueryParameter['tenant_id'] = tenantId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询提交请求的租户有权限操作的所有路由器信息，单次查询最多返回2000条数据，超过2000后会返回分页标记。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronListRouters(neutronListRoutersRequest?: NeutronListRoutersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/routers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let status;
+            
+            let tenantId;
+            
+            let adminStateUp;
+
+            if (neutronListRoutersRequest !== null && neutronListRoutersRequest !== undefined) {
+                if (neutronListRoutersRequest instanceof NeutronListRoutersRequest) {
+                    limit = neutronListRoutersRequest.limit;
+                    marker = neutronListRoutersRequest.marker;
+                    id = neutronListRoutersRequest.id;
+                    status = neutronListRoutersRequest.status;
+                    tenantId = neutronListRoutersRequest.tenantId;
+                    adminStateUp = neutronListRoutersRequest.adminStateUp;
+                } else {
+                    limit = neutronListRoutersRequest['limit'];
+                    marker = neutronListRoutersRequest['marker'];
+                    id = neutronListRoutersRequest['id'];
+                    status = neutronListRoutersRequest['status'];
+                    tenantId = neutronListRoutersRequest['tenant_id'];
+                    adminStateUp = neutronListRoutersRequest['admin_state_up'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (status !== null && status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+            if (tenantId !== null && tenantId !== undefined) {
+                localVarQueryParameter['tenant_id'] = tenantId;
+            }
+            if (adminStateUp !== null && adminStateUp !== undefined) {
+                localVarQueryParameter['admin_state_up'] = adminStateUp;
+            }
+
+            options.queryParams = localVarQueryParameter;
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -4805,6 +5993,263 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询提交请求租户的所有子网，单次查询最多返回2000条数据，超过2000后会返回分页标记。分页查询请参考分页查询 。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronListSubnets(neutronListSubnetsRequest?: NeutronListSubnetsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/subnets",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let cidr;
+            
+            let name;
+            
+            let enableDhcp;
+            
+            let networkId;
+            
+            let ipVersion;
+            
+            let gatewayIp;
+            
+            let tenantId;
+
+            if (neutronListSubnetsRequest !== null && neutronListSubnetsRequest !== undefined) {
+                if (neutronListSubnetsRequest instanceof NeutronListSubnetsRequest) {
+                    limit = neutronListSubnetsRequest.limit;
+                    marker = neutronListSubnetsRequest.marker;
+                    id = neutronListSubnetsRequest.id;
+                    cidr = neutronListSubnetsRequest.cidr;
+                    name = neutronListSubnetsRequest.name;
+                    enableDhcp = neutronListSubnetsRequest.enableDhcp;
+                    networkId = neutronListSubnetsRequest.networkId;
+                    ipVersion = neutronListSubnetsRequest.ipVersion;
+                    gatewayIp = neutronListSubnetsRequest.gatewayIp;
+                    tenantId = neutronListSubnetsRequest.tenantId;
+                } else {
+                    limit = neutronListSubnetsRequest['limit'];
+                    marker = neutronListSubnetsRequest['marker'];
+                    id = neutronListSubnetsRequest['id'];
+                    cidr = neutronListSubnetsRequest['cidr'];
+                    name = neutronListSubnetsRequest['name'];
+                    enableDhcp = neutronListSubnetsRequest['enable_dhcp'];
+                    networkId = neutronListSubnetsRequest['network_id'];
+                    ipVersion = neutronListSubnetsRequest['ip_version'];
+                    gatewayIp = neutronListSubnetsRequest['gateway_ip'];
+                    tenantId = neutronListSubnetsRequest['tenant_id'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (cidr !== null && cidr !== undefined) {
+                localVarQueryParameter['cidr'] = cidr;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (enableDhcp !== null && enableDhcp !== undefined) {
+                localVarQueryParameter['enable_dhcp'] = enableDhcp;
+            }
+            if (networkId !== null && networkId !== undefined) {
+                localVarQueryParameter['network_id'] = networkId;
+            }
+            if (ipVersion !== null && ipVersion !== undefined) {
+                localVarQueryParameter['ip_version'] = ipVersion;
+            }
+            if (gatewayIp !== null && gatewayIp !== undefined) {
+                localVarQueryParameter['gateway_ip'] = gatewayIp;
+            }
+            if (tenantId !== null && tenantId !== undefined) {
+                localVarQueryParameter['tenant_id'] = tenantId;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 删除路由器接口。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronRemoveRouterInterface(neutronRemoveRouterInterfaceRequest?: NeutronRemoveRouterInterfaceRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.0/routers/{router_id}/remove_router_interface",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let routerId;
+
+            if (neutronRemoveRouterInterfaceRequest !== null && neutronRemoveRouterInterfaceRequest !== undefined) {
+                if (neutronRemoveRouterInterfaceRequest instanceof NeutronRemoveRouterInterfaceRequest) {
+                    routerId = neutronRemoveRouterInterfaceRequest.routerId;
+                    body = neutronRemoveRouterInterfaceRequest.body
+                } else {
+                    routerId = neutronRemoveRouterInterfaceRequest['router_id'];
+                    body = neutronRemoveRouterInterfaceRequest['body'];
+                }
+            }
+
+        
+            if (routerId === null || routerId === undefined) {
+            throw new RequiredError('routerId','Required parameter routerId was null or undefined when calling neutronRemoveRouterInterface.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'router_id': routerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询指定的网络详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronShowNetwork(neutronShowNetworkRequest?: NeutronShowNetworkRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/networks/{network_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let networkId;
+
+            if (neutronShowNetworkRequest !== null && neutronShowNetworkRequest !== undefined) {
+                if (neutronShowNetworkRequest instanceof NeutronShowNetworkRequest) {
+                    networkId = neutronShowNetworkRequest.networkId;
+                } else {
+                    networkId = neutronShowNetworkRequest['network_id'];
+                }
+            }
+
+        
+            if (networkId === null || networkId === undefined) {
+            throw new RequiredError('networkId','Required parameter networkId was null or undefined when calling neutronShowNetwork.');
+            }
+
+            options.pathParams = { 'network_id': networkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询端口详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronShowPort(neutronShowPortRequest?: NeutronShowPortRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/ports/{port_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let portId;
+
+            if (neutronShowPortRequest !== null && neutronShowPortRequest !== undefined) {
+                if (neutronShowPortRequest instanceof NeutronShowPortRequest) {
+                    portId = neutronShowPortRequest.portId;
+                } else {
+                    portId = neutronShowPortRequest['port_id'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling neutronShowPort.');
+            }
+
+            options.pathParams = { 'port_id': portId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询路由器详情。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronShowRouter(neutronShowRouterRequest?: NeutronShowRouterRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/routers/{router_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let routerId;
+
+            if (neutronShowRouterRequest !== null && neutronShowRouterRequest !== undefined) {
+                if (neutronShowRouterRequest instanceof NeutronShowRouterRequest) {
+                    routerId = neutronShowRouterRequest.routerId;
+                } else {
+                    routerId = neutronShowRouterRequest['router_id'];
+                }
+            }
+
+        
+            if (routerId === null || routerId === undefined) {
+            throw new RequiredError('routerId','Required parameter routerId was null or undefined when calling neutronShowRouter.');
+            }
+
+            options.pathParams = { 'router_id': routerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 查询安全组详情
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4879,6 +6324,181 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 查询子网详情
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronShowSubnet(neutronShowSubnetRequest?: NeutronShowSubnetRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2.0/subnets/{subnet_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let subnetId;
+
+            if (neutronShowSubnetRequest !== null && neutronShowSubnetRequest !== undefined) {
+                if (neutronShowSubnetRequest instanceof NeutronShowSubnetRequest) {
+                    subnetId = neutronShowSubnetRequest.subnetId;
+                } else {
+                    subnetId = neutronShowSubnetRequest['subnet_id'];
+                }
+            }
+
+        
+            if (subnetId === null || subnetId === undefined) {
+            throw new RequiredError('subnetId','Required parameter subnetId was null or undefined when calling neutronShowSubnet.');
+            }
+
+            options.pathParams = { 'subnet_id': subnetId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新网络
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronUpdateNetwork(neutronUpdateNetworkRequest?: NeutronUpdateNetworkRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.0/networks/{network_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let networkId;
+
+            if (neutronUpdateNetworkRequest !== null && neutronUpdateNetworkRequest !== undefined) {
+                if (neutronUpdateNetworkRequest instanceof NeutronUpdateNetworkRequest) {
+                    networkId = neutronUpdateNetworkRequest.networkId;
+                    body = neutronUpdateNetworkRequest.body
+                } else {
+                    networkId = neutronUpdateNetworkRequest['network_id'];
+                    body = neutronUpdateNetworkRequest['body'];
+                }
+            }
+
+        
+            if (networkId === null || networkId === undefined) {
+            throw new RequiredError('networkId','Required parameter networkId was null or undefined when calling neutronUpdateNetwork.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'network_id': networkId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新端口
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronUpdatePort(neutronUpdatePortRequest?: NeutronUpdatePortRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.0/ports/{port_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let portId;
+
+            if (neutronUpdatePortRequest !== null && neutronUpdatePortRequest !== undefined) {
+                if (neutronUpdatePortRequest instanceof NeutronUpdatePortRequest) {
+                    portId = neutronUpdatePortRequest.portId;
+                    body = neutronUpdatePortRequest.body
+                } else {
+                    portId = neutronUpdatePortRequest['port_id'];
+                    body = neutronUpdatePortRequest['body'];
+                }
+            }
+
+        
+            if (portId === null || portId === undefined) {
+            throw new RequiredError('portId','Required parameter portId was null or undefined when calling neutronUpdatePort.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'port_id': portId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新路由器。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronUpdateRouter(neutronUpdateRouterRequest?: NeutronUpdateRouterRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.0/routers/{router_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let routerId;
+
+            if (neutronUpdateRouterRequest !== null && neutronUpdateRouterRequest !== undefined) {
+                if (neutronUpdateRouterRequest instanceof NeutronUpdateRouterRequest) {
+                    routerId = neutronUpdateRouterRequest.routerId;
+                    body = neutronUpdateRouterRequest.body
+                } else {
+                    routerId = neutronUpdateRouterRequest['router_id'];
+                    body = neutronUpdateRouterRequest['body'];
+                }
+            }
+
+        
+            if (routerId === null || routerId === undefined) {
+            throw new RequiredError('routerId','Required parameter routerId was null or undefined when calling neutronUpdateRouter.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'router_id': routerId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 更新安全组
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -4920,6 +6540,52 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'security_group_id': securityGroupId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 更新子网
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        neutronUpdateSubnet(neutronUpdateSubnetRequest?: NeutronUpdateSubnetRequest) {
+            const options = {
+                method: "PUT",
+                url: "/v2.0/subnets/{subnet_id}",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let subnetId;
+
+            if (neutronUpdateSubnetRequest !== null && neutronUpdateSubnetRequest !== undefined) {
+                if (neutronUpdateSubnetRequest instanceof NeutronUpdateSubnetRequest) {
+                    subnetId = neutronUpdateSubnetRequest.subnetId;
+                    body = neutronUpdateSubnetRequest.body
+                } else {
+                    subnetId = neutronUpdateSubnetRequest['subnet_id'];
+                    body = neutronUpdateSubnetRequest['body'];
+                }
+            }
+
+        
+            if (subnetId === null || subnetId === undefined) {
+            throw new RequiredError('subnetId','Required parameter subnetId was null or undefined when calling neutronUpdateSubnet.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'subnet_id': subnetId, };
             options.headers = localVarHeaderParameter;
             return options;
         },
@@ -5716,6 +7382,27 @@ export const ParamCreater = function () {
 
             options.data = body !== undefined ? body : {};
             options.pathParams = { 'firewall_rule_id': firewallRuleId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 返回当前API所有可用的版本（仅针对OpenStack原生接口）。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listApiVersion() {
+            const options = {
+                method: "GET",
+                url: "/",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+
             options.headers = localVarHeaderParameter;
             return options;
         },

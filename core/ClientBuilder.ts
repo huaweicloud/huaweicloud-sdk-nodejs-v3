@@ -141,11 +141,13 @@ export class ClientBuilder<T> {
         }
 
         switch (sdkType) {
-            case 'BasicCredentials':
+            case 'BasicCredentials': {
                 return new BasicCredentials();
-            case 'GlobalCredentials':
+            }
+            case 'GlobalCredentials': {
                 return new GlobalCredentials();
-            default:
+            }
+            default: {
                 if (this.credentials[sdkType]) {
                     return this.credentials[sdkType];
                 }
@@ -154,6 +156,7 @@ export class ClientBuilder<T> {
                 const credentialTYPE = require(definedCredPath);
                 this.credentials[sdkType] = new credentialTYPE();
                 return this.credentials[sdkType];
+            }
         }
     }
 
