@@ -1,13 +1,13 @@
 
 
 export class CreateSharedBandwidthOption {
-    private 'enterprise_project_id'?: string | undefined;
-    public name: string;
-    public size: number;
-    private 'charge_mode'?: CreateSharedBandwidthOptionChargeModeEnum | undefined;
-    private 'public_border_group'?: string | undefined;
-    private 'bandwidth_type'?: string | undefined;
-    public constructor(name?: any, size?: any) { 
+    private 'enterprise_project_id'?: string;
+    public name?: string;
+    public size?: number;
+    private 'charge_mode'?: CreateSharedBandwidthOptionChargeModeEnum | string;
+    private 'public_border_group'?: string;
+    private 'bandwidth_type'?: string;
+    public constructor(name?: string, size?: number) { 
         this['name'] = name;
         this['size'] = size;
     }
@@ -15,10 +15,10 @@ export class CreateSharedBandwidthOption {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withName(name: string): CreateSharedBandwidthOption {
@@ -29,34 +29,34 @@ export class CreateSharedBandwidthOption {
         this['size'] = size;
         return this;
     }
-    public withChargeMode(chargeMode: CreateSharedBandwidthOptionChargeModeEnum): CreateSharedBandwidthOption {
+    public withChargeMode(chargeMode: CreateSharedBandwidthOptionChargeModeEnum | string): CreateSharedBandwidthOption {
         this['charge_mode'] = chargeMode;
         return this;
     }
-    public set chargeMode(chargeMode: CreateSharedBandwidthOptionChargeModeEnum | undefined) {
+    public set chargeMode(chargeMode: CreateSharedBandwidthOptionChargeModeEnum | string  | undefined) {
         this['charge_mode'] = chargeMode;
     }
-    public get chargeMode() {
+    public get chargeMode(): CreateSharedBandwidthOptionChargeModeEnum | string | undefined {
         return this['charge_mode'];
     }
     public withPublicBorderGroup(publicBorderGroup: string): CreateSharedBandwidthOption {
         this['public_border_group'] = publicBorderGroup;
         return this;
     }
-    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
         this['public_border_group'] = publicBorderGroup;
     }
-    public get publicBorderGroup() {
+    public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
     public withBandwidthType(bandwidthType: string): CreateSharedBandwidthOption {
         this['bandwidth_type'] = bandwidthType;
         return this;
     }
-    public set bandwidthType(bandwidthType: string | undefined) {
+    public set bandwidthType(bandwidthType: string  | undefined) {
         this['bandwidth_type'] = bandwidthType;
     }
-    public get bandwidthType() {
+    public get bandwidthType(): string | undefined {
         return this['bandwidth_type'];
     }
 }

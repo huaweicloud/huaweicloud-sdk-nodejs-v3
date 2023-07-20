@@ -2,17 +2,17 @@ import { Tag } from './Tag';
 
 
 export class CreateEnterpriseRouter {
-    public name: string;
+    public name?: string;
     public description?: string;
-    public asn: number;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'charge_mode'?: CreateEnterpriseRouterChargeModeEnum | undefined;
+    public asn?: number;
+    private 'enterprise_project_id'?: string;
+    private 'charge_mode'?: CreateEnterpriseRouterChargeModeEnum | string;
     public tags?: Array<Tag>;
-    private 'enable_default_propagation'?: boolean | undefined;
-    private 'enable_default_association'?: boolean | undefined;
-    private 'availability_zone_ids': Array<string> | undefined;
-    private 'auto_accept_shared_attachments'?: boolean | undefined;
-    public constructor(name?: any, asn?: any, availabilityZoneIds?: any) { 
+    private 'enable_default_propagation'?: boolean;
+    private 'enable_default_association'?: boolean;
+    private 'availability_zone_ids'?: Array<string>;
+    private 'auto_accept_shared_attachments'?: boolean;
+    public constructor(name?: string, asn?: number, availabilityZoneIds?: Array<string>) { 
         this['name'] = name;
         this['asn'] = asn;
         this['availability_zone_ids'] = availabilityZoneIds;
@@ -33,20 +33,20 @@ export class CreateEnterpriseRouter {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withChargeMode(chargeMode: CreateEnterpriseRouterChargeModeEnum): CreateEnterpriseRouter {
+    public withChargeMode(chargeMode: CreateEnterpriseRouterChargeModeEnum | string): CreateEnterpriseRouter {
         this['charge_mode'] = chargeMode;
         return this;
     }
-    public set chargeMode(chargeMode: CreateEnterpriseRouterChargeModeEnum | undefined) {
+    public set chargeMode(chargeMode: CreateEnterpriseRouterChargeModeEnum | string  | undefined) {
         this['charge_mode'] = chargeMode;
     }
-    public get chargeMode() {
+    public get chargeMode(): CreateEnterpriseRouterChargeModeEnum | string | undefined {
         return this['charge_mode'];
     }
     public withTags(tags: Array<Tag>): CreateEnterpriseRouter {
@@ -57,40 +57,40 @@ export class CreateEnterpriseRouter {
         this['enable_default_propagation'] = enableDefaultPropagation;
         return this;
     }
-    public set enableDefaultPropagation(enableDefaultPropagation: boolean | undefined) {
+    public set enableDefaultPropagation(enableDefaultPropagation: boolean  | undefined) {
         this['enable_default_propagation'] = enableDefaultPropagation;
     }
-    public get enableDefaultPropagation() {
+    public get enableDefaultPropagation(): boolean | undefined {
         return this['enable_default_propagation'];
     }
     public withEnableDefaultAssociation(enableDefaultAssociation: boolean): CreateEnterpriseRouter {
         this['enable_default_association'] = enableDefaultAssociation;
         return this;
     }
-    public set enableDefaultAssociation(enableDefaultAssociation: boolean | undefined) {
+    public set enableDefaultAssociation(enableDefaultAssociation: boolean  | undefined) {
         this['enable_default_association'] = enableDefaultAssociation;
     }
-    public get enableDefaultAssociation() {
+    public get enableDefaultAssociation(): boolean | undefined {
         return this['enable_default_association'];
     }
     public withAvailabilityZoneIds(availabilityZoneIds: Array<string>): CreateEnterpriseRouter {
         this['availability_zone_ids'] = availabilityZoneIds;
         return this;
     }
-    public set availabilityZoneIds(availabilityZoneIds: Array<string> | undefined) {
+    public set availabilityZoneIds(availabilityZoneIds: Array<string>  | undefined) {
         this['availability_zone_ids'] = availabilityZoneIds;
     }
-    public get availabilityZoneIds() {
+    public get availabilityZoneIds(): Array<string> | undefined {
         return this['availability_zone_ids'];
     }
     public withAutoAcceptSharedAttachments(autoAcceptSharedAttachments: boolean): CreateEnterpriseRouter {
         this['auto_accept_shared_attachments'] = autoAcceptSharedAttachments;
         return this;
     }
-    public set autoAcceptSharedAttachments(autoAcceptSharedAttachments: boolean | undefined) {
+    public set autoAcceptSharedAttachments(autoAcceptSharedAttachments: boolean  | undefined) {
         this['auto_accept_shared_attachments'] = autoAcceptSharedAttachments;
     }
-    public get autoAcceptSharedAttachments() {
+    public get autoAcceptSharedAttachments(): boolean | undefined {
         return this['auto_accept_shared_attachments'];
     }
 }

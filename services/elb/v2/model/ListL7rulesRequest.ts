@@ -3,17 +3,17 @@
 export class ListL7rulesRequest {
     public limit?: number;
     public marker?: string;
-    private 'page_reverse'?: boolean | undefined;
-    private 'l7policy_id': string | undefined;
+    private 'page_reverse'?: boolean;
+    private 'l7policy_id'?: string;
     public id?: string;
-    private 'admin_state_up'?: boolean | undefined;
+    private 'admin_state_up'?: boolean;
     public type?: string;
-    private 'compare_type'?: string | undefined;
+    private 'compare_type'?: string;
     public invert?: boolean;
     public key?: string;
     public value?: string;
-    private 'provisioning_status'?: string | undefined;
-    public constructor(l7policyId?: any) { 
+    private 'provisioning_status'?: string;
+    public constructor(l7policyId?: string) { 
         this['l7policy_id'] = l7policyId;
     }
     public withLimit(limit: number): ListL7rulesRequest {
@@ -28,20 +28,20 @@ export class ListL7rulesRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withL7policyId(l7policyId: string): ListL7rulesRequest {
         this['l7policy_id'] = l7policyId;
         return this;
     }
-    public set l7policyId(l7policyId: string | undefined) {
+    public set l7policyId(l7policyId: string  | undefined) {
         this['l7policy_id'] = l7policyId;
     }
-    public get l7policyId() {
+    public get l7policyId(): string | undefined {
         return this['l7policy_id'];
     }
     public withId(id: string): ListL7rulesRequest {
@@ -52,10 +52,10 @@ export class ListL7rulesRequest {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withType(type: string): ListL7rulesRequest {
@@ -66,10 +66,10 @@ export class ListL7rulesRequest {
         this['compare_type'] = compareType;
         return this;
     }
-    public set compareType(compareType: string | undefined) {
+    public set compareType(compareType: string  | undefined) {
         this['compare_type'] = compareType;
     }
-    public get compareType() {
+    public get compareType(): string | undefined {
         return this['compare_type'];
     }
     public withInvert(invert: boolean): ListL7rulesRequest {
@@ -88,10 +88,10 @@ export class ListL7rulesRequest {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: string | undefined) {
+    public set provisioningStatus(provisioningStatus: string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): string | undefined {
         return this['provisioning_status'];
     }
 }

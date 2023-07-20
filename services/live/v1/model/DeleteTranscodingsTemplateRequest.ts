@@ -1,9 +1,9 @@
 
 
 export class DeleteTranscodingsTemplateRequest {
-    public domain: string;
-    private 'app_name': string | undefined;
-    public constructor(domain?: any, appName?: any) { 
+    public domain?: string;
+    private 'app_name'?: string;
+    public constructor(domain?: string, appName?: string) { 
         this['domain'] = domain;
         this['app_name'] = appName;
     }
@@ -15,10 +15,10 @@ export class DeleteTranscodingsTemplateRequest {
         this['app_name'] = appName;
         return this;
     }
-    public set appName(appName: string | undefined) {
+    public set appName(appName: string  | undefined) {
         this['app_name'] = appName;
     }
-    public get appName() {
+    public get appName(): string | undefined {
         return this['app_name'];
     }
 }

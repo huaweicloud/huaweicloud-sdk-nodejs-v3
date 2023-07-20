@@ -1,12 +1,12 @@
 
 
 export class CreateCondition {
-    public category: string;
-    public contents: Array<string>;
-    private 'logic_operation': string | undefined;
-    private 'check_all_indexes_logic'?: number | undefined;
+    public category?: string;
+    public contents?: Array<string>;
+    private 'logic_operation'?: string;
+    private 'check_all_indexes_logic'?: number;
     public index?: string;
-    public constructor(category?: any, contents?: any, logicOperation?: any) { 
+    public constructor(category?: string, contents?: Array<string>, logicOperation?: string) { 
         this['category'] = category;
         this['contents'] = contents;
         this['logic_operation'] = logicOperation;
@@ -23,20 +23,20 @@ export class CreateCondition {
         this['logic_operation'] = logicOperation;
         return this;
     }
-    public set logicOperation(logicOperation: string | undefined) {
+    public set logicOperation(logicOperation: string  | undefined) {
         this['logic_operation'] = logicOperation;
     }
-    public get logicOperation() {
+    public get logicOperation(): string | undefined {
         return this['logic_operation'];
     }
     public withCheckAllIndexesLogic(checkAllIndexesLogic: number): CreateCondition {
         this['check_all_indexes_logic'] = checkAllIndexesLogic;
         return this;
     }
-    public set checkAllIndexesLogic(checkAllIndexesLogic: number | undefined) {
+    public set checkAllIndexesLogic(checkAllIndexesLogic: number  | undefined) {
         this['check_all_indexes_logic'] = checkAllIndexesLogic;
     }
-    public get checkAllIndexesLogic() {
+    public get checkAllIndexesLogic(): number | undefined {
         return this['check_all_indexes_logic'];
     }
     public withIndex(index: string): CreateCondition {

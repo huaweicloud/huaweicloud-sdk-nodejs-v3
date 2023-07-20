@@ -1,11 +1,11 @@
 
 
 export class ResetMessageOffsetReq {
-    public topic: string;
+    public topic?: string;
     public partition?: number;
-    private 'message_offset'?: number | undefined;
+    private 'message_offset'?: number;
     public timestamp?: number;
-    public constructor(topic?: any) { 
+    public constructor(topic?: string) { 
         this['topic'] = topic;
     }
     public withTopic(topic: string): ResetMessageOffsetReq {
@@ -20,10 +20,10 @@ export class ResetMessageOffsetReq {
         this['message_offset'] = messageOffset;
         return this;
     }
-    public set messageOffset(messageOffset: number | undefined) {
+    public set messageOffset(messageOffset: number  | undefined) {
         this['message_offset'] = messageOffset;
     }
-    public get messageOffset() {
+    public get messageOffset(): number | undefined {
         return this['message_offset'];
     }
     public withTimestamp(timestamp: number): ResetMessageOffsetReq {

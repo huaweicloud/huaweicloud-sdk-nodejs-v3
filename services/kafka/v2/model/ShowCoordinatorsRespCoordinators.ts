@@ -1,7 +1,7 @@
 
 
 export class ShowCoordinatorsRespCoordinators {
-    private 'group_id'?: string | undefined;
+    private 'group_id'?: string;
     public id?: number;
     public host?: string;
     public port?: number;
@@ -11,10 +11,10 @@ export class ShowCoordinatorsRespCoordinators {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
     public withId(id: number): ShowCoordinatorsRespCoordinators {

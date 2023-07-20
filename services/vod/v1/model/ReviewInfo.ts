@@ -3,16 +3,16 @@ import { TextReviewRet } from './TextReviewRet';
 
 
 export class ReviewInfo {
-    public suggestion?: ReviewInfoSuggestionEnum;
+    public suggestion?: ReviewInfoSuggestionEnum | string;
     public text?: TextReviewRet;
     public cover?: Array<PictureReviewRet>;
     public video?: Array<PictureReviewRet>;
-    private 'exec_desc'?: string | undefined;
-    private 'review_status': string | undefined;
-    public constructor(reviewStatus?: any) { 
+    private 'exec_desc'?: string;
+    private 'review_status'?: string;
+    public constructor(reviewStatus?: string) { 
         this['review_status'] = reviewStatus;
     }
-    public withSuggestion(suggestion: ReviewInfoSuggestionEnum): ReviewInfo {
+    public withSuggestion(suggestion: ReviewInfoSuggestionEnum | string): ReviewInfo {
         this['suggestion'] = suggestion;
         return this;
     }
@@ -32,20 +32,20 @@ export class ReviewInfo {
         this['exec_desc'] = execDesc;
         return this;
     }
-    public set execDesc(execDesc: string | undefined) {
+    public set execDesc(execDesc: string  | undefined) {
         this['exec_desc'] = execDesc;
     }
-    public get execDesc() {
+    public get execDesc(): string | undefined {
         return this['exec_desc'];
     }
     public withReviewStatus(reviewStatus: string): ReviewInfo {
         this['review_status'] = reviewStatus;
         return this;
     }
-    public set reviewStatus(reviewStatus: string | undefined) {
+    public set reviewStatus(reviewStatus: string  | undefined) {
         this['review_status'] = reviewStatus;
     }
-    public get reviewStatus() {
+    public get reviewStatus(): string | undefined {
         return this['review_status'];
     }
 }

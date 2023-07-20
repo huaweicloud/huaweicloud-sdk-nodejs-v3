@@ -1,9 +1,9 @@
 
 
 export class UpdateLogtankRequestBody {
-    private 'log_group_id': string | undefined;
-    private 'log_stream_id': string | undefined;
-    public constructor(logGroupId?: any, logStreamId?: any) { 
+    private 'log_group_id'?: string;
+    private 'log_stream_id'?: string;
+    public constructor(logGroupId?: string, logStreamId?: string) { 
         this['log_group_id'] = logGroupId;
         this['log_stream_id'] = logStreamId;
     }
@@ -11,20 +11,20 @@ export class UpdateLogtankRequestBody {
         this['log_group_id'] = logGroupId;
         return this;
     }
-    public set logGroupId(logGroupId: string | undefined) {
+    public set logGroupId(logGroupId: string  | undefined) {
         this['log_group_id'] = logGroupId;
     }
-    public get logGroupId() {
+    public get logGroupId(): string | undefined {
         return this['log_group_id'];
     }
     public withLogStreamId(logStreamId: string): UpdateLogtankRequestBody {
         this['log_stream_id'] = logStreamId;
         return this;
     }
-    public set logStreamId(logStreamId: string | undefined) {
+    public set logStreamId(logStreamId: string  | undefined) {
         this['log_stream_id'] = logStreamId;
     }
-    public get logStreamId() {
+    public get logStreamId(): string | undefined {
         return this['log_stream_id'];
     }
 }

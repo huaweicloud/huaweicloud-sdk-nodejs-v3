@@ -1,11 +1,11 @@
 
 
 export class SearchQosParticipantDetailRequest {
-    public confUUID: string;
-    public confType: SearchQosParticipantDetailRequestConfTypeEnum;
-    public participantID: string;
-    public qosType: SearchQosParticipantDetailRequestQosTypeEnum;
-    public constructor(confUUID?: any, confType?: any, participantID?: any, qosType?: any) { 
+    public confUUID?: string;
+    public confType?: SearchQosParticipantDetailRequestConfTypeEnum | string;
+    public participantID?: string;
+    public qosType?: SearchQosParticipantDetailRequestQosTypeEnum | string;
+    public constructor(confUUID?: string, confType?: string, participantID?: string, qosType?: string) { 
         this['confUUID'] = confUUID;
         this['confType'] = confType;
         this['participantID'] = participantID;
@@ -15,7 +15,7 @@ export class SearchQosParticipantDetailRequest {
         this['confUUID'] = confUUID;
         return this;
     }
-    public withConfType(confType: SearchQosParticipantDetailRequestConfTypeEnum): SearchQosParticipantDetailRequest {
+    public withConfType(confType: SearchQosParticipantDetailRequestConfTypeEnum | string): SearchQosParticipantDetailRequest {
         this['confType'] = confType;
         return this;
     }
@@ -23,7 +23,7 @@ export class SearchQosParticipantDetailRequest {
         this['participantID'] = participantID;
         return this;
     }
-    public withQosType(qosType: SearchQosParticipantDetailRequestQosTypeEnum): SearchQosParticipantDetailRequest {
+    public withQosType(qosType: SearchQosParticipantDetailRequestQosTypeEnum | string): SearchQosParticipantDetailRequest {
         this['qosType'] = qosType;
         return this;
     }

@@ -2,12 +2,12 @@
 
 export class ResourceTypeResponse {
     public name?: string;
-    private 'display_name'?: string | undefined;
+    private 'display_name'?: string;
     public global?: boolean;
     public regions?: Array<string>;
-    private 'console_endpoint_id'?: string | undefined;
-    private 'console_list_url'?: string | undefined;
-    private 'console_detail_url'?: string | undefined;
+    private 'console_endpoint_id'?: string;
+    private 'console_list_url'?: string;
+    private 'console_detail_url'?: string;
     public track?: string;
     public constructor() { 
     }
@@ -19,10 +19,10 @@ export class ResourceTypeResponse {
         this['display_name'] = displayName;
         return this;
     }
-    public set displayName(displayName: string | undefined) {
+    public set displayName(displayName: string  | undefined) {
         this['display_name'] = displayName;
     }
-    public get displayName() {
+    public get displayName(): string | undefined {
         return this['display_name'];
     }
     public withGlobal(global: boolean): ResourceTypeResponse {
@@ -37,30 +37,30 @@ export class ResourceTypeResponse {
         this['console_endpoint_id'] = consoleEndpointId;
         return this;
     }
-    public set consoleEndpointId(consoleEndpointId: string | undefined) {
+    public set consoleEndpointId(consoleEndpointId: string  | undefined) {
         this['console_endpoint_id'] = consoleEndpointId;
     }
-    public get consoleEndpointId() {
+    public get consoleEndpointId(): string | undefined {
         return this['console_endpoint_id'];
     }
     public withConsoleListUrl(consoleListUrl: string): ResourceTypeResponse {
         this['console_list_url'] = consoleListUrl;
         return this;
     }
-    public set consoleListUrl(consoleListUrl: string | undefined) {
+    public set consoleListUrl(consoleListUrl: string  | undefined) {
         this['console_list_url'] = consoleListUrl;
     }
-    public get consoleListUrl() {
+    public get consoleListUrl(): string | undefined {
         return this['console_list_url'];
     }
     public withConsoleDetailUrl(consoleDetailUrl: string): ResourceTypeResponse {
         this['console_detail_url'] = consoleDetailUrl;
         return this;
     }
-    public set consoleDetailUrl(consoleDetailUrl: string | undefined) {
+    public set consoleDetailUrl(consoleDetailUrl: string  | undefined) {
         this['console_detail_url'] = consoleDetailUrl;
     }
-    public get consoleDetailUrl() {
+    public get consoleDetailUrl(): string | undefined {
         return this['console_detail_url'];
     }
     public withTrack(track: string): ResourceTypeResponse {

@@ -1,13 +1,13 @@
 
 
 export class TimelineTrafficStatisticsRequestBody {
-    private 'start_time': number | undefined;
-    private 'end_time': number | undefined;
-    public period: number;
-    private 'resource_type': string | undefined;
-    private 'search_type': string | undefined;
-    private 'resource_id'?: string | undefined;
-    public constructor(startTime?: any, endTime?: any, period?: any, resourceType?: any, searchType?: any) { 
+    private 'start_time'?: number;
+    private 'end_time'?: number;
+    public period?: number;
+    private 'resource_type'?: string;
+    private 'search_type'?: string;
+    private 'resource_id'?: string;
+    public constructor(startTime?: number, endTime?: number, period?: number, resourceType?: string, searchType?: string) { 
         this['start_time'] = startTime;
         this['end_time'] = endTime;
         this['period'] = period;
@@ -18,20 +18,20 @@ export class TimelineTrafficStatisticsRequestBody {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: number): TimelineTrafficStatisticsRequestBody {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: number | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
     public withPeriod(period: number): TimelineTrafficStatisticsRequestBody {
@@ -42,30 +42,30 @@ export class TimelineTrafficStatisticsRequestBody {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: string | undefined) {
+    public set resourceType(resourceType: string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): string | undefined {
         return this['resource_type'];
     }
     public withSearchType(searchType: string): TimelineTrafficStatisticsRequestBody {
         this['search_type'] = searchType;
         return this;
     }
-    public set searchType(searchType: string | undefined) {
+    public set searchType(searchType: string  | undefined) {
         this['search_type'] = searchType;
     }
-    public get searchType() {
+    public get searchType(): string | undefined {
         return this['search_type'];
     }
     public withResourceId(resourceId: string): TimelineTrafficStatisticsRequestBody {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
 }

@@ -3,12 +3,12 @@ import { UserMigrationRole } from './UserMigrationRole';
 
 
 export class UserMigrationInfo {
-    private 'is_migrate_user': boolean | undefined;
-    private 'is_set_password': boolean | undefined;
+    private 'is_migrate_user'?: boolean;
+    private 'is_set_password'?: boolean;
     public password?: string;
-    private 'user_list'?: Array<UserMigrationList> | undefined;
-    private 'role_list'?: Array<UserMigrationRole> | undefined;
-    public constructor(isMigrateUser?: any, isSetPassword?: any) { 
+    private 'user_list'?: Array<UserMigrationList>;
+    private 'role_list'?: Array<UserMigrationRole>;
+    public constructor(isMigrateUser?: boolean, isSetPassword?: boolean) { 
         this['is_migrate_user'] = isMigrateUser;
         this['is_set_password'] = isSetPassword;
     }
@@ -16,20 +16,20 @@ export class UserMigrationInfo {
         this['is_migrate_user'] = isMigrateUser;
         return this;
     }
-    public set isMigrateUser(isMigrateUser: boolean | undefined) {
+    public set isMigrateUser(isMigrateUser: boolean  | undefined) {
         this['is_migrate_user'] = isMigrateUser;
     }
-    public get isMigrateUser() {
+    public get isMigrateUser(): boolean | undefined {
         return this['is_migrate_user'];
     }
     public withIsSetPassword(isSetPassword: boolean): UserMigrationInfo {
         this['is_set_password'] = isSetPassword;
         return this;
     }
-    public set isSetPassword(isSetPassword: boolean | undefined) {
+    public set isSetPassword(isSetPassword: boolean  | undefined) {
         this['is_set_password'] = isSetPassword;
     }
-    public get isSetPassword() {
+    public get isSetPassword(): boolean | undefined {
         return this['is_set_password'];
     }
     public withPassword(password: string): UserMigrationInfo {
@@ -40,20 +40,20 @@ export class UserMigrationInfo {
         this['user_list'] = userList;
         return this;
     }
-    public set userList(userList: Array<UserMigrationList> | undefined) {
+    public set userList(userList: Array<UserMigrationList>  | undefined) {
         this['user_list'] = userList;
     }
-    public get userList() {
+    public get userList(): Array<UserMigrationList> | undefined {
         return this['user_list'];
     }
     public withRoleList(roleList: Array<UserMigrationRole>): UserMigrationInfo {
         this['role_list'] = roleList;
         return this;
     }
-    public set roleList(roleList: Array<UserMigrationRole> | undefined) {
+    public set roleList(roleList: Array<UserMigrationRole>  | undefined) {
         this['role_list'] = roleList;
     }
-    public get roleList() {
+    public get roleList(): Array<UserMigrationRole> | undefined {
         return this['role_list'];
     }
 }

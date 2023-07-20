@@ -254,7 +254,7 @@ export class EvsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public cinderListAvailabilityZones(): Promise<CinderListAvailabilityZonesResponse> {
+    public cinderListAvailabilityZones(cinderListAvailabilityZonesRequest?: CinderListAvailabilityZonesRequest): Promise<CinderListAvailabilityZonesResponse> {
         const options = ParamCreater().cinderListAvailabilityZones();
 
          // @ts-ignore
@@ -312,7 +312,7 @@ export class EvsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public cinderListVolumeTypes(): Promise<CinderListVolumeTypesResponse> {
+    public cinderListVolumeTypes(cinderListVolumeTypesRequest?: CinderListVolumeTypesRequest): Promise<CinderListVolumeTypesResponse> {
         const options = ParamCreater().cinderListVolumeTypes();
 
          // @ts-ignore
@@ -459,7 +459,7 @@ export class EvsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listVolumeTags(): Promise<ListVolumeTagsResponse> {
+    public listVolumeTags(listVolumeTagsRequest?: ListVolumeTagsRequest): Promise<ListVolumeTagsResponse> {
         const options = ParamCreater().listVolumeTags();
 
          // @ts-ignore
@@ -694,7 +694,7 @@ export class EvsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listVersions(): Promise<ListVersionsResponse> {
+    public listVersions(listVersionsRequest?: ListVersionsRequest): Promise<ListVersionsResponse> {
         const options = ParamCreater().listVersions();
 
          // @ts-ignore

@@ -1,18 +1,18 @@
 
 
 export class KeystoneListProjectPermissionsForGroupRequest {
-    private 'group_id': string | undefined;
-    public constructor(groupId?: any) { 
+    private 'group_id'?: string;
+    public constructor(groupId?: string) { 
         this['group_id'] = groupId;
     }
     public withGroupId(groupId: string): KeystoneListProjectPermissionsForGroupRequest {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
 }

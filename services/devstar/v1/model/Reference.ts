@@ -5,7 +5,7 @@ export class Reference {
     public url?: string;
     public type?: number;
     public productshort?: string;
-    private 'is_valid'?: boolean | undefined;
+    private 'is_valid'?: boolean;
     public constructor() { 
     }
     public withTitle(title: string): Reference {
@@ -28,10 +28,10 @@ export class Reference {
         this['is_valid'] = isValid;
         return this;
     }
-    public set isValid(isValid: boolean | undefined) {
+    public set isValid(isValid: boolean  | undefined) {
         this['is_valid'] = isValid;
     }
-    public get isValid() {
+    public get isValid(): boolean | undefined {
         return this['is_valid'];
     }
 }

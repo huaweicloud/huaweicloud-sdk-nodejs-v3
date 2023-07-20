@@ -6,7 +6,7 @@ export class QueryDeviceResultDTO {
     public model?: string;
     public sn?: string;
     public account?: string;
-    private 'number'?: string | undefined;
+    private 'number'?: string;
     public prjCodeMode?: number;
     public deptCode?: string;
     public deptName?: string;
@@ -42,10 +42,10 @@ export class QueryDeviceResultDTO {
         this['number'] = modelNumber;
         return this;
     }
-    public set modelNumber(modelNumber: string | undefined) {
+    public set modelNumber(modelNumber: string  | undefined) {
         this['number'] = modelNumber;
     }
-    public get modelNumber() {
+    public get modelNumber(): string | undefined {
         return this['number'];
     }
     public withPrjCodeMode(prjCodeMode: number): QueryDeviceResultDTO {

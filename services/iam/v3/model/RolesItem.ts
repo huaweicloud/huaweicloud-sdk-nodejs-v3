@@ -2,17 +2,17 @@ import { RolePolicy } from './RolePolicy';
 
 
 export class RolesItem {
-    public catalog: string;
-    private 'display_name': string | undefined;
-    public description: string;
-    private 'description_cn': string | undefined;
-    private 'domain_id': string | undefined;
-    public flag: string;
-    public id: string;
-    public name: string;
-    public policy: RolePolicy;
-    public type: string;
-    public constructor(catalog?: any, displayName?: any, description?: any, descriptionCn?: any, domainId?: any, flag?: any, id?: any, name?: any, policy?: any, type?: any) { 
+    public catalog?: string;
+    private 'display_name'?: string;
+    public description?: string;
+    private 'description_cn'?: string;
+    private 'domain_id'?: string;
+    public flag?: string;
+    public id?: string;
+    public name?: string;
+    public policy?: RolePolicy;
+    public type?: string;
+    public constructor(catalog?: string, displayName?: string, description?: string, descriptionCn?: string, domainId?: string, flag?: string, id?: string, name?: string, policy?: RolePolicy, type?: string) { 
         this['catalog'] = catalog;
         this['display_name'] = displayName;
         this['description'] = description;
@@ -32,10 +32,10 @@ export class RolesItem {
         this['display_name'] = displayName;
         return this;
     }
-    public set displayName(displayName: string | undefined) {
+    public set displayName(displayName: string  | undefined) {
         this['display_name'] = displayName;
     }
-    public get displayName() {
+    public get displayName(): string | undefined {
         return this['display_name'];
     }
     public withDescription(description: string): RolesItem {
@@ -46,20 +46,20 @@ export class RolesItem {
         this['description_cn'] = descriptionCn;
         return this;
     }
-    public set descriptionCn(descriptionCn: string | undefined) {
+    public set descriptionCn(descriptionCn: string  | undefined) {
         this['description_cn'] = descriptionCn;
     }
-    public get descriptionCn() {
+    public get descriptionCn(): string | undefined {
         return this['description_cn'];
     }
     public withDomainId(domainId: string): RolesItem {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withFlag(flag: string): RolesItem {

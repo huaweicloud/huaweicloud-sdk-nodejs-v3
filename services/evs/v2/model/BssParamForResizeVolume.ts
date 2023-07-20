@@ -1,10 +1,10 @@
 
 
 export class BssParamForResizeVolume {
-    public isAutoPay?: BssParamForResizeVolumeIsAutoPayEnum;
+    public isAutoPay?: BssParamForResizeVolumeIsAutoPayEnum | string;
     public constructor() { 
     }
-    public withIsAutoPay(isAutoPay: BssParamForResizeVolumeIsAutoPayEnum): BssParamForResizeVolume {
+    public withIsAutoPay(isAutoPay: BssParamForResizeVolumeIsAutoPayEnum | string): BssParamForResizeVolume {
         this['isAutoPay'] = isAutoPay;
         return this;
     }

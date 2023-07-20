@@ -1,9 +1,9 @@
 
 
 export class Revoke {
-    public permission: string;
-    private 'revoke_with': boolean | undefined;
-    public constructor(permission?: any, revokeWith?: any) { 
+    public permission?: string;
+    private 'revoke_with'?: boolean;
+    public constructor(permission?: string, revokeWith?: boolean) { 
         this['permission'] = permission;
         this['revoke_with'] = revokeWith;
     }
@@ -15,10 +15,10 @@ export class Revoke {
         this['revoke_with'] = revokeWith;
         return this;
     }
-    public set revokeWith(revokeWith: boolean | undefined) {
+    public set revokeWith(revokeWith: boolean  | undefined) {
         this['revoke_with'] = revokeWith;
     }
-    public get revokeWith() {
+    public get revokeWith(): boolean | undefined {
         return this['revoke_with'];
     }
 }

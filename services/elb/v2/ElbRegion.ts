@@ -6,6 +6,7 @@ interface RegionMap {
 }
 
 export class ElbRegion {
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://elb.eu-west-101.myhuaweicloud.eu"]);
     public static AF_SOUTH_1 = new Region("af-south-1", ["https://elb.af-south-1.myhuaweicloud.com"]);
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://elb.cn-north-4.myhuaweicloud.com"]);
     public static CN_NORTH_1 = new Region("cn-north-1", ["https://elb.cn-north-1.myhuaweicloud.com"]);
@@ -28,6 +29,7 @@ export class ElbRegion {
     
 
     private static REGION_MAP: RegionMap = {
+        "eu-west-101":ElbRegion.EU_WEST_101,
         "af-south-1":ElbRegion.AF_SOUTH_1,
         "cn-north-4":ElbRegion.CN_NORTH_4,
         "cn-north-1":ElbRegion.CN_NORTH_1,

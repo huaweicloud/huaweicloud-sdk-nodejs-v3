@@ -2,11 +2,11 @@
 
 export class ResourceDTO {
     public id?: string;
-    public type: string;
+    public type?: string;
     public typeId?: string;
-    public count: number;
-    public expireDate: number;
-    public constructor(type?: any, count?: any, expireDate?: any) { 
+    public count?: number;
+    public expireDate?: number;
+    public constructor(type?: string, count?: number, expireDate?: number) { 
         this['type'] = type;
         this['count'] = count;
         this['expireDate'] = expireDate;

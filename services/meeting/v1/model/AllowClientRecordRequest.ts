@@ -2,11 +2,11 @@ import { RestAllowClientRecordReqBody } from './RestAllowClientRecordReqBody';
 
 
 export class AllowClientRecordRequest {
-    public conferenceID: string;
-    private 'X-Conference-Authorization': string | undefined;
-    public participantID: string;
+    public conferenceID?: string;
+    private 'X-Conference-Authorization'?: string;
+    public participantID?: string;
     public body?: RestAllowClientRecordReqBody;
-    public constructor(conferenceID?: any, xConferenceAuthorization?: any, participantID?: any) { 
+    public constructor(conferenceID?: string, xConferenceAuthorization?: string, participantID?: string) { 
         this['conferenceID'] = conferenceID;
         this['X-Conference-Authorization'] = xConferenceAuthorization;
         this['participantID'] = participantID;
@@ -19,10 +19,10 @@ export class AllowClientRecordRequest {
         this['X-Conference-Authorization'] = xConferenceAuthorization;
         return this;
     }
-    public set xConferenceAuthorization(xConferenceAuthorization: string | undefined) {
+    public set xConferenceAuthorization(xConferenceAuthorization: string  | undefined) {
         this['X-Conference-Authorization'] = xConferenceAuthorization;
     }
-    public get xConferenceAuthorization() {
+    public get xConferenceAuthorization(): string | undefined {
         return this['X-Conference-Authorization'];
     }
     public withParticipantID(participantID: string): AllowClientRecordRequest {

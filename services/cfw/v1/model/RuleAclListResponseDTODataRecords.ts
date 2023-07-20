@@ -4,43 +4,43 @@ import { RuleServiceDto } from './RuleServiceDto';
 
 
 export class RuleAclListResponseDTODataRecords {
-    private 'rule_id'?: string | undefined;
-    private 'address_type'?: number | undefined;
+    private 'rule_id'?: string;
+    private 'address_type'?: number;
     public name?: string;
     public sequence?: OrderRuleAclDto;
-    public direction?: RuleAclListResponseDTODataRecordsDirectionEnum;
-    private 'action_type'?: number | undefined;
+    public direction?: RuleAclListResponseDTODataRecordsDirectionEnum | number;
+    private 'action_type'?: number;
     public status?: number;
     public description?: string;
-    private 'long_connect_time_hour'?: number | undefined;
-    private 'long_connect_time_minute'?: number | undefined;
-    private 'long_connect_time_second'?: number | undefined;
-    private 'long_connect_time'?: number | undefined;
-    private 'long_connect_enable'?: number | undefined;
+    private 'long_connect_time_hour'?: number;
+    private 'long_connect_time_minute'?: number;
+    private 'long_connect_time_second'?: number;
+    private 'long_connect_time'?: number;
+    private 'long_connect_enable'?: number;
     public source?: RuleAddressDto;
     public destination?: RuleAddressDto;
     public service?: RuleServiceDto;
-    public type?: RuleAclListResponseDTODataRecordsTypeEnum;
+    public type?: RuleAclListResponseDTODataRecordsTypeEnum | number;
     public constructor() { 
     }
     public withRuleId(ruleId: string): RuleAclListResponseDTODataRecords {
         this['rule_id'] = ruleId;
         return this;
     }
-    public set ruleId(ruleId: string | undefined) {
+    public set ruleId(ruleId: string  | undefined) {
         this['rule_id'] = ruleId;
     }
-    public get ruleId() {
+    public get ruleId(): string | undefined {
         return this['rule_id'];
     }
     public withAddressType(addressType: number): RuleAclListResponseDTODataRecords {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: number | undefined) {
+    public set addressType(addressType: number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType() {
+    public get addressType(): number | undefined {
         return this['address_type'];
     }
     public withName(name: string): RuleAclListResponseDTODataRecords {
@@ -51,7 +51,7 @@ export class RuleAclListResponseDTODataRecords {
         this['sequence'] = sequence;
         return this;
     }
-    public withDirection(direction: RuleAclListResponseDTODataRecordsDirectionEnum): RuleAclListResponseDTODataRecords {
+    public withDirection(direction: RuleAclListResponseDTODataRecordsDirectionEnum | number): RuleAclListResponseDTODataRecords {
         this['direction'] = direction;
         return this;
     }
@@ -59,10 +59,10 @@ export class RuleAclListResponseDTODataRecords {
         this['action_type'] = actionType;
         return this;
     }
-    public set actionType(actionType: number | undefined) {
+    public set actionType(actionType: number  | undefined) {
         this['action_type'] = actionType;
     }
-    public get actionType() {
+    public get actionType(): number | undefined {
         return this['action_type'];
     }
     public withStatus(status: number): RuleAclListResponseDTODataRecords {
@@ -77,50 +77,50 @@ export class RuleAclListResponseDTODataRecords {
         this['long_connect_time_hour'] = longConnectTimeHour;
         return this;
     }
-    public set longConnectTimeHour(longConnectTimeHour: number | undefined) {
+    public set longConnectTimeHour(longConnectTimeHour: number  | undefined) {
         this['long_connect_time_hour'] = longConnectTimeHour;
     }
-    public get longConnectTimeHour() {
+    public get longConnectTimeHour(): number | undefined {
         return this['long_connect_time_hour'];
     }
     public withLongConnectTimeMinute(longConnectTimeMinute: number): RuleAclListResponseDTODataRecords {
         this['long_connect_time_minute'] = longConnectTimeMinute;
         return this;
     }
-    public set longConnectTimeMinute(longConnectTimeMinute: number | undefined) {
+    public set longConnectTimeMinute(longConnectTimeMinute: number  | undefined) {
         this['long_connect_time_minute'] = longConnectTimeMinute;
     }
-    public get longConnectTimeMinute() {
+    public get longConnectTimeMinute(): number | undefined {
         return this['long_connect_time_minute'];
     }
     public withLongConnectTimeSecond(longConnectTimeSecond: number): RuleAclListResponseDTODataRecords {
         this['long_connect_time_second'] = longConnectTimeSecond;
         return this;
     }
-    public set longConnectTimeSecond(longConnectTimeSecond: number | undefined) {
+    public set longConnectTimeSecond(longConnectTimeSecond: number  | undefined) {
         this['long_connect_time_second'] = longConnectTimeSecond;
     }
-    public get longConnectTimeSecond() {
+    public get longConnectTimeSecond(): number | undefined {
         return this['long_connect_time_second'];
     }
     public withLongConnectTime(longConnectTime: number): RuleAclListResponseDTODataRecords {
         this['long_connect_time'] = longConnectTime;
         return this;
     }
-    public set longConnectTime(longConnectTime: number | undefined) {
+    public set longConnectTime(longConnectTime: number  | undefined) {
         this['long_connect_time'] = longConnectTime;
     }
-    public get longConnectTime() {
+    public get longConnectTime(): number | undefined {
         return this['long_connect_time'];
     }
     public withLongConnectEnable(longConnectEnable: number): RuleAclListResponseDTODataRecords {
         this['long_connect_enable'] = longConnectEnable;
         return this;
     }
-    public set longConnectEnable(longConnectEnable: number | undefined) {
+    public set longConnectEnable(longConnectEnable: number  | undefined) {
         this['long_connect_enable'] = longConnectEnable;
     }
-    public get longConnectEnable() {
+    public get longConnectEnable(): number | undefined {
         return this['long_connect_enable'];
     }
     public withSource(source: RuleAddressDto): RuleAclListResponseDTODataRecords {
@@ -135,7 +135,7 @@ export class RuleAclListResponseDTODataRecords {
         this['service'] = service;
         return this;
     }
-    public withType(type: RuleAclListResponseDTODataRecordsTypeEnum): RuleAclListResponseDTODataRecords {
+    public withType(type: RuleAclListResponseDTODataRecordsTypeEnum | number): RuleAclListResponseDTODataRecords {
         this['type'] = type;
         return this;
     }

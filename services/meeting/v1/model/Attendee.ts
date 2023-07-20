@@ -3,17 +3,17 @@
 export class Attendee {
     public userUUID?: string;
     public accountId?: string;
-    public name: string;
+    public name?: string;
     public role?: number;
-    public phone: string;
+    public phone?: string;
     public phone2?: string;
     public phone3?: string;
     public email?: string;
     public sms?: string;
-    public type: string;
+    public type?: string;
     public deptUUID?: string;
     public deptName?: string;
-    public constructor(name?: any, phone?: any, type?: any) { 
+    public constructor(name?: string, phone?: string, type?: string) { 
         this['name'] = name;
         this['phone'] = phone;
         this['type'] = type;

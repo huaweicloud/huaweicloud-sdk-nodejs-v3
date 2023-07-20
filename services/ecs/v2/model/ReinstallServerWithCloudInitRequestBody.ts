@@ -2,18 +2,18 @@ import { ReinstallServerWithCloudInitOption } from './ReinstallServerWithCloudIn
 
 
 export class ReinstallServerWithCloudInitRequestBody {
-    private 'os-reinstall': ReinstallServerWithCloudInitOption | undefined;
-    public constructor(osReinstall?: any) { 
+    private 'os-reinstall'?: ReinstallServerWithCloudInitOption;
+    public constructor(osReinstall?: ReinstallServerWithCloudInitOption) { 
         this['os-reinstall'] = osReinstall;
     }
     public withOsReinstall(osReinstall: ReinstallServerWithCloudInitOption): ReinstallServerWithCloudInitRequestBody {
         this['os-reinstall'] = osReinstall;
         return this;
     }
-    public set osReinstall(osReinstall: ReinstallServerWithCloudInitOption | undefined) {
+    public set osReinstall(osReinstall: ReinstallServerWithCloudInitOption  | undefined) {
         this['os-reinstall'] = osReinstall;
     }
-    public get osReinstall() {
+    public get osReinstall(): ReinstallServerWithCloudInitOption | undefined {
         return this['os-reinstall'];
     }
 }

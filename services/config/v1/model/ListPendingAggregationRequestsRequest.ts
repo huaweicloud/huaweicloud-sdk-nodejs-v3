@@ -1,7 +1,7 @@
 
 
 export class ListPendingAggregationRequestsRequest {
-    private 'account_id'?: string | undefined;
+    private 'account_id'?: string;
     public limit?: number;
     public marker?: string;
     public constructor() { 
@@ -10,10 +10,10 @@ export class ListPendingAggregationRequestsRequest {
         this['account_id'] = accountId;
         return this;
     }
-    public set accountId(accountId: string | undefined) {
+    public set accountId(accountId: string  | undefined) {
         this['account_id'] = accountId;
     }
-    public get accountId() {
+    public get accountId(): string | undefined {
         return this['account_id'];
     }
     public withLimit(limit: number): ListPendingAggregationRequestsRequest {

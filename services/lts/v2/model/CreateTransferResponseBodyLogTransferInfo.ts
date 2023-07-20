@@ -3,14 +3,14 @@ import { TransferDetail } from './TransferDetail';
 
 
 export class CreateTransferResponseBodyLogTransferInfo {
-    private 'log_agency_transfer'?: CreateTransferResponseBodyLogTransferInfoLogAgencyTransfer | undefined;
-    private 'log_create_time': number | undefined;
-    private 'log_storage_format': CreateTransferResponseBodyLogTransferInfoLogStorageFormatEnum | undefined;
-    private 'log_transfer_detail': TransferDetail | undefined;
-    private 'log_transfer_mode': CreateTransferResponseBodyLogTransferInfoLogTransferModeEnum | undefined;
-    private 'log_transfer_status': CreateTransferResponseBodyLogTransferInfoLogTransferStatusEnum | undefined;
-    private 'log_transfer_type': CreateTransferResponseBodyLogTransferInfoLogTransferTypeEnum | undefined;
-    public constructor(logCreateTime?: any, logStorageFormat?: any, logTransferDetail?: any, logTransferMode?: any, logTransferStatus?: any, logTransferType?: any) { 
+    private 'log_agency_transfer'?: CreateTransferResponseBodyLogTransferInfoLogAgencyTransfer;
+    private 'log_create_time'?: number;
+    private 'log_storage_format'?: CreateTransferResponseBodyLogTransferInfoLogStorageFormatEnum | string;
+    private 'log_transfer_detail'?: TransferDetail;
+    private 'log_transfer_mode'?: CreateTransferResponseBodyLogTransferInfoLogTransferModeEnum | string;
+    private 'log_transfer_status'?: CreateTransferResponseBodyLogTransferInfoLogTransferStatusEnum | string;
+    private 'log_transfer_type'?: CreateTransferResponseBodyLogTransferInfoLogTransferTypeEnum | string;
+    public constructor(logCreateTime?: number, logStorageFormat?: string, logTransferDetail?: TransferDetail, logTransferMode?: string, logTransferStatus?: string, logTransferType?: string) { 
         this['log_create_time'] = logCreateTime;
         this['log_storage_format'] = logStorageFormat;
         this['log_transfer_detail'] = logTransferDetail;
@@ -22,70 +22,70 @@ export class CreateTransferResponseBodyLogTransferInfo {
         this['log_agency_transfer'] = logAgencyTransfer;
         return this;
     }
-    public set logAgencyTransfer(logAgencyTransfer: CreateTransferResponseBodyLogTransferInfoLogAgencyTransfer | undefined) {
+    public set logAgencyTransfer(logAgencyTransfer: CreateTransferResponseBodyLogTransferInfoLogAgencyTransfer  | undefined) {
         this['log_agency_transfer'] = logAgencyTransfer;
     }
-    public get logAgencyTransfer() {
+    public get logAgencyTransfer(): CreateTransferResponseBodyLogTransferInfoLogAgencyTransfer | undefined {
         return this['log_agency_transfer'];
     }
     public withLogCreateTime(logCreateTime: number): CreateTransferResponseBodyLogTransferInfo {
         this['log_create_time'] = logCreateTime;
         return this;
     }
-    public set logCreateTime(logCreateTime: number | undefined) {
+    public set logCreateTime(logCreateTime: number  | undefined) {
         this['log_create_time'] = logCreateTime;
     }
-    public get logCreateTime() {
+    public get logCreateTime(): number | undefined {
         return this['log_create_time'];
     }
-    public withLogStorageFormat(logStorageFormat: CreateTransferResponseBodyLogTransferInfoLogStorageFormatEnum): CreateTransferResponseBodyLogTransferInfo {
+    public withLogStorageFormat(logStorageFormat: CreateTransferResponseBodyLogTransferInfoLogStorageFormatEnum | string): CreateTransferResponseBodyLogTransferInfo {
         this['log_storage_format'] = logStorageFormat;
         return this;
     }
-    public set logStorageFormat(logStorageFormat: CreateTransferResponseBodyLogTransferInfoLogStorageFormatEnum | undefined) {
+    public set logStorageFormat(logStorageFormat: CreateTransferResponseBodyLogTransferInfoLogStorageFormatEnum | string  | undefined) {
         this['log_storage_format'] = logStorageFormat;
     }
-    public get logStorageFormat() {
+    public get logStorageFormat(): CreateTransferResponseBodyLogTransferInfoLogStorageFormatEnum | string | undefined {
         return this['log_storage_format'];
     }
     public withLogTransferDetail(logTransferDetail: TransferDetail): CreateTransferResponseBodyLogTransferInfo {
         this['log_transfer_detail'] = logTransferDetail;
         return this;
     }
-    public set logTransferDetail(logTransferDetail: TransferDetail | undefined) {
+    public set logTransferDetail(logTransferDetail: TransferDetail  | undefined) {
         this['log_transfer_detail'] = logTransferDetail;
     }
-    public get logTransferDetail() {
+    public get logTransferDetail(): TransferDetail | undefined {
         return this['log_transfer_detail'];
     }
-    public withLogTransferMode(logTransferMode: CreateTransferResponseBodyLogTransferInfoLogTransferModeEnum): CreateTransferResponseBodyLogTransferInfo {
+    public withLogTransferMode(logTransferMode: CreateTransferResponseBodyLogTransferInfoLogTransferModeEnum | string): CreateTransferResponseBodyLogTransferInfo {
         this['log_transfer_mode'] = logTransferMode;
         return this;
     }
-    public set logTransferMode(logTransferMode: CreateTransferResponseBodyLogTransferInfoLogTransferModeEnum | undefined) {
+    public set logTransferMode(logTransferMode: CreateTransferResponseBodyLogTransferInfoLogTransferModeEnum | string  | undefined) {
         this['log_transfer_mode'] = logTransferMode;
     }
-    public get logTransferMode() {
+    public get logTransferMode(): CreateTransferResponseBodyLogTransferInfoLogTransferModeEnum | string | undefined {
         return this['log_transfer_mode'];
     }
-    public withLogTransferStatus(logTransferStatus: CreateTransferResponseBodyLogTransferInfoLogTransferStatusEnum): CreateTransferResponseBodyLogTransferInfo {
+    public withLogTransferStatus(logTransferStatus: CreateTransferResponseBodyLogTransferInfoLogTransferStatusEnum | string): CreateTransferResponseBodyLogTransferInfo {
         this['log_transfer_status'] = logTransferStatus;
         return this;
     }
-    public set logTransferStatus(logTransferStatus: CreateTransferResponseBodyLogTransferInfoLogTransferStatusEnum | undefined) {
+    public set logTransferStatus(logTransferStatus: CreateTransferResponseBodyLogTransferInfoLogTransferStatusEnum | string  | undefined) {
         this['log_transfer_status'] = logTransferStatus;
     }
-    public get logTransferStatus() {
+    public get logTransferStatus(): CreateTransferResponseBodyLogTransferInfoLogTransferStatusEnum | string | undefined {
         return this['log_transfer_status'];
     }
-    public withLogTransferType(logTransferType: CreateTransferResponseBodyLogTransferInfoLogTransferTypeEnum): CreateTransferResponseBodyLogTransferInfo {
+    public withLogTransferType(logTransferType: CreateTransferResponseBodyLogTransferInfoLogTransferTypeEnum | string): CreateTransferResponseBodyLogTransferInfo {
         this['log_transfer_type'] = logTransferType;
         return this;
     }
-    public set logTransferType(logTransferType: CreateTransferResponseBodyLogTransferInfoLogTransferTypeEnum | undefined) {
+    public set logTransferType(logTransferType: CreateTransferResponseBodyLogTransferInfoLogTransferTypeEnum | string  | undefined) {
         this['log_transfer_type'] = logTransferType;
     }
-    public get logTransferType() {
+    public get logTransferType(): CreateTransferResponseBodyLogTransferInfoLogTransferTypeEnum | string | undefined {
         return this['log_transfer_type'];
     }
 }

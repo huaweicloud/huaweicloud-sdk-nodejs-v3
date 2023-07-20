@@ -3,13 +3,13 @@ import { AccessConfigWindowsLogInfoCreate } from './AccessConfigWindowsLogInfoCr
 
 
 export class AccessConfigDeatilCreate {
-    public paths: Array<string>;
-    private 'black_paths'?: Array<string> | undefined;
-    public format: AccessConfigFormatCreate;
-    private 'windows_log_info'?: AccessConfigWindowsLogInfoCreate | undefined;
+    public paths?: Array<string>;
+    private 'black_paths'?: Array<string>;
+    public format?: AccessConfigFormatCreate;
+    private 'windows_log_info'?: AccessConfigWindowsLogInfoCreate;
     public stdout?: boolean;
     public stderr?: boolean;
-    public pathType?: AccessConfigDeatilCreatePathTypeEnum;
+    public pathType?: AccessConfigDeatilCreatePathTypeEnum | string;
     public namespaceRegex?: string;
     public podNameRegex?: string;
     public containerNameRegex?: string;
@@ -22,7 +22,7 @@ export class AccessConfigDeatilCreate {
     public includeK8sLabels?: { [key: string]: string; };
     public excludeK8sLabels?: { [key: string]: string; };
     public logK8s?: { [key: string]: string; };
-    public constructor(paths?: any, format?: any) { 
+    public constructor(paths?: Array<string>, format?: AccessConfigFormatCreate) { 
         this['paths'] = paths;
         this['format'] = format;
     }
@@ -34,10 +34,10 @@ export class AccessConfigDeatilCreate {
         this['black_paths'] = blackPaths;
         return this;
     }
-    public set blackPaths(blackPaths: Array<string> | undefined) {
+    public set blackPaths(blackPaths: Array<string>  | undefined) {
         this['black_paths'] = blackPaths;
     }
-    public get blackPaths() {
+    public get blackPaths(): Array<string> | undefined {
         return this['black_paths'];
     }
     public withFormat(format: AccessConfigFormatCreate): AccessConfigDeatilCreate {
@@ -48,10 +48,10 @@ export class AccessConfigDeatilCreate {
         this['windows_log_info'] = windowsLogInfo;
         return this;
     }
-    public set windowsLogInfo(windowsLogInfo: AccessConfigWindowsLogInfoCreate | undefined) {
+    public set windowsLogInfo(windowsLogInfo: AccessConfigWindowsLogInfoCreate  | undefined) {
         this['windows_log_info'] = windowsLogInfo;
     }
-    public get windowsLogInfo() {
+    public get windowsLogInfo(): AccessConfigWindowsLogInfoCreate | undefined {
         return this['windows_log_info'];
     }
     public withStdout(stdout: boolean): AccessConfigDeatilCreate {
@@ -62,7 +62,7 @@ export class AccessConfigDeatilCreate {
         this['stderr'] = stderr;
         return this;
     }
-    public withPathType(pathType: AccessConfigDeatilCreatePathTypeEnum): AccessConfigDeatilCreate {
+    public withPathType(pathType: AccessConfigDeatilCreatePathTypeEnum | string): AccessConfigDeatilCreate {
         this['pathType'] = pathType;
         return this;
     }

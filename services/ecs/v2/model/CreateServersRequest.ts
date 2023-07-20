@@ -2,7 +2,7 @@ import { CreateServersRequestBody } from './CreateServersRequestBody';
 
 
 export class CreateServersRequest {
-    private 'X-Client-Token'?: string | undefined;
+    private 'X-Client-Token'?: string;
     public body?: CreateServersRequestBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class CreateServersRequest {
         this['X-Client-Token'] = xClientToken;
         return this;
     }
-    public set xClientToken(xClientToken: string | undefined) {
+    public set xClientToken(xClientToken: string  | undefined) {
         this['X-Client-Token'] = xClientToken;
     }
-    public get xClientToken() {
+    public get xClientToken(): string | undefined {
         return this['X-Client-Token'];
     }
     public withBody(body: CreateServersRequestBody): CreateServersRequest {

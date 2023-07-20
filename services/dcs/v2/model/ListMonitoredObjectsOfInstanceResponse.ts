@@ -10,9 +10,9 @@ export class ListMonitoredObjectsOfInstanceResponse extends SdkResponse {
     public router?: Array<string>;
     public children?: Array<DimChild>;
     public instances?: Array<InstancesMonitoredObject>;
-    private 'dcs_cluster_redis_node'?: Array<ClusterRedisNodeMonitoredObject> | undefined;
-    private 'dcs_cluster_proxy_node'?: Array<ProxyNodeMonitoredObject> | undefined;
-    private 'dcs_cluster_proxy2_node'?: Array<Proxy2NodeMonitoredObject> | undefined;
+    private 'dcs_cluster_redis_node'?: Array<ClusterRedisNodeMonitoredObject>;
+    private 'dcs_cluster_proxy_node'?: Array<ProxyNodeMonitoredObject>;
+    private 'dcs_cluster_proxy2_node'?: Array<Proxy2NodeMonitoredObject>;
     public total?: number;
     public constructor() { 
         super();
@@ -33,30 +33,30 @@ export class ListMonitoredObjectsOfInstanceResponse extends SdkResponse {
         this['dcs_cluster_redis_node'] = dcsClusterRedisNode;
         return this;
     }
-    public set dcsClusterRedisNode(dcsClusterRedisNode: Array<ClusterRedisNodeMonitoredObject> | undefined) {
+    public set dcsClusterRedisNode(dcsClusterRedisNode: Array<ClusterRedisNodeMonitoredObject>  | undefined) {
         this['dcs_cluster_redis_node'] = dcsClusterRedisNode;
     }
-    public get dcsClusterRedisNode() {
+    public get dcsClusterRedisNode(): Array<ClusterRedisNodeMonitoredObject> | undefined {
         return this['dcs_cluster_redis_node'];
     }
     public withDcsClusterProxyNode(dcsClusterProxyNode: Array<ProxyNodeMonitoredObject>): ListMonitoredObjectsOfInstanceResponse {
         this['dcs_cluster_proxy_node'] = dcsClusterProxyNode;
         return this;
     }
-    public set dcsClusterProxyNode(dcsClusterProxyNode: Array<ProxyNodeMonitoredObject> | undefined) {
+    public set dcsClusterProxyNode(dcsClusterProxyNode: Array<ProxyNodeMonitoredObject>  | undefined) {
         this['dcs_cluster_proxy_node'] = dcsClusterProxyNode;
     }
-    public get dcsClusterProxyNode() {
+    public get dcsClusterProxyNode(): Array<ProxyNodeMonitoredObject> | undefined {
         return this['dcs_cluster_proxy_node'];
     }
     public withDcsClusterProxy2Node(dcsClusterProxy2Node: Array<Proxy2NodeMonitoredObject>): ListMonitoredObjectsOfInstanceResponse {
         this['dcs_cluster_proxy2_node'] = dcsClusterProxy2Node;
         return this;
     }
-    public set dcsClusterProxy2Node(dcsClusterProxy2Node: Array<Proxy2NodeMonitoredObject> | undefined) {
+    public set dcsClusterProxy2Node(dcsClusterProxy2Node: Array<Proxy2NodeMonitoredObject>  | undefined) {
         this['dcs_cluster_proxy2_node'] = dcsClusterProxy2Node;
     }
-    public get dcsClusterProxy2Node() {
+    public get dcsClusterProxy2Node(): Array<Proxy2NodeMonitoredObject> | undefined {
         return this['dcs_cluster_proxy2_node'];
     }
     public withTotal(total: number): ListMonitoredObjectsOfInstanceResponse {

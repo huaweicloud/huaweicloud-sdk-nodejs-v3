@@ -2,17 +2,17 @@ import { Route } from './Route';
 
 
 export class Vpc {
-    public id: string;
-    public name: string;
-    public cidr: string;
-    public description: string;
-    public routes: Array<Route>;
-    public status: VpcStatusEnum;
-    private 'enterprise_project_id': string | undefined;
-    private 'tenant_id': string | undefined;
-    private 'created_at': Date | undefined;
-    private 'updated_at': Date | undefined;
-    public constructor(id?: any, name?: any, cidr?: any, description?: any, routes?: any, status?: any, enterpriseProjectId?: any, tenantId?: any, createdAt?: any, updatedAt?: any) { 
+    public id?: string;
+    public name?: string;
+    public cidr?: string;
+    public description?: string;
+    public routes?: Array<Route>;
+    public status?: VpcStatusEnum | string;
+    private 'enterprise_project_id'?: string;
+    private 'tenant_id'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    public constructor(id?: string, name?: string, cidr?: string, description?: string, routes?: Array<Route>, status?: string, enterpriseProjectId?: string, tenantId?: string, createdAt?: Date, updatedAt?: Date) { 
         this['id'] = id;
         this['name'] = name;
         this['cidr'] = cidr;
@@ -44,7 +44,7 @@ export class Vpc {
         this['routes'] = routes;
         return this;
     }
-    public withStatus(status: VpcStatusEnum): Vpc {
+    public withStatus(status: VpcStatusEnum | string): Vpc {
         this['status'] = status;
         return this;
     }
@@ -52,40 +52,40 @@ export class Vpc {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withTenantId(tenantId: string): Vpc {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withCreatedAt(createdAt: Date): Vpc {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): Vpc {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
 }

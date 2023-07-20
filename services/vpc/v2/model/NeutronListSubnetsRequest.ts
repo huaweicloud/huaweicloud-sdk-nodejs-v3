@@ -6,11 +6,11 @@ export class NeutronListSubnetsRequest {
     public id?: string;
     public cidr?: string;
     public name?: string;
-    private 'enable_dhcp'?: boolean | undefined;
-    private 'network_id'?: string | undefined;
-    private 'ip_version'?: number | undefined;
-    private 'gateway_ip'?: string | undefined;
-    private 'tenant_id'?: string | undefined;
+    private 'enable_dhcp'?: boolean;
+    private 'network_id'?: string;
+    private 'ip_version'?: number;
+    private 'gateway_ip'?: string;
+    private 'tenant_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): NeutronListSubnetsRequest {
@@ -37,50 +37,50 @@ export class NeutronListSubnetsRequest {
         this['enable_dhcp'] = enableDhcp;
         return this;
     }
-    public set enableDhcp(enableDhcp: boolean | undefined) {
+    public set enableDhcp(enableDhcp: boolean  | undefined) {
         this['enable_dhcp'] = enableDhcp;
     }
-    public get enableDhcp() {
+    public get enableDhcp(): boolean | undefined {
         return this['enable_dhcp'];
     }
     public withNetworkId(networkId: string): NeutronListSubnetsRequest {
         this['network_id'] = networkId;
         return this;
     }
-    public set networkId(networkId: string | undefined) {
+    public set networkId(networkId: string  | undefined) {
         this['network_id'] = networkId;
     }
-    public get networkId() {
+    public get networkId(): string | undefined {
         return this['network_id'];
     }
     public withIpVersion(ipVersion: number): NeutronListSubnetsRequest {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number | undefined) {
+    public set ipVersion(ipVersion: number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion() {
+    public get ipVersion(): number | undefined {
         return this['ip_version'];
     }
     public withGatewayIp(gatewayIp: string): NeutronListSubnetsRequest {
         this['gateway_ip'] = gatewayIp;
         return this;
     }
-    public set gatewayIp(gatewayIp: string | undefined) {
+    public set gatewayIp(gatewayIp: string  | undefined) {
         this['gateway_ip'] = gatewayIp;
     }
-    public get gatewayIp() {
+    public get gatewayIp(): string | undefined {
         return this['gateway_ip'];
     }
     public withTenantId(tenantId: string): NeutronListSubnetsRequest {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
 }

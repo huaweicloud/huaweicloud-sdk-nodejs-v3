@@ -1,9 +1,9 @@
 
 
 export class PauseInfo {
-    private 'job_id': string | undefined;
-    private 'pause_mode': PauseInfoPauseModeEnum | undefined;
-    public constructor(jobId?: any, pauseMode?: any) { 
+    private 'job_id'?: string;
+    private 'pause_mode'?: PauseInfoPauseModeEnum | string;
+    public constructor(jobId?: string, pauseMode?: string) { 
         this['job_id'] = jobId;
         this['pause_mode'] = pauseMode;
     }
@@ -11,20 +11,20 @@ export class PauseInfo {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withPauseMode(pauseMode: PauseInfoPauseModeEnum): PauseInfo {
+    public withPauseMode(pauseMode: PauseInfoPauseModeEnum | string): PauseInfo {
         this['pause_mode'] = pauseMode;
         return this;
     }
-    public set pauseMode(pauseMode: PauseInfoPauseModeEnum | undefined) {
+    public set pauseMode(pauseMode: PauseInfoPauseModeEnum | string  | undefined) {
         this['pause_mode'] = pauseMode;
     }
-    public get pauseMode() {
+    public get pauseMode(): PauseInfoPauseModeEnum | string | undefined {
         return this['pause_mode'];
     }
 }

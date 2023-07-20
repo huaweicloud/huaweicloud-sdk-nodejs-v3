@@ -9,14 +9,14 @@ export class CloudWafHostItem {
     public type?: number;
     public proxy?: boolean;
     public hostname?: string;
-    private 'access_code'?: string | undefined;
+    private 'access_code'?: string;
     public policyid?: string;
     public timestamp?: number;
-    private 'protect_status'?: number | undefined;
-    private 'access_status'?: number | undefined;
-    private 'exclusive_ip'?: boolean | undefined;
-    private 'paid_type'?: string | undefined;
-    private 'web_tag'?: string | undefined;
+    private 'protect_status'?: number;
+    private 'access_status'?: number;
+    private 'exclusive_ip'?: boolean;
+    private 'paid_type'?: string;
+    private 'web_tag'?: string;
     public flag?: Flag;
     public constructor() { 
     }
@@ -52,10 +52,10 @@ export class CloudWafHostItem {
         this['access_code'] = accessCode;
         return this;
     }
-    public set accessCode(accessCode: string | undefined) {
+    public set accessCode(accessCode: string  | undefined) {
         this['access_code'] = accessCode;
     }
-    public get accessCode() {
+    public get accessCode(): string | undefined {
         return this['access_code'];
     }
     public withPolicyid(policyid: string): CloudWafHostItem {
@@ -70,50 +70,50 @@ export class CloudWafHostItem {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number | undefined) {
+    public set protectStatus(protectStatus: number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): number | undefined {
         return this['protect_status'];
     }
     public withAccessStatus(accessStatus: number): CloudWafHostItem {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number | undefined) {
+    public set accessStatus(accessStatus: number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus() {
+    public get accessStatus(): number | undefined {
         return this['access_status'];
     }
     public withExclusiveIp(exclusiveIp: boolean): CloudWafHostItem {
         this['exclusive_ip'] = exclusiveIp;
         return this;
     }
-    public set exclusiveIp(exclusiveIp: boolean | undefined) {
+    public set exclusiveIp(exclusiveIp: boolean  | undefined) {
         this['exclusive_ip'] = exclusiveIp;
     }
-    public get exclusiveIp() {
+    public get exclusiveIp(): boolean | undefined {
         return this['exclusive_ip'];
     }
     public withPaidType(paidType: string): CloudWafHostItem {
         this['paid_type'] = paidType;
         return this;
     }
-    public set paidType(paidType: string | undefined) {
+    public set paidType(paidType: string  | undefined) {
         this['paid_type'] = paidType;
     }
-    public get paidType() {
+    public get paidType(): string | undefined {
         return this['paid_type'];
     }
     public withWebTag(webTag: string): CloudWafHostItem {
         this['web_tag'] = webTag;
         return this;
     }
-    public set webTag(webTag: string | undefined) {
+    public set webTag(webTag: string  | undefined) {
         this['web_tag'] = webTag;
     }
-    public get webTag() {
+    public get webTag(): string | undefined {
         return this['web_tag'];
     }
     public withFlag(flag: Flag): CloudWafHostItem {

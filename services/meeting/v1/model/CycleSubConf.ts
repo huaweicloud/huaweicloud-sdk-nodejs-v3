@@ -2,7 +2,7 @@ import { CycleSubConfConfigDTO } from './CycleSubConfConfigDTO';
 
 
 export class CycleSubConf {
-    public cycleSubConfID: string;
+    public cycleSubConfID?: string;
     public conferenceID?: string;
     public mediaType?: string;
     public startTime?: string;
@@ -11,7 +11,7 @@ export class CycleSubConf {
     public confConfigInfo?: CycleSubConfConfigDTO;
     public recordAuthType?: number;
     public description?: string;
-    public constructor(cycleSubConfID?: any) { 
+    public constructor(cycleSubConfID?: string) { 
         this['cycleSubConfID'] = cycleSubConfID;
     }
     public withCycleSubConfID(cycleSubConfID: string): CycleSubConf {

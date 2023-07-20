@@ -1,8 +1,8 @@
 
 
 export class SearchSql {
-    public sql: string;
-    public constructor(sql?: any) { 
+    public sql?: string;
+    public constructor(sql?: string) { 
         this['sql'] = sql;
     }
     public withSql(sql: string): SearchSql {

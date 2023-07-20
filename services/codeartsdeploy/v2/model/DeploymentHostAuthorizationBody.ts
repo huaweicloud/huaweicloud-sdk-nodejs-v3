@@ -1,11 +1,11 @@
 
 
 export class DeploymentHostAuthorizationBody {
-    public username: string;
+    public username?: string;
     public password?: string;
-    private 'private_key'?: string | undefined;
-    private 'trusted_type': DeploymentHostAuthorizationBodyTrustedTypeEnum | undefined;
-    public constructor(username?: any, trustedType?: any) { 
+    private 'private_key'?: string;
+    private 'trusted_type'?: DeploymentHostAuthorizationBodyTrustedTypeEnum | number;
+    public constructor(username?: string, trustedType?: number) { 
         this['username'] = username;
         this['trusted_type'] = trustedType;
     }
@@ -21,20 +21,20 @@ export class DeploymentHostAuthorizationBody {
         this['private_key'] = privateKey;
         return this;
     }
-    public set privateKey(privateKey: string | undefined) {
+    public set privateKey(privateKey: string  | undefined) {
         this['private_key'] = privateKey;
     }
-    public get privateKey() {
+    public get privateKey(): string | undefined {
         return this['private_key'];
     }
-    public withTrustedType(trustedType: DeploymentHostAuthorizationBodyTrustedTypeEnum): DeploymentHostAuthorizationBody {
+    public withTrustedType(trustedType: DeploymentHostAuthorizationBodyTrustedTypeEnum | number): DeploymentHostAuthorizationBody {
         this['trusted_type'] = trustedType;
         return this;
     }
-    public set trustedType(trustedType: DeploymentHostAuthorizationBodyTrustedTypeEnum | undefined) {
+    public set trustedType(trustedType: DeploymentHostAuthorizationBodyTrustedTypeEnum | number  | undefined) {
         this['trusted_type'] = trustedType;
     }
-    public get trustedType() {
+    public get trustedType(): DeploymentHostAuthorizationBodyTrustedTypeEnum | number | undefined {
         return this['trusted_type'];
     }
 }

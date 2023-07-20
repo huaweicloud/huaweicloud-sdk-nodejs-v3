@@ -2,9 +2,9 @@
 
 export class BatchCopyResultVo {
     public reason?: string;
-    public status: BatchCopyResultVoStatusEnum;
-    private 'domain_name': string | undefined;
-    public constructor(status?: any, domainName?: any) { 
+    public status?: BatchCopyResultVoStatusEnum | string;
+    private 'domain_name'?: string;
+    public constructor(status?: string, domainName?: string) { 
         this['status'] = status;
         this['domain_name'] = domainName;
     }
@@ -12,7 +12,7 @@ export class BatchCopyResultVo {
         this['reason'] = reason;
         return this;
     }
-    public withStatus(status: BatchCopyResultVoStatusEnum): BatchCopyResultVo {
+    public withStatus(status: BatchCopyResultVoStatusEnum | string): BatchCopyResultVo {
         this['status'] = status;
         return this;
     }
@@ -20,10 +20,10 @@ export class BatchCopyResultVo {
         this['domain_name'] = domainName;
         return this;
     }
-    public set domainName(domainName: string | undefined) {
+    public set domainName(domainName: string  | undefined) {
         this['domain_name'] = domainName;
     }
-    public get domainName() {
+    public get domainName(): string | undefined {
         return this['domain_name'];
     }
 }

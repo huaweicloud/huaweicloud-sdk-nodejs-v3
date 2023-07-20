@@ -1,14 +1,14 @@
 
 
 export class Flavor {
-    public version?: FlavorVersionEnum;
-    private 'eip_count'?: number | undefined;
-    private 'vpc_count'?: number | undefined;
+    public version?: FlavorVersionEnum | number;
+    private 'eip_count'?: number;
+    private 'vpc_count'?: number;
     public bandwidth?: number;
-    private 'log_storage'?: number | undefined;
+    private 'log_storage'?: number;
     public constructor() { 
     }
-    public withVersion(version: FlavorVersionEnum): Flavor {
+    public withVersion(version: FlavorVersionEnum | number): Flavor {
         this['version'] = version;
         return this;
     }
@@ -16,20 +16,20 @@ export class Flavor {
         this['eip_count'] = eipCount;
         return this;
     }
-    public set eipCount(eipCount: number | undefined) {
+    public set eipCount(eipCount: number  | undefined) {
         this['eip_count'] = eipCount;
     }
-    public get eipCount() {
+    public get eipCount(): number | undefined {
         return this['eip_count'];
     }
     public withVpcCount(vpcCount: number): Flavor {
         this['vpc_count'] = vpcCount;
         return this;
     }
-    public set vpcCount(vpcCount: number | undefined) {
+    public set vpcCount(vpcCount: number  | undefined) {
         this['vpc_count'] = vpcCount;
     }
-    public get vpcCount() {
+    public get vpcCount(): number | undefined {
         return this['vpc_count'];
     }
     public withBandwidth(bandwidth: number): Flavor {
@@ -40,10 +40,10 @@ export class Flavor {
         this['log_storage'] = logStorage;
         return this;
     }
-    public set logStorage(logStorage: number | undefined) {
+    public set logStorage(logStorage: number  | undefined) {
         this['log_storage'] = logStorage;
     }
-    public get logStorage() {
+    public get logStorage(): number | undefined {
         return this['log_storage'];
     }
 }

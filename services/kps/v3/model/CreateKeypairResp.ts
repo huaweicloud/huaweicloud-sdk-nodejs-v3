@@ -2,18 +2,18 @@
 
 export class CreateKeypairResp {
     public name?: string;
-    public type?: CreateKeypairRespTypeEnum;
-    private 'public_key'?: string | undefined;
-    private 'private_key'?: string | undefined;
+    public type?: CreateKeypairRespTypeEnum | string;
+    private 'public_key'?: string;
+    private 'private_key'?: string;
     public fingerprint?: string;
-    private 'user_id'?: string | undefined;
+    private 'user_id'?: string;
     public constructor() { 
     }
     public withName(name: string): CreateKeypairResp {
         this['name'] = name;
         return this;
     }
-    public withType(type: CreateKeypairRespTypeEnum): CreateKeypairResp {
+    public withType(type: CreateKeypairRespTypeEnum | string): CreateKeypairResp {
         this['type'] = type;
         return this;
     }
@@ -21,20 +21,20 @@ export class CreateKeypairResp {
         this['public_key'] = publicKey;
         return this;
     }
-    public set publicKey(publicKey: string | undefined) {
+    public set publicKey(publicKey: string  | undefined) {
         this['public_key'] = publicKey;
     }
-    public get publicKey() {
+    public get publicKey(): string | undefined {
         return this['public_key'];
     }
     public withPrivateKey(privateKey: string): CreateKeypairResp {
         this['private_key'] = privateKey;
         return this;
     }
-    public set privateKey(privateKey: string | undefined) {
+    public set privateKey(privateKey: string  | undefined) {
         this['private_key'] = privateKey;
     }
-    public get privateKey() {
+    public get privateKey(): string | undefined {
         return this['private_key'];
     }
     public withFingerprint(fingerprint: string): CreateKeypairResp {
@@ -45,10 +45,10 @@ export class CreateKeypairResp {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
 }

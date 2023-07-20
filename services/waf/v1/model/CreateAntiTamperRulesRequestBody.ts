@@ -1,10 +1,10 @@
 
 
 export class CreateAntiTamperRulesRequestBody {
-    public hostname: string;
-    public url: string;
+    public hostname?: string;
+    public url?: string;
     public description?: string;
-    public constructor(hostname?: any, url?: any) { 
+    public constructor(hostname?: string, url?: string) { 
         this['hostname'] = hostname;
         this['url'] = url;
     }

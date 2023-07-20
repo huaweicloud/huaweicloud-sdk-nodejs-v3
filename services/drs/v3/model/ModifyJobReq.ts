@@ -4,35 +4,35 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class ModifyJobReq {
-    private 'job_id': string | undefined;
+    private 'job_id'?: string;
     public description?: string;
     public name?: string;
-    private 'alarm_notify'?: AlarmNotifyInfo | undefined;
-    private 'task_type'?: ModifyJobReqTaskTypeEnum | undefined;
-    private 'source_endpoint'?: Endpoint | undefined;
-    private 'target_endpoint'?: Endpoint | undefined;
-    private 'node_type'?: ModifyJobReqNodeTypeEnum | undefined;
-    private 'engine_type'?: ModifyJobReqEngineTypeEnum | undefined;
-    private 'net_type'?: ModifyJobReqNetTypeEnum | undefined;
-    private 'store_db_info'?: boolean | undefined;
-    private 'is_recreate'?: boolean | undefined;
-    private 'job_direction'?: ModifyJobReqJobDirectionEnum | undefined;
-    private 'is_target_readonly'?: boolean | undefined;
-    private 'replace_definer'?: boolean | undefined;
+    private 'alarm_notify'?: AlarmNotifyInfo;
+    private 'task_type'?: ModifyJobReqTaskTypeEnum | string;
+    private 'source_endpoint'?: Endpoint;
+    private 'target_endpoint'?: Endpoint;
+    private 'node_type'?: ModifyJobReqNodeTypeEnum | string;
+    private 'engine_type'?: ModifyJobReqEngineTypeEnum | string;
+    private 'net_type'?: ModifyJobReqNetTypeEnum | string;
+    private 'store_db_info'?: boolean;
+    private 'is_recreate'?: boolean;
+    private 'job_direction'?: ModifyJobReqJobDirectionEnum | string;
+    private 'is_target_readonly'?: boolean;
+    private 'replace_definer'?: boolean;
     public tags?: Array<ResourceTag>;
-    private 'db_use_type'?: ModifyJobReqDbUseTypeEnum | undefined;
-    private 'product_id'?: string | undefined;
-    public constructor(jobId?: any) { 
+    private 'db_use_type'?: ModifyJobReqDbUseTypeEnum | string;
+    private 'product_id'?: string;
+    public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
     public withJobId(jobId: string): ModifyJobReq {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
     public withDescription(description: string): ModifyJobReq {
@@ -47,144 +47,144 @@ export class ModifyJobReq {
         this['alarm_notify'] = alarmNotify;
         return this;
     }
-    public set alarmNotify(alarmNotify: AlarmNotifyInfo | undefined) {
+    public set alarmNotify(alarmNotify: AlarmNotifyInfo  | undefined) {
         this['alarm_notify'] = alarmNotify;
     }
-    public get alarmNotify() {
+    public get alarmNotify(): AlarmNotifyInfo | undefined {
         return this['alarm_notify'];
     }
-    public withTaskType(taskType: ModifyJobReqTaskTypeEnum): ModifyJobReq {
+    public withTaskType(taskType: ModifyJobReqTaskTypeEnum | string): ModifyJobReq {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: ModifyJobReqTaskTypeEnum | undefined) {
+    public set taskType(taskType: ModifyJobReqTaskTypeEnum | string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): ModifyJobReqTaskTypeEnum | string | undefined {
         return this['task_type'];
     }
     public withSourceEndpoint(sourceEndpoint: Endpoint): ModifyJobReq {
         this['source_endpoint'] = sourceEndpoint;
         return this;
     }
-    public set sourceEndpoint(sourceEndpoint: Endpoint | undefined) {
+    public set sourceEndpoint(sourceEndpoint: Endpoint  | undefined) {
         this['source_endpoint'] = sourceEndpoint;
     }
-    public get sourceEndpoint() {
+    public get sourceEndpoint(): Endpoint | undefined {
         return this['source_endpoint'];
     }
     public withTargetEndpoint(targetEndpoint: Endpoint): ModifyJobReq {
         this['target_endpoint'] = targetEndpoint;
         return this;
     }
-    public set targetEndpoint(targetEndpoint: Endpoint | undefined) {
+    public set targetEndpoint(targetEndpoint: Endpoint  | undefined) {
         this['target_endpoint'] = targetEndpoint;
     }
-    public get targetEndpoint() {
+    public get targetEndpoint(): Endpoint | undefined {
         return this['target_endpoint'];
     }
-    public withNodeType(nodeType: ModifyJobReqNodeTypeEnum): ModifyJobReq {
+    public withNodeType(nodeType: ModifyJobReqNodeTypeEnum | string): ModifyJobReq {
         this['node_type'] = nodeType;
         return this;
     }
-    public set nodeType(nodeType: ModifyJobReqNodeTypeEnum | undefined) {
+    public set nodeType(nodeType: ModifyJobReqNodeTypeEnum | string  | undefined) {
         this['node_type'] = nodeType;
     }
-    public get nodeType() {
+    public get nodeType(): ModifyJobReqNodeTypeEnum | string | undefined {
         return this['node_type'];
     }
-    public withEngineType(engineType: ModifyJobReqEngineTypeEnum): ModifyJobReq {
+    public withEngineType(engineType: ModifyJobReqEngineTypeEnum | string): ModifyJobReq {
         this['engine_type'] = engineType;
         return this;
     }
-    public set engineType(engineType: ModifyJobReqEngineTypeEnum | undefined) {
+    public set engineType(engineType: ModifyJobReqEngineTypeEnum | string  | undefined) {
         this['engine_type'] = engineType;
     }
-    public get engineType() {
+    public get engineType(): ModifyJobReqEngineTypeEnum | string | undefined {
         return this['engine_type'];
     }
-    public withNetType(netType: ModifyJobReqNetTypeEnum): ModifyJobReq {
+    public withNetType(netType: ModifyJobReqNetTypeEnum | string): ModifyJobReq {
         this['net_type'] = netType;
         return this;
     }
-    public set netType(netType: ModifyJobReqNetTypeEnum | undefined) {
+    public set netType(netType: ModifyJobReqNetTypeEnum | string  | undefined) {
         this['net_type'] = netType;
     }
-    public get netType() {
+    public get netType(): ModifyJobReqNetTypeEnum | string | undefined {
         return this['net_type'];
     }
     public withStoreDbInfo(storeDbInfo: boolean): ModifyJobReq {
         this['store_db_info'] = storeDbInfo;
         return this;
     }
-    public set storeDbInfo(storeDbInfo: boolean | undefined) {
+    public set storeDbInfo(storeDbInfo: boolean  | undefined) {
         this['store_db_info'] = storeDbInfo;
     }
-    public get storeDbInfo() {
+    public get storeDbInfo(): boolean | undefined {
         return this['store_db_info'];
     }
     public withIsRecreate(isRecreate: boolean): ModifyJobReq {
         this['is_recreate'] = isRecreate;
         return this;
     }
-    public set isRecreate(isRecreate: boolean | undefined) {
+    public set isRecreate(isRecreate: boolean  | undefined) {
         this['is_recreate'] = isRecreate;
     }
-    public get isRecreate() {
+    public get isRecreate(): boolean | undefined {
         return this['is_recreate'];
     }
-    public withJobDirection(jobDirection: ModifyJobReqJobDirectionEnum): ModifyJobReq {
+    public withJobDirection(jobDirection: ModifyJobReqJobDirectionEnum | string): ModifyJobReq {
         this['job_direction'] = jobDirection;
         return this;
     }
-    public set jobDirection(jobDirection: ModifyJobReqJobDirectionEnum | undefined) {
+    public set jobDirection(jobDirection: ModifyJobReqJobDirectionEnum | string  | undefined) {
         this['job_direction'] = jobDirection;
     }
-    public get jobDirection() {
+    public get jobDirection(): ModifyJobReqJobDirectionEnum | string | undefined {
         return this['job_direction'];
     }
     public withIsTargetReadonly(isTargetReadonly: boolean): ModifyJobReq {
         this['is_target_readonly'] = isTargetReadonly;
         return this;
     }
-    public set isTargetReadonly(isTargetReadonly: boolean | undefined) {
+    public set isTargetReadonly(isTargetReadonly: boolean  | undefined) {
         this['is_target_readonly'] = isTargetReadonly;
     }
-    public get isTargetReadonly() {
+    public get isTargetReadonly(): boolean | undefined {
         return this['is_target_readonly'];
     }
     public withReplaceDefiner(replaceDefiner: boolean): ModifyJobReq {
         this['replace_definer'] = replaceDefiner;
         return this;
     }
-    public set replaceDefiner(replaceDefiner: boolean | undefined) {
+    public set replaceDefiner(replaceDefiner: boolean  | undefined) {
         this['replace_definer'] = replaceDefiner;
     }
-    public get replaceDefiner() {
+    public get replaceDefiner(): boolean | undefined {
         return this['replace_definer'];
     }
     public withTags(tags: Array<ResourceTag>): ModifyJobReq {
         this['tags'] = tags;
         return this;
     }
-    public withDbUseType(dbUseType: ModifyJobReqDbUseTypeEnum): ModifyJobReq {
+    public withDbUseType(dbUseType: ModifyJobReqDbUseTypeEnum | string): ModifyJobReq {
         this['db_use_type'] = dbUseType;
         return this;
     }
-    public set dbUseType(dbUseType: ModifyJobReqDbUseTypeEnum | undefined) {
+    public set dbUseType(dbUseType: ModifyJobReqDbUseTypeEnum | string  | undefined) {
         this['db_use_type'] = dbUseType;
     }
-    public get dbUseType() {
+    public get dbUseType(): ModifyJobReqDbUseTypeEnum | string | undefined {
         return this['db_use_type'];
     }
     public withProductId(productId: string): ModifyJobReq {
         this['product_id'] = productId;
         return this;
     }
-    public set productId(productId: string | undefined) {
+    public set productId(productId: string  | undefined) {
         this['product_id'] = productId;
     }
-    public get productId() {
+    public get productId(): string | undefined {
         return this['product_id'];
     }
 }

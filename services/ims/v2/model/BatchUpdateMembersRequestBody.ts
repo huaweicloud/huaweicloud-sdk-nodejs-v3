@@ -1,11 +1,11 @@
 
 
 export class BatchUpdateMembersRequestBody {
-    public images: Array<string>;
-    private 'project_id': string | undefined;
-    public status: BatchUpdateMembersRequestBodyStatusEnum;
-    private 'vault_id'?: string | undefined;
-    public constructor(images?: any, projectId?: any, status?: any) { 
+    public images?: Array<string>;
+    private 'project_id'?: string;
+    public status?: BatchUpdateMembersRequestBodyStatusEnum | string;
+    private 'vault_id'?: string;
+    public constructor(images?: Array<string>, projectId?: string, status?: string) { 
         this['images'] = images;
         this['project_id'] = projectId;
         this['status'] = status;
@@ -18,13 +18,13 @@ export class BatchUpdateMembersRequestBody {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withStatus(status: BatchUpdateMembersRequestBodyStatusEnum): BatchUpdateMembersRequestBody {
+    public withStatus(status: BatchUpdateMembersRequestBodyStatusEnum | string): BatchUpdateMembersRequestBody {
         this['status'] = status;
         return this;
     }
@@ -32,10 +32,10 @@ export class BatchUpdateMembersRequestBody {
         this['vault_id'] = vaultId;
         return this;
     }
-    public set vaultId(vaultId: string | undefined) {
+    public set vaultId(vaultId: string  | undefined) {
         this['vault_id'] = vaultId;
     }
-    public get vaultId() {
+    public get vaultId(): string | undefined {
         return this['vault_id'];
     }
 }

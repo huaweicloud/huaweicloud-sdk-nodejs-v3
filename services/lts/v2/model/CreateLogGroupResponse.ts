@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateLogGroupResponse extends SdkResponse {
-    private 'log_group_id'?: string | undefined;
+    private 'log_group_id'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class CreateLogGroupResponse extends SdkResponse {
         this['log_group_id'] = logGroupId;
         return this;
     }
-    public set logGroupId(logGroupId: string | undefined) {
+    public set logGroupId(logGroupId: string  | undefined) {
         this['log_group_id'] = logGroupId;
     }
-    public get logGroupId() {
+    public get logGroupId(): string | undefined {
         return this['log_group_id'];
     }
 }

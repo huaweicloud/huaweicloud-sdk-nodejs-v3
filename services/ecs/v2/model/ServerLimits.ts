@@ -2,33 +2,33 @@ import { ProjectFlavorLimit } from './ProjectFlavorLimit';
 
 
 export class ServerLimits {
-    public maxImageMeta: number;
-    public maxPersonality: number;
-    public maxPersonalitySize: number;
-    public maxSecurityGroupRules: number;
-    public maxSecurityGroups: number;
-    public maxServerGroupMembers: number;
-    public maxServerGroups: number;
-    public maxServerMeta: number;
-    public maxTotalCores: number;
-    public maxTotalFloatingIps: number;
-    public maxTotalInstances: number;
-    public maxTotalKeypairs: number;
-    public maxTotalRAMSize: number;
-    public totalCoresUsed: number;
-    public totalFloatingIpsUsed: number;
-    public totalInstancesUsed: number;
-    public totalRAMUsed: number;
-    public totalSecurityGroupsUsed: number;
-    public totalServerGroupsUsed: number;
+    public maxImageMeta?: number;
+    public maxPersonality?: number;
+    public maxPersonalitySize?: number;
+    public maxSecurityGroupRules?: number;
+    public maxSecurityGroups?: number;
+    public maxServerGroupMembers?: number;
+    public maxServerGroups?: number;
+    public maxServerMeta?: number;
+    public maxTotalCores?: number;
+    public maxTotalFloatingIps?: number;
+    public maxTotalInstances?: number;
+    public maxTotalKeypairs?: number;
+    public maxTotalRAMSize?: number;
+    public totalCoresUsed?: number;
+    public totalFloatingIpsUsed?: number;
+    public totalInstancesUsed?: number;
+    public totalRAMUsed?: number;
+    public totalSecurityGroupsUsed?: number;
+    public totalServerGroupsUsed?: number;
     public maxTotalSpotInstances?: number;
     public maxTotalSpotCores?: number;
     public maxTotalSpotRAMSize?: number;
     public totalSpotInstancesUsed?: number;
     public totalSpotCoresUsed?: number;
     public totalSpotRAMUsed?: number;
-    private 'limit_by_flavor'?: Array<ProjectFlavorLimit> | undefined;
-    public constructor(maxImageMeta?: any, maxPersonality?: any, maxPersonalitySize?: any, maxSecurityGroupRules?: any, maxSecurityGroups?: any, maxServerGroupMembers?: any, maxServerGroups?: any, maxServerMeta?: any, maxTotalCores?: any, maxTotalFloatingIps?: any, maxTotalInstances?: any, maxTotalKeypairs?: any, maxTotalRAMSize?: any, totalCoresUsed?: any, totalFloatingIpsUsed?: any, totalInstancesUsed?: any, totalRAMUsed?: any, totalSecurityGroupsUsed?: any, totalServerGroupsUsed?: any) { 
+    private 'limit_by_flavor'?: Array<ProjectFlavorLimit>;
+    public constructor(maxImageMeta?: number, maxPersonality?: number, maxPersonalitySize?: number, maxSecurityGroupRules?: number, maxSecurityGroups?: number, maxServerGroupMembers?: number, maxServerGroups?: number, maxServerMeta?: number, maxTotalCores?: number, maxTotalFloatingIps?: number, maxTotalInstances?: number, maxTotalKeypairs?: number, maxTotalRAMSize?: number, totalCoresUsed?: number, totalFloatingIpsUsed?: number, totalInstancesUsed?: number, totalRAMUsed?: number, totalSecurityGroupsUsed?: number, totalServerGroupsUsed?: number) { 
         this['maxImageMeta'] = maxImageMeta;
         this['maxPersonality'] = maxPersonality;
         this['maxPersonalitySize'] = maxPersonalitySize;
@@ -153,10 +153,10 @@ export class ServerLimits {
         this['limit_by_flavor'] = limitByFlavor;
         return this;
     }
-    public set limitByFlavor(limitByFlavor: Array<ProjectFlavorLimit> | undefined) {
+    public set limitByFlavor(limitByFlavor: Array<ProjectFlavorLimit>  | undefined) {
         this['limit_by_flavor'] = limitByFlavor;
     }
-    public get limitByFlavor() {
+    public get limitByFlavor(): Array<ProjectFlavorLimit> | undefined {
         return this['limit_by_flavor'];
     }
 }

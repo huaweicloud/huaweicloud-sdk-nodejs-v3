@@ -6,7 +6,7 @@ export class ImageMediaTaggingDetItemBody {
     public confidence?: string;
     public type?: string;
     public tag?: string;
-    private 'i18n_tag'?: ImageMediaTaggingDetItemBodyI18nTag | undefined;
+    private 'i18n_tag'?: ImageMediaTaggingDetItemBodyI18nTag;
     public instances?: Array<ImageMediaTaggingDetInstance>;
     public constructor() { 
     }
@@ -26,10 +26,10 @@ export class ImageMediaTaggingDetItemBody {
         this['i18n_tag'] = i18nTag;
         return this;
     }
-    public set i18nTag(i18nTag: ImageMediaTaggingDetItemBodyI18nTag | undefined) {
+    public set i18nTag(i18nTag: ImageMediaTaggingDetItemBodyI18nTag  | undefined) {
         this['i18n_tag'] = i18nTag;
     }
-    public get i18nTag() {
+    public get i18nTag(): ImageMediaTaggingDetItemBodyI18nTag | undefined {
         return this['i18n_tag'];
     }
     public withInstances(instances: Array<ImageMediaTaggingDetInstance>): ImageMediaTaggingDetItemBody {

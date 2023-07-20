@@ -1,10 +1,10 @@
 
 
 export class AuthInfo {
-    private 'auth_type'?: string | undefined;
+    private 'auth_type'?: string;
     public secret?: string;
     public fingerprint?: string;
-    private 'secure_access'?: boolean | undefined;
+    private 'secure_access'?: boolean;
     public timeout?: number;
     public constructor() { 
     }
@@ -12,10 +12,10 @@ export class AuthInfo {
         this['auth_type'] = authType;
         return this;
     }
-    public set authType(authType: string | undefined) {
+    public set authType(authType: string  | undefined) {
         this['auth_type'] = authType;
     }
-    public get authType() {
+    public get authType(): string | undefined {
         return this['auth_type'];
     }
     public withSecret(secret: string): AuthInfo {
@@ -30,10 +30,10 @@ export class AuthInfo {
         this['secure_access'] = secureAccess;
         return this;
     }
-    public set secureAccess(secureAccess: boolean | undefined) {
+    public set secureAccess(secureAccess: boolean  | undefined) {
         this['secure_access'] = secureAccess;
     }
-    public get secureAccess() {
+    public get secureAccess(): boolean | undefined {
         return this['secure_access'];
     }
     public withTimeout(timeout: number): AuthInfo {

@@ -2,30 +2,30 @@ import { ApplicationModifyInfo } from './ApplicationModifyInfo';
 
 
 export class UpdateApplicationRequest {
-    private 'X-Language'?: UpdateApplicationRequestXLanguageEnum | undefined;
-    private 'application_id': string | undefined;
+    private 'X-Language'?: UpdateApplicationRequestXLanguageEnum | string;
+    private 'application_id'?: string;
     public body?: ApplicationModifyInfo;
-    public constructor(applicationId?: any) { 
+    public constructor(applicationId?: string) { 
         this['application_id'] = applicationId;
     }
-    public withXLanguage(xLanguage: UpdateApplicationRequestXLanguageEnum): UpdateApplicationRequest {
+    public withXLanguage(xLanguage: UpdateApplicationRequestXLanguageEnum | string): UpdateApplicationRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: UpdateApplicationRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: UpdateApplicationRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): UpdateApplicationRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withApplicationId(applicationId: string): UpdateApplicationRequest {
         this['application_id'] = applicationId;
         return this;
     }
-    public set applicationId(applicationId: string | undefined) {
+    public set applicationId(applicationId: string  | undefined) {
         this['application_id'] = applicationId;
     }
-    public get applicationId() {
+    public get applicationId(): string | undefined {
         return this['application_id'];
     }
     public withBody(body: ApplicationModifyInfo): UpdateApplicationRequest {

@@ -1,17 +1,17 @@
 
 
 export class BandwidthPkgResp {
-    public resourceId: string;
-    public resourceName: string;
-    public processedTime: string;
-    public bandwidthId: string;
-    public pkgSize: number;
-    public tenantId: string;
-    public billingInfo: string;
-    public startTime: string;
-    public endTime: string;
-    public status: string;
-    public constructor(resourceId?: any, resourceName?: any, processedTime?: any, bandwidthId?: any, pkgSize?: any, tenantId?: any, billingInfo?: any, startTime?: any, endTime?: any, status?: any) { 
+    public resourceId?: string;
+    public resourceName?: string;
+    public processedTime?: string;
+    public bandwidthId?: string;
+    public pkgSize?: number;
+    public tenantId?: string;
+    public billingInfo?: string;
+    public startTime?: string;
+    public endTime?: string;
+    public status?: string;
+    public constructor(resourceId?: string, resourceName?: string, processedTime?: string, bandwidthId?: string, pkgSize?: number, tenantId?: string, billingInfo?: string, startTime?: string, endTime?: string, status?: string) { 
         this['resourceId'] = resourceId;
         this['resourceName'] = resourceName;
         this['processedTime'] = processedTime;

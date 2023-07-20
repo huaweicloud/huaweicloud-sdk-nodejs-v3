@@ -1,12 +1,12 @@
 
 
 export class Rules {
-    private 'rule_type': number | undefined;
+    private 'rule_type'?: number;
     public content?: string;
-    public ttl: number;
-    private 'ttl_type': number | undefined;
-    public priority: number;
-    public constructor(ruleType?: any, ttl?: any, ttlType?: any, priority?: any) { 
+    public ttl?: number;
+    private 'ttl_type'?: number;
+    public priority?: number;
+    public constructor(ruleType?: number, ttl?: number, ttlType?: number, priority?: number) { 
         this['rule_type'] = ruleType;
         this['ttl'] = ttl;
         this['ttl_type'] = ttlType;
@@ -16,10 +16,10 @@ export class Rules {
         this['rule_type'] = ruleType;
         return this;
     }
-    public set ruleType(ruleType: number | undefined) {
+    public set ruleType(ruleType: number  | undefined) {
         this['rule_type'] = ruleType;
     }
-    public get ruleType() {
+    public get ruleType(): number | undefined {
         return this['rule_type'];
     }
     public withContent(content: string): Rules {
@@ -34,10 +34,10 @@ export class Rules {
         this['ttl_type'] = ttlType;
         return this;
     }
-    public set ttlType(ttlType: number | undefined) {
+    public set ttlType(ttlType: number  | undefined) {
         this['ttl_type'] = ttlType;
     }
-    public get ttlType() {
+    public get ttlType(): number | undefined {
         return this['ttl_type'];
     }
     public withPriority(priority: number): Rules {

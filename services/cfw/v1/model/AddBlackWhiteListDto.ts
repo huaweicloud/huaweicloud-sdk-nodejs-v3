@@ -1,14 +1,14 @@
 
 
 export class AddBlackWhiteListDto {
-    private 'object_id': string | undefined;
-    private 'list_type': number | undefined;
-    public direction: number;
-    private 'address_type': number | undefined;
-    public address: string;
-    public protocol: number;
-    public port: string;
-    public constructor(objectId?: any, listType?: any, direction?: any, addressType?: any, address?: any, protocol?: any, port?: any) { 
+    private 'object_id'?: string;
+    private 'list_type'?: number;
+    public direction?: number;
+    private 'address_type'?: number;
+    public address?: string;
+    public protocol?: number;
+    public port?: string;
+    public constructor(objectId?: string, listType?: number, direction?: number, addressType?: number, address?: string, protocol?: number, port?: string) { 
         this['object_id'] = objectId;
         this['list_type'] = listType;
         this['direction'] = direction;
@@ -21,20 +21,20 @@ export class AddBlackWhiteListDto {
         this['object_id'] = objectId;
         return this;
     }
-    public set objectId(objectId: string | undefined) {
+    public set objectId(objectId: string  | undefined) {
         this['object_id'] = objectId;
     }
-    public get objectId() {
+    public get objectId(): string | undefined {
         return this['object_id'];
     }
     public withListType(listType: number): AddBlackWhiteListDto {
         this['list_type'] = listType;
         return this;
     }
-    public set listType(listType: number | undefined) {
+    public set listType(listType: number  | undefined) {
         this['list_type'] = listType;
     }
-    public get listType() {
+    public get listType(): number | undefined {
         return this['list_type'];
     }
     public withDirection(direction: number): AddBlackWhiteListDto {
@@ -45,10 +45,10 @@ export class AddBlackWhiteListDto {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: number | undefined) {
+    public set addressType(addressType: number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType() {
+    public get addressType(): number | undefined {
         return this['address_type'];
     }
     public withAddress(address: string): AddBlackWhiteListDto {

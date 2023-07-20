@@ -6,7 +6,7 @@ export class ShowUrlTaskInfoResponse extends SdkResponse {
     public total?: number;
     public count?: number;
     public result?: Array<Urls>;
-    private 'X-request-id'?: string | undefined;
+    private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
@@ -26,10 +26,10 @@ export class ShowUrlTaskInfoResponse extends SdkResponse {
         this['X-request-id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-request-id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-request-id'];
     }
 }

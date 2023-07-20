@@ -2,10 +2,10 @@ import { TagsBody } from './TagsBody';
 
 
 export class CreateTagsReqbody {
-    public action: string;
-    private 'is_open': boolean | undefined;
-    public tags: Array<TagsBody>;
-    public constructor(action?: any, isOpen?: any, tags?: any) { 
+    public action?: string;
+    private 'is_open'?: boolean;
+    public tags?: Array<TagsBody>;
+    public constructor(action?: string, isOpen?: boolean, tags?: Array<TagsBody>) { 
         this['action'] = action;
         this['is_open'] = isOpen;
         this['tags'] = tags;
@@ -18,10 +18,10 @@ export class CreateTagsReqbody {
         this['is_open'] = isOpen;
         return this;
     }
-    public set isOpen(isOpen: boolean | undefined) {
+    public set isOpen(isOpen: boolean  | undefined) {
         this['is_open'] = isOpen;
     }
-    public get isOpen() {
+    public get isOpen(): boolean | undefined {
         return this['is_open'];
     }
     public withTags(tags: Array<TagsBody>): CreateTagsReqbody {

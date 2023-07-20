@@ -1,12 +1,12 @@
 
 
 export class BaseTemplate {
-    private 'template_id': string | undefined;
-    private 'template_name': string | undefined;
-    private 'template_description'?: string | undefined;
-    private 'create_time': string | undefined;
-    private 'update_time': string | undefined;
-    public constructor(templateId?: any, templateName?: any, createTime?: any, updateTime?: any) { 
+    private 'template_id'?: string;
+    private 'template_name'?: string;
+    private 'template_description'?: string;
+    private 'create_time'?: string;
+    private 'update_time'?: string;
+    public constructor(templateId?: string, templateName?: string, createTime?: string, updateTime?: string) { 
         this['template_id'] = templateId;
         this['template_name'] = templateName;
         this['create_time'] = createTime;
@@ -16,50 +16,50 @@ export class BaseTemplate {
         this['template_id'] = templateId;
         return this;
     }
-    public set templateId(templateId: string | undefined) {
+    public set templateId(templateId: string  | undefined) {
         this['template_id'] = templateId;
     }
-    public get templateId() {
+    public get templateId(): string | undefined {
         return this['template_id'];
     }
     public withTemplateName(templateName: string): BaseTemplate {
         this['template_name'] = templateName;
         return this;
     }
-    public set templateName(templateName: string | undefined) {
+    public set templateName(templateName: string  | undefined) {
         this['template_name'] = templateName;
     }
-    public get templateName() {
+    public get templateName(): string | undefined {
         return this['template_name'];
     }
     public withTemplateDescription(templateDescription: string): BaseTemplate {
         this['template_description'] = templateDescription;
         return this;
     }
-    public set templateDescription(templateDescription: string | undefined) {
+    public set templateDescription(templateDescription: string  | undefined) {
         this['template_description'] = templateDescription;
     }
-    public get templateDescription() {
+    public get templateDescription(): string | undefined {
         return this['template_description'];
     }
     public withCreateTime(createTime: string): BaseTemplate {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withUpdateTime(updateTime: string): BaseTemplate {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
 }

@@ -796,7 +796,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listKmsTags(): Promise<ListKmsTagsResponse> {
+    public listKmsTags(listKmsTagsRequest?: ListKmsTagsRequest): Promise<ListKmsTagsResponse> {
         const options = ParamCreater().listKmsTags();
 
          // @ts-ignore
@@ -909,7 +909,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showUserInstances(): Promise<ShowUserInstancesResponse> {
+    public showUserInstances(showUserInstancesRequest?: ShowUserInstancesRequest): Promise<ShowUserInstancesResponse> {
         const options = ParamCreater().showUserInstances();
 
          // @ts-ignore
@@ -927,7 +927,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showUserQuotas(): Promise<ShowUserQuotasResponse> {
+    public showUserQuotas(showUserQuotasRequest?: ShowUserQuotasRequest): Promise<ShowUserQuotasResponse> {
         const options = ParamCreater().showUserQuotas();
 
          // @ts-ignore
@@ -1065,7 +1065,7 @@ export class KmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showVersions(): Promise<ShowVersionsResponse> {
+    public showVersions(showVersionsRequest?: ShowVersionsRequest): Promise<ShowVersionsResponse> {
         const options = ParamCreater().showVersions();
 
          // @ts-ignore

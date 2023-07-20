@@ -3,9 +3,9 @@ import { QosQualityData } from './QosQualityData';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListRtcClientQosDetailsResponse extends SdkResponse {
-    private 'room_id'?: string | undefined;
+    private 'room_id'?: string;
     public data?: Array<QosQualityData>;
-    private 'X-request-id'?: string | undefined;
+    private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
@@ -13,10 +13,10 @@ export class ListRtcClientQosDetailsResponse extends SdkResponse {
         this['room_id'] = roomId;
         return this;
     }
-    public set roomId(roomId: string | undefined) {
+    public set roomId(roomId: string  | undefined) {
         this['room_id'] = roomId;
     }
-    public get roomId() {
+    public get roomId(): string | undefined {
         return this['room_id'];
     }
     public withData(data: Array<QosQualityData>): ListRtcClientQosDetailsResponse {
@@ -27,10 +27,10 @@ export class ListRtcClientQosDetailsResponse extends SdkResponse {
         this['X-request-id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-request-id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-request-id'];
     }
 }

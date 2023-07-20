@@ -1,11 +1,11 @@
 
 
 export class CreateRepoRequestBody {
-    public repository: string;
-    private 'is_public': boolean | undefined;
-    public category?: CreateRepoRequestBodyCategoryEnum;
+    public repository?: string;
+    private 'is_public'?: boolean;
+    public category?: CreateRepoRequestBodyCategoryEnum | string;
     public description?: string;
-    public constructor(repository?: any, isPublic?: any) { 
+    public constructor(repository?: string, isPublic?: boolean) { 
         this['repository'] = repository;
         this['is_public'] = isPublic;
     }
@@ -17,13 +17,13 @@ export class CreateRepoRequestBody {
         this['is_public'] = isPublic;
         return this;
     }
-    public set isPublic(isPublic: boolean | undefined) {
+    public set isPublic(isPublic: boolean  | undefined) {
         this['is_public'] = isPublic;
     }
-    public get isPublic() {
+    public get isPublic(): boolean | undefined {
         return this['is_public'];
     }
-    public withCategory(category: CreateRepoRequestBodyCategoryEnum): CreateRepoRequestBody {
+    public withCategory(category: CreateRepoRequestBodyCategoryEnum | string): CreateRepoRequestBody {
         this['category'] = category;
         return this;
     }

@@ -2,12 +2,12 @@ import { CreateCcRuleRequestBodyActionDetail } from './CreateCcRuleRequestBodyAc
 
 
 export class CreateCcRuleRequestBodyAction {
-    public category: CreateCcRuleRequestBodyActionCategoryEnum;
+    public category?: CreateCcRuleRequestBodyActionCategoryEnum | string;
     public detail?: CreateCcRuleRequestBodyActionDetail;
-    public constructor(category?: any) { 
+    public constructor(category?: string) { 
         this['category'] = category;
     }
-    public withCategory(category: CreateCcRuleRequestBodyActionCategoryEnum): CreateCcRuleRequestBodyAction {
+    public withCategory(category: CreateCcRuleRequestBodyActionCategoryEnum | string): CreateCcRuleRequestBodyAction {
         this['category'] = category;
         return this;
     }

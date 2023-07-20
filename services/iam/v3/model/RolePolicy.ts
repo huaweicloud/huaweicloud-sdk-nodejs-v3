@@ -3,10 +3,10 @@ import { PolicyStatement } from './PolicyStatement';
 
 
 export class RolePolicy {
-    private 'Depends'?: Array<PolicyDepends> | undefined;
-    private 'Statement': Array<PolicyStatement> | undefined;
-    private 'Version': string | undefined;
-    public constructor(statement?: any, version?: any) { 
+    private 'Depends'?: Array<PolicyDepends>;
+    private 'Statement'?: Array<PolicyStatement>;
+    private 'Version'?: string;
+    public constructor(statement?: Array<PolicyStatement>, version?: string) { 
         this['Statement'] = statement;
         this['Version'] = version;
     }
@@ -14,30 +14,30 @@ export class RolePolicy {
         this['Depends'] = depends;
         return this;
     }
-    public set depends(depends: Array<PolicyDepends> | undefined) {
+    public set depends(depends: Array<PolicyDepends>  | undefined) {
         this['Depends'] = depends;
     }
-    public get depends() {
+    public get depends(): Array<PolicyDepends> | undefined {
         return this['Depends'];
     }
     public withStatement(statement: Array<PolicyStatement>): RolePolicy {
         this['Statement'] = statement;
         return this;
     }
-    public set statement(statement: Array<PolicyStatement> | undefined) {
+    public set statement(statement: Array<PolicyStatement>  | undefined) {
         this['Statement'] = statement;
     }
-    public get statement() {
+    public get statement(): Array<PolicyStatement> | undefined {
         return this['Statement'];
     }
     public withVersion(version: string): RolePolicy {
         this['Version'] = version;
         return this;
     }
-    public set version(version: string | undefined) {
+    public set version(version: string  | undefined) {
         this['Version'] = version;
     }
-    public get version() {
+    public get version(): string | undefined {
         return this['Version'];
     }
 }

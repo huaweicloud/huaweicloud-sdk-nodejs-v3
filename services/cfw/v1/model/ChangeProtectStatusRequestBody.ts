@@ -1,9 +1,9 @@
 
 
 export class ChangeProtectStatusRequestBody {
-    private 'object_id': string | undefined;
-    public status: ChangeProtectStatusRequestBodyStatusEnum;
-    public constructor(objectId?: any, status?: any) { 
+    private 'object_id'?: string;
+    public status?: ChangeProtectStatusRequestBodyStatusEnum | number;
+    public constructor(objectId?: string, status?: number) { 
         this['object_id'] = objectId;
         this['status'] = status;
     }
@@ -11,13 +11,13 @@ export class ChangeProtectStatusRequestBody {
         this['object_id'] = objectId;
         return this;
     }
-    public set objectId(objectId: string | undefined) {
+    public set objectId(objectId: string  | undefined) {
         this['object_id'] = objectId;
     }
-    public get objectId() {
+    public get objectId(): string | undefined {
         return this['object_id'];
     }
-    public withStatus(status: ChangeProtectStatusRequestBodyStatusEnum): ChangeProtectStatusRequestBody {
+    public withStatus(status: ChangeProtectStatusRequestBodyStatusEnum | number): ChangeProtectStatusRequestBody {
         this['status'] = status;
         return this;
     }

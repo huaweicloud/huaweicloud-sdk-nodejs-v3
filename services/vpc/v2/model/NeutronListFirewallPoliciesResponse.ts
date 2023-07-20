@@ -4,8 +4,8 @@ import { NeutronPageLink } from './NeutronPageLink';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class NeutronListFirewallPoliciesResponse extends SdkResponse {
-    private 'firewall_policies'?: Array<NeutronFirewallPolicy> | undefined;
-    private 'firewall_policies_links'?: Array<NeutronPageLink> | undefined;
+    private 'firewall_policies'?: Array<NeutronFirewallPolicy>;
+    private 'firewall_policies_links'?: Array<NeutronPageLink>;
     public constructor() { 
         super();
     }
@@ -13,20 +13,20 @@ export class NeutronListFirewallPoliciesResponse extends SdkResponse {
         this['firewall_policies'] = firewallPolicies;
         return this;
     }
-    public set firewallPolicies(firewallPolicies: Array<NeutronFirewallPolicy> | undefined) {
+    public set firewallPolicies(firewallPolicies: Array<NeutronFirewallPolicy>  | undefined) {
         this['firewall_policies'] = firewallPolicies;
     }
-    public get firewallPolicies() {
+    public get firewallPolicies(): Array<NeutronFirewallPolicy> | undefined {
         return this['firewall_policies'];
     }
     public withFirewallPoliciesLinks(firewallPoliciesLinks: Array<NeutronPageLink>): NeutronListFirewallPoliciesResponse {
         this['firewall_policies_links'] = firewallPoliciesLinks;
         return this;
     }
-    public set firewallPoliciesLinks(firewallPoliciesLinks: Array<NeutronPageLink> | undefined) {
+    public set firewallPoliciesLinks(firewallPoliciesLinks: Array<NeutronPageLink>  | undefined) {
         this['firewall_policies_links'] = firewallPoliciesLinks;
     }
-    public get firewallPoliciesLinks() {
+    public get firewallPoliciesLinks(): Array<NeutronPageLink> | undefined {
         return this['firewall_policies_links'];
     }
 }

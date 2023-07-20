@@ -4,10 +4,10 @@ export class StructFieldInfo {
     public isAnalysis?: boolean;
     public content?: string;
     public fieldName?: string;
-    public type: string;
+    public type?: string;
     public userDefinedName?: string;
     public index?: number;
-    public constructor(type?: any) { 
+    public constructor(type?: string) { 
         this['type'] = type;
     }
     public withIsAnalysis(isAnalysis: boolean): StructFieldInfo {

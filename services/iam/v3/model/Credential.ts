@@ -1,11 +1,11 @@
 
 
 export class Credential {
-    private 'expires_at': string | undefined;
-    public access: string;
-    public secret: string;
-    public securitytoken: string;
-    public constructor(expiresAt?: any, access?: any, secret?: any, securitytoken?: any) { 
+    private 'expires_at'?: string;
+    public access?: string;
+    public secret?: string;
+    public securitytoken?: string;
+    public constructor(expiresAt?: string, access?: string, secret?: string, securitytoken?: string) { 
         this['expires_at'] = expiresAt;
         this['access'] = access;
         this['secret'] = secret;
@@ -15,10 +15,10 @@ export class Credential {
         this['expires_at'] = expiresAt;
         return this;
     }
-    public set expiresAt(expiresAt: string | undefined) {
+    public set expiresAt(expiresAt: string  | undefined) {
         this['expires_at'] = expiresAt;
     }
-    public get expiresAt() {
+    public get expiresAt(): string | undefined {
         return this['expires_at'];
     }
     public withAccess(access: string): Credential {

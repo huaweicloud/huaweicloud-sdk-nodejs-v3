@@ -2,16 +2,16 @@
 
 export class TollInvoiceResult {
     public code?: string;
-    private 'number'?: string | undefined;
+    private 'number'?: string;
     public entry?: string;
     public exit?: string;
     public amount?: string;
     public cashier?: string;
-    private 'vehicle_type'?: string | undefined;
+    private 'vehicle_type'?: string;
     public date?: string;
     public time?: string;
     public confidence?: object;
-    private 'text_location'?: object | undefined;
+    private 'text_location'?: object;
     public constructor() { 
     }
     public withCode(code: string): TollInvoiceResult {
@@ -22,10 +22,10 @@ export class TollInvoiceResult {
         this['number'] = modelNumber;
         return this;
     }
-    public set modelNumber(modelNumber: string | undefined) {
+    public set modelNumber(modelNumber: string  | undefined) {
         this['number'] = modelNumber;
     }
-    public get modelNumber() {
+    public get modelNumber(): string | undefined {
         return this['number'];
     }
     public withEntry(entry: string): TollInvoiceResult {
@@ -48,10 +48,10 @@ export class TollInvoiceResult {
         this['vehicle_type'] = vehicleType;
         return this;
     }
-    public set vehicleType(vehicleType: string | undefined) {
+    public set vehicleType(vehicleType: string  | undefined) {
         this['vehicle_type'] = vehicleType;
     }
-    public get vehicleType() {
+    public get vehicleType(): string | undefined {
         return this['vehicle_type'];
     }
     public withDate(date: string): TollInvoiceResult {
@@ -70,10 +70,10 @@ export class TollInvoiceResult {
         this['text_location'] = textLocation;
         return this;
     }
-    public set textLocation(textLocation: object | undefined) {
+    public set textLocation(textLocation: object  | undefined) {
         this['text_location'] = textLocation;
     }
-    public get textLocation() {
+    public get textLocation(): object | undefined {
         return this['text_location'];
     }
 }

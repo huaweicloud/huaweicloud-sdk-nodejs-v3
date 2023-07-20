@@ -3,7 +3,7 @@ import { LoginProtectResult } from './LoginProtectResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListUserLoginProtectsResponse extends SdkResponse {
-    private 'login_protects'?: Array<LoginProtectResult> | undefined;
+    private 'login_protects'?: Array<LoginProtectResult>;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ListUserLoginProtectsResponse extends SdkResponse {
         this['login_protects'] = loginProtects;
         return this;
     }
-    public set loginProtects(loginProtects: Array<LoginProtectResult> | undefined) {
+    public set loginProtects(loginProtects: Array<LoginProtectResult>  | undefined) {
         this['login_protects'] = loginProtects;
     }
-    public get loginProtects() {
+    public get loginProtects(): Array<LoginProtectResult> | undefined {
         return this['login_protects'];
     }
 }

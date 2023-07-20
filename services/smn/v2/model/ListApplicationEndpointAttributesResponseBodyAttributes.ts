@@ -1,10 +1,10 @@
 
 
 export class ListApplicationEndpointAttributesResponseBodyAttributes {
-    public enabled: string;
-    public token: string;
-    private 'user_data': string | undefined;
-    public constructor(enabled?: any, token?: any, userData?: any) { 
+    public enabled?: string;
+    public token?: string;
+    private 'user_data'?: string;
+    public constructor(enabled?: string, token?: string, userData?: string) { 
         this['enabled'] = enabled;
         this['token'] = token;
         this['user_data'] = userData;
@@ -21,10 +21,10 @@ export class ListApplicationEndpointAttributesResponseBodyAttributes {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
 }

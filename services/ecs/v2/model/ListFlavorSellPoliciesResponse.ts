@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListFlavorSellPoliciesResponse extends SdkResponse {
     public count?: number;
-    private 'sell_policies'?: Array<ListFlavorSellPoliciesResult> | undefined;
+    private 'sell_policies'?: Array<ListFlavorSellPoliciesResult>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListFlavorSellPoliciesResponse extends SdkResponse {
         this['sell_policies'] = sellPolicies;
         return this;
     }
-    public set sellPolicies(sellPolicies: Array<ListFlavorSellPoliciesResult> | undefined) {
+    public set sellPolicies(sellPolicies: Array<ListFlavorSellPoliciesResult>  | undefined) {
         this['sell_policies'] = sellPolicies;
     }
-    public get sellPolicies() {
+    public get sellPolicies(): Array<ListFlavorSellPoliciesResult> | undefined {
         return this['sell_policies'];
     }
 }

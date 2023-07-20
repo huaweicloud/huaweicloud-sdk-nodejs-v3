@@ -5,9 +5,9 @@ import { TaskStatus } from './TaskStatus';
 export class RemoveNodesTask {
     public apiVersion?: string;
     public kind?: string;
-    public spec: RemoveNodesSpec;
+    public spec?: RemoveNodesSpec;
     public status?: TaskStatus;
-    public constructor(spec?: any) { 
+    public constructor(spec?: RemoveNodesSpec) { 
         this['spec'] = spec;
     }
     public withApiVersion(apiVersion: string): RemoveNodesTask {

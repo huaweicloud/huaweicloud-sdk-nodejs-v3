@@ -867,7 +867,7 @@ export class CbrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listProjects(): Promise<ListProjectsResponse> {
+    public listProjects(listProjectsRequest?: ListProjectsRequest): Promise<ListProjectsResponse> {
         const options = ParamCreater().listProjects();
 
          // @ts-ignore
@@ -1297,7 +1297,7 @@ export class CbrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showReplicationCapabilities(): Promise<ShowReplicationCapabilitiesResponse> {
+    public showReplicationCapabilities(showReplicationCapabilitiesRequest?: ShowReplicationCapabilitiesRequest): Promise<ShowReplicationCapabilitiesResponse> {
         const options = ParamCreater().showReplicationCapabilities();
 
          // @ts-ignore
@@ -1337,7 +1337,7 @@ export class CbrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showSummary(): Promise<ShowSummaryResponse> {
+    public showSummary(showSummaryRequest?: ShowSummaryRequest): Promise<ShowSummaryResponse> {
         const options = ParamCreater().showSummary();
 
          // @ts-ignore
@@ -1375,7 +1375,7 @@ export class CbrClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showVaultProjectTag(): Promise<ShowVaultProjectTagResponse> {
+    public showVaultProjectTag(showVaultProjectTagRequest?: ShowVaultProjectTagRequest): Promise<ShowVaultProjectTagResponse> {
         const options = ParamCreater().showVaultProjectTag();
 
          // @ts-ignore

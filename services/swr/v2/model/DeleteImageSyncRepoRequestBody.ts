@@ -1,9 +1,9 @@
 
 
 export class DeleteImageSyncRepoRequestBody {
-    public remoteRegionId: string;
-    public remoteNamespace: string;
-    public constructor(remoteRegionId?: any, remoteNamespace?: any) { 
+    public remoteRegionId?: string;
+    public remoteNamespace?: string;
+    public constructor(remoteRegionId?: string, remoteNamespace?: string) { 
         this['remoteRegionId'] = remoteRegionId;
         this['remoteNamespace'] = remoteNamespace;
     }

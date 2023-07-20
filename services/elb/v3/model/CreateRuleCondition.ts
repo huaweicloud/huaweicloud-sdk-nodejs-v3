@@ -2,8 +2,8 @@
 
 export class CreateRuleCondition {
     public key?: string;
-    public value: string;
-    public constructor(value?: any) { 
+    public value?: string;
+    public constructor(value?: string) { 
         this['value'] = value;
     }
     public withKey(key: string): CreateRuleCondition {

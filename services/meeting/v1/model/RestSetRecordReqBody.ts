@@ -1,8 +1,8 @@
 
 
 export class RestSetRecordReqBody {
-    public isRecord: number;
-    public constructor(isRecord?: any) { 
+    public isRecord?: number;
+    public constructor(isRecord?: number) { 
         this['isRecord'] = isRecord;
     }
     public withIsRecord(isRecord: number): RestSetRecordReqBody {

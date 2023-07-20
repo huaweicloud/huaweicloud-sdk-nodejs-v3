@@ -1,16 +1,16 @@
 
 
 export class ListRtcRealtimeQualityRequest {
-    private 'Authorization'?: string | undefined;
-    private 'X-Sdk-Date'?: string | undefined;
-    private 'X-Project-Id'?: string | undefined;
-    public app: string;
-    private 'room_id'?: string | undefined;
-    public metric: string;
-    private 'sdk_type': string | undefined;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
-    public constructor(app?: any, metric?: any, sdkType?: any) { 
+    private 'Authorization'?: string;
+    private 'X-Sdk-Date'?: string;
+    private 'X-Project-Id'?: string;
+    public app?: string;
+    private 'room_id'?: string;
+    public metric?: string;
+    private 'sdk_type'?: string;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
+    public constructor(app?: string, metric?: string, sdkType?: string) { 
         this['app'] = app;
         this['metric'] = metric;
         this['sdk_type'] = sdkType;
@@ -19,30 +19,30 @@ export class ListRtcRealtimeQualityRequest {
         this['Authorization'] = authorization;
         return this;
     }
-    public set authorization(authorization: string | undefined) {
+    public set authorization(authorization: string  | undefined) {
         this['Authorization'] = authorization;
     }
-    public get authorization() {
+    public get authorization(): string | undefined {
         return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ListRtcRealtimeQualityRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withXProjectId(xProjectId: string): ListRtcRealtimeQualityRequest {
         this['X-Project-Id'] = xProjectId;
         return this;
     }
-    public set xProjectId(xProjectId: string | undefined) {
+    public set xProjectId(xProjectId: string  | undefined) {
         this['X-Project-Id'] = xProjectId;
     }
-    public get xProjectId() {
+    public get xProjectId(): string | undefined {
         return this['X-Project-Id'];
     }
     public withApp(app: string): ListRtcRealtimeQualityRequest {
@@ -53,10 +53,10 @@ export class ListRtcRealtimeQualityRequest {
         this['room_id'] = roomId;
         return this;
     }
-    public set roomId(roomId: string | undefined) {
+    public set roomId(roomId: string  | undefined) {
         this['room_id'] = roomId;
     }
-    public get roomId() {
+    public get roomId(): string | undefined {
         return this['room_id'];
     }
     public withMetric(metric: string): ListRtcRealtimeQualityRequest {
@@ -67,30 +67,30 @@ export class ListRtcRealtimeQualityRequest {
         this['sdk_type'] = sdkType;
         return this;
     }
-    public set sdkType(sdkType: string | undefined) {
+    public set sdkType(sdkType: string  | undefined) {
         this['sdk_type'] = sdkType;
     }
-    public get sdkType() {
+    public get sdkType(): string | undefined {
         return this['sdk_type'];
     }
     public withStartTime(startTime: string): ListRtcRealtimeQualityRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ListRtcRealtimeQualityRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
 }

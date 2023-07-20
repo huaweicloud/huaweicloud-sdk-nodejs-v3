@@ -1,9 +1,9 @@
 
 
 export class UpdateApplicationRequestBody {
-    private 'platform_principal': string | undefined;
-    private 'platform_credential': string | undefined;
-    public constructor(platformPrincipal?: any, platformCredential?: any) { 
+    private 'platform_principal'?: string;
+    private 'platform_credential'?: string;
+    public constructor(platformPrincipal?: string, platformCredential?: string) { 
         this['platform_principal'] = platformPrincipal;
         this['platform_credential'] = platformCredential;
     }
@@ -11,20 +11,20 @@ export class UpdateApplicationRequestBody {
         this['platform_principal'] = platformPrincipal;
         return this;
     }
-    public set platformPrincipal(platformPrincipal: string | undefined) {
+    public set platformPrincipal(platformPrincipal: string  | undefined) {
         this['platform_principal'] = platformPrincipal;
     }
-    public get platformPrincipal() {
+    public get platformPrincipal(): string | undefined {
         return this['platform_principal'];
     }
     public withPlatformCredential(platformCredential: string): UpdateApplicationRequestBody {
         this['platform_credential'] = platformCredential;
         return this;
     }
-    public set platformCredential(platformCredential: string | undefined) {
+    public set platformCredential(platformCredential: string  | undefined) {
         this['platform_credential'] = platformCredential;
     }
-    public get platformCredential() {
+    public get platformCredential(): string | undefined {
         return this['platform_credential'];
     }
 }

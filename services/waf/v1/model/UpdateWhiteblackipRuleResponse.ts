@@ -9,7 +9,7 @@ export class UpdateWhiteblackipRuleResponse extends SdkResponse {
     public addr?: string;
     public description?: string;
     public white?: number;
-    private 'ip_group'?: IpGroup | undefined;
+    private 'ip_group'?: IpGroup;
     public constructor() { 
         super();
     }
@@ -41,10 +41,10 @@ export class UpdateWhiteblackipRuleResponse extends SdkResponse {
         this['ip_group'] = ipGroup;
         return this;
     }
-    public set ipGroup(ipGroup: IpGroup | undefined) {
+    public set ipGroup(ipGroup: IpGroup  | undefined) {
         this['ip_group'] = ipGroup;
     }
-    public get ipGroup() {
+    public get ipGroup(): IpGroup | undefined {
         return this['ip_group'];
     }
 }

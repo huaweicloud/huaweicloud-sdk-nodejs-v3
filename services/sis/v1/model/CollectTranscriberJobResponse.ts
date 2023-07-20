@@ -3,13 +3,13 @@ import { Segment } from './Segment';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CollectTranscriberJobResponse extends SdkResponse {
-    private 'job_id'?: string | undefined;
+    private 'job_id'?: string;
     public status?: string;
-    private 'create_time'?: string | undefined;
-    private 'start_time'?: string | undefined;
-    private 'finish_time'?: string | undefined;
+    private 'create_time'?: string;
+    private 'start_time'?: string;
+    private 'finish_time'?: string;
     public segments?: Array<Segment>;
-    private 'audio_duration'?: number | undefined;
+    private 'audio_duration'?: number;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class CollectTranscriberJobResponse extends SdkResponse {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
     public withStatus(status: string): CollectTranscriberJobResponse {
@@ -31,30 +31,30 @@ export class CollectTranscriberJobResponse extends SdkResponse {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withStartTime(startTime: string): CollectTranscriberJobResponse {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withFinishTime(finishTime: string): CollectTranscriberJobResponse {
         this['finish_time'] = finishTime;
         return this;
     }
-    public set finishTime(finishTime: string | undefined) {
+    public set finishTime(finishTime: string  | undefined) {
         this['finish_time'] = finishTime;
     }
-    public get finishTime() {
+    public get finishTime(): string | undefined {
         return this['finish_time'];
     }
     public withSegments(segments: Array<Segment>): CollectTranscriberJobResponse {
@@ -65,10 +65,10 @@ export class CollectTranscriberJobResponse extends SdkResponse {
         this['audio_duration'] = audioDuration;
         return this;
     }
-    public set audioDuration(audioDuration: number | undefined) {
+    public set audioDuration(audioDuration: number  | undefined) {
         this['audio_duration'] = audioDuration;
     }
-    public get audioDuration() {
+    public get audioDuration(): number | undefined {
         return this['audio_duration'];
     }
 }

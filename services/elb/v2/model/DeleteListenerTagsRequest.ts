@@ -1,9 +1,9 @@
 
 
 export class DeleteListenerTagsRequest {
-    private 'listener_id': string | undefined;
-    public key: string;
-    public constructor(listenerId?: any, key?: any) { 
+    private 'listener_id'?: string;
+    public key?: string;
+    public constructor(listenerId?: string, key?: string) { 
         this['listener_id'] = listenerId;
         this['key'] = key;
     }
@@ -11,10 +11,10 @@ export class DeleteListenerTagsRequest {
         this['listener_id'] = listenerId;
         return this;
     }
-    public set listenerId(listenerId: string | undefined) {
+    public set listenerId(listenerId: string  | undefined) {
         this['listener_id'] = listenerId;
     }
-    public get listenerId() {
+    public get listenerId(): string | undefined {
         return this['listener_id'];
     }
     public withKey(key: string): DeleteListenerTagsRequest {

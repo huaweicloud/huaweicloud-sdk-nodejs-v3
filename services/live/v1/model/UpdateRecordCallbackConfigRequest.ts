@@ -2,9 +2,9 @@ import { RecordCallbackConfigRequest } from './RecordCallbackConfigRequest';
 
 
 export class UpdateRecordCallbackConfigRequest {
-    public id: string;
+    public id?: string;
     public body?: RecordCallbackConfigRequest;
-    public constructor(id?: any) { 
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withId(id: string): UpdateRecordCallbackConfigRequest {

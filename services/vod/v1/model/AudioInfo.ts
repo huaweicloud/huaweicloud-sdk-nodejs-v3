@@ -1,28 +1,28 @@
 
 
 export class AudioInfo {
-    private 'sample_rate': AudioInfoSampleRateEnum | undefined;
+    private 'sample_rate'?: AudioInfoSampleRateEnum | string;
     public bitrate?: number;
-    public channels: AudioInfoChannelsEnum;
-    public constructor(sampleRate?: any, channels?: any) { 
+    public channels?: AudioInfoChannelsEnum | string;
+    public constructor(sampleRate?: string, channels?: string) { 
         this['sample_rate'] = sampleRate;
         this['channels'] = channels;
     }
-    public withSampleRate(sampleRate: AudioInfoSampleRateEnum): AudioInfo {
+    public withSampleRate(sampleRate: AudioInfoSampleRateEnum | string): AudioInfo {
         this['sample_rate'] = sampleRate;
         return this;
     }
-    public set sampleRate(sampleRate: AudioInfoSampleRateEnum | undefined) {
+    public set sampleRate(sampleRate: AudioInfoSampleRateEnum | string  | undefined) {
         this['sample_rate'] = sampleRate;
     }
-    public get sampleRate() {
+    public get sampleRate(): AudioInfoSampleRateEnum | string | undefined {
         return this['sample_rate'];
     }
     public withBitrate(bitrate: number): AudioInfo {
         this['bitrate'] = bitrate;
         return this;
     }
-    public withChannels(channels: AudioInfoChannelsEnum): AudioInfo {
+    public withChannels(channels: AudioInfoChannelsEnum | string): AudioInfo {
         this['channels'] = channels;
         return this;
     }

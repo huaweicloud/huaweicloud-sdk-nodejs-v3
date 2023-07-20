@@ -1,51 +1,51 @@
 
 
 export class PassportResult {
-    private 'passport_type'?: string | undefined;
-    private 'country_code'?: string | undefined;
-    private 'passport_number'?: string | undefined;
+    private 'passport_type'?: string;
+    private 'country_code'?: string;
+    private 'passport_number'?: string;
     public nationality?: string;
     public surname?: string;
-    private 'given_name'?: string | undefined;
+    private 'given_name'?: string;
     public sex?: string;
-    private 'date_of_birth'?: string | undefined;
-    private 'date_of_expiry'?: string | undefined;
-    private 'date_of_issue'?: string | undefined;
-    private 'place_of_birth'?: string | undefined;
-    private 'place_of_issue'?: string | undefined;
-    private 'issuing_authority'?: string | undefined;
+    private 'date_of_birth'?: string;
+    private 'date_of_expiry'?: string;
+    private 'date_of_issue'?: string;
+    private 'place_of_birth'?: string;
+    private 'place_of_issue'?: string;
+    private 'issuing_authority'?: string;
     public confidence?: object;
-    private 'extra_info'?: object | undefined;
+    private 'extra_info'?: object;
     public constructor() { 
     }
     public withPassportType(passportType: string): PassportResult {
         this['passport_type'] = passportType;
         return this;
     }
-    public set passportType(passportType: string | undefined) {
+    public set passportType(passportType: string  | undefined) {
         this['passport_type'] = passportType;
     }
-    public get passportType() {
+    public get passportType(): string | undefined {
         return this['passport_type'];
     }
     public withCountryCode(countryCode: string): PassportResult {
         this['country_code'] = countryCode;
         return this;
     }
-    public set countryCode(countryCode: string | undefined) {
+    public set countryCode(countryCode: string  | undefined) {
         this['country_code'] = countryCode;
     }
-    public get countryCode() {
+    public get countryCode(): string | undefined {
         return this['country_code'];
     }
     public withPassportNumber(passportNumber: string): PassportResult {
         this['passport_number'] = passportNumber;
         return this;
     }
-    public set passportNumber(passportNumber: string | undefined) {
+    public set passportNumber(passportNumber: string  | undefined) {
         this['passport_number'] = passportNumber;
     }
-    public get passportNumber() {
+    public get passportNumber(): string | undefined {
         return this['passport_number'];
     }
     public withNationality(nationality: string): PassportResult {
@@ -60,10 +60,10 @@ export class PassportResult {
         this['given_name'] = givenName;
         return this;
     }
-    public set givenName(givenName: string | undefined) {
+    public set givenName(givenName: string  | undefined) {
         this['given_name'] = givenName;
     }
-    public get givenName() {
+    public get givenName(): string | undefined {
         return this['given_name'];
     }
     public withSex(sex: string): PassportResult {
@@ -74,60 +74,60 @@ export class PassportResult {
         this['date_of_birth'] = dateOfBirth;
         return this;
     }
-    public set dateOfBirth(dateOfBirth: string | undefined) {
+    public set dateOfBirth(dateOfBirth: string  | undefined) {
         this['date_of_birth'] = dateOfBirth;
     }
-    public get dateOfBirth() {
+    public get dateOfBirth(): string | undefined {
         return this['date_of_birth'];
     }
     public withDateOfExpiry(dateOfExpiry: string): PassportResult {
         this['date_of_expiry'] = dateOfExpiry;
         return this;
     }
-    public set dateOfExpiry(dateOfExpiry: string | undefined) {
+    public set dateOfExpiry(dateOfExpiry: string  | undefined) {
         this['date_of_expiry'] = dateOfExpiry;
     }
-    public get dateOfExpiry() {
+    public get dateOfExpiry(): string | undefined {
         return this['date_of_expiry'];
     }
     public withDateOfIssue(dateOfIssue: string): PassportResult {
         this['date_of_issue'] = dateOfIssue;
         return this;
     }
-    public set dateOfIssue(dateOfIssue: string | undefined) {
+    public set dateOfIssue(dateOfIssue: string  | undefined) {
         this['date_of_issue'] = dateOfIssue;
     }
-    public get dateOfIssue() {
+    public get dateOfIssue(): string | undefined {
         return this['date_of_issue'];
     }
     public withPlaceOfBirth(placeOfBirth: string): PassportResult {
         this['place_of_birth'] = placeOfBirth;
         return this;
     }
-    public set placeOfBirth(placeOfBirth: string | undefined) {
+    public set placeOfBirth(placeOfBirth: string  | undefined) {
         this['place_of_birth'] = placeOfBirth;
     }
-    public get placeOfBirth() {
+    public get placeOfBirth(): string | undefined {
         return this['place_of_birth'];
     }
     public withPlaceOfIssue(placeOfIssue: string): PassportResult {
         this['place_of_issue'] = placeOfIssue;
         return this;
     }
-    public set placeOfIssue(placeOfIssue: string | undefined) {
+    public set placeOfIssue(placeOfIssue: string  | undefined) {
         this['place_of_issue'] = placeOfIssue;
     }
-    public get placeOfIssue() {
+    public get placeOfIssue(): string | undefined {
         return this['place_of_issue'];
     }
     public withIssuingAuthority(issuingAuthority: string): PassportResult {
         this['issuing_authority'] = issuingAuthority;
         return this;
     }
-    public set issuingAuthority(issuingAuthority: string | undefined) {
+    public set issuingAuthority(issuingAuthority: string  | undefined) {
         this['issuing_authority'] = issuingAuthority;
     }
-    public get issuingAuthority() {
+    public get issuingAuthority(): string | undefined {
         return this['issuing_authority'];
     }
     public withConfidence(confidence: object): PassportResult {
@@ -138,10 +138,10 @@ export class PassportResult {
         this['extra_info'] = extraInfo;
         return this;
     }
-    public set extraInfo(extraInfo: object | undefined) {
+    public set extraInfo(extraInfo: object  | undefined) {
         this['extra_info'] = extraInfo;
     }
-    public get extraInfo() {
+    public get extraInfo(): object | undefined {
         return this['extra_info'];
     }
 }

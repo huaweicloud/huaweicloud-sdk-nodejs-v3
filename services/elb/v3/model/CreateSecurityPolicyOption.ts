@@ -3,10 +3,10 @@
 export class CreateSecurityPolicyOption {
     public name?: string;
     public description?: string;
-    private 'enterprise_project_id'?: string | undefined;
-    public protocols: Array<string>;
-    public ciphers: Array<CreateSecurityPolicyOptionCiphersEnum>;
-    public constructor(protocols?: any, ciphers?: any) { 
+    private 'enterprise_project_id'?: string;
+    public protocols?: Array<string>;
+    public ciphers?: Array<CreateSecurityPolicyOptionCiphersEnum> | Array<string>;
+    public constructor(protocols?: Array<string>, ciphers?: Array<string>) { 
         this['protocols'] = protocols;
         this['ciphers'] = ciphers;
     }
@@ -22,17 +22,17 @@ export class CreateSecurityPolicyOption {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withProtocols(protocols: Array<string>): CreateSecurityPolicyOption {
         this['protocols'] = protocols;
         return this;
     }
-    public withCiphers(ciphers: Array<CreateSecurityPolicyOptionCiphersEnum>): CreateSecurityPolicyOption {
+    public withCiphers(ciphers: Array<CreateSecurityPolicyOptionCiphersEnum> | Array<string>): CreateSecurityPolicyOption {
         this['ciphers'] = ciphers;
         return this;
     }

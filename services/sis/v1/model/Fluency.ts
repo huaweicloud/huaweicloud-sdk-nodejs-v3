@@ -1,10 +1,10 @@
 
 
 export class Fluency {
-    public score: number;
-    public rhythm: number;
-    public cohesion: number;
-    public constructor(score?: any, rhythm?: any, cohesion?: any) { 
+    public score?: number;
+    public rhythm?: number;
+    public cohesion?: number;
+    public constructor(score?: number, rhythm?: number, cohesion?: number) { 
         this['score'] = score;
         this['rhythm'] = rhythm;
         this['cohesion'] = cohesion;

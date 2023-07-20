@@ -1,8 +1,8 @@
 
 
 export class RuleStatus {
-    public status: string;
-    public constructor(status?: any) { 
+    public status?: string;
+    public constructor(status?: string) { 
         this['status'] = status;
     }
     public withStatus(status: string): RuleStatus {

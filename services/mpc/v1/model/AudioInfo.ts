@@ -5,7 +5,7 @@ export class AudioInfo {
     public sample?: number;
     public channels?: number;
     public bitrate?: number;
-    private 'bitrate_bps'?: number | undefined;
+    private 'bitrate_bps'?: number;
     public constructor() { 
     }
     public withCodec(codec: string): AudioInfo {
@@ -28,10 +28,10 @@ export class AudioInfo {
         this['bitrate_bps'] = bitrateBps;
         return this;
     }
-    public set bitrateBps(bitrateBps: number | undefined) {
+    public set bitrateBps(bitrateBps: number  | undefined) {
         this['bitrate_bps'] = bitrateBps;
     }
-    public get bitrateBps() {
+    public get bitrateBps(): number | undefined {
         return this['bitrate_bps'];
     }
 }

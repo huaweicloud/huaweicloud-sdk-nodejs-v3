@@ -2,24 +2,24 @@ import { MetaData } from './MetaData';
 
 
 export class Output {
-    private 'play_type': OutputPlayTypeEnum | undefined;
-    public url: string;
+    private 'play_type'?: OutputPlayTypeEnum | string;
+    public url?: string;
     public encrypted?: number;
-    public quality?: OutputQualityEnum;
-    private 'meta_data': MetaData | undefined;
-    public constructor(playType?: any, url?: any, metaData?: any) { 
+    public quality?: OutputQualityEnum | string;
+    private 'meta_data'?: MetaData;
+    public constructor(playType?: string, url?: string, metaData?: MetaData) { 
         this['play_type'] = playType;
         this['url'] = url;
         this['meta_data'] = metaData;
     }
-    public withPlayType(playType: OutputPlayTypeEnum): Output {
+    public withPlayType(playType: OutputPlayTypeEnum | string): Output {
         this['play_type'] = playType;
         return this;
     }
-    public set playType(playType: OutputPlayTypeEnum | undefined) {
+    public set playType(playType: OutputPlayTypeEnum | string  | undefined) {
         this['play_type'] = playType;
     }
-    public get playType() {
+    public get playType(): OutputPlayTypeEnum | string | undefined {
         return this['play_type'];
     }
     public withUrl(url: string): Output {
@@ -30,7 +30,7 @@ export class Output {
         this['encrypted'] = encrypted;
         return this;
     }
-    public withQuality(quality: OutputQualityEnum): Output {
+    public withQuality(quality: OutputQualityEnum | string): Output {
         this['quality'] = quality;
         return this;
     }
@@ -38,10 +38,10 @@ export class Output {
         this['meta_data'] = metaData;
         return this;
     }
-    public set metaData(metaData: MetaData | undefined) {
+    public set metaData(metaData: MetaData  | undefined) {
         this['meta_data'] = metaData;
     }
-    public get metaData() {
+    public get metaData(): MetaData | undefined {
         return this['meta_data'];
     }
 }

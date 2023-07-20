@@ -2,8 +2,8 @@ import { UpdateJobReq } from './UpdateJobReq';
 
 
 export class SingleUpdateJobReq {
-    public job: UpdateJobReq;
-    public constructor(job?: any) { 
+    public job?: UpdateJobReq;
+    public constructor(job?: UpdateJobReq) { 
         this['job'] = job;
     }
     public withJob(job: UpdateJobReq): SingleUpdateJobReq {

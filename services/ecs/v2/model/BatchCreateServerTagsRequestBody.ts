@@ -2,13 +2,13 @@ import { ServerTag } from './ServerTag';
 
 
 export class BatchCreateServerTagsRequestBody {
-    public action: BatchCreateServerTagsRequestBodyActionEnum;
-    public tags: Array<ServerTag>;
-    public constructor(action?: any, tags?: any) { 
+    public action?: BatchCreateServerTagsRequestBodyActionEnum | string;
+    public tags?: Array<ServerTag>;
+    public constructor(action?: string, tags?: Array<ServerTag>) { 
         this['action'] = action;
         this['tags'] = tags;
     }
-    public withAction(action: BatchCreateServerTagsRequestBodyActionEnum): BatchCreateServerTagsRequestBody {
+    public withAction(action: BatchCreateServerTagsRequestBodyActionEnum | string): BatchCreateServerTagsRequestBody {
         this['action'] = action;
         return this;
     }

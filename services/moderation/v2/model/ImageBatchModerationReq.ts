@@ -1,20 +1,20 @@
 
 
 export class ImageBatchModerationReq {
-    public urls: Array<string>;
-    public categories?: Array<ImageBatchModerationReqCategoriesEnum>;
+    public urls?: Array<string>;
+    public categories?: Array<ImageBatchModerationReqCategoriesEnum> | Array<string>;
     public threshold?: number;
-    private 'moderation_rule'?: string | undefined;
-    private 'ad_categories'?: Array<string> | undefined;
-    private 'show_ocr_text'?: boolean | undefined;
-    public constructor(urls?: any) { 
+    private 'moderation_rule'?: string;
+    private 'ad_categories'?: Array<string>;
+    private 'show_ocr_text'?: boolean;
+    public constructor(urls?: Array<string>) { 
         this['urls'] = urls;
     }
     public withUrls(urls: Array<string>): ImageBatchModerationReq {
         this['urls'] = urls;
         return this;
     }
-    public withCategories(categories: Array<ImageBatchModerationReqCategoriesEnum>): ImageBatchModerationReq {
+    public withCategories(categories: Array<ImageBatchModerationReqCategoriesEnum> | Array<string>): ImageBatchModerationReq {
         this['categories'] = categories;
         return this;
     }
@@ -26,30 +26,30 @@ export class ImageBatchModerationReq {
         this['moderation_rule'] = moderationRule;
         return this;
     }
-    public set moderationRule(moderationRule: string | undefined) {
+    public set moderationRule(moderationRule: string  | undefined) {
         this['moderation_rule'] = moderationRule;
     }
-    public get moderationRule() {
+    public get moderationRule(): string | undefined {
         return this['moderation_rule'];
     }
     public withAdCategories(adCategories: Array<string>): ImageBatchModerationReq {
         this['ad_categories'] = adCategories;
         return this;
     }
-    public set adCategories(adCategories: Array<string> | undefined) {
+    public set adCategories(adCategories: Array<string>  | undefined) {
         this['ad_categories'] = adCategories;
     }
-    public get adCategories() {
+    public get adCategories(): Array<string> | undefined {
         return this['ad_categories'];
     }
     public withShowOcrText(showOcrText: boolean): ImageBatchModerationReq {
         this['show_ocr_text'] = showOcrText;
         return this;
     }
-    public set showOcrText(showOcrText: boolean | undefined) {
+    public set showOcrText(showOcrText: boolean  | undefined) {
         this['show_ocr_text'] = showOcrText;
     }
-    public get showOcrText() {
+    public get showOcrText(): boolean | undefined {
         return this['show_ocr_text'];
     }
 }

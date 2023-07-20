@@ -1,12 +1,12 @@
 
 
 export class AvailabilityZone {
-    public code: string;
-    public state: string;
-    public protocol: Array<string>;
-    private 'public_border_group': string | undefined;
-    public category: number;
-    public constructor(code?: any, state?: any, protocol?: any, publicBorderGroup?: any, category?: any) { 
+    public code?: string;
+    public state?: string;
+    public protocol?: Array<string>;
+    private 'public_border_group'?: string;
+    public category?: number;
+    public constructor(code?: string, state?: string, protocol?: Array<string>, publicBorderGroup?: string, category?: number) { 
         this['code'] = code;
         this['state'] = state;
         this['protocol'] = protocol;
@@ -29,10 +29,10 @@ export class AvailabilityZone {
         this['public_border_group'] = publicBorderGroup;
         return this;
     }
-    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
         this['public_border_group'] = publicBorderGroup;
     }
-    public get publicBorderGroup() {
+    public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
     public withCategory(category: number): AvailabilityZone {

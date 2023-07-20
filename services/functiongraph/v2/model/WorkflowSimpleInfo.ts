@@ -1,15 +1,15 @@
 
 
 export class WorkflowSimpleInfo {
-    private 'enable_stream_response': boolean | undefined;
-    public id: string;
-    private 'workflow_urn': string | undefined;
-    public name: string;
-    public description: string;
-    private 'created_time': string | undefined;
-    private 'updated_time': string | undefined;
-    private 'created_by': string | undefined;
-    public constructor(enableStreamResponse?: any, id?: any, workflowUrn?: any, name?: any, description?: any, createdTime?: any, updatedTime?: any, createdBy?: any) { 
+    private 'enable_stream_response'?: boolean;
+    public id?: string;
+    private 'workflow_urn'?: string;
+    public name?: string;
+    public description?: string;
+    private 'created_time'?: string;
+    private 'updated_time'?: string;
+    private 'created_by'?: string;
+    public constructor(enableStreamResponse?: boolean, id?: string, workflowUrn?: string, name?: string, description?: string, createdTime?: string, updatedTime?: string, createdBy?: string) { 
         this['enable_stream_response'] = enableStreamResponse;
         this['id'] = id;
         this['workflow_urn'] = workflowUrn;
@@ -23,10 +23,10 @@ export class WorkflowSimpleInfo {
         this['enable_stream_response'] = enableStreamResponse;
         return this;
     }
-    public set enableStreamResponse(enableStreamResponse: boolean | undefined) {
+    public set enableStreamResponse(enableStreamResponse: boolean  | undefined) {
         this['enable_stream_response'] = enableStreamResponse;
     }
-    public get enableStreamResponse() {
+    public get enableStreamResponse(): boolean | undefined {
         return this['enable_stream_response'];
     }
     public withId(id: string): WorkflowSimpleInfo {
@@ -37,10 +37,10 @@ export class WorkflowSimpleInfo {
         this['workflow_urn'] = workflowUrn;
         return this;
     }
-    public set workflowUrn(workflowUrn: string | undefined) {
+    public set workflowUrn(workflowUrn: string  | undefined) {
         this['workflow_urn'] = workflowUrn;
     }
-    public get workflowUrn() {
+    public get workflowUrn(): string | undefined {
         return this['workflow_urn'];
     }
     public withName(name: string): WorkflowSimpleInfo {
@@ -55,30 +55,30 @@ export class WorkflowSimpleInfo {
         this['created_time'] = createdTime;
         return this;
     }
-    public set createdTime(createdTime: string | undefined) {
+    public set createdTime(createdTime: string  | undefined) {
         this['created_time'] = createdTime;
     }
-    public get createdTime() {
+    public get createdTime(): string | undefined {
         return this['created_time'];
     }
     public withUpdatedTime(updatedTime: string): WorkflowSimpleInfo {
         this['updated_time'] = updatedTime;
         return this;
     }
-    public set updatedTime(updatedTime: string | undefined) {
+    public set updatedTime(updatedTime: string  | undefined) {
         this['updated_time'] = updatedTime;
     }
-    public get updatedTime() {
+    public get updatedTime(): string | undefined {
         return this['updated_time'];
     }
     public withCreatedBy(createdBy: string): WorkflowSimpleInfo {
         this['created_by'] = createdBy;
         return this;
     }
-    public set createdBy(createdBy: string | undefined) {
+    public set createdBy(createdBy: string  | undefined) {
         this['created_by'] = createdBy;
     }
-    public get createdBy() {
+    public get createdBy(): string | undefined {
         return this['created_by'];
     }
 }

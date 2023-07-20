@@ -8,9 +8,9 @@ import { StackIdPrimitiveTypeHolder } from './StackIdPrimitiveTypeHolder';
 
 export class UpdateStackRequestBody {
     public description?: string;
-    private 'stack_id'?: string | undefined;
-    private 'enable_deletion_protection'?: boolean | undefined;
-    private 'enable_auto_rollback'?: boolean | undefined;
+    private 'stack_id'?: string;
+    private 'enable_deletion_protection'?: boolean;
+    private 'enable_auto_rollback'?: boolean;
     public agencies?: Array<Agency>;
     public constructor() { 
     }
@@ -22,30 +22,30 @@ export class UpdateStackRequestBody {
         this['stack_id'] = stackId;
         return this;
     }
-    public set stackId(stackId: string | undefined) {
+    public set stackId(stackId: string  | undefined) {
         this['stack_id'] = stackId;
     }
-    public get stackId() {
+    public get stackId(): string | undefined {
         return this['stack_id'];
     }
     public withEnableDeletionProtection(enableDeletionProtection: boolean): UpdateStackRequestBody {
         this['enable_deletion_protection'] = enableDeletionProtection;
         return this;
     }
-    public set enableDeletionProtection(enableDeletionProtection: boolean | undefined) {
+    public set enableDeletionProtection(enableDeletionProtection: boolean  | undefined) {
         this['enable_deletion_protection'] = enableDeletionProtection;
     }
-    public get enableDeletionProtection() {
+    public get enableDeletionProtection(): boolean | undefined {
         return this['enable_deletion_protection'];
     }
     public withEnableAutoRollback(enableAutoRollback: boolean): UpdateStackRequestBody {
         this['enable_auto_rollback'] = enableAutoRollback;
         return this;
     }
-    public set enableAutoRollback(enableAutoRollback: boolean | undefined) {
+    public set enableAutoRollback(enableAutoRollback: boolean  | undefined) {
         this['enable_auto_rollback'] = enableAutoRollback;
     }
-    public get enableAutoRollback() {
+    public get enableAutoRollback(): boolean | undefined {
         return this['enable_auto_rollback'];
     }
     public withAgencies(agencies: Array<Agency>): UpdateStackRequestBody {

@@ -3,30 +3,30 @@ import { ReplicationRecordGet } from './ReplicationRecordGet';
 
 
 export class BackupResp {
-    private 'checkpoint_id': string | undefined;
-    private 'created_at': Date | undefined;
-    public description: string;
-    private 'expired_at': Date | undefined;
-    private 'extend_info': BackupExtendInfo | undefined;
-    public id: string;
-    private 'image_type': BackupRespImageTypeEnum | undefined;
-    public name: string;
-    private 'parent_id': string | undefined;
-    private 'project_id': string | undefined;
-    private 'protected_at': string | undefined;
-    private 'resource_az': string | undefined;
-    private 'resource_id': string | undefined;
-    private 'resource_name': string | undefined;
-    private 'resource_size': number | undefined;
-    private 'resource_type': BackupRespResourceTypeEnum | undefined;
-    public status: BackupRespStatusEnum;
-    private 'updated_at': Date | undefined;
-    private 'vault_id': string | undefined;
-    private 'replication_records'?: Array<ReplicationRecordGet> | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'provider_id': string | undefined;
+    private 'checkpoint_id'?: string;
+    private 'created_at'?: Date;
+    public description?: string;
+    private 'expired_at'?: Date;
+    private 'extend_info'?: BackupExtendInfo;
+    public id?: string;
+    private 'image_type'?: BackupRespImageTypeEnum | string;
+    public name?: string;
+    private 'parent_id'?: string;
+    private 'project_id'?: string;
+    private 'protected_at'?: string;
+    private 'resource_az'?: string;
+    private 'resource_id'?: string;
+    private 'resource_name'?: string;
+    private 'resource_size'?: number;
+    private 'resource_type'?: BackupRespResourceTypeEnum | string;
+    public status?: BackupRespStatusEnum | string;
+    private 'updated_at'?: Date;
+    private 'vault_id'?: string;
+    private 'replication_records'?: Array<ReplicationRecordGet>;
+    private 'enterprise_project_id'?: string;
+    private 'provider_id'?: string;
     public children?: Array<BackupResp>;
-    public constructor(checkpointId?: any, createdAt?: any, description?: any, expiredAt?: any, extendInfo?: any, id?: any, imageType?: any, name?: any, parentId?: any, projectId?: any, protectedAt?: any, resourceAz?: any, resourceId?: any, resourceName?: any, resourceSize?: any, resourceType?: any, status?: any, updatedAt?: any, vaultId?: any, providerId?: any) { 
+    public constructor(checkpointId?: string, createdAt?: Date, description?: string, expiredAt?: Date, extendInfo?: BackupExtendInfo, id?: string, imageType?: string, name?: string, parentId?: string, projectId?: string, protectedAt?: string, resourceAz?: string, resourceId?: string, resourceName?: string, resourceSize?: number, resourceType?: string, status?: string, updatedAt?: Date, vaultId?: string, providerId?: string) { 
         this['checkpoint_id'] = checkpointId;
         this['created_at'] = createdAt;
         this['description'] = description;
@@ -52,20 +52,20 @@ export class BackupResp {
         this['checkpoint_id'] = checkpointId;
         return this;
     }
-    public set checkpointId(checkpointId: string | undefined) {
+    public set checkpointId(checkpointId: string  | undefined) {
         this['checkpoint_id'] = checkpointId;
     }
-    public get checkpointId() {
+    public get checkpointId(): string | undefined {
         return this['checkpoint_id'];
     }
     public withCreatedAt(createdAt: Date): BackupResp {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withDescription(description: string): BackupResp {
@@ -76,34 +76,34 @@ export class BackupResp {
         this['expired_at'] = expiredAt;
         return this;
     }
-    public set expiredAt(expiredAt: Date | undefined) {
+    public set expiredAt(expiredAt: Date  | undefined) {
         this['expired_at'] = expiredAt;
     }
-    public get expiredAt() {
+    public get expiredAt(): Date | undefined {
         return this['expired_at'];
     }
     public withExtendInfo(extendInfo: BackupExtendInfo): BackupResp {
         this['extend_info'] = extendInfo;
         return this;
     }
-    public set extendInfo(extendInfo: BackupExtendInfo | undefined) {
+    public set extendInfo(extendInfo: BackupExtendInfo  | undefined) {
         this['extend_info'] = extendInfo;
     }
-    public get extendInfo() {
+    public get extendInfo(): BackupExtendInfo | undefined {
         return this['extend_info'];
     }
     public withId(id: string): BackupResp {
         this['id'] = id;
         return this;
     }
-    public withImageType(imageType: BackupRespImageTypeEnum): BackupResp {
+    public withImageType(imageType: BackupRespImageTypeEnum | string): BackupResp {
         this['image_type'] = imageType;
         return this;
     }
-    public set imageType(imageType: BackupRespImageTypeEnum | undefined) {
+    public set imageType(imageType: BackupRespImageTypeEnum | string  | undefined) {
         this['image_type'] = imageType;
     }
-    public get imageType() {
+    public get imageType(): BackupRespImageTypeEnum | string | undefined {
         return this['image_type'];
     }
     public withName(name: string): BackupResp {
@@ -114,83 +114,83 @@ export class BackupResp {
         this['parent_id'] = parentId;
         return this;
     }
-    public set parentId(parentId: string | undefined) {
+    public set parentId(parentId: string  | undefined) {
         this['parent_id'] = parentId;
     }
-    public get parentId() {
+    public get parentId(): string | undefined {
         return this['parent_id'];
     }
     public withProjectId(projectId: string): BackupResp {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withProtectedAt(protectedAt: string): BackupResp {
         this['protected_at'] = protectedAt;
         return this;
     }
-    public set protectedAt(protectedAt: string | undefined) {
+    public set protectedAt(protectedAt: string  | undefined) {
         this['protected_at'] = protectedAt;
     }
-    public get protectedAt() {
+    public get protectedAt(): string | undefined {
         return this['protected_at'];
     }
     public withResourceAz(resourceAz: string): BackupResp {
         this['resource_az'] = resourceAz;
         return this;
     }
-    public set resourceAz(resourceAz: string | undefined) {
+    public set resourceAz(resourceAz: string  | undefined) {
         this['resource_az'] = resourceAz;
     }
-    public get resourceAz() {
+    public get resourceAz(): string | undefined {
         return this['resource_az'];
     }
     public withResourceId(resourceId: string): BackupResp {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
     public withResourceName(resourceName: string): BackupResp {
         this['resource_name'] = resourceName;
         return this;
     }
-    public set resourceName(resourceName: string | undefined) {
+    public set resourceName(resourceName: string  | undefined) {
         this['resource_name'] = resourceName;
     }
-    public get resourceName() {
+    public get resourceName(): string | undefined {
         return this['resource_name'];
     }
     public withResourceSize(resourceSize: number): BackupResp {
         this['resource_size'] = resourceSize;
         return this;
     }
-    public set resourceSize(resourceSize: number | undefined) {
+    public set resourceSize(resourceSize: number  | undefined) {
         this['resource_size'] = resourceSize;
     }
-    public get resourceSize() {
+    public get resourceSize(): number | undefined {
         return this['resource_size'];
     }
-    public withResourceType(resourceType: BackupRespResourceTypeEnum): BackupResp {
+    public withResourceType(resourceType: BackupRespResourceTypeEnum | string): BackupResp {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: BackupRespResourceTypeEnum | undefined) {
+    public set resourceType(resourceType: BackupRespResourceTypeEnum | string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): BackupRespResourceTypeEnum | string | undefined {
         return this['resource_type'];
     }
-    public withStatus(status: BackupRespStatusEnum): BackupResp {
+    public withStatus(status: BackupRespStatusEnum | string): BackupResp {
         this['status'] = status;
         return this;
     }
@@ -198,50 +198,50 @@ export class BackupResp {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withVaultId(vaultId: string): BackupResp {
         this['vault_id'] = vaultId;
         return this;
     }
-    public set vaultId(vaultId: string | undefined) {
+    public set vaultId(vaultId: string  | undefined) {
         this['vault_id'] = vaultId;
     }
-    public get vaultId() {
+    public get vaultId(): string | undefined {
         return this['vault_id'];
     }
     public withReplicationRecords(replicationRecords: Array<ReplicationRecordGet>): BackupResp {
         this['replication_records'] = replicationRecords;
         return this;
     }
-    public set replicationRecords(replicationRecords: Array<ReplicationRecordGet> | undefined) {
+    public set replicationRecords(replicationRecords: Array<ReplicationRecordGet>  | undefined) {
         this['replication_records'] = replicationRecords;
     }
-    public get replicationRecords() {
+    public get replicationRecords(): Array<ReplicationRecordGet> | undefined {
         return this['replication_records'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): BackupResp {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withProviderId(providerId: string): BackupResp {
         this['provider_id'] = providerId;
         return this;
     }
-    public set providerId(providerId: string | undefined) {
+    public set providerId(providerId: string  | undefined) {
         this['provider_id'] = providerId;
     }
-    public get providerId() {
+    public get providerId(): string | undefined {
         return this['provider_id'];
     }
     public withChildren(children: Array<BackupResp>): BackupResp {

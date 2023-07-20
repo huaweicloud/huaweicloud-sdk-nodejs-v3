@@ -2,19 +2,19 @@ import { RuleCondition } from './RuleCondition';
 
 
 export class L7Rule {
-    private 'admin_state_up': boolean | undefined;
-    private 'compare_type': string | undefined;
-    public key: string;
-    private 'project_id': string | undefined;
-    public type: L7RuleTypeEnum;
-    public value: string;
-    private 'provisioning_status': string | undefined;
-    public invert: boolean;
-    public id: string;
-    public conditions: Array<RuleCondition>;
-    private 'created_at'?: string | undefined;
-    private 'updated_at'?: string | undefined;
-    public constructor(adminStateUp?: any, compareType?: any, key?: any, projectId?: any, type?: any, value?: any, provisioningStatus?: any, invert?: any, id?: any, conditions?: any) { 
+    private 'admin_state_up'?: boolean;
+    private 'compare_type'?: string;
+    public key?: string;
+    private 'project_id'?: string;
+    public type?: L7RuleTypeEnum | string;
+    public value?: string;
+    private 'provisioning_status'?: string;
+    public invert?: boolean;
+    public id?: string;
+    public conditions?: Array<RuleCondition>;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    public constructor(adminStateUp?: boolean, compareType?: string, key?: string, projectId?: string, type?: string, value?: string, provisioningStatus?: string, invert?: boolean, id?: string, conditions?: Array<RuleCondition>) { 
         this['admin_state_up'] = adminStateUp;
         this['compare_type'] = compareType;
         this['key'] = key;
@@ -30,20 +30,20 @@ export class L7Rule {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withCompareType(compareType: string): L7Rule {
         this['compare_type'] = compareType;
         return this;
     }
-    public set compareType(compareType: string | undefined) {
+    public set compareType(compareType: string  | undefined) {
         this['compare_type'] = compareType;
     }
-    public get compareType() {
+    public get compareType(): string | undefined {
         return this['compare_type'];
     }
     public withKey(key: string): L7Rule {
@@ -54,13 +54,13 @@ export class L7Rule {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withType(type: L7RuleTypeEnum): L7Rule {
+    public withType(type: L7RuleTypeEnum | string): L7Rule {
         this['type'] = type;
         return this;
     }
@@ -72,10 +72,10 @@ export class L7Rule {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: string | undefined) {
+    public set provisioningStatus(provisioningStatus: string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): string | undefined {
         return this['provisioning_status'];
     }
     public withInvert(invert: boolean): L7Rule {
@@ -94,20 +94,20 @@ export class L7Rule {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): L7Rule {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
 }

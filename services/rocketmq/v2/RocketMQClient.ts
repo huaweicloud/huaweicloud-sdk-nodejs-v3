@@ -423,7 +423,7 @@ export class RocketMQClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listAvailableZones(): Promise<ListAvailableZonesResponse> {
+    public listAvailableZones(listAvailableZonesRequest?: ListAvailableZonesRequest): Promise<ListAvailableZonesResponse> {
         const options = ParamCreater().listAvailableZones();
 
          // @ts-ignore
@@ -775,7 +775,7 @@ export class RocketMQClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showRocketmqProjectTags(): Promise<ShowRocketmqProjectTagsResponse> {
+    public showRocketmqProjectTags(showRocketmqProjectTagsRequest?: ShowRocketmqProjectTagsRequest): Promise<ShowRocketmqProjectTagsResponse> {
         const options = ParamCreater().showRocketmqProjectTags();
 
          // @ts-ignore

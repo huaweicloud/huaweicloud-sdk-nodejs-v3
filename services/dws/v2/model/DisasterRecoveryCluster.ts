@@ -3,13 +3,13 @@
 export class DisasterRecoveryCluster {
     public id?: string;
     public name?: string;
-    private 'cluster_az'?: string | undefined;
+    private 'cluster_az'?: string;
     public role?: string;
     public region?: string;
     public status?: string;
     public progress?: string;
-    private 'last_success_time'?: string | undefined;
-    private 'obs_bucket_name'?: string | undefined;
+    private 'last_success_time'?: string;
+    private 'obs_bucket_name'?: string;
     public constructor() { 
     }
     public withId(id: string): DisasterRecoveryCluster {
@@ -24,10 +24,10 @@ export class DisasterRecoveryCluster {
         this['cluster_az'] = clusterAz;
         return this;
     }
-    public set clusterAz(clusterAz: string | undefined) {
+    public set clusterAz(clusterAz: string  | undefined) {
         this['cluster_az'] = clusterAz;
     }
-    public get clusterAz() {
+    public get clusterAz(): string | undefined {
         return this['cluster_az'];
     }
     public withRole(role: string): DisasterRecoveryCluster {
@@ -50,20 +50,20 @@ export class DisasterRecoveryCluster {
         this['last_success_time'] = lastSuccessTime;
         return this;
     }
-    public set lastSuccessTime(lastSuccessTime: string | undefined) {
+    public set lastSuccessTime(lastSuccessTime: string  | undefined) {
         this['last_success_time'] = lastSuccessTime;
     }
-    public get lastSuccessTime() {
+    public get lastSuccessTime(): string | undefined {
         return this['last_success_time'];
     }
     public withObsBucketName(obsBucketName: string): DisasterRecoveryCluster {
         this['obs_bucket_name'] = obsBucketName;
         return this;
     }
-    public set obsBucketName(obsBucketName: string | undefined) {
+    public set obsBucketName(obsBucketName: string  | undefined) {
         this['obs_bucket_name'] = obsBucketName;
     }
-    public get obsBucketName() {
+    public get obsBucketName(): string | undefined {
         return this['obs_bucket_name'];
     }
 }

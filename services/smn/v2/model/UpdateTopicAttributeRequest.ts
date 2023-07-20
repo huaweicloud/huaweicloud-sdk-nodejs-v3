@@ -2,10 +2,10 @@ import { UpdateTopicAttributeRequestBody } from './UpdateTopicAttributeRequestBo
 
 
 export class UpdateTopicAttributeRequest {
-    private 'topic_urn': string | undefined;
-    public name: string;
+    private 'topic_urn'?: string;
+    public name?: string;
     public body?: UpdateTopicAttributeRequestBody;
-    public constructor(topicUrn?: any, name?: any) { 
+    public constructor(topicUrn?: string, name?: string) { 
         this['topic_urn'] = topicUrn;
         this['name'] = name;
     }
@@ -13,10 +13,10 @@ export class UpdateTopicAttributeRequest {
         this['topic_urn'] = topicUrn;
         return this;
     }
-    public set topicUrn(topicUrn: string | undefined) {
+    public set topicUrn(topicUrn: string  | undefined) {
         this['topic_urn'] = topicUrn;
     }
-    public get topicUrn() {
+    public get topicUrn(): string | undefined {
         return this['topic_urn'];
     }
     public withName(name: string): UpdateTopicAttributeRequest {

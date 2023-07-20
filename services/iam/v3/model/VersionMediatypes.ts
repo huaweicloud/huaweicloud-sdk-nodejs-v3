@@ -1,9 +1,9 @@
 
 
 export class VersionMediatypes {
-    public type: string;
-    public base: string;
-    public constructor(type?: any, base?: any) { 
+    public type?: string;
+    public base?: string;
+    public constructor(type?: string, base?: string) { 
         this['type'] = type;
         this['base'] = base;
     }

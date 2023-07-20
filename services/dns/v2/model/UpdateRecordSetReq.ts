@@ -1,12 +1,12 @@
 
 
 export class UpdateRecordSetReq {
-    public name: string;
+    public name?: string;
     public description?: string;
-    public type: string;
+    public type?: string;
     public ttl?: number;
     public records?: Array<string>;
-    public constructor(name?: any, type?: any) { 
+    public constructor(name?: string, type?: string) { 
         this['name'] = name;
         this['type'] = type;
     }

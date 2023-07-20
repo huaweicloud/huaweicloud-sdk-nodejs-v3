@@ -4,8 +4,8 @@ export class ModDeptDTO {
     public deptName?: string;
     public parentDeptCode?: string;
     public note?: string;
-    public inPermission?: ModDeptDTOInPermissionEnum;
-    public outPermission?: ModDeptDTOOutPermissionEnum;
+    public inPermission?: ModDeptDTOInPermissionEnum | string;
+    public outPermission?: ModDeptDTOOutPermissionEnum | string;
     public designatedOutDeptCodes?: Array<string>;
     public sortLevel?: number;
     public constructor() { 
@@ -22,11 +22,11 @@ export class ModDeptDTO {
         this['note'] = note;
         return this;
     }
-    public withInPermission(inPermission: ModDeptDTOInPermissionEnum): ModDeptDTO {
+    public withInPermission(inPermission: ModDeptDTOInPermissionEnum | string): ModDeptDTO {
         this['inPermission'] = inPermission;
         return this;
     }
-    public withOutPermission(outPermission: ModDeptDTOOutPermissionEnum): ModDeptDTO {
+    public withOutPermission(outPermission: ModDeptDTOOutPermissionEnum | string): ModDeptDTO {
         this['outPermission'] = outPermission;
         return this;
     }

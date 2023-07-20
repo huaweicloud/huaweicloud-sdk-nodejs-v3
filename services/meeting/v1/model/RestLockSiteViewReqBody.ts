@@ -1,9 +1,9 @@
 
 
 export class RestLockSiteViewReqBody {
-    public status: number;
-    public participantID: string;
-    public constructor(status?: any, participantID?: any) { 
+    public status?: number;
+    public participantID?: string;
+    public constructor(status?: number, participantID?: string) { 
         this['status'] = status;
         this['participantID'] = participantID;
     }

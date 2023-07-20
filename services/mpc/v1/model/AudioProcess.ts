@@ -1,11 +1,11 @@
 
 
 export class AudioProcess {
-    public volume?: AudioProcessVolumeEnum;
-    private 'volume_expr'?: number | undefined;
+    public volume?: AudioProcessVolumeEnum | string;
+    private 'volume_expr'?: number;
     public constructor() { 
     }
-    public withVolume(volume: AudioProcessVolumeEnum): AudioProcess {
+    public withVolume(volume: AudioProcessVolumeEnum | string): AudioProcess {
         this['volume'] = volume;
         return this;
     }
@@ -13,10 +13,10 @@ export class AudioProcess {
         this['volume_expr'] = volumeExpr;
         return this;
     }
-    public set volumeExpr(volumeExpr: number | undefined) {
+    public set volumeExpr(volumeExpr: number  | undefined) {
         this['volume_expr'] = volumeExpr;
     }
-    public get volumeExpr() {
+    public get volumeExpr(): number | undefined {
         return this['volume_expr'];
     }
 }

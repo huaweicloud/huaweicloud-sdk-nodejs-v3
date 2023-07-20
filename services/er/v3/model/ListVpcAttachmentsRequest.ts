@@ -1,25 +1,25 @@
 
 
 export class ListVpcAttachmentsRequest {
-    private 'er_id': string | undefined;
+    private 'er_id'?: string;
     public limit?: number;
     public marker?: string;
-    public state?: Array<ListVpcAttachmentsRequestStateEnum>;
+    public state?: Array<ListVpcAttachmentsRequestStateEnum> | Array<string>;
     public id?: Array<string>;
-    private 'sort_key'?: Array<string> | undefined;
-    private 'sort_dir'?: Array<ListVpcAttachmentsRequestSortDirEnum> | undefined;
-    private 'vpc_id'?: Array<string> | undefined;
-    public constructor(erId?: any) { 
+    private 'sort_key'?: Array<string>;
+    private 'sort_dir'?: Array<ListVpcAttachmentsRequestSortDirEnum> | Array<string>;
+    private 'vpc_id'?: Array<string>;
+    public constructor(erId?: string) { 
         this['er_id'] = erId;
     }
     public withErId(erId: string): ListVpcAttachmentsRequest {
         this['er_id'] = erId;
         return this;
     }
-    public set erId(erId: string | undefined) {
+    public set erId(erId: string  | undefined) {
         this['er_id'] = erId;
     }
-    public get erId() {
+    public get erId(): string | undefined {
         return this['er_id'];
     }
     public withLimit(limit: number): ListVpcAttachmentsRequest {
@@ -30,7 +30,7 @@ export class ListVpcAttachmentsRequest {
         this['marker'] = marker;
         return this;
     }
-    public withState(state: Array<ListVpcAttachmentsRequestStateEnum>): ListVpcAttachmentsRequest {
+    public withState(state: Array<ListVpcAttachmentsRequestStateEnum> | Array<string>): ListVpcAttachmentsRequest {
         this['state'] = state;
         return this;
     }
@@ -42,30 +42,30 @@ export class ListVpcAttachmentsRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: Array<string> | undefined) {
+    public set sortKey(sortKey: Array<string>  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): Array<string> | undefined {
         return this['sort_key'];
     }
-    public withSortDir(sortDir: Array<ListVpcAttachmentsRequestSortDirEnum>): ListVpcAttachmentsRequest {
+    public withSortDir(sortDir: Array<ListVpcAttachmentsRequestSortDirEnum> | Array<string>): ListVpcAttachmentsRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: Array<ListVpcAttachmentsRequestSortDirEnum> | undefined) {
+    public set sortDir(sortDir: Array<ListVpcAttachmentsRequestSortDirEnum> | Array<string>  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): Array<ListVpcAttachmentsRequestSortDirEnum> | Array<string> | undefined {
         return this['sort_dir'];
     }
     public withVpcId(vpcId: Array<string>): ListVpcAttachmentsRequest {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: Array<string> | undefined) {
+    public set vpcId(vpcId: Array<string>  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): Array<string> | undefined {
         return this['vpc_id'];
     }
 }

@@ -3,7 +3,7 @@
 export class MyanmarDriverLicenseRequestBody {
     public image?: string;
     public url?: string;
-    private 'convert_unicode'?: boolean | undefined;
+    private 'convert_unicode'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): MyanmarDriverLicenseRequestBody {
@@ -18,10 +18,10 @@ export class MyanmarDriverLicenseRequestBody {
         this['convert_unicode'] = convertUnicode;
         return this;
     }
-    public set convertUnicode(convertUnicode: boolean | undefined) {
+    public set convertUnicode(convertUnicode: boolean  | undefined) {
         this['convert_unicode'] = convertUnicode;
     }
-    public get convertUnicode() {
+    public get convertUnicode(): boolean | undefined {
         return this['convert_unicode'];
     }
 }

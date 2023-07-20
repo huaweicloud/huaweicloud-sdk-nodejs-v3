@@ -759,7 +759,7 @@ export class CdnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showQuota(): Promise<ShowQuotaResponse> {
+    public showQuota(showQuotaRequest?: ShowQuotaRequest): Promise<ShowQuotaResponse> {
         const options = ParamCreater().showQuota();
 
          // @ts-ignore

@@ -928,7 +928,7 @@ export class VpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listSubnetTags(): Promise<ListSubnetTagsResponse> {
+    public listSubnetTags(listSubnetTagsRequest?: ListSubnetTagsRequest): Promise<ListSubnetTagsResponse> {
         const options = ParamCreater().listSubnetTags();
 
          // @ts-ignore
@@ -2399,7 +2399,7 @@ export class VpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listApiVersion(): Promise<ListApiVersionResponse> {
+    public listApiVersion(listApiVersionRequest?: ListApiVersionRequest): Promise<ListApiVersionResponse> {
         const options = ParamCreater().listApiVersion();
 
          // @ts-ignore
@@ -2602,7 +2602,7 @@ export class VpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listVpcTags(): Promise<ListVpcTagsResponse> {
+    public listVpcTags(listVpcTagsRequest?: ListVpcTagsRequest): Promise<ListVpcTagsResponse> {
         const options = ParamCreater().listVpcTags();
 
          // @ts-ignore

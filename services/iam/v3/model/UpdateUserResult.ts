@@ -2,21 +2,21 @@ import { LinksSelf } from './LinksSelf';
 
 
 export class UpdateUserResult {
-    private 'access_mode'?: string | undefined;
-    private 'pwd_status'?: boolean | undefined;
-    private 'xuser_id'?: string | undefined;
-    private 'xuser_type'?: string | undefined;
+    private 'access_mode'?: string;
+    private 'pwd_status'?: boolean;
+    private 'xuser_id'?: string;
+    private 'xuser_type'?: string;
     public description?: string;
-    public name: string;
+    public name?: string;
     public phone?: string;
-    private 'domain_id': string | undefined;
-    public enabled: boolean;
+    private 'domain_id'?: string;
+    public enabled?: boolean;
     public areacode?: string;
     public email?: string;
-    public id: string;
-    public links: LinksSelf;
-    private 'password_expires_at'?: string | undefined;
-    public constructor(name?: any, domainId?: any, enabled?: any, id?: any, links?: any) { 
+    public id?: string;
+    public links?: LinksSelf;
+    private 'password_expires_at'?: string;
+    public constructor(name?: string, domainId?: string, enabled?: boolean, id?: string, links?: LinksSelf) { 
         this['name'] = name;
         this['domain_id'] = domainId;
         this['enabled'] = enabled;
@@ -27,40 +27,40 @@ export class UpdateUserResult {
         this['access_mode'] = accessMode;
         return this;
     }
-    public set accessMode(accessMode: string | undefined) {
+    public set accessMode(accessMode: string  | undefined) {
         this['access_mode'] = accessMode;
     }
-    public get accessMode() {
+    public get accessMode(): string | undefined {
         return this['access_mode'];
     }
     public withPwdStatus(pwdStatus: boolean): UpdateUserResult {
         this['pwd_status'] = pwdStatus;
         return this;
     }
-    public set pwdStatus(pwdStatus: boolean | undefined) {
+    public set pwdStatus(pwdStatus: boolean  | undefined) {
         this['pwd_status'] = pwdStatus;
     }
-    public get pwdStatus() {
+    public get pwdStatus(): boolean | undefined {
         return this['pwd_status'];
     }
     public withXuserId(xuserId: string): UpdateUserResult {
         this['xuser_id'] = xuserId;
         return this;
     }
-    public set xuserId(xuserId: string | undefined) {
+    public set xuserId(xuserId: string  | undefined) {
         this['xuser_id'] = xuserId;
     }
-    public get xuserId() {
+    public get xuserId(): string | undefined {
         return this['xuser_id'];
     }
     public withXuserType(xuserType: string): UpdateUserResult {
         this['xuser_type'] = xuserType;
         return this;
     }
-    public set xuserType(xuserType: string | undefined) {
+    public set xuserType(xuserType: string  | undefined) {
         this['xuser_type'] = xuserType;
     }
-    public get xuserType() {
+    public get xuserType(): string | undefined {
         return this['xuser_type'];
     }
     public withDescription(description: string): UpdateUserResult {
@@ -79,10 +79,10 @@ export class UpdateUserResult {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withEnabled(enabled: boolean): UpdateUserResult {
@@ -109,10 +109,10 @@ export class UpdateUserResult {
         this['password_expires_at'] = passwordExpiresAt;
         return this;
     }
-    public set passwordExpiresAt(passwordExpiresAt: string | undefined) {
+    public set passwordExpiresAt(passwordExpiresAt: string  | undefined) {
         this['password_expires_at'] = passwordExpiresAt;
     }
-    public get passwordExpiresAt() {
+    public get passwordExpiresAt(): string | undefined {
         return this['password_expires_at'];
     }
 }

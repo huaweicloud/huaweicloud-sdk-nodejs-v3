@@ -1,12 +1,12 @@
 
 
 export class LiveDomainCreateReq {
-    public domain: string;
-    private 'domain_type': LiveDomainCreateReqDomainTypeEnum | undefined;
-    public region: string;
-    private 'service_area'?: LiveDomainCreateReqServiceAreaEnum | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    public constructor(domain?: any, domainType?: any, region?: any) { 
+    public domain?: string;
+    private 'domain_type'?: LiveDomainCreateReqDomainTypeEnum | string;
+    public region?: string;
+    private 'service_area'?: LiveDomainCreateReqServiceAreaEnum | string;
+    private 'enterprise_project_id'?: string;
+    public constructor(domain?: string, domainType?: string, region?: string) { 
         this['domain'] = domain;
         this['domain_type'] = domainType;
         this['region'] = region;
@@ -15,38 +15,38 @@ export class LiveDomainCreateReq {
         this['domain'] = domain;
         return this;
     }
-    public withDomainType(domainType: LiveDomainCreateReqDomainTypeEnum): LiveDomainCreateReq {
+    public withDomainType(domainType: LiveDomainCreateReqDomainTypeEnum | string): LiveDomainCreateReq {
         this['domain_type'] = domainType;
         return this;
     }
-    public set domainType(domainType: LiveDomainCreateReqDomainTypeEnum | undefined) {
+    public set domainType(domainType: LiveDomainCreateReqDomainTypeEnum | string  | undefined) {
         this['domain_type'] = domainType;
     }
-    public get domainType() {
+    public get domainType(): LiveDomainCreateReqDomainTypeEnum | string | undefined {
         return this['domain_type'];
     }
     public withRegion(region: string): LiveDomainCreateReq {
         this['region'] = region;
         return this;
     }
-    public withServiceArea(serviceArea: LiveDomainCreateReqServiceAreaEnum): LiveDomainCreateReq {
+    public withServiceArea(serviceArea: LiveDomainCreateReqServiceAreaEnum | string): LiveDomainCreateReq {
         this['service_area'] = serviceArea;
         return this;
     }
-    public set serviceArea(serviceArea: LiveDomainCreateReqServiceAreaEnum | undefined) {
+    public set serviceArea(serviceArea: LiveDomainCreateReqServiceAreaEnum | string  | undefined) {
         this['service_area'] = serviceArea;
     }
-    public get serviceArea() {
+    public get serviceArea(): LiveDomainCreateReqServiceAreaEnum | string | undefined {
         return this['service_area'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): LiveDomainCreateReq {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

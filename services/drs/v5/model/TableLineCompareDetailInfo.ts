@@ -1,12 +1,12 @@
 
 
 export class TableLineCompareDetailInfo {
-    private 'source_table_name'?: string | undefined;
-    private 'source_row_num'?: string | undefined;
-    private 'target_table_name'?: string | undefined;
-    private 'target_row_num'?: string | undefined;
-    private 'difference_row_num'?: string | undefined;
-    public status?: TableLineCompareDetailInfoStatusEnum;
+    private 'source_table_name'?: string;
+    private 'source_row_num'?: string;
+    private 'target_table_name'?: string;
+    private 'target_row_num'?: string;
+    private 'difference_row_num'?: string;
+    public status?: TableLineCompareDetailInfoStatusEnum | string;
     public message?: string;
     public constructor() { 
     }
@@ -14,53 +14,53 @@ export class TableLineCompareDetailInfo {
         this['source_table_name'] = sourceTableName;
         return this;
     }
-    public set sourceTableName(sourceTableName: string | undefined) {
+    public set sourceTableName(sourceTableName: string  | undefined) {
         this['source_table_name'] = sourceTableName;
     }
-    public get sourceTableName() {
+    public get sourceTableName(): string | undefined {
         return this['source_table_name'];
     }
     public withSourceRowNum(sourceRowNum: string): TableLineCompareDetailInfo {
         this['source_row_num'] = sourceRowNum;
         return this;
     }
-    public set sourceRowNum(sourceRowNum: string | undefined) {
+    public set sourceRowNum(sourceRowNum: string  | undefined) {
         this['source_row_num'] = sourceRowNum;
     }
-    public get sourceRowNum() {
+    public get sourceRowNum(): string | undefined {
         return this['source_row_num'];
     }
     public withTargetTableName(targetTableName: string): TableLineCompareDetailInfo {
         this['target_table_name'] = targetTableName;
         return this;
     }
-    public set targetTableName(targetTableName: string | undefined) {
+    public set targetTableName(targetTableName: string  | undefined) {
         this['target_table_name'] = targetTableName;
     }
-    public get targetTableName() {
+    public get targetTableName(): string | undefined {
         return this['target_table_name'];
     }
     public withTargetRowNum(targetRowNum: string): TableLineCompareDetailInfo {
         this['target_row_num'] = targetRowNum;
         return this;
     }
-    public set targetRowNum(targetRowNum: string | undefined) {
+    public set targetRowNum(targetRowNum: string  | undefined) {
         this['target_row_num'] = targetRowNum;
     }
-    public get targetRowNum() {
+    public get targetRowNum(): string | undefined {
         return this['target_row_num'];
     }
     public withDifferenceRowNum(differenceRowNum: string): TableLineCompareDetailInfo {
         this['difference_row_num'] = differenceRowNum;
         return this;
     }
-    public set differenceRowNum(differenceRowNum: string | undefined) {
+    public set differenceRowNum(differenceRowNum: string  | undefined) {
         this['difference_row_num'] = differenceRowNum;
     }
-    public get differenceRowNum() {
+    public get differenceRowNum(): string | undefined {
         return this['difference_row_num'];
     }
-    public withStatus(status: TableLineCompareDetailInfoStatusEnum): TableLineCompareDetailInfo {
+    public withStatus(status: TableLineCompareDetailInfoStatusEnum | string): TableLineCompareDetailInfo {
         this['status'] = status;
         return this;
     }

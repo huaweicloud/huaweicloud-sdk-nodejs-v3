@@ -1,11 +1,11 @@
 
 
 export class ShowPartitionMessageRequest {
-    private 'instance_id': string | undefined;
-    public topic: string;
-    public partition: number;
-    private 'message_offset': string | undefined;
-    public constructor(instanceId?: any, topic?: any, partition?: any, messageOffset?: any) { 
+    private 'instance_id'?: string;
+    public topic?: string;
+    public partition?: number;
+    private 'message_offset'?: string;
+    public constructor(instanceId?: string, topic?: string, partition?: number, messageOffset?: string) { 
         this['instance_id'] = instanceId;
         this['topic'] = topic;
         this['partition'] = partition;
@@ -15,10 +15,10 @@ export class ShowPartitionMessageRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withTopic(topic: string): ShowPartitionMessageRequest {
@@ -33,10 +33,10 @@ export class ShowPartitionMessageRequest {
         this['message_offset'] = messageOffset;
         return this;
     }
-    public set messageOffset(messageOffset: string | undefined) {
+    public set messageOffset(messageOffset: string  | undefined) {
         this['message_offset'] = messageOffset;
     }
-    public get messageOffset() {
+    public get messageOffset(): string | undefined {
         return this['message_offset'];
     }
 }

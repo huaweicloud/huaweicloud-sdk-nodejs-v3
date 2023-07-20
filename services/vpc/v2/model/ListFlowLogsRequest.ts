@@ -3,15 +3,15 @@
 export class ListFlowLogsRequest {
     public id?: string;
     public name?: string;
-    private 'tenant_id'?: string | undefined;
+    private 'tenant_id'?: string;
     public description?: string;
-    private 'resource_type'?: ListFlowLogsRequestResourceTypeEnum | undefined;
-    private 'resource_id'?: string | undefined;
-    private 'traffic_type'?: ListFlowLogsRequestTrafficTypeEnum | undefined;
-    private 'log_group_id'?: string | undefined;
-    private 'log_topic_id'?: string | undefined;
-    private 'log_store_type'?: ListFlowLogsRequestLogStoreTypeEnum | undefined;
-    public status?: ListFlowLogsRequestStatusEnum;
+    private 'resource_type'?: ListFlowLogsRequestResourceTypeEnum | string;
+    private 'resource_id'?: string;
+    private 'traffic_type'?: ListFlowLogsRequestTrafficTypeEnum | string;
+    private 'log_group_id'?: string;
+    private 'log_topic_id'?: string;
+    private 'log_store_type'?: ListFlowLogsRequestLogStoreTypeEnum | string;
+    public status?: ListFlowLogsRequestStatusEnum | string;
     public limit?: string;
     public marker?: string;
     public constructor() { 
@@ -28,77 +28,77 @@ export class ListFlowLogsRequest {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withDescription(description: string): ListFlowLogsRequest {
         this['description'] = description;
         return this;
     }
-    public withResourceType(resourceType: ListFlowLogsRequestResourceTypeEnum): ListFlowLogsRequest {
+    public withResourceType(resourceType: ListFlowLogsRequestResourceTypeEnum | string): ListFlowLogsRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: ListFlowLogsRequestResourceTypeEnum | undefined) {
+    public set resourceType(resourceType: ListFlowLogsRequestResourceTypeEnum | string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): ListFlowLogsRequestResourceTypeEnum | string | undefined {
         return this['resource_type'];
     }
     public withResourceId(resourceId: string): ListFlowLogsRequest {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
-    public withTrafficType(trafficType: ListFlowLogsRequestTrafficTypeEnum): ListFlowLogsRequest {
+    public withTrafficType(trafficType: ListFlowLogsRequestTrafficTypeEnum | string): ListFlowLogsRequest {
         this['traffic_type'] = trafficType;
         return this;
     }
-    public set trafficType(trafficType: ListFlowLogsRequestTrafficTypeEnum | undefined) {
+    public set trafficType(trafficType: ListFlowLogsRequestTrafficTypeEnum | string  | undefined) {
         this['traffic_type'] = trafficType;
     }
-    public get trafficType() {
+    public get trafficType(): ListFlowLogsRequestTrafficTypeEnum | string | undefined {
         return this['traffic_type'];
     }
     public withLogGroupId(logGroupId: string): ListFlowLogsRequest {
         this['log_group_id'] = logGroupId;
         return this;
     }
-    public set logGroupId(logGroupId: string | undefined) {
+    public set logGroupId(logGroupId: string  | undefined) {
         this['log_group_id'] = logGroupId;
     }
-    public get logGroupId() {
+    public get logGroupId(): string | undefined {
         return this['log_group_id'];
     }
     public withLogTopicId(logTopicId: string): ListFlowLogsRequest {
         this['log_topic_id'] = logTopicId;
         return this;
     }
-    public set logTopicId(logTopicId: string | undefined) {
+    public set logTopicId(logTopicId: string  | undefined) {
         this['log_topic_id'] = logTopicId;
     }
-    public get logTopicId() {
+    public get logTopicId(): string | undefined {
         return this['log_topic_id'];
     }
-    public withLogStoreType(logStoreType: ListFlowLogsRequestLogStoreTypeEnum): ListFlowLogsRequest {
+    public withLogStoreType(logStoreType: ListFlowLogsRequestLogStoreTypeEnum | string): ListFlowLogsRequest {
         this['log_store_type'] = logStoreType;
         return this;
     }
-    public set logStoreType(logStoreType: ListFlowLogsRequestLogStoreTypeEnum | undefined) {
+    public set logStoreType(logStoreType: ListFlowLogsRequestLogStoreTypeEnum | string  | undefined) {
         this['log_store_type'] = logStoreType;
     }
-    public get logStoreType() {
+    public get logStoreType(): ListFlowLogsRequestLogStoreTypeEnum | string | undefined {
         return this['log_store_type'];
     }
-    public withStatus(status: ListFlowLogsRequestStatusEnum): ListFlowLogsRequest {
+    public withStatus(status: ListFlowLogsRequestStatusEnum | string): ListFlowLogsRequest {
         this['status'] = status;
         return this;
     }

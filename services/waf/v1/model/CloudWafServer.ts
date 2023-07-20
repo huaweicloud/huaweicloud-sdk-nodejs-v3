@@ -1,37 +1,37 @@
 
 
 export class CloudWafServer {
-    private 'front_protocol': CloudWafServerFrontProtocolEnum | undefined;
-    private 'back_protocol': CloudWafServerBackProtocolEnum | undefined;
+    private 'front_protocol'?: CloudWafServerFrontProtocolEnum | string;
+    private 'back_protocol'?: CloudWafServerBackProtocolEnum | string;
     public weight?: number;
-    public address: string;
-    public port: number;
-    public type: CloudWafServerTypeEnum;
-    public constructor(frontProtocol?: any, backProtocol?: any, address?: any, port?: any, type?: any) { 
+    public address?: string;
+    public port?: number;
+    public type?: CloudWafServerTypeEnum | string;
+    public constructor(frontProtocol?: string, backProtocol?: string, address?: string, port?: number, type?: string) { 
         this['front_protocol'] = frontProtocol;
         this['back_protocol'] = backProtocol;
         this['address'] = address;
         this['port'] = port;
         this['type'] = type;
     }
-    public withFrontProtocol(frontProtocol: CloudWafServerFrontProtocolEnum): CloudWafServer {
+    public withFrontProtocol(frontProtocol: CloudWafServerFrontProtocolEnum | string): CloudWafServer {
         this['front_protocol'] = frontProtocol;
         return this;
     }
-    public set frontProtocol(frontProtocol: CloudWafServerFrontProtocolEnum | undefined) {
+    public set frontProtocol(frontProtocol: CloudWafServerFrontProtocolEnum | string  | undefined) {
         this['front_protocol'] = frontProtocol;
     }
-    public get frontProtocol() {
+    public get frontProtocol(): CloudWafServerFrontProtocolEnum | string | undefined {
         return this['front_protocol'];
     }
-    public withBackProtocol(backProtocol: CloudWafServerBackProtocolEnum): CloudWafServer {
+    public withBackProtocol(backProtocol: CloudWafServerBackProtocolEnum | string): CloudWafServer {
         this['back_protocol'] = backProtocol;
         return this;
     }
-    public set backProtocol(backProtocol: CloudWafServerBackProtocolEnum | undefined) {
+    public set backProtocol(backProtocol: CloudWafServerBackProtocolEnum | string  | undefined) {
         this['back_protocol'] = backProtocol;
     }
-    public get backProtocol() {
+    public get backProtocol(): CloudWafServerBackProtocolEnum | string | undefined {
         return this['back_protocol'];
     }
     public withWeight(weight: number): CloudWafServer {
@@ -46,7 +46,7 @@ export class CloudWafServer {
         this['port'] = port;
         return this;
     }
-    public withType(type: CloudWafServerTypeEnum): CloudWafServer {
+    public withType(type: CloudWafServerTypeEnum | string): CloudWafServer {
         this['type'] = type;
         return this;
     }

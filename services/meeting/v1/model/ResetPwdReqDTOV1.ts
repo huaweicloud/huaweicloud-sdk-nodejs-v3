@@ -1,10 +1,10 @@
 
 
 export class ResetPwdReqDTOV1 {
-    public user: string;
-    public newPwd: string;
+    public user?: string;
+    public newPwd?: string;
     public passWordType?: number;
-    public constructor(user?: any, newPwd?: any) { 
+    public constructor(user?: string, newPwd?: string) { 
         this['user'] = user;
         this['newPwd'] = newPwd;
     }

@@ -3,8 +3,8 @@ import { AddressGroup } from './AddressGroup';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAddressGroupResponse extends SdkResponse {
-    private 'request_id'?: string | undefined;
-    private 'address_group'?: AddressGroup | undefined;
+    private 'request_id'?: string;
+    private 'address_group'?: AddressGroup;
     public constructor() { 
         super();
     }
@@ -12,20 +12,20 @@ export class ShowAddressGroupResponse extends SdkResponse {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
     public withAddressGroup(addressGroup: AddressGroup): ShowAddressGroupResponse {
         this['address_group'] = addressGroup;
         return this;
     }
-    public set addressGroup(addressGroup: AddressGroup | undefined) {
+    public set addressGroup(addressGroup: AddressGroup  | undefined) {
         this['address_group'] = addressGroup;
     }
-    public get addressGroup() {
+    public get addressGroup(): AddressGroup | undefined {
         return this['address_group'];
     }
 }

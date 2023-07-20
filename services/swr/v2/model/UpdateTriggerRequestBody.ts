@@ -1,8 +1,8 @@
 
 
 export class UpdateTriggerRequestBody {
-    public enable: string;
-    public constructor(enable?: any) { 
+    public enable?: string;
+    public constructor(enable?: string) { 
         this['enable'] = enable;
     }
     public withEnable(enable: string): UpdateTriggerRequestBody {

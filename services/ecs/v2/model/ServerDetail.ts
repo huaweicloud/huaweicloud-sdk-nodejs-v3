@@ -11,54 +11,54 @@ import { ServerSystemTag } from './ServerSystemTag';
 
 
 export class ServerDetail {
-    public status: string;
-    public updated: string;
-    private 'auto_terminate_time': string | undefined;
-    public hostId: string;
-    private 'OS-EXT-SRV-ATTR:host': string | undefined;
-    public addresses: { [key: string]: Array<ServerAddress>; };
-    private 'key_name': string | undefined;
-    public image: ServerImage;
-    private 'OS-EXT-STS:task_state': string | undefined;
-    private 'OS-EXT-STS:vm_state': string | undefined;
-    private 'OS-EXT-SRV-ATTR:instance_name': string | undefined;
-    private 'OS-EXT-SRV-ATTR:hypervisor_hostname': string | undefined;
-    public flavor: ServerFlavor;
-    public id: string;
-    private 'security_groups': Array<ServerSecurityGroup> | undefined;
-    private 'OS-EXT-AZ:availability_zone': string | undefined;
-    private 'user_id': string | undefined;
-    public name: string;
-    public created: string;
-    private 'tenant_id': string | undefined;
-    private 'OS-DCF:diskConfig'?: string | undefined;
-    public accessIPv4: string;
-    public accessIPv6: string;
+    public status?: string;
+    public updated?: string;
+    private 'auto_terminate_time'?: string;
+    public hostId?: string;
+    private 'OS-EXT-SRV-ATTR:host'?: string;
+    public addresses?: { [key: string]: Array<ServerAddress>; };
+    private 'key_name'?: string;
+    public image?: ServerImage;
+    private 'OS-EXT-STS:task_state'?: string;
+    private 'OS-EXT-STS:vm_state'?: string;
+    private 'OS-EXT-SRV-ATTR:instance_name'?: string;
+    private 'OS-EXT-SRV-ATTR:hypervisor_hostname'?: string;
+    public flavor?: ServerFlavor;
+    public id?: string;
+    private 'security_groups'?: Array<ServerSecurityGroup>;
+    private 'OS-EXT-AZ:availability_zone'?: string;
+    private 'user_id'?: string;
+    public name?: string;
+    public created?: string;
+    private 'tenant_id'?: string;
+    private 'OS-DCF:diskConfig'?: string;
+    public accessIPv4?: string;
+    public accessIPv6?: string;
     public fault?: ServerFault;
     public progress?: number;
-    private 'OS-EXT-STS:power_state': number | undefined;
-    private 'config_drive': string | undefined;
-    public metadata: { [key: string]: string; };
-    private 'OS-SRV-USG:launched_at': string | undefined;
-    private 'OS-SRV-USG:terminated_at': string | undefined;
-    private 'os-extended-volumes:volumes_attached': Array<ServerExtendVolumeAttachment> | undefined;
+    private 'OS-EXT-STS:power_state'?: number;
+    private 'config_drive'?: string;
+    public metadata?: { [key: string]: string; };
+    private 'OS-SRV-USG:launched_at'?: string;
+    private 'OS-SRV-USG:terminated_at'?: string;
+    private 'os-extended-volumes:volumes_attached'?: Array<ServerExtendVolumeAttachment>;
     public description?: string;
-    private 'host_status': string | undefined;
-    private 'OS-EXT-SRV-ATTR:hostname': string | undefined;
-    private 'OS-EXT-SRV-ATTR:reservation_id'?: string | undefined;
-    private 'OS-EXT-SRV-ATTR:launch_index': number | undefined;
-    private 'OS-EXT-SRV-ATTR:kernel_id': string | undefined;
-    private 'OS-EXT-SRV-ATTR:ramdisk_id': string | undefined;
-    private 'OS-EXT-SRV-ATTR:root_device_name': string | undefined;
-    private 'OS-EXT-SRV-ATTR:user_data'?: string | undefined;
-    public locked: boolean;
+    private 'host_status'?: string;
+    private 'OS-EXT-SRV-ATTR:hostname'?: string;
+    private 'OS-EXT-SRV-ATTR:reservation_id'?: string;
+    private 'OS-EXT-SRV-ATTR:launch_index'?: number;
+    private 'OS-EXT-SRV-ATTR:kernel_id'?: string;
+    private 'OS-EXT-SRV-ATTR:ramdisk_id'?: string;
+    private 'OS-EXT-SRV-ATTR:root_device_name'?: string;
+    private 'OS-EXT-SRV-ATTR:user_data'?: string;
+    public locked?: boolean;
     public tags?: Array<string>;
-    private 'os:scheduler_hints'?: ServerSchedulerHints | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'sys_tags'?: Array<ServerSystemTag> | undefined;
-    private 'cpu_options'?: CpuOptions | undefined;
+    private 'os:scheduler_hints'?: ServerSchedulerHints;
+    private 'enterprise_project_id'?: string;
+    private 'sys_tags'?: Array<ServerSystemTag>;
+    private 'cpu_options'?: CpuOptions;
     public hypervisor?: Hypervisor;
-    public constructor(status?: any, updated?: any, autoTerminateTime?: any, hostId?: any, oSEXTSRVATTRHost?: any, addresses?: any, keyName?: any, image?: any, oSEXTSTSTaskState?: any, oSEXTSTSVmState?: any, oSEXTSRVATTRInstanceName?: any, oSEXTSRVATTRHypervisorHostname?: any, flavor?: any, id?: any, securityGroups?: any, oSEXTAZAvailabilityZone?: any, userId?: any, name?: any, created?: any, tenantId?: any, accessIPv4?: any, accessIPv6?: any, oSEXTSTSPowerState?: any, configDrive?: any, metadata?: any, oSSRVUSGLaunchedAt?: any, oSSRVUSGTerminatedAt?: any, osExtendedVolumesVolumesAttached?: any, hostStatus?: any, oSEXTSRVATTRHostname?: any, oSEXTSRVATTRLaunchIndex?: any, oSEXTSRVATTRKernelId?: any, oSEXTSRVATTRRamdiskId?: any, oSEXTSRVATTRRootDeviceName?: any, locked?: any) { 
+    public constructor(status?: string, updated?: string, autoTerminateTime?: string, hostId?: string, oSEXTSRVATTRHost?: string, addresses?: { [key: string]: Array<ServerAddress>; }, keyName?: string, image?: ServerImage, oSEXTSTSTaskState?: string, oSEXTSTSVmState?: string, oSEXTSRVATTRInstanceName?: string, oSEXTSRVATTRHypervisorHostname?: string, flavor?: ServerFlavor, id?: string, securityGroups?: Array<ServerSecurityGroup>, oSEXTAZAvailabilityZone?: string, userId?: string, name?: string, created?: string, tenantId?: string, accessIPv4?: string, accessIPv6?: string, oSEXTSTSPowerState?: number, configDrive?: string, metadata?: { [key: string]: string; }, oSSRVUSGLaunchedAt?: string, oSSRVUSGTerminatedAt?: string, osExtendedVolumesVolumesAttached?: Array<ServerExtendVolumeAttachment>, hostStatus?: string, oSEXTSRVATTRHostname?: string, oSEXTSRVATTRLaunchIndex?: number, oSEXTSRVATTRKernelId?: string, oSEXTSRVATTRRamdiskId?: string, oSEXTSRVATTRRootDeviceName?: string, locked?: boolean) { 
         this['status'] = status;
         this['updated'] = updated;
         this['auto_terminate_time'] = autoTerminateTime;
@@ -107,10 +107,10 @@ export class ServerDetail {
         this['auto_terminate_time'] = autoTerminateTime;
         return this;
     }
-    public set autoTerminateTime(autoTerminateTime: string | undefined) {
+    public set autoTerminateTime(autoTerminateTime: string  | undefined) {
         this['auto_terminate_time'] = autoTerminateTime;
     }
-    public get autoTerminateTime() {
+    public get autoTerminateTime(): string | undefined {
         return this['auto_terminate_time'];
     }
     public withHostId(hostId: string): ServerDetail {
@@ -121,10 +121,10 @@ export class ServerDetail {
         this['OS-EXT-SRV-ATTR:host'] = oSEXTSRVATTRHost;
         return this;
     }
-    public set oSEXTSRVATTRHost(oSEXTSRVATTRHost: string | undefined) {
+    public set oSEXTSRVATTRHost(oSEXTSRVATTRHost: string  | undefined) {
         this['OS-EXT-SRV-ATTR:host'] = oSEXTSRVATTRHost;
     }
-    public get oSEXTSRVATTRHost() {
+    public get oSEXTSRVATTRHost(): string | undefined {
         return this['OS-EXT-SRV-ATTR:host'];
     }
     public withAddresses(addresses: { [key: string]: Array<ServerAddress>; }): ServerDetail {
@@ -135,10 +135,10 @@ export class ServerDetail {
         this['key_name'] = keyName;
         return this;
     }
-    public set keyName(keyName: string | undefined) {
+    public set keyName(keyName: string  | undefined) {
         this['key_name'] = keyName;
     }
-    public get keyName() {
+    public get keyName(): string | undefined {
         return this['key_name'];
     }
     public withImage(image: ServerImage): ServerDetail {
@@ -149,40 +149,40 @@ export class ServerDetail {
         this['OS-EXT-STS:task_state'] = oSEXTSTSTaskState;
         return this;
     }
-    public set oSEXTSTSTaskState(oSEXTSTSTaskState: string | undefined) {
+    public set oSEXTSTSTaskState(oSEXTSTSTaskState: string  | undefined) {
         this['OS-EXT-STS:task_state'] = oSEXTSTSTaskState;
     }
-    public get oSEXTSTSTaskState() {
+    public get oSEXTSTSTaskState(): string | undefined {
         return this['OS-EXT-STS:task_state'];
     }
     public withOSEXTSTSVmState(oSEXTSTSVmState: string): ServerDetail {
         this['OS-EXT-STS:vm_state'] = oSEXTSTSVmState;
         return this;
     }
-    public set oSEXTSTSVmState(oSEXTSTSVmState: string | undefined) {
+    public set oSEXTSTSVmState(oSEXTSTSVmState: string  | undefined) {
         this['OS-EXT-STS:vm_state'] = oSEXTSTSVmState;
     }
-    public get oSEXTSTSVmState() {
+    public get oSEXTSTSVmState(): string | undefined {
         return this['OS-EXT-STS:vm_state'];
     }
     public withOSEXTSRVATTRInstanceName(oSEXTSRVATTRInstanceName: string): ServerDetail {
         this['OS-EXT-SRV-ATTR:instance_name'] = oSEXTSRVATTRInstanceName;
         return this;
     }
-    public set oSEXTSRVATTRInstanceName(oSEXTSRVATTRInstanceName: string | undefined) {
+    public set oSEXTSRVATTRInstanceName(oSEXTSRVATTRInstanceName: string  | undefined) {
         this['OS-EXT-SRV-ATTR:instance_name'] = oSEXTSRVATTRInstanceName;
     }
-    public get oSEXTSRVATTRInstanceName() {
+    public get oSEXTSRVATTRInstanceName(): string | undefined {
         return this['OS-EXT-SRV-ATTR:instance_name'];
     }
     public withOSEXTSRVATTRHypervisorHostname(oSEXTSRVATTRHypervisorHostname: string): ServerDetail {
         this['OS-EXT-SRV-ATTR:hypervisor_hostname'] = oSEXTSRVATTRHypervisorHostname;
         return this;
     }
-    public set oSEXTSRVATTRHypervisorHostname(oSEXTSRVATTRHypervisorHostname: string | undefined) {
+    public set oSEXTSRVATTRHypervisorHostname(oSEXTSRVATTRHypervisorHostname: string  | undefined) {
         this['OS-EXT-SRV-ATTR:hypervisor_hostname'] = oSEXTSRVATTRHypervisorHostname;
     }
-    public get oSEXTSRVATTRHypervisorHostname() {
+    public get oSEXTSRVATTRHypervisorHostname(): string | undefined {
         return this['OS-EXT-SRV-ATTR:hypervisor_hostname'];
     }
     public withFlavor(flavor: ServerFlavor): ServerDetail {
@@ -197,30 +197,30 @@ export class ServerDetail {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<ServerSecurityGroup> | undefined) {
+    public set securityGroups(securityGroups: Array<ServerSecurityGroup>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups() {
+    public get securityGroups(): Array<ServerSecurityGroup> | undefined {
         return this['security_groups'];
     }
     public withOSEXTAZAvailabilityZone(oSEXTAZAvailabilityZone: string): ServerDetail {
         this['OS-EXT-AZ:availability_zone'] = oSEXTAZAvailabilityZone;
         return this;
     }
-    public set oSEXTAZAvailabilityZone(oSEXTAZAvailabilityZone: string | undefined) {
+    public set oSEXTAZAvailabilityZone(oSEXTAZAvailabilityZone: string  | undefined) {
         this['OS-EXT-AZ:availability_zone'] = oSEXTAZAvailabilityZone;
     }
-    public get oSEXTAZAvailabilityZone() {
+    public get oSEXTAZAvailabilityZone(): string | undefined {
         return this['OS-EXT-AZ:availability_zone'];
     }
     public withUserId(userId: string): ServerDetail {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withName(name: string): ServerDetail {
@@ -235,20 +235,20 @@ export class ServerDetail {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withOSDCFDiskConfig(oSDCFDiskConfig: string): ServerDetail {
         this['OS-DCF:diskConfig'] = oSDCFDiskConfig;
         return this;
     }
-    public set oSDCFDiskConfig(oSDCFDiskConfig: string | undefined) {
+    public set oSDCFDiskConfig(oSDCFDiskConfig: string  | undefined) {
         this['OS-DCF:diskConfig'] = oSDCFDiskConfig;
     }
-    public get oSDCFDiskConfig() {
+    public get oSDCFDiskConfig(): string | undefined {
         return this['OS-DCF:diskConfig'];
     }
     public withAccessIPv4(accessIPv4: string): ServerDetail {
@@ -271,20 +271,20 @@ export class ServerDetail {
         this['OS-EXT-STS:power_state'] = oSEXTSTSPowerState;
         return this;
     }
-    public set oSEXTSTSPowerState(oSEXTSTSPowerState: number | undefined) {
+    public set oSEXTSTSPowerState(oSEXTSTSPowerState: number  | undefined) {
         this['OS-EXT-STS:power_state'] = oSEXTSTSPowerState;
     }
-    public get oSEXTSTSPowerState() {
+    public get oSEXTSTSPowerState(): number | undefined {
         return this['OS-EXT-STS:power_state'];
     }
     public withConfigDrive(configDrive: string): ServerDetail {
         this['config_drive'] = configDrive;
         return this;
     }
-    public set configDrive(configDrive: string | undefined) {
+    public set configDrive(configDrive: string  | undefined) {
         this['config_drive'] = configDrive;
     }
-    public get configDrive() {
+    public get configDrive(): string | undefined {
         return this['config_drive'];
     }
     public withMetadata(metadata: { [key: string]: string; }): ServerDetail {
@@ -295,30 +295,30 @@ export class ServerDetail {
         this['OS-SRV-USG:launched_at'] = oSSRVUSGLaunchedAt;
         return this;
     }
-    public set oSSRVUSGLaunchedAt(oSSRVUSGLaunchedAt: string | undefined) {
+    public set oSSRVUSGLaunchedAt(oSSRVUSGLaunchedAt: string  | undefined) {
         this['OS-SRV-USG:launched_at'] = oSSRVUSGLaunchedAt;
     }
-    public get oSSRVUSGLaunchedAt() {
+    public get oSSRVUSGLaunchedAt(): string | undefined {
         return this['OS-SRV-USG:launched_at'];
     }
     public withOSSRVUSGTerminatedAt(oSSRVUSGTerminatedAt: string): ServerDetail {
         this['OS-SRV-USG:terminated_at'] = oSSRVUSGTerminatedAt;
         return this;
     }
-    public set oSSRVUSGTerminatedAt(oSSRVUSGTerminatedAt: string | undefined) {
+    public set oSSRVUSGTerminatedAt(oSSRVUSGTerminatedAt: string  | undefined) {
         this['OS-SRV-USG:terminated_at'] = oSSRVUSGTerminatedAt;
     }
-    public get oSSRVUSGTerminatedAt() {
+    public get oSSRVUSGTerminatedAt(): string | undefined {
         return this['OS-SRV-USG:terminated_at'];
     }
     public withOsExtendedVolumesVolumesAttached(osExtendedVolumesVolumesAttached: Array<ServerExtendVolumeAttachment>): ServerDetail {
         this['os-extended-volumes:volumes_attached'] = osExtendedVolumesVolumesAttached;
         return this;
     }
-    public set osExtendedVolumesVolumesAttached(osExtendedVolumesVolumesAttached: Array<ServerExtendVolumeAttachment> | undefined) {
+    public set osExtendedVolumesVolumesAttached(osExtendedVolumesVolumesAttached: Array<ServerExtendVolumeAttachment>  | undefined) {
         this['os-extended-volumes:volumes_attached'] = osExtendedVolumesVolumesAttached;
     }
-    public get osExtendedVolumesVolumesAttached() {
+    public get osExtendedVolumesVolumesAttached(): Array<ServerExtendVolumeAttachment> | undefined {
         return this['os-extended-volumes:volumes_attached'];
     }
     public withDescription(description: string): ServerDetail {
@@ -329,80 +329,80 @@ export class ServerDetail {
         this['host_status'] = hostStatus;
         return this;
     }
-    public set hostStatus(hostStatus: string | undefined) {
+    public set hostStatus(hostStatus: string  | undefined) {
         this['host_status'] = hostStatus;
     }
-    public get hostStatus() {
+    public get hostStatus(): string | undefined {
         return this['host_status'];
     }
     public withOSEXTSRVATTRHostname(oSEXTSRVATTRHostname: string): ServerDetail {
         this['OS-EXT-SRV-ATTR:hostname'] = oSEXTSRVATTRHostname;
         return this;
     }
-    public set oSEXTSRVATTRHostname(oSEXTSRVATTRHostname: string | undefined) {
+    public set oSEXTSRVATTRHostname(oSEXTSRVATTRHostname: string  | undefined) {
         this['OS-EXT-SRV-ATTR:hostname'] = oSEXTSRVATTRHostname;
     }
-    public get oSEXTSRVATTRHostname() {
+    public get oSEXTSRVATTRHostname(): string | undefined {
         return this['OS-EXT-SRV-ATTR:hostname'];
     }
     public withOSEXTSRVATTRReservationId(oSEXTSRVATTRReservationId: string): ServerDetail {
         this['OS-EXT-SRV-ATTR:reservation_id'] = oSEXTSRVATTRReservationId;
         return this;
     }
-    public set oSEXTSRVATTRReservationId(oSEXTSRVATTRReservationId: string | undefined) {
+    public set oSEXTSRVATTRReservationId(oSEXTSRVATTRReservationId: string  | undefined) {
         this['OS-EXT-SRV-ATTR:reservation_id'] = oSEXTSRVATTRReservationId;
     }
-    public get oSEXTSRVATTRReservationId() {
+    public get oSEXTSRVATTRReservationId(): string | undefined {
         return this['OS-EXT-SRV-ATTR:reservation_id'];
     }
     public withOSEXTSRVATTRLaunchIndex(oSEXTSRVATTRLaunchIndex: number): ServerDetail {
         this['OS-EXT-SRV-ATTR:launch_index'] = oSEXTSRVATTRLaunchIndex;
         return this;
     }
-    public set oSEXTSRVATTRLaunchIndex(oSEXTSRVATTRLaunchIndex: number | undefined) {
+    public set oSEXTSRVATTRLaunchIndex(oSEXTSRVATTRLaunchIndex: number  | undefined) {
         this['OS-EXT-SRV-ATTR:launch_index'] = oSEXTSRVATTRLaunchIndex;
     }
-    public get oSEXTSRVATTRLaunchIndex() {
+    public get oSEXTSRVATTRLaunchIndex(): number | undefined {
         return this['OS-EXT-SRV-ATTR:launch_index'];
     }
     public withOSEXTSRVATTRKernelId(oSEXTSRVATTRKernelId: string): ServerDetail {
         this['OS-EXT-SRV-ATTR:kernel_id'] = oSEXTSRVATTRKernelId;
         return this;
     }
-    public set oSEXTSRVATTRKernelId(oSEXTSRVATTRKernelId: string | undefined) {
+    public set oSEXTSRVATTRKernelId(oSEXTSRVATTRKernelId: string  | undefined) {
         this['OS-EXT-SRV-ATTR:kernel_id'] = oSEXTSRVATTRKernelId;
     }
-    public get oSEXTSRVATTRKernelId() {
+    public get oSEXTSRVATTRKernelId(): string | undefined {
         return this['OS-EXT-SRV-ATTR:kernel_id'];
     }
     public withOSEXTSRVATTRRamdiskId(oSEXTSRVATTRRamdiskId: string): ServerDetail {
         this['OS-EXT-SRV-ATTR:ramdisk_id'] = oSEXTSRVATTRRamdiskId;
         return this;
     }
-    public set oSEXTSRVATTRRamdiskId(oSEXTSRVATTRRamdiskId: string | undefined) {
+    public set oSEXTSRVATTRRamdiskId(oSEXTSRVATTRRamdiskId: string  | undefined) {
         this['OS-EXT-SRV-ATTR:ramdisk_id'] = oSEXTSRVATTRRamdiskId;
     }
-    public get oSEXTSRVATTRRamdiskId() {
+    public get oSEXTSRVATTRRamdiskId(): string | undefined {
         return this['OS-EXT-SRV-ATTR:ramdisk_id'];
     }
     public withOSEXTSRVATTRRootDeviceName(oSEXTSRVATTRRootDeviceName: string): ServerDetail {
         this['OS-EXT-SRV-ATTR:root_device_name'] = oSEXTSRVATTRRootDeviceName;
         return this;
     }
-    public set oSEXTSRVATTRRootDeviceName(oSEXTSRVATTRRootDeviceName: string | undefined) {
+    public set oSEXTSRVATTRRootDeviceName(oSEXTSRVATTRRootDeviceName: string  | undefined) {
         this['OS-EXT-SRV-ATTR:root_device_name'] = oSEXTSRVATTRRootDeviceName;
     }
-    public get oSEXTSRVATTRRootDeviceName() {
+    public get oSEXTSRVATTRRootDeviceName(): string | undefined {
         return this['OS-EXT-SRV-ATTR:root_device_name'];
     }
     public withOSEXTSRVATTRUserData(oSEXTSRVATTRUserData: string): ServerDetail {
         this['OS-EXT-SRV-ATTR:user_data'] = oSEXTSRVATTRUserData;
         return this;
     }
-    public set oSEXTSRVATTRUserData(oSEXTSRVATTRUserData: string | undefined) {
+    public set oSEXTSRVATTRUserData(oSEXTSRVATTRUserData: string  | undefined) {
         this['OS-EXT-SRV-ATTR:user_data'] = oSEXTSRVATTRUserData;
     }
-    public get oSEXTSRVATTRUserData() {
+    public get oSEXTSRVATTRUserData(): string | undefined {
         return this['OS-EXT-SRV-ATTR:user_data'];
     }
     public withLocked(locked: boolean): ServerDetail {
@@ -417,40 +417,40 @@ export class ServerDetail {
         this['os:scheduler_hints'] = osSchedulerHints;
         return this;
     }
-    public set osSchedulerHints(osSchedulerHints: ServerSchedulerHints | undefined) {
+    public set osSchedulerHints(osSchedulerHints: ServerSchedulerHints  | undefined) {
         this['os:scheduler_hints'] = osSchedulerHints;
     }
-    public get osSchedulerHints() {
+    public get osSchedulerHints(): ServerSchedulerHints | undefined {
         return this['os:scheduler_hints'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ServerDetail {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withSysTags(sysTags: Array<ServerSystemTag>): ServerDetail {
         this['sys_tags'] = sysTags;
         return this;
     }
-    public set sysTags(sysTags: Array<ServerSystemTag> | undefined) {
+    public set sysTags(sysTags: Array<ServerSystemTag>  | undefined) {
         this['sys_tags'] = sysTags;
     }
-    public get sysTags() {
+    public get sysTags(): Array<ServerSystemTag> | undefined {
         return this['sys_tags'];
     }
     public withCpuOptions(cpuOptions: CpuOptions): ServerDetail {
         this['cpu_options'] = cpuOptions;
         return this;
     }
-    public set cpuOptions(cpuOptions: CpuOptions | undefined) {
+    public set cpuOptions(cpuOptions: CpuOptions  | undefined) {
         this['cpu_options'] = cpuOptions;
     }
-    public get cpuOptions() {
+    public get cpuOptions(): CpuOptions | undefined {
         return this['cpu_options'];
     }
     public withHypervisor(hypervisor: Hypervisor): ServerDetail {

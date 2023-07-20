@@ -3,8 +3,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdatePropertiesResponse extends SdkResponse {
     public response?: object;
-    private 'error_code'?: string | undefined;
-    private 'error_msg'?: object | undefined;
+    private 'error_code'?: string;
+    private 'error_msg'?: object;
     public constructor() { 
         super();
     }
@@ -16,20 +16,20 @@ export class UpdatePropertiesResponse extends SdkResponse {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
     public withErrorMsg(errorMsg: object): UpdatePropertiesResponse {
         this['error_msg'] = errorMsg;
         return this;
     }
-    public set errorMsg(errorMsg: object | undefined) {
+    public set errorMsg(errorMsg: object  | undefined) {
         this['error_msg'] = errorMsg;
     }
-    public get errorMsg() {
+    public get errorMsg(): object | undefined {
         return this['error_msg'];
     }
 }

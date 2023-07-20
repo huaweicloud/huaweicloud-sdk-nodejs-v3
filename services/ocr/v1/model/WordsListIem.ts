@@ -5,7 +5,7 @@ export class WordsListIem {
     public words?: string;
     public confidence?: number;
     public location?: Array<Array<number>>;
-    private 'char_list'?: Array<CharListIem> | undefined;
+    private 'char_list'?: Array<CharListIem>;
     public constructor() { 
     }
     public withWords(words: string): WordsListIem {
@@ -24,10 +24,10 @@ export class WordsListIem {
         this['char_list'] = charList;
         return this;
     }
-    public set charList(charList: Array<CharListIem> | undefined) {
+    public set charList(charList: Array<CharListIem>  | undefined) {
         this['char_list'] = charList;
     }
-    public get charList() {
+    public get charList(): Array<CharListIem> | undefined {
         return this['char_list'];
     }
 }

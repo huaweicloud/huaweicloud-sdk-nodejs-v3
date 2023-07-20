@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ConfirmImageUploadResponse extends SdkResponse {
     public id?: string;
-    private 'image_url'?: string | undefined;
+    private 'image_url'?: string;
     public constructor() { 
         super();
     }
@@ -15,10 +15,10 @@ export class ConfirmImageUploadResponse extends SdkResponse {
         this['image_url'] = imageUrl;
         return this;
     }
-    public set imageUrl(imageUrl: string | undefined) {
+    public set imageUrl(imageUrl: string  | undefined) {
         this['image_url'] = imageUrl;
     }
-    public get imageUrl() {
+    public get imageUrl(): string | undefined {
         return this['image_url'];
     }
 }

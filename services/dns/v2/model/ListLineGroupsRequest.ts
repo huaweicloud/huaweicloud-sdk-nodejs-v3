@@ -1,7 +1,7 @@
 
 
 export class ListLineGroupsRequest {
-    private 'line_id'?: string | undefined;
+    private 'line_id'?: string;
     public name?: string;
     public limit?: number;
     public offset?: number;
@@ -11,10 +11,10 @@ export class ListLineGroupsRequest {
         this['line_id'] = lineId;
         return this;
     }
-    public set lineId(lineId: string | undefined) {
+    public set lineId(lineId: string  | undefined) {
         this['line_id'] = lineId;
     }
-    public get lineId() {
+    public get lineId(): string | undefined {
         return this['line_id'];
     }
     public withName(name: string): ListLineGroupsRequest {

@@ -1,28 +1,28 @@
 
 
 export class ListMembersRequest {
-    private 'pool_id': string | undefined;
+    private 'pool_id'?: string;
     public limit?: number;
     public marker?: string;
-    private 'page_reverse'?: boolean | undefined;
+    private 'page_reverse'?: boolean;
     public id?: string;
     public name?: string;
     public address?: string;
-    private 'protocol_port'?: number | undefined;
-    private 'subnet_id'?: string | undefined;
-    private 'admin_state_up'?: boolean | undefined;
+    private 'protocol_port'?: number;
+    private 'subnet_id'?: string;
+    private 'admin_state_up'?: boolean;
     public weight?: number;
-    public constructor(poolId?: any) { 
+    public constructor(poolId?: string) { 
         this['pool_id'] = poolId;
     }
     public withPoolId(poolId: string): ListMembersRequest {
         this['pool_id'] = poolId;
         return this;
     }
-    public set poolId(poolId: string | undefined) {
+    public set poolId(poolId: string  | undefined) {
         this['pool_id'] = poolId;
     }
-    public get poolId() {
+    public get poolId(): string | undefined {
         return this['pool_id'];
     }
     public withLimit(limit: number): ListMembersRequest {
@@ -37,10 +37,10 @@ export class ListMembersRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withId(id: string): ListMembersRequest {
@@ -59,30 +59,30 @@ export class ListMembersRequest {
         this['protocol_port'] = protocolPort;
         return this;
     }
-    public set protocolPort(protocolPort: number | undefined) {
+    public set protocolPort(protocolPort: number  | undefined) {
         this['protocol_port'] = protocolPort;
     }
-    public get protocolPort() {
+    public get protocolPort(): number | undefined {
         return this['protocol_port'];
     }
     public withSubnetId(subnetId: string): ListMembersRequest {
         this['subnet_id'] = subnetId;
         return this;
     }
-    public set subnetId(subnetId: string | undefined) {
+    public set subnetId(subnetId: string  | undefined) {
         this['subnet_id'] = subnetId;
     }
-    public get subnetId() {
+    public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
     public withAdminStateUp(adminStateUp: boolean): ListMembersRequest {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withWeight(weight: number): ListMembersRequest {

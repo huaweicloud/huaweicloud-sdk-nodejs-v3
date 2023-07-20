@@ -1,21 +1,21 @@
 
 
 export class ListBigkeyScanTasksRequest {
-    private 'instance_id': string | undefined;
+    private 'instance_id'?: string;
     public offset?: number;
     public limit?: number;
-    public status?: ListBigkeyScanTasksRequestStatusEnum;
-    public constructor(instanceId?: any) { 
+    public status?: ListBigkeyScanTasksRequestStatusEnum | string;
+    public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
     public withInstanceId(instanceId: string): ListBigkeyScanTasksRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withOffset(offset: number): ListBigkeyScanTasksRequest {
@@ -26,7 +26,7 @@ export class ListBigkeyScanTasksRequest {
         this['limit'] = limit;
         return this;
     }
-    public withStatus(status: ListBigkeyScanTasksRequestStatusEnum): ListBigkeyScanTasksRequest {
+    public withStatus(status: ListBigkeyScanTasksRequestStatusEnum | string): ListBigkeyScanTasksRequest {
         this['status'] = status;
         return this;
     }

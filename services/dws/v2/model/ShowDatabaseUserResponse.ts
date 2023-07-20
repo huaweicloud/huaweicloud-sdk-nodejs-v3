@@ -9,10 +9,10 @@ export class ShowDatabaseUserResponse extends SdkResponse {
     public auditadmin?: boolean;
     public inherit?: boolean;
     public useft?: boolean;
-    private 'conn_limit'?: number | undefined;
+    private 'conn_limit'?: number;
     public replication?: boolean;
-    private 'valid_begin'?: number | undefined;
-    private 'valid_until'?: number | undefined;
+    private 'valid_begin'?: number;
+    private 'valid_until'?: number;
     public lock?: boolean;
     public constructor() { 
         super();
@@ -49,10 +49,10 @@ export class ShowDatabaseUserResponse extends SdkResponse {
         this['conn_limit'] = connLimit;
         return this;
     }
-    public set connLimit(connLimit: number | undefined) {
+    public set connLimit(connLimit: number  | undefined) {
         this['conn_limit'] = connLimit;
     }
-    public get connLimit() {
+    public get connLimit(): number | undefined {
         return this['conn_limit'];
     }
     public withReplication(replication: boolean): ShowDatabaseUserResponse {
@@ -63,20 +63,20 @@ export class ShowDatabaseUserResponse extends SdkResponse {
         this['valid_begin'] = validBegin;
         return this;
     }
-    public set validBegin(validBegin: number | undefined) {
+    public set validBegin(validBegin: number  | undefined) {
         this['valid_begin'] = validBegin;
     }
-    public get validBegin() {
+    public get validBegin(): number | undefined {
         return this['valid_begin'];
     }
     public withValidUntil(validUntil: number): ShowDatabaseUserResponse {
         this['valid_until'] = validUntil;
         return this;
     }
-    public set validUntil(validUntil: number | undefined) {
+    public set validUntil(validUntil: number  | undefined) {
         this['valid_until'] = validUntil;
     }
-    public get validUntil() {
+    public get validUntil(): number | undefined {
         return this['valid_until'];
     }
     public withLock(lock: boolean): ShowDatabaseUserResponse {

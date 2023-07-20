@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowOrganizationPolicyAssignmentStatusesResponse extends SdkResponse {
     public value?: Array<OrganizationPolicyAssignmentStatusResponse>;
-    private 'page_info'?: PageInfo | undefined;
+    private 'page_info'?: PageInfo;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class ShowOrganizationPolicyAssignmentStatusesResponse extends SdkRespons
         this['page_info'] = pageInfo;
         return this;
     }
-    public set pageInfo(pageInfo: PageInfo | undefined) {
+    public set pageInfo(pageInfo: PageInfo  | undefined) {
         this['page_info'] = pageInfo;
     }
-    public get pageInfo() {
+    public get pageInfo(): PageInfo | undefined {
         return this['page_info'];
     }
 }

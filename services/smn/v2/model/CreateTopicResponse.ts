@@ -2,8 +2,8 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateTopicResponse extends SdkResponse {
-    private 'request_id'?: string | undefined;
-    private 'topic_urn'?: string | undefined;
+    private 'request_id'?: string;
+    private 'topic_urn'?: string;
     public constructor() { 
         super();
     }
@@ -11,20 +11,20 @@ export class CreateTopicResponse extends SdkResponse {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
     public withTopicUrn(topicUrn: string): CreateTopicResponse {
         this['topic_urn'] = topicUrn;
         return this;
     }
-    public set topicUrn(topicUrn: string | undefined) {
+    public set topicUrn(topicUrn: string  | undefined) {
         this['topic_urn'] = topicUrn;
     }
-    public get topicUrn() {
+    public get topicUrn(): string | undefined {
         return this['topic_urn'];
     }
 }

@@ -4,7 +4,7 @@ export class ListVpcsRequest {
     public limit?: number;
     public marker?: string;
     public id?: string;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListVpcsRequest {
@@ -23,10 +23,10 @@ export class ListVpcsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

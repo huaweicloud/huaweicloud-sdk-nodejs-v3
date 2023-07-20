@@ -2,54 +2,54 @@ import { ObsDestinationDescriptor } from './ObsDestinationDescriptor';
 
 
 export class CreateSinkTaskReq {
-    private 'source_type': CreateSinkTaskReqSourceTypeEnum | undefined;
-    private 'task_name': string | undefined;
-    private 'destination_type': CreateSinkTaskReqDestinationTypeEnum | undefined;
-    private 'obs_destination_descriptor': ObsDestinationDescriptor | undefined;
-    public constructor(sourceType?: any, taskName?: any, destinationType?: any, obsDestinationDescriptor?: any) { 
+    private 'source_type'?: CreateSinkTaskReqSourceTypeEnum | string;
+    private 'task_name'?: string;
+    private 'destination_type'?: CreateSinkTaskReqDestinationTypeEnum | string;
+    private 'obs_destination_descriptor'?: ObsDestinationDescriptor;
+    public constructor(sourceType?: string, taskName?: string, destinationType?: string, obsDestinationDescriptor?: ObsDestinationDescriptor) { 
         this['source_type'] = sourceType;
         this['task_name'] = taskName;
         this['destination_type'] = destinationType;
         this['obs_destination_descriptor'] = obsDestinationDescriptor;
     }
-    public withSourceType(sourceType: CreateSinkTaskReqSourceTypeEnum): CreateSinkTaskReq {
+    public withSourceType(sourceType: CreateSinkTaskReqSourceTypeEnum | string): CreateSinkTaskReq {
         this['source_type'] = sourceType;
         return this;
     }
-    public set sourceType(sourceType: CreateSinkTaskReqSourceTypeEnum | undefined) {
+    public set sourceType(sourceType: CreateSinkTaskReqSourceTypeEnum | string  | undefined) {
         this['source_type'] = sourceType;
     }
-    public get sourceType() {
+    public get sourceType(): CreateSinkTaskReqSourceTypeEnum | string | undefined {
         return this['source_type'];
     }
     public withTaskName(taskName: string): CreateSinkTaskReq {
         this['task_name'] = taskName;
         return this;
     }
-    public set taskName(taskName: string | undefined) {
+    public set taskName(taskName: string  | undefined) {
         this['task_name'] = taskName;
     }
-    public get taskName() {
+    public get taskName(): string | undefined {
         return this['task_name'];
     }
-    public withDestinationType(destinationType: CreateSinkTaskReqDestinationTypeEnum): CreateSinkTaskReq {
+    public withDestinationType(destinationType: CreateSinkTaskReqDestinationTypeEnum | string): CreateSinkTaskReq {
         this['destination_type'] = destinationType;
         return this;
     }
-    public set destinationType(destinationType: CreateSinkTaskReqDestinationTypeEnum | undefined) {
+    public set destinationType(destinationType: CreateSinkTaskReqDestinationTypeEnum | string  | undefined) {
         this['destination_type'] = destinationType;
     }
-    public get destinationType() {
+    public get destinationType(): CreateSinkTaskReqDestinationTypeEnum | string | undefined {
         return this['destination_type'];
     }
     public withObsDestinationDescriptor(obsDestinationDescriptor: ObsDestinationDescriptor): CreateSinkTaskReq {
         this['obs_destination_descriptor'] = obsDestinationDescriptor;
         return this;
     }
-    public set obsDestinationDescriptor(obsDestinationDescriptor: ObsDestinationDescriptor | undefined) {
+    public set obsDestinationDescriptor(obsDestinationDescriptor: ObsDestinationDescriptor  | undefined) {
         this['obs_destination_descriptor'] = obsDestinationDescriptor;
     }
-    public get obsDestinationDescriptor() {
+    public get obsDestinationDescriptor(): ObsDestinationDescriptor | undefined {
         return this['obs_destination_descriptor'];
     }
 }

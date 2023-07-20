@@ -4,8 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowNamespaceResponse extends SdkResponse {
     public id?: number;
     public name?: string;
-    private 'creator_name'?: string | undefined;
-    public auth?: ShowNamespaceResponseAuthEnum;
+    private 'creator_name'?: string;
+    public auth?: ShowNamespaceResponseAuthEnum | number;
     public constructor() { 
         super();
     }
@@ -21,13 +21,13 @@ export class ShowNamespaceResponse extends SdkResponse {
         this['creator_name'] = creatorName;
         return this;
     }
-    public set creatorName(creatorName: string | undefined) {
+    public set creatorName(creatorName: string  | undefined) {
         this['creator_name'] = creatorName;
     }
-    public get creatorName() {
+    public get creatorName(): string | undefined {
         return this['creator_name'];
     }
-    public withAuth(auth: ShowNamespaceResponseAuthEnum): ShowNamespaceResponse {
+    public withAuth(auth: ShowNamespaceResponseAuthEnum | number): ShowNamespaceResponse {
         this['auth'] = auth;
         return this;
     }

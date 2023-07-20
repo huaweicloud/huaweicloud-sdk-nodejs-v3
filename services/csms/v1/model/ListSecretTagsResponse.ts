@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSecretTagsResponse extends SdkResponse {
     public tags?: Array<TagItem>;
-    private 'sys_tags'?: Array<TagItem> | undefined;
+    private 'sys_tags'?: Array<TagItem>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListSecretTagsResponse extends SdkResponse {
         this['sys_tags'] = sysTags;
         return this;
     }
-    public set sysTags(sysTags: Array<TagItem> | undefined) {
+    public set sysTags(sysTags: Array<TagItem>  | undefined) {
         this['sys_tags'] = sysTags;
     }
-    public get sysTags() {
+    public get sysTags(): Array<TagItem> | undefined {
         return this['sys_tags'];
     }
 }

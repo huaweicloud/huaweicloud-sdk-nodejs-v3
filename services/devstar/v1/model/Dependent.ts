@@ -3,7 +3,7 @@ import { ResouceInfo } from './ResouceInfo';
 
 export class Dependent {
     public name?: string;
-    private 'dependent_services'?: Array<ResouceInfo> | undefined;
+    private 'dependent_services'?: Array<ResouceInfo>;
     public constructor() { 
     }
     public withName(name: string): Dependent {
@@ -14,10 +14,10 @@ export class Dependent {
         this['dependent_services'] = dependentServices;
         return this;
     }
-    public set dependentServices(dependentServices: Array<ResouceInfo> | undefined) {
+    public set dependentServices(dependentServices: Array<ResouceInfo>  | undefined) {
         this['dependent_services'] = dependentServices;
     }
-    public get dependentServices() {
+    public get dependentServices(): Array<ResouceInfo> | undefined {
         return this['dependent_services'];
     }
 }

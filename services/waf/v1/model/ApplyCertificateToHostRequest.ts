@@ -2,11 +2,11 @@ import { ApplyCertificateToHostRequestBody } from './ApplyCertificateToHostReque
 
 
 export class ApplyCertificateToHostRequest {
-    private 'Content-Type': string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'certificate_id': string | undefined;
+    private 'Content-Type'?: string;
+    private 'enterprise_project_id'?: string;
+    private 'certificate_id'?: string;
     public body?: ApplyCertificateToHostRequestBody;
-    public constructor(contentType?: any, certificateId?: any) { 
+    public constructor(contentType?: string, certificateId?: string) { 
         this['Content-Type'] = contentType;
         this['certificate_id'] = certificateId;
     }
@@ -14,30 +14,30 @@ export class ApplyCertificateToHostRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ApplyCertificateToHostRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withCertificateId(certificateId: string): ApplyCertificateToHostRequest {
         this['certificate_id'] = certificateId;
         return this;
     }
-    public set certificateId(certificateId: string | undefined) {
+    public set certificateId(certificateId: string  | undefined) {
         this['certificate_id'] = certificateId;
     }
-    public get certificateId() {
+    public get certificateId(): string | undefined {
         return this['certificate_id'];
     }
     public withBody(body: ApplyCertificateToHostRequestBody): ApplyCertificateToHostRequest {

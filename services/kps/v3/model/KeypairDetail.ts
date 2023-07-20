@@ -3,18 +3,18 @@
 export class KeypairDetail {
     public name?: string;
     public id?: number;
-    public type?: KeypairDetailTypeEnum;
-    public scope?: KeypairDetailScopeEnum;
-    private 'public_key'?: string | undefined;
+    public type?: KeypairDetailTypeEnum | string;
+    public scope?: KeypairDetailScopeEnum | string;
+    private 'public_key'?: string;
     public fingerprint?: string;
-    private 'is_key_protection'?: boolean | undefined;
+    private 'is_key_protection'?: boolean;
     public deleted?: boolean;
     public description?: string;
-    private 'user_id'?: string | undefined;
-    private 'create_time'?: number | undefined;
-    private 'delete_time'?: number | undefined;
-    private 'update_time'?: number | undefined;
-    private 'frozen_state'?: number | undefined;
+    private 'user_id'?: string;
+    private 'create_time'?: number;
+    private 'delete_time'?: number;
+    private 'update_time'?: number;
+    private 'frozen_state'?: number;
     public constructor() { 
     }
     public withName(name: string): KeypairDetail {
@@ -25,11 +25,11 @@ export class KeypairDetail {
         this['id'] = id;
         return this;
     }
-    public withType(type: KeypairDetailTypeEnum): KeypairDetail {
+    public withType(type: KeypairDetailTypeEnum | string): KeypairDetail {
         this['type'] = type;
         return this;
     }
-    public withScope(scope: KeypairDetailScopeEnum): KeypairDetail {
+    public withScope(scope: KeypairDetailScopeEnum | string): KeypairDetail {
         this['scope'] = scope;
         return this;
     }
@@ -37,10 +37,10 @@ export class KeypairDetail {
         this['public_key'] = publicKey;
         return this;
     }
-    public set publicKey(publicKey: string | undefined) {
+    public set publicKey(publicKey: string  | undefined) {
         this['public_key'] = publicKey;
     }
-    public get publicKey() {
+    public get publicKey(): string | undefined {
         return this['public_key'];
     }
     public withFingerprint(fingerprint: string): KeypairDetail {
@@ -51,10 +51,10 @@ export class KeypairDetail {
         this['is_key_protection'] = isKeyProtection;
         return this;
     }
-    public set isKeyProtection(isKeyProtection: boolean | undefined) {
+    public set isKeyProtection(isKeyProtection: boolean  | undefined) {
         this['is_key_protection'] = isKeyProtection;
     }
-    public get isKeyProtection() {
+    public get isKeyProtection(): boolean | undefined {
         return this['is_key_protection'];
     }
     public withDeleted(deleted: boolean): KeypairDetail {
@@ -69,50 +69,50 @@ export class KeypairDetail {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withCreateTime(createTime: number): KeypairDetail {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: number | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
     public withDeleteTime(deleteTime: number): KeypairDetail {
         this['delete_time'] = deleteTime;
         return this;
     }
-    public set deleteTime(deleteTime: number | undefined) {
+    public set deleteTime(deleteTime: number  | undefined) {
         this['delete_time'] = deleteTime;
     }
-    public get deleteTime() {
+    public get deleteTime(): number | undefined {
         return this['delete_time'];
     }
     public withUpdateTime(updateTime: number): KeypairDetail {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: number | undefined) {
+    public set updateTime(updateTime: number  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): number | undefined {
         return this['update_time'];
     }
     public withFrozenState(frozenState: number): KeypairDetail {
         this['frozen_state'] = frozenState;
         return this;
     }
-    public set frozenState(frozenState: number | undefined) {
+    public set frozenState(frozenState: number  | undefined) {
         this['frozen_state'] = frozenState;
     }
-    public get frozenState() {
+    public get frozenState(): number | undefined {
         return this['frozen_state'];
     }
 }

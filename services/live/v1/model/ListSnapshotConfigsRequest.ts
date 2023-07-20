@@ -1,11 +1,11 @@
 
 
 export class ListSnapshotConfigsRequest {
-    public domain: string;
-    private 'app_name'?: string | undefined;
+    public domain?: string;
+    private 'app_name'?: string;
     public limit?: number;
     public offset?: number;
-    public constructor(domain?: any) { 
+    public constructor(domain?: string) { 
         this['domain'] = domain;
     }
     public withDomain(domain: string): ListSnapshotConfigsRequest {
@@ -16,10 +16,10 @@ export class ListSnapshotConfigsRequest {
         this['app_name'] = appName;
         return this;
     }
-    public set appName(appName: string | undefined) {
+    public set appName(appName: string  | undefined) {
         this['app_name'] = appName;
     }
-    public get appName() {
+    public get appName(): string | undefined {
         return this['app_name'];
     }
     public withLimit(limit: number): ListSnapshotConfigsRequest {

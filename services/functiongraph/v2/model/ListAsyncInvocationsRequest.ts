@@ -1,34 +1,34 @@
 
 
 export class ListAsyncInvocationsRequest {
-    private 'function_urn': string | undefined;
-    private 'request_id'?: string | undefined;
+    private 'function_urn'?: string;
+    private 'request_id'?: string;
     public marker?: string;
     public limit?: string;
     public status?: string;
-    private 'query_begin_time'?: Date | undefined;
-    private 'query_end_time'?: Date | undefined;
-    public constructor(functionUrn?: any) { 
+    private 'query_begin_time'?: Date;
+    private 'query_end_time'?: Date;
+    public constructor(functionUrn?: string) { 
         this['function_urn'] = functionUrn;
     }
     public withFunctionUrn(functionUrn: string): ListAsyncInvocationsRequest {
         this['function_urn'] = functionUrn;
         return this;
     }
-    public set functionUrn(functionUrn: string | undefined) {
+    public set functionUrn(functionUrn: string  | undefined) {
         this['function_urn'] = functionUrn;
     }
-    public get functionUrn() {
+    public get functionUrn(): string | undefined {
         return this['function_urn'];
     }
     public withRequestId(requestId: string): ListAsyncInvocationsRequest {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
     public withMarker(marker: string): ListAsyncInvocationsRequest {
@@ -47,20 +47,20 @@ export class ListAsyncInvocationsRequest {
         this['query_begin_time'] = queryBeginTime;
         return this;
     }
-    public set queryBeginTime(queryBeginTime: Date | undefined) {
+    public set queryBeginTime(queryBeginTime: Date  | undefined) {
         this['query_begin_time'] = queryBeginTime;
     }
-    public get queryBeginTime() {
+    public get queryBeginTime(): Date | undefined {
         return this['query_begin_time'];
     }
     public withQueryEndTime(queryEndTime: Date): ListAsyncInvocationsRequest {
         this['query_end_time'] = queryEndTime;
         return this;
     }
-    public set queryEndTime(queryEndTime: Date | undefined) {
+    public set queryEndTime(queryEndTime: Date  | undefined) {
         this['query_end_time'] = queryEndTime;
     }
-    public get queryEndTime() {
+    public get queryEndTime(): Date | undefined {
         return this['query_end_time'];
     }
 }

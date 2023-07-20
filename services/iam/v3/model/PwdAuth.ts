@@ -3,9 +3,9 @@ import { PwdIdentity } from './PwdIdentity';
 
 
 export class PwdAuth {
-    public identity: PwdIdentity;
-    public scope: AuthScope;
-    public constructor(identity?: any, scope?: any) { 
+    public identity?: PwdIdentity;
+    public scope?: AuthScope;
+    public constructor(identity?: PwdIdentity, scope?: AuthScope) { 
         this['identity'] = identity;
         this['scope'] = scope;
     }

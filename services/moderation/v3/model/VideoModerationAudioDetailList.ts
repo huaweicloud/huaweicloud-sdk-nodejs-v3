@@ -4,7 +4,7 @@ import { VideoModerationDetailSegment } from './VideoModerationDetailSegment';
 export class VideoModerationAudioDetailList {
     public confidence?: number;
     public label?: string;
-    public suggestion?: VideoModerationAudioDetailListSuggestionEnum;
+    public suggestion?: VideoModerationAudioDetailListSuggestionEnum | string;
     public segments?: Array<VideoModerationDetailSegment>;
     public constructor() { 
     }
@@ -16,7 +16,7 @@ export class VideoModerationAudioDetailList {
         this['label'] = label;
         return this;
     }
-    public withSuggestion(suggestion: VideoModerationAudioDetailListSuggestionEnum): VideoModerationAudioDetailList {
+    public withSuggestion(suggestion: VideoModerationAudioDetailListSuggestionEnum | string): VideoModerationAudioDetailList {
         this['suggestion'] = suggestion;
         return this;
     }

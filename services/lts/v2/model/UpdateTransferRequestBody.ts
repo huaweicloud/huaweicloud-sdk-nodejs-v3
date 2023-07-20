@@ -2,9 +2,9 @@ import { UpdateTransferRequestBodyLogTransferInfo } from './UpdateTransferReques
 
 
 export class UpdateTransferRequestBody {
-    private 'log_transfer_id': string | undefined;
-    private 'log_transfer_info': UpdateTransferRequestBodyLogTransferInfo | undefined;
-    public constructor(logTransferId?: any, logTransferInfo?: any) { 
+    private 'log_transfer_id'?: string;
+    private 'log_transfer_info'?: UpdateTransferRequestBodyLogTransferInfo;
+    public constructor(logTransferId?: string, logTransferInfo?: UpdateTransferRequestBodyLogTransferInfo) { 
         this['log_transfer_id'] = logTransferId;
         this['log_transfer_info'] = logTransferInfo;
     }
@@ -12,20 +12,20 @@ export class UpdateTransferRequestBody {
         this['log_transfer_id'] = logTransferId;
         return this;
     }
-    public set logTransferId(logTransferId: string | undefined) {
+    public set logTransferId(logTransferId: string  | undefined) {
         this['log_transfer_id'] = logTransferId;
     }
-    public get logTransferId() {
+    public get logTransferId(): string | undefined {
         return this['log_transfer_id'];
     }
     public withLogTransferInfo(logTransferInfo: UpdateTransferRequestBodyLogTransferInfo): UpdateTransferRequestBody {
         this['log_transfer_info'] = logTransferInfo;
         return this;
     }
-    public set logTransferInfo(logTransferInfo: UpdateTransferRequestBodyLogTransferInfo | undefined) {
+    public set logTransferInfo(logTransferInfo: UpdateTransferRequestBodyLogTransferInfo  | undefined) {
         this['log_transfer_info'] = logTransferInfo;
     }
-    public get logTransferInfo() {
+    public get logTransferInfo(): UpdateTransferRequestBodyLogTransferInfo | undefined {
         return this['log_transfer_info'];
     }
 }

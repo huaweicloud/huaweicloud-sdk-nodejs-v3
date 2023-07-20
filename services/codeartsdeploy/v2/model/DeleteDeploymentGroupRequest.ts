@@ -1,9 +1,9 @@
 
 
 export class DeleteDeploymentGroupRequest {
-    private 'group_id': string | undefined;
-    private 'Content-Type': DeleteDeploymentGroupRequestContentTypeEnum | undefined;
-    public constructor(groupId?: any, contentType?: any) { 
+    private 'group_id'?: string;
+    private 'Content-Type'?: DeleteDeploymentGroupRequestContentTypeEnum | string;
+    public constructor(groupId?: string, contentType?: string) { 
         this['group_id'] = groupId;
         this['Content-Type'] = contentType;
     }
@@ -11,20 +11,20 @@ export class DeleteDeploymentGroupRequest {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
-    public withContentType(contentType: DeleteDeploymentGroupRequestContentTypeEnum): DeleteDeploymentGroupRequest {
+    public withContentType(contentType: DeleteDeploymentGroupRequestContentTypeEnum | string): DeleteDeploymentGroupRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: DeleteDeploymentGroupRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: DeleteDeploymentGroupRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): DeleteDeploymentGroupRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
 }

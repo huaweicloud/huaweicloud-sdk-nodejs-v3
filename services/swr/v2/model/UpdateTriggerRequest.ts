@@ -2,25 +2,25 @@ import { UpdateTriggerRequestBody } from './UpdateTriggerRequestBody';
 
 
 export class UpdateTriggerRequest {
-    private 'Content-Type': UpdateTriggerRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
-    public trigger: string;
+    private 'Content-Type'?: UpdateTriggerRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
+    public trigger?: string;
     public body?: UpdateTriggerRequestBody;
-    public constructor(contentType?: any, namespace?: any, repository?: any, trigger?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string, trigger?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
         this['trigger'] = trigger;
     }
-    public withContentType(contentType: UpdateTriggerRequestContentTypeEnum): UpdateTriggerRequest {
+    public withContentType(contentType: UpdateTriggerRequestContentTypeEnum | string): UpdateTriggerRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: UpdateTriggerRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: UpdateTriggerRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): UpdateTriggerRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): UpdateTriggerRequest {

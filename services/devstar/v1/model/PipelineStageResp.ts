@@ -1,7 +1,7 @@
 
 
 export class PipelineStageResp {
-    private 'display_name'?: string | undefined;
+    private 'display_name'?: string;
     public status?: string;
     public result?: string;
     public constructor() { 
@@ -10,10 +10,10 @@ export class PipelineStageResp {
         this['display_name'] = displayName;
         return this;
     }
-    public set displayName(displayName: string | undefined) {
+    public set displayName(displayName: string  | undefined) {
         this['display_name'] = displayName;
     }
-    public get displayName() {
+    public get displayName(): string | undefined {
         return this['display_name'];
     }
     public withStatus(status: string): PipelineStageResp {

@@ -3,7 +3,7 @@ import { TopUrl } from './TopUrl';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListTopStatisticsResponse extends SdkResponse {
-    private 'top_urls'?: Array<TopUrl> | undefined;
+    private 'top_urls'?: Array<TopUrl>;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ListTopStatisticsResponse extends SdkResponse {
         this['top_urls'] = topUrls;
         return this;
     }
-    public set topUrls(topUrls: Array<TopUrl> | undefined) {
+    public set topUrls(topUrls: Array<TopUrl>  | undefined) {
         this['top_urls'] = topUrls;
     }
-    public get topUrls() {
+    public get topUrls(): Array<TopUrl> | undefined {
         return this['top_urls'];
     }
 }

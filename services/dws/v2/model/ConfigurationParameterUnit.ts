@@ -1,10 +1,10 @@
 
 
 export class ConfigurationParameterUnit {
-    public type: string;
-    public value: string;
-    private 'default_value': string | undefined;
-    public constructor(type?: any, value?: any, defaultValue?: any) { 
+    public type?: string;
+    public value?: string;
+    private 'default_value'?: string;
+    public constructor(type?: string, value?: string, defaultValue?: string) { 
         this['type'] = type;
         this['value'] = value;
         this['default_value'] = defaultValue;
@@ -21,10 +21,10 @@ export class ConfigurationParameterUnit {
         this['default_value'] = defaultValue;
         return this;
     }
-    public set defaultValue(defaultValue: string | undefined) {
+    public set defaultValue(defaultValue: string  | undefined) {
         this['default_value'] = defaultValue;
     }
-    public get defaultValue() {
+    public get defaultValue(): string | undefined {
         return this['default_value'];
     }
 }

@@ -2,7 +2,7 @@ import { VatInvoiceRequestBody } from './VatInvoiceRequestBody';
 
 
 export class RecognizeVatInvoiceRequest {
-    private 'Enterprise-Project-Id'?: string | undefined;
+    private 'Enterprise-Project-Id'?: string;
     public body?: VatInvoiceRequestBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class RecognizeVatInvoiceRequest {
         this['Enterprise-Project-Id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['Enterprise-Project-Id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['Enterprise-Project-Id'];
     }
     public withBody(body: VatInvoiceRequestBody): RecognizeVatInvoiceRequest {

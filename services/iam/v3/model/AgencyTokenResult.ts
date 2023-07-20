@@ -7,16 +7,16 @@ import { TokenRole } from './TokenRole';
 
 
 export class AgencyTokenResult {
-    public methods: Array<string>;
-    private 'expires_at': string | undefined;
-    private 'issued_at': string | undefined;
-    private 'assumed_by': AgencyAssumedby | undefined;
+    public methods?: Array<string>;
+    private 'expires_at'?: string;
+    private 'issued_at'?: string;
+    private 'assumed_by'?: AgencyAssumedby;
     public catalog?: Array<TokenCatalog>;
     public domain?: AgencyTokenDomain;
     public project?: AgencyTokenProject;
-    public roles: Array<TokenRole>;
-    public user: AgencyTokenUser;
-    public constructor(methods?: any, expiresAt?: any, issuedAt?: any, assumedBy?: any, roles?: any, user?: any) { 
+    public roles?: Array<TokenRole>;
+    public user?: AgencyTokenUser;
+    public constructor(methods?: Array<string>, expiresAt?: string, issuedAt?: string, assumedBy?: AgencyAssumedby, roles?: Array<TokenRole>, user?: AgencyTokenUser) { 
         this['methods'] = methods;
         this['expires_at'] = expiresAt;
         this['issued_at'] = issuedAt;
@@ -32,30 +32,30 @@ export class AgencyTokenResult {
         this['expires_at'] = expiresAt;
         return this;
     }
-    public set expiresAt(expiresAt: string | undefined) {
+    public set expiresAt(expiresAt: string  | undefined) {
         this['expires_at'] = expiresAt;
     }
-    public get expiresAt() {
+    public get expiresAt(): string | undefined {
         return this['expires_at'];
     }
     public withIssuedAt(issuedAt: string): AgencyTokenResult {
         this['issued_at'] = issuedAt;
         return this;
     }
-    public set issuedAt(issuedAt: string | undefined) {
+    public set issuedAt(issuedAt: string  | undefined) {
         this['issued_at'] = issuedAt;
     }
-    public get issuedAt() {
+    public get issuedAt(): string | undefined {
         return this['issued_at'];
     }
     public withAssumedBy(assumedBy: AgencyAssumedby): AgencyTokenResult {
         this['assumed_by'] = assumedBy;
         return this;
     }
-    public set assumedBy(assumedBy: AgencyAssumedby | undefined) {
+    public set assumedBy(assumedBy: AgencyAssumedby  | undefined) {
         this['assumed_by'] = assumedBy;
     }
-    public get assumedBy() {
+    public get assumedBy(): AgencyAssumedby | undefined {
         return this['assumed_by'];
     }
     public withCatalog(catalog: Array<TokenCatalog>): AgencyTokenResult {

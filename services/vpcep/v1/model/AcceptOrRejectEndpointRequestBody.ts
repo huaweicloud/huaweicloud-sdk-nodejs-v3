@@ -1,13 +1,13 @@
 
 
 export class AcceptOrRejectEndpointRequestBody {
-    public action: AcceptOrRejectEndpointRequestBodyActionEnum;
-    public endpoints: Array<string>;
-    public constructor(action?: any, endpoints?: any) { 
+    public action?: AcceptOrRejectEndpointRequestBodyActionEnum | string;
+    public endpoints?: Array<string>;
+    public constructor(action?: string, endpoints?: Array<string>) { 
         this['action'] = action;
         this['endpoints'] = endpoints;
     }
-    public withAction(action: AcceptOrRejectEndpointRequestBodyActionEnum): AcceptOrRejectEndpointRequestBody {
+    public withAction(action: AcceptOrRejectEndpointRequestBodyActionEnum | string): AcceptOrRejectEndpointRequestBody {
         this['action'] = action;
         return this;
     }

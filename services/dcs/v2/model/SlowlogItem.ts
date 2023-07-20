@@ -3,9 +3,9 @@
 export class SlowlogItem {
     public id?: number;
     public command?: string;
-    private 'start_time'?: string | undefined;
+    private 'start_time'?: string;
     public duration?: string;
-    private 'shard_name'?: string | undefined;
+    private 'shard_name'?: string;
     public constructor() { 
     }
     public withId(id: number): SlowlogItem {
@@ -20,10 +20,10 @@ export class SlowlogItem {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withDuration(duration: string): SlowlogItem {
@@ -34,10 +34,10 @@ export class SlowlogItem {
         this['shard_name'] = shardName;
         return this;
     }
-    public set shardName(shardName: string | undefined) {
+    public set shardName(shardName: string  | undefined) {
         this['shard_name'] = shardName;
     }
-    public get shardName() {
+    public get shardName(): string | undefined {
         return this['shard_name'];
     }
 }

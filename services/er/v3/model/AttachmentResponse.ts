@@ -2,18 +2,18 @@ import { Tag } from './Tag';
 
 
 export class AttachmentResponse {
-    public name: string;
-    public id: string;
-    public description: string;
-    public state: string;
-    private 'created_at': Date | undefined;
-    private 'updated_at'?: Date | undefined;
+    public name?: string;
+    public id?: string;
+    public description?: string;
+    public state?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     public tags?: Array<Tag>;
-    private 'project_id': string | undefined;
-    private 'resource_id': string | undefined;
-    private 'resource_type': string | undefined;
-    private 'resource_project_id'?: string | undefined;
-    public constructor(name?: any, id?: any, description?: any, state?: any, createdAt?: any, projectId?: any, resourceId?: any, resourceType?: any) { 
+    private 'project_id'?: string;
+    private 'resource_id'?: string;
+    private 'resource_type'?: string;
+    private 'resource_project_id'?: string;
+    public constructor(name?: string, id?: string, description?: string, state?: string, createdAt?: Date, projectId?: string, resourceId?: string, resourceType?: string) { 
         this['name'] = name;
         this['id'] = id;
         this['description'] = description;
@@ -43,20 +43,20 @@ export class AttachmentResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): AttachmentResponse {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withTags(tags: Array<Tag>): AttachmentResponse {
@@ -67,40 +67,40 @@ export class AttachmentResponse {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withResourceId(resourceId: string): AttachmentResponse {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
     public withResourceType(resourceType: string): AttachmentResponse {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: string | undefined) {
+    public set resourceType(resourceType: string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): string | undefined {
         return this['resource_type'];
     }
     public withResourceProjectId(resourceProjectId: string): AttachmentResponse {
         this['resource_project_id'] = resourceProjectId;
         return this;
     }
-    public set resourceProjectId(resourceProjectId: string | undefined) {
+    public set resourceProjectId(resourceProjectId: string  | undefined) {
         this['resource_project_id'] = resourceProjectId;
     }
-    public get resourceProjectId() {
+    public get resourceProjectId(): string | undefined {
         return this['resource_project_id'];
     }
 }

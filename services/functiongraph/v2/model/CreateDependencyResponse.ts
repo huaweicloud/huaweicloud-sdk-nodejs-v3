@@ -10,10 +10,10 @@ export class CreateDependencyResponse extends SdkResponse {
     public size?: number;
     public name?: string;
     public description?: string;
-    private 'file_name'?: string | undefined;
+    private 'file_name'?: string;
     public version?: number;
-    private 'dep_id'?: string | undefined;
-    private 'last_modified'?: number | undefined;
+    private 'dep_id'?: string;
+    private 'last_modified'?: number;
     public constructor() { 
         super();
     }
@@ -53,10 +53,10 @@ export class CreateDependencyResponse extends SdkResponse {
         this['file_name'] = fileName;
         return this;
     }
-    public set fileName(fileName: string | undefined) {
+    public set fileName(fileName: string  | undefined) {
         this['file_name'] = fileName;
     }
-    public get fileName() {
+    public get fileName(): string | undefined {
         return this['file_name'];
     }
     public withVersion(version: number): CreateDependencyResponse {
@@ -67,20 +67,20 @@ export class CreateDependencyResponse extends SdkResponse {
         this['dep_id'] = depId;
         return this;
     }
-    public set depId(depId: string | undefined) {
+    public set depId(depId: string  | undefined) {
         this['dep_id'] = depId;
     }
-    public get depId() {
+    public get depId(): string | undefined {
         return this['dep_id'];
     }
     public withLastModified(lastModified: number): CreateDependencyResponse {
         this['last_modified'] = lastModified;
         return this;
     }
-    public set lastModified(lastModified: number | undefined) {
+    public set lastModified(lastModified: number  | undefined) {
         this['last_modified'] = lastModified;
     }
-    public get lastModified() {
+    public get lastModified(): number | undefined {
         return this['last_modified'];
     }
 }

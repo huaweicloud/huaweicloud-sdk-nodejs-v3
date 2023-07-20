@@ -1,76 +1,76 @@
 
 
 export class ListJobsRequest {
-    private 'X-Language'?: ListJobsRequestXLanguageEnum | undefined;
-    private 'job_type': ListJobsRequestJobTypeEnum | undefined;
+    private 'X-Language'?: ListJobsRequestXLanguageEnum | string;
+    private 'job_type'?: ListJobsRequestJobTypeEnum | string;
     public name?: string;
-    public status?: ListJobsRequestStatusEnum;
-    private 'engine_type'?: ListJobsRequestEngineTypeEnum | undefined;
-    private 'net_type'?: ListJobsRequestNetTypeEnum | undefined;
-    private 'enterprise_project_id'?: string | undefined;
+    public status?: ListJobsRequestStatusEnum | string;
+    private 'engine_type'?: ListJobsRequestEngineTypeEnum | string;
+    private 'net_type'?: ListJobsRequestNetTypeEnum | string;
+    private 'enterprise_project_id'?: string;
     public offset?: number;
     public limit?: number;
-    private 'sort_key'?: string | undefined;
-    private 'sort_dir'?: string | undefined;
-    public constructor(jobType?: any) { 
+    private 'sort_key'?: string;
+    private 'sort_dir'?: string;
+    public constructor(jobType?: string) { 
         this['job_type'] = jobType;
     }
-    public withXLanguage(xLanguage: ListJobsRequestXLanguageEnum): ListJobsRequest {
+    public withXLanguage(xLanguage: ListJobsRequestXLanguageEnum | string): ListJobsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListJobsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListJobsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListJobsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
-    public withJobType(jobType: ListJobsRequestJobTypeEnum): ListJobsRequest {
+    public withJobType(jobType: ListJobsRequestJobTypeEnum | string): ListJobsRequest {
         this['job_type'] = jobType;
         return this;
     }
-    public set jobType(jobType: ListJobsRequestJobTypeEnum | undefined) {
+    public set jobType(jobType: ListJobsRequestJobTypeEnum | string  | undefined) {
         this['job_type'] = jobType;
     }
-    public get jobType() {
+    public get jobType(): ListJobsRequestJobTypeEnum | string | undefined {
         return this['job_type'];
     }
     public withName(name: string): ListJobsRequest {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: ListJobsRequestStatusEnum): ListJobsRequest {
+    public withStatus(status: ListJobsRequestStatusEnum | string): ListJobsRequest {
         this['status'] = status;
         return this;
     }
-    public withEngineType(engineType: ListJobsRequestEngineTypeEnum): ListJobsRequest {
+    public withEngineType(engineType: ListJobsRequestEngineTypeEnum | string): ListJobsRequest {
         this['engine_type'] = engineType;
         return this;
     }
-    public set engineType(engineType: ListJobsRequestEngineTypeEnum | undefined) {
+    public set engineType(engineType: ListJobsRequestEngineTypeEnum | string  | undefined) {
         this['engine_type'] = engineType;
     }
-    public get engineType() {
+    public get engineType(): ListJobsRequestEngineTypeEnum | string | undefined {
         return this['engine_type'];
     }
-    public withNetType(netType: ListJobsRequestNetTypeEnum): ListJobsRequest {
+    public withNetType(netType: ListJobsRequestNetTypeEnum | string): ListJobsRequest {
         this['net_type'] = netType;
         return this;
     }
-    public set netType(netType: ListJobsRequestNetTypeEnum | undefined) {
+    public set netType(netType: ListJobsRequestNetTypeEnum | string  | undefined) {
         this['net_type'] = netType;
     }
-    public get netType() {
+    public get netType(): ListJobsRequestNetTypeEnum | string | undefined {
         return this['net_type'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListJobsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withOffset(offset: number): ListJobsRequest {
@@ -85,20 +85,20 @@ export class ListJobsRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: string | undefined) {
+    public set sortKey(sortKey: string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): string | undefined {
         return this['sort_key'];
     }
     public withSortDir(sortDir: string): ListJobsRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: string | undefined) {
+    public set sortDir(sortDir: string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): string | undefined {
         return this['sort_dir'];
     }
 }

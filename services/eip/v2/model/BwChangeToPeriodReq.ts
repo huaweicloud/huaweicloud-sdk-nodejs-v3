@@ -2,9 +2,9 @@ import { CreatePrePaidPublicipExtendParamOption } from './CreatePrePaidPublicipE
 
 
 export class BwChangeToPeriodReq {
-    private 'bandwidth_ids': Array<string> | undefined;
-    public extendParam: CreatePrePaidPublicipExtendParamOption;
-    public constructor(bandwidthIds?: any, extendParam?: any) { 
+    private 'bandwidth_ids'?: Array<string>;
+    public extendParam?: CreatePrePaidPublicipExtendParamOption;
+    public constructor(bandwidthIds?: Array<string>, extendParam?: CreatePrePaidPublicipExtendParamOption) { 
         this['bandwidth_ids'] = bandwidthIds;
         this['extendParam'] = extendParam;
     }
@@ -12,10 +12,10 @@ export class BwChangeToPeriodReq {
         this['bandwidth_ids'] = bandwidthIds;
         return this;
     }
-    public set bandwidthIds(bandwidthIds: Array<string> | undefined) {
+    public set bandwidthIds(bandwidthIds: Array<string>  | undefined) {
         this['bandwidth_ids'] = bandwidthIds;
     }
-    public get bandwidthIds() {
+    public get bandwidthIds(): Array<string> | undefined {
         return this['bandwidth_ids'];
     }
     public withExtendParam(extendParam: CreatePrePaidPublicipExtendParamOption): BwChangeToPeriodReq {

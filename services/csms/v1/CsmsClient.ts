@@ -267,7 +267,7 @@ export class CsmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listProjectSecretsTags(): Promise<ListProjectSecretsTagsResponse> {
+    public listProjectSecretsTags(listProjectSecretsTagsRequest?: ListProjectSecretsTagsRequest): Promise<ListProjectSecretsTagsResponse> {
         const options = ParamCreater().listProjectSecretsTags();
 
          // @ts-ignore

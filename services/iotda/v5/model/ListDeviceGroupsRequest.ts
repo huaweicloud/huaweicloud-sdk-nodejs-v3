@@ -1,13 +1,13 @@
 
 
 export class ListDeviceGroupsRequest {
-    private 'Instance-Id'?: string | undefined;
+    private 'Instance-Id'?: string;
     public limit?: number;
     public marker?: string;
     public offset?: number;
-    private 'last_modified_time'?: string | undefined;
-    private 'app_id'?: string | undefined;
-    private 'group_type'?: string | undefined;
+    private 'last_modified_time'?: string;
+    private 'app_id'?: string;
+    private 'group_type'?: string;
     public name?: string;
     public constructor() { 
     }
@@ -15,10 +15,10 @@ export class ListDeviceGroupsRequest {
         this['Instance-Id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['Instance-Id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['Instance-Id'];
     }
     public withLimit(limit: number): ListDeviceGroupsRequest {
@@ -37,30 +37,30 @@ export class ListDeviceGroupsRequest {
         this['last_modified_time'] = lastModifiedTime;
         return this;
     }
-    public set lastModifiedTime(lastModifiedTime: string | undefined) {
+    public set lastModifiedTime(lastModifiedTime: string  | undefined) {
         this['last_modified_time'] = lastModifiedTime;
     }
-    public get lastModifiedTime() {
+    public get lastModifiedTime(): string | undefined {
         return this['last_modified_time'];
     }
     public withAppId(appId: string): ListDeviceGroupsRequest {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withGroupType(groupType: string): ListDeviceGroupsRequest {
         this['group_type'] = groupType;
         return this;
     }
-    public set groupType(groupType: string | undefined) {
+    public set groupType(groupType: string  | undefined) {
         this['group_type'] = groupType;
     }
-    public get groupType() {
+    public get groupType(): string | undefined {
         return this['group_type'];
     }
     public withName(name: string): ListDeviceGroupsRequest {

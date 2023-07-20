@@ -3,17 +3,17 @@ import { Tag } from './Tag';
 
 
 export class CreateRecordSetWithLineRequestBody {
-    public name: string;
+    public name?: string;
     public description?: string;
-    public type: string;
+    public type?: string;
     public status?: string;
     public ttl?: number;
     public records?: Array<string>;
     public line?: string;
     public tags?: Array<Tag>;
     public weight?: number;
-    private 'alias_target'?: AliasTarget | undefined;
-    public constructor(name?: any, type?: any) { 
+    private 'alias_target'?: AliasTarget;
+    public constructor(name?: string, type?: string) { 
         this['name'] = name;
         this['type'] = type;
     }
@@ -57,10 +57,10 @@ export class CreateRecordSetWithLineRequestBody {
         this['alias_target'] = aliasTarget;
         return this;
     }
-    public set aliasTarget(aliasTarget: AliasTarget | undefined) {
+    public set aliasTarget(aliasTarget: AliasTarget  | undefined) {
         this['alias_target'] = aliasTarget;
     }
-    public get aliasTarget() {
+    public get aliasTarget(): AliasTarget | undefined {
         return this['alias_target'];
     }
 }

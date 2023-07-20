@@ -1,16 +1,16 @@
 
 
 export class JobLinkResp {
-    private 'job_type': JobLinkRespJobTypeEnum | undefined;
-    private 'engine_type': JobLinkRespEngineTypeEnum | undefined;
-    private 'source_endpoint_type': JobLinkRespSourceEndpointTypeEnum | undefined;
-    private 'target_endpoint_type': JobLinkRespTargetEndpointTypeEnum | undefined;
-    private 'job_direction': JobLinkRespJobDirectionEnum | undefined;
-    private 'net_type': JobLinkRespNetTypeEnum | undefined;
-    private 'task_types': Array<JobLinkRespTaskTypesEnum> | undefined;
-    private 'cluster_modes': Array<JobLinkRespClusterModesEnum> | undefined;
-    public description: string;
-    public constructor(jobType?: any, engineType?: any, sourceEndpointType?: any, targetEndpointType?: any, jobDirection?: any, netType?: any, taskTypes?: any, clusterModes?: any, description?: any) { 
+    private 'job_type'?: JobLinkRespJobTypeEnum | string;
+    private 'engine_type'?: JobLinkRespEngineTypeEnum | string;
+    private 'source_endpoint_type'?: JobLinkRespSourceEndpointTypeEnum | string;
+    private 'target_endpoint_type'?: JobLinkRespTargetEndpointTypeEnum | string;
+    private 'job_direction'?: JobLinkRespJobDirectionEnum | string;
+    private 'net_type'?: JobLinkRespNetTypeEnum | string;
+    private 'task_types'?: Array<JobLinkRespTaskTypesEnum> | Array<string>;
+    private 'cluster_modes'?: Array<JobLinkRespClusterModesEnum> | Array<string>;
+    public description?: string;
+    public constructor(jobType?: string, engineType?: string, sourceEndpointType?: string, targetEndpointType?: string, jobDirection?: string, netType?: string, taskTypes?: Array<string>, clusterModes?: Array<string>, description?: string) { 
         this['job_type'] = jobType;
         this['engine_type'] = engineType;
         this['source_endpoint_type'] = sourceEndpointType;
@@ -21,84 +21,84 @@ export class JobLinkResp {
         this['cluster_modes'] = clusterModes;
         this['description'] = description;
     }
-    public withJobType(jobType: JobLinkRespJobTypeEnum): JobLinkResp {
+    public withJobType(jobType: JobLinkRespJobTypeEnum | string): JobLinkResp {
         this['job_type'] = jobType;
         return this;
     }
-    public set jobType(jobType: JobLinkRespJobTypeEnum | undefined) {
+    public set jobType(jobType: JobLinkRespJobTypeEnum | string  | undefined) {
         this['job_type'] = jobType;
     }
-    public get jobType() {
+    public get jobType(): JobLinkRespJobTypeEnum | string | undefined {
         return this['job_type'];
     }
-    public withEngineType(engineType: JobLinkRespEngineTypeEnum): JobLinkResp {
+    public withEngineType(engineType: JobLinkRespEngineTypeEnum | string): JobLinkResp {
         this['engine_type'] = engineType;
         return this;
     }
-    public set engineType(engineType: JobLinkRespEngineTypeEnum | undefined) {
+    public set engineType(engineType: JobLinkRespEngineTypeEnum | string  | undefined) {
         this['engine_type'] = engineType;
     }
-    public get engineType() {
+    public get engineType(): JobLinkRespEngineTypeEnum | string | undefined {
         return this['engine_type'];
     }
-    public withSourceEndpointType(sourceEndpointType: JobLinkRespSourceEndpointTypeEnum): JobLinkResp {
+    public withSourceEndpointType(sourceEndpointType: JobLinkRespSourceEndpointTypeEnum | string): JobLinkResp {
         this['source_endpoint_type'] = sourceEndpointType;
         return this;
     }
-    public set sourceEndpointType(sourceEndpointType: JobLinkRespSourceEndpointTypeEnum | undefined) {
+    public set sourceEndpointType(sourceEndpointType: JobLinkRespSourceEndpointTypeEnum | string  | undefined) {
         this['source_endpoint_type'] = sourceEndpointType;
     }
-    public get sourceEndpointType() {
+    public get sourceEndpointType(): JobLinkRespSourceEndpointTypeEnum | string | undefined {
         return this['source_endpoint_type'];
     }
-    public withTargetEndpointType(targetEndpointType: JobLinkRespTargetEndpointTypeEnum): JobLinkResp {
+    public withTargetEndpointType(targetEndpointType: JobLinkRespTargetEndpointTypeEnum | string): JobLinkResp {
         this['target_endpoint_type'] = targetEndpointType;
         return this;
     }
-    public set targetEndpointType(targetEndpointType: JobLinkRespTargetEndpointTypeEnum | undefined) {
+    public set targetEndpointType(targetEndpointType: JobLinkRespTargetEndpointTypeEnum | string  | undefined) {
         this['target_endpoint_type'] = targetEndpointType;
     }
-    public get targetEndpointType() {
+    public get targetEndpointType(): JobLinkRespTargetEndpointTypeEnum | string | undefined {
         return this['target_endpoint_type'];
     }
-    public withJobDirection(jobDirection: JobLinkRespJobDirectionEnum): JobLinkResp {
+    public withJobDirection(jobDirection: JobLinkRespJobDirectionEnum | string): JobLinkResp {
         this['job_direction'] = jobDirection;
         return this;
     }
-    public set jobDirection(jobDirection: JobLinkRespJobDirectionEnum | undefined) {
+    public set jobDirection(jobDirection: JobLinkRespJobDirectionEnum | string  | undefined) {
         this['job_direction'] = jobDirection;
     }
-    public get jobDirection() {
+    public get jobDirection(): JobLinkRespJobDirectionEnum | string | undefined {
         return this['job_direction'];
     }
-    public withNetType(netType: JobLinkRespNetTypeEnum): JobLinkResp {
+    public withNetType(netType: JobLinkRespNetTypeEnum | string): JobLinkResp {
         this['net_type'] = netType;
         return this;
     }
-    public set netType(netType: JobLinkRespNetTypeEnum | undefined) {
+    public set netType(netType: JobLinkRespNetTypeEnum | string  | undefined) {
         this['net_type'] = netType;
     }
-    public get netType() {
+    public get netType(): JobLinkRespNetTypeEnum | string | undefined {
         return this['net_type'];
     }
-    public withTaskTypes(taskTypes: Array<JobLinkRespTaskTypesEnum>): JobLinkResp {
+    public withTaskTypes(taskTypes: Array<JobLinkRespTaskTypesEnum> | Array<string>): JobLinkResp {
         this['task_types'] = taskTypes;
         return this;
     }
-    public set taskTypes(taskTypes: Array<JobLinkRespTaskTypesEnum> | undefined) {
+    public set taskTypes(taskTypes: Array<JobLinkRespTaskTypesEnum> | Array<string>  | undefined) {
         this['task_types'] = taskTypes;
     }
-    public get taskTypes() {
+    public get taskTypes(): Array<JobLinkRespTaskTypesEnum> | Array<string> | undefined {
         return this['task_types'];
     }
-    public withClusterModes(clusterModes: Array<JobLinkRespClusterModesEnum>): JobLinkResp {
+    public withClusterModes(clusterModes: Array<JobLinkRespClusterModesEnum> | Array<string>): JobLinkResp {
         this['cluster_modes'] = clusterModes;
         return this;
     }
-    public set clusterModes(clusterModes: Array<JobLinkRespClusterModesEnum> | undefined) {
+    public set clusterModes(clusterModes: Array<JobLinkRespClusterModesEnum> | Array<string>  | undefined) {
         this['cluster_modes'] = clusterModes;
     }
-    public get clusterModes() {
+    public get clusterModes(): Array<JobLinkRespClusterModesEnum> | Array<string> | undefined {
         return this['cluster_modes'];
     }
     public withDescription(description: string): JobLinkResp {

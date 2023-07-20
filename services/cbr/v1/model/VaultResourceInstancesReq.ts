@@ -4,29 +4,29 @@ import { TagsReq } from './TagsReq';
 
 
 export class VaultResourceInstancesReq {
-    private 'without_any_tag'?: boolean | undefined;
+    private 'without_any_tag'?: boolean;
     public tags?: Array<TagsReq>;
-    private 'tags_any'?: Array<TagsReq> | undefined;
-    private 'not_tags'?: Array<TagsReq> | undefined;
-    private 'not_tags_any'?: Array<TagsReq> | undefined;
-    private 'sys_tags'?: Array<SysTags> | undefined;
+    private 'tags_any'?: Array<TagsReq>;
+    private 'not_tags'?: Array<TagsReq>;
+    private 'not_tags_any'?: Array<TagsReq>;
+    private 'sys_tags'?: Array<SysTags>;
     public limit?: string;
     public offset?: string;
-    public action: string;
+    public action?: string;
     public matches?: Array<Match>;
-    private 'cloud_type'?: VaultResourceInstancesReqCloudTypeEnum | undefined;
-    private 'object_type'?: VaultResourceInstancesReqObjectTypeEnum | undefined;
-    public constructor(action?: any) { 
+    private 'cloud_type'?: VaultResourceInstancesReqCloudTypeEnum | string;
+    private 'object_type'?: VaultResourceInstancesReqObjectTypeEnum | string;
+    public constructor(action?: string) { 
         this['action'] = action;
     }
     public withWithoutAnyTag(withoutAnyTag: boolean): VaultResourceInstancesReq {
         this['without_any_tag'] = withoutAnyTag;
         return this;
     }
-    public set withoutAnyTag(withoutAnyTag: boolean | undefined) {
+    public set withoutAnyTag(withoutAnyTag: boolean  | undefined) {
         this['without_any_tag'] = withoutAnyTag;
     }
-    public get withoutAnyTag() {
+    public get withoutAnyTag(): boolean | undefined {
         return this['without_any_tag'];
     }
     public withTags(tags: Array<TagsReq>): VaultResourceInstancesReq {
@@ -37,40 +37,40 @@ export class VaultResourceInstancesReq {
         this['tags_any'] = tagsAny;
         return this;
     }
-    public set tagsAny(tagsAny: Array<TagsReq> | undefined) {
+    public set tagsAny(tagsAny: Array<TagsReq>  | undefined) {
         this['tags_any'] = tagsAny;
     }
-    public get tagsAny() {
+    public get tagsAny(): Array<TagsReq> | undefined {
         return this['tags_any'];
     }
     public withNotTags(notTags: Array<TagsReq>): VaultResourceInstancesReq {
         this['not_tags'] = notTags;
         return this;
     }
-    public set notTags(notTags: Array<TagsReq> | undefined) {
+    public set notTags(notTags: Array<TagsReq>  | undefined) {
         this['not_tags'] = notTags;
     }
-    public get notTags() {
+    public get notTags(): Array<TagsReq> | undefined {
         return this['not_tags'];
     }
     public withNotTagsAny(notTagsAny: Array<TagsReq>): VaultResourceInstancesReq {
         this['not_tags_any'] = notTagsAny;
         return this;
     }
-    public set notTagsAny(notTagsAny: Array<TagsReq> | undefined) {
+    public set notTagsAny(notTagsAny: Array<TagsReq>  | undefined) {
         this['not_tags_any'] = notTagsAny;
     }
-    public get notTagsAny() {
+    public get notTagsAny(): Array<TagsReq> | undefined {
         return this['not_tags_any'];
     }
     public withSysTags(sysTags: Array<SysTags>): VaultResourceInstancesReq {
         this['sys_tags'] = sysTags;
         return this;
     }
-    public set sysTags(sysTags: Array<SysTags> | undefined) {
+    public set sysTags(sysTags: Array<SysTags>  | undefined) {
         this['sys_tags'] = sysTags;
     }
-    public get sysTags() {
+    public get sysTags(): Array<SysTags> | undefined {
         return this['sys_tags'];
     }
     public withLimit(limit: string): VaultResourceInstancesReq {
@@ -89,24 +89,24 @@ export class VaultResourceInstancesReq {
         this['matches'] = matches;
         return this;
     }
-    public withCloudType(cloudType: VaultResourceInstancesReqCloudTypeEnum): VaultResourceInstancesReq {
+    public withCloudType(cloudType: VaultResourceInstancesReqCloudTypeEnum | string): VaultResourceInstancesReq {
         this['cloud_type'] = cloudType;
         return this;
     }
-    public set cloudType(cloudType: VaultResourceInstancesReqCloudTypeEnum | undefined) {
+    public set cloudType(cloudType: VaultResourceInstancesReqCloudTypeEnum | string  | undefined) {
         this['cloud_type'] = cloudType;
     }
-    public get cloudType() {
+    public get cloudType(): VaultResourceInstancesReqCloudTypeEnum | string | undefined {
         return this['cloud_type'];
     }
-    public withObjectType(objectType: VaultResourceInstancesReqObjectTypeEnum): VaultResourceInstancesReq {
+    public withObjectType(objectType: VaultResourceInstancesReqObjectTypeEnum | string): VaultResourceInstancesReq {
         this['object_type'] = objectType;
         return this;
     }
-    public set objectType(objectType: VaultResourceInstancesReqObjectTypeEnum | undefined) {
+    public set objectType(objectType: VaultResourceInstancesReqObjectTypeEnum | string  | undefined) {
         this['object_type'] = objectType;
     }
-    public get objectType() {
+    public get objectType(): VaultResourceInstancesReqObjectTypeEnum | string | undefined {
         return this['object_type'];
     }
 }

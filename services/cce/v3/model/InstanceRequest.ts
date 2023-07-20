@@ -3,11 +3,11 @@ import { InstanceRequestSpec } from './InstanceRequestSpec';
 
 
 export class InstanceRequest {
-    public kind: string;
-    public apiVersion: string;
-    public metadata: AddonMetadata;
-    public spec: InstanceRequestSpec;
-    public constructor(kind?: any, apiVersion?: any, metadata?: any, spec?: any) { 
+    public kind?: string;
+    public apiVersion?: string;
+    public metadata?: AddonMetadata;
+    public spec?: InstanceRequestSpec;
+    public constructor(kind?: string, apiVersion?: string, metadata?: AddonMetadata, spec?: InstanceRequestSpec) { 
         this['kind'] = kind;
         this['apiVersion'] = apiVersion;
         this['metadata'] = metadata;

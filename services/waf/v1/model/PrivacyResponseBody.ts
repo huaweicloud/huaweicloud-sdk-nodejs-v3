@@ -6,7 +6,7 @@ export class PrivacyResponseBody {
     public timestamp?: number;
     public status?: number;
     public url?: string;
-    public category?: PrivacyResponseBodyCategoryEnum;
+    public category?: PrivacyResponseBodyCategoryEnum | string;
     public index?: string;
     public description?: string;
     public constructor() { 
@@ -31,7 +31,7 @@ export class PrivacyResponseBody {
         this['url'] = url;
         return this;
     }
-    public withCategory(category: PrivacyResponseBodyCategoryEnum): PrivacyResponseBody {
+    public withCategory(category: PrivacyResponseBodyCategoryEnum | string): PrivacyResponseBody {
         this['category'] = category;
         return this;
     }

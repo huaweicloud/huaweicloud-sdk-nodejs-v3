@@ -6,6 +6,7 @@ interface RegionMap {
 }
 
 export class KmsRegion {
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://kms.eu-west-101.myhuaweicloud.eu"]);
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://kms.cn-north-4.myhuaweicloud.com"]);
     public static CN_NORTH_1 = new Region("cn-north-1", ["https://kms.cn-north-1.myhuaweicloud.com"]);
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://kms.cn-north-2.myhuaweicloud.com"]);
@@ -28,6 +29,7 @@ export class KmsRegion {
     
 
     private static REGION_MAP: RegionMap = {
+        "eu-west-101":KmsRegion.EU_WEST_101,
         "cn-north-4":KmsRegion.CN_NORTH_4,
         "cn-north-1":KmsRegion.CN_NORTH_1,
         "cn-north-2":KmsRegion.CN_NORTH_2,

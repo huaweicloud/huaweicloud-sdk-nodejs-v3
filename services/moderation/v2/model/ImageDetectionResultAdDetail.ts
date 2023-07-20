@@ -3,7 +3,7 @@
 export class ImageDetectionResultAdDetail {
     public confidence?: number;
     public label?: string;
-    private 'hit_contexts'?: Array<string> | undefined;
+    private 'hit_contexts'?: Array<string>;
     public constructor() { 
     }
     public withConfidence(confidence: number): ImageDetectionResultAdDetail {
@@ -18,10 +18,10 @@ export class ImageDetectionResultAdDetail {
         this['hit_contexts'] = hitContexts;
         return this;
     }
-    public set hitContexts(hitContexts: Array<string> | undefined) {
+    public set hitContexts(hitContexts: Array<string>  | undefined) {
         this['hit_contexts'] = hitContexts;
     }
-    public get hitContexts() {
+    public get hitContexts(): Array<string> | undefined {
         return this['hit_contexts'];
     }
 }

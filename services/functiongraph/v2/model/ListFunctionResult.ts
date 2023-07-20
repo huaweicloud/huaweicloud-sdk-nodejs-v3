@@ -2,45 +2,45 @@ import { StrategyConfig } from './StrategyConfig';
 
 
 export class ListFunctionResult {
-    private 'func_urn': string | undefined;
-    private 'func_name': string | undefined;
-    private 'domain_id': string | undefined;
-    public namespace: string;
-    private 'project_name': string | undefined;
-    private 'package': string | undefined;
-    public runtime: ListFunctionResultRuntimeEnum;
-    public timeout: number;
-    public handler: string;
-    private 'memory_size': number | undefined;
-    private 'gpu_memory'?: number | undefined;
-    public cpu: number;
-    private 'code_type': ListFunctionResultCodeTypeEnum | undefined;
-    private 'code_url'?: string | undefined;
-    private 'code_filename'?: string | undefined;
-    private 'code_size': number | undefined;
-    private 'user_data'?: string | undefined;
-    private 'encrypted_user_data'?: string | undefined;
-    public digest: string;
-    public version: string;
-    private 'image_name': string | undefined;
+    private 'func_urn'?: string;
+    private 'func_name'?: string;
+    private 'domain_id'?: string;
+    public namespace?: string;
+    private 'project_name'?: string;
+    private 'package'?: string;
+    public runtime?: ListFunctionResultRuntimeEnum | string;
+    public timeout?: number;
+    public handler?: string;
+    private 'memory_size'?: number;
+    private 'gpu_memory'?: number;
+    public cpu?: number;
+    private 'code_type'?: ListFunctionResultCodeTypeEnum | string;
+    private 'code_url'?: string;
+    private 'code_filename'?: string;
+    private 'code_size'?: number;
+    private 'user_data'?: string;
+    private 'encrypted_user_data'?: string;
+    public digest?: string;
+    public version?: string;
+    private 'image_name'?: string;
     public xrole?: string;
-    private 'app_xrole'?: string | undefined;
+    private 'app_xrole'?: string;
     public description?: string;
-    private 'last_modified': Date | undefined;
-    private 'func_vpc_id'?: string | undefined;
-    private 'strategy_config'?: StrategyConfig | undefined;
-    private 'extend_config'?: string | undefined;
-    private 'initializer_handler'?: string | undefined;
-    private 'initializer_timeout'?: number | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'long_time'?: boolean | undefined;
-    private 'log_group_id'?: string | undefined;
-    private 'log_stream_id'?: string | undefined;
-    public type?: ListFunctionResultTypeEnum;
-    private 'fail_count'?: number | undefined;
-    private 'is_bridge_function'?: boolean | undefined;
-    private 'bind_bridge_funcUrns'?: Array<string> | undefined;
-    public constructor(funcUrn?: any, funcName?: any, domainId?: any, namespace?: any, projectName?: any, _package?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any, cpu?: any, codeType?: any, codeSize?: any, digest?: any, version?: any, imageName?: any, lastModified?: any) { 
+    private 'last_modified'?: Date;
+    private 'func_vpc_id'?: string;
+    private 'strategy_config'?: StrategyConfig;
+    private 'extend_config'?: string;
+    private 'initializer_handler'?: string;
+    private 'initializer_timeout'?: number;
+    private 'enterprise_project_id'?: string;
+    private 'long_time'?: boolean;
+    private 'log_group_id'?: string;
+    private 'log_stream_id'?: string;
+    public type?: ListFunctionResultTypeEnum | string;
+    private 'fail_count'?: number;
+    private 'is_bridge_function'?: boolean;
+    private 'bind_bridge_funcUrns'?: Array<string>;
+    public constructor(funcUrn?: string, funcName?: string, domainId?: string, namespace?: string, projectName?: string, _package?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number, cpu?: number, codeType?: string, codeSize?: number, digest?: string, version?: string, imageName?: string, lastModified?: Date) { 
         this['func_urn'] = funcUrn;
         this['func_name'] = funcName;
         this['domain_id'] = domainId;
@@ -63,30 +63,30 @@ export class ListFunctionResult {
         this['func_urn'] = funcUrn;
         return this;
     }
-    public set funcUrn(funcUrn: string | undefined) {
+    public set funcUrn(funcUrn: string  | undefined) {
         this['func_urn'] = funcUrn;
     }
-    public get funcUrn() {
+    public get funcUrn(): string | undefined {
         return this['func_urn'];
     }
     public withFuncName(funcName: string): ListFunctionResult {
         this['func_name'] = funcName;
         return this;
     }
-    public set funcName(funcName: string | undefined) {
+    public set funcName(funcName: string  | undefined) {
         this['func_name'] = funcName;
     }
-    public get funcName() {
+    public get funcName(): string | undefined {
         return this['func_name'];
     }
     public withDomainId(domainId: string): ListFunctionResult {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withNamespace(namespace: string): ListFunctionResult {
@@ -97,23 +97,23 @@ export class ListFunctionResult {
         this['project_name'] = projectName;
         return this;
     }
-    public set projectName(projectName: string | undefined) {
+    public set projectName(projectName: string  | undefined) {
         this['project_name'] = projectName;
     }
-    public get projectName() {
+    public get projectName(): string | undefined {
         return this['project_name'];
     }
     public withPackage(_package: string): ListFunctionResult {
         this['package'] = _package;
         return this;
     }
-    public set _package(_package: string | undefined) {
+    public set _package(_package: string  | undefined) {
         this['package'] = _package;
     }
-    public get _package() {
+    public get _package(): string | undefined {
         return this['package'];
     }
-    public withRuntime(runtime: ListFunctionResultRuntimeEnum): ListFunctionResult {
+    public withRuntime(runtime: ListFunctionResultRuntimeEnum | string): ListFunctionResult {
         this['runtime'] = runtime;
         return this;
     }
@@ -129,84 +129,84 @@ export class ListFunctionResult {
         this['memory_size'] = memorySize;
         return this;
     }
-    public set memorySize(memorySize: number | undefined) {
+    public set memorySize(memorySize: number  | undefined) {
         this['memory_size'] = memorySize;
     }
-    public get memorySize() {
+    public get memorySize(): number | undefined {
         return this['memory_size'];
     }
     public withGpuMemory(gpuMemory: number): ListFunctionResult {
         this['gpu_memory'] = gpuMemory;
         return this;
     }
-    public set gpuMemory(gpuMemory: number | undefined) {
+    public set gpuMemory(gpuMemory: number  | undefined) {
         this['gpu_memory'] = gpuMemory;
     }
-    public get gpuMemory() {
+    public get gpuMemory(): number | undefined {
         return this['gpu_memory'];
     }
     public withCpu(cpu: number): ListFunctionResult {
         this['cpu'] = cpu;
         return this;
     }
-    public withCodeType(codeType: ListFunctionResultCodeTypeEnum): ListFunctionResult {
+    public withCodeType(codeType: ListFunctionResultCodeTypeEnum | string): ListFunctionResult {
         this['code_type'] = codeType;
         return this;
     }
-    public set codeType(codeType: ListFunctionResultCodeTypeEnum | undefined) {
+    public set codeType(codeType: ListFunctionResultCodeTypeEnum | string  | undefined) {
         this['code_type'] = codeType;
     }
-    public get codeType() {
+    public get codeType(): ListFunctionResultCodeTypeEnum | string | undefined {
         return this['code_type'];
     }
     public withCodeUrl(codeUrl: string): ListFunctionResult {
         this['code_url'] = codeUrl;
         return this;
     }
-    public set codeUrl(codeUrl: string | undefined) {
+    public set codeUrl(codeUrl: string  | undefined) {
         this['code_url'] = codeUrl;
     }
-    public get codeUrl() {
+    public get codeUrl(): string | undefined {
         return this['code_url'];
     }
     public withCodeFilename(codeFilename: string): ListFunctionResult {
         this['code_filename'] = codeFilename;
         return this;
     }
-    public set codeFilename(codeFilename: string | undefined) {
+    public set codeFilename(codeFilename: string  | undefined) {
         this['code_filename'] = codeFilename;
     }
-    public get codeFilename() {
+    public get codeFilename(): string | undefined {
         return this['code_filename'];
     }
     public withCodeSize(codeSize: number): ListFunctionResult {
         this['code_size'] = codeSize;
         return this;
     }
-    public set codeSize(codeSize: number | undefined) {
+    public set codeSize(codeSize: number  | undefined) {
         this['code_size'] = codeSize;
     }
-    public get codeSize() {
+    public get codeSize(): number | undefined {
         return this['code_size'];
     }
     public withUserData(userData: string): ListFunctionResult {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withEncryptedUserData(encryptedUserData: string): ListFunctionResult {
         this['encrypted_user_data'] = encryptedUserData;
         return this;
     }
-    public set encryptedUserData(encryptedUserData: string | undefined) {
+    public set encryptedUserData(encryptedUserData: string  | undefined) {
         this['encrypted_user_data'] = encryptedUserData;
     }
-    public get encryptedUserData() {
+    public get encryptedUserData(): string | undefined {
         return this['encrypted_user_data'];
     }
     public withDigest(digest: string): ListFunctionResult {
@@ -221,10 +221,10 @@ export class ListFunctionResult {
         this['image_name'] = imageName;
         return this;
     }
-    public set imageName(imageName: string | undefined) {
+    public set imageName(imageName: string  | undefined) {
         this['image_name'] = imageName;
     }
-    public get imageName() {
+    public get imageName(): string | undefined {
         return this['image_name'];
     }
     public withXrole(xrole: string): ListFunctionResult {
@@ -235,10 +235,10 @@ export class ListFunctionResult {
         this['app_xrole'] = appXrole;
         return this;
     }
-    public set appXrole(appXrole: string | undefined) {
+    public set appXrole(appXrole: string  | undefined) {
         this['app_xrole'] = appXrole;
     }
-    public get appXrole() {
+    public get appXrole(): string | undefined {
         return this['app_xrole'];
     }
     public withDescription(description: string): ListFunctionResult {
@@ -249,103 +249,103 @@ export class ListFunctionResult {
         this['last_modified'] = lastModified;
         return this;
     }
-    public set lastModified(lastModified: Date | undefined) {
+    public set lastModified(lastModified: Date  | undefined) {
         this['last_modified'] = lastModified;
     }
-    public get lastModified() {
+    public get lastModified(): Date | undefined {
         return this['last_modified'];
     }
     public withFuncVpcId(funcVpcId: string): ListFunctionResult {
         this['func_vpc_id'] = funcVpcId;
         return this;
     }
-    public set funcVpcId(funcVpcId: string | undefined) {
+    public set funcVpcId(funcVpcId: string  | undefined) {
         this['func_vpc_id'] = funcVpcId;
     }
-    public get funcVpcId() {
+    public get funcVpcId(): string | undefined {
         return this['func_vpc_id'];
     }
     public withStrategyConfig(strategyConfig: StrategyConfig): ListFunctionResult {
         this['strategy_config'] = strategyConfig;
         return this;
     }
-    public set strategyConfig(strategyConfig: StrategyConfig | undefined) {
+    public set strategyConfig(strategyConfig: StrategyConfig  | undefined) {
         this['strategy_config'] = strategyConfig;
     }
-    public get strategyConfig() {
+    public get strategyConfig(): StrategyConfig | undefined {
         return this['strategy_config'];
     }
     public withExtendConfig(extendConfig: string): ListFunctionResult {
         this['extend_config'] = extendConfig;
         return this;
     }
-    public set extendConfig(extendConfig: string | undefined) {
+    public set extendConfig(extendConfig: string  | undefined) {
         this['extend_config'] = extendConfig;
     }
-    public get extendConfig() {
+    public get extendConfig(): string | undefined {
         return this['extend_config'];
     }
     public withInitializerHandler(initializerHandler: string): ListFunctionResult {
         this['initializer_handler'] = initializerHandler;
         return this;
     }
-    public set initializerHandler(initializerHandler: string | undefined) {
+    public set initializerHandler(initializerHandler: string  | undefined) {
         this['initializer_handler'] = initializerHandler;
     }
-    public get initializerHandler() {
+    public get initializerHandler(): string | undefined {
         return this['initializer_handler'];
     }
     public withInitializerTimeout(initializerTimeout: number): ListFunctionResult {
         this['initializer_timeout'] = initializerTimeout;
         return this;
     }
-    public set initializerTimeout(initializerTimeout: number | undefined) {
+    public set initializerTimeout(initializerTimeout: number  | undefined) {
         this['initializer_timeout'] = initializerTimeout;
     }
-    public get initializerTimeout() {
+    public get initializerTimeout(): number | undefined {
         return this['initializer_timeout'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListFunctionResult {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withLongTime(longTime: boolean): ListFunctionResult {
         this['long_time'] = longTime;
         return this;
     }
-    public set longTime(longTime: boolean | undefined) {
+    public set longTime(longTime: boolean  | undefined) {
         this['long_time'] = longTime;
     }
-    public get longTime() {
+    public get longTime(): boolean | undefined {
         return this['long_time'];
     }
     public withLogGroupId(logGroupId: string): ListFunctionResult {
         this['log_group_id'] = logGroupId;
         return this;
     }
-    public set logGroupId(logGroupId: string | undefined) {
+    public set logGroupId(logGroupId: string  | undefined) {
         this['log_group_id'] = logGroupId;
     }
-    public get logGroupId() {
+    public get logGroupId(): string | undefined {
         return this['log_group_id'];
     }
     public withLogStreamId(logStreamId: string): ListFunctionResult {
         this['log_stream_id'] = logStreamId;
         return this;
     }
-    public set logStreamId(logStreamId: string | undefined) {
+    public set logStreamId(logStreamId: string  | undefined) {
         this['log_stream_id'] = logStreamId;
     }
-    public get logStreamId() {
+    public get logStreamId(): string | undefined {
         return this['log_stream_id'];
     }
-    public withType(type: ListFunctionResultTypeEnum): ListFunctionResult {
+    public withType(type: ListFunctionResultTypeEnum | string): ListFunctionResult {
         this['type'] = type;
         return this;
     }
@@ -353,30 +353,30 @@ export class ListFunctionResult {
         this['fail_count'] = failCount;
         return this;
     }
-    public set failCount(failCount: number | undefined) {
+    public set failCount(failCount: number  | undefined) {
         this['fail_count'] = failCount;
     }
-    public get failCount() {
+    public get failCount(): number | undefined {
         return this['fail_count'];
     }
     public withIsBridgeFunction(isBridgeFunction: boolean): ListFunctionResult {
         this['is_bridge_function'] = isBridgeFunction;
         return this;
     }
-    public set isBridgeFunction(isBridgeFunction: boolean | undefined) {
+    public set isBridgeFunction(isBridgeFunction: boolean  | undefined) {
         this['is_bridge_function'] = isBridgeFunction;
     }
-    public get isBridgeFunction() {
+    public get isBridgeFunction(): boolean | undefined {
         return this['is_bridge_function'];
     }
     public withBindBridgeFuncUrns(bindBridgeFuncUrns: Array<string>): ListFunctionResult {
         this['bind_bridge_funcUrns'] = bindBridgeFuncUrns;
         return this;
     }
-    public set bindBridgeFuncUrns(bindBridgeFuncUrns: Array<string> | undefined) {
+    public set bindBridgeFuncUrns(bindBridgeFuncUrns: Array<string>  | undefined) {
         this['bind_bridge_funcUrns'] = bindBridgeFuncUrns;
     }
-    public get bindBridgeFuncUrns() {
+    public get bindBridgeFuncUrns(): Array<string> | undefined {
         return this['bind_bridge_funcUrns'];
     }
 }

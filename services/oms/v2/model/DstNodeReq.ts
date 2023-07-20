@@ -1,13 +1,13 @@
 
 
 export class DstNodeReq {
-    public ak: string;
-    public sk: string;
-    private 'security_token'?: string | undefined;
-    public bucket: string;
-    private 'save_prefix'?: string | undefined;
-    public region: string;
-    public constructor(ak?: any, sk?: any, bucket?: any, region?: any) { 
+    public ak?: string;
+    public sk?: string;
+    private 'security_token'?: string;
+    public bucket?: string;
+    private 'save_prefix'?: string;
+    public region?: string;
+    public constructor(ak?: string, sk?: string, bucket?: string, region?: string) { 
         this['ak'] = ak;
         this['sk'] = sk;
         this['bucket'] = bucket;
@@ -25,10 +25,10 @@ export class DstNodeReq {
         this['security_token'] = securityToken;
         return this;
     }
-    public set securityToken(securityToken: string | undefined) {
+    public set securityToken(securityToken: string  | undefined) {
         this['security_token'] = securityToken;
     }
-    public get securityToken() {
+    public get securityToken(): string | undefined {
         return this['security_token'];
     }
     public withBucket(bucket: string): DstNodeReq {
@@ -39,10 +39,10 @@ export class DstNodeReq {
         this['save_prefix'] = savePrefix;
         return this;
     }
-    public set savePrefix(savePrefix: string | undefined) {
+    public set savePrefix(savePrefix: string  | undefined) {
         this['save_prefix'] = savePrefix;
     }
-    public get savePrefix() {
+    public get savePrefix(): string | undefined {
         return this['save_prefix'];
     }
     public withRegion(region: string): DstNodeReq {

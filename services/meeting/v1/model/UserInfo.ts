@@ -2,7 +2,7 @@
 
 export class UserInfo {
     public userId?: string;
-    public ucloginAccount: string;
+    public ucloginAccount?: string;
     public serviceAccount?: string;
     public numberHA1?: string;
     public alias1?: string;
@@ -29,7 +29,7 @@ export class UserInfo {
     public corpType?: number;
     public cloudUserId?: string;
     public grayUser?: boolean;
-    public constructor(ucloginAccount?: any) { 
+    public constructor(ucloginAccount?: string) { 
         this['ucloginAccount'] = ucloginAccount;
     }
     public withUserId(userId: string): UserInfo {

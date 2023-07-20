@@ -1,13 +1,13 @@
 
 
 export class ListTopicsItem {
-    private 'topic_urn': string | undefined;
-    public name: string;
-    private 'display_name': string | undefined;
-    private 'push_policy': number | undefined;
-    private 'enterprise_project_id': string | undefined;
-    private 'topic_id': string | undefined;
-    public constructor(topicUrn?: any, name?: any, displayName?: any, pushPolicy?: any, enterpriseProjectId?: any, topicId?: any) { 
+    private 'topic_urn'?: string;
+    public name?: string;
+    private 'display_name'?: string;
+    private 'push_policy'?: number;
+    private 'enterprise_project_id'?: string;
+    private 'topic_id'?: string;
+    public constructor(topicUrn?: string, name?: string, displayName?: string, pushPolicy?: number, enterpriseProjectId?: string, topicId?: string) { 
         this['topic_urn'] = topicUrn;
         this['name'] = name;
         this['display_name'] = displayName;
@@ -19,10 +19,10 @@ export class ListTopicsItem {
         this['topic_urn'] = topicUrn;
         return this;
     }
-    public set topicUrn(topicUrn: string | undefined) {
+    public set topicUrn(topicUrn: string  | undefined) {
         this['topic_urn'] = topicUrn;
     }
-    public get topicUrn() {
+    public get topicUrn(): string | undefined {
         return this['topic_urn'];
     }
     public withName(name: string): ListTopicsItem {
@@ -33,40 +33,40 @@ export class ListTopicsItem {
         this['display_name'] = displayName;
         return this;
     }
-    public set displayName(displayName: string | undefined) {
+    public set displayName(displayName: string  | undefined) {
         this['display_name'] = displayName;
     }
-    public get displayName() {
+    public get displayName(): string | undefined {
         return this['display_name'];
     }
     public withPushPolicy(pushPolicy: number): ListTopicsItem {
         this['push_policy'] = pushPolicy;
         return this;
     }
-    public set pushPolicy(pushPolicy: number | undefined) {
+    public set pushPolicy(pushPolicy: number  | undefined) {
         this['push_policy'] = pushPolicy;
     }
-    public get pushPolicy() {
+    public get pushPolicy(): number | undefined {
         return this['push_policy'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListTopicsItem {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withTopicId(topicId: string): ListTopicsItem {
         this['topic_id'] = topicId;
         return this;
     }
-    public set topicId(topicId: string | undefined) {
+    public set topicId(topicId: string  | undefined) {
         this['topic_id'] = topicId;
     }
-    public get topicId() {
+    public get topicId(): string | undefined {
         return this['topic_id'];
     }
 }

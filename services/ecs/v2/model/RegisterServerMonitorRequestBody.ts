@@ -1,11 +1,11 @@
 
 
 export class RegisterServerMonitorRequestBody {
-    public monitorMetrics: RegisterServerMonitorRequestBodyMonitorMetricsEnum;
-    public constructor(monitorMetrics?: any) { 
+    public monitorMetrics?: RegisterServerMonitorRequestBodyMonitorMetricsEnum | string;
+    public constructor(monitorMetrics?: string) { 
         this['monitorMetrics'] = monitorMetrics;
     }
-    public withMonitorMetrics(monitorMetrics: RegisterServerMonitorRequestBodyMonitorMetricsEnum): RegisterServerMonitorRequestBody {
+    public withMonitorMetrics(monitorMetrics: RegisterServerMonitorRequestBodyMonitorMetricsEnum | string): RegisterServerMonitorRequestBody {
         this['monitorMetrics'] = monitorMetrics;
         return this;
     }

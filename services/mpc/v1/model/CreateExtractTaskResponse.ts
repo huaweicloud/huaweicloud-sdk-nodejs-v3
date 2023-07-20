@@ -5,11 +5,11 @@ import { ObsObjInfo } from './ObsObjInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateExtractTaskResponse extends SdkResponse {
-    private 'task_id'?: string | undefined;
+    private 'task_id'?: string;
     public status?: string;
-    private 'create_time'?: string | undefined;
+    private 'create_time'?: string;
     public output?: ObsObjInfo;
-    private 'output_file_name'?: string | undefined;
+    private 'output_file_name'?: string;
     public description?: string;
     public metadata?: MetaData;
     public constructor() { 
@@ -19,10 +19,10 @@ export class CreateExtractTaskResponse extends SdkResponse {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
     public withStatus(status: string): CreateExtractTaskResponse {
@@ -33,10 +33,10 @@ export class CreateExtractTaskResponse extends SdkResponse {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withOutput(output: ObsObjInfo): CreateExtractTaskResponse {
@@ -47,10 +47,10 @@ export class CreateExtractTaskResponse extends SdkResponse {
         this['output_file_name'] = outputFileName;
         return this;
     }
-    public set outputFileName(outputFileName: string | undefined) {
+    public set outputFileName(outputFileName: string  | undefined) {
         this['output_file_name'] = outputFileName;
     }
-    public get outputFileName() {
+    public get outputFileName(): string | undefined {
         return this['output_file_name'];
     }
     public withDescription(description: string): CreateExtractTaskResponse {

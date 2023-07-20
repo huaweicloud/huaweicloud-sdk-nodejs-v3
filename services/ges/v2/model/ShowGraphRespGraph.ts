@@ -6,43 +6,43 @@ import { ListGraphsRespVertexIdType } from './ListGraphsRespVertexIdType';
 export class ShowGraphRespGraph {
     public id?: string;
     public name?: string;
-    private 'created_by'?: string | undefined;
-    private 'is_multi_az'?: string | undefined;
-    private 'region_code'?: string | undefined;
-    private 'az_code'?: string | undefined;
-    private 'schema_path'?: Array<ListGraphsRespSchemaPath> | undefined;
-    private 'edgeset_path'?: Array<ListGraphsRespSchemaPath> | undefined;
-    private 'vertexset_path'?: Array<ListGraphsRespSchemaPath> | undefined;
-    private 'edgeset_format'?: string | undefined;
-    private 'edgeset_default_label'?: string | undefined;
-    private 'vertexset_format'?: string | undefined;
-    private 'vertexset_default_label'?: string | undefined;
-    private 'data_store_version'?: string | undefined;
-    private 'sys_tags'?: Array<string> | undefined;
+    private 'created_by'?: string;
+    private 'is_multi_az'?: string;
+    private 'region_code'?: string;
+    private 'az_code'?: string;
+    private 'schema_path'?: Array<ListGraphsRespSchemaPath>;
+    private 'edgeset_path'?: Array<ListGraphsRespSchemaPath>;
+    private 'vertexset_path'?: Array<ListGraphsRespSchemaPath>;
+    private 'edgeset_format'?: string;
+    private 'edgeset_default_label'?: string;
+    private 'vertexset_format'?: string;
+    private 'vertexset_default_label'?: string;
+    private 'data_store_version'?: string;
+    private 'sys_tags'?: Array<string>;
     public status?: string;
-    private 'action_progress'?: string | undefined;
-    private 'graph_size_type_index'?: string | undefined;
-    private 'vpc_id'?: string | undefined;
-    private 'subnet_id'?: string | undefined;
-    private 'security_group_id'?: string | undefined;
+    private 'action_progress'?: string;
+    private 'graph_size_type_index'?: string;
+    private 'vpc_id'?: string;
+    private 'subnet_id'?: string;
+    private 'security_group_id'?: string;
     public replication?: number;
     public created?: string;
     public updated?: string;
-    private 'private_ip'?: string | undefined;
-    private 'public_ip'?: string | undefined;
+    private 'private_ip'?: string;
+    private 'public_ip'?: string;
     public arch?: string;
     public encrypted?: boolean;
-    private 'master_key_id'?: string | undefined;
-    private 'master_key_name'?: string | undefined;
-    private 'enable_rbac'?: boolean | undefined;
-    private 'enable_full_text_index'?: boolean | undefined;
-    private 'enable_hyg'?: boolean | undefined;
-    private 'traffic_ip_list'?: Array<string> | undefined;
-    private 'crypt_algorithm'?: string | undefined;
-    private 'enable_https'?: boolean | undefined;
+    private 'master_key_id'?: string;
+    private 'master_key_name'?: string;
+    private 'enable_rbac'?: boolean;
+    private 'enable_full_text_index'?: boolean;
+    private 'enable_hyg'?: boolean;
+    private 'traffic_ip_list'?: Array<string>;
+    private 'crypt_algorithm'?: string;
+    private 'enable_https'?: boolean;
     public tags?: Array<ListGraphsRespTags>;
-    private 'product_type'?: string | undefined;
-    private 'vertex_id_type'?: ListGraphsRespVertexIdType | undefined;
+    private 'product_type'?: string;
+    private 'vertex_id_type'?: ListGraphsRespVertexIdType;
     public constructor() { 
     }
     public withId(id: string): ShowGraphRespGraph {
@@ -57,130 +57,130 @@ export class ShowGraphRespGraph {
         this['created_by'] = createdBy;
         return this;
     }
-    public set createdBy(createdBy: string | undefined) {
+    public set createdBy(createdBy: string  | undefined) {
         this['created_by'] = createdBy;
     }
-    public get createdBy() {
+    public get createdBy(): string | undefined {
         return this['created_by'];
     }
     public withIsMultiAz(isMultiAz: string): ShowGraphRespGraph {
         this['is_multi_az'] = isMultiAz;
         return this;
     }
-    public set isMultiAz(isMultiAz: string | undefined) {
+    public set isMultiAz(isMultiAz: string  | undefined) {
         this['is_multi_az'] = isMultiAz;
     }
-    public get isMultiAz() {
+    public get isMultiAz(): string | undefined {
         return this['is_multi_az'];
     }
     public withRegionCode(regionCode: string): ShowGraphRespGraph {
         this['region_code'] = regionCode;
         return this;
     }
-    public set regionCode(regionCode: string | undefined) {
+    public set regionCode(regionCode: string  | undefined) {
         this['region_code'] = regionCode;
     }
-    public get regionCode() {
+    public get regionCode(): string | undefined {
         return this['region_code'];
     }
     public withAzCode(azCode: string): ShowGraphRespGraph {
         this['az_code'] = azCode;
         return this;
     }
-    public set azCode(azCode: string | undefined) {
+    public set azCode(azCode: string  | undefined) {
         this['az_code'] = azCode;
     }
-    public get azCode() {
+    public get azCode(): string | undefined {
         return this['az_code'];
     }
     public withSchemaPath(schemaPath: Array<ListGraphsRespSchemaPath>): ShowGraphRespGraph {
         this['schema_path'] = schemaPath;
         return this;
     }
-    public set schemaPath(schemaPath: Array<ListGraphsRespSchemaPath> | undefined) {
+    public set schemaPath(schemaPath: Array<ListGraphsRespSchemaPath>  | undefined) {
         this['schema_path'] = schemaPath;
     }
-    public get schemaPath() {
+    public get schemaPath(): Array<ListGraphsRespSchemaPath> | undefined {
         return this['schema_path'];
     }
     public withEdgesetPath(edgesetPath: Array<ListGraphsRespSchemaPath>): ShowGraphRespGraph {
         this['edgeset_path'] = edgesetPath;
         return this;
     }
-    public set edgesetPath(edgesetPath: Array<ListGraphsRespSchemaPath> | undefined) {
+    public set edgesetPath(edgesetPath: Array<ListGraphsRespSchemaPath>  | undefined) {
         this['edgeset_path'] = edgesetPath;
     }
-    public get edgesetPath() {
+    public get edgesetPath(): Array<ListGraphsRespSchemaPath> | undefined {
         return this['edgeset_path'];
     }
     public withVertexsetPath(vertexsetPath: Array<ListGraphsRespSchemaPath>): ShowGraphRespGraph {
         this['vertexset_path'] = vertexsetPath;
         return this;
     }
-    public set vertexsetPath(vertexsetPath: Array<ListGraphsRespSchemaPath> | undefined) {
+    public set vertexsetPath(vertexsetPath: Array<ListGraphsRespSchemaPath>  | undefined) {
         this['vertexset_path'] = vertexsetPath;
     }
-    public get vertexsetPath() {
+    public get vertexsetPath(): Array<ListGraphsRespSchemaPath> | undefined {
         return this['vertexset_path'];
     }
     public withEdgesetFormat(edgesetFormat: string): ShowGraphRespGraph {
         this['edgeset_format'] = edgesetFormat;
         return this;
     }
-    public set edgesetFormat(edgesetFormat: string | undefined) {
+    public set edgesetFormat(edgesetFormat: string  | undefined) {
         this['edgeset_format'] = edgesetFormat;
     }
-    public get edgesetFormat() {
+    public get edgesetFormat(): string | undefined {
         return this['edgeset_format'];
     }
     public withEdgesetDefaultLabel(edgesetDefaultLabel: string): ShowGraphRespGraph {
         this['edgeset_default_label'] = edgesetDefaultLabel;
         return this;
     }
-    public set edgesetDefaultLabel(edgesetDefaultLabel: string | undefined) {
+    public set edgesetDefaultLabel(edgesetDefaultLabel: string  | undefined) {
         this['edgeset_default_label'] = edgesetDefaultLabel;
     }
-    public get edgesetDefaultLabel() {
+    public get edgesetDefaultLabel(): string | undefined {
         return this['edgeset_default_label'];
     }
     public withVertexsetFormat(vertexsetFormat: string): ShowGraphRespGraph {
         this['vertexset_format'] = vertexsetFormat;
         return this;
     }
-    public set vertexsetFormat(vertexsetFormat: string | undefined) {
+    public set vertexsetFormat(vertexsetFormat: string  | undefined) {
         this['vertexset_format'] = vertexsetFormat;
     }
-    public get vertexsetFormat() {
+    public get vertexsetFormat(): string | undefined {
         return this['vertexset_format'];
     }
     public withVertexsetDefaultLabel(vertexsetDefaultLabel: string): ShowGraphRespGraph {
         this['vertexset_default_label'] = vertexsetDefaultLabel;
         return this;
     }
-    public set vertexsetDefaultLabel(vertexsetDefaultLabel: string | undefined) {
+    public set vertexsetDefaultLabel(vertexsetDefaultLabel: string  | undefined) {
         this['vertexset_default_label'] = vertexsetDefaultLabel;
     }
-    public get vertexsetDefaultLabel() {
+    public get vertexsetDefaultLabel(): string | undefined {
         return this['vertexset_default_label'];
     }
     public withDataStoreVersion(dataStoreVersion: string): ShowGraphRespGraph {
         this['data_store_version'] = dataStoreVersion;
         return this;
     }
-    public set dataStoreVersion(dataStoreVersion: string | undefined) {
+    public set dataStoreVersion(dataStoreVersion: string  | undefined) {
         this['data_store_version'] = dataStoreVersion;
     }
-    public get dataStoreVersion() {
+    public get dataStoreVersion(): string | undefined {
         return this['data_store_version'];
     }
     public withSysTags(sysTags: Array<string>): ShowGraphRespGraph {
         this['sys_tags'] = sysTags;
         return this;
     }
-    public set sysTags(sysTags: Array<string> | undefined) {
+    public set sysTags(sysTags: Array<string>  | undefined) {
         this['sys_tags'] = sysTags;
     }
-    public get sysTags() {
+    public get sysTags(): Array<string> | undefined {
         return this['sys_tags'];
     }
     public withStatus(status: string): ShowGraphRespGraph {
@@ -191,50 +191,50 @@ export class ShowGraphRespGraph {
         this['action_progress'] = actionProgress;
         return this;
     }
-    public set actionProgress(actionProgress: string | undefined) {
+    public set actionProgress(actionProgress: string  | undefined) {
         this['action_progress'] = actionProgress;
     }
-    public get actionProgress() {
+    public get actionProgress(): string | undefined {
         return this['action_progress'];
     }
     public withGraphSizeTypeIndex(graphSizeTypeIndex: string): ShowGraphRespGraph {
         this['graph_size_type_index'] = graphSizeTypeIndex;
         return this;
     }
-    public set graphSizeTypeIndex(graphSizeTypeIndex: string | undefined) {
+    public set graphSizeTypeIndex(graphSizeTypeIndex: string  | undefined) {
         this['graph_size_type_index'] = graphSizeTypeIndex;
     }
-    public get graphSizeTypeIndex() {
+    public get graphSizeTypeIndex(): string | undefined {
         return this['graph_size_type_index'];
     }
     public withVpcId(vpcId: string): ShowGraphRespGraph {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withSubnetId(subnetId: string): ShowGraphRespGraph {
         this['subnet_id'] = subnetId;
         return this;
     }
-    public set subnetId(subnetId: string | undefined) {
+    public set subnetId(subnetId: string  | undefined) {
         this['subnet_id'] = subnetId;
     }
-    public get subnetId() {
+    public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
     public withSecurityGroupId(securityGroupId: string): ShowGraphRespGraph {
         this['security_group_id'] = securityGroupId;
         return this;
     }
-    public set securityGroupId(securityGroupId: string | undefined) {
+    public set securityGroupId(securityGroupId: string  | undefined) {
         this['security_group_id'] = securityGroupId;
     }
-    public get securityGroupId() {
+    public get securityGroupId(): string | undefined {
         return this['security_group_id'];
     }
     public withReplication(replication: number): ShowGraphRespGraph {
@@ -253,20 +253,20 @@ export class ShowGraphRespGraph {
         this['private_ip'] = privateIp;
         return this;
     }
-    public set privateIp(privateIp: string | undefined) {
+    public set privateIp(privateIp: string  | undefined) {
         this['private_ip'] = privateIp;
     }
-    public get privateIp() {
+    public get privateIp(): string | undefined {
         return this['private_ip'];
     }
     public withPublicIp(publicIp: string): ShowGraphRespGraph {
         this['public_ip'] = publicIp;
         return this;
     }
-    public set publicIp(publicIp: string | undefined) {
+    public set publicIp(publicIp: string  | undefined) {
         this['public_ip'] = publicIp;
     }
-    public get publicIp() {
+    public get publicIp(): string | undefined {
         return this['public_ip'];
     }
     public withArch(arch: string): ShowGraphRespGraph {
@@ -281,80 +281,80 @@ export class ShowGraphRespGraph {
         this['master_key_id'] = masterKeyId;
         return this;
     }
-    public set masterKeyId(masterKeyId: string | undefined) {
+    public set masterKeyId(masterKeyId: string  | undefined) {
         this['master_key_id'] = masterKeyId;
     }
-    public get masterKeyId() {
+    public get masterKeyId(): string | undefined {
         return this['master_key_id'];
     }
     public withMasterKeyName(masterKeyName: string): ShowGraphRespGraph {
         this['master_key_name'] = masterKeyName;
         return this;
     }
-    public set masterKeyName(masterKeyName: string | undefined) {
+    public set masterKeyName(masterKeyName: string  | undefined) {
         this['master_key_name'] = masterKeyName;
     }
-    public get masterKeyName() {
+    public get masterKeyName(): string | undefined {
         return this['master_key_name'];
     }
     public withEnableRbac(enableRbac: boolean): ShowGraphRespGraph {
         this['enable_rbac'] = enableRbac;
         return this;
     }
-    public set enableRbac(enableRbac: boolean | undefined) {
+    public set enableRbac(enableRbac: boolean  | undefined) {
         this['enable_rbac'] = enableRbac;
     }
-    public get enableRbac() {
+    public get enableRbac(): boolean | undefined {
         return this['enable_rbac'];
     }
     public withEnableFullTextIndex(enableFullTextIndex: boolean): ShowGraphRespGraph {
         this['enable_full_text_index'] = enableFullTextIndex;
         return this;
     }
-    public set enableFullTextIndex(enableFullTextIndex: boolean | undefined) {
+    public set enableFullTextIndex(enableFullTextIndex: boolean  | undefined) {
         this['enable_full_text_index'] = enableFullTextIndex;
     }
-    public get enableFullTextIndex() {
+    public get enableFullTextIndex(): boolean | undefined {
         return this['enable_full_text_index'];
     }
     public withEnableHyg(enableHyg: boolean): ShowGraphRespGraph {
         this['enable_hyg'] = enableHyg;
         return this;
     }
-    public set enableHyg(enableHyg: boolean | undefined) {
+    public set enableHyg(enableHyg: boolean  | undefined) {
         this['enable_hyg'] = enableHyg;
     }
-    public get enableHyg() {
+    public get enableHyg(): boolean | undefined {
         return this['enable_hyg'];
     }
     public withTrafficIpList(trafficIpList: Array<string>): ShowGraphRespGraph {
         this['traffic_ip_list'] = trafficIpList;
         return this;
     }
-    public set trafficIpList(trafficIpList: Array<string> | undefined) {
+    public set trafficIpList(trafficIpList: Array<string>  | undefined) {
         this['traffic_ip_list'] = trafficIpList;
     }
-    public get trafficIpList() {
+    public get trafficIpList(): Array<string> | undefined {
         return this['traffic_ip_list'];
     }
     public withCryptAlgorithm(cryptAlgorithm: string): ShowGraphRespGraph {
         this['crypt_algorithm'] = cryptAlgorithm;
         return this;
     }
-    public set cryptAlgorithm(cryptAlgorithm: string | undefined) {
+    public set cryptAlgorithm(cryptAlgorithm: string  | undefined) {
         this['crypt_algorithm'] = cryptAlgorithm;
     }
-    public get cryptAlgorithm() {
+    public get cryptAlgorithm(): string | undefined {
         return this['crypt_algorithm'];
     }
     public withEnableHttps(enableHttps: boolean): ShowGraphRespGraph {
         this['enable_https'] = enableHttps;
         return this;
     }
-    public set enableHttps(enableHttps: boolean | undefined) {
+    public set enableHttps(enableHttps: boolean  | undefined) {
         this['enable_https'] = enableHttps;
     }
-    public get enableHttps() {
+    public get enableHttps(): boolean | undefined {
         return this['enable_https'];
     }
     public withTags(tags: Array<ListGraphsRespTags>): ShowGraphRespGraph {
@@ -365,20 +365,20 @@ export class ShowGraphRespGraph {
         this['product_type'] = productType;
         return this;
     }
-    public set productType(productType: string | undefined) {
+    public set productType(productType: string  | undefined) {
         this['product_type'] = productType;
     }
-    public get productType() {
+    public get productType(): string | undefined {
         return this['product_type'];
     }
     public withVertexIdType(vertexIdType: ListGraphsRespVertexIdType): ShowGraphRespGraph {
         this['vertex_id_type'] = vertexIdType;
         return this;
     }
-    public set vertexIdType(vertexIdType: ListGraphsRespVertexIdType | undefined) {
+    public set vertexIdType(vertexIdType: ListGraphsRespVertexIdType  | undefined) {
         this['vertex_id_type'] = vertexIdType;
     }
-    public get vertexIdType() {
+    public get vertexIdType(): ListGraphsRespVertexIdType | undefined {
         return this['vertex_id_type'];
     }
 }

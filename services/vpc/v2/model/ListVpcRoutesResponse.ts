@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListVpcRoutesResponse extends SdkResponse {
     public routes?: Array<VpcRoute>;
-    private 'routes_links'?: Array<NeutronPageLink> | undefined;
+    private 'routes_links'?: Array<NeutronPageLink>;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class ListVpcRoutesResponse extends SdkResponse {
         this['routes_links'] = routesLinks;
         return this;
     }
-    public set routesLinks(routesLinks: Array<NeutronPageLink> | undefined) {
+    public set routesLinks(routesLinks: Array<NeutronPageLink>  | undefined) {
         this['routes_links'] = routesLinks;
     }
-    public get routesLinks() {
+    public get routesLinks(): Array<NeutronPageLink> | undefined {
         return this['routes_links'];
     }
 }

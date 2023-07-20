@@ -4,22 +4,22 @@ export class DisasterRecovery {
     public id?: string;
     public status?: string;
     public name?: string;
-    private 'dr_type'?: string | undefined;
-    private 'primary_cluster_id'?: string | undefined;
-    private 'primary_cluster_name'?: string | undefined;
-    private 'standby_cluster_id'?: string | undefined;
-    private 'standby_cluster_name'?: string | undefined;
-    private 'primary_cluster_role'?: string | undefined;
-    private 'standby_cluster_role'?: string | undefined;
-    private 'primary_cluster_status'?: string | undefined;
-    private 'standby_cluster_status'?: string | undefined;
-    private 'primary_cluster_region'?: string | undefined;
-    private 'standby_cluster_region'?: string | undefined;
-    private 'primary_cluster_project_id'?: string | undefined;
-    private 'standby_cluster_project_id'?: string | undefined;
-    private 'last_disaster_time'?: string | undefined;
-    private 'start_time'?: string | undefined;
-    private 'create_time'?: string | undefined;
+    private 'dr_type'?: string;
+    private 'primary_cluster_id'?: string;
+    private 'primary_cluster_name'?: string;
+    private 'standby_cluster_id'?: string;
+    private 'standby_cluster_name'?: string;
+    private 'primary_cluster_role'?: string;
+    private 'standby_cluster_role'?: string;
+    private 'primary_cluster_status'?: string;
+    private 'standby_cluster_status'?: string;
+    private 'primary_cluster_region'?: string;
+    private 'standby_cluster_region'?: string;
+    private 'primary_cluster_project_id'?: string;
+    private 'standby_cluster_project_id'?: string;
+    private 'last_disaster_time'?: string;
+    private 'start_time'?: string;
+    private 'create_time'?: string;
     public constructor() { 
     }
     public withId(id: string): DisasterRecovery {
@@ -38,160 +38,160 @@ export class DisasterRecovery {
         this['dr_type'] = drType;
         return this;
     }
-    public set drType(drType: string | undefined) {
+    public set drType(drType: string  | undefined) {
         this['dr_type'] = drType;
     }
-    public get drType() {
+    public get drType(): string | undefined {
         return this['dr_type'];
     }
     public withPrimaryClusterId(primaryClusterId: string): DisasterRecovery {
         this['primary_cluster_id'] = primaryClusterId;
         return this;
     }
-    public set primaryClusterId(primaryClusterId: string | undefined) {
+    public set primaryClusterId(primaryClusterId: string  | undefined) {
         this['primary_cluster_id'] = primaryClusterId;
     }
-    public get primaryClusterId() {
+    public get primaryClusterId(): string | undefined {
         return this['primary_cluster_id'];
     }
     public withPrimaryClusterName(primaryClusterName: string): DisasterRecovery {
         this['primary_cluster_name'] = primaryClusterName;
         return this;
     }
-    public set primaryClusterName(primaryClusterName: string | undefined) {
+    public set primaryClusterName(primaryClusterName: string  | undefined) {
         this['primary_cluster_name'] = primaryClusterName;
     }
-    public get primaryClusterName() {
+    public get primaryClusterName(): string | undefined {
         return this['primary_cluster_name'];
     }
     public withStandbyClusterId(standbyClusterId: string): DisasterRecovery {
         this['standby_cluster_id'] = standbyClusterId;
         return this;
     }
-    public set standbyClusterId(standbyClusterId: string | undefined) {
+    public set standbyClusterId(standbyClusterId: string  | undefined) {
         this['standby_cluster_id'] = standbyClusterId;
     }
-    public get standbyClusterId() {
+    public get standbyClusterId(): string | undefined {
         return this['standby_cluster_id'];
     }
     public withStandbyClusterName(standbyClusterName: string): DisasterRecovery {
         this['standby_cluster_name'] = standbyClusterName;
         return this;
     }
-    public set standbyClusterName(standbyClusterName: string | undefined) {
+    public set standbyClusterName(standbyClusterName: string  | undefined) {
         this['standby_cluster_name'] = standbyClusterName;
     }
-    public get standbyClusterName() {
+    public get standbyClusterName(): string | undefined {
         return this['standby_cluster_name'];
     }
     public withPrimaryClusterRole(primaryClusterRole: string): DisasterRecovery {
         this['primary_cluster_role'] = primaryClusterRole;
         return this;
     }
-    public set primaryClusterRole(primaryClusterRole: string | undefined) {
+    public set primaryClusterRole(primaryClusterRole: string  | undefined) {
         this['primary_cluster_role'] = primaryClusterRole;
     }
-    public get primaryClusterRole() {
+    public get primaryClusterRole(): string | undefined {
         return this['primary_cluster_role'];
     }
     public withStandbyClusterRole(standbyClusterRole: string): DisasterRecovery {
         this['standby_cluster_role'] = standbyClusterRole;
         return this;
     }
-    public set standbyClusterRole(standbyClusterRole: string | undefined) {
+    public set standbyClusterRole(standbyClusterRole: string  | undefined) {
         this['standby_cluster_role'] = standbyClusterRole;
     }
-    public get standbyClusterRole() {
+    public get standbyClusterRole(): string | undefined {
         return this['standby_cluster_role'];
     }
     public withPrimaryClusterStatus(primaryClusterStatus: string): DisasterRecovery {
         this['primary_cluster_status'] = primaryClusterStatus;
         return this;
     }
-    public set primaryClusterStatus(primaryClusterStatus: string | undefined) {
+    public set primaryClusterStatus(primaryClusterStatus: string  | undefined) {
         this['primary_cluster_status'] = primaryClusterStatus;
     }
-    public get primaryClusterStatus() {
+    public get primaryClusterStatus(): string | undefined {
         return this['primary_cluster_status'];
     }
     public withStandbyClusterStatus(standbyClusterStatus: string): DisasterRecovery {
         this['standby_cluster_status'] = standbyClusterStatus;
         return this;
     }
-    public set standbyClusterStatus(standbyClusterStatus: string | undefined) {
+    public set standbyClusterStatus(standbyClusterStatus: string  | undefined) {
         this['standby_cluster_status'] = standbyClusterStatus;
     }
-    public get standbyClusterStatus() {
+    public get standbyClusterStatus(): string | undefined {
         return this['standby_cluster_status'];
     }
     public withPrimaryClusterRegion(primaryClusterRegion: string): DisasterRecovery {
         this['primary_cluster_region'] = primaryClusterRegion;
         return this;
     }
-    public set primaryClusterRegion(primaryClusterRegion: string | undefined) {
+    public set primaryClusterRegion(primaryClusterRegion: string  | undefined) {
         this['primary_cluster_region'] = primaryClusterRegion;
     }
-    public get primaryClusterRegion() {
+    public get primaryClusterRegion(): string | undefined {
         return this['primary_cluster_region'];
     }
     public withStandbyClusterRegion(standbyClusterRegion: string): DisasterRecovery {
         this['standby_cluster_region'] = standbyClusterRegion;
         return this;
     }
-    public set standbyClusterRegion(standbyClusterRegion: string | undefined) {
+    public set standbyClusterRegion(standbyClusterRegion: string  | undefined) {
         this['standby_cluster_region'] = standbyClusterRegion;
     }
-    public get standbyClusterRegion() {
+    public get standbyClusterRegion(): string | undefined {
         return this['standby_cluster_region'];
     }
     public withPrimaryClusterProjectId(primaryClusterProjectId: string): DisasterRecovery {
         this['primary_cluster_project_id'] = primaryClusterProjectId;
         return this;
     }
-    public set primaryClusterProjectId(primaryClusterProjectId: string | undefined) {
+    public set primaryClusterProjectId(primaryClusterProjectId: string  | undefined) {
         this['primary_cluster_project_id'] = primaryClusterProjectId;
     }
-    public get primaryClusterProjectId() {
+    public get primaryClusterProjectId(): string | undefined {
         return this['primary_cluster_project_id'];
     }
     public withStandbyClusterProjectId(standbyClusterProjectId: string): DisasterRecovery {
         this['standby_cluster_project_id'] = standbyClusterProjectId;
         return this;
     }
-    public set standbyClusterProjectId(standbyClusterProjectId: string | undefined) {
+    public set standbyClusterProjectId(standbyClusterProjectId: string  | undefined) {
         this['standby_cluster_project_id'] = standbyClusterProjectId;
     }
-    public get standbyClusterProjectId() {
+    public get standbyClusterProjectId(): string | undefined {
         return this['standby_cluster_project_id'];
     }
     public withLastDisasterTime(lastDisasterTime: string): DisasterRecovery {
         this['last_disaster_time'] = lastDisasterTime;
         return this;
     }
-    public set lastDisasterTime(lastDisasterTime: string | undefined) {
+    public set lastDisasterTime(lastDisasterTime: string  | undefined) {
         this['last_disaster_time'] = lastDisasterTime;
     }
-    public get lastDisasterTime() {
+    public get lastDisasterTime(): string | undefined {
         return this['last_disaster_time'];
     }
     public withStartTime(startTime: string): DisasterRecovery {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withCreateTime(createTime: string): DisasterRecovery {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
 }

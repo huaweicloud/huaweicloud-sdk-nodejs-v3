@@ -2,18 +2,18 @@ import { BatchCreateJobReq } from './BatchCreateJobReq';
 
 
 export class BatchCreateJobsRequest {
-    private 'X-Language'?: BatchCreateJobsRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchCreateJobsRequestXLanguageEnum | string;
     public body?: BatchCreateJobReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchCreateJobsRequestXLanguageEnum): BatchCreateJobsRequest {
+    public withXLanguage(xLanguage: BatchCreateJobsRequestXLanguageEnum | string): BatchCreateJobsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchCreateJobsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchCreateJobsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchCreateJobsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchCreateJobReq): BatchCreateJobsRequest {

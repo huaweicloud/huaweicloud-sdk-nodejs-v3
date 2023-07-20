@@ -4,13 +4,13 @@ export class ListSecurityGroupRulesRequest {
     public limit?: number;
     public marker?: string;
     public id?: Array<string>;
-    private 'security_group_id'?: Array<string> | undefined;
+    private 'security_group_id'?: Array<string>;
     public protocol?: Array<string>;
     public description?: Array<string>;
-    private 'remote_group_id'?: Array<string> | undefined;
+    private 'remote_group_id'?: Array<string>;
     public direction?: string;
     public action?: string;
-    private 'remote_ip_prefix'?: string | undefined;
+    private 'remote_ip_prefix'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListSecurityGroupRulesRequest {
@@ -29,10 +29,10 @@ export class ListSecurityGroupRulesRequest {
         this['security_group_id'] = securityGroupId;
         return this;
     }
-    public set securityGroupId(securityGroupId: Array<string> | undefined) {
+    public set securityGroupId(securityGroupId: Array<string>  | undefined) {
         this['security_group_id'] = securityGroupId;
     }
-    public get securityGroupId() {
+    public get securityGroupId(): Array<string> | undefined {
         return this['security_group_id'];
     }
     public withProtocol(protocol: Array<string>): ListSecurityGroupRulesRequest {
@@ -47,10 +47,10 @@ export class ListSecurityGroupRulesRequest {
         this['remote_group_id'] = remoteGroupId;
         return this;
     }
-    public set remoteGroupId(remoteGroupId: Array<string> | undefined) {
+    public set remoteGroupId(remoteGroupId: Array<string>  | undefined) {
         this['remote_group_id'] = remoteGroupId;
     }
-    public get remoteGroupId() {
+    public get remoteGroupId(): Array<string> | undefined {
         return this['remote_group_id'];
     }
     public withDirection(direction: string): ListSecurityGroupRulesRequest {
@@ -65,10 +65,10 @@ export class ListSecurityGroupRulesRequest {
         this['remote_ip_prefix'] = remoteIpPrefix;
         return this;
     }
-    public set remoteIpPrefix(remoteIpPrefix: string | undefined) {
+    public set remoteIpPrefix(remoteIpPrefix: string  | undefined) {
         this['remote_ip_prefix'] = remoteIpPrefix;
     }
-    public get remoteIpPrefix() {
+    public get remoteIpPrefix(): string | undefined {
         return this['remote_ip_prefix'];
     }
 }

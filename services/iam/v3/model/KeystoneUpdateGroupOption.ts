@@ -2,7 +2,7 @@
 
 export class KeystoneUpdateGroupOption {
     public description?: string;
-    private 'domain_id'?: string | undefined;
+    private 'domain_id'?: string;
     public name?: string;
     public constructor() { 
     }
@@ -14,10 +14,10 @@ export class KeystoneUpdateGroupOption {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withName(name: string): KeystoneUpdateGroupOption {

@@ -2,15 +2,15 @@ import { ExtraDhcpOption } from './ExtraDhcpOption';
 
 
 export class UpdateSubnetOption {
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'ipv6_enable'?: boolean | undefined;
-    private 'dhcp_enable'?: boolean | undefined;
-    private 'primary_dns'?: string | undefined;
-    private 'secondary_dns'?: string | undefined;
+    private 'ipv6_enable'?: boolean;
+    private 'dhcp_enable'?: boolean;
+    private 'primary_dns'?: string;
+    private 'secondary_dns'?: string;
     public dnsList?: Array<string>;
-    private 'extra_dhcp_opts'?: Array<ExtraDhcpOption> | undefined;
-    public constructor(name?: any) { 
+    private 'extra_dhcp_opts'?: Array<ExtraDhcpOption>;
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): UpdateSubnetOption {
@@ -25,40 +25,40 @@ export class UpdateSubnetOption {
         this['ipv6_enable'] = ipv6Enable;
         return this;
     }
-    public set ipv6Enable(ipv6Enable: boolean | undefined) {
+    public set ipv6Enable(ipv6Enable: boolean  | undefined) {
         this['ipv6_enable'] = ipv6Enable;
     }
-    public get ipv6Enable() {
+    public get ipv6Enable(): boolean | undefined {
         return this['ipv6_enable'];
     }
     public withDhcpEnable(dhcpEnable: boolean): UpdateSubnetOption {
         this['dhcp_enable'] = dhcpEnable;
         return this;
     }
-    public set dhcpEnable(dhcpEnable: boolean | undefined) {
+    public set dhcpEnable(dhcpEnable: boolean  | undefined) {
         this['dhcp_enable'] = dhcpEnable;
     }
-    public get dhcpEnable() {
+    public get dhcpEnable(): boolean | undefined {
         return this['dhcp_enable'];
     }
     public withPrimaryDns(primaryDns: string): UpdateSubnetOption {
         this['primary_dns'] = primaryDns;
         return this;
     }
-    public set primaryDns(primaryDns: string | undefined) {
+    public set primaryDns(primaryDns: string  | undefined) {
         this['primary_dns'] = primaryDns;
     }
-    public get primaryDns() {
+    public get primaryDns(): string | undefined {
         return this['primary_dns'];
     }
     public withSecondaryDns(secondaryDns: string): UpdateSubnetOption {
         this['secondary_dns'] = secondaryDns;
         return this;
     }
-    public set secondaryDns(secondaryDns: string | undefined) {
+    public set secondaryDns(secondaryDns: string  | undefined) {
         this['secondary_dns'] = secondaryDns;
     }
-    public get secondaryDns() {
+    public get secondaryDns(): string | undefined {
         return this['secondary_dns'];
     }
     public withDnsList(dnsList: Array<string>): UpdateSubnetOption {
@@ -69,10 +69,10 @@ export class UpdateSubnetOption {
         this['extra_dhcp_opts'] = extraDhcpOpts;
         return this;
     }
-    public set extraDhcpOpts(extraDhcpOpts: Array<ExtraDhcpOption> | undefined) {
+    public set extraDhcpOpts(extraDhcpOpts: Array<ExtraDhcpOption>  | undefined) {
         this['extra_dhcp_opts'] = extraDhcpOpts;
     }
-    public get extraDhcpOpts() {
+    public get extraDhcpOpts(): Array<ExtraDhcpOption> | undefined {
         return this['extra_dhcp_opts'];
     }
 }

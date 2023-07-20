@@ -1,11 +1,11 @@
 
 
 export class AccessConfigFormatMutilCreate {
-    public mode?: AccessConfigFormatMutilCreateModeEnum;
+    public mode?: AccessConfigFormatMutilCreateModeEnum | string;
     public value?: string;
     public constructor() { 
     }
-    public withMode(mode: AccessConfigFormatMutilCreateModeEnum): AccessConfigFormatMutilCreate {
+    public withMode(mode: AccessConfigFormatMutilCreateModeEnum | string): AccessConfigFormatMutilCreate {
         this['mode'] = mode;
         return this;
     }

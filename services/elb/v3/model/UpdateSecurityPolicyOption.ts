@@ -4,7 +4,7 @@ export class UpdateSecurityPolicyOption {
     public name?: string;
     public description?: string;
     public protocols?: Array<string>;
-    public ciphers?: Array<UpdateSecurityPolicyOptionCiphersEnum>;
+    public ciphers?: Array<UpdateSecurityPolicyOptionCiphersEnum> | Array<string>;
     public constructor() { 
     }
     public withName(name: string): UpdateSecurityPolicyOption {
@@ -19,7 +19,7 @@ export class UpdateSecurityPolicyOption {
         this['protocols'] = protocols;
         return this;
     }
-    public withCiphers(ciphers: Array<UpdateSecurityPolicyOptionCiphersEnum>): UpdateSecurityPolicyOption {
+    public withCiphers(ciphers: Array<UpdateSecurityPolicyOptionCiphersEnum> | Array<string>): UpdateSecurityPolicyOption {
         this['ciphers'] = ciphers;
         return this;
     }

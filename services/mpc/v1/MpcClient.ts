@@ -350,7 +350,7 @@ export class MpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listAllBuckets(): Promise<ListAllBucketsResponse> {
+    public listAllBuckets(listAllBucketsRequest?: ListAllBucketsRequest): Promise<ListAllBucketsResponse> {
         const options = ParamCreater().listAllBuckets();
 
          // @ts-ignore
@@ -389,7 +389,7 @@ export class MpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listNotifyEvent(): Promise<ListNotifyEventResponse> {
+    public listNotifyEvent(listNotifyEventRequest?: ListNotifyEventRequest): Promise<ListNotifyEventResponse> {
         const options = ParamCreater().listNotifyEvent();
 
          // @ts-ignore
@@ -407,7 +407,7 @@ export class MpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listNotifySmnTopicConfig(): Promise<ListNotifySmnTopicConfigResponse> {
+    public listNotifySmnTopicConfig(listNotifySmnTopicConfigRequest?: ListNotifySmnTopicConfigRequest): Promise<ListNotifySmnTopicConfigResponse> {
         const options = ParamCreater().listNotifySmnTopicConfig();
 
          // @ts-ignore
@@ -444,7 +444,7 @@ export class MpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showAgenciesTask(): Promise<ShowAgenciesTaskResponse> {
+    public showAgenciesTask(showAgenciesTaskRequest?: ShowAgenciesTaskRequest): Promise<ShowAgenciesTaskResponse> {
         const options = ParamCreater().showAgenciesTask();
 
          // @ts-ignore
@@ -973,7 +973,7 @@ export class MpcClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listQualityEnhanceDefaultTemplate(): Promise<ListQualityEnhanceDefaultTemplateResponse> {
+    public listQualityEnhanceDefaultTemplate(listQualityEnhanceDefaultTemplateRequest?: ListQualityEnhanceDefaultTemplateRequest): Promise<ListQualityEnhanceDefaultTemplateResponse> {
         const options = ParamCreater().listQualityEnhanceDefaultTemplate();
 
          // @ts-ignore

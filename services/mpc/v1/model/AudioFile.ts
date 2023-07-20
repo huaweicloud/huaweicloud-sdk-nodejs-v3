@@ -3,7 +3,7 @@ import { TracksInfo } from './TracksInfo';
 
 
 export class AudioFile {
-    private 'tracks_info'?: Array<TracksInfo> | undefined;
+    private 'tracks_info'?: Array<TracksInfo>;
     public input?: ObsObjInfo;
     public constructor() { 
     }
@@ -11,10 +11,10 @@ export class AudioFile {
         this['tracks_info'] = tracksInfo;
         return this;
     }
-    public set tracksInfo(tracksInfo: Array<TracksInfo> | undefined) {
+    public set tracksInfo(tracksInfo: Array<TracksInfo>  | undefined) {
         this['tracks_info'] = tracksInfo;
     }
-    public get tracksInfo() {
+    public get tracksInfo(): Array<TracksInfo> | undefined {
         return this['tracks_info'];
     }
     public withInput(input: ObsObjInfo): AudioFile {

@@ -2,10 +2,10 @@ import { ProtocolLinks } from './ProtocolLinks';
 
 
 export class ProtocolResult {
-    public id: string;
-    private 'mapping_id': string | undefined;
-    public links: ProtocolLinks;
-    public constructor(id?: any, mappingId?: any, links?: any) { 
+    public id?: string;
+    private 'mapping_id'?: string;
+    public links?: ProtocolLinks;
+    public constructor(id?: string, mappingId?: string, links?: ProtocolLinks) { 
         this['id'] = id;
         this['mapping_id'] = mappingId;
         this['links'] = links;
@@ -18,10 +18,10 @@ export class ProtocolResult {
         this['mapping_id'] = mappingId;
         return this;
     }
-    public set mappingId(mappingId: string | undefined) {
+    public set mappingId(mappingId: string  | undefined) {
         this['mapping_id'] = mappingId;
     }
-    public get mappingId() {
+    public get mappingId(): string | undefined {
         return this['mapping_id'];
     }
     public withLinks(links: ProtocolLinks): ProtocolResult {

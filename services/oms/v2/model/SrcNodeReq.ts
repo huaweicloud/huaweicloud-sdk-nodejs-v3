@@ -2,25 +2,25 @@ import { ListFile } from './ListFile';
 
 
 export class SrcNodeReq {
-    private 'cloud_type'?: string | undefined;
+    private 'cloud_type'?: string;
     public region?: string;
     public ak?: string;
     public sk?: string;
-    private 'security_token'?: string | undefined;
-    private 'app_id'?: string | undefined;
+    private 'security_token'?: string;
+    private 'app_id'?: string;
     public bucket?: string;
-    private 'object_key'?: Array<string> | undefined;
-    private 'list_file'?: ListFile | undefined;
+    private 'object_key'?: Array<string>;
+    private 'list_file'?: ListFile;
     public constructor() { 
     }
     public withCloudType(cloudType: string): SrcNodeReq {
         this['cloud_type'] = cloudType;
         return this;
     }
-    public set cloudType(cloudType: string | undefined) {
+    public set cloudType(cloudType: string  | undefined) {
         this['cloud_type'] = cloudType;
     }
-    public get cloudType() {
+    public get cloudType(): string | undefined {
         return this['cloud_type'];
     }
     public withRegion(region: string): SrcNodeReq {
@@ -39,20 +39,20 @@ export class SrcNodeReq {
         this['security_token'] = securityToken;
         return this;
     }
-    public set securityToken(securityToken: string | undefined) {
+    public set securityToken(securityToken: string  | undefined) {
         this['security_token'] = securityToken;
     }
-    public get securityToken() {
+    public get securityToken(): string | undefined {
         return this['security_token'];
     }
     public withAppId(appId: string): SrcNodeReq {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withBucket(bucket: string): SrcNodeReq {
@@ -63,20 +63,20 @@ export class SrcNodeReq {
         this['object_key'] = objectKey;
         return this;
     }
-    public set objectKey(objectKey: Array<string> | undefined) {
+    public set objectKey(objectKey: Array<string>  | undefined) {
         this['object_key'] = objectKey;
     }
-    public get objectKey() {
+    public get objectKey(): Array<string> | undefined {
         return this['object_key'];
     }
     public withListFile(listFile: ListFile): SrcNodeReq {
         this['list_file'] = listFile;
         return this;
     }
-    public set listFile(listFile: ListFile | undefined) {
+    public set listFile(listFile: ListFile  | undefined) {
         this['list_file'] = listFile;
     }
-    public get listFile() {
+    public get listFile(): ListFile | undefined {
         return this['list_file'];
     }
 }

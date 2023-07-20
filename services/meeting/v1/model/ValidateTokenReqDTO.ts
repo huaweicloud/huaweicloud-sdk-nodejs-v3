@@ -1,10 +1,10 @@
 
 
 export class ValidateTokenReqDTO {
-    public token: string;
-    public needGenNewToken: boolean;
+    public token?: string;
+    public needGenNewToken?: boolean;
     public needAccountInfo?: boolean;
-    public constructor(token?: any, needGenNewToken?: any) { 
+    public constructor(token?: string, needGenNewToken?: boolean) { 
         this['token'] = token;
         this['needGenNewToken'] = needGenNewToken;
     }

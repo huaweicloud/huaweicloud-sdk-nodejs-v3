@@ -1,10 +1,10 @@
 
 
 export class VideoObj {
-    public width: number;
-    public height: number;
-    public bitrate: number;
-    public constructor(width?: any, height?: any, bitrate?: any) { 
+    public width?: number;
+    public height?: number;
+    public bitrate?: number;
+    public constructor(width?: number, height?: number, bitrate?: number) { 
         this['width'] = width;
         this['height'] = height;
         this['bitrate'] = bitrate;

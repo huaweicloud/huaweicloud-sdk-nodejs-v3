@@ -2,7 +2,7 @@ import { ListenerAccessControlType } from './ListenerAccessControlType';
 
 
 export class ListenerAccessControlPolicy {
-    private 'listener_id'?: string | undefined;
+    private 'listener_id'?: string;
     public type?: ListenerAccessControlType;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class ListenerAccessControlPolicy {
         this['listener_id'] = listenerId;
         return this;
     }
-    public set listenerId(listenerId: string | undefined) {
+    public set listenerId(listenerId: string  | undefined) {
         this['listener_id'] = listenerId;
     }
-    public get listenerId() {
+    public get listenerId(): string | undefined {
         return this['listener_id'];
     }
     public withType(type: ListenerAccessControlType): ListenerAccessControlPolicy {

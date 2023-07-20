@@ -4,9 +4,9 @@ import { RunModerationAudioRequestBodyConfig } from './RunModerationAudioRequest
 export class RunModerationAudioRequestBody {
     public data?: string;
     public url?: string;
-    public config: RunModerationAudioRequestBodyConfig;
+    public config?: RunModerationAudioRequestBodyConfig;
     public categories?: Array<string>;
-    public constructor(config?: any) { 
+    public constructor(config?: RunModerationAudioRequestBodyConfig) { 
         this['config'] = config;
     }
     public withData(data: string): RunModerationAudioRequestBody {

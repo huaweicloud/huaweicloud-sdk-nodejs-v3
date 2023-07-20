@@ -3,7 +3,7 @@
 export class ServerSchedulerHints {
     public group?: Array<string>;
     public tenancy?: Array<string>;
-    private 'dedicated_host_id'?: Array<string> | undefined;
+    private 'dedicated_host_id'?: Array<string>;
     public constructor() { 
     }
     public withGroup(group: Array<string>): ServerSchedulerHints {
@@ -18,10 +18,10 @@ export class ServerSchedulerHints {
         this['dedicated_host_id'] = dedicatedHostId;
         return this;
     }
-    public set dedicatedHostId(dedicatedHostId: Array<string> | undefined) {
+    public set dedicatedHostId(dedicatedHostId: Array<string>  | undefined) {
         this['dedicated_host_id'] = dedicatedHostId;
     }
-    public get dedicatedHostId() {
+    public get dedicatedHostId(): Array<string> | undefined {
         return this['dedicated_host_id'];
     }
 }

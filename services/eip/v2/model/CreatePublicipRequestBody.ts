@@ -3,10 +3,10 @@ import { CreatePublicipOption } from './CreatePublicipOption';
 
 
 export class CreatePublicipRequestBody {
-    public bandwidth: CreatePublicipBandwidthOption;
-    private 'enterprise_project_id'?: string | undefined;
-    public publicip: CreatePublicipOption;
-    public constructor(bandwidth?: any, publicip?: any) { 
+    public bandwidth?: CreatePublicipBandwidthOption;
+    private 'enterprise_project_id'?: string;
+    public publicip?: CreatePublicipOption;
+    public constructor(bandwidth?: CreatePublicipBandwidthOption, publicip?: CreatePublicipOption) { 
         this['bandwidth'] = bandwidth;
         this['publicip'] = publicip;
     }
@@ -18,10 +18,10 @@ export class CreatePublicipRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withPublicip(publicip: CreatePublicipOption): CreatePublicipRequestBody {

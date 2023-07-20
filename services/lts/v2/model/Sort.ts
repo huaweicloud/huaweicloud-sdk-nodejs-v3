@@ -1,9 +1,9 @@
 
 
 export class Sort {
-    private 'order_by': Array<string> | undefined;
-    public order: SortOrderEnum;
-    public constructor(orderBy?: any, order?: any) { 
+    private 'order_by'?: Array<string>;
+    public order?: SortOrderEnum | string;
+    public constructor(orderBy?: Array<string>, order?: string) { 
         this['order_by'] = orderBy;
         this['order'] = order;
     }
@@ -11,13 +11,13 @@ export class Sort {
         this['order_by'] = orderBy;
         return this;
     }
-    public set orderBy(orderBy: Array<string> | undefined) {
+    public set orderBy(orderBy: Array<string>  | undefined) {
         this['order_by'] = orderBy;
     }
-    public get orderBy() {
+    public get orderBy(): Array<string> | undefined {
         return this['order_by'];
     }
-    public withOrder(order: SortOrderEnum): Sort {
+    public withOrder(order: SortOrderEnum | string): Sort {
         this['order'] = order;
         return this;
     }

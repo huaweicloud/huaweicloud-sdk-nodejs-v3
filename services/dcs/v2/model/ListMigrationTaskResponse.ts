@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListMigrationTaskResponse extends SdkResponse {
     public count?: number;
-    private 'migration_tasks'?: Array<MigrationTaskList> | undefined;
+    private 'migration_tasks'?: Array<MigrationTaskList>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListMigrationTaskResponse extends SdkResponse {
         this['migration_tasks'] = migrationTasks;
         return this;
     }
-    public set migrationTasks(migrationTasks: Array<MigrationTaskList> | undefined) {
+    public set migrationTasks(migrationTasks: Array<MigrationTaskList>  | undefined) {
         this['migration_tasks'] = migrationTasks;
     }
-    public get migrationTasks() {
+    public get migrationTasks(): Array<MigrationTaskList> | undefined {
         return this['migration_tasks'];
     }
 }

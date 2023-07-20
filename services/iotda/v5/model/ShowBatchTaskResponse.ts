@@ -6,7 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowBatchTaskResponse extends SdkResponse {
     public batchtask?: Task;
-    private 'task_details'?: Array<TaskDetail> | undefined;
+    private 'task_details'?: Array<TaskDetail>;
     public page?: Page;
     public constructor() { 
         super();
@@ -19,10 +19,10 @@ export class ShowBatchTaskResponse extends SdkResponse {
         this['task_details'] = taskDetails;
         return this;
     }
-    public set taskDetails(taskDetails: Array<TaskDetail> | undefined) {
+    public set taskDetails(taskDetails: Array<TaskDetail>  | undefined) {
         this['task_details'] = taskDetails;
     }
-    public get taskDetails() {
+    public get taskDetails(): Array<TaskDetail> | undefined {
         return this['task_details'];
     }
     public withPage(page: Page): ShowBatchTaskResponse {

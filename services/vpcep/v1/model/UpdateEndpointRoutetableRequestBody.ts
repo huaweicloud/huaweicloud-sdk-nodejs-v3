@@ -1,8 +1,8 @@
 
 
 export class UpdateEndpointRoutetableRequestBody {
-    public routetables: Array<string>;
-    public constructor(routetables?: any) { 
+    public routetables?: Array<string>;
+    public constructor(routetables?: Array<string>) { 
         this['routetables'] = routetables;
     }
     public withRoutetables(routetables: Array<string>): UpdateEndpointRoutetableRequestBody {

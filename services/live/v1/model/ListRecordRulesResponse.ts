@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListRecordRulesResponse extends SdkResponse {
     public total?: number;
-    private 'record_config'?: Array<RecordRule> | undefined;
+    private 'record_config'?: Array<RecordRule>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListRecordRulesResponse extends SdkResponse {
         this['record_config'] = recordConfig;
         return this;
     }
-    public set recordConfig(recordConfig: Array<RecordRule> | undefined) {
+    public set recordConfig(recordConfig: Array<RecordRule>  | undefined) {
         this['record_config'] = recordConfig;
     }
-    public get recordConfig() {
+    public get recordConfig(): Array<RecordRule> | undefined {
         return this['record_config'];
     }
 }

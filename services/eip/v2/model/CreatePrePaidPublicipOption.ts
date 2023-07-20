@@ -1,25 +1,25 @@
 
 
 export class CreatePrePaidPublicipOption {
-    public type: string;
-    private 'ip_version'?: CreatePrePaidPublicipOptionIpVersionEnum | undefined;
+    public type?: string;
+    private 'ip_version'?: CreatePrePaidPublicipOptionIpVersionEnum | number;
     public alias?: string;
-    private 'port_id'?: string | undefined;
-    public constructor(type?: any) { 
+    private 'port_id'?: string;
+    public constructor(type?: string) { 
         this['type'] = type;
     }
     public withType(type: string): CreatePrePaidPublicipOption {
         this['type'] = type;
         return this;
     }
-    public withIpVersion(ipVersion: CreatePrePaidPublicipOptionIpVersionEnum): CreatePrePaidPublicipOption {
+    public withIpVersion(ipVersion: CreatePrePaidPublicipOptionIpVersionEnum | number): CreatePrePaidPublicipOption {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: CreatePrePaidPublicipOptionIpVersionEnum | undefined) {
+    public set ipVersion(ipVersion: CreatePrePaidPublicipOptionIpVersionEnum | number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion() {
+    public get ipVersion(): CreatePrePaidPublicipOptionIpVersionEnum | number | undefined {
         return this['ip_version'];
     }
     public withAlias(alias: string): CreatePrePaidPublicipOption {
@@ -30,10 +30,10 @@ export class CreatePrePaidPublicipOption {
         this['port_id'] = portId;
         return this;
     }
-    public set portId(portId: string | undefined) {
+    public set portId(portId: string  | undefined) {
         this['port_id'] = portId;
     }
-    public get portId() {
+    public get portId(): string | undefined {
         return this['port_id'];
     }
 }

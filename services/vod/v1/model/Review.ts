@@ -1,22 +1,22 @@
 
 
 export class Review {
-    private 'template_id': string | undefined;
+    private 'template_id'?: string;
     public interval?: number;
     public politics?: number;
     public terrorism?: number;
     public porn?: number;
-    public constructor(templateId?: any) { 
+    public constructor(templateId?: string) { 
         this['template_id'] = templateId;
     }
     public withTemplateId(templateId: string): Review {
         this['template_id'] = templateId;
         return this;
     }
-    public set templateId(templateId: string | undefined) {
+    public set templateId(templateId: string  | undefined) {
         this['template_id'] = templateId;
     }
-    public get templateId() {
+    public get templateId(): string | undefined {
         return this['template_id'];
     }
     public withInterval(interval: number): Review {

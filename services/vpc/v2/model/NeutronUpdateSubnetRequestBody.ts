@@ -2,8 +2,8 @@ import { NeutronUpdateSubnetOption } from './NeutronUpdateSubnetOption';
 
 
 export class NeutronUpdateSubnetRequestBody {
-    public subnet: NeutronUpdateSubnetOption;
-    public constructor(subnet?: any) { 
+    public subnet?: NeutronUpdateSubnetOption;
+    public constructor(subnet?: NeutronUpdateSubnetOption) { 
         this['subnet'] = subnet;
     }
     public withSubnet(subnet: NeutronUpdateSubnetOption): NeutronUpdateSubnetRequestBody {

@@ -4,8 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListClusterSnapshotsResponse extends SdkResponse {
     public snapshots?: Array<ClusterSnapshots>;
-    private 'project_id'?: string | undefined;
-    private 'cluster_id'?: string | undefined;
+    private 'project_id'?: string;
+    private 'cluster_id'?: string;
     public count?: number;
     public constructor() { 
         super();
@@ -18,20 +18,20 @@ export class ListClusterSnapshotsResponse extends SdkResponse {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withClusterId(clusterId: string): ListClusterSnapshotsResponse {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withCount(count: number): ListClusterSnapshotsResponse {

@@ -1,9 +1,9 @@
 
 
 export class DeleteBackgroundTaskRequest {
-    private 'instance_id': string | undefined;
-    private 'task_id': string | undefined;
-    public constructor(instanceId?: any, taskId?: any) { 
+    private 'instance_id'?: string;
+    private 'task_id'?: string;
+    public constructor(instanceId?: string, taskId?: string) { 
         this['instance_id'] = instanceId;
         this['task_id'] = taskId;
     }
@@ -11,20 +11,20 @@ export class DeleteBackgroundTaskRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withTaskId(taskId: string): DeleteBackgroundTaskRequest {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
 }

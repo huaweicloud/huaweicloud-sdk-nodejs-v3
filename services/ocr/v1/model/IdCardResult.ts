@@ -7,14 +7,14 @@ export class IdCardResult {
     public birth?: string;
     public ethnicity?: string;
     public address?: string;
-    private 'number'?: string | undefined;
+    private 'number'?: string;
     public issue?: string;
-    private 'valid_from'?: string | undefined;
-    private 'valid_to'?: string | undefined;
-    private 'verification_result'?: IdcardVerificationResult | undefined;
-    private 'text_location'?: object | undefined;
-    private 'detect_reproduce_result'?: boolean | undefined;
-    private 'detect_copy_result'?: boolean | undefined;
+    private 'valid_from'?: string;
+    private 'valid_to'?: string;
+    private 'verification_result'?: IdcardVerificationResult;
+    private 'text_location'?: object;
+    private 'detect_reproduce_result'?: boolean;
+    private 'detect_copy_result'?: boolean;
     public constructor() { 
     }
     public withName(name: string): IdCardResult {
@@ -41,10 +41,10 @@ export class IdCardResult {
         this['number'] = modelNumber;
         return this;
     }
-    public set modelNumber(modelNumber: string | undefined) {
+    public set modelNumber(modelNumber: string  | undefined) {
         this['number'] = modelNumber;
     }
-    public get modelNumber() {
+    public get modelNumber(): string | undefined {
         return this['number'];
     }
     public withIssue(issue: string): IdCardResult {
@@ -55,60 +55,60 @@ export class IdCardResult {
         this['valid_from'] = validFrom;
         return this;
     }
-    public set validFrom(validFrom: string | undefined) {
+    public set validFrom(validFrom: string  | undefined) {
         this['valid_from'] = validFrom;
     }
-    public get validFrom() {
+    public get validFrom(): string | undefined {
         return this['valid_from'];
     }
     public withValidTo(validTo: string): IdCardResult {
         this['valid_to'] = validTo;
         return this;
     }
-    public set validTo(validTo: string | undefined) {
+    public set validTo(validTo: string  | undefined) {
         this['valid_to'] = validTo;
     }
-    public get validTo() {
+    public get validTo(): string | undefined {
         return this['valid_to'];
     }
     public withVerificationResult(verificationResult: IdcardVerificationResult): IdCardResult {
         this['verification_result'] = verificationResult;
         return this;
     }
-    public set verificationResult(verificationResult: IdcardVerificationResult | undefined) {
+    public set verificationResult(verificationResult: IdcardVerificationResult  | undefined) {
         this['verification_result'] = verificationResult;
     }
-    public get verificationResult() {
+    public get verificationResult(): IdcardVerificationResult | undefined {
         return this['verification_result'];
     }
     public withTextLocation(textLocation: object): IdCardResult {
         this['text_location'] = textLocation;
         return this;
     }
-    public set textLocation(textLocation: object | undefined) {
+    public set textLocation(textLocation: object  | undefined) {
         this['text_location'] = textLocation;
     }
-    public get textLocation() {
+    public get textLocation(): object | undefined {
         return this['text_location'];
     }
     public withDetectReproduceResult(detectReproduceResult: boolean): IdCardResult {
         this['detect_reproduce_result'] = detectReproduceResult;
         return this;
     }
-    public set detectReproduceResult(detectReproduceResult: boolean | undefined) {
+    public set detectReproduceResult(detectReproduceResult: boolean  | undefined) {
         this['detect_reproduce_result'] = detectReproduceResult;
     }
-    public get detectReproduceResult() {
+    public get detectReproduceResult(): boolean | undefined {
         return this['detect_reproduce_result'];
     }
     public withDetectCopyResult(detectCopyResult: boolean): IdCardResult {
         this['detect_copy_result'] = detectCopyResult;
         return this;
     }
-    public set detectCopyResult(detectCopyResult: boolean | undefined) {
+    public set detectCopyResult(detectCopyResult: boolean  | undefined) {
         this['detect_copy_result'] = detectCopyResult;
     }
-    public get detectCopyResult() {
+    public get detectCopyResult(): boolean | undefined {
         return this['detect_copy_result'];
     }
 }

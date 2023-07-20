@@ -2,18 +2,18 @@ import { BatchQueryProgressReq } from './BatchQueryProgressReq';
 
 
 export class BatchListProgressesRequest {
-    private 'X-Language'?: BatchListProgressesRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchListProgressesRequestXLanguageEnum | string;
     public body?: BatchQueryProgressReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchListProgressesRequestXLanguageEnum): BatchListProgressesRequest {
+    public withXLanguage(xLanguage: BatchListProgressesRequestXLanguageEnum | string): BatchListProgressesRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchListProgressesRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchListProgressesRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchListProgressesRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchQueryProgressReq): BatchListProgressesRequest {

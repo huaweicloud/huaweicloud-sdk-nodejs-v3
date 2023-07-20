@@ -2,12 +2,12 @@
 
 export class FaceSearchBase64Req {
     public filter?: string;
-    private 'top_n'?: number | undefined;
-    private 'image_base64': string | undefined;
-    private 'return_fields'?: Array<string> | undefined;
+    private 'top_n'?: number;
+    private 'image_base64'?: string;
+    private 'return_fields'?: Array<string>;
     public threshold?: number;
     public sort?: Array<{ [key: string]: string; }>;
-    public constructor(imageBase64?: any) { 
+    public constructor(imageBase64?: string) { 
         this['image_base64'] = imageBase64;
     }
     public withFilter(filter: string): FaceSearchBase64Req {
@@ -18,30 +18,30 @@ export class FaceSearchBase64Req {
         this['top_n'] = topN;
         return this;
     }
-    public set topN(topN: number | undefined) {
+    public set topN(topN: number  | undefined) {
         this['top_n'] = topN;
     }
-    public get topN() {
+    public get topN(): number | undefined {
         return this['top_n'];
     }
     public withImageBase64(imageBase64: string): FaceSearchBase64Req {
         this['image_base64'] = imageBase64;
         return this;
     }
-    public set imageBase64(imageBase64: string | undefined) {
+    public set imageBase64(imageBase64: string  | undefined) {
         this['image_base64'] = imageBase64;
     }
-    public get imageBase64() {
+    public get imageBase64(): string | undefined {
         return this['image_base64'];
     }
     public withReturnFields(returnFields: Array<string>): FaceSearchBase64Req {
         this['return_fields'] = returnFields;
         return this;
     }
-    public set returnFields(returnFields: Array<string> | undefined) {
+    public set returnFields(returnFields: Array<string>  | undefined) {
         this['return_fields'] = returnFields;
     }
-    public get returnFields() {
+    public get returnFields(): Array<string> | undefined {
         return this['return_fields'];
     }
     public withThreshold(threshold: number): FaceSearchBase64Req {

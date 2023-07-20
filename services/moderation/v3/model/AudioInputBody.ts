@@ -1,8 +1,8 @@
 
 
 export class AudioInputBody {
-    public url: string;
-    public constructor(url?: any) { 
+    public url?: string;
+    public constructor(url?: string) { 
         this['url'] = url;
     }
     public withUrl(url: string): AudioInputBody {

@@ -1,10 +1,10 @@
 
 
 export class PolicyAction {
-    public category?: PolicyActionCategoryEnum;
+    public category?: PolicyActionCategoryEnum | string;
     public constructor() { 
     }
-    public withCategory(category: PolicyActionCategoryEnum): PolicyAction {
+    public withCategory(category: PolicyActionCategoryEnum | string): PolicyAction {
         this['category'] = category;
         return this;
     }

@@ -1,8 +1,8 @@
 
 
 export class UserMigrationRole {
-    public role: string;
-    public constructor(role?: any) { 
+    public role?: string;
+    public constructor(role?: string) { 
         this['role'] = role;
     }
     public withRole(role: string): UserMigrationRole {

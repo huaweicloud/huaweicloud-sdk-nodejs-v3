@@ -1,51 +1,51 @@
 
 
 export class ShowRecordCallbackRequest {
-    private 'Authorization'?: string | undefined;
-    private 'X-Sdk-Date'?: string | undefined;
-    private 'X-Project-Id'?: string | undefined;
-    private 'app_id': string | undefined;
-    public constructor(appId?: any) { 
+    private 'Authorization'?: string;
+    private 'X-Sdk-Date'?: string;
+    private 'X-Project-Id'?: string;
+    private 'app_id'?: string;
+    public constructor(appId?: string) { 
         this['app_id'] = appId;
     }
     public withAuthorization(authorization: string): ShowRecordCallbackRequest {
         this['Authorization'] = authorization;
         return this;
     }
-    public set authorization(authorization: string | undefined) {
+    public set authorization(authorization: string  | undefined) {
         this['Authorization'] = authorization;
     }
-    public get authorization() {
+    public get authorization(): string | undefined {
         return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ShowRecordCallbackRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withXProjectId(xProjectId: string): ShowRecordCallbackRequest {
         this['X-Project-Id'] = xProjectId;
         return this;
     }
-    public set xProjectId(xProjectId: string | undefined) {
+    public set xProjectId(xProjectId: string  | undefined) {
         this['X-Project-Id'] = xProjectId;
     }
-    public get xProjectId() {
+    public get xProjectId(): string | undefined {
         return this['X-Project-Id'];
     }
     public withAppId(appId: string): ShowRecordCallbackRequest {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
 }

@@ -2,9 +2,9 @@ import { ReinstallNodeSpec } from './ReinstallNodeSpec';
 
 
 export class ResetNode {
-    public nodeID: string;
-    public spec: ReinstallNodeSpec;
-    public constructor(nodeID?: any, spec?: any) { 
+    public nodeID?: string;
+    public spec?: ReinstallNodeSpec;
+    public constructor(nodeID?: string, spec?: ReinstallNodeSpec) { 
         this['nodeID'] = nodeID;
         this['spec'] = spec;
     }

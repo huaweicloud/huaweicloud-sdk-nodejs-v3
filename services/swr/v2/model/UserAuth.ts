@@ -1,10 +1,10 @@
 
 
 export class UserAuth {
-    private 'user_id': string | undefined;
-    private 'user_name': string | undefined;
-    public auth: UserAuthAuthEnum;
-    public constructor(userId?: any, userName?: any, auth?: any) { 
+    private 'user_id'?: string;
+    private 'user_name'?: string;
+    public auth?: UserAuthAuthEnum | number;
+    public constructor(userId?: string, userName?: string, auth?: number) { 
         this['user_id'] = userId;
         this['user_name'] = userName;
         this['auth'] = auth;
@@ -13,23 +13,23 @@ export class UserAuth {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withUserName(userName: string): UserAuth {
         this['user_name'] = userName;
         return this;
     }
-    public set userName(userName: string | undefined) {
+    public set userName(userName: string  | undefined) {
         this['user_name'] = userName;
     }
-    public get userName() {
+    public get userName(): string | undefined {
         return this['user_name'];
     }
-    public withAuth(auth: UserAuthAuthEnum): UserAuth {
+    public withAuth(auth: UserAuthAuthEnum | number): UserAuth {
         this['auth'] = auth;
         return this;
     }

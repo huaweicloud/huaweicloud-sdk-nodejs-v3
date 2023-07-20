@@ -2,21 +2,21 @@ import { PutLogicalVolume } from './PutLogicalVolume';
 
 
 export class PutVolumeGroups {
-    private 'logical_volumes'?: Array<PutLogicalVolume> | undefined;
-    public id: string;
-    private 'need_migration'?: boolean | undefined;
-    private 'adjust_size'?: number | undefined;
-    public constructor(id?: any) { 
+    private 'logical_volumes'?: Array<PutLogicalVolume>;
+    public id?: string;
+    private 'need_migration'?: boolean;
+    private 'adjust_size'?: number;
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withLogicalVolumes(logicalVolumes: Array<PutLogicalVolume>): PutVolumeGroups {
         this['logical_volumes'] = logicalVolumes;
         return this;
     }
-    public set logicalVolumes(logicalVolumes: Array<PutLogicalVolume> | undefined) {
+    public set logicalVolumes(logicalVolumes: Array<PutLogicalVolume>  | undefined) {
         this['logical_volumes'] = logicalVolumes;
     }
-    public get logicalVolumes() {
+    public get logicalVolumes(): Array<PutLogicalVolume> | undefined {
         return this['logical_volumes'];
     }
     public withId(id: string): PutVolumeGroups {
@@ -27,20 +27,20 @@ export class PutVolumeGroups {
         this['need_migration'] = needMigration;
         return this;
     }
-    public set needMigration(needMigration: boolean | undefined) {
+    public set needMigration(needMigration: boolean  | undefined) {
         this['need_migration'] = needMigration;
     }
-    public get needMigration() {
+    public get needMigration(): boolean | undefined {
         return this['need_migration'];
     }
     public withAdjustSize(adjustSize: number): PutVolumeGroups {
         this['adjust_size'] = adjustSize;
         return this;
     }
-    public set adjustSize(adjustSize: number | undefined) {
+    public set adjustSize(adjustSize: number  | undefined) {
         this['adjust_size'] = adjustSize;
     }
-    public get adjustSize() {
+    public get adjustSize(): number | undefined {
         return this['adjust_size'];
     }
 }

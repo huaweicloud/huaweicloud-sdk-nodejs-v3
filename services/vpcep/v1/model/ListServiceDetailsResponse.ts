@@ -5,22 +5,22 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListServiceDetailsResponse extends SdkResponse {
     public id?: string;
-    private 'port_id'?: string | undefined;
-    private 'service_name'?: string | undefined;
-    private 'server_type'?: ListServiceDetailsResponseServerTypeEnum | undefined;
-    private 'vpc_id'?: string | undefined;
-    private 'approval_enabled'?: boolean | undefined;
-    public status?: ListServiceDetailsResponseStatusEnum;
-    private 'service_type'?: ListServiceDetailsResponseServiceTypeEnum | undefined;
-    private 'created_at'?: string | undefined;
-    private 'updated_at'?: string | undefined;
-    private 'project_id'?: string | undefined;
-    private 'cidr_type'?: string | undefined;
+    private 'port_id'?: string;
+    private 'service_name'?: string;
+    private 'server_type'?: ListServiceDetailsResponseServerTypeEnum | string;
+    private 'vpc_id'?: string;
+    private 'approval_enabled'?: boolean;
+    public status?: ListServiceDetailsResponseStatusEnum | string;
+    private 'service_type'?: ListServiceDetailsResponseServiceTypeEnum | string;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    private 'project_id'?: string;
+    private 'cidr_type'?: string;
     public ports?: Array<PortList>;
-    private 'tcp_proxy'?: ListServiceDetailsResponseTcpProxyEnum | undefined;
+    private 'tcp_proxy'?: ListServiceDetailsResponseTcpProxyEnum | string;
     public tags?: Array<TagList>;
     public error?: Array<Error>;
-    private 'enable_policy'?: boolean | undefined;
+    private 'enable_policy'?: boolean;
     public description?: string;
     public constructor() { 
         super();
@@ -33,118 +33,118 @@ export class ListServiceDetailsResponse extends SdkResponse {
         this['port_id'] = portId;
         return this;
     }
-    public set portId(portId: string | undefined) {
+    public set portId(portId: string  | undefined) {
         this['port_id'] = portId;
     }
-    public get portId() {
+    public get portId(): string | undefined {
         return this['port_id'];
     }
     public withServiceName(serviceName: string): ListServiceDetailsResponse {
         this['service_name'] = serviceName;
         return this;
     }
-    public set serviceName(serviceName: string | undefined) {
+    public set serviceName(serviceName: string  | undefined) {
         this['service_name'] = serviceName;
     }
-    public get serviceName() {
+    public get serviceName(): string | undefined {
         return this['service_name'];
     }
-    public withServerType(serverType: ListServiceDetailsResponseServerTypeEnum): ListServiceDetailsResponse {
+    public withServerType(serverType: ListServiceDetailsResponseServerTypeEnum | string): ListServiceDetailsResponse {
         this['server_type'] = serverType;
         return this;
     }
-    public set serverType(serverType: ListServiceDetailsResponseServerTypeEnum | undefined) {
+    public set serverType(serverType: ListServiceDetailsResponseServerTypeEnum | string  | undefined) {
         this['server_type'] = serverType;
     }
-    public get serverType() {
+    public get serverType(): ListServiceDetailsResponseServerTypeEnum | string | undefined {
         return this['server_type'];
     }
     public withVpcId(vpcId: string): ListServiceDetailsResponse {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withApprovalEnabled(approvalEnabled: boolean): ListServiceDetailsResponse {
         this['approval_enabled'] = approvalEnabled;
         return this;
     }
-    public set approvalEnabled(approvalEnabled: boolean | undefined) {
+    public set approvalEnabled(approvalEnabled: boolean  | undefined) {
         this['approval_enabled'] = approvalEnabled;
     }
-    public get approvalEnabled() {
+    public get approvalEnabled(): boolean | undefined {
         return this['approval_enabled'];
     }
-    public withStatus(status: ListServiceDetailsResponseStatusEnum): ListServiceDetailsResponse {
+    public withStatus(status: ListServiceDetailsResponseStatusEnum | string): ListServiceDetailsResponse {
         this['status'] = status;
         return this;
     }
-    public withServiceType(serviceType: ListServiceDetailsResponseServiceTypeEnum): ListServiceDetailsResponse {
+    public withServiceType(serviceType: ListServiceDetailsResponseServiceTypeEnum | string): ListServiceDetailsResponse {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: ListServiceDetailsResponseServiceTypeEnum | undefined) {
+    public set serviceType(serviceType: ListServiceDetailsResponseServiceTypeEnum | string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType() {
+    public get serviceType(): ListServiceDetailsResponseServiceTypeEnum | string | undefined {
         return this['service_type'];
     }
     public withCreatedAt(createdAt: string): ListServiceDetailsResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): ListServiceDetailsResponse {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withProjectId(projectId: string): ListServiceDetailsResponse {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withCidrType(cidrType: string): ListServiceDetailsResponse {
         this['cidr_type'] = cidrType;
         return this;
     }
-    public set cidrType(cidrType: string | undefined) {
+    public set cidrType(cidrType: string  | undefined) {
         this['cidr_type'] = cidrType;
     }
-    public get cidrType() {
+    public get cidrType(): string | undefined {
         return this['cidr_type'];
     }
     public withPorts(ports: Array<PortList>): ListServiceDetailsResponse {
         this['ports'] = ports;
         return this;
     }
-    public withTcpProxy(tcpProxy: ListServiceDetailsResponseTcpProxyEnum): ListServiceDetailsResponse {
+    public withTcpProxy(tcpProxy: ListServiceDetailsResponseTcpProxyEnum | string): ListServiceDetailsResponse {
         this['tcp_proxy'] = tcpProxy;
         return this;
     }
-    public set tcpProxy(tcpProxy: ListServiceDetailsResponseTcpProxyEnum | undefined) {
+    public set tcpProxy(tcpProxy: ListServiceDetailsResponseTcpProxyEnum | string  | undefined) {
         this['tcp_proxy'] = tcpProxy;
     }
-    public get tcpProxy() {
+    public get tcpProxy(): ListServiceDetailsResponseTcpProxyEnum | string | undefined {
         return this['tcp_proxy'];
     }
     public withTags(tags: Array<TagList>): ListServiceDetailsResponse {
@@ -159,10 +159,10 @@ export class ListServiceDetailsResponse extends SdkResponse {
         this['enable_policy'] = enablePolicy;
         return this;
     }
-    public set enablePolicy(enablePolicy: boolean | undefined) {
+    public set enablePolicy(enablePolicy: boolean  | undefined) {
         this['enable_policy'] = enablePolicy;
     }
-    public get enablePolicy() {
+    public get enablePolicy(): boolean | undefined {
         return this['enable_policy'];
     }
     public withDescription(description: string): ListServiceDetailsResponse {

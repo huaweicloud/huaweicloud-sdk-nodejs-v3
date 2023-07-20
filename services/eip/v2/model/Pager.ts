@@ -2,14 +2,14 @@
 
 export class Pager {
     public href?: string;
-    public rel?: PagerRelEnum;
+    public rel?: PagerRelEnum | string;
     public constructor() { 
     }
     public withHref(href: string): Pager {
         this['href'] = href;
         return this;
     }
-    public withRel(rel: PagerRelEnum): Pager {
+    public withRel(rel: PagerRelEnum | string): Pager {
         this['rel'] = rel;
         return this;
     }

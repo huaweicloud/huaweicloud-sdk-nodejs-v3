@@ -4,17 +4,17 @@ import { WordPronunciation } from './WordPronunciation';
 
 
 export class Word {
-    public text: string;
-    private 'text_original': string | undefined;
-    private 'text_normalised': Array<string> | undefined;
-    private 'out_of_vocabulary'?: boolean | undefined;
-    private 'start_time'?: number | undefined;
-    private 'end_time'?: number | undefined;
+    public text?: string;
+    private 'text_original'?: string;
+    private 'text_normalised'?: Array<string>;
+    private 'out_of_vocabulary'?: boolean;
+    private 'start_time'?: number;
+    private 'end_time'?: number;
     public score?: number;
     public pronunciation?: WordPronunciation;
     public fluency?: WordFluency;
     public phonemes?: Array<Phoneme>;
-    public constructor(text?: any, textOriginal?: any, textNormalised?: any) { 
+    public constructor(text?: string, textOriginal?: string, textNormalised?: Array<string>) { 
         this['text'] = text;
         this['text_original'] = textOriginal;
         this['text_normalised'] = textNormalised;
@@ -27,50 +27,50 @@ export class Word {
         this['text_original'] = textOriginal;
         return this;
     }
-    public set textOriginal(textOriginal: string | undefined) {
+    public set textOriginal(textOriginal: string  | undefined) {
         this['text_original'] = textOriginal;
     }
-    public get textOriginal() {
+    public get textOriginal(): string | undefined {
         return this['text_original'];
     }
     public withTextNormalised(textNormalised: Array<string>): Word {
         this['text_normalised'] = textNormalised;
         return this;
     }
-    public set textNormalised(textNormalised: Array<string> | undefined) {
+    public set textNormalised(textNormalised: Array<string>  | undefined) {
         this['text_normalised'] = textNormalised;
     }
-    public get textNormalised() {
+    public get textNormalised(): Array<string> | undefined {
         return this['text_normalised'];
     }
     public withOutOfVocabulary(outOfVocabulary: boolean): Word {
         this['out_of_vocabulary'] = outOfVocabulary;
         return this;
     }
-    public set outOfVocabulary(outOfVocabulary: boolean | undefined) {
+    public set outOfVocabulary(outOfVocabulary: boolean  | undefined) {
         this['out_of_vocabulary'] = outOfVocabulary;
     }
-    public get outOfVocabulary() {
+    public get outOfVocabulary(): boolean | undefined {
         return this['out_of_vocabulary'];
     }
     public withStartTime(startTime: number): Word {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: number): Word {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: number | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
     public withScore(score: number): Word {

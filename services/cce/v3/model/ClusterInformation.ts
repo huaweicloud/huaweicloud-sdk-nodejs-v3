@@ -3,9 +3,9 @@ import { ClusterMetadataForUpdate } from './ClusterMetadataForUpdate';
 
 
 export class ClusterInformation {
-    public spec: ClusterInformationSpec;
+    public spec?: ClusterInformationSpec;
     public metadata?: ClusterMetadataForUpdate;
-    public constructor(spec?: any) { 
+    public constructor(spec?: ClusterInformationSpec) { 
         this['spec'] = spec;
     }
     public withSpec(spec: ClusterInformationSpec): ClusterInformation {

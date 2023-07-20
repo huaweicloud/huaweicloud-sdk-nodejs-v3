@@ -3,11 +3,11 @@ import { NodeSpec } from './NodeSpec';
 
 
 export class NodeCreateRequest {
-    public kind: string;
-    public apiVersion: string;
+    public kind?: string;
+    public apiVersion?: string;
     public metadata?: NodeMetadata;
-    public spec: NodeSpec;
-    public constructor(kind?: any, apiVersion?: any, spec?: any) { 
+    public spec?: NodeSpec;
+    public constructor(kind?: string, apiVersion?: string, spec?: NodeSpec) { 
         this['kind'] = kind;
         this['apiVersion'] = apiVersion;
         this['spec'] = spec;

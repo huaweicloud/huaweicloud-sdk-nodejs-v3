@@ -3,11 +3,11 @@ import { RuntimeConfig } from './RuntimeConfig';
 
 
 export class VirtualSpace {
-    public name: string;
-    public size: string;
+    public name?: string;
+    public size?: string;
     public lvmConfig?: LVMConfig;
     public runtimeConfig?: RuntimeConfig;
-    public constructor(name?: any, size?: any) { 
+    public constructor(name?: string, size?: string) { 
         this['name'] = name;
         this['size'] = size;
     }

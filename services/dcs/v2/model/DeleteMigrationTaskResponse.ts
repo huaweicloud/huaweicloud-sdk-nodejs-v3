@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DeleteMigrationTaskResponse extends SdkResponse {
-    private 'task_id_list'?: Array<string> | undefined;
+    private 'task_id_list'?: Array<string>;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class DeleteMigrationTaskResponse extends SdkResponse {
         this['task_id_list'] = taskIdList;
         return this;
     }
-    public set taskIdList(taskIdList: Array<string> | undefined) {
+    public set taskIdList(taskIdList: Array<string>  | undefined) {
         this['task_id_list'] = taskIdList;
     }
-    public get taskIdList() {
+    public get taskIdList(): Array<string> | undefined {
         return this['task_id_list'];
     }
 }

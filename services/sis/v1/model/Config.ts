@@ -1,68 +1,68 @@
 
 
 export class Config {
-    private 'audio_format': ConfigAudioFormatEnum | undefined;
-    public property: ConfigPropertyEnum;
-    private 'add_punc'?: ConfigAddPuncEnum | undefined;
-    private 'vocabulary_id'?: string | undefined;
-    private 'digit_norm'?: ConfigDigitNormEnum | undefined;
-    private 'need_word_info'?: ConfigNeedWordInfoEnum | undefined;
-    public constructor(audioFormat?: any, property?: any) { 
+    private 'audio_format'?: ConfigAudioFormatEnum | string;
+    public property?: ConfigPropertyEnum | string;
+    private 'add_punc'?: ConfigAddPuncEnum | string;
+    private 'vocabulary_id'?: string;
+    private 'digit_norm'?: ConfigDigitNormEnum | string;
+    private 'need_word_info'?: ConfigNeedWordInfoEnum | string;
+    public constructor(audioFormat?: string, property?: string) { 
         this['audio_format'] = audioFormat;
         this['property'] = property;
     }
-    public withAudioFormat(audioFormat: ConfigAudioFormatEnum): Config {
+    public withAudioFormat(audioFormat: ConfigAudioFormatEnum | string): Config {
         this['audio_format'] = audioFormat;
         return this;
     }
-    public set audioFormat(audioFormat: ConfigAudioFormatEnum | undefined) {
+    public set audioFormat(audioFormat: ConfigAudioFormatEnum | string  | undefined) {
         this['audio_format'] = audioFormat;
     }
-    public get audioFormat() {
+    public get audioFormat(): ConfigAudioFormatEnum | string | undefined {
         return this['audio_format'];
     }
-    public withProperty(property: ConfigPropertyEnum): Config {
+    public withProperty(property: ConfigPropertyEnum | string): Config {
         this['property'] = property;
         return this;
     }
-    public withAddPunc(addPunc: ConfigAddPuncEnum): Config {
+    public withAddPunc(addPunc: ConfigAddPuncEnum | string): Config {
         this['add_punc'] = addPunc;
         return this;
     }
-    public set addPunc(addPunc: ConfigAddPuncEnum | undefined) {
+    public set addPunc(addPunc: ConfigAddPuncEnum | string  | undefined) {
         this['add_punc'] = addPunc;
     }
-    public get addPunc() {
+    public get addPunc(): ConfigAddPuncEnum | string | undefined {
         return this['add_punc'];
     }
     public withVocabularyId(vocabularyId: string): Config {
         this['vocabulary_id'] = vocabularyId;
         return this;
     }
-    public set vocabularyId(vocabularyId: string | undefined) {
+    public set vocabularyId(vocabularyId: string  | undefined) {
         this['vocabulary_id'] = vocabularyId;
     }
-    public get vocabularyId() {
+    public get vocabularyId(): string | undefined {
         return this['vocabulary_id'];
     }
-    public withDigitNorm(digitNorm: ConfigDigitNormEnum): Config {
+    public withDigitNorm(digitNorm: ConfigDigitNormEnum | string): Config {
         this['digit_norm'] = digitNorm;
         return this;
     }
-    public set digitNorm(digitNorm: ConfigDigitNormEnum | undefined) {
+    public set digitNorm(digitNorm: ConfigDigitNormEnum | string  | undefined) {
         this['digit_norm'] = digitNorm;
     }
-    public get digitNorm() {
+    public get digitNorm(): ConfigDigitNormEnum | string | undefined {
         return this['digit_norm'];
     }
-    public withNeedWordInfo(needWordInfo: ConfigNeedWordInfoEnum): Config {
+    public withNeedWordInfo(needWordInfo: ConfigNeedWordInfoEnum | string): Config {
         this['need_word_info'] = needWordInfo;
         return this;
     }
-    public set needWordInfo(needWordInfo: ConfigNeedWordInfoEnum | undefined) {
+    public set needWordInfo(needWordInfo: ConfigNeedWordInfoEnum | string  | undefined) {
         this['need_word_info'] = needWordInfo;
     }
-    public get needWordInfo() {
+    public get needWordInfo(): ConfigNeedWordInfoEnum | string | undefined {
         return this['need_word_info'];
     }
 }

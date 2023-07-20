@@ -1,10 +1,10 @@
 
 
 export class Retry {
-    public name: string;
+    public name?: string;
     public delay?: number;
-    private 'max_attempts'?: number | undefined;
-    public constructor(name?: any) { 
+    private 'max_attempts'?: number;
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): Retry {
@@ -19,10 +19,10 @@ export class Retry {
         this['max_attempts'] = maxAttempts;
         return this;
     }
-    public set maxAttempts(maxAttempts: number | undefined) {
+    public set maxAttempts(maxAttempts: number  | undefined) {
         this['max_attempts'] = maxAttempts;
     }
-    public get maxAttempts() {
+    public get maxAttempts(): number | undefined {
         return this['max_attempts'];
     }
 }

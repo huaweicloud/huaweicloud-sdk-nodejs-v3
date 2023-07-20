@@ -3,7 +3,7 @@
 export class ShowMessagesRespMessages {
     public topic?: string;
     public partition?: number;
-    private 'message_offset'?: number | undefined;
+    private 'message_offset'?: number;
     public size?: number;
     public timestamp?: number;
     public constructor() { 
@@ -20,10 +20,10 @@ export class ShowMessagesRespMessages {
         this['message_offset'] = messageOffset;
         return this;
     }
-    public set messageOffset(messageOffset: number | undefined) {
+    public set messageOffset(messageOffset: number  | undefined) {
         this['message_offset'] = messageOffset;
     }
-    public get messageOffset() {
+    public get messageOffset(): number | undefined {
         return this['message_offset'];
     }
     public withSize(size: number): ShowMessagesRespMessages {

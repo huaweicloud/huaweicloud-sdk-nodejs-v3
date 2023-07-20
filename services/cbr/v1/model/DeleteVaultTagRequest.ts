@@ -1,9 +1,9 @@
 
 
 export class DeleteVaultTagRequest {
-    public key: string;
-    private 'vault_id': string | undefined;
-    public constructor(key?: any, vaultId?: any) { 
+    public key?: string;
+    private 'vault_id'?: string;
+    public constructor(key?: string, vaultId?: string) { 
         this['key'] = key;
         this['vault_id'] = vaultId;
     }
@@ -15,10 +15,10 @@ export class DeleteVaultTagRequest {
         this['vault_id'] = vaultId;
         return this;
     }
-    public set vaultId(vaultId: string | undefined) {
+    public set vaultId(vaultId: string  | undefined) {
         this['vault_id'] = vaultId;
     }
-    public get vaultId() {
+    public get vaultId(): string | undefined {
         return this['vault_id'];
     }
 }

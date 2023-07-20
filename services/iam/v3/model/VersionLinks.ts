@@ -1,9 +1,9 @@
 
 
 export class VersionLinks {
-    public rel: string;
-    public href: string;
-    public constructor(rel?: any, href?: any) { 
+    public rel?: string;
+    public href?: string;
+    public constructor(rel?: string, href?: string) { 
         this['rel'] = rel;
         this['href'] = href;
     }

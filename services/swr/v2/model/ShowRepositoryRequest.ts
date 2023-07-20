@@ -1,22 +1,22 @@
 
 
 export class ShowRepositoryRequest {
-    private 'Content-Type': ShowRepositoryRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    private 'Content-Type'?: ShowRepositoryRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: ShowRepositoryRequestContentTypeEnum): ShowRepositoryRequest {
+    public withContentType(contentType: ShowRepositoryRequestContentTypeEnum | string): ShowRepositoryRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ShowRepositoryRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ShowRepositoryRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ShowRepositoryRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): ShowRepositoryRequest {

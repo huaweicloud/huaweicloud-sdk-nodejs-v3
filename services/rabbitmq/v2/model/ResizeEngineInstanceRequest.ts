@@ -2,10 +2,10 @@ import { ResizeEngineInstanceReq } from './ResizeEngineInstanceReq';
 
 
 export class ResizeEngineInstanceRequest {
-    private 'instance_id': string | undefined;
-    public engine: string;
+    private 'instance_id'?: string;
+    public engine?: ResizeEngineInstanceRequestEngineEnum | string;
     public body?: ResizeEngineInstanceReq;
-    public constructor(instanceId?: any, engine?: any) { 
+    public constructor(instanceId?: string, engine?: string) { 
         this['instance_id'] = instanceId;
         this['engine'] = engine;
     }
@@ -13,13 +13,13 @@ export class ResizeEngineInstanceRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withEngine(engine: string): ResizeEngineInstanceRequest {
+    public withEngine(engine: ResizeEngineInstanceRequestEngineEnum | string): ResizeEngineInstanceRequest {
         this['engine'] = engine;
         return this;
     }
@@ -27,4 +27,12 @@ export class ResizeEngineInstanceRequest {
         this['body'] = body;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ResizeEngineInstanceRequestEngineEnum {
+    RABBITMQ = 'rabbitmq'
 }

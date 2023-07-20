@@ -5,11 +5,11 @@ import { VideoTaggingTaskConfig } from './VideoTaggingTaskConfig';
 
 
 export class CreateVideoTaggingMediaTaskRequestBody {
-    public input: VideoTaggingMediaTaskInput;
-    public output: TaskOutput;
+    public input?: VideoTaggingMediaTaskInput;
+    public output?: TaskOutput;
     public callback?: TaskCallback;
     public config?: VideoTaggingTaskConfig;
-    public constructor(input?: any, output?: any) { 
+    public constructor(input?: VideoTaggingMediaTaskInput, output?: TaskOutput) { 
         this['input'] = input;
         this['output'] = output;
     }

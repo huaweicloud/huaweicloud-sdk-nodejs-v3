@@ -1,9 +1,9 @@
 
 
 export class PhonemePronunciation {
-    public score: number;
-    public gop: number;
-    public constructor(score?: any, gop?: any) { 
+    public score?: number;
+    public gop?: number;
+    public constructor(score?: number, gop?: number) { 
         this['score'] = score;
         this['gop'] = gop;
     }

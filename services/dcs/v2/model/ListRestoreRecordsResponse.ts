@@ -3,8 +3,8 @@ import { InstanceRestoreInfo } from './InstanceRestoreInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListRestoreRecordsResponse extends SdkResponse {
-    private 'restore_record_response'?: Array<InstanceRestoreInfo> | undefined;
-    private 'total_num'?: number | undefined;
+    private 'restore_record_response'?: Array<InstanceRestoreInfo>;
+    private 'total_num'?: number;
     public constructor() { 
         super();
     }
@@ -12,20 +12,20 @@ export class ListRestoreRecordsResponse extends SdkResponse {
         this['restore_record_response'] = restoreRecordResponse;
         return this;
     }
-    public set restoreRecordResponse(restoreRecordResponse: Array<InstanceRestoreInfo> | undefined) {
+    public set restoreRecordResponse(restoreRecordResponse: Array<InstanceRestoreInfo>  | undefined) {
         this['restore_record_response'] = restoreRecordResponse;
     }
-    public get restoreRecordResponse() {
+    public get restoreRecordResponse(): Array<InstanceRestoreInfo> | undefined {
         return this['restore_record_response'];
     }
     public withTotalNum(totalNum: number): ListRestoreRecordsResponse {
         this['total_num'] = totalNum;
         return this;
     }
-    public set totalNum(totalNum: number | undefined) {
+    public set totalNum(totalNum: number  | undefined) {
         this['total_num'] = totalNum;
     }
-    public get totalNum() {
+    public get totalNum(): number | undefined {
         return this['total_num'];
     }
 }

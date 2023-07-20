@@ -1,12 +1,12 @@
 
 
 export class CustomAction {
-    public category: CustomActionCategoryEnum;
-    private 'followed_action_id'?: string | undefined;
-    public constructor(category?: any) { 
+    public category?: CustomActionCategoryEnum | string;
+    private 'followed_action_id'?: string;
+    public constructor(category?: string) { 
         this['category'] = category;
     }
-    public withCategory(category: CustomActionCategoryEnum): CustomAction {
+    public withCategory(category: CustomActionCategoryEnum | string): CustomAction {
         this['category'] = category;
         return this;
     }
@@ -14,10 +14,10 @@ export class CustomAction {
         this['followed_action_id'] = followedActionId;
         return this;
     }
-    public set followedActionId(followedActionId: string | undefined) {
+    public set followedActionId(followedActionId: string  | undefined) {
         this['followed_action_id'] = followedActionId;
     }
-    public get followedActionId() {
+    public get followedActionId(): string | undefined {
         return this['followed_action_id'];
     }
 }

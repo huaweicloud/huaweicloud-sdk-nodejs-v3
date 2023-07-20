@@ -3,8 +3,8 @@ import { AreaDetail } from './AreaDetail';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAreaDetailResponse extends SdkResponse {
-    private 'data_list'?: Array<AreaDetail> | undefined;
-    private 'X-Request-Id'?: string | undefined;
+    private 'data_list'?: Array<AreaDetail>;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -12,20 +12,20 @@ export class ListAreaDetailResponse extends SdkResponse {
         this['data_list'] = dataList;
         return this;
     }
-    public set dataList(dataList: Array<AreaDetail> | undefined) {
+    public set dataList(dataList: Array<AreaDetail>  | undefined) {
         this['data_list'] = dataList;
     }
-    public get dataList() {
+    public get dataList(): Array<AreaDetail> | undefined {
         return this['data_list'];
     }
     public withXRequestId(xRequestId: string): ListAreaDetailResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-Request-Id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-Request-Id'];
     }
 }

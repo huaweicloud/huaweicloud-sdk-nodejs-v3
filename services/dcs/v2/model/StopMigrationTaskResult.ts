@@ -1,11 +1,11 @@
 
 
 export class StopMigrationTaskResult {
-    public result?: StopMigrationTaskResultResultEnum;
-    private 'task_id'?: string | undefined;
+    public result?: StopMigrationTaskResultResultEnum | string;
+    private 'task_id'?: string;
     public constructor() { 
     }
-    public withResult(result: StopMigrationTaskResultResultEnum): StopMigrationTaskResult {
+    public withResult(result: StopMigrationTaskResultResultEnum | string): StopMigrationTaskResult {
         this['result'] = result;
         return this;
     }
@@ -13,10 +13,10 @@ export class StopMigrationTaskResult {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
 }

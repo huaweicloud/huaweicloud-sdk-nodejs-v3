@@ -2,7 +2,7 @@
 
 export class ResetFingerprint {
     public fingerprint?: string;
-    private 'force_disconnect'?: boolean | undefined;
+    private 'force_disconnect'?: boolean;
     public constructor() { 
     }
     public withFingerprint(fingerprint: string): ResetFingerprint {
@@ -13,10 +13,10 @@ export class ResetFingerprint {
         this['force_disconnect'] = forceDisconnect;
         return this;
     }
-    public set forceDisconnect(forceDisconnect: boolean | undefined) {
+    public set forceDisconnect(forceDisconnect: boolean  | undefined) {
         this['force_disconnect'] = forceDisconnect;
     }
-    public get forceDisconnect() {
+    public get forceDisconnect(): boolean | undefined {
         return this['force_disconnect'];
     }
 }

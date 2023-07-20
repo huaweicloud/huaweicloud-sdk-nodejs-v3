@@ -1,14 +1,14 @@
 
 
 export class ListMonitorIndicatorDataRequest {
-    public from: string;
-    public to: string;
-    private 'function'?: string | undefined;
+    public from?: string;
+    public to?: string;
+    private 'function'?: string;
     public period?: string;
-    private 'indicator_name': string | undefined;
-    public dim0: string;
+    private 'indicator_name'?: string;
+    public dim0?: string;
     public dim1?: string;
-    public constructor(from?: any, to?: any, indicatorName?: any, dim0?: any) { 
+    public constructor(from?: string, to?: string, indicatorName?: string, dim0?: string) { 
         this['from'] = from;
         this['to'] = to;
         this['indicator_name'] = indicatorName;
@@ -26,10 +26,10 @@ export class ListMonitorIndicatorDataRequest {
         this['function'] = _function;
         return this;
     }
-    public set _function(_function: string | undefined) {
+    public set _function(_function: string  | undefined) {
         this['function'] = _function;
     }
-    public get _function() {
+    public get _function(): string | undefined {
         return this['function'];
     }
     public withPeriod(period: string): ListMonitorIndicatorDataRequest {
@@ -40,10 +40,10 @@ export class ListMonitorIndicatorDataRequest {
         this['indicator_name'] = indicatorName;
         return this;
     }
-    public set indicatorName(indicatorName: string | undefined) {
+    public set indicatorName(indicatorName: string  | undefined) {
         this['indicator_name'] = indicatorName;
     }
-    public get indicatorName() {
+    public get indicatorName(): string | undefined {
         return this['indicator_name'];
     }
     public withDim0(dim0: string): ListMonitorIndicatorDataRequest {

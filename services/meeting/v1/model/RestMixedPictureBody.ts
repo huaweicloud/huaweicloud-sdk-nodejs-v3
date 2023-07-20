@@ -2,11 +2,11 @@ import { SubscriberInPic } from './SubscriberInPic';
 
 
 export class RestMixedPictureBody {
-    public manualSet: number;
+    public manualSet?: number;
     public imageType?: string;
     public subscriberInPics?: Array<SubscriberInPic>;
     public switchTime?: number;
-    public constructor(manualSet?: any) { 
+    public constructor(manualSet?: number) { 
         this['manualSet'] = manualSet;
     }
     public withManualSet(manualSet: number): RestMixedPictureBody {

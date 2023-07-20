@@ -3,8 +3,8 @@ import { ResourceTag } from './ResourceTag';
 
 export class BatchAddOrRemoveResourceInstanceBody {
     public tags?: Array<ResourceTag>;
-    public action: string;
-    public constructor(action?: any) { 
+    public action?: string;
+    public constructor(action?: string) { 
         this['action'] = action;
     }
     public withTags(tags: Array<ResourceTag>): BatchAddOrRemoveResourceInstanceBody {

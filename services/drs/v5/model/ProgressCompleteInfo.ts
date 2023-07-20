@@ -2,7 +2,7 @@
 
 export class ProgressCompleteInfo {
     public completed?: string;
-    private 'remaining_time'?: string | undefined;
+    private 'remaining_time'?: string;
     public constructor() { 
     }
     public withCompleted(completed: string): ProgressCompleteInfo {
@@ -13,10 +13,10 @@ export class ProgressCompleteInfo {
         this['remaining_time'] = remainingTime;
         return this;
     }
-    public set remainingTime(remainingTime: string | undefined) {
+    public set remainingTime(remainingTime: string  | undefined) {
         this['remaining_time'] = remainingTime;
     }
-    public get remainingTime() {
+    public get remainingTime(): string | undefined {
         return this['remaining_time'];
     }
 }

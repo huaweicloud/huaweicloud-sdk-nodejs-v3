@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class SyncIamUsersResponse extends SdkResponse {
-    private 'sync_user'?: Array<string> | undefined;
+    private 'sync_user'?: Array<string>;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class SyncIamUsersResponse extends SdkResponse {
         this['sync_user'] = syncUser;
         return this;
     }
-    public set syncUser(syncUser: Array<string> | undefined) {
+    public set syncUser(syncUser: Array<string>  | undefined) {
         this['sync_user'] = syncUser;
     }
-    public get syncUser() {
+    public get syncUser(): Array<string> | undefined {
         return this['sync_user'];
     }
 }

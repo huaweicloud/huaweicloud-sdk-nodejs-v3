@@ -1,9 +1,9 @@
 
 
 export class ConclusionItem {
-    public id: number;
+    public id?: number;
     public params?: { [key: string]: string; };
-    public constructor(id?: any) { 
+    public constructor(id?: number) { 
         this['id'] = id;
     }
     public withId(id: number): ConclusionItem {

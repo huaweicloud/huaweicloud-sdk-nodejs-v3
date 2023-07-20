@@ -1,19 +1,24 @@
-import { ListProductsRespHourly } from './ListProductsRespHourly';
+import { RabbitMQExtendProductInfoEntity } from './RabbitMQExtendProductInfoEntity';
 
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowInstanceExtendProductInfoResponse extends SdkResponse {
-    public hourly?: Array<ListProductsRespHourly>;
-    public monthly?: Array<ListProductsRespHourly>;
+    public engine?: string;
+    public versions?: Array<string>;
+    public products?: Array<RabbitMQExtendProductInfoEntity>;
     public constructor() { 
         super();
     }
-    public withHourly(hourly: Array<ListProductsRespHourly>): ShowInstanceExtendProductInfoResponse {
-        this['hourly'] = hourly;
+    public withEngine(engine: string): ShowInstanceExtendProductInfoResponse {
+        this['engine'] = engine;
         return this;
     }
-    public withMonthly(monthly: Array<ListProductsRespHourly>): ShowInstanceExtendProductInfoResponse {
-        this['monthly'] = monthly;
+    public withVersions(versions: Array<string>): ShowInstanceExtendProductInfoResponse {
+        this['versions'] = versions;
+        return this;
+    }
+    public withProducts(products: Array<RabbitMQExtendProductInfoEntity>): ShowInstanceExtendProductInfoResponse {
+        this['products'] = products;
         return this;
     }
 }

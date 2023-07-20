@@ -3,12 +3,12 @@ import { ClientData } from './ClientData';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowConsumerConnectionsResponse extends SdkResponse {
-    private 'group_name'?: string | undefined;
+    private 'group_name'?: string;
     public online?: boolean;
-    private 'subscription_consistency'?: boolean | undefined;
+    private 'subscription_consistency'?: boolean;
     public total?: number;
-    private 'next_offset'?: number | undefined;
-    private 'previous_offset'?: number | undefined;
+    private 'next_offset'?: number;
+    private 'previous_offset'?: number;
     public clients?: Array<ClientData>;
     public constructor() { 
         super();
@@ -17,10 +17,10 @@ export class ShowConsumerConnectionsResponse extends SdkResponse {
         this['group_name'] = groupName;
         return this;
     }
-    public set groupName(groupName: string | undefined) {
+    public set groupName(groupName: string  | undefined) {
         this['group_name'] = groupName;
     }
-    public get groupName() {
+    public get groupName(): string | undefined {
         return this['group_name'];
     }
     public withOnline(online: boolean): ShowConsumerConnectionsResponse {
@@ -31,10 +31,10 @@ export class ShowConsumerConnectionsResponse extends SdkResponse {
         this['subscription_consistency'] = subscriptionConsistency;
         return this;
     }
-    public set subscriptionConsistency(subscriptionConsistency: boolean | undefined) {
+    public set subscriptionConsistency(subscriptionConsistency: boolean  | undefined) {
         this['subscription_consistency'] = subscriptionConsistency;
     }
-    public get subscriptionConsistency() {
+    public get subscriptionConsistency(): boolean | undefined {
         return this['subscription_consistency'];
     }
     public withTotal(total: number): ShowConsumerConnectionsResponse {
@@ -45,20 +45,20 @@ export class ShowConsumerConnectionsResponse extends SdkResponse {
         this['next_offset'] = nextOffset;
         return this;
     }
-    public set nextOffset(nextOffset: number | undefined) {
+    public set nextOffset(nextOffset: number  | undefined) {
         this['next_offset'] = nextOffset;
     }
-    public get nextOffset() {
+    public get nextOffset(): number | undefined {
         return this['next_offset'];
     }
     public withPreviousOffset(previousOffset: number): ShowConsumerConnectionsResponse {
         this['previous_offset'] = previousOffset;
         return this;
     }
-    public set previousOffset(previousOffset: number | undefined) {
+    public set previousOffset(previousOffset: number  | undefined) {
         this['previous_offset'] = previousOffset;
     }
-    public get previousOffset() {
+    public get previousOffset(): number | undefined {
         return this['previous_offset'];
     }
     public withClients(clients: Array<ClientData>): ShowConsumerConnectionsResponse {

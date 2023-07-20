@@ -3,7 +3,7 @@ import { MfaDeviceResult } from './MfaDeviceResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowUserMfaDeviceResponse extends SdkResponse {
-    private 'virtual_mfa_device'?: MfaDeviceResult | undefined;
+    private 'virtual_mfa_device'?: MfaDeviceResult;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ShowUserMfaDeviceResponse extends SdkResponse {
         this['virtual_mfa_device'] = virtualMfaDevice;
         return this;
     }
-    public set virtualMfaDevice(virtualMfaDevice: MfaDeviceResult | undefined) {
+    public set virtualMfaDevice(virtualMfaDevice: MfaDeviceResult  | undefined) {
         this['virtual_mfa_device'] = virtualMfaDevice;
     }
-    public get virtualMfaDevice() {
+    public get virtualMfaDevice(): MfaDeviceResult | undefined {
         return this['virtual_mfa_device'];
     }
 }

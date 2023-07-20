@@ -1,31 +1,31 @@
 
 
 export class ShowDbObjectTemplateProgressRequest {
-    private 'job_id': string | undefined;
-    private 'X-Language'?: ShowDbObjectTemplateProgressRequestXLanguageEnum | undefined;
+    private 'job_id'?: string;
+    private 'X-Language'?: ShowDbObjectTemplateProgressRequestXLanguageEnum | string;
     public offset?: number;
     public limit?: number;
-    public constructor(jobId?: any) { 
+    public constructor(jobId?: string) { 
         this['job_id'] = jobId;
     }
     public withJobId(jobId: string): ShowDbObjectTemplateProgressRequest {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withXLanguage(xLanguage: ShowDbObjectTemplateProgressRequestXLanguageEnum): ShowDbObjectTemplateProgressRequest {
+    public withXLanguage(xLanguage: ShowDbObjectTemplateProgressRequestXLanguageEnum | string): ShowDbObjectTemplateProgressRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ShowDbObjectTemplateProgressRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ShowDbObjectTemplateProgressRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ShowDbObjectTemplateProgressRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withOffset(offset: number): ShowDbObjectTemplateProgressRequest {

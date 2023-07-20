@@ -1,12 +1,12 @@
 
 
 export class ModMemberDTO {
-    public name: string;
+    public name?: string;
     public englishName?: string;
     public signature?: string;
     public title?: string;
     public desc?: string;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): ModMemberDTO {

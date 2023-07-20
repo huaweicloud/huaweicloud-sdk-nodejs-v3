@@ -2,19 +2,19 @@ import { UpdateCustomsLineReq } from './UpdateCustomsLineReq';
 
 
 export class UpdateCustomLineRequest {
-    private 'line_id': string | undefined;
+    private 'line_id'?: string;
     public body?: UpdateCustomsLineReq;
-    public constructor(lineId?: any) { 
+    public constructor(lineId?: string) { 
         this['line_id'] = lineId;
     }
     public withLineId(lineId: string): UpdateCustomLineRequest {
         this['line_id'] = lineId;
         return this;
     }
-    public set lineId(lineId: string | undefined) {
+    public set lineId(lineId: string  | undefined) {
         this['line_id'] = lineId;
     }
-    public get lineId() {
+    public get lineId(): string | undefined {
         return this['line_id'];
     }
     public withBody(body: UpdateCustomsLineReq): UpdateCustomLineRequest {

@@ -2,10 +2,10 @@ import { Tag } from './Tag';
 
 
 export class CreateRouteTable {
-    public name: string;
+    public name?: string;
     public description?: string;
     public tags?: Array<Tag>;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): CreateRouteTable {

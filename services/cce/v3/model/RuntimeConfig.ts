@@ -1,8 +1,8 @@
 
 
 export class RuntimeConfig {
-    public lvType: string;
-    public constructor(lvType?: any) { 
+    public lvType?: string;
+    public constructor(lvType?: string) { 
         this['lvType'] = lvType;
     }
     public withLvType(lvType: string): RuntimeConfig {

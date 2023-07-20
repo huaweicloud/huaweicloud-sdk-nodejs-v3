@@ -1,22 +1,22 @@
 
 
 export class CancelAsyncInvocationRequestBody {
-    private 'request_id': string | undefined;
-    public type?: CancelAsyncInvocationRequestBodyTypeEnum;
-    public constructor(requestId?: any) { 
+    private 'request_id'?: string;
+    public type?: CancelAsyncInvocationRequestBodyTypeEnum | string;
+    public constructor(requestId?: string) { 
         this['request_id'] = requestId;
     }
     public withRequestId(requestId: string): CancelAsyncInvocationRequestBody {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
-    public withType(type: CancelAsyncInvocationRequestBodyTypeEnum): CancelAsyncInvocationRequestBody {
+    public withType(type: CancelAsyncInvocationRequestBodyTypeEnum | string): CancelAsyncInvocationRequestBody {
         this['type'] = type;
         return this;
     }

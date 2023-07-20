@@ -2,11 +2,11 @@ import { VirtualSpace } from './VirtualSpace';
 
 
 export class StorageGroups {
-    public name: string;
+    public name?: string;
     public cceManaged?: boolean;
-    public selectorNames: Array<string>;
-    public virtualSpaces: Array<VirtualSpace>;
-    public constructor(name?: any, selectorNames?: any, virtualSpaces?: any) { 
+    public selectorNames?: Array<string>;
+    public virtualSpaces?: Array<VirtualSpace>;
+    public constructor(name?: string, selectorNames?: Array<string>, virtualSpaces?: Array<VirtualSpace>) { 
         this['name'] = name;
         this['selectorNames'] = selectorNames;
         this['virtualSpaces'] = virtualSpaces;

@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateTranscodingTaskResponse extends SdkResponse {
-    private 'task_id'?: number | undefined;
+    private 'task_id'?: number;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class CreateTranscodingTaskResponse extends SdkResponse {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: number | undefined) {
+    public set taskId(taskId: number  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): number | undefined {
         return this['task_id'];
     }
 }

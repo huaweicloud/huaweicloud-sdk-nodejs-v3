@@ -2,11 +2,11 @@ import { TagEntity } from './TagEntity';
 
 
 export class BatchCreateOrDeleteTagReq {
-    public action?: BatchCreateOrDeleteTagReqActionEnum;
+    public action?: BatchCreateOrDeleteTagReqActionEnum | string;
     public tags?: Array<TagEntity>;
     public constructor() { 
     }
-    public withAction(action: BatchCreateOrDeleteTagReqActionEnum): BatchCreateOrDeleteTagReq {
+    public withAction(action: BatchCreateOrDeleteTagReqActionEnum | string): BatchCreateOrDeleteTagReq {
         this['action'] = action;
         return this;
     }

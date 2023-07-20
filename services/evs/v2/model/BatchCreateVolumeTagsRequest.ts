@@ -2,19 +2,19 @@ import { BatchCreateVolumeTagsRequestBody } from './BatchCreateVolumeTagsRequest
 
 
 export class BatchCreateVolumeTagsRequest {
-    private 'volume_id': string | undefined;
+    private 'volume_id'?: string;
     public body?: BatchCreateVolumeTagsRequestBody;
-    public constructor(volumeId?: any) { 
+    public constructor(volumeId?: string) { 
         this['volume_id'] = volumeId;
     }
     public withVolumeId(volumeId: string): BatchCreateVolumeTagsRequest {
         this['volume_id'] = volumeId;
         return this;
     }
-    public set volumeId(volumeId: string | undefined) {
+    public set volumeId(volumeId: string  | undefined) {
         this['volume_id'] = volumeId;
     }
-    public get volumeId() {
+    public get volumeId(): string | undefined {
         return this['volume_id'];
     }
     public withBody(body: BatchCreateVolumeTagsRequestBody): BatchCreateVolumeTagsRequest {

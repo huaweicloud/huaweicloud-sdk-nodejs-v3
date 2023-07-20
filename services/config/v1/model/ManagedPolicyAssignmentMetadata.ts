@@ -4,18 +4,18 @@ import { PolicyParameterValue } from './PolicyParameterValue';
 
 export class ManagedPolicyAssignmentMetadata {
     public description?: string;
-    public period?: ManagedPolicyAssignmentMetadataPeriodEnum;
+    public period?: ManagedPolicyAssignmentMetadataPeriodEnum | string;
     public parameters?: { [key: string]: PolicyParameterValue; };
-    private 'policy_filter'?: PolicyFilterDefinition | undefined;
-    private 'policy_definition_id': string | undefined;
-    public constructor(policyDefinitionId?: any) { 
+    private 'policy_filter'?: PolicyFilterDefinition;
+    private 'policy_definition_id'?: string;
+    public constructor(policyDefinitionId?: string) { 
         this['policy_definition_id'] = policyDefinitionId;
     }
     public withDescription(description: string): ManagedPolicyAssignmentMetadata {
         this['description'] = description;
         return this;
     }
-    public withPeriod(period: ManagedPolicyAssignmentMetadataPeriodEnum): ManagedPolicyAssignmentMetadata {
+    public withPeriod(period: ManagedPolicyAssignmentMetadataPeriodEnum | string): ManagedPolicyAssignmentMetadata {
         this['period'] = period;
         return this;
     }
@@ -27,20 +27,20 @@ export class ManagedPolicyAssignmentMetadata {
         this['policy_filter'] = policyFilter;
         return this;
     }
-    public set policyFilter(policyFilter: PolicyFilterDefinition | undefined) {
+    public set policyFilter(policyFilter: PolicyFilterDefinition  | undefined) {
         this['policy_filter'] = policyFilter;
     }
-    public get policyFilter() {
+    public get policyFilter(): PolicyFilterDefinition | undefined {
         return this['policy_filter'];
     }
     public withPolicyDefinitionId(policyDefinitionId: string): ManagedPolicyAssignmentMetadata {
         this['policy_definition_id'] = policyDefinitionId;
         return this;
     }
-    public set policyDefinitionId(policyDefinitionId: string | undefined) {
+    public set policyDefinitionId(policyDefinitionId: string  | undefined) {
         this['policy_definition_id'] = policyDefinitionId;
     }
-    public get policyDefinitionId() {
+    public get policyDefinitionId(): string | undefined {
         return this['policy_definition_id'];
     }
 }

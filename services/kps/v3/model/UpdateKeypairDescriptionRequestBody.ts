@@ -2,8 +2,8 @@ import { UpdateKeypairDescriptionReq } from './UpdateKeypairDescriptionReq';
 
 
 export class UpdateKeypairDescriptionRequestBody {
-    public keypair: UpdateKeypairDescriptionReq;
-    public constructor(keypair?: any) { 
+    public keypair?: UpdateKeypairDescriptionReq;
+    public constructor(keypair?: UpdateKeypairDescriptionReq) { 
         this['keypair'] = keypair;
     }
     public withKeypair(keypair: UpdateKeypairDescriptionReq): UpdateKeypairDescriptionRequestBody {

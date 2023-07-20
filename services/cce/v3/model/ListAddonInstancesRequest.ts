@@ -1,9 +1,9 @@
 
 
 export class ListAddonInstancesRequest {
-    private 'Content-Type': string | undefined;
-    private 'cluster_id': string | undefined;
-    public constructor(contentType?: any, clusterId?: any) { 
+    private 'Content-Type'?: string;
+    private 'cluster_id'?: string;
+    public constructor(contentType?: string, clusterId?: string) { 
         this['Content-Type'] = contentType;
         this['cluster_id'] = clusterId;
     }
@@ -11,20 +11,20 @@ export class ListAddonInstancesRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withClusterId(clusterId: string): ListAddonInstancesRequest {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
 }

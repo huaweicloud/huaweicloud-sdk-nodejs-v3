@@ -2,12 +2,12 @@ import { NovaSecurityGroupCommonRule } from './NovaSecurityGroupCommonRule';
 
 
 export class NovaSecurityGroup {
-    public description: string;
-    public id: string;
-    public name: string;
-    private 'tenant_id': string | undefined;
-    public rules: Array<NovaSecurityGroupCommonRule>;
-    public constructor(description?: any, id?: any, name?: any, tenantId?: any, rules?: any) { 
+    public description?: string;
+    public id?: string;
+    public name?: string;
+    private 'tenant_id'?: string;
+    public rules?: Array<NovaSecurityGroupCommonRule>;
+    public constructor(description?: string, id?: string, name?: string, tenantId?: string, rules?: Array<NovaSecurityGroupCommonRule>) { 
         this['description'] = description;
         this['id'] = id;
         this['name'] = name;
@@ -30,10 +30,10 @@ export class NovaSecurityGroup {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withRules(rules: Array<NovaSecurityGroupCommonRule>): NovaSecurityGroup {

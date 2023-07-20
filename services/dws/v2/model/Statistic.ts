@@ -1,10 +1,10 @@
 
 
 export class Statistic {
-    public name: string;
-    public value: number;
-    public unit: string;
-    public constructor(name?: any, value?: any, unit?: any) { 
+    public name?: string;
+    public value?: number;
+    public unit?: string;
+    public constructor(name?: string, value?: number, unit?: string) { 
         this['name'] = name;
         this['value'] = value;
         this['unit'] = unit;

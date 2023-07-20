@@ -4,12 +4,12 @@ import { PersistentVolumeClaimStatus } from './PersistentVolumeClaimStatus';
 
 
 export class PersistentVolumeClaim {
-    public apiVersion: string;
-    public kind: string;
-    public metadata: PersistentVolumeClaimMetadata;
-    public spec: PersistentVolumeClaimSpec;
+    public apiVersion?: string;
+    public kind?: string;
+    public metadata?: PersistentVolumeClaimMetadata;
+    public spec?: PersistentVolumeClaimSpec;
     public status?: PersistentVolumeClaimStatus;
-    public constructor(apiVersion?: any, kind?: any, metadata?: any, spec?: any) { 
+    public constructor(apiVersion?: string, kind?: string, metadata?: PersistentVolumeClaimMetadata, spec?: PersistentVolumeClaimSpec) { 
         this['apiVersion'] = apiVersion;
         this['kind'] = kind;
         this['metadata'] = metadata;

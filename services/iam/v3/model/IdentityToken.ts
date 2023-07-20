@@ -2,7 +2,7 @@
 
 export class IdentityToken {
     public id?: string;
-    private 'duration_seconds'?: number | undefined;
+    private 'duration_seconds'?: number;
     public constructor() { 
     }
     public withId(id: string): IdentityToken {
@@ -13,10 +13,10 @@ export class IdentityToken {
         this['duration_seconds'] = durationSeconds;
         return this;
     }
-    public set durationSeconds(durationSeconds: number | undefined) {
+    public set durationSeconds(durationSeconds: number  | undefined) {
         this['duration_seconds'] = durationSeconds;
     }
-    public get durationSeconds() {
+    public get durationSeconds(): number | undefined {
         return this['duration_seconds'];
     }
 }

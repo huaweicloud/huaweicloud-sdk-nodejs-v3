@@ -5,10 +5,10 @@ import { VaultBindRules } from './VaultBindRules';
 export class VaultUpdate {
     public billing?: BillingUpdate;
     public name?: string;
-    private 'auto_bind'?: boolean | undefined;
-    private 'bind_rules'?: VaultBindRules | undefined;
-    private 'auto_expand'?: boolean | undefined;
-    private 'smn_notify'?: boolean | undefined;
+    private 'auto_bind'?: boolean;
+    private 'bind_rules'?: VaultBindRules;
+    private 'auto_expand'?: boolean;
+    private 'smn_notify'?: boolean;
     public threshold?: number;
     public constructor() { 
     }
@@ -24,40 +24,40 @@ export class VaultUpdate {
         this['auto_bind'] = autoBind;
         return this;
     }
-    public set autoBind(autoBind: boolean | undefined) {
+    public set autoBind(autoBind: boolean  | undefined) {
         this['auto_bind'] = autoBind;
     }
-    public get autoBind() {
+    public get autoBind(): boolean | undefined {
         return this['auto_bind'];
     }
     public withBindRules(bindRules: VaultBindRules): VaultUpdate {
         this['bind_rules'] = bindRules;
         return this;
     }
-    public set bindRules(bindRules: VaultBindRules | undefined) {
+    public set bindRules(bindRules: VaultBindRules  | undefined) {
         this['bind_rules'] = bindRules;
     }
-    public get bindRules() {
+    public get bindRules(): VaultBindRules | undefined {
         return this['bind_rules'];
     }
     public withAutoExpand(autoExpand: boolean): VaultUpdate {
         this['auto_expand'] = autoExpand;
         return this;
     }
-    public set autoExpand(autoExpand: boolean | undefined) {
+    public set autoExpand(autoExpand: boolean  | undefined) {
         this['auto_expand'] = autoExpand;
     }
-    public get autoExpand() {
+    public get autoExpand(): boolean | undefined {
         return this['auto_expand'];
     }
     public withSmnNotify(smnNotify: boolean): VaultUpdate {
         this['smn_notify'] = smnNotify;
         return this;
     }
-    public set smnNotify(smnNotify: boolean | undefined) {
+    public set smnNotify(smnNotify: boolean  | undefined) {
         this['smn_notify'] = smnNotify;
     }
-    public get smnNotify() {
+    public get smnNotify(): boolean | undefined {
         return this['smn_notify'];
     }
     public withThreshold(threshold: number): VaultUpdate {

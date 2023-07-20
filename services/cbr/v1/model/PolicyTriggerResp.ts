@@ -2,11 +2,11 @@ import { PolicyTriggerPropertiesResp } from './PolicyTriggerPropertiesResp';
 
 
 export class PolicyTriggerResp {
-    public id: string;
+    public id?: string;
     public name?: string;
-    public properties: PolicyTriggerPropertiesResp;
-    public type?: PolicyTriggerRespTypeEnum;
-    public constructor(id?: any, properties?: any) { 
+    public properties?: PolicyTriggerPropertiesResp;
+    public type?: PolicyTriggerRespTypeEnum | string;
+    public constructor(id?: string, properties?: PolicyTriggerPropertiesResp) { 
         this['id'] = id;
         this['properties'] = properties;
     }
@@ -22,7 +22,7 @@ export class PolicyTriggerResp {
         this['properties'] = properties;
         return this;
     }
-    public withType(type: PolicyTriggerRespTypeEnum): PolicyTriggerResp {
+    public withType(type: PolicyTriggerRespTypeEnum | string): PolicyTriggerResp {
         this['type'] = type;
         return this;
     }

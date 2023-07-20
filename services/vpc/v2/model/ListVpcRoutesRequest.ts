@@ -4,10 +4,10 @@ export class ListVpcRoutesRequest {
     public limit?: number;
     public marker?: string;
     public id?: string;
-    public type?: ListVpcRoutesRequestTypeEnum;
-    private 'vpc_id'?: string | undefined;
+    public type?: ListVpcRoutesRequestTypeEnum | string;
+    private 'vpc_id'?: string;
     public destination?: string;
-    private 'tenant_id'?: string | undefined;
+    private 'tenant_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListVpcRoutesRequest {
@@ -22,7 +22,7 @@ export class ListVpcRoutesRequest {
         this['id'] = id;
         return this;
     }
-    public withType(type: ListVpcRoutesRequestTypeEnum): ListVpcRoutesRequest {
+    public withType(type: ListVpcRoutesRequestTypeEnum | string): ListVpcRoutesRequest {
         this['type'] = type;
         return this;
     }
@@ -30,10 +30,10 @@ export class ListVpcRoutesRequest {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withDestination(destination: string): ListVpcRoutesRequest {
@@ -44,10 +44,10 @@ export class ListVpcRoutesRequest {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
 }

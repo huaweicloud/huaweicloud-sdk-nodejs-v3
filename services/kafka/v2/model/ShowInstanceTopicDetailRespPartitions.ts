@@ -7,7 +7,7 @@ export class ShowInstanceTopicDetailRespPartitions {
     public leo?: number;
     public hw?: number;
     public lso?: number;
-    private 'last_update_timestamp'?: number | undefined;
+    private 'last_update_timestamp'?: number;
     public replicas?: Array<ShowInstanceTopicDetailRespReplicas>;
     public constructor() { 
     }
@@ -35,10 +35,10 @@ export class ShowInstanceTopicDetailRespPartitions {
         this['last_update_timestamp'] = lastUpdateTimestamp;
         return this;
     }
-    public set lastUpdateTimestamp(lastUpdateTimestamp: number | undefined) {
+    public set lastUpdateTimestamp(lastUpdateTimestamp: number  | undefined) {
         this['last_update_timestamp'] = lastUpdateTimestamp;
     }
-    public get lastUpdateTimestamp() {
+    public get lastUpdateTimestamp(): number | undefined {
         return this['last_update_timestamp'];
     }
     public withReplicas(replicas: Array<ShowInstanceTopicDetailRespReplicas>): ShowInstanceTopicDetailRespPartitions {

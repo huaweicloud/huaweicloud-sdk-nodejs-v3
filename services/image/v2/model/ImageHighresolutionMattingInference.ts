@@ -1,19 +1,19 @@
 
 
 export class ImageHighresolutionMattingInference {
-    private 'return_type': ImageHighresolutionMattingInferenceReturnTypeEnum | undefined;
+    private 'return_type'?: ImageHighresolutionMattingInferenceReturnTypeEnum | string;
     public coord?: Array<number>;
-    public constructor(returnType?: any) { 
+    public constructor(returnType?: string) { 
         this['return_type'] = returnType;
     }
-    public withReturnType(returnType: ImageHighresolutionMattingInferenceReturnTypeEnum): ImageHighresolutionMattingInference {
+    public withReturnType(returnType: ImageHighresolutionMattingInferenceReturnTypeEnum | string): ImageHighresolutionMattingInference {
         this['return_type'] = returnType;
         return this;
     }
-    public set returnType(returnType: ImageHighresolutionMattingInferenceReturnTypeEnum | undefined) {
+    public set returnType(returnType: ImageHighresolutionMattingInferenceReturnTypeEnum | string  | undefined) {
         this['return_type'] = returnType;
     }
-    public get returnType() {
+    public get returnType(): ImageHighresolutionMattingInferenceReturnTypeEnum | string | undefined {
         return this['return_type'];
     }
     public withCoord(coord: Array<number>): ImageHighresolutionMattingInference {

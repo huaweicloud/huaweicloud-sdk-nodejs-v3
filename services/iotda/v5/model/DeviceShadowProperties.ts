@@ -2,7 +2,7 @@
 
 export class DeviceShadowProperties {
     public properties?: object;
-    private 'event_time'?: string | undefined;
+    private 'event_time'?: string;
     public constructor() { 
     }
     public withProperties(properties: object): DeviceShadowProperties {
@@ -13,10 +13,10 @@ export class DeviceShadowProperties {
         this['event_time'] = eventTime;
         return this;
     }
-    public set eventTime(eventTime: string | undefined) {
+    public set eventTime(eventTime: string  | undefined) {
         this['event_time'] = eventTime;
     }
-    public get eventTime() {
+    public get eventTime(): string | undefined {
         return this['event_time'];
     }
 }

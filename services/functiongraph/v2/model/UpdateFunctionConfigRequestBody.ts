@@ -7,35 +7,35 @@ import { StrategyConfig } from './StrategyConfig';
 
 
 export class UpdateFunctionConfigRequestBody {
-    private 'func_name': string | undefined;
-    public runtime: UpdateFunctionConfigRequestBodyRuntimeEnum;
-    public timeout: number;
-    public handler: string;
-    private 'memory_size': number | undefined;
-    private 'gpu_memory'?: number | undefined;
-    private 'user_data'?: string | undefined;
-    private 'encrypted_user_data'?: string | undefined;
+    private 'func_name'?: string;
+    public runtime?: UpdateFunctionConfigRequestBodyRuntimeEnum | string;
+    public timeout?: number;
+    public handler?: string;
+    private 'memory_size'?: number;
+    private 'gpu_memory'?: number;
+    private 'user_data'?: string;
+    private 'encrypted_user_data'?: string;
     public xrole?: string;
-    private 'app_xrole'?: string | undefined;
+    private 'app_xrole'?: string;
     public description?: string;
-    private 'func_vpc'?: FuncVpc | undefined;
-    private 'mount_config'?: MountConfig | undefined;
-    private 'strategy_config'?: StrategyConfig | undefined;
-    private 'custom_image'?: CustomImage | undefined;
-    private 'extend_config'?: string | undefined;
-    private 'initializer_handler'?: string | undefined;
-    private 'initializer_timeout'?: number | undefined;
-    private 'ephemeral_storage'?: number | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'log_config'?: FuncLogConfig | undefined;
-    private 'network_controller'?: NetworkControlConfig | undefined;
-    private 'is_stateful_function'?: boolean | undefined;
-    private 'enable_dynamic_memory'?: boolean | undefined;
-    private 'enable_auth_in_header'?: boolean | undefined;
-    private 'domain_names'?: string | undefined;
-    private 'restore_hook_handler'?: string | undefined;
-    private 'restore_hook_timeout'?: number | undefined;
-    public constructor(funcName?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any) { 
+    private 'func_vpc'?: FuncVpc;
+    private 'mount_config'?: MountConfig;
+    private 'strategy_config'?: StrategyConfig;
+    private 'custom_image'?: CustomImage;
+    private 'extend_config'?: string;
+    private 'initializer_handler'?: string;
+    private 'initializer_timeout'?: number;
+    private 'ephemeral_storage'?: number;
+    private 'enterprise_project_id'?: string;
+    private 'log_config'?: FuncLogConfig;
+    private 'network_controller'?: NetworkControlConfig;
+    private 'is_stateful_function'?: boolean;
+    private 'enable_dynamic_memory'?: boolean;
+    private 'enable_auth_in_header'?: boolean;
+    private 'domain_names'?: string;
+    private 'restore_hook_handler'?: string;
+    private 'restore_hook_timeout'?: number;
+    public constructor(funcName?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number) { 
         this['func_name'] = funcName;
         this['runtime'] = runtime;
         this['timeout'] = timeout;
@@ -46,13 +46,13 @@ export class UpdateFunctionConfigRequestBody {
         this['func_name'] = funcName;
         return this;
     }
-    public set funcName(funcName: string | undefined) {
+    public set funcName(funcName: string  | undefined) {
         this['func_name'] = funcName;
     }
-    public get funcName() {
+    public get funcName(): string | undefined {
         return this['func_name'];
     }
-    public withRuntime(runtime: UpdateFunctionConfigRequestBodyRuntimeEnum): UpdateFunctionConfigRequestBody {
+    public withRuntime(runtime: UpdateFunctionConfigRequestBodyRuntimeEnum | string): UpdateFunctionConfigRequestBody {
         this['runtime'] = runtime;
         return this;
     }
@@ -68,40 +68,40 @@ export class UpdateFunctionConfigRequestBody {
         this['memory_size'] = memorySize;
         return this;
     }
-    public set memorySize(memorySize: number | undefined) {
+    public set memorySize(memorySize: number  | undefined) {
         this['memory_size'] = memorySize;
     }
-    public get memorySize() {
+    public get memorySize(): number | undefined {
         return this['memory_size'];
     }
     public withGpuMemory(gpuMemory: number): UpdateFunctionConfigRequestBody {
         this['gpu_memory'] = gpuMemory;
         return this;
     }
-    public set gpuMemory(gpuMemory: number | undefined) {
+    public set gpuMemory(gpuMemory: number  | undefined) {
         this['gpu_memory'] = gpuMemory;
     }
-    public get gpuMemory() {
+    public get gpuMemory(): number | undefined {
         return this['gpu_memory'];
     }
     public withUserData(userData: string): UpdateFunctionConfigRequestBody {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withEncryptedUserData(encryptedUserData: string): UpdateFunctionConfigRequestBody {
         this['encrypted_user_data'] = encryptedUserData;
         return this;
     }
-    public set encryptedUserData(encryptedUserData: string | undefined) {
+    public set encryptedUserData(encryptedUserData: string  | undefined) {
         this['encrypted_user_data'] = encryptedUserData;
     }
-    public get encryptedUserData() {
+    public get encryptedUserData(): string | undefined {
         return this['encrypted_user_data'];
     }
     public withXrole(xrole: string): UpdateFunctionConfigRequestBody {
@@ -112,10 +112,10 @@ export class UpdateFunctionConfigRequestBody {
         this['app_xrole'] = appXrole;
         return this;
     }
-    public set appXrole(appXrole: string | undefined) {
+    public set appXrole(appXrole: string  | undefined) {
         this['app_xrole'] = appXrole;
     }
-    public get appXrole() {
+    public get appXrole(): string | undefined {
         return this['app_xrole'];
     }
     public withDescription(description: string): UpdateFunctionConfigRequestBody {
@@ -126,170 +126,170 @@ export class UpdateFunctionConfigRequestBody {
         this['func_vpc'] = funcVpc;
         return this;
     }
-    public set funcVpc(funcVpc: FuncVpc | undefined) {
+    public set funcVpc(funcVpc: FuncVpc  | undefined) {
         this['func_vpc'] = funcVpc;
     }
-    public get funcVpc() {
+    public get funcVpc(): FuncVpc | undefined {
         return this['func_vpc'];
     }
     public withMountConfig(mountConfig: MountConfig): UpdateFunctionConfigRequestBody {
         this['mount_config'] = mountConfig;
         return this;
     }
-    public set mountConfig(mountConfig: MountConfig | undefined) {
+    public set mountConfig(mountConfig: MountConfig  | undefined) {
         this['mount_config'] = mountConfig;
     }
-    public get mountConfig() {
+    public get mountConfig(): MountConfig | undefined {
         return this['mount_config'];
     }
     public withStrategyConfig(strategyConfig: StrategyConfig): UpdateFunctionConfigRequestBody {
         this['strategy_config'] = strategyConfig;
         return this;
     }
-    public set strategyConfig(strategyConfig: StrategyConfig | undefined) {
+    public set strategyConfig(strategyConfig: StrategyConfig  | undefined) {
         this['strategy_config'] = strategyConfig;
     }
-    public get strategyConfig() {
+    public get strategyConfig(): StrategyConfig | undefined {
         return this['strategy_config'];
     }
     public withCustomImage(customImage: CustomImage): UpdateFunctionConfigRequestBody {
         this['custom_image'] = customImage;
         return this;
     }
-    public set customImage(customImage: CustomImage | undefined) {
+    public set customImage(customImage: CustomImage  | undefined) {
         this['custom_image'] = customImage;
     }
-    public get customImage() {
+    public get customImage(): CustomImage | undefined {
         return this['custom_image'];
     }
     public withExtendConfig(extendConfig: string): UpdateFunctionConfigRequestBody {
         this['extend_config'] = extendConfig;
         return this;
     }
-    public set extendConfig(extendConfig: string | undefined) {
+    public set extendConfig(extendConfig: string  | undefined) {
         this['extend_config'] = extendConfig;
     }
-    public get extendConfig() {
+    public get extendConfig(): string | undefined {
         return this['extend_config'];
     }
     public withInitializerHandler(initializerHandler: string): UpdateFunctionConfigRequestBody {
         this['initializer_handler'] = initializerHandler;
         return this;
     }
-    public set initializerHandler(initializerHandler: string | undefined) {
+    public set initializerHandler(initializerHandler: string  | undefined) {
         this['initializer_handler'] = initializerHandler;
     }
-    public get initializerHandler() {
+    public get initializerHandler(): string | undefined {
         return this['initializer_handler'];
     }
     public withInitializerTimeout(initializerTimeout: number): UpdateFunctionConfigRequestBody {
         this['initializer_timeout'] = initializerTimeout;
         return this;
     }
-    public set initializerTimeout(initializerTimeout: number | undefined) {
+    public set initializerTimeout(initializerTimeout: number  | undefined) {
         this['initializer_timeout'] = initializerTimeout;
     }
-    public get initializerTimeout() {
+    public get initializerTimeout(): number | undefined {
         return this['initializer_timeout'];
     }
     public withEphemeralStorage(ephemeralStorage: number): UpdateFunctionConfigRequestBody {
         this['ephemeral_storage'] = ephemeralStorage;
         return this;
     }
-    public set ephemeralStorage(ephemeralStorage: number | undefined) {
+    public set ephemeralStorage(ephemeralStorage: number  | undefined) {
         this['ephemeral_storage'] = ephemeralStorage;
     }
-    public get ephemeralStorage() {
+    public get ephemeralStorage(): number | undefined {
         return this['ephemeral_storage'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): UpdateFunctionConfigRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withLogConfig(logConfig: FuncLogConfig): UpdateFunctionConfigRequestBody {
         this['log_config'] = logConfig;
         return this;
     }
-    public set logConfig(logConfig: FuncLogConfig | undefined) {
+    public set logConfig(logConfig: FuncLogConfig  | undefined) {
         this['log_config'] = logConfig;
     }
-    public get logConfig() {
+    public get logConfig(): FuncLogConfig | undefined {
         return this['log_config'];
     }
     public withNetworkController(networkController: NetworkControlConfig): UpdateFunctionConfigRequestBody {
         this['network_controller'] = networkController;
         return this;
     }
-    public set networkController(networkController: NetworkControlConfig | undefined) {
+    public set networkController(networkController: NetworkControlConfig  | undefined) {
         this['network_controller'] = networkController;
     }
-    public get networkController() {
+    public get networkController(): NetworkControlConfig | undefined {
         return this['network_controller'];
     }
     public withIsStatefulFunction(isStatefulFunction: boolean): UpdateFunctionConfigRequestBody {
         this['is_stateful_function'] = isStatefulFunction;
         return this;
     }
-    public set isStatefulFunction(isStatefulFunction: boolean | undefined) {
+    public set isStatefulFunction(isStatefulFunction: boolean  | undefined) {
         this['is_stateful_function'] = isStatefulFunction;
     }
-    public get isStatefulFunction() {
+    public get isStatefulFunction(): boolean | undefined {
         return this['is_stateful_function'];
     }
     public withEnableDynamicMemory(enableDynamicMemory: boolean): UpdateFunctionConfigRequestBody {
         this['enable_dynamic_memory'] = enableDynamicMemory;
         return this;
     }
-    public set enableDynamicMemory(enableDynamicMemory: boolean | undefined) {
+    public set enableDynamicMemory(enableDynamicMemory: boolean  | undefined) {
         this['enable_dynamic_memory'] = enableDynamicMemory;
     }
-    public get enableDynamicMemory() {
+    public get enableDynamicMemory(): boolean | undefined {
         return this['enable_dynamic_memory'];
     }
     public withEnableAuthInHeader(enableAuthInHeader: boolean): UpdateFunctionConfigRequestBody {
         this['enable_auth_in_header'] = enableAuthInHeader;
         return this;
     }
-    public set enableAuthInHeader(enableAuthInHeader: boolean | undefined) {
+    public set enableAuthInHeader(enableAuthInHeader: boolean  | undefined) {
         this['enable_auth_in_header'] = enableAuthInHeader;
     }
-    public get enableAuthInHeader() {
+    public get enableAuthInHeader(): boolean | undefined {
         return this['enable_auth_in_header'];
     }
     public withDomainNames(domainNames: string): UpdateFunctionConfigRequestBody {
         this['domain_names'] = domainNames;
         return this;
     }
-    public set domainNames(domainNames: string | undefined) {
+    public set domainNames(domainNames: string  | undefined) {
         this['domain_names'] = domainNames;
     }
-    public get domainNames() {
+    public get domainNames(): string | undefined {
         return this['domain_names'];
     }
     public withRestoreHookHandler(restoreHookHandler: string): UpdateFunctionConfigRequestBody {
         this['restore_hook_handler'] = restoreHookHandler;
         return this;
     }
-    public set restoreHookHandler(restoreHookHandler: string | undefined) {
+    public set restoreHookHandler(restoreHookHandler: string  | undefined) {
         this['restore_hook_handler'] = restoreHookHandler;
     }
-    public get restoreHookHandler() {
+    public get restoreHookHandler(): string | undefined {
         return this['restore_hook_handler'];
     }
     public withRestoreHookTimeout(restoreHookTimeout: number): UpdateFunctionConfigRequestBody {
         this['restore_hook_timeout'] = restoreHookTimeout;
         return this;
     }
-    public set restoreHookTimeout(restoreHookTimeout: number | undefined) {
+    public set restoreHookTimeout(restoreHookTimeout: number  | undefined) {
         this['restore_hook_timeout'] = restoreHookTimeout;
     }
-    public get restoreHookTimeout() {
+    public get restoreHookTimeout(): number | undefined {
         return this['restore_hook_timeout'];
     }
 }

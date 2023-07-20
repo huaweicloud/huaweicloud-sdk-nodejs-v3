@@ -2,13 +2,13 @@ import { PredefineTagRequest } from './PredefineTagRequest';
 
 
 export class ReqCreatePredefineTag {
-    public action: ReqCreatePredefineTagActionEnum;
-    public tags: Array<PredefineTagRequest>;
-    public constructor(action?: any, tags?: any) { 
+    public action?: ReqCreatePredefineTagActionEnum | string;
+    public tags?: Array<PredefineTagRequest>;
+    public constructor(action?: string, tags?: Array<PredefineTagRequest>) { 
         this['action'] = action;
         this['tags'] = tags;
     }
-    public withAction(action: ReqCreatePredefineTagActionEnum): ReqCreatePredefineTag {
+    public withAction(action: ReqCreatePredefineTagActionEnum | string): ReqCreatePredefineTag {
         this['action'] = action;
         return this;
     }

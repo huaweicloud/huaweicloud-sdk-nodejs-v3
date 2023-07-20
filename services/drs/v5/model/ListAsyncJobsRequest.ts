@@ -1,35 +1,35 @@
 
 
 export class ListAsyncJobsRequest {
-    private 'X-Language'?: ListAsyncJobsRequestXLanguageEnum | undefined;
-    private 'async_job_id'?: string | undefined;
+    private 'X-Language'?: ListAsyncJobsRequestXLanguageEnum | string;
+    private 'async_job_id'?: string;
     public status?: string;
-    private 'domain_name'?: string | undefined;
-    private 'user_name'?: string | undefined;
+    private 'domain_name'?: string;
+    private 'user_name'?: string;
     public offset?: number;
     public limit?: number;
-    private 'sort_key'?: string | undefined;
-    private 'sort_dir'?: string | undefined;
+    private 'sort_key'?: string;
+    private 'sort_dir'?: string;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: ListAsyncJobsRequestXLanguageEnum): ListAsyncJobsRequest {
+    public withXLanguage(xLanguage: ListAsyncJobsRequestXLanguageEnum | string): ListAsyncJobsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListAsyncJobsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListAsyncJobsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListAsyncJobsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withAsyncJobId(asyncJobId: string): ListAsyncJobsRequest {
         this['async_job_id'] = asyncJobId;
         return this;
     }
-    public set asyncJobId(asyncJobId: string | undefined) {
+    public set asyncJobId(asyncJobId: string  | undefined) {
         this['async_job_id'] = asyncJobId;
     }
-    public get asyncJobId() {
+    public get asyncJobId(): string | undefined {
         return this['async_job_id'];
     }
     public withStatus(status: string): ListAsyncJobsRequest {
@@ -40,20 +40,20 @@ export class ListAsyncJobsRequest {
         this['domain_name'] = domainName;
         return this;
     }
-    public set domainName(domainName: string | undefined) {
+    public set domainName(domainName: string  | undefined) {
         this['domain_name'] = domainName;
     }
-    public get domainName() {
+    public get domainName(): string | undefined {
         return this['domain_name'];
     }
     public withUserName(userName: string): ListAsyncJobsRequest {
         this['user_name'] = userName;
         return this;
     }
-    public set userName(userName: string | undefined) {
+    public set userName(userName: string  | undefined) {
         this['user_name'] = userName;
     }
-    public get userName() {
+    public get userName(): string | undefined {
         return this['user_name'];
     }
     public withOffset(offset: number): ListAsyncJobsRequest {
@@ -68,20 +68,20 @@ export class ListAsyncJobsRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: string | undefined) {
+    public set sortKey(sortKey: string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): string | undefined {
         return this['sort_key'];
     }
     public withSortDir(sortDir: string): ListAsyncJobsRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: string | undefined) {
+    public set sortDir(sortDir: string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): string | undefined {
         return this['sort_dir'];
     }
 }

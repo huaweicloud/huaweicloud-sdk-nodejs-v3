@@ -2,19 +2,19 @@ import { CreateNamespaceRequestBody } from './CreateNamespaceRequestBody';
 
 
 export class CreateNamespaceRequest {
-    private 'Content-Type': CreateNamespaceRequestContentTypeEnum | undefined;
+    private 'Content-Type'?: CreateNamespaceRequestContentTypeEnum | string;
     public body?: CreateNamespaceRequestBody;
-    public constructor(contentType?: any) { 
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
-    public withContentType(contentType: CreateNamespaceRequestContentTypeEnum): CreateNamespaceRequest {
+    public withContentType(contentType: CreateNamespaceRequestContentTypeEnum | string): CreateNamespaceRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CreateNamespaceRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: CreateNamespaceRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CreateNamespaceRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withBody(body: CreateNamespaceRequestBody): CreateNamespaceRequest {

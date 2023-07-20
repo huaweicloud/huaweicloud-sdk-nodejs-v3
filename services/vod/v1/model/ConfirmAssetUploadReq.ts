@@ -1,9 +1,9 @@
 
 
 export class ConfirmAssetUploadReq {
-    private 'asset_id': string | undefined;
-    public status: ConfirmAssetUploadReqStatusEnum;
-    public constructor(assetId?: any, status?: any) { 
+    private 'asset_id'?: string;
+    public status?: ConfirmAssetUploadReqStatusEnum | string;
+    public constructor(assetId?: string, status?: string) { 
         this['asset_id'] = assetId;
         this['status'] = status;
     }
@@ -11,13 +11,13 @@ export class ConfirmAssetUploadReq {
         this['asset_id'] = assetId;
         return this;
     }
-    public set assetId(assetId: string | undefined) {
+    public set assetId(assetId: string  | undefined) {
         this['asset_id'] = assetId;
     }
-    public get assetId() {
+    public get assetId(): string | undefined {
         return this['asset_id'];
     }
-    public withStatus(status: ConfirmAssetUploadReqStatusEnum): ConfirmAssetUploadReq {
+    public withStatus(status: ConfirmAssetUploadReqStatusEnum | string): ConfirmAssetUploadReq {
         this['status'] = status;
         return this;
     }

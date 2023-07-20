@@ -3,15 +3,15 @@ import { Tag } from './Tag';
 
 export class RouteTable {
     public id?: string;
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'is_default_association': boolean | undefined;
-    private 'is_default_propagation': boolean | undefined;
-    public state: string;
+    private 'is_default_association'?: boolean;
+    private 'is_default_propagation'?: boolean;
+    public state?: string;
     public tags?: Array<Tag>;
-    private 'created_at': Date | undefined;
-    private 'updated_at'?: Date | undefined;
-    public constructor(name?: any, isDefaultAssociation?: any, isDefaultPropagation?: any, state?: any, createdAt?: any) { 
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    public constructor(name?: string, isDefaultAssociation?: boolean, isDefaultPropagation?: boolean, state?: string, createdAt?: Date) { 
         this['name'] = name;
         this['is_default_association'] = isDefaultAssociation;
         this['is_default_propagation'] = isDefaultPropagation;
@@ -34,20 +34,20 @@ export class RouteTable {
         this['is_default_association'] = isDefaultAssociation;
         return this;
     }
-    public set isDefaultAssociation(isDefaultAssociation: boolean | undefined) {
+    public set isDefaultAssociation(isDefaultAssociation: boolean  | undefined) {
         this['is_default_association'] = isDefaultAssociation;
     }
-    public get isDefaultAssociation() {
+    public get isDefaultAssociation(): boolean | undefined {
         return this['is_default_association'];
     }
     public withIsDefaultPropagation(isDefaultPropagation: boolean): RouteTable {
         this['is_default_propagation'] = isDefaultPropagation;
         return this;
     }
-    public set isDefaultPropagation(isDefaultPropagation: boolean | undefined) {
+    public set isDefaultPropagation(isDefaultPropagation: boolean  | undefined) {
         this['is_default_propagation'] = isDefaultPropagation;
     }
-    public get isDefaultPropagation() {
+    public get isDefaultPropagation(): boolean | undefined {
         return this['is_default_propagation'];
     }
     public withState(state: string): RouteTable {
@@ -62,20 +62,20 @@ export class RouteTable {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): RouteTable {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
 }

@@ -5,9 +5,9 @@ import { TaskStatus } from './TaskStatus';
 export class MigrateNodesTask {
     public apiVersion?: string;
     public kind?: string;
-    public spec: MigrateNodesSpec;
+    public spec?: MigrateNodesSpec;
     public status?: TaskStatus;
-    public constructor(spec?: any) { 
+    public constructor(spec?: MigrateNodesSpec) { 
         this['spec'] = spec;
     }
     public withApiVersion(apiVersion: string): MigrateNodesTask {

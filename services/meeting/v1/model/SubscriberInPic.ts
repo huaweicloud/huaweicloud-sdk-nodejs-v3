@@ -1,10 +1,10 @@
 
 
 export class SubscriberInPic {
-    public index: number;
+    public index?: number;
     public subscriber?: Array<string>;
     public isAssistStream?: number;
-    public constructor(index?: any) { 
+    public constructor(index?: number) { 
         this['index'] = index;
     }
     public withIndex(index: number): SubscriberInPic {

@@ -4,46 +4,46 @@ import { StrategyConfig } from './StrategyConfig';
 
 
 export class ListFunctionVersionResult {
-    private 'func_urn': string | undefined;
-    private 'func_name': string | undefined;
-    private 'domain_id': string | undefined;
-    public namespace: string;
-    private 'project_name': string | undefined;
-    private 'package': string | undefined;
-    public runtime: ListFunctionVersionResultRuntimeEnum;
-    public timeout: number;
-    public handler: string;
-    private 'memory_size': number | undefined;
-    public cpu: number;
-    private 'code_type': ListFunctionVersionResultCodeTypeEnum | undefined;
-    private 'code_url'?: string | undefined;
-    private 'code_filename'?: string | undefined;
-    private 'code_size': number | undefined;
-    private 'user_data'?: string | undefined;
-    private 'encrypted_user_data'?: string | undefined;
-    public digest: string;
-    public version: string;
-    private 'image_name': string | undefined;
+    private 'func_urn'?: string;
+    private 'func_name'?: string;
+    private 'domain_id'?: string;
+    public namespace?: string;
+    private 'project_name'?: string;
+    private 'package'?: string;
+    public runtime?: ListFunctionVersionResultRuntimeEnum | string;
+    public timeout?: number;
+    public handler?: string;
+    private 'memory_size'?: number;
+    public cpu?: number;
+    private 'code_type'?: ListFunctionVersionResultCodeTypeEnum | string;
+    private 'code_url'?: string;
+    private 'code_filename'?: string;
+    private 'code_size'?: number;
+    private 'user_data'?: string;
+    private 'encrypted_user_data'?: string;
+    public digest?: string;
+    public version?: string;
+    private 'image_name'?: string;
     public xrole?: string;
-    private 'app_xrole'?: string | undefined;
-    private 'last_modified': Date | undefined;
-    private 'func_vpc_id'?: string | undefined;
+    private 'app_xrole'?: string;
+    private 'last_modified'?: Date;
+    private 'func_vpc_id'?: string;
     public concurrency?: number;
-    private 'concurrent_num'?: number | undefined;
-    private 'strategy_config'?: StrategyConfig | undefined;
-    private 'initializer_handler'?: string | undefined;
-    private 'initializer_timeout'?: number | undefined;
-    private 'long_time'?: boolean | undefined;
-    private 'function_async_config'?: FunctionAsyncConfig | undefined;
+    private 'concurrent_num'?: number;
+    private 'strategy_config'?: StrategyConfig;
+    private 'initializer_handler'?: string;
+    private 'initializer_timeout'?: number;
+    private 'long_time'?: boolean;
+    private 'function_async_config'?: FunctionAsyncConfig;
     public type?: string;
-    private 'enable_cloud_debug'?: string | undefined;
-    private 'enable_dynamic_memory'?: boolean | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'is_stateful_function'?: boolean | undefined;
-    private 'enable_auth_in_header'?: boolean | undefined;
-    private 'custom_image'?: CustomImage | undefined;
-    private 'reserved_instance_idle_mode'?: boolean | undefined;
-    public constructor(funcUrn?: any, funcName?: any, domainId?: any, namespace?: any, projectName?: any, _package?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any, cpu?: any, codeType?: any, codeSize?: any, digest?: any, version?: any, imageName?: any, lastModified?: any) { 
+    private 'enable_cloud_debug'?: string;
+    private 'enable_dynamic_memory'?: boolean;
+    private 'enterprise_project_id'?: string;
+    private 'is_stateful_function'?: boolean;
+    private 'enable_auth_in_header'?: boolean;
+    private 'custom_image'?: CustomImage;
+    private 'reserved_instance_idle_mode'?: boolean;
+    public constructor(funcUrn?: string, funcName?: string, domainId?: string, namespace?: string, projectName?: string, _package?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number, cpu?: number, codeType?: string, codeSize?: number, digest?: string, version?: string, imageName?: string, lastModified?: Date) { 
         this['func_urn'] = funcUrn;
         this['func_name'] = funcName;
         this['domain_id'] = domainId;
@@ -66,30 +66,30 @@ export class ListFunctionVersionResult {
         this['func_urn'] = funcUrn;
         return this;
     }
-    public set funcUrn(funcUrn: string | undefined) {
+    public set funcUrn(funcUrn: string  | undefined) {
         this['func_urn'] = funcUrn;
     }
-    public get funcUrn() {
+    public get funcUrn(): string | undefined {
         return this['func_urn'];
     }
     public withFuncName(funcName: string): ListFunctionVersionResult {
         this['func_name'] = funcName;
         return this;
     }
-    public set funcName(funcName: string | undefined) {
+    public set funcName(funcName: string  | undefined) {
         this['func_name'] = funcName;
     }
-    public get funcName() {
+    public get funcName(): string | undefined {
         return this['func_name'];
     }
     public withDomainId(domainId: string): ListFunctionVersionResult {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withNamespace(namespace: string): ListFunctionVersionResult {
@@ -100,23 +100,23 @@ export class ListFunctionVersionResult {
         this['project_name'] = projectName;
         return this;
     }
-    public set projectName(projectName: string | undefined) {
+    public set projectName(projectName: string  | undefined) {
         this['project_name'] = projectName;
     }
-    public get projectName() {
+    public get projectName(): string | undefined {
         return this['project_name'];
     }
     public withPackage(_package: string): ListFunctionVersionResult {
         this['package'] = _package;
         return this;
     }
-    public set _package(_package: string | undefined) {
+    public set _package(_package: string  | undefined) {
         this['package'] = _package;
     }
-    public get _package() {
+    public get _package(): string | undefined {
         return this['package'];
     }
-    public withRuntime(runtime: ListFunctionVersionResultRuntimeEnum): ListFunctionVersionResult {
+    public withRuntime(runtime: ListFunctionVersionResultRuntimeEnum | string): ListFunctionVersionResult {
         this['runtime'] = runtime;
         return this;
     }
@@ -132,74 +132,74 @@ export class ListFunctionVersionResult {
         this['memory_size'] = memorySize;
         return this;
     }
-    public set memorySize(memorySize: number | undefined) {
+    public set memorySize(memorySize: number  | undefined) {
         this['memory_size'] = memorySize;
     }
-    public get memorySize() {
+    public get memorySize(): number | undefined {
         return this['memory_size'];
     }
     public withCpu(cpu: number): ListFunctionVersionResult {
         this['cpu'] = cpu;
         return this;
     }
-    public withCodeType(codeType: ListFunctionVersionResultCodeTypeEnum): ListFunctionVersionResult {
+    public withCodeType(codeType: ListFunctionVersionResultCodeTypeEnum | string): ListFunctionVersionResult {
         this['code_type'] = codeType;
         return this;
     }
-    public set codeType(codeType: ListFunctionVersionResultCodeTypeEnum | undefined) {
+    public set codeType(codeType: ListFunctionVersionResultCodeTypeEnum | string  | undefined) {
         this['code_type'] = codeType;
     }
-    public get codeType() {
+    public get codeType(): ListFunctionVersionResultCodeTypeEnum | string | undefined {
         return this['code_type'];
     }
     public withCodeUrl(codeUrl: string): ListFunctionVersionResult {
         this['code_url'] = codeUrl;
         return this;
     }
-    public set codeUrl(codeUrl: string | undefined) {
+    public set codeUrl(codeUrl: string  | undefined) {
         this['code_url'] = codeUrl;
     }
-    public get codeUrl() {
+    public get codeUrl(): string | undefined {
         return this['code_url'];
     }
     public withCodeFilename(codeFilename: string): ListFunctionVersionResult {
         this['code_filename'] = codeFilename;
         return this;
     }
-    public set codeFilename(codeFilename: string | undefined) {
+    public set codeFilename(codeFilename: string  | undefined) {
         this['code_filename'] = codeFilename;
     }
-    public get codeFilename() {
+    public get codeFilename(): string | undefined {
         return this['code_filename'];
     }
     public withCodeSize(codeSize: number): ListFunctionVersionResult {
         this['code_size'] = codeSize;
         return this;
     }
-    public set codeSize(codeSize: number | undefined) {
+    public set codeSize(codeSize: number  | undefined) {
         this['code_size'] = codeSize;
     }
-    public get codeSize() {
+    public get codeSize(): number | undefined {
         return this['code_size'];
     }
     public withUserData(userData: string): ListFunctionVersionResult {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withEncryptedUserData(encryptedUserData: string): ListFunctionVersionResult {
         this['encrypted_user_data'] = encryptedUserData;
         return this;
     }
-    public set encryptedUserData(encryptedUserData: string | undefined) {
+    public set encryptedUserData(encryptedUserData: string  | undefined) {
         this['encrypted_user_data'] = encryptedUserData;
     }
-    public get encryptedUserData() {
+    public get encryptedUserData(): string | undefined {
         return this['encrypted_user_data'];
     }
     public withDigest(digest: string): ListFunctionVersionResult {
@@ -214,10 +214,10 @@ export class ListFunctionVersionResult {
         this['image_name'] = imageName;
         return this;
     }
-    public set imageName(imageName: string | undefined) {
+    public set imageName(imageName: string  | undefined) {
         this['image_name'] = imageName;
     }
-    public get imageName() {
+    public get imageName(): string | undefined {
         return this['image_name'];
     }
     public withXrole(xrole: string): ListFunctionVersionResult {
@@ -228,30 +228,30 @@ export class ListFunctionVersionResult {
         this['app_xrole'] = appXrole;
         return this;
     }
-    public set appXrole(appXrole: string | undefined) {
+    public set appXrole(appXrole: string  | undefined) {
         this['app_xrole'] = appXrole;
     }
-    public get appXrole() {
+    public get appXrole(): string | undefined {
         return this['app_xrole'];
     }
     public withLastModified(lastModified: Date): ListFunctionVersionResult {
         this['last_modified'] = lastModified;
         return this;
     }
-    public set lastModified(lastModified: Date | undefined) {
+    public set lastModified(lastModified: Date  | undefined) {
         this['last_modified'] = lastModified;
     }
-    public get lastModified() {
+    public get lastModified(): Date | undefined {
         return this['last_modified'];
     }
     public withFuncVpcId(funcVpcId: string): ListFunctionVersionResult {
         this['func_vpc_id'] = funcVpcId;
         return this;
     }
-    public set funcVpcId(funcVpcId: string | undefined) {
+    public set funcVpcId(funcVpcId: string  | undefined) {
         this['func_vpc_id'] = funcVpcId;
     }
-    public get funcVpcId() {
+    public get funcVpcId(): string | undefined {
         return this['func_vpc_id'];
     }
     public withConcurrency(concurrency: number): ListFunctionVersionResult {
@@ -262,60 +262,60 @@ export class ListFunctionVersionResult {
         this['concurrent_num'] = concurrentNum;
         return this;
     }
-    public set concurrentNum(concurrentNum: number | undefined) {
+    public set concurrentNum(concurrentNum: number  | undefined) {
         this['concurrent_num'] = concurrentNum;
     }
-    public get concurrentNum() {
+    public get concurrentNum(): number | undefined {
         return this['concurrent_num'];
     }
     public withStrategyConfig(strategyConfig: StrategyConfig): ListFunctionVersionResult {
         this['strategy_config'] = strategyConfig;
         return this;
     }
-    public set strategyConfig(strategyConfig: StrategyConfig | undefined) {
+    public set strategyConfig(strategyConfig: StrategyConfig  | undefined) {
         this['strategy_config'] = strategyConfig;
     }
-    public get strategyConfig() {
+    public get strategyConfig(): StrategyConfig | undefined {
         return this['strategy_config'];
     }
     public withInitializerHandler(initializerHandler: string): ListFunctionVersionResult {
         this['initializer_handler'] = initializerHandler;
         return this;
     }
-    public set initializerHandler(initializerHandler: string | undefined) {
+    public set initializerHandler(initializerHandler: string  | undefined) {
         this['initializer_handler'] = initializerHandler;
     }
-    public get initializerHandler() {
+    public get initializerHandler(): string | undefined {
         return this['initializer_handler'];
     }
     public withInitializerTimeout(initializerTimeout: number): ListFunctionVersionResult {
         this['initializer_timeout'] = initializerTimeout;
         return this;
     }
-    public set initializerTimeout(initializerTimeout: number | undefined) {
+    public set initializerTimeout(initializerTimeout: number  | undefined) {
         this['initializer_timeout'] = initializerTimeout;
     }
-    public get initializerTimeout() {
+    public get initializerTimeout(): number | undefined {
         return this['initializer_timeout'];
     }
     public withLongTime(longTime: boolean): ListFunctionVersionResult {
         this['long_time'] = longTime;
         return this;
     }
-    public set longTime(longTime: boolean | undefined) {
+    public set longTime(longTime: boolean  | undefined) {
         this['long_time'] = longTime;
     }
-    public get longTime() {
+    public get longTime(): boolean | undefined {
         return this['long_time'];
     }
     public withFunctionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig): ListFunctionVersionResult {
         this['function_async_config'] = functionAsyncConfig;
         return this;
     }
-    public set functionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig | undefined) {
+    public set functionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig  | undefined) {
         this['function_async_config'] = functionAsyncConfig;
     }
-    public get functionAsyncConfig() {
+    public get functionAsyncConfig(): FunctionAsyncConfig | undefined {
         return this['function_async_config'];
     }
     public withType(type: string): ListFunctionVersionResult {
@@ -326,70 +326,70 @@ export class ListFunctionVersionResult {
         this['enable_cloud_debug'] = enableCloudDebug;
         return this;
     }
-    public set enableCloudDebug(enableCloudDebug: string | undefined) {
+    public set enableCloudDebug(enableCloudDebug: string  | undefined) {
         this['enable_cloud_debug'] = enableCloudDebug;
     }
-    public get enableCloudDebug() {
+    public get enableCloudDebug(): string | undefined {
         return this['enable_cloud_debug'];
     }
     public withEnableDynamicMemory(enableDynamicMemory: boolean): ListFunctionVersionResult {
         this['enable_dynamic_memory'] = enableDynamicMemory;
         return this;
     }
-    public set enableDynamicMemory(enableDynamicMemory: boolean | undefined) {
+    public set enableDynamicMemory(enableDynamicMemory: boolean  | undefined) {
         this['enable_dynamic_memory'] = enableDynamicMemory;
     }
-    public get enableDynamicMemory() {
+    public get enableDynamicMemory(): boolean | undefined {
         return this['enable_dynamic_memory'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListFunctionVersionResult {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withIsStatefulFunction(isStatefulFunction: boolean): ListFunctionVersionResult {
         this['is_stateful_function'] = isStatefulFunction;
         return this;
     }
-    public set isStatefulFunction(isStatefulFunction: boolean | undefined) {
+    public set isStatefulFunction(isStatefulFunction: boolean  | undefined) {
         this['is_stateful_function'] = isStatefulFunction;
     }
-    public get isStatefulFunction() {
+    public get isStatefulFunction(): boolean | undefined {
         return this['is_stateful_function'];
     }
     public withEnableAuthInHeader(enableAuthInHeader: boolean): ListFunctionVersionResult {
         this['enable_auth_in_header'] = enableAuthInHeader;
         return this;
     }
-    public set enableAuthInHeader(enableAuthInHeader: boolean | undefined) {
+    public set enableAuthInHeader(enableAuthInHeader: boolean  | undefined) {
         this['enable_auth_in_header'] = enableAuthInHeader;
     }
-    public get enableAuthInHeader() {
+    public get enableAuthInHeader(): boolean | undefined {
         return this['enable_auth_in_header'];
     }
     public withCustomImage(customImage: CustomImage): ListFunctionVersionResult {
         this['custom_image'] = customImage;
         return this;
     }
-    public set customImage(customImage: CustomImage | undefined) {
+    public set customImage(customImage: CustomImage  | undefined) {
         this['custom_image'] = customImage;
     }
-    public get customImage() {
+    public get customImage(): CustomImage | undefined {
         return this['custom_image'];
     }
     public withReservedInstanceIdleMode(reservedInstanceIdleMode: boolean): ListFunctionVersionResult {
         this['reserved_instance_idle_mode'] = reservedInstanceIdleMode;
         return this;
     }
-    public set reservedInstanceIdleMode(reservedInstanceIdleMode: boolean | undefined) {
+    public set reservedInstanceIdleMode(reservedInstanceIdleMode: boolean  | undefined) {
         this['reserved_instance_idle_mode'] = reservedInstanceIdleMode;
     }
-    public get reservedInstanceIdleMode() {
+    public get reservedInstanceIdleMode(): boolean | undefined {
         return this['reserved_instance_idle_mode'];
     }
 }

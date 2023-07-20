@@ -1118,7 +1118,7 @@ export class CceClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showVersion(): Promise<ShowVersionResponse> {
+    public showVersion(showVersionRequest?: ShowVersionRequest): Promise<ShowVersionResponse> {
         const options = ParamCreater().showVersion();
 
          // @ts-ignore

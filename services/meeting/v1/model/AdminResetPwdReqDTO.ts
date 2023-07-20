@@ -1,8 +1,8 @@
 
 
 export class AdminResetPwdReqDTO {
-    public account: string;
-    public constructor(account?: any) { 
+    public account?: string;
+    public constructor(account?: string) { 
         this['account'] = account;
     }
     public withAccount(account: string): AdminResetPwdReqDTO {

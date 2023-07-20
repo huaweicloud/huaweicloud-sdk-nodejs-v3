@@ -2,7 +2,7 @@ import { PreheatingTaskRequest } from './PreheatingTaskRequest';
 
 
 export class CreatePreheatingTasksRequest {
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public body?: PreheatingTaskRequest;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class CreatePreheatingTasksRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withBody(body: PreheatingTaskRequest): CreatePreheatingTasksRequest {

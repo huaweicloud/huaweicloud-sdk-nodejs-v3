@@ -2,19 +2,19 @@ import { UpdateSubNetworkInterfaceRequestBody } from './UpdateSubNetworkInterfac
 
 
 export class UpdateSubNetworkInterfaceRequest {
-    private 'sub_network_interface_id': string | undefined;
+    private 'sub_network_interface_id'?: string;
     public body?: UpdateSubNetworkInterfaceRequestBody;
-    public constructor(subNetworkInterfaceId?: any) { 
+    public constructor(subNetworkInterfaceId?: string) { 
         this['sub_network_interface_id'] = subNetworkInterfaceId;
     }
     public withSubNetworkInterfaceId(subNetworkInterfaceId: string): UpdateSubNetworkInterfaceRequest {
         this['sub_network_interface_id'] = subNetworkInterfaceId;
         return this;
     }
-    public set subNetworkInterfaceId(subNetworkInterfaceId: string | undefined) {
+    public set subNetworkInterfaceId(subNetworkInterfaceId: string  | undefined) {
         this['sub_network_interface_id'] = subNetworkInterfaceId;
     }
-    public get subNetworkInterfaceId() {
+    public get subNetworkInterfaceId(): string | undefined {
         return this['sub_network_interface_id'];
     }
     public withBody(body: UpdateSubNetworkInterfaceRequestBody): UpdateSubNetworkInterfaceRequest {

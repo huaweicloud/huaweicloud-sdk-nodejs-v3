@@ -1,14 +1,14 @@
 
 
 export class ListDeployTaskHistoryByDateRequest {
-    private 'project_id': string | undefined;
-    public id: string;
-    public page: number;
-    public size: number;
-    private 'start_date': string | undefined;
-    private 'end_date': string | undefined;
-    private 'Content-Type': ListDeployTaskHistoryByDateRequestContentTypeEnum | undefined;
-    public constructor(projectId?: any, id?: any, page?: any, size?: any, startDate?: any, endDate?: any, contentType?: any) { 
+    private 'project_id'?: string;
+    public id?: string;
+    public page?: number;
+    public size?: number;
+    private 'start_date'?: string;
+    private 'end_date'?: string;
+    private 'Content-Type'?: ListDeployTaskHistoryByDateRequestContentTypeEnum | string;
+    public constructor(projectId?: string, id?: string, page?: number, size?: number, startDate?: string, endDate?: string, contentType?: string) { 
         this['project_id'] = projectId;
         this['id'] = id;
         this['page'] = page;
@@ -21,10 +21,10 @@ export class ListDeployTaskHistoryByDateRequest {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withId(id: string): ListDeployTaskHistoryByDateRequest {
@@ -43,30 +43,30 @@ export class ListDeployTaskHistoryByDateRequest {
         this['start_date'] = startDate;
         return this;
     }
-    public set startDate(startDate: string | undefined) {
+    public set startDate(startDate: string  | undefined) {
         this['start_date'] = startDate;
     }
-    public get startDate() {
+    public get startDate(): string | undefined {
         return this['start_date'];
     }
     public withEndDate(endDate: string): ListDeployTaskHistoryByDateRequest {
         this['end_date'] = endDate;
         return this;
     }
-    public set endDate(endDate: string | undefined) {
+    public set endDate(endDate: string  | undefined) {
         this['end_date'] = endDate;
     }
-    public get endDate() {
+    public get endDate(): string | undefined {
         return this['end_date'];
     }
-    public withContentType(contentType: ListDeployTaskHistoryByDateRequestContentTypeEnum): ListDeployTaskHistoryByDateRequest {
+    public withContentType(contentType: ListDeployTaskHistoryByDateRequestContentTypeEnum | string): ListDeployTaskHistoryByDateRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ListDeployTaskHistoryByDateRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ListDeployTaskHistoryByDateRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ListDeployTaskHistoryByDateRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
 }

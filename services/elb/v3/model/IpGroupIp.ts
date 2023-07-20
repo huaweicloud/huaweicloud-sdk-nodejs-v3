@@ -1,8 +1,8 @@
 
 
 export class IpGroupIp {
-    public ip: string;
-    public constructor(ip?: any) { 
+    public ip?: string;
+    public constructor(ip?: string) { 
         this['ip'] = ip;
     }
     public withIp(ip: string): IpGroupIp {

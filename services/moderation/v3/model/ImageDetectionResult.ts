@@ -5,7 +5,7 @@ export class ImageDetectionResult {
     public suggestion?: string;
     public category?: string;
     public details?: Array<ImageDetectionResultDetail>;
-    private 'ocr_text'?: string | undefined;
+    private 'ocr_text'?: string;
     public constructor() { 
     }
     public withSuggestion(suggestion: string): ImageDetectionResult {
@@ -24,10 +24,10 @@ export class ImageDetectionResult {
         this['ocr_text'] = ocrText;
         return this;
     }
-    public set ocrText(ocrText: string | undefined) {
+    public set ocrText(ocrText: string  | undefined) {
         this['ocr_text'] = ocrText;
     }
-    public get ocrText() {
+    public get ocrText(): string | undefined {
         return this['ocr_text'];
     }
 }

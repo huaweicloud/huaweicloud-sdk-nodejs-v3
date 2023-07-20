@@ -2,8 +2,8 @@ import { AgentRegister } from './AgentRegister';
 
 
 export class AgentRegisterReq {
-    public agent: AgentRegister;
-    public constructor(agent?: any) { 
+    public agent?: AgentRegister;
+    public constructor(agent?: AgentRegister) { 
         this['agent'] = agent;
     }
     public withAgent(agent: AgentRegister): AgentRegisterReq {

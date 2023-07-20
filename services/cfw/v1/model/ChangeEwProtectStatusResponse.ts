@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ChangeEwProtectStatusResponse extends SdkResponse {
     public data?: SuccessRspData;
-    private 'trace_id'?: string | undefined;
+    private 'trace_id'?: string;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ChangeEwProtectStatusResponse extends SdkResponse {
         this['trace_id'] = traceId;
         return this;
     }
-    public set traceId(traceId: string | undefined) {
+    public set traceId(traceId: string  | undefined) {
         this['trace_id'] = traceId;
     }
-    public get traceId() {
+    public get traceId(): string | undefined {
         return this['trace_id'];
     }
 }

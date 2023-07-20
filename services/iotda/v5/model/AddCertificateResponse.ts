@@ -2,14 +2,14 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class AddCertificateResponse extends SdkResponse {
-    private 'certificate_id'?: string | undefined;
-    private 'cn_name'?: string | undefined;
+    private 'certificate_id'?: string;
+    private 'cn_name'?: string;
     public owner?: string;
     public status?: boolean;
-    private 'verify_code'?: string | undefined;
-    private 'create_date'?: string | undefined;
-    private 'effective_date'?: string | undefined;
-    private 'expiry_date'?: string | undefined;
+    private 'verify_code'?: string;
+    private 'create_date'?: string;
+    private 'effective_date'?: string;
+    private 'expiry_date'?: string;
     public constructor() { 
         super();
     }
@@ -17,20 +17,20 @@ export class AddCertificateResponse extends SdkResponse {
         this['certificate_id'] = certificateId;
         return this;
     }
-    public set certificateId(certificateId: string | undefined) {
+    public set certificateId(certificateId: string  | undefined) {
         this['certificate_id'] = certificateId;
     }
-    public get certificateId() {
+    public get certificateId(): string | undefined {
         return this['certificate_id'];
     }
     public withCnName(cnName: string): AddCertificateResponse {
         this['cn_name'] = cnName;
         return this;
     }
-    public set cnName(cnName: string | undefined) {
+    public set cnName(cnName: string  | undefined) {
         this['cn_name'] = cnName;
     }
-    public get cnName() {
+    public get cnName(): string | undefined {
         return this['cn_name'];
     }
     public withOwner(owner: string): AddCertificateResponse {
@@ -45,40 +45,40 @@ export class AddCertificateResponse extends SdkResponse {
         this['verify_code'] = verifyCode;
         return this;
     }
-    public set verifyCode(verifyCode: string | undefined) {
+    public set verifyCode(verifyCode: string  | undefined) {
         this['verify_code'] = verifyCode;
     }
-    public get verifyCode() {
+    public get verifyCode(): string | undefined {
         return this['verify_code'];
     }
     public withCreateDate(createDate: string): AddCertificateResponse {
         this['create_date'] = createDate;
         return this;
     }
-    public set createDate(createDate: string | undefined) {
+    public set createDate(createDate: string  | undefined) {
         this['create_date'] = createDate;
     }
-    public get createDate() {
+    public get createDate(): string | undefined {
         return this['create_date'];
     }
     public withEffectiveDate(effectiveDate: string): AddCertificateResponse {
         this['effective_date'] = effectiveDate;
         return this;
     }
-    public set effectiveDate(effectiveDate: string | undefined) {
+    public set effectiveDate(effectiveDate: string  | undefined) {
         this['effective_date'] = effectiveDate;
     }
-    public get effectiveDate() {
+    public get effectiveDate(): string | undefined {
         return this['effective_date'];
     }
     public withExpiryDate(expiryDate: string): AddCertificateResponse {
         this['expiry_date'] = expiryDate;
         return this;
     }
-    public set expiryDate(expiryDate: string | undefined) {
+    public set expiryDate(expiryDate: string  | undefined) {
         this['expiry_date'] = expiryDate;
     }
-    public get expiryDate() {
+    public get expiryDate(): string | undefined {
         return this['expiry_date'];
     }
 }

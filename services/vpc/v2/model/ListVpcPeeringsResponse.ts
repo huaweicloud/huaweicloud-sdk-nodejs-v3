@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListVpcPeeringsResponse extends SdkResponse {
     public peerings?: Array<VpcPeering>;
-    private 'peerings_links'?: Array<NeutronPageLink> | undefined;
+    private 'peerings_links'?: Array<NeutronPageLink>;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class ListVpcPeeringsResponse extends SdkResponse {
         this['peerings_links'] = peeringsLinks;
         return this;
     }
-    public set peeringsLinks(peeringsLinks: Array<NeutronPageLink> | undefined) {
+    public set peeringsLinks(peeringsLinks: Array<NeutronPageLink>  | undefined) {
         this['peerings_links'] = peeringsLinks;
     }
-    public get peeringsLinks() {
+    public get peeringsLinks(): Array<NeutronPageLink> | undefined {
         return this['peerings_links'];
     }
 }

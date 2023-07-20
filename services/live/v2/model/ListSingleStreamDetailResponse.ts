@@ -3,13 +3,13 @@ import { StreamDetail } from './StreamDetail';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSingleStreamDetailResponse extends SdkResponse {
-    private 'publish_domain'?: string | undefined;
+    private 'publish_domain'?: string;
     public app?: string;
     public stream?: string;
-    private 'video_framerate'?: Array<StreamDetail> | undefined;
-    private 'video_bitrate'?: Array<StreamDetail> | undefined;
-    private 'audio_framerate'?: Array<StreamDetail> | undefined;
-    private 'X-Request-Id'?: string | undefined;
+    private 'video_framerate'?: Array<StreamDetail>;
+    private 'video_bitrate'?: Array<StreamDetail>;
+    private 'audio_framerate'?: Array<StreamDetail>;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class ListSingleStreamDetailResponse extends SdkResponse {
         this['publish_domain'] = publishDomain;
         return this;
     }
-    public set publishDomain(publishDomain: string | undefined) {
+    public set publishDomain(publishDomain: string  | undefined) {
         this['publish_domain'] = publishDomain;
     }
-    public get publishDomain() {
+    public get publishDomain(): string | undefined {
         return this['publish_domain'];
     }
     public withApp(app: string): ListSingleStreamDetailResponse {
@@ -35,40 +35,40 @@ export class ListSingleStreamDetailResponse extends SdkResponse {
         this['video_framerate'] = videoFramerate;
         return this;
     }
-    public set videoFramerate(videoFramerate: Array<StreamDetail> | undefined) {
+    public set videoFramerate(videoFramerate: Array<StreamDetail>  | undefined) {
         this['video_framerate'] = videoFramerate;
     }
-    public get videoFramerate() {
+    public get videoFramerate(): Array<StreamDetail> | undefined {
         return this['video_framerate'];
     }
     public withVideoBitrate(videoBitrate: Array<StreamDetail>): ListSingleStreamDetailResponse {
         this['video_bitrate'] = videoBitrate;
         return this;
     }
-    public set videoBitrate(videoBitrate: Array<StreamDetail> | undefined) {
+    public set videoBitrate(videoBitrate: Array<StreamDetail>  | undefined) {
         this['video_bitrate'] = videoBitrate;
     }
-    public get videoBitrate() {
+    public get videoBitrate(): Array<StreamDetail> | undefined {
         return this['video_bitrate'];
     }
     public withAudioFramerate(audioFramerate: Array<StreamDetail>): ListSingleStreamDetailResponse {
         this['audio_framerate'] = audioFramerate;
         return this;
     }
-    public set audioFramerate(audioFramerate: Array<StreamDetail> | undefined) {
+    public set audioFramerate(audioFramerate: Array<StreamDetail>  | undefined) {
         this['audio_framerate'] = audioFramerate;
     }
-    public get audioFramerate() {
+    public get audioFramerate(): Array<StreamDetail> | undefined {
         return this['audio_framerate'];
     }
     public withXRequestId(xRequestId: string): ListSingleStreamDetailResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-Request-Id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-Request-Id'];
     }
 }

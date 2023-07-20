@@ -1,13 +1,13 @@
 
 
 export class ProxyTokenDTO {
-    public accessToken: string;
+    public accessToken?: string;
     public longAccessToken?: string;
     public validPeriod?: number;
     public middleEndUrl?: string;
     public middleEndInnerUrl?: string;
     public enableRerouting?: boolean;
-    public constructor(accessToken?: any) { 
+    public constructor(accessToken?: string) { 
         this['accessToken'] = accessToken;
     }
     public withAccessToken(accessToken: string): ProxyTokenDTO {

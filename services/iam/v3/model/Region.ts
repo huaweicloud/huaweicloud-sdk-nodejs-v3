@@ -3,13 +3,13 @@ import { RegionLocales } from './RegionLocales';
 
 
 export class Region {
-    public description: string;
-    private 'parent_region_id': string | undefined;
-    public links: LinksSelf;
-    public locales: RegionLocales;
-    public id: string;
-    public type: string;
-    public constructor(description?: any, parentRegionId?: any, links?: any, locales?: any, id?: any, type?: any) { 
+    public description?: string;
+    private 'parent_region_id'?: string;
+    public links?: LinksSelf;
+    public locales?: RegionLocales;
+    public id?: string;
+    public type?: string;
+    public constructor(description?: string, parentRegionId?: string, links?: LinksSelf, locales?: RegionLocales, id?: string, type?: string) { 
         this['description'] = description;
         this['parent_region_id'] = parentRegionId;
         this['links'] = links;
@@ -25,10 +25,10 @@ export class Region {
         this['parent_region_id'] = parentRegionId;
         return this;
     }
-    public set parentRegionId(parentRegionId: string | undefined) {
+    public set parentRegionId(parentRegionId: string  | undefined) {
         this['parent_region_id'] = parentRegionId;
     }
-    public get parentRegionId() {
+    public get parentRegionId(): string | undefined {
         return this['parent_region_id'];
     }
     public withLinks(links: LinksSelf): Region {

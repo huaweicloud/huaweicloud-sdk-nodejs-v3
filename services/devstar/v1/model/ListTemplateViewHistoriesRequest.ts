@@ -1,29 +1,29 @@
 
 
 export class ListTemplateViewHistoriesRequest {
-    private 'X-Language'?: ListTemplateViewHistoriesRequestXLanguageEnum | undefined;
-    private 'platform_source': ListTemplateViewHistoriesRequestPlatformSourceEnum | undefined;
-    public constructor(platformSource?: any) { 
+    private 'X-Language'?: ListTemplateViewHistoriesRequestXLanguageEnum | string;
+    private 'platform_source'?: ListTemplateViewHistoriesRequestPlatformSourceEnum | number;
+    public constructor(platformSource?: number) { 
         this['platform_source'] = platformSource;
     }
-    public withXLanguage(xLanguage: ListTemplateViewHistoriesRequestXLanguageEnum): ListTemplateViewHistoriesRequest {
+    public withXLanguage(xLanguage: ListTemplateViewHistoriesRequestXLanguageEnum | string): ListTemplateViewHistoriesRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListTemplateViewHistoriesRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListTemplateViewHistoriesRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListTemplateViewHistoriesRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
-    public withPlatformSource(platformSource: ListTemplateViewHistoriesRequestPlatformSourceEnum): ListTemplateViewHistoriesRequest {
+    public withPlatformSource(platformSource: ListTemplateViewHistoriesRequestPlatformSourceEnum | number): ListTemplateViewHistoriesRequest {
         this['platform_source'] = platformSource;
         return this;
     }
-    public set platformSource(platformSource: ListTemplateViewHistoriesRequestPlatformSourceEnum | undefined) {
+    public set platformSource(platformSource: ListTemplateViewHistoriesRequestPlatformSourceEnum | number  | undefined) {
         this['platform_source'] = platformSource;
     }
-    public get platformSource() {
+    public get platformSource(): ListTemplateViewHistoriesRequestPlatformSourceEnum | number | undefined {
         return this['platform_source'];
     }
 }

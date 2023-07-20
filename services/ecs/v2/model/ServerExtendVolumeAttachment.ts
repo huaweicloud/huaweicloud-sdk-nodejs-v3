@@ -1,11 +1,11 @@
 
 
 export class ServerExtendVolumeAttachment {
-    public id: string;
-    private 'delete_on_termination': string | undefined;
+    public id?: string;
+    private 'delete_on_termination'?: string;
     public bootIndex?: string;
-    public device: string;
-    public constructor(id?: any, deleteOnTermination?: any, device?: any) { 
+    public device?: string;
+    public constructor(id?: string, deleteOnTermination?: string, device?: string) { 
         this['id'] = id;
         this['delete_on_termination'] = deleteOnTermination;
         this['device'] = device;
@@ -18,10 +18,10 @@ export class ServerExtendVolumeAttachment {
         this['delete_on_termination'] = deleteOnTermination;
         return this;
     }
-    public set deleteOnTermination(deleteOnTermination: string | undefined) {
+    public set deleteOnTermination(deleteOnTermination: string  | undefined) {
         this['delete_on_termination'] = deleteOnTermination;
     }
-    public get deleteOnTermination() {
+    public get deleteOnTermination(): string | undefined {
         return this['delete_on_termination'];
     }
     public withBootIndex(bootIndex: string): ServerExtendVolumeAttachment {

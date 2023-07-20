@@ -1,9 +1,9 @@
 
 
 export class ProgramItemRequestBase {
-    public materialId: string;
-    public playTime: number;
-    public constructor(materialId?: any, playTime?: any) { 
+    public materialId?: string;
+    public playTime?: number;
+    public constructor(materialId?: string, playTime?: number) { 
         this['materialId'] = materialId;
         this['playTime'] = playTime;
     }

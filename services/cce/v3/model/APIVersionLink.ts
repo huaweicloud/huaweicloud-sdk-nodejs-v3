@@ -1,9 +1,9 @@
 
 
 export class APIVersionLink {
-    public href: string;
-    public rel: APIVersionLinkRelEnum;
-    public constructor(href?: any, rel?: any) { 
+    public href?: string;
+    public rel?: APIVersionLinkRelEnum | string;
+    public constructor(href?: string, rel?: string) { 
         this['href'] = href;
         this['rel'] = rel;
     }
@@ -11,7 +11,7 @@ export class APIVersionLink {
         this['href'] = href;
         return this;
     }
-    public withRel(rel: APIVersionLinkRelEnum): APIVersionLink {
+    public withRel(rel: APIVersionLinkRelEnum | string): APIVersionLink {
         this['rel'] = rel;
         return this;
     }

@@ -2,14 +2,14 @@ import { AomMappingfilesInfo } from './AomMappingfilesInfo';
 
 
 export class AomMappingRuleInfo {
-    private 'cluster_id': string | undefined;
-    private 'cluster_name': string | undefined;
-    private 'deployments_prefix'?: string | undefined;
-    public deployments: Array<string>;
-    public namespace: string;
-    private 'container_name'?: string | undefined;
-    public files: Array<AomMappingfilesInfo>;
-    public constructor(clusterId?: any, clusterName?: any, deployments?: any, namespace?: any, files?: any) { 
+    private 'cluster_id'?: string;
+    private 'cluster_name'?: string;
+    private 'deployments_prefix'?: string;
+    public deployments?: Array<string>;
+    public namespace?: string;
+    private 'container_name'?: string;
+    public files?: Array<AomMappingfilesInfo>;
+    public constructor(clusterId?: string, clusterName?: string, deployments?: Array<string>, namespace?: string, files?: Array<AomMappingfilesInfo>) { 
         this['cluster_id'] = clusterId;
         this['cluster_name'] = clusterName;
         this['deployments'] = deployments;
@@ -20,30 +20,30 @@ export class AomMappingRuleInfo {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withClusterName(clusterName: string): AomMappingRuleInfo {
         this['cluster_name'] = clusterName;
         return this;
     }
-    public set clusterName(clusterName: string | undefined) {
+    public set clusterName(clusterName: string  | undefined) {
         this['cluster_name'] = clusterName;
     }
-    public get clusterName() {
+    public get clusterName(): string | undefined {
         return this['cluster_name'];
     }
     public withDeploymentsPrefix(deploymentsPrefix: string): AomMappingRuleInfo {
         this['deployments_prefix'] = deploymentsPrefix;
         return this;
     }
-    public set deploymentsPrefix(deploymentsPrefix: string | undefined) {
+    public set deploymentsPrefix(deploymentsPrefix: string  | undefined) {
         this['deployments_prefix'] = deploymentsPrefix;
     }
-    public get deploymentsPrefix() {
+    public get deploymentsPrefix(): string | undefined {
         return this['deployments_prefix'];
     }
     public withDeployments(deployments: Array<string>): AomMappingRuleInfo {
@@ -58,10 +58,10 @@ export class AomMappingRuleInfo {
         this['container_name'] = containerName;
         return this;
     }
-    public set containerName(containerName: string | undefined) {
+    public set containerName(containerName: string  | undefined) {
         this['container_name'] = containerName;
     }
-    public get containerName() {
+    public get containerName(): string | undefined {
         return this['container_name'];
     }
     public withFiles(files: Array<AomMappingfilesInfo>): AomMappingRuleInfo {

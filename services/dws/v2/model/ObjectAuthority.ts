@@ -3,7 +3,7 @@ import { RoleAuthority } from './RoleAuthority';
 
 export class ObjectAuthority {
     public name?: string;
-    private 'role_authority'?: Array<RoleAuthority> | undefined;
+    private 'role_authority'?: Array<RoleAuthority>;
     public constructor() { 
     }
     public withName(name: string): ObjectAuthority {
@@ -14,10 +14,10 @@ export class ObjectAuthority {
         this['role_authority'] = roleAuthority;
         return this;
     }
-    public set roleAuthority(roleAuthority: Array<RoleAuthority> | undefined) {
+    public set roleAuthority(roleAuthority: Array<RoleAuthority>  | undefined) {
         this['role_authority'] = roleAuthority;
     }
-    public get roleAuthority() {
+    public get roleAuthority(): Array<RoleAuthority> | undefined {
         return this['role_authority'];
     }
 }

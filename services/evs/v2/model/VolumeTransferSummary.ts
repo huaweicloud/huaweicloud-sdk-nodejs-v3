@@ -2,11 +2,11 @@ import { Link } from './Link';
 
 
 export class VolumeTransferSummary {
-    public id: string;
-    public links: Array<Link>;
-    public name: string;
-    private 'volume_id': string | undefined;
-    public constructor(id?: any, links?: any, name?: any, volumeId?: any) { 
+    public id?: string;
+    public links?: Array<Link>;
+    public name?: string;
+    private 'volume_id'?: string;
+    public constructor(id?: string, links?: Array<Link>, name?: string, volumeId?: string) { 
         this['id'] = id;
         this['links'] = links;
         this['name'] = name;
@@ -28,10 +28,10 @@ export class VolumeTransferSummary {
         this['volume_id'] = volumeId;
         return this;
     }
-    public set volumeId(volumeId: string | undefined) {
+    public set volumeId(volumeId: string  | undefined) {
         this['volume_id'] = volumeId;
     }
-    public get volumeId() {
+    public get volumeId(): string | undefined {
         return this['volume_id'];
     }
 }

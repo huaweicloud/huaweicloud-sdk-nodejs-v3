@@ -1,20 +1,20 @@
 
 
 export class ListProjectsV4Request {
-    private 'X-Language'?: ListProjectsV4RequestXLanguageEnum | undefined;
+    private 'X-Language'?: ListProjectsV4RequestXLanguageEnum | string;
     public keyword?: string;
     public limit?: number;
     public offset?: number;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: ListProjectsV4RequestXLanguageEnum): ListProjectsV4Request {
+    public withXLanguage(xLanguage: ListProjectsV4RequestXLanguageEnum | string): ListProjectsV4Request {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListProjectsV4RequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListProjectsV4RequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListProjectsV4RequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withKeyword(keyword: string): ListProjectsV4Request {

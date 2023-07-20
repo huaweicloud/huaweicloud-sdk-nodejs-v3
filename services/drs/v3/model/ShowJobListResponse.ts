@@ -3,7 +3,7 @@ import { JobInfo } from './JobInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowJobListResponse extends SdkResponse {
-    private 'total_record'?: number | undefined;
+    private 'total_record'?: number;
     public jobs?: Array<JobInfo>;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class ShowJobListResponse extends SdkResponse {
         this['total_record'] = totalRecord;
         return this;
     }
-    public set totalRecord(totalRecord: number | undefined) {
+    public set totalRecord(totalRecord: number  | undefined) {
         this['total_record'] = totalRecord;
     }
-    public get totalRecord() {
+    public get totalRecord(): number | undefined {
         return this['total_record'];
     }
     public withJobs(jobs: Array<JobInfo>): ShowJobListResponse {

@@ -2,8 +2,8 @@ import { AssociateRouteTableAndSubnetReq } from './AssociateRouteTableAndSubnetR
 
 
 export class AsscoiateReq {
-    public subnets: AssociateRouteTableAndSubnetReq;
-    public constructor(subnets?: any) { 
+    public subnets?: AssociateRouteTableAndSubnetReq;
+    public constructor(subnets?: AssociateRouteTableAndSubnetReq) { 
         this['subnets'] = subnets;
     }
     public withSubnets(subnets: AssociateRouteTableAndSubnetReq): AsscoiateReq {

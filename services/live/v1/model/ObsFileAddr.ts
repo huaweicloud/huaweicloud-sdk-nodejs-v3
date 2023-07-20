@@ -1,10 +1,10 @@
 
 
 export class ObsFileAddr {
-    public bucket: string;
-    public location: string;
-    private 'object': string | undefined;
-    public constructor(bucket?: any, location?: any, modelObject?: any) { 
+    public bucket?: string;
+    public location?: string;
+    private 'object'?: string;
+    public constructor(bucket?: string, location?: string, modelObject?: string) { 
         this['bucket'] = bucket;
         this['location'] = location;
         this['object'] = modelObject;
@@ -21,10 +21,10 @@ export class ObsFileAddr {
         this['object'] = modelObject;
         return this;
     }
-    public set modelObject(modelObject: string | undefined) {
+    public set modelObject(modelObject: string  | undefined) {
         this['object'] = modelObject;
     }
-    public get modelObject() {
+    public get modelObject(): string | undefined {
         return this['object'];
     }
 }

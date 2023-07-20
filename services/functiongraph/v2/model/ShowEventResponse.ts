@@ -5,7 +5,7 @@ export class ShowEventResponse extends SdkResponse {
     public id?: string;
     public name?: string;
     public content?: string;
-    private 'last_modified'?: number | undefined;
+    private 'last_modified'?: number;
     public constructor() { 
         super();
     }
@@ -25,10 +25,10 @@ export class ShowEventResponse extends SdkResponse {
         this['last_modified'] = lastModified;
         return this;
     }
-    public set lastModified(lastModified: number | undefined) {
+    public set lastModified(lastModified: number  | undefined) {
         this['last_modified'] = lastModified;
     }
-    public get lastModified() {
+    public get lastModified(): number | undefined {
         return this['last_modified'];
     }
 }

@@ -1,10 +1,10 @@
 
 
 export class ModPwdReqDTO {
-    public account: string;
-    public oldPwd: string;
-    public newPwd: string;
-    public constructor(account?: any, oldPwd?: any, newPwd?: any) { 
+    public account?: string;
+    public oldPwd?: string;
+    public newPwd?: string;
+    public constructor(account?: string, oldPwd?: string, newPwd?: string) { 
         this['account'] = account;
         this['oldPwd'] = oldPwd;
         this['newPwd'] = newPwd;

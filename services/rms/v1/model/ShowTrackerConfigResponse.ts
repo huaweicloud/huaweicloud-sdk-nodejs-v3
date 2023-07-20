@@ -6,7 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowTrackerConfigResponse extends SdkResponse {
     public channel?: ChannelConfigBody;
     public selector?: SelectorConfigBody;
-    private 'agency_name'?: string | undefined;
+    private 'agency_name'?: string;
     public constructor() { 
         super();
     }
@@ -22,10 +22,10 @@ export class ShowTrackerConfigResponse extends SdkResponse {
         this['agency_name'] = agencyName;
         return this;
     }
-    public set agencyName(agencyName: string | undefined) {
+    public set agencyName(agencyName: string  | undefined) {
         this['agency_name'] = agencyName;
     }
-    public get agencyName() {
+    public get agencyName(): string | undefined {
         return this['agency_name'];
     }
 }

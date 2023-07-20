@@ -6,48 +6,48 @@ import { EndpointSslConfig } from './EndpointSslConfig';
 
 
 export class JobEndpointInfo {
-    private 'db_type': JobEndpointInfoDbTypeEnum | undefined;
-    private 'endpoint_type': JobEndpointInfoEndpointTypeEnum | undefined;
-    private 'endpoint_role': JobEndpointInfoEndpointRoleEnum | undefined;
-    public endpoint: BaseEndpoint;
+    private 'db_type'?: JobEndpointInfoDbTypeEnum | string;
+    private 'endpoint_type'?: JobEndpointInfoEndpointTypeEnum | string;
+    private 'endpoint_role'?: JobEndpointInfoEndpointRoleEnum | string;
+    public endpoint?: BaseEndpoint;
     public cloud?: CloudBaseInfo;
     public vpc?: CloudVpcInfo;
     public config?: BaseEndpointConfig;
     public ssl?: EndpointSslConfig;
-    public constructor(dbType?: any, endpointType?: any, endpointRole?: any, endpoint?: any) { 
+    public constructor(dbType?: string, endpointType?: string, endpointRole?: string, endpoint?: BaseEndpoint) { 
         this['db_type'] = dbType;
         this['endpoint_type'] = endpointType;
         this['endpoint_role'] = endpointRole;
         this['endpoint'] = endpoint;
     }
-    public withDbType(dbType: JobEndpointInfoDbTypeEnum): JobEndpointInfo {
+    public withDbType(dbType: JobEndpointInfoDbTypeEnum | string): JobEndpointInfo {
         this['db_type'] = dbType;
         return this;
     }
-    public set dbType(dbType: JobEndpointInfoDbTypeEnum | undefined) {
+    public set dbType(dbType: JobEndpointInfoDbTypeEnum | string  | undefined) {
         this['db_type'] = dbType;
     }
-    public get dbType() {
+    public get dbType(): JobEndpointInfoDbTypeEnum | string | undefined {
         return this['db_type'];
     }
-    public withEndpointType(endpointType: JobEndpointInfoEndpointTypeEnum): JobEndpointInfo {
+    public withEndpointType(endpointType: JobEndpointInfoEndpointTypeEnum | string): JobEndpointInfo {
         this['endpoint_type'] = endpointType;
         return this;
     }
-    public set endpointType(endpointType: JobEndpointInfoEndpointTypeEnum | undefined) {
+    public set endpointType(endpointType: JobEndpointInfoEndpointTypeEnum | string  | undefined) {
         this['endpoint_type'] = endpointType;
     }
-    public get endpointType() {
+    public get endpointType(): JobEndpointInfoEndpointTypeEnum | string | undefined {
         return this['endpoint_type'];
     }
-    public withEndpointRole(endpointRole: JobEndpointInfoEndpointRoleEnum): JobEndpointInfo {
+    public withEndpointRole(endpointRole: JobEndpointInfoEndpointRoleEnum | string): JobEndpointInfo {
         this['endpoint_role'] = endpointRole;
         return this;
     }
-    public set endpointRole(endpointRole: JobEndpointInfoEndpointRoleEnum | undefined) {
+    public set endpointRole(endpointRole: JobEndpointInfoEndpointRoleEnum | string  | undefined) {
         this['endpoint_role'] = endpointRole;
     }
-    public get endpointRole() {
+    public get endpointRole(): JobEndpointInfoEndpointRoleEnum | string | undefined {
         return this['endpoint_role'];
     }
     public withEndpoint(endpoint: BaseEndpoint): JobEndpointInfo {

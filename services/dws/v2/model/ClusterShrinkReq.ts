@@ -1,13 +1,13 @@
 
 
 export class ClusterShrinkReq {
-    private 'shrink_number': number | undefined;
-    public online: boolean;
-    public type: string;
+    private 'shrink_number'?: number;
+    public online?: boolean;
+    public type?: string;
     public retry?: boolean;
-    private 'force_backup': boolean | undefined;
-    private 'need_agency': boolean | undefined;
-    public constructor(shrinkNumber?: any, online?: any, type?: any, forceBackup?: any, needAgency?: any) { 
+    private 'force_backup'?: boolean;
+    private 'need_agency'?: boolean;
+    public constructor(shrinkNumber?: number, online?: boolean, type?: string, forceBackup?: boolean, needAgency?: boolean) { 
         this['shrink_number'] = shrinkNumber;
         this['online'] = online;
         this['type'] = type;
@@ -18,10 +18,10 @@ export class ClusterShrinkReq {
         this['shrink_number'] = shrinkNumber;
         return this;
     }
-    public set shrinkNumber(shrinkNumber: number | undefined) {
+    public set shrinkNumber(shrinkNumber: number  | undefined) {
         this['shrink_number'] = shrinkNumber;
     }
-    public get shrinkNumber() {
+    public get shrinkNumber(): number | undefined {
         return this['shrink_number'];
     }
     public withOnline(online: boolean): ClusterShrinkReq {
@@ -40,20 +40,20 @@ export class ClusterShrinkReq {
         this['force_backup'] = forceBackup;
         return this;
     }
-    public set forceBackup(forceBackup: boolean | undefined) {
+    public set forceBackup(forceBackup: boolean  | undefined) {
         this['force_backup'] = forceBackup;
     }
-    public get forceBackup() {
+    public get forceBackup(): boolean | undefined {
         return this['force_backup'];
     }
     public withNeedAgency(needAgency: boolean): ClusterShrinkReq {
         this['need_agency'] = needAgency;
         return this;
     }
-    public set needAgency(needAgency: boolean | undefined) {
+    public set needAgency(needAgency: boolean  | undefined) {
         this['need_agency'] = needAgency;
     }
-    public get needAgency() {
+    public get needAgency(): boolean | undefined {
         return this['need_agency'];
     }
 }

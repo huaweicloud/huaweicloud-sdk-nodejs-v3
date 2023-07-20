@@ -2,19 +2,19 @@ import { Parameter } from './Parameter';
 
 
 export class ExtractAudioTaskReq {
-    private 'asset_id': string | undefined;
+    private 'asset_id'?: string;
     public parameter?: Parameter;
-    public constructor(assetId?: any) { 
+    public constructor(assetId?: string) { 
         this['asset_id'] = assetId;
     }
     public withAssetId(assetId: string): ExtractAudioTaskReq {
         this['asset_id'] = assetId;
         return this;
     }
-    public set assetId(assetId: string | undefined) {
+    public set assetId(assetId: string  | undefined) {
         this['asset_id'] = assetId;
     }
-    public get assetId() {
+    public get assetId(): string | undefined {
         return this['asset_id'];
     }
     public withParameter(parameter: Parameter): ExtractAudioTaskReq {

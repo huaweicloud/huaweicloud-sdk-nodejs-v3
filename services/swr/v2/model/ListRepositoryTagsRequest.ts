@@ -1,28 +1,28 @@
 
 
 export class ListRepositoryTagsRequest {
-    private 'Content-Type': ListRepositoryTagsRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
+    private 'Content-Type'?: ListRepositoryTagsRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
     public limit?: string;
     public offset?: string;
-    private 'order_column'?: string | undefined;
-    private 'order_type'?: string | undefined;
+    private 'order_column'?: string;
+    private 'order_type'?: string;
     public tag?: string;
     public filter?: string;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: ListRepositoryTagsRequestContentTypeEnum): ListRepositoryTagsRequest {
+    public withContentType(contentType: ListRepositoryTagsRequestContentTypeEnum | string): ListRepositoryTagsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ListRepositoryTagsRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ListRepositoryTagsRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ListRepositoryTagsRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): ListRepositoryTagsRequest {
@@ -45,20 +45,20 @@ export class ListRepositoryTagsRequest {
         this['order_column'] = orderColumn;
         return this;
     }
-    public set orderColumn(orderColumn: string | undefined) {
+    public set orderColumn(orderColumn: string  | undefined) {
         this['order_column'] = orderColumn;
     }
-    public get orderColumn() {
+    public get orderColumn(): string | undefined {
         return this['order_column'];
     }
     public withOrderType(orderType: string): ListRepositoryTagsRequest {
         this['order_type'] = orderType;
         return this;
     }
-    public set orderType(orderType: string | undefined) {
+    public set orderType(orderType: string  | undefined) {
         this['order_type'] = orderType;
     }
-    public get orderType() {
+    public get orderType(): string | undefined {
         return this['order_type'];
     }
     public withTag(tag: string): ListRepositoryTagsRequest {

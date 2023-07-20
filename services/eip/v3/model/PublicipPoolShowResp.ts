@@ -6,20 +6,20 @@ export class PublicipPoolShowResp {
     public id?: string;
     public name?: string;
     public status?: string;
-    public type?: PublicipPoolShowRespTypeEnum;
+    public type?: PublicipPoolShowRespTypeEnum | string;
     public description?: string;
-    private 'project_id'?: string | undefined;
+    private 'project_id'?: string;
     public size?: number;
     public used?: number;
-    private 'created_at'?: string | undefined;
-    private 'updated_at'?: string | undefined;
-    private 'billing_info'?: BillingInfoDict | undefined;
-    private 'public_border_group'?: string | undefined;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    private 'billing_info'?: BillingInfoDict;
+    private 'public_border_group'?: string;
     public shared?: boolean;
-    private 'is_common'?: boolean | undefined;
+    private 'is_common'?: boolean;
     public tags?: Array<TagsInfo>;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'allow_share_bandwidth_types'?: Array<string> | undefined;
+    private 'enterprise_project_id'?: string;
+    private 'allow_share_bandwidth_types'?: Array<string>;
     public constructor() { 
     }
     public withId(id: string): PublicipPoolShowResp {
@@ -34,7 +34,7 @@ export class PublicipPoolShowResp {
         this['status'] = status;
         return this;
     }
-    public withType(type: PublicipPoolShowRespTypeEnum): PublicipPoolShowResp {
+    public withType(type: PublicipPoolShowRespTypeEnum | string): PublicipPoolShowResp {
         this['type'] = type;
         return this;
     }
@@ -46,10 +46,10 @@ export class PublicipPoolShowResp {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withSize(size: number): PublicipPoolShowResp {
@@ -64,40 +64,40 @@ export class PublicipPoolShowResp {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): PublicipPoolShowResp {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withBillingInfo(billingInfo: BillingInfoDict): PublicipPoolShowResp {
         this['billing_info'] = billingInfo;
         return this;
     }
-    public set billingInfo(billingInfo: BillingInfoDict | undefined) {
+    public set billingInfo(billingInfo: BillingInfoDict  | undefined) {
         this['billing_info'] = billingInfo;
     }
-    public get billingInfo() {
+    public get billingInfo(): BillingInfoDict | undefined {
         return this['billing_info'];
     }
     public withPublicBorderGroup(publicBorderGroup: string): PublicipPoolShowResp {
         this['public_border_group'] = publicBorderGroup;
         return this;
     }
-    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
         this['public_border_group'] = publicBorderGroup;
     }
-    public get publicBorderGroup() {
+    public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
     public withShared(shared: boolean): PublicipPoolShowResp {
@@ -108,10 +108,10 @@ export class PublicipPoolShowResp {
         this['is_common'] = isCommon;
         return this;
     }
-    public set isCommon(isCommon: boolean | undefined) {
+    public set isCommon(isCommon: boolean  | undefined) {
         this['is_common'] = isCommon;
     }
-    public get isCommon() {
+    public get isCommon(): boolean | undefined {
         return this['is_common'];
     }
     public withTags(tags: Array<TagsInfo>): PublicipPoolShowResp {
@@ -122,20 +122,20 @@ export class PublicipPoolShowResp {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withAllowShareBandwidthTypes(allowShareBandwidthTypes: Array<string>): PublicipPoolShowResp {
         this['allow_share_bandwidth_types'] = allowShareBandwidthTypes;
         return this;
     }
-    public set allowShareBandwidthTypes(allowShareBandwidthTypes: Array<string> | undefined) {
+    public set allowShareBandwidthTypes(allowShareBandwidthTypes: Array<string>  | undefined) {
         this['allow_share_bandwidth_types'] = allowShareBandwidthTypes;
     }
-    public get allowShareBandwidthTypes() {
+    public get allowShareBandwidthTypes(): Array<string> | undefined {
         return this['allow_share_bandwidth_types'];
     }
 }

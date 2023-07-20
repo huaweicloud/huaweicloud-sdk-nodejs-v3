@@ -1,9 +1,9 @@
 
 
 export class WorkloadResource {
-    private 'resource_name': string | undefined;
-    private 'resource_value': number | undefined;
-    public constructor(resourceName?: any, resourceValue?: any) { 
+    private 'resource_name'?: string;
+    private 'resource_value'?: number;
+    public constructor(resourceName?: string, resourceValue?: number) { 
         this['resource_name'] = resourceName;
         this['resource_value'] = resourceValue;
     }
@@ -11,20 +11,20 @@ export class WorkloadResource {
         this['resource_name'] = resourceName;
         return this;
     }
-    public set resourceName(resourceName: string | undefined) {
+    public set resourceName(resourceName: string  | undefined) {
         this['resource_name'] = resourceName;
     }
-    public get resourceName() {
+    public get resourceName(): string | undefined {
         return this['resource_name'];
     }
     public withResourceValue(resourceValue: number): WorkloadResource {
         this['resource_value'] = resourceValue;
         return this;
     }
-    public set resourceValue(resourceValue: number | undefined) {
+    public set resourceValue(resourceValue: number  | undefined) {
         this['resource_value'] = resourceValue;
     }
-    public get resourceValue() {
+    public get resourceValue(): number | undefined {
         return this['resource_value'];
     }
 }

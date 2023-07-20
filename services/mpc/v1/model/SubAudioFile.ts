@@ -4,20 +4,20 @@ import { TracksInfo } from './TracksInfo';
 
 
 export class SubAudioFile {
-    private 'tracks_info'?: Array<TracksInfo> | undefined;
+    private 'tracks_info'?: Array<TracksInfo>;
     public input?: ObsObjInfo;
     public output?: ObsObjInfo;
-    private 'output_filename'?: string | undefined;
+    private 'output_filename'?: string;
     public constructor() { 
     }
     public withTracksInfo(tracksInfo: Array<TracksInfo>): SubAudioFile {
         this['tracks_info'] = tracksInfo;
         return this;
     }
-    public set tracksInfo(tracksInfo: Array<TracksInfo> | undefined) {
+    public set tracksInfo(tracksInfo: Array<TracksInfo>  | undefined) {
         this['tracks_info'] = tracksInfo;
     }
-    public get tracksInfo() {
+    public get tracksInfo(): Array<TracksInfo> | undefined {
         return this['tracks_info'];
     }
     public withInput(input: ObsObjInfo): SubAudioFile {
@@ -32,10 +32,10 @@ export class SubAudioFile {
         this['output_filename'] = outputFilename;
         return this;
     }
-    public set outputFilename(outputFilename: string | undefined) {
+    public set outputFilename(outputFilename: string  | undefined) {
         this['output_filename'] = outputFilename;
     }
-    public get outputFilename() {
+    public get outputFilename(): string | undefined {
         return this['output_filename'];
     }
 }

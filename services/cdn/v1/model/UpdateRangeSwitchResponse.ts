@@ -3,7 +3,7 @@ import { OriginRangeBody } from './OriginRangeBody';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateRangeSwitchResponse extends SdkResponse {
-    private 'origin_range'?: OriginRangeBody | undefined;
+    private 'origin_range'?: OriginRangeBody;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class UpdateRangeSwitchResponse extends SdkResponse {
         this['origin_range'] = originRange;
         return this;
     }
-    public set originRange(originRange: OriginRangeBody | undefined) {
+    public set originRange(originRange: OriginRangeBody  | undefined) {
         this['origin_range'] = originRange;
     }
-    public get originRange() {
+    public get originRange(): OriginRangeBody | undefined {
         return this['origin_range'];
     }
 }

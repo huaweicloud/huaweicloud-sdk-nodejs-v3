@@ -2,16 +2,16 @@ import { ResourceExtraInfo } from './ResourceExtraInfo';
 
 
 export class ResourceResp {
-    private 'extra_info'?: ResourceExtraInfo | undefined;
-    public id: string;
-    public name: string;
-    private 'protect_status'?: ResourceRespProtectStatusEnum | undefined;
+    private 'extra_info'?: ResourceExtraInfo;
+    public id?: string;
+    public name?: string;
+    private 'protect_status'?: ResourceRespProtectStatusEnum | string;
     public size?: number;
-    public type: string;
-    private 'backup_size'?: number | undefined;
-    private 'backup_count'?: number | undefined;
-    private 'auto_protect'?: boolean | undefined;
-    public constructor(id?: any, name?: any, type?: any) { 
+    public type?: string;
+    private 'backup_size'?: number;
+    private 'backup_count'?: number;
+    private 'auto_protect'?: boolean;
+    public constructor(id?: string, name?: string, type?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['type'] = type;
@@ -20,10 +20,10 @@ export class ResourceResp {
         this['extra_info'] = extraInfo;
         return this;
     }
-    public set extraInfo(extraInfo: ResourceExtraInfo | undefined) {
+    public set extraInfo(extraInfo: ResourceExtraInfo  | undefined) {
         this['extra_info'] = extraInfo;
     }
-    public get extraInfo() {
+    public get extraInfo(): ResourceExtraInfo | undefined {
         return this['extra_info'];
     }
     public withId(id: string): ResourceResp {
@@ -34,14 +34,14 @@ export class ResourceResp {
         this['name'] = name;
         return this;
     }
-    public withProtectStatus(protectStatus: ResourceRespProtectStatusEnum): ResourceResp {
+    public withProtectStatus(protectStatus: ResourceRespProtectStatusEnum | string): ResourceResp {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: ResourceRespProtectStatusEnum | undefined) {
+    public set protectStatus(protectStatus: ResourceRespProtectStatusEnum | string  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): ResourceRespProtectStatusEnum | string | undefined {
         return this['protect_status'];
     }
     public withSize(size: number): ResourceResp {
@@ -56,30 +56,30 @@ export class ResourceResp {
         this['backup_size'] = backupSize;
         return this;
     }
-    public set backupSize(backupSize: number | undefined) {
+    public set backupSize(backupSize: number  | undefined) {
         this['backup_size'] = backupSize;
     }
-    public get backupSize() {
+    public get backupSize(): number | undefined {
         return this['backup_size'];
     }
     public withBackupCount(backupCount: number): ResourceResp {
         this['backup_count'] = backupCount;
         return this;
     }
-    public set backupCount(backupCount: number | undefined) {
+    public set backupCount(backupCount: number  | undefined) {
         this['backup_count'] = backupCount;
     }
-    public get backupCount() {
+    public get backupCount(): number | undefined {
         return this['backup_count'];
     }
     public withAutoProtect(autoProtect: boolean): ResourceResp {
         this['auto_protect'] = autoProtect;
         return this;
     }
-    public set autoProtect(autoProtect: boolean | undefined) {
+    public set autoProtect(autoProtect: boolean  | undefined) {
         this['auto_protect'] = autoProtect;
     }
-    public get autoProtect() {
+    public get autoProtect(): boolean | undefined {
         return this['auto_protect'];
     }
 }

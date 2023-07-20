@@ -1,9 +1,9 @@
 
 
 export class KeystoneRemoveUserFromGroupRequest {
-    private 'group_id': string | undefined;
-    private 'user_id': string | undefined;
-    public constructor(groupId?: any, userId?: any) { 
+    private 'group_id'?: string;
+    private 'user_id'?: string;
+    public constructor(groupId?: string, userId?: string) { 
         this['group_id'] = groupId;
         this['user_id'] = userId;
     }
@@ -11,20 +11,20 @@ export class KeystoneRemoveUserFromGroupRequest {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
     public withUserId(userId: string): KeystoneRemoveUserFromGroupRequest {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
 }

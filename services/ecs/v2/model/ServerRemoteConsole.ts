@@ -1,10 +1,10 @@
 
 
 export class ServerRemoteConsole {
-    public protocol: string;
-    public type: string;
-    public url: string;
-    public constructor(protocol?: any, type?: any, url?: any) { 
+    public protocol?: string;
+    public type?: string;
+    public url?: string;
+    public constructor(protocol?: string, type?: string, url?: string) { 
         this['protocol'] = protocol;
         this['type'] = type;
         this['url'] = url;

@@ -3,8 +3,8 @@
 export class VatInvoiceRequestBody {
     public image?: string;
     public url?: string;
-    private 'advanced_mode'?: boolean | undefined;
-    private 'return_text_location'?: boolean | undefined;
+    private 'advanced_mode'?: boolean;
+    private 'return_text_location'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): VatInvoiceRequestBody {
@@ -19,20 +19,20 @@ export class VatInvoiceRequestBody {
         this['advanced_mode'] = advancedMode;
         return this;
     }
-    public set advancedMode(advancedMode: boolean | undefined) {
+    public set advancedMode(advancedMode: boolean  | undefined) {
         this['advanced_mode'] = advancedMode;
     }
-    public get advancedMode() {
+    public get advancedMode(): boolean | undefined {
         return this['advanced_mode'];
     }
     public withReturnTextLocation(returnTextLocation: boolean): VatInvoiceRequestBody {
         this['return_text_location'] = returnTextLocation;
         return this;
     }
-    public set returnTextLocation(returnTextLocation: boolean | undefined) {
+    public set returnTextLocation(returnTextLocation: boolean  | undefined) {
         this['return_text_location'] = returnTextLocation;
     }
-    public get returnTextLocation() {
+    public get returnTextLocation(): boolean | undefined {
         return this['return_text_location'];
     }
 }

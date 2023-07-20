@@ -3,7 +3,7 @@ import { JobSubmitResult } from './JobSubmitResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateExecuteJobResponse extends SdkResponse {
-    private 'job_submit_result'?: JobSubmitResult | undefined;
+    private 'job_submit_result'?: JobSubmitResult;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class CreateExecuteJobResponse extends SdkResponse {
         this['job_submit_result'] = jobSubmitResult;
         return this;
     }
-    public set jobSubmitResult(jobSubmitResult: JobSubmitResult | undefined) {
+    public set jobSubmitResult(jobSubmitResult: JobSubmitResult  | undefined) {
         this['job_submit_result'] = jobSubmitResult;
     }
-    public get jobSubmitResult() {
+    public get jobSubmitResult(): JobSubmitResult | undefined {
         return this['job_submit_result'];
     }
 }

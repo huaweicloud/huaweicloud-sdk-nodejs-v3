@@ -2,25 +2,25 @@ import { Links } from './Links';
 
 
 export class ShowUserResult {
-    public enabled: boolean;
-    public id: string;
-    private 'domain_id': string | undefined;
-    public name: string;
-    public links: Links;
-    private 'xuser_id'?: string | undefined;
-    private 'xuser_type'?: string | undefined;
+    public enabled?: boolean;
+    public id?: string;
+    private 'domain_id'?: string;
+    public name?: string;
+    public links?: Links;
+    private 'xuser_id'?: string;
+    private 'xuser_type'?: string;
     public areacode?: string;
     public email?: string;
     public phone?: string;
-    private 'pwd_status'?: boolean | undefined;
-    private 'update_time'?: string | undefined;
-    private 'create_time'?: string | undefined;
-    private 'last_login_time'?: string | undefined;
-    private 'pwd_strength'?: string | undefined;
-    private 'is_domain_owner': boolean | undefined;
-    private 'access_mode': string | undefined;
-    public description: string;
-    public constructor(enabled?: any, id?: any, domainId?: any, name?: any, links?: any, isDomainOwner?: any, accessMode?: any, description?: any) { 
+    private 'pwd_status'?: boolean;
+    private 'update_time'?: string;
+    private 'create_time'?: string;
+    private 'last_login_time'?: string;
+    private 'pwd_strength'?: string;
+    private 'is_domain_owner'?: boolean;
+    private 'access_mode'?: string;
+    public description?: string;
+    public constructor(enabled?: boolean, id?: string, domainId?: string, name?: string, links?: Links, isDomainOwner?: boolean, accessMode?: string, description?: string) { 
         this['enabled'] = enabled;
         this['id'] = id;
         this['domain_id'] = domainId;
@@ -42,10 +42,10 @@ export class ShowUserResult {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withName(name: string): ShowUserResult {
@@ -60,20 +60,20 @@ export class ShowUserResult {
         this['xuser_id'] = xuserId;
         return this;
     }
-    public set xuserId(xuserId: string | undefined) {
+    public set xuserId(xuserId: string  | undefined) {
         this['xuser_id'] = xuserId;
     }
-    public get xuserId() {
+    public get xuserId(): string | undefined {
         return this['xuser_id'];
     }
     public withXuserType(xuserType: string): ShowUserResult {
         this['xuser_type'] = xuserType;
         return this;
     }
-    public set xuserType(xuserType: string | undefined) {
+    public set xuserType(xuserType: string  | undefined) {
         this['xuser_type'] = xuserType;
     }
-    public get xuserType() {
+    public get xuserType(): string | undefined {
         return this['xuser_type'];
     }
     public withAreacode(areacode: string): ShowUserResult {
@@ -92,70 +92,70 @@ export class ShowUserResult {
         this['pwd_status'] = pwdStatus;
         return this;
     }
-    public set pwdStatus(pwdStatus: boolean | undefined) {
+    public set pwdStatus(pwdStatus: boolean  | undefined) {
         this['pwd_status'] = pwdStatus;
     }
-    public get pwdStatus() {
+    public get pwdStatus(): boolean | undefined {
         return this['pwd_status'];
     }
     public withUpdateTime(updateTime: string): ShowUserResult {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
     public withCreateTime(createTime: string): ShowUserResult {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withLastLoginTime(lastLoginTime: string): ShowUserResult {
         this['last_login_time'] = lastLoginTime;
         return this;
     }
-    public set lastLoginTime(lastLoginTime: string | undefined) {
+    public set lastLoginTime(lastLoginTime: string  | undefined) {
         this['last_login_time'] = lastLoginTime;
     }
-    public get lastLoginTime() {
+    public get lastLoginTime(): string | undefined {
         return this['last_login_time'];
     }
     public withPwdStrength(pwdStrength: string): ShowUserResult {
         this['pwd_strength'] = pwdStrength;
         return this;
     }
-    public set pwdStrength(pwdStrength: string | undefined) {
+    public set pwdStrength(pwdStrength: string  | undefined) {
         this['pwd_strength'] = pwdStrength;
     }
-    public get pwdStrength() {
+    public get pwdStrength(): string | undefined {
         return this['pwd_strength'];
     }
     public withIsDomainOwner(isDomainOwner: boolean): ShowUserResult {
         this['is_domain_owner'] = isDomainOwner;
         return this;
     }
-    public set isDomainOwner(isDomainOwner: boolean | undefined) {
+    public set isDomainOwner(isDomainOwner: boolean  | undefined) {
         this['is_domain_owner'] = isDomainOwner;
     }
-    public get isDomainOwner() {
+    public get isDomainOwner(): boolean | undefined {
         return this['is_domain_owner'];
     }
     public withAccessMode(accessMode: string): ShowUserResult {
         this['access_mode'] = accessMode;
         return this;
     }
-    public set accessMode(accessMode: string | undefined) {
+    public set accessMode(accessMode: string  | undefined) {
         this['access_mode'] = accessMode;
     }
-    public get accessMode() {
+    public get accessMode(): string | undefined {
         return this['access_mode'];
     }
     public withDescription(description: string): ShowUserResult {

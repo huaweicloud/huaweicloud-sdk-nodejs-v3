@@ -4,8 +4,8 @@ export class VideoInfo {
     public width?: number;
     public height?: number;
     public bitrate?: number;
-    private 'bitrate_bps'?: number | undefined;
-    private 'frame_rate'?: number | undefined;
+    private 'bitrate_bps'?: number;
+    private 'frame_rate'?: number;
     public codec?: string;
     public constructor() { 
     }
@@ -25,20 +25,20 @@ export class VideoInfo {
         this['bitrate_bps'] = bitrateBps;
         return this;
     }
-    public set bitrateBps(bitrateBps: number | undefined) {
+    public set bitrateBps(bitrateBps: number  | undefined) {
         this['bitrate_bps'] = bitrateBps;
     }
-    public get bitrateBps() {
+    public get bitrateBps(): number | undefined {
         return this['bitrate_bps'];
     }
     public withFrameRate(frameRate: number): VideoInfo {
         this['frame_rate'] = frameRate;
         return this;
     }
-    public set frameRate(frameRate: number | undefined) {
+    public set frameRate(frameRate: number  | undefined) {
         this['frame_rate'] = frameRate;
     }
-    public get frameRate() {
+    public get frameRate(): number | undefined {
         return this['frame_rate'];
     }
     public withCodec(codec: string): VideoInfo {

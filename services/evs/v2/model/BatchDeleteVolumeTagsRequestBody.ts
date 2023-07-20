@@ -2,13 +2,13 @@ import { DeleteTagsOption } from './DeleteTagsOption';
 
 
 export class BatchDeleteVolumeTagsRequestBody {
-    public action: BatchDeleteVolumeTagsRequestBodyActionEnum;
-    public tags: Array<DeleteTagsOption>;
-    public constructor(action?: any, tags?: any) { 
+    public action?: BatchDeleteVolumeTagsRequestBodyActionEnum | string;
+    public tags?: Array<DeleteTagsOption>;
+    public constructor(action?: string, tags?: Array<DeleteTagsOption>) { 
         this['action'] = action;
         this['tags'] = tags;
     }
-    public withAction(action: BatchDeleteVolumeTagsRequestBodyActionEnum): BatchDeleteVolumeTagsRequestBody {
+    public withAction(action: BatchDeleteVolumeTagsRequestBodyActionEnum | string): BatchDeleteVolumeTagsRequestBody {
         this['action'] = action;
         return this;
     }

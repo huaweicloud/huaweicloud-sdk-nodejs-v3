@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListExecuteJobResponse extends SdkResponse {
     public totalRecord?: number;
-    private 'job_executions'?: Array<JobExeResult> | undefined;
+    private 'job_executions'?: Array<JobExeResult>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListExecuteJobResponse extends SdkResponse {
         this['job_executions'] = jobExecutions;
         return this;
     }
-    public set jobExecutions(jobExecutions: Array<JobExeResult> | undefined) {
+    public set jobExecutions(jobExecutions: Array<JobExeResult>  | undefined) {
         this['job_executions'] = jobExecutions;
     }
-    public get jobExecutions() {
+    public get jobExecutions(): Array<JobExeResult> | undefined {
         return this['job_executions'];
     }
 }

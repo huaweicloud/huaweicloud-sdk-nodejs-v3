@@ -5,20 +5,20 @@ import { StrategyConfig } from './StrategyConfig';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowFunctionCodeResponse extends SdkResponse {
-    private 'func_urn'?: string | undefined;
-    private 'func_name'?: string | undefined;
-    private 'domain_id'?: string | undefined;
-    public runtime?: ShowFunctionCodeResponseRuntimeEnum;
-    private 'code_type'?: ShowFunctionCodeResponseCodeTypeEnum | undefined;
-    private 'code_url'?: string | undefined;
-    private 'code_filename'?: string | undefined;
-    private 'code_size'?: number | undefined;
+    private 'func_urn'?: string;
+    private 'func_name'?: string;
+    private 'domain_id'?: string;
+    public runtime?: ShowFunctionCodeResponseRuntimeEnum | string;
+    private 'code_type'?: ShowFunctionCodeResponseCodeTypeEnum | string;
+    private 'code_url'?: string;
+    private 'code_filename'?: string;
+    private 'code_size'?: number;
     public digest?: string;
-    private 'last_modified'?: Date | undefined;
-    private 'func_code'?: FuncCode | undefined;
-    private 'depend_list'?: Array<string> | undefined;
-    private 'depend_version_list'?: Array<string> | undefined;
-    private 'strategy_config'?: StrategyConfig | undefined;
+    private 'last_modified'?: Date;
+    private 'func_code'?: FuncCode;
+    private 'depend_list'?: Array<string>;
+    private 'depend_version_list'?: Array<string>;
+    private 'strategy_config'?: StrategyConfig;
     public dependencies?: Array<Dependency>;
     public constructor() { 
         super();
@@ -27,74 +27,74 @@ export class ShowFunctionCodeResponse extends SdkResponse {
         this['func_urn'] = funcUrn;
         return this;
     }
-    public set funcUrn(funcUrn: string | undefined) {
+    public set funcUrn(funcUrn: string  | undefined) {
         this['func_urn'] = funcUrn;
     }
-    public get funcUrn() {
+    public get funcUrn(): string | undefined {
         return this['func_urn'];
     }
     public withFuncName(funcName: string): ShowFunctionCodeResponse {
         this['func_name'] = funcName;
         return this;
     }
-    public set funcName(funcName: string | undefined) {
+    public set funcName(funcName: string  | undefined) {
         this['func_name'] = funcName;
     }
-    public get funcName() {
+    public get funcName(): string | undefined {
         return this['func_name'];
     }
     public withDomainId(domainId: string): ShowFunctionCodeResponse {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
-    public withRuntime(runtime: ShowFunctionCodeResponseRuntimeEnum): ShowFunctionCodeResponse {
+    public withRuntime(runtime: ShowFunctionCodeResponseRuntimeEnum | string): ShowFunctionCodeResponse {
         this['runtime'] = runtime;
         return this;
     }
-    public withCodeType(codeType: ShowFunctionCodeResponseCodeTypeEnum): ShowFunctionCodeResponse {
+    public withCodeType(codeType: ShowFunctionCodeResponseCodeTypeEnum | string): ShowFunctionCodeResponse {
         this['code_type'] = codeType;
         return this;
     }
-    public set codeType(codeType: ShowFunctionCodeResponseCodeTypeEnum | undefined) {
+    public set codeType(codeType: ShowFunctionCodeResponseCodeTypeEnum | string  | undefined) {
         this['code_type'] = codeType;
     }
-    public get codeType() {
+    public get codeType(): ShowFunctionCodeResponseCodeTypeEnum | string | undefined {
         return this['code_type'];
     }
     public withCodeUrl(codeUrl: string): ShowFunctionCodeResponse {
         this['code_url'] = codeUrl;
         return this;
     }
-    public set codeUrl(codeUrl: string | undefined) {
+    public set codeUrl(codeUrl: string  | undefined) {
         this['code_url'] = codeUrl;
     }
-    public get codeUrl() {
+    public get codeUrl(): string | undefined {
         return this['code_url'];
     }
     public withCodeFilename(codeFilename: string): ShowFunctionCodeResponse {
         this['code_filename'] = codeFilename;
         return this;
     }
-    public set codeFilename(codeFilename: string | undefined) {
+    public set codeFilename(codeFilename: string  | undefined) {
         this['code_filename'] = codeFilename;
     }
-    public get codeFilename() {
+    public get codeFilename(): string | undefined {
         return this['code_filename'];
     }
     public withCodeSize(codeSize: number): ShowFunctionCodeResponse {
         this['code_size'] = codeSize;
         return this;
     }
-    public set codeSize(codeSize: number | undefined) {
+    public set codeSize(codeSize: number  | undefined) {
         this['code_size'] = codeSize;
     }
-    public get codeSize() {
+    public get codeSize(): number | undefined {
         return this['code_size'];
     }
     public withDigest(digest: string): ShowFunctionCodeResponse {
@@ -105,50 +105,50 @@ export class ShowFunctionCodeResponse extends SdkResponse {
         this['last_modified'] = lastModified;
         return this;
     }
-    public set lastModified(lastModified: Date | undefined) {
+    public set lastModified(lastModified: Date  | undefined) {
         this['last_modified'] = lastModified;
     }
-    public get lastModified() {
+    public get lastModified(): Date | undefined {
         return this['last_modified'];
     }
     public withFuncCode(funcCode: FuncCode): ShowFunctionCodeResponse {
         this['func_code'] = funcCode;
         return this;
     }
-    public set funcCode(funcCode: FuncCode | undefined) {
+    public set funcCode(funcCode: FuncCode  | undefined) {
         this['func_code'] = funcCode;
     }
-    public get funcCode() {
+    public get funcCode(): FuncCode | undefined {
         return this['func_code'];
     }
     public withDependList(dependList: Array<string>): ShowFunctionCodeResponse {
         this['depend_list'] = dependList;
         return this;
     }
-    public set dependList(dependList: Array<string> | undefined) {
+    public set dependList(dependList: Array<string>  | undefined) {
         this['depend_list'] = dependList;
     }
-    public get dependList() {
+    public get dependList(): Array<string> | undefined {
         return this['depend_list'];
     }
     public withDependVersionList(dependVersionList: Array<string>): ShowFunctionCodeResponse {
         this['depend_version_list'] = dependVersionList;
         return this;
     }
-    public set dependVersionList(dependVersionList: Array<string> | undefined) {
+    public set dependVersionList(dependVersionList: Array<string>  | undefined) {
         this['depend_version_list'] = dependVersionList;
     }
-    public get dependVersionList() {
+    public get dependVersionList(): Array<string> | undefined {
         return this['depend_version_list'];
     }
     public withStrategyConfig(strategyConfig: StrategyConfig): ShowFunctionCodeResponse {
         this['strategy_config'] = strategyConfig;
         return this;
     }
-    public set strategyConfig(strategyConfig: StrategyConfig | undefined) {
+    public set strategyConfig(strategyConfig: StrategyConfig  | undefined) {
         this['strategy_config'] = strategyConfig;
     }
-    public get strategyConfig() {
+    public get strategyConfig(): StrategyConfig | undefined {
         return this['strategy_config'];
     }
     public withDependencies(dependencies: Array<Dependency>): ShowFunctionCodeResponse {

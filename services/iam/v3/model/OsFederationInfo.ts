@@ -3,10 +3,10 @@ import { ProtocolIdInfo } from './ProtocolIdInfo';
 
 
 export class OsFederationInfo {
-    private 'identity_provider': IdpIdInfo | undefined;
-    public protocol: ProtocolIdInfo;
-    public groups: Array<object>;
-    public constructor(identityProvider?: any, protocol?: any, groups?: any) { 
+    private 'identity_provider'?: IdpIdInfo;
+    public protocol?: ProtocolIdInfo;
+    public groups?: Array<object>;
+    public constructor(identityProvider?: IdpIdInfo, protocol?: ProtocolIdInfo, groups?: Array<object>) { 
         this['identity_provider'] = identityProvider;
         this['protocol'] = protocol;
         this['groups'] = groups;
@@ -15,10 +15,10 @@ export class OsFederationInfo {
         this['identity_provider'] = identityProvider;
         return this;
     }
-    public set identityProvider(identityProvider: IdpIdInfo | undefined) {
+    public set identityProvider(identityProvider: IdpIdInfo  | undefined) {
         this['identity_provider'] = identityProvider;
     }
-    public get identityProvider() {
+    public get identityProvider(): IdpIdInfo | undefined {
         return this['identity_provider'];
     }
     public withProtocol(protocol: ProtocolIdInfo): OsFederationInfo {

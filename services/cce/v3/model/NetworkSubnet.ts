@@ -1,8 +1,8 @@
 
 
 export class NetworkSubnet {
-    public subnetID: string;
-    public constructor(subnetID?: any) { 
+    public subnetID?: string;
+    public constructor(subnetID?: string) { 
         this['subnetID'] = subnetID;
     }
     public withSubnetID(subnetID: string): NetworkSubnet {

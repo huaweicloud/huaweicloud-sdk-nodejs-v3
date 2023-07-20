@@ -1,20 +1,20 @@
 
 
 export class ListNamespacesRequest {
-    private 'Content-Type': ListNamespacesRequestContentTypeEnum | undefined;
+    private 'Content-Type'?: ListNamespacesRequestContentTypeEnum | string;
     public namespace?: string;
     public filter?: string;
-    public constructor(contentType?: any) { 
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
-    public withContentType(contentType: ListNamespacesRequestContentTypeEnum): ListNamespacesRequest {
+    public withContentType(contentType: ListNamespacesRequestContentTypeEnum | string): ListNamespacesRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ListNamespacesRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ListNamespacesRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ListNamespacesRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): ListNamespacesRequest {

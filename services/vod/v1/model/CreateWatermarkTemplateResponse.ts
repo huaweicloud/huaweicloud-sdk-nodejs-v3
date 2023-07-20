@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateWatermarkTemplateResponse extends SdkResponse {
     public id?: string;
-    private 'upload_url'?: string | undefined;
+    private 'upload_url'?: string;
     public constructor() { 
         super();
     }
@@ -15,10 +15,10 @@ export class CreateWatermarkTemplateResponse extends SdkResponse {
         this['upload_url'] = uploadUrl;
         return this;
     }
-    public set uploadUrl(uploadUrl: string | undefined) {
+    public set uploadUrl(uploadUrl: string  | undefined) {
         this['upload_url'] = uploadUrl;
     }
-    public get uploadUrl() {
+    public get uploadUrl(): string | undefined {
         return this['upload_url'];
     }
 }

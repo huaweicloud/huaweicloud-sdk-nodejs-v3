@@ -3,8 +3,8 @@ import { ListBackupsRespBackupList } from './ListBackupsRespBackupList';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListBackups2Response extends SdkResponse {
-    private 'backup_count'?: number | undefined;
-    private 'backup_list'?: Array<ListBackupsRespBackupList> | undefined;
+    private 'backup_count'?: number;
+    private 'backup_list'?: Array<ListBackupsRespBackupList>;
     public constructor() { 
         super();
     }
@@ -12,20 +12,20 @@ export class ListBackups2Response extends SdkResponse {
         this['backup_count'] = backupCount;
         return this;
     }
-    public set backupCount(backupCount: number | undefined) {
+    public set backupCount(backupCount: number  | undefined) {
         this['backup_count'] = backupCount;
     }
-    public get backupCount() {
+    public get backupCount(): number | undefined {
         return this['backup_count'];
     }
     public withBackupList(backupList: Array<ListBackupsRespBackupList>): ListBackups2Response {
         this['backup_list'] = backupList;
         return this;
     }
-    public set backupList(backupList: Array<ListBackupsRespBackupList> | undefined) {
+    public set backupList(backupList: Array<ListBackupsRespBackupList>  | undefined) {
         this['backup_list'] = backupList;
     }
-    public get backupList() {
+    public get backupList(): Array<ListBackupsRespBackupList> | undefined {
         return this['backup_list'];
     }
 }

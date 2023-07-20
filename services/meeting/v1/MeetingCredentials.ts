@@ -16,11 +16,9 @@ export class MeetingCredentials implements ICredential {
   lastTokenDate: number = 0;
   EXPIRE_HOUR_HALF: number = 12;
   CLIENT_TYPE_API?: number = 72;
-  public getAk() {}
-  
-  public getSk() {}
-
-  public processAuthParams() {}
+  public getAk: () => string | undefined;
+  public getSk: () => string | undefined;
+  public processAuthParams: () => Promise<ICredential>;
 
   public async processAuthRequest(
     httpRequest: IHttpRequest

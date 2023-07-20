@@ -3,7 +3,7 @@ import { RecordsResponse } from './RecordsResponse';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListHotKeyScanTasksResponse extends SdkResponse {
-    private 'instance_id'?: string | undefined;
+    private 'instance_id'?: string;
     public count?: number;
     public records?: Array<RecordsResponse>;
     public constructor() { 
@@ -13,10 +13,10 @@ export class ListHotKeyScanTasksResponse extends SdkResponse {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withCount(count: number): ListHotKeyScanTasksResponse {

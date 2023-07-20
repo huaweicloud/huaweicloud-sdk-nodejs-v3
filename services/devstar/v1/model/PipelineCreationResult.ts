@@ -3,9 +3,9 @@ import { PipelineBasic } from './PipelineBasic';
 
 export class PipelineCreationResult {
     public pipeline?: PipelineBasic;
-    private 'task_id'?: string | undefined;
-    public status?: PipelineCreationResultStatusEnum;
-    private 'failure_reason'?: string | undefined;
+    private 'task_id'?: string;
+    public status?: PipelineCreationResultStatusEnum | string;
+    private 'failure_reason'?: string;
     public constructor() { 
     }
     public withPipeline(pipeline: PipelineBasic): PipelineCreationResult {
@@ -16,13 +16,13 @@ export class PipelineCreationResult {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
-    public withStatus(status: PipelineCreationResultStatusEnum): PipelineCreationResult {
+    public withStatus(status: PipelineCreationResultStatusEnum | string): PipelineCreationResult {
         this['status'] = status;
         return this;
     }
@@ -30,10 +30,10 @@ export class PipelineCreationResult {
         this['failure_reason'] = failureReason;
         return this;
     }
-    public set failureReason(failureReason: string | undefined) {
+    public set failureReason(failureReason: string  | undefined) {
         this['failure_reason'] = failureReason;
     }
-    public get failureReason() {
+    public get failureReason(): string | undefined {
         return this['failure_reason'];
     }
 }

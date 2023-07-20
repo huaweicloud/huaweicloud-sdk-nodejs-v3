@@ -1,12 +1,12 @@
 
 
 export class BatchUpdateRecordSet {
-    public id: string;
+    public id?: string;
     public description?: string;
     public ttl?: number;
     public weight?: number;
-    public records: Array<string>;
-    public constructor(id?: any, records?: any) { 
+    public records?: Array<string>;
+    public constructor(id?: string, records?: Array<string>) { 
         this['id'] = id;
         this['records'] = records;
     }

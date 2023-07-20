@@ -3,14 +3,14 @@ import { NovaSecurityGroupCommonIpRange } from './NovaSecurityGroupCommonIpRange
 
 
 export class NovaSecurityGroupCommonRule {
-    private 'from_port': number | undefined;
-    public group: NovaSecurityGroupCommonGroup;
-    public id: string;
-    private 'ip_protocol': string | undefined;
-    private 'ip_range': NovaSecurityGroupCommonIpRange | undefined;
-    private 'parent_group_id': string | undefined;
-    private 'to_port': number | undefined;
-    public constructor(fromPort?: any, group?: any, id?: any, ipProtocol?: any, ipRange?: any, parentGroupId?: any, toPort?: any) { 
+    private 'from_port'?: number;
+    public group?: NovaSecurityGroupCommonGroup;
+    public id?: string;
+    private 'ip_protocol'?: string;
+    private 'ip_range'?: NovaSecurityGroupCommonIpRange;
+    private 'parent_group_id'?: string;
+    private 'to_port'?: number;
+    public constructor(fromPort?: number, group?: NovaSecurityGroupCommonGroup, id?: string, ipProtocol?: string, ipRange?: NovaSecurityGroupCommonIpRange, parentGroupId?: string, toPort?: number) { 
         this['from_port'] = fromPort;
         this['group'] = group;
         this['id'] = id;
@@ -23,10 +23,10 @@ export class NovaSecurityGroupCommonRule {
         this['from_port'] = fromPort;
         return this;
     }
-    public set fromPort(fromPort: number | undefined) {
+    public set fromPort(fromPort: number  | undefined) {
         this['from_port'] = fromPort;
     }
-    public get fromPort() {
+    public get fromPort(): number | undefined {
         return this['from_port'];
     }
     public withGroup(group: NovaSecurityGroupCommonGroup): NovaSecurityGroupCommonRule {
@@ -41,40 +41,40 @@ export class NovaSecurityGroupCommonRule {
         this['ip_protocol'] = ipProtocol;
         return this;
     }
-    public set ipProtocol(ipProtocol: string | undefined) {
+    public set ipProtocol(ipProtocol: string  | undefined) {
         this['ip_protocol'] = ipProtocol;
     }
-    public get ipProtocol() {
+    public get ipProtocol(): string | undefined {
         return this['ip_protocol'];
     }
     public withIpRange(ipRange: NovaSecurityGroupCommonIpRange): NovaSecurityGroupCommonRule {
         this['ip_range'] = ipRange;
         return this;
     }
-    public set ipRange(ipRange: NovaSecurityGroupCommonIpRange | undefined) {
+    public set ipRange(ipRange: NovaSecurityGroupCommonIpRange  | undefined) {
         this['ip_range'] = ipRange;
     }
-    public get ipRange() {
+    public get ipRange(): NovaSecurityGroupCommonIpRange | undefined {
         return this['ip_range'];
     }
     public withParentGroupId(parentGroupId: string): NovaSecurityGroupCommonRule {
         this['parent_group_id'] = parentGroupId;
         return this;
     }
-    public set parentGroupId(parentGroupId: string | undefined) {
+    public set parentGroupId(parentGroupId: string  | undefined) {
         this['parent_group_id'] = parentGroupId;
     }
-    public get parentGroupId() {
+    public get parentGroupId(): string | undefined {
         return this['parent_group_id'];
     }
     public withToPort(toPort: number): NovaSecurityGroupCommonRule {
         this['to_port'] = toPort;
         return this;
     }
-    public set toPort(toPort: number | undefined) {
+    public set toPort(toPort: number  | undefined) {
         this['to_port'] = toPort;
     }
-    public get toPort() {
+    public get toPort(): number | undefined {
         return this['to_port'];
     }
 }

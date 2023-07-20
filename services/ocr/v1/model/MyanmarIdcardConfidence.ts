@@ -1,15 +1,15 @@
 
 
 export class MyanmarIdcardConfidence {
-    private 'nrc_id'?: number | undefined;
-    private 'issue_date'?: number | undefined;
+    private 'nrc_id'?: number;
+    private 'issue_date'?: number;
     public name?: number;
     public birth?: number;
-    private 'bloodlines_religion'?: number | undefined;
+    private 'bloodlines_religion'?: number;
     public height?: number;
-    private 'blood_group'?: number | undefined;
-    private 'card_id'?: number | undefined;
-    private 'nrc_id_back'?: number | undefined;
+    private 'blood_group'?: number;
+    private 'card_id'?: number;
+    private 'nrc_id_back'?: number;
     public profession?: number;
     public address?: number;
     public constructor() { 
@@ -18,20 +18,20 @@ export class MyanmarIdcardConfidence {
         this['nrc_id'] = nrcId;
         return this;
     }
-    public set nrcId(nrcId: number | undefined) {
+    public set nrcId(nrcId: number  | undefined) {
         this['nrc_id'] = nrcId;
     }
-    public get nrcId() {
+    public get nrcId(): number | undefined {
         return this['nrc_id'];
     }
     public withIssueDate(issueDate: number): MyanmarIdcardConfidence {
         this['issue_date'] = issueDate;
         return this;
     }
-    public set issueDate(issueDate: number | undefined) {
+    public set issueDate(issueDate: number  | undefined) {
         this['issue_date'] = issueDate;
     }
-    public get issueDate() {
+    public get issueDate(): number | undefined {
         return this['issue_date'];
     }
     public withName(name: number): MyanmarIdcardConfidence {
@@ -46,10 +46,10 @@ export class MyanmarIdcardConfidence {
         this['bloodlines_religion'] = bloodlinesReligion;
         return this;
     }
-    public set bloodlinesReligion(bloodlinesReligion: number | undefined) {
+    public set bloodlinesReligion(bloodlinesReligion: number  | undefined) {
         this['bloodlines_religion'] = bloodlinesReligion;
     }
-    public get bloodlinesReligion() {
+    public get bloodlinesReligion(): number | undefined {
         return this['bloodlines_religion'];
     }
     public withHeight(height: number): MyanmarIdcardConfidence {
@@ -60,30 +60,30 @@ export class MyanmarIdcardConfidence {
         this['blood_group'] = bloodGroup;
         return this;
     }
-    public set bloodGroup(bloodGroup: number | undefined) {
+    public set bloodGroup(bloodGroup: number  | undefined) {
         this['blood_group'] = bloodGroup;
     }
-    public get bloodGroup() {
+    public get bloodGroup(): number | undefined {
         return this['blood_group'];
     }
     public withCardId(cardId: number): MyanmarIdcardConfidence {
         this['card_id'] = cardId;
         return this;
     }
-    public set cardId(cardId: number | undefined) {
+    public set cardId(cardId: number  | undefined) {
         this['card_id'] = cardId;
     }
-    public get cardId() {
+    public get cardId(): number | undefined {
         return this['card_id'];
     }
     public withNrcIdBack(nrcIdBack: number): MyanmarIdcardConfidence {
         this['nrc_id_back'] = nrcIdBack;
         return this;
     }
-    public set nrcIdBack(nrcIdBack: number | undefined) {
+    public set nrcIdBack(nrcIdBack: number  | undefined) {
         this['nrc_id_back'] = nrcIdBack;
     }
-    public get nrcIdBack() {
+    public get nrcIdBack(): number | undefined {
         return this['nrc_id_back'];
     }
     public withProfession(profession: number): MyanmarIdcardConfidence {

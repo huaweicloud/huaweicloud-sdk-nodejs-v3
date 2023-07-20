@@ -2,15 +2,15 @@
 
 export class ListConfigTemplatesRequest {
     public name?: string;
-    private 'template_id'?: string | undefined;
-    public type: ListConfigTemplatesRequestTypeEnum;
+    private 'template_id'?: string;
+    public type?: ListConfigTemplatesRequestTypeEnum | string;
     public engine?: string;
-    private 'engine_version'?: string | undefined;
-    private 'cache_mode'?: string | undefined;
+    private 'engine_version'?: string;
+    private 'cache_mode'?: string;
     public description?: string;
     public offset?: number;
     public limit?: number;
-    public constructor(type?: any) { 
+    public constructor(type?: string) { 
         this['type'] = type;
     }
     public withName(name: string): ListConfigTemplatesRequest {
@@ -21,13 +21,13 @@ export class ListConfigTemplatesRequest {
         this['template_id'] = templateId;
         return this;
     }
-    public set templateId(templateId: string | undefined) {
+    public set templateId(templateId: string  | undefined) {
         this['template_id'] = templateId;
     }
-    public get templateId() {
+    public get templateId(): string | undefined {
         return this['template_id'];
     }
-    public withType(type: ListConfigTemplatesRequestTypeEnum): ListConfigTemplatesRequest {
+    public withType(type: ListConfigTemplatesRequestTypeEnum | string): ListConfigTemplatesRequest {
         this['type'] = type;
         return this;
     }
@@ -39,20 +39,20 @@ export class ListConfigTemplatesRequest {
         this['engine_version'] = engineVersion;
         return this;
     }
-    public set engineVersion(engineVersion: string | undefined) {
+    public set engineVersion(engineVersion: string  | undefined) {
         this['engine_version'] = engineVersion;
     }
-    public get engineVersion() {
+    public get engineVersion(): string | undefined {
         return this['engine_version'];
     }
     public withCacheMode(cacheMode: string): ListConfigTemplatesRequest {
         this['cache_mode'] = cacheMode;
         return this;
     }
-    public set cacheMode(cacheMode: string | undefined) {
+    public set cacheMode(cacheMode: string  | undefined) {
         this['cache_mode'] = cacheMode;
     }
-    public get cacheMode() {
+    public get cacheMode(): string | undefined {
         return this['cache_mode'];
     }
     public withDescription(description: string): ListConfigTemplatesRequest {

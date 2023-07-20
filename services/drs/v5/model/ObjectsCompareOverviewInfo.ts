@@ -1,13 +1,13 @@
 
 
 export class ObjectsCompareOverviewInfo {
-    public type?: ObjectsCompareOverviewInfoTypeEnum;
-    private 'source_count'?: number | undefined;
-    private 'target_count'?: number | undefined;
-    public status?: ObjectsCompareOverviewInfoStatusEnum;
+    public type?: ObjectsCompareOverviewInfoTypeEnum | string;
+    private 'source_count'?: number;
+    private 'target_count'?: number;
+    public status?: ObjectsCompareOverviewInfoStatusEnum | string;
     public constructor() { 
     }
-    public withType(type: ObjectsCompareOverviewInfoTypeEnum): ObjectsCompareOverviewInfo {
+    public withType(type: ObjectsCompareOverviewInfoTypeEnum | string): ObjectsCompareOverviewInfo {
         this['type'] = type;
         return this;
     }
@@ -15,23 +15,23 @@ export class ObjectsCompareOverviewInfo {
         this['source_count'] = sourceCount;
         return this;
     }
-    public set sourceCount(sourceCount: number | undefined) {
+    public set sourceCount(sourceCount: number  | undefined) {
         this['source_count'] = sourceCount;
     }
-    public get sourceCount() {
+    public get sourceCount(): number | undefined {
         return this['source_count'];
     }
     public withTargetCount(targetCount: number): ObjectsCompareOverviewInfo {
         this['target_count'] = targetCount;
         return this;
     }
-    public set targetCount(targetCount: number | undefined) {
+    public set targetCount(targetCount: number  | undefined) {
         this['target_count'] = targetCount;
     }
-    public get targetCount() {
+    public get targetCount(): number | undefined {
         return this['target_count'];
     }
-    public withStatus(status: ObjectsCompareOverviewInfoStatusEnum): ObjectsCompareOverviewInfo {
+    public withStatus(status: ObjectsCompareOverviewInfoStatusEnum | string): ObjectsCompareOverviewInfo {
         this['status'] = status;
         return this;
     }

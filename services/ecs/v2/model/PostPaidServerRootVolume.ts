@@ -3,17 +3,17 @@ import { PostPaidServerRootVolumeMetadata } from './PostPaidServerRootVolumeMeta
 
 
 export class PostPaidServerRootVolume {
-    public volumetype: PostPaidServerRootVolumeVolumetypeEnum;
+    public volumetype?: PostPaidServerRootVolumeVolumetypeEnum | string;
     public size?: number;
-    private 'hw:passthrough'?: boolean | undefined;
-    private 'cluster_type'?: PostPaidServerRootVolumeClusterTypeEnum | undefined;
-    private 'cluster_id'?: string | undefined;
+    private 'hw:passthrough'?: boolean;
+    private 'cluster_type'?: PostPaidServerRootVolumeClusterTypeEnum | string;
+    private 'cluster_id'?: string;
     public extendparam?: PostPaidServerRootVolumeExtendParam;
     public metadata?: PostPaidServerRootVolumeMetadata;
-    public constructor(volumetype?: any) { 
+    public constructor(volumetype?: string) { 
         this['volumetype'] = volumetype;
     }
-    public withVolumetype(volumetype: PostPaidServerRootVolumeVolumetypeEnum): PostPaidServerRootVolume {
+    public withVolumetype(volumetype: PostPaidServerRootVolumeVolumetypeEnum | string): PostPaidServerRootVolume {
         this['volumetype'] = volumetype;
         return this;
     }
@@ -25,30 +25,30 @@ export class PostPaidServerRootVolume {
         this['hw:passthrough'] = hwPassthrough;
         return this;
     }
-    public set hwPassthrough(hwPassthrough: boolean | undefined) {
+    public set hwPassthrough(hwPassthrough: boolean  | undefined) {
         this['hw:passthrough'] = hwPassthrough;
     }
-    public get hwPassthrough() {
+    public get hwPassthrough(): boolean | undefined {
         return this['hw:passthrough'];
     }
-    public withClusterType(clusterType: PostPaidServerRootVolumeClusterTypeEnum): PostPaidServerRootVolume {
+    public withClusterType(clusterType: PostPaidServerRootVolumeClusterTypeEnum | string): PostPaidServerRootVolume {
         this['cluster_type'] = clusterType;
         return this;
     }
-    public set clusterType(clusterType: PostPaidServerRootVolumeClusterTypeEnum | undefined) {
+    public set clusterType(clusterType: PostPaidServerRootVolumeClusterTypeEnum | string  | undefined) {
         this['cluster_type'] = clusterType;
     }
-    public get clusterType() {
+    public get clusterType(): PostPaidServerRootVolumeClusterTypeEnum | string | undefined {
         return this['cluster_type'];
     }
     public withClusterId(clusterId: string): PostPaidServerRootVolume {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withExtendparam(extendparam: PostPaidServerRootVolumeExtendParam): PostPaidServerRootVolume {

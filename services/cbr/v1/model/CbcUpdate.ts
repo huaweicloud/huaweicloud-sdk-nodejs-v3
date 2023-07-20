@@ -3,10 +3,10 @@ import { CbcProductInfoUpdate } from './CbcProductInfoUpdate';
 
 export class CbcUpdate {
     public cloudServiceConsoleURL?: string;
-    public productInfo: CbcProductInfoUpdate;
-    public resourceId: string;
-    private 'promotion_info'?: string | undefined;
-    public constructor(productInfo?: any, resourceId?: any) { 
+    public productInfo?: CbcProductInfoUpdate;
+    public resourceId?: string;
+    private 'promotion_info'?: string;
+    public constructor(productInfo?: CbcProductInfoUpdate, resourceId?: string) { 
         this['productInfo'] = productInfo;
         this['resourceId'] = resourceId;
     }
@@ -26,10 +26,10 @@ export class CbcUpdate {
         this['promotion_info'] = promotionInfo;
         return this;
     }
-    public set promotionInfo(promotionInfo: string | undefined) {
+    public set promotionInfo(promotionInfo: string  | undefined) {
         this['promotion_info'] = promotionInfo;
     }
-    public get promotionInfo() {
+    public get promotionInfo(): string | undefined {
         return this['promotion_info'];
     }
 }

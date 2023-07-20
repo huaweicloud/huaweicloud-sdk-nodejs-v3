@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowServerAutoRecoveryResponse extends SdkResponse {
-    private 'support_auto_recovery'?: string | undefined;
+    private 'support_auto_recovery'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class ShowServerAutoRecoveryResponse extends SdkResponse {
         this['support_auto_recovery'] = supportAutoRecovery;
         return this;
     }
-    public set supportAutoRecovery(supportAutoRecovery: string | undefined) {
+    public set supportAutoRecovery(supportAutoRecovery: string  | undefined) {
         this['support_auto_recovery'] = supportAutoRecovery;
     }
-    public get supportAutoRecovery() {
+    public get supportAutoRecovery(): string | undefined {
         return this['support_auto_recovery'];
     }
 }

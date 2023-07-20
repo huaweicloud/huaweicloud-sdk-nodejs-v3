@@ -3,8 +3,8 @@
 export class ListProvidersRequest {
     public offset?: number;
     public limit?: number;
-    public track?: ListProvidersRequestTrackEnum;
-    private 'X-Language'?: ListProvidersRequestXLanguageEnum | undefined;
+    public track?: ListProvidersRequestTrackEnum | string;
+    private 'X-Language'?: ListProvidersRequestXLanguageEnum | string;
     public constructor() { 
     }
     public withOffset(offset: number): ListProvidersRequest {
@@ -15,18 +15,18 @@ export class ListProvidersRequest {
         this['limit'] = limit;
         return this;
     }
-    public withTrack(track: ListProvidersRequestTrackEnum): ListProvidersRequest {
+    public withTrack(track: ListProvidersRequestTrackEnum | string): ListProvidersRequest {
         this['track'] = track;
         return this;
     }
-    public withXLanguage(xLanguage: ListProvidersRequestXLanguageEnum): ListProvidersRequest {
+    public withXLanguage(xLanguage: ListProvidersRequestXLanguageEnum | string): ListProvidersRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListProvidersRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListProvidersRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListProvidersRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
 }

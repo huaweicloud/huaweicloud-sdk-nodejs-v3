@@ -1,18 +1,18 @@
 
 
 export class ShowRepoDomainsResponse {
-    public namespace: string;
-    public repository: string;
-    private 'access_domain': string | undefined;
-    public permit: string;
-    public deadline: string;
-    public description: string;
-    private 'creator_id': string | undefined;
-    private 'creator_name': string | undefined;
-    public created: string;
-    public updated: string;
-    public status: boolean;
-    public constructor(namespace?: any, repository?: any, accessDomain?: any, permit?: any, deadline?: any, description?: any, creatorId?: any, creatorName?: any, created?: any, updated?: any, status?: any) { 
+    public namespace?: string;
+    public repository?: string;
+    private 'access_domain'?: string;
+    public permit?: string;
+    public deadline?: string;
+    public description?: string;
+    private 'creator_id'?: string;
+    private 'creator_name'?: string;
+    public created?: string;
+    public updated?: string;
+    public status?: boolean;
+    public constructor(namespace?: string, repository?: string, accessDomain?: string, permit?: string, deadline?: string, description?: string, creatorId?: string, creatorName?: string, created?: string, updated?: string, status?: boolean) { 
         this['namespace'] = namespace;
         this['repository'] = repository;
         this['access_domain'] = accessDomain;
@@ -37,10 +37,10 @@ export class ShowRepoDomainsResponse {
         this['access_domain'] = accessDomain;
         return this;
     }
-    public set accessDomain(accessDomain: string | undefined) {
+    public set accessDomain(accessDomain: string  | undefined) {
         this['access_domain'] = accessDomain;
     }
-    public get accessDomain() {
+    public get accessDomain(): string | undefined {
         return this['access_domain'];
     }
     public withPermit(permit: string): ShowRepoDomainsResponse {
@@ -59,20 +59,20 @@ export class ShowRepoDomainsResponse {
         this['creator_id'] = creatorId;
         return this;
     }
-    public set creatorId(creatorId: string | undefined) {
+    public set creatorId(creatorId: string  | undefined) {
         this['creator_id'] = creatorId;
     }
-    public get creatorId() {
+    public get creatorId(): string | undefined {
         return this['creator_id'];
     }
     public withCreatorName(creatorName: string): ShowRepoDomainsResponse {
         this['creator_name'] = creatorName;
         return this;
     }
-    public set creatorName(creatorName: string | undefined) {
+    public set creatorName(creatorName: string  | undefined) {
         this['creator_name'] = creatorName;
     }
-    public get creatorName() {
+    public get creatorName(): string | undefined {
         return this['creator_name'];
     }
     public withCreated(created: string): ShowRepoDomainsResponse {

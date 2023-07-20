@@ -1,20 +1,20 @@
 
 
 export class ListAlarmDetailRequest {
-    private 'time_zone': string | undefined;
+    private 'time_zone'?: string;
     public offset?: string;
     public limit?: string;
-    public constructor(timeZone?: any) { 
+    public constructor(timeZone?: string) { 
         this['time_zone'] = timeZone;
     }
     public withTimeZone(timeZone: string): ListAlarmDetailRequest {
         this['time_zone'] = timeZone;
         return this;
     }
-    public set timeZone(timeZone: string | undefined) {
+    public set timeZone(timeZone: string  | undefined) {
         this['time_zone'] = timeZone;
     }
-    public get timeZone() {
+    public get timeZone(): string | undefined {
         return this['time_zone'];
     }
     public withOffset(offset: string): ListAlarmDetailRequest {

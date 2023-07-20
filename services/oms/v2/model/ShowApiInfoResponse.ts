@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowApiInfoResponse extends SdkResponse {
     public id?: string;
     public links?: Array<Link>;
-    public status?: ShowApiInfoResponseStatusEnum;
+    public status?: ShowApiInfoResponseStatusEnum | string;
     public updated?: string;
     public constructor() { 
         super();
@@ -18,7 +18,7 @@ export class ShowApiInfoResponse extends SdkResponse {
         this['links'] = links;
         return this;
     }
-    public withStatus(status: ShowApiInfoResponseStatusEnum): ShowApiInfoResponse {
+    public withStatus(status: ShowApiInfoResponseStatusEnum | string): ShowApiInfoResponse {
         this['status'] = status;
         return this;
     }

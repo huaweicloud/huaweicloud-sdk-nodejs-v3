@@ -2,8 +2,8 @@ import { UpdateSnapshotOption } from './UpdateSnapshotOption';
 
 
 export class UpdateSnapshotRequestBody {
-    public snapshot: UpdateSnapshotOption;
-    public constructor(snapshot?: any) { 
+    public snapshot?: UpdateSnapshotOption;
+    public constructor(snapshot?: UpdateSnapshotOption) { 
         this['snapshot'] = snapshot;
     }
     public withSnapshot(snapshot: UpdateSnapshotOption): UpdateSnapshotRequestBody {

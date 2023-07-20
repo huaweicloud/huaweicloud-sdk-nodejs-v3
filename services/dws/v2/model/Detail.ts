@@ -2,9 +2,9 @@
 
 export class Detail {
     public type?: string;
-    public value: string;
-    public unit: string;
-    public constructor(value?: any, unit?: any) { 
+    public value?: string;
+    public unit?: string;
+    public constructor(value?: string, unit?: string) { 
         this['value'] = value;
         this['unit'] = unit;
     }

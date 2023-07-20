@@ -2,7 +2,7 @@
 
 export class ListCustomPoliciesRequest {
     public page?: number;
-    private 'per_page'?: number | undefined;
+    private 'per_page'?: number;
     public constructor() { 
     }
     public withPage(page: number): ListCustomPoliciesRequest {
@@ -13,10 +13,10 @@ export class ListCustomPoliciesRequest {
         this['per_page'] = perPage;
         return this;
     }
-    public set perPage(perPage: number | undefined) {
+    public set perPage(perPage: number  | undefined) {
         this['per_page'] = perPage;
     }
-    public get perPage() {
+    public get perPage(): number | undefined {
         return this['per_page'];
     }
 }

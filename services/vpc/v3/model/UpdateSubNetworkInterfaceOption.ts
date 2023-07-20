@@ -2,7 +2,7 @@
 
 export class UpdateSubNetworkInterfaceOption {
     public description?: string;
-    private 'security_groups'?: Array<string> | undefined;
+    private 'security_groups'?: Array<string>;
     public constructor() { 
     }
     public withDescription(description: string): UpdateSubNetworkInterfaceOption {
@@ -13,10 +13,10 @@ export class UpdateSubNetworkInterfaceOption {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<string> | undefined) {
+    public set securityGroups(securityGroups: Array<string>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups() {
+    public get securityGroups(): Array<string> | undefined {
         return this['security_groups'];
     }
 }

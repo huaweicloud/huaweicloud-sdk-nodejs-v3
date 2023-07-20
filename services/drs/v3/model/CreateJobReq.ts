@@ -4,30 +4,30 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class CreateJobReq {
-    private 'bind_eip'?: boolean | undefined;
-    private 'db_use_type': CreateJobReqDbUseTypeEnum | undefined;
-    public name: string;
+    private 'bind_eip'?: boolean;
+    private 'db_use_type'?: CreateJobReqDbUseTypeEnum | string;
+    public name?: string;
     public description?: string;
-    private 'engine_type': CreateJobReqEngineTypeEnum | undefined;
-    private 'is_target_readonly'?: boolean | undefined;
-    private 'job_direction': CreateJobReqJobDirectionEnum | undefined;
-    private 'multi_write'?: boolean | undefined;
-    private 'net_type': CreateJobReqNetTypeEnum | undefined;
-    private 'node_num'?: number | undefined;
-    private 'node_type': CreateJobReqNodeTypeEnum | undefined;
-    private 'source_endpoint': Endpoint | undefined;
-    private 'target_endpoint': Endpoint | undefined;
+    private 'engine_type'?: CreateJobReqEngineTypeEnum | string;
+    private 'is_target_readonly'?: boolean;
+    private 'job_direction'?: CreateJobReqJobDirectionEnum | string;
+    private 'multi_write'?: boolean;
+    private 'net_type'?: CreateJobReqNetTypeEnum | string;
+    private 'node_num'?: number;
+    private 'node_type'?: CreateJobReqNodeTypeEnum | string;
+    private 'source_endpoint'?: Endpoint;
+    private 'target_endpoint'?: Endpoint;
     public tags?: Array<ResourceTag>;
-    private 'task_type': CreateJobReqTaskTypeEnum | undefined;
-    private 'customize_sutnet_id': string | undefined;
-    private 'product_id'?: string | undefined;
-    private 'sys_tags'?: Array<ResourceTag> | undefined;
-    private 'expired_days'?: string | undefined;
-    private 'master_az'?: string | undefined;
-    private 'slave_az'?: string | undefined;
-    private 'charging_mode'?: CreateJobReqChargingModeEnum | undefined;
-    private 'period_order'?: PeriodOrderInfo | undefined;
-    public constructor(dbUseType?: any, name?: any, engineType?: any, jobDirection?: any, netType?: any, nodeType?: any, sourceEndpoint?: any, targetEndpoint?: any, taskType?: any, customizeSutnetId?: any) { 
+    private 'task_type'?: CreateJobReqTaskTypeEnum | string;
+    private 'customize_sutnet_id'?: string;
+    private 'product_id'?: string;
+    private 'sys_tags'?: Array<ResourceTag>;
+    private 'expired_days'?: string;
+    private 'master_az'?: string;
+    private 'slave_az'?: string;
+    private 'charging_mode'?: CreateJobReqChargingModeEnum | string;
+    private 'period_order'?: PeriodOrderInfo;
+    public constructor(dbUseType?: string, name?: string, engineType?: string, jobDirection?: string, netType?: string, nodeType?: string, sourceEndpoint?: Endpoint, targetEndpoint?: Endpoint, taskType?: string, customizeSutnetId?: string) { 
         this['db_use_type'] = dbUseType;
         this['name'] = name;
         this['engine_type'] = engineType;
@@ -43,20 +43,20 @@ export class CreateJobReq {
         this['bind_eip'] = bindEip;
         return this;
     }
-    public set bindEip(bindEip: boolean | undefined) {
+    public set bindEip(bindEip: boolean  | undefined) {
         this['bind_eip'] = bindEip;
     }
-    public get bindEip() {
+    public get bindEip(): boolean | undefined {
         return this['bind_eip'];
     }
-    public withDbUseType(dbUseType: CreateJobReqDbUseTypeEnum): CreateJobReq {
+    public withDbUseType(dbUseType: CreateJobReqDbUseTypeEnum | string): CreateJobReq {
         this['db_use_type'] = dbUseType;
         return this;
     }
-    public set dbUseType(dbUseType: CreateJobReqDbUseTypeEnum | undefined) {
+    public set dbUseType(dbUseType: CreateJobReqDbUseTypeEnum | string  | undefined) {
         this['db_use_type'] = dbUseType;
     }
-    public get dbUseType() {
+    public get dbUseType(): CreateJobReqDbUseTypeEnum | string | undefined {
         return this['db_use_type'];
     }
     public withName(name: string): CreateJobReq {
@@ -67,188 +67,188 @@ export class CreateJobReq {
         this['description'] = description;
         return this;
     }
-    public withEngineType(engineType: CreateJobReqEngineTypeEnum): CreateJobReq {
+    public withEngineType(engineType: CreateJobReqEngineTypeEnum | string): CreateJobReq {
         this['engine_type'] = engineType;
         return this;
     }
-    public set engineType(engineType: CreateJobReqEngineTypeEnum | undefined) {
+    public set engineType(engineType: CreateJobReqEngineTypeEnum | string  | undefined) {
         this['engine_type'] = engineType;
     }
-    public get engineType() {
+    public get engineType(): CreateJobReqEngineTypeEnum | string | undefined {
         return this['engine_type'];
     }
     public withIsTargetReadonly(isTargetReadonly: boolean): CreateJobReq {
         this['is_target_readonly'] = isTargetReadonly;
         return this;
     }
-    public set isTargetReadonly(isTargetReadonly: boolean | undefined) {
+    public set isTargetReadonly(isTargetReadonly: boolean  | undefined) {
         this['is_target_readonly'] = isTargetReadonly;
     }
-    public get isTargetReadonly() {
+    public get isTargetReadonly(): boolean | undefined {
         return this['is_target_readonly'];
     }
-    public withJobDirection(jobDirection: CreateJobReqJobDirectionEnum): CreateJobReq {
+    public withJobDirection(jobDirection: CreateJobReqJobDirectionEnum | string): CreateJobReq {
         this['job_direction'] = jobDirection;
         return this;
     }
-    public set jobDirection(jobDirection: CreateJobReqJobDirectionEnum | undefined) {
+    public set jobDirection(jobDirection: CreateJobReqJobDirectionEnum | string  | undefined) {
         this['job_direction'] = jobDirection;
     }
-    public get jobDirection() {
+    public get jobDirection(): CreateJobReqJobDirectionEnum | string | undefined {
         return this['job_direction'];
     }
     public withMultiWrite(multiWrite: boolean): CreateJobReq {
         this['multi_write'] = multiWrite;
         return this;
     }
-    public set multiWrite(multiWrite: boolean | undefined) {
+    public set multiWrite(multiWrite: boolean  | undefined) {
         this['multi_write'] = multiWrite;
     }
-    public get multiWrite() {
+    public get multiWrite(): boolean | undefined {
         return this['multi_write'];
     }
-    public withNetType(netType: CreateJobReqNetTypeEnum): CreateJobReq {
+    public withNetType(netType: CreateJobReqNetTypeEnum | string): CreateJobReq {
         this['net_type'] = netType;
         return this;
     }
-    public set netType(netType: CreateJobReqNetTypeEnum | undefined) {
+    public set netType(netType: CreateJobReqNetTypeEnum | string  | undefined) {
         this['net_type'] = netType;
     }
-    public get netType() {
+    public get netType(): CreateJobReqNetTypeEnum | string | undefined {
         return this['net_type'];
     }
     public withNodeNum(nodeNum: number): CreateJobReq {
         this['node_num'] = nodeNum;
         return this;
     }
-    public set nodeNum(nodeNum: number | undefined) {
+    public set nodeNum(nodeNum: number  | undefined) {
         this['node_num'] = nodeNum;
     }
-    public get nodeNum() {
+    public get nodeNum(): number | undefined {
         return this['node_num'];
     }
-    public withNodeType(nodeType: CreateJobReqNodeTypeEnum): CreateJobReq {
+    public withNodeType(nodeType: CreateJobReqNodeTypeEnum | string): CreateJobReq {
         this['node_type'] = nodeType;
         return this;
     }
-    public set nodeType(nodeType: CreateJobReqNodeTypeEnum | undefined) {
+    public set nodeType(nodeType: CreateJobReqNodeTypeEnum | string  | undefined) {
         this['node_type'] = nodeType;
     }
-    public get nodeType() {
+    public get nodeType(): CreateJobReqNodeTypeEnum | string | undefined {
         return this['node_type'];
     }
     public withSourceEndpoint(sourceEndpoint: Endpoint): CreateJobReq {
         this['source_endpoint'] = sourceEndpoint;
         return this;
     }
-    public set sourceEndpoint(sourceEndpoint: Endpoint | undefined) {
+    public set sourceEndpoint(sourceEndpoint: Endpoint  | undefined) {
         this['source_endpoint'] = sourceEndpoint;
     }
-    public get sourceEndpoint() {
+    public get sourceEndpoint(): Endpoint | undefined {
         return this['source_endpoint'];
     }
     public withTargetEndpoint(targetEndpoint: Endpoint): CreateJobReq {
         this['target_endpoint'] = targetEndpoint;
         return this;
     }
-    public set targetEndpoint(targetEndpoint: Endpoint | undefined) {
+    public set targetEndpoint(targetEndpoint: Endpoint  | undefined) {
         this['target_endpoint'] = targetEndpoint;
     }
-    public get targetEndpoint() {
+    public get targetEndpoint(): Endpoint | undefined {
         return this['target_endpoint'];
     }
     public withTags(tags: Array<ResourceTag>): CreateJobReq {
         this['tags'] = tags;
         return this;
     }
-    public withTaskType(taskType: CreateJobReqTaskTypeEnum): CreateJobReq {
+    public withTaskType(taskType: CreateJobReqTaskTypeEnum | string): CreateJobReq {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: CreateJobReqTaskTypeEnum | undefined) {
+    public set taskType(taskType: CreateJobReqTaskTypeEnum | string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): CreateJobReqTaskTypeEnum | string | undefined {
         return this['task_type'];
     }
     public withCustomizeSutnetId(customizeSutnetId: string): CreateJobReq {
         this['customize_sutnet_id'] = customizeSutnetId;
         return this;
     }
-    public set customizeSutnetId(customizeSutnetId: string | undefined) {
+    public set customizeSutnetId(customizeSutnetId: string  | undefined) {
         this['customize_sutnet_id'] = customizeSutnetId;
     }
-    public get customizeSutnetId() {
+    public get customizeSutnetId(): string | undefined {
         return this['customize_sutnet_id'];
     }
     public withProductId(productId: string): CreateJobReq {
         this['product_id'] = productId;
         return this;
     }
-    public set productId(productId: string | undefined) {
+    public set productId(productId: string  | undefined) {
         this['product_id'] = productId;
     }
-    public get productId() {
+    public get productId(): string | undefined {
         return this['product_id'];
     }
     public withSysTags(sysTags: Array<ResourceTag>): CreateJobReq {
         this['sys_tags'] = sysTags;
         return this;
     }
-    public set sysTags(sysTags: Array<ResourceTag> | undefined) {
+    public set sysTags(sysTags: Array<ResourceTag>  | undefined) {
         this['sys_tags'] = sysTags;
     }
-    public get sysTags() {
+    public get sysTags(): Array<ResourceTag> | undefined {
         return this['sys_tags'];
     }
     public withExpiredDays(expiredDays: string): CreateJobReq {
         this['expired_days'] = expiredDays;
         return this;
     }
-    public set expiredDays(expiredDays: string | undefined) {
+    public set expiredDays(expiredDays: string  | undefined) {
         this['expired_days'] = expiredDays;
     }
-    public get expiredDays() {
+    public get expiredDays(): string | undefined {
         return this['expired_days'];
     }
     public withMasterAz(masterAz: string): CreateJobReq {
         this['master_az'] = masterAz;
         return this;
     }
-    public set masterAz(masterAz: string | undefined) {
+    public set masterAz(masterAz: string  | undefined) {
         this['master_az'] = masterAz;
     }
-    public get masterAz() {
+    public get masterAz(): string | undefined {
         return this['master_az'];
     }
     public withSlaveAz(slaveAz: string): CreateJobReq {
         this['slave_az'] = slaveAz;
         return this;
     }
-    public set slaveAz(slaveAz: string | undefined) {
+    public set slaveAz(slaveAz: string  | undefined) {
         this['slave_az'] = slaveAz;
     }
-    public get slaveAz() {
+    public get slaveAz(): string | undefined {
         return this['slave_az'];
     }
-    public withChargingMode(chargingMode: CreateJobReqChargingModeEnum): CreateJobReq {
+    public withChargingMode(chargingMode: CreateJobReqChargingModeEnum | string): CreateJobReq {
         this['charging_mode'] = chargingMode;
         return this;
     }
-    public set chargingMode(chargingMode: CreateJobReqChargingModeEnum | undefined) {
+    public set chargingMode(chargingMode: CreateJobReqChargingModeEnum | string  | undefined) {
         this['charging_mode'] = chargingMode;
     }
-    public get chargingMode() {
+    public get chargingMode(): CreateJobReqChargingModeEnum | string | undefined {
         return this['charging_mode'];
     }
     public withPeriodOrder(periodOrder: PeriodOrderInfo): CreateJobReq {
         this['period_order'] = periodOrder;
         return this;
     }
-    public set periodOrder(periodOrder: PeriodOrderInfo | undefined) {
+    public set periodOrder(periodOrder: PeriodOrderInfo  | undefined) {
         this['period_order'] = periodOrder;
     }
-    public get periodOrder() {
+    public get periodOrder(): PeriodOrderInfo | undefined {
         return this['period_order'];
     }
 }

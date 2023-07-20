@@ -3,7 +3,7 @@ import { KeyDescriptionInfo } from './KeyDescriptionInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateKeyDescriptionResponse extends SdkResponse {
-    private 'key_info'?: KeyDescriptionInfo | undefined;
+    private 'key_info'?: KeyDescriptionInfo;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class UpdateKeyDescriptionResponse extends SdkResponse {
         this['key_info'] = keyInfo;
         return this;
     }
-    public set keyInfo(keyInfo: KeyDescriptionInfo | undefined) {
+    public set keyInfo(keyInfo: KeyDescriptionInfo  | undefined) {
         this['key_info'] = keyInfo;
     }
-    public get keyInfo() {
+    public get keyInfo(): KeyDescriptionInfo | undefined {
         return this['key_info'];
     }
 }

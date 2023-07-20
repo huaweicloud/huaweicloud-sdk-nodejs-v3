@@ -3,7 +3,7 @@ import { TemplateInfo } from './TemplateInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListTemplateResponse extends SdkResponse {
-    private 'template_array'?: Array<TemplateInfo> | undefined;
+    private 'template_array'?: Array<TemplateInfo>;
     public total?: number;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class ListTemplateResponse extends SdkResponse {
         this['template_array'] = templateArray;
         return this;
     }
-    public set templateArray(templateArray: Array<TemplateInfo> | undefined) {
+    public set templateArray(templateArray: Array<TemplateInfo>  | undefined) {
         this['template_array'] = templateArray;
     }
-    public get templateArray() {
+    public get templateArray(): Array<TemplateInfo> | undefined {
         return this['template_array'];
     }
     public withTotal(total: number): ListTemplateResponse {

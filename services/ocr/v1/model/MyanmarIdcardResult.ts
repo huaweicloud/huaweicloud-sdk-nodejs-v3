@@ -3,23 +3,23 @@ import { MyanmarIdcardConfidence } from './MyanmarIdcardConfidence';
 
 export class MyanmarIdcardResult {
     public side?: string;
-    private 'class'?: string | undefined;
-    private 'nrc_id'?: string | undefined;
-    private 'issue_date'?: string | undefined;
+    private 'class'?: string;
+    private 'nrc_id'?: string;
+    private 'issue_date'?: string;
     public name?: string;
-    private 'father_name'?: string | undefined;
+    private 'father_name'?: string;
     public birth?: string;
-    private 'bloodlines_religion'?: string | undefined;
+    private 'bloodlines_religion'?: string;
     public height?: string;
-    private 'blood_group'?: string | undefined;
-    private 'card_id'?: string | undefined;
-    private 'nrc_id_back'?: string | undefined;
+    private 'blood_group'?: string;
+    private 'card_id'?: string;
+    private 'nrc_id_back'?: string;
     public profession?: string;
     public address?: string;
     public confidence?: MyanmarIdcardConfidence;
-    private 'portrait_image'?: string | undefined;
-    private 'portrait_location'?: Array<Array<number>> | undefined;
-    private 'idcard_type'?: string | undefined;
+    private 'portrait_image'?: string;
+    private 'portrait_location'?: Array<Array<number>>;
+    private 'idcard_type'?: string;
     public constructor() { 
     }
     public withSide(side: string): MyanmarIdcardResult {
@@ -30,30 +30,30 @@ export class MyanmarIdcardResult {
         this['class'] = _class;
         return this;
     }
-    public set _class(_class: string | undefined) {
+    public set _class(_class: string  | undefined) {
         this['class'] = _class;
     }
-    public get _class() {
+    public get _class(): string | undefined {
         return this['class'];
     }
     public withNrcId(nrcId: string): MyanmarIdcardResult {
         this['nrc_id'] = nrcId;
         return this;
     }
-    public set nrcId(nrcId: string | undefined) {
+    public set nrcId(nrcId: string  | undefined) {
         this['nrc_id'] = nrcId;
     }
-    public get nrcId() {
+    public get nrcId(): string | undefined {
         return this['nrc_id'];
     }
     public withIssueDate(issueDate: string): MyanmarIdcardResult {
         this['issue_date'] = issueDate;
         return this;
     }
-    public set issueDate(issueDate: string | undefined) {
+    public set issueDate(issueDate: string  | undefined) {
         this['issue_date'] = issueDate;
     }
-    public get issueDate() {
+    public get issueDate(): string | undefined {
         return this['issue_date'];
     }
     public withName(name: string): MyanmarIdcardResult {
@@ -64,10 +64,10 @@ export class MyanmarIdcardResult {
         this['father_name'] = fatherName;
         return this;
     }
-    public set fatherName(fatherName: string | undefined) {
+    public set fatherName(fatherName: string  | undefined) {
         this['father_name'] = fatherName;
     }
-    public get fatherName() {
+    public get fatherName(): string | undefined {
         return this['father_name'];
     }
     public withBirth(birth: string): MyanmarIdcardResult {
@@ -78,10 +78,10 @@ export class MyanmarIdcardResult {
         this['bloodlines_religion'] = bloodlinesReligion;
         return this;
     }
-    public set bloodlinesReligion(bloodlinesReligion: string | undefined) {
+    public set bloodlinesReligion(bloodlinesReligion: string  | undefined) {
         this['bloodlines_religion'] = bloodlinesReligion;
     }
-    public get bloodlinesReligion() {
+    public get bloodlinesReligion(): string | undefined {
         return this['bloodlines_religion'];
     }
     public withHeight(height: string): MyanmarIdcardResult {
@@ -92,30 +92,30 @@ export class MyanmarIdcardResult {
         this['blood_group'] = bloodGroup;
         return this;
     }
-    public set bloodGroup(bloodGroup: string | undefined) {
+    public set bloodGroup(bloodGroup: string  | undefined) {
         this['blood_group'] = bloodGroup;
     }
-    public get bloodGroup() {
+    public get bloodGroup(): string | undefined {
         return this['blood_group'];
     }
     public withCardId(cardId: string): MyanmarIdcardResult {
         this['card_id'] = cardId;
         return this;
     }
-    public set cardId(cardId: string | undefined) {
+    public set cardId(cardId: string  | undefined) {
         this['card_id'] = cardId;
     }
-    public get cardId() {
+    public get cardId(): string | undefined {
         return this['card_id'];
     }
     public withNrcIdBack(nrcIdBack: string): MyanmarIdcardResult {
         this['nrc_id_back'] = nrcIdBack;
         return this;
     }
-    public set nrcIdBack(nrcIdBack: string | undefined) {
+    public set nrcIdBack(nrcIdBack: string  | undefined) {
         this['nrc_id_back'] = nrcIdBack;
     }
-    public get nrcIdBack() {
+    public get nrcIdBack(): string | undefined {
         return this['nrc_id_back'];
     }
     public withProfession(profession: string): MyanmarIdcardResult {
@@ -134,30 +134,30 @@ export class MyanmarIdcardResult {
         this['portrait_image'] = portraitImage;
         return this;
     }
-    public set portraitImage(portraitImage: string | undefined) {
+    public set portraitImage(portraitImage: string  | undefined) {
         this['portrait_image'] = portraitImage;
     }
-    public get portraitImage() {
+    public get portraitImage(): string | undefined {
         return this['portrait_image'];
     }
     public withPortraitLocation(portraitLocation: Array<Array<number>>): MyanmarIdcardResult {
         this['portrait_location'] = portraitLocation;
         return this;
     }
-    public set portraitLocation(portraitLocation: Array<Array<number>> | undefined) {
+    public set portraitLocation(portraitLocation: Array<Array<number>>  | undefined) {
         this['portrait_location'] = portraitLocation;
     }
-    public get portraitLocation() {
+    public get portraitLocation(): Array<Array<number>> | undefined {
         return this['portrait_location'];
     }
     public withIdcardType(idcardType: string): MyanmarIdcardResult {
         this['idcard_type'] = idcardType;
         return this;
     }
-    public set idcardType(idcardType: string | undefined) {
+    public set idcardType(idcardType: string  | undefined) {
         this['idcard_type'] = idcardType;
     }
-    public get idcardType() {
+    public get idcardType(): string | undefined {
         return this['idcard_type'];
     }
 }

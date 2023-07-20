@@ -3,11 +3,11 @@ import { OsFederationInfo } from './OsFederationInfo';
 
 
 export class FederationUserBody {
-    private 'OS-FEDERATION': OsFederationInfo | undefined;
-    public domain: DomainInfo;
+    private 'OS-FEDERATION'?: OsFederationInfo;
+    public domain?: DomainInfo;
     public id?: string;
     public name?: string;
-    public constructor(osFederation?: any, domain?: any) { 
+    public constructor(osFederation?: OsFederationInfo, domain?: DomainInfo) { 
         this['OS-FEDERATION'] = osFederation;
         this['domain'] = domain;
     }
@@ -15,10 +15,10 @@ export class FederationUserBody {
         this['OS-FEDERATION'] = osFederation;
         return this;
     }
-    public set osFederation(osFederation: OsFederationInfo | undefined) {
+    public set osFederation(osFederation: OsFederationInfo  | undefined) {
         this['OS-FEDERATION'] = osFederation;
     }
-    public get osFederation() {
+    public get osFederation(): OsFederationInfo | undefined {
         return this['OS-FEDERATION'];
     }
     public withDomain(domain: DomainInfo): FederationUserBody {

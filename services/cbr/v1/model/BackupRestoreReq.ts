@@ -2,8 +2,8 @@ import { BackupRestore } from './BackupRestore';
 
 
 export class BackupRestoreReq {
-    public restore: BackupRestore;
-    public constructor(restore?: any) { 
+    public restore?: BackupRestore;
+    public constructor(restore?: BackupRestore) { 
         this['restore'] = restore;
     }
     public withRestore(restore: BackupRestore): BackupRestoreReq {

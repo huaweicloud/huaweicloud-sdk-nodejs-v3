@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DetectLiveFaceByBase64Response extends SdkResponse {
     public result?: LiveDetectFaceRespResult;
-    private 'warning-list'?: Array<WarningList> | undefined;
+    private 'warning-list'?: Array<WarningList>;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class DetectLiveFaceByBase64Response extends SdkResponse {
         this['warning-list'] = warningList;
         return this;
     }
-    public set warningList(warningList: Array<WarningList> | undefined) {
+    public set warningList(warningList: Array<WarningList>  | undefined) {
         this['warning-list'] = warningList;
     }
-    public get warningList() {
+    public get warningList(): Array<WarningList> | undefined {
         return this['warning-list'];
     }
 }

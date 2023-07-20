@@ -2,18 +2,18 @@ import { BatchQueryParamReq } from './BatchQueryParamReq';
 
 
 export class BatchShowParamsRequest {
-    private 'X-Language'?: BatchShowParamsRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchShowParamsRequestXLanguageEnum | string;
     public body?: BatchQueryParamReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchShowParamsRequestXLanguageEnum): BatchShowParamsRequest {
+    public withXLanguage(xLanguage: BatchShowParamsRequestXLanguageEnum | string): BatchShowParamsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchShowParamsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchShowParamsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchShowParamsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchQueryParamReq): BatchShowParamsRequest {

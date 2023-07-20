@@ -1,24 +1,24 @@
 
 
 export class ShowTriggerRequest {
-    private 'Content-Type': ShowTriggerRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
-    public trigger: string;
-    public constructor(contentType?: any, namespace?: any, repository?: any, trigger?: any) { 
+    private 'Content-Type'?: ShowTriggerRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
+    public trigger?: string;
+    public constructor(contentType?: string, namespace?: string, repository?: string, trigger?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
         this['trigger'] = trigger;
     }
-    public withContentType(contentType: ShowTriggerRequestContentTypeEnum): ShowTriggerRequest {
+    public withContentType(contentType: ShowTriggerRequestContentTypeEnum | string): ShowTriggerRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ShowTriggerRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ShowTriggerRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ShowTriggerRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): ShowTriggerRequest {

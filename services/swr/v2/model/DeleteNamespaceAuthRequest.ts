@@ -1,21 +1,21 @@
 
 
 export class DeleteNamespaceAuthRequest {
-    private 'Content-Type': DeleteNamespaceAuthRequestContentTypeEnum | undefined;
-    public namespace: string;
+    private 'Content-Type'?: DeleteNamespaceAuthRequestContentTypeEnum | string;
+    public namespace?: string;
     public body?: Array<string>;
-    public constructor(contentType?: any, namespace?: any) { 
+    public constructor(contentType?: string, namespace?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
     }
-    public withContentType(contentType: DeleteNamespaceAuthRequestContentTypeEnum): DeleteNamespaceAuthRequest {
+    public withContentType(contentType: DeleteNamespaceAuthRequestContentTypeEnum | string): DeleteNamespaceAuthRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: DeleteNamespaceAuthRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: DeleteNamespaceAuthRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): DeleteNamespaceAuthRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): DeleteNamespaceAuthRequest {

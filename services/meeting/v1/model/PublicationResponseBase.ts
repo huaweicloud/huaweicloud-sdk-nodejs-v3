@@ -9,7 +9,7 @@ export class PublicationResponseBase {
     public publishScope?: string;
     public startTime?: number;
     public endTime?: number;
-    public publishStatus?: PublicationResponseBasePublishStatusEnum;
+    public publishStatus?: PublicationResponseBasePublishStatusEnum | string;
     public constructor() { 
     }
     public withId(id: string): PublicationResponseBase {
@@ -44,7 +44,7 @@ export class PublicationResponseBase {
         this['endTime'] = endTime;
         return this;
     }
-    public withPublishStatus(publishStatus: PublicationResponseBasePublishStatusEnum): PublicationResponseBase {
+    public withPublishStatus(publishStatus: PublicationResponseBasePublishStatusEnum | string): PublicationResponseBase {
         this['publishStatus'] = publishStatus;
         return this;
     }

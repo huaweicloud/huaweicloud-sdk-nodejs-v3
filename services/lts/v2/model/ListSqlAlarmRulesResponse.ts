@@ -3,7 +3,7 @@ import { SqlAlarmRuleRespList } from './SqlAlarmRuleRespList';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSqlAlarmRulesResponse extends SdkResponse {
-    private 'sql_alarm_rules'?: Array<SqlAlarmRuleRespList> | undefined;
+    private 'sql_alarm_rules'?: Array<SqlAlarmRuleRespList>;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ListSqlAlarmRulesResponse extends SdkResponse {
         this['sql_alarm_rules'] = sqlAlarmRules;
         return this;
     }
-    public set sqlAlarmRules(sqlAlarmRules: Array<SqlAlarmRuleRespList> | undefined) {
+    public set sqlAlarmRules(sqlAlarmRules: Array<SqlAlarmRuleRespList>  | undefined) {
         this['sql_alarm_rules'] = sqlAlarmRules;
     }
-    public get sqlAlarmRules() {
+    public get sqlAlarmRules(): Array<SqlAlarmRuleRespList> | undefined {
         return this['sql_alarm_rules'];
     }
 }

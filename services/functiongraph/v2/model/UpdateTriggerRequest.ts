@@ -2,11 +2,11 @@ import { UpdateTriggerRequestBody } from './UpdateTriggerRequestBody';
 
 
 export class UpdateTriggerRequest {
-    private 'function_urn': string | undefined;
-    private 'trigger_type_code': UpdateTriggerRequestTriggerTypeCodeEnum | undefined;
-    private 'trigger_id': string | undefined;
+    private 'function_urn'?: string;
+    private 'trigger_type_code'?: UpdateTriggerRequestTriggerTypeCodeEnum | string;
+    private 'trigger_id'?: string;
     public body?: UpdateTriggerRequestBody;
-    public constructor(functionUrn?: any, triggerTypeCode?: any, triggerId?: any) { 
+    public constructor(functionUrn?: string, triggerTypeCode?: string, triggerId?: string) { 
         this['function_urn'] = functionUrn;
         this['trigger_type_code'] = triggerTypeCode;
         this['trigger_id'] = triggerId;
@@ -15,30 +15,30 @@ export class UpdateTriggerRequest {
         this['function_urn'] = functionUrn;
         return this;
     }
-    public set functionUrn(functionUrn: string | undefined) {
+    public set functionUrn(functionUrn: string  | undefined) {
         this['function_urn'] = functionUrn;
     }
-    public get functionUrn() {
+    public get functionUrn(): string | undefined {
         return this['function_urn'];
     }
-    public withTriggerTypeCode(triggerTypeCode: UpdateTriggerRequestTriggerTypeCodeEnum): UpdateTriggerRequest {
+    public withTriggerTypeCode(triggerTypeCode: UpdateTriggerRequestTriggerTypeCodeEnum | string): UpdateTriggerRequest {
         this['trigger_type_code'] = triggerTypeCode;
         return this;
     }
-    public set triggerTypeCode(triggerTypeCode: UpdateTriggerRequestTriggerTypeCodeEnum | undefined) {
+    public set triggerTypeCode(triggerTypeCode: UpdateTriggerRequestTriggerTypeCodeEnum | string  | undefined) {
         this['trigger_type_code'] = triggerTypeCode;
     }
-    public get triggerTypeCode() {
+    public get triggerTypeCode(): UpdateTriggerRequestTriggerTypeCodeEnum | string | undefined {
         return this['trigger_type_code'];
     }
     public withTriggerId(triggerId: string): UpdateTriggerRequest {
         this['trigger_id'] = triggerId;
         return this;
     }
-    public set triggerId(triggerId: string | undefined) {
+    public set triggerId(triggerId: string  | undefined) {
         this['trigger_id'] = triggerId;
     }
-    public get triggerId() {
+    public get triggerId(): string | undefined {
         return this['trigger_id'];
     }
     public withBody(body: UpdateTriggerRequestBody): UpdateTriggerRequest {

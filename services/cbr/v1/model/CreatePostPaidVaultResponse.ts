@@ -6,7 +6,7 @@ export class CreatePostPaidVaultResponse extends SdkResponse {
     public orders?: Array<CbcOrderResult>;
     public retCode?: number;
     public errText?: string;
-    private 'error_code'?: string | undefined;
+    private 'error_code'?: string;
     public constructor() { 
         super();
     }
@@ -26,10 +26,10 @@ export class CreatePostPaidVaultResponse extends SdkResponse {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
 }

@@ -3,7 +3,7 @@
 export class TaskLogInfo {
     public level?: string;
     public message?: string;
-    private 'create_time'?: string | undefined;
+    private 'create_time'?: string;
     public constructor() { 
     }
     public withLevel(level: string): TaskLogInfo {
@@ -18,10 +18,10 @@ export class TaskLogInfo {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
 }

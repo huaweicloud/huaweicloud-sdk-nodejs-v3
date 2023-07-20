@@ -1,14 +1,14 @@
 
 
 export class CustomConditions {
-    public category?: CustomConditionsCategoryEnum;
+    public category?: CustomConditionsCategoryEnum | string;
     public index?: string;
-    private 'logic_operation'?: string | undefined;
+    private 'logic_operation'?: string;
     public contents?: Array<string>;
-    private 'value_list_id'?: string | undefined;
+    private 'value_list_id'?: string;
     public constructor() { 
     }
-    public withCategory(category: CustomConditionsCategoryEnum): CustomConditions {
+    public withCategory(category: CustomConditionsCategoryEnum | string): CustomConditions {
         this['category'] = category;
         return this;
     }
@@ -20,10 +20,10 @@ export class CustomConditions {
         this['logic_operation'] = logicOperation;
         return this;
     }
-    public set logicOperation(logicOperation: string | undefined) {
+    public set logicOperation(logicOperation: string  | undefined) {
         this['logic_operation'] = logicOperation;
     }
-    public get logicOperation() {
+    public get logicOperation(): string | undefined {
         return this['logic_operation'];
     }
     public withContents(contents: Array<string>): CustomConditions {
@@ -34,10 +34,10 @@ export class CustomConditions {
         this['value_list_id'] = valueListId;
         return this;
     }
-    public set valueListId(valueListId: string | undefined) {
+    public set valueListId(valueListId: string  | undefined) {
         this['value_list_id'] = valueListId;
     }
-    public get valueListId() {
+    public get valueListId(): string | undefined {
         return this['value_list_id'];
     }
 }

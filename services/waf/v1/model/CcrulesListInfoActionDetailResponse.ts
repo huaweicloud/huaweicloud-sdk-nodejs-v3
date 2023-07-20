@@ -1,18 +1,18 @@
 
 
 export class CcrulesListInfoActionDetailResponse {
-    private 'content_type'?: CcrulesListInfoActionDetailResponseContentTypeEnum | undefined;
+    private 'content_type'?: CcrulesListInfoActionDetailResponseContentTypeEnum | string;
     public content?: string;
     public constructor() { 
     }
-    public withContentType(contentType: CcrulesListInfoActionDetailResponseContentTypeEnum): CcrulesListInfoActionDetailResponse {
+    public withContentType(contentType: CcrulesListInfoActionDetailResponseContentTypeEnum | string): CcrulesListInfoActionDetailResponse {
         this['content_type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CcrulesListInfoActionDetailResponseContentTypeEnum | undefined) {
+    public set contentType(contentType: CcrulesListInfoActionDetailResponseContentTypeEnum | string  | undefined) {
         this['content_type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CcrulesListInfoActionDetailResponseContentTypeEnum | string | undefined {
         return this['content_type'];
     }
     public withContent(content: string): CcrulesListInfoActionDetailResponse {

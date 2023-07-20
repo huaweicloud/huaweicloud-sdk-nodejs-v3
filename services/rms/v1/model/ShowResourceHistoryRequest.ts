@@ -1,23 +1,23 @@
 
 
 export class ShowResourceHistoryRequest {
-    private 'resource_id': string | undefined;
+    private 'resource_id'?: string;
     public marker?: string;
     public limit?: number;
-    private 'earlier_time'?: number | undefined;
-    private 'later_time'?: number | undefined;
-    private 'chronological_order'?: ShowResourceHistoryRequestChronologicalOrderEnum | undefined;
-    public constructor(resourceId?: any) { 
+    private 'earlier_time'?: number;
+    private 'later_time'?: number;
+    private 'chronological_order'?: ShowResourceHistoryRequestChronologicalOrderEnum | string;
+    public constructor(resourceId?: string) { 
         this['resource_id'] = resourceId;
     }
     public withResourceId(resourceId: string): ShowResourceHistoryRequest {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
     public withMarker(marker: string): ShowResourceHistoryRequest {
@@ -32,30 +32,30 @@ export class ShowResourceHistoryRequest {
         this['earlier_time'] = earlierTime;
         return this;
     }
-    public set earlierTime(earlierTime: number | undefined) {
+    public set earlierTime(earlierTime: number  | undefined) {
         this['earlier_time'] = earlierTime;
     }
-    public get earlierTime() {
+    public get earlierTime(): number | undefined {
         return this['earlier_time'];
     }
     public withLaterTime(laterTime: number): ShowResourceHistoryRequest {
         this['later_time'] = laterTime;
         return this;
     }
-    public set laterTime(laterTime: number | undefined) {
+    public set laterTime(laterTime: number  | undefined) {
         this['later_time'] = laterTime;
     }
-    public get laterTime() {
+    public get laterTime(): number | undefined {
         return this['later_time'];
     }
-    public withChronologicalOrder(chronologicalOrder: ShowResourceHistoryRequestChronologicalOrderEnum): ShowResourceHistoryRequest {
+    public withChronologicalOrder(chronologicalOrder: ShowResourceHistoryRequestChronologicalOrderEnum | string): ShowResourceHistoryRequest {
         this['chronological_order'] = chronologicalOrder;
         return this;
     }
-    public set chronologicalOrder(chronologicalOrder: ShowResourceHistoryRequestChronologicalOrderEnum | undefined) {
+    public set chronologicalOrder(chronologicalOrder: ShowResourceHistoryRequestChronologicalOrderEnum | string  | undefined) {
         this['chronological_order'] = chronologicalOrder;
     }
-    public get chronologicalOrder() {
+    public get chronologicalOrder(): ShowResourceHistoryRequestChronologicalOrderEnum | string | undefined {
         return this['chronological_order'];
     }
 }

@@ -1,8 +1,8 @@
 
 
 export class GlanceAddImageMemberRequestBody {
-    public member: string;
-    public constructor(member?: any) { 
+    public member?: string;
+    public constructor(member?: string) { 
         this['member'] = member;
     }
     public withMember(member: string): GlanceAddImageMemberRequestBody {

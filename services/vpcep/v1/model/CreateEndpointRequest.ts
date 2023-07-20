@@ -2,7 +2,7 @@ import { CreateEndpointRequestBody } from './CreateEndpointRequestBody';
 
 
 export class CreateEndpointRequest {
-    private 'Content-Type'?: string | undefined;
+    private 'Content-Type'?: string;
     public body?: CreateEndpointRequestBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class CreateEndpointRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withBody(body: CreateEndpointRequestBody): CreateEndpointRequest {

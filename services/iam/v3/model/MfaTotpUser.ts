@@ -1,9 +1,9 @@
 
 
 export class MfaTotpUser {
-    public id: string;
-    public passcode: string;
-    public constructor(id?: any, passcode?: any) { 
+    public id?: string;
+    public passcode?: string;
+    public constructor(id?: string, passcode?: string) { 
         this['id'] = id;
         this['passcode'] = passcode;
     }

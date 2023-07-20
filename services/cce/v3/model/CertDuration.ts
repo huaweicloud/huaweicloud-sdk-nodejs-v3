@@ -1,8 +1,8 @@
 
 
 export class CertDuration {
-    public duration: number;
-    public constructor(duration?: any) { 
+    public duration?: number;
+    public constructor(duration?: number) { 
         this['duration'] = duration;
     }
     public withDuration(duration: number): CertDuration {

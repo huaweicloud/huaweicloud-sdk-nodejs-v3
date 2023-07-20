@@ -2,20 +2,20 @@ import { TemplateGroup } from './TemplateGroup';
 
 
 export class TemplateGroupCollection {
-    private 'group_collection_id'?: string | undefined;
+    private 'group_collection_id'?: string;
     public name?: string;
     public description?: string;
-    private 'template_group_list'?: Array<TemplateGroup> | undefined;
+    private 'template_group_list'?: Array<TemplateGroup>;
     public constructor() { 
     }
     public withGroupCollectionId(groupCollectionId: string): TemplateGroupCollection {
         this['group_collection_id'] = groupCollectionId;
         return this;
     }
-    public set groupCollectionId(groupCollectionId: string | undefined) {
+    public set groupCollectionId(groupCollectionId: string  | undefined) {
         this['group_collection_id'] = groupCollectionId;
     }
-    public get groupCollectionId() {
+    public get groupCollectionId(): string | undefined {
         return this['group_collection_id'];
     }
     public withName(name: string): TemplateGroupCollection {
@@ -30,10 +30,10 @@ export class TemplateGroupCollection {
         this['template_group_list'] = templateGroupList;
         return this;
     }
-    public set templateGroupList(templateGroupList: Array<TemplateGroup> | undefined) {
+    public set templateGroupList(templateGroupList: Array<TemplateGroup>  | undefined) {
         this['template_group_list'] = templateGroupList;
     }
-    public get templateGroupList() {
+    public get templateGroupList(): Array<TemplateGroup> | undefined {
         return this['template_group_list'];
     }
 }

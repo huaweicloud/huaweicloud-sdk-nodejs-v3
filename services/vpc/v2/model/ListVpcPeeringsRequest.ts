@@ -5,9 +5,9 @@ export class ListVpcPeeringsRequest {
     public marker?: string;
     public id?: string;
     public name?: string;
-    public status?: ListVpcPeeringsRequestStatusEnum;
-    private 'tenant_id'?: string | undefined;
-    private 'vpc_id'?: string | undefined;
+    public status?: ListVpcPeeringsRequestStatusEnum | string;
+    private 'tenant_id'?: string;
+    private 'vpc_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListVpcPeeringsRequest {
@@ -26,7 +26,7 @@ export class ListVpcPeeringsRequest {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: ListVpcPeeringsRequestStatusEnum): ListVpcPeeringsRequest {
+    public withStatus(status: ListVpcPeeringsRequestStatusEnum | string): ListVpcPeeringsRequest {
         this['status'] = status;
         return this;
     }
@@ -34,20 +34,20 @@ export class ListVpcPeeringsRequest {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withVpcId(vpcId: string): ListVpcPeeringsRequest {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
 }

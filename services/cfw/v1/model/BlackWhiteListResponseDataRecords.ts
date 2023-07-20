@@ -1,9 +1,9 @@
 
 
 export class BlackWhiteListResponseDataRecords {
-    private 'list_id'?: string | undefined;
+    private 'list_id'?: string;
     public direction?: number;
-    private 'address_type'?: number | undefined;
+    private 'address_type'?: number;
     public address?: string;
     public protocol?: number;
     public port?: string;
@@ -13,10 +13,10 @@ export class BlackWhiteListResponseDataRecords {
         this['list_id'] = listId;
         return this;
     }
-    public set listId(listId: string | undefined) {
+    public set listId(listId: string  | undefined) {
         this['list_id'] = listId;
     }
-    public get listId() {
+    public get listId(): string | undefined {
         return this['list_id'];
     }
     public withDirection(direction: number): BlackWhiteListResponseDataRecords {
@@ -27,10 +27,10 @@ export class BlackWhiteListResponseDataRecords {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: number | undefined) {
+    public set addressType(addressType: number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType() {
+    public get addressType(): number | undefined {
         return this['address_type'];
     }
     public withAddress(address: string): BlackWhiteListResponseDataRecords {

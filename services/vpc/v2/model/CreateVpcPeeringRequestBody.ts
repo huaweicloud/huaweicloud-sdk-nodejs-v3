@@ -2,8 +2,8 @@ import { CreateVpcPeeringOption } from './CreateVpcPeeringOption';
 
 
 export class CreateVpcPeeringRequestBody {
-    public peering: CreateVpcPeeringOption;
-    public constructor(peering?: any) { 
+    public peering?: CreateVpcPeeringOption;
+    public constructor(peering?: CreateVpcPeeringOption) { 
         this['peering'] = peering;
     }
     public withPeering(peering: CreateVpcPeeringOption): CreateVpcPeeringRequestBody {

@@ -3,7 +3,7 @@ import { JobQueryBean } from './JobQueryBean';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowSingleJobExeResponse extends SdkResponse {
-    private 'job_detail'?: JobQueryBean | undefined;
+    private 'job_detail'?: JobQueryBean;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ShowSingleJobExeResponse extends SdkResponse {
         this['job_detail'] = jobDetail;
         return this;
     }
-    public set jobDetail(jobDetail: JobQueryBean | undefined) {
+    public set jobDetail(jobDetail: JobQueryBean  | undefined) {
         this['job_detail'] = jobDetail;
     }
-    public get jobDetail() {
+    public get jobDetail(): JobQueryBean | undefined {
         return this['job_detail'];
     }
 }

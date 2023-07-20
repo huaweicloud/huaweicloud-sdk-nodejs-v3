@@ -2,9 +2,9 @@ import { AomMappingRequestInfo } from './AomMappingRequestInfo';
 
 
 export class CreateAomMappingRulesRequest {
-    public isBatch: boolean;
+    public isBatch?: boolean;
     public body?: AomMappingRequestInfo;
-    public constructor(isBatch?: any) { 
+    public constructor(isBatch?: boolean) { 
         this['isBatch'] = isBatch;
     }
     public withIsBatch(isBatch: boolean): CreateAomMappingRulesRequest {

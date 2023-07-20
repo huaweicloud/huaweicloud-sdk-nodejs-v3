@@ -1,22 +1,22 @@
 
 
 export class CreateVolumeOption {
-    private 'availability_zone': string | undefined;
-    private 'backup_id'?: string | undefined;
+    private 'availability_zone'?: string;
+    private 'backup_id'?: string;
     public count?: number;
     public description?: string;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public imageRef?: string;
     public metadata?: { [key: string]: string; };
     public multiattach?: boolean;
     public name?: string;
-    public size: number;
-    private 'snapshot_id'?: string | undefined;
-    private 'volume_type': CreateVolumeOptionVolumeTypeEnum | undefined;
+    public size?: number;
+    private 'snapshot_id'?: string;
+    private 'volume_type'?: CreateVolumeOptionVolumeTypeEnum | string;
     public tags?: { [key: string]: string; };
     public iops?: number;
     public throughput?: number;
-    public constructor(availabilityZone?: any, size?: any, volumeType?: any) { 
+    public constructor(availabilityZone?: string, size?: number, volumeType?: string) { 
         this['availability_zone'] = availabilityZone;
         this['size'] = size;
         this['volume_type'] = volumeType;
@@ -25,20 +25,20 @@ export class CreateVolumeOption {
         this['availability_zone'] = availabilityZone;
         return this;
     }
-    public set availabilityZone(availabilityZone: string | undefined) {
+    public set availabilityZone(availabilityZone: string  | undefined) {
         this['availability_zone'] = availabilityZone;
     }
-    public get availabilityZone() {
+    public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
     public withBackupId(backupId: string): CreateVolumeOption {
         this['backup_id'] = backupId;
         return this;
     }
-    public set backupId(backupId: string | undefined) {
+    public set backupId(backupId: string  | undefined) {
         this['backup_id'] = backupId;
     }
-    public get backupId() {
+    public get backupId(): string | undefined {
         return this['backup_id'];
     }
     public withCount(count: number): CreateVolumeOption {
@@ -53,10 +53,10 @@ export class CreateVolumeOption {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withImageRef(imageRef: string): CreateVolumeOption {
@@ -83,20 +83,20 @@ export class CreateVolumeOption {
         this['snapshot_id'] = snapshotId;
         return this;
     }
-    public set snapshotId(snapshotId: string | undefined) {
+    public set snapshotId(snapshotId: string  | undefined) {
         this['snapshot_id'] = snapshotId;
     }
-    public get snapshotId() {
+    public get snapshotId(): string | undefined {
         return this['snapshot_id'];
     }
-    public withVolumeType(volumeType: CreateVolumeOptionVolumeTypeEnum): CreateVolumeOption {
+    public withVolumeType(volumeType: CreateVolumeOptionVolumeTypeEnum | string): CreateVolumeOption {
         this['volume_type'] = volumeType;
         return this;
     }
-    public set volumeType(volumeType: CreateVolumeOptionVolumeTypeEnum | undefined) {
+    public set volumeType(volumeType: CreateVolumeOptionVolumeTypeEnum | string  | undefined) {
         this['volume_type'] = volumeType;
     }
-    public get volumeType() {
+    public get volumeType(): CreateVolumeOptionVolumeTypeEnum | string | undefined {
         return this['volume_type'];
     }
     public withTags(tags: { [key: string]: string; }): CreateVolumeOption {

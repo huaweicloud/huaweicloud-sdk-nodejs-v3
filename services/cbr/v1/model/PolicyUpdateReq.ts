@@ -2,8 +2,8 @@ import { PolicyUpdate } from './PolicyUpdate';
 
 
 export class PolicyUpdateReq {
-    public policy: PolicyUpdate;
-    public constructor(policy?: any) { 
+    public policy?: PolicyUpdate;
+    public constructor(policy?: PolicyUpdate) { 
         this['policy'] = policy;
     }
     public withPolicy(policy: PolicyUpdate): PolicyUpdateReq {

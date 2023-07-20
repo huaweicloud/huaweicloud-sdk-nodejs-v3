@@ -2,19 +2,19 @@ import { TasksSuccessRateQuery } from './TasksSuccessRateQuery';
 
 
 export class ListTaskSuccessRateRequest {
-    private 'project_id': string | undefined;
+    private 'project_id'?: string;
     public body?: TasksSuccessRateQuery;
-    public constructor(projectId?: any) { 
+    public constructor(projectId?: string) { 
         this['project_id'] = projectId;
     }
     public withProjectId(projectId: string): ListTaskSuccessRateRequest {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withBody(body: TasksSuccessRateQuery): ListTaskSuccessRateRequest {

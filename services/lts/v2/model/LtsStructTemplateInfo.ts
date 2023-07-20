@@ -4,19 +4,19 @@ import { TagField } from './TagField';
 
 
 export class LtsStructTemplateInfo {
-    private 'demo_fields': Array<StructFieldInfo> | undefined;
-    private 'tag_fields': Array<TagField> | undefined;
-    public content: string;
-    private 'log_group_id': string | undefined;
-    private 'parse_type': LtsStructTemplateInfoParseTypeEnum | undefined;
-    private 'log_stream_id': string | undefined;
-    private 'project_id': string | undefined;
-    private 'regex_rules'?: string | undefined;
+    private 'demo_fields'?: Array<StructFieldInfo>;
+    private 'tag_fields'?: Array<TagField>;
+    public content?: string;
+    private 'log_group_id'?: string;
+    private 'parse_type'?: LtsStructTemplateInfoParseTypeEnum | string;
+    private 'log_stream_id'?: string;
+    private 'project_id'?: string;
+    private 'regex_rules'?: string;
     public layers?: number;
     public tokenizer?: string;
-    private 'log_format'?: string | undefined;
+    private 'log_format'?: string;
     public rule?: Rule;
-    public constructor(demoFields?: any, tagFields?: any, content?: any, logGroupId?: any, parseType?: any, logStreamId?: any, projectId?: any) { 
+    public constructor(demoFields?: Array<StructFieldInfo>, tagFields?: Array<TagField>, content?: string, logGroupId?: string, parseType?: string, logStreamId?: string, projectId?: string) { 
         this['demo_fields'] = demoFields;
         this['tag_fields'] = tagFields;
         this['content'] = content;
@@ -29,20 +29,20 @@ export class LtsStructTemplateInfo {
         this['demo_fields'] = demoFields;
         return this;
     }
-    public set demoFields(demoFields: Array<StructFieldInfo> | undefined) {
+    public set demoFields(demoFields: Array<StructFieldInfo>  | undefined) {
         this['demo_fields'] = demoFields;
     }
-    public get demoFields() {
+    public get demoFields(): Array<StructFieldInfo> | undefined {
         return this['demo_fields'];
     }
     public withTagFields(tagFields: Array<TagField>): LtsStructTemplateInfo {
         this['tag_fields'] = tagFields;
         return this;
     }
-    public set tagFields(tagFields: Array<TagField> | undefined) {
+    public set tagFields(tagFields: Array<TagField>  | undefined) {
         this['tag_fields'] = tagFields;
     }
-    public get tagFields() {
+    public get tagFields(): Array<TagField> | undefined {
         return this['tag_fields'];
     }
     public withContent(content: string): LtsStructTemplateInfo {
@@ -53,50 +53,50 @@ export class LtsStructTemplateInfo {
         this['log_group_id'] = logGroupId;
         return this;
     }
-    public set logGroupId(logGroupId: string | undefined) {
+    public set logGroupId(logGroupId: string  | undefined) {
         this['log_group_id'] = logGroupId;
     }
-    public get logGroupId() {
+    public get logGroupId(): string | undefined {
         return this['log_group_id'];
     }
-    public withParseType(parseType: LtsStructTemplateInfoParseTypeEnum): LtsStructTemplateInfo {
+    public withParseType(parseType: LtsStructTemplateInfoParseTypeEnum | string): LtsStructTemplateInfo {
         this['parse_type'] = parseType;
         return this;
     }
-    public set parseType(parseType: LtsStructTemplateInfoParseTypeEnum | undefined) {
+    public set parseType(parseType: LtsStructTemplateInfoParseTypeEnum | string  | undefined) {
         this['parse_type'] = parseType;
     }
-    public get parseType() {
+    public get parseType(): LtsStructTemplateInfoParseTypeEnum | string | undefined {
         return this['parse_type'];
     }
     public withLogStreamId(logStreamId: string): LtsStructTemplateInfo {
         this['log_stream_id'] = logStreamId;
         return this;
     }
-    public set logStreamId(logStreamId: string | undefined) {
+    public set logStreamId(logStreamId: string  | undefined) {
         this['log_stream_id'] = logStreamId;
     }
-    public get logStreamId() {
+    public get logStreamId(): string | undefined {
         return this['log_stream_id'];
     }
     public withProjectId(projectId: string): LtsStructTemplateInfo {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withRegexRules(regexRules: string): LtsStructTemplateInfo {
         this['regex_rules'] = regexRules;
         return this;
     }
-    public set regexRules(regexRules: string | undefined) {
+    public set regexRules(regexRules: string  | undefined) {
         this['regex_rules'] = regexRules;
     }
-    public get regexRules() {
+    public get regexRules(): string | undefined {
         return this['regex_rules'];
     }
     public withLayers(layers: number): LtsStructTemplateInfo {
@@ -111,10 +111,10 @@ export class LtsStructTemplateInfo {
         this['log_format'] = logFormat;
         return this;
     }
-    public set logFormat(logFormat: string | undefined) {
+    public set logFormat(logFormat: string  | undefined) {
         this['log_format'] = logFormat;
     }
-    public get logFormat() {
+    public get logFormat(): string | undefined {
         return this['log_format'];
     }
     public withRule(rule: Rule): LtsStructTemplateInfo {

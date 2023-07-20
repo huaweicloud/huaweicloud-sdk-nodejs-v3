@@ -2,19 +2,19 @@ import { BatchDeleteServerNicsRequestBody } from './BatchDeleteServerNicsRequest
 
 
 export class BatchDeleteServerNicsRequest {
-    private 'server_id': string | undefined;
+    private 'server_id'?: string;
     public body?: BatchDeleteServerNicsRequestBody;
-    public constructor(serverId?: any) { 
+    public constructor(serverId?: string) { 
         this['server_id'] = serverId;
     }
     public withServerId(serverId: string): BatchDeleteServerNicsRequest {
         this['server_id'] = serverId;
         return this;
     }
-    public set serverId(serverId: string | undefined) {
+    public set serverId(serverId: string  | undefined) {
         this['server_id'] = serverId;
     }
-    public get serverId() {
+    public get serverId(): string | undefined {
         return this['server_id'];
     }
     public withBody(body: BatchDeleteServerNicsRequestBody): BatchDeleteServerNicsRequest {

@@ -1,9 +1,9 @@
 
 
 export class DeleteSecretTagRequest {
-    private 'secret_id': string | undefined;
-    public key: string;
-    public constructor(secretId?: any, key?: any) { 
+    private 'secret_id'?: string;
+    public key?: string;
+    public constructor(secretId?: string, key?: string) { 
         this['secret_id'] = secretId;
         this['key'] = key;
     }
@@ -11,10 +11,10 @@ export class DeleteSecretTagRequest {
         this['secret_id'] = secretId;
         return this;
     }
-    public set secretId(secretId: string | undefined) {
+    public set secretId(secretId: string  | undefined) {
         this['secret_id'] = secretId;
     }
-    public get secretId() {
+    public get secretId(): string | undefined {
         return this['secret_id'];
     }
     public withKey(key: string): DeleteSecretTagRequest {

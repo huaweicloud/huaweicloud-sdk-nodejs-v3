@@ -3,7 +3,7 @@ import { ChannelDetail } from './ChannelDetail';
 
 export class UpdateActionReq {
     public channel?: string;
-    private 'channel_detail'?: ChannelDetail | undefined;
+    private 'channel_detail'?: ChannelDetail;
     public constructor() { 
     }
     public withChannel(channel: string): UpdateActionReq {
@@ -14,10 +14,10 @@ export class UpdateActionReq {
         this['channel_detail'] = channelDetail;
         return this;
     }
-    public set channelDetail(channelDetail: ChannelDetail | undefined) {
+    public set channelDetail(channelDetail: ChannelDetail  | undefined) {
         this['channel_detail'] = channelDetail;
     }
-    public get channelDetail() {
+    public get channelDetail(): ChannelDetail | undefined {
         return this['channel_detail'];
     }
 }

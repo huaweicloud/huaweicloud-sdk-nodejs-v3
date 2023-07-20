@@ -3,7 +3,7 @@
 export class CheckpointExtraInfoResp {
     public name?: string;
     public description?: string;
-    private 'retention_duration'?: number | undefined;
+    private 'retention_duration'?: number;
     public constructor() { 
     }
     public withName(name: string): CheckpointExtraInfoResp {
@@ -18,10 +18,10 @@ export class CheckpointExtraInfoResp {
         this['retention_duration'] = retentionDuration;
         return this;
     }
-    public set retentionDuration(retentionDuration: number | undefined) {
+    public set retentionDuration(retentionDuration: number  | undefined) {
         this['retention_duration'] = retentionDuration;
     }
-    public get retentionDuration() {
+    public get retentionDuration(): number | undefined {
         return this['retention_duration'];
     }
 }

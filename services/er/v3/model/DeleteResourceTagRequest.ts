@@ -1,10 +1,10 @@
 
 
 export class DeleteResourceTagRequest {
-    public key: string;
-    private 'resource_id': string | undefined;
-    private 'resource_type': DeleteResourceTagRequestResourceTypeEnum | undefined;
-    public constructor(key?: any, resourceId?: any, resourceType?: any) { 
+    public key?: string;
+    private 'resource_id'?: string;
+    private 'resource_type'?: DeleteResourceTagRequestResourceTypeEnum | string;
+    public constructor(key?: string, resourceId?: string, resourceType?: string) { 
         this['key'] = key;
         this['resource_id'] = resourceId;
         this['resource_type'] = resourceType;
@@ -17,20 +17,20 @@ export class DeleteResourceTagRequest {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
-    public withResourceType(resourceType: DeleteResourceTagRequestResourceTypeEnum): DeleteResourceTagRequest {
+    public withResourceType(resourceType: DeleteResourceTagRequestResourceTypeEnum | string): DeleteResourceTagRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: DeleteResourceTagRequestResourceTypeEnum | undefined) {
+    public set resourceType(resourceType: DeleteResourceTagRequestResourceTypeEnum | string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): DeleteResourceTagRequestResourceTypeEnum | string | undefined {
         return this['resource_type'];
     }
 }
@@ -48,6 +48,9 @@ export enum DeleteResourceTagRequestResourceTypeEnum {
     PEERING_ATTACHMENT = 'peering-attachment',
     VPN_ATTACHMENT = 'vpn-attachment',
     CAN_ATTACHMENT = 'can-attachment',
+    ECN_ATTACHMENT = 'ecn-attachment',
     GDGW_ATTACHMENT = 'gdgw-attachment',
+    CONNECT_ATTACHMENT = 'connect-attachment',
+    CFW_ATTACHMENT = 'cfw-attachment',
     ATTACHMENTS = 'attachments'
 }

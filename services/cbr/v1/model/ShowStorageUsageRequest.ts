@@ -3,8 +3,8 @@
 export class ShowStorageUsageRequest {
     public limit?: number;
     public offset?: number;
-    private 'resource_id'?: string | undefined;
-    private 'resource_type'?: ShowStorageUsageRequestResourceTypeEnum | undefined;
+    private 'resource_id'?: string;
+    private 'resource_type'?: ShowStorageUsageRequestResourceTypeEnum | string;
     public constructor() { 
     }
     public withLimit(limit: number): ShowStorageUsageRequest {
@@ -19,20 +19,20 @@ export class ShowStorageUsageRequest {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
-    public withResourceType(resourceType: ShowStorageUsageRequestResourceTypeEnum): ShowStorageUsageRequest {
+    public withResourceType(resourceType: ShowStorageUsageRequestResourceTypeEnum | string): ShowStorageUsageRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: ShowStorageUsageRequestResourceTypeEnum | undefined) {
+    public set resourceType(resourceType: ShowStorageUsageRequestResourceTypeEnum | string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): ShowStorageUsageRequestResourceTypeEnum | string | undefined {
         return this['resource_type'];
     }
 }

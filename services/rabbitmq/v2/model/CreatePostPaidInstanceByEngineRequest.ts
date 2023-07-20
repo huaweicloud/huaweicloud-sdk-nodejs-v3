@@ -2,12 +2,12 @@ import { CreateInstanceReq } from './CreateInstanceReq';
 
 
 export class CreatePostPaidInstanceByEngineRequest {
-    public engine: CreatePostPaidInstanceByEngineRequestEngineEnum;
+    public engine?: CreatePostPaidInstanceByEngineRequestEngineEnum | string;
     public body?: CreateInstanceReq;
-    public constructor(engine?: any) { 
+    public constructor(engine?: string) { 
         this['engine'] = engine;
     }
-    public withEngine(engine: CreatePostPaidInstanceByEngineRequestEngineEnum): CreatePostPaidInstanceByEngineRequest {
+    public withEngine(engine: CreatePostPaidInstanceByEngineRequestEngineEnum | string): CreatePostPaidInstanceByEngineRequest {
         this['engine'] = engine;
         return this;
     }

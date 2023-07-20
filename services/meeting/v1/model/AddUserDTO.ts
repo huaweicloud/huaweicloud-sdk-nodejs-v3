@@ -2,7 +2,7 @@ import { UserFunctionDTO } from './UserFunctionDTO';
 
 
 export class AddUserDTO {
-    public name: string;
+    public name?: string;
     public englishName?: string;
     public account?: string;
     public thirdAccount?: string;
@@ -14,12 +14,12 @@ export class AddUserDTO {
     public signature?: string;
     public title?: string;
     public desc?: string;
-    public status?: AddUserDTOStatusEnum;
-    private 'function'?: UserFunctionDTO | undefined;
+    public status?: AddUserDTOStatusEnum | number;
+    private 'function'?: UserFunctionDTO;
     public sendNotify?: string;
     public sortLevel?: number;
     public hidePhone?: boolean;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): AddUserDTO {
@@ -70,7 +70,7 @@ export class AddUserDTO {
         this['desc'] = desc;
         return this;
     }
-    public withStatus(status: AddUserDTOStatusEnum): AddUserDTO {
+    public withStatus(status: AddUserDTOStatusEnum | number): AddUserDTO {
         this['status'] = status;
         return this;
     }
@@ -78,10 +78,10 @@ export class AddUserDTO {
         this['function'] = _function;
         return this;
     }
-    public set _function(_function: UserFunctionDTO | undefined) {
+    public set _function(_function: UserFunctionDTO  | undefined) {
         this['function'] = _function;
     }
-    public get _function() {
+    public get _function(): UserFunctionDTO | undefined {
         return this['function'];
     }
     public withSendNotify(sendNotify: string): AddUserDTO {

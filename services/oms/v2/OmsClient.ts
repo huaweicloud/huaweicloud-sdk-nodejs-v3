@@ -407,7 +407,7 @@ export class OmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listApiVersions(): Promise<ListApiVersionsResponse> {
+    public listApiVersions(listApiVersionsRequest?: ListApiVersionsRequest): Promise<ListApiVersionsResponse> {
         const options = ParamCreater().listApiVersions();
 
          // @ts-ignore

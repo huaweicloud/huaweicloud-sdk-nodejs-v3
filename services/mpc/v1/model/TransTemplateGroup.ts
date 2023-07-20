@@ -5,12 +5,12 @@ import { VideoObj } from './VideoObj';
 
 
 export class TransTemplateGroup {
-    public name: string;
+    public name?: string;
     public videos?: Array<VideoObj>;
     public audio?: Audio;
-    private 'video_common'?: VideoCommon | undefined;
+    private 'video_common'?: VideoCommon;
     public common?: Common;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): TransTemplateGroup {
@@ -29,10 +29,10 @@ export class TransTemplateGroup {
         this['video_common'] = videoCommon;
         return this;
     }
-    public set videoCommon(videoCommon: VideoCommon | undefined) {
+    public set videoCommon(videoCommon: VideoCommon  | undefined) {
         this['video_common'] = videoCommon;
     }
-    public get videoCommon() {
+    public get videoCommon(): VideoCommon | undefined {
         return this['video_common'];
     }
     public withCommon(common: Common): TransTemplateGroup {

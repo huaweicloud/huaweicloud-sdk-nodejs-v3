@@ -1,29 +1,29 @@
 
 
 export class MetaData {
-    private 'pack_type'?: MetaDataPackTypeEnum | undefined;
-    public codec?: MetaDataCodecEnum;
+    private 'pack_type'?: MetaDataPackTypeEnum | string;
+    public codec?: MetaDataCodecEnum | string;
     public duration?: number;
-    private 'video_size'?: number | undefined;
+    private 'video_size'?: number;
     public width?: number;
     public hight?: number;
-    private 'bit_rate'?: number | undefined;
-    private 'frame_rate'?: number | undefined;
+    private 'bit_rate'?: number;
+    private 'frame_rate'?: number;
     public quality?: string;
-    private 'audio_channels'?: number | undefined;
+    private 'audio_channels'?: number;
     public constructor() { 
     }
-    public withPackType(packType: MetaDataPackTypeEnum): MetaData {
+    public withPackType(packType: MetaDataPackTypeEnum | string): MetaData {
         this['pack_type'] = packType;
         return this;
     }
-    public set packType(packType: MetaDataPackTypeEnum | undefined) {
+    public set packType(packType: MetaDataPackTypeEnum | string  | undefined) {
         this['pack_type'] = packType;
     }
-    public get packType() {
+    public get packType(): MetaDataPackTypeEnum | string | undefined {
         return this['pack_type'];
     }
-    public withCodec(codec: MetaDataCodecEnum): MetaData {
+    public withCodec(codec: MetaDataCodecEnum | string): MetaData {
         this['codec'] = codec;
         return this;
     }
@@ -35,10 +35,10 @@ export class MetaData {
         this['video_size'] = videoSize;
         return this;
     }
-    public set videoSize(videoSize: number | undefined) {
+    public set videoSize(videoSize: number  | undefined) {
         this['video_size'] = videoSize;
     }
-    public get videoSize() {
+    public get videoSize(): number | undefined {
         return this['video_size'];
     }
     public withWidth(width: number): MetaData {
@@ -53,20 +53,20 @@ export class MetaData {
         this['bit_rate'] = bitRate;
         return this;
     }
-    public set bitRate(bitRate: number | undefined) {
+    public set bitRate(bitRate: number  | undefined) {
         this['bit_rate'] = bitRate;
     }
-    public get bitRate() {
+    public get bitRate(): number | undefined {
         return this['bit_rate'];
     }
     public withFrameRate(frameRate: number): MetaData {
         this['frame_rate'] = frameRate;
         return this;
     }
-    public set frameRate(frameRate: number | undefined) {
+    public set frameRate(frameRate: number  | undefined) {
         this['frame_rate'] = frameRate;
     }
-    public get frameRate() {
+    public get frameRate(): number | undefined {
         return this['frame_rate'];
     }
     public withQuality(quality: string): MetaData {
@@ -77,10 +77,10 @@ export class MetaData {
         this['audio_channels'] = audioChannels;
         return this;
     }
-    public set audioChannels(audioChannels: number | undefined) {
+    public set audioChannels(audioChannels: number  | undefined) {
         this['audio_channels'] = audioChannels;
     }
-    public get audioChannels() {
+    public get audioChannels(): number | undefined {
         return this['audio_channels'];
     }
 }

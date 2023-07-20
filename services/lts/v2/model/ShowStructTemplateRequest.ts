@@ -1,9 +1,9 @@
 
 
 export class ShowStructTemplateRequest {
-    public logGroupId: string;
-    public logStreamId: string;
-    public constructor(logGroupId?: any, logStreamId?: any) { 
+    public logGroupId?: string;
+    public logStreamId?: string;
+    public constructor(logGroupId?: string, logStreamId?: string) { 
         this['logGroupId'] = logGroupId;
         this['logStreamId'] = logStreamId;
     }

@@ -3,7 +3,7 @@ import { LogtankItem } from './LogtankItem';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateLogtankResponse extends SdkResponse {
-    private 'request_id'?: string | undefined;
+    private 'request_id'?: string;
     public logtank?: LogtankItem;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class UpdateLogtankResponse extends SdkResponse {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
     public withLogtank(logtank: LogtankItem): UpdateLogtankResponse {

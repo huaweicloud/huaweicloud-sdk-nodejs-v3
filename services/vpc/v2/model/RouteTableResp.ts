@@ -3,17 +3,17 @@ import { SubnetList } from './SubnetList';
 
 
 export class RouteTableResp {
-    public id: string;
-    public name: string;
-    private 'default': boolean | undefined;
-    public routes: Array<RouteTableRoute>;
-    public subnets: Array<SubnetList>;
-    private 'tenant_id': string | undefined;
-    private 'vpc_id': string | undefined;
-    public description: string;
-    private 'created_at': Date | undefined;
-    private 'updated_at': Date | undefined;
-    public constructor(id?: any, name?: any, _default?: any, routes?: any, subnets?: any, tenantId?: any, vpcId?: any, description?: any, createdAt?: any, updatedAt?: any) { 
+    public id?: string;
+    public name?: string;
+    private 'default'?: boolean;
+    public routes?: Array<RouteTableRoute>;
+    public subnets?: Array<SubnetList>;
+    private 'tenant_id'?: string;
+    private 'vpc_id'?: string;
+    public description?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    public constructor(id?: string, name?: string, _default?: boolean, routes?: Array<RouteTableRoute>, subnets?: Array<SubnetList>, tenantId?: string, vpcId?: string, description?: string, createdAt?: Date, updatedAt?: Date) { 
         this['id'] = id;
         this['name'] = name;
         this['default'] = _default;
@@ -37,10 +37,10 @@ export class RouteTableResp {
         this['default'] = _default;
         return this;
     }
-    public set _default(_default: boolean | undefined) {
+    public set _default(_default: boolean  | undefined) {
         this['default'] = _default;
     }
-    public get _default() {
+    public get _default(): boolean | undefined {
         return this['default'];
     }
     public withRoutes(routes: Array<RouteTableRoute>): RouteTableResp {
@@ -55,20 +55,20 @@ export class RouteTableResp {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withVpcId(vpcId: string): RouteTableResp {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withDescription(description: string): RouteTableResp {
@@ -79,20 +79,20 @@ export class RouteTableResp {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): RouteTableResp {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
 }

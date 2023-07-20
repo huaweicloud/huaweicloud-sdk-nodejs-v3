@@ -2,10 +2,10 @@ import { DeploymentGroupUpdateRequest } from './DeploymentGroupUpdateRequest';
 
 
 export class UpdateDeploymentGroupRequest {
-    private 'group_id': string | undefined;
-    private 'Content-Type': UpdateDeploymentGroupRequestContentTypeEnum | undefined;
+    private 'group_id'?: string;
+    private 'Content-Type'?: UpdateDeploymentGroupRequestContentTypeEnum | string;
     public body?: DeploymentGroupUpdateRequest;
-    public constructor(groupId?: any, contentType?: any) { 
+    public constructor(groupId?: string, contentType?: string) { 
         this['group_id'] = groupId;
         this['Content-Type'] = contentType;
     }
@@ -13,20 +13,20 @@ export class UpdateDeploymentGroupRequest {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
-    public withContentType(contentType: UpdateDeploymentGroupRequestContentTypeEnum): UpdateDeploymentGroupRequest {
+    public withContentType(contentType: UpdateDeploymentGroupRequestContentTypeEnum | string): UpdateDeploymentGroupRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: UpdateDeploymentGroupRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: UpdateDeploymentGroupRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): UpdateDeploymentGroupRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withBody(body: DeploymentGroupUpdateRequest): UpdateDeploymentGroupRequest {

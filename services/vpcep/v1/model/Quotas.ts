@@ -1,12 +1,12 @@
 
 
 export class Quotas {
-    public type?: QuotasTypeEnum;
+    public type?: QuotasTypeEnum | string;
     public used?: number;
     public quota?: number;
     public constructor() { 
     }
-    public withType(type: QuotasTypeEnum): Quotas {
+    public withType(type: QuotasTypeEnum | string): Quotas {
         this['type'] = type;
         return this;
     }

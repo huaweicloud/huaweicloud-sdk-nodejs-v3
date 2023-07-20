@@ -1,11 +1,11 @@
 
 
 export class AgencyMapping {
-    public agency: string;
-    private 'identifier_type': string | undefined;
-    public identifiers: Array<string>;
-    private 'agency_id': string | undefined;
-    public constructor(agency?: any, identifierType?: any, identifiers?: any, agencyId?: any) { 
+    public agency?: string;
+    private 'identifier_type'?: string;
+    public identifiers?: Array<string>;
+    private 'agency_id'?: string;
+    public constructor(agency?: string, identifierType?: string, identifiers?: Array<string>, agencyId?: string) { 
         this['agency'] = agency;
         this['identifier_type'] = identifierType;
         this['identifiers'] = identifiers;
@@ -19,10 +19,10 @@ export class AgencyMapping {
         this['identifier_type'] = identifierType;
         return this;
     }
-    public set identifierType(identifierType: string | undefined) {
+    public set identifierType(identifierType: string  | undefined) {
         this['identifier_type'] = identifierType;
     }
-    public get identifierType() {
+    public get identifierType(): string | undefined {
         return this['identifier_type'];
     }
     public withIdentifiers(identifiers: Array<string>): AgencyMapping {
@@ -33,10 +33,10 @@ export class AgencyMapping {
         this['agency_id'] = agencyId;
         return this;
     }
-    public set agencyId(agencyId: string | undefined) {
+    public set agencyId(agencyId: string  | undefined) {
         this['agency_id'] = agencyId;
     }
-    public get agencyId() {
+    public get agencyId(): string | undefined {
         return this['agency_id'];
     }
 }

@@ -2,13 +2,13 @@ import { PwdPassword } from './PwdPassword';
 
 
 export class PwdIdentity {
-    public methods: Array<PwdIdentityMethodsEnum>;
-    public password: PwdPassword;
-    public constructor(methods?: any, password?: any) { 
+    public methods?: Array<PwdIdentityMethodsEnum> | Array<string>;
+    public password?: PwdPassword;
+    public constructor(methods?: Array<string>, password?: PwdPassword) { 
         this['methods'] = methods;
         this['password'] = password;
     }
-    public withMethods(methods: Array<PwdIdentityMethodsEnum>): PwdIdentity {
+    public withMethods(methods: Array<PwdIdentityMethodsEnum> | Array<string>): PwdIdentity {
         this['methods'] = methods;
         return this;
     }

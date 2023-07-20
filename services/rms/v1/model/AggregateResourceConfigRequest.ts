@@ -2,9 +2,9 @@ import { ResourceIdentifier } from './ResourceIdentifier';
 
 
 export class AggregateResourceConfigRequest {
-    private 'aggregator_id': string | undefined;
-    private 'resource_identifier': ResourceIdentifier | undefined;
-    public constructor(aggregatorId?: any, resourceIdentifier?: any) { 
+    private 'aggregator_id'?: string;
+    private 'resource_identifier'?: ResourceIdentifier;
+    public constructor(aggregatorId?: string, resourceIdentifier?: ResourceIdentifier) { 
         this['aggregator_id'] = aggregatorId;
         this['resource_identifier'] = resourceIdentifier;
     }
@@ -12,20 +12,20 @@ export class AggregateResourceConfigRequest {
         this['aggregator_id'] = aggregatorId;
         return this;
     }
-    public set aggregatorId(aggregatorId: string | undefined) {
+    public set aggregatorId(aggregatorId: string  | undefined) {
         this['aggregator_id'] = aggregatorId;
     }
-    public get aggregatorId() {
+    public get aggregatorId(): string | undefined {
         return this['aggregator_id'];
     }
     public withResourceIdentifier(resourceIdentifier: ResourceIdentifier): AggregateResourceConfigRequest {
         this['resource_identifier'] = resourceIdentifier;
         return this;
     }
-    public set resourceIdentifier(resourceIdentifier: ResourceIdentifier | undefined) {
+    public set resourceIdentifier(resourceIdentifier: ResourceIdentifier  | undefined) {
         this['resource_identifier'] = resourceIdentifier;
     }
-    public get resourceIdentifier() {
+    public get resourceIdentifier(): ResourceIdentifier | undefined {
         return this['resource_identifier'];
     }
 }

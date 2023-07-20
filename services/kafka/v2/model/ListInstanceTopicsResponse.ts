@@ -5,8 +5,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListInstanceTopicsResponse extends SdkResponse {
     public total?: number;
     public size?: number;
-    private 'remain_partitions'?: number | undefined;
-    private 'max_partitions'?: number | undefined;
+    private 'remain_partitions'?: number;
+    private 'max_partitions'?: number;
     public topics?: Array<TopicEntity>;
     public constructor() { 
         super();
@@ -23,20 +23,20 @@ export class ListInstanceTopicsResponse extends SdkResponse {
         this['remain_partitions'] = remainPartitions;
         return this;
     }
-    public set remainPartitions(remainPartitions: number | undefined) {
+    public set remainPartitions(remainPartitions: number  | undefined) {
         this['remain_partitions'] = remainPartitions;
     }
-    public get remainPartitions() {
+    public get remainPartitions(): number | undefined {
         return this['remain_partitions'];
     }
     public withMaxPartitions(maxPartitions: number): ListInstanceTopicsResponse {
         this['max_partitions'] = maxPartitions;
         return this;
     }
-    public set maxPartitions(maxPartitions: number | undefined) {
+    public set maxPartitions(maxPartitions: number  | undefined) {
         this['max_partitions'] = maxPartitions;
     }
-    public get maxPartitions() {
+    public get maxPartitions(): number | undefined {
         return this['max_partitions'];
     }
     public withTopics(topics: Array<TopicEntity>): ListInstanceTopicsResponse {

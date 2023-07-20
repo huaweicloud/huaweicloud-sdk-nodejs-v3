@@ -1,12 +1,12 @@
 
 
 export class CompareTaskList {
-    private 'compare_task_id': string | undefined;
-    private 'compare_type': string | undefined;
-    private 'compare_task_status': CompareTaskListCompareTaskStatusEnum | undefined;
-    private 'create_time': string | undefined;
-    private 'end_time'?: string | undefined;
-    public constructor(compareTaskId?: any, compareType?: any, compareTaskStatus?: any, createTime?: any) { 
+    private 'compare_task_id'?: string;
+    private 'compare_type'?: string;
+    private 'compare_task_status'?: CompareTaskListCompareTaskStatusEnum | string;
+    private 'create_time'?: string;
+    private 'end_time'?: string;
+    public constructor(compareTaskId?: string, compareType?: string, compareTaskStatus?: string, createTime?: string) { 
         this['compare_task_id'] = compareTaskId;
         this['compare_type'] = compareType;
         this['compare_task_status'] = compareTaskStatus;
@@ -16,50 +16,50 @@ export class CompareTaskList {
         this['compare_task_id'] = compareTaskId;
         return this;
     }
-    public set compareTaskId(compareTaskId: string | undefined) {
+    public set compareTaskId(compareTaskId: string  | undefined) {
         this['compare_task_id'] = compareTaskId;
     }
-    public get compareTaskId() {
+    public get compareTaskId(): string | undefined {
         return this['compare_task_id'];
     }
     public withCompareType(compareType: string): CompareTaskList {
         this['compare_type'] = compareType;
         return this;
     }
-    public set compareType(compareType: string | undefined) {
+    public set compareType(compareType: string  | undefined) {
         this['compare_type'] = compareType;
     }
-    public get compareType() {
+    public get compareType(): string | undefined {
         return this['compare_type'];
     }
-    public withCompareTaskStatus(compareTaskStatus: CompareTaskListCompareTaskStatusEnum): CompareTaskList {
+    public withCompareTaskStatus(compareTaskStatus: CompareTaskListCompareTaskStatusEnum | string): CompareTaskList {
         this['compare_task_status'] = compareTaskStatus;
         return this;
     }
-    public set compareTaskStatus(compareTaskStatus: CompareTaskListCompareTaskStatusEnum | undefined) {
+    public set compareTaskStatus(compareTaskStatus: CompareTaskListCompareTaskStatusEnum | string  | undefined) {
         this['compare_task_status'] = compareTaskStatus;
     }
-    public get compareTaskStatus() {
+    public get compareTaskStatus(): CompareTaskListCompareTaskStatusEnum | string | undefined {
         return this['compare_task_status'];
     }
     public withCreateTime(createTime: string): CompareTaskList {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withEndTime(endTime: string): CompareTaskList {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
 }

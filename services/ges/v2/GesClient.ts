@@ -475,7 +475,7 @@ export class GesClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listQuotas2(): Promise<ListQuotas2Response> {
+    public listQuotas2(listQuotas2Request?: ListQuotas2Request): Promise<ListQuotas2Response> {
         const options = ParamCreater().listQuotas2();
 
          // @ts-ignore

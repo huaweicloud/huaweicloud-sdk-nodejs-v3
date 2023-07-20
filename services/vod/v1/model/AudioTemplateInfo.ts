@@ -1,10 +1,10 @@
 
 
 export class AudioTemplateInfo {
-    private 'sample_rate': number | undefined;
+    private 'sample_rate'?: number;
     public bitrate?: number;
-    public channels: number;
-    public constructor(sampleRate?: any, channels?: any) { 
+    public channels?: number;
+    public constructor(sampleRate?: number, channels?: number) { 
         this['sample_rate'] = sampleRate;
         this['channels'] = channels;
     }
@@ -12,10 +12,10 @@ export class AudioTemplateInfo {
         this['sample_rate'] = sampleRate;
         return this;
     }
-    public set sampleRate(sampleRate: number | undefined) {
+    public set sampleRate(sampleRate: number  | undefined) {
         this['sample_rate'] = sampleRate;
     }
-    public get sampleRate() {
+    public get sampleRate(): number | undefined {
         return this['sample_rate'];
     }
     public withBitrate(bitrate: number): AudioTemplateInfo {

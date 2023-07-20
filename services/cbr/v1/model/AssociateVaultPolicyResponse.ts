@@ -3,7 +3,7 @@ import { VaultPolicyResp } from './VaultPolicyResp';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class AssociateVaultPolicyResponse extends SdkResponse {
-    private 'associate_policy'?: VaultPolicyResp | undefined;
+    private 'associate_policy'?: VaultPolicyResp;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class AssociateVaultPolicyResponse extends SdkResponse {
         this['associate_policy'] = associatePolicy;
         return this;
     }
-    public set associatePolicy(associatePolicy: VaultPolicyResp | undefined) {
+    public set associatePolicy(associatePolicy: VaultPolicyResp  | undefined) {
         this['associate_policy'] = associatePolicy;
     }
-    public get associatePolicy() {
+    public get associatePolicy(): VaultPolicyResp | undefined {
         return this['associate_policy'];
     }
 }

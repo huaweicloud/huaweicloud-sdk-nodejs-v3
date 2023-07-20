@@ -2,15 +2,15 @@ import { NeutronPageLink } from './NeutronPageLink';
 
 
 export class VersionResult {
-    public status: VersionResultStatusEnum;
-    public id: string;
-    public links: Array<NeutronPageLink>;
-    public constructor(status?: any, id?: any, links?: any) { 
+    public status?: VersionResultStatusEnum | string;
+    public id?: string;
+    public links?: Array<NeutronPageLink>;
+    public constructor(status?: string, id?: string, links?: Array<NeutronPageLink>) { 
         this['status'] = status;
         this['id'] = id;
         this['links'] = links;
     }
-    public withStatus(status: VersionResultStatusEnum): VersionResult {
+    public withStatus(status: VersionResultStatusEnum | string): VersionResult {
         this['status'] = status;
         return this;
     }

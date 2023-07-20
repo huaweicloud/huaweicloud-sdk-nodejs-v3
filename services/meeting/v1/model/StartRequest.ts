@@ -1,9 +1,9 @@
 
 
 export class StartRequest {
-    public conferenceID: string;
-    public password: string;
-    public constructor(conferenceID?: any, password?: any) { 
+    public conferenceID?: string;
+    public password?: string;
+    public constructor(conferenceID?: string, password?: string) { 
         this['conferenceID'] = conferenceID;
         this['password'] = password;
     }

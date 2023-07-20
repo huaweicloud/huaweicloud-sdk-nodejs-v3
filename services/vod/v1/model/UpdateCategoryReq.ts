@@ -1,9 +1,9 @@
 
 
 export class UpdateCategoryReq {
-    public name: string;
-    public id: number;
-    public constructor(name?: any, id?: any) { 
+    public name?: string;
+    public id?: number;
+    public constructor(name?: string, id?: number) { 
         this['name'] = name;
         this['id'] = id;
     }

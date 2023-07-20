@@ -3,7 +3,7 @@ import { ReleaseRepository } from './ReleaseRepository';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowApplicationReleaseRepositoriesResponse extends SdkResponse {
-    private 'release_repositories'?: Array<ReleaseRepository> | undefined;
+    private 'release_repositories'?: Array<ReleaseRepository>;
     public count?: number;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class ShowApplicationReleaseRepositoriesResponse extends SdkResponse {
         this['release_repositories'] = releaseRepositories;
         return this;
     }
-    public set releaseRepositories(releaseRepositories: Array<ReleaseRepository> | undefined) {
+    public set releaseRepositories(releaseRepositories: Array<ReleaseRepository>  | undefined) {
         this['release_repositories'] = releaseRepositories;
     }
-    public get releaseRepositories() {
+    public get releaseRepositories(): Array<ReleaseRepository> | undefined {
         return this['release_repositories'];
     }
     public withCount(count: number): ShowApplicationReleaseRepositoriesResponse {

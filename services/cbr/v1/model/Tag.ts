@@ -1,9 +1,9 @@
 
 
 export class Tag {
-    public key: string;
+    public key?: string;
     public value?: string;
-    public constructor(key?: any) { 
+    public constructor(key?: string) { 
         this['key'] = key;
     }
     public withKey(key: string): Tag {

@@ -8,16 +8,16 @@ export class CreatePrivateZoneResponse extends SdkResponse {
     public name?: string;
     public description?: string;
     public email?: string;
-    private 'zone_type'?: string | undefined;
+    private 'zone_type'?: string;
     public ttl?: number;
     public serial?: number;
     public status?: string;
-    private 'record_num'?: number | undefined;
-    private 'proxy_pattern'?: string | undefined;
-    private 'pool_id'?: string | undefined;
-    private 'project_id'?: string | undefined;
-    private 'created_at'?: string | undefined;
-    private 'updated_at'?: string | undefined;
+    private 'record_num'?: number;
+    private 'proxy_pattern'?: string;
+    private 'pool_id'?: string;
+    private 'project_id'?: string;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
     public links?: PageLink;
     public masters?: Array<string>;
     public router?: RouterWithStatus;
@@ -44,10 +44,10 @@ export class CreatePrivateZoneResponse extends SdkResponse {
         this['zone_type'] = zoneType;
         return this;
     }
-    public set zoneType(zoneType: string | undefined) {
+    public set zoneType(zoneType: string  | undefined) {
         this['zone_type'] = zoneType;
     }
-    public get zoneType() {
+    public get zoneType(): string | undefined {
         return this['zone_type'];
     }
     public withTtl(ttl: number): CreatePrivateZoneResponse {
@@ -66,60 +66,60 @@ export class CreatePrivateZoneResponse extends SdkResponse {
         this['record_num'] = recordNum;
         return this;
     }
-    public set recordNum(recordNum: number | undefined) {
+    public set recordNum(recordNum: number  | undefined) {
         this['record_num'] = recordNum;
     }
-    public get recordNum() {
+    public get recordNum(): number | undefined {
         return this['record_num'];
     }
     public withProxyPattern(proxyPattern: string): CreatePrivateZoneResponse {
         this['proxy_pattern'] = proxyPattern;
         return this;
     }
-    public set proxyPattern(proxyPattern: string | undefined) {
+    public set proxyPattern(proxyPattern: string  | undefined) {
         this['proxy_pattern'] = proxyPattern;
     }
-    public get proxyPattern() {
+    public get proxyPattern(): string | undefined {
         return this['proxy_pattern'];
     }
     public withPoolId(poolId: string): CreatePrivateZoneResponse {
         this['pool_id'] = poolId;
         return this;
     }
-    public set poolId(poolId: string | undefined) {
+    public set poolId(poolId: string  | undefined) {
         this['pool_id'] = poolId;
     }
-    public get poolId() {
+    public get poolId(): string | undefined {
         return this['pool_id'];
     }
     public withProjectId(projectId: string): CreatePrivateZoneResponse {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withCreatedAt(createdAt: string): CreatePrivateZoneResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): CreatePrivateZoneResponse {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withLinks(links: PageLink): CreatePrivateZoneResponse {

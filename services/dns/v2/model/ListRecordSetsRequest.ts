@@ -1,9 +1,9 @@
 
 
 export class ListRecordSetsRequest {
-    private 'zone_type'?: string | undefined;
+    private 'zone_type'?: string;
     public marker?: string;
-    private 'search_mode'?: string | undefined;
+    private 'search_mode'?: string;
     public limit?: number;
     public offset?: number;
     public tags?: string;
@@ -12,18 +12,18 @@ export class ListRecordSetsRequest {
     public name?: string;
     public id?: string;
     public records?: string;
-    private 'sort_key'?: string | undefined;
-    private 'sort_dir'?: string | undefined;
+    private 'sort_key'?: string;
+    private 'sort_dir'?: string;
     public constructor() { 
     }
     public withZoneType(zoneType: string): ListRecordSetsRequest {
         this['zone_type'] = zoneType;
         return this;
     }
-    public set zoneType(zoneType: string | undefined) {
+    public set zoneType(zoneType: string  | undefined) {
         this['zone_type'] = zoneType;
     }
-    public get zoneType() {
+    public get zoneType(): string | undefined {
         return this['zone_type'];
     }
     public withMarker(marker: string): ListRecordSetsRequest {
@@ -34,10 +34,10 @@ export class ListRecordSetsRequest {
         this['search_mode'] = searchMode;
         return this;
     }
-    public set searchMode(searchMode: string | undefined) {
+    public set searchMode(searchMode: string  | undefined) {
         this['search_mode'] = searchMode;
     }
-    public get searchMode() {
+    public get searchMode(): string | undefined {
         return this['search_mode'];
     }
     public withLimit(limit: number): ListRecordSetsRequest {
@@ -76,20 +76,20 @@ export class ListRecordSetsRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: string | undefined) {
+    public set sortKey(sortKey: string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): string | undefined {
         return this['sort_key'];
     }
     public withSortDir(sortDir: string): ListRecordSetsRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: string | undefined) {
+    public set sortDir(sortDir: string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): string | undefined {
         return this['sort_dir'];
     }
 }

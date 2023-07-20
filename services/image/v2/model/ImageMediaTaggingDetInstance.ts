@@ -2,7 +2,7 @@ import { BoundingBox } from './BoundingBox';
 
 
 export class ImageMediaTaggingDetInstance {
-    private 'bounding_box'?: BoundingBox | undefined;
+    private 'bounding_box'?: BoundingBox;
     public confidence?: string;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class ImageMediaTaggingDetInstance {
         this['bounding_box'] = boundingBox;
         return this;
     }
-    public set boundingBox(boundingBox: BoundingBox | undefined) {
+    public set boundingBox(boundingBox: BoundingBox  | undefined) {
         this['bounding_box'] = boundingBox;
     }
-    public get boundingBox() {
+    public get boundingBox(): BoundingBox | undefined {
         return this['bounding_box'];
     }
     public withConfidence(confidence: string): ImageMediaTaggingDetInstance {

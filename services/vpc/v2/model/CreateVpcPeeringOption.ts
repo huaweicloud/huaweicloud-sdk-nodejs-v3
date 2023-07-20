@@ -2,11 +2,11 @@ import { VpcInfo } from './VpcInfo';
 
 
 export class CreateVpcPeeringOption {
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'request_vpc_info': VpcInfo | undefined;
-    private 'accept_vpc_info': VpcInfo | undefined;
-    public constructor(name?: any, requestVpcInfo?: any, acceptVpcInfo?: any) { 
+    private 'request_vpc_info'?: VpcInfo;
+    private 'accept_vpc_info'?: VpcInfo;
+    public constructor(name?: string, requestVpcInfo?: VpcInfo, acceptVpcInfo?: VpcInfo) { 
         this['name'] = name;
         this['request_vpc_info'] = requestVpcInfo;
         this['accept_vpc_info'] = acceptVpcInfo;
@@ -23,20 +23,20 @@ export class CreateVpcPeeringOption {
         this['request_vpc_info'] = requestVpcInfo;
         return this;
     }
-    public set requestVpcInfo(requestVpcInfo: VpcInfo | undefined) {
+    public set requestVpcInfo(requestVpcInfo: VpcInfo  | undefined) {
         this['request_vpc_info'] = requestVpcInfo;
     }
-    public get requestVpcInfo() {
+    public get requestVpcInfo(): VpcInfo | undefined {
         return this['request_vpc_info'];
     }
     public withAcceptVpcInfo(acceptVpcInfo: VpcInfo): CreateVpcPeeringOption {
         this['accept_vpc_info'] = acceptVpcInfo;
         return this;
     }
-    public set acceptVpcInfo(acceptVpcInfo: VpcInfo | undefined) {
+    public set acceptVpcInfo(acceptVpcInfo: VpcInfo  | undefined) {
         this['accept_vpc_info'] = acceptVpcInfo;
     }
-    public get acceptVpcInfo() {
+    public get acceptVpcInfo(): VpcInfo | undefined {
         return this['accept_vpc_info'];
     }
 }

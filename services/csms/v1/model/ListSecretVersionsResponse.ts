@@ -4,8 +4,8 @@ import { VersionMetadata } from './VersionMetadata';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSecretVersionsResponse extends SdkResponse {
-    private 'version_metadatas'?: Array<VersionMetadata> | undefined;
-    private 'page_info'?: PageInfo | undefined;
+    private 'version_metadatas'?: Array<VersionMetadata>;
+    private 'page_info'?: PageInfo;
     public constructor() { 
         super();
     }
@@ -13,20 +13,20 @@ export class ListSecretVersionsResponse extends SdkResponse {
         this['version_metadatas'] = versionMetadatas;
         return this;
     }
-    public set versionMetadatas(versionMetadatas: Array<VersionMetadata> | undefined) {
+    public set versionMetadatas(versionMetadatas: Array<VersionMetadata>  | undefined) {
         this['version_metadatas'] = versionMetadatas;
     }
-    public get versionMetadatas() {
+    public get versionMetadatas(): Array<VersionMetadata> | undefined {
         return this['version_metadatas'];
     }
     public withPageInfo(pageInfo: PageInfo): ListSecretVersionsResponse {
         this['page_info'] = pageInfo;
         return this;
     }
-    public set pageInfo(pageInfo: PageInfo | undefined) {
+    public set pageInfo(pageInfo: PageInfo  | undefined) {
         this['page_info'] = pageInfo;
     }
-    public get pageInfo() {
+    public get pageInfo(): PageInfo | undefined {
         return this['page_info'];
     }
 }

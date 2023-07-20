@@ -6,7 +6,7 @@ export class FinancialStatementWordsBlockList {
     public confidence?: number;
     public rows?: Array<number>;
     public columns?: Array<number>;
-    private 'cell_location'?: Array<Array<number>> | undefined;
+    private 'cell_location'?: Array<Array<number>>;
     public constructor() { 
     }
     public withWords(words: string): FinancialStatementWordsBlockList {
@@ -33,10 +33,10 @@ export class FinancialStatementWordsBlockList {
         this['cell_location'] = cellLocation;
         return this;
     }
-    public set cellLocation(cellLocation: Array<Array<number>> | undefined) {
+    public set cellLocation(cellLocation: Array<Array<number>>  | undefined) {
         this['cell_location'] = cellLocation;
     }
-    public get cellLocation() {
+    public get cellLocation(): Array<Array<number>> | undefined {
         return this['cell_location'];
     }
 }

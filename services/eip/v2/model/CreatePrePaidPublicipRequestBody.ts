@@ -4,11 +4,11 @@ import { CreatePublicipBandwidthOption } from './CreatePublicipBandwidthOption';
 
 
 export class CreatePrePaidPublicipRequestBody {
-    public publicip: CreatePrePaidPublicipOption;
-    public bandwidth: CreatePublicipBandwidthOption;
+    public publicip?: CreatePrePaidPublicipOption;
+    public bandwidth?: CreatePublicipBandwidthOption;
     public extendParam?: CreatePrePaidPublicipExtendParamOption;
-    private 'enterprise_project_id'?: string | undefined;
-    public constructor(publicip?: any, bandwidth?: any) { 
+    private 'enterprise_project_id'?: string;
+    public constructor(publicip?: CreatePrePaidPublicipOption, bandwidth?: CreatePublicipBandwidthOption) { 
         this['publicip'] = publicip;
         this['bandwidth'] = bandwidth;
     }
@@ -28,10 +28,10 @@ export class CreatePrePaidPublicipRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

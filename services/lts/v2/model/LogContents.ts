@@ -2,7 +2,7 @@
 
 export class LogContents {
     public content?: string;
-    private 'line_num'?: string | undefined;
+    private 'line_num'?: string;
     public labels?: { [key: string]: string; };
     public constructor() { 
     }
@@ -14,10 +14,10 @@ export class LogContents {
         this['line_num'] = lineNum;
         return this;
     }
-    public set lineNum(lineNum: string | undefined) {
+    public set lineNum(lineNum: string  | undefined) {
         this['line_num'] = lineNum;
     }
-    public get lineNum() {
+    public get lineNum(): string | undefined {
         return this['line_num'];
     }
     public withLabels(labels: { [key: string]: string; }): LogContents {

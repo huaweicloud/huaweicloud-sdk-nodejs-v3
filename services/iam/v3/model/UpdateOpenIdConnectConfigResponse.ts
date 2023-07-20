@@ -3,7 +3,7 @@ import { OpenIdConnectConfig } from './OpenIdConnectConfig';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateOpenIdConnectConfigResponse extends SdkResponse {
-    private 'openid_connect_config'?: OpenIdConnectConfig | undefined;
+    private 'openid_connect_config'?: OpenIdConnectConfig;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class UpdateOpenIdConnectConfigResponse extends SdkResponse {
         this['openid_connect_config'] = openidConnectConfig;
         return this;
     }
-    public set openidConnectConfig(openidConnectConfig: OpenIdConnectConfig | undefined) {
+    public set openidConnectConfig(openidConnectConfig: OpenIdConnectConfig  | undefined) {
         this['openid_connect_config'] = openidConnectConfig;
     }
-    public get openidConnectConfig() {
+    public get openidConnectConfig(): OpenIdConnectConfig | undefined {
         return this['openid_connect_config'];
     }
 }

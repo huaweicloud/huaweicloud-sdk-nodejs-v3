@@ -1,11 +1,11 @@
 
 
 export class EncryptDataRequestBody {
-    private 'key_id': string | undefined;
-    private 'plain_text': string | undefined;
-    private 'encryption_algorithm'?: EncryptDataRequestBodyEncryptionAlgorithmEnum | undefined;
+    private 'key_id'?: string;
+    private 'plain_text'?: string;
+    private 'encryption_algorithm'?: EncryptDataRequestBodyEncryptionAlgorithmEnum | string;
     public sequence?: string;
-    public constructor(keyId?: any, plainText?: any) { 
+    public constructor(keyId?: string, plainText?: string) { 
         this['key_id'] = keyId;
         this['plain_text'] = plainText;
     }
@@ -13,30 +13,30 @@ export class EncryptDataRequestBody {
         this['key_id'] = keyId;
         return this;
     }
-    public set keyId(keyId: string | undefined) {
+    public set keyId(keyId: string  | undefined) {
         this['key_id'] = keyId;
     }
-    public get keyId() {
+    public get keyId(): string | undefined {
         return this['key_id'];
     }
     public withPlainText(plainText: string): EncryptDataRequestBody {
         this['plain_text'] = plainText;
         return this;
     }
-    public set plainText(plainText: string | undefined) {
+    public set plainText(plainText: string  | undefined) {
         this['plain_text'] = plainText;
     }
-    public get plainText() {
+    public get plainText(): string | undefined {
         return this['plain_text'];
     }
-    public withEncryptionAlgorithm(encryptionAlgorithm: EncryptDataRequestBodyEncryptionAlgorithmEnum): EncryptDataRequestBody {
+    public withEncryptionAlgorithm(encryptionAlgorithm: EncryptDataRequestBodyEncryptionAlgorithmEnum | string): EncryptDataRequestBody {
         this['encryption_algorithm'] = encryptionAlgorithm;
         return this;
     }
-    public set encryptionAlgorithm(encryptionAlgorithm: EncryptDataRequestBodyEncryptionAlgorithmEnum | undefined) {
+    public set encryptionAlgorithm(encryptionAlgorithm: EncryptDataRequestBodyEncryptionAlgorithmEnum | string  | undefined) {
         this['encryption_algorithm'] = encryptionAlgorithm;
     }
-    public get encryptionAlgorithm() {
+    public get encryptionAlgorithm(): EncryptDataRequestBodyEncryptionAlgorithmEnum | string | undefined {
         return this['encryption_algorithm'];
     }
     public withSequence(sequence: string): EncryptDataRequestBody {

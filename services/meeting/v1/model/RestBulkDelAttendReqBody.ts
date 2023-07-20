@@ -2,8 +2,8 @@ import { DelAttendInfo } from './DelAttendInfo';
 
 
 export class RestBulkDelAttendReqBody {
-    public bulkDelAttendInfo: Array<DelAttendInfo>;
-    public constructor(bulkDelAttendInfo?: any) { 
+    public bulkDelAttendInfo?: Array<DelAttendInfo>;
+    public constructor(bulkDelAttendInfo?: Array<DelAttendInfo>) { 
         this['bulkDelAttendInfo'] = bulkDelAttendInfo;
     }
     public withBulkDelAttendInfo(bulkDelAttendInfo: Array<DelAttendInfo>): RestBulkDelAttendReqBody {

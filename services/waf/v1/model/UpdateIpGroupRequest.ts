@@ -2,11 +2,11 @@ import { UpdateIpGroupRequestBody } from './UpdateIpGroupRequestBody';
 
 
 export class UpdateIpGroupRequest {
-    private 'Content-Type': string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    public id: string;
+    private 'Content-Type'?: string;
+    private 'enterprise_project_id'?: string;
+    public id?: string;
     public body?: UpdateIpGroupRequestBody;
-    public constructor(contentType?: any, id?: any) { 
+    public constructor(contentType?: string, id?: string) { 
         this['Content-Type'] = contentType;
         this['id'] = id;
     }
@@ -14,20 +14,20 @@ export class UpdateIpGroupRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): UpdateIpGroupRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withId(id: string): UpdateIpGroupRequest {

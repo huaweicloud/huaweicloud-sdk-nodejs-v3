@@ -1,19 +1,19 @@
 
 
 export class RouteServerBody {
-    private 'back_protocol'?: RouteServerBodyBackProtocolEnum | undefined;
+    private 'back_protocol'?: RouteServerBodyBackProtocolEnum | string;
     public address?: string;
     public port?: number;
     public constructor() { 
     }
-    public withBackProtocol(backProtocol: RouteServerBodyBackProtocolEnum): RouteServerBody {
+    public withBackProtocol(backProtocol: RouteServerBodyBackProtocolEnum | string): RouteServerBody {
         this['back_protocol'] = backProtocol;
         return this;
     }
-    public set backProtocol(backProtocol: RouteServerBodyBackProtocolEnum | undefined) {
+    public set backProtocol(backProtocol: RouteServerBodyBackProtocolEnum | string  | undefined) {
         this['back_protocol'] = backProtocol;
     }
-    public get backProtocol() {
+    public get backProtocol(): RouteServerBodyBackProtocolEnum | string | undefined {
         return this['back_protocol'];
     }
     public withAddress(address: string): RouteServerBody {

@@ -2,10 +2,10 @@ import { AsyncActionBaseResp } from './AsyncActionBaseResp';
 
 
 export class AsyncActionResp {
-    private 'query_id': string | undefined;
-    public id: string;
-    public name: string;
-    public constructor(queryId?: any, id?: any, name?: any) { 
+    private 'query_id'?: string;
+    public id?: string;
+    public name?: string;
+    public constructor(queryId?: string, id?: string, name?: string) { 
         this['query_id'] = queryId;
         this['id'] = id;
         this['name'] = name;
@@ -14,10 +14,10 @@ export class AsyncActionResp {
         this['query_id'] = queryId;
         return this;
     }
-    public set queryId(queryId: string | undefined) {
+    public set queryId(queryId: string  | undefined) {
         this['query_id'] = queryId;
     }
-    public get queryId() {
+    public get queryId(): string | undefined {
         return this['query_id'];
     }
     public withId(id: string): AsyncActionResp {

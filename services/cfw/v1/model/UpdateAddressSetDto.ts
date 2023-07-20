@@ -3,7 +3,7 @@
 export class UpdateAddressSetDto {
     public name?: string;
     public description?: string;
-    private 'address_type'?: UpdateAddressSetDtoAddressTypeEnum | undefined;
+    private 'address_type'?: UpdateAddressSetDtoAddressTypeEnum | number;
     public constructor() { 
     }
     public withName(name: string): UpdateAddressSetDto {
@@ -14,14 +14,14 @@ export class UpdateAddressSetDto {
         this['description'] = description;
         return this;
     }
-    public withAddressType(addressType: UpdateAddressSetDtoAddressTypeEnum): UpdateAddressSetDto {
+    public withAddressType(addressType: UpdateAddressSetDtoAddressTypeEnum | number): UpdateAddressSetDto {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: UpdateAddressSetDtoAddressTypeEnum | undefined) {
+    public set addressType(addressType: UpdateAddressSetDtoAddressTypeEnum | number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType() {
+    public get addressType(): UpdateAddressSetDtoAddressTypeEnum | number | undefined {
         return this['address_type'];
     }
 }

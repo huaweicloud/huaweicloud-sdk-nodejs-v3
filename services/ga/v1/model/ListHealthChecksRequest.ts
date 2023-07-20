@@ -3,10 +3,10 @@
 export class ListHealthChecksRequest {
     public limit?: number;
     public marker?: string;
-    private 'page_reverse'?: boolean | undefined;
+    private 'page_reverse'?: boolean;
     public id?: string;
-    public status?: ListHealthChecksRequestStatusEnum;
-    private 'endpoint_group_id'?: string | undefined;
+    public status?: ListHealthChecksRequestStatusEnum | string;
+    private 'endpoint_group_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListHealthChecksRequest {
@@ -21,17 +21,17 @@ export class ListHealthChecksRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withId(id: string): ListHealthChecksRequest {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: ListHealthChecksRequestStatusEnum): ListHealthChecksRequest {
+    public withStatus(status: ListHealthChecksRequestStatusEnum | string): ListHealthChecksRequest {
         this['status'] = status;
         return this;
     }
@@ -39,10 +39,10 @@ export class ListHealthChecksRequest {
         this['endpoint_group_id'] = endpointGroupId;
         return this;
     }
-    public set endpointGroupId(endpointGroupId: string | undefined) {
+    public set endpointGroupId(endpointGroupId: string  | undefined) {
         this['endpoint_group_id'] = endpointGroupId;
     }
-    public get endpointGroupId() {
+    public get endpointGroupId(): string | undefined {
         return this['endpoint_group_id'];
     }
 }

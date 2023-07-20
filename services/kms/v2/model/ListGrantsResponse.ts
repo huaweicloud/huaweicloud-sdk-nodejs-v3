@@ -4,8 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListGrantsResponse extends SdkResponse {
     public grants?: Array<Grants>;
-    private 'next_marker'?: string | undefined;
-    public truncated?: ListGrantsResponseTruncatedEnum;
+    private 'next_marker'?: string;
+    public truncated?: ListGrantsResponseTruncatedEnum | string;
     public total?: number;
     public constructor() { 
         super();
@@ -18,13 +18,13 @@ export class ListGrantsResponse extends SdkResponse {
         this['next_marker'] = nextMarker;
         return this;
     }
-    public set nextMarker(nextMarker: string | undefined) {
+    public set nextMarker(nextMarker: string  | undefined) {
         this['next_marker'] = nextMarker;
     }
-    public get nextMarker() {
+    public get nextMarker(): string | undefined {
         return this['next_marker'];
     }
-    public withTruncated(truncated: ListGrantsResponseTruncatedEnum): ListGrantsResponse {
+    public withTruncated(truncated: ListGrantsResponseTruncatedEnum | string): ListGrantsResponse {
         this['truncated'] = truncated;
         return this;
     }

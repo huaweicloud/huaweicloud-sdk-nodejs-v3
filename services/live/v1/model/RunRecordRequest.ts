@@ -2,12 +2,12 @@ import { RecordControlInfo } from './RecordControlInfo';
 
 
 export class RunRecordRequest {
-    public action: RunRecordRequestActionEnum;
+    public action?: RunRecordRequestActionEnum | string;
     public body?: RecordControlInfo;
-    public constructor(action?: any) { 
+    public constructor(action?: string) { 
         this['action'] = action;
     }
-    public withAction(action: RunRecordRequestActionEnum): RunRecordRequest {
+    public withAction(action: RunRecordRequestActionEnum | string): RunRecordRequest {
         this['action'] = action;
         return this;
     }

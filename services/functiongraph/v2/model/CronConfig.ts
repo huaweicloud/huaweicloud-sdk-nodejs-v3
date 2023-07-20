@@ -4,8 +4,8 @@ export class CronConfig {
     public name?: string;
     public cron?: string;
     public count?: number;
-    private 'start_time'?: number | undefined;
-    private 'expired_time'?: number | undefined;
+    private 'start_time'?: number;
+    private 'expired_time'?: number;
     public constructor() { 
     }
     public withName(name: string): CronConfig {
@@ -24,20 +24,20 @@ export class CronConfig {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withExpiredTime(expiredTime: number): CronConfig {
         this['expired_time'] = expiredTime;
         return this;
     }
-    public set expiredTime(expiredTime: number | undefined) {
+    public set expiredTime(expiredTime: number  | undefined) {
         this['expired_time'] = expiredTime;
     }
-    public get expiredTime() {
+    public get expiredTime(): number | undefined {
         return this['expired_time'];
     }
 }

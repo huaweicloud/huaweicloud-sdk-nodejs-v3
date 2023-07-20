@@ -3,8 +3,8 @@ import { PublicipPoolShowResp } from './PublicipPoolShowResp';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowPublicipPoolResponse extends SdkResponse {
-    private 'publicip_pool'?: PublicipPoolShowResp | undefined;
-    private 'request_id'?: string | undefined;
+    private 'publicip_pool'?: PublicipPoolShowResp;
+    private 'request_id'?: string;
     public constructor() { 
         super();
     }
@@ -12,20 +12,20 @@ export class ShowPublicipPoolResponse extends SdkResponse {
         this['publicip_pool'] = publicipPool;
         return this;
     }
-    public set publicipPool(publicipPool: PublicipPoolShowResp | undefined) {
+    public set publicipPool(publicipPool: PublicipPoolShowResp  | undefined) {
         this['publicip_pool'] = publicipPool;
     }
-    public get publicipPool() {
+    public get publicipPool(): PublicipPoolShowResp | undefined {
         return this['publicip_pool'];
     }
     public withRequestId(requestId: string): ShowPublicipPoolResponse {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
 }

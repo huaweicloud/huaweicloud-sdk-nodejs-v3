@@ -2,9 +2,9 @@ import { PartitionReassignEntity } from './PartitionReassignEntity';
 
 
 export class PartitionReassignRequest {
-    public reassignments: Array<PartitionReassignEntity>;
+    public reassignments?: Array<PartitionReassignEntity>;
     public throttle?: number;
-    public constructor(reassignments?: any) { 
+    public constructor(reassignments?: Array<PartitionReassignEntity>) { 
         this['reassignments'] = reassignments;
     }
     public withReassignments(reassignments: Array<PartitionReassignEntity>): PartitionReassignRequest {

@@ -12,8 +12,8 @@ export class BusinessCardResult {
     public fax?: Array<string>;
     public postcode?: Array<string>;
     public website?: Array<string>;
-    private 'extra_info_list'?: Array<ExtraInfoList> | undefined;
-    private 'adjusted_image'?: string | undefined;
+    private 'extra_info_list'?: Array<ExtraInfoList>;
+    private 'adjusted_image'?: string;
     public constructor() { 
     }
     public withName(name: Array<string>): BusinessCardResult {
@@ -60,20 +60,20 @@ export class BusinessCardResult {
         this['extra_info_list'] = extraInfoList;
         return this;
     }
-    public set extraInfoList(extraInfoList: Array<ExtraInfoList> | undefined) {
+    public set extraInfoList(extraInfoList: Array<ExtraInfoList>  | undefined) {
         this['extra_info_list'] = extraInfoList;
     }
-    public get extraInfoList() {
+    public get extraInfoList(): Array<ExtraInfoList> | undefined {
         return this['extra_info_list'];
     }
     public withAdjustedImage(adjustedImage: string): BusinessCardResult {
         this['adjusted_image'] = adjustedImage;
         return this;
     }
-    public set adjustedImage(adjustedImage: string | undefined) {
+    public set adjustedImage(adjustedImage: string  | undefined) {
         this['adjusted_image'] = adjustedImage;
     }
-    public get adjustedImage() {
+    public get adjustedImage(): string | undefined {
         return this['adjusted_image'];
     }
 }

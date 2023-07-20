@@ -1,10 +1,10 @@
 
 
 export class PreviewTemplateBody {
-    public templates: string;
-    public language: PreviewTemplateBodyLanguageEnum;
-    public source: string;
-    public constructor(templates?: any, language?: any, source?: any) { 
+    public templates?: string;
+    public language?: PreviewTemplateBodyLanguageEnum | string;
+    public source?: string;
+    public constructor(templates?: string, language?: string, source?: string) { 
         this['templates'] = templates;
         this['language'] = language;
         this['source'] = source;
@@ -13,7 +13,7 @@ export class PreviewTemplateBody {
         this['templates'] = templates;
         return this;
     }
-    public withLanguage(language: PreviewTemplateBodyLanguageEnum): PreviewTemplateBody {
+    public withLanguage(language: PreviewTemplateBodyLanguageEnum | string): PreviewTemplateBody {
         this['language'] = language;
         return this;
     }

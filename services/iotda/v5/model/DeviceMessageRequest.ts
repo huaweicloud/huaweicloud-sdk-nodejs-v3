@@ -2,26 +2,26 @@ import { PropertiesDTO } from './PropertiesDTO';
 
 
 export class DeviceMessageRequest {
-    private 'message_id'?: string | undefined;
+    private 'message_id'?: string;
     public name?: string;
-    public message: object;
+    public message?: object;
     public properties?: PropertiesDTO;
     public encoding?: string;
-    private 'payload_format'?: string | undefined;
+    private 'payload_format'?: string;
     public topic?: string;
-    private 'topic_full_name'?: string | undefined;
+    private 'topic_full_name'?: string;
     public ttl?: number;
-    public constructor(message?: any) { 
+    public constructor(message?: object) { 
         this['message'] = message;
     }
     public withMessageId(messageId: string): DeviceMessageRequest {
         this['message_id'] = messageId;
         return this;
     }
-    public set messageId(messageId: string | undefined) {
+    public set messageId(messageId: string  | undefined) {
         this['message_id'] = messageId;
     }
-    public get messageId() {
+    public get messageId(): string | undefined {
         return this['message_id'];
     }
     public withName(name: string): DeviceMessageRequest {
@@ -44,10 +44,10 @@ export class DeviceMessageRequest {
         this['payload_format'] = payloadFormat;
         return this;
     }
-    public set payloadFormat(payloadFormat: string | undefined) {
+    public set payloadFormat(payloadFormat: string  | undefined) {
         this['payload_format'] = payloadFormat;
     }
-    public get payloadFormat() {
+    public get payloadFormat(): string | undefined {
         return this['payload_format'];
     }
     public withTopic(topic: string): DeviceMessageRequest {
@@ -58,10 +58,10 @@ export class DeviceMessageRequest {
         this['topic_full_name'] = topicFullName;
         return this;
     }
-    public set topicFullName(topicFullName: string | undefined) {
+    public set topicFullName(topicFullName: string  | undefined) {
         this['topic_full_name'] = topicFullName;
     }
-    public get topicFullName() {
+    public get topicFullName(): string | undefined {
         return this['topic_full_name'];
     }
     public withTtl(ttl: number): DeviceMessageRequest {

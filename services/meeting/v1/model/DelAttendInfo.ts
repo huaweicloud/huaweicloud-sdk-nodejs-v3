@@ -1,19 +1,19 @@
 
 
 export class DelAttendInfo {
-    private 'number': string | undefined;
+    private 'number'?: string;
     public participantID?: string;
-    public constructor(modelNumber?: any) { 
+    public constructor(modelNumber?: string) { 
         this['number'] = modelNumber;
     }
     public withModelNumber(modelNumber: string): DelAttendInfo {
         this['number'] = modelNumber;
         return this;
     }
-    public set modelNumber(modelNumber: string | undefined) {
+    public set modelNumber(modelNumber: string  | undefined) {
         this['number'] = modelNumber;
     }
-    public get modelNumber() {
+    public get modelNumber(): string | undefined {
         return this['number'];
     }
     public withParticipantID(participantID: string): DelAttendInfo {

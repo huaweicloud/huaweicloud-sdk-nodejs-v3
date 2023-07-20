@@ -1,10 +1,10 @@
 
 
 export class UserAgentFilter {
-    public type: string;
+    public type?: string;
     public value?: string;
-    private 'ua_list'?: Array<string> | undefined;
-    public constructor(type?: any) { 
+    private 'ua_list'?: Array<string>;
+    public constructor(type?: string) { 
         this['type'] = type;
     }
     public withType(type: string): UserAgentFilter {
@@ -19,10 +19,10 @@ export class UserAgentFilter {
         this['ua_list'] = uaList;
         return this;
     }
-    public set uaList(uaList: Array<string> | undefined) {
+    public set uaList(uaList: Array<string>  | undefined) {
         this['ua_list'] = uaList;
     }
-    public get uaList() {
+    public get uaList(): Array<string> | undefined {
         return this['ua_list'];
     }
 }

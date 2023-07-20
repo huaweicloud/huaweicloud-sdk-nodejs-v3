@@ -1,9 +1,9 @@
 
 
 export class UpdateWebHookConfigStatusRequest {
-    public id: string;
-    public status: number;
-    public constructor(id?: any, status?: any) { 
+    public id?: string;
+    public status?: number;
+    public constructor(id?: string, status?: number) { 
         this['id'] = id;
         this['status'] = status;
     }

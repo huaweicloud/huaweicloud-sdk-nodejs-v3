@@ -2,14 +2,14 @@
 
 export class DeptDTO {
     public deptCode?: string;
-    public deptName: string;
+    public deptName?: string;
     public parentDeptCode?: string;
     public note?: string;
-    public inPermission?: DeptDTOInPermissionEnum;
-    public outPermission?: DeptDTOOutPermissionEnum;
+    public inPermission?: DeptDTOInPermissionEnum | string;
+    public outPermission?: DeptDTOOutPermissionEnum | string;
     public designatedOutDeptCodes?: Array<string>;
     public sortLevel?: number;
-    public constructor(deptName?: any) { 
+    public constructor(deptName?: string) { 
         this['deptName'] = deptName;
     }
     public withDeptCode(deptCode: string): DeptDTO {
@@ -28,11 +28,11 @@ export class DeptDTO {
         this['note'] = note;
         return this;
     }
-    public withInPermission(inPermission: DeptDTOInPermissionEnum): DeptDTO {
+    public withInPermission(inPermission: DeptDTOInPermissionEnum | string): DeptDTO {
         this['inPermission'] = inPermission;
         return this;
     }
-    public withOutPermission(outPermission: DeptDTOOutPermissionEnum): DeptDTO {
+    public withOutPermission(outPermission: DeptDTOOutPermissionEnum | string): DeptDTO {
         this['outPermission'] = outPermission;
         return this;
     }

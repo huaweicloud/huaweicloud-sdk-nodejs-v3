@@ -1,10 +1,10 @@
 
 
 export class FixtedResponseConfig {
-    private 'status_code': string | undefined;
-    private 'content_type': FixtedResponseConfigContentTypeEnum | undefined;
-    private 'message_body': string | undefined;
-    public constructor(statusCode?: any, contentType?: any, messageBody?: any) { 
+    private 'status_code'?: string;
+    private 'content_type'?: FixtedResponseConfigContentTypeEnum | string;
+    private 'message_body'?: string;
+    public constructor(statusCode?: string, contentType?: string, messageBody?: string) { 
         this['status_code'] = statusCode;
         this['content_type'] = contentType;
         this['message_body'] = messageBody;
@@ -13,30 +13,30 @@ export class FixtedResponseConfig {
         this['status_code'] = statusCode;
         return this;
     }
-    public set statusCode(statusCode: string | undefined) {
+    public set statusCode(statusCode: string  | undefined) {
         this['status_code'] = statusCode;
     }
-    public get statusCode() {
+    public get statusCode(): string | undefined {
         return this['status_code'];
     }
-    public withContentType(contentType: FixtedResponseConfigContentTypeEnum): FixtedResponseConfig {
+    public withContentType(contentType: FixtedResponseConfigContentTypeEnum | string): FixtedResponseConfig {
         this['content_type'] = contentType;
         return this;
     }
-    public set contentType(contentType: FixtedResponseConfigContentTypeEnum | undefined) {
+    public set contentType(contentType: FixtedResponseConfigContentTypeEnum | string  | undefined) {
         this['content_type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): FixtedResponseConfigContentTypeEnum | string | undefined {
         return this['content_type'];
     }
     public withMessageBody(messageBody: string): FixtedResponseConfig {
         this['message_body'] = messageBody;
         return this;
     }
-    public set messageBody(messageBody: string | undefined) {
+    public set messageBody(messageBody: string  | undefined) {
         this['message_body'] = messageBody;
     }
-    public get messageBody() {
+    public get messageBody(): string | undefined {
         return this['message_body'];
     }
 }

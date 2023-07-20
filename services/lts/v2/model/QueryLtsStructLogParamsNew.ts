@@ -2,11 +2,11 @@ import { TimeRange } from './TimeRange';
 
 
 export class QueryLtsStructLogParamsNew {
-    public query: string;
-    public format: string;
-    private 'time_range': TimeRange | undefined;
-    private 'whether_to_rows'?: boolean | undefined;
-    public constructor(query?: any, format?: any, timeRange?: any) { 
+    public query?: string;
+    public format?: string;
+    private 'time_range'?: TimeRange;
+    private 'whether_to_rows'?: boolean;
+    public constructor(query?: string, format?: string, timeRange?: TimeRange) { 
         this['query'] = query;
         this['format'] = format;
         this['time_range'] = timeRange;
@@ -23,20 +23,20 @@ export class QueryLtsStructLogParamsNew {
         this['time_range'] = timeRange;
         return this;
     }
-    public set timeRange(timeRange: TimeRange | undefined) {
+    public set timeRange(timeRange: TimeRange  | undefined) {
         this['time_range'] = timeRange;
     }
-    public get timeRange() {
+    public get timeRange(): TimeRange | undefined {
         return this['time_range'];
     }
     public withWhetherToRows(whetherToRows: boolean): QueryLtsStructLogParamsNew {
         this['whether_to_rows'] = whetherToRows;
         return this;
     }
-    public set whetherToRows(whetherToRows: boolean | undefined) {
+    public set whetherToRows(whetherToRows: boolean  | undefined) {
         this['whether_to_rows'] = whetherToRows;
     }
-    public get whetherToRows() {
+    public get whetherToRows(): boolean | undefined {
         return this['whether_to_rows'];
     }
 }

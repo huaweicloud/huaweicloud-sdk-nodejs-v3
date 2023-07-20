@@ -2,25 +2,25 @@ import { ResourceList } from './ResourceList';
 
 
 export class LoadbalancerResp {
-    public id: string;
-    private 'tenant_id': string | undefined;
-    public name: string;
-    public description: string;
-    private 'vip_subnet_id': string | undefined;
-    private 'vip_port_id': string | undefined;
-    private 'vip_address': string | undefined;
-    public listeners: Array<ResourceList>;
-    public pools: Array<ResourceList>;
-    public provider: string;
-    private 'operating_status': LoadbalancerRespOperatingStatusEnum | undefined;
-    private 'provisioning_status': LoadbalancerRespProvisioningStatusEnum | undefined;
-    private 'admin_state_up': boolean | undefined;
-    private 'created_at': string | undefined;
-    private 'updated_at': string | undefined;
-    private 'enterprise_project_id': string | undefined;
-    private 'project_id': string | undefined;
-    public tags: Array<string>;
-    public constructor(id?: any, tenantId?: any, name?: any, description?: any, vipSubnetId?: any, vipPortId?: any, vipAddress?: any, listeners?: any, pools?: any, provider?: any, operatingStatus?: any, provisioningStatus?: any, adminStateUp?: any, createdAt?: any, updatedAt?: any, enterpriseProjectId?: any, projectId?: any, tags?: any) { 
+    public id?: string;
+    private 'tenant_id'?: string;
+    public name?: string;
+    public description?: string;
+    private 'vip_subnet_id'?: string;
+    private 'vip_port_id'?: string;
+    private 'vip_address'?: string;
+    public listeners?: Array<ResourceList>;
+    public pools?: Array<ResourceList>;
+    public provider?: string;
+    private 'operating_status'?: LoadbalancerRespOperatingStatusEnum | string;
+    private 'provisioning_status'?: LoadbalancerRespProvisioningStatusEnum | string;
+    private 'admin_state_up'?: boolean;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    private 'enterprise_project_id'?: string;
+    private 'project_id'?: string;
+    public tags?: Array<string>;
+    public constructor(id?: string, tenantId?: string, name?: string, description?: string, vipSubnetId?: string, vipPortId?: string, vipAddress?: string, listeners?: Array<ResourceList>, pools?: Array<ResourceList>, provider?: string, operatingStatus?: string, provisioningStatus?: string, adminStateUp?: boolean, createdAt?: string, updatedAt?: string, enterpriseProjectId?: string, projectId?: string, tags?: Array<string>) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
         this['name'] = name;
@@ -48,10 +48,10 @@ export class LoadbalancerResp {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withName(name: string): LoadbalancerResp {
@@ -66,30 +66,30 @@ export class LoadbalancerResp {
         this['vip_subnet_id'] = vipSubnetId;
         return this;
     }
-    public set vipSubnetId(vipSubnetId: string | undefined) {
+    public set vipSubnetId(vipSubnetId: string  | undefined) {
         this['vip_subnet_id'] = vipSubnetId;
     }
-    public get vipSubnetId() {
+    public get vipSubnetId(): string | undefined {
         return this['vip_subnet_id'];
     }
     public withVipPortId(vipPortId: string): LoadbalancerResp {
         this['vip_port_id'] = vipPortId;
         return this;
     }
-    public set vipPortId(vipPortId: string | undefined) {
+    public set vipPortId(vipPortId: string  | undefined) {
         this['vip_port_id'] = vipPortId;
     }
-    public get vipPortId() {
+    public get vipPortId(): string | undefined {
         return this['vip_port_id'];
     }
     public withVipAddress(vipAddress: string): LoadbalancerResp {
         this['vip_address'] = vipAddress;
         return this;
     }
-    public set vipAddress(vipAddress: string | undefined) {
+    public set vipAddress(vipAddress: string  | undefined) {
         this['vip_address'] = vipAddress;
     }
-    public get vipAddress() {
+    public get vipAddress(): string | undefined {
         return this['vip_address'];
     }
     public withListeners(listeners: Array<ResourceList>): LoadbalancerResp {
@@ -104,74 +104,74 @@ export class LoadbalancerResp {
         this['provider'] = provider;
         return this;
     }
-    public withOperatingStatus(operatingStatus: LoadbalancerRespOperatingStatusEnum): LoadbalancerResp {
+    public withOperatingStatus(operatingStatus: LoadbalancerRespOperatingStatusEnum | string): LoadbalancerResp {
         this['operating_status'] = operatingStatus;
         return this;
     }
-    public set operatingStatus(operatingStatus: LoadbalancerRespOperatingStatusEnum | undefined) {
+    public set operatingStatus(operatingStatus: LoadbalancerRespOperatingStatusEnum | string  | undefined) {
         this['operating_status'] = operatingStatus;
     }
-    public get operatingStatus() {
+    public get operatingStatus(): LoadbalancerRespOperatingStatusEnum | string | undefined {
         return this['operating_status'];
     }
-    public withProvisioningStatus(provisioningStatus: LoadbalancerRespProvisioningStatusEnum): LoadbalancerResp {
+    public withProvisioningStatus(provisioningStatus: LoadbalancerRespProvisioningStatusEnum | string): LoadbalancerResp {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: LoadbalancerRespProvisioningStatusEnum | undefined) {
+    public set provisioningStatus(provisioningStatus: LoadbalancerRespProvisioningStatusEnum | string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): LoadbalancerRespProvisioningStatusEnum | string | undefined {
         return this['provisioning_status'];
     }
     public withAdminStateUp(adminStateUp: boolean): LoadbalancerResp {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withCreatedAt(createdAt: string): LoadbalancerResp {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): LoadbalancerResp {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): LoadbalancerResp {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withProjectId(projectId: string): LoadbalancerResp {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withTags(tags: Array<string>): LoadbalancerResp {

@@ -3,7 +3,7 @@ import { HealthMonitor } from './HealthMonitor';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateHealthMonitorResponse extends SdkResponse {
-    private 'request_id'?: string | undefined;
+    private 'request_id'?: string;
     public healthmonitor?: HealthMonitor;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class CreateHealthMonitorResponse extends SdkResponse {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
     public withHealthmonitor(healthmonitor: HealthMonitor): CreateHealthMonitorResponse {

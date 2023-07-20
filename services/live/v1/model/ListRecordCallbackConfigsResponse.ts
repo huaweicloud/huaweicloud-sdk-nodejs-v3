@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListRecordCallbackConfigsResponse extends SdkResponse {
     public total?: number;
-    private 'callback_config'?: Array<RecordCallbackConfig> | undefined;
+    private 'callback_config'?: Array<RecordCallbackConfig>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListRecordCallbackConfigsResponse extends SdkResponse {
         this['callback_config'] = callbackConfig;
         return this;
     }
-    public set callbackConfig(callbackConfig: Array<RecordCallbackConfig> | undefined) {
+    public set callbackConfig(callbackConfig: Array<RecordCallbackConfig>  | undefined) {
         this['callback_config'] = callbackConfig;
     }
-    public get callbackConfig() {
+    public get callbackConfig(): Array<RecordCallbackConfig> | undefined {
         return this['callback_config'];
     }
 }

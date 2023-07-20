@@ -2,18 +2,18 @@ import { BatchJobActionReq } from './BatchJobActionReq';
 
 
 export class BatchExecuteJobActionsRequest {
-    private 'X-Language'?: BatchExecuteJobActionsRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchExecuteJobActionsRequestXLanguageEnum | string;
     public body?: BatchJobActionReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchExecuteJobActionsRequestXLanguageEnum): BatchExecuteJobActionsRequest {
+    public withXLanguage(xLanguage: BatchExecuteJobActionsRequestXLanguageEnum | string): BatchExecuteJobActionsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchExecuteJobActionsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchExecuteJobActionsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchExecuteJobActionsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchJobActionReq): BatchExecuteJobActionsRequest {

@@ -9,30 +9,30 @@ import { PostPaidServerTag } from './PostPaidServerTag';
 
 
 export class PostPaidServer {
-    private 'auto_terminate_time'?: string | undefined;
+    private 'auto_terminate_time'?: string;
     public adminPass?: string;
-    private 'availability_zone'?: string | undefined;
-    private 'batch_create_in_multi_az'?: boolean | undefined;
+    private 'availability_zone'?: string;
+    private 'batch_create_in_multi_az'?: boolean;
     public count?: number;
-    private 'data_volumes'?: Array<PostPaidServerDataVolume> | undefined;
+    private 'data_volumes'?: Array<PostPaidServerDataVolume>;
     public extendparam?: PostPaidServerExtendParam;
-    public flavorRef: string;
-    public imageRef: string;
+    public flavorRef?: string;
+    public imageRef?: string;
     public isAutoRename?: boolean;
-    private 'key_name'?: string | undefined;
+    private 'key_name'?: string;
     public metadata?: { [key: string]: string; };
-    public name: string;
-    public nics: Array<PostPaidServerNic>;
-    private 'os:scheduler_hints'?: PostPaidServerSchedulerHints | undefined;
+    public name?: string;
+    public nics?: Array<PostPaidServerNic>;
+    private 'os:scheduler_hints'?: PostPaidServerSchedulerHints;
     public publicip?: PostPaidServerPublicip;
-    private 'root_volume': PostPaidServerRootVolume | undefined;
-    private 'security_groups'?: Array<PostPaidServerSecurityGroup> | undefined;
-    private 'server_tags'?: Array<PostPaidServerTag> | undefined;
+    private 'root_volume'?: PostPaidServerRootVolume;
+    private 'security_groups'?: Array<PostPaidServerSecurityGroup>;
+    private 'server_tags'?: Array<PostPaidServerTag>;
     public tags?: Array<string>;
-    private 'user_data'?: string | undefined;
-    public vpcid: string;
+    private 'user_data'?: string;
+    public vpcid?: string;
     public description?: string;
-    public constructor(flavorRef?: any, imageRef?: any, name?: any, nics?: any, rootVolume?: any, vpcid?: any) { 
+    public constructor(flavorRef?: string, imageRef?: string, name?: string, nics?: Array<PostPaidServerNic>, rootVolume?: PostPaidServerRootVolume, vpcid?: string) { 
         this['flavorRef'] = flavorRef;
         this['imageRef'] = imageRef;
         this['name'] = name;
@@ -44,10 +44,10 @@ export class PostPaidServer {
         this['auto_terminate_time'] = autoTerminateTime;
         return this;
     }
-    public set autoTerminateTime(autoTerminateTime: string | undefined) {
+    public set autoTerminateTime(autoTerminateTime: string  | undefined) {
         this['auto_terminate_time'] = autoTerminateTime;
     }
-    public get autoTerminateTime() {
+    public get autoTerminateTime(): string | undefined {
         return this['auto_terminate_time'];
     }
     public withAdminPass(adminPass: string): PostPaidServer {
@@ -58,20 +58,20 @@ export class PostPaidServer {
         this['availability_zone'] = availabilityZone;
         return this;
     }
-    public set availabilityZone(availabilityZone: string | undefined) {
+    public set availabilityZone(availabilityZone: string  | undefined) {
         this['availability_zone'] = availabilityZone;
     }
-    public get availabilityZone() {
+    public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
     public withBatchCreateInMultiAz(batchCreateInMultiAz: boolean): PostPaidServer {
         this['batch_create_in_multi_az'] = batchCreateInMultiAz;
         return this;
     }
-    public set batchCreateInMultiAz(batchCreateInMultiAz: boolean | undefined) {
+    public set batchCreateInMultiAz(batchCreateInMultiAz: boolean  | undefined) {
         this['batch_create_in_multi_az'] = batchCreateInMultiAz;
     }
-    public get batchCreateInMultiAz() {
+    public get batchCreateInMultiAz(): boolean | undefined {
         return this['batch_create_in_multi_az'];
     }
     public withCount(count: number): PostPaidServer {
@@ -82,10 +82,10 @@ export class PostPaidServer {
         this['data_volumes'] = dataVolumes;
         return this;
     }
-    public set dataVolumes(dataVolumes: Array<PostPaidServerDataVolume> | undefined) {
+    public set dataVolumes(dataVolumes: Array<PostPaidServerDataVolume>  | undefined) {
         this['data_volumes'] = dataVolumes;
     }
-    public get dataVolumes() {
+    public get dataVolumes(): Array<PostPaidServerDataVolume> | undefined {
         return this['data_volumes'];
     }
     public withExtendparam(extendparam: PostPaidServerExtendParam): PostPaidServer {
@@ -108,10 +108,10 @@ export class PostPaidServer {
         this['key_name'] = keyName;
         return this;
     }
-    public set keyName(keyName: string | undefined) {
+    public set keyName(keyName: string  | undefined) {
         this['key_name'] = keyName;
     }
-    public get keyName() {
+    public get keyName(): string | undefined {
         return this['key_name'];
     }
     public withMetadata(metadata: { [key: string]: string; }): PostPaidServer {
@@ -130,10 +130,10 @@ export class PostPaidServer {
         this['os:scheduler_hints'] = osSchedulerHints;
         return this;
     }
-    public set osSchedulerHints(osSchedulerHints: PostPaidServerSchedulerHints | undefined) {
+    public set osSchedulerHints(osSchedulerHints: PostPaidServerSchedulerHints  | undefined) {
         this['os:scheduler_hints'] = osSchedulerHints;
     }
-    public get osSchedulerHints() {
+    public get osSchedulerHints(): PostPaidServerSchedulerHints | undefined {
         return this['os:scheduler_hints'];
     }
     public withPublicip(publicip: PostPaidServerPublicip): PostPaidServer {
@@ -144,30 +144,30 @@ export class PostPaidServer {
         this['root_volume'] = rootVolume;
         return this;
     }
-    public set rootVolume(rootVolume: PostPaidServerRootVolume | undefined) {
+    public set rootVolume(rootVolume: PostPaidServerRootVolume  | undefined) {
         this['root_volume'] = rootVolume;
     }
-    public get rootVolume() {
+    public get rootVolume(): PostPaidServerRootVolume | undefined {
         return this['root_volume'];
     }
     public withSecurityGroups(securityGroups: Array<PostPaidServerSecurityGroup>): PostPaidServer {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<PostPaidServerSecurityGroup> | undefined) {
+    public set securityGroups(securityGroups: Array<PostPaidServerSecurityGroup>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups() {
+    public get securityGroups(): Array<PostPaidServerSecurityGroup> | undefined {
         return this['security_groups'];
     }
     public withServerTags(serverTags: Array<PostPaidServerTag>): PostPaidServer {
         this['server_tags'] = serverTags;
         return this;
     }
-    public set serverTags(serverTags: Array<PostPaidServerTag> | undefined) {
+    public set serverTags(serverTags: Array<PostPaidServerTag>  | undefined) {
         this['server_tags'] = serverTags;
     }
-    public get serverTags() {
+    public get serverTags(): Array<PostPaidServerTag> | undefined {
         return this['server_tags'];
     }
     public withTags(tags: Array<string>): PostPaidServer {
@@ -178,10 +178,10 @@ export class PostPaidServer {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withVpcid(vpcid: string): PostPaidServer {

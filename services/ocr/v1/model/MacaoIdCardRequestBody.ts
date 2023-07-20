@@ -4,7 +4,7 @@ export class MacaoIdCardRequestBody {
     public image?: string;
     public url?: string;
     public side?: string;
-    private 'return_portrait_image'?: boolean | undefined;
+    private 'return_portrait_image'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): MacaoIdCardRequestBody {
@@ -23,10 +23,10 @@ export class MacaoIdCardRequestBody {
         this['return_portrait_image'] = returnPortraitImage;
         return this;
     }
-    public set returnPortraitImage(returnPortraitImage: boolean | undefined) {
+    public set returnPortraitImage(returnPortraitImage: boolean  | undefined) {
         this['return_portrait_image'] = returnPortraitImage;
     }
-    public get returnPortraitImage() {
+    public get returnPortraitImage(): boolean | undefined {
         return this['return_portrait_image'];
     }
 }

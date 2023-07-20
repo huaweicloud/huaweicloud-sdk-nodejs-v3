@@ -306,7 +306,7 @@ export class MrsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listAllTags(): Promise<ListAllTagsResponse> {
+    public listAllTags(listAllTagsRequest?: ListAllTagsRequest): Promise<ListAllTagsResponse> {
         const options = ParamCreater().listAllTags();
 
          // @ts-ignore

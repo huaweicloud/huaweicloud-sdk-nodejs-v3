@@ -3,13 +3,13 @@ import { RestResponse } from './RestResponse';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowWebHookConfigResponse extends SdkResponse {
-    public returnCode: number;
+    public returnCode?: number;
     public returnDesc?: string;
     public id?: string;
     public subscriberId?: string;
     public url?: string;
     public status?: number;
-    public constructor(returnCode?: any) { 
+    public constructor(returnCode?: number) { 
         super();
         this['returnCode'] = returnCode;
     }

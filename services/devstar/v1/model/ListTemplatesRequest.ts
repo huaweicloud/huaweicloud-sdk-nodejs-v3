@@ -2,18 +2,18 @@ import { TemplateQuery } from './TemplateQuery';
 
 
 export class ListTemplatesRequest {
-    private 'X-Language'?: ListTemplatesRequestXLanguageEnum | undefined;
+    private 'X-Language'?: ListTemplatesRequestXLanguageEnum | string;
     public body?: TemplateQuery;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: ListTemplatesRequestXLanguageEnum): ListTemplatesRequest {
+    public withXLanguage(xLanguage: ListTemplatesRequestXLanguageEnum | string): ListTemplatesRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListTemplatesRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListTemplatesRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListTemplatesRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: TemplateQuery): ListTemplatesRequest {

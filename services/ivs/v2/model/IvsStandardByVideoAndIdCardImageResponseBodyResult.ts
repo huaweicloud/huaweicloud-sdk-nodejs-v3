@@ -2,10 +2,10 @@ import { RespDataByVideoAndIdCardImage } from './RespDataByVideoAndIdCardImage';
 
 
 export class IvsStandardByVideoAndIdCardImageResponseBodyResult {
-    private 'service_name': string | undefined;
-    public count: number;
-    private 'resp_data': Array<RespDataByVideoAndIdCardImage> | undefined;
-    public constructor(serviceName?: any, count?: any, respData?: any) { 
+    private 'service_name'?: string;
+    public count?: number;
+    private 'resp_data'?: Array<RespDataByVideoAndIdCardImage>;
+    public constructor(serviceName?: string, count?: number, respData?: Array<RespDataByVideoAndIdCardImage>) { 
         this['service_name'] = serviceName;
         this['count'] = count;
         this['resp_data'] = respData;
@@ -14,10 +14,10 @@ export class IvsStandardByVideoAndIdCardImageResponseBodyResult {
         this['service_name'] = serviceName;
         return this;
     }
-    public set serviceName(serviceName: string | undefined) {
+    public set serviceName(serviceName: string  | undefined) {
         this['service_name'] = serviceName;
     }
-    public get serviceName() {
+    public get serviceName(): string | undefined {
         return this['service_name'];
     }
     public withCount(count: number): IvsStandardByVideoAndIdCardImageResponseBodyResult {
@@ -28,10 +28,10 @@ export class IvsStandardByVideoAndIdCardImageResponseBodyResult {
         this['resp_data'] = respData;
         return this;
     }
-    public set respData(respData: Array<RespDataByVideoAndIdCardImage> | undefined) {
+    public set respData(respData: Array<RespDataByVideoAndIdCardImage>  | undefined) {
         this['resp_data'] = respData;
     }
-    public get respData() {
+    public get respData(): Array<RespDataByVideoAndIdCardImage> | undefined {
         return this['resp_data'];
     }
 }

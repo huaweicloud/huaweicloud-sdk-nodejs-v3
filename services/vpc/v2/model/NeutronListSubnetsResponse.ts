@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class NeutronListSubnetsResponse extends SdkResponse {
     public subnets?: Array<NeutronSubnet>;
-    private 'subnets_links'?: Array<NeutronPageLink> | undefined;
+    private 'subnets_links'?: Array<NeutronPageLink>;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class NeutronListSubnetsResponse extends SdkResponse {
         this['subnets_links'] = subnetsLinks;
         return this;
     }
-    public set subnetsLinks(subnetsLinks: Array<NeutronPageLink> | undefined) {
+    public set subnetsLinks(subnetsLinks: Array<NeutronPageLink>  | undefined) {
         this['subnets_links'] = subnetsLinks;
     }
-    public get subnetsLinks() {
+    public get subnetsLinks(): Array<NeutronPageLink> | undefined {
         return this['subnets_links'];
     }
 }

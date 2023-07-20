@@ -2,40 +2,40 @@
 
 export class TargetPhysicalVolumes {
     public id?: number;
-    private 'device_use'?: TargetPhysicalVolumesDeviceUseEnum | undefined;
-    private 'file_system'?: string | undefined;
+    private 'device_use'?: TargetPhysicalVolumesDeviceUseEnum | string;
+    private 'file_system'?: string;
     public index?: number;
-    private 'mount_point'?: string | undefined;
+    private 'mount_point'?: string;
     public name?: string;
     public size?: number;
-    private 'used_size'?: number | undefined;
+    private 'used_size'?: number;
     public uuid?: string;
-    private 'relation_name'?: string | undefined;
-    private 'free_size'?: number | undefined;
+    private 'relation_name'?: string;
+    private 'free_size'?: number;
     public constructor() { 
     }
     public withId(id: number): TargetPhysicalVolumes {
         this['id'] = id;
         return this;
     }
-    public withDeviceUse(deviceUse: TargetPhysicalVolumesDeviceUseEnum): TargetPhysicalVolumes {
+    public withDeviceUse(deviceUse: TargetPhysicalVolumesDeviceUseEnum | string): TargetPhysicalVolumes {
         this['device_use'] = deviceUse;
         return this;
     }
-    public set deviceUse(deviceUse: TargetPhysicalVolumesDeviceUseEnum | undefined) {
+    public set deviceUse(deviceUse: TargetPhysicalVolumesDeviceUseEnum | string  | undefined) {
         this['device_use'] = deviceUse;
     }
-    public get deviceUse() {
+    public get deviceUse(): TargetPhysicalVolumesDeviceUseEnum | string | undefined {
         return this['device_use'];
     }
     public withFileSystem(fileSystem: string): TargetPhysicalVolumes {
         this['file_system'] = fileSystem;
         return this;
     }
-    public set fileSystem(fileSystem: string | undefined) {
+    public set fileSystem(fileSystem: string  | undefined) {
         this['file_system'] = fileSystem;
     }
-    public get fileSystem() {
+    public get fileSystem(): string | undefined {
         return this['file_system'];
     }
     public withIndex(index: number): TargetPhysicalVolumes {
@@ -46,10 +46,10 @@ export class TargetPhysicalVolumes {
         this['mount_point'] = mountPoint;
         return this;
     }
-    public set mountPoint(mountPoint: string | undefined) {
+    public set mountPoint(mountPoint: string  | undefined) {
         this['mount_point'] = mountPoint;
     }
-    public get mountPoint() {
+    public get mountPoint(): string | undefined {
         return this['mount_point'];
     }
     public withName(name: string): TargetPhysicalVolumes {
@@ -64,10 +64,10 @@ export class TargetPhysicalVolumes {
         this['used_size'] = usedSize;
         return this;
     }
-    public set usedSize(usedSize: number | undefined) {
+    public set usedSize(usedSize: number  | undefined) {
         this['used_size'] = usedSize;
     }
-    public get usedSize() {
+    public get usedSize(): number | undefined {
         return this['used_size'];
     }
     public withUuid(uuid: string): TargetPhysicalVolumes {
@@ -78,20 +78,20 @@ export class TargetPhysicalVolumes {
         this['relation_name'] = relationName;
         return this;
     }
-    public set relationName(relationName: string | undefined) {
+    public set relationName(relationName: string  | undefined) {
         this['relation_name'] = relationName;
     }
-    public get relationName() {
+    public get relationName(): string | undefined {
         return this['relation_name'];
     }
     public withFreeSize(freeSize: number): TargetPhysicalVolumes {
         this['free_size'] = freeSize;
         return this;
     }
-    public set freeSize(freeSize: number | undefined) {
+    public set freeSize(freeSize: number  | undefined) {
         this['free_size'] = freeSize;
     }
-    public get freeSize() {
+    public get freeSize(): number | undefined {
         return this['free_size'];
     }
 }

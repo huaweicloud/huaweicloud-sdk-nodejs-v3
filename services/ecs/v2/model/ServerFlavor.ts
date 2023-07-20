@@ -1,12 +1,12 @@
 
 
 export class ServerFlavor {
-    public id: string;
-    public name: string;
-    public disk: string;
-    public vcpus: string;
-    public ram: string;
-    public constructor(id?: any, name?: any, disk?: any, vcpus?: any, ram?: any) { 
+    public id?: string;
+    public name?: string;
+    public disk?: string;
+    public vcpus?: string;
+    public ram?: string;
+    public constructor(id?: string, name?: string, disk?: string, vcpus?: string, ram?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['disk'] = disk;

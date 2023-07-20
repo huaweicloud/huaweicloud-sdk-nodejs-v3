@@ -1,9 +1,9 @@
 
 
 export class IpFilter {
-    public type: string;
+    public type?: string;
     public value?: string;
-    public constructor(type?: any) { 
+    public constructor(type?: string) { 
         this['type'] = type;
     }
     public withType(type: string): IpFilter {

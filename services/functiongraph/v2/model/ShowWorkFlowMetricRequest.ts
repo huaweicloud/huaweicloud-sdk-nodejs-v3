@@ -1,21 +1,21 @@
 
 
 export class ShowWorkFlowMetricRequest {
-    private 'workflow_urn': string | undefined;
+    private 'workflow_urn'?: string;
     public period?: string;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
-    public constructor(workflowUrn?: any) { 
+    private 'start_time'?: string;
+    private 'end_time'?: string;
+    public constructor(workflowUrn?: string) { 
         this['workflow_urn'] = workflowUrn;
     }
     public withWorkflowUrn(workflowUrn: string): ShowWorkFlowMetricRequest {
         this['workflow_urn'] = workflowUrn;
         return this;
     }
-    public set workflowUrn(workflowUrn: string | undefined) {
+    public set workflowUrn(workflowUrn: string  | undefined) {
         this['workflow_urn'] = workflowUrn;
     }
-    public get workflowUrn() {
+    public get workflowUrn(): string | undefined {
         return this['workflow_urn'];
     }
     public withPeriod(period: string): ShowWorkFlowMetricRequest {
@@ -26,20 +26,20 @@ export class ShowWorkFlowMetricRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ShowWorkFlowMetricRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
 }

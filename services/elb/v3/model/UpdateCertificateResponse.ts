@@ -3,7 +3,7 @@ import { CertificateInfo } from './CertificateInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateCertificateResponse extends SdkResponse {
-    private 'request_id'?: string | undefined;
+    private 'request_id'?: string;
     public certificate?: CertificateInfo;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class UpdateCertificateResponse extends SdkResponse {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
     public withCertificate(certificate: CertificateInfo): UpdateCertificateResponse {

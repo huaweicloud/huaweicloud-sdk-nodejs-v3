@@ -3,27 +3,27 @@ import { ResourceList } from './ResourceList';
 
 
 export class ListenerResp {
-    public id: string;
-    private 'tenant_id': string | undefined;
-    public name: string;
-    public description: string;
-    private 'admin_state_up': boolean | undefined;
-    public loadbalancers: Array<ResourceList>;
-    private 'connection_limit': number | undefined;
-    private 'http2_enable': boolean | undefined;
-    public protocol: ListenerRespProtocolEnum;
-    private 'protocol_port': number | undefined;
-    private 'default_pool_id': string | undefined;
-    private 'default_tls_container_ref': string | undefined;
-    private 'client_ca_tls_container_ref': string | undefined;
-    private 'sni_container_refs': Array<string> | undefined;
-    public tags: Array<string>;
-    private 'created_at': string | undefined;
-    private 'updated_at': string | undefined;
-    private 'insert_headers': InsertHeader | undefined;
-    private 'project_id': string | undefined;
-    private 'tls_ciphers_policy': string | undefined;
-    public constructor(id?: any, tenantId?: any, name?: any, description?: any, adminStateUp?: any, loadbalancers?: any, connectionLimit?: any, http2Enable?: any, protocol?: any, protocolPort?: any, defaultPoolId?: any, defaultTlsContainerRef?: any, clientCaTlsContainerRef?: any, sniContainerRefs?: any, tags?: any, createdAt?: any, updatedAt?: any, insertHeaders?: any, projectId?: any, tlsCiphersPolicy?: any) { 
+    public id?: string;
+    private 'tenant_id'?: string;
+    public name?: string;
+    public description?: string;
+    private 'admin_state_up'?: boolean;
+    public loadbalancers?: Array<ResourceList>;
+    private 'connection_limit'?: number;
+    private 'http2_enable'?: boolean;
+    public protocol?: ListenerRespProtocolEnum | string;
+    private 'protocol_port'?: number;
+    private 'default_pool_id'?: string;
+    private 'default_tls_container_ref'?: string;
+    private 'client_ca_tls_container_ref'?: string;
+    private 'sni_container_refs'?: Array<string>;
+    public tags?: Array<string>;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    private 'insert_headers'?: InsertHeader;
+    private 'project_id'?: string;
+    private 'tls_ciphers_policy'?: string;
+    public constructor(id?: string, tenantId?: string, name?: string, description?: string, adminStateUp?: boolean, loadbalancers?: Array<ResourceList>, connectionLimit?: number, http2Enable?: boolean, protocol?: string, protocolPort?: number, defaultPoolId?: string, defaultTlsContainerRef?: string, clientCaTlsContainerRef?: string, sniContainerRefs?: Array<string>, tags?: Array<string>, createdAt?: string, updatedAt?: string, insertHeaders?: InsertHeader, projectId?: string, tlsCiphersPolicy?: string) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
         this['name'] = name;
@@ -53,10 +53,10 @@ export class ListenerResp {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withName(name: string): ListenerResp {
@@ -71,10 +71,10 @@ export class ListenerResp {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withLoadbalancers(loadbalancers: Array<ResourceList>): ListenerResp {
@@ -85,23 +85,23 @@ export class ListenerResp {
         this['connection_limit'] = connectionLimit;
         return this;
     }
-    public set connectionLimit(connectionLimit: number | undefined) {
+    public set connectionLimit(connectionLimit: number  | undefined) {
         this['connection_limit'] = connectionLimit;
     }
-    public get connectionLimit() {
+    public get connectionLimit(): number | undefined {
         return this['connection_limit'];
     }
     public withHttp2Enable(http2Enable: boolean): ListenerResp {
         this['http2_enable'] = http2Enable;
         return this;
     }
-    public set http2Enable(http2Enable: boolean | undefined) {
+    public set http2Enable(http2Enable: boolean  | undefined) {
         this['http2_enable'] = http2Enable;
     }
-    public get http2Enable() {
+    public get http2Enable(): boolean | undefined {
         return this['http2_enable'];
     }
-    public withProtocol(protocol: ListenerRespProtocolEnum): ListenerResp {
+    public withProtocol(protocol: ListenerRespProtocolEnum | string): ListenerResp {
         this['protocol'] = protocol;
         return this;
     }
@@ -109,50 +109,50 @@ export class ListenerResp {
         this['protocol_port'] = protocolPort;
         return this;
     }
-    public set protocolPort(protocolPort: number | undefined) {
+    public set protocolPort(protocolPort: number  | undefined) {
         this['protocol_port'] = protocolPort;
     }
-    public get protocolPort() {
+    public get protocolPort(): number | undefined {
         return this['protocol_port'];
     }
     public withDefaultPoolId(defaultPoolId: string): ListenerResp {
         this['default_pool_id'] = defaultPoolId;
         return this;
     }
-    public set defaultPoolId(defaultPoolId: string | undefined) {
+    public set defaultPoolId(defaultPoolId: string  | undefined) {
         this['default_pool_id'] = defaultPoolId;
     }
-    public get defaultPoolId() {
+    public get defaultPoolId(): string | undefined {
         return this['default_pool_id'];
     }
     public withDefaultTlsContainerRef(defaultTlsContainerRef: string): ListenerResp {
         this['default_tls_container_ref'] = defaultTlsContainerRef;
         return this;
     }
-    public set defaultTlsContainerRef(defaultTlsContainerRef: string | undefined) {
+    public set defaultTlsContainerRef(defaultTlsContainerRef: string  | undefined) {
         this['default_tls_container_ref'] = defaultTlsContainerRef;
     }
-    public get defaultTlsContainerRef() {
+    public get defaultTlsContainerRef(): string | undefined {
         return this['default_tls_container_ref'];
     }
     public withClientCaTlsContainerRef(clientCaTlsContainerRef: string): ListenerResp {
         this['client_ca_tls_container_ref'] = clientCaTlsContainerRef;
         return this;
     }
-    public set clientCaTlsContainerRef(clientCaTlsContainerRef: string | undefined) {
+    public set clientCaTlsContainerRef(clientCaTlsContainerRef: string  | undefined) {
         this['client_ca_tls_container_ref'] = clientCaTlsContainerRef;
     }
-    public get clientCaTlsContainerRef() {
+    public get clientCaTlsContainerRef(): string | undefined {
         return this['client_ca_tls_container_ref'];
     }
     public withSniContainerRefs(sniContainerRefs: Array<string>): ListenerResp {
         this['sni_container_refs'] = sniContainerRefs;
         return this;
     }
-    public set sniContainerRefs(sniContainerRefs: Array<string> | undefined) {
+    public set sniContainerRefs(sniContainerRefs: Array<string>  | undefined) {
         this['sni_container_refs'] = sniContainerRefs;
     }
-    public get sniContainerRefs() {
+    public get sniContainerRefs(): Array<string> | undefined {
         return this['sni_container_refs'];
     }
     public withTags(tags: Array<string>): ListenerResp {
@@ -163,50 +163,50 @@ export class ListenerResp {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): ListenerResp {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withInsertHeaders(insertHeaders: InsertHeader): ListenerResp {
         this['insert_headers'] = insertHeaders;
         return this;
     }
-    public set insertHeaders(insertHeaders: InsertHeader | undefined) {
+    public set insertHeaders(insertHeaders: InsertHeader  | undefined) {
         this['insert_headers'] = insertHeaders;
     }
-    public get insertHeaders() {
+    public get insertHeaders(): InsertHeader | undefined {
         return this['insert_headers'];
     }
     public withProjectId(projectId: string): ListenerResp {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withTlsCiphersPolicy(tlsCiphersPolicy: string): ListenerResp {
         this['tls_ciphers_policy'] = tlsCiphersPolicy;
         return this;
     }
-    public set tlsCiphersPolicy(tlsCiphersPolicy: string | undefined) {
+    public set tlsCiphersPolicy(tlsCiphersPolicy: string  | undefined) {
         this['tls_ciphers_policy'] = tlsCiphersPolicy;
     }
-    public get tlsCiphersPolicy() {
+    public get tlsCiphersPolicy(): string | undefined {
         return this['tls_ciphers_policy'];
     }
 }

@@ -1,10 +1,10 @@
 
 
 export class DeploymentJobConfirmType {
-    public type?: DeploymentJobConfirmTypeTypeEnum;
+    public type?: DeploymentJobConfirmTypeTypeEnum | string;
     public constructor() { 
     }
-    public withType(type: DeploymentJobConfirmTypeTypeEnum): DeploymentJobConfirmType {
+    public withType(type: DeploymentJobConfirmTypeTypeEnum | string): DeploymentJobConfirmType {
         this['type'] = type;
         return this;
     }

@@ -1,8 +1,8 @@
 
 
 export class LinksSelf {
-    public self: string;
-    public constructor(self?: any) { 
+    public self?: string;
+    public constructor(self?: string) { 
         this['self'] = self;
     }
     public withSelf(self: string): LinksSelf {

@@ -1,11 +1,11 @@
 
 
 export class EngineAdditionalActionReq {
-    public action: EngineAdditionalActionReqActionEnum;
-    public constructor(action?: any) { 
+    public action?: EngineAdditionalActionReqActionEnum | string;
+    public constructor(action?: string) { 
         this['action'] = action;
     }
-    public withAction(action: EngineAdditionalActionReqActionEnum): EngineAdditionalActionReq {
+    public withAction(action: EngineAdditionalActionReqActionEnum | string): EngineAdditionalActionReq {
         this['action'] = action;
         return this;
     }

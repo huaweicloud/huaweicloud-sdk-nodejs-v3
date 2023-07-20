@@ -2,19 +2,19 @@ import { CloudWafServer } from './CloudWafServer';
 
 
 export class CreateHostRequestBody {
-    public hostname: string;
+    public hostname?: string;
     public policyid?: string;
-    public server: Array<CloudWafServer>;
+    public server?: Array<CloudWafServer>;
     public certificateid?: string;
     public certificatename?: string;
-    private 'web_tag'?: string | undefined;
-    private 'exclusive_ip'?: boolean | undefined;
-    private 'paid_type'?: string | undefined;
-    public proxy: boolean;
-    private 'lb_algorithm'?: CreateHostRequestBodyLbAlgorithmEnum | undefined;
+    private 'web_tag'?: string;
+    private 'exclusive_ip'?: boolean;
+    private 'paid_type'?: string;
+    public proxy?: boolean;
+    private 'lb_algorithm'?: CreateHostRequestBodyLbAlgorithmEnum | string;
     public description?: string;
-    private 'forward_header_map'?: { [key: string]: string; } | undefined;
-    public constructor(hostname?: any, server?: any, proxy?: any) { 
+    private 'forward_header_map'?: { [key: string]: string; };
+    public constructor(hostname?: string, server?: Array<CloudWafServer>, proxy?: boolean) { 
         this['hostname'] = hostname;
         this['server'] = server;
         this['proxy'] = proxy;
@@ -43,44 +43,44 @@ export class CreateHostRequestBody {
         this['web_tag'] = webTag;
         return this;
     }
-    public set webTag(webTag: string | undefined) {
+    public set webTag(webTag: string  | undefined) {
         this['web_tag'] = webTag;
     }
-    public get webTag() {
+    public get webTag(): string | undefined {
         return this['web_tag'];
     }
     public withExclusiveIp(exclusiveIp: boolean): CreateHostRequestBody {
         this['exclusive_ip'] = exclusiveIp;
         return this;
     }
-    public set exclusiveIp(exclusiveIp: boolean | undefined) {
+    public set exclusiveIp(exclusiveIp: boolean  | undefined) {
         this['exclusive_ip'] = exclusiveIp;
     }
-    public get exclusiveIp() {
+    public get exclusiveIp(): boolean | undefined {
         return this['exclusive_ip'];
     }
     public withPaidType(paidType: string): CreateHostRequestBody {
         this['paid_type'] = paidType;
         return this;
     }
-    public set paidType(paidType: string | undefined) {
+    public set paidType(paidType: string  | undefined) {
         this['paid_type'] = paidType;
     }
-    public get paidType() {
+    public get paidType(): string | undefined {
         return this['paid_type'];
     }
     public withProxy(proxy: boolean): CreateHostRequestBody {
         this['proxy'] = proxy;
         return this;
     }
-    public withLbAlgorithm(lbAlgorithm: CreateHostRequestBodyLbAlgorithmEnum): CreateHostRequestBody {
+    public withLbAlgorithm(lbAlgorithm: CreateHostRequestBodyLbAlgorithmEnum | string): CreateHostRequestBody {
         this['lb_algorithm'] = lbAlgorithm;
         return this;
     }
-    public set lbAlgorithm(lbAlgorithm: CreateHostRequestBodyLbAlgorithmEnum | undefined) {
+    public set lbAlgorithm(lbAlgorithm: CreateHostRequestBodyLbAlgorithmEnum | string  | undefined) {
         this['lb_algorithm'] = lbAlgorithm;
     }
-    public get lbAlgorithm() {
+    public get lbAlgorithm(): CreateHostRequestBodyLbAlgorithmEnum | string | undefined {
         return this['lb_algorithm'];
     }
     public withDescription(description: string): CreateHostRequestBody {
@@ -91,10 +91,10 @@ export class CreateHostRequestBody {
         this['forward_header_map'] = forwardHeaderMap;
         return this;
     }
-    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; }  | undefined) {
         this['forward_header_map'] = forwardHeaderMap;
     }
-    public get forwardHeaderMap() {
+    public get forwardHeaderMap(): { [key: string]: string; } | undefined {
         return this['forward_header_map'];
     }
 }

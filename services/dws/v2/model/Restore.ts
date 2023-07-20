@@ -2,15 +2,15 @@ import { PublicIp } from './PublicIp';
 
 
 export class Restore {
-    public name: string;
-    private 'subnet_id'?: string | undefined;
-    private 'security_group_id'?: string | undefined;
-    private 'vpc_id'?: string | undefined;
-    private 'availability_zone'?: string | undefined;
+    public name?: string;
+    private 'subnet_id'?: string;
+    private 'security_group_id'?: string;
+    private 'vpc_id'?: string;
+    private 'availability_zone'?: string;
     public port?: number;
-    private 'public_ip'?: PublicIp | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    public constructor(name?: any) { 
+    private 'public_ip'?: PublicIp;
+    private 'enterprise_project_id'?: string;
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): Restore {
@@ -21,40 +21,40 @@ export class Restore {
         this['subnet_id'] = subnetId;
         return this;
     }
-    public set subnetId(subnetId: string | undefined) {
+    public set subnetId(subnetId: string  | undefined) {
         this['subnet_id'] = subnetId;
     }
-    public get subnetId() {
+    public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
     public withSecurityGroupId(securityGroupId: string): Restore {
         this['security_group_id'] = securityGroupId;
         return this;
     }
-    public set securityGroupId(securityGroupId: string | undefined) {
+    public set securityGroupId(securityGroupId: string  | undefined) {
         this['security_group_id'] = securityGroupId;
     }
-    public get securityGroupId() {
+    public get securityGroupId(): string | undefined {
         return this['security_group_id'];
     }
     public withVpcId(vpcId: string): Restore {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withAvailabilityZone(availabilityZone: string): Restore {
         this['availability_zone'] = availabilityZone;
         return this;
     }
-    public set availabilityZone(availabilityZone: string | undefined) {
+    public set availabilityZone(availabilityZone: string  | undefined) {
         this['availability_zone'] = availabilityZone;
     }
-    public get availabilityZone() {
+    public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
     public withPort(port: number): Restore {
@@ -65,20 +65,20 @@ export class Restore {
         this['public_ip'] = publicIp;
         return this;
     }
-    public set publicIp(publicIp: PublicIp | undefined) {
+    public set publicIp(publicIp: PublicIp  | undefined) {
         this['public_ip'] = publicIp;
     }
-    public get publicIp() {
+    public get publicIp(): PublicIp | undefined {
         return this['public_ip'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): Restore {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

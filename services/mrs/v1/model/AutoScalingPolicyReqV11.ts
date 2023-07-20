@@ -2,30 +2,30 @@ import { AutoScalingPolicy } from './AutoScalingPolicy';
 
 
 export class AutoScalingPolicyReqV11 {
-    private 'node_group': AutoScalingPolicyReqV11NodeGroupEnum | undefined;
-    private 'auto_scaling_policy': AutoScalingPolicy | undefined;
-    public constructor(nodeGroup?: any, autoScalingPolicy?: any) { 
+    private 'node_group'?: AutoScalingPolicyReqV11NodeGroupEnum | string;
+    private 'auto_scaling_policy'?: AutoScalingPolicy;
+    public constructor(nodeGroup?: string, autoScalingPolicy?: AutoScalingPolicy) { 
         this['node_group'] = nodeGroup;
         this['auto_scaling_policy'] = autoScalingPolicy;
     }
-    public withNodeGroup(nodeGroup: AutoScalingPolicyReqV11NodeGroupEnum): AutoScalingPolicyReqV11 {
+    public withNodeGroup(nodeGroup: AutoScalingPolicyReqV11NodeGroupEnum | string): AutoScalingPolicyReqV11 {
         this['node_group'] = nodeGroup;
         return this;
     }
-    public set nodeGroup(nodeGroup: AutoScalingPolicyReqV11NodeGroupEnum | undefined) {
+    public set nodeGroup(nodeGroup: AutoScalingPolicyReqV11NodeGroupEnum | string  | undefined) {
         this['node_group'] = nodeGroup;
     }
-    public get nodeGroup() {
+    public get nodeGroup(): AutoScalingPolicyReqV11NodeGroupEnum | string | undefined {
         return this['node_group'];
     }
     public withAutoScalingPolicy(autoScalingPolicy: AutoScalingPolicy): AutoScalingPolicyReqV11 {
         this['auto_scaling_policy'] = autoScalingPolicy;
         return this;
     }
-    public set autoScalingPolicy(autoScalingPolicy: AutoScalingPolicy | undefined) {
+    public set autoScalingPolicy(autoScalingPolicy: AutoScalingPolicy  | undefined) {
         this['auto_scaling_policy'] = autoScalingPolicy;
     }
-    public get autoScalingPolicy() {
+    public get autoScalingPolicy(): AutoScalingPolicy | undefined {
         return this['auto_scaling_policy'];
     }
 }

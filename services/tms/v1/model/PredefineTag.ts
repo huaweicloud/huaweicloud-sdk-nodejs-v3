@@ -1,10 +1,10 @@
 
 
 export class PredefineTag {
-    public key: string;
-    public value: string;
-    private 'update_time': Date | undefined;
-    public constructor(key?: any, value?: any, updateTime?: any) { 
+    public key?: string;
+    public value?: string;
+    private 'update_time'?: Date;
+    public constructor(key?: string, value?: string, updateTime?: Date) { 
         this['key'] = key;
         this['value'] = value;
         this['update_time'] = updateTime;
@@ -21,10 +21,10 @@ export class PredefineTag {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: Date | undefined) {
+    public set updateTime(updateTime: Date  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): Date | undefined {
         return this['update_time'];
     }
 }

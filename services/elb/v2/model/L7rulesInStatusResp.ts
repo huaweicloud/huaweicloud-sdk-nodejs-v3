@@ -1,15 +1,15 @@
 
 
 export class L7rulesInStatusResp {
-    public type: L7rulesInStatusRespTypeEnum;
-    public id: string;
-    private 'provisioning_status': string | undefined;
-    public constructor(type?: any, id?: any, provisioningStatus?: any) { 
+    public type?: L7rulesInStatusRespTypeEnum | string;
+    public id?: string;
+    private 'provisioning_status'?: string;
+    public constructor(type?: string, id?: string, provisioningStatus?: string) { 
         this['type'] = type;
         this['id'] = id;
         this['provisioning_status'] = provisioningStatus;
     }
-    public withType(type: L7rulesInStatusRespTypeEnum): L7rulesInStatusResp {
+    public withType(type: L7rulesInStatusRespTypeEnum | string): L7rulesInStatusResp {
         this['type'] = type;
         return this;
     }
@@ -21,10 +21,10 @@ export class L7rulesInStatusResp {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: string | undefined) {
+    public set provisioningStatus(provisioningStatus: string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): string | undefined {
         return this['provisioning_status'];
     }
 }

@@ -1,15 +1,15 @@
 
 
 export class InstanceSpec {
-    public clusterID: string;
-    public version: string;
-    public addonTemplateName: string;
-    public addonTemplateType: string;
+    public clusterID?: string;
+    public version?: string;
+    public addonTemplateName?: string;
+    public addonTemplateType?: string;
     public addonTemplateLogo?: string;
     public addonTemplateLabels?: Array<string>;
-    public description: string;
-    public values: { [key: string]: object; };
-    public constructor(clusterID?: any, version?: any, addonTemplateName?: any, addonTemplateType?: any, description?: any, values?: any) { 
+    public description?: string;
+    public values?: { [key: string]: object; };
+    public constructor(clusterID?: string, version?: string, addonTemplateName?: string, addonTemplateType?: string, description?: string, values?: { [key: string]: object; }) { 
         this['clusterID'] = clusterID;
         this['version'] = version;
         this['addonTemplateName'] = addonTemplateName;

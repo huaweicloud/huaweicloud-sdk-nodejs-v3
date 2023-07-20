@@ -2,19 +2,19 @@ import { ExtentionRespDataByNameAndId } from './ExtentionRespDataByNameAndId';
 
 
 export class IvsExtentionByNameAndIdResponseBodyResult {
-    private 'service_name'?: string | undefined;
+    private 'service_name'?: string;
     public count?: number;
-    private 'resp_data'?: Array<ExtentionRespDataByNameAndId> | undefined;
+    private 'resp_data'?: Array<ExtentionRespDataByNameAndId>;
     public constructor() { 
     }
     public withServiceName(serviceName: string): IvsExtentionByNameAndIdResponseBodyResult {
         this['service_name'] = serviceName;
         return this;
     }
-    public set serviceName(serviceName: string | undefined) {
+    public set serviceName(serviceName: string  | undefined) {
         this['service_name'] = serviceName;
     }
-    public get serviceName() {
+    public get serviceName(): string | undefined {
         return this['service_name'];
     }
     public withCount(count: number): IvsExtentionByNameAndIdResponseBodyResult {
@@ -25,10 +25,10 @@ export class IvsExtentionByNameAndIdResponseBodyResult {
         this['resp_data'] = respData;
         return this;
     }
-    public set respData(respData: Array<ExtentionRespDataByNameAndId> | undefined) {
+    public set respData(respData: Array<ExtentionRespDataByNameAndId>  | undefined) {
         this['resp_data'] = respData;
     }
-    public get respData() {
+    public get respData(): Array<ExtentionRespDataByNameAndId> | undefined {
         return this['resp_data'];
     }
 }

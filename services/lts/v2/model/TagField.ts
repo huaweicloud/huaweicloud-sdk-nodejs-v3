@@ -1,11 +1,11 @@
 
 
 export class TagField {
-    public fieldName: string;
-    public type: string;
+    public fieldName?: string;
+    public type?: string;
     public content?: string;
     public isAnalysis?: boolean;
-    public constructor(fieldName?: any, type?: any) { 
+    public constructor(fieldName?: string, type?: string) { 
         this['fieldName'] = fieldName;
         this['type'] = type;
     }

@@ -1,11 +1,11 @@
 
 
 export class AvailabilityZone {
-    public code: string;
-    public name: string;
-    public status: string;
-    private 'public_border_group': string | undefined;
-    public constructor(code?: any, name?: any, status?: any, publicBorderGroup?: any) { 
+    public code?: string;
+    public name?: string;
+    public status?: string;
+    private 'public_border_group'?: string;
+    public constructor(code?: string, name?: string, status?: string, publicBorderGroup?: string) { 
         this['code'] = code;
         this['name'] = name;
         this['status'] = status;
@@ -27,10 +27,10 @@ export class AvailabilityZone {
         this['public_border_group'] = publicBorderGroup;
         return this;
     }
-    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
         this['public_border_group'] = publicBorderGroup;
     }
-    public get publicBorderGroup() {
+    public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
 }

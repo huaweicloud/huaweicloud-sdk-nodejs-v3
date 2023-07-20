@@ -8,8 +8,8 @@ import { ReinstallVolumeConfig } from './ReinstallVolumeConfig';
 
 
 export class ReinstallNodeSpec {
-    public os: string;
-    public login: Login;
+    public os?: string;
+    public login?: Login;
     public name?: string;
     public serverConfig?: ReinstallServerConfig;
     public volumeConfig?: ReinstallVolumeConfig;
@@ -18,7 +18,7 @@ export class ReinstallNodeSpec {
     public lifecycle?: NodeLifecycleConfig;
     public initializedConditions?: Array<string>;
     public extendParam?: ReinstallExtendParam;
-    public constructor(os?: any, login?: any) { 
+    public constructor(os?: string, login?: Login) { 
         this['os'] = os;
         this['login'] = login;
     }

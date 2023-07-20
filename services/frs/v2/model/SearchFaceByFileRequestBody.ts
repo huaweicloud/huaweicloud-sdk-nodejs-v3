@@ -1,12 +1,12 @@
 
 
 export class SearchFaceByFileRequestBody {
-    private 'image_file': any | undefined;
-    private 'top_n'?: number | undefined;
+    private 'image_file'?: any;
+    private 'top_n'?: number;
     public threshold?: number;
     public sort?: string;
     public filter?: string;
-    private 'return_fields'?: string | undefined;
+    private 'return_fields'?: string;
     public constructor(imageFile?: any) { 
         this['image_file'] = imageFile;
     }
@@ -14,20 +14,20 @@ export class SearchFaceByFileRequestBody {
         this['image_file'] = imageFile;
         return this;
     }
-    public set imageFile(imageFile: any | undefined) {
+    public set imageFile(imageFile: any  | undefined) {
         this['image_file'] = imageFile;
     }
-    public get imageFile() {
+    public get imageFile(): any | undefined {
         return this['image_file'];
     }
     public withTopN(topN: number): SearchFaceByFileRequestBody {
         this['top_n'] = topN;
         return this;
     }
-    public set topN(topN: number | undefined) {
+    public set topN(topN: number  | undefined) {
         this['top_n'] = topN;
     }
-    public get topN() {
+    public get topN(): number | undefined {
         return this['top_n'];
     }
     public withThreshold(threshold: number): SearchFaceByFileRequestBody {
@@ -46,10 +46,10 @@ export class SearchFaceByFileRequestBody {
         this['return_fields'] = returnFields;
         return this;
     }
-    public set returnFields(returnFields: string | undefined) {
+    public set returnFields(returnFields: string  | undefined) {
         this['return_fields'] = returnFields;
     }
-    public get returnFields() {
+    public get returnFields(): string | undefined {
         return this['return_fields'];
     }
 }

@@ -2,20 +2,20 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class AddressGroup {
-    public id: string;
-    public name: string;
-    public description: string;
-    private 'max_capacity': number | undefined;
-    private 'ip_set': Array<string> | undefined;
-    private 'ip_version': number | undefined;
-    private 'created_at': Date | undefined;
-    private 'updated_at': Date | undefined;
-    private 'tenant_id': string | undefined;
-    private 'enterprise_project_id': string | undefined;
-    public tags: Array<ResourceTag>;
-    public status: string;
-    private 'status_message': string | undefined;
-    public constructor(id?: any, name?: any, description?: any, maxCapacity?: any, ipSet?: any, ipVersion?: any, createdAt?: any, updatedAt?: any, tenantId?: any, enterpriseProjectId?: any, tags?: any, status?: any, statusMessage?: any) { 
+    public id?: string;
+    public name?: string;
+    public description?: string;
+    private 'max_capacity'?: number;
+    private 'ip_set'?: Array<string>;
+    private 'ip_version'?: number;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    private 'tenant_id'?: string;
+    private 'enterprise_project_id'?: string;
+    public tags?: Array<ResourceTag>;
+    public status?: string;
+    private 'status_message'?: string;
+    public constructor(id?: string, name?: string, description?: string, maxCapacity?: number, ipSet?: Array<string>, ipVersion?: number, createdAt?: Date, updatedAt?: Date, tenantId?: string, enterpriseProjectId?: string, tags?: Array<ResourceTag>, status?: string, statusMessage?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -46,70 +46,70 @@ export class AddressGroup {
         this['max_capacity'] = maxCapacity;
         return this;
     }
-    public set maxCapacity(maxCapacity: number | undefined) {
+    public set maxCapacity(maxCapacity: number  | undefined) {
         this['max_capacity'] = maxCapacity;
     }
-    public get maxCapacity() {
+    public get maxCapacity(): number | undefined {
         return this['max_capacity'];
     }
     public withIpSet(ipSet: Array<string>): AddressGroup {
         this['ip_set'] = ipSet;
         return this;
     }
-    public set ipSet(ipSet: Array<string> | undefined) {
+    public set ipSet(ipSet: Array<string>  | undefined) {
         this['ip_set'] = ipSet;
     }
-    public get ipSet() {
+    public get ipSet(): Array<string> | undefined {
         return this['ip_set'];
     }
     public withIpVersion(ipVersion: number): AddressGroup {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number | undefined) {
+    public set ipVersion(ipVersion: number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion() {
+    public get ipVersion(): number | undefined {
         return this['ip_version'];
     }
     public withCreatedAt(createdAt: Date): AddressGroup {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): AddressGroup {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withTenantId(tenantId: string): AddressGroup {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): AddressGroup {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withTags(tags: Array<ResourceTag>): AddressGroup {
@@ -124,10 +124,10 @@ export class AddressGroup {
         this['status_message'] = statusMessage;
         return this;
     }
-    public set statusMessage(statusMessage: string | undefined) {
+    public set statusMessage(statusMessage: string  | undefined) {
         this['status_message'] = statusMessage;
     }
-    public get statusMessage() {
+    public get statusMessage(): string | undefined {
         return this['status_message'];
     }
 }

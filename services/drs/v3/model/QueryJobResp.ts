@@ -11,61 +11,61 @@ import { Tag } from './Tag';
 
 export class QueryJobResp {
     public id?: string;
-    private 'parent_id'?: string | undefined;
+    private 'parent_id'?: string;
     public name?: string;
-    public status?: QueryJobRespStatusEnum;
+    public status?: QueryJobRespStatusEnum | string;
     public description?: string;
-    private 'create_time'?: string | undefined;
-    private 'task_type'?: QueryJobRespTaskTypeEnum | undefined;
-    private 'source_endpoint'?: Endpoint | undefined;
-    private 'dmq_endpoint'?: Endpoint | undefined;
-    private 'source_sharding'?: Array<Endpoint> | undefined;
-    private 'target_endpoint'?: Endpoint | undefined;
-    private 'net_type'?: QueryJobRespNetTypeEnum | undefined;
-    private 'failed_reason'?: string | undefined;
-    private 'inst_info'?: InstInfo | undefined;
-    private 'actual_start_time'?: string | undefined;
-    private 'full_transfer_complete_time'?: string | undefined;
-    private 'update_time'?: string | undefined;
-    private 'job_direction'?: QueryJobRespJobDirectionEnum | undefined;
-    private 'db_use_type'?: QueryJobRespDbUseTypeEnum | undefined;
-    private 'need_restart'?: boolean | undefined;
-    private 'is_target_readonly'?: boolean | undefined;
-    private 'conflict_policy'?: QueryJobRespConflictPolicyEnum | undefined;
-    private 'filter_ddl_policy'?: string | undefined;
-    private 'speed_limit'?: Array<SpeedLimitInfo> | undefined;
-    private 'schema_type'?: QueryJobRespSchemaTypeEnum | undefined;
-    private 'node_num'?: string | undefined;
-    private 'object_switch'?: boolean | undefined;
-    private 'master_job_id'?: string | undefined;
-    private 'full_mode'?: string | undefined;
-    private 'struct_trans'?: boolean | undefined;
-    private 'index_trans'?: boolean | undefined;
-    private 'replace_definer'?: boolean | undefined;
-    private 'migrate_user'?: boolean | undefined;
-    private 'sync_database'?: boolean | undefined;
-    private 'error_code'?: string | undefined;
-    private 'error_message'?: string | undefined;
-    private 'target_root_db'?: DefaultRootDb | undefined;
-    private 'az_code'?: string | undefined;
-    private 'vpc_id'?: string | undefined;
-    private 'subnet_id'?: string | undefined;
-    private 'security_group_id'?: string | undefined;
-    private 'multi_write'?: boolean | undefined;
-    private 'support_ip_v6'?: boolean | undefined;
-    private 'inherit_id'?: string | undefined;
+    private 'create_time'?: string;
+    private 'task_type'?: QueryJobRespTaskTypeEnum | string;
+    private 'source_endpoint'?: Endpoint;
+    private 'dmq_endpoint'?: Endpoint;
+    private 'source_sharding'?: Array<Endpoint>;
+    private 'target_endpoint'?: Endpoint;
+    private 'net_type'?: QueryJobRespNetTypeEnum | string;
+    private 'failed_reason'?: string;
+    private 'inst_info'?: InstInfo;
+    private 'actual_start_time'?: string;
+    private 'full_transfer_complete_time'?: string;
+    private 'update_time'?: string;
+    private 'job_direction'?: QueryJobRespJobDirectionEnum | string;
+    private 'db_use_type'?: QueryJobRespDbUseTypeEnum | string;
+    private 'need_restart'?: boolean;
+    private 'is_target_readonly'?: boolean;
+    private 'conflict_policy'?: QueryJobRespConflictPolicyEnum | string;
+    private 'filter_ddl_policy'?: string;
+    private 'speed_limit'?: Array<SpeedLimitInfo>;
+    private 'schema_type'?: QueryJobRespSchemaTypeEnum | string;
+    private 'node_num'?: string;
+    private 'object_switch'?: boolean;
+    private 'master_job_id'?: string;
+    private 'full_mode'?: string;
+    private 'struct_trans'?: boolean;
+    private 'index_trans'?: boolean;
+    private 'replace_definer'?: boolean;
+    private 'migrate_user'?: boolean;
+    private 'sync_database'?: boolean;
+    private 'error_code'?: string;
+    private 'error_message'?: string;
+    private 'target_root_db'?: DefaultRootDb;
+    private 'az_code'?: string;
+    private 'vpc_id'?: string;
+    private 'subnet_id'?: string;
+    private 'security_group_id'?: string;
+    private 'multi_write'?: boolean;
+    private 'support_ip_v6'?: boolean;
+    private 'inherit_id'?: string;
     public gtid?: string;
-    private 'alarm_notify'?: QuerySmnInfoResp | undefined;
-    private 'incre_start_position'?: string | undefined;
-    private 'is_multi_az'?: boolean | undefined;
-    private 'az_name'?: string | undefined;
-    private 'master_az'?: string | undefined;
-    private 'slave_az'?: string | undefined;
-    private 'node_role'?: string | undefined;
-    private 'period_order'?: PeriodOrderResp | undefined;
-    private 'object_infos'?: Array<DatabaseObjectInfo> | undefined;
-    private 'original_job_direction'?: QueryJobRespOriginalJobDirectionEnum | undefined;
-    private 'data_transformation'?: GetDataTransformationResp | undefined;
+    private 'alarm_notify'?: QuerySmnInfoResp;
+    private 'incre_start_position'?: string;
+    private 'is_multi_az'?: boolean;
+    private 'az_name'?: string;
+    private 'master_az'?: string;
+    private 'slave_az'?: string;
+    private 'node_role'?: string;
+    private 'period_order'?: PeriodOrderResp;
+    private 'object_infos'?: Array<DatabaseObjectInfo>;
+    private 'original_job_direction'?: QueryJobRespOriginalJobDirectionEnum | string;
+    private 'data_transformation'?: GetDataTransformationResp;
     public tags?: Array<Tag>;
     public constructor() { 
     }
@@ -77,17 +77,17 @@ export class QueryJobResp {
         this['parent_id'] = parentId;
         return this;
     }
-    public set parentId(parentId: string | undefined) {
+    public set parentId(parentId: string  | undefined) {
         this['parent_id'] = parentId;
     }
-    public get parentId() {
+    public get parentId(): string | undefined {
         return this['parent_id'];
     }
     public withName(name: string): QueryJobResp {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: QueryJobRespStatusEnum): QueryJobResp {
+    public withStatus(status: QueryJobRespStatusEnum | string): QueryJobResp {
         this['status'] = status;
         return this;
     }
@@ -99,390 +99,390 @@ export class QueryJobResp {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
-    public withTaskType(taskType: QueryJobRespTaskTypeEnum): QueryJobResp {
+    public withTaskType(taskType: QueryJobRespTaskTypeEnum | string): QueryJobResp {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: QueryJobRespTaskTypeEnum | undefined) {
+    public set taskType(taskType: QueryJobRespTaskTypeEnum | string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): QueryJobRespTaskTypeEnum | string | undefined {
         return this['task_type'];
     }
     public withSourceEndpoint(sourceEndpoint: Endpoint): QueryJobResp {
         this['source_endpoint'] = sourceEndpoint;
         return this;
     }
-    public set sourceEndpoint(sourceEndpoint: Endpoint | undefined) {
+    public set sourceEndpoint(sourceEndpoint: Endpoint  | undefined) {
         this['source_endpoint'] = sourceEndpoint;
     }
-    public get sourceEndpoint() {
+    public get sourceEndpoint(): Endpoint | undefined {
         return this['source_endpoint'];
     }
     public withDmqEndpoint(dmqEndpoint: Endpoint): QueryJobResp {
         this['dmq_endpoint'] = dmqEndpoint;
         return this;
     }
-    public set dmqEndpoint(dmqEndpoint: Endpoint | undefined) {
+    public set dmqEndpoint(dmqEndpoint: Endpoint  | undefined) {
         this['dmq_endpoint'] = dmqEndpoint;
     }
-    public get dmqEndpoint() {
+    public get dmqEndpoint(): Endpoint | undefined {
         return this['dmq_endpoint'];
     }
     public withSourceSharding(sourceSharding: Array<Endpoint>): QueryJobResp {
         this['source_sharding'] = sourceSharding;
         return this;
     }
-    public set sourceSharding(sourceSharding: Array<Endpoint> | undefined) {
+    public set sourceSharding(sourceSharding: Array<Endpoint>  | undefined) {
         this['source_sharding'] = sourceSharding;
     }
-    public get sourceSharding() {
+    public get sourceSharding(): Array<Endpoint> | undefined {
         return this['source_sharding'];
     }
     public withTargetEndpoint(targetEndpoint: Endpoint): QueryJobResp {
         this['target_endpoint'] = targetEndpoint;
         return this;
     }
-    public set targetEndpoint(targetEndpoint: Endpoint | undefined) {
+    public set targetEndpoint(targetEndpoint: Endpoint  | undefined) {
         this['target_endpoint'] = targetEndpoint;
     }
-    public get targetEndpoint() {
+    public get targetEndpoint(): Endpoint | undefined {
         return this['target_endpoint'];
     }
-    public withNetType(netType: QueryJobRespNetTypeEnum): QueryJobResp {
+    public withNetType(netType: QueryJobRespNetTypeEnum | string): QueryJobResp {
         this['net_type'] = netType;
         return this;
     }
-    public set netType(netType: QueryJobRespNetTypeEnum | undefined) {
+    public set netType(netType: QueryJobRespNetTypeEnum | string  | undefined) {
         this['net_type'] = netType;
     }
-    public get netType() {
+    public get netType(): QueryJobRespNetTypeEnum | string | undefined {
         return this['net_type'];
     }
     public withFailedReason(failedReason: string): QueryJobResp {
         this['failed_reason'] = failedReason;
         return this;
     }
-    public set failedReason(failedReason: string | undefined) {
+    public set failedReason(failedReason: string  | undefined) {
         this['failed_reason'] = failedReason;
     }
-    public get failedReason() {
+    public get failedReason(): string | undefined {
         return this['failed_reason'];
     }
     public withInstInfo(instInfo: InstInfo): QueryJobResp {
         this['inst_info'] = instInfo;
         return this;
     }
-    public set instInfo(instInfo: InstInfo | undefined) {
+    public set instInfo(instInfo: InstInfo  | undefined) {
         this['inst_info'] = instInfo;
     }
-    public get instInfo() {
+    public get instInfo(): InstInfo | undefined {
         return this['inst_info'];
     }
     public withActualStartTime(actualStartTime: string): QueryJobResp {
         this['actual_start_time'] = actualStartTime;
         return this;
     }
-    public set actualStartTime(actualStartTime: string | undefined) {
+    public set actualStartTime(actualStartTime: string  | undefined) {
         this['actual_start_time'] = actualStartTime;
     }
-    public get actualStartTime() {
+    public get actualStartTime(): string | undefined {
         return this['actual_start_time'];
     }
     public withFullTransferCompleteTime(fullTransferCompleteTime: string): QueryJobResp {
         this['full_transfer_complete_time'] = fullTransferCompleteTime;
         return this;
     }
-    public set fullTransferCompleteTime(fullTransferCompleteTime: string | undefined) {
+    public set fullTransferCompleteTime(fullTransferCompleteTime: string  | undefined) {
         this['full_transfer_complete_time'] = fullTransferCompleteTime;
     }
-    public get fullTransferCompleteTime() {
+    public get fullTransferCompleteTime(): string | undefined {
         return this['full_transfer_complete_time'];
     }
     public withUpdateTime(updateTime: string): QueryJobResp {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
-    public withJobDirection(jobDirection: QueryJobRespJobDirectionEnum): QueryJobResp {
+    public withJobDirection(jobDirection: QueryJobRespJobDirectionEnum | string): QueryJobResp {
         this['job_direction'] = jobDirection;
         return this;
     }
-    public set jobDirection(jobDirection: QueryJobRespJobDirectionEnum | undefined) {
+    public set jobDirection(jobDirection: QueryJobRespJobDirectionEnum | string  | undefined) {
         this['job_direction'] = jobDirection;
     }
-    public get jobDirection() {
+    public get jobDirection(): QueryJobRespJobDirectionEnum | string | undefined {
         return this['job_direction'];
     }
-    public withDbUseType(dbUseType: QueryJobRespDbUseTypeEnum): QueryJobResp {
+    public withDbUseType(dbUseType: QueryJobRespDbUseTypeEnum | string): QueryJobResp {
         this['db_use_type'] = dbUseType;
         return this;
     }
-    public set dbUseType(dbUseType: QueryJobRespDbUseTypeEnum | undefined) {
+    public set dbUseType(dbUseType: QueryJobRespDbUseTypeEnum | string  | undefined) {
         this['db_use_type'] = dbUseType;
     }
-    public get dbUseType() {
+    public get dbUseType(): QueryJobRespDbUseTypeEnum | string | undefined {
         return this['db_use_type'];
     }
     public withNeedRestart(needRestart: boolean): QueryJobResp {
         this['need_restart'] = needRestart;
         return this;
     }
-    public set needRestart(needRestart: boolean | undefined) {
+    public set needRestart(needRestart: boolean  | undefined) {
         this['need_restart'] = needRestart;
     }
-    public get needRestart() {
+    public get needRestart(): boolean | undefined {
         return this['need_restart'];
     }
     public withIsTargetReadonly(isTargetReadonly: boolean): QueryJobResp {
         this['is_target_readonly'] = isTargetReadonly;
         return this;
     }
-    public set isTargetReadonly(isTargetReadonly: boolean | undefined) {
+    public set isTargetReadonly(isTargetReadonly: boolean  | undefined) {
         this['is_target_readonly'] = isTargetReadonly;
     }
-    public get isTargetReadonly() {
+    public get isTargetReadonly(): boolean | undefined {
         return this['is_target_readonly'];
     }
-    public withConflictPolicy(conflictPolicy: QueryJobRespConflictPolicyEnum): QueryJobResp {
+    public withConflictPolicy(conflictPolicy: QueryJobRespConflictPolicyEnum | string): QueryJobResp {
         this['conflict_policy'] = conflictPolicy;
         return this;
     }
-    public set conflictPolicy(conflictPolicy: QueryJobRespConflictPolicyEnum | undefined) {
+    public set conflictPolicy(conflictPolicy: QueryJobRespConflictPolicyEnum | string  | undefined) {
         this['conflict_policy'] = conflictPolicy;
     }
-    public get conflictPolicy() {
+    public get conflictPolicy(): QueryJobRespConflictPolicyEnum | string | undefined {
         return this['conflict_policy'];
     }
     public withFilterDdlPolicy(filterDdlPolicy: string): QueryJobResp {
         this['filter_ddl_policy'] = filterDdlPolicy;
         return this;
     }
-    public set filterDdlPolicy(filterDdlPolicy: string | undefined) {
+    public set filterDdlPolicy(filterDdlPolicy: string  | undefined) {
         this['filter_ddl_policy'] = filterDdlPolicy;
     }
-    public get filterDdlPolicy() {
+    public get filterDdlPolicy(): string | undefined {
         return this['filter_ddl_policy'];
     }
     public withSpeedLimit(speedLimit: Array<SpeedLimitInfo>): QueryJobResp {
         this['speed_limit'] = speedLimit;
         return this;
     }
-    public set speedLimit(speedLimit: Array<SpeedLimitInfo> | undefined) {
+    public set speedLimit(speedLimit: Array<SpeedLimitInfo>  | undefined) {
         this['speed_limit'] = speedLimit;
     }
-    public get speedLimit() {
+    public get speedLimit(): Array<SpeedLimitInfo> | undefined {
         return this['speed_limit'];
     }
-    public withSchemaType(schemaType: QueryJobRespSchemaTypeEnum): QueryJobResp {
+    public withSchemaType(schemaType: QueryJobRespSchemaTypeEnum | string): QueryJobResp {
         this['schema_type'] = schemaType;
         return this;
     }
-    public set schemaType(schemaType: QueryJobRespSchemaTypeEnum | undefined) {
+    public set schemaType(schemaType: QueryJobRespSchemaTypeEnum | string  | undefined) {
         this['schema_type'] = schemaType;
     }
-    public get schemaType() {
+    public get schemaType(): QueryJobRespSchemaTypeEnum | string | undefined {
         return this['schema_type'];
     }
     public withNodeNum(nodeNum: string): QueryJobResp {
         this['node_num'] = nodeNum;
         return this;
     }
-    public set nodeNum(nodeNum: string | undefined) {
+    public set nodeNum(nodeNum: string  | undefined) {
         this['node_num'] = nodeNum;
     }
-    public get nodeNum() {
+    public get nodeNum(): string | undefined {
         return this['node_num'];
     }
     public withObjectSwitch(objectSwitch: boolean): QueryJobResp {
         this['object_switch'] = objectSwitch;
         return this;
     }
-    public set objectSwitch(objectSwitch: boolean | undefined) {
+    public set objectSwitch(objectSwitch: boolean  | undefined) {
         this['object_switch'] = objectSwitch;
     }
-    public get objectSwitch() {
+    public get objectSwitch(): boolean | undefined {
         return this['object_switch'];
     }
     public withMasterJobId(masterJobId: string): QueryJobResp {
         this['master_job_id'] = masterJobId;
         return this;
     }
-    public set masterJobId(masterJobId: string | undefined) {
+    public set masterJobId(masterJobId: string  | undefined) {
         this['master_job_id'] = masterJobId;
     }
-    public get masterJobId() {
+    public get masterJobId(): string | undefined {
         return this['master_job_id'];
     }
     public withFullMode(fullMode: string): QueryJobResp {
         this['full_mode'] = fullMode;
         return this;
     }
-    public set fullMode(fullMode: string | undefined) {
+    public set fullMode(fullMode: string  | undefined) {
         this['full_mode'] = fullMode;
     }
-    public get fullMode() {
+    public get fullMode(): string | undefined {
         return this['full_mode'];
     }
     public withStructTrans(structTrans: boolean): QueryJobResp {
         this['struct_trans'] = structTrans;
         return this;
     }
-    public set structTrans(structTrans: boolean | undefined) {
+    public set structTrans(structTrans: boolean  | undefined) {
         this['struct_trans'] = structTrans;
     }
-    public get structTrans() {
+    public get structTrans(): boolean | undefined {
         return this['struct_trans'];
     }
     public withIndexTrans(indexTrans: boolean): QueryJobResp {
         this['index_trans'] = indexTrans;
         return this;
     }
-    public set indexTrans(indexTrans: boolean | undefined) {
+    public set indexTrans(indexTrans: boolean  | undefined) {
         this['index_trans'] = indexTrans;
     }
-    public get indexTrans() {
+    public get indexTrans(): boolean | undefined {
         return this['index_trans'];
     }
     public withReplaceDefiner(replaceDefiner: boolean): QueryJobResp {
         this['replace_definer'] = replaceDefiner;
         return this;
     }
-    public set replaceDefiner(replaceDefiner: boolean | undefined) {
+    public set replaceDefiner(replaceDefiner: boolean  | undefined) {
         this['replace_definer'] = replaceDefiner;
     }
-    public get replaceDefiner() {
+    public get replaceDefiner(): boolean | undefined {
         return this['replace_definer'];
     }
     public withMigrateUser(migrateUser: boolean): QueryJobResp {
         this['migrate_user'] = migrateUser;
         return this;
     }
-    public set migrateUser(migrateUser: boolean | undefined) {
+    public set migrateUser(migrateUser: boolean  | undefined) {
         this['migrate_user'] = migrateUser;
     }
-    public get migrateUser() {
+    public get migrateUser(): boolean | undefined {
         return this['migrate_user'];
     }
     public withSyncDatabase(syncDatabase: boolean): QueryJobResp {
         this['sync_database'] = syncDatabase;
         return this;
     }
-    public set syncDatabase(syncDatabase: boolean | undefined) {
+    public set syncDatabase(syncDatabase: boolean  | undefined) {
         this['sync_database'] = syncDatabase;
     }
-    public get syncDatabase() {
+    public get syncDatabase(): boolean | undefined {
         return this['sync_database'];
     }
     public withErrorCode(errorCode: string): QueryJobResp {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
     public withErrorMessage(errorMessage: string): QueryJobResp {
         this['error_message'] = errorMessage;
         return this;
     }
-    public set errorMessage(errorMessage: string | undefined) {
+    public set errorMessage(errorMessage: string  | undefined) {
         this['error_message'] = errorMessage;
     }
-    public get errorMessage() {
+    public get errorMessage(): string | undefined {
         return this['error_message'];
     }
     public withTargetRootDb(targetRootDb: DefaultRootDb): QueryJobResp {
         this['target_root_db'] = targetRootDb;
         return this;
     }
-    public set targetRootDb(targetRootDb: DefaultRootDb | undefined) {
+    public set targetRootDb(targetRootDb: DefaultRootDb  | undefined) {
         this['target_root_db'] = targetRootDb;
     }
-    public get targetRootDb() {
+    public get targetRootDb(): DefaultRootDb | undefined {
         return this['target_root_db'];
     }
     public withAzCode(azCode: string): QueryJobResp {
         this['az_code'] = azCode;
         return this;
     }
-    public set azCode(azCode: string | undefined) {
+    public set azCode(azCode: string  | undefined) {
         this['az_code'] = azCode;
     }
-    public get azCode() {
+    public get azCode(): string | undefined {
         return this['az_code'];
     }
     public withVpcId(vpcId: string): QueryJobResp {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withSubnetId(subnetId: string): QueryJobResp {
         this['subnet_id'] = subnetId;
         return this;
     }
-    public set subnetId(subnetId: string | undefined) {
+    public set subnetId(subnetId: string  | undefined) {
         this['subnet_id'] = subnetId;
     }
-    public get subnetId() {
+    public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
     public withSecurityGroupId(securityGroupId: string): QueryJobResp {
         this['security_group_id'] = securityGroupId;
         return this;
     }
-    public set securityGroupId(securityGroupId: string | undefined) {
+    public set securityGroupId(securityGroupId: string  | undefined) {
         this['security_group_id'] = securityGroupId;
     }
-    public get securityGroupId() {
+    public get securityGroupId(): string | undefined {
         return this['security_group_id'];
     }
     public withMultiWrite(multiWrite: boolean): QueryJobResp {
         this['multi_write'] = multiWrite;
         return this;
     }
-    public set multiWrite(multiWrite: boolean | undefined) {
+    public set multiWrite(multiWrite: boolean  | undefined) {
         this['multi_write'] = multiWrite;
     }
-    public get multiWrite() {
+    public get multiWrite(): boolean | undefined {
         return this['multi_write'];
     }
     public withSupportIpV6(supportIpV6: boolean): QueryJobResp {
         this['support_ip_v6'] = supportIpV6;
         return this;
     }
-    public set supportIpV6(supportIpV6: boolean | undefined) {
+    public set supportIpV6(supportIpV6: boolean  | undefined) {
         this['support_ip_v6'] = supportIpV6;
     }
-    public get supportIpV6() {
+    public get supportIpV6(): boolean | undefined {
         return this['support_ip_v6'];
     }
     public withInheritId(inheritId: string): QueryJobResp {
         this['inherit_id'] = inheritId;
         return this;
     }
-    public set inheritId(inheritId: string | undefined) {
+    public set inheritId(inheritId: string  | undefined) {
         this['inherit_id'] = inheritId;
     }
-    public get inheritId() {
+    public get inheritId(): string | undefined {
         return this['inherit_id'];
     }
     public withGtid(gtid: string): QueryJobResp {
@@ -493,110 +493,110 @@ export class QueryJobResp {
         this['alarm_notify'] = alarmNotify;
         return this;
     }
-    public set alarmNotify(alarmNotify: QuerySmnInfoResp | undefined) {
+    public set alarmNotify(alarmNotify: QuerySmnInfoResp  | undefined) {
         this['alarm_notify'] = alarmNotify;
     }
-    public get alarmNotify() {
+    public get alarmNotify(): QuerySmnInfoResp | undefined {
         return this['alarm_notify'];
     }
     public withIncreStartPosition(increStartPosition: string): QueryJobResp {
         this['incre_start_position'] = increStartPosition;
         return this;
     }
-    public set increStartPosition(increStartPosition: string | undefined) {
+    public set increStartPosition(increStartPosition: string  | undefined) {
         this['incre_start_position'] = increStartPosition;
     }
-    public get increStartPosition() {
+    public get increStartPosition(): string | undefined {
         return this['incre_start_position'];
     }
     public withIsMultiAz(isMultiAz: boolean): QueryJobResp {
         this['is_multi_az'] = isMultiAz;
         return this;
     }
-    public set isMultiAz(isMultiAz: boolean | undefined) {
+    public set isMultiAz(isMultiAz: boolean  | undefined) {
         this['is_multi_az'] = isMultiAz;
     }
-    public get isMultiAz() {
+    public get isMultiAz(): boolean | undefined {
         return this['is_multi_az'];
     }
     public withAzName(azName: string): QueryJobResp {
         this['az_name'] = azName;
         return this;
     }
-    public set azName(azName: string | undefined) {
+    public set azName(azName: string  | undefined) {
         this['az_name'] = azName;
     }
-    public get azName() {
+    public get azName(): string | undefined {
         return this['az_name'];
     }
     public withMasterAz(masterAz: string): QueryJobResp {
         this['master_az'] = masterAz;
         return this;
     }
-    public set masterAz(masterAz: string | undefined) {
+    public set masterAz(masterAz: string  | undefined) {
         this['master_az'] = masterAz;
     }
-    public get masterAz() {
+    public get masterAz(): string | undefined {
         return this['master_az'];
     }
     public withSlaveAz(slaveAz: string): QueryJobResp {
         this['slave_az'] = slaveAz;
         return this;
     }
-    public set slaveAz(slaveAz: string | undefined) {
+    public set slaveAz(slaveAz: string  | undefined) {
         this['slave_az'] = slaveAz;
     }
-    public get slaveAz() {
+    public get slaveAz(): string | undefined {
         return this['slave_az'];
     }
     public withNodeRole(nodeRole: string): QueryJobResp {
         this['node_role'] = nodeRole;
         return this;
     }
-    public set nodeRole(nodeRole: string | undefined) {
+    public set nodeRole(nodeRole: string  | undefined) {
         this['node_role'] = nodeRole;
     }
-    public get nodeRole() {
+    public get nodeRole(): string | undefined {
         return this['node_role'];
     }
     public withPeriodOrder(periodOrder: PeriodOrderResp): QueryJobResp {
         this['period_order'] = periodOrder;
         return this;
     }
-    public set periodOrder(periodOrder: PeriodOrderResp | undefined) {
+    public set periodOrder(periodOrder: PeriodOrderResp  | undefined) {
         this['period_order'] = periodOrder;
     }
-    public get periodOrder() {
+    public get periodOrder(): PeriodOrderResp | undefined {
         return this['period_order'];
     }
     public withObjectInfos(objectInfos: Array<DatabaseObjectInfo>): QueryJobResp {
         this['object_infos'] = objectInfos;
         return this;
     }
-    public set objectInfos(objectInfos: Array<DatabaseObjectInfo> | undefined) {
+    public set objectInfos(objectInfos: Array<DatabaseObjectInfo>  | undefined) {
         this['object_infos'] = objectInfos;
     }
-    public get objectInfos() {
+    public get objectInfos(): Array<DatabaseObjectInfo> | undefined {
         return this['object_infos'];
     }
-    public withOriginalJobDirection(originalJobDirection: QueryJobRespOriginalJobDirectionEnum): QueryJobResp {
+    public withOriginalJobDirection(originalJobDirection: QueryJobRespOriginalJobDirectionEnum | string): QueryJobResp {
         this['original_job_direction'] = originalJobDirection;
         return this;
     }
-    public set originalJobDirection(originalJobDirection: QueryJobRespOriginalJobDirectionEnum | undefined) {
+    public set originalJobDirection(originalJobDirection: QueryJobRespOriginalJobDirectionEnum | string  | undefined) {
         this['original_job_direction'] = originalJobDirection;
     }
-    public get originalJobDirection() {
+    public get originalJobDirection(): QueryJobRespOriginalJobDirectionEnum | string | undefined {
         return this['original_job_direction'];
     }
     public withDataTransformation(dataTransformation: GetDataTransformationResp): QueryJobResp {
         this['data_transformation'] = dataTransformation;
         return this;
     }
-    public set dataTransformation(dataTransformation: GetDataTransformationResp | undefined) {
+    public set dataTransformation(dataTransformation: GetDataTransformationResp  | undefined) {
         this['data_transformation'] = dataTransformation;
     }
-    public get dataTransformation() {
+    public get dataTransformation(): GetDataTransformationResp | undefined {
         return this['data_transformation'];
     }
     public withTags(tags: Array<Tag>): QueryJobResp {

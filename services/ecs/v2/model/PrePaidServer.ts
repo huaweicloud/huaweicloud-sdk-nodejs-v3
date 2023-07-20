@@ -9,30 +9,30 @@ import { PrePaidServerTag } from './PrePaidServerTag';
 
 
 export class PrePaidServer {
-    private 'auto_terminate_time'?: string | undefined;
-    public imageRef: string;
-    public flavorRef: string;
-    public name: string;
-    private 'user_data'?: string | undefined;
+    private 'auto_terminate_time'?: string;
+    public imageRef?: string;
+    public flavorRef?: string;
+    public name?: string;
+    private 'user_data'?: string;
     public adminPass?: string;
-    private 'key_name'?: string | undefined;
-    public vpcid: string;
-    public nics: Array<PrePaidServerNic>;
+    private 'key_name'?: string;
+    public vpcid?: string;
+    public nics?: Array<PrePaidServerNic>;
     public publicip?: PrePaidServerPublicip;
     public count?: number;
     public isAutoRename?: boolean;
-    private 'root_volume': PrePaidServerRootVolume | undefined;
-    private 'data_volumes'?: Array<PrePaidServerDataVolume> | undefined;
-    private 'security_groups'?: Array<PrePaidServerSecurityGroup> | undefined;
-    private 'availability_zone'?: string | undefined;
-    private 'batch_create_in_multi_az'?: boolean | undefined;
+    private 'root_volume'?: PrePaidServerRootVolume;
+    private 'data_volumes'?: Array<PrePaidServerDataVolume>;
+    private 'security_groups'?: Array<PrePaidServerSecurityGroup>;
+    private 'availability_zone'?: string;
+    private 'batch_create_in_multi_az'?: boolean;
     public extendparam?: PrePaidServerExtendParam;
     public metadata?: { [key: string]: string; };
-    private 'os:scheduler_hints'?: PrePaidServerSchedulerHints | undefined;
+    private 'os:scheduler_hints'?: PrePaidServerSchedulerHints;
     public tags?: Array<string>;
-    private 'server_tags'?: Array<PrePaidServerTag> | undefined;
+    private 'server_tags'?: Array<PrePaidServerTag>;
     public description?: string;
-    public constructor(imageRef?: any, flavorRef?: any, name?: any, vpcid?: any, nics?: any, rootVolume?: any) { 
+    public constructor(imageRef?: string, flavorRef?: string, name?: string, vpcid?: string, nics?: Array<PrePaidServerNic>, rootVolume?: PrePaidServerRootVolume) { 
         this['imageRef'] = imageRef;
         this['flavorRef'] = flavorRef;
         this['name'] = name;
@@ -44,10 +44,10 @@ export class PrePaidServer {
         this['auto_terminate_time'] = autoTerminateTime;
         return this;
     }
-    public set autoTerminateTime(autoTerminateTime: string | undefined) {
+    public set autoTerminateTime(autoTerminateTime: string  | undefined) {
         this['auto_terminate_time'] = autoTerminateTime;
     }
-    public get autoTerminateTime() {
+    public get autoTerminateTime(): string | undefined {
         return this['auto_terminate_time'];
     }
     public withImageRef(imageRef: string): PrePaidServer {
@@ -66,10 +66,10 @@ export class PrePaidServer {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withAdminPass(adminPass: string): PrePaidServer {
@@ -80,10 +80,10 @@ export class PrePaidServer {
         this['key_name'] = keyName;
         return this;
     }
-    public set keyName(keyName: string | undefined) {
+    public set keyName(keyName: string  | undefined) {
         this['key_name'] = keyName;
     }
-    public get keyName() {
+    public get keyName(): string | undefined {
         return this['key_name'];
     }
     public withVpcid(vpcid: string): PrePaidServer {
@@ -110,50 +110,50 @@ export class PrePaidServer {
         this['root_volume'] = rootVolume;
         return this;
     }
-    public set rootVolume(rootVolume: PrePaidServerRootVolume | undefined) {
+    public set rootVolume(rootVolume: PrePaidServerRootVolume  | undefined) {
         this['root_volume'] = rootVolume;
     }
-    public get rootVolume() {
+    public get rootVolume(): PrePaidServerRootVolume | undefined {
         return this['root_volume'];
     }
     public withDataVolumes(dataVolumes: Array<PrePaidServerDataVolume>): PrePaidServer {
         this['data_volumes'] = dataVolumes;
         return this;
     }
-    public set dataVolumes(dataVolumes: Array<PrePaidServerDataVolume> | undefined) {
+    public set dataVolumes(dataVolumes: Array<PrePaidServerDataVolume>  | undefined) {
         this['data_volumes'] = dataVolumes;
     }
-    public get dataVolumes() {
+    public get dataVolumes(): Array<PrePaidServerDataVolume> | undefined {
         return this['data_volumes'];
     }
     public withSecurityGroups(securityGroups: Array<PrePaidServerSecurityGroup>): PrePaidServer {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<PrePaidServerSecurityGroup> | undefined) {
+    public set securityGroups(securityGroups: Array<PrePaidServerSecurityGroup>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups() {
+    public get securityGroups(): Array<PrePaidServerSecurityGroup> | undefined {
         return this['security_groups'];
     }
     public withAvailabilityZone(availabilityZone: string): PrePaidServer {
         this['availability_zone'] = availabilityZone;
         return this;
     }
-    public set availabilityZone(availabilityZone: string | undefined) {
+    public set availabilityZone(availabilityZone: string  | undefined) {
         this['availability_zone'] = availabilityZone;
     }
-    public get availabilityZone() {
+    public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
     public withBatchCreateInMultiAz(batchCreateInMultiAz: boolean): PrePaidServer {
         this['batch_create_in_multi_az'] = batchCreateInMultiAz;
         return this;
     }
-    public set batchCreateInMultiAz(batchCreateInMultiAz: boolean | undefined) {
+    public set batchCreateInMultiAz(batchCreateInMultiAz: boolean  | undefined) {
         this['batch_create_in_multi_az'] = batchCreateInMultiAz;
     }
-    public get batchCreateInMultiAz() {
+    public get batchCreateInMultiAz(): boolean | undefined {
         return this['batch_create_in_multi_az'];
     }
     public withExtendparam(extendparam: PrePaidServerExtendParam): PrePaidServer {
@@ -168,10 +168,10 @@ export class PrePaidServer {
         this['os:scheduler_hints'] = osSchedulerHints;
         return this;
     }
-    public set osSchedulerHints(osSchedulerHints: PrePaidServerSchedulerHints | undefined) {
+    public set osSchedulerHints(osSchedulerHints: PrePaidServerSchedulerHints  | undefined) {
         this['os:scheduler_hints'] = osSchedulerHints;
     }
-    public get osSchedulerHints() {
+    public get osSchedulerHints(): PrePaidServerSchedulerHints | undefined {
         return this['os:scheduler_hints'];
     }
     public withTags(tags: Array<string>): PrePaidServer {
@@ -182,10 +182,10 @@ export class PrePaidServer {
         this['server_tags'] = serverTags;
         return this;
     }
-    public set serverTags(serverTags: Array<PrePaidServerTag> | undefined) {
+    public set serverTags(serverTags: Array<PrePaidServerTag>  | undefined) {
         this['server_tags'] = serverTags;
     }
-    public get serverTags() {
+    public get serverTags(): Array<PrePaidServerTag> | undefined {
         return this['server_tags'];
     }
     public withDescription(description: string): PrePaidServer {

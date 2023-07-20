@@ -1,9 +1,9 @@
 
 
 export class AllowAddressNetmasksResult {
-    private 'address_netmask': string | undefined;
-    public description: string;
-    public constructor(addressNetmask?: any, description?: any) { 
+    private 'address_netmask'?: string;
+    public description?: string;
+    public constructor(addressNetmask?: string, description?: string) { 
         this['address_netmask'] = addressNetmask;
         this['description'] = description;
     }
@@ -11,10 +11,10 @@ export class AllowAddressNetmasksResult {
         this['address_netmask'] = addressNetmask;
         return this;
     }
-    public set addressNetmask(addressNetmask: string | undefined) {
+    public set addressNetmask(addressNetmask: string  | undefined) {
         this['address_netmask'] = addressNetmask;
     }
-    public get addressNetmask() {
+    public get addressNetmask(): string | undefined {
         return this['address_netmask'];
     }
     public withDescription(description: string): AllowAddressNetmasksResult {

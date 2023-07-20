@@ -2,9 +2,9 @@ import { CreatePrePaidPublicipExtendParamOption } from './CreatePrePaidPublicipE
 
 
 export class ChangeToPeriodReq {
-    private 'publicip_ids': Array<string> | undefined;
-    public extendParam: CreatePrePaidPublicipExtendParamOption;
-    public constructor(publicipIds?: any, extendParam?: any) { 
+    private 'publicip_ids'?: Array<string>;
+    public extendParam?: CreatePrePaidPublicipExtendParamOption;
+    public constructor(publicipIds?: Array<string>, extendParam?: CreatePrePaidPublicipExtendParamOption) { 
         this['publicip_ids'] = publicipIds;
         this['extendParam'] = extendParam;
     }
@@ -12,10 +12,10 @@ export class ChangeToPeriodReq {
         this['publicip_ids'] = publicipIds;
         return this;
     }
-    public set publicipIds(publicipIds: Array<string> | undefined) {
+    public set publicipIds(publicipIds: Array<string>  | undefined) {
         this['publicip_ids'] = publicipIds;
     }
-    public get publicipIds() {
+    public get publicipIds(): Array<string> | undefined {
         return this['publicip_ids'];
     }
     public withExtendParam(extendParam: CreatePrePaidPublicipExtendParamOption): ChangeToPeriodReq {

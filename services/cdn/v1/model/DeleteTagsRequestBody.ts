@@ -1,9 +1,9 @@
 
 
 export class DeleteTagsRequestBody {
-    private 'resource_id': string | undefined;
-    public tags: Array<string>;
-    public constructor(resourceId?: any, tags?: any) { 
+    private 'resource_id'?: string;
+    public tags?: Array<string>;
+    public constructor(resourceId?: string, tags?: Array<string>) { 
         this['resource_id'] = resourceId;
         this['tags'] = tags;
     }
@@ -11,10 +11,10 @@ export class DeleteTagsRequestBody {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
     public withTags(tags: Array<string>): DeleteTagsRequestBody {

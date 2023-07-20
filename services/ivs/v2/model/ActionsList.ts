@@ -1,9 +1,9 @@
 
 
 export class ActionsList {
-    public confidence: number;
-    public action: number;
-    public constructor(confidence?: any, action?: any) { 
+    public confidence?: number;
+    public action?: number;
+    public constructor(confidence?: number, action?: number) { 
         this['confidence'] = confidence;
         this['action'] = action;
     }

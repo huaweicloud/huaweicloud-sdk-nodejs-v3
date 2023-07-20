@@ -3,7 +3,7 @@
 export class MetadataTask {
     public id?: string;
     public name?: string;
-    private 'start_date'?: string | undefined;
+    private 'start_date'?: string;
     public status?: string;
     public type?: string;
     public constructor() { 
@@ -20,10 +20,10 @@ export class MetadataTask {
         this['start_date'] = startDate;
         return this;
     }
-    public set startDate(startDate: string | undefined) {
+    public set startDate(startDate: string  | undefined) {
         this['start_date'] = startDate;
     }
-    public get startDate() {
+    public get startDate(): string | undefined {
         return this['start_date'];
     }
     public withStatus(status: string): MetadataTask {

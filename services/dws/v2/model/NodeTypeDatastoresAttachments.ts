@@ -1,9 +1,9 @@
 
 
 export class NodeTypeDatastoresAttachments {
-    private 'min_cn': string | undefined;
-    private 'max_cn': string | undefined;
-    public constructor(minCn?: any, maxCn?: any) { 
+    private 'min_cn'?: string;
+    private 'max_cn'?: string;
+    public constructor(minCn?: string, maxCn?: string) { 
         this['min_cn'] = minCn;
         this['max_cn'] = maxCn;
     }
@@ -11,20 +11,20 @@ export class NodeTypeDatastoresAttachments {
         this['min_cn'] = minCn;
         return this;
     }
-    public set minCn(minCn: string | undefined) {
+    public set minCn(minCn: string  | undefined) {
         this['min_cn'] = minCn;
     }
-    public get minCn() {
+    public get minCn(): string | undefined {
         return this['min_cn'];
     }
     public withMaxCn(maxCn: string): NodeTypeDatastoresAttachments {
         this['max_cn'] = maxCn;
         return this;
     }
-    public set maxCn(maxCn: string | undefined) {
+    public set maxCn(maxCn: string  | undefined) {
         this['max_cn'] = maxCn;
     }
-    public get maxCn() {
+    public get maxCn(): string | undefined {
         return this['max_cn'];
     }
 }

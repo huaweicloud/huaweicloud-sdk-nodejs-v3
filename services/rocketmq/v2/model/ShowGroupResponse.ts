@@ -6,9 +6,9 @@ export class ShowGroupResponse extends SdkResponse {
     public broadcast?: boolean;
     public brokers?: Array<string>;
     public name?: string;
-    private 'retry_max_time'?: number | undefined;
-    private 'app_id'?: string | undefined;
-    private 'app_name'?: string | undefined;
+    private 'retry_max_time'?: number;
+    private 'app_id'?: string;
+    private 'app_name'?: string;
     public permissions?: Array<string>;
     public constructor() { 
         super();
@@ -33,30 +33,30 @@ export class ShowGroupResponse extends SdkResponse {
         this['retry_max_time'] = retryMaxTime;
         return this;
     }
-    public set retryMaxTime(retryMaxTime: number | undefined) {
+    public set retryMaxTime(retryMaxTime: number  | undefined) {
         this['retry_max_time'] = retryMaxTime;
     }
-    public get retryMaxTime() {
+    public get retryMaxTime(): number | undefined {
         return this['retry_max_time'];
     }
     public withAppId(appId: string): ShowGroupResponse {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withAppName(appName: string): ShowGroupResponse {
         this['app_name'] = appName;
         return this;
     }
-    public set appName(appName: string | undefined) {
+    public set appName(appName: string  | undefined) {
         this['app_name'] = appName;
     }
-    public get appName() {
+    public get appName(): string | undefined {
         return this['app_name'];
     }
     public withPermissions(permissions: Array<string>): ShowGroupResponse {

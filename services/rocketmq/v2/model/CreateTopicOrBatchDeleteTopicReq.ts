@@ -5,8 +5,8 @@ import { CreateTopicReq } from './CreateTopicReq';
 export class CreateTopicOrBatchDeleteTopicReq {
     public name?: string;
     public brokers?: Array<string>;
-    private 'queue_num'?: number | undefined;
-    public permission?: CreateTopicOrBatchDeleteTopicReqPermissionEnum;
+    private 'queue_num'?: number;
+    public permission?: CreateTopicOrBatchDeleteTopicReqPermissionEnum | string;
     public topics?: Array<string>;
     public constructor() { 
     }
@@ -22,13 +22,13 @@ export class CreateTopicOrBatchDeleteTopicReq {
         this['queue_num'] = queueNum;
         return this;
     }
-    public set queueNum(queueNum: number | undefined) {
+    public set queueNum(queueNum: number  | undefined) {
         this['queue_num'] = queueNum;
     }
-    public get queueNum() {
+    public get queueNum(): number | undefined {
         return this['queue_num'];
     }
-    public withPermission(permission: CreateTopicOrBatchDeleteTopicReqPermissionEnum): CreateTopicOrBatchDeleteTopicReq {
+    public withPermission(permission: CreateTopicOrBatchDeleteTopicReqPermissionEnum | string): CreateTopicOrBatchDeleteTopicReq {
         this['permission'] = permission;
         return this;
     }

@@ -1,9 +1,9 @@
 
 
 export class CreateAnonymousAuthRandomRequest {
-    public conferenceID: string;
-    private 'X-Password': string | undefined;
-    public constructor(conferenceID?: any, xPassword?: any) { 
+    public conferenceID?: string;
+    private 'X-Password'?: string;
+    public constructor(conferenceID?: string, xPassword?: string) { 
         this['conferenceID'] = conferenceID;
         this['X-Password'] = xPassword;
     }
@@ -15,10 +15,10 @@ export class CreateAnonymousAuthRandomRequest {
         this['X-Password'] = xPassword;
         return this;
     }
-    public set xPassword(xPassword: string | undefined) {
+    public set xPassword(xPassword: string  | undefined) {
         this['X-Password'] = xPassword;
     }
-    public get xPassword() {
+    public get xPassword(): string | undefined {
         return this['X-Password'];
     }
 }

@@ -1,26 +1,26 @@
 
 
 export class ListReposDetailsRequest {
-    private 'Content-Type': ListReposDetailsRequestContentTypeEnum | undefined;
+    private 'Content-Type'?: ListReposDetailsRequestContentTypeEnum | string;
     public namespace?: string;
     public name?: string;
     public category?: string;
     public limit?: string;
     public offset?: string;
-    private 'order_column'?: string | undefined;
-    private 'order_type'?: string | undefined;
+    private 'order_column'?: string;
+    private 'order_type'?: string;
     public filter?: string;
-    public constructor(contentType?: any) { 
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
-    public withContentType(contentType: ListReposDetailsRequestContentTypeEnum): ListReposDetailsRequest {
+    public withContentType(contentType: ListReposDetailsRequestContentTypeEnum | string): ListReposDetailsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ListReposDetailsRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ListReposDetailsRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ListReposDetailsRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): ListReposDetailsRequest {
@@ -47,20 +47,20 @@ export class ListReposDetailsRequest {
         this['order_column'] = orderColumn;
         return this;
     }
-    public set orderColumn(orderColumn: string | undefined) {
+    public set orderColumn(orderColumn: string  | undefined) {
         this['order_column'] = orderColumn;
     }
-    public get orderColumn() {
+    public get orderColumn(): string | undefined {
         return this['order_column'];
     }
     public withOrderType(orderType: string): ListReposDetailsRequest {
         this['order_type'] = orderType;
         return this;
     }
-    public set orderType(orderType: string | undefined) {
+    public set orderType(orderType: string  | undefined) {
         this['order_type'] = orderType;
     }
-    public get orderType() {
+    public get orderType(): string | undefined {
         return this['order_type'];
     }
     public withFilter(filter: string): ListReposDetailsRequest {

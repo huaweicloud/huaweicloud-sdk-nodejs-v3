@@ -3,7 +3,7 @@ import { NodeTypes } from './NodeTypes';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListNodeTypesResponse extends SdkResponse {
-    private 'node_types'?: Array<NodeTypes> | undefined;
+    private 'node_types'?: Array<NodeTypes>;
     public count?: number;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class ListNodeTypesResponse extends SdkResponse {
         this['node_types'] = nodeTypes;
         return this;
     }
-    public set nodeTypes(nodeTypes: Array<NodeTypes> | undefined) {
+    public set nodeTypes(nodeTypes: Array<NodeTypes>  | undefined) {
         this['node_types'] = nodeTypes;
     }
-    public get nodeTypes() {
+    public get nodeTypes(): Array<NodeTypes> | undefined {
         return this['node_types'];
     }
     public withCount(count: number): ListNodeTypesResponse {

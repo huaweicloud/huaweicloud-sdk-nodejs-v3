@@ -5,36 +5,36 @@ import { TranscodeDetail } from './TranscodeDetail';
 
 
 export class QueryTranscodingsTaskResponse {
-    private 'task_id'?: string | undefined;
-    public status?: QueryTranscodingsTaskResponseStatusEnum;
-    private 'create_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
-    private 'trans_template_id'?: Array<number> | undefined;
+    private 'task_id'?: string;
+    public status?: QueryTranscodingsTaskResponseStatusEnum | string;
+    private 'create_time'?: string;
+    private 'end_time'?: string;
+    private 'trans_template_id'?: Array<number>;
     public input?: ObsObjInfo;
     public output?: ObsObjInfo;
-    private 'output_file_name'?: Array<string> | undefined;
-    private 'user_data'?: string | undefined;
-    private 'error_code'?: string | undefined;
+    private 'output_file_name'?: Array<string>;
+    private 'user_data'?: string;
+    private 'error_code'?: string;
     public description?: string;
     public tips?: string;
-    private 'transcode_detail'?: TranscodeDetail | undefined;
-    private 'thumbnail_output'?: ObsObjInfo | undefined;
-    private 'thumbnail_outputname'?: string | undefined;
-    private 'pic_info'?: Array<PicInfo> | undefined;
-    private 'av_parameters'?: Array<AvParameters> | undefined;
+    private 'transcode_detail'?: TranscodeDetail;
+    private 'thumbnail_output'?: ObsObjInfo;
+    private 'thumbnail_outputname'?: string;
+    private 'pic_info'?: Array<PicInfo>;
+    private 'av_parameters'?: Array<AvParameters>;
     public constructor() { 
     }
     public withTaskId(taskId: string): QueryTranscodingsTaskResponse {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
-    public withStatus(status: QueryTranscodingsTaskResponseStatusEnum): QueryTranscodingsTaskResponse {
+    public withStatus(status: QueryTranscodingsTaskResponseStatusEnum | string): QueryTranscodingsTaskResponse {
         this['status'] = status;
         return this;
     }
@@ -42,30 +42,30 @@ export class QueryTranscodingsTaskResponse {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withEndTime(endTime: string): QueryTranscodingsTaskResponse {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withTransTemplateId(transTemplateId: Array<number>): QueryTranscodingsTaskResponse {
         this['trans_template_id'] = transTemplateId;
         return this;
     }
-    public set transTemplateId(transTemplateId: Array<number> | undefined) {
+    public set transTemplateId(transTemplateId: Array<number>  | undefined) {
         this['trans_template_id'] = transTemplateId;
     }
-    public get transTemplateId() {
+    public get transTemplateId(): Array<number> | undefined {
         return this['trans_template_id'];
     }
     public withInput(input: ObsObjInfo): QueryTranscodingsTaskResponse {
@@ -80,30 +80,30 @@ export class QueryTranscodingsTaskResponse {
         this['output_file_name'] = outputFileName;
         return this;
     }
-    public set outputFileName(outputFileName: Array<string> | undefined) {
+    public set outputFileName(outputFileName: Array<string>  | undefined) {
         this['output_file_name'] = outputFileName;
     }
-    public get outputFileName() {
+    public get outputFileName(): Array<string> | undefined {
         return this['output_file_name'];
     }
     public withUserData(userData: string): QueryTranscodingsTaskResponse {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withErrorCode(errorCode: string): QueryTranscodingsTaskResponse {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
     public withDescription(description: string): QueryTranscodingsTaskResponse {
@@ -118,50 +118,50 @@ export class QueryTranscodingsTaskResponse {
         this['transcode_detail'] = transcodeDetail;
         return this;
     }
-    public set transcodeDetail(transcodeDetail: TranscodeDetail | undefined) {
+    public set transcodeDetail(transcodeDetail: TranscodeDetail  | undefined) {
         this['transcode_detail'] = transcodeDetail;
     }
-    public get transcodeDetail() {
+    public get transcodeDetail(): TranscodeDetail | undefined {
         return this['transcode_detail'];
     }
     public withThumbnailOutput(thumbnailOutput: ObsObjInfo): QueryTranscodingsTaskResponse {
         this['thumbnail_output'] = thumbnailOutput;
         return this;
     }
-    public set thumbnailOutput(thumbnailOutput: ObsObjInfo | undefined) {
+    public set thumbnailOutput(thumbnailOutput: ObsObjInfo  | undefined) {
         this['thumbnail_output'] = thumbnailOutput;
     }
-    public get thumbnailOutput() {
+    public get thumbnailOutput(): ObsObjInfo | undefined {
         return this['thumbnail_output'];
     }
     public withThumbnailOutputname(thumbnailOutputname: string): QueryTranscodingsTaskResponse {
         this['thumbnail_outputname'] = thumbnailOutputname;
         return this;
     }
-    public set thumbnailOutputname(thumbnailOutputname: string | undefined) {
+    public set thumbnailOutputname(thumbnailOutputname: string  | undefined) {
         this['thumbnail_outputname'] = thumbnailOutputname;
     }
-    public get thumbnailOutputname() {
+    public get thumbnailOutputname(): string | undefined {
         return this['thumbnail_outputname'];
     }
     public withPicInfo(picInfo: Array<PicInfo>): QueryTranscodingsTaskResponse {
         this['pic_info'] = picInfo;
         return this;
     }
-    public set picInfo(picInfo: Array<PicInfo> | undefined) {
+    public set picInfo(picInfo: Array<PicInfo>  | undefined) {
         this['pic_info'] = picInfo;
     }
-    public get picInfo() {
+    public get picInfo(): Array<PicInfo> | undefined {
         return this['pic_info'];
     }
     public withAvParameters(avParameters: Array<AvParameters>): QueryTranscodingsTaskResponse {
         this['av_parameters'] = avParameters;
         return this;
     }
-    public set avParameters(avParameters: Array<AvParameters> | undefined) {
+    public set avParameters(avParameters: Array<AvParameters>  | undefined) {
         this['av_parameters'] = avParameters;
     }
-    public get avParameters() {
+    public get avParameters(): Array<AvParameters> | undefined {
         return this['av_parameters'];
     }
 }

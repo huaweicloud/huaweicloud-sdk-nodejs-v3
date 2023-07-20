@@ -3,10 +3,10 @@
 export class ReleaseRepository {
     public id?: string;
     public name?: string;
-    private 'download_path'?: string | undefined;
+    private 'download_path'?: string;
     public size?: string;
-    private 'category_name'?: string | undefined;
-    private 'file_type'?: string | undefined;
+    private 'category_name'?: string;
+    private 'file_type'?: string;
     public created?: string;
     public updated?: string;
     public constructor() { 
@@ -23,10 +23,10 @@ export class ReleaseRepository {
         this['download_path'] = downloadPath;
         return this;
     }
-    public set downloadPath(downloadPath: string | undefined) {
+    public set downloadPath(downloadPath: string  | undefined) {
         this['download_path'] = downloadPath;
     }
-    public get downloadPath() {
+    public get downloadPath(): string | undefined {
         return this['download_path'];
     }
     public withSize(size: string): ReleaseRepository {
@@ -37,20 +37,20 @@ export class ReleaseRepository {
         this['category_name'] = categoryName;
         return this;
     }
-    public set categoryName(categoryName: string | undefined) {
+    public set categoryName(categoryName: string  | undefined) {
         this['category_name'] = categoryName;
     }
-    public get categoryName() {
+    public get categoryName(): string | undefined {
         return this['category_name'];
     }
     public withFileType(fileType: string): ReleaseRepository {
         this['file_type'] = fileType;
         return this;
     }
-    public set fileType(fileType: string | undefined) {
+    public set fileType(fileType: string  | undefined) {
         this['file_type'] = fileType;
     }
-    public get fileType() {
+    public get fileType(): string | undefined {
         return this['file_type'];
     }
     public withCreated(created: string): ReleaseRepository {

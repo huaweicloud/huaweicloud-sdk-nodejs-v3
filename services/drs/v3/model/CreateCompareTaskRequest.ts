@@ -2,18 +2,18 @@ import { CreateCompareTaskReq } from './CreateCompareTaskReq';
 
 
 export class CreateCompareTaskRequest {
-    private 'X-Language'?: CreateCompareTaskRequestXLanguageEnum | undefined;
+    private 'X-Language'?: CreateCompareTaskRequestXLanguageEnum | string;
     public body?: CreateCompareTaskReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: CreateCompareTaskRequestXLanguageEnum): CreateCompareTaskRequest {
+    public withXLanguage(xLanguage: CreateCompareTaskRequestXLanguageEnum | string): CreateCompareTaskRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: CreateCompareTaskRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: CreateCompareTaskRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): CreateCompareTaskRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: CreateCompareTaskReq): CreateCompareTaskRequest {

@@ -1,11 +1,11 @@
 
 
 export class CreateDataImage {
-    public name: string;
-    private 'volume_id': string | undefined;
+    public name?: string;
+    private 'volume_id'?: string;
     public description?: string;
     public tags?: Array<string>;
-    public constructor(name?: any, volumeId?: any) { 
+    public constructor(name?: string, volumeId?: string) { 
         this['name'] = name;
         this['volume_id'] = volumeId;
     }
@@ -17,10 +17,10 @@ export class CreateDataImage {
         this['volume_id'] = volumeId;
         return this;
     }
-    public set volumeId(volumeId: string | undefined) {
+    public set volumeId(volumeId: string  | undefined) {
         this['volume_id'] = volumeId;
     }
-    public get volumeId() {
+    public get volumeId(): string | undefined {
         return this['volume_id'];
     }
     public withDescription(description: string): CreateDataImage {

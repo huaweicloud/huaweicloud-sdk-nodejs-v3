@@ -2,10 +2,10 @@ import { LinksSelf } from './LinksSelf';
 
 
 export class AgencyAllProjectRole {
-    public id: string;
-    public links: LinksSelf;
-    public name: string;
-    public constructor(id?: any, links?: any, name?: any) { 
+    public id?: string;
+    public links?: LinksSelf;
+    public name?: string;
+    public constructor(id?: string, links?: LinksSelf, name?: string) { 
         this['id'] = id;
         this['links'] = links;
         this['name'] = name;

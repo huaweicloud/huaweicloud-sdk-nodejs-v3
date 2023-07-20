@@ -1,9 +1,9 @@
 
 
 export class BatchAddMembersRequestBody {
-    public images: Array<string>;
-    public projects: Array<string>;
-    public constructor(images?: any, projects?: any) { 
+    public images?: Array<string>;
+    public projects?: Array<string>;
+    public constructor(images?: Array<string>, projects?: Array<string>) { 
         this['images'] = images;
         this['projects'] = projects;
     }

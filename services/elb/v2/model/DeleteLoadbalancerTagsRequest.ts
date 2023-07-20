@@ -1,9 +1,9 @@
 
 
 export class DeleteLoadbalancerTagsRequest {
-    private 'loadbalancer_id': string | undefined;
-    public key: string;
-    public constructor(loadbalancerId?: any, key?: any) { 
+    private 'loadbalancer_id'?: string;
+    public key?: string;
+    public constructor(loadbalancerId?: string, key?: string) { 
         this['loadbalancer_id'] = loadbalancerId;
         this['key'] = key;
     }
@@ -11,10 +11,10 @@ export class DeleteLoadbalancerTagsRequest {
         this['loadbalancer_id'] = loadbalancerId;
         return this;
     }
-    public set loadbalancerId(loadbalancerId: string | undefined) {
+    public set loadbalancerId(loadbalancerId: string  | undefined) {
         this['loadbalancer_id'] = loadbalancerId;
     }
-    public get loadbalancerId() {
+    public get loadbalancerId(): string | undefined {
         return this['loadbalancer_id'];
     }
     public withKey(key: string): DeleteLoadbalancerTagsRequest {

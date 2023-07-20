@@ -1,11 +1,11 @@
 
 
 export class HlsEncrypt {
-    public key: string;
-    public url: string;
+    public key?: string;
+    public url?: string;
     public iv?: string;
     public algorithm?: string;
-    public constructor(key?: any, url?: any) { 
+    public constructor(key?: string, url?: string) { 
         this['key'] = key;
         this['url'] = url;
     }

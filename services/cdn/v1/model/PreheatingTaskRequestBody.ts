@@ -1,8 +1,8 @@
 
 
 export class PreheatingTaskRequestBody {
-    public urls: Array<string>;
-    public constructor(urls?: any) { 
+    public urls?: Array<string>;
+    public constructor(urls?: Array<string>) { 
         this['urls'] = urls;
     }
     public withUrls(urls: Array<string>): PreheatingTaskRequestBody {

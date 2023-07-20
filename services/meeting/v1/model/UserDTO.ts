@@ -9,7 +9,7 @@ export class UserDTO {
     public email?: string;
     public phone?: string;
     public deptName?: string;
-    private 'number'?: string | undefined;
+    private 'number'?: string;
     public updateTime?: number;
     public isHardTerminal?: boolean;
     public vmrId?: string;
@@ -57,10 +57,10 @@ export class UserDTO {
         this['number'] = modelNumber;
         return this;
     }
-    public set modelNumber(modelNumber: string | undefined) {
+    public set modelNumber(modelNumber: string  | undefined) {
         this['number'] = modelNumber;
     }
-    public get modelNumber() {
+    public get modelNumber(): string | undefined {
         return this['number'];
     }
     public withUpdateTime(updateTime: number): UserDTO {

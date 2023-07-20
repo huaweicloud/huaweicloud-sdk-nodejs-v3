@@ -1,11 +1,11 @@
 
 
 export class ShowQosThresholdRequest {
-    public thresholdType: ShowQosThresholdRequestThresholdTypeEnum;
-    public constructor(thresholdType?: any) { 
+    public thresholdType?: ShowQosThresholdRequestThresholdTypeEnum | string;
+    public constructor(thresholdType?: string) { 
         this['thresholdType'] = thresholdType;
     }
-    public withThresholdType(thresholdType: ShowQosThresholdRequestThresholdTypeEnum): ShowQosThresholdRequest {
+    public withThresholdType(thresholdType: ShowQosThresholdRequestThresholdTypeEnum | string): ShowQosThresholdRequest {
         this['thresholdType'] = thresholdType;
         return this;
     }

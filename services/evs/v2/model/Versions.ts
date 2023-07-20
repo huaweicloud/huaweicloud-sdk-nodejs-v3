@@ -3,14 +3,14 @@ import { MediaTypes } from './MediaTypes';
 
 
 export class Versions {
-    public id: string;
-    public links: Array<Link>;
-    private 'media-types': Array<MediaTypes> | undefined;
-    private 'min_version'?: string | undefined;
-    public status: string;
-    public updated: string;
-    public version: string;
-    public constructor(id?: any, links?: any, mediaTypes?: any, status?: any, updated?: any, version?: any) { 
+    public id?: string;
+    public links?: Array<Link>;
+    private 'media-types'?: Array<MediaTypes>;
+    private 'min_version'?: string;
+    public status?: string;
+    public updated?: string;
+    public version?: string;
+    public constructor(id?: string, links?: Array<Link>, mediaTypes?: Array<MediaTypes>, status?: string, updated?: string, version?: string) { 
         this['id'] = id;
         this['links'] = links;
         this['media-types'] = mediaTypes;
@@ -30,20 +30,20 @@ export class Versions {
         this['media-types'] = mediaTypes;
         return this;
     }
-    public set mediaTypes(mediaTypes: Array<MediaTypes> | undefined) {
+    public set mediaTypes(mediaTypes: Array<MediaTypes>  | undefined) {
         this['media-types'] = mediaTypes;
     }
-    public get mediaTypes() {
+    public get mediaTypes(): Array<MediaTypes> | undefined {
         return this['media-types'];
     }
     public withMinVersion(minVersion: string): Versions {
         this['min_version'] = minVersion;
         return this;
     }
-    public set minVersion(minVersion: string | undefined) {
+    public set minVersion(minVersion: string  | undefined) {
         this['min_version'] = minVersion;
     }
-    public get minVersion() {
+    public get minVersion(): string | undefined {
         return this['min_version'];
     }
     public withStatus(status: string): Versions {

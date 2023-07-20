@@ -1,18 +1,18 @@
 
 
 export class ListDependenciesResult {
-    public id: string;
-    public owner: string;
-    public link: string;
-    public runtime: ListDependenciesResultRuntimeEnum;
-    public etag: string;
-    public size: number;
-    public name: string;
-    private 'file_name'?: string | undefined;
+    public id?: string;
+    public owner?: string;
+    public link?: string;
+    public runtime?: ListDependenciesResultRuntimeEnum | string;
+    public etag?: string;
+    public size?: number;
+    public name?: string;
+    private 'file_name'?: string;
     public description?: string;
     public version?: number;
-    private 'last_modified'?: number | undefined;
-    public constructor(id?: any, owner?: any, link?: any, runtime?: any, etag?: any, size?: any, name?: any) { 
+    private 'last_modified'?: number;
+    public constructor(id?: string, owner?: string, link?: string, runtime?: string, etag?: string, size?: number, name?: string) { 
         this['id'] = id;
         this['owner'] = owner;
         this['link'] = link;
@@ -33,7 +33,7 @@ export class ListDependenciesResult {
         this['link'] = link;
         return this;
     }
-    public withRuntime(runtime: ListDependenciesResultRuntimeEnum): ListDependenciesResult {
+    public withRuntime(runtime: ListDependenciesResultRuntimeEnum | string): ListDependenciesResult {
         this['runtime'] = runtime;
         return this;
     }
@@ -53,10 +53,10 @@ export class ListDependenciesResult {
         this['file_name'] = fileName;
         return this;
     }
-    public set fileName(fileName: string | undefined) {
+    public set fileName(fileName: string  | undefined) {
         this['file_name'] = fileName;
     }
-    public get fileName() {
+    public get fileName(): string | undefined {
         return this['file_name'];
     }
     public withDescription(description: string): ListDependenciesResult {
@@ -71,10 +71,10 @@ export class ListDependenciesResult {
         this['last_modified'] = lastModified;
         return this;
     }
-    public set lastModified(lastModified: number | undefined) {
+    public set lastModified(lastModified: number  | undefined) {
         this['last_modified'] = lastModified;
     }
-    public get lastModified() {
+    public get lastModified(): number | undefined {
         return this['last_modified'];
     }
 }

@@ -3,9 +3,9 @@
 export class UpdateGeoipRuleRequestBody {
     public name?: string;
     public description?: string;
-    public geoip: string;
-    public white: number;
-    public constructor(geoip?: any, white?: any) { 
+    public geoip?: string;
+    public white?: number;
+    public constructor(geoip?: string, white?: number) { 
         this['geoip'] = geoip;
         this['white'] = white;
     }

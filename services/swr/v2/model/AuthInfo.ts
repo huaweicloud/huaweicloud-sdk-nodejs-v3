@@ -1,8 +1,8 @@
 
 
 export class AuthInfo {
-    public auth: string;
-    public constructor(auth?: any) { 
+    public auth?: string;
+    public constructor(auth?: string) { 
         this['auth'] = auth;
     }
     public withAuth(auth: string): AuthInfo {

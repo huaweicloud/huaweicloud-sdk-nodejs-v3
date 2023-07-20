@@ -1,50 +1,50 @@
 
 
 export class IdcardVerificationResult {
-    private 'valid_number'?: boolean | undefined;
-    private 'valid_birth'?: boolean | undefined;
-    private 'valid_sex'?: boolean | undefined;
-    private 'valid_date'?: boolean | undefined;
+    private 'valid_number'?: boolean;
+    private 'valid_birth'?: boolean;
+    private 'valid_sex'?: boolean;
+    private 'valid_date'?: boolean;
     public constructor() { 
     }
     public withValidNumber(validNumber: boolean): IdcardVerificationResult {
         this['valid_number'] = validNumber;
         return this;
     }
-    public set validNumber(validNumber: boolean | undefined) {
+    public set validNumber(validNumber: boolean  | undefined) {
         this['valid_number'] = validNumber;
     }
-    public get validNumber() {
+    public get validNumber(): boolean | undefined {
         return this['valid_number'];
     }
     public withValidBirth(validBirth: boolean): IdcardVerificationResult {
         this['valid_birth'] = validBirth;
         return this;
     }
-    public set validBirth(validBirth: boolean | undefined) {
+    public set validBirth(validBirth: boolean  | undefined) {
         this['valid_birth'] = validBirth;
     }
-    public get validBirth() {
+    public get validBirth(): boolean | undefined {
         return this['valid_birth'];
     }
     public withValidSex(validSex: boolean): IdcardVerificationResult {
         this['valid_sex'] = validSex;
         return this;
     }
-    public set validSex(validSex: boolean | undefined) {
+    public set validSex(validSex: boolean  | undefined) {
         this['valid_sex'] = validSex;
     }
-    public get validSex() {
+    public get validSex(): boolean | undefined {
         return this['valid_sex'];
     }
     public withValidDate(validDate: boolean): IdcardVerificationResult {
         this['valid_date'] = validDate;
         return this;
     }
-    public set validDate(validDate: boolean | undefined) {
+    public set validDate(validDate: boolean  | undefined) {
         this['valid_date'] = validDate;
     }
-    public get validDate() {
+    public get validDate(): boolean | undefined {
         return this['valid_date'];
     }
 }

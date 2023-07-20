@@ -1,15 +1,15 @@
 
 
 export class ListRtcRealtimeScaleDimensionRequest {
-    private 'Authorization'?: string | undefined;
-    private 'X-Sdk-Date'?: string | undefined;
-    private 'X-Project-Id'?: string | undefined;
-    public app: string;
-    private 'room_id'?: string | undefined;
-    public metric: string;
-    public dimension: string;
-    public time: string;
-    public constructor(app?: any, metric?: any, dimension?: any, time?: any) { 
+    private 'Authorization'?: string;
+    private 'X-Sdk-Date'?: string;
+    private 'X-Project-Id'?: string;
+    public app?: string;
+    private 'room_id'?: string;
+    public metric?: string;
+    public dimension?: string;
+    public time?: string;
+    public constructor(app?: string, metric?: string, dimension?: string, time?: string) { 
         this['app'] = app;
         this['metric'] = metric;
         this['dimension'] = dimension;
@@ -19,30 +19,30 @@ export class ListRtcRealtimeScaleDimensionRequest {
         this['Authorization'] = authorization;
         return this;
     }
-    public set authorization(authorization: string | undefined) {
+    public set authorization(authorization: string  | undefined) {
         this['Authorization'] = authorization;
     }
-    public get authorization() {
+    public get authorization(): string | undefined {
         return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ListRtcRealtimeScaleDimensionRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withXProjectId(xProjectId: string): ListRtcRealtimeScaleDimensionRequest {
         this['X-Project-Id'] = xProjectId;
         return this;
     }
-    public set xProjectId(xProjectId: string | undefined) {
+    public set xProjectId(xProjectId: string  | undefined) {
         this['X-Project-Id'] = xProjectId;
     }
-    public get xProjectId() {
+    public get xProjectId(): string | undefined {
         return this['X-Project-Id'];
     }
     public withApp(app: string): ListRtcRealtimeScaleDimensionRequest {
@@ -53,10 +53,10 @@ export class ListRtcRealtimeScaleDimensionRequest {
         this['room_id'] = roomId;
         return this;
     }
-    public set roomId(roomId: string | undefined) {
+    public set roomId(roomId: string  | undefined) {
         this['room_id'] = roomId;
     }
-    public get roomId() {
+    public get roomId(): string | undefined {
         return this['room_id'];
     }
     public withMetric(metric: string): ListRtcRealtimeScaleDimensionRequest {

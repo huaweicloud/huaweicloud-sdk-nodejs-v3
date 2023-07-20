@@ -1,11 +1,11 @@
 
 
 export class ListDeployTasksRequest {
-    private 'project_id': string | undefined;
-    private 'Content-Type': ListDeployTasksRequestContentTypeEnum | undefined;
-    public page: number;
-    public size: number;
-    public constructor(projectId?: any, contentType?: any, page?: any, size?: any) { 
+    private 'project_id'?: string;
+    private 'Content-Type'?: ListDeployTasksRequestContentTypeEnum | string;
+    public page?: number;
+    public size?: number;
+    public constructor(projectId?: string, contentType?: string, page?: number, size?: number) { 
         this['project_id'] = projectId;
         this['Content-Type'] = contentType;
         this['page'] = page;
@@ -15,20 +15,20 @@ export class ListDeployTasksRequest {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withContentType(contentType: ListDeployTasksRequestContentTypeEnum): ListDeployTasksRequest {
+    public withContentType(contentType: ListDeployTasksRequestContentTypeEnum | string): ListDeployTasksRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ListDeployTasksRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ListDeployTasksRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ListDeployTasksRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withPage(page: number): ListDeployTasksRequest {

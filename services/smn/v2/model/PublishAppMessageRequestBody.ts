@@ -2,8 +2,8 @@
 
 export class PublishAppMessageRequestBody {
     public message?: string;
-    private 'message_structure'?: string | undefined;
-    private 'time_to_live'?: string | undefined;
+    private 'message_structure'?: string;
+    private 'time_to_live'?: string;
     public constructor() { 
     }
     public withMessage(message: string): PublishAppMessageRequestBody {
@@ -14,20 +14,20 @@ export class PublishAppMessageRequestBody {
         this['message_structure'] = messageStructure;
         return this;
     }
-    public set messageStructure(messageStructure: string | undefined) {
+    public set messageStructure(messageStructure: string  | undefined) {
         this['message_structure'] = messageStructure;
     }
-    public get messageStructure() {
+    public get messageStructure(): string | undefined {
         return this['message_structure'];
     }
     public withTimeToLive(timeToLive: string): PublishAppMessageRequestBody {
         this['time_to_live'] = timeToLive;
         return this;
     }
-    public set timeToLive(timeToLive: string | undefined) {
+    public set timeToLive(timeToLive: string  | undefined) {
         this['time_to_live'] = timeToLive;
     }
-    public get timeToLive() {
+    public get timeToLive(): string | undefined {
         return this['time_to_live'];
     }
 }

@@ -2,15 +2,15 @@ import { NeutronSecurityGroupRule } from './NeutronSecurityGroupRule';
 
 
 export class NeutronSecurityGroup {
-    public description: string;
-    public id: string;
-    public name: string;
-    private 'security_group_rules': Array<NeutronSecurityGroupRule> | undefined;
-    private 'tenant_id': string | undefined;
-    private 'project_id': string | undefined;
-    private 'created_at': Date | undefined;
-    private 'updated_at': Date | undefined;
-    public constructor(description?: any, id?: any, name?: any, securityGroupRules?: any, tenantId?: any, projectId?: any, createdAt?: any, updatedAt?: any) { 
+    public description?: string;
+    public id?: string;
+    public name?: string;
+    private 'security_group_rules'?: Array<NeutronSecurityGroupRule>;
+    private 'tenant_id'?: string;
+    private 'project_id'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    public constructor(description?: string, id?: string, name?: string, securityGroupRules?: Array<NeutronSecurityGroupRule>, tenantId?: string, projectId?: string, createdAt?: Date, updatedAt?: Date) { 
         this['description'] = description;
         this['id'] = id;
         this['name'] = name;
@@ -36,50 +36,50 @@ export class NeutronSecurityGroup {
         this['security_group_rules'] = securityGroupRules;
         return this;
     }
-    public set securityGroupRules(securityGroupRules: Array<NeutronSecurityGroupRule> | undefined) {
+    public set securityGroupRules(securityGroupRules: Array<NeutronSecurityGroupRule>  | undefined) {
         this['security_group_rules'] = securityGroupRules;
     }
-    public get securityGroupRules() {
+    public get securityGroupRules(): Array<NeutronSecurityGroupRule> | undefined {
         return this['security_group_rules'];
     }
     public withTenantId(tenantId: string): NeutronSecurityGroup {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withProjectId(projectId: string): NeutronSecurityGroup {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withCreatedAt(createdAt: Date): NeutronSecurityGroup {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): NeutronSecurityGroup {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
 }

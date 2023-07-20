@@ -1,9 +1,9 @@
 
 
 export class ShowVodStatisticsRequest {
-    private 'X-Sdk-Date'?: string | undefined;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
+    private 'X-Sdk-Date'?: string;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
     public interval?: number;
     public constructor() { 
     }
@@ -11,30 +11,30 @@ export class ShowVodStatisticsRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withStartTime(startTime: string): ShowVodStatisticsRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ShowVodStatisticsRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withInterval(interval: number): ShowVodStatisticsRequest {

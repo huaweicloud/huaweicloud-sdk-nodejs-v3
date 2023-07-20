@@ -2,10 +2,10 @@ import { NovaAvailabilityZoneState } from './NovaAvailabilityZoneState';
 
 
 export class NovaAvailabilityZone {
-    public hosts: Array<string>;
-    public zoneName: string;
-    public zoneState: NovaAvailabilityZoneState;
-    public constructor(hosts?: any, zoneName?: any, zoneState?: any) { 
+    public hosts?: Array<string>;
+    public zoneName?: string;
+    public zoneState?: NovaAvailabilityZoneState;
+    public constructor(hosts?: Array<string>, zoneName?: string, zoneState?: NovaAvailabilityZoneState) { 
         this['hosts'] = hosts;
         this['zoneName'] = zoneName;
         this['zoneState'] = zoneState;

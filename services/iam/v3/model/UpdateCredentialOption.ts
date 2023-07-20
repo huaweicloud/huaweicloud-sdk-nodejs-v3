@@ -1,11 +1,11 @@
 
 
 export class UpdateCredentialOption {
-    public status?: UpdateCredentialOptionStatusEnum;
+    public status?: UpdateCredentialOptionStatusEnum | string;
     public description?: string;
     public constructor() { 
     }
-    public withStatus(status: UpdateCredentialOptionStatusEnum): UpdateCredentialOption {
+    public withStatus(status: UpdateCredentialOptionStatusEnum | string): UpdateCredentialOption {
         this['status'] = status;
         return this;
     }

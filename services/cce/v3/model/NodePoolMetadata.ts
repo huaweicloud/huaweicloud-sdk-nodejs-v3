@@ -1,12 +1,12 @@
 
 
 export class NodePoolMetadata {
-    public name: string;
+    public name?: string;
     public uid?: string;
     public annotations?: { [key: string]: string; };
     public updateTimestamp?: string;
     public creationTimestamp?: string;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): NodePoolMetadata {

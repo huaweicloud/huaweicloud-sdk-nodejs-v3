@@ -4,18 +4,18 @@ export class ExtDataSource {
     public id?: string;
     public name?: string;
     public type?: string;
-    private 'connect_info'?: string | undefined;
-    private 'user_name'?: string | undefined;
+    private 'connect_info'?: string;
+    private 'user_name'?: string;
     public version?: string;
-    private 'configure_status'?: string | undefined;
+    private 'configure_status'?: string;
     public status?: string;
-    private 'data_source_id'?: string | undefined;
+    private 'data_source_id'?: string;
     public created?: string;
     public updated?: string;
-    private 'data_source_updated'?: string | undefined;
-    private 'extend_properties'?: object | undefined;
+    private 'data_source_updated'?: string;
+    private 'extend_properties'?: object;
     public description?: string;
-    private 'fail_reason'?: string | undefined;
+    private 'fail_reason'?: string;
     public constructor() { 
     }
     public withId(id: string): ExtDataSource {
@@ -34,20 +34,20 @@ export class ExtDataSource {
         this['connect_info'] = connectInfo;
         return this;
     }
-    public set connectInfo(connectInfo: string | undefined) {
+    public set connectInfo(connectInfo: string  | undefined) {
         this['connect_info'] = connectInfo;
     }
-    public get connectInfo() {
+    public get connectInfo(): string | undefined {
         return this['connect_info'];
     }
     public withUserName(userName: string): ExtDataSource {
         this['user_name'] = userName;
         return this;
     }
-    public set userName(userName: string | undefined) {
+    public set userName(userName: string  | undefined) {
         this['user_name'] = userName;
     }
-    public get userName() {
+    public get userName(): string | undefined {
         return this['user_name'];
     }
     public withVersion(version: string): ExtDataSource {
@@ -58,10 +58,10 @@ export class ExtDataSource {
         this['configure_status'] = configureStatus;
         return this;
     }
-    public set configureStatus(configureStatus: string | undefined) {
+    public set configureStatus(configureStatus: string  | undefined) {
         this['configure_status'] = configureStatus;
     }
-    public get configureStatus() {
+    public get configureStatus(): string | undefined {
         return this['configure_status'];
     }
     public withStatus(status: string): ExtDataSource {
@@ -72,10 +72,10 @@ export class ExtDataSource {
         this['data_source_id'] = dataSourceId;
         return this;
     }
-    public set dataSourceId(dataSourceId: string | undefined) {
+    public set dataSourceId(dataSourceId: string  | undefined) {
         this['data_source_id'] = dataSourceId;
     }
-    public get dataSourceId() {
+    public get dataSourceId(): string | undefined {
         return this['data_source_id'];
     }
     public withCreated(created: string): ExtDataSource {
@@ -90,20 +90,20 @@ export class ExtDataSource {
         this['data_source_updated'] = dataSourceUpdated;
         return this;
     }
-    public set dataSourceUpdated(dataSourceUpdated: string | undefined) {
+    public set dataSourceUpdated(dataSourceUpdated: string  | undefined) {
         this['data_source_updated'] = dataSourceUpdated;
     }
-    public get dataSourceUpdated() {
+    public get dataSourceUpdated(): string | undefined {
         return this['data_source_updated'];
     }
     public withExtendProperties(extendProperties: object): ExtDataSource {
         this['extend_properties'] = extendProperties;
         return this;
     }
-    public set extendProperties(extendProperties: object | undefined) {
+    public set extendProperties(extendProperties: object  | undefined) {
         this['extend_properties'] = extendProperties;
     }
-    public get extendProperties() {
+    public get extendProperties(): object | undefined {
         return this['extend_properties'];
     }
     public withDescription(description: string): ExtDataSource {
@@ -114,10 +114,10 @@ export class ExtDataSource {
         this['fail_reason'] = failReason;
         return this;
     }
-    public set failReason(failReason: string | undefined) {
+    public set failReason(failReason: string  | undefined) {
         this['fail_reason'] = failReason;
     }
-    public get failReason() {
+    public get failReason(): string | undefined {
         return this['fail_reason'];
     }
 }

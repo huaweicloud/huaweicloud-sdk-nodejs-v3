@@ -1,11 +1,11 @@
 
 
 export class ShowResourceRelationsRequest {
-    private 'resource_id': string | undefined;
-    public direction: ShowResourceRelationsRequestDirectionEnum;
+    private 'resource_id'?: string;
+    public direction?: ShowResourceRelationsRequestDirectionEnum | string;
     public limit?: number;
     public marker?: string;
-    public constructor(resourceId?: any, direction?: any) { 
+    public constructor(resourceId?: string, direction?: string) { 
         this['resource_id'] = resourceId;
         this['direction'] = direction;
     }
@@ -13,13 +13,13 @@ export class ShowResourceRelationsRequest {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
-    public withDirection(direction: ShowResourceRelationsRequestDirectionEnum): ShowResourceRelationsRequest {
+    public withDirection(direction: ShowResourceRelationsRequestDirectionEnum | string): ShowResourceRelationsRequest {
         this['direction'] = direction;
         return this;
     }

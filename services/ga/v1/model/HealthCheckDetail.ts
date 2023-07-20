@@ -5,18 +5,18 @@ import { HealthCheckProtocol } from './HealthCheckProtocol';
 
 export class HealthCheckDetail {
     public id?: string;
-    private 'endpoint_group_id'?: string | undefined;
+    private 'endpoint_group_id'?: string;
     public protocol?: HealthCheckProtocol;
     public status?: ConfigStatus;
     public port?: number;
     public interval?: number;
     public timeout?: number;
-    private 'max_retries'?: number | undefined;
-    private 'created_at'?: Date | undefined;
-    private 'updated_at'?: Date | undefined;
-    private 'domain_id'?: string | undefined;
+    private 'max_retries'?: number;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    private 'domain_id'?: string;
     public enabled?: boolean;
-    private 'frozen_info'?: FrozenInfo | undefined;
+    private 'frozen_info'?: FrozenInfo;
     public constructor() { 
     }
     public withId(id: string): HealthCheckDetail {
@@ -27,10 +27,10 @@ export class HealthCheckDetail {
         this['endpoint_group_id'] = endpointGroupId;
         return this;
     }
-    public set endpointGroupId(endpointGroupId: string | undefined) {
+    public set endpointGroupId(endpointGroupId: string  | undefined) {
         this['endpoint_group_id'] = endpointGroupId;
     }
-    public get endpointGroupId() {
+    public get endpointGroupId(): string | undefined {
         return this['endpoint_group_id'];
     }
     public withProtocol(protocol: HealthCheckProtocol): HealthCheckDetail {
@@ -57,40 +57,40 @@ export class HealthCheckDetail {
         this['max_retries'] = maxRetries;
         return this;
     }
-    public set maxRetries(maxRetries: number | undefined) {
+    public set maxRetries(maxRetries: number  | undefined) {
         this['max_retries'] = maxRetries;
     }
-    public get maxRetries() {
+    public get maxRetries(): number | undefined {
         return this['max_retries'];
     }
     public withCreatedAt(createdAt: Date): HealthCheckDetail {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): HealthCheckDetail {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withDomainId(domainId: string): HealthCheckDetail {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withEnabled(enabled: boolean): HealthCheckDetail {
@@ -101,10 +101,10 @@ export class HealthCheckDetail {
         this['frozen_info'] = frozenInfo;
         return this;
     }
-    public set frozenInfo(frozenInfo: FrozenInfo | undefined) {
+    public set frozenInfo(frozenInfo: FrozenInfo  | undefined) {
         this['frozen_info'] = frozenInfo;
     }
-    public get frozenInfo() {
+    public get frozenInfo(): FrozenInfo | undefined {
         return this['frozen_info'];
     }
 }

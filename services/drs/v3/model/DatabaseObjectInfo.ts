@@ -2,10 +2,10 @@
 
 export class DatabaseObjectInfo {
     public id?: string;
-    private 'parent_id'?: string | undefined;
+    private 'parent_id'?: string;
     public type?: string;
     public name?: string;
-    private 'alias_name'?: string | undefined;
+    private 'alias_name'?: string;
     public constructor() { 
     }
     public withId(id: string): DatabaseObjectInfo {
@@ -16,10 +16,10 @@ export class DatabaseObjectInfo {
         this['parent_id'] = parentId;
         return this;
     }
-    public set parentId(parentId: string | undefined) {
+    public set parentId(parentId: string  | undefined) {
         this['parent_id'] = parentId;
     }
-    public get parentId() {
+    public get parentId(): string | undefined {
         return this['parent_id'];
     }
     public withType(type: string): DatabaseObjectInfo {
@@ -34,10 +34,10 @@ export class DatabaseObjectInfo {
         this['alias_name'] = aliasName;
         return this;
     }
-    public set aliasName(aliasName: string | undefined) {
+    public set aliasName(aliasName: string  | undefined) {
         this['alias_name'] = aliasName;
     }
-    public get aliasName() {
+    public get aliasName(): string | undefined {
         return this['alias_name'];
     }
 }

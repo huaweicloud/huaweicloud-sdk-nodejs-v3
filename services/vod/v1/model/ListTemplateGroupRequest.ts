@@ -1,8 +1,8 @@
 
 
 export class ListTemplateGroupRequest {
-    private 'X-Sdk-Date'?: string | undefined;
-    private 'group_id'?: string | undefined;
+    private 'X-Sdk-Date'?: string;
+    private 'group_id'?: string;
     public status?: string;
     public page?: number;
     public size?: number;
@@ -12,20 +12,20 @@ export class ListTemplateGroupRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withGroupId(groupId: string): ListTemplateGroupRequest {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
     public withStatus(status: string): ListTemplateGroupRequest {

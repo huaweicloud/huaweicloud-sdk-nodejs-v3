@@ -3,13 +3,13 @@ import { LoadBalancerStatusPool } from './LoadBalancerStatusPool';
 
 
 export class LoadBalancerStatus {
-    public name: string;
-    private 'provisioning_status': string | undefined;
-    public listeners: Array<LoadBalancerStatusListener>;
-    public pools: Array<LoadBalancerStatusPool>;
-    public id: string;
-    private 'operating_status': string | undefined;
-    public constructor(name?: any, provisioningStatus?: any, listeners?: any, pools?: any, id?: any, operatingStatus?: any) { 
+    public name?: string;
+    private 'provisioning_status'?: string;
+    public listeners?: Array<LoadBalancerStatusListener>;
+    public pools?: Array<LoadBalancerStatusPool>;
+    public id?: string;
+    private 'operating_status'?: string;
+    public constructor(name?: string, provisioningStatus?: string, listeners?: Array<LoadBalancerStatusListener>, pools?: Array<LoadBalancerStatusPool>, id?: string, operatingStatus?: string) { 
         this['name'] = name;
         this['provisioning_status'] = provisioningStatus;
         this['listeners'] = listeners;
@@ -25,10 +25,10 @@ export class LoadBalancerStatus {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: string | undefined) {
+    public set provisioningStatus(provisioningStatus: string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): string | undefined {
         return this['provisioning_status'];
     }
     public withListeners(listeners: Array<LoadBalancerStatusListener>): LoadBalancerStatus {
@@ -47,10 +47,10 @@ export class LoadBalancerStatus {
         this['operating_status'] = operatingStatus;
         return this;
     }
-    public set operatingStatus(operatingStatus: string | undefined) {
+    public set operatingStatus(operatingStatus: string  | undefined) {
         this['operating_status'] = operatingStatus;
     }
-    public get operatingStatus() {
+    public get operatingStatus(): string | undefined {
         return this['operating_status'];
     }
 }

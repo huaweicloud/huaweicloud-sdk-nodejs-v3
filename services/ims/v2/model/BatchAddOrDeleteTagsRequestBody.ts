@@ -2,13 +2,13 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class BatchAddOrDeleteTagsRequestBody {
-    public action: BatchAddOrDeleteTagsRequestBodyActionEnum;
-    public tags: Array<ResourceTag>;
-    public constructor(action?: any, tags?: any) { 
+    public action?: BatchAddOrDeleteTagsRequestBodyActionEnum | string;
+    public tags?: Array<ResourceTag>;
+    public constructor(action?: string, tags?: Array<ResourceTag>) { 
         this['action'] = action;
         this['tags'] = tags;
     }
-    public withAction(action: BatchAddOrDeleteTagsRequestBodyActionEnum): BatchAddOrDeleteTagsRequestBody {
+    public withAction(action: BatchAddOrDeleteTagsRequestBodyActionEnum | string): BatchAddOrDeleteTagsRequestBody {
         this['action'] = action;
         return this;
     }

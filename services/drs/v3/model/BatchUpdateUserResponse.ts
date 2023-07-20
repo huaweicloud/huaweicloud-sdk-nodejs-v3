@@ -3,7 +3,7 @@ import { QueryUserResp } from './QueryUserResp';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class BatchUpdateUserResponse extends SdkResponse {
-    private 'all_counts'?: number | undefined;
+    private 'all_counts'?: number;
     public results?: Array<QueryUserResp>;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class BatchUpdateUserResponse extends SdkResponse {
         this['all_counts'] = allCounts;
         return this;
     }
-    public set allCounts(allCounts: number | undefined) {
+    public set allCounts(allCounts: number  | undefined) {
         this['all_counts'] = allCounts;
     }
-    public get allCounts() {
+    public get allCounts(): number | undefined {
         return this['all_counts'];
     }
     public withResults(results: Array<QueryUserResp>): BatchUpdateUserResponse {

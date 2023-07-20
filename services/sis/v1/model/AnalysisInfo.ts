@@ -2,7 +2,7 @@
 
 export class AnalysisInfo {
     public diarization?: boolean;
-    public channel?: AnalysisInfoChannelEnum;
+    public channel?: AnalysisInfoChannelEnum | string;
     public emotion?: boolean;
     public speed?: boolean;
     public constructor() { 
@@ -11,7 +11,7 @@ export class AnalysisInfo {
         this['diarization'] = diarization;
         return this;
     }
-    public withChannel(channel: AnalysisInfoChannelEnum): AnalysisInfo {
+    public withChannel(channel: AnalysisInfoChannelEnum | string): AnalysisInfo {
         this['channel'] = channel;
         return this;
     }

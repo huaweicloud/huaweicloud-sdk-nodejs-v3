@@ -1,7 +1,7 @@
 
 
 export class ListTasksRequest {
-    private 'group_id'?: string | undefined;
+    private 'group_id'?: string;
     public limit?: number;
     public offset?: number;
     public status?: number;
@@ -11,10 +11,10 @@ export class ListTasksRequest {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
     public withLimit(limit: number): ListTasksRequest {

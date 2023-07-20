@@ -1,15 +1,15 @@
 
 
 export class ExtDataSourceReq {
-    private 'data_source_id'?: string | undefined;
-    public type: string;
-    private 'data_source_name': string | undefined;
-    private 'user_name': string | undefined;
-    private 'user_pwd'?: string | undefined;
+    private 'data_source_id'?: string;
+    public type?: string;
+    private 'data_source_name'?: string;
+    private 'user_name'?: string;
+    private 'user_pwd'?: string;
     public description?: string;
     public reboot?: boolean;
-    private 'connect_info'?: string | undefined;
-    public constructor(type?: any, dataSourceName?: any, userName?: any) { 
+    private 'connect_info'?: string;
+    public constructor(type?: string, dataSourceName?: string, userName?: string) { 
         this['type'] = type;
         this['data_source_name'] = dataSourceName;
         this['user_name'] = userName;
@@ -18,10 +18,10 @@ export class ExtDataSourceReq {
         this['data_source_id'] = dataSourceId;
         return this;
     }
-    public set dataSourceId(dataSourceId: string | undefined) {
+    public set dataSourceId(dataSourceId: string  | undefined) {
         this['data_source_id'] = dataSourceId;
     }
-    public get dataSourceId() {
+    public get dataSourceId(): string | undefined {
         return this['data_source_id'];
     }
     public withType(type: string): ExtDataSourceReq {
@@ -32,30 +32,30 @@ export class ExtDataSourceReq {
         this['data_source_name'] = dataSourceName;
         return this;
     }
-    public set dataSourceName(dataSourceName: string | undefined) {
+    public set dataSourceName(dataSourceName: string  | undefined) {
         this['data_source_name'] = dataSourceName;
     }
-    public get dataSourceName() {
+    public get dataSourceName(): string | undefined {
         return this['data_source_name'];
     }
     public withUserName(userName: string): ExtDataSourceReq {
         this['user_name'] = userName;
         return this;
     }
-    public set userName(userName: string | undefined) {
+    public set userName(userName: string  | undefined) {
         this['user_name'] = userName;
     }
-    public get userName() {
+    public get userName(): string | undefined {
         return this['user_name'];
     }
     public withUserPwd(userPwd: string): ExtDataSourceReq {
         this['user_pwd'] = userPwd;
         return this;
     }
-    public set userPwd(userPwd: string | undefined) {
+    public set userPwd(userPwd: string  | undefined) {
         this['user_pwd'] = userPwd;
     }
-    public get userPwd() {
+    public get userPwd(): string | undefined {
         return this['user_pwd'];
     }
     public withDescription(description: string): ExtDataSourceReq {
@@ -70,10 +70,10 @@ export class ExtDataSourceReq {
         this['connect_info'] = connectInfo;
         return this;
     }
-    public set connectInfo(connectInfo: string | undefined) {
+    public set connectInfo(connectInfo: string  | undefined) {
         this['connect_info'] = connectInfo;
     }
-    public get connectInfo() {
+    public get connectInfo(): string | undefined {
         return this['connect_info'];
     }
 }

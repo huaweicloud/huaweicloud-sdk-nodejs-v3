@@ -1,14 +1,14 @@
 
 
 export class SourcesConfig {
-    private 'origin_addr': string | undefined;
-    private 'origin_type': string | undefined;
-    public priority: number;
-    private 'obs_web_hosting_status'?: string | undefined;
-    private 'http_port'?: number | undefined;
-    private 'https_port'?: number | undefined;
-    private 'host_name'?: string | undefined;
-    public constructor(originAddr?: any, originType?: any, priority?: any) { 
+    private 'origin_addr'?: string;
+    private 'origin_type'?: string;
+    public priority?: number;
+    private 'obs_web_hosting_status'?: string;
+    private 'http_port'?: number;
+    private 'https_port'?: number;
+    private 'host_name'?: string;
+    public constructor(originAddr?: string, originType?: string, priority?: number) { 
         this['origin_addr'] = originAddr;
         this['origin_type'] = originType;
         this['priority'] = priority;
@@ -17,20 +17,20 @@ export class SourcesConfig {
         this['origin_addr'] = originAddr;
         return this;
     }
-    public set originAddr(originAddr: string | undefined) {
+    public set originAddr(originAddr: string  | undefined) {
         this['origin_addr'] = originAddr;
     }
-    public get originAddr() {
+    public get originAddr(): string | undefined {
         return this['origin_addr'];
     }
     public withOriginType(originType: string): SourcesConfig {
         this['origin_type'] = originType;
         return this;
     }
-    public set originType(originType: string | undefined) {
+    public set originType(originType: string  | undefined) {
         this['origin_type'] = originType;
     }
-    public get originType() {
+    public get originType(): string | undefined {
         return this['origin_type'];
     }
     public withPriority(priority: number): SourcesConfig {
@@ -41,40 +41,40 @@ export class SourcesConfig {
         this['obs_web_hosting_status'] = obsWebHostingStatus;
         return this;
     }
-    public set obsWebHostingStatus(obsWebHostingStatus: string | undefined) {
+    public set obsWebHostingStatus(obsWebHostingStatus: string  | undefined) {
         this['obs_web_hosting_status'] = obsWebHostingStatus;
     }
-    public get obsWebHostingStatus() {
+    public get obsWebHostingStatus(): string | undefined {
         return this['obs_web_hosting_status'];
     }
     public withHttpPort(httpPort: number): SourcesConfig {
         this['http_port'] = httpPort;
         return this;
     }
-    public set httpPort(httpPort: number | undefined) {
+    public set httpPort(httpPort: number  | undefined) {
         this['http_port'] = httpPort;
     }
-    public get httpPort() {
+    public get httpPort(): number | undefined {
         return this['http_port'];
     }
     public withHttpsPort(httpsPort: number): SourcesConfig {
         this['https_port'] = httpsPort;
         return this;
     }
-    public set httpsPort(httpsPort: number | undefined) {
+    public set httpsPort(httpsPort: number  | undefined) {
         this['https_port'] = httpsPort;
     }
-    public get httpsPort() {
+    public get httpsPort(): number | undefined {
         return this['https_port'];
     }
     public withHostName(hostName: string): SourcesConfig {
         this['host_name'] = hostName;
         return this;
     }
-    public set hostName(hostName: string | undefined) {
+    public set hostName(hostName: string  | undefined) {
         this['host_name'] = hostName;
     }
-    public get hostName() {
+    public get hostName(): string | undefined {
         return this['host_name'];
     }
 }

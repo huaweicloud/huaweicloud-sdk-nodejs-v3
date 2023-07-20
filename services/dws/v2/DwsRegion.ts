@@ -6,6 +6,7 @@ interface RegionMap {
 }
 
 export class DwsRegion {
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://dws.eu-west-101.myhuaweicloud.eu"]);
     public static CN_NORTH_9 = new Region("cn-north-9", ["https://dws.cn-north-9.myhuaweicloud.com"]);
     public static CN_EAST_3 = new Region("cn-east-3", ["https://dws.cn-east-3.myhuaweicloud.com"]);
     public static CN_EAST_2 = new Region("cn-east-2", ["https://dws.cn-east-2.myhuaweicloud.com"]);
@@ -25,6 +26,7 @@ export class DwsRegion {
     
 
     private static REGION_MAP: RegionMap = {
+        "eu-west-101":DwsRegion.EU_WEST_101,
         "cn-north-9":DwsRegion.CN_NORTH_9,
         "cn-east-3":DwsRegion.CN_EAST_3,
         "cn-east-2":DwsRegion.CN_EAST_2,

@@ -3,13 +3,13 @@ import { PoolsInStatusResp } from './PoolsInStatusResp';
 
 
 export class LoadbalancerInStatusResp {
-    public name: string;
-    public id: string;
-    public listeners: Array<ListenersInStatusResp>;
-    public pools: Array<PoolsInStatusResp>;
-    private 'operating_status': LoadbalancerInStatusRespOperatingStatusEnum | undefined;
-    private 'provisioning_status': LoadbalancerInStatusRespProvisioningStatusEnum | undefined;
-    public constructor(name?: any, id?: any, listeners?: any, pools?: any, operatingStatus?: any, provisioningStatus?: any) { 
+    public name?: string;
+    public id?: string;
+    public listeners?: Array<ListenersInStatusResp>;
+    public pools?: Array<PoolsInStatusResp>;
+    private 'operating_status'?: LoadbalancerInStatusRespOperatingStatusEnum | string;
+    private 'provisioning_status'?: LoadbalancerInStatusRespProvisioningStatusEnum | string;
+    public constructor(name?: string, id?: string, listeners?: Array<ListenersInStatusResp>, pools?: Array<PoolsInStatusResp>, operatingStatus?: string, provisioningStatus?: string) { 
         this['name'] = name;
         this['id'] = id;
         this['listeners'] = listeners;
@@ -33,24 +33,24 @@ export class LoadbalancerInStatusResp {
         this['pools'] = pools;
         return this;
     }
-    public withOperatingStatus(operatingStatus: LoadbalancerInStatusRespOperatingStatusEnum): LoadbalancerInStatusResp {
+    public withOperatingStatus(operatingStatus: LoadbalancerInStatusRespOperatingStatusEnum | string): LoadbalancerInStatusResp {
         this['operating_status'] = operatingStatus;
         return this;
     }
-    public set operatingStatus(operatingStatus: LoadbalancerInStatusRespOperatingStatusEnum | undefined) {
+    public set operatingStatus(operatingStatus: LoadbalancerInStatusRespOperatingStatusEnum | string  | undefined) {
         this['operating_status'] = operatingStatus;
     }
-    public get operatingStatus() {
+    public get operatingStatus(): LoadbalancerInStatusRespOperatingStatusEnum | string | undefined {
         return this['operating_status'];
     }
-    public withProvisioningStatus(provisioningStatus: LoadbalancerInStatusRespProvisioningStatusEnum): LoadbalancerInStatusResp {
+    public withProvisioningStatus(provisioningStatus: LoadbalancerInStatusRespProvisioningStatusEnum | string): LoadbalancerInStatusResp {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: LoadbalancerInStatusRespProvisioningStatusEnum | undefined) {
+    public set provisioningStatus(provisioningStatus: LoadbalancerInStatusRespProvisioningStatusEnum | string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): LoadbalancerInStatusRespProvisioningStatusEnum | string | undefined {
         return this['provisioning_status'];
     }
 }

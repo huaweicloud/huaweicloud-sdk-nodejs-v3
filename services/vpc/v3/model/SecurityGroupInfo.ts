@@ -3,15 +3,15 @@ import { SecurityGroupRule } from './SecurityGroupRule';
 
 
 export class SecurityGroupInfo {
-    public id: string;
-    public name: string;
-    public description: string;
-    private 'project_id': string | undefined;
-    private 'created_at': Date | undefined;
-    private 'updated_at': Date | undefined;
-    private 'enterprise_project_id': string | undefined;
-    private 'security_group_rules': Array<SecurityGroupRule> | undefined;
-    public constructor(id?: any, name?: any, description?: any, projectId?: any, createdAt?: any, updatedAt?: any, enterpriseProjectId?: any, securityGroupRules?: any) { 
+    public id?: string;
+    public name?: string;
+    public description?: string;
+    private 'project_id'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    private 'enterprise_project_id'?: string;
+    private 'security_group_rules'?: Array<SecurityGroupRule>;
+    public constructor(id?: string, name?: string, description?: string, projectId?: string, createdAt?: Date, updatedAt?: Date, enterpriseProjectId?: string, securityGroupRules?: Array<SecurityGroupRule>) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -37,50 +37,50 @@ export class SecurityGroupInfo {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withCreatedAt(createdAt: Date): SecurityGroupInfo {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): SecurityGroupInfo {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): SecurityGroupInfo {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withSecurityGroupRules(securityGroupRules: Array<SecurityGroupRule>): SecurityGroupInfo {
         this['security_group_rules'] = securityGroupRules;
         return this;
     }
-    public set securityGroupRules(securityGroupRules: Array<SecurityGroupRule> | undefined) {
+    public set securityGroupRules(securityGroupRules: Array<SecurityGroupRule>  | undefined) {
         this['security_group_rules'] = securityGroupRules;
     }
-    public get securityGroupRules() {
+    public get securityGroupRules(): Array<SecurityGroupRule> | undefined {
         return this['security_group_rules'];
     }
 }

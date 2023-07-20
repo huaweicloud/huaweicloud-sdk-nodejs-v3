@@ -1,9 +1,9 @@
 
 
 export class UpdateBucketAuthorizedReq {
-    public bucket: string;
-    public operation: string;
-    public constructor(bucket?: any, operation?: any) { 
+    public bucket?: string;
+    public operation?: string;
+    public constructor(bucket?: string, operation?: string) { 
         this['bucket'] = bucket;
         this['operation'] = operation;
     }

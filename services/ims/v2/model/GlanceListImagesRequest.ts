@@ -1,198 +1,198 @@
 
 
 export class GlanceListImagesRequest {
-    private '__imagetype'?: GlanceListImagesRequestImagetypeEnum | undefined;
-    private '__isregistered'?: boolean | undefined;
-    private '__os_bit'?: GlanceListImagesRequestOsBitEnum | undefined;
-    private '__os_type'?: GlanceListImagesRequestOsTypeEnum | undefined;
-    private '__platform'?: GlanceListImagesRequestPlatformEnum | undefined;
-    private '__support_diskintensive'?: string | undefined;
-    private '__support_highperformance'?: string | undefined;
-    private '__support_kvm'?: string | undefined;
-    private '__support_kvm_gpu_type'?: string | undefined;
-    private '__support_kvm_infiniband'?: string | undefined;
-    private '__support_largememory'?: string | undefined;
-    private '__support_xen'?: string | undefined;
-    private '__support_xen_gpu_type'?: string | undefined;
-    private '__support_xen_hana'?: string | undefined;
-    private 'container_format'?: string | undefined;
-    private 'disk_format'?: GlanceListImagesRequestDiskFormatEnum | undefined;
+    private '__imagetype'?: GlanceListImagesRequestImagetypeEnum | string;
+    private '__isregistered'?: boolean;
+    private '__os_bit'?: GlanceListImagesRequestOsBitEnum | string;
+    private '__os_type'?: GlanceListImagesRequestOsTypeEnum | string;
+    private '__platform'?: GlanceListImagesRequestPlatformEnum | string;
+    private '__support_diskintensive'?: string;
+    private '__support_highperformance'?: string;
+    private '__support_kvm'?: string;
+    private '__support_kvm_gpu_type'?: string;
+    private '__support_kvm_infiniband'?: string;
+    private '__support_largememory'?: string;
+    private '__support_xen'?: string;
+    private '__support_xen_gpu_type'?: string;
+    private '__support_xen_hana'?: string;
+    private 'container_format'?: string;
+    private 'disk_format'?: GlanceListImagesRequestDiskFormatEnum | string;
     public id?: string;
     public limit?: number;
     public marker?: string;
-    private 'member_status'?: string | undefined;
-    private 'min_disk'?: number | undefined;
-    private 'min_ram'?: number | undefined;
+    private 'member_status'?: string;
+    private 'min_disk'?: number;
+    private 'min_ram'?: number;
     public name?: string;
     public owner?: string;
-    private 'protected'?: boolean | undefined;
-    private 'sort_dir'?: string | undefined;
-    private 'sort_key'?: string | undefined;
-    public status?: GlanceListImagesRequestStatusEnum;
+    private 'protected'?: boolean;
+    private 'sort_dir'?: string;
+    private 'sort_key'?: string;
+    public status?: GlanceListImagesRequestStatusEnum | string;
     public tag?: string;
-    public visibility?: GlanceListImagesRequestVisibilityEnum;
-    private 'created_at'?: string | undefined;
-    private 'updated_at'?: string | undefined;
+    public visibility?: GlanceListImagesRequestVisibilityEnum | string;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
     public constructor() { 
     }
-    public withImagetype(imagetype: GlanceListImagesRequestImagetypeEnum): GlanceListImagesRequest {
+    public withImagetype(imagetype: GlanceListImagesRequestImagetypeEnum | string): GlanceListImagesRequest {
         this['__imagetype'] = imagetype;
         return this;
     }
-    public set imagetype(imagetype: GlanceListImagesRequestImagetypeEnum | undefined) {
+    public set imagetype(imagetype: GlanceListImagesRequestImagetypeEnum | string  | undefined) {
         this['__imagetype'] = imagetype;
     }
-    public get imagetype() {
+    public get imagetype(): GlanceListImagesRequestImagetypeEnum | string | undefined {
         return this['__imagetype'];
     }
     public withIsregistered(isregistered: boolean): GlanceListImagesRequest {
         this['__isregistered'] = isregistered;
         return this;
     }
-    public set isregistered(isregistered: boolean | undefined) {
+    public set isregistered(isregistered: boolean  | undefined) {
         this['__isregistered'] = isregistered;
     }
-    public get isregistered() {
+    public get isregistered(): boolean | undefined {
         return this['__isregistered'];
     }
-    public withOsBit(osBit: GlanceListImagesRequestOsBitEnum): GlanceListImagesRequest {
+    public withOsBit(osBit: GlanceListImagesRequestOsBitEnum | string): GlanceListImagesRequest {
         this['__os_bit'] = osBit;
         return this;
     }
-    public set osBit(osBit: GlanceListImagesRequestOsBitEnum | undefined) {
+    public set osBit(osBit: GlanceListImagesRequestOsBitEnum | string  | undefined) {
         this['__os_bit'] = osBit;
     }
-    public get osBit() {
+    public get osBit(): GlanceListImagesRequestOsBitEnum | string | undefined {
         return this['__os_bit'];
     }
-    public withOsType(osType: GlanceListImagesRequestOsTypeEnum): GlanceListImagesRequest {
+    public withOsType(osType: GlanceListImagesRequestOsTypeEnum | string): GlanceListImagesRequest {
         this['__os_type'] = osType;
         return this;
     }
-    public set osType(osType: GlanceListImagesRequestOsTypeEnum | undefined) {
+    public set osType(osType: GlanceListImagesRequestOsTypeEnum | string  | undefined) {
         this['__os_type'] = osType;
     }
-    public get osType() {
+    public get osType(): GlanceListImagesRequestOsTypeEnum | string | undefined {
         return this['__os_type'];
     }
-    public withPlatform(platform: GlanceListImagesRequestPlatformEnum): GlanceListImagesRequest {
+    public withPlatform(platform: GlanceListImagesRequestPlatformEnum | string): GlanceListImagesRequest {
         this['__platform'] = platform;
         return this;
     }
-    public set platform(platform: GlanceListImagesRequestPlatformEnum | undefined) {
+    public set platform(platform: GlanceListImagesRequestPlatformEnum | string  | undefined) {
         this['__platform'] = platform;
     }
-    public get platform() {
+    public get platform(): GlanceListImagesRequestPlatformEnum | string | undefined {
         return this['__platform'];
     }
     public withSupportDiskintensive(supportDiskintensive: string): GlanceListImagesRequest {
         this['__support_diskintensive'] = supportDiskintensive;
         return this;
     }
-    public set supportDiskintensive(supportDiskintensive: string | undefined) {
+    public set supportDiskintensive(supportDiskintensive: string  | undefined) {
         this['__support_diskintensive'] = supportDiskintensive;
     }
-    public get supportDiskintensive() {
+    public get supportDiskintensive(): string | undefined {
         return this['__support_diskintensive'];
     }
     public withSupportHighperformance(supportHighperformance: string): GlanceListImagesRequest {
         this['__support_highperformance'] = supportHighperformance;
         return this;
     }
-    public set supportHighperformance(supportHighperformance: string | undefined) {
+    public set supportHighperformance(supportHighperformance: string  | undefined) {
         this['__support_highperformance'] = supportHighperformance;
     }
-    public get supportHighperformance() {
+    public get supportHighperformance(): string | undefined {
         return this['__support_highperformance'];
     }
     public withSupportKvm(supportKvm: string): GlanceListImagesRequest {
         this['__support_kvm'] = supportKvm;
         return this;
     }
-    public set supportKvm(supportKvm: string | undefined) {
+    public set supportKvm(supportKvm: string  | undefined) {
         this['__support_kvm'] = supportKvm;
     }
-    public get supportKvm() {
+    public get supportKvm(): string | undefined {
         return this['__support_kvm'];
     }
     public withSupportKvmGpuType(supportKvmGpuType: string): GlanceListImagesRequest {
         this['__support_kvm_gpu_type'] = supportKvmGpuType;
         return this;
     }
-    public set supportKvmGpuType(supportKvmGpuType: string | undefined) {
+    public set supportKvmGpuType(supportKvmGpuType: string  | undefined) {
         this['__support_kvm_gpu_type'] = supportKvmGpuType;
     }
-    public get supportKvmGpuType() {
+    public get supportKvmGpuType(): string | undefined {
         return this['__support_kvm_gpu_type'];
     }
     public withSupportKvmInfiniband(supportKvmInfiniband: string): GlanceListImagesRequest {
         this['__support_kvm_infiniband'] = supportKvmInfiniband;
         return this;
     }
-    public set supportKvmInfiniband(supportKvmInfiniband: string | undefined) {
+    public set supportKvmInfiniband(supportKvmInfiniband: string  | undefined) {
         this['__support_kvm_infiniband'] = supportKvmInfiniband;
     }
-    public get supportKvmInfiniband() {
+    public get supportKvmInfiniband(): string | undefined {
         return this['__support_kvm_infiniband'];
     }
     public withSupportLargememory(supportLargememory: string): GlanceListImagesRequest {
         this['__support_largememory'] = supportLargememory;
         return this;
     }
-    public set supportLargememory(supportLargememory: string | undefined) {
+    public set supportLargememory(supportLargememory: string  | undefined) {
         this['__support_largememory'] = supportLargememory;
     }
-    public get supportLargememory() {
+    public get supportLargememory(): string | undefined {
         return this['__support_largememory'];
     }
     public withSupportXen(supportXen: string): GlanceListImagesRequest {
         this['__support_xen'] = supportXen;
         return this;
     }
-    public set supportXen(supportXen: string | undefined) {
+    public set supportXen(supportXen: string  | undefined) {
         this['__support_xen'] = supportXen;
     }
-    public get supportXen() {
+    public get supportXen(): string | undefined {
         return this['__support_xen'];
     }
     public withSupportXenGpuType(supportXenGpuType: string): GlanceListImagesRequest {
         this['__support_xen_gpu_type'] = supportXenGpuType;
         return this;
     }
-    public set supportXenGpuType(supportXenGpuType: string | undefined) {
+    public set supportXenGpuType(supportXenGpuType: string  | undefined) {
         this['__support_xen_gpu_type'] = supportXenGpuType;
     }
-    public get supportXenGpuType() {
+    public get supportXenGpuType(): string | undefined {
         return this['__support_xen_gpu_type'];
     }
     public withSupportXenHana(supportXenHana: string): GlanceListImagesRequest {
         this['__support_xen_hana'] = supportXenHana;
         return this;
     }
-    public set supportXenHana(supportXenHana: string | undefined) {
+    public set supportXenHana(supportXenHana: string  | undefined) {
         this['__support_xen_hana'] = supportXenHana;
     }
-    public get supportXenHana() {
+    public get supportXenHana(): string | undefined {
         return this['__support_xen_hana'];
     }
     public withContainerFormat(containerFormat: string): GlanceListImagesRequest {
         this['container_format'] = containerFormat;
         return this;
     }
-    public set containerFormat(containerFormat: string | undefined) {
+    public set containerFormat(containerFormat: string  | undefined) {
         this['container_format'] = containerFormat;
     }
-    public get containerFormat() {
+    public get containerFormat(): string | undefined {
         return this['container_format'];
     }
-    public withDiskFormat(diskFormat: GlanceListImagesRequestDiskFormatEnum): GlanceListImagesRequest {
+    public withDiskFormat(diskFormat: GlanceListImagesRequestDiskFormatEnum | string): GlanceListImagesRequest {
         this['disk_format'] = diskFormat;
         return this;
     }
-    public set diskFormat(diskFormat: GlanceListImagesRequestDiskFormatEnum | undefined) {
+    public set diskFormat(diskFormat: GlanceListImagesRequestDiskFormatEnum | string  | undefined) {
         this['disk_format'] = diskFormat;
     }
-    public get diskFormat() {
+    public get diskFormat(): GlanceListImagesRequestDiskFormatEnum | string | undefined {
         return this['disk_format'];
     }
     public withId(id: string): GlanceListImagesRequest {
@@ -211,30 +211,30 @@ export class GlanceListImagesRequest {
         this['member_status'] = memberStatus;
         return this;
     }
-    public set memberStatus(memberStatus: string | undefined) {
+    public set memberStatus(memberStatus: string  | undefined) {
         this['member_status'] = memberStatus;
     }
-    public get memberStatus() {
+    public get memberStatus(): string | undefined {
         return this['member_status'];
     }
     public withMinDisk(minDisk: number): GlanceListImagesRequest {
         this['min_disk'] = minDisk;
         return this;
     }
-    public set minDisk(minDisk: number | undefined) {
+    public set minDisk(minDisk: number  | undefined) {
         this['min_disk'] = minDisk;
     }
-    public get minDisk() {
+    public get minDisk(): number | undefined {
         return this['min_disk'];
     }
     public withMinRam(minRam: number): GlanceListImagesRequest {
         this['min_ram'] = minRam;
         return this;
     }
-    public set minRam(minRam: number | undefined) {
+    public set minRam(minRam: number  | undefined) {
         this['min_ram'] = minRam;
     }
-    public get minRam() {
+    public get minRam(): number | undefined {
         return this['min_ram'];
     }
     public withName(name: string): GlanceListImagesRequest {
@@ -249,33 +249,33 @@ export class GlanceListImagesRequest {
         this['protected'] = _protected;
         return this;
     }
-    public set _protected(_protected: boolean | undefined) {
+    public set _protected(_protected: boolean  | undefined) {
         this['protected'] = _protected;
     }
-    public get _protected() {
+    public get _protected(): boolean | undefined {
         return this['protected'];
     }
     public withSortDir(sortDir: string): GlanceListImagesRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: string | undefined) {
+    public set sortDir(sortDir: string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): string | undefined {
         return this['sort_dir'];
     }
     public withSortKey(sortKey: string): GlanceListImagesRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: string | undefined) {
+    public set sortKey(sortKey: string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): string | undefined {
         return this['sort_key'];
     }
-    public withStatus(status: GlanceListImagesRequestStatusEnum): GlanceListImagesRequest {
+    public withStatus(status: GlanceListImagesRequestStatusEnum | string): GlanceListImagesRequest {
         this['status'] = status;
         return this;
     }
@@ -283,7 +283,7 @@ export class GlanceListImagesRequest {
         this['tag'] = tag;
         return this;
     }
-    public withVisibility(visibility: GlanceListImagesRequestVisibilityEnum): GlanceListImagesRequest {
+    public withVisibility(visibility: GlanceListImagesRequestVisibilityEnum | string): GlanceListImagesRequest {
         this['visibility'] = visibility;
         return this;
     }
@@ -291,20 +291,20 @@ export class GlanceListImagesRequest {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): GlanceListImagesRequest {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
 }

@@ -3,15 +3,15 @@ import { QualityInfo } from './QualityInfo';
 
 
 export class ModifyTransTemplateGroup {
-    private 'group_id': string | undefined;
-    public name: string;
-    public status?: ModifyTransTemplateGroupStatusEnum;
-    private 'auto_encrypt'?: number | undefined;
-    private 'quality_info_list'?: Array<QualityInfo> | undefined;
-    private 'watermark_template_ids'?: Array<string> | undefined;
+    private 'group_id'?: string;
+    public name?: string;
+    public status?: ModifyTransTemplateGroupStatusEnum | string;
+    private 'auto_encrypt'?: number;
+    private 'quality_info_list'?: Array<QualityInfo>;
+    private 'watermark_template_ids'?: Array<string>;
     public description?: string;
     public common?: Common;
-    public constructor(groupId?: any, name?: any) { 
+    public constructor(groupId?: string, name?: string) { 
         this['group_id'] = groupId;
         this['name'] = name;
     }
@@ -19,17 +19,17 @@ export class ModifyTransTemplateGroup {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
     public withName(name: string): ModifyTransTemplateGroup {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: ModifyTransTemplateGroupStatusEnum): ModifyTransTemplateGroup {
+    public withStatus(status: ModifyTransTemplateGroupStatusEnum | string): ModifyTransTemplateGroup {
         this['status'] = status;
         return this;
     }
@@ -37,30 +37,30 @@ export class ModifyTransTemplateGroup {
         this['auto_encrypt'] = autoEncrypt;
         return this;
     }
-    public set autoEncrypt(autoEncrypt: number | undefined) {
+    public set autoEncrypt(autoEncrypt: number  | undefined) {
         this['auto_encrypt'] = autoEncrypt;
     }
-    public get autoEncrypt() {
+    public get autoEncrypt(): number | undefined {
         return this['auto_encrypt'];
     }
     public withQualityInfoList(qualityInfoList: Array<QualityInfo>): ModifyTransTemplateGroup {
         this['quality_info_list'] = qualityInfoList;
         return this;
     }
-    public set qualityInfoList(qualityInfoList: Array<QualityInfo> | undefined) {
+    public set qualityInfoList(qualityInfoList: Array<QualityInfo>  | undefined) {
         this['quality_info_list'] = qualityInfoList;
     }
-    public get qualityInfoList() {
+    public get qualityInfoList(): Array<QualityInfo> | undefined {
         return this['quality_info_list'];
     }
     public withWatermarkTemplateIds(watermarkTemplateIds: Array<string>): ModifyTransTemplateGroup {
         this['watermark_template_ids'] = watermarkTemplateIds;
         return this;
     }
-    public set watermarkTemplateIds(watermarkTemplateIds: Array<string> | undefined) {
+    public set watermarkTemplateIds(watermarkTemplateIds: Array<string>  | undefined) {
         this['watermark_template_ids'] = watermarkTemplateIds;
     }
-    public get watermarkTemplateIds() {
+    public get watermarkTemplateIds(): Array<string> | undefined {
         return this['watermark_template_ids'];
     }
     public withDescription(description: string): ModifyTransTemplateGroup {

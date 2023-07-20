@@ -3,8 +3,8 @@
 export class Condition {
     public category?: string;
     public contents?: Array<string>;
-    private 'logic_operation'?: string | undefined;
-    private 'check_all_indexes_logic'?: number | undefined;
+    private 'logic_operation'?: string;
+    private 'check_all_indexes_logic'?: number;
     public index?: string;
     public constructor() { 
     }
@@ -20,20 +20,20 @@ export class Condition {
         this['logic_operation'] = logicOperation;
         return this;
     }
-    public set logicOperation(logicOperation: string | undefined) {
+    public set logicOperation(logicOperation: string  | undefined) {
         this['logic_operation'] = logicOperation;
     }
-    public get logicOperation() {
+    public get logicOperation(): string | undefined {
         return this['logic_operation'];
     }
     public withCheckAllIndexesLogic(checkAllIndexesLogic: number): Condition {
         this['check_all_indexes_logic'] = checkAllIndexesLogic;
         return this;
     }
-    public set checkAllIndexesLogic(checkAllIndexesLogic: number | undefined) {
+    public set checkAllIndexesLogic(checkAllIndexesLogic: number  | undefined) {
         this['check_all_indexes_logic'] = checkAllIndexesLogic;
     }
-    public get checkAllIndexesLogic() {
+    public get checkAllIndexesLogic(): number | undefined {
         return this['check_all_indexes_logic'];
     }
     public withIndex(index: string): Condition {

@@ -2,10 +2,10 @@ import { PwdPasswordUserDomain } from './PwdPasswordUserDomain';
 
 
 export class PwdPasswordUser {
-    public domain: PwdPasswordUserDomain;
-    public name: string;
-    public password: string;
-    public constructor(domain?: any, name?: any, password?: any) { 
+    public domain?: PwdPasswordUserDomain;
+    public name?: string;
+    public password?: string;
+    public constructor(domain?: PwdPasswordUserDomain, name?: string, password?: string) { 
         this['domain'] = domain;
         this['name'] = name;
         this['password'] = password;

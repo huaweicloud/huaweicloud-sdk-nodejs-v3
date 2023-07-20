@@ -1,11 +1,11 @@
 
 
 export class AddAddressSetDto {
-    private 'object_id': string | undefined;
-    public name: string;
+    private 'object_id'?: string;
+    public name?: string;
     public description?: string;
-    private 'address_type'?: AddAddressSetDtoAddressTypeEnum | undefined;
-    public constructor(objectId?: any, name?: any) { 
+    private 'address_type'?: AddAddressSetDtoAddressTypeEnum | number;
+    public constructor(objectId?: string, name?: string) { 
         this['object_id'] = objectId;
         this['name'] = name;
     }
@@ -13,10 +13,10 @@ export class AddAddressSetDto {
         this['object_id'] = objectId;
         return this;
     }
-    public set objectId(objectId: string | undefined) {
+    public set objectId(objectId: string  | undefined) {
         this['object_id'] = objectId;
     }
-    public get objectId() {
+    public get objectId(): string | undefined {
         return this['object_id'];
     }
     public withName(name: string): AddAddressSetDto {
@@ -27,14 +27,14 @@ export class AddAddressSetDto {
         this['description'] = description;
         return this;
     }
-    public withAddressType(addressType: AddAddressSetDtoAddressTypeEnum): AddAddressSetDto {
+    public withAddressType(addressType: AddAddressSetDtoAddressTypeEnum | number): AddAddressSetDto {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: AddAddressSetDtoAddressTypeEnum | undefined) {
+    public set addressType(addressType: AddAddressSetDtoAddressTypeEnum | number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType() {
+    public get addressType(): AddAddressSetDtoAddressTypeEnum | number | undefined {
         return this['address_type'];
     }
 }

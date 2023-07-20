@@ -157,7 +157,7 @@ export class RabbitMQClient {
     }
 
     /**
-     * 创建实例，该接口支持创建按需[和包周期](tag:hws,hws_hk,ctc,cmcc)计费方式的实例。
+     * 创建实例，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -224,7 +224,7 @@ export class RabbitMQClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listAvailableZones(): Promise<ListAvailableZonesResponse> {
+    public listAvailableZones(listAvailableZonesRequest?: ListAvailableZonesRequest): Promise<ListAvailableZonesResponse> {
         const options = ParamCreater().listAvailableZones();
 
          // @ts-ignore
@@ -242,8 +242,8 @@ export class RabbitMQClient {
      * @param {string} instanceId 实例ID。
      * @param {number} [start] 开启查询的任务编号。
      * @param {number} [limit] 查询的任务个数。
-     * @param {string} [beginTime] 查询任务的最小时间，格式为 YYYYMMDDHHmmss。
-     * @param {string} [endTime] 查询任务的最大时间，格式为 YYYYMMDDHHmmss。
+     * @param {string} [beginTime] 查询任务的最小时间，格式为YYYYMMDDHHmmss。
+     * @param {string} [endTime] 查询任务的最大时间，格式为YYYYMMDDHHmmss。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -285,7 +285,7 @@ export class RabbitMQClient {
      * @param {string} [engine] 引擎类型：rabbitmq，参数缺失查询所有实例。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
-     * @param {'CREATING' | 'CREATEFAILED' | 'RUNNING' | 'ERROR' | 'STARTING' | 'RESTARTING' | 'CLOSING' | 'FROZEN'} [status] 实例状态。
+     * @param {'CREATING' | 'CREATEFAILED' | 'RUNNING' | 'ERROR' | 'STARTING' | 'RESTARTING' | 'CLOSING' | 'FROZEN'} [status] 实例状态，详细状态说明请参考[实例状态说明](rabbitmq-api-180514012.xml)。
      * @param {'true' | 'false'} [includeFailure] 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
      * @param {'true' | 'false'} [exactMatchName] 是否按照实例名称进行精确匹配查询。  默认为“false”，表示模糊匹配实例名称查询。若参数值为“true”表示按照实例名称进行精确匹配查询。
      * @param {string} [enterpriseProjectId] 企业项目ID。
@@ -328,7 +328,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询产品规格列表
-     * @param {string} [engine] 消息引擎的类型。当前只支持rabbitmq。
+     * @param {'rabbitmq'} [engine] 消息引擎的类型。当前只支持rabbitmq。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -370,7 +370,7 @@ export class RabbitMQClient {
      *
      * @summary 新规格实例的规格变更
      * @param {string} instanceId 实例ID。
-     * @param {string} engine 消息引擎的类型。支持的类型为rabbitmq。
+     * @param {'rabbitmq'} engine 消息引擎的类型。支持的类型为rabbitmq。
      * @param {ResizeEngineInstanceReq} resizeEngineInstanceRequestBody 实例规格变更请求体。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -432,7 +432,7 @@ export class RabbitMQClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询新规格可扩容规格列表
-     * @param {string} engine 消息引擎的类型。支持的类型为rabbitmq。
+     * @param {'rabbitmq'} engine 消息引擎的类型。支持的类型为rabbitmq。
      * @param {string} instanceId 实例ID。
      * @param {'advanced' | 'platinum' | 'dec' | 'exp'} [type] 产品的类型。   - advanced：专享版   - platinum：铂金版   - dec：专属云版   - exp：体验版
      * @param {*} [options] Override http request option.
@@ -476,7 +476,7 @@ export class RabbitMQClient {
      * @summary 查询可扩容规格列表
      * @param {string} instanceId 实例ID。
      * @param {'advanced' | 'platinum' | 'dec' | 'exp'} type 产品的类型。   - advanced：专享版   - platinum：铂金版   - dec：专属云版   - exp：体验版
-     * @param {string} engine 消息引擎的类型。支持的类型为rabbitmq。
+     * @param {'rabbitmq'} engine 消息引擎的类型。支持的类型为rabbitmq。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -498,7 +498,7 @@ export class RabbitMQClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showMaintainWindows(): Promise<ShowMaintainWindowsResponse> {
+    public showMaintainWindows(showMaintainWindowsRequest?: ShowMaintainWindowsRequest): Promise<ShowMaintainWindowsResponse> {
         const options = ParamCreater().showMaintainWindows();
 
          // @ts-ignore
@@ -516,7 +516,7 @@ export class RabbitMQClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showRabbitMqProjectTags(): Promise<ShowRabbitMqProjectTagsResponse> {
+    public showRabbitMqProjectTags(showRabbitMqProjectTagsRequest?: ShowRabbitMqProjectTagsRequest): Promise<ShowRabbitMqProjectTagsResponse> {
         const options = ParamCreater().showRabbitMqProjectTags();
 
          // @ts-ignore
@@ -715,7 +715,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 创建实例，该接口支持创建按需[和包周期](tag:hws,hws_hk,ctc,cmcc)计费方式的实例。
+         * 创建实例，该接口支持创建按需[和包周期](tag:hws,hws_eu,hws_hk,ctc,cmcc)计费方式的实例。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */

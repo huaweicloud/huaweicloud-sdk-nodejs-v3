@@ -2,8 +2,8 @@ import { CreateRouteTableReq } from './CreateRouteTableReq';
 
 
 export class CreateRoutetableReqBody {
-    public routetable: CreateRouteTableReq;
-    public constructor(routetable?: any) { 
+    public routetable?: CreateRouteTableReq;
+    public constructor(routetable?: CreateRouteTableReq) { 
         this['routetable'] = routetable;
     }
     public withRoutetable(routetable: CreateRouteTableReq): CreateRoutetableReqBody {

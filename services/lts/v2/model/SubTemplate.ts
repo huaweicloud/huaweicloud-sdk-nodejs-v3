@@ -1,20 +1,20 @@
 
 
 export class SubTemplate {
-    private 'sub_type': SubTemplateSubTypeEnum | undefined;
-    public content: string;
-    public constructor(subType?: any, content?: any) { 
+    private 'sub_type'?: SubTemplateSubTypeEnum | string;
+    public content?: string;
+    public constructor(subType?: string, content?: string) { 
         this['sub_type'] = subType;
         this['content'] = content;
     }
-    public withSubType(subType: SubTemplateSubTypeEnum): SubTemplate {
+    public withSubType(subType: SubTemplateSubTypeEnum | string): SubTemplate {
         this['sub_type'] = subType;
         return this;
     }
-    public set subType(subType: SubTemplateSubTypeEnum | undefined) {
+    public set subType(subType: SubTemplateSubTypeEnum | string  | undefined) {
         this['sub_type'] = subType;
     }
-    public get subType() {
+    public get subType(): SubTemplateSubTypeEnum | string | undefined {
         return this['sub_type'];
     }
     public withContent(content: string): SubTemplate {

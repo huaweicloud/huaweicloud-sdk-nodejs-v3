@@ -2,9 +2,9 @@ import { ResizePrePaidServerOption } from './ResizePrePaidServerOption';
 
 
 export class ResizeServerRequestBody {
-    public resize: ResizePrePaidServerOption;
-    private 'dry_run'?: boolean | undefined;
-    public constructor(resize?: any) { 
+    public resize?: ResizePrePaidServerOption;
+    private 'dry_run'?: boolean;
+    public constructor(resize?: ResizePrePaidServerOption) { 
         this['resize'] = resize;
     }
     public withResize(resize: ResizePrePaidServerOption): ResizeServerRequestBody {
@@ -15,10 +15,10 @@ export class ResizeServerRequestBody {
         this['dry_run'] = dryRun;
         return this;
     }
-    public set dryRun(dryRun: boolean | undefined) {
+    public set dryRun(dryRun: boolean  | undefined) {
         this['dry_run'] = dryRun;
     }
-    public get dryRun() {
+    public get dryRun(): boolean | undefined {
         return this['dry_run'];
     }
 }

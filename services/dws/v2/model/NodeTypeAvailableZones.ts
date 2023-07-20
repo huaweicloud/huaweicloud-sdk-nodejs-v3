@@ -1,9 +1,9 @@
 
 
 export class NodeTypeAvailableZones {
-    public code: string;
-    public status: string;
-    public constructor(code?: any, status?: any) { 
+    public code?: string;
+    public status?: string;
+    public constructor(code?: string, status?: string) { 
         this['code'] = code;
         this['status'] = status;
     }

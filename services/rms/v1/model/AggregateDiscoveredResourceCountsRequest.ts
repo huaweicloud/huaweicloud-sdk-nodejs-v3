@@ -2,10 +2,10 @@ import { ResourceCountsFilters } from './ResourceCountsFilters';
 
 
 export class AggregateDiscoveredResourceCountsRequest {
-    private 'aggregator_id': string | undefined;
+    private 'aggregator_id'?: string;
     public filter?: ResourceCountsFilters;
-    private 'group_by_key': string | undefined;
-    public constructor(aggregatorId?: any, groupByKey?: any) { 
+    private 'group_by_key'?: string;
+    public constructor(aggregatorId?: string, groupByKey?: string) { 
         this['aggregator_id'] = aggregatorId;
         this['group_by_key'] = groupByKey;
     }
@@ -13,10 +13,10 @@ export class AggregateDiscoveredResourceCountsRequest {
         this['aggregator_id'] = aggregatorId;
         return this;
     }
-    public set aggregatorId(aggregatorId: string | undefined) {
+    public set aggregatorId(aggregatorId: string  | undefined) {
         this['aggregator_id'] = aggregatorId;
     }
-    public get aggregatorId() {
+    public get aggregatorId(): string | undefined {
         return this['aggregator_id'];
     }
     public withFilter(filter: ResourceCountsFilters): AggregateDiscoveredResourceCountsRequest {
@@ -27,10 +27,10 @@ export class AggregateDiscoveredResourceCountsRequest {
         this['group_by_key'] = groupByKey;
         return this;
     }
-    public set groupByKey(groupByKey: string | undefined) {
+    public set groupByKey(groupByKey: string  | undefined) {
         this['group_by_key'] = groupByKey;
     }
-    public get groupByKey() {
+    public get groupByKey(): string | undefined {
         return this['group_by_key'];
     }
 }

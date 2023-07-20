@@ -2,7 +2,7 @@ import { NovaCreateKeypairRequestBody } from './NovaCreateKeypairRequestBody';
 
 
 export class NovaCreateKeypairRequest {
-    private 'OpenStack-API-Version'?: string | undefined;
+    private 'OpenStack-API-Version'?: string;
     public body?: NovaCreateKeypairRequestBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class NovaCreateKeypairRequest {
         this['OpenStack-API-Version'] = openStackAPIVersion;
         return this;
     }
-    public set openStackAPIVersion(openStackAPIVersion: string | undefined) {
+    public set openStackAPIVersion(openStackAPIVersion: string  | undefined) {
         this['OpenStack-API-Version'] = openStackAPIVersion;
     }
-    public get openStackAPIVersion() {
+    public get openStackAPIVersion(): string | undefined {
         return this['OpenStack-API-Version'];
     }
     public withBody(body: NovaCreateKeypairRequestBody): NovaCreateKeypairRequest {

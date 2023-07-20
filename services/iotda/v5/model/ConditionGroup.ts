@@ -5,7 +5,7 @@ import { TimeRange } from './TimeRange';
 export class ConditionGroup {
     public conditions?: Array<RuleCondition>;
     public logic?: string;
-    private 'time_range'?: TimeRange | undefined;
+    private 'time_range'?: TimeRange;
     public constructor() { 
     }
     public withConditions(conditions: Array<RuleCondition>): ConditionGroup {
@@ -20,10 +20,10 @@ export class ConditionGroup {
         this['time_range'] = timeRange;
         return this;
     }
-    public set timeRange(timeRange: TimeRange | undefined) {
+    public set timeRange(timeRange: TimeRange  | undefined) {
         this['time_range'] = timeRange;
     }
-    public get timeRange() {
+    public get timeRange(): TimeRange | undefined {
         return this['time_range'];
     }
 }

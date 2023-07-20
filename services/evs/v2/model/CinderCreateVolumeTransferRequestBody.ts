@@ -2,8 +2,8 @@ import { CreateVolumeTransferOption } from './CreateVolumeTransferOption';
 
 
 export class CinderCreateVolumeTransferRequestBody {
-    public transfer: CreateVolumeTransferOption;
-    public constructor(transfer?: any) { 
+    public transfer?: CreateVolumeTransferOption;
+    public constructor(transfer?: CreateVolumeTransferOption) { 
         this['transfer'] = transfer;
     }
     public withTransfer(transfer: CreateVolumeTransferOption): CinderCreateVolumeTransferRequestBody {

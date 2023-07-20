@@ -2,8 +2,8 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateDomainMappingResponse extends SdkResponse {
-    private 'pull_domain'?: string | undefined;
-    private 'push_domain'?: string | undefined;
+    private 'pull_domain'?: string;
+    private 'push_domain'?: string;
     public constructor() { 
         super();
     }
@@ -11,20 +11,20 @@ export class CreateDomainMappingResponse extends SdkResponse {
         this['pull_domain'] = pullDomain;
         return this;
     }
-    public set pullDomain(pullDomain: string | undefined) {
+    public set pullDomain(pullDomain: string  | undefined) {
         this['pull_domain'] = pullDomain;
     }
-    public get pullDomain() {
+    public get pullDomain(): string | undefined {
         return this['pull_domain'];
     }
     public withPushDomain(pushDomain: string): CreateDomainMappingResponse {
         this['push_domain'] = pushDomain;
         return this;
     }
-    public set pushDomain(pushDomain: string | undefined) {
+    public set pushDomain(pushDomain: string  | undefined) {
         this['push_domain'] = pushDomain;
     }
-    public get pushDomain() {
+    public get pushDomain(): string | undefined {
         return this['push_domain'];
     }
 }

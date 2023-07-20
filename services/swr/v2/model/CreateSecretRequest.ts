@@ -1,19 +1,19 @@
 
 
 export class CreateSecretRequest {
-    private 'Content-Type': CreateSecretRequestContentTypeEnum | undefined;
+    private 'Content-Type'?: CreateSecretRequestContentTypeEnum | string;
     public projectname?: string;
-    public constructor(contentType?: any) { 
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
-    public withContentType(contentType: CreateSecretRequestContentTypeEnum): CreateSecretRequest {
+    public withContentType(contentType: CreateSecretRequestContentTypeEnum | string): CreateSecretRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CreateSecretRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: CreateSecretRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CreateSecretRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withProjectname(projectname: string): CreateSecretRequest {

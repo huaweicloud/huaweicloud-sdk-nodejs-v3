@@ -3,11 +3,11 @@
 export class SearchStatisticConferenceParticipantRequest {
     public offset?: number;
     public limit?: number;
-    public timeUnit: SearchStatisticConferenceParticipantRequestTimeUnitEnum;
-    public startTime: string;
-    public endTime: string;
-    public category: SearchStatisticConferenceParticipantRequestCategoryEnum;
-    public constructor(timeUnit?: any, startTime?: any, endTime?: any, category?: any) { 
+    public timeUnit?: SearchStatisticConferenceParticipantRequestTimeUnitEnum | string;
+    public startTime?: string;
+    public endTime?: string;
+    public category?: SearchStatisticConferenceParticipantRequestCategoryEnum | string;
+    public constructor(timeUnit?: string, startTime?: string, endTime?: string, category?: string) { 
         this['timeUnit'] = timeUnit;
         this['startTime'] = startTime;
         this['endTime'] = endTime;
@@ -21,7 +21,7 @@ export class SearchStatisticConferenceParticipantRequest {
         this['limit'] = limit;
         return this;
     }
-    public withTimeUnit(timeUnit: SearchStatisticConferenceParticipantRequestTimeUnitEnum): SearchStatisticConferenceParticipantRequest {
+    public withTimeUnit(timeUnit: SearchStatisticConferenceParticipantRequestTimeUnitEnum | string): SearchStatisticConferenceParticipantRequest {
         this['timeUnit'] = timeUnit;
         return this;
     }
@@ -33,7 +33,7 @@ export class SearchStatisticConferenceParticipantRequest {
         this['endTime'] = endTime;
         return this;
     }
-    public withCategory(category: SearchStatisticConferenceParticipantRequestCategoryEnum): SearchStatisticConferenceParticipantRequest {
+    public withCategory(category: SearchStatisticConferenceParticipantRequestCategoryEnum | string): SearchStatisticConferenceParticipantRequest {
         this['category'] = category;
         return this;
     }

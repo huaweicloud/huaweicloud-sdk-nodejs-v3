@@ -1,11 +1,11 @@
 
 
 export class ShowVersionRequest {
-    public version: ShowVersionRequestVersionEnum;
-    public constructor(version?: any) { 
+    public version?: ShowVersionRequestVersionEnum | string;
+    public constructor(version?: string) { 
         this['version'] = version;
     }
-    public withVersion(version: ShowVersionRequestVersionEnum): ShowVersionRequest {
+    public withVersion(version: ShowVersionRequestVersionEnum | string): ShowVersionRequest {
         this['version'] = version;
         return this;
     }

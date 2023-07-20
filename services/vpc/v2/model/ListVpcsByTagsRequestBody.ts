@@ -3,15 +3,15 @@ import { Match } from './Match';
 
 
 export class ListVpcsByTagsRequestBody {
-    public action: ListVpcsByTagsRequestBodyActionEnum;
+    public action?: ListVpcsByTagsRequestBodyActionEnum | string;
     public limit?: number;
     public offset?: number;
     public matches?: Array<Match>;
     public tags?: Array<ListTag>;
-    public constructor(action?: any) { 
+    public constructor(action?: string) { 
         this['action'] = action;
     }
-    public withAction(action: ListVpcsByTagsRequestBodyActionEnum): ListVpcsByTagsRequestBody {
+    public withAction(action: ListVpcsByTagsRequestBodyActionEnum | string): ListVpcsByTagsRequestBody {
         this['action'] = action;
         return this;
     }

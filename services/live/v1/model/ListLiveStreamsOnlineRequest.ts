@@ -1,22 +1,22 @@
 
 
 export class ListLiveStreamsOnlineRequest {
-    private 'publish_domain': string | undefined;
+    private 'publish_domain'?: string;
     public app?: string;
     public offset?: number;
     public limit?: number;
     public stream?: string;
-    public constructor(publishDomain?: any) { 
+    public constructor(publishDomain?: string) { 
         this['publish_domain'] = publishDomain;
     }
     public withPublishDomain(publishDomain: string): ListLiveStreamsOnlineRequest {
         this['publish_domain'] = publishDomain;
         return this;
     }
-    public set publishDomain(publishDomain: string | undefined) {
+    public set publishDomain(publishDomain: string  | undefined) {
         this['publish_domain'] = publishDomain;
     }
-    public get publishDomain() {
+    public get publishDomain(): string | undefined {
         return this['publish_domain'];
     }
     public withApp(app: string): ListLiveStreamsOnlineRequest {

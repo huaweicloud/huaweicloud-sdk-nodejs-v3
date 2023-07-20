@@ -1,9 +1,9 @@
 
 
 export class ShowClusterDetailRequest {
-    private 'X-Language': string | undefined;
-    private 'cluster_id': string | undefined;
-    public constructor(xLanguage?: any, clusterId?: any) { 
+    private 'X-Language'?: string;
+    private 'cluster_id'?: string;
+    public constructor(xLanguage?: string, clusterId?: string) { 
         this['X-Language'] = xLanguage;
         this['cluster_id'] = clusterId;
     }
@@ -11,20 +11,20 @@ export class ShowClusterDetailRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: string | undefined) {
+    public set xLanguage(xLanguage: string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): string | undefined {
         return this['X-Language'];
     }
     public withClusterId(clusterId: string): ShowClusterDetailRequest {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
 }

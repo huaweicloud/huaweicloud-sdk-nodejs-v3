@@ -5,21 +5,21 @@ import { VaultBindRules } from './VaultBindRules';
 
 
 export class VaultCreate {
-    private 'backup_policy_id'?: string | undefined;
-    public billing: BillingCreate;
+    private 'backup_policy_id'?: string;
+    public billing?: BillingCreate;
     public description?: string;
-    public name: string;
-    public resources: Array<ResourceCreate>;
+    public name?: string;
+    public resources?: Array<ResourceCreate>;
     public tags?: Array<Tag>;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'auto_bind'?: boolean | undefined;
-    private 'bind_rules'?: VaultBindRules | undefined;
-    private 'auto_expand'?: boolean | undefined;
+    private 'enterprise_project_id'?: string;
+    private 'auto_bind'?: boolean;
+    private 'bind_rules'?: VaultBindRules;
+    private 'auto_expand'?: boolean;
     public threshold?: number;
-    private 'smn_notify'?: boolean | undefined;
-    private 'backup_name_prefix'?: string | undefined;
-    private 'demand_billing'?: boolean | undefined;
-    public constructor(billing?: any, name?: any, resources?: any) { 
+    private 'smn_notify'?: boolean;
+    private 'backup_name_prefix'?: string;
+    private 'demand_billing'?: boolean;
+    public constructor(billing?: BillingCreate, name?: string, resources?: Array<ResourceCreate>) { 
         this['billing'] = billing;
         this['name'] = name;
         this['resources'] = resources;
@@ -28,10 +28,10 @@ export class VaultCreate {
         this['backup_policy_id'] = backupPolicyId;
         return this;
     }
-    public set backupPolicyId(backupPolicyId: string | undefined) {
+    public set backupPolicyId(backupPolicyId: string  | undefined) {
         this['backup_policy_id'] = backupPolicyId;
     }
-    public get backupPolicyId() {
+    public get backupPolicyId(): string | undefined {
         return this['backup_policy_id'];
     }
     public withBilling(billing: BillingCreate): VaultCreate {
@@ -58,40 +58,40 @@ export class VaultCreate {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withAutoBind(autoBind: boolean): VaultCreate {
         this['auto_bind'] = autoBind;
         return this;
     }
-    public set autoBind(autoBind: boolean | undefined) {
+    public set autoBind(autoBind: boolean  | undefined) {
         this['auto_bind'] = autoBind;
     }
-    public get autoBind() {
+    public get autoBind(): boolean | undefined {
         return this['auto_bind'];
     }
     public withBindRules(bindRules: VaultBindRules): VaultCreate {
         this['bind_rules'] = bindRules;
         return this;
     }
-    public set bindRules(bindRules: VaultBindRules | undefined) {
+    public set bindRules(bindRules: VaultBindRules  | undefined) {
         this['bind_rules'] = bindRules;
     }
-    public get bindRules() {
+    public get bindRules(): VaultBindRules | undefined {
         return this['bind_rules'];
     }
     public withAutoExpand(autoExpand: boolean): VaultCreate {
         this['auto_expand'] = autoExpand;
         return this;
     }
-    public set autoExpand(autoExpand: boolean | undefined) {
+    public set autoExpand(autoExpand: boolean  | undefined) {
         this['auto_expand'] = autoExpand;
     }
-    public get autoExpand() {
+    public get autoExpand(): boolean | undefined {
         return this['auto_expand'];
     }
     public withThreshold(threshold: number): VaultCreate {
@@ -102,30 +102,30 @@ export class VaultCreate {
         this['smn_notify'] = smnNotify;
         return this;
     }
-    public set smnNotify(smnNotify: boolean | undefined) {
+    public set smnNotify(smnNotify: boolean  | undefined) {
         this['smn_notify'] = smnNotify;
     }
-    public get smnNotify() {
+    public get smnNotify(): boolean | undefined {
         return this['smn_notify'];
     }
     public withBackupNamePrefix(backupNamePrefix: string): VaultCreate {
         this['backup_name_prefix'] = backupNamePrefix;
         return this;
     }
-    public set backupNamePrefix(backupNamePrefix: string | undefined) {
+    public set backupNamePrefix(backupNamePrefix: string  | undefined) {
         this['backup_name_prefix'] = backupNamePrefix;
     }
-    public get backupNamePrefix() {
+    public get backupNamePrefix(): string | undefined {
         return this['backup_name_prefix'];
     }
     public withDemandBilling(demandBilling: boolean): VaultCreate {
         this['demand_billing'] = demandBilling;
         return this;
     }
-    public set demandBilling(demandBilling: boolean | undefined) {
+    public set demandBilling(demandBilling: boolean  | undefined) {
         this['demand_billing'] = demandBilling;
     }
-    public get demandBilling() {
+    public get demandBilling(): boolean | undefined {
         return this['demand_billing'];
     }
 }

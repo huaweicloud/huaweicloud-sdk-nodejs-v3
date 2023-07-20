@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateEncryptTaskResponse extends SdkResponse {
-    private 'task_id'?: string | undefined;
+    private 'task_id'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class CreateEncryptTaskResponse extends SdkResponse {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
 }

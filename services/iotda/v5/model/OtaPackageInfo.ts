@@ -1,55 +1,55 @@
 
 
 export class OtaPackageInfo {
-    private 'package_id'?: string | undefined;
-    private 'app_id'?: string | undefined;
-    private 'package_type'?: string | undefined;
-    private 'product_id'?: string | undefined;
+    private 'package_id'?: string;
+    private 'app_id'?: string;
+    private 'package_type'?: string;
+    private 'product_id'?: string;
     public version?: string;
-    private 'support_source_versions'?: Array<string> | undefined;
+    private 'support_source_versions'?: Array<string>;
     public description?: string;
-    private 'custom_info'?: string | undefined;
-    private 'create_time'?: string | undefined;
+    private 'custom_info'?: string;
+    private 'create_time'?: string;
     public constructor() { 
     }
     public withPackageId(packageId: string): OtaPackageInfo {
         this['package_id'] = packageId;
         return this;
     }
-    public set packageId(packageId: string | undefined) {
+    public set packageId(packageId: string  | undefined) {
         this['package_id'] = packageId;
     }
-    public get packageId() {
+    public get packageId(): string | undefined {
         return this['package_id'];
     }
     public withAppId(appId: string): OtaPackageInfo {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withPackageType(packageType: string): OtaPackageInfo {
         this['package_type'] = packageType;
         return this;
     }
-    public set packageType(packageType: string | undefined) {
+    public set packageType(packageType: string  | undefined) {
         this['package_type'] = packageType;
     }
-    public get packageType() {
+    public get packageType(): string | undefined {
         return this['package_type'];
     }
     public withProductId(productId: string): OtaPackageInfo {
         this['product_id'] = productId;
         return this;
     }
-    public set productId(productId: string | undefined) {
+    public set productId(productId: string  | undefined) {
         this['product_id'] = productId;
     }
-    public get productId() {
+    public get productId(): string | undefined {
         return this['product_id'];
     }
     public withVersion(version: string): OtaPackageInfo {
@@ -60,10 +60,10 @@ export class OtaPackageInfo {
         this['support_source_versions'] = supportSourceVersions;
         return this;
     }
-    public set supportSourceVersions(supportSourceVersions: Array<string> | undefined) {
+    public set supportSourceVersions(supportSourceVersions: Array<string>  | undefined) {
         this['support_source_versions'] = supportSourceVersions;
     }
-    public get supportSourceVersions() {
+    public get supportSourceVersions(): Array<string> | undefined {
         return this['support_source_versions'];
     }
     public withDescription(description: string): OtaPackageInfo {
@@ -74,20 +74,20 @@ export class OtaPackageInfo {
         this['custom_info'] = customInfo;
         return this;
     }
-    public set customInfo(customInfo: string | undefined) {
+    public set customInfo(customInfo: string  | undefined) {
         this['custom_info'] = customInfo;
     }
-    public get customInfo() {
+    public get customInfo(): string | undefined {
         return this['custom_info'];
     }
     public withCreateTime(createTime: string): OtaPackageInfo {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
 }

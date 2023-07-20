@@ -4,12 +4,12 @@ import { YesNoEnum } from './YesNoEnum';
 
 
 export class OpenEditConfReq {
-    public conferenceId: string;
-    public subject: string;
+    public conferenceId?: string;
+    public subject?: string;
     public description?: string;
-    public startTime: string;
-    public duration: number;
-    public timeZoneId: number;
+    public startTime?: string;
+    public duration?: number;
+    public timeZoneId?: number;
     public attendees?: Array<OpenAttendeeEntity>;
     public notifySetting?: OpenNotifySetting;
     public guestPasswd?: string;
@@ -18,7 +18,7 @@ export class OpenEditConfReq {
     public scope?: number;
     public audienceScope?: number;
     public enableRecording?: YesNoEnum;
-    public constructor(conferenceId?: any, subject?: any, startTime?: any, duration?: any, timeZoneId?: any) { 
+    public constructor(conferenceId?: string, subject?: string, startTime?: string, duration?: number, timeZoneId?: number) { 
         this['conferenceId'] = conferenceId;
         this['subject'] = subject;
         this['startTime'] = startTime;

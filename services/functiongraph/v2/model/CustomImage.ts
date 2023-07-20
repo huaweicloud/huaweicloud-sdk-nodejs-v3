@@ -5,7 +5,7 @@ export class CustomImage {
     public image?: string;
     public command?: string;
     public args?: string;
-    private 'working_dir'?: string | undefined;
+    private 'working_dir'?: string;
     public uid?: string;
     public gid?: string;
     public constructor() { 
@@ -30,10 +30,10 @@ export class CustomImage {
         this['working_dir'] = workingDir;
         return this;
     }
-    public set workingDir(workingDir: string | undefined) {
+    public set workingDir(workingDir: string  | undefined) {
         this['working_dir'] = workingDir;
     }
-    public get workingDir() {
+    public get workingDir(): string | undefined {
         return this['working_dir'];
     }
     public withUid(uid: string): CustomImage {

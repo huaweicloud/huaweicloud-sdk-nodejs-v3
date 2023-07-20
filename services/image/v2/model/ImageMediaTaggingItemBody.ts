@@ -7,8 +7,8 @@ export class ImageMediaTaggingItemBody {
     public confidence?: string;
     public type?: string;
     public tag?: string;
-    private 'i18n_tag'?: ImageMediaTaggingItemBodyI18nTag | undefined;
-    private 'i18n_type'?: ImageMediaTaggingItemBodyI18nType | undefined;
+    private 'i18n_tag'?: ImageMediaTaggingItemBodyI18nTag;
+    private 'i18n_type'?: ImageMediaTaggingItemBodyI18nType;
     public instances?: Array<ImageMediaTaggingInstance>;
     public constructor() { 
     }
@@ -28,20 +28,20 @@ export class ImageMediaTaggingItemBody {
         this['i18n_tag'] = i18nTag;
         return this;
     }
-    public set i18nTag(i18nTag: ImageMediaTaggingItemBodyI18nTag | undefined) {
+    public set i18nTag(i18nTag: ImageMediaTaggingItemBodyI18nTag  | undefined) {
         this['i18n_tag'] = i18nTag;
     }
-    public get i18nTag() {
+    public get i18nTag(): ImageMediaTaggingItemBodyI18nTag | undefined {
         return this['i18n_tag'];
     }
     public withI18nType(i18nType: ImageMediaTaggingItemBodyI18nType): ImageMediaTaggingItemBody {
         this['i18n_type'] = i18nType;
         return this;
     }
-    public set i18nType(i18nType: ImageMediaTaggingItemBodyI18nType | undefined) {
+    public set i18nType(i18nType: ImageMediaTaggingItemBodyI18nType  | undefined) {
         this['i18n_type'] = i18nType;
     }
-    public get i18nType() {
+    public get i18nType(): ImageMediaTaggingItemBodyI18nType | undefined {
         return this['i18n_type'];
     }
     public withInstances(instances: Array<ImageMediaTaggingInstance>): ImageMediaTaggingItemBody {

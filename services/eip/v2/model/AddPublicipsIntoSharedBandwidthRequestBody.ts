@@ -2,8 +2,8 @@ import { AddPublicipsIntoSharedBandwidthOption } from './AddPublicipsIntoSharedB
 
 
 export class AddPublicipsIntoSharedBandwidthRequestBody {
-    public bandwidth: AddPublicipsIntoSharedBandwidthOption;
-    public constructor(bandwidth?: any) { 
+    public bandwidth?: AddPublicipsIntoSharedBandwidthOption;
+    public constructor(bandwidth?: AddPublicipsIntoSharedBandwidthOption) { 
         this['bandwidth'] = bandwidth;
     }
     public withBandwidth(bandwidth: AddPublicipsIntoSharedBandwidthOption): AddPublicipsIntoSharedBandwidthRequestBody {

@@ -1,8 +1,8 @@
 
 
 export class EpsUpdatePermissionDesc {
-    public description: string;
-    public constructor(description?: any) { 
+    public description?: string;
+    public constructor(description?: string) { 
         this['description'] = description;
     }
     public withDescription(description: string): EpsUpdatePermissionDesc {

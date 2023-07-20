@@ -3,8 +3,8 @@
 export class MvsInvoiceRequestBody {
     public image?: string;
     public url?: string;
-    private 'return_text_location'?: boolean | undefined;
-    private 'return_confidence'?: boolean | undefined;
+    private 'return_text_location'?: boolean;
+    private 'return_confidence'?: boolean;
     public type?: string;
     public constructor() { 
     }
@@ -20,20 +20,20 @@ export class MvsInvoiceRequestBody {
         this['return_text_location'] = returnTextLocation;
         return this;
     }
-    public set returnTextLocation(returnTextLocation: boolean | undefined) {
+    public set returnTextLocation(returnTextLocation: boolean  | undefined) {
         this['return_text_location'] = returnTextLocation;
     }
-    public get returnTextLocation() {
+    public get returnTextLocation(): boolean | undefined {
         return this['return_text_location'];
     }
     public withReturnConfidence(returnConfidence: boolean): MvsInvoiceRequestBody {
         this['return_confidence'] = returnConfidence;
         return this;
     }
-    public set returnConfidence(returnConfidence: boolean | undefined) {
+    public set returnConfidence(returnConfidence: boolean  | undefined) {
         this['return_confidence'] = returnConfidence;
     }
-    public get returnConfidence() {
+    public get returnConfidence(): boolean | undefined {
         return this['return_confidence'];
     }
     public withType(type: string): MvsInvoiceRequestBody {

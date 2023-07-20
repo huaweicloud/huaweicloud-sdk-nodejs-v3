@@ -2,9 +2,9 @@ import { NovaLink } from './NovaLink';
 
 
 export class NovaServerImage {
-    public id: string;
-    public links: Array<NovaLink>;
-    public constructor(id?: any, links?: any) { 
+    public id?: string;
+    public links?: Array<NovaLink>;
+    public constructor(id?: string, links?: Array<NovaLink>) { 
         this['id'] = id;
         this['links'] = links;
     }

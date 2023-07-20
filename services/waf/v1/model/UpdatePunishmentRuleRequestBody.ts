@@ -1,14 +1,14 @@
 
 
 export class UpdatePunishmentRuleRequestBody {
-    public category: UpdatePunishmentRuleRequestBodyCategoryEnum;
-    private 'block_time': number | undefined;
+    public category?: UpdatePunishmentRuleRequestBodyCategoryEnum | string;
+    private 'block_time'?: number;
     public description?: string;
-    public constructor(category?: any, blockTime?: any) { 
+    public constructor(category?: string, blockTime?: number) { 
         this['category'] = category;
         this['block_time'] = blockTime;
     }
-    public withCategory(category: UpdatePunishmentRuleRequestBodyCategoryEnum): UpdatePunishmentRuleRequestBody {
+    public withCategory(category: UpdatePunishmentRuleRequestBodyCategoryEnum | string): UpdatePunishmentRuleRequestBody {
         this['category'] = category;
         return this;
     }
@@ -16,10 +16,10 @@ export class UpdatePunishmentRuleRequestBody {
         this['block_time'] = blockTime;
         return this;
     }
-    public set blockTime(blockTime: number | undefined) {
+    public set blockTime(blockTime: number  | undefined) {
         this['block_time'] = blockTime;
     }
-    public get blockTime() {
+    public get blockTime(): number | undefined {
         return this['block_time'];
     }
     public withDescription(description: string): UpdatePunishmentRuleRequestBody {

@@ -1,17 +1,17 @@
 
 
 export class BootstrapScript {
-    public name: string;
-    public uri: string;
+    public name?: string;
+    public uri?: string;
     public parameters?: string;
-    public nodes: Array<string>;
-    private 'active_master'?: boolean | undefined;
-    private 'fail_action': BootstrapScriptFailActionEnum | undefined;
-    private 'before_component_start'?: boolean | undefined;
-    private 'start_time'?: number | undefined;
-    public state?: BootstrapScriptStateEnum;
-    private 'action_stages'?: Array<BootstrapScriptActionStagesEnum> | undefined;
-    public constructor(name?: any, uri?: any, nodes?: any, failAction?: any) { 
+    public nodes?: Array<string>;
+    private 'active_master'?: boolean;
+    private 'fail_action'?: BootstrapScriptFailActionEnum | string;
+    private 'before_component_start'?: boolean;
+    private 'start_time'?: number;
+    public state?: BootstrapScriptStateEnum | string;
+    private 'action_stages'?: Array<BootstrapScriptActionStagesEnum> | Array<string>;
+    public constructor(name?: string, uri?: string, nodes?: Array<string>, failAction?: string) { 
         this['name'] = name;
         this['uri'] = uri;
         this['nodes'] = nodes;
@@ -37,54 +37,54 @@ export class BootstrapScript {
         this['active_master'] = activeMaster;
         return this;
     }
-    public set activeMaster(activeMaster: boolean | undefined) {
+    public set activeMaster(activeMaster: boolean  | undefined) {
         this['active_master'] = activeMaster;
     }
-    public get activeMaster() {
+    public get activeMaster(): boolean | undefined {
         return this['active_master'];
     }
-    public withFailAction(failAction: BootstrapScriptFailActionEnum): BootstrapScript {
+    public withFailAction(failAction: BootstrapScriptFailActionEnum | string): BootstrapScript {
         this['fail_action'] = failAction;
         return this;
     }
-    public set failAction(failAction: BootstrapScriptFailActionEnum | undefined) {
+    public set failAction(failAction: BootstrapScriptFailActionEnum | string  | undefined) {
         this['fail_action'] = failAction;
     }
-    public get failAction() {
+    public get failAction(): BootstrapScriptFailActionEnum | string | undefined {
         return this['fail_action'];
     }
     public withBeforeComponentStart(beforeComponentStart: boolean): BootstrapScript {
         this['before_component_start'] = beforeComponentStart;
         return this;
     }
-    public set beforeComponentStart(beforeComponentStart: boolean | undefined) {
+    public set beforeComponentStart(beforeComponentStart: boolean  | undefined) {
         this['before_component_start'] = beforeComponentStart;
     }
-    public get beforeComponentStart() {
+    public get beforeComponentStart(): boolean | undefined {
         return this['before_component_start'];
     }
     public withStartTime(startTime: number): BootstrapScript {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
-    public withState(state: BootstrapScriptStateEnum): BootstrapScript {
+    public withState(state: BootstrapScriptStateEnum | string): BootstrapScript {
         this['state'] = state;
         return this;
     }
-    public withActionStages(actionStages: Array<BootstrapScriptActionStagesEnum>): BootstrapScript {
+    public withActionStages(actionStages: Array<BootstrapScriptActionStagesEnum> | Array<string>): BootstrapScript {
         this['action_stages'] = actionStages;
         return this;
     }
-    public set actionStages(actionStages: Array<BootstrapScriptActionStagesEnum> | undefined) {
+    public set actionStages(actionStages: Array<BootstrapScriptActionStagesEnum> | Array<string>  | undefined) {
         this['action_stages'] = actionStages;
     }
-    public get actionStages() {
+    public get actionStages(): Array<BootstrapScriptActionStagesEnum> | Array<string> | undefined {
         return this['action_stages'];
     }
 }

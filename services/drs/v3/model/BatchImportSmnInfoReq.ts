@@ -3,9 +3,9 @@ import { SelectedSetAlarmTaskReq } from './SelectedSetAlarmTaskReq';
 
 
 export class BatchImportSmnInfoReq {
-    public jobs: Array<SelectedSetAlarmTaskReq>;
-    private 'alarm_notify_info': BatchSetAlarmNotifyInfo | undefined;
-    public constructor(jobs?: any, alarmNotifyInfo?: any) { 
+    public jobs?: Array<SelectedSetAlarmTaskReq>;
+    private 'alarm_notify_info'?: BatchSetAlarmNotifyInfo;
+    public constructor(jobs?: Array<SelectedSetAlarmTaskReq>, alarmNotifyInfo?: BatchSetAlarmNotifyInfo) { 
         this['jobs'] = jobs;
         this['alarm_notify_info'] = alarmNotifyInfo;
     }
@@ -17,10 +17,10 @@ export class BatchImportSmnInfoReq {
         this['alarm_notify_info'] = alarmNotifyInfo;
         return this;
     }
-    public set alarmNotifyInfo(alarmNotifyInfo: BatchSetAlarmNotifyInfo | undefined) {
+    public set alarmNotifyInfo(alarmNotifyInfo: BatchSetAlarmNotifyInfo  | undefined) {
         this['alarm_notify_info'] = alarmNotifyInfo;
     }
-    public get alarmNotifyInfo() {
+    public get alarmNotifyInfo(): BatchSetAlarmNotifyInfo | undefined {
         return this['alarm_notify_info'];
     }
 }

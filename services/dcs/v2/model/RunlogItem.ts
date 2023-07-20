@@ -2,12 +2,12 @@
 
 export class RunlogItem {
     public id?: string;
-    private 'file_name'?: string | undefined;
-    private 'group_name'?: string | undefined;
-    private 'replication_ip'?: string | undefined;
+    private 'file_name'?: string;
+    private 'group_name'?: string;
+    private 'replication_ip'?: string;
     public status?: string;
     public time?: string;
-    private 'backup_id'?: string | undefined;
+    private 'backup_id'?: string;
     public constructor() { 
     }
     public withId(id: string): RunlogItem {
@@ -18,30 +18,30 @@ export class RunlogItem {
         this['file_name'] = fileName;
         return this;
     }
-    public set fileName(fileName: string | undefined) {
+    public set fileName(fileName: string  | undefined) {
         this['file_name'] = fileName;
     }
-    public get fileName() {
+    public get fileName(): string | undefined {
         return this['file_name'];
     }
     public withGroupName(groupName: string): RunlogItem {
         this['group_name'] = groupName;
         return this;
     }
-    public set groupName(groupName: string | undefined) {
+    public set groupName(groupName: string  | undefined) {
         this['group_name'] = groupName;
     }
-    public get groupName() {
+    public get groupName(): string | undefined {
         return this['group_name'];
     }
     public withReplicationIp(replicationIp: string): RunlogItem {
         this['replication_ip'] = replicationIp;
         return this;
     }
-    public set replicationIp(replicationIp: string | undefined) {
+    public set replicationIp(replicationIp: string  | undefined) {
         this['replication_ip'] = replicationIp;
     }
-    public get replicationIp() {
+    public get replicationIp(): string | undefined {
         return this['replication_ip'];
     }
     public withStatus(status: string): RunlogItem {
@@ -56,10 +56,10 @@ export class RunlogItem {
         this['backup_id'] = backupId;
         return this;
     }
-    public set backupId(backupId: string | undefined) {
+    public set backupId(backupId: string  | undefined) {
         this['backup_id'] = backupId;
     }
-    public get backupId() {
+    public get backupId(): string | undefined {
         return this['backup_id'];
     }
 }

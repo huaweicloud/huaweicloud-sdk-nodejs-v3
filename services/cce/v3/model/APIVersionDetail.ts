@@ -2,13 +2,13 @@ import { APIVersionLink } from './APIVersionLink';
 
 
 export class APIVersionDetail {
-    public id: string;
-    public links: Array<APIVersionLink>;
-    private 'min_version': string | undefined;
-    public status: APIVersionDetailStatusEnum;
-    public updated: string;
-    public version: string;
-    public constructor(id?: any, links?: any, minVersion?: any, status?: any, updated?: any, version?: any) { 
+    public id?: string;
+    public links?: Array<APIVersionLink>;
+    private 'min_version'?: string;
+    public status?: APIVersionDetailStatusEnum | string;
+    public updated?: string;
+    public version?: string;
+    public constructor(id?: string, links?: Array<APIVersionLink>, minVersion?: string, status?: string, updated?: string, version?: string) { 
         this['id'] = id;
         this['links'] = links;
         this['min_version'] = minVersion;
@@ -28,13 +28,13 @@ export class APIVersionDetail {
         this['min_version'] = minVersion;
         return this;
     }
-    public set minVersion(minVersion: string | undefined) {
+    public set minVersion(minVersion: string  | undefined) {
         this['min_version'] = minVersion;
     }
-    public get minVersion() {
+    public get minVersion(): string | undefined {
         return this['min_version'];
     }
-    public withStatus(status: APIVersionDetailStatusEnum): APIVersionDetail {
+    public withStatus(status: APIVersionDetailStatusEnum | string): APIVersionDetail {
         this['status'] = status;
         return this;
     }

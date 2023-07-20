@@ -2,18 +2,18 @@ import { BatchReplaceDefinerReq } from './BatchReplaceDefinerReq';
 
 
 export class BatchSetDefinerRequest {
-    private 'X-Language'?: BatchSetDefinerRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchSetDefinerRequestXLanguageEnum | string;
     public body?: BatchReplaceDefinerReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchSetDefinerRequestXLanguageEnum): BatchSetDefinerRequest {
+    public withXLanguage(xLanguage: BatchSetDefinerRequestXLanguageEnum | string): BatchSetDefinerRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchSetDefinerRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchSetDefinerRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchSetDefinerRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchReplaceDefinerReq): BatchSetDefinerRequest {

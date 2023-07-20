@@ -2,18 +2,18 @@ import { BatchTestConnectionReq } from './BatchTestConnectionReq';
 
 
 export class BatchValidateConnectionsRequest {
-    private 'X-Language'?: BatchValidateConnectionsRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchValidateConnectionsRequestXLanguageEnum | string;
     public body?: BatchTestConnectionReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchValidateConnectionsRequestXLanguageEnum): BatchValidateConnectionsRequest {
+    public withXLanguage(xLanguage: BatchValidateConnectionsRequestXLanguageEnum | string): BatchValidateConnectionsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchValidateConnectionsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchValidateConnectionsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchValidateConnectionsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchTestConnectionReq): BatchValidateConnectionsRequest {

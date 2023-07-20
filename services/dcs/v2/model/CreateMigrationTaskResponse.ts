@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class CreateMigrationTaskResponse extends SdkResponse {
     public id?: string;
     public name?: string;
-    public status?: CreateMigrationTaskResponseStatusEnum;
+    public status?: CreateMigrationTaskResponseStatusEnum | string;
     public constructor() { 
         super();
     }
@@ -16,7 +16,7 @@ export class CreateMigrationTaskResponse extends SdkResponse {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: CreateMigrationTaskResponseStatusEnum): CreateMigrationTaskResponse {
+    public withStatus(status: CreateMigrationTaskResponseStatusEnum | string): CreateMigrationTaskResponse {
         this['status'] = status;
         return this;
     }

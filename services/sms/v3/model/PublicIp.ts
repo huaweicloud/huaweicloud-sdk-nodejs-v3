@@ -1,10 +1,10 @@
 
 
 export class PublicIp {
-    public type: string;
-    private 'bandwidth_size': number | undefined;
-    private 'bandwidth_share_type'?: string | undefined;
-    public constructor(type?: any, bandwidthSize?: any) { 
+    public type?: string;
+    private 'bandwidth_size'?: number;
+    private 'bandwidth_share_type'?: string;
+    public constructor(type?: string, bandwidthSize?: number) { 
         this['type'] = type;
         this['bandwidth_size'] = bandwidthSize;
     }
@@ -16,20 +16,20 @@ export class PublicIp {
         this['bandwidth_size'] = bandwidthSize;
         return this;
     }
-    public set bandwidthSize(bandwidthSize: number | undefined) {
+    public set bandwidthSize(bandwidthSize: number  | undefined) {
         this['bandwidth_size'] = bandwidthSize;
     }
-    public get bandwidthSize() {
+    public get bandwidthSize(): number | undefined {
         return this['bandwidth_size'];
     }
     public withBandwidthShareType(bandwidthShareType: string): PublicIp {
         this['bandwidth_share_type'] = bandwidthShareType;
         return this;
     }
-    public set bandwidthShareType(bandwidthShareType: string | undefined) {
+    public set bandwidthShareType(bandwidthShareType: string  | undefined) {
         this['bandwidth_share_type'] = bandwidthShareType;
     }
-    public get bandwidthShareType() {
+    public get bandwidthShareType(): string | undefined {
         return this['bandwidth_share_type'];
     }
 }

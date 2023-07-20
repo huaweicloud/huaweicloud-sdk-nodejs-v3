@@ -2,19 +2,19 @@ import { CreateFunctionVersionRequestBody } from './CreateFunctionVersionRequest
 
 
 export class CreateFunctionVersionRequest {
-    private 'function_urn': string | undefined;
+    private 'function_urn'?: string;
     public body?: CreateFunctionVersionRequestBody;
-    public constructor(functionUrn?: any) { 
+    public constructor(functionUrn?: string) { 
         this['function_urn'] = functionUrn;
     }
     public withFunctionUrn(functionUrn: string): CreateFunctionVersionRequest {
         this['function_urn'] = functionUrn;
         return this;
     }
-    public set functionUrn(functionUrn: string | undefined) {
+    public set functionUrn(functionUrn: string  | undefined) {
         this['function_urn'] = functionUrn;
     }
-    public get functionUrn() {
+    public get functionUrn(): string | undefined {
         return this['function_urn'];
     }
     public withBody(body: CreateFunctionVersionRequestBody): CreateFunctionVersionRequest {

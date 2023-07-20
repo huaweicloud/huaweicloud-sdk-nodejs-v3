@@ -1,8 +1,8 @@
 
 
 export class RestAllowUnMuteReqBody {
-    public allowUnmuteByOneself: number;
-    public constructor(allowUnmuteByOneself?: any) { 
+    public allowUnmuteByOneself?: number;
+    public constructor(allowUnmuteByOneself?: number) { 
         this['allowUnmuteByOneself'] = allowUnmuteByOneself;
     }
     public withAllowUnmuteByOneself(allowUnmuteByOneself: number): RestAllowUnMuteReqBody {

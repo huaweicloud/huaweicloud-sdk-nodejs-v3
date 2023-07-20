@@ -4,7 +4,7 @@ export class LoadBalancerStatusHealthMonitor {
     public type?: string;
     public id?: string;
     public name?: string;
-    private 'provisioning_status'?: string | undefined;
+    private 'provisioning_status'?: string;
     public constructor() { 
     }
     public withType(type: string): LoadBalancerStatusHealthMonitor {
@@ -23,10 +23,10 @@ export class LoadBalancerStatusHealthMonitor {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: string | undefined) {
+    public set provisioningStatus(provisioningStatus: string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): string | undefined {
         return this['provisioning_status'];
     }
 }

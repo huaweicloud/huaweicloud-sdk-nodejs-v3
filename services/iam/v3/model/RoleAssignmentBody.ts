@@ -11,7 +11,7 @@ export class RoleAssignmentBody {
     public group?: RoleGroupAssignmentId;
     public agency?: RoleAgencyAssignmentId;
     public scope?: RoleAssignmentScope;
-    private 'is_inherited'?: boolean | undefined;
+    private 'is_inherited'?: boolean;
     public constructor() { 
     }
     public withUser(user: RoleUserAssignmentId): RoleAssignmentBody {
@@ -38,10 +38,10 @@ export class RoleAssignmentBody {
         this['is_inherited'] = isInherited;
         return this;
     }
-    public set isInherited(isInherited: boolean | undefined) {
+    public set isInherited(isInherited: boolean  | undefined) {
         this['is_inherited'] = isInherited;
     }
-    public get isInherited() {
+    public get isInherited(): boolean | undefined {
         return this['is_inherited'];
     }
 }

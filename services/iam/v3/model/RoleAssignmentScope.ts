@@ -6,7 +6,7 @@ import { RoleProjectAssignmentId } from './RoleProjectAssignmentId';
 export class RoleAssignmentScope {
     public project?: RoleProjectAssignmentId;
     public domain?: RoleDomainAssignmentId;
-    private 'enterprise_project'?: RoleEnterpriseProjectAssignmentId | undefined;
+    private 'enterprise_project'?: RoleEnterpriseProjectAssignmentId;
     public constructor() { 
     }
     public withProject(project: RoleProjectAssignmentId): RoleAssignmentScope {
@@ -21,10 +21,10 @@ export class RoleAssignmentScope {
         this['enterprise_project'] = enterpriseProject;
         return this;
     }
-    public set enterpriseProject(enterpriseProject: RoleEnterpriseProjectAssignmentId | undefined) {
+    public set enterpriseProject(enterpriseProject: RoleEnterpriseProjectAssignmentId  | undefined) {
         this['enterprise_project'] = enterpriseProject;
     }
-    public get enterpriseProject() {
+    public get enterpriseProject(): RoleEnterpriseProjectAssignmentId | undefined {
         return this['enterprise_project'];
     }
 }

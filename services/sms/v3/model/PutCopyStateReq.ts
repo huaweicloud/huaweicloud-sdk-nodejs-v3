@@ -1,15 +1,15 @@
 
 
 export class PutCopyStateReq {
-    public copystate?: PutCopyStateReqCopystateEnum;
-    public migrationcycle?: PutCopyStateReqMigrationcycleEnum;
+    public copystate?: PutCopyStateReqCopystateEnum | string;
+    public migrationcycle?: PutCopyStateReqMigrationcycleEnum | string;
     public constructor() { 
     }
-    public withCopystate(copystate: PutCopyStateReqCopystateEnum): PutCopyStateReq {
+    public withCopystate(copystate: PutCopyStateReqCopystateEnum | string): PutCopyStateReq {
         this['copystate'] = copystate;
         return this;
     }
-    public withMigrationcycle(migrationcycle: PutCopyStateReqMigrationcycleEnum): PutCopyStateReq {
+    public withMigrationcycle(migrationcycle: PutCopyStateReqMigrationcycleEnum | string): PutCopyStateReq {
         this['migrationcycle'] = migrationcycle;
         return this;
     }

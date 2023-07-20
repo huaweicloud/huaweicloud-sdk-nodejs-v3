@@ -1,20 +1,20 @@
 
 
 export class ListPublishedTemplatesRequest {
-    private 'X-Language'?: ListPublishedTemplatesRequestXLanguageEnum | undefined;
+    private 'X-Language'?: ListPublishedTemplatesRequestXLanguageEnum | string;
     public keyword?: string;
     public offset?: number;
     public limit?: number;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: ListPublishedTemplatesRequestXLanguageEnum): ListPublishedTemplatesRequest {
+    public withXLanguage(xLanguage: ListPublishedTemplatesRequestXLanguageEnum | string): ListPublishedTemplatesRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListPublishedTemplatesRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListPublishedTemplatesRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListPublishedTemplatesRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withKeyword(keyword: string): ListPublishedTemplatesRequest {

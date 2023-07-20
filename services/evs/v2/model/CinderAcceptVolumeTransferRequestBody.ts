@@ -2,8 +2,8 @@ import { CinderAcceptVolumeTransferOption } from './CinderAcceptVolumeTransferOp
 
 
 export class CinderAcceptVolumeTransferRequestBody {
-    public accept: CinderAcceptVolumeTransferOption;
-    public constructor(accept?: any) { 
+    public accept?: CinderAcceptVolumeTransferOption;
+    public constructor(accept?: CinderAcceptVolumeTransferOption) { 
         this['accept'] = accept;
     }
     public withAccept(accept: CinderAcceptVolumeTransferOption): CinderAcceptVolumeTransferRequestBody {

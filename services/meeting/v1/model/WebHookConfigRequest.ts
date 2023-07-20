@@ -3,10 +3,10 @@
 export class WebHookConfigRequest {
     public corpId?: string;
     public spId?: string;
-    public subscriberId: string;
-    public subscriberKey: string;
-    public url: string;
-    public constructor(subscriberId?: any, subscriberKey?: any, url?: any) { 
+    public subscriberId?: string;
+    public subscriberKey?: string;
+    public url?: string;
+    public constructor(subscriberId?: string, subscriberKey?: string, url?: string) { 
         this['subscriberId'] = subscriberId;
         this['subscriberKey'] = subscriberKey;
         this['url'] = url;

@@ -4,21 +4,21 @@ import { YesNoEnum } from './YesNoEnum';
 
 
 export class OpenScheduleConfReq {
-    public subject: string;
+    public subject?: string;
     public description?: string;
-    public startTime: string;
-    public duration: number;
-    public timeZoneId: number;
+    public startTime?: string;
+    public duration?: number;
+    public timeZoneId?: number;
     public attendees?: Array<OpenAttendeeEntity>;
     public notifySetting?: OpenNotifySetting;
-    public vmrID: string;
+    public vmrID?: string;
     public guestPasswd?: string;
     public audiencePasswd?: string;
     public callRestriction?: boolean;
     public scope?: number;
     public audienceScope?: number;
     public enableRecording?: YesNoEnum;
-    public constructor(subject?: any, startTime?: any, duration?: any, timeZoneId?: any, vmrID?: any) { 
+    public constructor(subject?: string, startTime?: string, duration?: number, timeZoneId?: number, vmrID?: string) { 
         this['subject'] = subject;
         this['startTime'] = startTime;
         this['duration'] = duration;

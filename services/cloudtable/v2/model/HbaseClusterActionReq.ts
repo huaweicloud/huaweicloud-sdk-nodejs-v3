@@ -1,8 +1,8 @@
 
 
 export class HbaseClusterActionReq {
-    public restart: object;
-    public constructor(restart?: any) { 
+    public restart?: object;
+    public constructor(restart?: object) { 
         this['restart'] = restart;
     }
     public withRestart(restart: object): HbaseClusterActionReq {

@@ -1,10 +1,10 @@
 
 
 export class UpdateRepoDomainsRequestBody {
-    public permit: string;
-    public deadline: string;
+    public permit?: string;
+    public deadline?: string;
     public description?: string;
-    public constructor(permit?: any, deadline?: any) { 
+    public constructor(permit?: string, deadline?: string) { 
         this['permit'] = permit;
         this['deadline'] = deadline;
     }

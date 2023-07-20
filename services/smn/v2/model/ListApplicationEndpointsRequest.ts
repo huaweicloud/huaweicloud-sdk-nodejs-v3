@@ -1,23 +1,23 @@
 
 
 export class ListApplicationEndpointsRequest {
-    private 'application_urn': string | undefined;
+    private 'application_urn'?: string;
     public offset?: number;
     public limit?: number;
     public enabled?: string;
     public token?: string;
-    private 'user_data'?: string | undefined;
-    public constructor(applicationUrn?: any) { 
+    private 'user_data'?: string;
+    public constructor(applicationUrn?: string) { 
         this['application_urn'] = applicationUrn;
     }
     public withApplicationUrn(applicationUrn: string): ListApplicationEndpointsRequest {
         this['application_urn'] = applicationUrn;
         return this;
     }
-    public set applicationUrn(applicationUrn: string | undefined) {
+    public set applicationUrn(applicationUrn: string  | undefined) {
         this['application_urn'] = applicationUrn;
     }
-    public get applicationUrn() {
+    public get applicationUrn(): string | undefined {
         return this['application_urn'];
     }
     public withOffset(offset: number): ListApplicationEndpointsRequest {
@@ -40,10 +40,10 @@ export class ListApplicationEndpointsRequest {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
 }

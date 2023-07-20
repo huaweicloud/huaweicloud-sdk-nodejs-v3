@@ -1,21 +1,21 @@
 
 
 export class DeviceGroupResponseSummary {
-    private 'group_id'?: string | undefined;
+    private 'group_id'?: string;
     public name?: string;
     public description?: string;
-    private 'super_group_id'?: string | undefined;
-    private 'group_type'?: string | undefined;
+    private 'super_group_id'?: string;
+    private 'group_type'?: string;
     public constructor() { 
     }
     public withGroupId(groupId: string): DeviceGroupResponseSummary {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
     public withName(name: string): DeviceGroupResponseSummary {
@@ -30,20 +30,20 @@ export class DeviceGroupResponseSummary {
         this['super_group_id'] = superGroupId;
         return this;
     }
-    public set superGroupId(superGroupId: string | undefined) {
+    public set superGroupId(superGroupId: string  | undefined) {
         this['super_group_id'] = superGroupId;
     }
-    public get superGroupId() {
+    public get superGroupId(): string | undefined {
         return this['super_group_id'];
     }
     public withGroupType(groupType: string): DeviceGroupResponseSummary {
         this['group_type'] = groupType;
         return this;
     }
-    public set groupType(groupType: string | undefined) {
+    public set groupType(groupType: string  | undefined) {
         this['group_type'] = groupType;
     }
-    public get groupType() {
+    public get groupType(): string | undefined {
         return this['group_type'];
     }
 }

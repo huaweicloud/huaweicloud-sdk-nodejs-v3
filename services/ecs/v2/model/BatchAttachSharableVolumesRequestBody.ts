@@ -2,8 +2,8 @@ import { BatchAttachSharableVolumesOption } from './BatchAttachSharableVolumesOp
 
 
 export class BatchAttachSharableVolumesRequestBody {
-    public serverinfo: Array<BatchAttachSharableVolumesOption>;
-    public constructor(serverinfo?: any) { 
+    public serverinfo?: Array<BatchAttachSharableVolumesOption>;
+    public constructor(serverinfo?: Array<BatchAttachSharableVolumesOption>) { 
         this['serverinfo'] = serverinfo;
     }
     public withServerinfo(serverinfo: Array<BatchAttachSharableVolumesOption>): BatchAttachSharableVolumesRequestBody {

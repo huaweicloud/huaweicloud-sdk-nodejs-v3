@@ -3,7 +3,7 @@ import { DomainItemDetail } from './DomainItemDetail';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowDomainItemDetailsResponse extends SdkResponse {
-    private 'domain_item_details'?: DomainItemDetail | undefined;
+    private 'domain_item_details'?: DomainItemDetail;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ShowDomainItemDetailsResponse extends SdkResponse {
         this['domain_item_details'] = domainItemDetails;
         return this;
     }
-    public set domainItemDetails(domainItemDetails: DomainItemDetail | undefined) {
+    public set domainItemDetails(domainItemDetails: DomainItemDetail  | undefined) {
         this['domain_item_details'] = domainItemDetails;
     }
-    public get domainItemDetails() {
+    public get domainItemDetails(): DomainItemDetail | undefined {
         return this['domain_item_details'];
     }
 }

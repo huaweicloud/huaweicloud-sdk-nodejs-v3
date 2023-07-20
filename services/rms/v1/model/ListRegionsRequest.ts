@@ -1,17 +1,17 @@
 
 
 export class ListRegionsRequest {
-    private 'X-Language'?: ListRegionsRequestXLanguageEnum | undefined;
+    private 'X-Language'?: ListRegionsRequestXLanguageEnum | string;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: ListRegionsRequestXLanguageEnum): ListRegionsRequest {
+    public withXLanguage(xLanguage: ListRegionsRequestXLanguageEnum | string): ListRegionsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListRegionsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListRegionsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListRegionsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
 }

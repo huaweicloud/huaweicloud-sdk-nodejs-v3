@@ -2,19 +2,19 @@ import { NeutronUpdateSecurityGroupRequestBody } from './NeutronUpdateSecurityGr
 
 
 export class NeutronUpdateSecurityGroupRequest {
-    private 'security_group_id': string | undefined;
+    private 'security_group_id'?: string;
     public body?: NeutronUpdateSecurityGroupRequestBody;
-    public constructor(securityGroupId?: any) { 
+    public constructor(securityGroupId?: string) { 
         this['security_group_id'] = securityGroupId;
     }
     public withSecurityGroupId(securityGroupId: string): NeutronUpdateSecurityGroupRequest {
         this['security_group_id'] = securityGroupId;
         return this;
     }
-    public set securityGroupId(securityGroupId: string | undefined) {
+    public set securityGroupId(securityGroupId: string  | undefined) {
         this['security_group_id'] = securityGroupId;
     }
-    public get securityGroupId() {
+    public get securityGroupId(): string | undefined {
         return this['security_group_id'];
     }
     public withBody(body: NeutronUpdateSecurityGroupRequestBody): NeutronUpdateSecurityGroupRequest {

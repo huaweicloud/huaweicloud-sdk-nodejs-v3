@@ -5,8 +5,8 @@ export class ListEnterpriseProjectRequest {
     public limit?: number;
     public name?: string;
     public offset?: number;
-    private 'sort_dir'?: ListEnterpriseProjectRequestSortDirEnum | undefined;
-    private 'sort_key'?: ListEnterpriseProjectRequestSortKeyEnum | undefined;
+    private 'sort_dir'?: ListEnterpriseProjectRequestSortDirEnum | string;
+    private 'sort_key'?: ListEnterpriseProjectRequestSortKeyEnum | string;
     public status?: number;
     public constructor() { 
     }
@@ -26,24 +26,24 @@ export class ListEnterpriseProjectRequest {
         this['offset'] = offset;
         return this;
     }
-    public withSortDir(sortDir: ListEnterpriseProjectRequestSortDirEnum): ListEnterpriseProjectRequest {
+    public withSortDir(sortDir: ListEnterpriseProjectRequestSortDirEnum | string): ListEnterpriseProjectRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: ListEnterpriseProjectRequestSortDirEnum | undefined) {
+    public set sortDir(sortDir: ListEnterpriseProjectRequestSortDirEnum | string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): ListEnterpriseProjectRequestSortDirEnum | string | undefined {
         return this['sort_dir'];
     }
-    public withSortKey(sortKey: ListEnterpriseProjectRequestSortKeyEnum): ListEnterpriseProjectRequest {
+    public withSortKey(sortKey: ListEnterpriseProjectRequestSortKeyEnum | string): ListEnterpriseProjectRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: ListEnterpriseProjectRequestSortKeyEnum | undefined) {
+    public set sortKey(sortKey: ListEnterpriseProjectRequestSortKeyEnum | string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): ListEnterpriseProjectRequestSortKeyEnum | string | undefined {
         return this['sort_key'];
     }
     public withStatus(status: number): ListEnterpriseProjectRequest {

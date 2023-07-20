@@ -1,17 +1,17 @@
 
 
 export class AbnormalEvent {
-    public time: string;
-    public uid: string;
-    private 'room_id': string | undefined;
-    public stage: string;
-    public location: string;
-    private 'peer_uid': string | undefined;
-    private 'abnormal_type': number | undefined;
-    private 'abnormal_type_desc': string | undefined;
-    private 'abnormal_factor': number | undefined;
-    private 'abnormal_factor_desc': string | undefined;
-    public constructor(time?: any, uid?: any, roomId?: any, stage?: any, location?: any, peerUid?: any, abnormalType?: any, abnormalTypeDesc?: any, abnormalFactor?: any, abnormalFactorDesc?: any) { 
+    public time?: string;
+    public uid?: string;
+    private 'room_id'?: string;
+    public stage?: string;
+    public location?: string;
+    private 'peer_uid'?: string;
+    private 'abnormal_type'?: number;
+    private 'abnormal_type_desc'?: string;
+    private 'abnormal_factor'?: number;
+    private 'abnormal_factor_desc'?: string;
+    public constructor(time?: string, uid?: string, roomId?: string, stage?: string, location?: string, peerUid?: string, abnormalType?: number, abnormalTypeDesc?: string, abnormalFactor?: number, abnormalFactorDesc?: string) { 
         this['time'] = time;
         this['uid'] = uid;
         this['room_id'] = roomId;
@@ -35,10 +35,10 @@ export class AbnormalEvent {
         this['room_id'] = roomId;
         return this;
     }
-    public set roomId(roomId: string | undefined) {
+    public set roomId(roomId: string  | undefined) {
         this['room_id'] = roomId;
     }
-    public get roomId() {
+    public get roomId(): string | undefined {
         return this['room_id'];
     }
     public withStage(stage: string): AbnormalEvent {
@@ -53,50 +53,50 @@ export class AbnormalEvent {
         this['peer_uid'] = peerUid;
         return this;
     }
-    public set peerUid(peerUid: string | undefined) {
+    public set peerUid(peerUid: string  | undefined) {
         this['peer_uid'] = peerUid;
     }
-    public get peerUid() {
+    public get peerUid(): string | undefined {
         return this['peer_uid'];
     }
     public withAbnormalType(abnormalType: number): AbnormalEvent {
         this['abnormal_type'] = abnormalType;
         return this;
     }
-    public set abnormalType(abnormalType: number | undefined) {
+    public set abnormalType(abnormalType: number  | undefined) {
         this['abnormal_type'] = abnormalType;
     }
-    public get abnormalType() {
+    public get abnormalType(): number | undefined {
         return this['abnormal_type'];
     }
     public withAbnormalTypeDesc(abnormalTypeDesc: string): AbnormalEvent {
         this['abnormal_type_desc'] = abnormalTypeDesc;
         return this;
     }
-    public set abnormalTypeDesc(abnormalTypeDesc: string | undefined) {
+    public set abnormalTypeDesc(abnormalTypeDesc: string  | undefined) {
         this['abnormal_type_desc'] = abnormalTypeDesc;
     }
-    public get abnormalTypeDesc() {
+    public get abnormalTypeDesc(): string | undefined {
         return this['abnormal_type_desc'];
     }
     public withAbnormalFactor(abnormalFactor: number): AbnormalEvent {
         this['abnormal_factor'] = abnormalFactor;
         return this;
     }
-    public set abnormalFactor(abnormalFactor: number | undefined) {
+    public set abnormalFactor(abnormalFactor: number  | undefined) {
         this['abnormal_factor'] = abnormalFactor;
     }
-    public get abnormalFactor() {
+    public get abnormalFactor(): number | undefined {
         return this['abnormal_factor'];
     }
     public withAbnormalFactorDesc(abnormalFactorDesc: string): AbnormalEvent {
         this['abnormal_factor_desc'] = abnormalFactorDesc;
         return this;
     }
-    public set abnormalFactorDesc(abnormalFactorDesc: string | undefined) {
+    public set abnormalFactorDesc(abnormalFactorDesc: string  | undefined) {
         this['abnormal_factor_desc'] = abnormalFactorDesc;
     }
-    public get abnormalFactorDesc() {
+    public get abnormalFactorDesc(): string | undefined {
         return this['abnormal_factor_desc'];
     }
 }

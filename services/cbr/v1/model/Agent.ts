@@ -2,109 +2,109 @@ import { Path } from './Path';
 
 
 export class Agent {
-    private 'created_at'?: Date | undefined;
-    private 'updated_at'?: Date | undefined;
-    private 'agent_id': string | undefined;
-    private 'agent_version'?: string | undefined;
-    private 'agent_type'?: string | undefined;
-    private 'host_name'?: string | undefined;
-    private 'host_nickname'?: string | undefined;
-    private 'host_ip'?: string | undefined;
-    private 'host_os'?: string | undefined;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    private 'agent_id'?: string;
+    private 'agent_version'?: string;
+    private 'agent_type'?: string;
+    private 'host_name'?: string;
+    private 'host_nickname'?: string;
+    private 'host_ip'?: string;
+    private 'host_os'?: string;
     public status?: string;
-    private 'last_active_time'?: Date | undefined;
+    private 'last_active_time'?: Date;
     public paths?: Array<Path>;
-    public constructor(agentId?: any) { 
+    public constructor(agentId?: string) { 
         this['agent_id'] = agentId;
     }
     public withCreatedAt(createdAt: Date): Agent {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): Agent {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withAgentId(agentId: string): Agent {
         this['agent_id'] = agentId;
         return this;
     }
-    public set agentId(agentId: string | undefined) {
+    public set agentId(agentId: string  | undefined) {
         this['agent_id'] = agentId;
     }
-    public get agentId() {
+    public get agentId(): string | undefined {
         return this['agent_id'];
     }
     public withAgentVersion(agentVersion: string): Agent {
         this['agent_version'] = agentVersion;
         return this;
     }
-    public set agentVersion(agentVersion: string | undefined) {
+    public set agentVersion(agentVersion: string  | undefined) {
         this['agent_version'] = agentVersion;
     }
-    public get agentVersion() {
+    public get agentVersion(): string | undefined {
         return this['agent_version'];
     }
     public withAgentType(agentType: string): Agent {
         this['agent_type'] = agentType;
         return this;
     }
-    public set agentType(agentType: string | undefined) {
+    public set agentType(agentType: string  | undefined) {
         this['agent_type'] = agentType;
     }
-    public get agentType() {
+    public get agentType(): string | undefined {
         return this['agent_type'];
     }
     public withHostName(hostName: string): Agent {
         this['host_name'] = hostName;
         return this;
     }
-    public set hostName(hostName: string | undefined) {
+    public set hostName(hostName: string  | undefined) {
         this['host_name'] = hostName;
     }
-    public get hostName() {
+    public get hostName(): string | undefined {
         return this['host_name'];
     }
     public withHostNickname(hostNickname: string): Agent {
         this['host_nickname'] = hostNickname;
         return this;
     }
-    public set hostNickname(hostNickname: string | undefined) {
+    public set hostNickname(hostNickname: string  | undefined) {
         this['host_nickname'] = hostNickname;
     }
-    public get hostNickname() {
+    public get hostNickname(): string | undefined {
         return this['host_nickname'];
     }
     public withHostIp(hostIp: string): Agent {
         this['host_ip'] = hostIp;
         return this;
     }
-    public set hostIp(hostIp: string | undefined) {
+    public set hostIp(hostIp: string  | undefined) {
         this['host_ip'] = hostIp;
     }
-    public get hostIp() {
+    public get hostIp(): string | undefined {
         return this['host_ip'];
     }
     public withHostOs(hostOs: string): Agent {
         this['host_os'] = hostOs;
         return this;
     }
-    public set hostOs(hostOs: string | undefined) {
+    public set hostOs(hostOs: string  | undefined) {
         this['host_os'] = hostOs;
     }
-    public get hostOs() {
+    public get hostOs(): string | undefined {
         return this['host_os'];
     }
     public withStatus(status: string): Agent {
@@ -115,10 +115,10 @@ export class Agent {
         this['last_active_time'] = lastActiveTime;
         return this;
     }
-    public set lastActiveTime(lastActiveTime: Date | undefined) {
+    public set lastActiveTime(lastActiveTime: Date  | undefined) {
         this['last_active_time'] = lastActiveTime;
     }
-    public get lastActiveTime() {
+    public get lastActiveTime(): Date | undefined {
         return this['last_active_time'];
     }
     public withPaths(paths: Array<Path>): Agent {

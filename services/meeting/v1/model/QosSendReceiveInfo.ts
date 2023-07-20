@@ -6,7 +6,7 @@ export class QosSendReceiveInfo {
     public bitrate?: Array<QosDataNoThrElement>;
     public latency?: Array<QosDataElement>;
     public jitter?: Array<QosDataElement>;
-    private 'packet_loss_max'?: Array<QosDataElement> | undefined;
+    private 'packet_loss_max'?: Array<QosDataElement>;
     public resolution?: Array<QosDataNoThrElement>;
     public frame?: Array<QosDataNoThrElement>;
     public constructor() { 
@@ -27,10 +27,10 @@ export class QosSendReceiveInfo {
         this['packet_loss_max'] = packetLossMax;
         return this;
     }
-    public set packetLossMax(packetLossMax: Array<QosDataElement> | undefined) {
+    public set packetLossMax(packetLossMax: Array<QosDataElement>  | undefined) {
         this['packet_loss_max'] = packetLossMax;
     }
-    public get packetLossMax() {
+    public get packetLossMax(): Array<QosDataElement> | undefined {
         return this['packet_loss_max'];
     }
     public withResolution(resolution: Array<QosDataNoThrElement>): QosSendReceiveInfo {

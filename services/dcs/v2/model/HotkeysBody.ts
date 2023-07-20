@@ -2,7 +2,7 @@
 
 export class HotkeysBody {
     public name?: string;
-    public type?: HotkeysBodyTypeEnum;
+    public type?: HotkeysBodyTypeEnum | string;
     public shard?: string;
     public db?: number;
     public size?: number;
@@ -14,7 +14,7 @@ export class HotkeysBody {
         this['name'] = name;
         return this;
     }
-    public withType(type: HotkeysBodyTypeEnum): HotkeysBody {
+    public withType(type: HotkeysBodyTypeEnum | string): HotkeysBody {
         this['type'] = type;
         return this;
     }

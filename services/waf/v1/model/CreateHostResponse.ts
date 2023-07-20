@@ -8,23 +8,23 @@ export class CreateHostResponse extends SdkResponse {
     public id?: string;
     public hostname?: string;
     public policyid?: string;
-    private 'access_code'?: string | undefined;
-    private 'protect_status'?: number | undefined;
-    private 'access_status'?: number | undefined;
-    private 'lb_algorithm'?: CreateHostResponseLbAlgorithmEnum | undefined;
+    private 'access_code'?: string;
+    private 'protect_status'?: number;
+    private 'access_status'?: number;
+    private 'lb_algorithm'?: CreateHostResponseLbAlgorithmEnum | string;
     public protocol?: string;
     public certificateid?: string;
     public certificatename?: string;
     public server?: Array<CloudWafServer>;
     public proxy?: boolean;
     public timestamp?: number;
-    private 'exclusive_ip'?: boolean | undefined;
-    private 'web_tag'?: string | undefined;
-    private 'http2_enable'?: boolean | undefined;
-    private 'block_page'?: BlockPage | undefined;
+    private 'exclusive_ip'?: boolean;
+    private 'web_tag'?: string;
+    private 'http2_enable'?: boolean;
+    private 'block_page'?: BlockPage;
     public flag?: Flag;
     public extend?: { [key: string]: string; };
-    private 'forward_header_map'?: { [key: string]: string; } | undefined;
+    private 'forward_header_map'?: { [key: string]: string; };
     public constructor() { 
         super();
     }
@@ -44,40 +44,40 @@ export class CreateHostResponse extends SdkResponse {
         this['access_code'] = accessCode;
         return this;
     }
-    public set accessCode(accessCode: string | undefined) {
+    public set accessCode(accessCode: string  | undefined) {
         this['access_code'] = accessCode;
     }
-    public get accessCode() {
+    public get accessCode(): string | undefined {
         return this['access_code'];
     }
     public withProtectStatus(protectStatus: number): CreateHostResponse {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number | undefined) {
+    public set protectStatus(protectStatus: number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): number | undefined {
         return this['protect_status'];
     }
     public withAccessStatus(accessStatus: number): CreateHostResponse {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number | undefined) {
+    public set accessStatus(accessStatus: number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus() {
+    public get accessStatus(): number | undefined {
         return this['access_status'];
     }
-    public withLbAlgorithm(lbAlgorithm: CreateHostResponseLbAlgorithmEnum): CreateHostResponse {
+    public withLbAlgorithm(lbAlgorithm: CreateHostResponseLbAlgorithmEnum | string): CreateHostResponse {
         this['lb_algorithm'] = lbAlgorithm;
         return this;
     }
-    public set lbAlgorithm(lbAlgorithm: CreateHostResponseLbAlgorithmEnum | undefined) {
+    public set lbAlgorithm(lbAlgorithm: CreateHostResponseLbAlgorithmEnum | string  | undefined) {
         this['lb_algorithm'] = lbAlgorithm;
     }
-    public get lbAlgorithm() {
+    public get lbAlgorithm(): CreateHostResponseLbAlgorithmEnum | string | undefined {
         return this['lb_algorithm'];
     }
     public withProtocol(protocol: string): CreateHostResponse {
@@ -108,40 +108,40 @@ export class CreateHostResponse extends SdkResponse {
         this['exclusive_ip'] = exclusiveIp;
         return this;
     }
-    public set exclusiveIp(exclusiveIp: boolean | undefined) {
+    public set exclusiveIp(exclusiveIp: boolean  | undefined) {
         this['exclusive_ip'] = exclusiveIp;
     }
-    public get exclusiveIp() {
+    public get exclusiveIp(): boolean | undefined {
         return this['exclusive_ip'];
     }
     public withWebTag(webTag: string): CreateHostResponse {
         this['web_tag'] = webTag;
         return this;
     }
-    public set webTag(webTag: string | undefined) {
+    public set webTag(webTag: string  | undefined) {
         this['web_tag'] = webTag;
     }
-    public get webTag() {
+    public get webTag(): string | undefined {
         return this['web_tag'];
     }
     public withHttp2Enable(http2Enable: boolean): CreateHostResponse {
         this['http2_enable'] = http2Enable;
         return this;
     }
-    public set http2Enable(http2Enable: boolean | undefined) {
+    public set http2Enable(http2Enable: boolean  | undefined) {
         this['http2_enable'] = http2Enable;
     }
-    public get http2Enable() {
+    public get http2Enable(): boolean | undefined {
         return this['http2_enable'];
     }
     public withBlockPage(blockPage: BlockPage): CreateHostResponse {
         this['block_page'] = blockPage;
         return this;
     }
-    public set blockPage(blockPage: BlockPage | undefined) {
+    public set blockPage(blockPage: BlockPage  | undefined) {
         this['block_page'] = blockPage;
     }
-    public get blockPage() {
+    public get blockPage(): BlockPage | undefined {
         return this['block_page'];
     }
     public withFlag(flag: Flag): CreateHostResponse {
@@ -156,10 +156,10 @@ export class CreateHostResponse extends SdkResponse {
         this['forward_header_map'] = forwardHeaderMap;
         return this;
     }
-    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; }  | undefined) {
         this['forward_header_map'] = forwardHeaderMap;
     }
-    public get forwardHeaderMap() {
+    public get forwardHeaderMap(): { [key: string]: string; } | undefined {
         return this['forward_header_map'];
     }
 }

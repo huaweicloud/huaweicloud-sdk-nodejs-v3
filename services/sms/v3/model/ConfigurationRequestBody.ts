@@ -2,8 +2,8 @@ import { ConfigBody } from './ConfigBody';
 
 
 export class ConfigurationRequestBody {
-    public configurations: Array<ConfigBody>;
-    public constructor(configurations?: any) { 
+    public configurations?: Array<ConfigBody>;
+    public constructor(configurations?: Array<ConfigBody>) { 
         this['configurations'] = configurations;
     }
     public withConfigurations(configurations: Array<ConfigBody>): ConfigurationRequestBody {

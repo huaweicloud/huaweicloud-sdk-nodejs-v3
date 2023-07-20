@@ -3,16 +3,16 @@ import { PipelineStageResp } from './PipelineStageResp';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowPipelineLastStatusV2Response extends SdkResponse {
-    private 'pipeline_id'?: string | undefined;
+    private 'pipeline_id'?: string;
     public name?: string;
     public status?: string;
     public result?: string;
     public executor?: string;
-    private 'start_time'?: string | undefined;
-    private 'finish_time'?: string | undefined;
-    private 'detail_url'?: string | undefined;
-    private 'modify_url'?: string | undefined;
-    private 'build_id'?: string | undefined;
+    private 'start_time'?: string;
+    private 'finish_time'?: string;
+    private 'detail_url'?: string;
+    private 'modify_url'?: string;
+    private 'build_id'?: string;
     public stages?: Array<PipelineStageResp>;
     public constructor() { 
         super();
@@ -21,10 +21,10 @@ export class ShowPipelineLastStatusV2Response extends SdkResponse {
         this['pipeline_id'] = pipelineId;
         return this;
     }
-    public set pipelineId(pipelineId: string | undefined) {
+    public set pipelineId(pipelineId: string  | undefined) {
         this['pipeline_id'] = pipelineId;
     }
-    public get pipelineId() {
+    public get pipelineId(): string | undefined {
         return this['pipeline_id'];
     }
     public withName(name: string): ShowPipelineLastStatusV2Response {
@@ -47,50 +47,50 @@ export class ShowPipelineLastStatusV2Response extends SdkResponse {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withFinishTime(finishTime: string): ShowPipelineLastStatusV2Response {
         this['finish_time'] = finishTime;
         return this;
     }
-    public set finishTime(finishTime: string | undefined) {
+    public set finishTime(finishTime: string  | undefined) {
         this['finish_time'] = finishTime;
     }
-    public get finishTime() {
+    public get finishTime(): string | undefined {
         return this['finish_time'];
     }
     public withDetailUrl(detailUrl: string): ShowPipelineLastStatusV2Response {
         this['detail_url'] = detailUrl;
         return this;
     }
-    public set detailUrl(detailUrl: string | undefined) {
+    public set detailUrl(detailUrl: string  | undefined) {
         this['detail_url'] = detailUrl;
     }
-    public get detailUrl() {
+    public get detailUrl(): string | undefined {
         return this['detail_url'];
     }
     public withModifyUrl(modifyUrl: string): ShowPipelineLastStatusV2Response {
         this['modify_url'] = modifyUrl;
         return this;
     }
-    public set modifyUrl(modifyUrl: string | undefined) {
+    public set modifyUrl(modifyUrl: string  | undefined) {
         this['modify_url'] = modifyUrl;
     }
-    public get modifyUrl() {
+    public get modifyUrl(): string | undefined {
         return this['modify_url'];
     }
     public withBuildId(buildId: string): ShowPipelineLastStatusV2Response {
         this['build_id'] = buildId;
         return this;
     }
-    public set buildId(buildId: string | undefined) {
+    public set buildId(buildId: string  | undefined) {
         this['build_id'] = buildId;
     }
-    public get buildId() {
+    public get buildId(): string | undefined {
         return this['build_id'];
     }
     public withStages(stages: Array<PipelineStageResp>): ShowPipelineLastStatusV2Response {

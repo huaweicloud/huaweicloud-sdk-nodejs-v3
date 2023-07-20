@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateClusterSettingResponse extends SdkResponse {
-    private 'modify_result'?: boolean | undefined;
+    private 'modify_result'?: boolean;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class UpdateClusterSettingResponse extends SdkResponse {
         this['modify_result'] = modifyResult;
         return this;
     }
-    public set modifyResult(modifyResult: boolean | undefined) {
+    public set modifyResult(modifyResult: boolean  | undefined) {
         this['modify_result'] = modifyResult;
     }
-    public get modifyResult() {
+    public get modifyResult(): boolean | undefined {
         return this['modify_result'];
     }
 }

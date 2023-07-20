@@ -2,10 +2,10 @@ import { StandardRespDataByNameAndId } from './StandardRespDataByNameAndId';
 
 
 export class IvsStandardByNameAndIdResponseBodyResult {
-    private 'service_name': string | undefined;
-    public count: number;
-    private 'resp_data': Array<StandardRespDataByNameAndId> | undefined;
-    public constructor(serviceName?: any, count?: any, respData?: any) { 
+    private 'service_name'?: string;
+    public count?: number;
+    private 'resp_data'?: Array<StandardRespDataByNameAndId>;
+    public constructor(serviceName?: string, count?: number, respData?: Array<StandardRespDataByNameAndId>) { 
         this['service_name'] = serviceName;
         this['count'] = count;
         this['resp_data'] = respData;
@@ -14,10 +14,10 @@ export class IvsStandardByNameAndIdResponseBodyResult {
         this['service_name'] = serviceName;
         return this;
     }
-    public set serviceName(serviceName: string | undefined) {
+    public set serviceName(serviceName: string  | undefined) {
         this['service_name'] = serviceName;
     }
-    public get serviceName() {
+    public get serviceName(): string | undefined {
         return this['service_name'];
     }
     public withCount(count: number): IvsStandardByNameAndIdResponseBodyResult {
@@ -28,10 +28,10 @@ export class IvsStandardByNameAndIdResponseBodyResult {
         this['resp_data'] = respData;
         return this;
     }
-    public set respData(respData: Array<StandardRespDataByNameAndId> | undefined) {
+    public set respData(respData: Array<StandardRespDataByNameAndId>  | undefined) {
         this['resp_data'] = respData;
     }
-    public get respData() {
+    public get respData(): Array<StandardRespDataByNameAndId> | undefined {
         return this['resp_data'];
     }
 }

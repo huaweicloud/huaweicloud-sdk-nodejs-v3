@@ -2,13 +2,13 @@ import { Tag } from './Tag';
 
 
 export class BatchCreateVolumeTagsRequestBody {
-    public action: BatchCreateVolumeTagsRequestBodyActionEnum;
-    public tags: Array<Tag>;
-    public constructor(action?: any, tags?: any) { 
+    public action?: BatchCreateVolumeTagsRequestBodyActionEnum | string;
+    public tags?: Array<Tag>;
+    public constructor(action?: string, tags?: Array<Tag>) { 
         this['action'] = action;
         this['tags'] = tags;
     }
-    public withAction(action: BatchCreateVolumeTagsRequestBodyActionEnum): BatchCreateVolumeTagsRequestBody {
+    public withAction(action: BatchCreateVolumeTagsRequestBodyActionEnum | string): BatchCreateVolumeTagsRequestBody {
         this['action'] = action;
         return this;
     }

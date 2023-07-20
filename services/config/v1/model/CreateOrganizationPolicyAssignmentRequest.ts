@@ -2,19 +2,19 @@ import { OrganizationPolicyAssignmentRequest } from './OrganizationPolicyAssignm
 
 
 export class CreateOrganizationPolicyAssignmentRequest {
-    private 'organization_id': string | undefined;
+    private 'organization_id'?: string;
     public body?: OrganizationPolicyAssignmentRequest;
-    public constructor(organizationId?: any) { 
+    public constructor(organizationId?: string) { 
         this['organization_id'] = organizationId;
     }
     public withOrganizationId(organizationId: string): CreateOrganizationPolicyAssignmentRequest {
         this['organization_id'] = organizationId;
         return this;
     }
-    public set organizationId(organizationId: string | undefined) {
+    public set organizationId(organizationId: string  | undefined) {
         this['organization_id'] = organizationId;
     }
-    public get organizationId() {
+    public get organizationId(): string | undefined {
         return this['organization_id'];
     }
     public withBody(body: OrganizationPolicyAssignmentRequest): CreateOrganizationPolicyAssignmentRequest {

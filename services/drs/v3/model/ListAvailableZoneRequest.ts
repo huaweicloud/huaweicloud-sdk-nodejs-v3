@@ -2,18 +2,18 @@ import { QueryAvailableNodeTypeReq } from './QueryAvailableNodeTypeReq';
 
 
 export class ListAvailableZoneRequest {
-    private 'X-Language'?: ListAvailableZoneRequestXLanguageEnum | undefined;
+    private 'X-Language'?: ListAvailableZoneRequestXLanguageEnum | string;
     public body?: QueryAvailableNodeTypeReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: ListAvailableZoneRequestXLanguageEnum): ListAvailableZoneRequest {
+    public withXLanguage(xLanguage: ListAvailableZoneRequestXLanguageEnum | string): ListAvailableZoneRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListAvailableZoneRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListAvailableZoneRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListAvailableZoneRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: QueryAvailableNodeTypeReq): ListAvailableZoneRequest {

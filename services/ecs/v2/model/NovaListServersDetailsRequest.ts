@@ -1,29 +1,29 @@
 
 
 export class NovaListServersDetailsRequest {
-    private 'changes-since'?: string | undefined;
+    private 'changes-since'?: string;
     public flavor?: string;
     public image?: string;
     public ip?: string;
     public limit?: number;
     public marker?: string;
     public name?: string;
-    private 'not-tags'?: string | undefined;
-    private 'reservation_id'?: string | undefined;
-    private 'sort_key'?: NovaListServersDetailsRequestSortKeyEnum | undefined;
-    public status?: NovaListServersDetailsRequestStatusEnum;
+    private 'not-tags'?: string;
+    private 'reservation_id'?: string;
+    private 'sort_key'?: NovaListServersDetailsRequestSortKeyEnum | string;
+    public status?: NovaListServersDetailsRequestStatusEnum | string;
     public tags?: string;
-    private 'OpenStack-API-Version'?: string | undefined;
+    private 'OpenStack-API-Version'?: string;
     public constructor() { 
     }
     public withChangesSince(changesSince: string): NovaListServersDetailsRequest {
         this['changes-since'] = changesSince;
         return this;
     }
-    public set changesSince(changesSince: string | undefined) {
+    public set changesSince(changesSince: string  | undefined) {
         this['changes-since'] = changesSince;
     }
-    public get changesSince() {
+    public get changesSince(): string | undefined {
         return this['changes-since'];
     }
     public withFlavor(flavor: string): NovaListServersDetailsRequest {
@@ -54,33 +54,33 @@ export class NovaListServersDetailsRequest {
         this['not-tags'] = notTags;
         return this;
     }
-    public set notTags(notTags: string | undefined) {
+    public set notTags(notTags: string  | undefined) {
         this['not-tags'] = notTags;
     }
-    public get notTags() {
+    public get notTags(): string | undefined {
         return this['not-tags'];
     }
     public withReservationId(reservationId: string): NovaListServersDetailsRequest {
         this['reservation_id'] = reservationId;
         return this;
     }
-    public set reservationId(reservationId: string | undefined) {
+    public set reservationId(reservationId: string  | undefined) {
         this['reservation_id'] = reservationId;
     }
-    public get reservationId() {
+    public get reservationId(): string | undefined {
         return this['reservation_id'];
     }
-    public withSortKey(sortKey: NovaListServersDetailsRequestSortKeyEnum): NovaListServersDetailsRequest {
+    public withSortKey(sortKey: NovaListServersDetailsRequestSortKeyEnum | string): NovaListServersDetailsRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: NovaListServersDetailsRequestSortKeyEnum | undefined) {
+    public set sortKey(sortKey: NovaListServersDetailsRequestSortKeyEnum | string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): NovaListServersDetailsRequestSortKeyEnum | string | undefined {
         return this['sort_key'];
     }
-    public withStatus(status: NovaListServersDetailsRequestStatusEnum): NovaListServersDetailsRequest {
+    public withStatus(status: NovaListServersDetailsRequestStatusEnum | string): NovaListServersDetailsRequest {
         this['status'] = status;
         return this;
     }
@@ -92,10 +92,10 @@ export class NovaListServersDetailsRequest {
         this['OpenStack-API-Version'] = openStackAPIVersion;
         return this;
     }
-    public set openStackAPIVersion(openStackAPIVersion: string | undefined) {
+    public set openStackAPIVersion(openStackAPIVersion: string  | undefined) {
         this['OpenStack-API-Version'] = openStackAPIVersion;
     }
-    public get openStackAPIVersion() {
+    public get openStackAPIVersion(): string | undefined {
         return this['OpenStack-API-Version'];
     }
 }

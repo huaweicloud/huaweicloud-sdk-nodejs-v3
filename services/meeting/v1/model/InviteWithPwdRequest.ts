@@ -2,9 +2,9 @@ import { RestInviteWithPwdReqBody } from './RestInviteWithPwdReqBody';
 
 
 export class InviteWithPwdRequest {
-    public conferenceID: string;
+    public conferenceID?: string;
     public body?: RestInviteWithPwdReqBody;
-    public constructor(conferenceID?: any) { 
+    public constructor(conferenceID?: string) { 
         this['conferenceID'] = conferenceID;
     }
     public withConferenceID(conferenceID: string): InviteWithPwdRequest {

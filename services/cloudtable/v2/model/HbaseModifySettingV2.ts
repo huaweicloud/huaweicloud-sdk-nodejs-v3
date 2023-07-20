@@ -1,10 +1,10 @@
 
 
 export class HbaseModifySettingV2 {
-    private 'parm_name': string | undefined;
-    private 'new_value': string | undefined;
+    private 'parm_name'?: string;
+    private 'new_value'?: string;
     public id?: string;
-    public constructor(parmName?: any, newValue?: any) { 
+    public constructor(parmName?: string, newValue?: string) { 
         this['parm_name'] = parmName;
         this['new_value'] = newValue;
     }
@@ -12,20 +12,20 @@ export class HbaseModifySettingV2 {
         this['parm_name'] = parmName;
         return this;
     }
-    public set parmName(parmName: string | undefined) {
+    public set parmName(parmName: string  | undefined) {
         this['parm_name'] = parmName;
     }
-    public get parmName() {
+    public get parmName(): string | undefined {
         return this['parm_name'];
     }
     public withNewValue(newValue: string): HbaseModifySettingV2 {
         this['new_value'] = newValue;
         return this;
     }
-    public set newValue(newValue: string | undefined) {
+    public set newValue(newValue: string  | undefined) {
         this['new_value'] = newValue;
     }
-    public get newValue() {
+    public get newValue(): string | undefined {
         return this['new_value'];
     }
     public withId(id: string): HbaseModifySettingV2 {

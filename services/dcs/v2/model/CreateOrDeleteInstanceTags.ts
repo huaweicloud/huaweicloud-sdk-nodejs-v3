@@ -2,9 +2,9 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class CreateOrDeleteInstanceTags {
-    public action: string;
+    public action?: string;
     public tags?: Array<ResourceTag>;
-    public constructor(action?: any) { 
+    public constructor(action?: string) { 
         this['action'] = action;
     }
     public withAction(action: string): CreateOrDeleteInstanceTags {

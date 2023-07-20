@@ -2,74 +2,74 @@ import { FuncCode } from './FuncCode';
 
 
 export class UpdateFunctionCodeRequestBody {
-    private 'code_type': UpdateFunctionCodeRequestBodyCodeTypeEnum | undefined;
-    private 'code_url'?: string | undefined;
-    private 'code_filename'?: string | undefined;
-    private 'func_code': FuncCode | undefined;
-    private 'depend_list'?: Array<string> | undefined;
-    private 'depend_version_list'?: Array<string> | undefined;
-    public constructor(codeType?: any, funcCode?: any) { 
+    private 'code_type'?: UpdateFunctionCodeRequestBodyCodeTypeEnum | string;
+    private 'code_url'?: string;
+    private 'code_filename'?: string;
+    private 'func_code'?: FuncCode;
+    private 'depend_list'?: Array<string>;
+    private 'depend_version_list'?: Array<string>;
+    public constructor(codeType?: string, funcCode?: FuncCode) { 
         this['code_type'] = codeType;
         this['func_code'] = funcCode;
     }
-    public withCodeType(codeType: UpdateFunctionCodeRequestBodyCodeTypeEnum): UpdateFunctionCodeRequestBody {
+    public withCodeType(codeType: UpdateFunctionCodeRequestBodyCodeTypeEnum | string): UpdateFunctionCodeRequestBody {
         this['code_type'] = codeType;
         return this;
     }
-    public set codeType(codeType: UpdateFunctionCodeRequestBodyCodeTypeEnum | undefined) {
+    public set codeType(codeType: UpdateFunctionCodeRequestBodyCodeTypeEnum | string  | undefined) {
         this['code_type'] = codeType;
     }
-    public get codeType() {
+    public get codeType(): UpdateFunctionCodeRequestBodyCodeTypeEnum | string | undefined {
         return this['code_type'];
     }
     public withCodeUrl(codeUrl: string): UpdateFunctionCodeRequestBody {
         this['code_url'] = codeUrl;
         return this;
     }
-    public set codeUrl(codeUrl: string | undefined) {
+    public set codeUrl(codeUrl: string  | undefined) {
         this['code_url'] = codeUrl;
     }
-    public get codeUrl() {
+    public get codeUrl(): string | undefined {
         return this['code_url'];
     }
     public withCodeFilename(codeFilename: string): UpdateFunctionCodeRequestBody {
         this['code_filename'] = codeFilename;
         return this;
     }
-    public set codeFilename(codeFilename: string | undefined) {
+    public set codeFilename(codeFilename: string  | undefined) {
         this['code_filename'] = codeFilename;
     }
-    public get codeFilename() {
+    public get codeFilename(): string | undefined {
         return this['code_filename'];
     }
     public withFuncCode(funcCode: FuncCode): UpdateFunctionCodeRequestBody {
         this['func_code'] = funcCode;
         return this;
     }
-    public set funcCode(funcCode: FuncCode | undefined) {
+    public set funcCode(funcCode: FuncCode  | undefined) {
         this['func_code'] = funcCode;
     }
-    public get funcCode() {
+    public get funcCode(): FuncCode | undefined {
         return this['func_code'];
     }
     public withDependList(dependList: Array<string>): UpdateFunctionCodeRequestBody {
         this['depend_list'] = dependList;
         return this;
     }
-    public set dependList(dependList: Array<string> | undefined) {
+    public set dependList(dependList: Array<string>  | undefined) {
         this['depend_list'] = dependList;
     }
-    public get dependList() {
+    public get dependList(): Array<string> | undefined {
         return this['depend_list'];
     }
     public withDependVersionList(dependVersionList: Array<string>): UpdateFunctionCodeRequestBody {
         this['depend_version_list'] = dependVersionList;
         return this;
     }
-    public set dependVersionList(dependVersionList: Array<string> | undefined) {
+    public set dependVersionList(dependVersionList: Array<string>  | undefined) {
         this['depend_version_list'] = dependVersionList;
     }
-    public get dependVersionList() {
+    public get dependVersionList(): Array<string> | undefined {
         return this['depend_version_list'];
     }
 }

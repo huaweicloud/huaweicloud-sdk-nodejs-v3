@@ -2,21 +2,21 @@ import { JobActionResp } from './JobActionResp';
 
 
 export class ChildrenJobInfo {
-    private 'billing_tag': boolean | undefined;
-    private 'create_time': string | undefined;
-    private 'db_use_type': ChildrenJobInfoDbUseTypeEnum | undefined;
-    public description: string;
-    private 'engine_type': ChildrenJobInfoEngineTypeEnum | undefined;
-    private 'error_msg': string | undefined;
-    public id: string;
-    private 'job_direction': ChildrenJobInfoJobDirectionEnum | undefined;
-    public name: string;
-    private 'net_type': ChildrenJobInfoNetTypeEnum | undefined;
-    private 'node_newFramework': boolean | undefined;
-    public status: ChildrenJobInfoStatusEnum;
-    private 'task_type': ChildrenJobInfoTaskTypeEnum | undefined;
-    private 'job_action'?: JobActionResp | undefined;
-    public constructor(billingTag?: any, createTime?: any, dbUseType?: any, description?: any, engineType?: any, errorMsg?: any, id?: any, jobDirection?: any, name?: any, netType?: any, nodeNewFramework?: any, status?: any, taskType?: any) { 
+    private 'billing_tag'?: boolean;
+    private 'create_time'?: string;
+    private 'db_use_type'?: ChildrenJobInfoDbUseTypeEnum | string;
+    public description?: string;
+    private 'engine_type'?: ChildrenJobInfoEngineTypeEnum | string;
+    private 'error_msg'?: string;
+    public id?: string;
+    private 'job_direction'?: ChildrenJobInfoJobDirectionEnum | string;
+    public name?: string;
+    private 'net_type'?: ChildrenJobInfoNetTypeEnum | string;
+    private 'node_newFramework'?: boolean;
+    public status?: ChildrenJobInfoStatusEnum | string;
+    private 'task_type'?: ChildrenJobInfoTaskTypeEnum | string;
+    private 'job_action'?: JobActionResp;
+    public constructor(billingTag?: boolean, createTime?: string, dbUseType?: string, description?: string, engineType?: string, errorMsg?: string, id?: string, jobDirection?: string, name?: string, netType?: string, nodeNewFramework?: boolean, status?: string, taskType?: string) { 
         this['billing_tag'] = billingTag;
         this['create_time'] = createTime;
         this['db_use_type'] = dbUseType;
@@ -35,116 +35,116 @@ export class ChildrenJobInfo {
         this['billing_tag'] = billingTag;
         return this;
     }
-    public set billingTag(billingTag: boolean | undefined) {
+    public set billingTag(billingTag: boolean  | undefined) {
         this['billing_tag'] = billingTag;
     }
-    public get billingTag() {
+    public get billingTag(): boolean | undefined {
         return this['billing_tag'];
     }
     public withCreateTime(createTime: string): ChildrenJobInfo {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
-    public withDbUseType(dbUseType: ChildrenJobInfoDbUseTypeEnum): ChildrenJobInfo {
+    public withDbUseType(dbUseType: ChildrenJobInfoDbUseTypeEnum | string): ChildrenJobInfo {
         this['db_use_type'] = dbUseType;
         return this;
     }
-    public set dbUseType(dbUseType: ChildrenJobInfoDbUseTypeEnum | undefined) {
+    public set dbUseType(dbUseType: ChildrenJobInfoDbUseTypeEnum | string  | undefined) {
         this['db_use_type'] = dbUseType;
     }
-    public get dbUseType() {
+    public get dbUseType(): ChildrenJobInfoDbUseTypeEnum | string | undefined {
         return this['db_use_type'];
     }
     public withDescription(description: string): ChildrenJobInfo {
         this['description'] = description;
         return this;
     }
-    public withEngineType(engineType: ChildrenJobInfoEngineTypeEnum): ChildrenJobInfo {
+    public withEngineType(engineType: ChildrenJobInfoEngineTypeEnum | string): ChildrenJobInfo {
         this['engine_type'] = engineType;
         return this;
     }
-    public set engineType(engineType: ChildrenJobInfoEngineTypeEnum | undefined) {
+    public set engineType(engineType: ChildrenJobInfoEngineTypeEnum | string  | undefined) {
         this['engine_type'] = engineType;
     }
-    public get engineType() {
+    public get engineType(): ChildrenJobInfoEngineTypeEnum | string | undefined {
         return this['engine_type'];
     }
     public withErrorMsg(errorMsg: string): ChildrenJobInfo {
         this['error_msg'] = errorMsg;
         return this;
     }
-    public set errorMsg(errorMsg: string | undefined) {
+    public set errorMsg(errorMsg: string  | undefined) {
         this['error_msg'] = errorMsg;
     }
-    public get errorMsg() {
+    public get errorMsg(): string | undefined {
         return this['error_msg'];
     }
     public withId(id: string): ChildrenJobInfo {
         this['id'] = id;
         return this;
     }
-    public withJobDirection(jobDirection: ChildrenJobInfoJobDirectionEnum): ChildrenJobInfo {
+    public withJobDirection(jobDirection: ChildrenJobInfoJobDirectionEnum | string): ChildrenJobInfo {
         this['job_direction'] = jobDirection;
         return this;
     }
-    public set jobDirection(jobDirection: ChildrenJobInfoJobDirectionEnum | undefined) {
+    public set jobDirection(jobDirection: ChildrenJobInfoJobDirectionEnum | string  | undefined) {
         this['job_direction'] = jobDirection;
     }
-    public get jobDirection() {
+    public get jobDirection(): ChildrenJobInfoJobDirectionEnum | string | undefined {
         return this['job_direction'];
     }
     public withName(name: string): ChildrenJobInfo {
         this['name'] = name;
         return this;
     }
-    public withNetType(netType: ChildrenJobInfoNetTypeEnum): ChildrenJobInfo {
+    public withNetType(netType: ChildrenJobInfoNetTypeEnum | string): ChildrenJobInfo {
         this['net_type'] = netType;
         return this;
     }
-    public set netType(netType: ChildrenJobInfoNetTypeEnum | undefined) {
+    public set netType(netType: ChildrenJobInfoNetTypeEnum | string  | undefined) {
         this['net_type'] = netType;
     }
-    public get netType() {
+    public get netType(): ChildrenJobInfoNetTypeEnum | string | undefined {
         return this['net_type'];
     }
     public withNodeNewFramework(nodeNewFramework: boolean): ChildrenJobInfo {
         this['node_newFramework'] = nodeNewFramework;
         return this;
     }
-    public set nodeNewFramework(nodeNewFramework: boolean | undefined) {
+    public set nodeNewFramework(nodeNewFramework: boolean  | undefined) {
         this['node_newFramework'] = nodeNewFramework;
     }
-    public get nodeNewFramework() {
+    public get nodeNewFramework(): boolean | undefined {
         return this['node_newFramework'];
     }
-    public withStatus(status: ChildrenJobInfoStatusEnum): ChildrenJobInfo {
+    public withStatus(status: ChildrenJobInfoStatusEnum | string): ChildrenJobInfo {
         this['status'] = status;
         return this;
     }
-    public withTaskType(taskType: ChildrenJobInfoTaskTypeEnum): ChildrenJobInfo {
+    public withTaskType(taskType: ChildrenJobInfoTaskTypeEnum | string): ChildrenJobInfo {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: ChildrenJobInfoTaskTypeEnum | undefined) {
+    public set taskType(taskType: ChildrenJobInfoTaskTypeEnum | string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): ChildrenJobInfoTaskTypeEnum | string | undefined {
         return this['task_type'];
     }
     public withJobAction(jobAction: JobActionResp): ChildrenJobInfo {
         this['job_action'] = jobAction;
         return this;
     }
-    public set jobAction(jobAction: JobActionResp | undefined) {
+    public set jobAction(jobAction: JobActionResp  | undefined) {
         this['job_action'] = jobAction;
     }
-    public get jobAction() {
+    public get jobAction(): JobActionResp | undefined {
         return this['job_action'];
     }
 }

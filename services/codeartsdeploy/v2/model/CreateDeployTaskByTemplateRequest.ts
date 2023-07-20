@@ -2,19 +2,19 @@ import { TemplateTaskRequestBody } from './TemplateTaskRequestBody';
 
 
 export class CreateDeployTaskByTemplateRequest {
-    private 'Content-Type': CreateDeployTaskByTemplateRequestContentTypeEnum | undefined;
+    private 'Content-Type'?: CreateDeployTaskByTemplateRequestContentTypeEnum | string;
     public body?: TemplateTaskRequestBody;
-    public constructor(contentType?: any) { 
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
-    public withContentType(contentType: CreateDeployTaskByTemplateRequestContentTypeEnum): CreateDeployTaskByTemplateRequest {
+    public withContentType(contentType: CreateDeployTaskByTemplateRequestContentTypeEnum | string): CreateDeployTaskByTemplateRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CreateDeployTaskByTemplateRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: CreateDeployTaskByTemplateRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CreateDeployTaskByTemplateRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withBody(body: TemplateTaskRequestBody): CreateDeployTaskByTemplateRequest {

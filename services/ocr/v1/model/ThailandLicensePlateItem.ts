@@ -1,8 +1,8 @@
 
 
 export class ThailandLicensePlateItem {
-    private 'plate_number'?: string | undefined;
-    private 'plate_location'?: Array<Array<number>> | undefined;
+    private 'plate_number'?: string;
+    private 'plate_location'?: Array<Array<number>>;
     public confidence?: number;
     public constructor() { 
     }
@@ -10,20 +10,20 @@ export class ThailandLicensePlateItem {
         this['plate_number'] = plateNumber;
         return this;
     }
-    public set plateNumber(plateNumber: string | undefined) {
+    public set plateNumber(plateNumber: string  | undefined) {
         this['plate_number'] = plateNumber;
     }
-    public get plateNumber() {
+    public get plateNumber(): string | undefined {
         return this['plate_number'];
     }
     public withPlateLocation(plateLocation: Array<Array<number>>): ThailandLicensePlateItem {
         this['plate_location'] = plateLocation;
         return this;
     }
-    public set plateLocation(plateLocation: Array<Array<number>> | undefined) {
+    public set plateLocation(plateLocation: Array<Array<number>>  | undefined) {
         this['plate_location'] = plateLocation;
     }
-    public get plateLocation() {
+    public get plateLocation(): Array<Array<number>> | undefined {
         return this['plate_location'];
     }
     public withConfidence(confidence: number): ThailandLicensePlateItem {

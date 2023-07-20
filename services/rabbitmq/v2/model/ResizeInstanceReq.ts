@@ -1,30 +1,30 @@
 
 
 export class ResizeInstanceReq {
-    private 'new_spec_code': ResizeInstanceReqNewSpecCodeEnum | undefined;
-    private 'new_storage_space': number | undefined;
-    public constructor(newSpecCode?: any, newStorageSpace?: any) { 
+    private 'new_spec_code'?: ResizeInstanceReqNewSpecCodeEnum | string;
+    private 'new_storage_space'?: number;
+    public constructor(newSpecCode?: string, newStorageSpace?: number) { 
         this['new_spec_code'] = newSpecCode;
         this['new_storage_space'] = newStorageSpace;
     }
-    public withNewSpecCode(newSpecCode: ResizeInstanceReqNewSpecCodeEnum): ResizeInstanceReq {
+    public withNewSpecCode(newSpecCode: ResizeInstanceReqNewSpecCodeEnum | string): ResizeInstanceReq {
         this['new_spec_code'] = newSpecCode;
         return this;
     }
-    public set newSpecCode(newSpecCode: ResizeInstanceReqNewSpecCodeEnum | undefined) {
+    public set newSpecCode(newSpecCode: ResizeInstanceReqNewSpecCodeEnum | string  | undefined) {
         this['new_spec_code'] = newSpecCode;
     }
-    public get newSpecCode() {
+    public get newSpecCode(): ResizeInstanceReqNewSpecCodeEnum | string | undefined {
         return this['new_spec_code'];
     }
     public withNewStorageSpace(newStorageSpace: number): ResizeInstanceReq {
         this['new_storage_space'] = newStorageSpace;
         return this;
     }
-    public set newStorageSpace(newStorageSpace: number | undefined) {
+    public set newStorageSpace(newStorageSpace: number  | undefined) {
         this['new_storage_space'] = newStorageSpace;
     }
-    public get newStorageSpace() {
+    public get newStorageSpace(): number | undefined {
         return this['new_storage_space'];
     }
 }

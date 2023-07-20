@@ -1306,7 +1306,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listSystemSecurityPolicies(): Promise<ListSystemSecurityPoliciesResponse> {
+    public listSystemSecurityPolicies(listSystemSecurityPoliciesRequest?: ListSystemSecurityPoliciesRequest): Promise<ListSystemSecurityPoliciesResponse> {
         const options = ParamCreater().listSystemSecurityPolicies();
 
          // @ts-ignore
@@ -1538,7 +1538,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showQuota(): Promise<ShowQuotaResponse> {
+    public showQuota(showQuotaRequest?: ShowQuotaRequest): Promise<ShowQuotaResponse> {
         const options = ParamCreater().showQuota();
 
          // @ts-ignore
@@ -1777,7 +1777,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listApiVersions(): Promise<ListApiVersionsResponse> {
+    public listApiVersions(listApiVersionsRequest?: ListApiVersionsRequest): Promise<ListApiVersionsResponse> {
         const options = ParamCreater().listApiVersions();
 
          // @ts-ignore

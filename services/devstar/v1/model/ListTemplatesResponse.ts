@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListTemplatesResponse extends SdkResponse {
     public count?: number;
-    private 'invalid_count'?: number | undefined;
+    private 'invalid_count'?: number;
     public templates?: Array<TemplateInfo>;
     public constructor() { 
         super();
@@ -17,10 +17,10 @@ export class ListTemplatesResponse extends SdkResponse {
         this['invalid_count'] = invalidCount;
         return this;
     }
-    public set invalidCount(invalidCount: number | undefined) {
+    public set invalidCount(invalidCount: number  | undefined) {
         this['invalid_count'] = invalidCount;
     }
-    public get invalidCount() {
+    public get invalidCount(): number | undefined {
         return this['invalid_count'];
     }
     public withTemplates(templates: Array<TemplateInfo>): ListTemplatesResponse {

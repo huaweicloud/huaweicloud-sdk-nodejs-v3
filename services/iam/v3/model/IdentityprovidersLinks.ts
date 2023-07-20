@@ -1,9 +1,9 @@
 
 
 export class IdentityprovidersLinks {
-    public self: string;
-    public protocols: string;
-    public constructor(self?: any, protocols?: any) { 
+    public self?: string;
+    public protocols?: string;
+    public constructor(self?: string, protocols?: string) { 
         this['self'] = self;
         this['protocols'] = protocols;
     }

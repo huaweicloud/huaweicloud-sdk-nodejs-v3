@@ -1,10 +1,10 @@
 
 
 export class ShowInstanceExtendProductInfoRequest {
-    private 'instance_id': string | undefined;
-    public type: ShowInstanceExtendProductInfoRequestTypeEnum;
-    public engine: string;
-    public constructor(instanceId?: any, type?: any, engine?: any) { 
+    private 'instance_id'?: string;
+    public type?: ShowInstanceExtendProductInfoRequestTypeEnum | string;
+    public engine?: ShowInstanceExtendProductInfoRequestEngineEnum | string;
+    public constructor(instanceId?: string, type?: string, engine?: string) { 
         this['instance_id'] = instanceId;
         this['type'] = type;
         this['engine'] = engine;
@@ -13,17 +13,17 @@ export class ShowInstanceExtendProductInfoRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withType(type: ShowInstanceExtendProductInfoRequestTypeEnum): ShowInstanceExtendProductInfoRequest {
+    public withType(type: ShowInstanceExtendProductInfoRequestTypeEnum | string): ShowInstanceExtendProductInfoRequest {
         this['type'] = type;
         return this;
     }
-    public withEngine(engine: string): ShowInstanceExtendProductInfoRequest {
+    public withEngine(engine: ShowInstanceExtendProductInfoRequestEngineEnum | string): ShowInstanceExtendProductInfoRequest {
         this['engine'] = engine;
         return this;
     }
@@ -38,4 +38,11 @@ export enum ShowInstanceExtendProductInfoRequestTypeEnum {
     PLATINUM = 'platinum',
     DEC = 'dec',
     EXP = 'exp'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ShowInstanceExtendProductInfoRequestEngineEnum {
+    RABBITMQ = 'rabbitmq'
 }

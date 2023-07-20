@@ -2,18 +2,18 @@ import { NeutronUpdateSecurityGroupOption } from './NeutronUpdateSecurityGroupOp
 
 
 export class NeutronUpdateSecurityGroupRequestBody {
-    private 'security_group': NeutronUpdateSecurityGroupOption | undefined;
-    public constructor(securityGroup?: any) { 
+    private 'security_group'?: NeutronUpdateSecurityGroupOption;
+    public constructor(securityGroup?: NeutronUpdateSecurityGroupOption) { 
         this['security_group'] = securityGroup;
     }
     public withSecurityGroup(securityGroup: NeutronUpdateSecurityGroupOption): NeutronUpdateSecurityGroupRequestBody {
         this['security_group'] = securityGroup;
         return this;
     }
-    public set securityGroup(securityGroup: NeutronUpdateSecurityGroupOption | undefined) {
+    public set securityGroup(securityGroup: NeutronUpdateSecurityGroupOption  | undefined) {
         this['security_group'] = securityGroup;
     }
-    public get securityGroup() {
+    public get securityGroup(): NeutronUpdateSecurityGroupOption | undefined {
         return this['security_group'];
     }
 }

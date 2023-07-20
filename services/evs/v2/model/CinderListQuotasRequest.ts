@@ -1,9 +1,9 @@
 
 
 export class CinderListQuotasRequest {
-    private 'target_project_id': string | undefined;
-    public usage: CinderListQuotasRequestUsageEnum;
-    public constructor(targetProjectId?: any, usage?: any) { 
+    private 'target_project_id'?: string;
+    public usage?: CinderListQuotasRequestUsageEnum | string;
+    public constructor(targetProjectId?: string, usage?: string) { 
         this['target_project_id'] = targetProjectId;
         this['usage'] = usage;
     }
@@ -11,13 +11,13 @@ export class CinderListQuotasRequest {
         this['target_project_id'] = targetProjectId;
         return this;
     }
-    public set targetProjectId(targetProjectId: string | undefined) {
+    public set targetProjectId(targetProjectId: string  | undefined) {
         this['target_project_id'] = targetProjectId;
     }
-    public get targetProjectId() {
+    public get targetProjectId(): string | undefined {
         return this['target_project_id'];
     }
-    public withUsage(usage: CinderListQuotasRequestUsageEnum): CinderListQuotasRequest {
+    public withUsage(usage: CinderListQuotasRequestUsageEnum | string): CinderListQuotasRequest {
         this['usage'] = usage;
         return this;
     }

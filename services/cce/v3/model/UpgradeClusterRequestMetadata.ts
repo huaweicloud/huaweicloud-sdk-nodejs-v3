@@ -1,9 +1,9 @@
 
 
 export class UpgradeClusterRequestMetadata {
-    public apiVersion: string;
-    public kind: string;
-    public constructor(apiVersion?: any, kind?: any) { 
+    public apiVersion?: string;
+    public kind?: string;
+    public constructor(apiVersion?: string, kind?: string) { 
         this['apiVersion'] = apiVersion;
         this['kind'] = kind;
     }

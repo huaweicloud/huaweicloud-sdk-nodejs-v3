@@ -1399,7 +1399,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneListAuthDomains(): Promise<KeystoneListAuthDomainsResponse> {
+    public keystoneListAuthDomains(keystoneListAuthDomainsRequest?: KeystoneListAuthDomainsRequest): Promise<KeystoneListAuthDomainsResponse> {
         const options = ParamCreater().keystoneListAuthDomains();
 
          // @ts-ignore
@@ -1419,7 +1419,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneListAuthProjects(): Promise<KeystoneListAuthProjectsResponse> {
+    public keystoneListAuthProjects(keystoneListAuthProjectsRequest?: KeystoneListAuthProjectsRequest): Promise<KeystoneListAuthProjectsResponse> {
         const options = ParamCreater().keystoneListAuthProjects();
 
          // @ts-ignore
@@ -1484,7 +1484,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneListFederationDomains(): Promise<KeystoneListFederationDomainsResponse> {
+    public keystoneListFederationDomains(keystoneListFederationDomainsRequest?: KeystoneListFederationDomainsRequest): Promise<KeystoneListFederationDomainsResponse> {
         const options = ParamCreater().keystoneListFederationDomains();
 
          // @ts-ignore
@@ -1526,7 +1526,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneListIdentityProviders(): Promise<KeystoneListIdentityProvidersResponse> {
+    public keystoneListIdentityProviders(keystoneListIdentityProvidersRequest?: KeystoneListIdentityProvidersRequest): Promise<KeystoneListIdentityProvidersResponse> {
         const options = ParamCreater().keystoneListIdentityProviders();
 
          // @ts-ignore
@@ -1546,7 +1546,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneListMappings(): Promise<KeystoneListMappingsResponse> {
+    public keystoneListMappings(keystoneListMappingsRequest?: KeystoneListMappingsRequest): Promise<KeystoneListMappingsResponse> {
         const options = ParamCreater().keystoneListMappings();
 
          // @ts-ignore
@@ -1684,7 +1684,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneListRegions(): Promise<KeystoneListRegionsResponse> {
+    public keystoneListRegions(keystoneListRegionsRequest?: KeystoneListRegionsRequest): Promise<KeystoneListRegionsResponse> {
         const options = ParamCreater().keystoneListRegions();
 
          // @ts-ignore
@@ -1746,7 +1746,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneListVersions(): Promise<KeystoneListVersionsResponse> {
+    public keystoneListVersions(keystoneListVersionsRequest?: KeystoneListVersionsRequest): Promise<KeystoneListVersionsResponse> {
         const options = ParamCreater().keystoneListVersions();
 
          // @ts-ignore
@@ -1833,7 +1833,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneShowCatalog(): Promise<KeystoneShowCatalogResponse> {
+    public keystoneShowCatalog(keystoneShowCatalogRequest?: KeystoneShowCatalogRequest): Promise<KeystoneShowCatalogResponse> {
         const options = ParamCreater().keystoneShowCatalog();
 
          // @ts-ignore
@@ -1958,7 +1958,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneShowProject(): Promise<KeystoneShowProjectResponse> {
+    public keystoneShowProject(keystoneShowProjectRequest?: KeystoneShowProjectRequest): Promise<KeystoneShowProjectResponse> {
         const options = ParamCreater().keystoneShowProject();
 
          // @ts-ignore
@@ -2085,7 +2085,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public keystoneShowVersion(): Promise<KeystoneShowVersionResponse> {
+    public keystoneShowVersion(keystoneShowVersionRequest?: KeystoneShowVersionRequest): Promise<KeystoneShowVersionResponse> {
         const options = ParamCreater().keystoneShowVersion();
 
          // @ts-ignore
@@ -2826,7 +2826,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showProjectDetailsAndStatus(): Promise<ShowProjectDetailsAndStatusResponse> {
+    public showProjectDetailsAndStatus(showProjectDetailsAndStatusRequest?: ShowProjectDetailsAndStatusRequest): Promise<ShowProjectDetailsAndStatusResponse> {
         const options = ParamCreater().showProjectDetailsAndStatus();
 
          // @ts-ignore
@@ -2846,7 +2846,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showProjectQuota(): Promise<ShowProjectQuotaResponse> {
+    public showProjectQuota(showProjectQuotaRequest?: ShowProjectQuotaRequest): Promise<ShowProjectQuotaResponse> {
         const options = ParamCreater().showProjectQuota();
 
          // @ts-ignore
@@ -3518,7 +3518,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listUserLoginProtects(): Promise<ListUserLoginProtectsResponse> {
+    public listUserLoginProtects(listUserLoginProtectsRequest?: ListUserLoginProtectsRequest): Promise<ListUserLoginProtectsResponse> {
         const options = ParamCreater().listUserLoginProtects();
 
          // @ts-ignore
@@ -3538,7 +3538,7 @@ export class IamClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listUserMfaDevices(): Promise<ListUserMfaDevicesResponse> {
+    public listUserMfaDevices(listUserMfaDevicesRequest?: ListUserMfaDevicesRequest): Promise<ListUserMfaDevicesResponse> {
         const options = ParamCreater().listUserMfaDevices();
 
          // @ts-ignore

@@ -1,8 +1,8 @@
 
 
 export class CreateNamespaceRequestBody {
-    public namespace: string;
-    public constructor(namespace?: any) { 
+    public namespace?: string;
+    public constructor(namespace?: string) { 
         this['namespace'] = namespace;
     }
     public withNamespace(namespace: string): CreateNamespaceRequestBody {

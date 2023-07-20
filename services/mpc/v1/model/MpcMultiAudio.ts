@@ -4,8 +4,8 @@ import { ObsObjInfo } from './ObsObjInfo';
 
 export class MpcMultiAudio {
     public output?: ObsObjInfo;
-    private 'audio_files'?: Array<AudioFile> | undefined;
-    private 'output_filename'?: string | undefined;
+    private 'audio_files'?: Array<AudioFile>;
+    private 'output_filename'?: string;
     public constructor() { 
     }
     public withOutput(output: ObsObjInfo): MpcMultiAudio {
@@ -16,20 +16,20 @@ export class MpcMultiAudio {
         this['audio_files'] = audioFiles;
         return this;
     }
-    public set audioFiles(audioFiles: Array<AudioFile> | undefined) {
+    public set audioFiles(audioFiles: Array<AudioFile>  | undefined) {
         this['audio_files'] = audioFiles;
     }
-    public get audioFiles() {
+    public get audioFiles(): Array<AudioFile> | undefined {
         return this['audio_files'];
     }
     public withOutputFilename(outputFilename: string): MpcMultiAudio {
         this['output_filename'] = outputFilename;
         return this;
     }
-    public set outputFilename(outputFilename: string | undefined) {
+    public set outputFilename(outputFilename: string  | undefined) {
         this['output_filename'] = outputFilename;
     }
-    public get outputFilename() {
+    public get outputFilename(): string | undefined {
         return this['output_filename'];
     }
 }

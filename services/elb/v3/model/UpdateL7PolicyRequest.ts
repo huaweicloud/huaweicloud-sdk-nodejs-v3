@@ -2,19 +2,19 @@ import { UpdateL7PolicyRequestBody } from './UpdateL7PolicyRequestBody';
 
 
 export class UpdateL7PolicyRequest {
-    private 'l7policy_id': string | undefined;
+    private 'l7policy_id'?: string;
     public body?: UpdateL7PolicyRequestBody;
-    public constructor(l7policyId?: any) { 
+    public constructor(l7policyId?: string) { 
         this['l7policy_id'] = l7policyId;
     }
     public withL7policyId(l7policyId: string): UpdateL7PolicyRequest {
         this['l7policy_id'] = l7policyId;
         return this;
     }
-    public set l7policyId(l7policyId: string | undefined) {
+    public set l7policyId(l7policyId: string  | undefined) {
         this['l7policy_id'] = l7policyId;
     }
-    public get l7policyId() {
+    public get l7policyId(): string | undefined {
         return this['l7policy_id'];
     }
     public withBody(body: UpdateL7PolicyRequestBody): UpdateL7PolicyRequest {

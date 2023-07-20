@@ -1,10 +1,10 @@
 
 
 export class LoadBalancerStatusL7Rule {
-    public id: string;
-    public type: string;
-    private 'provisioning_status': string | undefined;
-    public constructor(id?: any, type?: any, provisioningStatus?: any) { 
+    public id?: string;
+    public type?: string;
+    private 'provisioning_status'?: string;
+    public constructor(id?: string, type?: string, provisioningStatus?: string) { 
         this['id'] = id;
         this['type'] = type;
         this['provisioning_status'] = provisioningStatus;
@@ -21,10 +21,10 @@ export class LoadBalancerStatusL7Rule {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: string | undefined) {
+    public set provisioningStatus(provisioningStatus: string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): string | undefined {
         return this['provisioning_status'];
     }
 }

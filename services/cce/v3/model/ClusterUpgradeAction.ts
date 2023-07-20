@@ -7,9 +7,9 @@ export class ClusterUpgradeAction {
     public addons?: Array<UpgradeAddonConfig>;
     public nodeOrder?: { [key: string]: Array<NodePriority>; };
     public nodePoolOrder?: { [key: string]: number; };
-    public strategy: UpgradeStrategy;
-    public targetVersion: string;
-    public constructor(strategy?: any, targetVersion?: any) { 
+    public strategy?: UpgradeStrategy;
+    public targetVersion?: string;
+    public constructor(strategy?: UpgradeStrategy, targetVersion?: string) { 
         this['strategy'] = strategy;
         this['targetVersion'] = targetVersion;
     }

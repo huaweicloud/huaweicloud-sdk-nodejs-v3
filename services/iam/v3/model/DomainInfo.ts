@@ -2,8 +2,8 @@
 
 export class DomainInfo {
     public id?: string;
-    public name: string;
-    public constructor(name?: any) { 
+    public name?: string;
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withId(id: string): DomainInfo {

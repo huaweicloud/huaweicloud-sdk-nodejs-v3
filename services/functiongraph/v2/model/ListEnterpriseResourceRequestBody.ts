@@ -1,23 +1,24 @@
+import { KvItem } from './KvItem';
 import { TagItem } from './TagItem';
 
 
 export class ListEnterpriseResourceRequestBody {
-    private 'without_any_tag'?: boolean | undefined;
+    private 'without_any_tag'?: boolean;
     public limit?: string;
     public offset?: string;
     public action?: string;
-    public matches?: Array<{ [key: string]: string; }>;
-    private 'sys_tags'?: Array<TagItem> | undefined;
+    public matches?: Array<KvItem>;
+    private 'sys_tags'?: Array<TagItem>;
     public constructor() { 
     }
     public withWithoutAnyTag(withoutAnyTag: boolean): ListEnterpriseResourceRequestBody {
         this['without_any_tag'] = withoutAnyTag;
         return this;
     }
-    public set withoutAnyTag(withoutAnyTag: boolean | undefined) {
+    public set withoutAnyTag(withoutAnyTag: boolean  | undefined) {
         this['without_any_tag'] = withoutAnyTag;
     }
-    public get withoutAnyTag() {
+    public get withoutAnyTag(): boolean | undefined {
         return this['without_any_tag'];
     }
     public withLimit(limit: string): ListEnterpriseResourceRequestBody {
@@ -32,7 +33,7 @@ export class ListEnterpriseResourceRequestBody {
         this['action'] = action;
         return this;
     }
-    public withMatches(matches: Array<{ [key: string]: string; }>): ListEnterpriseResourceRequestBody {
+    public withMatches(matches: Array<KvItem>): ListEnterpriseResourceRequestBody {
         this['matches'] = matches;
         return this;
     }
@@ -40,10 +41,10 @@ export class ListEnterpriseResourceRequestBody {
         this['sys_tags'] = sysTags;
         return this;
     }
-    public set sysTags(sysTags: Array<TagItem> | undefined) {
+    public set sysTags(sysTags: Array<TagItem>  | undefined) {
         this['sys_tags'] = sysTags;
     }
-    public get sysTags() {
+    public get sysTags(): Array<TagItem> | undefined {
         return this['sys_tags'];
     }
 }

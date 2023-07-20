@@ -1,7 +1,7 @@
 
 
 export class VideoAndTemplate {
-    private 'template_id'?: number | undefined;
+    private 'template_id'?: number;
     public width?: number;
     public height?: number;
     public bitrate?: number;
@@ -11,10 +11,10 @@ export class VideoAndTemplate {
         this['template_id'] = templateId;
         return this;
     }
-    public set templateId(templateId: number | undefined) {
+    public set templateId(templateId: number  | undefined) {
         this['template_id'] = templateId;
     }
-    public get templateId() {
+    public get templateId(): number | undefined {
         return this['template_id'];
     }
     public withWidth(width: number): VideoAndTemplate {

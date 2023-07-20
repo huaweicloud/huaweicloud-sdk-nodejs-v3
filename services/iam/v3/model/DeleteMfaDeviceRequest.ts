@@ -1,9 +1,9 @@
 
 
 export class DeleteMfaDeviceRequest {
-    private 'user_id': string | undefined;
-    private 'serial_number': string | undefined;
-    public constructor(userId?: any, serialNumber?: any) { 
+    private 'user_id'?: string;
+    private 'serial_number'?: string;
+    public constructor(userId?: string, serialNumber?: string) { 
         this['user_id'] = userId;
         this['serial_number'] = serialNumber;
     }
@@ -11,20 +11,20 @@ export class DeleteMfaDeviceRequest {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withSerialNumber(serialNumber: string): DeleteMfaDeviceRequest {
         this['serial_number'] = serialNumber;
         return this;
     }
-    public set serialNumber(serialNumber: string | undefined) {
+    public set serialNumber(serialNumber: string  | undefined) {
         this['serial_number'] = serialNumber;
     }
-    public get serialNumber() {
+    public get serialNumber(): string | undefined {
         return this['serial_number'];
     }
 }

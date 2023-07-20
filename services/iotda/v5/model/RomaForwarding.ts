@@ -2,11 +2,11 @@ import { NetAddress } from './NetAddress';
 
 
 export class RomaForwarding {
-    public addresses: Array<NetAddress>;
-    public topic: string;
-    public username: string;
-    public password: string;
-    public constructor(addresses?: any, topic?: any, username?: any, password?: any) { 
+    public addresses?: Array<NetAddress>;
+    public topic?: string;
+    public username?: string;
+    public password?: string;
+    public constructor(addresses?: Array<NetAddress>, topic?: string, username?: string, password?: string) { 
         this['addresses'] = addresses;
         this['topic'] = topic;
         this['username'] = username;

@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class NeutronListPortsResponse extends SdkResponse {
     public ports?: Array<NeutronPort>;
-    private 'ports_links'?: Array<NeutronPageLink> | undefined;
+    private 'ports_links'?: Array<NeutronPageLink>;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class NeutronListPortsResponse extends SdkResponse {
         this['ports_links'] = portsLinks;
         return this;
     }
-    public set portsLinks(portsLinks: Array<NeutronPageLink> | undefined) {
+    public set portsLinks(portsLinks: Array<NeutronPageLink>  | undefined) {
         this['ports_links'] = portsLinks;
     }
-    public get portsLinks() {
+    public get portsLinks(): Array<NeutronPageLink> | undefined {
         return this['ports_links'];
     }
 }

@@ -3,7 +3,7 @@
 export class ListSubnetsRequest {
     public limit?: number;
     public marker?: string;
-    private 'vpc_id'?: string | undefined;
+    private 'vpc_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListSubnetsRequest {
@@ -18,10 +18,10 @@ export class ListSubnetsRequest {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
 }

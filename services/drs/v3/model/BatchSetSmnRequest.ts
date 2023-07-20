@@ -2,18 +2,18 @@ import { BatchImportSmnInfoReq } from './BatchImportSmnInfoReq';
 
 
 export class BatchSetSmnRequest {
-    private 'X-Language'?: BatchSetSmnRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchSetSmnRequestXLanguageEnum | string;
     public body?: BatchImportSmnInfoReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchSetSmnRequestXLanguageEnum): BatchSetSmnRequest {
+    public withXLanguage(xLanguage: BatchSetSmnRequestXLanguageEnum | string): BatchSetSmnRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchSetSmnRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchSetSmnRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchSetSmnRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchImportSmnInfoReq): BatchSetSmnRequest {

@@ -3426,7 +3426,7 @@ export class MeetingClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showOrgRes(): Promise<ShowOrgResResponse> {
+    public showOrgRes(showOrgResRequest?: ShowOrgResRequest): Promise<ShowOrgResResponse> {
         const options = ParamCreater().showOrgRes();
 
          // @ts-ignore
@@ -3593,7 +3593,7 @@ export class MeetingClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showSpRes(): Promise<ShowSpResResponse> {
+    public showSpRes(showSpResRequest?: ShowSpResRequest): Promise<ShowSpResResponse> {
         const options = ParamCreater().showSpRes();
 
          // @ts-ignore

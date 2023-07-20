@@ -3,20 +3,20 @@
 export class ListLoadbalancersRequest {
     public limit?: number;
     public marker?: string;
-    private 'page_reverse'?: boolean | undefined;
+    private 'page_reverse'?: boolean;
     public id?: string;
     public description?: string;
     public name?: string;
-    private 'operating_status'?: string | undefined;
-    private 'provisioning_status'?: string | undefined;
-    private 'vip_address'?: string | undefined;
-    private 'vip_port_id'?: string | undefined;
-    private 'vip_subnet_id'?: string | undefined;
-    private 'vpc_id'?: string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'admin_state_up'?: boolean | undefined;
-    private 'member_address'?: string | undefined;
-    private 'member_device_id'?: string | undefined;
+    private 'operating_status'?: string;
+    private 'provisioning_status'?: string;
+    private 'vip_address'?: string;
+    private 'vip_port_id'?: string;
+    private 'vip_subnet_id'?: string;
+    private 'vpc_id'?: string;
+    private 'enterprise_project_id'?: string;
+    private 'admin_state_up'?: boolean;
+    private 'member_address'?: string;
+    private 'member_device_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListLoadbalancersRequest {
@@ -31,10 +31,10 @@ export class ListLoadbalancersRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withId(id: string): ListLoadbalancersRequest {
@@ -53,100 +53,100 @@ export class ListLoadbalancersRequest {
         this['operating_status'] = operatingStatus;
         return this;
     }
-    public set operatingStatus(operatingStatus: string | undefined) {
+    public set operatingStatus(operatingStatus: string  | undefined) {
         this['operating_status'] = operatingStatus;
     }
-    public get operatingStatus() {
+    public get operatingStatus(): string | undefined {
         return this['operating_status'];
     }
     public withProvisioningStatus(provisioningStatus: string): ListLoadbalancersRequest {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: string | undefined) {
+    public set provisioningStatus(provisioningStatus: string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): string | undefined {
         return this['provisioning_status'];
     }
     public withVipAddress(vipAddress: string): ListLoadbalancersRequest {
         this['vip_address'] = vipAddress;
         return this;
     }
-    public set vipAddress(vipAddress: string | undefined) {
+    public set vipAddress(vipAddress: string  | undefined) {
         this['vip_address'] = vipAddress;
     }
-    public get vipAddress() {
+    public get vipAddress(): string | undefined {
         return this['vip_address'];
     }
     public withVipPortId(vipPortId: string): ListLoadbalancersRequest {
         this['vip_port_id'] = vipPortId;
         return this;
     }
-    public set vipPortId(vipPortId: string | undefined) {
+    public set vipPortId(vipPortId: string  | undefined) {
         this['vip_port_id'] = vipPortId;
     }
-    public get vipPortId() {
+    public get vipPortId(): string | undefined {
         return this['vip_port_id'];
     }
     public withVipSubnetId(vipSubnetId: string): ListLoadbalancersRequest {
         this['vip_subnet_id'] = vipSubnetId;
         return this;
     }
-    public set vipSubnetId(vipSubnetId: string | undefined) {
+    public set vipSubnetId(vipSubnetId: string  | undefined) {
         this['vip_subnet_id'] = vipSubnetId;
     }
-    public get vipSubnetId() {
+    public get vipSubnetId(): string | undefined {
         return this['vip_subnet_id'];
     }
     public withVpcId(vpcId: string): ListLoadbalancersRequest {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListLoadbalancersRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withAdminStateUp(adminStateUp: boolean): ListLoadbalancersRequest {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withMemberAddress(memberAddress: string): ListLoadbalancersRequest {
         this['member_address'] = memberAddress;
         return this;
     }
-    public set memberAddress(memberAddress: string | undefined) {
+    public set memberAddress(memberAddress: string  | undefined) {
         this['member_address'] = memberAddress;
     }
-    public get memberAddress() {
+    public get memberAddress(): string | undefined {
         return this['member_address'];
     }
     public withMemberDeviceId(memberDeviceId: string): ListLoadbalancersRequest {
         this['member_device_id'] = memberDeviceId;
         return this;
     }
-    public set memberDeviceId(memberDeviceId: string | undefined) {
+    public set memberDeviceId(memberDeviceId: string  | undefined) {
         this['member_device_id'] = memberDeviceId;
     }
-    public get memberDeviceId() {
+    public get memberDeviceId(): string | undefined {
         return this['member_device_id'];
     }
 }

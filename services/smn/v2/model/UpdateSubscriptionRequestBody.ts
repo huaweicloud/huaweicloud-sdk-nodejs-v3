@@ -1,8 +1,8 @@
 
 
 export class UpdateSubscriptionRequestBody {
-    public remark: string;
-    public constructor(remark?: any) { 
+    public remark?: string;
+    public constructor(remark?: string) { 
         this['remark'] = remark;
     }
     public withRemark(remark: string): UpdateSubscriptionRequestBody {

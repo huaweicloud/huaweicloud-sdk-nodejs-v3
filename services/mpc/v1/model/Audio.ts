@@ -2,22 +2,22 @@ import { OutputPolicy } from './OutputPolicy';
 
 
 export class Audio {
-    private 'output_policy'?: AudioOutputPolicyEnum | undefined;
+    private 'output_policy'?: AudioOutputPolicyEnum | string;
     public codec?: number;
-    private 'sample_rate'?: number | undefined;
+    private 'sample_rate'?: number;
     public bitrate?: number;
-    public channels: number;
-    public constructor(channels?: any) { 
+    public channels?: number;
+    public constructor(channels?: number) { 
         this['channels'] = channels;
     }
-    public withOutputPolicy(outputPolicy: AudioOutputPolicyEnum): Audio {
+    public withOutputPolicy(outputPolicy: AudioOutputPolicyEnum | string): Audio {
         this['output_policy'] = outputPolicy;
         return this;
     }
-    public set outputPolicy(outputPolicy: AudioOutputPolicyEnum | undefined) {
+    public set outputPolicy(outputPolicy: AudioOutputPolicyEnum | string  | undefined) {
         this['output_policy'] = outputPolicy;
     }
-    public get outputPolicy() {
+    public get outputPolicy(): AudioOutputPolicyEnum | string | undefined {
         return this['output_policy'];
     }
     public withCodec(codec: number): Audio {
@@ -28,10 +28,10 @@ export class Audio {
         this['sample_rate'] = sampleRate;
         return this;
     }
-    public set sampleRate(sampleRate: number | undefined) {
+    public set sampleRate(sampleRate: number  | undefined) {
         this['sample_rate'] = sampleRate;
     }
-    public get sampleRate() {
+    public get sampleRate(): number | undefined {
         return this['sample_rate'];
     }
     public withBitrate(bitrate: number): Audio {

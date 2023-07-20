@@ -2,8 +2,8 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateDatakeyWithoutPlaintextResponse extends SdkResponse {
-    private 'key_id'?: string | undefined;
-    private 'cipher_text'?: string | undefined;
+    private 'key_id'?: string;
+    private 'cipher_text'?: string;
     public constructor() { 
         super();
     }
@@ -11,20 +11,20 @@ export class CreateDatakeyWithoutPlaintextResponse extends SdkResponse {
         this['key_id'] = keyId;
         return this;
     }
-    public set keyId(keyId: string | undefined) {
+    public set keyId(keyId: string  | undefined) {
         this['key_id'] = keyId;
     }
-    public get keyId() {
+    public get keyId(): string | undefined {
         return this['key_id'];
     }
     public withCipherText(cipherText: string): CreateDatakeyWithoutPlaintextResponse {
         this['cipher_text'] = cipherText;
         return this;
     }
-    public set cipherText(cipherText: string | undefined) {
+    public set cipherText(cipherText: string  | undefined) {
         this['cipher_text'] = cipherText;
     }
-    public get cipherText() {
+    public get cipherText(): string | undefined {
         return this['cipher_text'];
     }
 }

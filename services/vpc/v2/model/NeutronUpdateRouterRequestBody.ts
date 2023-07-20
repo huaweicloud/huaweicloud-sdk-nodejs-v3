@@ -2,8 +2,8 @@ import { NeutronUpdateRouterOption } from './NeutronUpdateRouterOption';
 
 
 export class NeutronUpdateRouterRequestBody {
-    public router: NeutronUpdateRouterOption;
-    public constructor(router?: any) { 
+    public router?: NeutronUpdateRouterOption;
+    public constructor(router?: NeutronUpdateRouterOption) { 
         this['router'] = router;
     }
     public withRouter(router: NeutronUpdateRouterOption): NeutronUpdateRouterRequestBody {

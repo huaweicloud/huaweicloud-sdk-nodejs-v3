@@ -2,7 +2,7 @@ import { Sentences } from './Sentences';
 
 
 export class FlashResult {
-    private 'channel_id'?: number | undefined;
+    private 'channel_id'?: number;
     public sentences?: Array<Sentences>;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class FlashResult {
         this['channel_id'] = channelId;
         return this;
     }
-    public set channelId(channelId: number | undefined) {
+    public set channelId(channelId: number  | undefined) {
         this['channel_id'] = channelId;
     }
-    public get channelId() {
+    public get channelId(): number | undefined {
         return this['channel_id'];
     }
     public withSentences(sentences: Array<Sentences>): FlashResult {

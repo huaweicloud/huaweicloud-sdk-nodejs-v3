@@ -1,39 +1,39 @@
 
 
 export class ListEventRequest {
-    private 'Content-Type': string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    public recent?: ListEventRequestRecentEnum;
+    private 'Content-Type'?: string;
+    private 'enterprise_project_id'?: string;
+    public recent?: ListEventRequestRecentEnum | string;
     public from?: number;
     public to?: number;
     public attacks?: Array<string>;
     public hosts?: Array<string>;
     public page?: number;
     public pagesize?: number;
-    public constructor(contentType?: any) { 
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
     public withContentType(contentType: string): ListEventRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListEventRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withRecent(recent: ListEventRequestRecentEnum): ListEventRequest {
+    public withRecent(recent: ListEventRequestRecentEnum | string): ListEventRequest {
         this['recent'] = recent;
         return this;
     }

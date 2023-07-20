@@ -13,27 +13,27 @@ import { VarsURIPrimitiveTypeHolder } from './VarsURIPrimitiveTypeHolder';
 
 
 export class CreateStackRequestBody {
-    private 'stack_name': string | undefined;
+    private 'stack_name'?: string;
     public agencies?: Array<Agency>;
     public description?: string;
-    private 'enable_deletion_protection'?: boolean | undefined;
-    private 'enable_auto_rollback'?: boolean | undefined;
-    private 'template_body'?: string | undefined;
-    private 'template_uri'?: string | undefined;
-    private 'vars_body'?: string | undefined;
-    private 'vars_structure'?: Array<VarsStructure> | undefined;
-    private 'vars_uri'?: string | undefined;
-    public constructor(stackName?: any) { 
+    private 'enable_deletion_protection'?: boolean;
+    private 'enable_auto_rollback'?: boolean;
+    private 'template_body'?: string;
+    private 'template_uri'?: string;
+    private 'vars_body'?: string;
+    private 'vars_structure'?: Array<VarsStructure>;
+    private 'vars_uri'?: string;
+    public constructor(stackName?: string) { 
         this['stack_name'] = stackName;
     }
     public withStackName(stackName: string): CreateStackRequestBody {
         this['stack_name'] = stackName;
         return this;
     }
-    public set stackName(stackName: string | undefined) {
+    public set stackName(stackName: string  | undefined) {
         this['stack_name'] = stackName;
     }
-    public get stackName() {
+    public get stackName(): string | undefined {
         return this['stack_name'];
     }
     public withAgencies(agencies: Array<Agency>): CreateStackRequestBody {
@@ -48,70 +48,70 @@ export class CreateStackRequestBody {
         this['enable_deletion_protection'] = enableDeletionProtection;
         return this;
     }
-    public set enableDeletionProtection(enableDeletionProtection: boolean | undefined) {
+    public set enableDeletionProtection(enableDeletionProtection: boolean  | undefined) {
         this['enable_deletion_protection'] = enableDeletionProtection;
     }
-    public get enableDeletionProtection() {
+    public get enableDeletionProtection(): boolean | undefined {
         return this['enable_deletion_protection'];
     }
     public withEnableAutoRollback(enableAutoRollback: boolean): CreateStackRequestBody {
         this['enable_auto_rollback'] = enableAutoRollback;
         return this;
     }
-    public set enableAutoRollback(enableAutoRollback: boolean | undefined) {
+    public set enableAutoRollback(enableAutoRollback: boolean  | undefined) {
         this['enable_auto_rollback'] = enableAutoRollback;
     }
-    public get enableAutoRollback() {
+    public get enableAutoRollback(): boolean | undefined {
         return this['enable_auto_rollback'];
     }
     public withTemplateBody(templateBody: string): CreateStackRequestBody {
         this['template_body'] = templateBody;
         return this;
     }
-    public set templateBody(templateBody: string | undefined) {
+    public set templateBody(templateBody: string  | undefined) {
         this['template_body'] = templateBody;
     }
-    public get templateBody() {
+    public get templateBody(): string | undefined {
         return this['template_body'];
     }
     public withTemplateUri(templateUri: string): CreateStackRequestBody {
         this['template_uri'] = templateUri;
         return this;
     }
-    public set templateUri(templateUri: string | undefined) {
+    public set templateUri(templateUri: string  | undefined) {
         this['template_uri'] = templateUri;
     }
-    public get templateUri() {
+    public get templateUri(): string | undefined {
         return this['template_uri'];
     }
     public withVarsBody(varsBody: string): CreateStackRequestBody {
         this['vars_body'] = varsBody;
         return this;
     }
-    public set varsBody(varsBody: string | undefined) {
+    public set varsBody(varsBody: string  | undefined) {
         this['vars_body'] = varsBody;
     }
-    public get varsBody() {
+    public get varsBody(): string | undefined {
         return this['vars_body'];
     }
     public withVarsStructure(varsStructure: Array<VarsStructure>): CreateStackRequestBody {
         this['vars_structure'] = varsStructure;
         return this;
     }
-    public set varsStructure(varsStructure: Array<VarsStructure> | undefined) {
+    public set varsStructure(varsStructure: Array<VarsStructure>  | undefined) {
         this['vars_structure'] = varsStructure;
     }
-    public get varsStructure() {
+    public get varsStructure(): Array<VarsStructure> | undefined {
         return this['vars_structure'];
     }
     public withVarsUri(varsUri: string): CreateStackRequestBody {
         this['vars_uri'] = varsUri;
         return this;
     }
-    public set varsUri(varsUri: string | undefined) {
+    public set varsUri(varsUri: string  | undefined) {
         this['vars_uri'] = varsUri;
     }
-    public get varsUri() {
+    public get varsUri(): string | undefined {
         return this['vars_uri'];
     }
 }

@@ -1,10 +1,10 @@
 
 
 export class AsyncCommitJobResp {
-    private 'async_job_id': string | undefined;
-    public status: string;
-    public msg: string;
-    public constructor(asyncJobId?: any, status?: any, msg?: any) { 
+    private 'async_job_id'?: string;
+    public status?: string;
+    public msg?: string;
+    public constructor(asyncJobId?: string, status?: string, msg?: string) { 
         this['async_job_id'] = asyncJobId;
         this['status'] = status;
         this['msg'] = msg;
@@ -13,10 +13,10 @@ export class AsyncCommitJobResp {
         this['async_job_id'] = asyncJobId;
         return this;
     }
-    public set asyncJobId(asyncJobId: string | undefined) {
+    public set asyncJobId(asyncJobId: string  | undefined) {
         this['async_job_id'] = asyncJobId;
     }
-    public get asyncJobId() {
+    public get asyncJobId(): string | undefined {
         return this['async_job_id'];
     }
     public withStatus(status: string): AsyncCommitJobResp {

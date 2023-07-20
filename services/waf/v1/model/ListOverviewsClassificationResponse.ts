@@ -8,7 +8,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListOverviewsClassificationResponse extends SdkResponse {
     public domain?: DomainClassificationItem;
-    private 'attack_type'?: AttackTypeClassificationItem | undefined;
+    private 'attack_type'?: AttackTypeClassificationItem;
     public ip?: IpClassificationItem;
     public url?: UrlClassificationItem;
     public geo?: GeoClassificationItem;
@@ -23,10 +23,10 @@ export class ListOverviewsClassificationResponse extends SdkResponse {
         this['attack_type'] = attackType;
         return this;
     }
-    public set attackType(attackType: AttackTypeClassificationItem | undefined) {
+    public set attackType(attackType: AttackTypeClassificationItem  | undefined) {
         this['attack_type'] = attackType;
     }
-    public get attackType() {
+    public get attackType(): AttackTypeClassificationItem | undefined {
         return this['attack_type'];
     }
     public withIp(ip: IpClassificationItem): ListOverviewsClassificationResponse {

@@ -2,10 +2,10 @@ import { ResetNode } from './ResetNode';
 
 
 export class ResetNodeList {
-    public apiVersion: string;
-    public kind: string;
-    public nodeList: Array<ResetNode>;
-    public constructor(apiVersion?: any, kind?: any, nodeList?: any) { 
+    public apiVersion?: string;
+    public kind?: string;
+    public nodeList?: Array<ResetNode>;
+    public constructor(apiVersion?: string, kind?: string, nodeList?: Array<ResetNode>) { 
         this['apiVersion'] = apiVersion;
         this['kind'] = kind;
         this['nodeList'] = nodeList;

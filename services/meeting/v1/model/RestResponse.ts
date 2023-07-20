@@ -1,9 +1,9 @@
 
 
 export class RestResponse {
-    public returnCode: number;
+    public returnCode?: number;
     public returnDesc?: string;
-    public constructor(returnCode?: any) { 
+    public constructor(returnCode?: number) { 
         this['returnCode'] = returnCode;
     }
     public withReturnCode(returnCode: number): RestResponse {

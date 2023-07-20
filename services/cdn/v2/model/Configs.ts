@@ -21,84 +21,84 @@ import { WebSocketSeek } from './WebSocketSeek';
 
 
 export class Configs {
-    private 'business_type'?: string | undefined;
-    private 'service_area'?: string | undefined;
-    private 'origin_request_header'?: Array<OriginRequestHeader> | undefined;
-    private 'http_response_header'?: Array<HttpResponseHeader> | undefined;
-    private 'url_auth'?: UrlAuth | undefined;
+    private 'business_type'?: string;
+    private 'service_area'?: string;
+    private 'origin_request_header'?: Array<OriginRequestHeader>;
+    private 'http_response_header'?: Array<HttpResponseHeader>;
+    private 'url_auth'?: UrlAuth;
     public https?: HttpPutBody;
     public sources?: Array<SourcesConfig>;
-    private 'origin_protocol'?: string | undefined;
-    private 'origin_follow302_status'?: string | undefined;
-    private 'cache_rules'?: Array<CacheRules> | undefined;
-    private 'ip_filter'?: IpFilter | undefined;
+    private 'origin_protocol'?: string;
+    private 'origin_follow302_status'?: string;
+    private 'cache_rules'?: Array<CacheRules>;
+    private 'ip_filter'?: IpFilter;
     public referer?: RefererConfig;
-    private 'force_redirect'?: ForceRedirectConfig | undefined;
+    private 'force_redirect'?: ForceRedirectConfig;
     public compress?: Compress;
-    private 'cache_url_parameter_filter'?: CacheUrlParameterFilter | undefined;
-    private 'ipv6_accelerate'?: number | undefined;
-    private 'error_code_cache'?: Array<ErrorCodeCache> | undefined;
-    private 'origin_range_status'?: string | undefined;
-    private 'user_agent_filter'?: UserAgentFilter | undefined;
-    private 'origin_request_url_rewrite'?: Array<OriginRequestUrlRewrite> | undefined;
-    private 'flexible_origin'?: Array<FlexibleOrigins> | undefined;
-    private 'slice_etag_status'?: string | undefined;
-    private 'origin_receive_timeout'?: number | undefined;
-    private 'remote_auth'?: CommonRemoteAuth | undefined;
+    private 'cache_url_parameter_filter'?: CacheUrlParameterFilter;
+    private 'ipv6_accelerate'?: number;
+    private 'error_code_cache'?: Array<ErrorCodeCache>;
+    private 'origin_range_status'?: string;
+    private 'user_agent_filter'?: UserAgentFilter;
+    private 'origin_request_url_rewrite'?: Array<OriginRequestUrlRewrite>;
+    private 'flexible_origin'?: Array<FlexibleOrigins>;
+    private 'slice_etag_status'?: string;
+    private 'origin_receive_timeout'?: number;
+    private 'remote_auth'?: CommonRemoteAuth;
     public websocket?: WebSocketSeek;
-    private 'video_seek'?: VideoSeek | undefined;
-    private 'request_limit_rules'?: Array<RequestLimitRules> | undefined;
-    private 'error_code_redirect_rules'?: Array<ErrorCodeRedirectRules> | undefined;
+    private 'video_seek'?: VideoSeek;
+    private 'request_limit_rules'?: Array<RequestLimitRules>;
+    private 'error_code_redirect_rules'?: Array<ErrorCodeRedirectRules>;
     public constructor() { 
     }
     public withBusinessType(businessType: string): Configs {
         this['business_type'] = businessType;
         return this;
     }
-    public set businessType(businessType: string | undefined) {
+    public set businessType(businessType: string  | undefined) {
         this['business_type'] = businessType;
     }
-    public get businessType() {
+    public get businessType(): string | undefined {
         return this['business_type'];
     }
     public withServiceArea(serviceArea: string): Configs {
         this['service_area'] = serviceArea;
         return this;
     }
-    public set serviceArea(serviceArea: string | undefined) {
+    public set serviceArea(serviceArea: string  | undefined) {
         this['service_area'] = serviceArea;
     }
-    public get serviceArea() {
+    public get serviceArea(): string | undefined {
         return this['service_area'];
     }
     public withOriginRequestHeader(originRequestHeader: Array<OriginRequestHeader>): Configs {
         this['origin_request_header'] = originRequestHeader;
         return this;
     }
-    public set originRequestHeader(originRequestHeader: Array<OriginRequestHeader> | undefined) {
+    public set originRequestHeader(originRequestHeader: Array<OriginRequestHeader>  | undefined) {
         this['origin_request_header'] = originRequestHeader;
     }
-    public get originRequestHeader() {
+    public get originRequestHeader(): Array<OriginRequestHeader> | undefined {
         return this['origin_request_header'];
     }
     public withHttpResponseHeader(httpResponseHeader: Array<HttpResponseHeader>): Configs {
         this['http_response_header'] = httpResponseHeader;
         return this;
     }
-    public set httpResponseHeader(httpResponseHeader: Array<HttpResponseHeader> | undefined) {
+    public set httpResponseHeader(httpResponseHeader: Array<HttpResponseHeader>  | undefined) {
         this['http_response_header'] = httpResponseHeader;
     }
-    public get httpResponseHeader() {
+    public get httpResponseHeader(): Array<HttpResponseHeader> | undefined {
         return this['http_response_header'];
     }
     public withUrlAuth(urlAuth: UrlAuth): Configs {
         this['url_auth'] = urlAuth;
         return this;
     }
-    public set urlAuth(urlAuth: UrlAuth | undefined) {
+    public set urlAuth(urlAuth: UrlAuth  | undefined) {
         this['url_auth'] = urlAuth;
     }
-    public get urlAuth() {
+    public get urlAuth(): UrlAuth | undefined {
         return this['url_auth'];
     }
     public withHttps(https: HttpPutBody): Configs {
@@ -113,40 +113,40 @@ export class Configs {
         this['origin_protocol'] = originProtocol;
         return this;
     }
-    public set originProtocol(originProtocol: string | undefined) {
+    public set originProtocol(originProtocol: string  | undefined) {
         this['origin_protocol'] = originProtocol;
     }
-    public get originProtocol() {
+    public get originProtocol(): string | undefined {
         return this['origin_protocol'];
     }
     public withOriginFollow302Status(originFollow302Status: string): Configs {
         this['origin_follow302_status'] = originFollow302Status;
         return this;
     }
-    public set originFollow302Status(originFollow302Status: string | undefined) {
+    public set originFollow302Status(originFollow302Status: string  | undefined) {
         this['origin_follow302_status'] = originFollow302Status;
     }
-    public get originFollow302Status() {
+    public get originFollow302Status(): string | undefined {
         return this['origin_follow302_status'];
     }
     public withCacheRules(cacheRules: Array<CacheRules>): Configs {
         this['cache_rules'] = cacheRules;
         return this;
     }
-    public set cacheRules(cacheRules: Array<CacheRules> | undefined) {
+    public set cacheRules(cacheRules: Array<CacheRules>  | undefined) {
         this['cache_rules'] = cacheRules;
     }
-    public get cacheRules() {
+    public get cacheRules(): Array<CacheRules> | undefined {
         return this['cache_rules'];
     }
     public withIpFilter(ipFilter: IpFilter): Configs {
         this['ip_filter'] = ipFilter;
         return this;
     }
-    public set ipFilter(ipFilter: IpFilter | undefined) {
+    public set ipFilter(ipFilter: IpFilter  | undefined) {
         this['ip_filter'] = ipFilter;
     }
-    public get ipFilter() {
+    public get ipFilter(): IpFilter | undefined {
         return this['ip_filter'];
     }
     public withReferer(referer: RefererConfig): Configs {
@@ -157,10 +157,10 @@ export class Configs {
         this['force_redirect'] = forceRedirect;
         return this;
     }
-    public set forceRedirect(forceRedirect: ForceRedirectConfig | undefined) {
+    public set forceRedirect(forceRedirect: ForceRedirectConfig  | undefined) {
         this['force_redirect'] = forceRedirect;
     }
-    public get forceRedirect() {
+    public get forceRedirect(): ForceRedirectConfig | undefined {
         return this['force_redirect'];
     }
     public withCompress(compress: Compress): Configs {
@@ -171,100 +171,100 @@ export class Configs {
         this['cache_url_parameter_filter'] = cacheUrlParameterFilter;
         return this;
     }
-    public set cacheUrlParameterFilter(cacheUrlParameterFilter: CacheUrlParameterFilter | undefined) {
+    public set cacheUrlParameterFilter(cacheUrlParameterFilter: CacheUrlParameterFilter  | undefined) {
         this['cache_url_parameter_filter'] = cacheUrlParameterFilter;
     }
-    public get cacheUrlParameterFilter() {
+    public get cacheUrlParameterFilter(): CacheUrlParameterFilter | undefined {
         return this['cache_url_parameter_filter'];
     }
     public withIpv6Accelerate(ipv6Accelerate: number): Configs {
         this['ipv6_accelerate'] = ipv6Accelerate;
         return this;
     }
-    public set ipv6Accelerate(ipv6Accelerate: number | undefined) {
+    public set ipv6Accelerate(ipv6Accelerate: number  | undefined) {
         this['ipv6_accelerate'] = ipv6Accelerate;
     }
-    public get ipv6Accelerate() {
+    public get ipv6Accelerate(): number | undefined {
         return this['ipv6_accelerate'];
     }
     public withErrorCodeCache(errorCodeCache: Array<ErrorCodeCache>): Configs {
         this['error_code_cache'] = errorCodeCache;
         return this;
     }
-    public set errorCodeCache(errorCodeCache: Array<ErrorCodeCache> | undefined) {
+    public set errorCodeCache(errorCodeCache: Array<ErrorCodeCache>  | undefined) {
         this['error_code_cache'] = errorCodeCache;
     }
-    public get errorCodeCache() {
+    public get errorCodeCache(): Array<ErrorCodeCache> | undefined {
         return this['error_code_cache'];
     }
     public withOriginRangeStatus(originRangeStatus: string): Configs {
         this['origin_range_status'] = originRangeStatus;
         return this;
     }
-    public set originRangeStatus(originRangeStatus: string | undefined) {
+    public set originRangeStatus(originRangeStatus: string  | undefined) {
         this['origin_range_status'] = originRangeStatus;
     }
-    public get originRangeStatus() {
+    public get originRangeStatus(): string | undefined {
         return this['origin_range_status'];
     }
     public withUserAgentFilter(userAgentFilter: UserAgentFilter): Configs {
         this['user_agent_filter'] = userAgentFilter;
         return this;
     }
-    public set userAgentFilter(userAgentFilter: UserAgentFilter | undefined) {
+    public set userAgentFilter(userAgentFilter: UserAgentFilter  | undefined) {
         this['user_agent_filter'] = userAgentFilter;
     }
-    public get userAgentFilter() {
+    public get userAgentFilter(): UserAgentFilter | undefined {
         return this['user_agent_filter'];
     }
     public withOriginRequestUrlRewrite(originRequestUrlRewrite: Array<OriginRequestUrlRewrite>): Configs {
         this['origin_request_url_rewrite'] = originRequestUrlRewrite;
         return this;
     }
-    public set originRequestUrlRewrite(originRequestUrlRewrite: Array<OriginRequestUrlRewrite> | undefined) {
+    public set originRequestUrlRewrite(originRequestUrlRewrite: Array<OriginRequestUrlRewrite>  | undefined) {
         this['origin_request_url_rewrite'] = originRequestUrlRewrite;
     }
-    public get originRequestUrlRewrite() {
+    public get originRequestUrlRewrite(): Array<OriginRequestUrlRewrite> | undefined {
         return this['origin_request_url_rewrite'];
     }
     public withFlexibleOrigin(flexibleOrigin: Array<FlexibleOrigins>): Configs {
         this['flexible_origin'] = flexibleOrigin;
         return this;
     }
-    public set flexibleOrigin(flexibleOrigin: Array<FlexibleOrigins> | undefined) {
+    public set flexibleOrigin(flexibleOrigin: Array<FlexibleOrigins>  | undefined) {
         this['flexible_origin'] = flexibleOrigin;
     }
-    public get flexibleOrigin() {
+    public get flexibleOrigin(): Array<FlexibleOrigins> | undefined {
         return this['flexible_origin'];
     }
     public withSliceEtagStatus(sliceEtagStatus: string): Configs {
         this['slice_etag_status'] = sliceEtagStatus;
         return this;
     }
-    public set sliceEtagStatus(sliceEtagStatus: string | undefined) {
+    public set sliceEtagStatus(sliceEtagStatus: string  | undefined) {
         this['slice_etag_status'] = sliceEtagStatus;
     }
-    public get sliceEtagStatus() {
+    public get sliceEtagStatus(): string | undefined {
         return this['slice_etag_status'];
     }
     public withOriginReceiveTimeout(originReceiveTimeout: number): Configs {
         this['origin_receive_timeout'] = originReceiveTimeout;
         return this;
     }
-    public set originReceiveTimeout(originReceiveTimeout: number | undefined) {
+    public set originReceiveTimeout(originReceiveTimeout: number  | undefined) {
         this['origin_receive_timeout'] = originReceiveTimeout;
     }
-    public get originReceiveTimeout() {
+    public get originReceiveTimeout(): number | undefined {
         return this['origin_receive_timeout'];
     }
     public withRemoteAuth(remoteAuth: CommonRemoteAuth): Configs {
         this['remote_auth'] = remoteAuth;
         return this;
     }
-    public set remoteAuth(remoteAuth: CommonRemoteAuth | undefined) {
+    public set remoteAuth(remoteAuth: CommonRemoteAuth  | undefined) {
         this['remote_auth'] = remoteAuth;
     }
-    public get remoteAuth() {
+    public get remoteAuth(): CommonRemoteAuth | undefined {
         return this['remote_auth'];
     }
     public withWebsocket(websocket: WebSocketSeek): Configs {
@@ -275,30 +275,30 @@ export class Configs {
         this['video_seek'] = videoSeek;
         return this;
     }
-    public set videoSeek(videoSeek: VideoSeek | undefined) {
+    public set videoSeek(videoSeek: VideoSeek  | undefined) {
         this['video_seek'] = videoSeek;
     }
-    public get videoSeek() {
+    public get videoSeek(): VideoSeek | undefined {
         return this['video_seek'];
     }
     public withRequestLimitRules(requestLimitRules: Array<RequestLimitRules>): Configs {
         this['request_limit_rules'] = requestLimitRules;
         return this;
     }
-    public set requestLimitRules(requestLimitRules: Array<RequestLimitRules> | undefined) {
+    public set requestLimitRules(requestLimitRules: Array<RequestLimitRules>  | undefined) {
         this['request_limit_rules'] = requestLimitRules;
     }
-    public get requestLimitRules() {
+    public get requestLimitRules(): Array<RequestLimitRules> | undefined {
         return this['request_limit_rules'];
     }
     public withErrorCodeRedirectRules(errorCodeRedirectRules: Array<ErrorCodeRedirectRules>): Configs {
         this['error_code_redirect_rules'] = errorCodeRedirectRules;
         return this;
     }
-    public set errorCodeRedirectRules(errorCodeRedirectRules: Array<ErrorCodeRedirectRules> | undefined) {
+    public set errorCodeRedirectRules(errorCodeRedirectRules: Array<ErrorCodeRedirectRules>  | undefined) {
         this['error_code_redirect_rules'] = errorCodeRedirectRules;
     }
-    public get errorCodeRedirectRules() {
+    public get errorCodeRedirectRules(): Array<ErrorCodeRedirectRules> | undefined {
         return this['error_code_redirect_rules'];
     }
 }

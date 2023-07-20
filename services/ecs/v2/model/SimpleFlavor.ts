@@ -2,9 +2,9 @@ import { Link } from './Link';
 
 
 export class SimpleFlavor {
-    public id: string;
-    public links: Array<Link>;
-    public constructor(id?: any, links?: any) { 
+    public id?: string;
+    public links?: Array<Link>;
+    public constructor(id?: string, links?: Array<Link>) { 
         this['id'] = id;
         this['links'] = links;
     }

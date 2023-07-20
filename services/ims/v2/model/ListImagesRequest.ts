@@ -1,213 +1,213 @@
 
 
 export class ListImagesRequest {
-    private '__imagetype'?: ListImagesRequestImagetypeEnum | undefined;
-    private '__isregistered'?: ListImagesRequestIsregisteredEnum | undefined;
-    private '__os_bit'?: ListImagesRequestOsBitEnum | undefined;
-    private '__os_type'?: ListImagesRequestOsTypeEnum | undefined;
-    private '__platform'?: ListImagesRequestPlatformEnum | undefined;
-    private '__support_diskintensive'?: string | undefined;
-    private '__support_highperformance'?: string | undefined;
-    private '__support_kvm'?: string | undefined;
-    private '__support_kvm_gpu_type'?: string | undefined;
-    private '__support_kvm_infiniband'?: string | undefined;
-    private '__support_largememory'?: string | undefined;
-    private '__support_xen'?: string | undefined;
-    private '__support_xen_gpu_type'?: string | undefined;
-    private '__support_xen_hana'?: string | undefined;
-    private 'container_format'?: string | undefined;
-    private 'disk_format'?: ListImagesRequestDiskFormatEnum | undefined;
-    private 'enterprise_project_id'?: string | undefined;
+    private '__imagetype'?: ListImagesRequestImagetypeEnum | string;
+    private '__isregistered'?: ListImagesRequestIsregisteredEnum | string;
+    private '__os_bit'?: ListImagesRequestOsBitEnum | string;
+    private '__os_type'?: ListImagesRequestOsTypeEnum | string;
+    private '__platform'?: ListImagesRequestPlatformEnum | string;
+    private '__support_diskintensive'?: string;
+    private '__support_highperformance'?: string;
+    private '__support_kvm'?: string;
+    private '__support_kvm_gpu_type'?: string;
+    private '__support_kvm_infiniband'?: string;
+    private '__support_largememory'?: string;
+    private '__support_xen'?: string;
+    private '__support_xen_gpu_type'?: string;
+    private '__support_xen_hana'?: string;
+    private 'container_format'?: string;
+    private 'disk_format'?: ListImagesRequestDiskFormatEnum | string;
+    private 'enterprise_project_id'?: string;
     public id?: string;
     public limit?: number;
     public marker?: string;
-    private 'member_status'?: ListImagesRequestMemberStatusEnum | undefined;
-    private 'min_disk'?: number | undefined;
-    private 'min_ram'?: number | undefined;
+    private 'member_status'?: ListImagesRequestMemberStatusEnum | string;
+    private 'min_disk'?: number;
+    private 'min_ram'?: number;
     public name?: string;
     public owner?: string;
-    private 'protected'?: boolean | undefined;
-    private 'sort_dir'?: ListImagesRequestSortDirEnum | undefined;
-    private 'sort_key'?: ListImagesRequestSortKeyEnum | undefined;
-    public status?: ListImagesRequestStatusEnum;
+    private 'protected'?: boolean;
+    private 'sort_dir'?: ListImagesRequestSortDirEnum | string;
+    private 'sort_key'?: ListImagesRequestSortKeyEnum | string;
+    public status?: ListImagesRequestStatusEnum | string;
     public tag?: string;
-    private 'virtual_env_type'?: ListImagesRequestVirtualEnvTypeEnum | undefined;
-    public visibility?: ListImagesRequestVisibilityEnum;
-    private 'X-Sdk-Date'?: string | undefined;
-    private 'flavor_id'?: string | undefined;
-    private 'created_at'?: string | undefined;
-    private 'updated_at'?: string | undefined;
-    public architecture?: ListImagesRequestArchitectureEnum;
+    private 'virtual_env_type'?: ListImagesRequestVirtualEnvTypeEnum | string;
+    public visibility?: ListImagesRequestVisibilityEnum | string;
+    private 'X-Sdk-Date'?: string;
+    private 'flavor_id'?: string;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    public architecture?: ListImagesRequestArchitectureEnum | string;
     public constructor() { 
     }
-    public withImagetype(imagetype: ListImagesRequestImagetypeEnum): ListImagesRequest {
+    public withImagetype(imagetype: ListImagesRequestImagetypeEnum | string): ListImagesRequest {
         this['__imagetype'] = imagetype;
         return this;
     }
-    public set imagetype(imagetype: ListImagesRequestImagetypeEnum | undefined) {
+    public set imagetype(imagetype: ListImagesRequestImagetypeEnum | string  | undefined) {
         this['__imagetype'] = imagetype;
     }
-    public get imagetype() {
+    public get imagetype(): ListImagesRequestImagetypeEnum | string | undefined {
         return this['__imagetype'];
     }
-    public withIsregistered(isregistered: ListImagesRequestIsregisteredEnum): ListImagesRequest {
+    public withIsregistered(isregistered: ListImagesRequestIsregisteredEnum | string): ListImagesRequest {
         this['__isregistered'] = isregistered;
         return this;
     }
-    public set isregistered(isregistered: ListImagesRequestIsregisteredEnum | undefined) {
+    public set isregistered(isregistered: ListImagesRequestIsregisteredEnum | string  | undefined) {
         this['__isregistered'] = isregistered;
     }
-    public get isregistered() {
+    public get isregistered(): ListImagesRequestIsregisteredEnum | string | undefined {
         return this['__isregistered'];
     }
-    public withOsBit(osBit: ListImagesRequestOsBitEnum): ListImagesRequest {
+    public withOsBit(osBit: ListImagesRequestOsBitEnum | string): ListImagesRequest {
         this['__os_bit'] = osBit;
         return this;
     }
-    public set osBit(osBit: ListImagesRequestOsBitEnum | undefined) {
+    public set osBit(osBit: ListImagesRequestOsBitEnum | string  | undefined) {
         this['__os_bit'] = osBit;
     }
-    public get osBit() {
+    public get osBit(): ListImagesRequestOsBitEnum | string | undefined {
         return this['__os_bit'];
     }
-    public withOsType(osType: ListImagesRequestOsTypeEnum): ListImagesRequest {
+    public withOsType(osType: ListImagesRequestOsTypeEnum | string): ListImagesRequest {
         this['__os_type'] = osType;
         return this;
     }
-    public set osType(osType: ListImagesRequestOsTypeEnum | undefined) {
+    public set osType(osType: ListImagesRequestOsTypeEnum | string  | undefined) {
         this['__os_type'] = osType;
     }
-    public get osType() {
+    public get osType(): ListImagesRequestOsTypeEnum | string | undefined {
         return this['__os_type'];
     }
-    public withPlatform(platform: ListImagesRequestPlatformEnum): ListImagesRequest {
+    public withPlatform(platform: ListImagesRequestPlatformEnum | string): ListImagesRequest {
         this['__platform'] = platform;
         return this;
     }
-    public set platform(platform: ListImagesRequestPlatformEnum | undefined) {
+    public set platform(platform: ListImagesRequestPlatformEnum | string  | undefined) {
         this['__platform'] = platform;
     }
-    public get platform() {
+    public get platform(): ListImagesRequestPlatformEnum | string | undefined {
         return this['__platform'];
     }
     public withSupportDiskintensive(supportDiskintensive: string): ListImagesRequest {
         this['__support_diskintensive'] = supportDiskintensive;
         return this;
     }
-    public set supportDiskintensive(supportDiskintensive: string | undefined) {
+    public set supportDiskintensive(supportDiskintensive: string  | undefined) {
         this['__support_diskintensive'] = supportDiskintensive;
     }
-    public get supportDiskintensive() {
+    public get supportDiskintensive(): string | undefined {
         return this['__support_diskintensive'];
     }
     public withSupportHighperformance(supportHighperformance: string): ListImagesRequest {
         this['__support_highperformance'] = supportHighperformance;
         return this;
     }
-    public set supportHighperformance(supportHighperformance: string | undefined) {
+    public set supportHighperformance(supportHighperformance: string  | undefined) {
         this['__support_highperformance'] = supportHighperformance;
     }
-    public get supportHighperformance() {
+    public get supportHighperformance(): string | undefined {
         return this['__support_highperformance'];
     }
     public withSupportKvm(supportKvm: string): ListImagesRequest {
         this['__support_kvm'] = supportKvm;
         return this;
     }
-    public set supportKvm(supportKvm: string | undefined) {
+    public set supportKvm(supportKvm: string  | undefined) {
         this['__support_kvm'] = supportKvm;
     }
-    public get supportKvm() {
+    public get supportKvm(): string | undefined {
         return this['__support_kvm'];
     }
     public withSupportKvmGpuType(supportKvmGpuType: string): ListImagesRequest {
         this['__support_kvm_gpu_type'] = supportKvmGpuType;
         return this;
     }
-    public set supportKvmGpuType(supportKvmGpuType: string | undefined) {
+    public set supportKvmGpuType(supportKvmGpuType: string  | undefined) {
         this['__support_kvm_gpu_type'] = supportKvmGpuType;
     }
-    public get supportKvmGpuType() {
+    public get supportKvmGpuType(): string | undefined {
         return this['__support_kvm_gpu_type'];
     }
     public withSupportKvmInfiniband(supportKvmInfiniband: string): ListImagesRequest {
         this['__support_kvm_infiniband'] = supportKvmInfiniband;
         return this;
     }
-    public set supportKvmInfiniband(supportKvmInfiniband: string | undefined) {
+    public set supportKvmInfiniband(supportKvmInfiniband: string  | undefined) {
         this['__support_kvm_infiniband'] = supportKvmInfiniband;
     }
-    public get supportKvmInfiniband() {
+    public get supportKvmInfiniband(): string | undefined {
         return this['__support_kvm_infiniband'];
     }
     public withSupportLargememory(supportLargememory: string): ListImagesRequest {
         this['__support_largememory'] = supportLargememory;
         return this;
     }
-    public set supportLargememory(supportLargememory: string | undefined) {
+    public set supportLargememory(supportLargememory: string  | undefined) {
         this['__support_largememory'] = supportLargememory;
     }
-    public get supportLargememory() {
+    public get supportLargememory(): string | undefined {
         return this['__support_largememory'];
     }
     public withSupportXen(supportXen: string): ListImagesRequest {
         this['__support_xen'] = supportXen;
         return this;
     }
-    public set supportXen(supportXen: string | undefined) {
+    public set supportXen(supportXen: string  | undefined) {
         this['__support_xen'] = supportXen;
     }
-    public get supportXen() {
+    public get supportXen(): string | undefined {
         return this['__support_xen'];
     }
     public withSupportXenGpuType(supportXenGpuType: string): ListImagesRequest {
         this['__support_xen_gpu_type'] = supportXenGpuType;
         return this;
     }
-    public set supportXenGpuType(supportXenGpuType: string | undefined) {
+    public set supportXenGpuType(supportXenGpuType: string  | undefined) {
         this['__support_xen_gpu_type'] = supportXenGpuType;
     }
-    public get supportXenGpuType() {
+    public get supportXenGpuType(): string | undefined {
         return this['__support_xen_gpu_type'];
     }
     public withSupportXenHana(supportXenHana: string): ListImagesRequest {
         this['__support_xen_hana'] = supportXenHana;
         return this;
     }
-    public set supportXenHana(supportXenHana: string | undefined) {
+    public set supportXenHana(supportXenHana: string  | undefined) {
         this['__support_xen_hana'] = supportXenHana;
     }
-    public get supportXenHana() {
+    public get supportXenHana(): string | undefined {
         return this['__support_xen_hana'];
     }
     public withContainerFormat(containerFormat: string): ListImagesRequest {
         this['container_format'] = containerFormat;
         return this;
     }
-    public set containerFormat(containerFormat: string | undefined) {
+    public set containerFormat(containerFormat: string  | undefined) {
         this['container_format'] = containerFormat;
     }
-    public get containerFormat() {
+    public get containerFormat(): string | undefined {
         return this['container_format'];
     }
-    public withDiskFormat(diskFormat: ListImagesRequestDiskFormatEnum): ListImagesRequest {
+    public withDiskFormat(diskFormat: ListImagesRequestDiskFormatEnum | string): ListImagesRequest {
         this['disk_format'] = diskFormat;
         return this;
     }
-    public set diskFormat(diskFormat: ListImagesRequestDiskFormatEnum | undefined) {
+    public set diskFormat(diskFormat: ListImagesRequestDiskFormatEnum | string  | undefined) {
         this['disk_format'] = diskFormat;
     }
-    public get diskFormat() {
+    public get diskFormat(): ListImagesRequestDiskFormatEnum | string | undefined {
         return this['disk_format'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListImagesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withId(id: string): ListImagesRequest {
@@ -222,34 +222,34 @@ export class ListImagesRequest {
         this['marker'] = marker;
         return this;
     }
-    public withMemberStatus(memberStatus: ListImagesRequestMemberStatusEnum): ListImagesRequest {
+    public withMemberStatus(memberStatus: ListImagesRequestMemberStatusEnum | string): ListImagesRequest {
         this['member_status'] = memberStatus;
         return this;
     }
-    public set memberStatus(memberStatus: ListImagesRequestMemberStatusEnum | undefined) {
+    public set memberStatus(memberStatus: ListImagesRequestMemberStatusEnum | string  | undefined) {
         this['member_status'] = memberStatus;
     }
-    public get memberStatus() {
+    public get memberStatus(): ListImagesRequestMemberStatusEnum | string | undefined {
         return this['member_status'];
     }
     public withMinDisk(minDisk: number): ListImagesRequest {
         this['min_disk'] = minDisk;
         return this;
     }
-    public set minDisk(minDisk: number | undefined) {
+    public set minDisk(minDisk: number  | undefined) {
         this['min_disk'] = minDisk;
     }
-    public get minDisk() {
+    public get minDisk(): number | undefined {
         return this['min_disk'];
     }
     public withMinRam(minRam: number): ListImagesRequest {
         this['min_ram'] = minRam;
         return this;
     }
-    public set minRam(minRam: number | undefined) {
+    public set minRam(minRam: number  | undefined) {
         this['min_ram'] = minRam;
     }
-    public get minRam() {
+    public get minRam(): number | undefined {
         return this['min_ram'];
     }
     public withName(name: string): ListImagesRequest {
@@ -264,33 +264,33 @@ export class ListImagesRequest {
         this['protected'] = _protected;
         return this;
     }
-    public set _protected(_protected: boolean | undefined) {
+    public set _protected(_protected: boolean  | undefined) {
         this['protected'] = _protected;
     }
-    public get _protected() {
+    public get _protected(): boolean | undefined {
         return this['protected'];
     }
-    public withSortDir(sortDir: ListImagesRequestSortDirEnum): ListImagesRequest {
+    public withSortDir(sortDir: ListImagesRequestSortDirEnum | string): ListImagesRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: ListImagesRequestSortDirEnum | undefined) {
+    public set sortDir(sortDir: ListImagesRequestSortDirEnum | string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): ListImagesRequestSortDirEnum | string | undefined {
         return this['sort_dir'];
     }
-    public withSortKey(sortKey: ListImagesRequestSortKeyEnum): ListImagesRequest {
+    public withSortKey(sortKey: ListImagesRequestSortKeyEnum | string): ListImagesRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: ListImagesRequestSortKeyEnum | undefined) {
+    public set sortKey(sortKey: ListImagesRequestSortKeyEnum | string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): ListImagesRequestSortKeyEnum | string | undefined {
         return this['sort_key'];
     }
-    public withStatus(status: ListImagesRequestStatusEnum): ListImagesRequest {
+    public withStatus(status: ListImagesRequestStatusEnum | string): ListImagesRequest {
         this['status'] = status;
         return this;
     }
@@ -298,17 +298,17 @@ export class ListImagesRequest {
         this['tag'] = tag;
         return this;
     }
-    public withVirtualEnvType(virtualEnvType: ListImagesRequestVirtualEnvTypeEnum): ListImagesRequest {
+    public withVirtualEnvType(virtualEnvType: ListImagesRequestVirtualEnvTypeEnum | string): ListImagesRequest {
         this['virtual_env_type'] = virtualEnvType;
         return this;
     }
-    public set virtualEnvType(virtualEnvType: ListImagesRequestVirtualEnvTypeEnum | undefined) {
+    public set virtualEnvType(virtualEnvType: ListImagesRequestVirtualEnvTypeEnum | string  | undefined) {
         this['virtual_env_type'] = virtualEnvType;
     }
-    public get virtualEnvType() {
+    public get virtualEnvType(): ListImagesRequestVirtualEnvTypeEnum | string | undefined {
         return this['virtual_env_type'];
     }
-    public withVisibility(visibility: ListImagesRequestVisibilityEnum): ListImagesRequest {
+    public withVisibility(visibility: ListImagesRequestVisibilityEnum | string): ListImagesRequest {
         this['visibility'] = visibility;
         return this;
     }
@@ -316,43 +316,43 @@ export class ListImagesRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withFlavorId(flavorId: string): ListImagesRequest {
         this['flavor_id'] = flavorId;
         return this;
     }
-    public set flavorId(flavorId: string | undefined) {
+    public set flavorId(flavorId: string  | undefined) {
         this['flavor_id'] = flavorId;
     }
-    public get flavorId() {
+    public get flavorId(): string | undefined {
         return this['flavor_id'];
     }
     public withCreatedAt(createdAt: string): ListImagesRequest {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): ListImagesRequest {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
-    public withArchitecture(architecture: ListImagesRequestArchitectureEnum): ListImagesRequest {
+    public withArchitecture(architecture: ListImagesRequestArchitectureEnum | string): ListImagesRequest {
         this['architecture'] = architecture;
         return this;
     }

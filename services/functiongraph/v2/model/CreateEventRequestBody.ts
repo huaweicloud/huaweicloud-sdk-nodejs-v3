@@ -1,9 +1,9 @@
 
 
 export class CreateEventRequestBody {
-    public name: string;
-    public content: string;
-    public constructor(name?: any, content?: any) { 
+    public name?: string;
+    public content?: string;
+    public constructor(name?: string, content?: string) { 
         this['name'] = name;
         this['content'] = content;
     }

@@ -3,14 +3,14 @@ import { UserRoleVO } from './UserRoleVO';
 
 
 export class UpdateUserReq {
-    private 'job_id': string | undefined;
+    private 'job_id'?: string;
     public password?: string;
     public list?: Array<UserAccountVO>;
-    private 'user_roles'?: Array<UserRoleVO> | undefined;
-    private 'is_set_password': boolean | undefined;
-    private 'is_migrate_user': boolean | undefined;
-    private 'is_sync_object_privilege'?: boolean | undefined;
-    public constructor(jobId?: any, isSetPassword?: any, isMigrateUser?: any) { 
+    private 'user_roles'?: Array<UserRoleVO>;
+    private 'is_set_password'?: boolean;
+    private 'is_migrate_user'?: boolean;
+    private 'is_sync_object_privilege'?: boolean;
+    public constructor(jobId?: string, isSetPassword?: boolean, isMigrateUser?: boolean) { 
         this['job_id'] = jobId;
         this['is_set_password'] = isSetPassword;
         this['is_migrate_user'] = isMigrateUser;
@@ -19,10 +19,10 @@ export class UpdateUserReq {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
     public withPassword(password: string): UpdateUserReq {
@@ -37,40 +37,40 @@ export class UpdateUserReq {
         this['user_roles'] = userRoles;
         return this;
     }
-    public set userRoles(userRoles: Array<UserRoleVO> | undefined) {
+    public set userRoles(userRoles: Array<UserRoleVO>  | undefined) {
         this['user_roles'] = userRoles;
     }
-    public get userRoles() {
+    public get userRoles(): Array<UserRoleVO> | undefined {
         return this['user_roles'];
     }
     public withIsSetPassword(isSetPassword: boolean): UpdateUserReq {
         this['is_set_password'] = isSetPassword;
         return this;
     }
-    public set isSetPassword(isSetPassword: boolean | undefined) {
+    public set isSetPassword(isSetPassword: boolean  | undefined) {
         this['is_set_password'] = isSetPassword;
     }
-    public get isSetPassword() {
+    public get isSetPassword(): boolean | undefined {
         return this['is_set_password'];
     }
     public withIsMigrateUser(isMigrateUser: boolean): UpdateUserReq {
         this['is_migrate_user'] = isMigrateUser;
         return this;
     }
-    public set isMigrateUser(isMigrateUser: boolean | undefined) {
+    public set isMigrateUser(isMigrateUser: boolean  | undefined) {
         this['is_migrate_user'] = isMigrateUser;
     }
-    public get isMigrateUser() {
+    public get isMigrateUser(): boolean | undefined {
         return this['is_migrate_user'];
     }
     public withIsSyncObjectPrivilege(isSyncObjectPrivilege: boolean): UpdateUserReq {
         this['is_sync_object_privilege'] = isSyncObjectPrivilege;
         return this;
     }
-    public set isSyncObjectPrivilege(isSyncObjectPrivilege: boolean | undefined) {
+    public set isSyncObjectPrivilege(isSyncObjectPrivilege: boolean  | undefined) {
         this['is_sync_object_privilege'] = isSyncObjectPrivilege;
     }
-    public get isSyncObjectPrivilege() {
+    public get isSyncObjectPrivilege(): boolean | undefined {
         return this['is_sync_object_privilege'];
     }
 }

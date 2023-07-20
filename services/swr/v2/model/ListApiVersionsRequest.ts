@@ -1,18 +1,18 @@
 
 
 export class ListApiVersionsRequest {
-    private 'Content-Type': ListApiVersionsRequestContentTypeEnum | undefined;
-    public constructor(contentType?: any) { 
+    private 'Content-Type'?: ListApiVersionsRequestContentTypeEnum | string;
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
-    public withContentType(contentType: ListApiVersionsRequestContentTypeEnum): ListApiVersionsRequest {
+    public withContentType(contentType: ListApiVersionsRequestContentTypeEnum | string): ListApiVersionsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ListApiVersionsRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ListApiVersionsRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ListApiVersionsRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
 }

@@ -1,30 +1,30 @@
 
 
 export class ListRocketMqMigrationTaskRequest {
-    private 'instance_id': string | undefined;
+    private 'instance_id'?: string;
     public id?: string;
-    public type?: ListRocketMqMigrationTaskRequestTypeEnum;
+    public type?: ListRocketMqMigrationTaskRequestTypeEnum | string;
     public offset?: string;
     public limit?: string;
     public name?: string;
-    public constructor(instanceId?: any) { 
+    public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
     public withInstanceId(instanceId: string): ListRocketMqMigrationTaskRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withId(id: string): ListRocketMqMigrationTaskRequest {
         this['id'] = id;
         return this;
     }
-    public withType(type: ListRocketMqMigrationTaskRequestTypeEnum): ListRocketMqMigrationTaskRequest {
+    public withType(type: ListRocketMqMigrationTaskRequestTypeEnum | string): ListRocketMqMigrationTaskRequest {
         this['type'] = type;
         return this;
     }

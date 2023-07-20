@@ -1,11 +1,11 @@
 
 
 export class OBSTriggerConfig {
-    public bucket: string;
-    public events: Array<string>;
-    public prefix: string;
-    public suffix: string;
-    public constructor(bucket?: any, events?: any, prefix?: any, suffix?: any) { 
+    public bucket?: string;
+    public events?: Array<string>;
+    public prefix?: string;
+    public suffix?: string;
+    public constructor(bucket?: string, events?: Array<string>, prefix?: string, suffix?: string) { 
         this['bucket'] = bucket;
         this['events'] = events;
         this['prefix'] = prefix;

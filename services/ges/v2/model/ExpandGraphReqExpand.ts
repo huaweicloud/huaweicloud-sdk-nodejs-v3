@@ -1,8 +1,8 @@
 
 
 export class ExpandGraphReqExpand {
-    public replication: number;
-    public constructor(replication?: any) { 
+    public replication?: number;
+    public constructor(replication?: number) { 
         this['replication'] = replication;
     }
     public withReplication(replication: number): ExpandGraphReqExpand {

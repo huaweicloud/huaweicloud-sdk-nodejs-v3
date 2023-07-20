@@ -107,7 +107,7 @@ export class KpsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteAllFailedTask(): Promise<DeleteAllFailedTaskResponse> {
+    public deleteAllFailedTask(deleteAllFailedTaskRequest?: DeleteAllFailedTaskRequest): Promise<DeleteAllFailedTaskResponse> {
         const options = ParamCreater().deleteAllFailedTask();
 
          // @ts-ignore

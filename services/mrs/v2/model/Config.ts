@@ -1,10 +1,10 @@
 
 
 export class Config {
-    public key: string;
-    public value: string;
-    private 'config_file_name': string | undefined;
-    public constructor(key?: any, value?: any, configFileName?: any) { 
+    public key?: string;
+    public value?: string;
+    private 'config_file_name'?: string;
+    public constructor(key?: string, value?: string, configFileName?: string) { 
         this['key'] = key;
         this['value'] = value;
         this['config_file_name'] = configFileName;
@@ -21,10 +21,10 @@ export class Config {
         this['config_file_name'] = configFileName;
         return this;
     }
-    public set configFileName(configFileName: string | undefined) {
+    public set configFileName(configFileName: string  | undefined) {
         this['config_file_name'] = configFileName;
     }
-    public get configFileName() {
+    public get configFileName(): string | undefined {
         return this['config_file_name'];
     }
 }

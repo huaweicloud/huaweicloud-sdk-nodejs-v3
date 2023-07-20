@@ -2,11 +2,11 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowMetadataResponse extends SdkResponse {
-    private 'backup_id'?: string | undefined;
+    private 'backup_id'?: string;
     public backups?: string;
     public flavor?: string;
     public floatingips?: Array<string>;
-    private 'interface'?: string | undefined;
+    private 'interface'?: string;
     public ports?: Array<string>;
     public server?: string;
     public volumes?: Array<string>;
@@ -17,10 +17,10 @@ export class ShowMetadataResponse extends SdkResponse {
         this['backup_id'] = backupId;
         return this;
     }
-    public set backupId(backupId: string | undefined) {
+    public set backupId(backupId: string  | undefined) {
         this['backup_id'] = backupId;
     }
-    public get backupId() {
+    public get backupId(): string | undefined {
         return this['backup_id'];
     }
     public withBackups(backups: string): ShowMetadataResponse {
@@ -39,10 +39,10 @@ export class ShowMetadataResponse extends SdkResponse {
         this['interface'] = _interface;
         return this;
     }
-    public set _interface(_interface: string | undefined) {
+    public set _interface(_interface: string  | undefined) {
         this['interface'] = _interface;
     }
-    public get _interface() {
+    public get _interface(): string | undefined {
         return this['interface'];
     }
     public withPorts(ports: Array<string>): ShowMetadataResponse {

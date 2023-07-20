@@ -3,7 +3,7 @@
 export class UpdateFlowLogReq {
     public name?: string;
     public description?: string;
-    private 'admin_state'?: boolean | undefined;
+    private 'admin_state'?: boolean;
     public constructor() { 
     }
     public withName(name: string): UpdateFlowLogReq {
@@ -18,10 +18,10 @@ export class UpdateFlowLogReq {
         this['admin_state'] = adminState;
         return this;
     }
-    public set adminState(adminState: boolean | undefined) {
+    public set adminState(adminState: boolean  | undefined) {
         this['admin_state'] = adminState;
     }
-    public get adminState() {
+    public get adminState(): boolean | undefined {
         return this['admin_state'];
     }
 }

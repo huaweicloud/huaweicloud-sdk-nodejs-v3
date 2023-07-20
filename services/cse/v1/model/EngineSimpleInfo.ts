@@ -5,28 +5,28 @@ import { EntrypointItem } from './EntrypointItem';
 export class EngineSimpleInfo {
     public id?: string;
     public name?: string;
-    private 'enterpris_project_id'?: string | undefined;
-    private 'enterprise_project_name'?: string | undefined;
-    public type?: EngineSimpleInfoTypeEnum;
+    private 'enterpris_project_id'?: string;
+    private 'enterprise_project_name'?: string;
+    public type?: EngineSimpleInfoTypeEnum | string;
     public description?: string;
-    public flavor?: EngineSimpleInfoFlavorEnum;
+    public flavor?: EngineSimpleInfoFlavorEnum | string;
     public payment?: string;
-    private 'auth_type'?: EngineSimpleInfoAuthTypeEnum | undefined;
-    public status?: EngineSimpleInfoStatusEnum;
-    private 'external_address'?: string | undefined;
-    private 'service_endpoint'?: { [key: string]: EntrypointItem; } | undefined;
-    private 'public_address'?: string | undefined;
-    private 'public_service_endpoint'?: { [key: string]: EntrypointItem; } | undefined;
-    private 'total_instance'?: number | undefined;
-    private 'used_instance'?: number | undefined;
-    private 'available_instance'?: number | undefined;
+    private 'auth_type'?: EngineSimpleInfoAuthTypeEnum | string;
+    public status?: EngineSimpleInfoStatusEnum | string;
+    private 'external_address'?: string;
+    private 'service_endpoint'?: { [key: string]: EntrypointItem; };
+    private 'public_address'?: string;
+    private 'public_service_endpoint'?: { [key: string]: EntrypointItem; };
+    private 'total_instance'?: number;
+    private 'used_instance'?: number;
+    private 'available_instance'?: number;
     public version?: string;
-    private 'latest_version'?: string | undefined;
-    private 'create_time'?: number | undefined;
-    private 'due_to'?: number | undefined;
-    private 'latest_job_id'?: number | undefined;
-    private 'engine_additional_actions'?: Array<EngineSimpleInfoEngineAdditionalActionsEnum> | undefined;
-    private 'spec_type'?: EngineSimpleInfoSpecTypeEnum | undefined;
+    private 'latest_version'?: string;
+    private 'create_time'?: number;
+    private 'due_to'?: number;
+    private 'latest_job_id'?: number;
+    private 'engine_additional_actions'?: Array<EngineSimpleInfoEngineAdditionalActionsEnum> | Array<string>;
+    private 'spec_type'?: EngineSimpleInfoSpecTypeEnum | string;
     public reference?: EngineReference;
     public constructor() { 
     }
@@ -42,23 +42,23 @@ export class EngineSimpleInfo {
         this['enterpris_project_id'] = enterprisProjectId;
         return this;
     }
-    public set enterprisProjectId(enterprisProjectId: string | undefined) {
+    public set enterprisProjectId(enterprisProjectId: string  | undefined) {
         this['enterpris_project_id'] = enterprisProjectId;
     }
-    public get enterprisProjectId() {
+    public get enterprisProjectId(): string | undefined {
         return this['enterpris_project_id'];
     }
     public withEnterpriseProjectName(enterpriseProjectName: string): EngineSimpleInfo {
         this['enterprise_project_name'] = enterpriseProjectName;
         return this;
     }
-    public set enterpriseProjectName(enterpriseProjectName: string | undefined) {
+    public set enterpriseProjectName(enterpriseProjectName: string  | undefined) {
         this['enterprise_project_name'] = enterpriseProjectName;
     }
-    public get enterpriseProjectName() {
+    public get enterpriseProjectName(): string | undefined {
         return this['enterprise_project_name'];
     }
-    public withType(type: EngineSimpleInfoTypeEnum): EngineSimpleInfo {
+    public withType(type: EngineSimpleInfoTypeEnum | string): EngineSimpleInfo {
         this['type'] = type;
         return this;
     }
@@ -66,7 +66,7 @@ export class EngineSimpleInfo {
         this['description'] = description;
         return this;
     }
-    public withFlavor(flavor: EngineSimpleInfoFlavorEnum): EngineSimpleInfo {
+    public withFlavor(flavor: EngineSimpleInfoFlavorEnum | string): EngineSimpleInfo {
         this['flavor'] = flavor;
         return this;
     }
@@ -74,17 +74,17 @@ export class EngineSimpleInfo {
         this['payment'] = payment;
         return this;
     }
-    public withAuthType(authType: EngineSimpleInfoAuthTypeEnum): EngineSimpleInfo {
+    public withAuthType(authType: EngineSimpleInfoAuthTypeEnum | string): EngineSimpleInfo {
         this['auth_type'] = authType;
         return this;
     }
-    public set authType(authType: EngineSimpleInfoAuthTypeEnum | undefined) {
+    public set authType(authType: EngineSimpleInfoAuthTypeEnum | string  | undefined) {
         this['auth_type'] = authType;
     }
-    public get authType() {
+    public get authType(): EngineSimpleInfoAuthTypeEnum | string | undefined {
         return this['auth_type'];
     }
-    public withStatus(status: EngineSimpleInfoStatusEnum): EngineSimpleInfo {
+    public withStatus(status: EngineSimpleInfoStatusEnum | string): EngineSimpleInfo {
         this['status'] = status;
         return this;
     }
@@ -92,70 +92,70 @@ export class EngineSimpleInfo {
         this['external_address'] = externalAddress;
         return this;
     }
-    public set externalAddress(externalAddress: string | undefined) {
+    public set externalAddress(externalAddress: string  | undefined) {
         this['external_address'] = externalAddress;
     }
-    public get externalAddress() {
+    public get externalAddress(): string | undefined {
         return this['external_address'];
     }
     public withServiceEndpoint(serviceEndpoint: { [key: string]: EntrypointItem; }): EngineSimpleInfo {
         this['service_endpoint'] = serviceEndpoint;
         return this;
     }
-    public set serviceEndpoint(serviceEndpoint: { [key: string]: EntrypointItem; } | undefined) {
+    public set serviceEndpoint(serviceEndpoint: { [key: string]: EntrypointItem; }  | undefined) {
         this['service_endpoint'] = serviceEndpoint;
     }
-    public get serviceEndpoint() {
+    public get serviceEndpoint(): { [key: string]: EntrypointItem; } | undefined {
         return this['service_endpoint'];
     }
     public withPublicAddress(publicAddress: string): EngineSimpleInfo {
         this['public_address'] = publicAddress;
         return this;
     }
-    public set publicAddress(publicAddress: string | undefined) {
+    public set publicAddress(publicAddress: string  | undefined) {
         this['public_address'] = publicAddress;
     }
-    public get publicAddress() {
+    public get publicAddress(): string | undefined {
         return this['public_address'];
     }
     public withPublicServiceEndpoint(publicServiceEndpoint: { [key: string]: EntrypointItem; }): EngineSimpleInfo {
         this['public_service_endpoint'] = publicServiceEndpoint;
         return this;
     }
-    public set publicServiceEndpoint(publicServiceEndpoint: { [key: string]: EntrypointItem; } | undefined) {
+    public set publicServiceEndpoint(publicServiceEndpoint: { [key: string]: EntrypointItem; }  | undefined) {
         this['public_service_endpoint'] = publicServiceEndpoint;
     }
-    public get publicServiceEndpoint() {
+    public get publicServiceEndpoint(): { [key: string]: EntrypointItem; } | undefined {
         return this['public_service_endpoint'];
     }
     public withTotalInstance(totalInstance: number): EngineSimpleInfo {
         this['total_instance'] = totalInstance;
         return this;
     }
-    public set totalInstance(totalInstance: number | undefined) {
+    public set totalInstance(totalInstance: number  | undefined) {
         this['total_instance'] = totalInstance;
     }
-    public get totalInstance() {
+    public get totalInstance(): number | undefined {
         return this['total_instance'];
     }
     public withUsedInstance(usedInstance: number): EngineSimpleInfo {
         this['used_instance'] = usedInstance;
         return this;
     }
-    public set usedInstance(usedInstance: number | undefined) {
+    public set usedInstance(usedInstance: number  | undefined) {
         this['used_instance'] = usedInstance;
     }
-    public get usedInstance() {
+    public get usedInstance(): number | undefined {
         return this['used_instance'];
     }
     public withAvailableInstance(availableInstance: number): EngineSimpleInfo {
         this['available_instance'] = availableInstance;
         return this;
     }
-    public set availableInstance(availableInstance: number | undefined) {
+    public set availableInstance(availableInstance: number  | undefined) {
         this['available_instance'] = availableInstance;
     }
-    public get availableInstance() {
+    public get availableInstance(): number | undefined {
         return this['available_instance'];
     }
     public withVersion(version: string): EngineSimpleInfo {
@@ -166,60 +166,60 @@ export class EngineSimpleInfo {
         this['latest_version'] = latestVersion;
         return this;
     }
-    public set latestVersion(latestVersion: string | undefined) {
+    public set latestVersion(latestVersion: string  | undefined) {
         this['latest_version'] = latestVersion;
     }
-    public get latestVersion() {
+    public get latestVersion(): string | undefined {
         return this['latest_version'];
     }
     public withCreateTime(createTime: number): EngineSimpleInfo {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: number | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
     public withDueTo(dueTo: number): EngineSimpleInfo {
         this['due_to'] = dueTo;
         return this;
     }
-    public set dueTo(dueTo: number | undefined) {
+    public set dueTo(dueTo: number  | undefined) {
         this['due_to'] = dueTo;
     }
-    public get dueTo() {
+    public get dueTo(): number | undefined {
         return this['due_to'];
     }
     public withLatestJobId(latestJobId: number): EngineSimpleInfo {
         this['latest_job_id'] = latestJobId;
         return this;
     }
-    public set latestJobId(latestJobId: number | undefined) {
+    public set latestJobId(latestJobId: number  | undefined) {
         this['latest_job_id'] = latestJobId;
     }
-    public get latestJobId() {
+    public get latestJobId(): number | undefined {
         return this['latest_job_id'];
     }
-    public withEngineAdditionalActions(engineAdditionalActions: Array<EngineSimpleInfoEngineAdditionalActionsEnum>): EngineSimpleInfo {
+    public withEngineAdditionalActions(engineAdditionalActions: Array<EngineSimpleInfoEngineAdditionalActionsEnum> | Array<string>): EngineSimpleInfo {
         this['engine_additional_actions'] = engineAdditionalActions;
         return this;
     }
-    public set engineAdditionalActions(engineAdditionalActions: Array<EngineSimpleInfoEngineAdditionalActionsEnum> | undefined) {
+    public set engineAdditionalActions(engineAdditionalActions: Array<EngineSimpleInfoEngineAdditionalActionsEnum> | Array<string>  | undefined) {
         this['engine_additional_actions'] = engineAdditionalActions;
     }
-    public get engineAdditionalActions() {
+    public get engineAdditionalActions(): Array<EngineSimpleInfoEngineAdditionalActionsEnum> | Array<string> | undefined {
         return this['engine_additional_actions'];
     }
-    public withSpecType(specType: EngineSimpleInfoSpecTypeEnum): EngineSimpleInfo {
+    public withSpecType(specType: EngineSimpleInfoSpecTypeEnum | string): EngineSimpleInfo {
         this['spec_type'] = specType;
         return this;
     }
-    public set specType(specType: EngineSimpleInfoSpecTypeEnum | undefined) {
+    public set specType(specType: EngineSimpleInfoSpecTypeEnum | string  | undefined) {
         this['spec_type'] = specType;
     }
-    public get specType() {
+    public get specType(): EngineSimpleInfoSpecTypeEnum | string | undefined {
         return this['spec_type'];
     }
     public withReference(reference: EngineReference): EngineSimpleInfo {

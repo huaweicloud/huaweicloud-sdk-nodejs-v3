@@ -1,11 +1,11 @@
 
 
 export class CreateSearchCriteriasBody {
-    public criteria: string;
-    private 'eps_id'?: string | undefined;
-    public name: string;
-    private 'search_type': string | undefined;
-    public constructor(criteria?: any, name?: any, searchType?: any) { 
+    public criteria?: string;
+    private 'eps_id'?: string;
+    public name?: string;
+    private 'search_type'?: string;
+    public constructor(criteria?: string, name?: string, searchType?: string) { 
         this['criteria'] = criteria;
         this['name'] = name;
         this['search_type'] = searchType;
@@ -18,10 +18,10 @@ export class CreateSearchCriteriasBody {
         this['eps_id'] = epsId;
         return this;
     }
-    public set epsId(epsId: string | undefined) {
+    public set epsId(epsId: string  | undefined) {
         this['eps_id'] = epsId;
     }
-    public get epsId() {
+    public get epsId(): string | undefined {
         return this['eps_id'];
     }
     public withName(name: string): CreateSearchCriteriasBody {
@@ -32,10 +32,10 @@ export class CreateSearchCriteriasBody {
         this['search_type'] = searchType;
         return this;
     }
-    public set searchType(searchType: string | undefined) {
+    public set searchType(searchType: string  | undefined) {
         this['search_type'] = searchType;
     }
-    public get searchType() {
+    public get searchType(): string | undefined {
         return this['search_type'];
     }
 }

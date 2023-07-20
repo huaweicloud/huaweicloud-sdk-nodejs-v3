@@ -6,7 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListSnapshotsResponse extends SdkResponse {
     public count?: number;
     public snapshots?: Array<SnapshotList>;
-    private 'snapshots_links'?: Array<Link> | undefined;
+    private 'snapshots_links'?: Array<Link>;
     public constructor() { 
         super();
     }
@@ -22,10 +22,10 @@ export class ListSnapshotsResponse extends SdkResponse {
         this['snapshots_links'] = snapshotsLinks;
         return this;
     }
-    public set snapshotsLinks(snapshotsLinks: Array<Link> | undefined) {
+    public set snapshotsLinks(snapshotsLinks: Array<Link>  | undefined) {
         this['snapshots_links'] = snapshotsLinks;
     }
-    public get snapshotsLinks() {
+    public get snapshotsLinks(): Array<Link> | undefined {
         return this['snapshots_links'];
     }
 }

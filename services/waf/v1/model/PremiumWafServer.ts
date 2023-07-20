@@ -1,14 +1,14 @@
 
 
 export class PremiumWafServer {
-    private 'front_protocol': PremiumWafServerFrontProtocolEnum | undefined;
-    private 'back_protocol': PremiumWafServerBackProtocolEnum | undefined;
+    private 'front_protocol'?: PremiumWafServerFrontProtocolEnum | string;
+    private 'back_protocol'?: PremiumWafServerBackProtocolEnum | string;
     public weight?: number;
-    public address: string;
-    public port: number;
-    public type: PremiumWafServerTypeEnum;
-    private 'vpc_id': string | undefined;
-    public constructor(frontProtocol?: any, backProtocol?: any, address?: any, port?: any, type?: any, vpcId?: any) { 
+    public address?: string;
+    public port?: number;
+    public type?: PremiumWafServerTypeEnum | string;
+    private 'vpc_id'?: string;
+    public constructor(frontProtocol?: string, backProtocol?: string, address?: string, port?: number, type?: string, vpcId?: string) { 
         this['front_protocol'] = frontProtocol;
         this['back_protocol'] = backProtocol;
         this['address'] = address;
@@ -16,24 +16,24 @@ export class PremiumWafServer {
         this['type'] = type;
         this['vpc_id'] = vpcId;
     }
-    public withFrontProtocol(frontProtocol: PremiumWafServerFrontProtocolEnum): PremiumWafServer {
+    public withFrontProtocol(frontProtocol: PremiumWafServerFrontProtocolEnum | string): PremiumWafServer {
         this['front_protocol'] = frontProtocol;
         return this;
     }
-    public set frontProtocol(frontProtocol: PremiumWafServerFrontProtocolEnum | undefined) {
+    public set frontProtocol(frontProtocol: PremiumWafServerFrontProtocolEnum | string  | undefined) {
         this['front_protocol'] = frontProtocol;
     }
-    public get frontProtocol() {
+    public get frontProtocol(): PremiumWafServerFrontProtocolEnum | string | undefined {
         return this['front_protocol'];
     }
-    public withBackProtocol(backProtocol: PremiumWafServerBackProtocolEnum): PremiumWafServer {
+    public withBackProtocol(backProtocol: PremiumWafServerBackProtocolEnum | string): PremiumWafServer {
         this['back_protocol'] = backProtocol;
         return this;
     }
-    public set backProtocol(backProtocol: PremiumWafServerBackProtocolEnum | undefined) {
+    public set backProtocol(backProtocol: PremiumWafServerBackProtocolEnum | string  | undefined) {
         this['back_protocol'] = backProtocol;
     }
-    public get backProtocol() {
+    public get backProtocol(): PremiumWafServerBackProtocolEnum | string | undefined {
         return this['back_protocol'];
     }
     public withWeight(weight: number): PremiumWafServer {
@@ -48,7 +48,7 @@ export class PremiumWafServer {
         this['port'] = port;
         return this;
     }
-    public withType(type: PremiumWafServerTypeEnum): PremiumWafServer {
+    public withType(type: PremiumWafServerTypeEnum | string): PremiumWafServer {
         this['type'] = type;
         return this;
     }
@@ -56,10 +56,10 @@ export class PremiumWafServer {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
 }

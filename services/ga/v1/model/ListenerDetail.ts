@@ -12,13 +12,13 @@ export class ListenerDetail {
     public description?: string;
     public protocol?: ListenerProtocol;
     public status?: ConfigStatus;
-    private 'port_ranges'?: Array<PortRange> | undefined;
-    private 'client_affinity'?: ClientAffinity | undefined;
-    private 'accelerator_id'?: string | undefined;
-    private 'created_at'?: Date | undefined;
-    private 'updated_at'?: Date | undefined;
-    private 'domain_id'?: string | undefined;
-    private 'frozen_info'?: FrozenInfo | undefined;
+    private 'port_ranges'?: Array<PortRange>;
+    private 'client_affinity'?: ClientAffinity;
+    private 'accelerator_id'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    private 'domain_id'?: string;
+    private 'frozen_info'?: FrozenInfo;
     public tags?: Array<ResourceTag>;
     public constructor() { 
     }
@@ -46,70 +46,70 @@ export class ListenerDetail {
         this['port_ranges'] = portRanges;
         return this;
     }
-    public set portRanges(portRanges: Array<PortRange> | undefined) {
+    public set portRanges(portRanges: Array<PortRange>  | undefined) {
         this['port_ranges'] = portRanges;
     }
-    public get portRanges() {
+    public get portRanges(): Array<PortRange> | undefined {
         return this['port_ranges'];
     }
     public withClientAffinity(clientAffinity: ClientAffinity): ListenerDetail {
         this['client_affinity'] = clientAffinity;
         return this;
     }
-    public set clientAffinity(clientAffinity: ClientAffinity | undefined) {
+    public set clientAffinity(clientAffinity: ClientAffinity  | undefined) {
         this['client_affinity'] = clientAffinity;
     }
-    public get clientAffinity() {
+    public get clientAffinity(): ClientAffinity | undefined {
         return this['client_affinity'];
     }
     public withAcceleratorId(acceleratorId: string): ListenerDetail {
         this['accelerator_id'] = acceleratorId;
         return this;
     }
-    public set acceleratorId(acceleratorId: string | undefined) {
+    public set acceleratorId(acceleratorId: string  | undefined) {
         this['accelerator_id'] = acceleratorId;
     }
-    public get acceleratorId() {
+    public get acceleratorId(): string | undefined {
         return this['accelerator_id'];
     }
     public withCreatedAt(createdAt: Date): ListenerDetail {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): ListenerDetail {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withDomainId(domainId: string): ListenerDetail {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withFrozenInfo(frozenInfo: FrozenInfo): ListenerDetail {
         this['frozen_info'] = frozenInfo;
         return this;
     }
-    public set frozenInfo(frozenInfo: FrozenInfo | undefined) {
+    public set frozenInfo(frozenInfo: FrozenInfo  | undefined) {
         this['frozen_info'] = frozenInfo;
     }
-    public get frozenInfo() {
+    public get frozenInfo(): FrozenInfo | undefined {
         return this['frozen_info'];
     }
     public withTags(tags: Array<ResourceTag>): ListenerDetail {

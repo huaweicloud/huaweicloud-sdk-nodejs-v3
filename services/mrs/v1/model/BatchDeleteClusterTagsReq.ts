@@ -2,13 +2,13 @@ import { Tag } from './Tag';
 
 
 export class BatchDeleteClusterTagsReq {
-    public action: BatchDeleteClusterTagsReqActionEnum;
-    public tags: Array<Tag>;
-    public constructor(action?: any, tags?: any) { 
+    public action?: BatchDeleteClusterTagsReqActionEnum | string;
+    public tags?: Array<Tag>;
+    public constructor(action?: string, tags?: Array<Tag>) { 
         this['action'] = action;
         this['tags'] = tags;
     }
-    public withAction(action: BatchDeleteClusterTagsReqActionEnum): BatchDeleteClusterTagsReq {
+    public withAction(action: BatchDeleteClusterTagsReqActionEnum | string): BatchDeleteClusterTagsReq {
         this['action'] = action;
         return this;
     }

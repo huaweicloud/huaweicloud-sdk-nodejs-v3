@@ -4,9 +4,9 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowTemplateFileResponse extends SdkResponse {
     public content?: string;
     public encoding?: string;
-    private 'file_name'?: string | undefined;
-    private 'file_path'?: string | undefined;
-    private 'file_type'?: string | undefined;
+    private 'file_name'?: string;
+    private 'file_path'?: string;
+    private 'file_type'?: string;
     public constructor() { 
         super();
     }
@@ -22,30 +22,30 @@ export class ShowTemplateFileResponse extends SdkResponse {
         this['file_name'] = fileName;
         return this;
     }
-    public set fileName(fileName: string | undefined) {
+    public set fileName(fileName: string  | undefined) {
         this['file_name'] = fileName;
     }
-    public get fileName() {
+    public get fileName(): string | undefined {
         return this['file_name'];
     }
     public withFilePath(filePath: string): ShowTemplateFileResponse {
         this['file_path'] = filePath;
         return this;
     }
-    public set filePath(filePath: string | undefined) {
+    public set filePath(filePath: string  | undefined) {
         this['file_path'] = filePath;
     }
-    public get filePath() {
+    public get filePath(): string | undefined {
         return this['file_path'];
     }
     public withFileType(fileType: string): ShowTemplateFileResponse {
         this['file_type'] = fileType;
         return this;
     }
-    public set fileType(fileType: string | undefined) {
+    public set fileType(fileType: string  | undefined) {
         this['file_type'] = fileType;
     }
-    public get fileType() {
+    public get fileType(): string | undefined {
         return this['file_type'];
     }
 }

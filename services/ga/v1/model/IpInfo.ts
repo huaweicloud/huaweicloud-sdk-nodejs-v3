@@ -3,7 +3,7 @@
 export class IpInfo {
     public cidr?: string;
     public description?: string;
-    private 'created_at'?: Date | undefined;
+    private 'created_at'?: Date;
     public constructor() { 
     }
     public withCidr(cidr: string): IpInfo {
@@ -18,10 +18,10 @@ export class IpInfo {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
 }

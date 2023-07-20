@@ -2,9 +2,9 @@ import { TimeValue } from './TimeValue';
 
 
 export class AreaTimeValue {
-    public name: string;
-    public data: Array<TimeValue>;
-    public constructor(name?: any, data?: any) { 
+    public name?: string;
+    public data?: Array<TimeValue>;
+    public constructor(name?: string, data?: Array<TimeValue>) { 
         this['name'] = name;
         this['data'] = data;
     }

@@ -2,22 +2,22 @@ import { CoverInfo } from './CoverInfo';
 
 
 export class AssetSummary {
-    private 'asset_id': string | undefined;
-    public title: string;
+    private 'asset_id'?: string;
+    public title?: string;
     public description?: string;
-    public duration: number;
-    public size: number;
-    private 'original_url'?: string | undefined;
+    public duration?: number;
+    public size?: number;
+    private 'original_url'?: string;
     public category?: string;
     public covers?: Array<CoverInfo>;
-    private 'create_time'?: string | undefined;
-    private 'asset_status': AssetSummaryAssetStatusEnum | undefined;
-    private 'transcode_status'?: AssetSummaryTranscodeStatusEnum | undefined;
-    private 'thumbnail_status'?: AssetSummaryThumbnailStatusEnum | undefined;
-    private 'review_status'?: AssetSummaryReviewStatusEnum | undefined;
-    private 'exec_desc'?: string | undefined;
-    private 'media_type'?: string | undefined;
-    public constructor(assetId?: any, title?: any, duration?: any, size?: any, assetStatus?: any) { 
+    private 'create_time'?: string;
+    private 'asset_status'?: AssetSummaryAssetStatusEnum | string;
+    private 'transcode_status'?: AssetSummaryTranscodeStatusEnum | string;
+    private 'thumbnail_status'?: AssetSummaryThumbnailStatusEnum | string;
+    private 'review_status'?: AssetSummaryReviewStatusEnum | string;
+    private 'exec_desc'?: string;
+    private 'media_type'?: string;
+    public constructor(assetId?: string, title?: string, duration?: number, size?: number, assetStatus?: string) { 
         this['asset_id'] = assetId;
         this['title'] = title;
         this['duration'] = duration;
@@ -28,10 +28,10 @@ export class AssetSummary {
         this['asset_id'] = assetId;
         return this;
     }
-    public set assetId(assetId: string | undefined) {
+    public set assetId(assetId: string  | undefined) {
         this['asset_id'] = assetId;
     }
-    public get assetId() {
+    public get assetId(): string | undefined {
         return this['asset_id'];
     }
     public withTitle(title: string): AssetSummary {
@@ -54,10 +54,10 @@ export class AssetSummary {
         this['original_url'] = originalUrl;
         return this;
     }
-    public set originalUrl(originalUrl: string | undefined) {
+    public set originalUrl(originalUrl: string  | undefined) {
         this['original_url'] = originalUrl;
     }
-    public get originalUrl() {
+    public get originalUrl(): string | undefined {
         return this['original_url'];
     }
     public withCategory(category: string): AssetSummary {
@@ -72,70 +72,70 @@ export class AssetSummary {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
-    public withAssetStatus(assetStatus: AssetSummaryAssetStatusEnum): AssetSummary {
+    public withAssetStatus(assetStatus: AssetSummaryAssetStatusEnum | string): AssetSummary {
         this['asset_status'] = assetStatus;
         return this;
     }
-    public set assetStatus(assetStatus: AssetSummaryAssetStatusEnum | undefined) {
+    public set assetStatus(assetStatus: AssetSummaryAssetStatusEnum | string  | undefined) {
         this['asset_status'] = assetStatus;
     }
-    public get assetStatus() {
+    public get assetStatus(): AssetSummaryAssetStatusEnum | string | undefined {
         return this['asset_status'];
     }
-    public withTranscodeStatus(transcodeStatus: AssetSummaryTranscodeStatusEnum): AssetSummary {
+    public withTranscodeStatus(transcodeStatus: AssetSummaryTranscodeStatusEnum | string): AssetSummary {
         this['transcode_status'] = transcodeStatus;
         return this;
     }
-    public set transcodeStatus(transcodeStatus: AssetSummaryTranscodeStatusEnum | undefined) {
+    public set transcodeStatus(transcodeStatus: AssetSummaryTranscodeStatusEnum | string  | undefined) {
         this['transcode_status'] = transcodeStatus;
     }
-    public get transcodeStatus() {
+    public get transcodeStatus(): AssetSummaryTranscodeStatusEnum | string | undefined {
         return this['transcode_status'];
     }
-    public withThumbnailStatus(thumbnailStatus: AssetSummaryThumbnailStatusEnum): AssetSummary {
+    public withThumbnailStatus(thumbnailStatus: AssetSummaryThumbnailStatusEnum | string): AssetSummary {
         this['thumbnail_status'] = thumbnailStatus;
         return this;
     }
-    public set thumbnailStatus(thumbnailStatus: AssetSummaryThumbnailStatusEnum | undefined) {
+    public set thumbnailStatus(thumbnailStatus: AssetSummaryThumbnailStatusEnum | string  | undefined) {
         this['thumbnail_status'] = thumbnailStatus;
     }
-    public get thumbnailStatus() {
+    public get thumbnailStatus(): AssetSummaryThumbnailStatusEnum | string | undefined {
         return this['thumbnail_status'];
     }
-    public withReviewStatus(reviewStatus: AssetSummaryReviewStatusEnum): AssetSummary {
+    public withReviewStatus(reviewStatus: AssetSummaryReviewStatusEnum | string): AssetSummary {
         this['review_status'] = reviewStatus;
         return this;
     }
-    public set reviewStatus(reviewStatus: AssetSummaryReviewStatusEnum | undefined) {
+    public set reviewStatus(reviewStatus: AssetSummaryReviewStatusEnum | string  | undefined) {
         this['review_status'] = reviewStatus;
     }
-    public get reviewStatus() {
+    public get reviewStatus(): AssetSummaryReviewStatusEnum | string | undefined {
         return this['review_status'];
     }
     public withExecDesc(execDesc: string): AssetSummary {
         this['exec_desc'] = execDesc;
         return this;
     }
-    public set execDesc(execDesc: string | undefined) {
+    public set execDesc(execDesc: string  | undefined) {
         this['exec_desc'] = execDesc;
     }
-    public get execDesc() {
+    public get execDesc(): string | undefined {
         return this['exec_desc'];
     }
     public withMediaType(mediaType: string): AssetSummary {
         this['media_type'] = mediaType;
         return this;
     }
-    public set mediaType(mediaType: string | undefined) {
+    public set mediaType(mediaType: string  | undefined) {
         this['media_type'] = mediaType;
     }
-    public get mediaType() {
+    public get mediaType(): string | undefined {
         return this['media_type'];
     }
 }

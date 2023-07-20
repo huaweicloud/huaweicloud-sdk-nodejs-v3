@@ -2,19 +2,19 @@ import { UpdateDomainProtectPolicyRequestBody } from './UpdateDomainProtectPolic
 
 
 export class UpdateDomainProtectPolicyRequest {
-    private 'domain_id': string | undefined;
+    private 'domain_id'?: string;
     public body?: UpdateDomainProtectPolicyRequestBody;
-    public constructor(domainId?: any) { 
+    public constructor(domainId?: string) { 
         this['domain_id'] = domainId;
     }
     public withDomainId(domainId: string): UpdateDomainProtectPolicyRequest {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withBody(body: UpdateDomainProtectPolicyRequestBody): UpdateDomainProtectPolicyRequest {

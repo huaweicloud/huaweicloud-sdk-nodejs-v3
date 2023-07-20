@@ -1,17 +1,17 @@
 
 
 export class UpdateAlertNoticeConfigRequestBody {
-    public name: string;
+    public name?: string;
     public enabled?: boolean;
-    private 'topic_urn': string | undefined;
+    private 'topic_urn'?: string;
     public sendfreq?: number;
     public locale?: string;
     public times?: number;
     public threat?: Array<string>;
-    private 'notice_class': string | undefined;
-    private 'nearly_expired_time'?: string | undefined;
-    private 'is_all_enterprise_project'?: boolean | undefined;
-    public constructor(name?: any, topicUrn?: any, noticeClass?: any) { 
+    private 'notice_class'?: string;
+    private 'nearly_expired_time'?: string;
+    private 'is_all_enterprise_project'?: boolean;
+    public constructor(name?: string, topicUrn?: string, noticeClass?: string) { 
         this['name'] = name;
         this['topic_urn'] = topicUrn;
         this['notice_class'] = noticeClass;
@@ -28,10 +28,10 @@ export class UpdateAlertNoticeConfigRequestBody {
         this['topic_urn'] = topicUrn;
         return this;
     }
-    public set topicUrn(topicUrn: string | undefined) {
+    public set topicUrn(topicUrn: string  | undefined) {
         this['topic_urn'] = topicUrn;
     }
-    public get topicUrn() {
+    public get topicUrn(): string | undefined {
         return this['topic_urn'];
     }
     public withSendfreq(sendfreq: number): UpdateAlertNoticeConfigRequestBody {
@@ -54,30 +54,30 @@ export class UpdateAlertNoticeConfigRequestBody {
         this['notice_class'] = noticeClass;
         return this;
     }
-    public set noticeClass(noticeClass: string | undefined) {
+    public set noticeClass(noticeClass: string  | undefined) {
         this['notice_class'] = noticeClass;
     }
-    public get noticeClass() {
+    public get noticeClass(): string | undefined {
         return this['notice_class'];
     }
     public withNearlyExpiredTime(nearlyExpiredTime: string): UpdateAlertNoticeConfigRequestBody {
         this['nearly_expired_time'] = nearlyExpiredTime;
         return this;
     }
-    public set nearlyExpiredTime(nearlyExpiredTime: string | undefined) {
+    public set nearlyExpiredTime(nearlyExpiredTime: string  | undefined) {
         this['nearly_expired_time'] = nearlyExpiredTime;
     }
-    public get nearlyExpiredTime() {
+    public get nearlyExpiredTime(): string | undefined {
         return this['nearly_expired_time'];
     }
     public withIsAllEnterpriseProject(isAllEnterpriseProject: boolean): UpdateAlertNoticeConfigRequestBody {
         this['is_all_enterprise_project'] = isAllEnterpriseProject;
         return this;
     }
-    public set isAllEnterpriseProject(isAllEnterpriseProject: boolean | undefined) {
+    public set isAllEnterpriseProject(isAllEnterpriseProject: boolean  | undefined) {
         this['is_all_enterprise_project'] = isAllEnterpriseProject;
     }
-    public get isAllEnterpriseProject() {
+    public get isAllEnterpriseProject(): boolean | undefined {
         return this['is_all_enterprise_project'];
     }
 }

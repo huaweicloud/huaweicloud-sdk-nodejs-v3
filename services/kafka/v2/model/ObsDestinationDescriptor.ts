@@ -1,18 +1,18 @@
 
 
 export class ObsDestinationDescriptor {
-    public topics: string;
-    private 'topics_regex'?: string | undefined;
-    private 'consumer_strategy': ObsDestinationDescriptorConsumerStrategyEnum | undefined;
-    private 'destination_file_type': ObsDestinationDescriptorDestinationFileTypeEnum | undefined;
-    private 'access_key': string | undefined;
-    private 'secret_key': string | undefined;
-    private 'obs_bucket_name': string | undefined;
-    private 'obs_path'?: string | undefined;
-    private 'partition_format'?: string | undefined;
-    private 'record_delimiter'?: string | undefined;
-    private 'deliver_time_interval': number | undefined;
-    public constructor(topics?: any, consumerStrategy?: any, destinationFileType?: any, accessKey?: any, secretKey?: any, obsBucketName?: any, deliverTimeInterval?: any) { 
+    public topics?: string;
+    private 'topics_regex'?: string;
+    private 'consumer_strategy'?: ObsDestinationDescriptorConsumerStrategyEnum | string;
+    private 'destination_file_type'?: ObsDestinationDescriptorDestinationFileTypeEnum | string;
+    private 'access_key'?: string;
+    private 'secret_key'?: string;
+    private 'obs_bucket_name'?: string;
+    private 'obs_path'?: string;
+    private 'partition_format'?: string;
+    private 'record_delimiter'?: string;
+    private 'deliver_time_interval'?: number;
+    public constructor(topics?: string, consumerStrategy?: string, destinationFileType?: string, accessKey?: string, secretKey?: string, obsBucketName?: string, deliverTimeInterval?: number) { 
         this['topics'] = topics;
         this['consumer_strategy'] = consumerStrategy;
         this['destination_file_type'] = destinationFileType;
@@ -29,100 +29,100 @@ export class ObsDestinationDescriptor {
         this['topics_regex'] = topicsRegex;
         return this;
     }
-    public set topicsRegex(topicsRegex: string | undefined) {
+    public set topicsRegex(topicsRegex: string  | undefined) {
         this['topics_regex'] = topicsRegex;
     }
-    public get topicsRegex() {
+    public get topicsRegex(): string | undefined {
         return this['topics_regex'];
     }
-    public withConsumerStrategy(consumerStrategy: ObsDestinationDescriptorConsumerStrategyEnum): ObsDestinationDescriptor {
+    public withConsumerStrategy(consumerStrategy: ObsDestinationDescriptorConsumerStrategyEnum | string): ObsDestinationDescriptor {
         this['consumer_strategy'] = consumerStrategy;
         return this;
     }
-    public set consumerStrategy(consumerStrategy: ObsDestinationDescriptorConsumerStrategyEnum | undefined) {
+    public set consumerStrategy(consumerStrategy: ObsDestinationDescriptorConsumerStrategyEnum | string  | undefined) {
         this['consumer_strategy'] = consumerStrategy;
     }
-    public get consumerStrategy() {
+    public get consumerStrategy(): ObsDestinationDescriptorConsumerStrategyEnum | string | undefined {
         return this['consumer_strategy'];
     }
-    public withDestinationFileType(destinationFileType: ObsDestinationDescriptorDestinationFileTypeEnum): ObsDestinationDescriptor {
+    public withDestinationFileType(destinationFileType: ObsDestinationDescriptorDestinationFileTypeEnum | string): ObsDestinationDescriptor {
         this['destination_file_type'] = destinationFileType;
         return this;
     }
-    public set destinationFileType(destinationFileType: ObsDestinationDescriptorDestinationFileTypeEnum | undefined) {
+    public set destinationFileType(destinationFileType: ObsDestinationDescriptorDestinationFileTypeEnum | string  | undefined) {
         this['destination_file_type'] = destinationFileType;
     }
-    public get destinationFileType() {
+    public get destinationFileType(): ObsDestinationDescriptorDestinationFileTypeEnum | string | undefined {
         return this['destination_file_type'];
     }
     public withAccessKey(accessKey: string): ObsDestinationDescriptor {
         this['access_key'] = accessKey;
         return this;
     }
-    public set accessKey(accessKey: string | undefined) {
+    public set accessKey(accessKey: string  | undefined) {
         this['access_key'] = accessKey;
     }
-    public get accessKey() {
+    public get accessKey(): string | undefined {
         return this['access_key'];
     }
     public withSecretKey(secretKey: string): ObsDestinationDescriptor {
         this['secret_key'] = secretKey;
         return this;
     }
-    public set secretKey(secretKey: string | undefined) {
+    public set secretKey(secretKey: string  | undefined) {
         this['secret_key'] = secretKey;
     }
-    public get secretKey() {
+    public get secretKey(): string | undefined {
         return this['secret_key'];
     }
     public withObsBucketName(obsBucketName: string): ObsDestinationDescriptor {
         this['obs_bucket_name'] = obsBucketName;
         return this;
     }
-    public set obsBucketName(obsBucketName: string | undefined) {
+    public set obsBucketName(obsBucketName: string  | undefined) {
         this['obs_bucket_name'] = obsBucketName;
     }
-    public get obsBucketName() {
+    public get obsBucketName(): string | undefined {
         return this['obs_bucket_name'];
     }
     public withObsPath(obsPath: string): ObsDestinationDescriptor {
         this['obs_path'] = obsPath;
         return this;
     }
-    public set obsPath(obsPath: string | undefined) {
+    public set obsPath(obsPath: string  | undefined) {
         this['obs_path'] = obsPath;
     }
-    public get obsPath() {
+    public get obsPath(): string | undefined {
         return this['obs_path'];
     }
     public withPartitionFormat(partitionFormat: string): ObsDestinationDescriptor {
         this['partition_format'] = partitionFormat;
         return this;
     }
-    public set partitionFormat(partitionFormat: string | undefined) {
+    public set partitionFormat(partitionFormat: string  | undefined) {
         this['partition_format'] = partitionFormat;
     }
-    public get partitionFormat() {
+    public get partitionFormat(): string | undefined {
         return this['partition_format'];
     }
     public withRecordDelimiter(recordDelimiter: string): ObsDestinationDescriptor {
         this['record_delimiter'] = recordDelimiter;
         return this;
     }
-    public set recordDelimiter(recordDelimiter: string | undefined) {
+    public set recordDelimiter(recordDelimiter: string  | undefined) {
         this['record_delimiter'] = recordDelimiter;
     }
-    public get recordDelimiter() {
+    public get recordDelimiter(): string | undefined {
         return this['record_delimiter'];
     }
     public withDeliverTimeInterval(deliverTimeInterval: number): ObsDestinationDescriptor {
         this['deliver_time_interval'] = deliverTimeInterval;
         return this;
     }
-    public set deliverTimeInterval(deliverTimeInterval: number | undefined) {
+    public set deliverTimeInterval(deliverTimeInterval: number  | undefined) {
         this['deliver_time_interval'] = deliverTimeInterval;
     }
-    public get deliverTimeInterval() {
+    public get deliverTimeInterval(): number | undefined {
         return this['deliver_time_interval'];
     }
 }

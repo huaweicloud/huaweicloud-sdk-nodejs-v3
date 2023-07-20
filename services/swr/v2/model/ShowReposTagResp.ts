@@ -1,24 +1,24 @@
 
 
 export class ShowReposTagResp {
-    public id: number;
-    private 'repo_id': number | undefined;
-    private 'Tag': string | undefined;
-    private 'image_id': string | undefined;
-    public manifest: string;
-    public digest: string;
-    public schema: number;
-    public path: string;
-    private 'internal_path': string | undefined;
-    public size: number;
-    private 'is_trusted': boolean | undefined;
-    public created: string;
-    public updated: string;
-    public deleted: string;
-    private 'domain_id': string | undefined;
-    public scanned: boolean;
-    private 'tag_type': number | undefined;
-    public constructor(id?: any, repoId?: any, tag?: any, imageId?: any, manifest?: any, digest?: any, schema?: any, path?: any, internalPath?: any, size?: any, isTrusted?: any, created?: any, updated?: any, deleted?: any, domainId?: any, scanned?: any, tagType?: any) { 
+    public id?: number;
+    private 'repo_id'?: number;
+    private 'Tag'?: string;
+    private 'image_id'?: string;
+    public manifest?: string;
+    public digest?: string;
+    public schema?: number;
+    public path?: string;
+    private 'internal_path'?: string;
+    public size?: number;
+    private 'is_trusted'?: boolean;
+    public created?: string;
+    public updated?: string;
+    public deleted?: string;
+    private 'domain_id'?: string;
+    public scanned?: boolean;
+    private 'tag_type'?: number;
+    public constructor(id?: number, repoId?: number, tag?: string, imageId?: string, manifest?: string, digest?: string, schema?: number, path?: string, internalPath?: string, size?: number, isTrusted?: boolean, created?: string, updated?: string, deleted?: string, domainId?: string, scanned?: boolean, tagType?: number) { 
         this['id'] = id;
         this['repo_id'] = repoId;
         this['Tag'] = tag;
@@ -45,30 +45,30 @@ export class ShowReposTagResp {
         this['repo_id'] = repoId;
         return this;
     }
-    public set repoId(repoId: number | undefined) {
+    public set repoId(repoId: number  | undefined) {
         this['repo_id'] = repoId;
     }
-    public get repoId() {
+    public get repoId(): number | undefined {
         return this['repo_id'];
     }
     public withTag(tag: string): ShowReposTagResp {
         this['Tag'] = tag;
         return this;
     }
-    public set tag(tag: string | undefined) {
+    public set tag(tag: string  | undefined) {
         this['Tag'] = tag;
     }
-    public get tag() {
+    public get tag(): string | undefined {
         return this['Tag'];
     }
     public withImageId(imageId: string): ShowReposTagResp {
         this['image_id'] = imageId;
         return this;
     }
-    public set imageId(imageId: string | undefined) {
+    public set imageId(imageId: string  | undefined) {
         this['image_id'] = imageId;
     }
-    public get imageId() {
+    public get imageId(): string | undefined {
         return this['image_id'];
     }
     public withManifest(manifest: string): ShowReposTagResp {
@@ -91,10 +91,10 @@ export class ShowReposTagResp {
         this['internal_path'] = internalPath;
         return this;
     }
-    public set internalPath(internalPath: string | undefined) {
+    public set internalPath(internalPath: string  | undefined) {
         this['internal_path'] = internalPath;
     }
-    public get internalPath() {
+    public get internalPath(): string | undefined {
         return this['internal_path'];
     }
     public withSize(size: number): ShowReposTagResp {
@@ -105,10 +105,10 @@ export class ShowReposTagResp {
         this['is_trusted'] = isTrusted;
         return this;
     }
-    public set isTrusted(isTrusted: boolean | undefined) {
+    public set isTrusted(isTrusted: boolean  | undefined) {
         this['is_trusted'] = isTrusted;
     }
-    public get isTrusted() {
+    public get isTrusted(): boolean | undefined {
         return this['is_trusted'];
     }
     public withCreated(created: string): ShowReposTagResp {
@@ -127,10 +127,10 @@ export class ShowReposTagResp {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withScanned(scanned: boolean): ShowReposTagResp {
@@ -141,10 +141,10 @@ export class ShowReposTagResp {
         this['tag_type'] = tagType;
         return this;
     }
-    public set tagType(tagType: number | undefined) {
+    public set tagType(tagType: number  | undefined) {
         this['tag_type'] = tagType;
     }
-    public get tagType() {
+    public get tagType(): number | undefined {
         return this['tag_type'];
     }
 }

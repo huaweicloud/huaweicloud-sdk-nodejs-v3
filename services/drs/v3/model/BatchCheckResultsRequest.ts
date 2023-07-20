@@ -2,18 +2,18 @@ import { BatchQueryPrecheckResultReq } from './BatchQueryPrecheckResultReq';
 
 
 export class BatchCheckResultsRequest {
-    private 'X-Language'?: BatchCheckResultsRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchCheckResultsRequestXLanguageEnum | string;
     public body?: BatchQueryPrecheckResultReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchCheckResultsRequestXLanguageEnum): BatchCheckResultsRequest {
+    public withXLanguage(xLanguage: BatchCheckResultsRequestXLanguageEnum | string): BatchCheckResultsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchCheckResultsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchCheckResultsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchCheckResultsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchQueryPrecheckResultReq): BatchCheckResultsRequest {

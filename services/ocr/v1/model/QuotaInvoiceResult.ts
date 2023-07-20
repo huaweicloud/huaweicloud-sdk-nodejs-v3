@@ -1,7 +1,7 @@
 
 
 export class QuotaInvoiceResult {
-    private 'number'?: string | undefined;
+    private 'number'?: string;
     public code?: string;
     public location?: string;
     public amount?: string;
@@ -12,10 +12,10 @@ export class QuotaInvoiceResult {
         this['number'] = modelNumber;
         return this;
     }
-    public set modelNumber(modelNumber: string | undefined) {
+    public set modelNumber(modelNumber: string  | undefined) {
         this['number'] = modelNumber;
     }
-    public get modelNumber() {
+    public get modelNumber(): string | undefined {
         return this['number'];
     }
     public withCode(code: string): QuotaInvoiceResult {

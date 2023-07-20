@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DownloadSecretBlobResponse extends SdkResponse {
-    private 'secret_blob'?: string | undefined;
+    private 'secret_blob'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class DownloadSecretBlobResponse extends SdkResponse {
         this['secret_blob'] = secretBlob;
         return this;
     }
-    public set secretBlob(secretBlob: string | undefined) {
+    public set secretBlob(secretBlob: string  | undefined) {
         this['secret_blob'] = secretBlob;
     }
-    public get secretBlob() {
+    public get secretBlob(): string | undefined {
         return this['secret_blob'];
     }
 }

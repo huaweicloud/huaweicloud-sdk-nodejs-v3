@@ -2,10 +2,10 @@ import { SmsTemplateReq } from './SmsTemplateReq';
 
 
 export class UpdateTemplateRequest {
-    private 'Content-Type': string | undefined;
-    public id: string;
+    private 'Content-Type'?: string;
+    public id?: string;
     public body?: SmsTemplateReq;
-    public constructor(contentType?: any, id?: any) { 
+    public constructor(contentType?: string, id?: string) { 
         this['Content-Type'] = contentType;
         this['id'] = id;
     }
@@ -13,10 +13,10 @@ export class UpdateTemplateRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withId(id: string): UpdateTemplateRequest {

@@ -5,14 +5,14 @@ import { PremiumWafServer } from './PremiumWafServer';
 export class CreatePremiumHostRequestBody {
     public certificateid?: string;
     public certificatename?: string;
-    public hostname: string;
-    public proxy: boolean;
+    public hostname?: string;
+    public proxy?: boolean;
     public policyid?: string;
-    public server: Array<PremiumWafServer>;
-    private 'block_page'?: BlockPage | undefined;
-    private 'forward_header_map'?: { [key: string]: string; } | undefined;
+    public server?: Array<PremiumWafServer>;
+    private 'block_page'?: BlockPage;
+    private 'forward_header_map'?: { [key: string]: string; };
     public description?: string;
-    public constructor(hostname?: any, proxy?: any, server?: any) { 
+    public constructor(hostname?: string, proxy?: boolean, server?: Array<PremiumWafServer>) { 
         this['hostname'] = hostname;
         this['proxy'] = proxy;
         this['server'] = server;
@@ -45,20 +45,20 @@ export class CreatePremiumHostRequestBody {
         this['block_page'] = blockPage;
         return this;
     }
-    public set blockPage(blockPage: BlockPage | undefined) {
+    public set blockPage(blockPage: BlockPage  | undefined) {
         this['block_page'] = blockPage;
     }
-    public get blockPage() {
+    public get blockPage(): BlockPage | undefined {
         return this['block_page'];
     }
     public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): CreatePremiumHostRequestBody {
         this['forward_header_map'] = forwardHeaderMap;
         return this;
     }
-    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; }  | undefined) {
         this['forward_header_map'] = forwardHeaderMap;
     }
-    public get forwardHeaderMap() {
+    public get forwardHeaderMap(): { [key: string]: string; } | undefined {
         return this['forward_header_map'];
     }
     public withDescription(description: string): CreatePremiumHostRequestBody {

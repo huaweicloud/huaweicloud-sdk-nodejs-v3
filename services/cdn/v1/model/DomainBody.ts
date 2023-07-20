@@ -2,12 +2,12 @@ import { Sources } from './Sources';
 
 
 export class DomainBody {
-    private 'domain_name': string | undefined;
-    private 'business_type': DomainBodyBusinessTypeEnum | undefined;
-    public sources: Array<Sources>;
-    private 'service_area': DomainBodyServiceAreaEnum | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    public constructor(domainName?: any, businessType?: any, sources?: any, serviceArea?: any) { 
+    private 'domain_name'?: string;
+    private 'business_type'?: DomainBodyBusinessTypeEnum | string;
+    public sources?: Array<Sources>;
+    private 'service_area'?: DomainBodyServiceAreaEnum | string;
+    private 'enterprise_project_id'?: string;
+    public constructor(domainName?: string, businessType?: string, sources?: Array<Sources>, serviceArea?: string) { 
         this['domain_name'] = domainName;
         this['business_type'] = businessType;
         this['sources'] = sources;
@@ -17,44 +17,44 @@ export class DomainBody {
         this['domain_name'] = domainName;
         return this;
     }
-    public set domainName(domainName: string | undefined) {
+    public set domainName(domainName: string  | undefined) {
         this['domain_name'] = domainName;
     }
-    public get domainName() {
+    public get domainName(): string | undefined {
         return this['domain_name'];
     }
-    public withBusinessType(businessType: DomainBodyBusinessTypeEnum): DomainBody {
+    public withBusinessType(businessType: DomainBodyBusinessTypeEnum | string): DomainBody {
         this['business_type'] = businessType;
         return this;
     }
-    public set businessType(businessType: DomainBodyBusinessTypeEnum | undefined) {
+    public set businessType(businessType: DomainBodyBusinessTypeEnum | string  | undefined) {
         this['business_type'] = businessType;
     }
-    public get businessType() {
+    public get businessType(): DomainBodyBusinessTypeEnum | string | undefined {
         return this['business_type'];
     }
     public withSources(sources: Array<Sources>): DomainBody {
         this['sources'] = sources;
         return this;
     }
-    public withServiceArea(serviceArea: DomainBodyServiceAreaEnum): DomainBody {
+    public withServiceArea(serviceArea: DomainBodyServiceAreaEnum | string): DomainBody {
         this['service_area'] = serviceArea;
         return this;
     }
-    public set serviceArea(serviceArea: DomainBodyServiceAreaEnum | undefined) {
+    public set serviceArea(serviceArea: DomainBodyServiceAreaEnum | string  | undefined) {
         this['service_area'] = serviceArea;
     }
-    public get serviceArea() {
+    public get serviceArea(): DomainBodyServiceAreaEnum | string | undefined {
         return this['service_area'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): DomainBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

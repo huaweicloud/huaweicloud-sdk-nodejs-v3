@@ -1,9 +1,9 @@
 
 
 export class PageInfoTagValues {
-    private 'next_marker': string | undefined;
-    private 'current_count': number | undefined;
-    public constructor(nextMarker?: any, currentCount?: any) { 
+    private 'next_marker'?: string;
+    private 'current_count'?: number;
+    public constructor(nextMarker?: string, currentCount?: number) { 
         this['next_marker'] = nextMarker;
         this['current_count'] = currentCount;
     }
@@ -11,20 +11,20 @@ export class PageInfoTagValues {
         this['next_marker'] = nextMarker;
         return this;
     }
-    public set nextMarker(nextMarker: string | undefined) {
+    public set nextMarker(nextMarker: string  | undefined) {
         this['next_marker'] = nextMarker;
     }
-    public get nextMarker() {
+    public get nextMarker(): string | undefined {
         return this['next_marker'];
     }
     public withCurrentCount(currentCount: number): PageInfoTagValues {
         this['current_count'] = currentCount;
         return this;
     }
-    public set currentCount(currentCount: number | undefined) {
+    public set currentCount(currentCount: number  | undefined) {
         this['current_count'] = currentCount;
     }
-    public get currentCount() {
+    public get currentCount(): number | undefined {
         return this['current_count'];
     }
 }

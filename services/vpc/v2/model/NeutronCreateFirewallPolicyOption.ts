@@ -3,7 +3,7 @@
 export class NeutronCreateFirewallPolicyOption {
     public audited?: boolean;
     public description?: string;
-    private 'firewall_rules'?: Array<string> | undefined;
+    private 'firewall_rules'?: Array<string>;
     public name?: string;
     public constructor() { 
     }
@@ -19,10 +19,10 @@ export class NeutronCreateFirewallPolicyOption {
         this['firewall_rules'] = firewallRules;
         return this;
     }
-    public set firewallRules(firewallRules: Array<string> | undefined) {
+    public set firewallRules(firewallRules: Array<string>  | undefined) {
         this['firewall_rules'] = firewallRules;
     }
-    public get firewallRules() {
+    public get firewallRules(): Array<string> | undefined {
         return this['firewall_rules'];
     }
     public withName(name: string): NeutronCreateFirewallPolicyOption {

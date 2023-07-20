@@ -540,7 +540,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listImagesTags(): Promise<ListImagesTagsResponse> {
+    public listImagesTags(listImagesTagsRequest?: ListImagesTagsRequest): Promise<ListImagesTagsResponse> {
         const options = ParamCreater().listImagesTags();
 
          // @ts-ignore
@@ -636,7 +636,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showImageQuota(): Promise<ShowImageQuotaResponse> {
+    public showImageQuota(showImageQuotaRequest?: ShowImageQuotaRequest): Promise<ShowImageQuotaResponse> {
         const options = ParamCreater().showImageQuota();
 
          // @ts-ignore
@@ -712,7 +712,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listVersions(): Promise<ListVersionsResponse> {
+    public listVersions(listVersionsRequest?: ListVersionsRequest): Promise<ListVersionsResponse> {
         const options = ParamCreater().listVersions();
 
          // @ts-ignore
@@ -868,7 +868,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public glanceListImageMemberSchemas(): Promise<GlanceListImageMemberSchemasResponse> {
+    public glanceListImageMemberSchemas(glanceListImageMemberSchemasRequest?: GlanceListImageMemberSchemasRequest): Promise<GlanceListImageMemberSchemasResponse> {
         const options = ParamCreater().glanceListImageMemberSchemas();
 
          // @ts-ignore
@@ -905,7 +905,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public glanceListImageSchemas(): Promise<GlanceListImageSchemasResponse> {
+    public glanceListImageSchemas(glanceListImageSchemasRequest?: GlanceListImageSchemasRequest): Promise<GlanceListImageSchemasResponse> {
         const options = ParamCreater().glanceListImageSchemas();
 
          // @ts-ignore
@@ -1016,7 +1016,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public glanceShowImageMemberSchemas(): Promise<GlanceShowImageMemberSchemasResponse> {
+    public glanceShowImageMemberSchemas(glanceShowImageMemberSchemasRequest?: GlanceShowImageMemberSchemasRequest): Promise<GlanceShowImageMemberSchemasResponse> {
         const options = ParamCreater().glanceShowImageMemberSchemas();
 
          // @ts-ignore
@@ -1034,7 +1034,7 @@ export class ImsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public glanceShowImageSchemas(): Promise<GlanceShowImageSchemasResponse> {
+    public glanceShowImageSchemas(glanceShowImageSchemasRequest?: GlanceShowImageSchemasRequest): Promise<GlanceShowImageSchemasResponse> {
         const options = ParamCreater().glanceShowImageSchemas();
 
          // @ts-ignore

@@ -1,7 +1,7 @@
 
 
 export class UpdateInstanceCrossVpcIpRespResults {
-    private 'advertised_ip'?: string | undefined;
+    private 'advertised_ip'?: string;
     public success?: boolean;
     public ip?: string;
     public constructor() { 
@@ -10,10 +10,10 @@ export class UpdateInstanceCrossVpcIpRespResults {
         this['advertised_ip'] = advertisedIp;
         return this;
     }
-    public set advertisedIp(advertisedIp: string | undefined) {
+    public set advertisedIp(advertisedIp: string  | undefined) {
         this['advertised_ip'] = advertisedIp;
     }
-    public get advertisedIp() {
+    public get advertisedIp(): string | undefined {
         return this['advertised_ip'];
     }
     public withSuccess(success: boolean): UpdateInstanceCrossVpcIpRespResults {

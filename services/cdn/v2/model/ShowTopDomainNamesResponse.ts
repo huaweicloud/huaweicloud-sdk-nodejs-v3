@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowTopDomainNamesResponse extends SdkResponse {
-    private 'top_domain_names'?: Array<{ [key: string]: object; }> | undefined;
+    private 'top_domain_names'?: Array<{ [key: string]: object; }>;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class ShowTopDomainNamesResponse extends SdkResponse {
         this['top_domain_names'] = topDomainNames;
         return this;
     }
-    public set topDomainNames(topDomainNames: Array<{ [key: string]: object; }> | undefined) {
+    public set topDomainNames(topDomainNames: Array<{ [key: string]: object; }>  | undefined) {
         this['top_domain_names'] = topDomainNames;
     }
-    public get topDomainNames() {
+    public get topDomainNames(): Array<{ [key: string]: object; }> | undefined {
         return this['top_domain_names'];
     }
 }

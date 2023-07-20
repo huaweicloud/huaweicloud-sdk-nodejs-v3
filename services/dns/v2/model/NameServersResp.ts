@@ -4,7 +4,7 @@ import { NsRecords } from './NsRecords';
 export class NameServersResp {
     public type?: string;
     public region?: string;
-    private 'ns_records'?: Array<NsRecords> | undefined;
+    private 'ns_records'?: Array<NsRecords>;
     public constructor() { 
     }
     public withType(type: string): NameServersResp {
@@ -19,10 +19,10 @@ export class NameServersResp {
         this['ns_records'] = nsRecords;
         return this;
     }
-    public set nsRecords(nsRecords: Array<NsRecords> | undefined) {
+    public set nsRecords(nsRecords: Array<NsRecords>  | undefined) {
         this['ns_records'] = nsRecords;
     }
-    public get nsRecords() {
+    public get nsRecords(): Array<NsRecords> | undefined {
         return this['ns_records'];
     }
 }

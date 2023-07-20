@@ -2,18 +2,18 @@ import { SingleCreateJobReq } from './SingleCreateJobReq';
 
 
 export class CreateJobRequest {
-    private 'X-Language'?: CreateJobRequestXLanguageEnum | undefined;
+    private 'X-Language'?: CreateJobRequestXLanguageEnum | string;
     public body?: SingleCreateJobReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: CreateJobRequestXLanguageEnum): CreateJobRequest {
+    public withXLanguage(xLanguage: CreateJobRequestXLanguageEnum | string): CreateJobRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: CreateJobRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: CreateJobRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): CreateJobRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: SingleCreateJobReq): CreateJobRequest {

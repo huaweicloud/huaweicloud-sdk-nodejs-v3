@@ -1,9 +1,9 @@
 
 
 export class DeleteOrganizationPolicyAssignmentRequest {
-    private 'organization_id': string | undefined;
-    private 'organization_policy_assignment_id': string | undefined;
-    public constructor(organizationId?: any, organizationPolicyAssignmentId?: any) { 
+    private 'organization_id'?: string;
+    private 'organization_policy_assignment_id'?: string;
+    public constructor(organizationId?: string, organizationPolicyAssignmentId?: string) { 
         this['organization_id'] = organizationId;
         this['organization_policy_assignment_id'] = organizationPolicyAssignmentId;
     }
@@ -11,20 +11,20 @@ export class DeleteOrganizationPolicyAssignmentRequest {
         this['organization_id'] = organizationId;
         return this;
     }
-    public set organizationId(organizationId: string | undefined) {
+    public set organizationId(organizationId: string  | undefined) {
         this['organization_id'] = organizationId;
     }
-    public get organizationId() {
+    public get organizationId(): string | undefined {
         return this['organization_id'];
     }
     public withOrganizationPolicyAssignmentId(organizationPolicyAssignmentId: string): DeleteOrganizationPolicyAssignmentRequest {
         this['organization_policy_assignment_id'] = organizationPolicyAssignmentId;
         return this;
     }
-    public set organizationPolicyAssignmentId(organizationPolicyAssignmentId: string | undefined) {
+    public set organizationPolicyAssignmentId(organizationPolicyAssignmentId: string  | undefined) {
         this['organization_policy_assignment_id'] = organizationPolicyAssignmentId;
     }
-    public get organizationPolicyAssignmentId() {
+    public get organizationPolicyAssignmentId(): string | undefined {
         return this['organization_policy_assignment_id'];
     }
 }

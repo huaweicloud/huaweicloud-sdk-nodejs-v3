@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class RestoreInstanceResponse extends SdkResponse {
-    private 'restore_id'?: string | undefined;
+    private 'restore_id'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class RestoreInstanceResponse extends SdkResponse {
         this['restore_id'] = restoreId;
         return this;
     }
-    public set restoreId(restoreId: string | undefined) {
+    public set restoreId(restoreId: string  | undefined) {
         this['restore_id'] = restoreId;
     }
-    public get restoreId() {
+    public get restoreId(): string | undefined {
         return this['restore_id'];
     }
 }

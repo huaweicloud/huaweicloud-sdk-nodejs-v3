@@ -3,9 +3,9 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateParamsResponse extends SdkResponse {
     public success?: boolean;
-    private 'should_restart'?: UpdateParamsResponseShouldRestartEnum | undefined;
-    private 'error_code'?: string | undefined;
-    private 'error_msg'?: string | undefined;
+    private 'should_restart'?: UpdateParamsResponseShouldRestartEnum | string;
+    private 'error_code'?: string;
+    private 'error_msg'?: string;
     public constructor() { 
         super();
     }
@@ -13,34 +13,34 @@ export class UpdateParamsResponse extends SdkResponse {
         this['success'] = success;
         return this;
     }
-    public withShouldRestart(shouldRestart: UpdateParamsResponseShouldRestartEnum): UpdateParamsResponse {
+    public withShouldRestart(shouldRestart: UpdateParamsResponseShouldRestartEnum | string): UpdateParamsResponse {
         this['should_restart'] = shouldRestart;
         return this;
     }
-    public set shouldRestart(shouldRestart: UpdateParamsResponseShouldRestartEnum | undefined) {
+    public set shouldRestart(shouldRestart: UpdateParamsResponseShouldRestartEnum | string  | undefined) {
         this['should_restart'] = shouldRestart;
     }
-    public get shouldRestart() {
+    public get shouldRestart(): UpdateParamsResponseShouldRestartEnum | string | undefined {
         return this['should_restart'];
     }
     public withErrorCode(errorCode: string): UpdateParamsResponse {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
     public withErrorMsg(errorMsg: string): UpdateParamsResponse {
         this['error_msg'] = errorMsg;
         return this;
     }
-    public set errorMsg(errorMsg: string | undefined) {
+    public set errorMsg(errorMsg: string  | undefined) {
         this['error_msg'] = errorMsg;
     }
-    public get errorMsg() {
+    public get errorMsg(): string | undefined {
         return this['error_msg'];
     }
 }

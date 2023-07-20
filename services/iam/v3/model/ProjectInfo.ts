@@ -4,8 +4,8 @@ import { DomainInfo } from './DomainInfo';
 export class ProjectInfo {
     public domain?: DomainInfo;
     public id?: string;
-    public name: string;
-    public constructor(name?: any) { 
+    public name?: string;
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withDomain(domain: DomainInfo): ProjectInfo {

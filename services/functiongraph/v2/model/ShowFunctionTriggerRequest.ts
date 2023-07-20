@@ -1,10 +1,10 @@
 
 
 export class ShowFunctionTriggerRequest {
-    private 'function_urn': string | undefined;
-    private 'trigger_type_code': ShowFunctionTriggerRequestTriggerTypeCodeEnum | undefined;
-    private 'trigger_id': string | undefined;
-    public constructor(functionUrn?: any, triggerTypeCode?: any, triggerId?: any) { 
+    private 'function_urn'?: string;
+    private 'trigger_type_code'?: ShowFunctionTriggerRequestTriggerTypeCodeEnum | string;
+    private 'trigger_id'?: string;
+    public constructor(functionUrn?: string, triggerTypeCode?: string, triggerId?: string) { 
         this['function_urn'] = functionUrn;
         this['trigger_type_code'] = triggerTypeCode;
         this['trigger_id'] = triggerId;
@@ -13,30 +13,30 @@ export class ShowFunctionTriggerRequest {
         this['function_urn'] = functionUrn;
         return this;
     }
-    public set functionUrn(functionUrn: string | undefined) {
+    public set functionUrn(functionUrn: string  | undefined) {
         this['function_urn'] = functionUrn;
     }
-    public get functionUrn() {
+    public get functionUrn(): string | undefined {
         return this['function_urn'];
     }
-    public withTriggerTypeCode(triggerTypeCode: ShowFunctionTriggerRequestTriggerTypeCodeEnum): ShowFunctionTriggerRequest {
+    public withTriggerTypeCode(triggerTypeCode: ShowFunctionTriggerRequestTriggerTypeCodeEnum | string): ShowFunctionTriggerRequest {
         this['trigger_type_code'] = triggerTypeCode;
         return this;
     }
-    public set triggerTypeCode(triggerTypeCode: ShowFunctionTriggerRequestTriggerTypeCodeEnum | undefined) {
+    public set triggerTypeCode(triggerTypeCode: ShowFunctionTriggerRequestTriggerTypeCodeEnum | string  | undefined) {
         this['trigger_type_code'] = triggerTypeCode;
     }
-    public get triggerTypeCode() {
+    public get triggerTypeCode(): ShowFunctionTriggerRequestTriggerTypeCodeEnum | string | undefined {
         return this['trigger_type_code'];
     }
     public withTriggerId(triggerId: string): ShowFunctionTriggerRequest {
         this['trigger_id'] = triggerId;
         return this;
     }
-    public set triggerId(triggerId: string | undefined) {
+    public set triggerId(triggerId: string  | undefined) {
         this['trigger_id'] = triggerId;
     }
-    public get triggerId() {
+    public get triggerId(): string | undefined {
         return this['trigger_id'];
     }
 }

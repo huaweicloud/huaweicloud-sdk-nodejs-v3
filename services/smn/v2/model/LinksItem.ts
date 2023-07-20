@@ -1,9 +1,9 @@
 
 
 export class LinksItem {
-    public href: string;
-    public rel: string;
-    public constructor(href?: any, rel?: any) { 
+    public href?: string;
+    public rel?: string;
+    public constructor(href?: string, rel?: string) { 
         this['href'] = href;
         this['rel'] = rel;
     }

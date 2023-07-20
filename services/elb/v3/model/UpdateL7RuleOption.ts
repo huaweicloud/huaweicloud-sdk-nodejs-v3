@@ -2,8 +2,8 @@ import { UpdateRuleCondition } from './UpdateRuleCondition';
 
 
 export class UpdateL7RuleOption {
-    private 'admin_state_up'?: boolean | undefined;
-    private 'compare_type'?: string | undefined;
+    private 'admin_state_up'?: boolean;
+    private 'compare_type'?: string;
     public invert?: boolean;
     public key?: string;
     public value?: string;
@@ -14,20 +14,20 @@ export class UpdateL7RuleOption {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withCompareType(compareType: string): UpdateL7RuleOption {
         this['compare_type'] = compareType;
         return this;
     }
-    public set compareType(compareType: string | undefined) {
+    public set compareType(compareType: string  | undefined) {
         this['compare_type'] = compareType;
     }
-    public get compareType() {
+    public get compareType(): string | undefined {
         return this['compare_type'];
     }
     public withInvert(invert: boolean): UpdateL7RuleOption {

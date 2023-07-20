@@ -1,10 +1,10 @@
 
 
 export class AddServiceSetUsingPOSTRequestBody {
-    private 'object_id': string | undefined;
-    public name: string;
+    private 'object_id'?: string;
+    public name?: string;
     public description?: string;
-    public constructor(objectId?: any, name?: any) { 
+    public constructor(objectId?: string, name?: string) { 
         this['object_id'] = objectId;
         this['name'] = name;
     }
@@ -12,10 +12,10 @@ export class AddServiceSetUsingPOSTRequestBody {
         this['object_id'] = objectId;
         return this;
     }
-    public set objectId(objectId: string | undefined) {
+    public set objectId(objectId: string  | undefined) {
         this['object_id'] = objectId;
     }
-    public get objectId() {
+    public get objectId(): string | undefined {
         return this['object_id'];
     }
     public withName(name: string): AddServiceSetUsingPOSTRequestBody {

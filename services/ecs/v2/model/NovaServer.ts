@@ -9,50 +9,50 @@ import { NovaServerVolume } from './NovaServerVolume';
 
 
 export class NovaServer {
-    public name: string;
-    public id: string;
-    public status: NovaServerStatusEnum;
-    public created: string;
-    public updated: string;
-    public flavor: NovaServerFlavor;
-    public image: NovaServerImage;
-    private 'tenant_id': string | undefined;
-    private 'key_name': string | undefined;
-    private 'user_id': string | undefined;
-    public metadata: { [key: string]: string; };
-    public hostId: string;
-    public addresses: { [key: string]: Array<NovaNetwork>; };
-    private 'security_groups': Array<NovaServerSecurityGroup> | undefined;
-    public links: Array<NovaLink>;
-    private 'OS-DCF:diskConfig': NovaServerOSDCFDiskConfigEnum | undefined;
-    private 'OS-EXT-AZ:availability_zone': string | undefined;
-    private 'OS-EXT-SRV-ATTR:host': string | undefined;
-    private 'OS-EXT-SRV-ATTR:hypervisor_hostname': string | undefined;
-    private 'OS-EXT-SRV-ATTR:instance_name': string | undefined;
-    private 'OS-EXT-STS:power_state': number | undefined;
-    private 'OS-EXT-STS:task_state': NovaServerOSEXTSTSTaskStateEnum | undefined;
-    private 'OS-EXT-STS:vm_state': NovaServerOSEXTSTSVmStateEnum | undefined;
-    private 'OS-SRV-USG:launched_at': string | undefined;
-    private 'OS-SRV-USG:terminated_at': string | undefined;
-    private 'os-extended-volumes:volumes_attached': Array<NovaServerVolume> | undefined;
+    public name?: string;
+    public id?: string;
+    public status?: NovaServerStatusEnum | string;
+    public created?: string;
+    public updated?: string;
+    public flavor?: NovaServerFlavor;
+    public image?: NovaServerImage;
+    private 'tenant_id'?: string;
+    private 'key_name'?: string;
+    private 'user_id'?: string;
+    public metadata?: { [key: string]: string; };
+    public hostId?: string;
+    public addresses?: { [key: string]: Array<NovaNetwork>; };
+    private 'security_groups'?: Array<NovaServerSecurityGroup>;
+    public links?: Array<NovaLink>;
+    private 'OS-DCF:diskConfig'?: NovaServerOSDCFDiskConfigEnum | string;
+    private 'OS-EXT-AZ:availability_zone'?: string;
+    private 'OS-EXT-SRV-ATTR:host'?: string;
+    private 'OS-EXT-SRV-ATTR:hypervisor_hostname'?: string;
+    private 'OS-EXT-SRV-ATTR:instance_name'?: string;
+    private 'OS-EXT-STS:power_state'?: number;
+    private 'OS-EXT-STS:task_state'?: NovaServerOSEXTSTSTaskStateEnum | string;
+    private 'OS-EXT-STS:vm_state'?: NovaServerOSEXTSTSVmStateEnum | string;
+    private 'OS-SRV-USG:launched_at'?: string;
+    private 'OS-SRV-USG:terminated_at'?: string;
+    private 'os-extended-volumes:volumes_attached'?: Array<NovaServerVolume>;
     public fault?: NovaServerFault;
     public description?: string;
-    private 'host_status': NovaServerHostStatusEnum | undefined;
-    private 'OS-EXT-SRV-ATTR:hostname'?: string | undefined;
-    private 'OS-EXT-SRV-ATTR:reservation_id'?: string | undefined;
-    private 'OS-EXT-SRV-ATTR:launch_index'?: number | undefined;
-    private 'OS-EXT-SRV-ATTR:kernel_id'?: string | undefined;
-    private 'OS-EXT-SRV-ATTR:ramdisk_id'?: string | undefined;
-    private 'OS-EXT-SRV-ATTR:root_device_name'?: string | undefined;
-    private 'OS-EXT-SRV-ATTR:user_data'?: string | undefined;
-    public tags: Array<string>;
+    private 'host_status'?: NovaServerHostStatusEnum | string;
+    private 'OS-EXT-SRV-ATTR:hostname'?: string;
+    private 'OS-EXT-SRV-ATTR:reservation_id'?: string;
+    private 'OS-EXT-SRV-ATTR:launch_index'?: number;
+    private 'OS-EXT-SRV-ATTR:kernel_id'?: string;
+    private 'OS-EXT-SRV-ATTR:ramdisk_id'?: string;
+    private 'OS-EXT-SRV-ATTR:root_device_name'?: string;
+    private 'OS-EXT-SRV-ATTR:user_data'?: string;
+    public tags?: Array<string>;
     public locked?: boolean;
-    public accessIPv4: string;
-    public accessIPv6: string;
-    private 'config_drive': string | undefined;
-    public progress: number;
-    private 'os:scheduler_hints'?: NovaServerSchedulerHints | undefined;
-    public constructor(name?: any, id?: any, status?: any, created?: any, updated?: any, flavor?: any, image?: any, tenantId?: any, keyName?: any, userId?: any, metadata?: any, hostId?: any, addresses?: any, securityGroups?: any, links?: any, oSDCFDiskConfig?: any, oSEXTAZAvailabilityZone?: any, oSEXTSRVATTRHost?: any, oSEXTSRVATTRHypervisorHostname?: any, oSEXTSRVATTRInstanceName?: any, oSEXTSTSPowerState?: any, oSEXTSTSTaskState?: any, oSEXTSTSVmState?: any, oSSRVUSGLaunchedAt?: any, oSSRVUSGTerminatedAt?: any, osExtendedVolumesVolumesAttached?: any, hostStatus?: any, tags?: any, accessIPv4?: any, accessIPv6?: any, configDrive?: any, progress?: any) { 
+    public accessIPv4?: string;
+    public accessIPv6?: string;
+    private 'config_drive'?: string;
+    public progress?: number;
+    private 'os:scheduler_hints'?: NovaServerSchedulerHints;
+    public constructor(name?: string, id?: string, status?: string, created?: string, updated?: string, flavor?: NovaServerFlavor, image?: NovaServerImage, tenantId?: string, keyName?: string, userId?: string, metadata?: { [key: string]: string; }, hostId?: string, addresses?: { [key: string]: Array<NovaNetwork>; }, securityGroups?: Array<NovaServerSecurityGroup>, links?: Array<NovaLink>, oSDCFDiskConfig?: string, oSEXTAZAvailabilityZone?: string, oSEXTSRVATTRHost?: string, oSEXTSRVATTRHypervisorHostname?: string, oSEXTSRVATTRInstanceName?: string, oSEXTSTSPowerState?: number, oSEXTSTSTaskState?: string, oSEXTSTSVmState?: string, oSSRVUSGLaunchedAt?: string, oSSRVUSGTerminatedAt?: string, osExtendedVolumesVolumesAttached?: Array<NovaServerVolume>, hostStatus?: string, tags?: Array<string>, accessIPv4?: string, accessIPv6?: string, configDrive?: string, progress?: number) { 
         this['name'] = name;
         this['id'] = id;
         this['status'] = status;
@@ -94,7 +94,7 @@ export class NovaServer {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: NovaServerStatusEnum): NovaServer {
+    public withStatus(status: NovaServerStatusEnum | string): NovaServer {
         this['status'] = status;
         return this;
     }
@@ -118,30 +118,30 @@ export class NovaServer {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withKeyName(keyName: string): NovaServer {
         this['key_name'] = keyName;
         return this;
     }
-    public set keyName(keyName: string | undefined) {
+    public set keyName(keyName: string  | undefined) {
         this['key_name'] = keyName;
     }
-    public get keyName() {
+    public get keyName(): string | undefined {
         return this['key_name'];
     }
     public withUserId(userId: string): NovaServer {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withMetadata(metadata: { [key: string]: string; }): NovaServer {
@@ -160,124 +160,124 @@ export class NovaServer {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<NovaServerSecurityGroup> | undefined) {
+    public set securityGroups(securityGroups: Array<NovaServerSecurityGroup>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups() {
+    public get securityGroups(): Array<NovaServerSecurityGroup> | undefined {
         return this['security_groups'];
     }
     public withLinks(links: Array<NovaLink>): NovaServer {
         this['links'] = links;
         return this;
     }
-    public withOSDCFDiskConfig(oSDCFDiskConfig: NovaServerOSDCFDiskConfigEnum): NovaServer {
+    public withOSDCFDiskConfig(oSDCFDiskConfig: NovaServerOSDCFDiskConfigEnum | string): NovaServer {
         this['OS-DCF:diskConfig'] = oSDCFDiskConfig;
         return this;
     }
-    public set oSDCFDiskConfig(oSDCFDiskConfig: NovaServerOSDCFDiskConfigEnum | undefined) {
+    public set oSDCFDiskConfig(oSDCFDiskConfig: NovaServerOSDCFDiskConfigEnum | string  | undefined) {
         this['OS-DCF:diskConfig'] = oSDCFDiskConfig;
     }
-    public get oSDCFDiskConfig() {
+    public get oSDCFDiskConfig(): NovaServerOSDCFDiskConfigEnum | string | undefined {
         return this['OS-DCF:diskConfig'];
     }
     public withOSEXTAZAvailabilityZone(oSEXTAZAvailabilityZone: string): NovaServer {
         this['OS-EXT-AZ:availability_zone'] = oSEXTAZAvailabilityZone;
         return this;
     }
-    public set oSEXTAZAvailabilityZone(oSEXTAZAvailabilityZone: string | undefined) {
+    public set oSEXTAZAvailabilityZone(oSEXTAZAvailabilityZone: string  | undefined) {
         this['OS-EXT-AZ:availability_zone'] = oSEXTAZAvailabilityZone;
     }
-    public get oSEXTAZAvailabilityZone() {
+    public get oSEXTAZAvailabilityZone(): string | undefined {
         return this['OS-EXT-AZ:availability_zone'];
     }
     public withOSEXTSRVATTRHost(oSEXTSRVATTRHost: string): NovaServer {
         this['OS-EXT-SRV-ATTR:host'] = oSEXTSRVATTRHost;
         return this;
     }
-    public set oSEXTSRVATTRHost(oSEXTSRVATTRHost: string | undefined) {
+    public set oSEXTSRVATTRHost(oSEXTSRVATTRHost: string  | undefined) {
         this['OS-EXT-SRV-ATTR:host'] = oSEXTSRVATTRHost;
     }
-    public get oSEXTSRVATTRHost() {
+    public get oSEXTSRVATTRHost(): string | undefined {
         return this['OS-EXT-SRV-ATTR:host'];
     }
     public withOSEXTSRVATTRHypervisorHostname(oSEXTSRVATTRHypervisorHostname: string): NovaServer {
         this['OS-EXT-SRV-ATTR:hypervisor_hostname'] = oSEXTSRVATTRHypervisorHostname;
         return this;
     }
-    public set oSEXTSRVATTRHypervisorHostname(oSEXTSRVATTRHypervisorHostname: string | undefined) {
+    public set oSEXTSRVATTRHypervisorHostname(oSEXTSRVATTRHypervisorHostname: string  | undefined) {
         this['OS-EXT-SRV-ATTR:hypervisor_hostname'] = oSEXTSRVATTRHypervisorHostname;
     }
-    public get oSEXTSRVATTRHypervisorHostname() {
+    public get oSEXTSRVATTRHypervisorHostname(): string | undefined {
         return this['OS-EXT-SRV-ATTR:hypervisor_hostname'];
     }
     public withOSEXTSRVATTRInstanceName(oSEXTSRVATTRInstanceName: string): NovaServer {
         this['OS-EXT-SRV-ATTR:instance_name'] = oSEXTSRVATTRInstanceName;
         return this;
     }
-    public set oSEXTSRVATTRInstanceName(oSEXTSRVATTRInstanceName: string | undefined) {
+    public set oSEXTSRVATTRInstanceName(oSEXTSRVATTRInstanceName: string  | undefined) {
         this['OS-EXT-SRV-ATTR:instance_name'] = oSEXTSRVATTRInstanceName;
     }
-    public get oSEXTSRVATTRInstanceName() {
+    public get oSEXTSRVATTRInstanceName(): string | undefined {
         return this['OS-EXT-SRV-ATTR:instance_name'];
     }
     public withOSEXTSTSPowerState(oSEXTSTSPowerState: number): NovaServer {
         this['OS-EXT-STS:power_state'] = oSEXTSTSPowerState;
         return this;
     }
-    public set oSEXTSTSPowerState(oSEXTSTSPowerState: number | undefined) {
+    public set oSEXTSTSPowerState(oSEXTSTSPowerState: number  | undefined) {
         this['OS-EXT-STS:power_state'] = oSEXTSTSPowerState;
     }
-    public get oSEXTSTSPowerState() {
+    public get oSEXTSTSPowerState(): number | undefined {
         return this['OS-EXT-STS:power_state'];
     }
-    public withOSEXTSTSTaskState(oSEXTSTSTaskState: NovaServerOSEXTSTSTaskStateEnum): NovaServer {
+    public withOSEXTSTSTaskState(oSEXTSTSTaskState: NovaServerOSEXTSTSTaskStateEnum | string): NovaServer {
         this['OS-EXT-STS:task_state'] = oSEXTSTSTaskState;
         return this;
     }
-    public set oSEXTSTSTaskState(oSEXTSTSTaskState: NovaServerOSEXTSTSTaskStateEnum | undefined) {
+    public set oSEXTSTSTaskState(oSEXTSTSTaskState: NovaServerOSEXTSTSTaskStateEnum | string  | undefined) {
         this['OS-EXT-STS:task_state'] = oSEXTSTSTaskState;
     }
-    public get oSEXTSTSTaskState() {
+    public get oSEXTSTSTaskState(): NovaServerOSEXTSTSTaskStateEnum | string | undefined {
         return this['OS-EXT-STS:task_state'];
     }
-    public withOSEXTSTSVmState(oSEXTSTSVmState: NovaServerOSEXTSTSVmStateEnum): NovaServer {
+    public withOSEXTSTSVmState(oSEXTSTSVmState: NovaServerOSEXTSTSVmStateEnum | string): NovaServer {
         this['OS-EXT-STS:vm_state'] = oSEXTSTSVmState;
         return this;
     }
-    public set oSEXTSTSVmState(oSEXTSTSVmState: NovaServerOSEXTSTSVmStateEnum | undefined) {
+    public set oSEXTSTSVmState(oSEXTSTSVmState: NovaServerOSEXTSTSVmStateEnum | string  | undefined) {
         this['OS-EXT-STS:vm_state'] = oSEXTSTSVmState;
     }
-    public get oSEXTSTSVmState() {
+    public get oSEXTSTSVmState(): NovaServerOSEXTSTSVmStateEnum | string | undefined {
         return this['OS-EXT-STS:vm_state'];
     }
     public withOSSRVUSGLaunchedAt(oSSRVUSGLaunchedAt: string): NovaServer {
         this['OS-SRV-USG:launched_at'] = oSSRVUSGLaunchedAt;
         return this;
     }
-    public set oSSRVUSGLaunchedAt(oSSRVUSGLaunchedAt: string | undefined) {
+    public set oSSRVUSGLaunchedAt(oSSRVUSGLaunchedAt: string  | undefined) {
         this['OS-SRV-USG:launched_at'] = oSSRVUSGLaunchedAt;
     }
-    public get oSSRVUSGLaunchedAt() {
+    public get oSSRVUSGLaunchedAt(): string | undefined {
         return this['OS-SRV-USG:launched_at'];
     }
     public withOSSRVUSGTerminatedAt(oSSRVUSGTerminatedAt: string): NovaServer {
         this['OS-SRV-USG:terminated_at'] = oSSRVUSGTerminatedAt;
         return this;
     }
-    public set oSSRVUSGTerminatedAt(oSSRVUSGTerminatedAt: string | undefined) {
+    public set oSSRVUSGTerminatedAt(oSSRVUSGTerminatedAt: string  | undefined) {
         this['OS-SRV-USG:terminated_at'] = oSSRVUSGTerminatedAt;
     }
-    public get oSSRVUSGTerminatedAt() {
+    public get oSSRVUSGTerminatedAt(): string | undefined {
         return this['OS-SRV-USG:terminated_at'];
     }
     public withOsExtendedVolumesVolumesAttached(osExtendedVolumesVolumesAttached: Array<NovaServerVolume>): NovaServer {
         this['os-extended-volumes:volumes_attached'] = osExtendedVolumesVolumesAttached;
         return this;
     }
-    public set osExtendedVolumesVolumesAttached(osExtendedVolumesVolumesAttached: Array<NovaServerVolume> | undefined) {
+    public set osExtendedVolumesVolumesAttached(osExtendedVolumesVolumesAttached: Array<NovaServerVolume>  | undefined) {
         this['os-extended-volumes:volumes_attached'] = osExtendedVolumesVolumesAttached;
     }
-    public get osExtendedVolumesVolumesAttached() {
+    public get osExtendedVolumesVolumesAttached(): Array<NovaServerVolume> | undefined {
         return this['os-extended-volumes:volumes_attached'];
     }
     public withFault(fault: NovaServerFault): NovaServer {
@@ -288,84 +288,84 @@ export class NovaServer {
         this['description'] = description;
         return this;
     }
-    public withHostStatus(hostStatus: NovaServerHostStatusEnum): NovaServer {
+    public withHostStatus(hostStatus: NovaServerHostStatusEnum | string): NovaServer {
         this['host_status'] = hostStatus;
         return this;
     }
-    public set hostStatus(hostStatus: NovaServerHostStatusEnum | undefined) {
+    public set hostStatus(hostStatus: NovaServerHostStatusEnum | string  | undefined) {
         this['host_status'] = hostStatus;
     }
-    public get hostStatus() {
+    public get hostStatus(): NovaServerHostStatusEnum | string | undefined {
         return this['host_status'];
     }
     public withOSEXTSRVATTRHostname(oSEXTSRVATTRHostname: string): NovaServer {
         this['OS-EXT-SRV-ATTR:hostname'] = oSEXTSRVATTRHostname;
         return this;
     }
-    public set oSEXTSRVATTRHostname(oSEXTSRVATTRHostname: string | undefined) {
+    public set oSEXTSRVATTRHostname(oSEXTSRVATTRHostname: string  | undefined) {
         this['OS-EXT-SRV-ATTR:hostname'] = oSEXTSRVATTRHostname;
     }
-    public get oSEXTSRVATTRHostname() {
+    public get oSEXTSRVATTRHostname(): string | undefined {
         return this['OS-EXT-SRV-ATTR:hostname'];
     }
     public withOSEXTSRVATTRReservationId(oSEXTSRVATTRReservationId: string): NovaServer {
         this['OS-EXT-SRV-ATTR:reservation_id'] = oSEXTSRVATTRReservationId;
         return this;
     }
-    public set oSEXTSRVATTRReservationId(oSEXTSRVATTRReservationId: string | undefined) {
+    public set oSEXTSRVATTRReservationId(oSEXTSRVATTRReservationId: string  | undefined) {
         this['OS-EXT-SRV-ATTR:reservation_id'] = oSEXTSRVATTRReservationId;
     }
-    public get oSEXTSRVATTRReservationId() {
+    public get oSEXTSRVATTRReservationId(): string | undefined {
         return this['OS-EXT-SRV-ATTR:reservation_id'];
     }
     public withOSEXTSRVATTRLaunchIndex(oSEXTSRVATTRLaunchIndex: number): NovaServer {
         this['OS-EXT-SRV-ATTR:launch_index'] = oSEXTSRVATTRLaunchIndex;
         return this;
     }
-    public set oSEXTSRVATTRLaunchIndex(oSEXTSRVATTRLaunchIndex: number | undefined) {
+    public set oSEXTSRVATTRLaunchIndex(oSEXTSRVATTRLaunchIndex: number  | undefined) {
         this['OS-EXT-SRV-ATTR:launch_index'] = oSEXTSRVATTRLaunchIndex;
     }
-    public get oSEXTSRVATTRLaunchIndex() {
+    public get oSEXTSRVATTRLaunchIndex(): number | undefined {
         return this['OS-EXT-SRV-ATTR:launch_index'];
     }
     public withOSEXTSRVATTRKernelId(oSEXTSRVATTRKernelId: string): NovaServer {
         this['OS-EXT-SRV-ATTR:kernel_id'] = oSEXTSRVATTRKernelId;
         return this;
     }
-    public set oSEXTSRVATTRKernelId(oSEXTSRVATTRKernelId: string | undefined) {
+    public set oSEXTSRVATTRKernelId(oSEXTSRVATTRKernelId: string  | undefined) {
         this['OS-EXT-SRV-ATTR:kernel_id'] = oSEXTSRVATTRKernelId;
     }
-    public get oSEXTSRVATTRKernelId() {
+    public get oSEXTSRVATTRKernelId(): string | undefined {
         return this['OS-EXT-SRV-ATTR:kernel_id'];
     }
     public withOSEXTSRVATTRRamdiskId(oSEXTSRVATTRRamdiskId: string): NovaServer {
         this['OS-EXT-SRV-ATTR:ramdisk_id'] = oSEXTSRVATTRRamdiskId;
         return this;
     }
-    public set oSEXTSRVATTRRamdiskId(oSEXTSRVATTRRamdiskId: string | undefined) {
+    public set oSEXTSRVATTRRamdiskId(oSEXTSRVATTRRamdiskId: string  | undefined) {
         this['OS-EXT-SRV-ATTR:ramdisk_id'] = oSEXTSRVATTRRamdiskId;
     }
-    public get oSEXTSRVATTRRamdiskId() {
+    public get oSEXTSRVATTRRamdiskId(): string | undefined {
         return this['OS-EXT-SRV-ATTR:ramdisk_id'];
     }
     public withOSEXTSRVATTRRootDeviceName(oSEXTSRVATTRRootDeviceName: string): NovaServer {
         this['OS-EXT-SRV-ATTR:root_device_name'] = oSEXTSRVATTRRootDeviceName;
         return this;
     }
-    public set oSEXTSRVATTRRootDeviceName(oSEXTSRVATTRRootDeviceName: string | undefined) {
+    public set oSEXTSRVATTRRootDeviceName(oSEXTSRVATTRRootDeviceName: string  | undefined) {
         this['OS-EXT-SRV-ATTR:root_device_name'] = oSEXTSRVATTRRootDeviceName;
     }
-    public get oSEXTSRVATTRRootDeviceName() {
+    public get oSEXTSRVATTRRootDeviceName(): string | undefined {
         return this['OS-EXT-SRV-ATTR:root_device_name'];
     }
     public withOSEXTSRVATTRUserData(oSEXTSRVATTRUserData: string): NovaServer {
         this['OS-EXT-SRV-ATTR:user_data'] = oSEXTSRVATTRUserData;
         return this;
     }
-    public set oSEXTSRVATTRUserData(oSEXTSRVATTRUserData: string | undefined) {
+    public set oSEXTSRVATTRUserData(oSEXTSRVATTRUserData: string  | undefined) {
         this['OS-EXT-SRV-ATTR:user_data'] = oSEXTSRVATTRUserData;
     }
-    public get oSEXTSRVATTRUserData() {
+    public get oSEXTSRVATTRUserData(): string | undefined {
         return this['OS-EXT-SRV-ATTR:user_data'];
     }
     public withTags(tags: Array<string>): NovaServer {
@@ -388,10 +388,10 @@ export class NovaServer {
         this['config_drive'] = configDrive;
         return this;
     }
-    public set configDrive(configDrive: string | undefined) {
+    public set configDrive(configDrive: string  | undefined) {
         this['config_drive'] = configDrive;
     }
-    public get configDrive() {
+    public get configDrive(): string | undefined {
         return this['config_drive'];
     }
     public withProgress(progress: number): NovaServer {
@@ -402,10 +402,10 @@ export class NovaServer {
         this['os:scheduler_hints'] = osSchedulerHints;
         return this;
     }
-    public set osSchedulerHints(osSchedulerHints: NovaServerSchedulerHints | undefined) {
+    public set osSchedulerHints(osSchedulerHints: NovaServerSchedulerHints  | undefined) {
         this['os:scheduler_hints'] = osSchedulerHints;
     }
-    public get osSchedulerHints() {
+    public get osSchedulerHints(): NovaServerSchedulerHints | undefined {
         return this['os:scheduler_hints'];
     }
 }

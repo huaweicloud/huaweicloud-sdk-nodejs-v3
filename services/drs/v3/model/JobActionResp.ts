@@ -1,39 +1,39 @@
 
 
 export class JobActionResp {
-    private 'available_actions'?: Array<JobActionRespAvailableActionsEnum> | undefined;
-    private 'unavailable_actions'?: Array<JobActionRespUnavailableActionsEnum> | undefined;
-    private 'current_action'?: JobActionRespCurrentActionEnum | undefined;
+    private 'available_actions'?: Array<JobActionRespAvailableActionsEnum> | Array<string>;
+    private 'unavailable_actions'?: Array<JobActionRespUnavailableActionsEnum> | Array<string>;
+    private 'current_action'?: JobActionRespCurrentActionEnum | string;
     public constructor() { 
     }
-    public withAvailableActions(availableActions: Array<JobActionRespAvailableActionsEnum>): JobActionResp {
+    public withAvailableActions(availableActions: Array<JobActionRespAvailableActionsEnum> | Array<string>): JobActionResp {
         this['available_actions'] = availableActions;
         return this;
     }
-    public set availableActions(availableActions: Array<JobActionRespAvailableActionsEnum> | undefined) {
+    public set availableActions(availableActions: Array<JobActionRespAvailableActionsEnum> | Array<string>  | undefined) {
         this['available_actions'] = availableActions;
     }
-    public get availableActions() {
+    public get availableActions(): Array<JobActionRespAvailableActionsEnum> | Array<string> | undefined {
         return this['available_actions'];
     }
-    public withUnavailableActions(unavailableActions: Array<JobActionRespUnavailableActionsEnum>): JobActionResp {
+    public withUnavailableActions(unavailableActions: Array<JobActionRespUnavailableActionsEnum> | Array<string>): JobActionResp {
         this['unavailable_actions'] = unavailableActions;
         return this;
     }
-    public set unavailableActions(unavailableActions: Array<JobActionRespUnavailableActionsEnum> | undefined) {
+    public set unavailableActions(unavailableActions: Array<JobActionRespUnavailableActionsEnum> | Array<string>  | undefined) {
         this['unavailable_actions'] = unavailableActions;
     }
-    public get unavailableActions() {
+    public get unavailableActions(): Array<JobActionRespUnavailableActionsEnum> | Array<string> | undefined {
         return this['unavailable_actions'];
     }
-    public withCurrentAction(currentAction: JobActionRespCurrentActionEnum): JobActionResp {
+    public withCurrentAction(currentAction: JobActionRespCurrentActionEnum | string): JobActionResp {
         this['current_action'] = currentAction;
         return this;
     }
-    public set currentAction(currentAction: JobActionRespCurrentActionEnum | undefined) {
+    public set currentAction(currentAction: JobActionRespCurrentActionEnum | string  | undefined) {
         this['current_action'] = currentAction;
     }
-    public get currentAction() {
+    public get currentAction(): JobActionRespCurrentActionEnum | string | undefined {
         return this['current_action'];
     }
 }

@@ -2,8 +2,8 @@
 
 export class FlowExecuteBody {
     public headers?: object;
-    public input: object;
-    public constructor(input?: any) { 
+    public input?: object;
+    public constructor(input?: object) { 
         this['input'] = input;
     }
     public withHeaders(headers: object): FlowExecuteBody {

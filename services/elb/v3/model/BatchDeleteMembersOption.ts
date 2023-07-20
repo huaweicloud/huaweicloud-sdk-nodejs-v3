@@ -3,7 +3,7 @@
 export class BatchDeleteMembersOption {
     public id?: string;
     public address?: string;
-    private 'protocol_port'?: number | undefined;
+    private 'protocol_port'?: number;
     public constructor() { 
     }
     public withId(id: string): BatchDeleteMembersOption {
@@ -18,10 +18,10 @@ export class BatchDeleteMembersOption {
         this['protocol_port'] = protocolPort;
         return this;
     }
-    public set protocolPort(protocolPort: number | undefined) {
+    public set protocolPort(protocolPort: number  | undefined) {
         this['protocol_port'] = protocolPort;
     }
-    public get protocolPort() {
+    public get protocolPort(): number | undefined {
         return this['protocol_port'];
     }
 }

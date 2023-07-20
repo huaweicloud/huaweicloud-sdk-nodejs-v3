@@ -2,18 +2,18 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class QuickImportImageByFileRequestBody {
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'os_version': string | undefined;
-    private 'image_url': string | undefined;
-    private 'min_disk': number | undefined;
+    private 'os_version'?: string;
+    private 'image_url'?: string;
+    private 'min_disk'?: number;
     public tags?: Array<string>;
-    public type?: QuickImportImageByFileRequestBodyTypeEnum;
-    private 'enterprise_project_id'?: string | undefined;
-    public architecture?: QuickImportImageByFileRequestBodyArchitectureEnum;
-    private 'os_type'?: QuickImportImageByFileRequestBodyOsTypeEnum | undefined;
-    private 'image_tags'?: Array<ResourceTag> | undefined;
-    public constructor(name?: any, osVersion?: any, imageUrl?: any, minDisk?: any) { 
+    public type?: QuickImportImageByFileRequestBodyTypeEnum | string;
+    private 'enterprise_project_id'?: string;
+    public architecture?: QuickImportImageByFileRequestBodyArchitectureEnum | string;
+    private 'os_type'?: QuickImportImageByFileRequestBodyOsTypeEnum | string;
+    private 'image_tags'?: Array<ResourceTag>;
+    public constructor(name?: string, osVersion?: string, imageUrl?: string, minDisk?: number) { 
         this['name'] = name;
         this['os_version'] = osVersion;
         this['image_url'] = imageUrl;
@@ -31,37 +31,37 @@ export class QuickImportImageByFileRequestBody {
         this['os_version'] = osVersion;
         return this;
     }
-    public set osVersion(osVersion: string | undefined) {
+    public set osVersion(osVersion: string  | undefined) {
         this['os_version'] = osVersion;
     }
-    public get osVersion() {
+    public get osVersion(): string | undefined {
         return this['os_version'];
     }
     public withImageUrl(imageUrl: string): QuickImportImageByFileRequestBody {
         this['image_url'] = imageUrl;
         return this;
     }
-    public set imageUrl(imageUrl: string | undefined) {
+    public set imageUrl(imageUrl: string  | undefined) {
         this['image_url'] = imageUrl;
     }
-    public get imageUrl() {
+    public get imageUrl(): string | undefined {
         return this['image_url'];
     }
     public withMinDisk(minDisk: number): QuickImportImageByFileRequestBody {
         this['min_disk'] = minDisk;
         return this;
     }
-    public set minDisk(minDisk: number | undefined) {
+    public set minDisk(minDisk: number  | undefined) {
         this['min_disk'] = minDisk;
     }
-    public get minDisk() {
+    public get minDisk(): number | undefined {
         return this['min_disk'];
     }
     public withTags(tags: Array<string>): QuickImportImageByFileRequestBody {
         this['tags'] = tags;
         return this;
     }
-    public withType(type: QuickImportImageByFileRequestBodyTypeEnum): QuickImportImageByFileRequestBody {
+    public withType(type: QuickImportImageByFileRequestBodyTypeEnum | string): QuickImportImageByFileRequestBody {
         this['type'] = type;
         return this;
     }
@@ -69,34 +69,34 @@ export class QuickImportImageByFileRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withArchitecture(architecture: QuickImportImageByFileRequestBodyArchitectureEnum): QuickImportImageByFileRequestBody {
+    public withArchitecture(architecture: QuickImportImageByFileRequestBodyArchitectureEnum | string): QuickImportImageByFileRequestBody {
         this['architecture'] = architecture;
         return this;
     }
-    public withOsType(osType: QuickImportImageByFileRequestBodyOsTypeEnum): QuickImportImageByFileRequestBody {
+    public withOsType(osType: QuickImportImageByFileRequestBodyOsTypeEnum | string): QuickImportImageByFileRequestBody {
         this['os_type'] = osType;
         return this;
     }
-    public set osType(osType: QuickImportImageByFileRequestBodyOsTypeEnum | undefined) {
+    public set osType(osType: QuickImportImageByFileRequestBodyOsTypeEnum | string  | undefined) {
         this['os_type'] = osType;
     }
-    public get osType() {
+    public get osType(): QuickImportImageByFileRequestBodyOsTypeEnum | string | undefined {
         return this['os_type'];
     }
     public withImageTags(imageTags: Array<ResourceTag>): QuickImportImageByFileRequestBody {
         this['image_tags'] = imageTags;
         return this;
     }
-    public set imageTags(imageTags: Array<ResourceTag> | undefined) {
+    public set imageTags(imageTags: Array<ResourceTag>  | undefined) {
         this['image_tags'] = imageTags;
     }
-    public get imageTags() {
+    public get imageTags(): Array<ResourceTag> | undefined {
         return this['image_tags'];
     }
 }

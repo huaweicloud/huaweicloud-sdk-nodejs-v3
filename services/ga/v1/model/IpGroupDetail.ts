@@ -8,10 +8,10 @@ export class IpGroupDetail {
     public name?: string;
     public description?: string;
     public status?: ConfigStatus;
-    private 'ip_list'?: Array<IpInfo> | undefined;
-    private 'associated_listeners'?: Array<ListenerAccessControlPolicy> | undefined;
-    private 'created_at'?: Date | undefined;
-    private 'updated_at'?: Date | undefined;
+    private 'ip_list'?: Array<IpInfo>;
+    private 'associated_listeners'?: Array<ListenerAccessControlPolicy>;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     public constructor() { 
     }
     public withId(id: string): IpGroupDetail {
@@ -34,40 +34,40 @@ export class IpGroupDetail {
         this['ip_list'] = ipList;
         return this;
     }
-    public set ipList(ipList: Array<IpInfo> | undefined) {
+    public set ipList(ipList: Array<IpInfo>  | undefined) {
         this['ip_list'] = ipList;
     }
-    public get ipList() {
+    public get ipList(): Array<IpInfo> | undefined {
         return this['ip_list'];
     }
     public withAssociatedListeners(associatedListeners: Array<ListenerAccessControlPolicy>): IpGroupDetail {
         this['associated_listeners'] = associatedListeners;
         return this;
     }
-    public set associatedListeners(associatedListeners: Array<ListenerAccessControlPolicy> | undefined) {
+    public set associatedListeners(associatedListeners: Array<ListenerAccessControlPolicy>  | undefined) {
         this['associated_listeners'] = associatedListeners;
     }
-    public get associatedListeners() {
+    public get associatedListeners(): Array<ListenerAccessControlPolicy> | undefined {
         return this['associated_listeners'];
     }
     public withCreatedAt(createdAt: Date): IpGroupDetail {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): IpGroupDetail {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
 }

@@ -1,13 +1,13 @@
 
 
 export class ListStatisticsRequest {
-    public filter: ListStatisticsRequestFilterEnum;
+    public filter?: ListStatisticsRequestFilterEnum | string;
     public period?: string;
     public option?: string;
-    public constructor(filter?: any) { 
+    public constructor(filter?: string) { 
         this['filter'] = filter;
     }
-    public withFilter(filter: ListStatisticsRequestFilterEnum): ListStatisticsRequest {
+    public withFilter(filter: ListStatisticsRequestFilterEnum | string): ListStatisticsRequest {
         this['filter'] = filter;
         return this;
     }

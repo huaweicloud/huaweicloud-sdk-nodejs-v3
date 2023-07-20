@@ -1,28 +1,28 @@
 
 
 export class AudioConfig {
-    private 'audio_format'?: AudioConfigAudioFormatEnum | undefined;
-    public language: AudioConfigLanguageEnum;
-    public mode: AudioConfigModeEnum;
-    public constructor(language?: any, mode?: any) { 
+    private 'audio_format'?: AudioConfigAudioFormatEnum | string;
+    public language?: AudioConfigLanguageEnum | string;
+    public mode?: AudioConfigModeEnum | string;
+    public constructor(language?: string, mode?: string) { 
         this['language'] = language;
         this['mode'] = mode;
     }
-    public withAudioFormat(audioFormat: AudioConfigAudioFormatEnum): AudioConfig {
+    public withAudioFormat(audioFormat: AudioConfigAudioFormatEnum | string): AudioConfig {
         this['audio_format'] = audioFormat;
         return this;
     }
-    public set audioFormat(audioFormat: AudioConfigAudioFormatEnum | undefined) {
+    public set audioFormat(audioFormat: AudioConfigAudioFormatEnum | string  | undefined) {
         this['audio_format'] = audioFormat;
     }
-    public get audioFormat() {
+    public get audioFormat(): AudioConfigAudioFormatEnum | string | undefined {
         return this['audio_format'];
     }
-    public withLanguage(language: AudioConfigLanguageEnum): AudioConfig {
+    public withLanguage(language: AudioConfigLanguageEnum | string): AudioConfig {
         this['language'] = language;
         return this;
     }
-    public withMode(mode: AudioConfigModeEnum): AudioConfig {
+    public withMode(mode: AudioConfigModeEnum | string): AudioConfig {
         this['mode'] = mode;
         return this;
     }

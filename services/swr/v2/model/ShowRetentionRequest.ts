@@ -1,24 +1,24 @@
 
 
 export class ShowRetentionRequest {
-    private 'Content-Type': ShowRetentionRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
-    private 'retention_id': number | undefined;
-    public constructor(contentType?: any, namespace?: any, repository?: any, retentionId?: any) { 
+    private 'Content-Type'?: ShowRetentionRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
+    private 'retention_id'?: number;
+    public constructor(contentType?: string, namespace?: string, repository?: string, retentionId?: number) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
         this['retention_id'] = retentionId;
     }
-    public withContentType(contentType: ShowRetentionRequestContentTypeEnum): ShowRetentionRequest {
+    public withContentType(contentType: ShowRetentionRequestContentTypeEnum | string): ShowRetentionRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ShowRetentionRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ShowRetentionRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ShowRetentionRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): ShowRetentionRequest {
@@ -33,10 +33,10 @@ export class ShowRetentionRequest {
         this['retention_id'] = retentionId;
         return this;
     }
-    public set retentionId(retentionId: number | undefined) {
+    public set retentionId(retentionId: number  | undefined) {
         this['retention_id'] = retentionId;
     }
-    public get retentionId() {
+    public get retentionId(): number | undefined {
         return this['retention_id'];
     }
 }

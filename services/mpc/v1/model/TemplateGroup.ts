@@ -5,12 +5,12 @@ import { VideoCommon } from './VideoCommon';
 
 
 export class TemplateGroup {
-    private 'group_id'?: string | undefined;
+    private 'group_id'?: string;
     public name?: string;
-    private 'template_ids'?: Array<number> | undefined;
+    private 'template_ids'?: Array<number>;
     public videos?: Array<VideoAndTemplate>;
     public audio?: Audio;
-    private 'video_common'?: VideoCommon | undefined;
+    private 'video_common'?: VideoCommon;
     public common?: Common;
     public constructor() { 
     }
@@ -18,10 +18,10 @@ export class TemplateGroup {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
     public withName(name: string): TemplateGroup {
@@ -32,10 +32,10 @@ export class TemplateGroup {
         this['template_ids'] = templateIds;
         return this;
     }
-    public set templateIds(templateIds: Array<number> | undefined) {
+    public set templateIds(templateIds: Array<number>  | undefined) {
         this['template_ids'] = templateIds;
     }
-    public get templateIds() {
+    public get templateIds(): Array<number> | undefined {
         return this['template_ids'];
     }
     public withVideos(videos: Array<VideoAndTemplate>): TemplateGroup {
@@ -50,10 +50,10 @@ export class TemplateGroup {
         this['video_common'] = videoCommon;
         return this;
     }
-    public set videoCommon(videoCommon: VideoCommon | undefined) {
+    public set videoCommon(videoCommon: VideoCommon  | undefined) {
         this['video_common'] = videoCommon;
     }
-    public get videoCommon() {
+    public get videoCommon(): VideoCommon | undefined {
         return this['video_common'];
     }
     public withCommon(common: Common): TemplateGroup {

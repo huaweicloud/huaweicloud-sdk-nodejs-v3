@@ -2,9 +2,9 @@ import { NodeSelector } from './NodeSelector';
 
 
 export class NodePriority {
-    public nodeSelector: NodeSelector;
-    public priority: number;
-    public constructor(nodeSelector?: any, priority?: any) { 
+    public nodeSelector?: NodeSelector;
+    public priority?: number;
+    public constructor(nodeSelector?: NodeSelector, priority?: number) { 
         this['nodeSelector'] = nodeSelector;
         this['priority'] = priority;
     }

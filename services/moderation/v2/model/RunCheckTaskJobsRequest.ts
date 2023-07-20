@@ -1,12 +1,12 @@
 
 
 export class RunCheckTaskJobsRequest {
-    public status?: RunCheckTaskJobsRequestStatusEnum;
+    public status?: RunCheckTaskJobsRequestStatusEnum | string;
     public offset?: number;
     public limit?: number;
     public constructor() { 
     }
-    public withStatus(status: RunCheckTaskJobsRequestStatusEnum): RunCheckTaskJobsRequest {
+    public withStatus(status: RunCheckTaskJobsRequestStatusEnum | string): RunCheckTaskJobsRequest {
         this['status'] = status;
         return this;
     }

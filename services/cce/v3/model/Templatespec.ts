@@ -2,14 +2,14 @@ import { Versions } from './Versions';
 
 
 export class Templatespec {
-    public type: string;
+    public type?: string;
     public require?: boolean;
-    public labels: Array<string>;
-    public logoURL: string;
-    public readmeURL: string;
-    public description: string;
-    public versions: Array<Versions>;
-    public constructor(type?: any, labels?: any, logoURL?: any, readmeURL?: any, description?: any, versions?: any) { 
+    public labels?: Array<string>;
+    public logoURL?: string;
+    public readmeURL?: string;
+    public description?: string;
+    public versions?: Array<Versions>;
+    public constructor(type?: string, labels?: Array<string>, logoURL?: string, readmeURL?: string, description?: string, versions?: Array<Versions>) { 
         this['type'] = type;
         this['labels'] = labels;
         this['logoURL'] = logoURL;

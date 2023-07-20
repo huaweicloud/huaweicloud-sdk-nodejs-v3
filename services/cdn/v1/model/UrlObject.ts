@@ -4,9 +4,9 @@ export class UrlObject {
     public id?: string;
     public url?: string;
     public status?: string;
-    private 'create_time'?: number | undefined;
-    private 'task_id'?: string | undefined;
-    private 'task_type'?: string | undefined;
+    private 'create_time'?: number;
+    private 'task_id'?: string;
+    private 'task_type'?: string;
     public constructor() { 
     }
     public withId(id: string): UrlObject {
@@ -25,30 +25,30 @@ export class UrlObject {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: number | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
     public withTaskId(taskId: string): UrlObject {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
     public withTaskType(taskType: string): UrlObject {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: string | undefined) {
+    public set taskType(taskType: string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): string | undefined {
         return this['task_type'];
     }
 }

@@ -1,13 +1,13 @@
 
 
 export class SlideVerifyCodeCheckDTO {
-    public user: string;
-    public clientType: number;
+    public user?: string;
+    public clientType?: number;
     public checkType?: number;
-    public token: string;
-    public pointX: number;
-    public slideTime: number;
-    public constructor(user?: any, clientType?: any, token?: any, pointX?: any, slideTime?: any) { 
+    public token?: string;
+    public pointX?: number;
+    public slideTime?: number;
+    public constructor(user?: string, clientType?: number, token?: string, pointX?: number, slideTime?: number) { 
         this['user'] = user;
         this['clientType'] = clientType;
         this['token'] = token;

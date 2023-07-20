@@ -770,7 +770,7 @@ export class ConfigClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listPolicyAssignments(): Promise<ListPolicyAssignmentsResponse> {
+    public listPolicyAssignments(listPolicyAssignmentsRequest?: ListPolicyAssignmentsRequest): Promise<ListPolicyAssignmentsResponse> {
         const options = ParamCreater().listPolicyAssignments();
 
          // @ts-ignore
@@ -1440,7 +1440,7 @@ export class ConfigClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public deleteTrackerConfig(): Promise<DeleteTrackerConfigResponse> {
+    public deleteTrackerConfig(deleteTrackerConfigRequest?: DeleteTrackerConfigRequest): Promise<DeleteTrackerConfigResponse> {
         const options = ParamCreater().deleteTrackerConfig();
 
          // @ts-ignore
@@ -1458,7 +1458,7 @@ export class ConfigClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showTrackerConfig(): Promise<ShowTrackerConfigResponse> {
+    public showTrackerConfig(showTrackerConfigRequest?: ShowTrackerConfigRequest): Promise<ShowTrackerConfigResponse> {
         const options = ParamCreater().showTrackerConfig();
 
          // @ts-ignore

@@ -1,9 +1,9 @@
 
 
 export class AppAuthReq {
-    public enable: boolean;
+    public enable?: boolean;
     public expire?: number;
-    public constructor(enable?: any) { 
+    public constructor(enable?: boolean) { 
         this['enable'] = enable;
     }
     public withEnable(enable: boolean): AppAuthReq {

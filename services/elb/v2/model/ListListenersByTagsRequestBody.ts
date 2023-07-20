@@ -5,10 +5,10 @@ import { ActionTag } from './ActionTag';
 export class ListListenersByTagsRequestBody {
     public offset?: number;
     public limit?: number;
-    public action: string;
+    public action?: string;
     public matches?: Array<ActionMatch>;
     public tags?: Array<ActionTag>;
-    public constructor(action?: any) { 
+    public constructor(action?: string) { 
         this['action'] = action;
     }
     public withOffset(offset: number): ListListenersByTagsRequestBody {

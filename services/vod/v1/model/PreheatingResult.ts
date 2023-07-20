@@ -2,14 +2,14 @@
 
 export class PreheatingResult {
     public url?: string;
-    public status?: PreheatingResultStatusEnum;
+    public status?: PreheatingResultStatusEnum | string;
     public constructor() { 
     }
     public withUrl(url: string): PreheatingResult {
         this['url'] = url;
         return this;
     }
-    public withStatus(status: PreheatingResultStatusEnum): PreheatingResult {
+    public withStatus(status: PreheatingResultStatusEnum | string): PreheatingResult {
         this['status'] = status;
         return this;
     }

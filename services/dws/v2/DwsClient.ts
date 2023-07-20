@@ -1149,7 +1149,7 @@ export class DwsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listAvailabilityZones(): Promise<ListAvailabilityZonesResponse> {
+    public listAvailabilityZones(listAvailabilityZonesRequest?: ListAvailabilityZonesRequest): Promise<ListAvailabilityZonesResponse> {
         const options = ParamCreater().listAvailabilityZones();
 
          // @ts-ignore
@@ -1351,7 +1351,7 @@ export class DwsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listClusters(): Promise<ListClustersResponse> {
+    public listClusters(listClustersRequest?: ListClustersRequest): Promise<ListClustersResponse> {
         const options = ParamCreater().listClusters();
 
          // @ts-ignore
@@ -1407,7 +1407,7 @@ export class DwsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listDisasterRecover(): Promise<ListDisasterRecoverResponse> {
+    public listDisasterRecover(listDisasterRecoverRequest?: ListDisasterRecoverRequest): Promise<ListDisasterRecoverResponse> {
         const options = ParamCreater().listDisasterRecover();
 
          // @ts-ignore
@@ -1425,7 +1425,7 @@ export class DwsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listDssPools(): Promise<ListDssPoolsResponse> {
+    public listDssPools(listDssPoolsRequest?: ListDssPoolsRequest): Promise<ListDssPoolsResponse> {
         const options = ParamCreater().listDssPools();
 
          // @ts-ignore
@@ -1637,7 +1637,7 @@ export class DwsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listMonitorIndicators(): Promise<ListMonitorIndicatorsResponse> {
+    public listMonitorIndicators(listMonitorIndicatorsRequest?: ListMonitorIndicatorsRequest): Promise<ListMonitorIndicatorsResponse> {
         const options = ParamCreater().listMonitorIndicators();
 
          // @ts-ignore
@@ -1655,7 +1655,7 @@ export class DwsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listNodeTypes(): Promise<ListNodeTypesResponse> {
+    public listNodeTypes(listNodeTypesRequest?: ListNodeTypesRequest): Promise<ListNodeTypesResponse> {
         const options = ParamCreater().listNodeTypes();
 
          // @ts-ignore
@@ -1673,7 +1673,7 @@ export class DwsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listQuotas(): Promise<ListQuotasResponse> {
+    public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
         const options = ParamCreater().listQuotas();
 
          // @ts-ignore
@@ -1748,7 +1748,7 @@ export class DwsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listSnapshots(): Promise<ListSnapshotsResponse> {
+    public listSnapshots(listSnapshotsRequest?: ListSnapshotsRequest): Promise<ListSnapshotsResponse> {
         const options = ParamCreater().listSnapshots();
 
          // @ts-ignore
@@ -1766,7 +1766,7 @@ export class DwsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listStatistics(): Promise<ListStatisticsResponse> {
+    public listStatistics(listStatisticsRequest?: ListStatisticsRequest): Promise<ListStatisticsResponse> {
         const options = ParamCreater().listStatistics();
 
          // @ts-ignore
@@ -1784,7 +1784,7 @@ export class DwsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listTags(): Promise<ListTagsResponse> {
+    public listTags(listTagsRequest?: ListTagsRequest): Promise<ListTagsResponse> {
         const options = ParamCreater().listTags();
 
          // @ts-ignore

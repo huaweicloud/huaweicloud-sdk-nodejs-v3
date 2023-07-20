@@ -3,7 +3,7 @@ import { MfaDeviceResult } from './MfaDeviceResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListUserMfaDevicesResponse extends SdkResponse {
-    private 'virtual_mfa_devices'?: Array<MfaDeviceResult> | undefined;
+    private 'virtual_mfa_devices'?: Array<MfaDeviceResult>;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ListUserMfaDevicesResponse extends SdkResponse {
         this['virtual_mfa_devices'] = virtualMfaDevices;
         return this;
     }
-    public set virtualMfaDevices(virtualMfaDevices: Array<MfaDeviceResult> | undefined) {
+    public set virtualMfaDevices(virtualMfaDevices: Array<MfaDeviceResult>  | undefined) {
         this['virtual_mfa_devices'] = virtualMfaDevices;
     }
-    public get virtualMfaDevices() {
+    public get virtualMfaDevices(): Array<MfaDeviceResult> | undefined {
         return this['virtual_mfa_devices'];
     }
 }

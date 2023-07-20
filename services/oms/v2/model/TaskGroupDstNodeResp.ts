@@ -3,7 +3,7 @@
 export class TaskGroupDstNodeResp {
     public bucket?: string;
     public region?: string;
-    private 'save_prefix'?: string | undefined;
+    private 'save_prefix'?: string;
     public constructor() { 
     }
     public withBucket(bucket: string): TaskGroupDstNodeResp {
@@ -18,10 +18,10 @@ export class TaskGroupDstNodeResp {
         this['save_prefix'] = savePrefix;
         return this;
     }
-    public set savePrefix(savePrefix: string | undefined) {
+    public set savePrefix(savePrefix: string  | undefined) {
         this['save_prefix'] = savePrefix;
     }
-    public get savePrefix() {
+    public get savePrefix(): string | undefined {
         return this['save_prefix'];
     }
 }

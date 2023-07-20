@@ -2,8 +2,8 @@ import { KmsStructure } from './KmsStructure';
 
 
 export class EncryptionStructure {
-    public kms: KmsStructure;
-    public constructor(kms?: any) { 
+    public kms?: KmsStructure;
+    public constructor(kms?: KmsStructure) { 
         this['kms'] = kms;
     }
     public withKms(kms: KmsStructure): EncryptionStructure {

@@ -2,24 +2,24 @@ import { BatchQueryJobReqPage } from './BatchQueryJobReqPage';
 
 
 export class BatchListStructDetailRequest {
-    public type: BatchListStructDetailRequestTypeEnum;
-    private 'X-Language'?: BatchListStructDetailRequestXLanguageEnum | undefined;
+    public type?: BatchListStructDetailRequestTypeEnum | string;
+    private 'X-Language'?: BatchListStructDetailRequestXLanguageEnum | string;
     public body?: BatchQueryJobReqPage;
-    public constructor(type?: any) { 
+    public constructor(type?: string) { 
         this['type'] = type;
     }
-    public withType(type: BatchListStructDetailRequestTypeEnum): BatchListStructDetailRequest {
+    public withType(type: BatchListStructDetailRequestTypeEnum | string): BatchListStructDetailRequest {
         this['type'] = type;
         return this;
     }
-    public withXLanguage(xLanguage: BatchListStructDetailRequestXLanguageEnum): BatchListStructDetailRequest {
+    public withXLanguage(xLanguage: BatchListStructDetailRequestXLanguageEnum | string): BatchListStructDetailRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchListStructDetailRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchListStructDetailRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchListStructDetailRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchQueryJobReqPage): BatchListStructDetailRequest {

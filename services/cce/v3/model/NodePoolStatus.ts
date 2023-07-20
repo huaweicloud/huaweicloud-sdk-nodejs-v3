@@ -5,7 +5,7 @@ export class NodePoolStatus {
     public currentNode?: number;
     public creatingNode?: number;
     public deletingNode?: number;
-    public phase?: NodePoolStatusPhaseEnum;
+    public phase?: NodePoolStatusPhaseEnum | string;
     public jobId?: string;
     public conditions?: Array<NodePoolCondition>;
     public constructor() { 
@@ -22,7 +22,7 @@ export class NodePoolStatus {
         this['deletingNode'] = deletingNode;
         return this;
     }
-    public withPhase(phase: NodePoolStatusPhaseEnum): NodePoolStatus {
+    public withPhase(phase: NodePoolStatusPhaseEnum | string): NodePoolStatus {
         this['phase'] = phase;
         return this;
     }

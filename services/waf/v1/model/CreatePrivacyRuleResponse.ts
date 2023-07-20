@@ -7,7 +7,7 @@ export class CreatePrivacyRuleResponse extends SdkResponse {
     public timestamp?: number;
     public status?: number;
     public url?: string;
-    public category?: CreatePrivacyRuleResponseCategoryEnum;
+    public category?: CreatePrivacyRuleResponseCategoryEnum | string;
     public index?: string;
     public description?: string;
     public constructor() { 
@@ -33,7 +33,7 @@ export class CreatePrivacyRuleResponse extends SdkResponse {
         this['url'] = url;
         return this;
     }
-    public withCategory(category: CreatePrivacyRuleResponseCategoryEnum): CreatePrivacyRuleResponse {
+    public withCategory(category: CreatePrivacyRuleResponseCategoryEnum | string): CreatePrivacyRuleResponse {
         this['category'] = category;
         return this;
     }

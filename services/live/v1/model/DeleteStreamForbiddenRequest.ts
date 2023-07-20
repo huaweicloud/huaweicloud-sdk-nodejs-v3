@@ -1,10 +1,10 @@
 
 
 export class DeleteStreamForbiddenRequest {
-    public domain: string;
-    private 'app_name': string | undefined;
-    private 'stream_name': string | undefined;
-    public constructor(domain?: any, appName?: any, streamName?: any) { 
+    public domain?: string;
+    private 'app_name'?: string;
+    private 'stream_name'?: string;
+    public constructor(domain?: string, appName?: string, streamName?: string) { 
         this['domain'] = domain;
         this['app_name'] = appName;
         this['stream_name'] = streamName;
@@ -17,20 +17,20 @@ export class DeleteStreamForbiddenRequest {
         this['app_name'] = appName;
         return this;
     }
-    public set appName(appName: string | undefined) {
+    public set appName(appName: string  | undefined) {
         this['app_name'] = appName;
     }
-    public get appName() {
+    public get appName(): string | undefined {
         return this['app_name'];
     }
     public withStreamName(streamName: string): DeleteStreamForbiddenRequest {
         this['stream_name'] = streamName;
         return this;
     }
-    public set streamName(streamName: string | undefined) {
+    public set streamName(streamName: string  | undefined) {
         this['stream_name'] = streamName;
     }
-    public get streamName() {
+    public get streamName(): string | undefined {
         return this['stream_name'];
     }
 }

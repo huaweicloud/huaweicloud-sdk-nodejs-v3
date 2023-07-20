@@ -6,29 +6,29 @@ import { FixedIp } from './FixedIp';
 
 
 export class Port {
-    public id: string;
-    public name: string;
-    private 'network_id': string | undefined;
-    private 'admin_state_up': boolean | undefined;
-    private 'mac_address': string | undefined;
-    private 'fixed_ips': Array<FixedIp> | undefined;
-    private 'device_id': string | undefined;
-    private 'device_owner': PortDeviceOwnerEnum | undefined;
-    private 'tenant_id': string | undefined;
-    public status: PortStatusEnum;
-    private 'security_groups': Array<string> | undefined;
-    private 'allowed_address_pairs': Array<AllowedAddressPair> | undefined;
-    private 'extra_dhcp_opts': Array<ExtraDhcpOpt> | undefined;
-    private 'binding:vnic_type': string | undefined;
-    private 'dns_assignment': Array<DnsAssignMent> | undefined;
-    private 'dns_name': string | undefined;
-    private 'binding:vif_details': BindingVifDetails | undefined;
-    private 'binding:profile': object | undefined;
-    private 'instance_id': string | undefined;
-    private 'instance_type': string | undefined;
-    private 'port_security_enabled': boolean | undefined;
-    private 'zone_id': string | undefined;
-    public constructor(id?: any, name?: any, networkId?: any, adminStateUp?: any, macAddress?: any, fixedIps?: any, deviceId?: any, deviceOwner?: any, tenantId?: any, status?: any, securityGroups?: any, allowedAddressPairs?: any, extraDhcpOpts?: any, bindingVnicType?: any, dnsAssignment?: any, dnsName?: any, bindingVifDetails?: any, bindingProfile?: any, instanceId?: any, instanceType?: any, portSecurityEnabled?: any, zoneId?: any) { 
+    public id?: string;
+    public name?: string;
+    private 'network_id'?: string;
+    private 'admin_state_up'?: boolean;
+    private 'mac_address'?: string;
+    private 'fixed_ips'?: Array<FixedIp>;
+    private 'device_id'?: string;
+    private 'device_owner'?: PortDeviceOwnerEnum | string;
+    private 'tenant_id'?: string;
+    public status?: PortStatusEnum | string;
+    private 'security_groups'?: Array<string>;
+    private 'allowed_address_pairs'?: Array<AllowedAddressPair>;
+    private 'extra_dhcp_opts'?: Array<ExtraDhcpOpt>;
+    private 'binding:vnic_type'?: string;
+    private 'dns_assignment'?: Array<DnsAssignMent>;
+    private 'dns_name'?: string;
+    private 'binding:vif_details'?: BindingVifDetails;
+    private 'binding:profile'?: object;
+    private 'instance_id'?: string;
+    private 'instance_type'?: string;
+    private 'port_security_enabled'?: boolean;
+    private 'zone_id'?: string;
+    public constructor(id?: string, name?: string, networkId?: string, adminStateUp?: boolean, macAddress?: string, fixedIps?: Array<FixedIp>, deviceId?: string, deviceOwner?: string, tenantId?: string, status?: string, securityGroups?: Array<string>, allowedAddressPairs?: Array<AllowedAddressPair>, extraDhcpOpts?: Array<ExtraDhcpOpt>, bindingVnicType?: string, dnsAssignment?: Array<DnsAssignMent>, dnsName?: string, bindingVifDetails?: BindingVifDetails, bindingProfile?: object, instanceId?: string, instanceType?: string, portSecurityEnabled?: boolean, zoneId?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['network_id'] = networkId;
@@ -64,73 +64,73 @@ export class Port {
         this['network_id'] = networkId;
         return this;
     }
-    public set networkId(networkId: string | undefined) {
+    public set networkId(networkId: string  | undefined) {
         this['network_id'] = networkId;
     }
-    public get networkId() {
+    public get networkId(): string | undefined {
         return this['network_id'];
     }
     public withAdminStateUp(adminStateUp: boolean): Port {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withMacAddress(macAddress: string): Port {
         this['mac_address'] = macAddress;
         return this;
     }
-    public set macAddress(macAddress: string | undefined) {
+    public set macAddress(macAddress: string  | undefined) {
         this['mac_address'] = macAddress;
     }
-    public get macAddress() {
+    public get macAddress(): string | undefined {
         return this['mac_address'];
     }
     public withFixedIps(fixedIps: Array<FixedIp>): Port {
         this['fixed_ips'] = fixedIps;
         return this;
     }
-    public set fixedIps(fixedIps: Array<FixedIp> | undefined) {
+    public set fixedIps(fixedIps: Array<FixedIp>  | undefined) {
         this['fixed_ips'] = fixedIps;
     }
-    public get fixedIps() {
+    public get fixedIps(): Array<FixedIp> | undefined {
         return this['fixed_ips'];
     }
     public withDeviceId(deviceId: string): Port {
         this['device_id'] = deviceId;
         return this;
     }
-    public set deviceId(deviceId: string | undefined) {
+    public set deviceId(deviceId: string  | undefined) {
         this['device_id'] = deviceId;
     }
-    public get deviceId() {
+    public get deviceId(): string | undefined {
         return this['device_id'];
     }
-    public withDeviceOwner(deviceOwner: PortDeviceOwnerEnum): Port {
+    public withDeviceOwner(deviceOwner: PortDeviceOwnerEnum | string): Port {
         this['device_owner'] = deviceOwner;
         return this;
     }
-    public set deviceOwner(deviceOwner: PortDeviceOwnerEnum | undefined) {
+    public set deviceOwner(deviceOwner: PortDeviceOwnerEnum | string  | undefined) {
         this['device_owner'] = deviceOwner;
     }
-    public get deviceOwner() {
+    public get deviceOwner(): PortDeviceOwnerEnum | string | undefined {
         return this['device_owner'];
     }
     public withTenantId(tenantId: string): Port {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
-    public withStatus(status: PortStatusEnum): Port {
+    public withStatus(status: PortStatusEnum | string): Port {
         this['status'] = status;
         return this;
     }
@@ -138,120 +138,120 @@ export class Port {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<string> | undefined) {
+    public set securityGroups(securityGroups: Array<string>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups() {
+    public get securityGroups(): Array<string> | undefined {
         return this['security_groups'];
     }
     public withAllowedAddressPairs(allowedAddressPairs: Array<AllowedAddressPair>): Port {
         this['allowed_address_pairs'] = allowedAddressPairs;
         return this;
     }
-    public set allowedAddressPairs(allowedAddressPairs: Array<AllowedAddressPair> | undefined) {
+    public set allowedAddressPairs(allowedAddressPairs: Array<AllowedAddressPair>  | undefined) {
         this['allowed_address_pairs'] = allowedAddressPairs;
     }
-    public get allowedAddressPairs() {
+    public get allowedAddressPairs(): Array<AllowedAddressPair> | undefined {
         return this['allowed_address_pairs'];
     }
     public withExtraDhcpOpts(extraDhcpOpts: Array<ExtraDhcpOpt>): Port {
         this['extra_dhcp_opts'] = extraDhcpOpts;
         return this;
     }
-    public set extraDhcpOpts(extraDhcpOpts: Array<ExtraDhcpOpt> | undefined) {
+    public set extraDhcpOpts(extraDhcpOpts: Array<ExtraDhcpOpt>  | undefined) {
         this['extra_dhcp_opts'] = extraDhcpOpts;
     }
-    public get extraDhcpOpts() {
+    public get extraDhcpOpts(): Array<ExtraDhcpOpt> | undefined {
         return this['extra_dhcp_opts'];
     }
     public withBindingVnicType(bindingVnicType: string): Port {
         this['binding:vnic_type'] = bindingVnicType;
         return this;
     }
-    public set bindingVnicType(bindingVnicType: string | undefined) {
+    public set bindingVnicType(bindingVnicType: string  | undefined) {
         this['binding:vnic_type'] = bindingVnicType;
     }
-    public get bindingVnicType() {
+    public get bindingVnicType(): string | undefined {
         return this['binding:vnic_type'];
     }
     public withDnsAssignment(dnsAssignment: Array<DnsAssignMent>): Port {
         this['dns_assignment'] = dnsAssignment;
         return this;
     }
-    public set dnsAssignment(dnsAssignment: Array<DnsAssignMent> | undefined) {
+    public set dnsAssignment(dnsAssignment: Array<DnsAssignMent>  | undefined) {
         this['dns_assignment'] = dnsAssignment;
     }
-    public get dnsAssignment() {
+    public get dnsAssignment(): Array<DnsAssignMent> | undefined {
         return this['dns_assignment'];
     }
     public withDnsName(dnsName: string): Port {
         this['dns_name'] = dnsName;
         return this;
     }
-    public set dnsName(dnsName: string | undefined) {
+    public set dnsName(dnsName: string  | undefined) {
         this['dns_name'] = dnsName;
     }
-    public get dnsName() {
+    public get dnsName(): string | undefined {
         return this['dns_name'];
     }
     public withBindingVifDetails(bindingVifDetails: BindingVifDetails): Port {
         this['binding:vif_details'] = bindingVifDetails;
         return this;
     }
-    public set bindingVifDetails(bindingVifDetails: BindingVifDetails | undefined) {
+    public set bindingVifDetails(bindingVifDetails: BindingVifDetails  | undefined) {
         this['binding:vif_details'] = bindingVifDetails;
     }
-    public get bindingVifDetails() {
+    public get bindingVifDetails(): BindingVifDetails | undefined {
         return this['binding:vif_details'];
     }
     public withBindingProfile(bindingProfile: object): Port {
         this['binding:profile'] = bindingProfile;
         return this;
     }
-    public set bindingProfile(bindingProfile: object | undefined) {
+    public set bindingProfile(bindingProfile: object  | undefined) {
         this['binding:profile'] = bindingProfile;
     }
-    public get bindingProfile() {
+    public get bindingProfile(): object | undefined {
         return this['binding:profile'];
     }
     public withInstanceId(instanceId: string): Port {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withInstanceType(instanceType: string): Port {
         this['instance_type'] = instanceType;
         return this;
     }
-    public set instanceType(instanceType: string | undefined) {
+    public set instanceType(instanceType: string  | undefined) {
         this['instance_type'] = instanceType;
     }
-    public get instanceType() {
+    public get instanceType(): string | undefined {
         return this['instance_type'];
     }
     public withPortSecurityEnabled(portSecurityEnabled: boolean): Port {
         this['port_security_enabled'] = portSecurityEnabled;
         return this;
     }
-    public set portSecurityEnabled(portSecurityEnabled: boolean | undefined) {
+    public set portSecurityEnabled(portSecurityEnabled: boolean  | undefined) {
         this['port_security_enabled'] = portSecurityEnabled;
     }
-    public get portSecurityEnabled() {
+    public get portSecurityEnabled(): boolean | undefined {
         return this['port_security_enabled'];
     }
     public withZoneId(zoneId: string): Port {
         this['zone_id'] = zoneId;
         return this;
     }
-    public set zoneId(zoneId: string | undefined) {
+    public set zoneId(zoneId: string  | undefined) {
         this['zone_id'] = zoneId;
     }
-    public get zoneId() {
+    public get zoneId(): string | undefined {
         return this['zone_id'];
     }
 }

@@ -2,9 +2,9 @@
 
 export class RestRenamePartReqBody {
     public participantID?: string;
-    private 'number': string | undefined;
-    public newName: string;
-    public constructor(modelNumber?: any, newName?: any) { 
+    private 'number'?: string;
+    public newName?: string;
+    public constructor(modelNumber?: string, newName?: string) { 
         this['number'] = modelNumber;
         this['newName'] = newName;
     }
@@ -16,10 +16,10 @@ export class RestRenamePartReqBody {
         this['number'] = modelNumber;
         return this;
     }
-    public set modelNumber(modelNumber: string | undefined) {
+    public set modelNumber(modelNumber: string  | undefined) {
         this['number'] = modelNumber;
     }
-    public get modelNumber() {
+    public get modelNumber(): string | undefined {
         return this['number'];
     }
     public withNewName(newName: string): RestRenamePartReqBody {

@@ -1,16 +1,16 @@
 
 
 export class UserAccountVO {
-    public id: string;
-    public account: string;
+    public id?: string;
+    public account?: string;
     public comment?: string;
-    private 'is_transfer': boolean | undefined;
+    private 'is_transfer'?: boolean;
     public privileges?: Array<string>;
     public password?: string;
-    private 'is_set_password'?: boolean | undefined;
-    public roles: Array<string>;
-    public selected: boolean;
-    public constructor(id?: any, account?: any, isTransfer?: any, roles?: any, selected?: any) { 
+    private 'is_set_password'?: boolean;
+    public roles?: Array<string>;
+    public selected?: boolean;
+    public constructor(id?: string, account?: string, isTransfer?: boolean, roles?: Array<string>, selected?: boolean) { 
         this['id'] = id;
         this['account'] = account;
         this['is_transfer'] = isTransfer;
@@ -33,10 +33,10 @@ export class UserAccountVO {
         this['is_transfer'] = isTransfer;
         return this;
     }
-    public set isTransfer(isTransfer: boolean | undefined) {
+    public set isTransfer(isTransfer: boolean  | undefined) {
         this['is_transfer'] = isTransfer;
     }
-    public get isTransfer() {
+    public get isTransfer(): boolean | undefined {
         return this['is_transfer'];
     }
     public withPrivileges(privileges: Array<string>): UserAccountVO {
@@ -51,10 +51,10 @@ export class UserAccountVO {
         this['is_set_password'] = isSetPassword;
         return this;
     }
-    public set isSetPassword(isSetPassword: boolean | undefined) {
+    public set isSetPassword(isSetPassword: boolean  | undefined) {
         this['is_set_password'] = isSetPassword;
     }
-    public get isSetPassword() {
+    public get isSetPassword(): boolean | undefined {
         return this['is_set_password'];
     }
     public withRoles(roles: Array<string>): UserAccountVO {

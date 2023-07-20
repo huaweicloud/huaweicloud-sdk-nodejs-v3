@@ -3,8 +3,8 @@ import { SystemSecurityPolicy } from './SystemSecurityPolicy';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSystemSecurityPoliciesResponse extends SdkResponse {
-    private 'system_security_policies'?: Array<SystemSecurityPolicy> | undefined;
-    private 'request_id'?: string | undefined;
+    private 'system_security_policies'?: Array<SystemSecurityPolicy>;
+    private 'request_id'?: string;
     public constructor() { 
         super();
     }
@@ -12,20 +12,20 @@ export class ListSystemSecurityPoliciesResponse extends SdkResponse {
         this['system_security_policies'] = systemSecurityPolicies;
         return this;
     }
-    public set systemSecurityPolicies(systemSecurityPolicies: Array<SystemSecurityPolicy> | undefined) {
+    public set systemSecurityPolicies(systemSecurityPolicies: Array<SystemSecurityPolicy>  | undefined) {
         this['system_security_policies'] = systemSecurityPolicies;
     }
-    public get systemSecurityPolicies() {
+    public get systemSecurityPolicies(): Array<SystemSecurityPolicy> | undefined {
         return this['system_security_policies'];
     }
     public withRequestId(requestId: string): ListSystemSecurityPoliciesResponse {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
 }

@@ -3,7 +3,7 @@ import { AssetInfo } from './AssetInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UnpublishAssetsResponse extends SdkResponse {
-    private 'asset_info_array'?: Array<AssetInfo> | undefined;
+    private 'asset_info_array'?: Array<AssetInfo>;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class UnpublishAssetsResponse extends SdkResponse {
         this['asset_info_array'] = assetInfoArray;
         return this;
     }
-    public set assetInfoArray(assetInfoArray: Array<AssetInfo> | undefined) {
+    public set assetInfoArray(assetInfoArray: Array<AssetInfo>  | undefined) {
         this['asset_info_array'] = assetInfoArray;
     }
-    public get assetInfoArray() {
+    public get assetInfoArray(): Array<AssetInfo> | undefined {
         return this['asset_info_array'];
     }
 }

@@ -3,7 +3,7 @@
 export class TaxiInvoiceRequestBody {
     public image?: string;
     public url?: string;
-    private 'return_text_location'?: boolean | undefined;
+    private 'return_text_location'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): TaxiInvoiceRequestBody {
@@ -18,10 +18,10 @@ export class TaxiInvoiceRequestBody {
         this['return_text_location'] = returnTextLocation;
         return this;
     }
-    public set returnTextLocation(returnTextLocation: boolean | undefined) {
+    public set returnTextLocation(returnTextLocation: boolean  | undefined) {
         this['return_text_location'] = returnTextLocation;
     }
-    public get returnTextLocation() {
+    public get returnTextLocation(): boolean | undefined {
         return this['return_text_location'];
     }
 }

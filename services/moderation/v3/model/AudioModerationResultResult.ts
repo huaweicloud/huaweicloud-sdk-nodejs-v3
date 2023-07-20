@@ -2,12 +2,12 @@ import { AudioModerationResultDetail } from './AudioModerationResultDetail';
 
 
 export class AudioModerationResultResult {
-    public suggestion?: AudioModerationResultResultSuggestionEnum;
+    public suggestion?: AudioModerationResultResultSuggestionEnum | string;
     public details?: Array<AudioModerationResultDetail>;
-    private 'audio_text'?: string | undefined;
+    private 'audio_text'?: string;
     public constructor() { 
     }
-    public withSuggestion(suggestion: AudioModerationResultResultSuggestionEnum): AudioModerationResultResult {
+    public withSuggestion(suggestion: AudioModerationResultResultSuggestionEnum | string): AudioModerationResultResult {
         this['suggestion'] = suggestion;
         return this;
     }
@@ -19,10 +19,10 @@ export class AudioModerationResultResult {
         this['audio_text'] = audioText;
         return this;
     }
-    public set audioText(audioText: string | undefined) {
+    public set audioText(audioText: string  | undefined) {
         this['audio_text'] = audioText;
     }
-    public get audioText() {
+    public get audioText(): string | undefined {
         return this['audio_text'];
     }
 }

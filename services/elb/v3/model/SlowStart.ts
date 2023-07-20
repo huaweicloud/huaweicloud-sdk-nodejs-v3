@@ -1,9 +1,9 @@
 
 
 export class SlowStart {
-    public enable: boolean;
-    public duration: number;
-    public constructor(enable?: any, duration?: any) { 
+    public enable?: boolean;
+    public duration?: number;
+    public constructor(enable?: boolean, duration?: number) { 
         this['enable'] = enable;
         this['duration'] = duration;
     }

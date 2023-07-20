@@ -3,10 +3,10 @@ import { PrePaidServerEipExtendParam } from './PrePaidServerEipExtendParam';
 
 
 export class PrePaidServerEip {
-    public iptype: string;
-    public bandwidth: PrePaidServerEipBandwidth;
+    public iptype?: string;
+    public bandwidth?: PrePaidServerEipBandwidth;
     public extendparam?: PrePaidServerEipExtendParam;
-    public constructor(iptype?: any, bandwidth?: any) { 
+    public constructor(iptype?: string, bandwidth?: PrePaidServerEipBandwidth) { 
         this['iptype'] = iptype;
         this['bandwidth'] = bandwidth;
     }

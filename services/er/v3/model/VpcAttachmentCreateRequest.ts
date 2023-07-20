@@ -2,13 +2,13 @@ import { Tag } from './Tag';
 
 
 export class VpcAttachmentCreateRequest {
-    private 'vpc_id': string | undefined;
-    public name: string;
-    private 'virsubnet_id': string | undefined;
+    private 'vpc_id'?: string;
+    public name?: string;
+    private 'virsubnet_id'?: string;
     public description?: string;
-    private 'auto_create_vpc_routes'?: boolean | undefined;
+    private 'auto_create_vpc_routes'?: boolean;
     public tags?: Array<Tag>;
-    public constructor(vpcId?: any, name?: any, virsubnetId?: any) { 
+    public constructor(vpcId?: string, name?: string, virsubnetId?: string) { 
         this['vpc_id'] = vpcId;
         this['name'] = name;
         this['virsubnet_id'] = virsubnetId;
@@ -17,10 +17,10 @@ export class VpcAttachmentCreateRequest {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withName(name: string): VpcAttachmentCreateRequest {
@@ -31,10 +31,10 @@ export class VpcAttachmentCreateRequest {
         this['virsubnet_id'] = virsubnetId;
         return this;
     }
-    public set virsubnetId(virsubnetId: string | undefined) {
+    public set virsubnetId(virsubnetId: string  | undefined) {
         this['virsubnet_id'] = virsubnetId;
     }
-    public get virsubnetId() {
+    public get virsubnetId(): string | undefined {
         return this['virsubnet_id'];
     }
     public withDescription(description: string): VpcAttachmentCreateRequest {
@@ -45,10 +45,10 @@ export class VpcAttachmentCreateRequest {
         this['auto_create_vpc_routes'] = autoCreateVpcRoutes;
         return this;
     }
-    public set autoCreateVpcRoutes(autoCreateVpcRoutes: boolean | undefined) {
+    public set autoCreateVpcRoutes(autoCreateVpcRoutes: boolean  | undefined) {
         this['auto_create_vpc_routes'] = autoCreateVpcRoutes;
     }
-    public get autoCreateVpcRoutes() {
+    public get autoCreateVpcRoutes(): boolean | undefined {
         return this['auto_create_vpc_routes'];
     }
     public withTags(tags: Array<Tag>): VpcAttachmentCreateRequest {

@@ -2,7 +2,7 @@ import { UpdateCoverByThumbnailReq } from './UpdateCoverByThumbnailReq';
 
 
 export class UpdateCoverByThumbnailRequest {
-    private 'X-Sdk-Date'?: string | undefined;
+    private 'X-Sdk-Date'?: string;
     public body?: UpdateCoverByThumbnailReq;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class UpdateCoverByThumbnailRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withBody(body: UpdateCoverByThumbnailReq): UpdateCoverByThumbnailRequest {

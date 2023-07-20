@@ -1,12 +1,12 @@
 
 
 export class ListEngineProductsRequest {
-    public engine: ListEngineProductsRequestEngineEnum;
-    private 'product_id'?: string | undefined;
-    public constructor(engine?: any) { 
+    public engine?: ListEngineProductsRequestEngineEnum | string;
+    private 'product_id'?: string;
+    public constructor(engine?: string) { 
         this['engine'] = engine;
     }
-    public withEngine(engine: ListEngineProductsRequestEngineEnum): ListEngineProductsRequest {
+    public withEngine(engine: ListEngineProductsRequestEngineEnum | string): ListEngineProductsRequest {
         this['engine'] = engine;
         return this;
     }
@@ -14,10 +14,10 @@ export class ListEngineProductsRequest {
         this['product_id'] = productId;
         return this;
     }
-    public set productId(productId: string | undefined) {
+    public set productId(productId: string  | undefined) {
         this['product_id'] = productId;
     }
-    public get productId() {
+    public get productId(): string | undefined {
         return this['product_id'];
     }
 }

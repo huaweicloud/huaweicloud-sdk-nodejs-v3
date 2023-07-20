@@ -1,0 +1,44 @@
+import { DataIpRequest } from './DataIpRequest';
+
+
+export class UpdateDataIpRequest {
+    private 'X-Language'?: UpdateDataIpRequestXLanguageEnum | string;
+    private 'instance_id'?: string;
+    public body?: DataIpRequest;
+    public constructor(instanceId?: string) { 
+        this['instance_id'] = instanceId;
+    }
+    public withXLanguage(xLanguage: UpdateDataIpRequestXLanguageEnum | string): UpdateDataIpRequest {
+        this['X-Language'] = xLanguage;
+        return this;
+    }
+    public set xLanguage(xLanguage: UpdateDataIpRequestXLanguageEnum | string  | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage(): UpdateDataIpRequestXLanguageEnum | string | undefined {
+        return this['X-Language'];
+    }
+    public withInstanceId(instanceId: string): UpdateDataIpRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withBody(body: DataIpRequest): UpdateDataIpRequest {
+        this['body'] = body;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdateDataIpRequestXLanguageEnum {
+    ZH_CN = 'zh-cn',
+    EN_US = 'en-us'
+}

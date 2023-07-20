@@ -1,8 +1,8 @@
 
 
 export class TextDetectionDataReq {
-    public text: string;
-    public constructor(text?: any) { 
+    public text?: string;
+    public constructor(text?: string) { 
         this['text'] = text;
     }
     public withText(text: string): TextDetectionDataReq {

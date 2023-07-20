@@ -13,7 +13,7 @@ export class ShowStructTemplateResponse extends SdkResponse {
     public id?: string;
     public logGroupId?: string;
     public rule?: ShowStructTemplateRule;
-    private 'cluster_info'?: ShowStructTemplateclusterInfo | undefined;
+    private 'cluster_info'?: ShowStructTemplateclusterInfo;
     public logStreamId?: string;
     public projectId?: string;
     public templateName?: string;
@@ -53,10 +53,10 @@ export class ShowStructTemplateResponse extends SdkResponse {
         this['cluster_info'] = clusterInfo;
         return this;
     }
-    public set clusterInfo(clusterInfo: ShowStructTemplateclusterInfo | undefined) {
+    public set clusterInfo(clusterInfo: ShowStructTemplateclusterInfo  | undefined) {
         this['cluster_info'] = clusterInfo;
     }
-    public get clusterInfo() {
+    public get clusterInfo(): ShowStructTemplateclusterInfo | undefined {
         return this['cluster_info'];
     }
     public withLogStreamId(logStreamId: string): ShowStructTemplateResponse {

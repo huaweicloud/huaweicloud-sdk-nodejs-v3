@@ -1,10 +1,10 @@
 
 
 export class KeyChainInfo {
-    public key: string;
-    private 'auth_type': KeyChainInfoAuthTypeEnum | undefined;
-    public timeout: number;
-    public constructor(key?: any, authType?: any, timeout?: any) { 
+    public key?: string;
+    private 'auth_type'?: KeyChainInfoAuthTypeEnum | string;
+    public timeout?: number;
+    public constructor(key?: string, authType?: string, timeout?: number) { 
         this['key'] = key;
         this['auth_type'] = authType;
         this['timeout'] = timeout;
@@ -13,14 +13,14 @@ export class KeyChainInfo {
         this['key'] = key;
         return this;
     }
-    public withAuthType(authType: KeyChainInfoAuthTypeEnum): KeyChainInfo {
+    public withAuthType(authType: KeyChainInfoAuthTypeEnum | string): KeyChainInfo {
         this['auth_type'] = authType;
         return this;
     }
-    public set authType(authType: KeyChainInfoAuthTypeEnum | undefined) {
+    public set authType(authType: KeyChainInfoAuthTypeEnum | string  | undefined) {
         this['auth_type'] = authType;
     }
-    public get authType() {
+    public get authType(): KeyChainInfoAuthTypeEnum | string | undefined {
         return this['auth_type'];
     }
     public withTimeout(timeout: number): KeyChainInfo {

@@ -1,13 +1,13 @@
 
 
 export class RecordIndexRequestBody {
-    private 'publish_domain': string | undefined;
-    public app: string;
-    public stream: string;
-    private 'start_time': Date | undefined;
-    private 'end_time': Date | undefined;
-    private 'object'?: string | undefined;
-    public constructor(publishDomain?: any, app?: any, stream?: any, startTime?: any, endTime?: any) { 
+    private 'publish_domain'?: string;
+    public app?: string;
+    public stream?: string;
+    private 'start_time'?: Date;
+    private 'end_time'?: Date;
+    private 'object'?: string;
+    public constructor(publishDomain?: string, app?: string, stream?: string, startTime?: Date, endTime?: Date) { 
         this['publish_domain'] = publishDomain;
         this['app'] = app;
         this['stream'] = stream;
@@ -18,10 +18,10 @@ export class RecordIndexRequestBody {
         this['publish_domain'] = publishDomain;
         return this;
     }
-    public set publishDomain(publishDomain: string | undefined) {
+    public set publishDomain(publishDomain: string  | undefined) {
         this['publish_domain'] = publishDomain;
     }
-    public get publishDomain() {
+    public get publishDomain(): string | undefined {
         return this['publish_domain'];
     }
     public withApp(app: string): RecordIndexRequestBody {
@@ -36,30 +36,30 @@ export class RecordIndexRequestBody {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: Date | undefined) {
+    public set startTime(startTime: Date  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): Date | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: Date): RecordIndexRequestBody {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: Date | undefined) {
+    public set endTime(endTime: Date  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): Date | undefined {
         return this['end_time'];
     }
     public withModelObject(modelObject: string): RecordIndexRequestBody {
         this['object'] = modelObject;
         return this;
     }
-    public set modelObject(modelObject: string | undefined) {
+    public set modelObject(modelObject: string  | undefined) {
         this['object'] = modelObject;
     }
-    public get modelObject() {
+    public get modelObject(): string | undefined {
         return this['object'];
     }
 }

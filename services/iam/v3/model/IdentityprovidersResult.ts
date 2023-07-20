@@ -2,13 +2,13 @@ import { IdentityprovidersLinks } from './IdentityprovidersLinks';
 
 
 export class IdentityprovidersResult {
-    private 'sso_type': string | undefined;
-    public id: string;
-    public description: string;
-    public enabled: boolean;
-    private 'remote_ids': Array<string> | undefined;
-    public links: IdentityprovidersLinks;
-    public constructor(ssoType?: any, id?: any, description?: any, enabled?: any, remoteIds?: any, links?: any) { 
+    private 'sso_type'?: string;
+    public id?: string;
+    public description?: string;
+    public enabled?: boolean;
+    private 'remote_ids'?: Array<string>;
+    public links?: IdentityprovidersLinks;
+    public constructor(ssoType?: string, id?: string, description?: string, enabled?: boolean, remoteIds?: Array<string>, links?: IdentityprovidersLinks) { 
         this['sso_type'] = ssoType;
         this['id'] = id;
         this['description'] = description;
@@ -20,10 +20,10 @@ export class IdentityprovidersResult {
         this['sso_type'] = ssoType;
         return this;
     }
-    public set ssoType(ssoType: string | undefined) {
+    public set ssoType(ssoType: string  | undefined) {
         this['sso_type'] = ssoType;
     }
-    public get ssoType() {
+    public get ssoType(): string | undefined {
         return this['sso_type'];
     }
     public withId(id: string): IdentityprovidersResult {
@@ -42,10 +42,10 @@ export class IdentityprovidersResult {
         this['remote_ids'] = remoteIds;
         return this;
     }
-    public set remoteIds(remoteIds: Array<string> | undefined) {
+    public set remoteIds(remoteIds: Array<string>  | undefined) {
         this['remote_ids'] = remoteIds;
     }
-    public get remoteIds() {
+    public get remoteIds(): Array<string> | undefined {
         return this['remote_ids'];
     }
     public withLinks(links: IdentityprovidersLinks): IdentityprovidersResult {

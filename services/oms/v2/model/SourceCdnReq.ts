@@ -1,11 +1,11 @@
 
 
 export class SourceCdnReq {
-    private 'authentication_key'?: string | undefined;
-    private 'authentication_type': SourceCdnReqAuthenticationTypeEnum | undefined;
-    public domain: string;
-    public protocol: SourceCdnReqProtocolEnum;
-    public constructor(authenticationType?: any, domain?: any, protocol?: any) { 
+    private 'authentication_key'?: string;
+    private 'authentication_type'?: SourceCdnReqAuthenticationTypeEnum | string;
+    public domain?: string;
+    public protocol?: SourceCdnReqProtocolEnum | string;
+    public constructor(authenticationType?: string, domain?: string, protocol?: string) { 
         this['authentication_type'] = authenticationType;
         this['domain'] = domain;
         this['protocol'] = protocol;
@@ -14,27 +14,27 @@ export class SourceCdnReq {
         this['authentication_key'] = authenticationKey;
         return this;
     }
-    public set authenticationKey(authenticationKey: string | undefined) {
+    public set authenticationKey(authenticationKey: string  | undefined) {
         this['authentication_key'] = authenticationKey;
     }
-    public get authenticationKey() {
+    public get authenticationKey(): string | undefined {
         return this['authentication_key'];
     }
-    public withAuthenticationType(authenticationType: SourceCdnReqAuthenticationTypeEnum): SourceCdnReq {
+    public withAuthenticationType(authenticationType: SourceCdnReqAuthenticationTypeEnum | string): SourceCdnReq {
         this['authentication_type'] = authenticationType;
         return this;
     }
-    public set authenticationType(authenticationType: SourceCdnReqAuthenticationTypeEnum | undefined) {
+    public set authenticationType(authenticationType: SourceCdnReqAuthenticationTypeEnum | string  | undefined) {
         this['authentication_type'] = authenticationType;
     }
-    public get authenticationType() {
+    public get authenticationType(): SourceCdnReqAuthenticationTypeEnum | string | undefined {
         return this['authentication_type'];
     }
     public withDomain(domain: string): SourceCdnReq {
         this['domain'] = domain;
         return this;
     }
-    public withProtocol(protocol: SourceCdnReqProtocolEnum): SourceCdnReq {
+    public withProtocol(protocol: SourceCdnReqProtocolEnum | string): SourceCdnReq {
         this['protocol'] = protocol;
         return this;
     }

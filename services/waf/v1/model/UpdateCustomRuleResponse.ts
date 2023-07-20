@@ -11,7 +11,7 @@ export class UpdateCustomRuleResponse extends SdkResponse {
     public status?: number;
     public conditions?: Array<CustomRuleConditions>;
     public action?: CustomAction;
-    private 'action_mode'?: boolean | undefined;
+    private 'action_mode'?: boolean;
     public priority?: number;
     public time?: boolean;
     public start?: number;
@@ -52,10 +52,10 @@ export class UpdateCustomRuleResponse extends SdkResponse {
         this['action_mode'] = actionMode;
         return this;
     }
-    public set actionMode(actionMode: boolean | undefined) {
+    public set actionMode(actionMode: boolean  | undefined) {
         this['action_mode'] = actionMode;
     }
-    public get actionMode() {
+    public get actionMode(): boolean | undefined {
         return this['action_mode'];
     }
     public withPriority(priority: number): UpdateCustomRuleResponse {

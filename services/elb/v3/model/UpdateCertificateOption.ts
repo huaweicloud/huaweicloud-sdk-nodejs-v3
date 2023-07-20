@@ -4,10 +4,10 @@ export class UpdateCertificateOption {
     public certificate?: string;
     public description?: string;
     public name?: string;
-    private 'private_key'?: string | undefined;
+    private 'private_key'?: string;
     public domain?: string;
-    private 'enc_certificate'?: string | undefined;
-    private 'enc_private_key'?: string | undefined;
+    private 'enc_certificate'?: string;
+    private 'enc_private_key'?: string;
     public constructor() { 
     }
     public withCertificate(certificate: string): UpdateCertificateOption {
@@ -26,10 +26,10 @@ export class UpdateCertificateOption {
         this['private_key'] = privateKey;
         return this;
     }
-    public set privateKey(privateKey: string | undefined) {
+    public set privateKey(privateKey: string  | undefined) {
         this['private_key'] = privateKey;
     }
-    public get privateKey() {
+    public get privateKey(): string | undefined {
         return this['private_key'];
     }
     public withDomain(domain: string): UpdateCertificateOption {
@@ -40,20 +40,20 @@ export class UpdateCertificateOption {
         this['enc_certificate'] = encCertificate;
         return this;
     }
-    public set encCertificate(encCertificate: string | undefined) {
+    public set encCertificate(encCertificate: string  | undefined) {
         this['enc_certificate'] = encCertificate;
     }
-    public get encCertificate() {
+    public get encCertificate(): string | undefined {
         return this['enc_certificate'];
     }
     public withEncPrivateKey(encPrivateKey: string): UpdateCertificateOption {
         this['enc_private_key'] = encPrivateKey;
         return this;
     }
-    public set encPrivateKey(encPrivateKey: string | undefined) {
+    public set encPrivateKey(encPrivateKey: string  | undefined) {
         this['enc_private_key'] = encPrivateKey;
     }
-    public get encPrivateKey() {
+    public get encPrivateKey(): string | undefined {
         return this['enc_private_key'];
     }
 }

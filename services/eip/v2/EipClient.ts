@@ -517,7 +517,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public countPublicIp(): Promise<CountPublicIpResponse> {
+    public countPublicIp(countPublicIpRequest?: CountPublicIpRequest): Promise<CountPublicIpResponse> {
         const options = ParamCreater().countPublicIp();
 
          // @ts-ignore
@@ -535,7 +535,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public countPublicIpInstance(): Promise<CountPublicIpInstanceResponse> {
+    public countPublicIpInstance(countPublicIpInstanceRequest?: CountPublicIpInstanceRequest): Promise<CountPublicIpInstanceResponse> {
         const options = ParamCreater().countPublicIpInstance();
 
          // @ts-ignore
@@ -651,7 +651,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listPublicipTags(): Promise<ListPublicipTagsResponse> {
+    public listPublicipTags(listPublicipTagsRequest?: ListPublicipTagsRequest): Promise<ListPublicipTagsResponse> {
         const options = ParamCreater().listPublicipTags();
 
          // @ts-ignore
@@ -715,7 +715,7 @@ export class EipClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showPublicIpType(): Promise<ShowPublicIpTypeResponse> {
+    public showPublicIpType(showPublicIpTypeRequest?: ShowPublicIpTypeRequest): Promise<ShowPublicIpTypeResponse> {
         const options = ParamCreater().showPublicIpType();
 
          // @ts-ignore

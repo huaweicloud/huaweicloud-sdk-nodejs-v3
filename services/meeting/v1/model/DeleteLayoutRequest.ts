@@ -1,10 +1,10 @@
 
 
 export class DeleteLayoutRequest {
-    public conferenceID: string;
-    public uuID: string;
-    private 'X-Conference-Authorization': string | undefined;
-    public constructor(conferenceID?: any, uuID?: any, xConferenceAuthorization?: any) { 
+    public conferenceID?: string;
+    public uuID?: string;
+    private 'X-Conference-Authorization'?: string;
+    public constructor(conferenceID?: string, uuID?: string, xConferenceAuthorization?: string) { 
         this['conferenceID'] = conferenceID;
         this['uuID'] = uuID;
         this['X-Conference-Authorization'] = xConferenceAuthorization;
@@ -21,10 +21,10 @@ export class DeleteLayoutRequest {
         this['X-Conference-Authorization'] = xConferenceAuthorization;
         return this;
     }
-    public set xConferenceAuthorization(xConferenceAuthorization: string | undefined) {
+    public set xConferenceAuthorization(xConferenceAuthorization: string  | undefined) {
         this['X-Conference-Authorization'] = xConferenceAuthorization;
     }
-    public get xConferenceAuthorization() {
+    public get xConferenceAuthorization(): string | undefined {
         return this['X-Conference-Authorization'];
     }
 }

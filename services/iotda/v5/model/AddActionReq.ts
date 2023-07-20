@@ -2,10 +2,10 @@ import { ChannelDetail } from './ChannelDetail';
 
 
 export class AddActionReq {
-    private 'rule_id': string | undefined;
-    public channel: string;
-    private 'channel_detail': ChannelDetail | undefined;
-    public constructor(ruleId?: any, channel?: any, channelDetail?: any) { 
+    private 'rule_id'?: string;
+    public channel?: string;
+    private 'channel_detail'?: ChannelDetail;
+    public constructor(ruleId?: string, channel?: string, channelDetail?: ChannelDetail) { 
         this['rule_id'] = ruleId;
         this['channel'] = channel;
         this['channel_detail'] = channelDetail;
@@ -14,10 +14,10 @@ export class AddActionReq {
         this['rule_id'] = ruleId;
         return this;
     }
-    public set ruleId(ruleId: string | undefined) {
+    public set ruleId(ruleId: string  | undefined) {
         this['rule_id'] = ruleId;
     }
-    public get ruleId() {
+    public get ruleId(): string | undefined {
         return this['rule_id'];
     }
     public withChannel(channel: string): AddActionReq {
@@ -28,10 +28,10 @@ export class AddActionReq {
         this['channel_detail'] = channelDetail;
         return this;
     }
-    public set channelDetail(channelDetail: ChannelDetail | undefined) {
+    public set channelDetail(channelDetail: ChannelDetail  | undefined) {
         this['channel_detail'] = channelDetail;
     }
-    public get channelDetail() {
+    public get channelDetail(): ChannelDetail | undefined {
         return this['channel_detail'];
     }
 }

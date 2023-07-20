@@ -3,7 +3,7 @@ import { XCodeError } from './XCodeError';
 
 
 export class QualityEnhanceTemplateInfo {
-    private 'template_id'?: number | undefined;
+    private 'template_id'?: number;
     public template?: QualityEnhanceTemplate;
     public error?: XCodeError;
     public constructor() { 
@@ -12,10 +12,10 @@ export class QualityEnhanceTemplateInfo {
         this['template_id'] = templateId;
         return this;
     }
-    public set templateId(templateId: number | undefined) {
+    public set templateId(templateId: number  | undefined) {
         this['template_id'] = templateId;
     }
-    public get templateId() {
+    public get templateId(): number | undefined {
         return this['template_id'];
     }
     public withTemplate(template: QualityEnhanceTemplate): QualityEnhanceTemplateInfo {

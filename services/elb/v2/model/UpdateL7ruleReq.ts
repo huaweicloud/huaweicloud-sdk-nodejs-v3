@@ -1,8 +1,8 @@
 
 
 export class UpdateL7ruleReq {
-    private 'compare_type'?: string | undefined;
-    private 'admin_state_up'?: boolean | undefined;
+    private 'compare_type'?: string;
+    private 'admin_state_up'?: boolean;
     public invert?: boolean;
     public key?: string;
     public value?: string;
@@ -12,20 +12,20 @@ export class UpdateL7ruleReq {
         this['compare_type'] = compareType;
         return this;
     }
-    public set compareType(compareType: string | undefined) {
+    public set compareType(compareType: string  | undefined) {
         this['compare_type'] = compareType;
     }
-    public get compareType() {
+    public get compareType(): string | undefined {
         return this['compare_type'];
     }
     public withAdminStateUp(adminStateUp: boolean): UpdateL7ruleReq {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withInvert(invert: boolean): UpdateL7ruleReq {

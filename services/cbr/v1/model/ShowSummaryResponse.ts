@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowSummaryResponse extends SdkResponse {
     public size?: number;
-    private 'used_size'?: number | undefined;
+    private 'used_size'?: number;
     public constructor() { 
         super();
     }
@@ -15,10 +15,10 @@ export class ShowSummaryResponse extends SdkResponse {
         this['used_size'] = usedSize;
         return this;
     }
-    public set usedSize(usedSize: number | undefined) {
+    public set usedSize(usedSize: number  | undefined) {
         this['used_size'] = usedSize;
     }
-    public get usedSize() {
+    public get usedSize(): number | undefined {
         return this['used_size'];
     }
 }

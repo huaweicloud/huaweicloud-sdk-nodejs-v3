@@ -4,15 +4,15 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowHistoryTaskDetailsResponse extends SdkResponse {
     public id?: string;
-    private 'task_type'?: string | undefined;
+    private 'task_type'?: string;
     public status?: string;
     public urls?: Array<UrlObject>;
-    private 'create_time'?: number | undefined;
+    private 'create_time'?: number;
     public processing?: number;
     public succeed?: number;
     public failed?: number;
     public total?: number;
-    private 'file_type'?: string | undefined;
+    private 'file_type'?: string;
     public constructor() { 
         super();
     }
@@ -24,10 +24,10 @@ export class ShowHistoryTaskDetailsResponse extends SdkResponse {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: string | undefined) {
+    public set taskType(taskType: string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): string | undefined {
         return this['task_type'];
     }
     public withStatus(status: string): ShowHistoryTaskDetailsResponse {
@@ -42,10 +42,10 @@ export class ShowHistoryTaskDetailsResponse extends SdkResponse {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: number | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
     public withProcessing(processing: number): ShowHistoryTaskDetailsResponse {
@@ -68,10 +68,10 @@ export class ShowHistoryTaskDetailsResponse extends SdkResponse {
         this['file_type'] = fileType;
         return this;
     }
-    public set fileType(fileType: string | undefined) {
+    public set fileType(fileType: string  | undefined) {
         this['file_type'] = fileType;
     }
-    public get fileType() {
+    public get fileType(): string | undefined {
         return this['file_type'];
     }
 }

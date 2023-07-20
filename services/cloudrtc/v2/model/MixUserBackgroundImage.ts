@@ -1,9 +1,9 @@
 
 
 export class MixUserBackgroundImage {
-    private 'user_id': string | undefined;
-    private 'image_uri': string | undefined;
-    public constructor(userId?: any, imageUri?: any) { 
+    private 'user_id'?: string;
+    private 'image_uri'?: string;
+    public constructor(userId?: string, imageUri?: string) { 
         this['user_id'] = userId;
         this['image_uri'] = imageUri;
     }
@@ -11,20 +11,20 @@ export class MixUserBackgroundImage {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withImageUri(imageUri: string): MixUserBackgroundImage {
         this['image_uri'] = imageUri;
         return this;
     }
-    public set imageUri(imageUri: string | undefined) {
+    public set imageUri(imageUri: string  | undefined) {
         this['image_uri'] = imageUri;
     }
-    public get imageUri() {
+    public get imageUri(): string | undefined {
         return this['image_uri'];
     }
 }

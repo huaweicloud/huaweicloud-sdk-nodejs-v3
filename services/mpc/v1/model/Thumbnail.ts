@@ -5,8 +5,8 @@ import { ThumbnailPara } from './ThumbnailPara';
 export class Thumbnail {
     public tar?: number;
     public out?: ObsObjInfo;
-    public params: ThumbnailPara;
-    public constructor(params?: any) { 
+    public params?: ThumbnailPara;
+    public constructor(params?: ThumbnailPara) { 
         this['params'] = params;
     }
     public withTar(tar: number): Thumbnail {

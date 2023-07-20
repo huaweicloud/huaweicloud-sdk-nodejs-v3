@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowBlackWhiteListResponse extends SdkResponse {
     public type?: number;
-    private 'ip_list'?: Array<string> | undefined;
+    private 'ip_list'?: Array<string>;
     public constructor() { 
         super();
     }
@@ -15,10 +15,10 @@ export class ShowBlackWhiteListResponse extends SdkResponse {
         this['ip_list'] = ipList;
         return this;
     }
-    public set ipList(ipList: Array<string> | undefined) {
+    public set ipList(ipList: Array<string>  | undefined) {
         this['ip_list'] = ipList;
     }
-    public get ipList() {
+    public get ipList(): Array<string> | undefined {
         return this['ip_list'];
     }
 }

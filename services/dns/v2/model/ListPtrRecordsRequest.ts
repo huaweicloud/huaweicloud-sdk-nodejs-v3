@@ -4,7 +4,7 @@ export class ListPtrRecordsRequest {
     public marker?: string;
     public limit?: number;
     public offset?: number;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public tags?: string;
     public status?: string;
     public constructor() { 
@@ -25,10 +25,10 @@ export class ListPtrRecordsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withTags(tags: string): ListPtrRecordsRequest {

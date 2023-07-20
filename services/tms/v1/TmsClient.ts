@@ -155,7 +155,7 @@ export class TmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listApiVersions(): Promise<ListApiVersionsResponse> {
+    public listApiVersions(listApiVersionsRequest?: ListApiVersionsRequest): Promise<ListApiVersionsResponse> {
         const options = ParamCreater().listApiVersions();
 
          // @ts-ignore
@@ -321,7 +321,7 @@ export class TmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showTagQuota(): Promise<ShowTagQuotaResponse> {
+    public showTagQuota(showTagQuotaRequest?: ShowTagQuotaRequest): Promise<ShowTagQuotaResponse> {
         const options = ParamCreater().showTagQuota();
 
          // @ts-ignore

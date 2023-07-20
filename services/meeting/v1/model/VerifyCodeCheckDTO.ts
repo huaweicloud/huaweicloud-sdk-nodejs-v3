@@ -1,9 +1,9 @@
 
 
 export class VerifyCodeCheckDTO {
-    public user: string;
-    public code: string;
-    public constructor(user?: any, code?: any) { 
+    public user?: string;
+    public code?: string;
+    public constructor(user?: string, code?: string) { 
         this['user'] = user;
         this['code'] = code;
     }

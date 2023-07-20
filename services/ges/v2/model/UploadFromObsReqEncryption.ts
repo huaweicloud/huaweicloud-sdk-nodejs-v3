@@ -2,7 +2,7 @@
 
 export class UploadFromObsReqEncryption {
     public enable?: boolean;
-    private 'master_key_id'?: string | undefined;
+    private 'master_key_id'?: string;
     public constructor() { 
     }
     public withEnable(enable: boolean): UploadFromObsReqEncryption {
@@ -13,10 +13,10 @@ export class UploadFromObsReqEncryption {
         this['master_key_id'] = masterKeyId;
         return this;
     }
-    public set masterKeyId(masterKeyId: string | undefined) {
+    public set masterKeyId(masterKeyId: string  | undefined) {
         this['master_key_id'] = masterKeyId;
     }
-    public get masterKeyId() {
+    public get masterKeyId(): string | undefined {
         return this['master_key_id'];
     }
 }

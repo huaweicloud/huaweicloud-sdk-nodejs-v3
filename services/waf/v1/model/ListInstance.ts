@@ -7,14 +7,14 @@ export class ListInstance {
     public region?: string;
     public zone?: string;
     public arch?: string;
-    private 'cpu_flavor'?: string | undefined;
-    private 'vpc_id'?: string | undefined;
-    private 'subnet_id'?: string | undefined;
-    private 'service_ip'?: string | undefined;
-    private 'security_group_ids'?: Array<string> | undefined;
+    private 'cpu_flavor'?: string;
+    private 'vpc_id'?: string;
+    private 'subnet_id'?: string;
+    private 'service_ip'?: string;
+    private 'security_group_ids'?: Array<string>;
     public status?: number;
-    private 'run_status'?: number | undefined;
-    private 'access_status'?: number | undefined;
+    private 'run_status'?: number;
+    private 'access_status'?: number;
     public upgradable?: number;
     public cloudServiceType?: string;
     public resourceType?: string;
@@ -22,8 +22,8 @@ export class ListInstance {
     public specification?: string;
     public hosts?: Array<IdHostnameEntry>;
     public serverId?: string;
-    private 'create_time'?: number | undefined;
-    private 'instance_name'?: string | undefined;
+    private 'create_time'?: number;
+    private 'instance_name'?: string;
     public constructor() { 
     }
     public withId(id: string): ListInstance {
@@ -50,50 +50,50 @@ export class ListInstance {
         this['cpu_flavor'] = cpuFlavor;
         return this;
     }
-    public set cpuFlavor(cpuFlavor: string | undefined) {
+    public set cpuFlavor(cpuFlavor: string  | undefined) {
         this['cpu_flavor'] = cpuFlavor;
     }
-    public get cpuFlavor() {
+    public get cpuFlavor(): string | undefined {
         return this['cpu_flavor'];
     }
     public withVpcId(vpcId: string): ListInstance {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withSubnetId(subnetId: string): ListInstance {
         this['subnet_id'] = subnetId;
         return this;
     }
-    public set subnetId(subnetId: string | undefined) {
+    public set subnetId(subnetId: string  | undefined) {
         this['subnet_id'] = subnetId;
     }
-    public get subnetId() {
+    public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
     public withServiceIp(serviceIp: string): ListInstance {
         this['service_ip'] = serviceIp;
         return this;
     }
-    public set serviceIp(serviceIp: string | undefined) {
+    public set serviceIp(serviceIp: string  | undefined) {
         this['service_ip'] = serviceIp;
     }
-    public get serviceIp() {
+    public get serviceIp(): string | undefined {
         return this['service_ip'];
     }
     public withSecurityGroupIds(securityGroupIds: Array<string>): ListInstance {
         this['security_group_ids'] = securityGroupIds;
         return this;
     }
-    public set securityGroupIds(securityGroupIds: Array<string> | undefined) {
+    public set securityGroupIds(securityGroupIds: Array<string>  | undefined) {
         this['security_group_ids'] = securityGroupIds;
     }
-    public get securityGroupIds() {
+    public get securityGroupIds(): Array<string> | undefined {
         return this['security_group_ids'];
     }
     public withStatus(status: number): ListInstance {
@@ -104,20 +104,20 @@ export class ListInstance {
         this['run_status'] = runStatus;
         return this;
     }
-    public set runStatus(runStatus: number | undefined) {
+    public set runStatus(runStatus: number  | undefined) {
         this['run_status'] = runStatus;
     }
-    public get runStatus() {
+    public get runStatus(): number | undefined {
         return this['run_status'];
     }
     public withAccessStatus(accessStatus: number): ListInstance {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number | undefined) {
+    public set accessStatus(accessStatus: number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus() {
+    public get accessStatus(): number | undefined {
         return this['access_status'];
     }
     public withUpgradable(upgradable: number): ListInstance {
@@ -152,20 +152,20 @@ export class ListInstance {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: number | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
     public withInstanceName(instanceName: string): ListInstance {
         this['instance_name'] = instanceName;
         return this;
     }
-    public set instanceName(instanceName: string | undefined) {
+    public set instanceName(instanceName: string  | undefined) {
         this['instance_name'] = instanceName;
     }
-    public get instanceName() {
+    public get instanceName(): string | undefined {
         return this['instance_name'];
     }
 }

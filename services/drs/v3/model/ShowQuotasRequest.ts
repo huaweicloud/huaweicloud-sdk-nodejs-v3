@@ -1,17 +1,17 @@
 
 
 export class ShowQuotasRequest {
-    private 'X-Language'?: ShowQuotasRequestXLanguageEnum | undefined;
+    private 'X-Language'?: ShowQuotasRequestXLanguageEnum | string;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: ShowQuotasRequestXLanguageEnum): ShowQuotasRequest {
+    public withXLanguage(xLanguage: ShowQuotasRequestXLanguageEnum | string): ShowQuotasRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ShowQuotasRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ShowQuotasRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ShowQuotasRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
 }

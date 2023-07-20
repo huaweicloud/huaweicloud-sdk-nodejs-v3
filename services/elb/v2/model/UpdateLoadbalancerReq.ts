@@ -3,7 +3,7 @@
 export class UpdateLoadbalancerReq {
     public name?: string;
     public description?: string;
-    private 'admin_state_up'?: boolean | undefined;
+    private 'admin_state_up'?: boolean;
     public constructor() { 
     }
     public withName(name: string): UpdateLoadbalancerReq {
@@ -18,10 +18,10 @@ export class UpdateLoadbalancerReq {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
 }

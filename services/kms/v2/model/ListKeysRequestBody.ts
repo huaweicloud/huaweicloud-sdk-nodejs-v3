@@ -3,9 +3,9 @@
 export class ListKeysRequestBody {
     public limit?: string;
     public marker?: string;
-    private 'key_state'?: string | undefined;
-    private 'key_spec'?: ListKeysRequestBodyKeySpecEnum | undefined;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'key_state'?: string;
+    private 'key_spec'?: ListKeysRequestBodyKeySpecEnum | string;
+    private 'enterprise_project_id'?: string;
     public sequence?: string;
     public constructor() { 
     }
@@ -21,30 +21,30 @@ export class ListKeysRequestBody {
         this['key_state'] = keyState;
         return this;
     }
-    public set keyState(keyState: string | undefined) {
+    public set keyState(keyState: string  | undefined) {
         this['key_state'] = keyState;
     }
-    public get keyState() {
+    public get keyState(): string | undefined {
         return this['key_state'];
     }
-    public withKeySpec(keySpec: ListKeysRequestBodyKeySpecEnum): ListKeysRequestBody {
+    public withKeySpec(keySpec: ListKeysRequestBodyKeySpecEnum | string): ListKeysRequestBody {
         this['key_spec'] = keySpec;
         return this;
     }
-    public set keySpec(keySpec: ListKeysRequestBodyKeySpecEnum | undefined) {
+    public set keySpec(keySpec: ListKeysRequestBodyKeySpecEnum | string  | undefined) {
         this['key_spec'] = keySpec;
     }
-    public get keySpec() {
+    public get keySpec(): ListKeysRequestBodyKeySpecEnum | string | undefined {
         return this['key_spec'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListKeysRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withSequence(sequence: string): ListKeysRequestBody {

@@ -1,9 +1,9 @@
 
 
 export class OpExtendInfoDelete {
-    private 'backup_id': string | undefined;
-    private 'backup_name': string | undefined;
-    public constructor(backupId?: any, backupName?: any) { 
+    private 'backup_id'?: string;
+    private 'backup_name'?: string;
+    public constructor(backupId?: string, backupName?: string) { 
         this['backup_id'] = backupId;
         this['backup_name'] = backupName;
     }
@@ -11,20 +11,20 @@ export class OpExtendInfoDelete {
         this['backup_id'] = backupId;
         return this;
     }
-    public set backupId(backupId: string | undefined) {
+    public set backupId(backupId: string  | undefined) {
         this['backup_id'] = backupId;
     }
-    public get backupId() {
+    public get backupId(): string | undefined {
         return this['backup_id'];
     }
     public withBackupName(backupName: string): OpExtendInfoDelete {
         this['backup_name'] = backupName;
         return this;
     }
-    public set backupName(backupName: string | undefined) {
+    public set backupName(backupName: string  | undefined) {
         this['backup_name'] = backupName;
     }
-    public get backupName() {
+    public get backupName(): string | undefined {
         return this['backup_name'];
     }
 }

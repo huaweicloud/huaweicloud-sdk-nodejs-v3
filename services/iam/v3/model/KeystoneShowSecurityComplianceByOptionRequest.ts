@@ -1,9 +1,9 @@
 
 
 export class KeystoneShowSecurityComplianceByOptionRequest {
-    private 'domain_id': string | undefined;
-    public option: KeystoneShowSecurityComplianceByOptionRequestOptionEnum;
-    public constructor(domainId?: any, option?: any) { 
+    private 'domain_id'?: string;
+    public option?: KeystoneShowSecurityComplianceByOptionRequestOptionEnum | string;
+    public constructor(domainId?: string, option?: string) { 
         this['domain_id'] = domainId;
         this['option'] = option;
     }
@@ -11,13 +11,13 @@ export class KeystoneShowSecurityComplianceByOptionRequest {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
-    public withOption(option: KeystoneShowSecurityComplianceByOptionRequestOptionEnum): KeystoneShowSecurityComplianceByOptionRequest {
+    public withOption(option: KeystoneShowSecurityComplianceByOptionRequestOptionEnum | string): KeystoneShowSecurityComplianceByOptionRequest {
         this['option'] = option;
         return this;
     }

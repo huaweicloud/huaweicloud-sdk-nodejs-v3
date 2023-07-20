@@ -1,21 +1,21 @@
 
 
 export class CheckDisasterNameRequest {
-    private 'dr_name': string | undefined;
+    private 'dr_name'?: string;
     public type?: string;
-    private 'standby_region'?: string | undefined;
-    private 'standby_project_id'?: string | undefined;
-    public constructor(drName?: any) { 
+    private 'standby_region'?: string;
+    private 'standby_project_id'?: string;
+    public constructor(drName?: string) { 
         this['dr_name'] = drName;
     }
     public withDrName(drName: string): CheckDisasterNameRequest {
         this['dr_name'] = drName;
         return this;
     }
-    public set drName(drName: string | undefined) {
+    public set drName(drName: string  | undefined) {
         this['dr_name'] = drName;
     }
-    public get drName() {
+    public get drName(): string | undefined {
         return this['dr_name'];
     }
     public withType(type: string): CheckDisasterNameRequest {
@@ -26,20 +26,20 @@ export class CheckDisasterNameRequest {
         this['standby_region'] = standbyRegion;
         return this;
     }
-    public set standbyRegion(standbyRegion: string | undefined) {
+    public set standbyRegion(standbyRegion: string  | undefined) {
         this['standby_region'] = standbyRegion;
     }
-    public get standbyRegion() {
+    public get standbyRegion(): string | undefined {
         return this['standby_region'];
     }
     public withStandbyProjectId(standbyProjectId: string): CheckDisasterNameRequest {
         this['standby_project_id'] = standbyProjectId;
         return this;
     }
-    public set standbyProjectId(standbyProjectId: string | undefined) {
+    public set standbyProjectId(standbyProjectId: string  | undefined) {
         this['standby_project_id'] = standbyProjectId;
     }
-    public get standbyProjectId() {
+    public get standbyProjectId(): string | undefined {
         return this['standby_project_id'];
     }
 }

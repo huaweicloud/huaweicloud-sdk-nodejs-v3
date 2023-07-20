@@ -3,7 +3,7 @@ import { OperationLog } from './OperationLog';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowOpLogResponse extends SdkResponse {
-    private 'operation_log'?: OperationLog | undefined;
+    private 'operation_log'?: OperationLog;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ShowOpLogResponse extends SdkResponse {
         this['operation_log'] = operationLog;
         return this;
     }
-    public set operationLog(operationLog: OperationLog | undefined) {
+    public set operationLog(operationLog: OperationLog  | undefined) {
         this['operation_log'] = operationLog;
     }
-    public get operationLog() {
+    public get operationLog(): OperationLog | undefined {
         return this['operation_log'];
     }
 }

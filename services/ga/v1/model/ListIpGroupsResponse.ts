@@ -4,9 +4,9 @@ import { PageInfo } from './PageInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListIpGroupsResponse extends SdkResponse {
-    private 'request_id'?: string | undefined;
-    private 'ip_groups'?: Array<IpGroupDetail> | undefined;
-    private 'page_info'?: PageInfo | undefined;
+    private 'request_id'?: string;
+    private 'ip_groups'?: Array<IpGroupDetail>;
+    private 'page_info'?: PageInfo;
     public constructor() { 
         super();
     }
@@ -14,30 +14,30 @@ export class ListIpGroupsResponse extends SdkResponse {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
     public withIpGroups(ipGroups: Array<IpGroupDetail>): ListIpGroupsResponse {
         this['ip_groups'] = ipGroups;
         return this;
     }
-    public set ipGroups(ipGroups: Array<IpGroupDetail> | undefined) {
+    public set ipGroups(ipGroups: Array<IpGroupDetail>  | undefined) {
         this['ip_groups'] = ipGroups;
     }
-    public get ipGroups() {
+    public get ipGroups(): Array<IpGroupDetail> | undefined {
         return this['ip_groups'];
     }
     public withPageInfo(pageInfo: PageInfo): ListIpGroupsResponse {
         this['page_info'] = pageInfo;
         return this;
     }
-    public set pageInfo(pageInfo: PageInfo | undefined) {
+    public set pageInfo(pageInfo: PageInfo  | undefined) {
         this['page_info'] = pageInfo;
     }
-    public get pageInfo() {
+    public get pageInfo(): PageInfo | undefined {
         return this['page_info'];
     }
 }

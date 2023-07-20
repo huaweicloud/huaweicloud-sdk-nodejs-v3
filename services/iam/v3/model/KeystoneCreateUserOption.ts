@@ -1,12 +1,12 @@
 
 
 export class KeystoneCreateUserOption {
-    public name: string;
-    private 'domain_id'?: string | undefined;
+    public name?: string;
+    private 'domain_id'?: string;
     public password?: string;
     public enabled?: boolean;
     public description?: string;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): KeystoneCreateUserOption {
@@ -17,10 +17,10 @@ export class KeystoneCreateUserOption {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withPassword(password: string): KeystoneCreateUserOption {

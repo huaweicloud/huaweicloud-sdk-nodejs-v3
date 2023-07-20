@@ -2,13 +2,13 @@ import { ListActiveOrHistoryAlarmsRequestBody } from './ListActiveOrHistoryAlarm
 
 
 export class ListActiveOrHistoryAlarmsRequest {
-    private 'domain_id': string | undefined;
-    public type: ListActiveOrHistoryAlarmsRequestTypeEnum;
+    private 'domain_id'?: string;
+    public type?: ListActiveOrHistoryAlarmsRequestTypeEnum | string;
     public marker?: string;
     public limit?: number;
-    private 'Content-Type': string | undefined;
+    private 'Content-Type'?: string;
     public body?: ListActiveOrHistoryAlarmsRequestBody;
-    public constructor(domainId?: any, type?: any, contentType?: any) { 
+    public constructor(domainId?: string, type?: string, contentType?: string) { 
         this['domain_id'] = domainId;
         this['type'] = type;
         this['Content-Type'] = contentType;
@@ -17,13 +17,13 @@ export class ListActiveOrHistoryAlarmsRequest {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
-    public withType(type: ListActiveOrHistoryAlarmsRequestTypeEnum): ListActiveOrHistoryAlarmsRequest {
+    public withType(type: ListActiveOrHistoryAlarmsRequestTypeEnum | string): ListActiveOrHistoryAlarmsRequest {
         this['type'] = type;
         return this;
     }
@@ -39,10 +39,10 @@ export class ListActiveOrHistoryAlarmsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withBody(body: ListActiveOrHistoryAlarmsRequestBody): ListActiveOrHistoryAlarmsRequest {

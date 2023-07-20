@@ -37,6 +37,7 @@ import { CreateInstanceByEngineReq } from './model/CreateInstanceByEngineReq';
 import { CreateInstanceByEngineRequest } from './model/CreateInstanceByEngineRequest';
 import { CreateInstanceByEngineResponse } from './model/CreateInstanceByEngineResponse';
 import { CreateInstanceTopicReq } from './model/CreateInstanceTopicReq';
+import { CreateInstanceTopicReqTopicOtherConfigs } from './model/CreateInstanceTopicReqTopicOtherConfigs';
 import { CreateInstanceTopicRequest } from './model/CreateInstanceTopicRequest';
 import { CreateInstanceTopicResponse } from './model/CreateInstanceTopicResponse';
 import { CreateInstanceUserReq } from './model/CreateInstanceUserReq';
@@ -71,6 +72,8 @@ import { ExtendProductIosEntity } from './model/ExtendProductIosEntity';
 import { ExtendProductPropertiesEntity } from './model/ExtendProductPropertiesEntity';
 import { ExtendProductSupportFeaturesEntity } from './model/ExtendProductSupportFeaturesEntity';
 import { GroupInfoSimple } from './model/GroupInfoSimple';
+import { KafkaTopicPartitionResponsePartitions } from './model/KafkaTopicPartitionResponsePartitions';
+import { KafkaTopicProducerResponseProducers } from './model/KafkaTopicProducerResponseProducers';
 import { ListAvailableZonesRequest } from './model/ListAvailableZonesRequest';
 import { ListAvailableZonesRespAvailableZones } from './model/ListAvailableZonesRespAvailableZones';
 import { ListAvailableZonesResponse } from './model/ListAvailableZonesResponse';
@@ -99,6 +102,10 @@ import { ListProductsResponse } from './model/ListProductsResponse';
 import { ListSinkTasksRequest } from './model/ListSinkTasksRequest';
 import { ListSinkTasksRespTasks } from './model/ListSinkTasksRespTasks';
 import { ListSinkTasksResponse } from './model/ListSinkTasksResponse';
+import { ListTopicPartitionsRequest } from './model/ListTopicPartitionsRequest';
+import { ListTopicPartitionsResponse } from './model/ListTopicPartitionsResponse';
+import { ListTopicProducersRequest } from './model/ListTopicProducersRequest';
+import { ListTopicProducersResponse } from './model/ListTopicProducersResponse';
 import { MaintainWindowsEntity } from './model/MaintainWindowsEntity';
 import { MessagesEntity } from './model/MessagesEntity';
 import { ObsDestinationDescriptor } from './model/ObsDestinationDescriptor';
@@ -200,6 +207,7 @@ import { TagEntity } from './model/TagEntity';
 import { TagMultyValueEntity } from './model/TagMultyValueEntity';
 import { TopicAssignment } from './model/TopicAssignment';
 import { TopicEntity } from './model/TopicEntity';
+import { TopicEntityTopicOtherConfigs } from './model/TopicEntityTopicOtherConfigs';
 import { UpdateInstanceAutoCreateTopicReq } from './model/UpdateInstanceAutoCreateTopicReq';
 import { UpdateInstanceAutoCreateTopicRequest } from './model/UpdateInstanceAutoCreateTopicRequest';
 import { UpdateInstanceAutoCreateTopicResponse } from './model/UpdateInstanceAutoCreateTopicResponse';
@@ -279,7 +287,7 @@ export class KafkaClient {
     }
 
     /**
-     * 该接口用于向Kafka实例批量删除Topic。批量删除多个消费组时，部分删除成功，部分失败，此时接口返回删除成功，并在返回中显示删除失败的消费组信息。
+     * 该接口用于向Kafka实例批量删除Topic。批量删除多个Topic时，部分删除成功，部分失败，此时接口返回删除成功，并在返回中显示删除失败的Topic信息。
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
@@ -550,7 +558,7 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 创建转储任务
-     * @param {string} connectorId 实例转储ID。 请参考[实例生命周期][查询实例]接口返回的数据。
+     * @param {string} connectorId 实例转储ID。  请参考[查询实例](ShowInstance.xml)返回的数据。
      * @param {CreateSinkTaskReq} createSinkTaskRequestBody 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -629,7 +637,7 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 删除单个转储任务
-     * @param {string} connectorId 实例转储ID。 请参考[实例生命周期][查询实例]接口返回的数据。
+     * @param {string} connectorId 实例转储ID。  请参考[查询实例](ShowInstance.xml)返回的数据。
      * @param {string} taskId 转储任务ID。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -652,7 +660,7 @@ export class KafkaClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listAvailableZones(): Promise<ListAvailableZonesResponse> {
+    public listAvailableZones(listAvailableZonesRequest?: ListAvailableZonesRequest): Promise<ListAvailableZonesResponse> {
         const options = ParamCreater().listAvailableZones();
 
          // @ts-ignore
@@ -733,8 +741,6 @@ export class KafkaClient {
      *
      * @summary Kafka实例查询Topic
      * @param {string} instanceId 实例ID。
-     * @param {string} [offset] 偏移量，表示从此偏移量开始查询， offset大于等于0。
-     * @param {string} [limit] 当次查询返回的最大Topic个数，默认值为10，取值范围为1~50。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -753,10 +759,10 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询所有实例列表
-     * @param {string} [engine] 消息引擎：kafka。
+     * @param {'kafka'} [engine] 消息引擎：kafka。
      * @param {string} [name] 实例名称。
      * @param {string} [instanceId] 实例ID。
-     * @param {'CREATING' | 'RUNNING' | 'FAULTY' | 'RESTARTING' | 'RESIZING' | 'RESIZING FAILED' | 'FROZEN'} [status] 实例状态。
+     * @param {'CREATING' | 'RUNNING' | 'FAULTY' | 'RESTARTING' | 'RESIZING' | 'RESIZING FAILED' | 'FROZEN'} [status] 实例状态。 详细状态说明请参考[实例状态说明](kafka-api-180514012.xml)。
      * @param {'true' | 'false'} [includeFailure] 是否返回创建失败的实例数。  当参数值为“true”时，返回创建失败的实例数。参数值为“false”或者其他值，不返回创建失败的实例数。
      * @param {'true' | 'false'} [exactMatchName] 是否按照实例名称进行精确匹配查询。  默认为“false”，表示模糊匹配实例名称查询。若参数值为“true”表示按照实例名称进行精确匹配查询。
      * @param {string} [enterpriseProjectId] 企业项目ID。
@@ -781,12 +787,12 @@ export class KafkaClient {
      * 
      * 同时，unavailable_zones字段表示资源不足的可用区列表，如果为空，则表示所有可用区都有资源，如果不为空，则表示字段值的可用区没有资源。所以必须确保您购买的资源所在的可用区有资源，不在该字段列表内。
      * 
-     * [例如，响应消息中bandwidth字段为1200MB的记录，unavailable_zones字段包含cn-east-2b、cn-east-2a和cn-east-2d，表示在华东-上海2的可用区1、可用区2、可用区3都没有该资源。](tag:hc,hws)
+     * [例如，响应消息中bandwidth字段为1200MB的记录，unavailable_zones字段包含cn-east-2b、cn-east-2a和cn-east-2d，表示在华东-上海2的可用区1、可用区2、可用区3都没有该资源。](tag:hws)
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询产品规格列表
-     * @param {string} engine 消息引擎的类型。当前只支持kafka类型。
+     * @param {'kafka'} engine 消息引擎的类型。当前只支持kafka类型。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
@@ -805,12 +811,56 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询转储任务列表
-     * @param {string} connectorId 实例转储ID。 请参考[实例生命周期][查询实例]接口返回的数据。
+     * @param {string} connectorId 实例转储ID。  请参考[查询实例](ShowInstance.xml)返回的数据。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public listSinkTasks(listSinkTasksRequest?: ListSinkTasksRequest): Promise<ListSinkTasksResponse> {
         const options = ParamCreater().listSinkTasks(listSinkTasksRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Topic的分区列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Topic的分区列表
+     * @param {string} instanceId 实例id
+     * @param {string} topic 主题
+     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录
+     * @param {number} [limit] 查询返回记录的数量限制
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTopicPartitions(listTopicPartitionsRequest?: ListTopicPartitionsRequest): Promise<ListTopicPartitionsResponse> {
+        const options = ParamCreater().listTopicPartitions(listTopicPartitionsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 查询Topic的当前生产者列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询Topic的当前生产者列表
+     * @param {string} instanceId 实例id
+     * @param {string} topic 主题
+     * @param {number} [offset] 偏移量，表示查询该偏移量后面的记录
+     * @param {number} [limit] 查询返回记录的数量限制
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listTopicProducers(listTopicProducersRequest?: ListTopicProducersRequest): Promise<ListTopicProducersResponse> {
+        const options = ParamCreater().listTopicProducers(listTopicProducersRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -908,7 +958,7 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 实例规格变更
-     * @param {string} engine 消息引擎。
+     * @param {'kafka'} engine 消息引擎。
      * @param {string} instanceId 实例ID。
      * @param {ResizeEngineInstanceReq} resizeEngineInstanceRequestBody 请求消息。
      * @param {*} [options] Override http request option.
@@ -1106,7 +1156,7 @@ export class KafkaClient {
      *
      * @summary 查询实例的扩容规格列表
      * @param {string} instanceId 实例ID。
-     * @param {'advanced' | 'platinum' | 'dec' | 'exp'} type [产品的类型。 - advanced: 专享版 - platinum: 铂金版 - dec: 专属云版 - exp: 体验版](tag:hc,hk,hws,hws_hk,ctc,sbc,hk_sbc,cmcc,hws_eu)
+     * @param {'advanced' | 'platinum' | 'dec' | 'exp'} type [产品的类型。 - advanced: 专享版 - platinum: 铂金版 - dec: 专属云版 - exp: 体验版](tag:hws,hws_hk,ctc,sbc,hk_sbc,cmcc,hws_eu)
      * @param {'kafka'} engine 消息引擎的类型。当前支持的类型为kafka。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1199,7 +1249,7 @@ export class KafkaClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showKafkaProjectTags(): Promise<ShowKafkaProjectTagsResponse> {
+    public showKafkaProjectTags(showKafkaProjectTagsRequest?: ShowKafkaProjectTagsRequest): Promise<ShowKafkaProjectTagsResponse> {
         const options = ParamCreater().showKafkaProjectTags();
 
          // @ts-ignore
@@ -1234,7 +1284,7 @@ export class KafkaClient {
      *
      * @summary 查询topic的磁盘存储情况
      * @param {string} instanceId 实例ID。
-     * @param {string} [minSize] 占用磁盘大小，默认值1G (1K ,1M , 1G)。
+     * @param {string} [minSize] 占用磁盘大小，默认值1G (1K，1M，1G)。
      * @param {string} [top] 占用磁盘大小，查询top N。
      * @param {string} [percentage] 占用磁盘大小，查询大于占比的分区。
      * @param {*} [options] Override http request option.
@@ -1258,7 +1308,7 @@ export class KafkaClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showMaintainWindows(): Promise<ShowMaintainWindowsResponse> {
+    public showMaintainWindows(showMaintainWindowsRequest?: ShowMaintainWindowsRequest): Promise<ShowMaintainWindowsResponse> {
         const options = ParamCreater().showMaintainWindows();
 
          // @ts-ignore
@@ -1362,7 +1412,7 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 查询单个转储任务
-     * @param {string} connectorId 实例转储ID。 请参考[实例生命周期][查询实例]接口返回的数据。
+     * @param {string} connectorId 实例转储ID。  请参考[查询实例](ShowInstance.xml)返回的数据。
      * @param {string} taskId 转储任务ID。
      * @param {'true' | 'false'} [topicInfo] 是否包含topic信息。默认是false。
      * @param {*} [options] Override http request option.
@@ -1485,7 +1535,7 @@ export class KafkaClient {
      * Please refer to HUAWEI cloud API Explorer for details.
      *
      * @summary 修改转储任务的配额
-     * @param {string} connectorId 实例转储ID。 请参考[实例生命周期][查询实例]接口返回的数据。
+     * @param {string} connectorId 实例转储ID。  请参考[查询实例](ShowInstance.xml)返回的数据。
      * @param {UpdateSinkTaskQuotaReq} updateSinkTaskQuotaRequestBody 请求消息。
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1639,7 +1689,7 @@ export const ParamCreater = function () {
         },
     
         /**
-         * 该接口用于向Kafka实例批量删除Topic。批量删除多个消费组时，部分删除成功，部分失败，此时接口返回删除成功，并在返回中显示删除失败的消费组信息。
+         * 该接口用于向Kafka实例批量删除Topic。批量删除多个Topic时，部分删除成功，部分失败，此时接口返回删除成功，并在返回中显示删除失败的Topic信息。
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2643,23 +2693,15 @@ export const ParamCreater = function () {
                 headers: {}
             };
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+
             
             let instanceId;
-            
-            let offset;
-            
-            let limit;
 
             if (listInstanceTopicsRequest !== null && listInstanceTopicsRequest !== undefined) {
                 if (listInstanceTopicsRequest instanceof ListInstanceTopicsRequest) {
                     instanceId = listInstanceTopicsRequest.instanceId;
-                    offset = listInstanceTopicsRequest.offset;
-                    limit = listInstanceTopicsRequest.limit;
                 } else {
                     instanceId = listInstanceTopicsRequest['instance_id'];
-                    offset = listInstanceTopicsRequest['offset'];
-                    limit = listInstanceTopicsRequest['limit'];
                 }
             }
 
@@ -2667,14 +2709,7 @@ export const ParamCreater = function () {
             if (instanceId === null || instanceId === undefined) {
             throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listInstanceTopics.');
             }
-            if (offset !== null && offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-            if (limit !== null && limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
 
-            options.queryParams = localVarQueryParameter;
             options.pathParams = { 'instance_id': instanceId, };
             options.headers = localVarHeaderParameter;
             return options;
@@ -2780,7 +2815,7 @@ export const ParamCreater = function () {
          * 
          * 同时，unavailable_zones字段表示资源不足的可用区列表，如果为空，则表示所有可用区都有资源，如果不为空，则表示字段值的可用区没有资源。所以必须确保您购买的资源所在的可用区有资源，不在该字段列表内。
          * 
-         * [例如，响应消息中bandwidth字段为1200MB的记录，unavailable_zones字段包含cn-east-2b、cn-east-2a和cn-east-2d，表示在华东-上海2的可用区1、可用区2、可用区3都没有该资源。](tag:hc,hws)
+         * [例如，响应消息中bandwidth字段为1200MB的记录，unavailable_zones字段包含cn-east-2b、cn-east-2a和cn-east-2d，表示在华东-上海2的可用区1、可用区2、可用区3都没有该资源。](tag:hws)
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
          */
@@ -2852,6 +2887,124 @@ export const ParamCreater = function () {
             }
 
             options.pathParams = { 'connector_id': connectorId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Topic的分区列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTopicPartitions(listTopicPartitionsRequest?: ListTopicPartitionsRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/kafka/instances/{instance_id}/topics/{topic}/partitions",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let topic;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTopicPartitionsRequest !== null && listTopicPartitionsRequest !== undefined) {
+                if (listTopicPartitionsRequest instanceof ListTopicPartitionsRequest) {
+                    instanceId = listTopicPartitionsRequest.instanceId;
+                    topic = listTopicPartitionsRequest.topic;
+                    offset = listTopicPartitionsRequest.offset;
+                    limit = listTopicPartitionsRequest.limit;
+                } else {
+                    instanceId = listTopicPartitionsRequest['instance_id'];
+                    topic = listTopicPartitionsRequest['topic'];
+                    offset = listTopicPartitionsRequest['offset'];
+                    limit = listTopicPartitionsRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listTopicPartitions.');
+            }
+            if (topic === null || topic === undefined) {
+            throw new RequiredError('topic','Required parameter topic was null or undefined when calling listTopicPartitions.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'topic': topic, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 查询Topic的当前生产者列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listTopicProducers(listTopicProducersRequest?: ListTopicProducersRequest) {
+            const options = {
+                method: "GET",
+                url: "/v2/{project_id}/kafka/instances/{instance_id}/topics/{topic}/producers",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let instanceId;
+            
+            let topic;
+            
+            let offset;
+            
+            let limit;
+
+            if (listTopicProducersRequest !== null && listTopicProducersRequest !== undefined) {
+                if (listTopicProducersRequest instanceof ListTopicProducersRequest) {
+                    instanceId = listTopicProducersRequest.instanceId;
+                    topic = listTopicProducersRequest.topic;
+                    offset = listTopicProducersRequest.offset;
+                    limit = listTopicProducersRequest.limit;
+                } else {
+                    instanceId = listTopicProducersRequest['instance_id'];
+                    topic = listTopicProducersRequest['topic'];
+                    offset = listTopicProducersRequest['offset'];
+                    limit = listTopicProducersRequest['limit'];
+                }
+            }
+
+        
+            if (instanceId === null || instanceId === undefined) {
+            throw new RequiredError('instanceId','Required parameter instanceId was null or undefined when calling listTopicProducers.');
+            }
+            if (topic === null || topic === undefined) {
+            throw new RequiredError('topic','Required parameter topic was null or undefined when calling listTopicProducers.');
+            }
+            if (offset !== null && offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.pathParams = { 'instance_id': instanceId,'topic': topic, };
             options.headers = localVarHeaderParameter;
             return options;
         },

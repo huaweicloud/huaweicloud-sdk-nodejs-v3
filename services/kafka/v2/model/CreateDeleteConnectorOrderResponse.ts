@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateDeleteConnectorOrderResponse extends SdkResponse {
-    private 'order_id'?: string | undefined;
+    private 'order_id'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class CreateDeleteConnectorOrderResponse extends SdkResponse {
         this['order_id'] = orderId;
         return this;
     }
-    public set orderId(orderId: string | undefined) {
+    public set orderId(orderId: string  | undefined) {
         this['order_id'] = orderId;
     }
-    public get orderId() {
+    public get orderId(): string | undefined {
         return this['order_id'];
     }
 }

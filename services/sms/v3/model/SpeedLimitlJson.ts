@@ -1,10 +1,10 @@
 
 
 export class SpeedLimitlJson {
-    public start: string;
-    public end: string;
-    public speed: number;
-    public constructor(start?: any, end?: any, speed?: any) { 
+    public start?: string;
+    public end?: string;
+    public speed?: number;
+    public constructor(start?: string, end?: string, speed?: number) { 
         this['start'] = start;
         this['end'] = end;
         this['speed'] = speed;

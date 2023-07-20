@@ -1,11 +1,11 @@
 
 
 export class DeleteServiceItemUsingDeleteRequest {
-    private 'project_id': string | undefined;
-    private 'item_id': string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'fw_instance_id'?: string | undefined;
-    public constructor(projectId?: any, itemId?: any) { 
+    private 'project_id'?: string;
+    private 'item_id'?: string;
+    private 'enterprise_project_id'?: string;
+    private 'fw_instance_id'?: string;
+    public constructor(projectId?: string, itemId?: string) { 
         this['project_id'] = projectId;
         this['item_id'] = itemId;
     }
@@ -13,40 +13,40 @@ export class DeleteServiceItemUsingDeleteRequest {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withItemId(itemId: string): DeleteServiceItemUsingDeleteRequest {
         this['item_id'] = itemId;
         return this;
     }
-    public set itemId(itemId: string | undefined) {
+    public set itemId(itemId: string  | undefined) {
         this['item_id'] = itemId;
     }
-    public get itemId() {
+    public get itemId(): string | undefined {
         return this['item_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): DeleteServiceItemUsingDeleteRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withFwInstanceId(fwInstanceId: string): DeleteServiceItemUsingDeleteRequest {
         this['fw_instance_id'] = fwInstanceId;
         return this;
     }
-    public set fwInstanceId(fwInstanceId: string | undefined) {
+    public set fwInstanceId(fwInstanceId: string  | undefined) {
         this['fw_instance_id'] = fwInstanceId;
     }
-    public get fwInstanceId() {
+    public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
     }
 }

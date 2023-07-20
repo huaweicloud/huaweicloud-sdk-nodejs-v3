@@ -1,41 +1,41 @@
 
 
 export class ShowDomainRoleAssignmentsRequest {
-    private 'domain_id': string | undefined;
-    private 'role_id'?: string | undefined;
+    private 'domain_id'?: string;
+    private 'role_id'?: string;
     public subject?: string;
-    private 'subject.user_id'?: string | undefined;
-    private 'subject.group_id'?: string | undefined;
-    private 'subject.agency_id'?: string | undefined;
+    private 'subject.user_id'?: string;
+    private 'subject.group_id'?: string;
+    private 'subject.agency_id'?: string;
     public scope?: string;
-    private 'scope.project_id'?: string | undefined;
-    private 'scope.domain_id'?: string | undefined;
-    private 'scope.enterprise_projects_id'?: string | undefined;
-    private 'is_inherited'?: boolean | undefined;
-    private 'include_group'?: boolean | undefined;
+    private 'scope.project_id'?: string;
+    private 'scope.domain_id'?: string;
+    private 'scope.enterprise_projects_id'?: string;
+    private 'is_inherited'?: boolean;
+    private 'include_group'?: boolean;
     public page?: string;
-    private 'per_page'?: string | undefined;
-    public constructor(domainId?: any) { 
+    private 'per_page'?: string;
+    public constructor(domainId?: string) { 
         this['domain_id'] = domainId;
     }
     public withDomainId(domainId: string): ShowDomainRoleAssignmentsRequest {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withRoleId(roleId: string): ShowDomainRoleAssignmentsRequest {
         this['role_id'] = roleId;
         return this;
     }
-    public set roleId(roleId: string | undefined) {
+    public set roleId(roleId: string  | undefined) {
         this['role_id'] = roleId;
     }
-    public get roleId() {
+    public get roleId(): string | undefined {
         return this['role_id'];
     }
     public withSubject(subject: string): ShowDomainRoleAssignmentsRequest {
@@ -46,30 +46,30 @@ export class ShowDomainRoleAssignmentsRequest {
         this['subject.user_id'] = subjectUserId;
         return this;
     }
-    public set subjectUserId(subjectUserId: string | undefined) {
+    public set subjectUserId(subjectUserId: string  | undefined) {
         this['subject.user_id'] = subjectUserId;
     }
-    public get subjectUserId() {
+    public get subjectUserId(): string | undefined {
         return this['subject.user_id'];
     }
     public withSubjectGroupId(subjectGroupId: string): ShowDomainRoleAssignmentsRequest {
         this['subject.group_id'] = subjectGroupId;
         return this;
     }
-    public set subjectGroupId(subjectGroupId: string | undefined) {
+    public set subjectGroupId(subjectGroupId: string  | undefined) {
         this['subject.group_id'] = subjectGroupId;
     }
-    public get subjectGroupId() {
+    public get subjectGroupId(): string | undefined {
         return this['subject.group_id'];
     }
     public withSubjectAgencyId(subjectAgencyId: string): ShowDomainRoleAssignmentsRequest {
         this['subject.agency_id'] = subjectAgencyId;
         return this;
     }
-    public set subjectAgencyId(subjectAgencyId: string | undefined) {
+    public set subjectAgencyId(subjectAgencyId: string  | undefined) {
         this['subject.agency_id'] = subjectAgencyId;
     }
-    public get subjectAgencyId() {
+    public get subjectAgencyId(): string | undefined {
         return this['subject.agency_id'];
     }
     public withScope(scope: string): ShowDomainRoleAssignmentsRequest {
@@ -80,50 +80,50 @@ export class ShowDomainRoleAssignmentsRequest {
         this['scope.project_id'] = scopeProjectId;
         return this;
     }
-    public set scopeProjectId(scopeProjectId: string | undefined) {
+    public set scopeProjectId(scopeProjectId: string  | undefined) {
         this['scope.project_id'] = scopeProjectId;
     }
-    public get scopeProjectId() {
+    public get scopeProjectId(): string | undefined {
         return this['scope.project_id'];
     }
     public withScopeDomainId(scopeDomainId: string): ShowDomainRoleAssignmentsRequest {
         this['scope.domain_id'] = scopeDomainId;
         return this;
     }
-    public set scopeDomainId(scopeDomainId: string | undefined) {
+    public set scopeDomainId(scopeDomainId: string  | undefined) {
         this['scope.domain_id'] = scopeDomainId;
     }
-    public get scopeDomainId() {
+    public get scopeDomainId(): string | undefined {
         return this['scope.domain_id'];
     }
     public withScopeEnterpriseProjectsId(scopeEnterpriseProjectsId: string): ShowDomainRoleAssignmentsRequest {
         this['scope.enterprise_projects_id'] = scopeEnterpriseProjectsId;
         return this;
     }
-    public set scopeEnterpriseProjectsId(scopeEnterpriseProjectsId: string | undefined) {
+    public set scopeEnterpriseProjectsId(scopeEnterpriseProjectsId: string  | undefined) {
         this['scope.enterprise_projects_id'] = scopeEnterpriseProjectsId;
     }
-    public get scopeEnterpriseProjectsId() {
+    public get scopeEnterpriseProjectsId(): string | undefined {
         return this['scope.enterprise_projects_id'];
     }
     public withIsInherited(isInherited: boolean): ShowDomainRoleAssignmentsRequest {
         this['is_inherited'] = isInherited;
         return this;
     }
-    public set isInherited(isInherited: boolean | undefined) {
+    public set isInherited(isInherited: boolean  | undefined) {
         this['is_inherited'] = isInherited;
     }
-    public get isInherited() {
+    public get isInherited(): boolean | undefined {
         return this['is_inherited'];
     }
     public withIncludeGroup(includeGroup: boolean): ShowDomainRoleAssignmentsRequest {
         this['include_group'] = includeGroup;
         return this;
     }
-    public set includeGroup(includeGroup: boolean | undefined) {
+    public set includeGroup(includeGroup: boolean  | undefined) {
         this['include_group'] = includeGroup;
     }
-    public get includeGroup() {
+    public get includeGroup(): boolean | undefined {
         return this['include_group'];
     }
     public withPage(page: string): ShowDomainRoleAssignmentsRequest {
@@ -134,10 +134,10 @@ export class ShowDomainRoleAssignmentsRequest {
         this['per_page'] = perPage;
         return this;
     }
-    public set perPage(perPage: string | undefined) {
+    public set perPage(perPage: string  | undefined) {
         this['per_page'] = perPage;
     }
-    public get perPage() {
+    public get perPage(): string | undefined {
         return this['per_page'];
     }
 }

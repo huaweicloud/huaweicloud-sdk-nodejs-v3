@@ -4,22 +4,22 @@ import { RuleServiceDto } from './RuleServiceDto';
 
 
 export class AddRuleAclDtoRules {
-    public name: string;
-    public sequence: OrderRuleAclDto;
-    private 'address_type': AddRuleAclDtoRulesAddressTypeEnum | undefined;
-    private 'action_type': number | undefined;
-    public status: AddRuleAclDtoRulesStatusEnum;
-    private 'long_connect_time'?: number | undefined;
-    private 'long_connect_time_hour'?: number | undefined;
-    private 'long_connect_time_minute'?: number | undefined;
-    private 'long_connect_time_second'?: number | undefined;
-    private 'long_connect_enable': AddRuleAclDtoRulesLongConnectEnableEnum | undefined;
+    public name?: string;
+    public sequence?: OrderRuleAclDto;
+    private 'address_type'?: AddRuleAclDtoRulesAddressTypeEnum | number;
+    private 'action_type'?: number;
+    public status?: AddRuleAclDtoRulesStatusEnum | number;
+    private 'long_connect_time'?: number;
+    private 'long_connect_time_hour'?: number;
+    private 'long_connect_time_minute'?: number;
+    private 'long_connect_time_second'?: number;
+    private 'long_connect_enable'?: AddRuleAclDtoRulesLongConnectEnableEnum | number;
     public description?: string;
-    public direction?: AddRuleAclDtoRulesDirectionEnum;
-    public source: RuleAddressDto;
-    public destination: RuleAddressDto;
-    public service: RuleServiceDto;
-    public constructor(name?: any, sequence?: any, addressType?: any, actionType?: any, status?: any, longConnectEnable?: any, source?: any, destination?: any, service?: any) { 
+    public direction?: AddRuleAclDtoRulesDirectionEnum | number;
+    public source?: RuleAddressDto;
+    public destination?: RuleAddressDto;
+    public service?: RuleServiceDto;
+    public constructor(name?: string, sequence?: OrderRuleAclDto, addressType?: number, actionType?: number, status?: number, longConnectEnable?: number, source?: RuleAddressDto, destination?: RuleAddressDto, service?: RuleServiceDto) { 
         this['name'] = name;
         this['sequence'] = sequence;
         this['address_type'] = addressType;
@@ -38,27 +38,27 @@ export class AddRuleAclDtoRules {
         this['sequence'] = sequence;
         return this;
     }
-    public withAddressType(addressType: AddRuleAclDtoRulesAddressTypeEnum): AddRuleAclDtoRules {
+    public withAddressType(addressType: AddRuleAclDtoRulesAddressTypeEnum | number): AddRuleAclDtoRules {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: AddRuleAclDtoRulesAddressTypeEnum | undefined) {
+    public set addressType(addressType: AddRuleAclDtoRulesAddressTypeEnum | number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType() {
+    public get addressType(): AddRuleAclDtoRulesAddressTypeEnum | number | undefined {
         return this['address_type'];
     }
     public withActionType(actionType: number): AddRuleAclDtoRules {
         this['action_type'] = actionType;
         return this;
     }
-    public set actionType(actionType: number | undefined) {
+    public set actionType(actionType: number  | undefined) {
         this['action_type'] = actionType;
     }
-    public get actionType() {
+    public get actionType(): number | undefined {
         return this['action_type'];
     }
-    public withStatus(status: AddRuleAclDtoRulesStatusEnum): AddRuleAclDtoRules {
+    public withStatus(status: AddRuleAclDtoRulesStatusEnum | number): AddRuleAclDtoRules {
         this['status'] = status;
         return this;
     }
@@ -66,57 +66,57 @@ export class AddRuleAclDtoRules {
         this['long_connect_time'] = longConnectTime;
         return this;
     }
-    public set longConnectTime(longConnectTime: number | undefined) {
+    public set longConnectTime(longConnectTime: number  | undefined) {
         this['long_connect_time'] = longConnectTime;
     }
-    public get longConnectTime() {
+    public get longConnectTime(): number | undefined {
         return this['long_connect_time'];
     }
     public withLongConnectTimeHour(longConnectTimeHour: number): AddRuleAclDtoRules {
         this['long_connect_time_hour'] = longConnectTimeHour;
         return this;
     }
-    public set longConnectTimeHour(longConnectTimeHour: number | undefined) {
+    public set longConnectTimeHour(longConnectTimeHour: number  | undefined) {
         this['long_connect_time_hour'] = longConnectTimeHour;
     }
-    public get longConnectTimeHour() {
+    public get longConnectTimeHour(): number | undefined {
         return this['long_connect_time_hour'];
     }
     public withLongConnectTimeMinute(longConnectTimeMinute: number): AddRuleAclDtoRules {
         this['long_connect_time_minute'] = longConnectTimeMinute;
         return this;
     }
-    public set longConnectTimeMinute(longConnectTimeMinute: number | undefined) {
+    public set longConnectTimeMinute(longConnectTimeMinute: number  | undefined) {
         this['long_connect_time_minute'] = longConnectTimeMinute;
     }
-    public get longConnectTimeMinute() {
+    public get longConnectTimeMinute(): number | undefined {
         return this['long_connect_time_minute'];
     }
     public withLongConnectTimeSecond(longConnectTimeSecond: number): AddRuleAclDtoRules {
         this['long_connect_time_second'] = longConnectTimeSecond;
         return this;
     }
-    public set longConnectTimeSecond(longConnectTimeSecond: number | undefined) {
+    public set longConnectTimeSecond(longConnectTimeSecond: number  | undefined) {
         this['long_connect_time_second'] = longConnectTimeSecond;
     }
-    public get longConnectTimeSecond() {
+    public get longConnectTimeSecond(): number | undefined {
         return this['long_connect_time_second'];
     }
-    public withLongConnectEnable(longConnectEnable: AddRuleAclDtoRulesLongConnectEnableEnum): AddRuleAclDtoRules {
+    public withLongConnectEnable(longConnectEnable: AddRuleAclDtoRulesLongConnectEnableEnum | number): AddRuleAclDtoRules {
         this['long_connect_enable'] = longConnectEnable;
         return this;
     }
-    public set longConnectEnable(longConnectEnable: AddRuleAclDtoRulesLongConnectEnableEnum | undefined) {
+    public set longConnectEnable(longConnectEnable: AddRuleAclDtoRulesLongConnectEnableEnum | number  | undefined) {
         this['long_connect_enable'] = longConnectEnable;
     }
-    public get longConnectEnable() {
+    public get longConnectEnable(): AddRuleAclDtoRulesLongConnectEnableEnum | number | undefined {
         return this['long_connect_enable'];
     }
     public withDescription(description: string): AddRuleAclDtoRules {
         this['description'] = description;
         return this;
     }
-    public withDirection(direction: AddRuleAclDtoRulesDirectionEnum): AddRuleAclDtoRules {
+    public withDirection(direction: AddRuleAclDtoRulesDirectionEnum | number): AddRuleAclDtoRules {
         this['direction'] = direction;
         return this;
     }

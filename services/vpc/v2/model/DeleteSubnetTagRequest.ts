@@ -1,9 +1,9 @@
 
 
 export class DeleteSubnetTagRequest {
-    private 'subnet_id': string | undefined;
-    public key: string;
-    public constructor(subnetId?: any, key?: any) { 
+    private 'subnet_id'?: string;
+    public key?: string;
+    public constructor(subnetId?: string, key?: string) { 
         this['subnet_id'] = subnetId;
         this['key'] = key;
     }
@@ -11,10 +11,10 @@ export class DeleteSubnetTagRequest {
         this['subnet_id'] = subnetId;
         return this;
     }
-    public set subnetId(subnetId: string | undefined) {
+    public set subnetId(subnetId: string  | undefined) {
         this['subnet_id'] = subnetId;
     }
-    public get subnetId() {
+    public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
     public withKey(key: string): DeleteSubnetTagRequest {

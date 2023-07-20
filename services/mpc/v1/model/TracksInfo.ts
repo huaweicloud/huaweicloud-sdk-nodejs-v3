@@ -1,7 +1,7 @@
 
 
 export class TracksInfo {
-    private 'channel_layout'?: string | undefined;
+    private 'channel_layout'?: string;
     public language?: string;
     public constructor() { 
     }
@@ -9,10 +9,10 @@ export class TracksInfo {
         this['channel_layout'] = channelLayout;
         return this;
     }
-    public set channelLayout(channelLayout: string | undefined) {
+    public set channelLayout(channelLayout: string  | undefined) {
         this['channel_layout'] = channelLayout;
     }
-    public get channelLayout() {
+    public get channelLayout(): string | undefined {
         return this['channel_layout'];
     }
     public withLanguage(language: string): TracksInfo {

@@ -1,9 +1,9 @@
 
 
 export class IpInfo {
-    public ip: string;
-    public description: string;
-    public constructor(ip?: any, description?: any) { 
+    public ip?: string;
+    public description?: string;
+    public constructor(ip?: string, description?: string) { 
         this['ip'] = ip;
         this['description'] = description;
     }

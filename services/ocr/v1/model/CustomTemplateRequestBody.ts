@@ -3,9 +3,9 @@
 export class CustomTemplateRequestBody {
     public image?: string;
     public url?: string;
-    private 'template_id'?: string | undefined;
-    private 'classifier_id'?: string | undefined;
-    private 'classifier_mode'?: boolean | undefined;
+    private 'template_id'?: string;
+    private 'classifier_id'?: string;
+    private 'classifier_mode'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): CustomTemplateRequestBody {
@@ -20,30 +20,30 @@ export class CustomTemplateRequestBody {
         this['template_id'] = templateId;
         return this;
     }
-    public set templateId(templateId: string | undefined) {
+    public set templateId(templateId: string  | undefined) {
         this['template_id'] = templateId;
     }
-    public get templateId() {
+    public get templateId(): string | undefined {
         return this['template_id'];
     }
     public withClassifierId(classifierId: string): CustomTemplateRequestBody {
         this['classifier_id'] = classifierId;
         return this;
     }
-    public set classifierId(classifierId: string | undefined) {
+    public set classifierId(classifierId: string  | undefined) {
         this['classifier_id'] = classifierId;
     }
-    public get classifierId() {
+    public get classifierId(): string | undefined {
         return this['classifier_id'];
     }
     public withClassifierMode(classifierMode: boolean): CustomTemplateRequestBody {
         this['classifier_mode'] = classifierMode;
         return this;
     }
-    public set classifierMode(classifierMode: boolean | undefined) {
+    public set classifierMode(classifierMode: boolean  | undefined) {
         this['classifier_mode'] = classifierMode;
     }
-    public get classifierMode() {
+    public get classifierMode(): boolean | undefined {
         return this['classifier_mode'];
     }
 }

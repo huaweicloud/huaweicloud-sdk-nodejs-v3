@@ -3,13 +3,13 @@
 export class ListMetadatasRespSchemaList {
     public id?: string;
     public name?: string;
-    private 'start_time'?: string | undefined;
-    private 'last_update_time'?: string | undefined;
+    private 'start_time'?: string;
+    private 'last_update_time'?: string;
     public encrypted?: boolean;
-    private 'master_key_name'?: string | undefined;
-    private 'master_key_id'?: string | undefined;
+    private 'master_key_name'?: string;
+    private 'master_key_id'?: string;
     public description?: string;
-    private 'metadata_path'?: string | undefined;
+    private 'metadata_path'?: string;
     public status?: string;
     public constructor() { 
     }
@@ -25,20 +25,20 @@ export class ListMetadatasRespSchemaList {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withLastUpdateTime(lastUpdateTime: string): ListMetadatasRespSchemaList {
         this['last_update_time'] = lastUpdateTime;
         return this;
     }
-    public set lastUpdateTime(lastUpdateTime: string | undefined) {
+    public set lastUpdateTime(lastUpdateTime: string  | undefined) {
         this['last_update_time'] = lastUpdateTime;
     }
-    public get lastUpdateTime() {
+    public get lastUpdateTime(): string | undefined {
         return this['last_update_time'];
     }
     public withEncrypted(encrypted: boolean): ListMetadatasRespSchemaList {
@@ -49,20 +49,20 @@ export class ListMetadatasRespSchemaList {
         this['master_key_name'] = masterKeyName;
         return this;
     }
-    public set masterKeyName(masterKeyName: string | undefined) {
+    public set masterKeyName(masterKeyName: string  | undefined) {
         this['master_key_name'] = masterKeyName;
     }
-    public get masterKeyName() {
+    public get masterKeyName(): string | undefined {
         return this['master_key_name'];
     }
     public withMasterKeyId(masterKeyId: string): ListMetadatasRespSchemaList {
         this['master_key_id'] = masterKeyId;
         return this;
     }
-    public set masterKeyId(masterKeyId: string | undefined) {
+    public set masterKeyId(masterKeyId: string  | undefined) {
         this['master_key_id'] = masterKeyId;
     }
-    public get masterKeyId() {
+    public get masterKeyId(): string | undefined {
         return this['master_key_id'];
     }
     public withDescription(description: string): ListMetadatasRespSchemaList {
@@ -73,10 +73,10 @@ export class ListMetadatasRespSchemaList {
         this['metadata_path'] = metadataPath;
         return this;
     }
-    public set metadataPath(metadataPath: string | undefined) {
+    public set metadataPath(metadataPath: string  | undefined) {
         this['metadata_path'] = metadataPath;
     }
-    public get metadataPath() {
+    public get metadataPath(): string | undefined {
         return this['metadata_path'];
     }
     public withStatus(status: string): ListMetadatasRespSchemaList {

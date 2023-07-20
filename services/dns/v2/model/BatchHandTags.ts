@@ -2,9 +2,9 @@ import { Tag } from './Tag';
 
 
 export class BatchHandTags {
-    public tags: Array<Tag>;
-    public action: string;
-    public constructor(tags?: any, action?: any) { 
+    public tags?: Array<Tag>;
+    public action?: string;
+    public constructor(tags?: Array<Tag>, action?: string) { 
         this['tags'] = tags;
         this['action'] = action;
     }

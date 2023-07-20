@@ -4,27 +4,27 @@ import { Volume } from './Volume';
 
 
 export class V2CreateCluster {
-    public name: string;
-    public flavor: string;
-    private 'num_cn': number | undefined;
-    private 'num_node': number | undefined;
-    private 'db_name': string | undefined;
-    private 'db_password': string | undefined;
-    private 'db_port': number | undefined;
-    private 'dss_pool_id'?: string | undefined;
-    private 'availability_zones': Array<string> | undefined;
+    public name?: string;
+    public flavor?: string;
+    private 'num_cn'?: number;
+    private 'num_node'?: number;
+    private 'db_name'?: string;
+    private 'db_password'?: string;
+    private 'db_port'?: number;
+    private 'dss_pool_id'?: string;
+    private 'availability_zones'?: Array<string>;
     public tags?: Tags;
-    private 'vpc_id': string | undefined;
-    private 'subnet_id': string | undefined;
-    private 'security_group_id'?: string | undefined;
-    private 'public_ip'?: PublicIp | undefined;
-    private 'datastore_version': string | undefined;
-    private 'master_key_id'?: string | undefined;
-    private 'master_key_name'?: string | undefined;
-    private 'crypt_algorithm'?: string | undefined;
+    private 'vpc_id'?: string;
+    private 'subnet_id'?: string;
+    private 'security_group_id'?: string;
+    private 'public_ip'?: PublicIp;
+    private 'datastore_version'?: string;
+    private 'master_key_id'?: string;
+    private 'master_key_name'?: string;
+    private 'crypt_algorithm'?: string;
     public volume?: Volume;
-    private 'enterprise_project_id'?: string | undefined;
-    public constructor(name?: any, flavor?: any, numCn?: any, numNode?: any, dbName?: any, dbPassword?: any, dbPort?: any, availabilityZones?: any, vpcId?: any, subnetId?: any, datastoreVersion?: any) { 
+    private 'enterprise_project_id'?: string;
+    public constructor(name?: string, flavor?: string, numCn?: number, numNode?: number, dbName?: string, dbPassword?: string, dbPort?: number, availabilityZones?: Array<string>, vpcId?: string, subnetId?: string, datastoreVersion?: string) { 
         this['name'] = name;
         this['flavor'] = flavor;
         this['num_cn'] = numCn;
@@ -49,70 +49,70 @@ export class V2CreateCluster {
         this['num_cn'] = numCn;
         return this;
     }
-    public set numCn(numCn: number | undefined) {
+    public set numCn(numCn: number  | undefined) {
         this['num_cn'] = numCn;
     }
-    public get numCn() {
+    public get numCn(): number | undefined {
         return this['num_cn'];
     }
     public withNumNode(numNode: number): V2CreateCluster {
         this['num_node'] = numNode;
         return this;
     }
-    public set numNode(numNode: number | undefined) {
+    public set numNode(numNode: number  | undefined) {
         this['num_node'] = numNode;
     }
-    public get numNode() {
+    public get numNode(): number | undefined {
         return this['num_node'];
     }
     public withDbName(dbName: string): V2CreateCluster {
         this['db_name'] = dbName;
         return this;
     }
-    public set dbName(dbName: string | undefined) {
+    public set dbName(dbName: string  | undefined) {
         this['db_name'] = dbName;
     }
-    public get dbName() {
+    public get dbName(): string | undefined {
         return this['db_name'];
     }
     public withDbPassword(dbPassword: string): V2CreateCluster {
         this['db_password'] = dbPassword;
         return this;
     }
-    public set dbPassword(dbPassword: string | undefined) {
+    public set dbPassword(dbPassword: string  | undefined) {
         this['db_password'] = dbPassword;
     }
-    public get dbPassword() {
+    public get dbPassword(): string | undefined {
         return this['db_password'];
     }
     public withDbPort(dbPort: number): V2CreateCluster {
         this['db_port'] = dbPort;
         return this;
     }
-    public set dbPort(dbPort: number | undefined) {
+    public set dbPort(dbPort: number  | undefined) {
         this['db_port'] = dbPort;
     }
-    public get dbPort() {
+    public get dbPort(): number | undefined {
         return this['db_port'];
     }
     public withDssPoolId(dssPoolId: string): V2CreateCluster {
         this['dss_pool_id'] = dssPoolId;
         return this;
     }
-    public set dssPoolId(dssPoolId: string | undefined) {
+    public set dssPoolId(dssPoolId: string  | undefined) {
         this['dss_pool_id'] = dssPoolId;
     }
-    public get dssPoolId() {
+    public get dssPoolId(): string | undefined {
         return this['dss_pool_id'];
     }
     public withAvailabilityZones(availabilityZones: Array<string>): V2CreateCluster {
         this['availability_zones'] = availabilityZones;
         return this;
     }
-    public set availabilityZones(availabilityZones: Array<string> | undefined) {
+    public set availabilityZones(availabilityZones: Array<string>  | undefined) {
         this['availability_zones'] = availabilityZones;
     }
-    public get availabilityZones() {
+    public get availabilityZones(): Array<string> | undefined {
         return this['availability_zones'];
     }
     public withTags(tags: Tags): V2CreateCluster {
@@ -123,80 +123,80 @@ export class V2CreateCluster {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withSubnetId(subnetId: string): V2CreateCluster {
         this['subnet_id'] = subnetId;
         return this;
     }
-    public set subnetId(subnetId: string | undefined) {
+    public set subnetId(subnetId: string  | undefined) {
         this['subnet_id'] = subnetId;
     }
-    public get subnetId() {
+    public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
     public withSecurityGroupId(securityGroupId: string): V2CreateCluster {
         this['security_group_id'] = securityGroupId;
         return this;
     }
-    public set securityGroupId(securityGroupId: string | undefined) {
+    public set securityGroupId(securityGroupId: string  | undefined) {
         this['security_group_id'] = securityGroupId;
     }
-    public get securityGroupId() {
+    public get securityGroupId(): string | undefined {
         return this['security_group_id'];
     }
     public withPublicIp(publicIp: PublicIp): V2CreateCluster {
         this['public_ip'] = publicIp;
         return this;
     }
-    public set publicIp(publicIp: PublicIp | undefined) {
+    public set publicIp(publicIp: PublicIp  | undefined) {
         this['public_ip'] = publicIp;
     }
-    public get publicIp() {
+    public get publicIp(): PublicIp | undefined {
         return this['public_ip'];
     }
     public withDatastoreVersion(datastoreVersion: string): V2CreateCluster {
         this['datastore_version'] = datastoreVersion;
         return this;
     }
-    public set datastoreVersion(datastoreVersion: string | undefined) {
+    public set datastoreVersion(datastoreVersion: string  | undefined) {
         this['datastore_version'] = datastoreVersion;
     }
-    public get datastoreVersion() {
+    public get datastoreVersion(): string | undefined {
         return this['datastore_version'];
     }
     public withMasterKeyId(masterKeyId: string): V2CreateCluster {
         this['master_key_id'] = masterKeyId;
         return this;
     }
-    public set masterKeyId(masterKeyId: string | undefined) {
+    public set masterKeyId(masterKeyId: string  | undefined) {
         this['master_key_id'] = masterKeyId;
     }
-    public get masterKeyId() {
+    public get masterKeyId(): string | undefined {
         return this['master_key_id'];
     }
     public withMasterKeyName(masterKeyName: string): V2CreateCluster {
         this['master_key_name'] = masterKeyName;
         return this;
     }
-    public set masterKeyName(masterKeyName: string | undefined) {
+    public set masterKeyName(masterKeyName: string  | undefined) {
         this['master_key_name'] = masterKeyName;
     }
-    public get masterKeyName() {
+    public get masterKeyName(): string | undefined {
         return this['master_key_name'];
     }
     public withCryptAlgorithm(cryptAlgorithm: string): V2CreateCluster {
         this['crypt_algorithm'] = cryptAlgorithm;
         return this;
     }
-    public set cryptAlgorithm(cryptAlgorithm: string | undefined) {
+    public set cryptAlgorithm(cryptAlgorithm: string  | undefined) {
         this['crypt_algorithm'] = cryptAlgorithm;
     }
-    public get cryptAlgorithm() {
+    public get cryptAlgorithm(): string | undefined {
         return this['crypt_algorithm'];
     }
     public withVolume(volume: Volume): V2CreateCluster {
@@ -207,10 +207,10 @@ export class V2CreateCluster {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

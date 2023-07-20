@@ -2,7 +2,7 @@
 
 export class ListTemplatesRequest {
     public name?: string;
-    private 'availability_zone'?: string | undefined;
+    private 'availability_zone'?: string;
     public region?: string;
     public limit?: number;
     public offset?: number;
@@ -16,10 +16,10 @@ export class ListTemplatesRequest {
         this['availability_zone'] = availabilityZone;
         return this;
     }
-    public set availabilityZone(availabilityZone: string | undefined) {
+    public set availabilityZone(availabilityZone: string  | undefined) {
         this['availability_zone'] = availabilityZone;
     }
-    public get availabilityZone() {
+    public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
     public withRegion(region: string): ListTemplatesRequest {

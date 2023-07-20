@@ -2,13 +2,13 @@ import { LinksItem } from './LinksItem';
 
 
 export class VersionItem {
-    public id: string;
-    private 'min_version': string | undefined;
-    public status: string;
-    public updated: string;
-    public version: string;
-    public links: Array<LinksItem>;
-    public constructor(id?: any, minVersion?: any, status?: any, updated?: any, version?: any, links?: any) { 
+    public id?: string;
+    private 'min_version'?: string;
+    public status?: string;
+    public updated?: string;
+    public version?: string;
+    public links?: Array<LinksItem>;
+    public constructor(id?: string, minVersion?: string, status?: string, updated?: string, version?: string, links?: Array<LinksItem>) { 
         this['id'] = id;
         this['min_version'] = minVersion;
         this['status'] = status;
@@ -24,10 +24,10 @@ export class VersionItem {
         this['min_version'] = minVersion;
         return this;
     }
-    public set minVersion(minVersion: string | undefined) {
+    public set minVersion(minVersion: string  | undefined) {
         this['min_version'] = minVersion;
     }
-    public get minVersion() {
+    public get minVersion(): string | undefined {
         return this['min_version'];
     }
     public withStatus(status: string): VersionItem {

@@ -6,7 +6,7 @@ import { VolumeGroups } from './VolumeGroups';
 export class PutDiskInfoReq {
     public disks?: Array<ServerDisk>;
     public volumegroups?: Array<VolumeGroups>;
-    private 'btrfs_list'?: Array<BtrfsFileSystem> | undefined;
+    private 'btrfs_list'?: Array<BtrfsFileSystem>;
     public constructor() { 
     }
     public withDisks(disks: Array<ServerDisk>): PutDiskInfoReq {
@@ -21,10 +21,10 @@ export class PutDiskInfoReq {
         this['btrfs_list'] = btrfsList;
         return this;
     }
-    public set btrfsList(btrfsList: Array<BtrfsFileSystem> | undefined) {
+    public set btrfsList(btrfsList: Array<BtrfsFileSystem>  | undefined) {
         this['btrfs_list'] = btrfsList;
     }
-    public get btrfsList() {
+    public get btrfsList(): Array<BtrfsFileSystem> | undefined {
         return this['btrfs_list'];
     }
 }

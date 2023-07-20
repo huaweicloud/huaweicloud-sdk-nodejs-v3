@@ -2,13 +2,13 @@ import { MasterEIPRequestSpecSpec } from './MasterEIPRequestSpecSpec';
 
 
 export class MasterEIPRequestSpec {
-    public action?: MasterEIPRequestSpecActionEnum;
+    public action?: MasterEIPRequestSpecActionEnum | string;
     public spec?: MasterEIPRequestSpecSpec;
     public bandwidth?: string;
     public elasticIp?: string;
     public constructor() { 
     }
-    public withAction(action: MasterEIPRequestSpecActionEnum): MasterEIPRequestSpec {
+    public withAction(action: MasterEIPRequestSpecActionEnum | string): MasterEIPRequestSpec {
         this['action'] = action;
         return this;
     }

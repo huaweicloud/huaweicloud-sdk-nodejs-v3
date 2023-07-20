@@ -3,12 +3,12 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListServiceDescribeDetailsResponse extends SdkResponse {
     public id?: string;
-    private 'service_name'?: string | undefined;
-    private 'service_type'?: ListServiceDescribeDetailsResponseServiceTypeEnum | undefined;
-    private 'created_at'?: string | undefined;
-    private 'is_charge'?: boolean | undefined;
-    private 'public_border_group'?: string | undefined;
-    private 'enable_policy'?: boolean | undefined;
+    private 'service_name'?: string;
+    private 'service_type'?: ListServiceDescribeDetailsResponseServiceTypeEnum | string;
+    private 'created_at'?: string;
+    private 'is_charge'?: boolean;
+    private 'public_border_group'?: string;
+    private 'enable_policy'?: boolean;
     public constructor() { 
         super();
     }
@@ -20,60 +20,60 @@ export class ListServiceDescribeDetailsResponse extends SdkResponse {
         this['service_name'] = serviceName;
         return this;
     }
-    public set serviceName(serviceName: string | undefined) {
+    public set serviceName(serviceName: string  | undefined) {
         this['service_name'] = serviceName;
     }
-    public get serviceName() {
+    public get serviceName(): string | undefined {
         return this['service_name'];
     }
-    public withServiceType(serviceType: ListServiceDescribeDetailsResponseServiceTypeEnum): ListServiceDescribeDetailsResponse {
+    public withServiceType(serviceType: ListServiceDescribeDetailsResponseServiceTypeEnum | string): ListServiceDescribeDetailsResponse {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: ListServiceDescribeDetailsResponseServiceTypeEnum | undefined) {
+    public set serviceType(serviceType: ListServiceDescribeDetailsResponseServiceTypeEnum | string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType() {
+    public get serviceType(): ListServiceDescribeDetailsResponseServiceTypeEnum | string | undefined {
         return this['service_type'];
     }
     public withCreatedAt(createdAt: string): ListServiceDescribeDetailsResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withIsCharge(isCharge: boolean): ListServiceDescribeDetailsResponse {
         this['is_charge'] = isCharge;
         return this;
     }
-    public set isCharge(isCharge: boolean | undefined) {
+    public set isCharge(isCharge: boolean  | undefined) {
         this['is_charge'] = isCharge;
     }
-    public get isCharge() {
+    public get isCharge(): boolean | undefined {
         return this['is_charge'];
     }
     public withPublicBorderGroup(publicBorderGroup: string): ListServiceDescribeDetailsResponse {
         this['public_border_group'] = publicBorderGroup;
         return this;
     }
-    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
         this['public_border_group'] = publicBorderGroup;
     }
-    public get publicBorderGroup() {
+    public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
     public withEnablePolicy(enablePolicy: boolean): ListServiceDescribeDetailsResponse {
         this['enable_policy'] = enablePolicy;
         return this;
     }
-    public set enablePolicy(enablePolicy: boolean | undefined) {
+    public set enablePolicy(enablePolicy: boolean  | undefined) {
         this['enable_policy'] = enablePolicy;
     }
-    public get enablePolicy() {
+    public get enablePolicy(): boolean | undefined {
         return this['enable_policy'];
     }
 }

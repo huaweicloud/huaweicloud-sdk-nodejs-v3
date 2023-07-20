@@ -2,21 +2,21 @@ import { UserAuth } from './UserAuth';
 
 
 export class UpdateNamespaceAuthRequest {
-    private 'Content-Type': UpdateNamespaceAuthRequestContentTypeEnum | undefined;
-    public namespace: string;
+    private 'Content-Type'?: UpdateNamespaceAuthRequestContentTypeEnum | string;
+    public namespace?: string;
     public body?: Array<UserAuth>;
-    public constructor(contentType?: any, namespace?: any) { 
+    public constructor(contentType?: string, namespace?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
     }
-    public withContentType(contentType: UpdateNamespaceAuthRequestContentTypeEnum): UpdateNamespaceAuthRequest {
+    public withContentType(contentType: UpdateNamespaceAuthRequestContentTypeEnum | string): UpdateNamespaceAuthRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: UpdateNamespaceAuthRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: UpdateNamespaceAuthRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): UpdateNamespaceAuthRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): UpdateNamespaceAuthRequest {

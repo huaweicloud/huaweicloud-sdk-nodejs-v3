@@ -1,11 +1,11 @@
 
 
 export class PutUpdateVocabReq {
-    public name: string;
+    public name?: string;
     public description?: string;
-    public language: PutUpdateVocabReqLanguageEnum;
-    public contents: Array<string>;
-    public constructor(name?: any, language?: any, contents?: any) { 
+    public language?: PutUpdateVocabReqLanguageEnum | string;
+    public contents?: Array<string>;
+    public constructor(name?: string, language?: string, contents?: Array<string>) { 
         this['name'] = name;
         this['language'] = language;
         this['contents'] = contents;
@@ -18,7 +18,7 @@ export class PutUpdateVocabReq {
         this['description'] = description;
         return this;
     }
-    public withLanguage(language: PutUpdateVocabReqLanguageEnum): PutUpdateVocabReq {
+    public withLanguage(language: PutUpdateVocabReqLanguageEnum | string): PutUpdateVocabReq {
         this['language'] = language;
         return this;
     }

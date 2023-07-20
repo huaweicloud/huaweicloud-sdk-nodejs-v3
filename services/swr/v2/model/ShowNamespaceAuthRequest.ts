@@ -1,20 +1,20 @@
 
 
 export class ShowNamespaceAuthRequest {
-    private 'Content-Type': ShowNamespaceAuthRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public constructor(contentType?: any, namespace?: any) { 
+    private 'Content-Type'?: ShowNamespaceAuthRequestContentTypeEnum | string;
+    public namespace?: string;
+    public constructor(contentType?: string, namespace?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
     }
-    public withContentType(contentType: ShowNamespaceAuthRequestContentTypeEnum): ShowNamespaceAuthRequest {
+    public withContentType(contentType: ShowNamespaceAuthRequestContentTypeEnum | string): ShowNamespaceAuthRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ShowNamespaceAuthRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ShowNamespaceAuthRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ShowNamespaceAuthRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): ShowNamespaceAuthRequest {

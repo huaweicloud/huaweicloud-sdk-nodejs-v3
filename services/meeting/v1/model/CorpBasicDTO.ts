@@ -1,7 +1,7 @@
 
 
 export class CorpBasicDTO {
-    public name: string;
+    public name?: string;
     public domain?: string;
     public phone?: string;
     public country?: string;
@@ -10,9 +10,9 @@ export class CorpBasicDTO {
     public address?: string;
     public description?: string;
     public spId?: string;
-    public language?: CorpBasicDTOLanguageEnum;
+    public language?: CorpBasicDTOLanguageEnum | string;
     public timeZoneId?: string;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): CorpBasicDTO {
@@ -51,7 +51,7 @@ export class CorpBasicDTO {
         this['spId'] = spId;
         return this;
     }
-    public withLanguage(language: CorpBasicDTOLanguageEnum): CorpBasicDTO {
+    public withLanguage(language: CorpBasicDTOLanguageEnum | string): CorpBasicDTO {
         this['language'] = language;
         return this;
     }

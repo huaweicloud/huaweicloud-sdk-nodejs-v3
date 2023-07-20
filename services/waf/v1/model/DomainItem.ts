@@ -3,7 +3,7 @@
 export class DomainItem {
     public key?: string;
     public num?: number;
-    private 'web_tag'?: string | undefined;
+    private 'web_tag'?: string;
     public constructor() { 
     }
     public withKey(key: string): DomainItem {
@@ -18,10 +18,10 @@ export class DomainItem {
         this['web_tag'] = webTag;
         return this;
     }
-    public set webTag(webTag: string | undefined) {
+    public set webTag(webTag: string  | undefined) {
         this['web_tag'] = webTag;
     }
-    public get webTag() {
+    public get webTag(): string | undefined {
         return this['web_tag'];
     }
 }

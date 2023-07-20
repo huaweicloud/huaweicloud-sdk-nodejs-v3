@@ -1,9 +1,9 @@
 
 
 export class CreateCertificateDTO {
-    public content: string;
-    private 'app_id'?: string | undefined;
-    public constructor(content?: any) { 
+    public content?: string;
+    private 'app_id'?: string;
+    public constructor(content?: string) { 
         this['content'] = content;
     }
     public withContent(content: string): CreateCertificateDTO {
@@ -14,10 +14,10 @@ export class CreateCertificateDTO {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
 }

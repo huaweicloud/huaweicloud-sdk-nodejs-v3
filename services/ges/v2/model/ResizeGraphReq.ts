@@ -2,8 +2,8 @@ import { ResizeGraphReqResize } from './ResizeGraphReqResize';
 
 
 export class ResizeGraphReq {
-    public resize: ResizeGraphReqResize;
-    public constructor(resize?: any) { 
+    public resize?: ResizeGraphReqResize;
+    public constructor(resize?: ResizeGraphReqResize) { 
         this['resize'] = resize;
     }
     public withResize(resize: ResizeGraphReqResize): ResizeGraphReq {

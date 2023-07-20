@@ -1,7 +1,7 @@
 
 
 export class InstancesMonitoredObject {
-    private 'dcs_instance_id'?: string | undefined;
+    private 'dcs_instance_id'?: string;
     public name?: string;
     public status?: string;
     public constructor() { 
@@ -10,10 +10,10 @@ export class InstancesMonitoredObject {
         this['dcs_instance_id'] = dcsInstanceId;
         return this;
     }
-    public set dcsInstanceId(dcsInstanceId: string | undefined) {
+    public set dcsInstanceId(dcsInstanceId: string  | undefined) {
         this['dcs_instance_id'] = dcsInstanceId;
     }
-    public get dcsInstanceId() {
+    public get dcsInstanceId(): string | undefined {
         return this['dcs_instance_id'];
     }
     public withName(name: string): InstancesMonitoredObject {

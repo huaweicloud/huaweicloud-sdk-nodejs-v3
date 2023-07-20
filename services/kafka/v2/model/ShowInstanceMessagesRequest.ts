@@ -1,17 +1,17 @@
 
 
 export class ShowInstanceMessagesRequest {
-    private 'instance_id': string | undefined;
-    public topic: string;
+    private 'instance_id'?: string;
+    public topic?: string;
     public asc?: boolean;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
     public limit?: string;
     public offset?: string;
     public download?: boolean;
-    private 'message_offset'?: string | undefined;
+    private 'message_offset'?: string;
     public partition?: string;
-    public constructor(instanceId?: any, topic?: any) { 
+    public constructor(instanceId?: string, topic?: string) { 
         this['instance_id'] = instanceId;
         this['topic'] = topic;
     }
@@ -19,10 +19,10 @@ export class ShowInstanceMessagesRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withTopic(topic: string): ShowInstanceMessagesRequest {
@@ -37,20 +37,20 @@ export class ShowInstanceMessagesRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ShowInstanceMessagesRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withLimit(limit: string): ShowInstanceMessagesRequest {
@@ -69,10 +69,10 @@ export class ShowInstanceMessagesRequest {
         this['message_offset'] = messageOffset;
         return this;
     }
-    public set messageOffset(messageOffset: string | undefined) {
+    public set messageOffset(messageOffset: string  | undefined) {
         this['message_offset'] = messageOffset;
     }
-    public get messageOffset() {
+    public get messageOffset(): string | undefined {
         return this['message_offset'];
     }
     public withPartition(partition: string): ShowInstanceMessagesRequest {

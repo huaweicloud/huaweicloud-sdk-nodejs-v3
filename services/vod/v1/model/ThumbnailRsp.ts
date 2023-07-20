@@ -1,9 +1,9 @@
 
 
 export class ThumbnailRsp {
-    public offset: number;
-    public url: string;
-    public constructor(offset?: any, url?: any) { 
+    public offset?: number;
+    public url?: string;
+    public constructor(offset?: number, url?: string) { 
         this['offset'] = offset;
         this['url'] = url;
     }

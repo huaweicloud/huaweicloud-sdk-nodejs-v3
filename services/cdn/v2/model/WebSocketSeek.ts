@@ -1,9 +1,9 @@
 
 
 export class WebSocketSeek {
-    public status: string;
-    public timeout: number;
-    public constructor(status?: any, timeout?: any) { 
+    public status?: string;
+    public timeout?: number;
+    public constructor(status?: string, timeout?: number) { 
         this['status'] = status;
         this['timeout'] = timeout;
     }

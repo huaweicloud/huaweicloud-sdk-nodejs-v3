@@ -2,14 +2,14 @@
 
 export class ApplicationBaseV3 {
     public id?: string;
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'region_id': string | undefined;
-    private 'region_name': string | undefined;
-    private 'project_id': string | undefined;
-    private 'project_name': string | undefined;
+    private 'region_id'?: string;
+    private 'region_name'?: string;
+    private 'project_id'?: string;
+    private 'project_name'?: string;
     public icon?: string;
-    public constructor(name?: any, regionId?: any, regionName?: any, projectId?: any, projectName?: any) { 
+    public constructor(name?: string, regionId?: string, regionName?: string, projectId?: string, projectName?: string) { 
         this['name'] = name;
         this['region_id'] = regionId;
         this['region_name'] = regionName;
@@ -32,40 +32,40 @@ export class ApplicationBaseV3 {
         this['region_id'] = regionId;
         return this;
     }
-    public set regionId(regionId: string | undefined) {
+    public set regionId(regionId: string  | undefined) {
         this['region_id'] = regionId;
     }
-    public get regionId() {
+    public get regionId(): string | undefined {
         return this['region_id'];
     }
     public withRegionName(regionName: string): ApplicationBaseV3 {
         this['region_name'] = regionName;
         return this;
     }
-    public set regionName(regionName: string | undefined) {
+    public set regionName(regionName: string  | undefined) {
         this['region_name'] = regionName;
     }
-    public get regionName() {
+    public get regionName(): string | undefined {
         return this['region_name'];
     }
     public withProjectId(projectId: string): ApplicationBaseV3 {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withProjectName(projectName: string): ApplicationBaseV3 {
         this['project_name'] = projectName;
         return this;
     }
-    public set projectName(projectName: string | undefined) {
+    public set projectName(projectName: string  | undefined) {
         this['project_name'] = projectName;
     }
-    public get projectName() {
+    public get projectName(): string | undefined {
         return this['project_name'];
     }
     public withIcon(icon: string): ApplicationBaseV3 {

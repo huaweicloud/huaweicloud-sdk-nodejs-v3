@@ -1,10 +1,10 @@
 
 
 export class VpcObject {
-    public id: string;
-    public name: string;
+    public id?: string;
+    public name?: string;
     public cidr?: string;
-    public constructor(id?: any, name?: any) { 
+    public constructor(id?: string, name?: string) { 
         this['id'] = id;
         this['name'] = name;
     }

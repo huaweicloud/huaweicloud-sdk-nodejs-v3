@@ -3,13 +3,13 @@ import { ServicePolicy } from './ServicePolicy';
 
 
 export class TokenAuthIdentity {
-    public methods: Array<TokenAuthIdentityMethodsEnum>;
+    public methods?: Array<TokenAuthIdentityMethodsEnum> | Array<string>;
     public token?: IdentityToken;
     public policy?: ServicePolicy;
-    public constructor(methods?: any) { 
+    public constructor(methods?: Array<string>) { 
         this['methods'] = methods;
     }
-    public withMethods(methods: Array<TokenAuthIdentityMethodsEnum>): TokenAuthIdentity {
+    public withMethods(methods: Array<TokenAuthIdentityMethodsEnum> | Array<string>): TokenAuthIdentity {
         this['methods'] = methods;
         return this;
     }

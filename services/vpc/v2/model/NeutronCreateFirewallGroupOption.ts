@@ -3,10 +3,10 @@
 export class NeutronCreateFirewallGroupOption {
     public name?: string;
     public description?: string;
-    private 'ingress_firewall_policy_id'?: string | undefined;
-    private 'egress_firewall_policy_id'?: string | undefined;
+    private 'ingress_firewall_policy_id'?: string;
+    private 'egress_firewall_policy_id'?: string;
     public ports?: Array<string>;
-    private 'admin_state_up'?: boolean | undefined;
+    private 'admin_state_up'?: boolean;
     public constructor() { 
     }
     public withName(name: string): NeutronCreateFirewallGroupOption {
@@ -21,20 +21,20 @@ export class NeutronCreateFirewallGroupOption {
         this['ingress_firewall_policy_id'] = ingressFirewallPolicyId;
         return this;
     }
-    public set ingressFirewallPolicyId(ingressFirewallPolicyId: string | undefined) {
+    public set ingressFirewallPolicyId(ingressFirewallPolicyId: string  | undefined) {
         this['ingress_firewall_policy_id'] = ingressFirewallPolicyId;
     }
-    public get ingressFirewallPolicyId() {
+    public get ingressFirewallPolicyId(): string | undefined {
         return this['ingress_firewall_policy_id'];
     }
     public withEgressFirewallPolicyId(egressFirewallPolicyId: string): NeutronCreateFirewallGroupOption {
         this['egress_firewall_policy_id'] = egressFirewallPolicyId;
         return this;
     }
-    public set egressFirewallPolicyId(egressFirewallPolicyId: string | undefined) {
+    public set egressFirewallPolicyId(egressFirewallPolicyId: string  | undefined) {
         this['egress_firewall_policy_id'] = egressFirewallPolicyId;
     }
-    public get egressFirewallPolicyId() {
+    public get egressFirewallPolicyId(): string | undefined {
         return this['egress_firewall_policy_id'];
     }
     public withPorts(ports: Array<string>): NeutronCreateFirewallGroupOption {
@@ -45,10 +45,10 @@ export class NeutronCreateFirewallGroupOption {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
 }

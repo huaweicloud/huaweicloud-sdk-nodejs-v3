@@ -2,11 +2,11 @@ import { SubscriptionExtension } from './SubscriptionExtension';
 
 
 export class AddSubscriptionRequestBody {
-    public protocol: string;
-    public endpoint: string;
+    public protocol?: string;
+    public endpoint?: string;
     public remark?: string;
     public extension?: SubscriptionExtension;
-    public constructor(protocol?: any, endpoint?: any) { 
+    public constructor(protocol?: string, endpoint?: string) { 
         this['protocol'] = protocol;
         this['endpoint'] = endpoint;
     }

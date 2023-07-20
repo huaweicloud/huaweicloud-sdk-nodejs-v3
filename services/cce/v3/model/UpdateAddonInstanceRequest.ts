@@ -2,10 +2,10 @@ import { InstanceRequest } from './InstanceRequest';
 
 
 export class UpdateAddonInstanceRequest {
-    public id: string;
-    private 'Content-Type': string | undefined;
+    public id?: string;
+    private 'Content-Type'?: string;
     public body?: InstanceRequest;
-    public constructor(id?: any, contentType?: any) { 
+    public constructor(id?: string, contentType?: string) { 
         this['id'] = id;
         this['Content-Type'] = contentType;
     }
@@ -17,10 +17,10 @@ export class UpdateAddonInstanceRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withBody(body: InstanceRequest): UpdateAddonInstanceRequest {

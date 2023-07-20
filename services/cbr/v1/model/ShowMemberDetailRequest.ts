@@ -1,9 +1,9 @@
 
 
 export class ShowMemberDetailRequest {
-    private 'backup_id': string | undefined;
-    private 'member_id': string | undefined;
-    public constructor(backupId?: any, memberId?: any) { 
+    private 'backup_id'?: string;
+    private 'member_id'?: string;
+    public constructor(backupId?: string, memberId?: string) { 
         this['backup_id'] = backupId;
         this['member_id'] = memberId;
     }
@@ -11,20 +11,20 @@ export class ShowMemberDetailRequest {
         this['backup_id'] = backupId;
         return this;
     }
-    public set backupId(backupId: string | undefined) {
+    public set backupId(backupId: string  | undefined) {
         this['backup_id'] = backupId;
     }
-    public get backupId() {
+    public get backupId(): string | undefined {
         return this['backup_id'];
     }
     public withMemberId(memberId: string): ShowMemberDetailRequest {
         this['member_id'] = memberId;
         return this;
     }
-    public set memberId(memberId: string | undefined) {
+    public set memberId(memberId: string  | undefined) {
         this['member_id'] = memberId;
     }
-    public get memberId() {
+    public get memberId(): string | undefined {
         return this['member_id'];
     }
 }

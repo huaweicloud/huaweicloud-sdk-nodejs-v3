@@ -2,7 +2,7 @@ import { UpdateWatermarkTemplateReq } from './UpdateWatermarkTemplateReq';
 
 
 export class UpdateWatermarkTemplateRequest {
-    private 'X-Sdk-Date'?: string | undefined;
+    private 'X-Sdk-Date'?: string;
     public body?: UpdateWatermarkTemplateReq;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class UpdateWatermarkTemplateRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withBody(body: UpdateWatermarkTemplateReq): UpdateWatermarkTemplateRequest {

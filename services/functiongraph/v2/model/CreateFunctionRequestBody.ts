@@ -5,30 +5,30 @@ import { NetworkControlConfig } from './NetworkControlConfig';
 
 
 export class CreateFunctionRequestBody {
-    private 'func_name': string | undefined;
-    private 'package': string | undefined;
-    public runtime: CreateFunctionRequestBodyRuntimeEnum;
-    public timeout: number;
-    public handler: string;
-    private 'depend_version_list'?: Array<string> | undefined;
-    private 'func_vpc'?: FuncVpc | undefined;
-    private 'memory_size': number | undefined;
-    private 'gpu_memory'?: number | undefined;
-    private 'code_type': CreateFunctionRequestBodyCodeTypeEnum | undefined;
-    private 'code_url'?: string | undefined;
-    private 'code_filename'?: string | undefined;
-    private 'user_data'?: string | undefined;
+    private 'func_name'?: string;
+    private 'package'?: string;
+    public runtime?: CreateFunctionRequestBodyRuntimeEnum | string;
+    public timeout?: number;
+    public handler?: string;
+    private 'depend_version_list'?: Array<string>;
+    private 'func_vpc'?: FuncVpc;
+    private 'memory_size'?: number;
+    private 'gpu_memory'?: number;
+    private 'code_type'?: CreateFunctionRequestBodyCodeTypeEnum | string;
+    private 'code_url'?: string;
+    private 'code_filename'?: string;
+    private 'user_data'?: string;
     public xrole?: string;
-    private 'app_xrole'?: string | undefined;
+    private 'app_xrole'?: string;
     public description?: string;
-    private 'func_code'?: FuncCode | undefined;
-    private 'initializer_handler'?: string | undefined;
-    private 'initializer_timeout'?: number | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    public type?: CreateFunctionRequestBodyTypeEnum;
-    private 'log_config'?: FuncLogConfig | undefined;
-    private 'network_controller'?: NetworkControlConfig | undefined;
-    public constructor(funcName?: any, _package?: any, runtime?: any, timeout?: any, handler?: any, memorySize?: any, codeType?: any) { 
+    private 'func_code'?: FuncCode;
+    private 'initializer_handler'?: string;
+    private 'initializer_timeout'?: number;
+    private 'enterprise_project_id'?: string;
+    public type?: CreateFunctionRequestBodyTypeEnum | string;
+    private 'log_config'?: FuncLogConfig;
+    private 'network_controller'?: NetworkControlConfig;
+    public constructor(funcName?: string, _package?: string, runtime?: string, timeout?: number, handler?: string, memorySize?: number, codeType?: string) { 
         this['func_name'] = funcName;
         this['package'] = _package;
         this['runtime'] = runtime;
@@ -41,23 +41,23 @@ export class CreateFunctionRequestBody {
         this['func_name'] = funcName;
         return this;
     }
-    public set funcName(funcName: string | undefined) {
+    public set funcName(funcName: string  | undefined) {
         this['func_name'] = funcName;
     }
-    public get funcName() {
+    public get funcName(): string | undefined {
         return this['func_name'];
     }
     public withPackage(_package: string): CreateFunctionRequestBody {
         this['package'] = _package;
         return this;
     }
-    public set _package(_package: string | undefined) {
+    public set _package(_package: string  | undefined) {
         this['package'] = _package;
     }
-    public get _package() {
+    public get _package(): string | undefined {
         return this['package'];
     }
-    public withRuntime(runtime: CreateFunctionRequestBodyRuntimeEnum): CreateFunctionRequestBody {
+    public withRuntime(runtime: CreateFunctionRequestBodyRuntimeEnum | string): CreateFunctionRequestBody {
         this['runtime'] = runtime;
         return this;
     }
@@ -73,80 +73,80 @@ export class CreateFunctionRequestBody {
         this['depend_version_list'] = dependVersionList;
         return this;
     }
-    public set dependVersionList(dependVersionList: Array<string> | undefined) {
+    public set dependVersionList(dependVersionList: Array<string>  | undefined) {
         this['depend_version_list'] = dependVersionList;
     }
-    public get dependVersionList() {
+    public get dependVersionList(): Array<string> | undefined {
         return this['depend_version_list'];
     }
     public withFuncVpc(funcVpc: FuncVpc): CreateFunctionRequestBody {
         this['func_vpc'] = funcVpc;
         return this;
     }
-    public set funcVpc(funcVpc: FuncVpc | undefined) {
+    public set funcVpc(funcVpc: FuncVpc  | undefined) {
         this['func_vpc'] = funcVpc;
     }
-    public get funcVpc() {
+    public get funcVpc(): FuncVpc | undefined {
         return this['func_vpc'];
     }
     public withMemorySize(memorySize: number): CreateFunctionRequestBody {
         this['memory_size'] = memorySize;
         return this;
     }
-    public set memorySize(memorySize: number | undefined) {
+    public set memorySize(memorySize: number  | undefined) {
         this['memory_size'] = memorySize;
     }
-    public get memorySize() {
+    public get memorySize(): number | undefined {
         return this['memory_size'];
     }
     public withGpuMemory(gpuMemory: number): CreateFunctionRequestBody {
         this['gpu_memory'] = gpuMemory;
         return this;
     }
-    public set gpuMemory(gpuMemory: number | undefined) {
+    public set gpuMemory(gpuMemory: number  | undefined) {
         this['gpu_memory'] = gpuMemory;
     }
-    public get gpuMemory() {
+    public get gpuMemory(): number | undefined {
         return this['gpu_memory'];
     }
-    public withCodeType(codeType: CreateFunctionRequestBodyCodeTypeEnum): CreateFunctionRequestBody {
+    public withCodeType(codeType: CreateFunctionRequestBodyCodeTypeEnum | string): CreateFunctionRequestBody {
         this['code_type'] = codeType;
         return this;
     }
-    public set codeType(codeType: CreateFunctionRequestBodyCodeTypeEnum | undefined) {
+    public set codeType(codeType: CreateFunctionRequestBodyCodeTypeEnum | string  | undefined) {
         this['code_type'] = codeType;
     }
-    public get codeType() {
+    public get codeType(): CreateFunctionRequestBodyCodeTypeEnum | string | undefined {
         return this['code_type'];
     }
     public withCodeUrl(codeUrl: string): CreateFunctionRequestBody {
         this['code_url'] = codeUrl;
         return this;
     }
-    public set codeUrl(codeUrl: string | undefined) {
+    public set codeUrl(codeUrl: string  | undefined) {
         this['code_url'] = codeUrl;
     }
-    public get codeUrl() {
+    public get codeUrl(): string | undefined {
         return this['code_url'];
     }
     public withCodeFilename(codeFilename: string): CreateFunctionRequestBody {
         this['code_filename'] = codeFilename;
         return this;
     }
-    public set codeFilename(codeFilename: string | undefined) {
+    public set codeFilename(codeFilename: string  | undefined) {
         this['code_filename'] = codeFilename;
     }
-    public get codeFilename() {
+    public get codeFilename(): string | undefined {
         return this['code_filename'];
     }
     public withUserData(userData: string): CreateFunctionRequestBody {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withXrole(xrole: string): CreateFunctionRequestBody {
@@ -157,10 +157,10 @@ export class CreateFunctionRequestBody {
         this['app_xrole'] = appXrole;
         return this;
     }
-    public set appXrole(appXrole: string | undefined) {
+    public set appXrole(appXrole: string  | undefined) {
         this['app_xrole'] = appXrole;
     }
-    public get appXrole() {
+    public get appXrole(): string | undefined {
         return this['app_xrole'];
     }
     public withDescription(description: string): CreateFunctionRequestBody {
@@ -171,43 +171,43 @@ export class CreateFunctionRequestBody {
         this['func_code'] = funcCode;
         return this;
     }
-    public set funcCode(funcCode: FuncCode | undefined) {
+    public set funcCode(funcCode: FuncCode  | undefined) {
         this['func_code'] = funcCode;
     }
-    public get funcCode() {
+    public get funcCode(): FuncCode | undefined {
         return this['func_code'];
     }
     public withInitializerHandler(initializerHandler: string): CreateFunctionRequestBody {
         this['initializer_handler'] = initializerHandler;
         return this;
     }
-    public set initializerHandler(initializerHandler: string | undefined) {
+    public set initializerHandler(initializerHandler: string  | undefined) {
         this['initializer_handler'] = initializerHandler;
     }
-    public get initializerHandler() {
+    public get initializerHandler(): string | undefined {
         return this['initializer_handler'];
     }
     public withInitializerTimeout(initializerTimeout: number): CreateFunctionRequestBody {
         this['initializer_timeout'] = initializerTimeout;
         return this;
     }
-    public set initializerTimeout(initializerTimeout: number | undefined) {
+    public set initializerTimeout(initializerTimeout: number  | undefined) {
         this['initializer_timeout'] = initializerTimeout;
     }
-    public get initializerTimeout() {
+    public get initializerTimeout(): number | undefined {
         return this['initializer_timeout'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreateFunctionRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withType(type: CreateFunctionRequestBodyTypeEnum): CreateFunctionRequestBody {
+    public withType(type: CreateFunctionRequestBodyTypeEnum | string): CreateFunctionRequestBody {
         this['type'] = type;
         return this;
     }
@@ -215,20 +215,20 @@ export class CreateFunctionRequestBody {
         this['log_config'] = logConfig;
         return this;
     }
-    public set logConfig(logConfig: FuncLogConfig | undefined) {
+    public set logConfig(logConfig: FuncLogConfig  | undefined) {
         this['log_config'] = logConfig;
     }
-    public get logConfig() {
+    public get logConfig(): FuncLogConfig | undefined {
         return this['log_config'];
     }
     public withNetworkController(networkController: NetworkControlConfig): CreateFunctionRequestBody {
         this['network_controller'] = networkController;
         return this;
     }
-    public set networkController(networkController: NetworkControlConfig | undefined) {
+    public set networkController(networkController: NetworkControlConfig  | undefined) {
         this['network_controller'] = networkController;
     }
-    public get networkController() {
+    public get networkController(): NetworkControlConfig | undefined {
         return this['network_controller'];
     }
 }

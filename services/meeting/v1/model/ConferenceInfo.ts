@@ -44,11 +44,11 @@ export class ConferenceInfo {
     public normalCount?: number;
     public deptName?: string;
     public vmrID?: string;
-    public role?: ConferenceInfoRoleEnum;
+    public role?: ConferenceInfoRoleEnum | string;
     public webinar?: boolean;
     public onlineAttendeeAmount?: number;
     public multiStreamFlag?: number;
-    public confMode?: ConferenceInfoConfModeEnum;
+    public confMode?: ConferenceInfoConfModeEnum | string;
     public scheduleVmr?: boolean;
     public concurrentParticipants?: number;
     public picDisplay?: MultiPicDisplayDO;
@@ -204,7 +204,7 @@ export class ConferenceInfo {
         this['vmrID'] = vmrID;
         return this;
     }
-    public withRole(role: ConferenceInfoRoleEnum): ConferenceInfo {
+    public withRole(role: ConferenceInfoRoleEnum | string): ConferenceInfo {
         this['role'] = role;
         return this;
     }
@@ -220,7 +220,7 @@ export class ConferenceInfo {
         this['multiStreamFlag'] = multiStreamFlag;
         return this;
     }
-    public withConfMode(confMode: ConferenceInfoConfModeEnum): ConferenceInfo {
+    public withConfMode(confMode: ConferenceInfoConfModeEnum | string): ConferenceInfo {
         this['confMode'] = confMode;
         return this;
     }

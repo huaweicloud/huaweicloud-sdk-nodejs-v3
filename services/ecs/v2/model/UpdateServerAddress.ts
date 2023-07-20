@@ -1,9 +1,9 @@
 
 
 export class UpdateServerAddress {
-    public version: number;
-    public addr: string;
-    public constructor(version?: any, addr?: any) { 
+    public version?: number;
+    public addr?: string;
+    public constructor(version?: number, addr?: string) { 
         this['version'] = version;
         this['addr'] = addr;
     }

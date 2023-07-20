@@ -1,10 +1,10 @@
 
 
 export class ModifyClusterDns {
-    public name: string;
-    public type: string;
-    public ttl: number;
-    public constructor(name?: any, type?: any, ttl?: any) { 
+    public name?: string;
+    public type?: string;
+    public ttl?: number;
+    public constructor(name?: string, type?: string, ttl?: number) { 
         this['name'] = name;
         this['type'] = type;
         this['ttl'] = ttl;

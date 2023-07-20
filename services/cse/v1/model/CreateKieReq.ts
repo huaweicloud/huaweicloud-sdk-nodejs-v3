@@ -5,7 +5,7 @@ export class CreateKieReq {
     public key?: string;
     public labels?: object;
     public value?: string;
-    private 'value_type'?: string | undefined;
+    private 'value_type'?: string;
     public status?: string;
     public constructor() { 
     }
@@ -29,10 +29,10 @@ export class CreateKieReq {
         this['value_type'] = valueType;
         return this;
     }
-    public set valueType(valueType: string | undefined) {
+    public set valueType(valueType: string  | undefined) {
         this['value_type'] = valueType;
     }
-    public get valueType() {
+    public get valueType(): string | undefined {
         return this['value_type'];
     }
     public withStatus(status: string): CreateKieReq {

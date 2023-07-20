@@ -5,7 +5,7 @@ export class ListCommonPoolsRequest {
     public limit?: number;
     public offset?: number;
     public name?: string;
-    private 'public_border_group'?: string | undefined;
+    private 'public_border_group'?: string;
     public constructor() { 
     }
     public withFields(fields: string): ListCommonPoolsRequest {
@@ -28,10 +28,10 @@ export class ListCommonPoolsRequest {
         this['public_border_group'] = publicBorderGroup;
         return this;
     }
-    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
         this['public_border_group'] = publicBorderGroup;
     }
-    public get publicBorderGroup() {
+    public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
 }

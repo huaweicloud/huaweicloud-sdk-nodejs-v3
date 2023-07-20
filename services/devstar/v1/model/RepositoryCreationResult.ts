@@ -3,9 +3,9 @@ import { RepositoryBasicInfo } from './RepositoryBasicInfo';
 
 export class RepositoryCreationResult {
     public repository?: RepositoryBasicInfo;
-    private 'task_id'?: string | undefined;
-    public status?: RepositoryCreationResultStatusEnum;
-    private 'failure_reason'?: string | undefined;
+    private 'task_id'?: string;
+    public status?: RepositoryCreationResultStatusEnum | string;
+    private 'failure_reason'?: string;
     public constructor() { 
     }
     public withRepository(repository: RepositoryBasicInfo): RepositoryCreationResult {
@@ -16,13 +16,13 @@ export class RepositoryCreationResult {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
-    public withStatus(status: RepositoryCreationResultStatusEnum): RepositoryCreationResult {
+    public withStatus(status: RepositoryCreationResultStatusEnum | string): RepositoryCreationResult {
         this['status'] = status;
         return this;
     }
@@ -30,10 +30,10 @@ export class RepositoryCreationResult {
         this['failure_reason'] = failureReason;
         return this;
     }
-    public set failureReason(failureReason: string | undefined) {
+    public set failureReason(failureReason: string  | undefined) {
         this['failure_reason'] = failureReason;
     }
-    public get failureReason() {
+    public get failureReason(): string | undefined {
         return this['failure_reason'];
     }
 }

@@ -1,12 +1,12 @@
 
 
 export class BriefStructTemplateModel {
-    private 'create_time': number | undefined;
-    public id: string;
-    private 'template_name': string | undefined;
-    private 'template_type': BriefStructTemplateModelTemplateTypeEnum | undefined;
-    private 'project_id': string | undefined;
-    public constructor(createTime?: any, id?: any, templateName?: any, templateType?: any, projectId?: any) { 
+    private 'create_time'?: number;
+    public id?: string;
+    private 'template_name'?: string;
+    private 'template_type'?: BriefStructTemplateModelTemplateTypeEnum | string;
+    private 'project_id'?: string;
+    public constructor(createTime?: number, id?: string, templateName?: string, templateType?: string, projectId?: string) { 
         this['create_time'] = createTime;
         this['id'] = id;
         this['template_name'] = templateName;
@@ -17,10 +17,10 @@ export class BriefStructTemplateModel {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: number | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
     public withId(id: string): BriefStructTemplateModel {
@@ -31,30 +31,30 @@ export class BriefStructTemplateModel {
         this['template_name'] = templateName;
         return this;
     }
-    public set templateName(templateName: string | undefined) {
+    public set templateName(templateName: string  | undefined) {
         this['template_name'] = templateName;
     }
-    public get templateName() {
+    public get templateName(): string | undefined {
         return this['template_name'];
     }
-    public withTemplateType(templateType: BriefStructTemplateModelTemplateTypeEnum): BriefStructTemplateModel {
+    public withTemplateType(templateType: BriefStructTemplateModelTemplateTypeEnum | string): BriefStructTemplateModel {
         this['template_type'] = templateType;
         return this;
     }
-    public set templateType(templateType: BriefStructTemplateModelTemplateTypeEnum | undefined) {
+    public set templateType(templateType: BriefStructTemplateModelTemplateTypeEnum | string  | undefined) {
         this['template_type'] = templateType;
     }
-    public get templateType() {
+    public get templateType(): BriefStructTemplateModelTemplateTypeEnum | string | undefined {
         return this['template_type'];
     }
     public withProjectId(projectId: string): BriefStructTemplateModel {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
 }

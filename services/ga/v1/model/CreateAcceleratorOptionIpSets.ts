@@ -2,20 +2,20 @@ import { Area } from './Area';
 
 
 export class CreateAcceleratorOptionIpSets {
-    private 'ip_type': CreateAcceleratorOptionIpSetsIpTypeEnum | undefined;
-    public area: Area;
-    public constructor(ipType?: any, area?: any) { 
+    private 'ip_type'?: CreateAcceleratorOptionIpSetsIpTypeEnum | string;
+    public area?: Area;
+    public constructor(ipType?: string, area?: Area) { 
         this['ip_type'] = ipType;
         this['area'] = area;
     }
-    public withIpType(ipType: CreateAcceleratorOptionIpSetsIpTypeEnum): CreateAcceleratorOptionIpSets {
+    public withIpType(ipType: CreateAcceleratorOptionIpSetsIpTypeEnum | string): CreateAcceleratorOptionIpSets {
         this['ip_type'] = ipType;
         return this;
     }
-    public set ipType(ipType: CreateAcceleratorOptionIpSetsIpTypeEnum | undefined) {
+    public set ipType(ipType: CreateAcceleratorOptionIpSetsIpTypeEnum | string  | undefined) {
         this['ip_type'] = ipType;
     }
-    public get ipType() {
+    public get ipType(): CreateAcceleratorOptionIpSetsIpTypeEnum | string | undefined {
         return this['ip_type'];
     }
     public withArea(area: Area): CreateAcceleratorOptionIpSets {

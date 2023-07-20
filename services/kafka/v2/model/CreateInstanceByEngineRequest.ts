@@ -2,12 +2,12 @@ import { CreateInstanceByEngineReq } from './CreateInstanceByEngineReq';
 
 
 export class CreateInstanceByEngineRequest {
-    public engine: CreateInstanceByEngineRequestEngineEnum;
+    public engine?: CreateInstanceByEngineRequestEngineEnum | string;
     public body?: CreateInstanceByEngineReq;
-    public constructor(engine?: any) { 
+    public constructor(engine?: string) { 
         this['engine'] = engine;
     }
-    public withEngine(engine: CreateInstanceByEngineRequestEngineEnum): CreateInstanceByEngineRequest {
+    public withEngine(engine: CreateInstanceByEngineRequestEngineEnum | string): CreateInstanceByEngineRequest {
         this['engine'] = engine;
         return this;
     }

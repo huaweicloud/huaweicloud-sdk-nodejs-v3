@@ -1,13 +1,13 @@
 
 
 export class UpdateDependencyRequestBody {
-    private 'depend_file'?: string | undefined;
-    private 'depend_link'?: string | undefined;
-    private 'depend_type': string | undefined;
-    public runtime: UpdateDependencyRequestBodyRuntimeEnum;
-    public name: string;
+    private 'depend_file'?: string;
+    private 'depend_link'?: string;
+    private 'depend_type'?: string;
+    public runtime?: UpdateDependencyRequestBodyRuntimeEnum | string;
+    public name?: string;
     public description?: string;
-    public constructor(dependType?: any, runtime?: any, name?: any) { 
+    public constructor(dependType?: string, runtime?: string, name?: string) { 
         this['depend_type'] = dependType;
         this['runtime'] = runtime;
         this['name'] = name;
@@ -16,33 +16,33 @@ export class UpdateDependencyRequestBody {
         this['depend_file'] = dependFile;
         return this;
     }
-    public set dependFile(dependFile: string | undefined) {
+    public set dependFile(dependFile: string  | undefined) {
         this['depend_file'] = dependFile;
     }
-    public get dependFile() {
+    public get dependFile(): string | undefined {
         return this['depend_file'];
     }
     public withDependLink(dependLink: string): UpdateDependencyRequestBody {
         this['depend_link'] = dependLink;
         return this;
     }
-    public set dependLink(dependLink: string | undefined) {
+    public set dependLink(dependLink: string  | undefined) {
         this['depend_link'] = dependLink;
     }
-    public get dependLink() {
+    public get dependLink(): string | undefined {
         return this['depend_link'];
     }
     public withDependType(dependType: string): UpdateDependencyRequestBody {
         this['depend_type'] = dependType;
         return this;
     }
-    public set dependType(dependType: string | undefined) {
+    public set dependType(dependType: string  | undefined) {
         this['depend_type'] = dependType;
     }
-    public get dependType() {
+    public get dependType(): string | undefined {
         return this['depend_type'];
     }
-    public withRuntime(runtime: UpdateDependencyRequestBodyRuntimeEnum): UpdateDependencyRequestBody {
+    public withRuntime(runtime: UpdateDependencyRequestBodyRuntimeEnum | string): UpdateDependencyRequestBody {
         this['runtime'] = runtime;
         return this;
     }

@@ -1,13 +1,13 @@
 
 
 export class ListFunctionTriggerResult {
-    private 'trigger_id': string | undefined;
-    private 'trigger_type_code': ListFunctionTriggerResultTriggerTypeCodeEnum | undefined;
-    private 'trigger_status': ListFunctionTriggerResultTriggerStatusEnum | undefined;
-    private 'event_data': object | undefined;
-    private 'last_updated_time': Date | undefined;
-    private 'created_time': Date | undefined;
-    public constructor(triggerId?: any, triggerTypeCode?: any, triggerStatus?: any, eventData?: any, lastUpdatedTime?: any, createdTime?: any) { 
+    private 'trigger_id'?: string;
+    private 'trigger_type_code'?: ListFunctionTriggerResultTriggerTypeCodeEnum | string;
+    private 'trigger_status'?: ListFunctionTriggerResultTriggerStatusEnum | string;
+    private 'event_data'?: object;
+    private 'last_updated_time'?: Date;
+    private 'created_time'?: Date;
+    public constructor(triggerId?: string, triggerTypeCode?: string, triggerStatus?: string, eventData?: object, lastUpdatedTime?: Date, createdTime?: Date) { 
         this['trigger_id'] = triggerId;
         this['trigger_type_code'] = triggerTypeCode;
         this['trigger_status'] = triggerStatus;
@@ -19,60 +19,60 @@ export class ListFunctionTriggerResult {
         this['trigger_id'] = triggerId;
         return this;
     }
-    public set triggerId(triggerId: string | undefined) {
+    public set triggerId(triggerId: string  | undefined) {
         this['trigger_id'] = triggerId;
     }
-    public get triggerId() {
+    public get triggerId(): string | undefined {
         return this['trigger_id'];
     }
-    public withTriggerTypeCode(triggerTypeCode: ListFunctionTriggerResultTriggerTypeCodeEnum): ListFunctionTriggerResult {
+    public withTriggerTypeCode(triggerTypeCode: ListFunctionTriggerResultTriggerTypeCodeEnum | string): ListFunctionTriggerResult {
         this['trigger_type_code'] = triggerTypeCode;
         return this;
     }
-    public set triggerTypeCode(triggerTypeCode: ListFunctionTriggerResultTriggerTypeCodeEnum | undefined) {
+    public set triggerTypeCode(triggerTypeCode: ListFunctionTriggerResultTriggerTypeCodeEnum | string  | undefined) {
         this['trigger_type_code'] = triggerTypeCode;
     }
-    public get triggerTypeCode() {
+    public get triggerTypeCode(): ListFunctionTriggerResultTriggerTypeCodeEnum | string | undefined {
         return this['trigger_type_code'];
     }
-    public withTriggerStatus(triggerStatus: ListFunctionTriggerResultTriggerStatusEnum): ListFunctionTriggerResult {
+    public withTriggerStatus(triggerStatus: ListFunctionTriggerResultTriggerStatusEnum | string): ListFunctionTriggerResult {
         this['trigger_status'] = triggerStatus;
         return this;
     }
-    public set triggerStatus(triggerStatus: ListFunctionTriggerResultTriggerStatusEnum | undefined) {
+    public set triggerStatus(triggerStatus: ListFunctionTriggerResultTriggerStatusEnum | string  | undefined) {
         this['trigger_status'] = triggerStatus;
     }
-    public get triggerStatus() {
+    public get triggerStatus(): ListFunctionTriggerResultTriggerStatusEnum | string | undefined {
         return this['trigger_status'];
     }
     public withEventData(eventData: object): ListFunctionTriggerResult {
         this['event_data'] = eventData;
         return this;
     }
-    public set eventData(eventData: object | undefined) {
+    public set eventData(eventData: object  | undefined) {
         this['event_data'] = eventData;
     }
-    public get eventData() {
+    public get eventData(): object | undefined {
         return this['event_data'];
     }
     public withLastUpdatedTime(lastUpdatedTime: Date): ListFunctionTriggerResult {
         this['last_updated_time'] = lastUpdatedTime;
         return this;
     }
-    public set lastUpdatedTime(lastUpdatedTime: Date | undefined) {
+    public set lastUpdatedTime(lastUpdatedTime: Date  | undefined) {
         this['last_updated_time'] = lastUpdatedTime;
     }
-    public get lastUpdatedTime() {
+    public get lastUpdatedTime(): Date | undefined {
         return this['last_updated_time'];
     }
     public withCreatedTime(createdTime: Date): ListFunctionTriggerResult {
         this['created_time'] = createdTime;
         return this;
     }
-    public set createdTime(createdTime: Date | undefined) {
+    public set createdTime(createdTime: Date  | undefined) {
         this['created_time'] = createdTime;
     }
-    public get createdTime() {
+    public get createdTime(): Date | undefined {
         return this['created_time'];
     }
 }

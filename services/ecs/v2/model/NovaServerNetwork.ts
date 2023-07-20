@@ -3,7 +3,7 @@
 export class NovaServerNetwork {
     public port?: string;
     public uuid?: string;
-    private 'fixed_ip'?: string | undefined;
+    private 'fixed_ip'?: string;
     public constructor() { 
     }
     public withPort(port: string): NovaServerNetwork {
@@ -18,10 +18,10 @@ export class NovaServerNetwork {
         this['fixed_ip'] = fixedIp;
         return this;
     }
-    public set fixedIp(fixedIp: string | undefined) {
+    public set fixedIp(fixedIp: string  | undefined) {
         this['fixed_ip'] = fixedIp;
     }
-    public get fixedIp() {
+    public get fixedIp(): string | undefined {
         return this['fixed_ip'];
     }
 }

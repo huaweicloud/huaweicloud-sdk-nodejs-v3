@@ -3,11 +3,11 @@
 export class ImageDetectionReq {
     public url?: string;
     public image?: string;
-    private 'moderation_rule'?: string | undefined;
-    public categories?: Array<ImageDetectionReqCategoriesEnum>;
-    private 'ad_categories'?: Array<string> | undefined;
+    private 'moderation_rule'?: string;
+    public categories?: Array<ImageDetectionReqCategoriesEnum> | Array<string>;
+    private 'ad_categories'?: Array<string>;
     public threshold?: number;
-    private 'show_ocr_text'?: boolean | undefined;
+    private 'show_ocr_text'?: boolean;
     public constructor() { 
     }
     public withUrl(url: string): ImageDetectionReq {
@@ -22,13 +22,13 @@ export class ImageDetectionReq {
         this['moderation_rule'] = moderationRule;
         return this;
     }
-    public set moderationRule(moderationRule: string | undefined) {
+    public set moderationRule(moderationRule: string  | undefined) {
         this['moderation_rule'] = moderationRule;
     }
-    public get moderationRule() {
+    public get moderationRule(): string | undefined {
         return this['moderation_rule'];
     }
-    public withCategories(categories: Array<ImageDetectionReqCategoriesEnum>): ImageDetectionReq {
+    public withCategories(categories: Array<ImageDetectionReqCategoriesEnum> | Array<string>): ImageDetectionReq {
         this['categories'] = categories;
         return this;
     }
@@ -36,10 +36,10 @@ export class ImageDetectionReq {
         this['ad_categories'] = adCategories;
         return this;
     }
-    public set adCategories(adCategories: Array<string> | undefined) {
+    public set adCategories(adCategories: Array<string>  | undefined) {
         this['ad_categories'] = adCategories;
     }
-    public get adCategories() {
+    public get adCategories(): Array<string> | undefined {
         return this['ad_categories'];
     }
     public withThreshold(threshold: number): ImageDetectionReq {
@@ -50,10 +50,10 @@ export class ImageDetectionReq {
         this['show_ocr_text'] = showOcrText;
         return this;
     }
-    public set showOcrText(showOcrText: boolean | undefined) {
+    public set showOcrText(showOcrText: boolean  | undefined) {
         this['show_ocr_text'] = showOcrText;
     }
-    public get showOcrText() {
+    public get showOcrText(): boolean | undefined {
         return this['show_ocr_text'];
     }
 }

@@ -2,33 +2,33 @@ import { AllowUserBody } from './AllowUserBody';
 
 
 export class ProtectPolicyOption {
-    private 'operation_protection': boolean | undefined;
-    private 'allow_user'?: AllowUserBody | undefined;
+    private 'operation_protection'?: boolean;
+    private 'allow_user'?: AllowUserBody;
     public mobile?: string;
-    private 'admin_check'?: string | undefined;
+    private 'admin_check'?: string;
     public email?: string;
     public scene?: string;
-    public constructor(operationProtection?: any) { 
+    public constructor(operationProtection?: boolean) { 
         this['operation_protection'] = operationProtection;
     }
     public withOperationProtection(operationProtection: boolean): ProtectPolicyOption {
         this['operation_protection'] = operationProtection;
         return this;
     }
-    public set operationProtection(operationProtection: boolean | undefined) {
+    public set operationProtection(operationProtection: boolean  | undefined) {
         this['operation_protection'] = operationProtection;
     }
-    public get operationProtection() {
+    public get operationProtection(): boolean | undefined {
         return this['operation_protection'];
     }
     public withAllowUser(allowUser: AllowUserBody): ProtectPolicyOption {
         this['allow_user'] = allowUser;
         return this;
     }
-    public set allowUser(allowUser: AllowUserBody | undefined) {
+    public set allowUser(allowUser: AllowUserBody  | undefined) {
         this['allow_user'] = allowUser;
     }
-    public get allowUser() {
+    public get allowUser(): AllowUserBody | undefined {
         return this['allow_user'];
     }
     public withMobile(mobile: string): ProtectPolicyOption {
@@ -39,10 +39,10 @@ export class ProtectPolicyOption {
         this['admin_check'] = adminCheck;
         return this;
     }
-    public set adminCheck(adminCheck: string | undefined) {
+    public set adminCheck(adminCheck: string  | undefined) {
         this['admin_check'] = adminCheck;
     }
-    public get adminCheck() {
+    public get adminCheck(): string | undefined {
         return this['admin_check'];
     }
     public withEmail(email: string): ProtectPolicyOption {

@@ -1,10 +1,10 @@
 
 
 export class JobActions {
-    private 'available_actions': Array<string> | undefined;
-    private 'unavailable_actions': Array<string> | undefined;
-    private 'current_action': JobActionsCurrentActionEnum | undefined;
-    public constructor(availableActions?: any, unavailableActions?: any, currentAction?: any) { 
+    private 'available_actions'?: Array<string>;
+    private 'unavailable_actions'?: Array<string>;
+    private 'current_action'?: JobActionsCurrentActionEnum | string;
+    public constructor(availableActions?: Array<string>, unavailableActions?: Array<string>, currentAction?: string) { 
         this['available_actions'] = availableActions;
         this['unavailable_actions'] = unavailableActions;
         this['current_action'] = currentAction;
@@ -13,30 +13,30 @@ export class JobActions {
         this['available_actions'] = availableActions;
         return this;
     }
-    public set availableActions(availableActions: Array<string> | undefined) {
+    public set availableActions(availableActions: Array<string>  | undefined) {
         this['available_actions'] = availableActions;
     }
-    public get availableActions() {
+    public get availableActions(): Array<string> | undefined {
         return this['available_actions'];
     }
     public withUnavailableActions(unavailableActions: Array<string>): JobActions {
         this['unavailable_actions'] = unavailableActions;
         return this;
     }
-    public set unavailableActions(unavailableActions: Array<string> | undefined) {
+    public set unavailableActions(unavailableActions: Array<string>  | undefined) {
         this['unavailable_actions'] = unavailableActions;
     }
-    public get unavailableActions() {
+    public get unavailableActions(): Array<string> | undefined {
         return this['unavailable_actions'];
     }
-    public withCurrentAction(currentAction: JobActionsCurrentActionEnum): JobActions {
+    public withCurrentAction(currentAction: JobActionsCurrentActionEnum | string): JobActions {
         this['current_action'] = currentAction;
         return this;
     }
-    public set currentAction(currentAction: JobActionsCurrentActionEnum | undefined) {
+    public set currentAction(currentAction: JobActionsCurrentActionEnum | string  | undefined) {
         this['current_action'] = currentAction;
     }
-    public get currentAction() {
+    public get currentAction(): JobActionsCurrentActionEnum | string | undefined {
         return this['current_action'];
     }
 }

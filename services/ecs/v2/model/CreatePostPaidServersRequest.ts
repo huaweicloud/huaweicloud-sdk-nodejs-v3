@@ -2,7 +2,7 @@ import { CreatePostPaidServersRequestBody } from './CreatePostPaidServersRequest
 
 
 export class CreatePostPaidServersRequest {
-    private 'X-Client-Token'?: string | undefined;
+    private 'X-Client-Token'?: string;
     public body?: CreatePostPaidServersRequestBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class CreatePostPaidServersRequest {
         this['X-Client-Token'] = xClientToken;
         return this;
     }
-    public set xClientToken(xClientToken: string | undefined) {
+    public set xClientToken(xClientToken: string  | undefined) {
         this['X-Client-Token'] = xClientToken;
     }
-    public get xClientToken() {
+    public get xClientToken(): string | undefined {
         return this['X-Client-Token'];
     }
     public withBody(body: CreatePostPaidServersRequestBody): CreatePostPaidServersRequest {

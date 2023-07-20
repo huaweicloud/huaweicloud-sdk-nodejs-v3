@@ -2,9 +2,9 @@ import { Config } from './Config';
 
 
 export class PostShortAudioReq {
-    public config: Config;
-    public data: string;
-    public constructor(config?: any, data?: any) { 
+    public config?: Config;
+    public data?: string;
+    public constructor(config?: Config, data?: string) { 
         this['config'] = config;
         this['data'] = data;
     }

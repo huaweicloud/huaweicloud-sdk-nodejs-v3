@@ -2,9 +2,9 @@ import { TtsConfig } from './TtsConfig';
 
 
 export class PostCustomTTSReq {
-    public text: string;
+    public text?: string;
     public config?: TtsConfig;
-    public constructor(text?: any) { 
+    public constructor(text?: string) { 
         this['text'] = text;
     }
     public withText(text: string): PostCustomTTSReq {

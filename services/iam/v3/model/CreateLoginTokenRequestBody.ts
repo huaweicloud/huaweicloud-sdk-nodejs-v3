@@ -2,8 +2,8 @@ import { LoginTokenAuth } from './LoginTokenAuth';
 
 
 export class CreateLoginTokenRequestBody {
-    public auth: LoginTokenAuth;
-    public constructor(auth?: any) { 
+    public auth?: LoginTokenAuth;
+    public constructor(auth?: LoginTokenAuth) { 
         this['auth'] = auth;
     }
     public withAuth(auth: LoginTokenAuth): CreateLoginTokenRequestBody {

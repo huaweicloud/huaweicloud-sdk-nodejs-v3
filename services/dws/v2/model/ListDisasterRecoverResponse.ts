@@ -3,7 +3,7 @@ import { DisasterRecovery } from './DisasterRecovery';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListDisasterRecoverResponse extends SdkResponse {
-    private 'disaster_recovery'?: Array<DisasterRecovery> | undefined;
+    private 'disaster_recovery'?: Array<DisasterRecovery>;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ListDisasterRecoverResponse extends SdkResponse {
         this['disaster_recovery'] = disasterRecovery;
         return this;
     }
-    public set disasterRecovery(disasterRecovery: Array<DisasterRecovery> | undefined) {
+    public set disasterRecovery(disasterRecovery: Array<DisasterRecovery>  | undefined) {
         this['disaster_recovery'] = disasterRecovery;
     }
-    public get disasterRecovery() {
+    public get disasterRecovery(): Array<DisasterRecovery> | undefined {
         return this['disaster_recovery'];
     }
 }

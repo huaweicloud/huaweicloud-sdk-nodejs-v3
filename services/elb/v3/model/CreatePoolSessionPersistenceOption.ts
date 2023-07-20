@@ -1,23 +1,23 @@
 
 
 export class CreatePoolSessionPersistenceOption {
-    private 'cookie_name'?: string | undefined;
-    public type: CreatePoolSessionPersistenceOptionTypeEnum;
-    private 'persistence_timeout'?: number | undefined;
-    public constructor(type?: any) { 
+    private 'cookie_name'?: string;
+    public type?: CreatePoolSessionPersistenceOptionTypeEnum | string;
+    private 'persistence_timeout'?: number;
+    public constructor(type?: string) { 
         this['type'] = type;
     }
     public withCookieName(cookieName: string): CreatePoolSessionPersistenceOption {
         this['cookie_name'] = cookieName;
         return this;
     }
-    public set cookieName(cookieName: string | undefined) {
+    public set cookieName(cookieName: string  | undefined) {
         this['cookie_name'] = cookieName;
     }
-    public get cookieName() {
+    public get cookieName(): string | undefined {
         return this['cookie_name'];
     }
-    public withType(type: CreatePoolSessionPersistenceOptionTypeEnum): CreatePoolSessionPersistenceOption {
+    public withType(type: CreatePoolSessionPersistenceOptionTypeEnum | string): CreatePoolSessionPersistenceOption {
         this['type'] = type;
         return this;
     }
@@ -25,10 +25,10 @@ export class CreatePoolSessionPersistenceOption {
         this['persistence_timeout'] = persistenceTimeout;
         return this;
     }
-    public set persistenceTimeout(persistenceTimeout: number | undefined) {
+    public set persistenceTimeout(persistenceTimeout: number  | undefined) {
         this['persistence_timeout'] = persistenceTimeout;
     }
-    public get persistenceTimeout() {
+    public get persistenceTimeout(): number | undefined {
         return this['persistence_timeout'];
     }
 }

@@ -1,24 +1,24 @@
 
 
 export class DeleteTriggerRequest {
-    private 'Content-Type': DeleteTriggerRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
-    public trigger: string;
-    public constructor(contentType?: any, namespace?: any, repository?: any, trigger?: any) { 
+    private 'Content-Type'?: DeleteTriggerRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
+    public trigger?: string;
+    public constructor(contentType?: string, namespace?: string, repository?: string, trigger?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
         this['trigger'] = trigger;
     }
-    public withContentType(contentType: DeleteTriggerRequestContentTypeEnum): DeleteTriggerRequest {
+    public withContentType(contentType: DeleteTriggerRequestContentTypeEnum | string): DeleteTriggerRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: DeleteTriggerRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: DeleteTriggerRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): DeleteTriggerRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): DeleteTriggerRequest {

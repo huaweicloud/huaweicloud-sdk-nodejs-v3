@@ -1,15 +1,15 @@
 
 
 export class CommonInfo {
-    public pvc: boolean;
-    private 'video_codec': CommonInfoVideoCodecEnum | undefined;
-    private 'audio_codec'?: CommonInfoAudioCodecEnum | undefined;
-    private 'is_black_cut'?: boolean | undefined;
-    public format: CommonInfoFormatEnum;
-    private 'hls_interval': number | undefined;
+    public pvc?: boolean;
+    private 'video_codec'?: CommonInfoVideoCodecEnum | string;
+    private 'audio_codec'?: CommonInfoAudioCodecEnum | string;
+    private 'is_black_cut'?: boolean;
+    public format?: CommonInfoFormatEnum | string;
+    private 'hls_interval'?: number;
     public upsample?: boolean;
-    public adaptation?: CommonInfoAdaptationEnum;
-    public constructor(pvc?: any, videoCodec?: any, format?: any, hlsInterval?: any) { 
+    public adaptation?: CommonInfoAdaptationEnum | string;
+    public constructor(pvc?: boolean, videoCodec?: string, format?: string, hlsInterval?: number) { 
         this['pvc'] = pvc;
         this['video_codec'] = videoCodec;
         this['format'] = format;
@@ -19,37 +19,37 @@ export class CommonInfo {
         this['pvc'] = pvc;
         return this;
     }
-    public withVideoCodec(videoCodec: CommonInfoVideoCodecEnum): CommonInfo {
+    public withVideoCodec(videoCodec: CommonInfoVideoCodecEnum | string): CommonInfo {
         this['video_codec'] = videoCodec;
         return this;
     }
-    public set videoCodec(videoCodec: CommonInfoVideoCodecEnum | undefined) {
+    public set videoCodec(videoCodec: CommonInfoVideoCodecEnum | string  | undefined) {
         this['video_codec'] = videoCodec;
     }
-    public get videoCodec() {
+    public get videoCodec(): CommonInfoVideoCodecEnum | string | undefined {
         return this['video_codec'];
     }
-    public withAudioCodec(audioCodec: CommonInfoAudioCodecEnum): CommonInfo {
+    public withAudioCodec(audioCodec: CommonInfoAudioCodecEnum | string): CommonInfo {
         this['audio_codec'] = audioCodec;
         return this;
     }
-    public set audioCodec(audioCodec: CommonInfoAudioCodecEnum | undefined) {
+    public set audioCodec(audioCodec: CommonInfoAudioCodecEnum | string  | undefined) {
         this['audio_codec'] = audioCodec;
     }
-    public get audioCodec() {
+    public get audioCodec(): CommonInfoAudioCodecEnum | string | undefined {
         return this['audio_codec'];
     }
     public withIsBlackCut(isBlackCut: boolean): CommonInfo {
         this['is_black_cut'] = isBlackCut;
         return this;
     }
-    public set isBlackCut(isBlackCut: boolean | undefined) {
+    public set isBlackCut(isBlackCut: boolean  | undefined) {
         this['is_black_cut'] = isBlackCut;
     }
-    public get isBlackCut() {
+    public get isBlackCut(): boolean | undefined {
         return this['is_black_cut'];
     }
-    public withFormat(format: CommonInfoFormatEnum): CommonInfo {
+    public withFormat(format: CommonInfoFormatEnum | string): CommonInfo {
         this['format'] = format;
         return this;
     }
@@ -57,17 +57,17 @@ export class CommonInfo {
         this['hls_interval'] = hlsInterval;
         return this;
     }
-    public set hlsInterval(hlsInterval: number | undefined) {
+    public set hlsInterval(hlsInterval: number  | undefined) {
         this['hls_interval'] = hlsInterval;
     }
-    public get hlsInterval() {
+    public get hlsInterval(): number | undefined {
         return this['hls_interval'];
     }
     public withUpsample(upsample: boolean): CommonInfo {
         this['upsample'] = upsample;
         return this;
     }
-    public withAdaptation(adaptation: CommonInfoAdaptationEnum): CommonInfo {
+    public withAdaptation(adaptation: CommonInfoAdaptationEnum | string): CommonInfo {
         this['adaptation'] = adaptation;
         return this;
     }

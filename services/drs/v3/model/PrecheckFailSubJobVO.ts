@@ -3,7 +3,7 @@
 export class PrecheckFailSubJobVO {
     public id?: string;
     public name?: string;
-    private 'check_result'?: string | undefined;
+    private 'check_result'?: string;
     public constructor() { 
     }
     public withId(id: string): PrecheckFailSubJobVO {
@@ -18,10 +18,10 @@ export class PrecheckFailSubJobVO {
         this['check_result'] = checkResult;
         return this;
     }
-    public set checkResult(checkResult: string | undefined) {
+    public set checkResult(checkResult: string  | undefined) {
         this['check_result'] = checkResult;
     }
-    public get checkResult() {
+    public get checkResult(): string | undefined {
         return this['check_result'];
     }
 }

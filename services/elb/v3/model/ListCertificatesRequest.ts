@@ -3,11 +3,11 @@
 export class ListCertificatesRequest {
     public marker?: string;
     public limit?: number;
-    private 'page_reverse'?: boolean | undefined;
+    private 'page_reverse'?: boolean;
     public id?: Array<string>;
     public name?: Array<string>;
     public description?: Array<string>;
-    private 'admin_state_up'?: boolean | undefined;
+    private 'admin_state_up'?: boolean;
     public domain?: Array<string>;
     public type?: Array<string>;
     public constructor() { 
@@ -24,10 +24,10 @@ export class ListCertificatesRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withId(id: Array<string>): ListCertificatesRequest {
@@ -46,10 +46,10 @@ export class ListCertificatesRequest {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withDomain(domain: Array<string>): ListCertificatesRequest {

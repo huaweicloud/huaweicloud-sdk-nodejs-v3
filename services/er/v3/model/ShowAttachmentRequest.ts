@@ -1,9 +1,9 @@
 
 
 export class ShowAttachmentRequest {
-    private 'er_id': string | undefined;
-    private 'attachment_id': string | undefined;
-    public constructor(erId?: any, attachmentId?: any) { 
+    private 'er_id'?: string;
+    private 'attachment_id'?: string;
+    public constructor(erId?: string, attachmentId?: string) { 
         this['er_id'] = erId;
         this['attachment_id'] = attachmentId;
     }
@@ -11,20 +11,20 @@ export class ShowAttachmentRequest {
         this['er_id'] = erId;
         return this;
     }
-    public set erId(erId: string | undefined) {
+    public set erId(erId: string  | undefined) {
         this['er_id'] = erId;
     }
-    public get erId() {
+    public get erId(): string | undefined {
         return this['er_id'];
     }
     public withAttachmentId(attachmentId: string): ShowAttachmentRequest {
         this['attachment_id'] = attachmentId;
         return this;
     }
-    public set attachmentId(attachmentId: string | undefined) {
+    public set attachmentId(attachmentId: string  | undefined) {
         this['attachment_id'] = attachmentId;
     }
-    public get attachmentId() {
+    public get attachmentId(): string | undefined {
         return this['attachment_id'];
     }
 }

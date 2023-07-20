@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CollectDbObjectsAsyncResponse extends SdkResponse {
     public id?: string;
-    public status?: CollectDbObjectsAsyncResponseStatusEnum;
+    public status?: CollectDbObjectsAsyncResponseStatusEnum | string;
     public constructor() { 
         super();
     }
@@ -11,7 +11,7 @@ export class CollectDbObjectsAsyncResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: CollectDbObjectsAsyncResponseStatusEnum): CollectDbObjectsAsyncResponse {
+    public withStatus(status: CollectDbObjectsAsyncResponseStatusEnum | string): CollectDbObjectsAsyncResponse {
         this['status'] = status;
         return this;
     }

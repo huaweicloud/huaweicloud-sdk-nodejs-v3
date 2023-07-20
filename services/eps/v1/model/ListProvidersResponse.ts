@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListProvidersResponse extends SdkResponse {
     public providers?: Array<ProviderResponseBody>;
-    private 'total_count'?: number | undefined;
+    private 'total_count'?: number;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListProvidersResponse extends SdkResponse {
         this['total_count'] = totalCount;
         return this;
     }
-    public set totalCount(totalCount: number | undefined) {
+    public set totalCount(totalCount: number  | undefined) {
         this['total_count'] = totalCount;
     }
-    public get totalCount() {
+    public get totalCount(): number | undefined {
         return this['total_count'];
     }
 }

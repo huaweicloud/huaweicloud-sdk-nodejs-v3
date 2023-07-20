@@ -2,16 +2,16 @@ import { ReviewDetail } from './ReviewDetail';
 
 
 export class PictureReviewRet {
-    public suggestion?: PictureReviewRetSuggestionEnum;
+    public suggestion?: PictureReviewRetSuggestionEnum | string;
     public offset?: number;
-    public url: string;
+    public url?: string;
     public politics?: Array<ReviewDetail>;
     public terrorism?: Array<ReviewDetail>;
     public porn?: Array<ReviewDetail>;
-    public constructor(url?: any) { 
+    public constructor(url?: string) { 
         this['url'] = url;
     }
-    public withSuggestion(suggestion: PictureReviewRetSuggestionEnum): PictureReviewRet {
+    public withSuggestion(suggestion: PictureReviewRetSuggestionEnum | string): PictureReviewRet {
         this['suggestion'] = suggestion;
         return this;
     }

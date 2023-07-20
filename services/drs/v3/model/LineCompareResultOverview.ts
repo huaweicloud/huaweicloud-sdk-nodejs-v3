@@ -1,10 +1,10 @@
 
 
 export class LineCompareResultOverview {
-    private 'source_db_name': string | undefined;
-    private 'target_db_name': string | undefined;
-    private 'line_compare_result': LineCompareResultOverviewLineCompareResultEnum | undefined;
-    public constructor(sourceDbName?: any, targetDbName?: any, lineCompareResult?: any) { 
+    private 'source_db_name'?: string;
+    private 'target_db_name'?: string;
+    private 'line_compare_result'?: LineCompareResultOverviewLineCompareResultEnum | string;
+    public constructor(sourceDbName?: string, targetDbName?: string, lineCompareResult?: string) { 
         this['source_db_name'] = sourceDbName;
         this['target_db_name'] = targetDbName;
         this['line_compare_result'] = lineCompareResult;
@@ -13,30 +13,30 @@ export class LineCompareResultOverview {
         this['source_db_name'] = sourceDbName;
         return this;
     }
-    public set sourceDbName(sourceDbName: string | undefined) {
+    public set sourceDbName(sourceDbName: string  | undefined) {
         this['source_db_name'] = sourceDbName;
     }
-    public get sourceDbName() {
+    public get sourceDbName(): string | undefined {
         return this['source_db_name'];
     }
     public withTargetDbName(targetDbName: string): LineCompareResultOverview {
         this['target_db_name'] = targetDbName;
         return this;
     }
-    public set targetDbName(targetDbName: string | undefined) {
+    public set targetDbName(targetDbName: string  | undefined) {
         this['target_db_name'] = targetDbName;
     }
-    public get targetDbName() {
+    public get targetDbName(): string | undefined {
         return this['target_db_name'];
     }
-    public withLineCompareResult(lineCompareResult: LineCompareResultOverviewLineCompareResultEnum): LineCompareResultOverview {
+    public withLineCompareResult(lineCompareResult: LineCompareResultOverviewLineCompareResultEnum | string): LineCompareResultOverview {
         this['line_compare_result'] = lineCompareResult;
         return this;
     }
-    public set lineCompareResult(lineCompareResult: LineCompareResultOverviewLineCompareResultEnum | undefined) {
+    public set lineCompareResult(lineCompareResult: LineCompareResultOverviewLineCompareResultEnum | string  | undefined) {
         this['line_compare_result'] = lineCompareResult;
     }
-    public get lineCompareResult() {
+    public get lineCompareResult(): LineCompareResultOverviewLineCompareResultEnum | string | undefined {
         return this['line_compare_result'];
     }
 }

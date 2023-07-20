@@ -5,12 +5,12 @@ import { OrgPropertyDTO } from './OrgPropertyDTO';
 
 
 export class AddCorpDTO {
-    public basicInfo: CorpBasicDTO;
-    public adminInfo: AdminDTO;
+    public basicInfo?: CorpBasicDTO;
+    public adminInfo?: AdminDTO;
     public resInfo?: AddCorpResDTO;
     public groupId?: string;
     public propertyInfo?: Array<OrgPropertyDTO>;
-    public constructor(basicInfo?: any, adminInfo?: any) { 
+    public constructor(basicInfo?: CorpBasicDTO, adminInfo?: AdminDTO) { 
         this['basicInfo'] = basicInfo;
         this['adminInfo'] = adminInfo;
     }

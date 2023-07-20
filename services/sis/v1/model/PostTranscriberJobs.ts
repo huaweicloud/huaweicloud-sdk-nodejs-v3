@@ -2,9 +2,9 @@ import { TranscriberConfig } from './TranscriberConfig';
 
 
 export class PostTranscriberJobs {
-    public config: TranscriberConfig;
-    private 'data_url': string | undefined;
-    public constructor(config?: any, dataUrl?: any) { 
+    public config?: TranscriberConfig;
+    private 'data_url'?: string;
+    public constructor(config?: TranscriberConfig, dataUrl?: string) { 
         this['config'] = config;
         this['data_url'] = dataUrl;
     }
@@ -16,10 +16,10 @@ export class PostTranscriberJobs {
         this['data_url'] = dataUrl;
         return this;
     }
-    public set dataUrl(dataUrl: string | undefined) {
+    public set dataUrl(dataUrl: string  | undefined) {
         this['data_url'] = dataUrl;
     }
-    public get dataUrl() {
+    public get dataUrl(): string | undefined {
         return this['data_url'];
     }
 }

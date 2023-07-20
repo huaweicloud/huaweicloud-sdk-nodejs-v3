@@ -2,24 +2,24 @@ import { Tag } from './Tag';
 
 
 export class EnterpriseRouter {
-    public id: string;
-    public name: string;
+    public id?: string;
+    public name?: string;
     public description?: string;
-    public state: string;
+    public state?: string;
     public tags?: Array<Tag>;
-    private 'charge_mode'?: string | undefined;
-    private 'created_at': Date | undefined;
-    private 'updated_at': Date | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'project_id': string | undefined;
-    public asn: number;
-    private 'enable_default_propagation': boolean | undefined;
-    private 'enable_default_association': boolean | undefined;
-    private 'default_propagation_route_table_id'?: string | undefined;
-    private 'default_association_route_table_id'?: string | undefined;
-    private 'availability_zone_ids': Array<string> | undefined;
-    private 'auto_accept_shared_attachments'?: boolean | undefined;
-    public constructor(id?: any, name?: any, state?: any, createdAt?: any, updatedAt?: any, projectId?: any, asn?: any, enableDefaultPropagation?: any, enableDefaultAssociation?: any, availabilityZoneIds?: any) { 
+    private 'charge_mode'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    private 'enterprise_project_id'?: string;
+    private 'project_id'?: string;
+    public asn?: number;
+    private 'enable_default_propagation'?: boolean;
+    private 'enable_default_association'?: boolean;
+    private 'default_propagation_route_table_id'?: string;
+    private 'default_association_route_table_id'?: string;
+    private 'availability_zone_ids'?: Array<string>;
+    private 'auto_accept_shared_attachments'?: boolean;
+    public constructor(id?: string, name?: string, state?: string, createdAt?: Date, updatedAt?: Date, projectId?: string, asn?: number, enableDefaultPropagation?: boolean, enableDefaultAssociation?: boolean, availabilityZoneIds?: Array<string>) { 
         this['id'] = id;
         this['name'] = name;
         this['state'] = state;
@@ -55,50 +55,50 @@ export class EnterpriseRouter {
         this['charge_mode'] = chargeMode;
         return this;
     }
-    public set chargeMode(chargeMode: string | undefined) {
+    public set chargeMode(chargeMode: string  | undefined) {
         this['charge_mode'] = chargeMode;
     }
-    public get chargeMode() {
+    public get chargeMode(): string | undefined {
         return this['charge_mode'];
     }
     public withCreatedAt(createdAt: Date): EnterpriseRouter {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): EnterpriseRouter {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): EnterpriseRouter {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withProjectId(projectId: string): EnterpriseRouter {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withAsn(asn: number): EnterpriseRouter {
@@ -109,60 +109,60 @@ export class EnterpriseRouter {
         this['enable_default_propagation'] = enableDefaultPropagation;
         return this;
     }
-    public set enableDefaultPropagation(enableDefaultPropagation: boolean | undefined) {
+    public set enableDefaultPropagation(enableDefaultPropagation: boolean  | undefined) {
         this['enable_default_propagation'] = enableDefaultPropagation;
     }
-    public get enableDefaultPropagation() {
+    public get enableDefaultPropagation(): boolean | undefined {
         return this['enable_default_propagation'];
     }
     public withEnableDefaultAssociation(enableDefaultAssociation: boolean): EnterpriseRouter {
         this['enable_default_association'] = enableDefaultAssociation;
         return this;
     }
-    public set enableDefaultAssociation(enableDefaultAssociation: boolean | undefined) {
+    public set enableDefaultAssociation(enableDefaultAssociation: boolean  | undefined) {
         this['enable_default_association'] = enableDefaultAssociation;
     }
-    public get enableDefaultAssociation() {
+    public get enableDefaultAssociation(): boolean | undefined {
         return this['enable_default_association'];
     }
     public withDefaultPropagationRouteTableId(defaultPropagationRouteTableId: string): EnterpriseRouter {
         this['default_propagation_route_table_id'] = defaultPropagationRouteTableId;
         return this;
     }
-    public set defaultPropagationRouteTableId(defaultPropagationRouteTableId: string | undefined) {
+    public set defaultPropagationRouteTableId(defaultPropagationRouteTableId: string  | undefined) {
         this['default_propagation_route_table_id'] = defaultPropagationRouteTableId;
     }
-    public get defaultPropagationRouteTableId() {
+    public get defaultPropagationRouteTableId(): string | undefined {
         return this['default_propagation_route_table_id'];
     }
     public withDefaultAssociationRouteTableId(defaultAssociationRouteTableId: string): EnterpriseRouter {
         this['default_association_route_table_id'] = defaultAssociationRouteTableId;
         return this;
     }
-    public set defaultAssociationRouteTableId(defaultAssociationRouteTableId: string | undefined) {
+    public set defaultAssociationRouteTableId(defaultAssociationRouteTableId: string  | undefined) {
         this['default_association_route_table_id'] = defaultAssociationRouteTableId;
     }
-    public get defaultAssociationRouteTableId() {
+    public get defaultAssociationRouteTableId(): string | undefined {
         return this['default_association_route_table_id'];
     }
     public withAvailabilityZoneIds(availabilityZoneIds: Array<string>): EnterpriseRouter {
         this['availability_zone_ids'] = availabilityZoneIds;
         return this;
     }
-    public set availabilityZoneIds(availabilityZoneIds: Array<string> | undefined) {
+    public set availabilityZoneIds(availabilityZoneIds: Array<string>  | undefined) {
         this['availability_zone_ids'] = availabilityZoneIds;
     }
-    public get availabilityZoneIds() {
+    public get availabilityZoneIds(): Array<string> | undefined {
         return this['availability_zone_ids'];
     }
     public withAutoAcceptSharedAttachments(autoAcceptSharedAttachments: boolean): EnterpriseRouter {
         this['auto_accept_shared_attachments'] = autoAcceptSharedAttachments;
         return this;
     }
-    public set autoAcceptSharedAttachments(autoAcceptSharedAttachments: boolean | undefined) {
+    public set autoAcceptSharedAttachments(autoAcceptSharedAttachments: boolean  | undefined) {
         this['auto_accept_shared_attachments'] = autoAcceptSharedAttachments;
     }
-    public get autoAcceptSharedAttachments() {
+    public get autoAcceptSharedAttachments(): boolean | undefined {
         return this['auto_accept_shared_attachments'];
     }
 }

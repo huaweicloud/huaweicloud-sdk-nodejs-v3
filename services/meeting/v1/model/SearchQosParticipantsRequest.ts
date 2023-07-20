@@ -1,12 +1,12 @@
 
 
 export class SearchQosParticipantsRequest {
-    public confUUID: string;
-    public confType: SearchQosParticipantsRequestConfTypeEnum;
+    public confUUID?: string;
+    public confType?: SearchQosParticipantsRequestConfTypeEnum | string;
     public offset?: number;
     public limit?: number;
     public searchKey?: string;
-    public constructor(confUUID?: any, confType?: any) { 
+    public constructor(confUUID?: string, confType?: string) { 
         this['confUUID'] = confUUID;
         this['confType'] = confType;
     }
@@ -14,7 +14,7 @@ export class SearchQosParticipantsRequest {
         this['confUUID'] = confUUID;
         return this;
     }
-    public withConfType(confType: SearchQosParticipantsRequestConfTypeEnum): SearchQosParticipantsRequest {
+    public withConfType(confType: SearchQosParticipantsRequestConfTypeEnum | string): SearchQosParticipantsRequest {
         this['confType'] = confType;
         return this;
     }

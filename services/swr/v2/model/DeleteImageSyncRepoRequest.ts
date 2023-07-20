@@ -2,23 +2,23 @@ import { DeleteImageSyncRepoRequestBody } from './DeleteImageSyncRepoRequestBody
 
 
 export class DeleteImageSyncRepoRequest {
-    private 'Content-Type': DeleteImageSyncRepoRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
+    private 'Content-Type'?: DeleteImageSyncRepoRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
     public body?: DeleteImageSyncRepoRequestBody;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: DeleteImageSyncRepoRequestContentTypeEnum): DeleteImageSyncRepoRequest {
+    public withContentType(contentType: DeleteImageSyncRepoRequestContentTypeEnum | string): DeleteImageSyncRepoRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: DeleteImageSyncRepoRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: DeleteImageSyncRepoRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): DeleteImageSyncRepoRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): DeleteImageSyncRepoRequest {

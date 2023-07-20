@@ -1,10 +1,10 @@
 
 
 export class StoredQueryRequestBody {
-    public name: string;
+    public name?: string;
     public description?: string;
-    public expression: string;
-    public constructor(name?: any, expression?: any) { 
+    public expression?: string;
+    public constructor(name?: string, expression?: string) { 
         this['name'] = name;
         this['expression'] = expression;
     }

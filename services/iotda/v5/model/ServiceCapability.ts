@@ -4,14 +4,14 @@ import { ServiceProperty } from './ServiceProperty';
 
 
 export class ServiceCapability {
-    private 'service_id': string | undefined;
-    private 'service_type': string | undefined;
+    private 'service_id'?: string;
+    private 'service_type'?: string;
     public properties?: Array<ServiceProperty>;
     public commands?: Array<ServiceCommand>;
     public events?: Array<ServiceEvent>;
     public description?: string;
     public option?: string;
-    public constructor(serviceId?: any, serviceType?: any) { 
+    public constructor(serviceId?: string, serviceType?: string) { 
         this['service_id'] = serviceId;
         this['service_type'] = serviceType;
     }
@@ -19,20 +19,20 @@ export class ServiceCapability {
         this['service_id'] = serviceId;
         return this;
     }
-    public set serviceId(serviceId: string | undefined) {
+    public set serviceId(serviceId: string  | undefined) {
         this['service_id'] = serviceId;
     }
-    public get serviceId() {
+    public get serviceId(): string | undefined {
         return this['service_id'];
     }
     public withServiceType(serviceType: string): ServiceCapability {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: string | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType() {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
     public withProperties(properties: Array<ServiceProperty>): ServiceCapability {

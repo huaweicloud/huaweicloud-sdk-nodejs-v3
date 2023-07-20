@@ -1,24 +1,24 @@
 
 
 export class ShowSyncJobRequest {
-    private 'Content-Type': ShowSyncJobRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
-    public filter: string;
-    public constructor(contentType?: any, namespace?: any, repository?: any, filter?: any) { 
+    private 'Content-Type'?: ShowSyncJobRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
+    public filter?: string;
+    public constructor(contentType?: string, namespace?: string, repository?: string, filter?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
         this['filter'] = filter;
     }
-    public withContentType(contentType: ShowSyncJobRequestContentTypeEnum): ShowSyncJobRequest {
+    public withContentType(contentType: ShowSyncJobRequestContentTypeEnum | string): ShowSyncJobRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ShowSyncJobRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ShowSyncJobRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ShowSyncJobRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): ShowSyncJobRequest {

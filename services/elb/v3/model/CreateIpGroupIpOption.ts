@@ -1,9 +1,9 @@
 
 
 export class CreateIpGroupIpOption {
-    public ip: string;
+    public ip?: string;
     public description?: string;
-    public constructor(ip?: any) { 
+    public constructor(ip?: string) { 
         this['ip'] = ip;
     }
     public withIp(ip: string): CreateIpGroupIpOption {

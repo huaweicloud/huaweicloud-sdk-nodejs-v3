@@ -4,7 +4,7 @@ import { ObsObjInfo } from './ObsObjInfo';
 export class CreateMediaProcessReq {
     public input?: ObsObjInfo;
     public output?: ObsObjInfo;
-    private 'template_id'?: string | undefined;
+    private 'template_id'?: string;
     public constructor() { 
     }
     public withInput(input: ObsObjInfo): CreateMediaProcessReq {
@@ -19,10 +19,10 @@ export class CreateMediaProcessReq {
         this['template_id'] = templateId;
         return this;
     }
-    public set templateId(templateId: string | undefined) {
+    public set templateId(templateId: string  | undefined) {
         this['template_id'] = templateId;
     }
-    public get templateId() {
+    public get templateId(): string | undefined {
         return this['template_id'];
     }
 }

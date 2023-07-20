@@ -1,9 +1,9 @@
 
 
 export class CreateIpGroupIpOption {
-    public cidr: string;
+    public cidr?: string;
     public description?: string;
-    public constructor(cidr?: any) { 
+    public constructor(cidr?: string) { 
         this['cidr'] = cidr;
     }
     public withCidr(cidr: string): CreateIpGroupIpOption {

@@ -6,7 +6,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class KeystoneListAllProjectPermissionsForGroupResponse extends SdkResponse {
     public links?: Links;
     public roles?: Array<RoleResult>;
-    private 'total_number'?: number | undefined;
+    private 'total_number'?: number;
     public constructor() { 
         super();
     }
@@ -22,10 +22,10 @@ export class KeystoneListAllProjectPermissionsForGroupResponse extends SdkRespon
         this['total_number'] = totalNumber;
         return this;
     }
-    public set totalNumber(totalNumber: number | undefined) {
+    public set totalNumber(totalNumber: number  | undefined) {
         this['total_number'] = totalNumber;
     }
-    public get totalNumber() {
+    public get totalNumber(): number | undefined {
         return this['total_number'];
     }
 }

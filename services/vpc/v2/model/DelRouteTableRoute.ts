@@ -2,10 +2,10 @@
 
 export class DelRouteTableRoute {
     public type?: string;
-    public destination: string;
+    public destination?: string;
     public nexthop?: string;
     public description?: string;
-    public constructor(destination?: any) { 
+    public constructor(destination?: string) { 
         this['destination'] = destination;
     }
     public withType(type: string): DelRouteTableRoute {

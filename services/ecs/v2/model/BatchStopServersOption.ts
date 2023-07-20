@@ -2,16 +2,16 @@ import { ServerId } from './ServerId';
 
 
 export class BatchStopServersOption {
-    public servers: Array<ServerId>;
-    public type?: BatchStopServersOptionTypeEnum;
-    public constructor(servers?: any) { 
+    public servers?: Array<ServerId>;
+    public type?: BatchStopServersOptionTypeEnum | string;
+    public constructor(servers?: Array<ServerId>) { 
         this['servers'] = servers;
     }
     public withServers(servers: Array<ServerId>): BatchStopServersOption {
         this['servers'] = servers;
         return this;
     }
-    public withType(type: BatchStopServersOptionTypeEnum): BatchStopServersOption {
+    public withType(type: BatchStopServersOptionTypeEnum | string): BatchStopServersOption {
         this['type'] = type;
         return this;
     }

@@ -1,9 +1,9 @@
 
 
 export class AccessConfigTimeOffsetCreate {
-    public offset: number;
-    public unit: AccessConfigTimeOffsetCreateUnitEnum;
-    public constructor(offset?: any, unit?: any) { 
+    public offset?: number;
+    public unit?: AccessConfigTimeOffsetCreateUnitEnum | string;
+    public constructor(offset?: number, unit?: string) { 
         this['offset'] = offset;
         this['unit'] = unit;
     }
@@ -11,7 +11,7 @@ export class AccessConfigTimeOffsetCreate {
         this['offset'] = offset;
         return this;
     }
-    public withUnit(unit: AccessConfigTimeOffsetCreateUnitEnum): AccessConfigTimeOffsetCreate {
+    public withUnit(unit: AccessConfigTimeOffsetCreateUnitEnum | string): AccessConfigTimeOffsetCreate {
         this['unit'] = unit;
         return this;
     }

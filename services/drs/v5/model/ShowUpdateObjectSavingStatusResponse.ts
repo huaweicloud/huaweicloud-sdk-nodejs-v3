@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowUpdateObjectSavingStatusResponse extends SdkResponse {
     public id?: string;
-    public status?: ShowUpdateObjectSavingStatusResponseStatusEnum;
+    public status?: ShowUpdateObjectSavingStatusResponseStatusEnum | string;
     public constructor() { 
         super();
     }
@@ -11,7 +11,7 @@ export class ShowUpdateObjectSavingStatusResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: ShowUpdateObjectSavingStatusResponseStatusEnum): ShowUpdateObjectSavingStatusResponse {
+    public withStatus(status: ShowUpdateObjectSavingStatusResponseStatusEnum | string): ShowUpdateObjectSavingStatusResponse {
         this['status'] = status;
         return this;
     }

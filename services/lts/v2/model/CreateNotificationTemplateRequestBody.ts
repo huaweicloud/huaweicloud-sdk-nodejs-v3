@@ -2,13 +2,13 @@ import { SubTemplate } from './SubTemplate';
 
 
 export class CreateNotificationTemplateRequestBody {
-    public name: string;
+    public name?: string;
     public type?: Array<string>;
-    public desc: string;
-    public source: string;
-    public locale: CreateNotificationTemplateRequestBodyLocaleEnum;
-    public templates: Array<SubTemplate>;
-    public constructor(name?: any, desc?: any, source?: any, locale?: any, templates?: any) { 
+    public desc?: string;
+    public source?: string;
+    public locale?: CreateNotificationTemplateRequestBodyLocaleEnum | string;
+    public templates?: Array<SubTemplate>;
+    public constructor(name?: string, desc?: string, source?: string, locale?: string, templates?: Array<SubTemplate>) { 
         this['name'] = name;
         this['desc'] = desc;
         this['source'] = source;
@@ -31,7 +31,7 @@ export class CreateNotificationTemplateRequestBody {
         this['source'] = source;
         return this;
     }
-    public withLocale(locale: CreateNotificationTemplateRequestBodyLocaleEnum): CreateNotificationTemplateRequestBody {
+    public withLocale(locale: CreateNotificationTemplateRequestBodyLocaleEnum | string): CreateNotificationTemplateRequestBody {
         this['locale'] = locale;
         return this;
     }

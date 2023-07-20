@@ -3,18 +3,18 @@ import { TagList } from './TagList';
 
 
 export class CreateEndpointServiceRequestBody {
-    private 'port_id': string | undefined;
-    private 'service_name'?: string | undefined;
-    private 'vpc_id': string | undefined;
-    private 'approval_enabled'?: boolean | undefined;
-    private 'service_type'?: string | undefined;
-    private 'server_type': CreateEndpointServiceRequestBodyServerTypeEnum | undefined;
-    public ports: Array<PortList>;
-    private 'tcp_proxy'?: CreateEndpointServiceRequestBodyTcpProxyEnum | undefined;
+    private 'port_id'?: string;
+    private 'service_name'?: string;
+    private 'vpc_id'?: string;
+    private 'approval_enabled'?: boolean;
+    private 'service_type'?: string;
+    private 'server_type'?: CreateEndpointServiceRequestBodyServerTypeEnum | string;
+    public ports?: Array<PortList>;
+    private 'tcp_proxy'?: CreateEndpointServiceRequestBodyTcpProxyEnum | string;
     public tags?: Array<TagList>;
     public description?: string;
-    private 'enable_policy'?: boolean | undefined;
-    public constructor(portId?: any, vpcId?: any, serverType?: any, ports?: any) { 
+    private 'enable_policy'?: boolean;
+    public constructor(portId?: string, vpcId?: string, serverType?: string, ports?: Array<PortList>) { 
         this['port_id'] = portId;
         this['vpc_id'] = vpcId;
         this['server_type'] = serverType;
@@ -24,74 +24,74 @@ export class CreateEndpointServiceRequestBody {
         this['port_id'] = portId;
         return this;
     }
-    public set portId(portId: string | undefined) {
+    public set portId(portId: string  | undefined) {
         this['port_id'] = portId;
     }
-    public get portId() {
+    public get portId(): string | undefined {
         return this['port_id'];
     }
     public withServiceName(serviceName: string): CreateEndpointServiceRequestBody {
         this['service_name'] = serviceName;
         return this;
     }
-    public set serviceName(serviceName: string | undefined) {
+    public set serviceName(serviceName: string  | undefined) {
         this['service_name'] = serviceName;
     }
-    public get serviceName() {
+    public get serviceName(): string | undefined {
         return this['service_name'];
     }
     public withVpcId(vpcId: string): CreateEndpointServiceRequestBody {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withApprovalEnabled(approvalEnabled: boolean): CreateEndpointServiceRequestBody {
         this['approval_enabled'] = approvalEnabled;
         return this;
     }
-    public set approvalEnabled(approvalEnabled: boolean | undefined) {
+    public set approvalEnabled(approvalEnabled: boolean  | undefined) {
         this['approval_enabled'] = approvalEnabled;
     }
-    public get approvalEnabled() {
+    public get approvalEnabled(): boolean | undefined {
         return this['approval_enabled'];
     }
     public withServiceType(serviceType: string): CreateEndpointServiceRequestBody {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: string | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType() {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
-    public withServerType(serverType: CreateEndpointServiceRequestBodyServerTypeEnum): CreateEndpointServiceRequestBody {
+    public withServerType(serverType: CreateEndpointServiceRequestBodyServerTypeEnum | string): CreateEndpointServiceRequestBody {
         this['server_type'] = serverType;
         return this;
     }
-    public set serverType(serverType: CreateEndpointServiceRequestBodyServerTypeEnum | undefined) {
+    public set serverType(serverType: CreateEndpointServiceRequestBodyServerTypeEnum | string  | undefined) {
         this['server_type'] = serverType;
     }
-    public get serverType() {
+    public get serverType(): CreateEndpointServiceRequestBodyServerTypeEnum | string | undefined {
         return this['server_type'];
     }
     public withPorts(ports: Array<PortList>): CreateEndpointServiceRequestBody {
         this['ports'] = ports;
         return this;
     }
-    public withTcpProxy(tcpProxy: CreateEndpointServiceRequestBodyTcpProxyEnum): CreateEndpointServiceRequestBody {
+    public withTcpProxy(tcpProxy: CreateEndpointServiceRequestBodyTcpProxyEnum | string): CreateEndpointServiceRequestBody {
         this['tcp_proxy'] = tcpProxy;
         return this;
     }
-    public set tcpProxy(tcpProxy: CreateEndpointServiceRequestBodyTcpProxyEnum | undefined) {
+    public set tcpProxy(tcpProxy: CreateEndpointServiceRequestBodyTcpProxyEnum | string  | undefined) {
         this['tcp_proxy'] = tcpProxy;
     }
-    public get tcpProxy() {
+    public get tcpProxy(): CreateEndpointServiceRequestBodyTcpProxyEnum | string | undefined {
         return this['tcp_proxy'];
     }
     public withTags(tags: Array<TagList>): CreateEndpointServiceRequestBody {
@@ -106,10 +106,10 @@ export class CreateEndpointServiceRequestBody {
         this['enable_policy'] = enablePolicy;
         return this;
     }
-    public set enablePolicy(enablePolicy: boolean | undefined) {
+    public set enablePolicy(enablePolicy: boolean  | undefined) {
         this['enable_policy'] = enablePolicy;
     }
-    public get enablePolicy() {
+    public get enablePolicy(): boolean | undefined {
         return this['enable_policy'];
     }
 }

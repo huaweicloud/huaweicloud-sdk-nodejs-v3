@@ -11,8 +11,8 @@ export class CreateKubernetesClusterCertResponse extends SdkResponse {
     public clusters?: Array<Clusters>;
     public users?: Array<Users>;
     public contexts?: Array<Contexts>;
-    private 'current-context'?: string | undefined;
-    private 'Port-ID'?: string | undefined;
+    private 'current-context'?: string;
+    private 'Port-ID'?: string;
     public constructor() { 
         super();
     }
@@ -44,20 +44,20 @@ export class CreateKubernetesClusterCertResponse extends SdkResponse {
         this['current-context'] = currentContext;
         return this;
     }
-    public set currentContext(currentContext: string | undefined) {
+    public set currentContext(currentContext: string  | undefined) {
         this['current-context'] = currentContext;
     }
-    public get currentContext() {
+    public get currentContext(): string | undefined {
         return this['current-context'];
     }
     public withPortID(portID: string): CreateKubernetesClusterCertResponse {
         this['Port-ID'] = portID;
         return this;
     }
-    public set portID(portID: string | undefined) {
+    public set portID(portID: string  | undefined) {
         this['Port-ID'] = portID;
     }
-    public get portID() {
+    public get portID(): string | undefined {
         return this['Port-ID'];
     }
 }

@@ -4,15 +4,15 @@ import { RuleAction } from './RuleAction';
 
 
 export class Rule {
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'condition_group': ConditionGroup | undefined;
-    public actions: Array<RuleAction>;
-    private 'rule_type': string | undefined;
+    private 'condition_group'?: ConditionGroup;
+    public actions?: Array<RuleAction>;
+    private 'rule_type'?: string;
     public status?: string;
-    private 'app_id'?: string | undefined;
-    private 'device_side'?: DeviceSide | undefined;
-    public constructor(name?: any, conditionGroup?: any, actions?: any, ruleType?: any) { 
+    private 'app_id'?: string;
+    private 'device_side'?: DeviceSide;
+    public constructor(name?: string, conditionGroup?: ConditionGroup, actions?: Array<RuleAction>, ruleType?: string) { 
         this['name'] = name;
         this['condition_group'] = conditionGroup;
         this['actions'] = actions;
@@ -30,10 +30,10 @@ export class Rule {
         this['condition_group'] = conditionGroup;
         return this;
     }
-    public set conditionGroup(conditionGroup: ConditionGroup | undefined) {
+    public set conditionGroup(conditionGroup: ConditionGroup  | undefined) {
         this['condition_group'] = conditionGroup;
     }
-    public get conditionGroup() {
+    public get conditionGroup(): ConditionGroup | undefined {
         return this['condition_group'];
     }
     public withActions(actions: Array<RuleAction>): Rule {
@@ -44,10 +44,10 @@ export class Rule {
         this['rule_type'] = ruleType;
         return this;
     }
-    public set ruleType(ruleType: string | undefined) {
+    public set ruleType(ruleType: string  | undefined) {
         this['rule_type'] = ruleType;
     }
-    public get ruleType() {
+    public get ruleType(): string | undefined {
         return this['rule_type'];
     }
     public withStatus(status: string): Rule {
@@ -58,20 +58,20 @@ export class Rule {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withDeviceSide(deviceSide: DeviceSide): Rule {
         this['device_side'] = deviceSide;
         return this;
     }
-    public set deviceSide(deviceSide: DeviceSide | undefined) {
+    public set deviceSide(deviceSide: DeviceSide  | undefined) {
         this['device_side'] = deviceSide;
     }
-    public get deviceSide() {
+    public get deviceSide(): DeviceSide | undefined {
         return this['device_side'];
     }
 }

@@ -1,9 +1,9 @@
 
 
 export class CreateMfaDevice {
-    public name: string;
-    private 'user_id': string | undefined;
-    public constructor(name?: any, userId?: any) { 
+    public name?: string;
+    private 'user_id'?: string;
+    public constructor(name?: string, userId?: string) { 
         this['name'] = name;
         this['user_id'] = userId;
     }
@@ -15,10 +15,10 @@ export class CreateMfaDevice {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
 }

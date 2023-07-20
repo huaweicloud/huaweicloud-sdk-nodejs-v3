@@ -2,18 +2,18 @@ import { NeutronCreateFirewallRuleOption } from './NeutronCreateFirewallRuleOpti
 
 
 export class NeutronCreateFirewallRuleRequestBody {
-    private 'firewall_rule': NeutronCreateFirewallRuleOption | undefined;
-    public constructor(firewallRule?: any) { 
+    private 'firewall_rule'?: NeutronCreateFirewallRuleOption;
+    public constructor(firewallRule?: NeutronCreateFirewallRuleOption) { 
         this['firewall_rule'] = firewallRule;
     }
     public withFirewallRule(firewallRule: NeutronCreateFirewallRuleOption): NeutronCreateFirewallRuleRequestBody {
         this['firewall_rule'] = firewallRule;
         return this;
     }
-    public set firewallRule(firewallRule: NeutronCreateFirewallRuleOption | undefined) {
+    public set firewallRule(firewallRule: NeutronCreateFirewallRuleOption  | undefined) {
         this['firewall_rule'] = firewallRule;
     }
-    public get firewallRule() {
+    public get firewallRule(): NeutronCreateFirewallRuleOption | undefined {
         return this['firewall_rule'];
     }
 }

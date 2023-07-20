@@ -24,7 +24,7 @@ export class ShowMyInfoResponse extends SdkResponse {
     public title?: string;
     public desc?: string;
     public corp?: CorpBasicInfoDTO;
-    private 'function'?: UserFunctionDTO | undefined;
+    private 'function'?: UserFunctionDTO;
     public devType?: QueryDeviceInfoResultDTO;
     public status?: number;
     public sortLevel?: number;
@@ -112,10 +112,10 @@ export class ShowMyInfoResponse extends SdkResponse {
         this['function'] = _function;
         return this;
     }
-    public set _function(_function: UserFunctionDTO | undefined) {
+    public set _function(_function: UserFunctionDTO  | undefined) {
         this['function'] = _function;
     }
-    public get _function() {
+    public get _function(): UserFunctionDTO | undefined {
         return this['function'];
     }
     public withDevType(devType: QueryDeviceInfoResultDTO): ShowMyInfoResponse {

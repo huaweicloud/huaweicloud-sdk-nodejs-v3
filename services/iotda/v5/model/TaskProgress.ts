@@ -6,7 +6,7 @@ export class TaskProgress {
     public success?: number;
     public fail?: number;
     public waitting?: number;
-    private 'fail_wait_retry'?: number | undefined;
+    private 'fail_wait_retry'?: number;
     public stopped?: number;
     public removed?: number;
     public constructor() { 
@@ -35,10 +35,10 @@ export class TaskProgress {
         this['fail_wait_retry'] = failWaitRetry;
         return this;
     }
-    public set failWaitRetry(failWaitRetry: number | undefined) {
+    public set failWaitRetry(failWaitRetry: number  | undefined) {
         this['fail_wait_retry'] = failWaitRetry;
     }
-    public get failWaitRetry() {
+    public get failWaitRetry(): number | undefined {
         return this['fail_wait_retry'];
     }
     public withStopped(stopped: number): TaskProgress {

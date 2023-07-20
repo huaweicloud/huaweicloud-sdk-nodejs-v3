@@ -2,19 +2,19 @@ import { CreateMemberRequestBody } from './CreateMemberRequestBody';
 
 
 export class CreateMemberRequest {
-    private 'pool_id': string | undefined;
+    private 'pool_id'?: string;
     public body?: CreateMemberRequestBody;
-    public constructor(poolId?: any) { 
+    public constructor(poolId?: string) { 
         this['pool_id'] = poolId;
     }
     public withPoolId(poolId: string): CreateMemberRequest {
         this['pool_id'] = poolId;
         return this;
     }
-    public set poolId(poolId: string | undefined) {
+    public set poolId(poolId: string  | undefined) {
         this['pool_id'] = poolId;
     }
-    public get poolId() {
+    public get poolId(): string | undefined {
         return this['pool_id'];
     }
     public withBody(body: CreateMemberRequestBody): CreateMemberRequest {

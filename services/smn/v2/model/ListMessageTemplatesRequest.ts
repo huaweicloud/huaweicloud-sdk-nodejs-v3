@@ -3,7 +3,7 @@
 export class ListMessageTemplatesRequest {
     public offset?: number;
     public limit?: number;
-    private 'message_template_name'?: string | undefined;
+    private 'message_template_name'?: string;
     public protocol?: string;
     public constructor() { 
     }
@@ -19,10 +19,10 @@ export class ListMessageTemplatesRequest {
         this['message_template_name'] = messageTemplateName;
         return this;
     }
-    public set messageTemplateName(messageTemplateName: string | undefined) {
+    public set messageTemplateName(messageTemplateName: string  | undefined) {
         this['message_template_name'] = messageTemplateName;
     }
-    public get messageTemplateName() {
+    public get messageTemplateName(): string | undefined {
         return this['message_template_name'];
     }
     public withProtocol(protocol: string): ListMessageTemplatesRequest {

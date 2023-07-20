@@ -1,10 +1,10 @@
 
 
 export class TargetInstanceBody {
-    public id: string;
+    public id?: string;
     public name?: string;
     public password?: string;
-    public constructor(id?: any) { 
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withId(id: string): TargetInstanceBody {

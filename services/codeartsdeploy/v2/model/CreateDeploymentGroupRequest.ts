@@ -2,19 +2,19 @@ import { DeploymentGroup } from './DeploymentGroup';
 
 
 export class CreateDeploymentGroupRequest {
-    private 'Content-Type': CreateDeploymentGroupRequestContentTypeEnum | undefined;
+    private 'Content-Type'?: CreateDeploymentGroupRequestContentTypeEnum | string;
     public body?: DeploymentGroup;
-    public constructor(contentType?: any) { 
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
-    public withContentType(contentType: CreateDeploymentGroupRequestContentTypeEnum): CreateDeploymentGroupRequest {
+    public withContentType(contentType: CreateDeploymentGroupRequestContentTypeEnum | string): CreateDeploymentGroupRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CreateDeploymentGroupRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: CreateDeploymentGroupRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CreateDeploymentGroupRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withBody(body: DeploymentGroup): CreateDeploymentGroupRequest {

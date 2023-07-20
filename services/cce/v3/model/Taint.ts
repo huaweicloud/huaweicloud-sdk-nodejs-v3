@@ -1,10 +1,10 @@
 
 
 export class Taint {
-    public key: string;
+    public key?: string;
     public value?: string;
-    public effect: TaintEffectEnum;
-    public constructor(key?: any, effect?: any) { 
+    public effect?: TaintEffectEnum | string;
+    public constructor(key?: string, effect?: string) { 
         this['key'] = key;
         this['effect'] = effect;
     }
@@ -16,7 +16,7 @@ export class Taint {
         this['value'] = value;
         return this;
     }
-    public withEffect(effect: TaintEffectEnum): Taint {
+    public withEffect(effect: TaintEffectEnum | string): Taint {
         this['effect'] = effect;
         return this;
     }

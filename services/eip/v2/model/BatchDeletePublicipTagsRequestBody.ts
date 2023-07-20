@@ -2,9 +2,9 @@ import { ResourceTagOption } from './ResourceTagOption';
 
 
 export class BatchDeletePublicipTagsRequestBody {
-    public tags: Array<ResourceTagOption>;
-    public action: BatchDeletePublicipTagsRequestBodyActionEnum;
-    public constructor(tags?: any, action?: any) { 
+    public tags?: Array<ResourceTagOption>;
+    public action?: BatchDeletePublicipTagsRequestBodyActionEnum | string;
+    public constructor(tags?: Array<ResourceTagOption>, action?: string) { 
         this['tags'] = tags;
         this['action'] = action;
     }
@@ -12,7 +12,7 @@ export class BatchDeletePublicipTagsRequestBody {
         this['tags'] = tags;
         return this;
     }
-    public withAction(action: BatchDeletePublicipTagsRequestBodyActionEnum): BatchDeletePublicipTagsRequestBody {
+    public withAction(action: BatchDeletePublicipTagsRequestBodyActionEnum | string): BatchDeletePublicipTagsRequestBody {
         this['action'] = action;
         return this;
     }

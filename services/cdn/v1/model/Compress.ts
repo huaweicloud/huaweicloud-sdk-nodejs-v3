@@ -1,9 +1,9 @@
 
 
 export class Compress {
-    public status: string;
+    public status?: string;
     public type?: string;
-    public constructor(status?: any) { 
+    public constructor(status?: string) { 
         this['status'] = status;
     }
     public withStatus(status: string): Compress {

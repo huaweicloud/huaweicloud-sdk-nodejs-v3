@@ -2,16 +2,16 @@ import { PhysicalVolumes } from './PhysicalVolumes';
 
 
 export class Disk {
-    public name: string;
-    private 'partition_style'?: DiskPartitionStyleEnum | undefined;
-    private 'device_use': DiskDeviceUseEnum | undefined;
-    public size: number;
-    private 'used_size': number | undefined;
-    private 'physical_volumes': Array<PhysicalVolumes> | undefined;
-    private 'disk_id'?: string | undefined;
-    private 'os_disk'?: boolean | undefined;
-    private 'relation_name'?: string | undefined;
-    public constructor(name?: any, deviceUse?: any, size?: any, usedSize?: any, physicalVolumes?: any) { 
+    public name?: string;
+    private 'partition_style'?: DiskPartitionStyleEnum | string;
+    private 'device_use'?: DiskDeviceUseEnum | string;
+    public size?: number;
+    private 'used_size'?: number;
+    private 'physical_volumes'?: Array<PhysicalVolumes>;
+    private 'disk_id'?: string;
+    private 'os_disk'?: boolean;
+    private 'relation_name'?: string;
+    public constructor(name?: string, deviceUse?: string, size?: number, usedSize?: number, physicalVolumes?: Array<PhysicalVolumes>) { 
         this['name'] = name;
         this['device_use'] = deviceUse;
         this['size'] = size;
@@ -22,24 +22,24 @@ export class Disk {
         this['name'] = name;
         return this;
     }
-    public withPartitionStyle(partitionStyle: DiskPartitionStyleEnum): Disk {
+    public withPartitionStyle(partitionStyle: DiskPartitionStyleEnum | string): Disk {
         this['partition_style'] = partitionStyle;
         return this;
     }
-    public set partitionStyle(partitionStyle: DiskPartitionStyleEnum | undefined) {
+    public set partitionStyle(partitionStyle: DiskPartitionStyleEnum | string  | undefined) {
         this['partition_style'] = partitionStyle;
     }
-    public get partitionStyle() {
+    public get partitionStyle(): DiskPartitionStyleEnum | string | undefined {
         return this['partition_style'];
     }
-    public withDeviceUse(deviceUse: DiskDeviceUseEnum): Disk {
+    public withDeviceUse(deviceUse: DiskDeviceUseEnum | string): Disk {
         this['device_use'] = deviceUse;
         return this;
     }
-    public set deviceUse(deviceUse: DiskDeviceUseEnum | undefined) {
+    public set deviceUse(deviceUse: DiskDeviceUseEnum | string  | undefined) {
         this['device_use'] = deviceUse;
     }
-    public get deviceUse() {
+    public get deviceUse(): DiskDeviceUseEnum | string | undefined {
         return this['device_use'];
     }
     public withSize(size: number): Disk {
@@ -50,50 +50,50 @@ export class Disk {
         this['used_size'] = usedSize;
         return this;
     }
-    public set usedSize(usedSize: number | undefined) {
+    public set usedSize(usedSize: number  | undefined) {
         this['used_size'] = usedSize;
     }
-    public get usedSize() {
+    public get usedSize(): number | undefined {
         return this['used_size'];
     }
     public withPhysicalVolumes(physicalVolumes: Array<PhysicalVolumes>): Disk {
         this['physical_volumes'] = physicalVolumes;
         return this;
     }
-    public set physicalVolumes(physicalVolumes: Array<PhysicalVolumes> | undefined) {
+    public set physicalVolumes(physicalVolumes: Array<PhysicalVolumes>  | undefined) {
         this['physical_volumes'] = physicalVolumes;
     }
-    public get physicalVolumes() {
+    public get physicalVolumes(): Array<PhysicalVolumes> | undefined {
         return this['physical_volumes'];
     }
     public withDiskId(diskId: string): Disk {
         this['disk_id'] = diskId;
         return this;
     }
-    public set diskId(diskId: string | undefined) {
+    public set diskId(diskId: string  | undefined) {
         this['disk_id'] = diskId;
     }
-    public get diskId() {
+    public get diskId(): string | undefined {
         return this['disk_id'];
     }
     public withOsDisk(osDisk: boolean): Disk {
         this['os_disk'] = osDisk;
         return this;
     }
-    public set osDisk(osDisk: boolean | undefined) {
+    public set osDisk(osDisk: boolean  | undefined) {
         this['os_disk'] = osDisk;
     }
-    public get osDisk() {
+    public get osDisk(): boolean | undefined {
         return this['os_disk'];
     }
     public withRelationName(relationName: string): Disk {
         this['relation_name'] = relationName;
         return this;
     }
-    public set relationName(relationName: string | undefined) {
+    public set relationName(relationName: string  | undefined) {
         this['relation_name'] = relationName;
     }
-    public get relationName() {
+    public get relationName(): string | undefined {
         return this['relation_name'];
     }
 }

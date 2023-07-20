@@ -2,13 +2,13 @@ import { PredefineTagRequest } from './PredefineTagRequest';
 
 
 export class ReqDeletePredefineTag {
-    public action: ReqDeletePredefineTagActionEnum;
-    public tags: Array<PredefineTagRequest>;
-    public constructor(action?: any, tags?: any) { 
+    public action?: ReqDeletePredefineTagActionEnum | string;
+    public tags?: Array<PredefineTagRequest>;
+    public constructor(action?: string, tags?: Array<PredefineTagRequest>) { 
         this['action'] = action;
         this['tags'] = tags;
     }
-    public withAction(action: ReqDeletePredefineTagActionEnum): ReqDeletePredefineTag {
+    public withAction(action: ReqDeletePredefineTagActionEnum | string): ReqDeletePredefineTag {
         this['action'] = action;
         return this;
     }

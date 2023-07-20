@@ -2,18 +2,18 @@ import { BatchSpecialTestConnectionReq } from './BatchSpecialTestConnectionReq';
 
 
 export class BatchValidateClustersConnectionsRequest {
-    private 'X-Language'?: BatchValidateClustersConnectionsRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchValidateClustersConnectionsRequestXLanguageEnum | string;
     public body?: BatchSpecialTestConnectionReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchValidateClustersConnectionsRequestXLanguageEnum): BatchValidateClustersConnectionsRequest {
+    public withXLanguage(xLanguage: BatchValidateClustersConnectionsRequestXLanguageEnum | string): BatchValidateClustersConnectionsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchValidateClustersConnectionsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchValidateClustersConnectionsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchValidateClustersConnectionsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchSpecialTestConnectionReq): BatchValidateClustersConnectionsRequest {

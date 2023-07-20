@@ -1,11 +1,11 @@
 
 
 export class CreateValueListRequestBody {
-    public name: string;
-    public type: CreateValueListRequestBodyTypeEnum;
-    public values: Array<string>;
+    public name?: string;
+    public type?: CreateValueListRequestBodyTypeEnum | string;
+    public values?: Array<string>;
     public description?: string;
-    public constructor(name?: any, type?: any, values?: any) { 
+    public constructor(name?: string, type?: string, values?: Array<string>) { 
         this['name'] = name;
         this['type'] = type;
         this['values'] = values;
@@ -14,7 +14,7 @@ export class CreateValueListRequestBody {
         this['name'] = name;
         return this;
     }
-    public withType(type: CreateValueListRequestBodyTypeEnum): CreateValueListRequestBody {
+    public withType(type: CreateValueListRequestBodyTypeEnum | string): CreateValueListRequestBody {
         this['type'] = type;
         return this;
     }

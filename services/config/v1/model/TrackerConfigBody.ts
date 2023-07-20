@@ -3,10 +3,10 @@ import { SelectorConfigBody } from './SelectorConfigBody';
 
 
 export class TrackerConfigBody {
-    public channel: ChannelConfigBody;
-    public selector: SelectorConfigBody;
-    private 'agency_name': string | undefined;
-    public constructor(channel?: any, selector?: any, agencyName?: any) { 
+    public channel?: ChannelConfigBody;
+    public selector?: SelectorConfigBody;
+    private 'agency_name'?: string;
+    public constructor(channel?: ChannelConfigBody, selector?: SelectorConfigBody, agencyName?: string) { 
         this['channel'] = channel;
         this['selector'] = selector;
         this['agency_name'] = agencyName;
@@ -23,10 +23,10 @@ export class TrackerConfigBody {
         this['agency_name'] = agencyName;
         return this;
     }
-    public set agencyName(agencyName: string | undefined) {
+    public set agencyName(agencyName: string  | undefined) {
         this['agency_name'] = agencyName;
     }
-    public get agencyName() {
+    public get agencyName(): string | undefined {
         return this['agency_name'];
     }
 }

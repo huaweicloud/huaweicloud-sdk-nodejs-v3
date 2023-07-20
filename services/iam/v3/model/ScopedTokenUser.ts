@@ -3,12 +3,12 @@ import { TokenUserOsfederation } from './TokenUserOsfederation';
 
 
 export class ScopedTokenUser {
-    public domain: TokenDomainResult;
-    private 'OS-FEDERATION': TokenUserOsfederation | undefined;
-    public id: string;
-    public name: string;
-    private 'password_expires_at': string | undefined;
-    public constructor(domain?: any, osFederation?: any, id?: any, name?: any, passwordExpiresAt?: any) { 
+    public domain?: TokenDomainResult;
+    private 'OS-FEDERATION'?: TokenUserOsfederation;
+    public id?: string;
+    public name?: string;
+    private 'password_expires_at'?: string;
+    public constructor(domain?: TokenDomainResult, osFederation?: TokenUserOsfederation, id?: string, name?: string, passwordExpiresAt?: string) { 
         this['domain'] = domain;
         this['OS-FEDERATION'] = osFederation;
         this['id'] = id;
@@ -23,10 +23,10 @@ export class ScopedTokenUser {
         this['OS-FEDERATION'] = osFederation;
         return this;
     }
-    public set osFederation(osFederation: TokenUserOsfederation | undefined) {
+    public set osFederation(osFederation: TokenUserOsfederation  | undefined) {
         this['OS-FEDERATION'] = osFederation;
     }
-    public get osFederation() {
+    public get osFederation(): TokenUserOsfederation | undefined {
         return this['OS-FEDERATION'];
     }
     public withId(id: string): ScopedTokenUser {
@@ -41,10 +41,10 @@ export class ScopedTokenUser {
         this['password_expires_at'] = passwordExpiresAt;
         return this;
     }
-    public set passwordExpiresAt(passwordExpiresAt: string | undefined) {
+    public set passwordExpiresAt(passwordExpiresAt: string  | undefined) {
         this['password_expires_at'] = passwordExpiresAt;
     }
-    public get passwordExpiresAt() {
+    public get passwordExpiresAt(): string | undefined {
         return this['password_expires_at'];
     }
 }

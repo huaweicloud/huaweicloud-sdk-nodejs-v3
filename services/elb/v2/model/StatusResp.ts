@@ -2,8 +2,8 @@ import { LoadbalancerInStatusResp } from './LoadbalancerInStatusResp';
 
 
 export class StatusResp {
-    public loadbalancer: LoadbalancerInStatusResp;
-    public constructor(loadbalancer?: any) { 
+    public loadbalancer?: LoadbalancerInStatusResp;
+    public constructor(loadbalancer?: LoadbalancerInStatusResp) { 
         this['loadbalancer'] = loadbalancer;
     }
     public withLoadbalancer(loadbalancer: LoadbalancerInStatusResp): StatusResp {

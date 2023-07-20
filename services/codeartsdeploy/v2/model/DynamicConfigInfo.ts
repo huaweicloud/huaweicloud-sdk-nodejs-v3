@@ -4,7 +4,7 @@ import { KeyValueDO } from './KeyValueDO';
 export class DynamicConfigInfo {
     public key?: string;
     public value?: string;
-    public type?: DynamicConfigInfoTypeEnum;
+    public type?: DynamicConfigInfoTypeEnum | string;
     public constructor() { 
     }
     public withKey(key: string): DynamicConfigInfo {
@@ -15,7 +15,7 @@ export class DynamicConfigInfo {
         this['value'] = value;
         return this;
     }
-    public withType(type: DynamicConfigInfoTypeEnum): DynamicConfigInfo {
+    public withType(type: DynamicConfigInfoTypeEnum | string): DynamicConfigInfo {
         this['type'] = type;
         return this;
     }

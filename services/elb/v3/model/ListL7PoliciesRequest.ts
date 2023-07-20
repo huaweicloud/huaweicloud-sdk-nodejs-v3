@@ -3,20 +3,20 @@
 export class ListL7PoliciesRequest {
     public marker?: string;
     public limit?: number;
-    private 'page_reverse'?: boolean | undefined;
-    private 'enterprise_project_id'?: Array<string> | undefined;
+    private 'page_reverse'?: boolean;
+    private 'enterprise_project_id'?: Array<string>;
     public id?: Array<string>;
     public name?: Array<string>;
     public description?: Array<string>;
-    private 'admin_state_up'?: boolean | undefined;
-    private 'listener_id'?: Array<string> | undefined;
+    private 'admin_state_up'?: boolean;
+    private 'listener_id'?: Array<string>;
     public position?: Array<number>;
     public action?: Array<string>;
-    private 'redirect_url'?: Array<string> | undefined;
-    private 'redirect_pool_id'?: Array<string> | undefined;
-    private 'redirect_listener_id'?: Array<string> | undefined;
-    private 'provisioning_status'?: Array<string> | undefined;
-    private 'display_all_rules'?: boolean | undefined;
+    private 'redirect_url'?: Array<string>;
+    private 'redirect_pool_id'?: Array<string>;
+    private 'redirect_listener_id'?: Array<string>;
+    private 'provisioning_status'?: Array<string>;
+    private 'display_all_rules'?: boolean;
     public priority?: Array<number>;
     public constructor() { 
     }
@@ -32,20 +32,20 @@ export class ListL7PoliciesRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: Array<string>): ListL7PoliciesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: Array<string> | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: Array<string>  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): Array<string> | undefined {
         return this['enterprise_project_id'];
     }
     public withId(id: Array<string>): ListL7PoliciesRequest {
@@ -64,20 +64,20 @@ export class ListL7PoliciesRequest {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withListenerId(listenerId: Array<string>): ListL7PoliciesRequest {
         this['listener_id'] = listenerId;
         return this;
     }
-    public set listenerId(listenerId: Array<string> | undefined) {
+    public set listenerId(listenerId: Array<string>  | undefined) {
         this['listener_id'] = listenerId;
     }
-    public get listenerId() {
+    public get listenerId(): Array<string> | undefined {
         return this['listener_id'];
     }
     public withPosition(position: Array<number>): ListL7PoliciesRequest {
@@ -92,50 +92,50 @@ export class ListL7PoliciesRequest {
         this['redirect_url'] = redirectUrl;
         return this;
     }
-    public set redirectUrl(redirectUrl: Array<string> | undefined) {
+    public set redirectUrl(redirectUrl: Array<string>  | undefined) {
         this['redirect_url'] = redirectUrl;
     }
-    public get redirectUrl() {
+    public get redirectUrl(): Array<string> | undefined {
         return this['redirect_url'];
     }
     public withRedirectPoolId(redirectPoolId: Array<string>): ListL7PoliciesRequest {
         this['redirect_pool_id'] = redirectPoolId;
         return this;
     }
-    public set redirectPoolId(redirectPoolId: Array<string> | undefined) {
+    public set redirectPoolId(redirectPoolId: Array<string>  | undefined) {
         this['redirect_pool_id'] = redirectPoolId;
     }
-    public get redirectPoolId() {
+    public get redirectPoolId(): Array<string> | undefined {
         return this['redirect_pool_id'];
     }
     public withRedirectListenerId(redirectListenerId: Array<string>): ListL7PoliciesRequest {
         this['redirect_listener_id'] = redirectListenerId;
         return this;
     }
-    public set redirectListenerId(redirectListenerId: Array<string> | undefined) {
+    public set redirectListenerId(redirectListenerId: Array<string>  | undefined) {
         this['redirect_listener_id'] = redirectListenerId;
     }
-    public get redirectListenerId() {
+    public get redirectListenerId(): Array<string> | undefined {
         return this['redirect_listener_id'];
     }
     public withProvisioningStatus(provisioningStatus: Array<string>): ListL7PoliciesRequest {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: Array<string> | undefined) {
+    public set provisioningStatus(provisioningStatus: Array<string>  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): Array<string> | undefined {
         return this['provisioning_status'];
     }
     public withDisplayAllRules(displayAllRules: boolean): ListL7PoliciesRequest {
         this['display_all_rules'] = displayAllRules;
         return this;
     }
-    public set displayAllRules(displayAllRules: boolean | undefined) {
+    public set displayAllRules(displayAllRules: boolean  | undefined) {
         this['display_all_rules'] = displayAllRules;
     }
-    public get displayAllRules() {
+    public get displayAllRules(): boolean | undefined {
         return this['display_all_rules'];
     }
     public withPriority(priority: Array<number>): ListL7PoliciesRequest {

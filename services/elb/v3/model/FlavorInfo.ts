@@ -1,13 +1,13 @@
 
 
 export class FlavorInfo {
-    public connection: number;
-    public cps: number;
+    public connection?: number;
+    public cps?: number;
     public qps?: number;
     public bandwidth?: number;
     public lcu?: number;
-    private 'https_cps'?: number | undefined;
-    public constructor(connection?: any, cps?: any) { 
+    private 'https_cps'?: number;
+    public constructor(connection?: number, cps?: number) { 
         this['connection'] = connection;
         this['cps'] = cps;
     }
@@ -35,10 +35,10 @@ export class FlavorInfo {
         this['https_cps'] = httpsCps;
         return this;
     }
-    public set httpsCps(httpsCps: number | undefined) {
+    public set httpsCps(httpsCps: number  | undefined) {
         this['https_cps'] = httpsCps;
     }
-    public get httpsCps() {
+    public get httpsCps(): number | undefined {
         return this['https_cps'];
     }
 }

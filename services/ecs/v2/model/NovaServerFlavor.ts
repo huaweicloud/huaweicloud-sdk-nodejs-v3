@@ -9,8 +9,8 @@ export class NovaServerFlavor {
     public disk?: number;
     public ephemeral?: number;
     public swap?: number;
-    private 'original_name'?: string | undefined;
-    private 'extra_specs'?: { [key: string]: string; } | undefined;
+    private 'original_name'?: string;
+    private 'extra_specs'?: { [key: string]: string; };
     public constructor() { 
     }
     public withId(id: string): NovaServerFlavor {
@@ -45,20 +45,20 @@ export class NovaServerFlavor {
         this['original_name'] = originalName;
         return this;
     }
-    public set originalName(originalName: string | undefined) {
+    public set originalName(originalName: string  | undefined) {
         this['original_name'] = originalName;
     }
-    public get originalName() {
+    public get originalName(): string | undefined {
         return this['original_name'];
     }
     public withExtraSpecs(extraSpecs: { [key: string]: string; }): NovaServerFlavor {
         this['extra_specs'] = extraSpecs;
         return this;
     }
-    public set extraSpecs(extraSpecs: { [key: string]: string; } | undefined) {
+    public set extraSpecs(extraSpecs: { [key: string]: string; }  | undefined) {
         this['extra_specs'] = extraSpecs;
     }
-    public get extraSpecs() {
+    public get extraSpecs(): { [key: string]: string; } | undefined {
         return this['extra_specs'];
     }
 }

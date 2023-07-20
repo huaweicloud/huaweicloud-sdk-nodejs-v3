@@ -1,12 +1,12 @@
 
 
 export class QuotaInfo {
-    public type: string;
-    public used: number;
-    public quota: number;
-    public min: number;
-    public max: number;
-    public constructor(type?: any, used?: any, quota?: any, min?: any, max?: any) { 
+    public type?: string;
+    public used?: number;
+    public quota?: number;
+    public min?: number;
+    public max?: number;
+    public constructor(type?: string, used?: number, quota?: number, min?: number, max?: number) { 
         this['type'] = type;
         this['used'] = used;
         this['quota'] = quota;

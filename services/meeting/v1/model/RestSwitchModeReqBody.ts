@@ -1,9 +1,9 @@
 
 
 export class RestSwitchModeReqBody {
-    public switchMode: string;
-    public imageType: number;
-    public constructor(switchMode?: any, imageType?: any) { 
+    public switchMode?: string;
+    public imageType?: number;
+    public constructor(switchMode?: string, imageType?: number) { 
         this['switchMode'] = switchMode;
         this['imageType'] = imageType;
     }

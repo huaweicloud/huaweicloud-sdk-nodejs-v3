@@ -3,7 +3,7 @@ import { ListEnterpriseProjectsResDetail } from './ListEnterpriseProjectsResDeta
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListEnterpriseProjectsForGroupResponse extends SdkResponse {
-    private 'enterprise-projects'?: Array<ListEnterpriseProjectsResDetail> | undefined;
+    private 'enterprise-projects'?: Array<ListEnterpriseProjectsResDetail>;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ListEnterpriseProjectsForGroupResponse extends SdkResponse {
         this['enterprise-projects'] = enterpriseProjects;
         return this;
     }
-    public set enterpriseProjects(enterpriseProjects: Array<ListEnterpriseProjectsResDetail> | undefined) {
+    public set enterpriseProjects(enterpriseProjects: Array<ListEnterpriseProjectsResDetail>  | undefined) {
         this['enterprise-projects'] = enterpriseProjects;
     }
-    public get enterpriseProjects() {
+    public get enterpriseProjects(): Array<ListEnterpriseProjectsResDetail> | undefined {
         return this['enterprise-projects'];
     }
 }

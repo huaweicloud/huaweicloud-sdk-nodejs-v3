@@ -2,12 +2,12 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowFunctionTriggerResponse extends SdkResponse {
-    private 'trigger_id'?: string | undefined;
-    private 'trigger_type_code'?: ShowFunctionTriggerResponseTriggerTypeCodeEnum | undefined;
-    private 'trigger_status'?: ShowFunctionTriggerResponseTriggerStatusEnum | undefined;
-    private 'event_data'?: object | undefined;
-    private 'last_updated_time'?: Date | undefined;
-    private 'created_time'?: Date | undefined;
+    private 'trigger_id'?: string;
+    private 'trigger_type_code'?: ShowFunctionTriggerResponseTriggerTypeCodeEnum | string;
+    private 'trigger_status'?: ShowFunctionTriggerResponseTriggerStatusEnum | string;
+    private 'event_data'?: object;
+    private 'last_updated_time'?: Date;
+    private 'created_time'?: Date;
     public constructor() { 
         super();
     }
@@ -15,60 +15,60 @@ export class ShowFunctionTriggerResponse extends SdkResponse {
         this['trigger_id'] = triggerId;
         return this;
     }
-    public set triggerId(triggerId: string | undefined) {
+    public set triggerId(triggerId: string  | undefined) {
         this['trigger_id'] = triggerId;
     }
-    public get triggerId() {
+    public get triggerId(): string | undefined {
         return this['trigger_id'];
     }
-    public withTriggerTypeCode(triggerTypeCode: ShowFunctionTriggerResponseTriggerTypeCodeEnum): ShowFunctionTriggerResponse {
+    public withTriggerTypeCode(triggerTypeCode: ShowFunctionTriggerResponseTriggerTypeCodeEnum | string): ShowFunctionTriggerResponse {
         this['trigger_type_code'] = triggerTypeCode;
         return this;
     }
-    public set triggerTypeCode(triggerTypeCode: ShowFunctionTriggerResponseTriggerTypeCodeEnum | undefined) {
+    public set triggerTypeCode(triggerTypeCode: ShowFunctionTriggerResponseTriggerTypeCodeEnum | string  | undefined) {
         this['trigger_type_code'] = triggerTypeCode;
     }
-    public get triggerTypeCode() {
+    public get triggerTypeCode(): ShowFunctionTriggerResponseTriggerTypeCodeEnum | string | undefined {
         return this['trigger_type_code'];
     }
-    public withTriggerStatus(triggerStatus: ShowFunctionTriggerResponseTriggerStatusEnum): ShowFunctionTriggerResponse {
+    public withTriggerStatus(triggerStatus: ShowFunctionTriggerResponseTriggerStatusEnum | string): ShowFunctionTriggerResponse {
         this['trigger_status'] = triggerStatus;
         return this;
     }
-    public set triggerStatus(triggerStatus: ShowFunctionTriggerResponseTriggerStatusEnum | undefined) {
+    public set triggerStatus(triggerStatus: ShowFunctionTriggerResponseTriggerStatusEnum | string  | undefined) {
         this['trigger_status'] = triggerStatus;
     }
-    public get triggerStatus() {
+    public get triggerStatus(): ShowFunctionTriggerResponseTriggerStatusEnum | string | undefined {
         return this['trigger_status'];
     }
     public withEventData(eventData: object): ShowFunctionTriggerResponse {
         this['event_data'] = eventData;
         return this;
     }
-    public set eventData(eventData: object | undefined) {
+    public set eventData(eventData: object  | undefined) {
         this['event_data'] = eventData;
     }
-    public get eventData() {
+    public get eventData(): object | undefined {
         return this['event_data'];
     }
     public withLastUpdatedTime(lastUpdatedTime: Date): ShowFunctionTriggerResponse {
         this['last_updated_time'] = lastUpdatedTime;
         return this;
     }
-    public set lastUpdatedTime(lastUpdatedTime: Date | undefined) {
+    public set lastUpdatedTime(lastUpdatedTime: Date  | undefined) {
         this['last_updated_time'] = lastUpdatedTime;
     }
-    public get lastUpdatedTime() {
+    public get lastUpdatedTime(): Date | undefined {
         return this['last_updated_time'];
     }
     public withCreatedTime(createdTime: Date): ShowFunctionTriggerResponse {
         this['created_time'] = createdTime;
         return this;
     }
-    public set createdTime(createdTime: Date | undefined) {
+    public set createdTime(createdTime: Date  | undefined) {
         this['created_time'] = createdTime;
     }
-    public get createdTime() {
+    public get createdTime(): Date | undefined {
         return this['created_time'];
     }
 }

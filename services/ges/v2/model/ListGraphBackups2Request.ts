@@ -1,20 +1,20 @@
 
 
 export class ListGraphBackups2Request {
-    private 'graph_id': string | undefined;
+    private 'graph_id'?: string;
     public offset?: number;
     public limit?: number;
-    public constructor(graphId?: any) { 
+    public constructor(graphId?: string) { 
         this['graph_id'] = graphId;
     }
     public withGraphId(graphId: string): ListGraphBackups2Request {
         this['graph_id'] = graphId;
         return this;
     }
-    public set graphId(graphId: string | undefined) {
+    public set graphId(graphId: string  | undefined) {
         this['graph_id'] = graphId;
     }
-    public get graphId() {
+    public get graphId(): string | undefined {
         return this['graph_id'];
     }
     public withOffset(offset: number): ListGraphBackups2Request {

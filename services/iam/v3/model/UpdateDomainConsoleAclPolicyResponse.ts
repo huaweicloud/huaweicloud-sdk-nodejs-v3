@@ -3,7 +3,7 @@ import { AclPolicyResult } from './AclPolicyResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateDomainConsoleAclPolicyResponse extends SdkResponse {
-    private 'console_acl_policy'?: AclPolicyResult | undefined;
+    private 'console_acl_policy'?: AclPolicyResult;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class UpdateDomainConsoleAclPolicyResponse extends SdkResponse {
         this['console_acl_policy'] = consoleAclPolicy;
         return this;
     }
-    public set consoleAclPolicy(consoleAclPolicy: AclPolicyResult | undefined) {
+    public set consoleAclPolicy(consoleAclPolicy: AclPolicyResult  | undefined) {
         this['console_acl_policy'] = consoleAclPolicy;
     }
-    public get consoleAclPolicy() {
+    public get consoleAclPolicy(): AclPolicyResult | undefined {
         return this['console_acl_policy'];
     }
 }

@@ -5,24 +5,24 @@ import { StackStatusPrimitiveTypeHolder } from './StackStatusPrimitiveTypeHolder
 
 
 export class Stack {
-    private 'stack_name': string | undefined;
+    private 'stack_name'?: string;
     public description?: string;
-    private 'stack_id'?: string | undefined;
-    public status?: StackStatusEnum;
-    private 'create_time'?: string | undefined;
-    private 'update_time'?: string | undefined;
-    private 'status_message'?: string | undefined;
-    public constructor(stackName?: any) { 
+    private 'stack_id'?: string;
+    public status?: StackStatusEnum | string;
+    private 'create_time'?: string;
+    private 'update_time'?: string;
+    private 'status_message'?: string;
+    public constructor(stackName?: string) { 
         this['stack_name'] = stackName;
     }
     public withStackName(stackName: string): Stack {
         this['stack_name'] = stackName;
         return this;
     }
-    public set stackName(stackName: string | undefined) {
+    public set stackName(stackName: string  | undefined) {
         this['stack_name'] = stackName;
     }
-    public get stackName() {
+    public get stackName(): string | undefined {
         return this['stack_name'];
     }
     public withDescription(description: string): Stack {
@@ -33,13 +33,13 @@ export class Stack {
         this['stack_id'] = stackId;
         return this;
     }
-    public set stackId(stackId: string | undefined) {
+    public set stackId(stackId: string  | undefined) {
         this['stack_id'] = stackId;
     }
-    public get stackId() {
+    public get stackId(): string | undefined {
         return this['stack_id'];
     }
-    public withStatus(status: StackStatusEnum): Stack {
+    public withStatus(status: StackStatusEnum | string): Stack {
         this['status'] = status;
         return this;
     }
@@ -47,30 +47,30 @@ export class Stack {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withUpdateTime(updateTime: string): Stack {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
     public withStatusMessage(statusMessage: string): Stack {
         this['status_message'] = statusMessage;
         return this;
     }
-    public set statusMessage(statusMessage: string | undefined) {
+    public set statusMessage(statusMessage: string  | undefined) {
         this['status_message'] = statusMessage;
     }
-    public get statusMessage() {
+    public get statusMessage(): string | undefined {
         return this['status_message'];
     }
 }

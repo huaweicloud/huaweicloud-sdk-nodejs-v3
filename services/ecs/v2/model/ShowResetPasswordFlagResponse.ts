@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowResetPasswordFlagResponse extends SdkResponse {
-    private 'resetpwd_flag'?: string | undefined;
+    private 'resetpwd_flag'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class ShowResetPasswordFlagResponse extends SdkResponse {
         this['resetpwd_flag'] = resetpwdFlag;
         return this;
     }
-    public set resetpwdFlag(resetpwdFlag: string | undefined) {
+    public set resetpwdFlag(resetpwdFlag: string  | undefined) {
         this['resetpwd_flag'] = resetpwdFlag;
     }
-    public get resetpwdFlag() {
+    public get resetpwdFlag(): string | undefined {
         return this['resetpwd_flag'];
     }
 }

@@ -3,10 +3,10 @@ import { TimeValue } from './TimeValue';
 
 
 export class AreaDetail {
-    public area: string;
-    public summary: Array<TimeValue>;
-    public detail: Array<AreaTimeValue>;
-    public constructor(area?: any, summary?: any, detail?: any) { 
+    public area?: string;
+    public summary?: Array<TimeValue>;
+    public detail?: Array<AreaTimeValue>;
+    public constructor(area?: string, summary?: Array<TimeValue>, detail?: Array<AreaTimeValue>) { 
         this['area'] = area;
         this['summary'] = summary;
         this['detail'] = detail;

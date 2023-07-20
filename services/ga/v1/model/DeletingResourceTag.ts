@@ -1,8 +1,8 @@
 
 
 export class DeletingResourceTag {
-    public key: string;
-    public constructor(key?: any) { 
+    public key?: string;
+    public constructor(key?: string) { 
         this['key'] = key;
     }
     public withKey(key: string): DeletingResourceTag {

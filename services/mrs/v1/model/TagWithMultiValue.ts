@@ -1,9 +1,9 @@
 
 
 export class TagWithMultiValue {
-    public key: string;
+    public key?: string;
     public values?: Array<string>;
-    public constructor(key?: any) { 
+    public constructor(key?: string) { 
         this['key'] = key;
     }
     public withKey(key: string): TagWithMultiValue {

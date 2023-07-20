@@ -1,9 +1,9 @@
 
 
 export class PhonemeFluency {
-    public score: number;
-    public rhythm: number;
-    public constructor(score?: any, rhythm?: any) { 
+    public score?: number;
+    public rhythm?: number;
+    public constructor(score?: number, rhythm?: number) { 
         this['score'] = score;
         this['rhythm'] = rhythm;
     }

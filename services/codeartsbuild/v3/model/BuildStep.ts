@@ -3,7 +3,7 @@
 export class BuildStep {
     public name?: string;
     public status?: string;
-    private 'build_time'?: number | undefined;
+    private 'build_time'?: number;
     public constructor() { 
     }
     public withName(name: string): BuildStep {
@@ -18,10 +18,10 @@ export class BuildStep {
         this['build_time'] = buildTime;
         return this;
     }
-    public set buildTime(buildTime: number | undefined) {
+    public set buildTime(buildTime: number  | undefined) {
         this['build_time'] = buildTime;
     }
-    public get buildTime() {
+    public get buildTime(): number | undefined {
         return this['build_time'];
     }
 }

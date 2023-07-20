@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateSecretResponse extends SdkResponse {
     public auths?: { [key: string]: AuthInfo; };
-    private 'X-Swr-Dockerlogin'?: string | undefined;
+    private 'X-Swr-Dockerlogin'?: string;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class CreateSecretResponse extends SdkResponse {
         this['X-Swr-Dockerlogin'] = xSwrDockerlogin;
         return this;
     }
-    public set xSwrDockerlogin(xSwrDockerlogin: string | undefined) {
+    public set xSwrDockerlogin(xSwrDockerlogin: string  | undefined) {
         this['X-Swr-Dockerlogin'] = xSwrDockerlogin;
     }
-    public get xSwrDockerlogin() {
+    public get xSwrDockerlogin(): string | undefined {
         return this['X-Swr-Dockerlogin'];
     }
 }

@@ -1,11 +1,19 @@
 
 
 export class ListProductsRequest {
-    public engine?: string;
+    public engine?: ListProductsRequestEngineEnum | string;
     public constructor() { 
     }
-    public withEngine(engine: string): ListProductsRequest {
+    public withEngine(engine: ListProductsRequestEngineEnum | string): ListProductsRequest {
         this['engine'] = engine;
         return this;
     }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListProductsRequestEngineEnum {
+    RABBITMQ = 'rabbitmq'
 }

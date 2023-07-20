@@ -1,9 +1,9 @@
 
 
 export class Grant {
-    public permission: string;
-    private 'grant_with': boolean | undefined;
-    public constructor(permission?: any, grantWith?: any) { 
+    public permission?: string;
+    private 'grant_with'?: boolean;
+    public constructor(permission?: string, grantWith?: boolean) { 
         this['permission'] = permission;
         this['grant_with'] = grantWith;
     }
@@ -15,10 +15,10 @@ export class Grant {
         this['grant_with'] = grantWith;
         return this;
     }
-    public set grantWith(grantWith: boolean | undefined) {
+    public set grantWith(grantWith: boolean  | undefined) {
         this['grant_with'] = grantWith;
     }
-    public get grantWith() {
+    public get grantWith(): boolean | undefined {
         return this['grant_with'];
     }
 }

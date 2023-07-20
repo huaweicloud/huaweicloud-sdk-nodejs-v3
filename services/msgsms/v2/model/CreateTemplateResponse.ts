@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateTemplateResponse extends SdkResponse {
     public id?: string;
-    private 'template_name'?: string | undefined;
+    private 'template_name'?: string;
     public constructor() { 
         super();
     }
@@ -15,10 +15,10 @@ export class CreateTemplateResponse extends SdkResponse {
         this['template_name'] = templateName;
         return this;
     }
-    public set templateName(templateName: string | undefined) {
+    public set templateName(templateName: string  | undefined) {
         this['template_name'] = templateName;
     }
-    public get templateName() {
+    public get templateName(): string | undefined {
         return this['template_name'];
     }
 }

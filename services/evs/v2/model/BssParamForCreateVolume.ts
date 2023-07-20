@@ -1,22 +1,22 @@
 
 
 export class BssParamForCreateVolume {
-    public chargingMode?: BssParamForCreateVolumeChargingModeEnum;
-    public isAutoPay?: BssParamForCreateVolumeIsAutoPayEnum;
-    public isAutoRenew?: BssParamForCreateVolumeIsAutoRenewEnum;
+    public chargingMode?: BssParamForCreateVolumeChargingModeEnum | string;
+    public isAutoPay?: BssParamForCreateVolumeIsAutoPayEnum | string;
+    public isAutoRenew?: BssParamForCreateVolumeIsAutoRenewEnum | string;
     public periodNum?: number;
-    public periodType?: BssParamForCreateVolumePeriodTypeEnum;
+    public periodType?: BssParamForCreateVolumePeriodTypeEnum | string;
     public constructor() { 
     }
-    public withChargingMode(chargingMode: BssParamForCreateVolumeChargingModeEnum): BssParamForCreateVolume {
+    public withChargingMode(chargingMode: BssParamForCreateVolumeChargingModeEnum | string): BssParamForCreateVolume {
         this['chargingMode'] = chargingMode;
         return this;
     }
-    public withIsAutoPay(isAutoPay: BssParamForCreateVolumeIsAutoPayEnum): BssParamForCreateVolume {
+    public withIsAutoPay(isAutoPay: BssParamForCreateVolumeIsAutoPayEnum | string): BssParamForCreateVolume {
         this['isAutoPay'] = isAutoPay;
         return this;
     }
-    public withIsAutoRenew(isAutoRenew: BssParamForCreateVolumeIsAutoRenewEnum): BssParamForCreateVolume {
+    public withIsAutoRenew(isAutoRenew: BssParamForCreateVolumeIsAutoRenewEnum | string): BssParamForCreateVolume {
         this['isAutoRenew'] = isAutoRenew;
         return this;
     }
@@ -24,7 +24,7 @@ export class BssParamForCreateVolume {
         this['periodNum'] = periodNum;
         return this;
     }
-    public withPeriodType(periodType: BssParamForCreateVolumePeriodTypeEnum): BssParamForCreateVolume {
+    public withPeriodType(periodType: BssParamForCreateVolumePeriodTypeEnum | string): BssParamForCreateVolume {
         this['periodType'] = periodType;
         return this;
     }

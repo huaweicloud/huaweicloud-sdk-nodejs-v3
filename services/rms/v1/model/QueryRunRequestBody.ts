@@ -1,8 +1,8 @@
 
 
 export class QueryRunRequestBody {
-    public expression: string;
-    public constructor(expression?: any) { 
+    public expression?: string;
+    public constructor(expression?: string) { 
         this['expression'] = expression;
     }
     public withExpression(expression: string): QueryRunRequestBody {

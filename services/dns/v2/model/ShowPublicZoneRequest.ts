@@ -1,18 +1,18 @@
 
 
 export class ShowPublicZoneRequest {
-    private 'zone_id': string | undefined;
-    public constructor(zoneId?: any) { 
+    private 'zone_id'?: string;
+    public constructor(zoneId?: string) { 
         this['zone_id'] = zoneId;
     }
     public withZoneId(zoneId: string): ShowPublicZoneRequest {
         this['zone_id'] = zoneId;
         return this;
     }
-    public set zoneId(zoneId: string | undefined) {
+    public set zoneId(zoneId: string  | undefined) {
         this['zone_id'] = zoneId;
     }
-    public get zoneId() {
+    public get zoneId(): string | undefined {
         return this['zone_id'];
     }
 }

@@ -1,8 +1,8 @@
 
 
 export class AddMembersReq {
-    public members: Array<string>;
-    public constructor(members?: any) { 
+    public members?: Array<string>;
+    public constructor(members?: Array<string>) { 
         this['members'] = members;
     }
     public withMembers(members: Array<string>): AddMembersReq {

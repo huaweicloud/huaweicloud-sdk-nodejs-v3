@@ -6,7 +6,7 @@ export class ExecuteSqlResponse extends SdkResponse {
     public message?: string;
     public statement?: string;
     public status?: string;
-    private 'result_location'?: string | undefined;
+    private 'result_location'?: string;
     public content?: Array<Array<string>>;
     public constructor() { 
         super();
@@ -31,10 +31,10 @@ export class ExecuteSqlResponse extends SdkResponse {
         this['result_location'] = resultLocation;
         return this;
     }
-    public set resultLocation(resultLocation: string | undefined) {
+    public set resultLocation(resultLocation: string  | undefined) {
         this['result_location'] = resultLocation;
     }
-    public get resultLocation() {
+    public get resultLocation(): string | undefined {
         return this['result_location'];
     }
     public withContent(content: Array<Array<string>>): ExecuteSqlResponse {

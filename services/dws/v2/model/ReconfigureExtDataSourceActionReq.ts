@@ -2,8 +2,8 @@ import { ReconfigureExtDataSourceAction } from './ReconfigureExtDataSourceAction
 
 
 export class ReconfigureExtDataSourceActionReq {
-    public reconfigure: ReconfigureExtDataSourceAction;
-    public constructor(reconfigure?: any) { 
+    public reconfigure?: ReconfigureExtDataSourceAction;
+    public constructor(reconfigure?: ReconfigureExtDataSourceAction) { 
         this['reconfigure'] = reconfigure;
     }
     public withReconfigure(reconfigure: ReconfigureExtDataSourceAction): ReconfigureExtDataSourceActionReq {

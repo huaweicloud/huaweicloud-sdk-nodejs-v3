@@ -4,8 +4,8 @@ export class BasicWatermark {
     public dx?: string;
     public dy?: string;
     public referpos?: string;
-    private 'timeline_start'?: string | undefined;
-    private 'timeline_duration'?: string | undefined;
+    private 'timeline_start'?: string;
+    private 'timeline_duration'?: string;
     public constructor() { 
     }
     public withDx(dx: string): BasicWatermark {
@@ -24,20 +24,20 @@ export class BasicWatermark {
         this['timeline_start'] = timelineStart;
         return this;
     }
-    public set timelineStart(timelineStart: string | undefined) {
+    public set timelineStart(timelineStart: string  | undefined) {
         this['timeline_start'] = timelineStart;
     }
-    public get timelineStart() {
+    public get timelineStart(): string | undefined {
         return this['timeline_start'];
     }
     public withTimelineDuration(timelineDuration: string): BasicWatermark {
         this['timeline_duration'] = timelineDuration;
         return this;
     }
-    public set timelineDuration(timelineDuration: string | undefined) {
+    public set timelineDuration(timelineDuration: string  | undefined) {
         this['timeline_duration'] = timelineDuration;
     }
-    public get timelineDuration() {
+    public get timelineDuration(): string | undefined {
         return this['timeline_duration'];
     }
 }

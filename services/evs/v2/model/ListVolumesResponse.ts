@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListVolumesResponse extends SdkResponse {
     public count?: number;
-    private 'volumes_links'?: Array<Link> | undefined;
+    private 'volumes_links'?: Array<Link>;
     public volumes?: Array<VolumeDetail>;
     public constructor() { 
         super();
@@ -18,10 +18,10 @@ export class ListVolumesResponse extends SdkResponse {
         this['volumes_links'] = volumesLinks;
         return this;
     }
-    public set volumesLinks(volumesLinks: Array<Link> | undefined) {
+    public set volumesLinks(volumesLinks: Array<Link>  | undefined) {
         this['volumes_links'] = volumesLinks;
     }
-    public get volumesLinks() {
+    public get volumesLinks(): Array<Link> | undefined {
         return this['volumes_links'];
     }
     public withVolumes(volumes: Array<VolumeDetail>): ListVolumesResponse {

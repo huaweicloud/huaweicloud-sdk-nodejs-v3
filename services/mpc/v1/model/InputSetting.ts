@@ -2,10 +2,10 @@ import { ObsObjInfo } from './ObsObjInfo';
 
 
 export class InputSetting {
-    public input: ObsObjInfo;
-    private 'pane_id': string | undefined;
-    private 'audio_policy'?: InputSettingAudioPolicyEnum | undefined;
-    public constructor(input?: any, paneId?: any) { 
+    public input?: ObsObjInfo;
+    private 'pane_id'?: string;
+    private 'audio_policy'?: InputSettingAudioPolicyEnum | string;
+    public constructor(input?: ObsObjInfo, paneId?: string) { 
         this['input'] = input;
         this['pane_id'] = paneId;
     }
@@ -17,20 +17,20 @@ export class InputSetting {
         this['pane_id'] = paneId;
         return this;
     }
-    public set paneId(paneId: string | undefined) {
+    public set paneId(paneId: string  | undefined) {
         this['pane_id'] = paneId;
     }
-    public get paneId() {
+    public get paneId(): string | undefined {
         return this['pane_id'];
     }
-    public withAudioPolicy(audioPolicy: InputSettingAudioPolicyEnum): InputSetting {
+    public withAudioPolicy(audioPolicy: InputSettingAudioPolicyEnum | string): InputSetting {
         this['audio_policy'] = audioPolicy;
         return this;
     }
-    public set audioPolicy(audioPolicy: InputSettingAudioPolicyEnum | undefined) {
+    public set audioPolicy(audioPolicy: InputSettingAudioPolicyEnum | string  | undefined) {
         this['audio_policy'] = audioPolicy;
     }
-    public get audioPolicy() {
+    public get audioPolicy(): InputSettingAudioPolicyEnum | string | undefined {
         return this['audio_policy'];
     }
 }

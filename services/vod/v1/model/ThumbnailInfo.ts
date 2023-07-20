@@ -4,8 +4,8 @@ import { ThumbnailRsp } from './ThumbnailRsp';
 export class ThumbnailInfo {
     public sample?: Array<ThumbnailRsp>;
     public dots?: Array<ThumbnailRsp>;
-    private 'exec_desc'?: string | undefined;
-    private 'thumbnail_status'?: string | undefined;
+    private 'exec_desc'?: string;
+    private 'thumbnail_status'?: string;
     public constructor() { 
     }
     public withSample(sample: Array<ThumbnailRsp>): ThumbnailInfo {
@@ -20,20 +20,20 @@ export class ThumbnailInfo {
         this['exec_desc'] = execDesc;
         return this;
     }
-    public set execDesc(execDesc: string | undefined) {
+    public set execDesc(execDesc: string  | undefined) {
         this['exec_desc'] = execDesc;
     }
-    public get execDesc() {
+    public get execDesc(): string | undefined {
         return this['exec_desc'];
     }
     public withThumbnailStatus(thumbnailStatus: string): ThumbnailInfo {
         this['thumbnail_status'] = thumbnailStatus;
         return this;
     }
-    public set thumbnailStatus(thumbnailStatus: string | undefined) {
+    public set thumbnailStatus(thumbnailStatus: string  | undefined) {
         this['thumbnail_status'] = thumbnailStatus;
     }
-    public get thumbnailStatus() {
+    public get thumbnailStatus(): string | undefined {
         return this['thumbnail_status'];
     }
 }

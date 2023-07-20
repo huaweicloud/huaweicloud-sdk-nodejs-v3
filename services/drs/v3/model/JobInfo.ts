@@ -3,21 +3,21 @@ import { JobActionResp } from './JobActionResp';
 
 
 export class JobInfo {
-    public id: string;
-    public name: string;
-    public status: JobInfoStatusEnum;
-    public description: string;
-    private 'create_time': string | undefined;
-    private 'engine_type': JobInfoEngineTypeEnum | undefined;
-    private 'net_type': JobInfoNetTypeEnum | undefined;
-    private 'billing_tag': boolean | undefined;
-    private 'job_direction': JobInfoJobDirectionEnum | undefined;
-    private 'db_use_type': JobInfoDbUseTypeEnum | undefined;
-    private 'task_type': JobInfoTaskTypeEnum | undefined;
+    public id?: string;
+    public name?: string;
+    public status?: JobInfoStatusEnum | string;
+    public description?: string;
+    private 'create_time'?: string;
+    private 'engine_type'?: JobInfoEngineTypeEnum | string;
+    private 'net_type'?: JobInfoNetTypeEnum | string;
+    private 'billing_tag'?: boolean;
+    private 'job_direction'?: JobInfoJobDirectionEnum | string;
+    private 'db_use_type'?: JobInfoDbUseTypeEnum | string;
+    private 'task_type'?: JobInfoTaskTypeEnum | string;
     public children?: Array<ChildrenJobInfo>;
-    private 'node_newFramework': boolean | undefined;
-    private 'job_action'?: JobActionResp | undefined;
-    public constructor(id?: any, name?: any, status?: any, description?: any, createTime?: any, engineType?: any, netType?: any, billingTag?: any, jobDirection?: any, dbUseType?: any, taskType?: any, nodeNewFramework?: any) { 
+    private 'node_newFramework'?: boolean;
+    private 'job_action'?: JobActionResp;
+    public constructor(id?: string, name?: string, status?: string, description?: string, createTime?: string, engineType?: string, netType?: string, billingTag?: boolean, jobDirection?: string, dbUseType?: string, taskType?: string, nodeNewFramework?: boolean) { 
         this['id'] = id;
         this['name'] = name;
         this['status'] = status;
@@ -39,7 +39,7 @@ export class JobInfo {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: JobInfoStatusEnum): JobInfo {
+    public withStatus(status: JobInfoStatusEnum | string): JobInfo {
         this['status'] = status;
         return this;
     }
@@ -51,70 +51,70 @@ export class JobInfo {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
-    public withEngineType(engineType: JobInfoEngineTypeEnum): JobInfo {
+    public withEngineType(engineType: JobInfoEngineTypeEnum | string): JobInfo {
         this['engine_type'] = engineType;
         return this;
     }
-    public set engineType(engineType: JobInfoEngineTypeEnum | undefined) {
+    public set engineType(engineType: JobInfoEngineTypeEnum | string  | undefined) {
         this['engine_type'] = engineType;
     }
-    public get engineType() {
+    public get engineType(): JobInfoEngineTypeEnum | string | undefined {
         return this['engine_type'];
     }
-    public withNetType(netType: JobInfoNetTypeEnum): JobInfo {
+    public withNetType(netType: JobInfoNetTypeEnum | string): JobInfo {
         this['net_type'] = netType;
         return this;
     }
-    public set netType(netType: JobInfoNetTypeEnum | undefined) {
+    public set netType(netType: JobInfoNetTypeEnum | string  | undefined) {
         this['net_type'] = netType;
     }
-    public get netType() {
+    public get netType(): JobInfoNetTypeEnum | string | undefined {
         return this['net_type'];
     }
     public withBillingTag(billingTag: boolean): JobInfo {
         this['billing_tag'] = billingTag;
         return this;
     }
-    public set billingTag(billingTag: boolean | undefined) {
+    public set billingTag(billingTag: boolean  | undefined) {
         this['billing_tag'] = billingTag;
     }
-    public get billingTag() {
+    public get billingTag(): boolean | undefined {
         return this['billing_tag'];
     }
-    public withJobDirection(jobDirection: JobInfoJobDirectionEnum): JobInfo {
+    public withJobDirection(jobDirection: JobInfoJobDirectionEnum | string): JobInfo {
         this['job_direction'] = jobDirection;
         return this;
     }
-    public set jobDirection(jobDirection: JobInfoJobDirectionEnum | undefined) {
+    public set jobDirection(jobDirection: JobInfoJobDirectionEnum | string  | undefined) {
         this['job_direction'] = jobDirection;
     }
-    public get jobDirection() {
+    public get jobDirection(): JobInfoJobDirectionEnum | string | undefined {
         return this['job_direction'];
     }
-    public withDbUseType(dbUseType: JobInfoDbUseTypeEnum): JobInfo {
+    public withDbUseType(dbUseType: JobInfoDbUseTypeEnum | string): JobInfo {
         this['db_use_type'] = dbUseType;
         return this;
     }
-    public set dbUseType(dbUseType: JobInfoDbUseTypeEnum | undefined) {
+    public set dbUseType(dbUseType: JobInfoDbUseTypeEnum | string  | undefined) {
         this['db_use_type'] = dbUseType;
     }
-    public get dbUseType() {
+    public get dbUseType(): JobInfoDbUseTypeEnum | string | undefined {
         return this['db_use_type'];
     }
-    public withTaskType(taskType: JobInfoTaskTypeEnum): JobInfo {
+    public withTaskType(taskType: JobInfoTaskTypeEnum | string): JobInfo {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: JobInfoTaskTypeEnum | undefined) {
+    public set taskType(taskType: JobInfoTaskTypeEnum | string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): JobInfoTaskTypeEnum | string | undefined {
         return this['task_type'];
     }
     public withChildren(children: Array<ChildrenJobInfo>): JobInfo {
@@ -125,20 +125,20 @@ export class JobInfo {
         this['node_newFramework'] = nodeNewFramework;
         return this;
     }
-    public set nodeNewFramework(nodeNewFramework: boolean | undefined) {
+    public set nodeNewFramework(nodeNewFramework: boolean  | undefined) {
         this['node_newFramework'] = nodeNewFramework;
     }
-    public get nodeNewFramework() {
+    public get nodeNewFramework(): boolean | undefined {
         return this['node_newFramework'];
     }
     public withJobAction(jobAction: JobActionResp): JobInfo {
         this['job_action'] = jobAction;
         return this;
     }
-    public set jobAction(jobAction: JobActionResp | undefined) {
+    public set jobAction(jobAction: JobActionResp  | undefined) {
         this['job_action'] = jobAction;
     }
-    public get jobAction() {
+    public get jobAction(): JobActionResp | undefined {
         return this['job_action'];
     }
 }

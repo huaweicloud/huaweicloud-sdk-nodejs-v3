@@ -1,9 +1,9 @@
 
 
 export class BatchQueryParamReq {
-    public jobs: Array<string>;
-    public refresh: string;
-    public constructor(jobs?: any, refresh?: any) { 
+    public jobs?: Array<string>;
+    public refresh?: string;
+    public constructor(jobs?: Array<string>, refresh?: string) { 
         this['jobs'] = jobs;
         this['refresh'] = refresh;
     }

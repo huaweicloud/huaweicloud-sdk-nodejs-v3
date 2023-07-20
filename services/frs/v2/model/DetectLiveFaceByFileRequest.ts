@@ -2,7 +2,7 @@ import { DetectLiveFaceByFileRequestBody } from './DetectLiveFaceByFileRequestBo
 
 
 export class DetectLiveFaceByFileRequest {
-    private 'Enterprise-Project-Id'?: string | undefined;
+    private 'Enterprise-Project-Id'?: string;
     public body?: DetectLiveFaceByFileRequestBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class DetectLiveFaceByFileRequest {
         this['Enterprise-Project-Id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['Enterprise-Project-Id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['Enterprise-Project-Id'];
     }
     public withBody(body: DetectLiveFaceByFileRequestBody): DetectLiveFaceByFileRequest {

@@ -8,10 +8,10 @@ export class DatabaseUserInfoReq {
     public auditadmin?: boolean;
     public inherit?: boolean;
     public useft?: boolean;
-    private 'conn_limit'?: number | undefined;
+    private 'conn_limit'?: number;
     public replication?: boolean;
-    private 'valid_begin'?: string | undefined;
-    private 'valid_until'?: string | undefined;
+    private 'valid_begin'?: string;
+    private 'valid_until'?: string;
     public lock?: boolean;
     public constructor() { 
     }
@@ -47,10 +47,10 @@ export class DatabaseUserInfoReq {
         this['conn_limit'] = connLimit;
         return this;
     }
-    public set connLimit(connLimit: number | undefined) {
+    public set connLimit(connLimit: number  | undefined) {
         this['conn_limit'] = connLimit;
     }
-    public get connLimit() {
+    public get connLimit(): number | undefined {
         return this['conn_limit'];
     }
     public withReplication(replication: boolean): DatabaseUserInfoReq {
@@ -61,20 +61,20 @@ export class DatabaseUserInfoReq {
         this['valid_begin'] = validBegin;
         return this;
     }
-    public set validBegin(validBegin: string | undefined) {
+    public set validBegin(validBegin: string  | undefined) {
         this['valid_begin'] = validBegin;
     }
-    public get validBegin() {
+    public get validBegin(): string | undefined {
         return this['valid_begin'];
     }
     public withValidUntil(validUntil: string): DatabaseUserInfoReq {
         this['valid_until'] = validUntil;
         return this;
     }
-    public set validUntil(validUntil: string | undefined) {
+    public set validUntil(validUntil: string  | undefined) {
         this['valid_until'] = validUntil;
     }
-    public get validUntil() {
+    public get validUntil(): string | undefined {
         return this['valid_until'];
     }
     public withLock(lock: boolean): DatabaseUserInfoReq {

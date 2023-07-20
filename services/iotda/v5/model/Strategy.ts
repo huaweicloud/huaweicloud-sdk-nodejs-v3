@@ -2,7 +2,7 @@
 
 export class Strategy {
     public trigger?: string;
-    private 'event_valid_time'?: number | undefined;
+    private 'event_valid_time'?: number;
     public constructor() { 
     }
     public withTrigger(trigger: string): Strategy {
@@ -13,10 +13,10 @@ export class Strategy {
         this['event_valid_time'] = eventValidTime;
         return this;
     }
-    public set eventValidTime(eventValidTime: number | undefined) {
+    public set eventValidTime(eventValidTime: number  | undefined) {
         this['event_valid_time'] = eventValidTime;
     }
-    public get eventValidTime() {
+    public get eventValidTime(): number | undefined {
         return this['event_valid_time'];
     }
 }

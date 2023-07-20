@@ -1,13 +1,13 @@
 
 
 export class TemplateRule {
-    public type: TemplateRuleTypeEnum;
-    public param: string;
-    public constructor(type?: any, param?: any) { 
+    public type?: TemplateRuleTypeEnum | string;
+    public param?: string;
+    public constructor(type?: string, param?: string) { 
         this['type'] = type;
         this['param'] = param;
     }
-    public withType(type: TemplateRuleTypeEnum): TemplateRule {
+    public withType(type: TemplateRuleTypeEnum | string): TemplateRule {
         this['type'] = type;
         return this;
     }

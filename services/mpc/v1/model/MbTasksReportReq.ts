@@ -2,9 +2,9 @@ import { MbTaskParameter } from './MbTaskParameter';
 
 
 export class MbTasksReportReq {
-    private 'task_id'?: string | undefined;
+    private 'task_id'?: string;
     public status?: string;
-    private 'task_name'?: string | undefined;
+    private 'task_name'?: string;
     public retry?: boolean;
     public parameter?: MbTaskParameter;
     public constructor() { 
@@ -13,10 +13,10 @@ export class MbTasksReportReq {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
     public withStatus(status: string): MbTasksReportReq {
@@ -27,10 +27,10 @@ export class MbTasksReportReq {
         this['task_name'] = taskName;
         return this;
     }
-    public set taskName(taskName: string | undefined) {
+    public set taskName(taskName: string  | undefined) {
         this['task_name'] = taskName;
     }
-    public get taskName() {
+    public get taskName(): string | undefined {
         return this['task_name'];
     }
     public withRetry(retry: boolean): MbTasksReportReq {

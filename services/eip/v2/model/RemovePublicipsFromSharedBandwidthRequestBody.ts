@@ -2,8 +2,8 @@ import { RemoveFromSharedBandwidthOption } from './RemoveFromSharedBandwidthOpti
 
 
 export class RemovePublicipsFromSharedBandwidthRequestBody {
-    public bandwidth: RemoveFromSharedBandwidthOption;
-    public constructor(bandwidth?: any) { 
+    public bandwidth?: RemoveFromSharedBandwidthOption;
+    public constructor(bandwidth?: RemoveFromSharedBandwidthOption) { 
         this['bandwidth'] = bandwidth;
     }
     public withBandwidth(bandwidth: RemoveFromSharedBandwidthOption): RemovePublicipsFromSharedBandwidthRequestBody {

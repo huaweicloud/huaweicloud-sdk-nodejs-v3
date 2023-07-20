@@ -3,12 +3,12 @@ import { VersionMediatypes } from './VersionMediatypes';
 
 
 export class Version {
-    public status: string;
-    public updated: string;
-    public links: Array<VersionLinks>;
-    public id: string;
-    private 'media-types': Array<VersionMediatypes> | undefined;
-    public constructor(status?: any, updated?: any, links?: any, id?: any, mediaTypes?: any) { 
+    public status?: string;
+    public updated?: string;
+    public links?: Array<VersionLinks>;
+    public id?: string;
+    private 'media-types'?: Array<VersionMediatypes>;
+    public constructor(status?: string, updated?: string, links?: Array<VersionLinks>, id?: string, mediaTypes?: Array<VersionMediatypes>) { 
         this['status'] = status;
         this['updated'] = updated;
         this['links'] = links;
@@ -35,10 +35,10 @@ export class Version {
         this['media-types'] = mediaTypes;
         return this;
     }
-    public set mediaTypes(mediaTypes: Array<VersionMediatypes> | undefined) {
+    public set mediaTypes(mediaTypes: Array<VersionMediatypes>  | undefined) {
         this['media-types'] = mediaTypes;
     }
-    public get mediaTypes() {
+    public get mediaTypes(): Array<VersionMediatypes> | undefined {
         return this['media-types'];
     }
 }

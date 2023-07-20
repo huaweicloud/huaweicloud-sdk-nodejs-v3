@@ -8,7 +8,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowCesHierarchyResponse extends SdkResponse {
     public dimensions?: Array<ShowCeshierarchyRespDimensions>;
-    private 'instance_ids'?: Array<ShowCeshierarchyRespInstanceIds> | undefined;
+    private 'instance_ids'?: Array<ShowCeshierarchyRespInstanceIds>;
     public nodes?: Array<ShowCeshierarchyRespNodes>;
     public queues?: Array<ShowCeshierarchyRespQueues>;
     public groups?: Array<ShowCeshierarchyRespGroups>;
@@ -23,10 +23,10 @@ export class ShowCesHierarchyResponse extends SdkResponse {
         this['instance_ids'] = instanceIds;
         return this;
     }
-    public set instanceIds(instanceIds: Array<ShowCeshierarchyRespInstanceIds> | undefined) {
+    public set instanceIds(instanceIds: Array<ShowCeshierarchyRespInstanceIds>  | undefined) {
         this['instance_ids'] = instanceIds;
     }
-    public get instanceIds() {
+    public get instanceIds(): Array<ShowCeshierarchyRespInstanceIds> | undefined {
         return this['instance_ids'];
     }
     public withNodes(nodes: Array<ShowCeshierarchyRespNodes>): ShowCesHierarchyResponse {

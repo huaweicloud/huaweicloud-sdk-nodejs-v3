@@ -2,11 +2,11 @@ import { PersistentVolumeClaim } from './PersistentVolumeClaim';
 
 
 export class CreateCloudPersistentVolumeClaimsRequest {
-    public namespace: string;
-    private 'Content-Type': string | undefined;
-    private 'X-Cluster-ID'?: string | undefined;
+    public namespace?: string;
+    private 'Content-Type'?: string;
+    private 'X-Cluster-ID'?: string;
     public body?: PersistentVolumeClaim;
-    public constructor(namespace?: any, contentType?: any) { 
+    public constructor(namespace?: string, contentType?: string) { 
         this['namespace'] = namespace;
         this['Content-Type'] = contentType;
     }
@@ -18,20 +18,20 @@ export class CreateCloudPersistentVolumeClaimsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withXClusterID(xClusterID: string): CreateCloudPersistentVolumeClaimsRequest {
         this['X-Cluster-ID'] = xClusterID;
         return this;
     }
-    public set xClusterID(xClusterID: string | undefined) {
+    public set xClusterID(xClusterID: string  | undefined) {
         this['X-Cluster-ID'] = xClusterID;
     }
-    public get xClusterID() {
+    public get xClusterID(): string | undefined {
         return this['X-Cluster-ID'];
     }
     public withBody(body: PersistentVolumeClaim): CreateCloudPersistentVolumeClaimsRequest {

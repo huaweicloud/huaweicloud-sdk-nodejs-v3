@@ -2,11 +2,11 @@ import { AnticrawlerCondition } from './AnticrawlerCondition';
 
 
 export class CreateAnticrawlerRuleRequestbody {
-    public conditions: Array<AnticrawlerCondition>;
-    public name: string;
-    public type: string;
-    public priority: number;
-    public constructor(conditions?: any, name?: any, type?: any, priority?: any) { 
+    public conditions?: Array<AnticrawlerCondition>;
+    public name?: string;
+    public type?: string;
+    public priority?: number;
+    public constructor(conditions?: Array<AnticrawlerCondition>, name?: string, type?: string, priority?: number) { 
         this['conditions'] = conditions;
         this['name'] = name;
         this['type'] = type;

@@ -2,11 +2,11 @@ import { CreateCloudWafPostPaidResourceRequestbody } from './CreateCloudWafPostP
 
 
 export class CreateCloudWafPostPaidResourceRequest {
-    private 'Content-Type': string | undefined;
-    public region: string;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'Content-Type'?: string;
+    public region?: string;
+    private 'enterprise_project_id'?: string;
     public body?: CreateCloudWafPostPaidResourceRequestbody;
-    public constructor(contentType?: any, region?: any) { 
+    public constructor(contentType?: string, region?: string) { 
         this['Content-Type'] = contentType;
         this['region'] = region;
     }
@@ -14,10 +14,10 @@ export class CreateCloudWafPostPaidResourceRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withRegion(region: string): CreateCloudWafPostPaidResourceRequest {
@@ -28,10 +28,10 @@ export class CreateCloudWafPostPaidResourceRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withBody(body: CreateCloudWafPostPaidResourceRequestbody): CreateCloudWafPostPaidResourceRequest {

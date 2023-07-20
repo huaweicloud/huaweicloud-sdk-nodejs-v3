@@ -2,10 +2,10 @@ import { ResendReq } from './ResendReq';
 
 
 export class ValidateConsumedMessageRequest {
-    public engine: string;
-    private 'instance_id': string | undefined;
+    public engine?: string;
+    private 'instance_id'?: string;
     public body?: ResendReq;
-    public constructor(engine?: any, instanceId?: any) { 
+    public constructor(engine?: string, instanceId?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
     }
@@ -17,10 +17,10 @@ export class ValidateConsumedMessageRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withBody(body: ResendReq): ValidateConsumedMessageRequest {

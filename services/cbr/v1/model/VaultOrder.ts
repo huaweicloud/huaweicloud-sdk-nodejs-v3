@@ -7,19 +7,19 @@ import { VaultCreateParameters } from './VaultCreateParameters';
 
 export class VaultOrder {
     public name?: string;
-    public billing: BillingCreate;
-    public resources: Array<ResourceCreate>;
+    public billing?: BillingCreate;
+    public resources?: Array<ResourceCreate>;
     public description?: string;
-    private 'backup_policy_id'?: string | undefined;
+    private 'backup_policy_id'?: string;
     public tags?: Array<Tag>;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'auto_bind'?: boolean | undefined;
-    private 'bind_rules'?: VaultBindRules | undefined;
+    private 'enterprise_project_id'?: string;
+    private 'auto_bind'?: boolean;
+    private 'bind_rules'?: VaultBindRules;
     public threshold?: number;
-    private 'smn_notify'?: boolean | undefined;
+    private 'smn_notify'?: boolean;
     public parameters?: VaultCreateParameters;
-    private 'auto_expand'?: boolean | undefined;
-    public constructor(billing?: any, resources?: any) { 
+    private 'auto_expand'?: boolean;
+    public constructor(billing?: BillingCreate, resources?: Array<ResourceCreate>) { 
         this['billing'] = billing;
         this['resources'] = resources;
     }
@@ -43,10 +43,10 @@ export class VaultOrder {
         this['backup_policy_id'] = backupPolicyId;
         return this;
     }
-    public set backupPolicyId(backupPolicyId: string | undefined) {
+    public set backupPolicyId(backupPolicyId: string  | undefined) {
         this['backup_policy_id'] = backupPolicyId;
     }
-    public get backupPolicyId() {
+    public get backupPolicyId(): string | undefined {
         return this['backup_policy_id'];
     }
     public withTags(tags: Array<Tag>): VaultOrder {
@@ -57,30 +57,30 @@ export class VaultOrder {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withAutoBind(autoBind: boolean): VaultOrder {
         this['auto_bind'] = autoBind;
         return this;
     }
-    public set autoBind(autoBind: boolean | undefined) {
+    public set autoBind(autoBind: boolean  | undefined) {
         this['auto_bind'] = autoBind;
     }
-    public get autoBind() {
+    public get autoBind(): boolean | undefined {
         return this['auto_bind'];
     }
     public withBindRules(bindRules: VaultBindRules): VaultOrder {
         this['bind_rules'] = bindRules;
         return this;
     }
-    public set bindRules(bindRules: VaultBindRules | undefined) {
+    public set bindRules(bindRules: VaultBindRules  | undefined) {
         this['bind_rules'] = bindRules;
     }
-    public get bindRules() {
+    public get bindRules(): VaultBindRules | undefined {
         return this['bind_rules'];
     }
     public withThreshold(threshold: number): VaultOrder {
@@ -91,10 +91,10 @@ export class VaultOrder {
         this['smn_notify'] = smnNotify;
         return this;
     }
-    public set smnNotify(smnNotify: boolean | undefined) {
+    public set smnNotify(smnNotify: boolean  | undefined) {
         this['smn_notify'] = smnNotify;
     }
-    public get smnNotify() {
+    public get smnNotify(): boolean | undefined {
         return this['smn_notify'];
     }
     public withParameters(parameters: VaultCreateParameters): VaultOrder {
@@ -105,10 +105,10 @@ export class VaultOrder {
         this['auto_expand'] = autoExpand;
         return this;
     }
-    public set autoExpand(autoExpand: boolean | undefined) {
+    public set autoExpand(autoExpand: boolean  | undefined) {
         this['auto_expand'] = autoExpand;
     }
-    public get autoExpand() {
+    public get autoExpand(): boolean | undefined {
         return this['auto_expand'];
     }
 }

@@ -3,9 +3,9 @@ import { Meta } from './Meta';
 
 
 export class IvsExtentionByIdCardImageRequestBody {
-    public meta: Meta;
-    public data: IvsExtentionByIdCardImageRequestBodyData;
-    public constructor(meta?: any, data?: any) { 
+    public meta?: Meta;
+    public data?: IvsExtentionByIdCardImageRequestBodyData;
+    public constructor(meta?: Meta, data?: IvsExtentionByIdCardImageRequestBodyData) { 
         this['meta'] = meta;
         this['data'] = data;
     }

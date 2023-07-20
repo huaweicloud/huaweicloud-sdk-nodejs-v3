@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAlarmConfigsResponse extends SdkResponse {
     public count?: number;
-    private 'alarm_configs'?: Array<AlarmConfigResponse> | undefined;
+    private 'alarm_configs'?: Array<AlarmConfigResponse>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListAlarmConfigsResponse extends SdkResponse {
         this['alarm_configs'] = alarmConfigs;
         return this;
     }
-    public set alarmConfigs(alarmConfigs: Array<AlarmConfigResponse> | undefined) {
+    public set alarmConfigs(alarmConfigs: Array<AlarmConfigResponse>  | undefined) {
         this['alarm_configs'] = alarmConfigs;
     }
-    public get alarmConfigs() {
+    public get alarmConfigs(): Array<AlarmConfigResponse> | undefined {
         return this['alarm_configs'];
     }
 }

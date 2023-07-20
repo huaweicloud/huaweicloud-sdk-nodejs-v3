@@ -7,10 +7,10 @@ export class NeutronListNetworksRequest {
     public name?: string;
     public status?: string;
     public shared?: boolean;
-    private 'router:external'?: boolean | undefined;
-    private 'admin_state_up'?: boolean | undefined;
-    private 'provider:network_type'?: string | undefined;
-    private 'tenant_id'?: string | undefined;
+    private 'router:external'?: boolean;
+    private 'admin_state_up'?: boolean;
+    private 'provider:network_type'?: string;
+    private 'tenant_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): NeutronListNetworksRequest {
@@ -41,40 +41,40 @@ export class NeutronListNetworksRequest {
         this['router:external'] = routerExternal;
         return this;
     }
-    public set routerExternal(routerExternal: boolean | undefined) {
+    public set routerExternal(routerExternal: boolean  | undefined) {
         this['router:external'] = routerExternal;
     }
-    public get routerExternal() {
+    public get routerExternal(): boolean | undefined {
         return this['router:external'];
     }
     public withAdminStateUp(adminStateUp: boolean): NeutronListNetworksRequest {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withProviderNetworkType(providerNetworkType: string): NeutronListNetworksRequest {
         this['provider:network_type'] = providerNetworkType;
         return this;
     }
-    public set providerNetworkType(providerNetworkType: string | undefined) {
+    public set providerNetworkType(providerNetworkType: string  | undefined) {
         this['provider:network_type'] = providerNetworkType;
     }
-    public get providerNetworkType() {
+    public get providerNetworkType(): string | undefined {
         return this['provider:network_type'];
     }
     public withTenantId(tenantId: string): NeutronListNetworksRequest {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
 }

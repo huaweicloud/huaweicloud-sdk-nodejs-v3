@@ -1,11 +1,11 @@
 
 
 export class CreateVpcRouteOption {
-    public destination: string;
-    public nexthop: string;
-    public type: CreateVpcRouteOptionTypeEnum;
-    private 'vpc_id': string | undefined;
-    public constructor(destination?: any, nexthop?: any, type?: any, vpcId?: any) { 
+    public destination?: string;
+    public nexthop?: string;
+    public type?: CreateVpcRouteOptionTypeEnum | string;
+    private 'vpc_id'?: string;
+    public constructor(destination?: string, nexthop?: string, type?: string, vpcId?: string) { 
         this['destination'] = destination;
         this['nexthop'] = nexthop;
         this['type'] = type;
@@ -19,7 +19,7 @@ export class CreateVpcRouteOption {
         this['nexthop'] = nexthop;
         return this;
     }
-    public withType(type: CreateVpcRouteOptionTypeEnum): CreateVpcRouteOption {
+    public withType(type: CreateVpcRouteOptionTypeEnum | string): CreateVpcRouteOption {
         this['type'] = type;
         return this;
     }
@@ -27,10 +27,10 @@ export class CreateVpcRouteOption {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
 }

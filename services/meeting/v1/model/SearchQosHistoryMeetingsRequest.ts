@@ -1,12 +1,12 @@
 
 
 export class SearchQosHistoryMeetingsRequest {
-    public startDate: number;
-    public endDate: number;
+    public startDate?: number;
+    public endDate?: number;
     public offset?: number;
     public limit?: number;
     public searchKey?: string;
-    public constructor(startDate?: any, endDate?: any) { 
+    public constructor(startDate?: number, endDate?: number) { 
         this['startDate'] = startDate;
         this['endDate'] = endDate;
     }

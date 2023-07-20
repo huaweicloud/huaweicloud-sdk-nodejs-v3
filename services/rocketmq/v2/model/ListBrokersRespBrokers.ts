@@ -2,7 +2,7 @@
 
 export class ListBrokersRespBrokers {
     public ids?: Array<number>;
-    private 'broker_name'?: string | undefined;
+    private 'broker_name'?: string;
     public constructor() { 
     }
     public withIds(ids: Array<number>): ListBrokersRespBrokers {
@@ -13,10 +13,10 @@ export class ListBrokersRespBrokers {
         this['broker_name'] = brokerName;
         return this;
     }
-    public set brokerName(brokerName: string | undefined) {
+    public set brokerName(brokerName: string  | undefined) {
         this['broker_name'] = brokerName;
     }
-    public get brokerName() {
+    public get brokerName(): string | undefined {
         return this['broker_name'];
     }
 }

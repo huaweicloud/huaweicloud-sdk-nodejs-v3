@@ -1,9 +1,9 @@
 
 
 export class AppCallbackUrlReq {
-    public url: string;
-    private 'auth_key'?: string | undefined;
-    public constructor(url?: any) { 
+    public url?: string;
+    private 'auth_key'?: string;
+    public constructor(url?: string) { 
         this['url'] = url;
     }
     public withUrl(url: string): AppCallbackUrlReq {
@@ -14,10 +14,10 @@ export class AppCallbackUrlReq {
         this['auth_key'] = authKey;
         return this;
     }
-    public set authKey(authKey: string | undefined) {
+    public set authKey(authKey: string  | undefined) {
         this['auth_key'] = authKey;
     }
-    public get authKey() {
+    public get authKey(): string | undefined {
         return this['auth_key'];
     }
 }

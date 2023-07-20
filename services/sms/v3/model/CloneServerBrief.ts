@@ -1,7 +1,7 @@
 
 
 export class CloneServerBrief {
-    private 'vm_id'?: string | undefined;
+    private 'vm_id'?: string;
     public name?: string;
     public constructor() { 
     }
@@ -9,10 +9,10 @@ export class CloneServerBrief {
         this['vm_id'] = vmId;
         return this;
     }
-    public set vmId(vmId: string | undefined) {
+    public set vmId(vmId: string  | undefined) {
         this['vm_id'] = vmId;
     }
-    public get vmId() {
+    public get vmId(): string | undefined {
         return this['vm_id'];
     }
     public withName(name: string): CloneServerBrief {

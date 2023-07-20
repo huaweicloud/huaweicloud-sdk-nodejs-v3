@@ -3,16 +3,16 @@ import { Tag } from './Tag';
 
 
 export class CreatePrivateZoneReq {
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'zone_type': string | undefined;
+    private 'zone_type'?: string;
     public email?: string;
     public ttl?: number;
-    public router: Router;
-    private 'proxy_pattern'?: string | undefined;
+    public router?: Router;
+    private 'proxy_pattern'?: string;
     public tags?: Array<Tag>;
-    private 'enterprise_project_id'?: string | undefined;
-    public constructor(name?: any, zoneType?: any, router?: any) { 
+    private 'enterprise_project_id'?: string;
+    public constructor(name?: string, zoneType?: string, router?: Router) { 
         this['name'] = name;
         this['zone_type'] = zoneType;
         this['router'] = router;
@@ -29,10 +29,10 @@ export class CreatePrivateZoneReq {
         this['zone_type'] = zoneType;
         return this;
     }
-    public set zoneType(zoneType: string | undefined) {
+    public set zoneType(zoneType: string  | undefined) {
         this['zone_type'] = zoneType;
     }
-    public get zoneType() {
+    public get zoneType(): string | undefined {
         return this['zone_type'];
     }
     public withEmail(email: string): CreatePrivateZoneReq {
@@ -51,10 +51,10 @@ export class CreatePrivateZoneReq {
         this['proxy_pattern'] = proxyPattern;
         return this;
     }
-    public set proxyPattern(proxyPattern: string | undefined) {
+    public set proxyPattern(proxyPattern: string  | undefined) {
         this['proxy_pattern'] = proxyPattern;
     }
-    public get proxyPattern() {
+    public get proxyPattern(): string | undefined {
         return this['proxy_pattern'];
     }
     public withTags(tags: Array<Tag>): CreatePrivateZoneReq {
@@ -65,10 +65,10 @@ export class CreatePrivateZoneReq {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

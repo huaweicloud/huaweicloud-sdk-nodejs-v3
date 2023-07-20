@@ -2,7 +2,7 @@
 
 export class RoleAuthority {
     public role?: string;
-    private 'right_list'?: Array<string> | undefined;
+    private 'right_list'?: Array<string>;
     public constructor() { 
     }
     public withRole(role: string): RoleAuthority {
@@ -13,10 +13,10 @@ export class RoleAuthority {
         this['right_list'] = rightList;
         return this;
     }
-    public set rightList(rightList: Array<string> | undefined) {
+    public set rightList(rightList: Array<string>  | undefined) {
         this['right_list'] = rightList;
     }
-    public get rightList() {
+    public get rightList(): Array<string> | undefined {
         return this['right_list'];
     }
 }

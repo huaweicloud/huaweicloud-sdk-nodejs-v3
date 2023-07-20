@@ -1,19 +1,19 @@
 
 
 export class ObsObject {
-    private 'file_name'?: string | undefined;
+    private 'file_name'?: string;
     public size?: number;
-    private 'last_modified'?: string | undefined;
+    private 'last_modified'?: string;
     public constructor() { 
     }
     public withFileName(fileName: string): ObsObject {
         this['file_name'] = fileName;
         return this;
     }
-    public set fileName(fileName: string | undefined) {
+    public set fileName(fileName: string  | undefined) {
         this['file_name'] = fileName;
     }
-    public get fileName() {
+    public get fileName(): string | undefined {
         return this['file_name'];
     }
     public withSize(size: number): ObsObject {
@@ -24,10 +24,10 @@ export class ObsObject {
         this['last_modified'] = lastModified;
         return this;
     }
-    public set lastModified(lastModified: string | undefined) {
+    public set lastModified(lastModified: string  | undefined) {
         this['last_modified'] = lastModified;
     }
-    public get lastModified() {
+    public get lastModified(): string | undefined {
         return this['last_modified'];
     }
 }

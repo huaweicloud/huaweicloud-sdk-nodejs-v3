@@ -2,17 +2,17 @@
 
 export class TakeOverTask {
     public bucket?: string;
-    private 'object'?: string | undefined;
-    private 'host_type'?: number | undefined;
-    private 'output_bucket'?: string | undefined;
-    private 'output_path'?: string | undefined;
-    private 'task_id'?: string | undefined;
+    private 'object'?: string;
+    private 'host_type'?: number;
+    private 'output_bucket'?: string;
+    private 'output_path'?: string;
+    private 'task_id'?: string;
     public suffix?: Array<string>;
-    private 'template_group_name'?: string | undefined;
-    private 'create_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
-    public status?: TakeOverTaskStatusEnum;
-    private 'exec_desc'?: string | undefined;
+    private 'template_group_name'?: string;
+    private 'create_time'?: string;
+    private 'end_time'?: string;
+    public status?: TakeOverTaskStatusEnum | string;
+    private 'exec_desc'?: string;
     public constructor() { 
     }
     public withBucket(bucket: string): TakeOverTask {
@@ -23,50 +23,50 @@ export class TakeOverTask {
         this['object'] = modelObject;
         return this;
     }
-    public set modelObject(modelObject: string | undefined) {
+    public set modelObject(modelObject: string  | undefined) {
         this['object'] = modelObject;
     }
-    public get modelObject() {
+    public get modelObject(): string | undefined {
         return this['object'];
     }
     public withHostType(hostType: number): TakeOverTask {
         this['host_type'] = hostType;
         return this;
     }
-    public set hostType(hostType: number | undefined) {
+    public set hostType(hostType: number  | undefined) {
         this['host_type'] = hostType;
     }
-    public get hostType() {
+    public get hostType(): number | undefined {
         return this['host_type'];
     }
     public withOutputBucket(outputBucket: string): TakeOverTask {
         this['output_bucket'] = outputBucket;
         return this;
     }
-    public set outputBucket(outputBucket: string | undefined) {
+    public set outputBucket(outputBucket: string  | undefined) {
         this['output_bucket'] = outputBucket;
     }
-    public get outputBucket() {
+    public get outputBucket(): string | undefined {
         return this['output_bucket'];
     }
     public withOutputPath(outputPath: string): TakeOverTask {
         this['output_path'] = outputPath;
         return this;
     }
-    public set outputPath(outputPath: string | undefined) {
+    public set outputPath(outputPath: string  | undefined) {
         this['output_path'] = outputPath;
     }
-    public get outputPath() {
+    public get outputPath(): string | undefined {
         return this['output_path'];
     }
     public withTaskId(taskId: string): TakeOverTask {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
     public withSuffix(suffix: Array<string>): TakeOverTask {
@@ -77,33 +77,33 @@ export class TakeOverTask {
         this['template_group_name'] = templateGroupName;
         return this;
     }
-    public set templateGroupName(templateGroupName: string | undefined) {
+    public set templateGroupName(templateGroupName: string  | undefined) {
         this['template_group_name'] = templateGroupName;
     }
-    public get templateGroupName() {
+    public get templateGroupName(): string | undefined {
         return this['template_group_name'];
     }
     public withCreateTime(createTime: string): TakeOverTask {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withEndTime(endTime: string): TakeOverTask {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
-    public withStatus(status: TakeOverTaskStatusEnum): TakeOverTask {
+    public withStatus(status: TakeOverTaskStatusEnum | string): TakeOverTask {
         this['status'] = status;
         return this;
     }
@@ -111,10 +111,10 @@ export class TakeOverTask {
         this['exec_desc'] = execDesc;
         return this;
     }
-    public set execDesc(execDesc: string | undefined) {
+    public set execDesc(execDesc: string  | undefined) {
         this['exec_desc'] = execDesc;
     }
-    public get execDesc() {
+    public get execDesc(): string | undefined {
         return this['exec_desc'];
     }
 }

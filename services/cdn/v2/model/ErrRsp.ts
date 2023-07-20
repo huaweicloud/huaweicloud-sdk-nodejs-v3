@@ -2,8 +2,8 @@ import { ErrMsg } from './ErrMsg';
 
 
 export class ErrRsp {
-    public error: ErrMsg;
-    public constructor(error?: any) { 
+    public error?: ErrMsg;
+    public constructor(error?: ErrMsg) { 
         this['error'] = error;
     }
     public withError(error: ErrMsg): ErrRsp {

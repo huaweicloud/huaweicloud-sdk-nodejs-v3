@@ -5,7 +5,7 @@ export class AvailableZones {
     public port?: string;
     public name?: string;
     public id?: string;
-    private 'resource_availability'?: AvailableZonesResourceAvailabilityEnum | undefined;
+    private 'resource_availability'?: AvailableZonesResourceAvailabilityEnum | string;
     public constructor() { 
     }
     public withCode(code: string): AvailableZones {
@@ -24,14 +24,14 @@ export class AvailableZones {
         this['id'] = id;
         return this;
     }
-    public withResourceAvailability(resourceAvailability: AvailableZonesResourceAvailabilityEnum): AvailableZones {
+    public withResourceAvailability(resourceAvailability: AvailableZonesResourceAvailabilityEnum | string): AvailableZones {
         this['resource_availability'] = resourceAvailability;
         return this;
     }
-    public set resourceAvailability(resourceAvailability: AvailableZonesResourceAvailabilityEnum | undefined) {
+    public set resourceAvailability(resourceAvailability: AvailableZonesResourceAvailabilityEnum | string  | undefined) {
         this['resource_availability'] = resourceAvailability;
     }
-    public get resourceAvailability() {
+    public get resourceAvailability(): AvailableZonesResourceAvailabilityEnum | string | undefined {
         return this['resource_availability'];
     }
 }

@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateRedislogDownloadLinkResponse extends SdkResponse {
     public id?: string;
-    private 'backup_id'?: string | undefined;
+    private 'backup_id'?: string;
     public link?: string;
     public constructor() { 
         super();
@@ -16,10 +16,10 @@ export class CreateRedislogDownloadLinkResponse extends SdkResponse {
         this['backup_id'] = backupId;
         return this;
     }
-    public set backupId(backupId: string | undefined) {
+    public set backupId(backupId: string  | undefined) {
         this['backup_id'] = backupId;
     }
-    public get backupId() {
+    public get backupId(): string | undefined {
         return this['backup_id'];
     }
     public withLink(link: string): CreateRedislogDownloadLinkResponse {

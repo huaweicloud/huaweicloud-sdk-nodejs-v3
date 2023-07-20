@@ -2,10 +2,10 @@ import { ObsObjInfo } from './ObsObjInfo';
 
 
 export class OutputThumbnailPara {
-    private 'total_pictures'?: number | undefined;
+    private 'total_pictures'?: number;
     public width?: number;
     public height?: number;
-    private 'file_name'?: string | undefined;
+    private 'file_name'?: string;
     public output?: ObsObjInfo;
     public constructor() { 
     }
@@ -13,10 +13,10 @@ export class OutputThumbnailPara {
         this['total_pictures'] = totalPictures;
         return this;
     }
-    public set totalPictures(totalPictures: number | undefined) {
+    public set totalPictures(totalPictures: number  | undefined) {
         this['total_pictures'] = totalPictures;
     }
-    public get totalPictures() {
+    public get totalPictures(): number | undefined {
         return this['total_pictures'];
     }
     public withWidth(width: number): OutputThumbnailPara {
@@ -31,10 +31,10 @@ export class OutputThumbnailPara {
         this['file_name'] = fileName;
         return this;
     }
-    public set fileName(fileName: string | undefined) {
+    public set fileName(fileName: string  | undefined) {
         this['file_name'] = fileName;
     }
-    public get fileName() {
+    public get fileName(): string | undefined {
         return this['file_name'];
     }
     public withOutput(output: ObsObjInfo): OutputThumbnailPara {

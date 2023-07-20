@@ -1,9 +1,9 @@
 
 
 export class PersistentVolumeClaimMetadata {
-    public name: string;
+    public name?: string;
     public labels?: string;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): PersistentVolumeClaimMetadata {

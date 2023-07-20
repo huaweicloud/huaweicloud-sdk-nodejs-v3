@@ -3,7 +3,7 @@ import { UpadateIpGroupIpOption } from './UpadateIpGroupIpOption';
 
 export class UpdateIpListOption {
     public name?: string;
-    private 'ip_list'?: Array<UpadateIpGroupIpOption> | undefined;
+    private 'ip_list'?: Array<UpadateIpGroupIpOption>;
     public description?: string;
     public constructor() { 
     }
@@ -15,10 +15,10 @@ export class UpdateIpListOption {
         this['ip_list'] = ipList;
         return this;
     }
-    public set ipList(ipList: Array<UpadateIpGroupIpOption> | undefined) {
+    public set ipList(ipList: Array<UpadateIpGroupIpOption>  | undefined) {
         this['ip_list'] = ipList;
     }
-    public get ipList() {
+    public get ipList(): Array<UpadateIpGroupIpOption> | undefined {
         return this['ip_list'];
     }
     public withDescription(description: string): UpdateIpListOption {

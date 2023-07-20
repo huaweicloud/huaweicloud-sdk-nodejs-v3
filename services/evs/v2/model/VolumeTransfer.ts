@@ -2,12 +2,12 @@ import { Link } from './Link';
 
 
 export class VolumeTransfer {
-    private 'created_at': string | undefined;
-    public id: string;
-    public links: Array<Link>;
-    public name: string;
-    private 'volume_id': string | undefined;
-    public constructor(createdAt?: any, id?: any, links?: any, name?: any, volumeId?: any) { 
+    private 'created_at'?: string;
+    public id?: string;
+    public links?: Array<Link>;
+    public name?: string;
+    private 'volume_id'?: string;
+    public constructor(createdAt?: string, id?: string, links?: Array<Link>, name?: string, volumeId?: string) { 
         this['created_at'] = createdAt;
         this['id'] = id;
         this['links'] = links;
@@ -18,10 +18,10 @@ export class VolumeTransfer {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withId(id: string): VolumeTransfer {
@@ -40,10 +40,10 @@ export class VolumeTransfer {
         this['volume_id'] = volumeId;
         return this;
     }
-    public set volumeId(volumeId: string | undefined) {
+    public set volumeId(volumeId: string  | undefined) {
         this['volume_id'] = volumeId;
     }
-    public get volumeId() {
+    public get volumeId(): string | undefined {
         return this['volume_id'];
     }
 }

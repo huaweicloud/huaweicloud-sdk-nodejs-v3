@@ -1,29 +1,29 @@
 
 
 export class UpdateTaskSpeedReq {
-    private 'subtask_name': UpdateTaskSpeedReqSubtaskNameEnum | undefined;
-    public progress: number;
-    public replicatesize: number;
-    public totalsize: number;
-    private 'process_trace': string | undefined;
-    private 'migrate_speed'?: number | undefined;
-    private 'compress_rate'?: number | undefined;
-    private 'remain_time'?: number | undefined;
-    public constructor(subtaskName?: any, progress?: any, replicatesize?: any, totalsize?: any, processTrace?: any) { 
+    private 'subtask_name'?: UpdateTaskSpeedReqSubtaskNameEnum | string;
+    public progress?: number;
+    public replicatesize?: number;
+    public totalsize?: number;
+    private 'process_trace'?: string;
+    private 'migrate_speed'?: number;
+    private 'compress_rate'?: number;
+    private 'remain_time'?: number;
+    public constructor(subtaskName?: string, progress?: number, replicatesize?: number, totalsize?: number, processTrace?: string) { 
         this['subtask_name'] = subtaskName;
         this['progress'] = progress;
         this['replicatesize'] = replicatesize;
         this['totalsize'] = totalsize;
         this['process_trace'] = processTrace;
     }
-    public withSubtaskName(subtaskName: UpdateTaskSpeedReqSubtaskNameEnum): UpdateTaskSpeedReq {
+    public withSubtaskName(subtaskName: UpdateTaskSpeedReqSubtaskNameEnum | string): UpdateTaskSpeedReq {
         this['subtask_name'] = subtaskName;
         return this;
     }
-    public set subtaskName(subtaskName: UpdateTaskSpeedReqSubtaskNameEnum | undefined) {
+    public set subtaskName(subtaskName: UpdateTaskSpeedReqSubtaskNameEnum | string  | undefined) {
         this['subtask_name'] = subtaskName;
     }
-    public get subtaskName() {
+    public get subtaskName(): UpdateTaskSpeedReqSubtaskNameEnum | string | undefined {
         return this['subtask_name'];
     }
     public withProgress(progress: number): UpdateTaskSpeedReq {
@@ -42,40 +42,40 @@ export class UpdateTaskSpeedReq {
         this['process_trace'] = processTrace;
         return this;
     }
-    public set processTrace(processTrace: string | undefined) {
+    public set processTrace(processTrace: string  | undefined) {
         this['process_trace'] = processTrace;
     }
-    public get processTrace() {
+    public get processTrace(): string | undefined {
         return this['process_trace'];
     }
     public withMigrateSpeed(migrateSpeed: number): UpdateTaskSpeedReq {
         this['migrate_speed'] = migrateSpeed;
         return this;
     }
-    public set migrateSpeed(migrateSpeed: number | undefined) {
+    public set migrateSpeed(migrateSpeed: number  | undefined) {
         this['migrate_speed'] = migrateSpeed;
     }
-    public get migrateSpeed() {
+    public get migrateSpeed(): number | undefined {
         return this['migrate_speed'];
     }
     public withCompressRate(compressRate: number): UpdateTaskSpeedReq {
         this['compress_rate'] = compressRate;
         return this;
     }
-    public set compressRate(compressRate: number | undefined) {
+    public set compressRate(compressRate: number  | undefined) {
         this['compress_rate'] = compressRate;
     }
-    public get compressRate() {
+    public get compressRate(): number | undefined {
         return this['compress_rate'];
     }
     public withRemainTime(remainTime: number): UpdateTaskSpeedReq {
         this['remain_time'] = remainTime;
         return this;
     }
-    public set remainTime(remainTime: number | undefined) {
+    public set remainTime(remainTime: number  | undefined) {
         this['remain_time'] = remainTime;
     }
-    public get remainTime() {
+    public get remainTime(): number | undefined {
         return this['remain_time'];
     }
 }

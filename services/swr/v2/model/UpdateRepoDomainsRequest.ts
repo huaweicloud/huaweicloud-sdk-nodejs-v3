@@ -2,25 +2,25 @@ import { UpdateRepoDomainsRequestBody } from './UpdateRepoDomainsRequestBody';
 
 
 export class UpdateRepoDomainsRequest {
-    private 'Content-Type': UpdateRepoDomainsRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
-    private 'access_domain': string | undefined;
+    private 'Content-Type'?: UpdateRepoDomainsRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
+    private 'access_domain'?: string;
     public body?: UpdateRepoDomainsRequestBody;
-    public constructor(contentType?: any, namespace?: any, repository?: any, accessDomain?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string, accessDomain?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
         this['access_domain'] = accessDomain;
     }
-    public withContentType(contentType: UpdateRepoDomainsRequestContentTypeEnum): UpdateRepoDomainsRequest {
+    public withContentType(contentType: UpdateRepoDomainsRequestContentTypeEnum | string): UpdateRepoDomainsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: UpdateRepoDomainsRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: UpdateRepoDomainsRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): UpdateRepoDomainsRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): UpdateRepoDomainsRequest {
@@ -35,10 +35,10 @@ export class UpdateRepoDomainsRequest {
         this['access_domain'] = accessDomain;
         return this;
     }
-    public set accessDomain(accessDomain: string | undefined) {
+    public set accessDomain(accessDomain: string  | undefined) {
         this['access_domain'] = accessDomain;
     }
-    public get accessDomain() {
+    public get accessDomain(): string | undefined {
         return this['access_domain'];
     }
     public withBody(body: UpdateRepoDomainsRequestBody): UpdateRepoDomainsRequest {

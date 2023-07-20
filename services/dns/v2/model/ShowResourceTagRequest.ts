@@ -1,9 +1,9 @@
 
 
 export class ShowResourceTagRequest {
-    private 'resource_type': string | undefined;
-    private 'resource_id': string | undefined;
-    public constructor(resourceType?: any, resourceId?: any) { 
+    private 'resource_type'?: string;
+    private 'resource_id'?: string;
+    public constructor(resourceType?: string, resourceId?: string) { 
         this['resource_type'] = resourceType;
         this['resource_id'] = resourceId;
     }
@@ -11,20 +11,20 @@ export class ShowResourceTagRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: string | undefined) {
+    public set resourceType(resourceType: string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): string | undefined {
         return this['resource_type'];
     }
     public withResourceId(resourceId: string): ShowResourceTagRequest {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
 }

@@ -2,8 +2,8 @@ import { ImageHighresolutionMattingConfigCommon } from './ImageHighresolutionMat
 
 
 export class ImageHighresolutionMattingConfig {
-    public common: ImageHighresolutionMattingConfigCommon;
-    public constructor(common?: any) { 
+    public common?: ImageHighresolutionMattingConfigCommon;
+    public constructor(common?: ImageHighresolutionMattingConfigCommon) { 
         this['common'] = common;
     }
     public withCommon(common: ImageHighresolutionMattingConfigCommon): ImageHighresolutionMattingConfig {

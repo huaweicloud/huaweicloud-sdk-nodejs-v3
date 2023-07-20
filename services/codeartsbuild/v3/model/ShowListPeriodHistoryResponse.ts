@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowListPeriodHistoryResponse extends SdkResponse {
     public total?: number;
-    private 'history_records'?: Array<HistoryRecord1> | undefined;
+    private 'history_records'?: Array<HistoryRecord1>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ShowListPeriodHistoryResponse extends SdkResponse {
         this['history_records'] = historyRecords;
         return this;
     }
-    public set historyRecords(historyRecords: Array<HistoryRecord1> | undefined) {
+    public set historyRecords(historyRecords: Array<HistoryRecord1>  | undefined) {
         this['history_records'] = historyRecords;
     }
-    public get historyRecords() {
+    public get historyRecords(): Array<HistoryRecord1> | undefined {
         return this['history_records'];
     }
 }

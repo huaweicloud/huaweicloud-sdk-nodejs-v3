@@ -4,11 +4,11 @@ import { PolicyoODCreate } from './PolicyoODCreate';
 
 export class PolicyCreate {
     public enabled?: boolean;
-    public name: string;
-    private 'operation_definition': PolicyoODCreate | undefined;
-    private 'operation_type': PolicyCreateOperationTypeEnum | undefined;
-    public trigger: PolicyTriggerReq;
-    public constructor(name?: any, operationDefinition?: any, operationType?: any, trigger?: any) { 
+    public name?: string;
+    private 'operation_definition'?: PolicyoODCreate;
+    private 'operation_type'?: PolicyCreateOperationTypeEnum | string;
+    public trigger?: PolicyTriggerReq;
+    public constructor(name?: string, operationDefinition?: PolicyoODCreate, operationType?: string, trigger?: PolicyTriggerReq) { 
         this['name'] = name;
         this['operation_definition'] = operationDefinition;
         this['operation_type'] = operationType;
@@ -26,20 +26,20 @@ export class PolicyCreate {
         this['operation_definition'] = operationDefinition;
         return this;
     }
-    public set operationDefinition(operationDefinition: PolicyoODCreate | undefined) {
+    public set operationDefinition(operationDefinition: PolicyoODCreate  | undefined) {
         this['operation_definition'] = operationDefinition;
     }
-    public get operationDefinition() {
+    public get operationDefinition(): PolicyoODCreate | undefined {
         return this['operation_definition'];
     }
-    public withOperationType(operationType: PolicyCreateOperationTypeEnum): PolicyCreate {
+    public withOperationType(operationType: PolicyCreateOperationTypeEnum | string): PolicyCreate {
         this['operation_type'] = operationType;
         return this;
     }
-    public set operationType(operationType: PolicyCreateOperationTypeEnum | undefined) {
+    public set operationType(operationType: PolicyCreateOperationTypeEnum | string  | undefined) {
         this['operation_type'] = operationType;
     }
-    public get operationType() {
+    public get operationType(): PolicyCreateOperationTypeEnum | string | undefined {
         return this['operation_type'];
     }
     public withTrigger(trigger: PolicyTriggerReq): PolicyCreate {

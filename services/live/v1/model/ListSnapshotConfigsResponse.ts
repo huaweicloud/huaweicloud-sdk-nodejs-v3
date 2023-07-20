@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSnapshotConfigsResponse extends SdkResponse {
     public total?: number;
-    private 'snapshot_config_list'?: LiveSnapshotConfig | undefined;
+    private 'snapshot_config_list'?: LiveSnapshotConfig;
     public limit?: number;
     public offset?: number;
     public constructor() { 
@@ -18,10 +18,10 @@ export class ListSnapshotConfigsResponse extends SdkResponse {
         this['snapshot_config_list'] = snapshotConfigList;
         return this;
     }
-    public set snapshotConfigList(snapshotConfigList: LiveSnapshotConfig | undefined) {
+    public set snapshotConfigList(snapshotConfigList: LiveSnapshotConfig  | undefined) {
         this['snapshot_config_list'] = snapshotConfigList;
     }
-    public get snapshotConfigList() {
+    public get snapshotConfigList(): LiveSnapshotConfig | undefined {
         return this['snapshot_config_list'];
     }
     public withLimit(limit: number): ListSnapshotConfigsResponse {

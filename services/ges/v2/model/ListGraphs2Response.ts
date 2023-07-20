@@ -3,7 +3,7 @@ import { ListGraphsRespGraphs } from './ListGraphsRespGraphs';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListGraphs2Response extends SdkResponse {
-    private 'graph_count'?: number | undefined;
+    private 'graph_count'?: number;
     public graphs?: Array<ListGraphsRespGraphs>;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class ListGraphs2Response extends SdkResponse {
         this['graph_count'] = graphCount;
         return this;
     }
-    public set graphCount(graphCount: number | undefined) {
+    public set graphCount(graphCount: number  | undefined) {
         this['graph_count'] = graphCount;
     }
-    public get graphCount() {
+    public get graphCount(): number | undefined {
         return this['graph_count'];
     }
     public withGraphs(graphs: Array<ListGraphsRespGraphs>): ListGraphs2Response {

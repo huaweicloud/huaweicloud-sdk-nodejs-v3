@@ -1,10 +1,10 @@
 
 
 export class CheckMd5DuplicationRequest {
-    private 'X-Sdk-Date'?: string | undefined;
-    public size: number;
-    public md5: string;
-    public constructor(size?: any, md5?: any) { 
+    private 'X-Sdk-Date'?: string;
+    public size?: number;
+    public md5?: string;
+    public constructor(size?: number, md5?: string) { 
         this['size'] = size;
         this['md5'] = md5;
     }
@@ -12,10 +12,10 @@ export class CheckMd5DuplicationRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withSize(size: number): CheckMd5DuplicationRequest {

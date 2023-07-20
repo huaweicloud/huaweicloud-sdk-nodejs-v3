@@ -1,9 +1,9 @@
 
 
 export class CdnLog {
-    private 'domain_name'?: string | undefined;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
+    private 'domain_name'?: string;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
     public name?: string;
     public size?: number;
     public link?: string;
@@ -13,30 +13,30 @@ export class CdnLog {
         this['domain_name'] = domainName;
         return this;
     }
-    public set domainName(domainName: string | undefined) {
+    public set domainName(domainName: string  | undefined) {
         this['domain_name'] = domainName;
     }
-    public get domainName() {
+    public get domainName(): string | undefined {
         return this['domain_name'];
     }
     public withStartTime(startTime: string): CdnLog {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): CdnLog {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withName(name: string): CdnLog {

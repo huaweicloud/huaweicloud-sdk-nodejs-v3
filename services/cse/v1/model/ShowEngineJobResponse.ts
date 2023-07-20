@@ -4,14 +4,14 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowEngineJobResponse extends SdkResponse {
     public id?: number;
-    private 'engine_id'?: string | undefined;
-    public type?: ShowEngineJobResponseTypeEnum;
+    private 'engine_id'?: string;
+    public type?: ShowEngineJobResponseTypeEnum | string;
     public description?: string;
-    public status?: ShowEngineJobResponseStatusEnum;
+    public status?: ShowEngineJobResponseStatusEnum | string;
     public scheduling?: number;
-    private 'create_user'?: string | undefined;
-    private 'start_time'?: number | undefined;
-    private 'end_time'?: number | undefined;
+    private 'create_user'?: string;
+    private 'start_time'?: number;
+    private 'end_time'?: number;
     public context?: string;
     public tasks?: Array<TaskSteps>;
     public constructor() { 
@@ -25,13 +25,13 @@ export class ShowEngineJobResponse extends SdkResponse {
         this['engine_id'] = engineId;
         return this;
     }
-    public set engineId(engineId: string | undefined) {
+    public set engineId(engineId: string  | undefined) {
         this['engine_id'] = engineId;
     }
-    public get engineId() {
+    public get engineId(): string | undefined {
         return this['engine_id'];
     }
-    public withType(type: ShowEngineJobResponseTypeEnum): ShowEngineJobResponse {
+    public withType(type: ShowEngineJobResponseTypeEnum | string): ShowEngineJobResponse {
         this['type'] = type;
         return this;
     }
@@ -39,7 +39,7 @@ export class ShowEngineJobResponse extends SdkResponse {
         this['description'] = description;
         return this;
     }
-    public withStatus(status: ShowEngineJobResponseStatusEnum): ShowEngineJobResponse {
+    public withStatus(status: ShowEngineJobResponseStatusEnum | string): ShowEngineJobResponse {
         this['status'] = status;
         return this;
     }
@@ -51,30 +51,30 @@ export class ShowEngineJobResponse extends SdkResponse {
         this['create_user'] = createUser;
         return this;
     }
-    public set createUser(createUser: string | undefined) {
+    public set createUser(createUser: string  | undefined) {
         this['create_user'] = createUser;
     }
-    public get createUser() {
+    public get createUser(): string | undefined {
         return this['create_user'];
     }
     public withStartTime(startTime: number): ShowEngineJobResponse {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: number): ShowEngineJobResponse {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: number | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
     public withContext(context: string): ShowEngineJobResponse {

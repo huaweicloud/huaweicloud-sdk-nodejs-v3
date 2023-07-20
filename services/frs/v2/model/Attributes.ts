@@ -4,18 +4,18 @@ import { FaceQuality } from './FaceQuality';
 
 
 export class Attributes {
-    public dress: Dress;
-    public glass: string;
-    public hat: string;
-    public age: number;
-    public mask: string;
-    public beard: string;
-    public phototype: string;
-    public quality: FaceQuality;
-    public hair: string;
-    public expression: AttributesExpression;
-    private 'face_angle': number | undefined;
-    public constructor(dress?: any, glass?: any, hat?: any, age?: any, mask?: any, beard?: any, phototype?: any, quality?: any, hair?: any, expression?: any, faceAngle?: any) { 
+    public dress?: Dress;
+    public glass?: string;
+    public hat?: string;
+    public age?: number;
+    public mask?: string;
+    public beard?: string;
+    public phototype?: string;
+    public quality?: FaceQuality;
+    public hair?: string;
+    public expression?: AttributesExpression;
+    private 'face_angle'?: number;
+    public constructor(dress?: Dress, glass?: string, hat?: string, age?: number, mask?: string, beard?: string, phototype?: string, quality?: FaceQuality, hair?: string, expression?: AttributesExpression, faceAngle?: number) { 
         this['dress'] = dress;
         this['glass'] = glass;
         this['hat'] = hat;
@@ -72,10 +72,10 @@ export class Attributes {
         this['face_angle'] = faceAngle;
         return this;
     }
-    public set faceAngle(faceAngle: number | undefined) {
+    public set faceAngle(faceAngle: number  | undefined) {
         this['face_angle'] = faceAngle;
     }
-    public get faceAngle() {
+    public get faceAngle(): number | undefined {
         return this['face_angle'];
     }
 }

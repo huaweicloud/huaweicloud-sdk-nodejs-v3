@@ -4,11 +4,11 @@ import { OpenWebinarOngoingInfo } from './OpenWebinarOngoingInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListOngoingWebinarsResponse extends SdkResponse {
-    public offset: number;
-    public limit: number;
-    public count: number;
+    public offset?: number;
+    public limit?: number;
+    public count?: number;
     public data?: Array<OpenWebinarOngoingInfo>;
-    public constructor(offset?: any, limit?: any, count?: any) { 
+    public constructor(offset?: number, limit?: number, count?: number) { 
         super();
         this['offset'] = offset;
         this['limit'] = limit;

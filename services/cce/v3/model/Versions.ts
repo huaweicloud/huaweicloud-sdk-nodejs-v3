@@ -2,14 +2,14 @@ import { SupportVersions } from './SupportVersions';
 
 
 export class Versions {
-    public version: string;
-    public input: object;
-    public stable: boolean;
-    public translate: object;
-    public supportVersions: Array<SupportVersions>;
+    public version?: string;
+    public input?: object;
+    public stable?: boolean;
+    public translate?: object;
+    public supportVersions?: Array<SupportVersions>;
     public creationTimestamp?: string;
-    public updateTimestamp: string;
-    public constructor(version?: any, input?: any, stable?: any, translate?: any, supportVersions?: any, updateTimestamp?: any) { 
+    public updateTimestamp?: string;
+    public constructor(version?: string, input?: object, stable?: boolean, translate?: object, supportVersions?: Array<SupportVersions>, updateTimestamp?: string) { 
         this['version'] = version;
         this['input'] = input;
         this['stable'] = stable;

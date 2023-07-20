@@ -2,20 +2,20 @@ import { EngineRbacPwd } from './EngineRbacPwd';
 
 
 export class EngineCreateReq {
-    public name: string;
+    public name?: string;
     public description?: string;
-    public payment: EngineCreateReqPaymentEnum;
-    public flavor: EngineCreateReqFlavorEnum;
-    public azList: Array<string>;
-    public authType: EngineCreateReqAuthTypeEnum;
-    public vpc: string;
-    public networkId: string;
-    public subnetCidr: string;
+    public payment?: EngineCreateReqPaymentEnum | string;
+    public flavor?: EngineCreateReqFlavorEnum | string;
+    public azList?: Array<string>;
+    public authType?: EngineCreateReqAuthTypeEnum | string;
+    public vpc?: string;
+    public networkId?: string;
+    public subnetCidr?: string;
     public publicIpId?: string;
-    private 'auth_cred'?: EngineRbacPwd | undefined;
-    public specType: EngineCreateReqSpecTypeEnum;
+    private 'auth_cred'?: EngineRbacPwd;
+    public specType?: EngineCreateReqSpecTypeEnum | string;
     public inputs?: { [key: string]: string; };
-    public constructor(name?: any, payment?: any, flavor?: any, azList?: any, authType?: any, vpc?: any, networkId?: any, subnetCidr?: any, specType?: any) { 
+    public constructor(name?: string, payment?: string, flavor?: string, azList?: Array<string>, authType?: string, vpc?: string, networkId?: string, subnetCidr?: string, specType?: string) { 
         this['name'] = name;
         this['payment'] = payment;
         this['flavor'] = flavor;
@@ -34,11 +34,11 @@ export class EngineCreateReq {
         this['description'] = description;
         return this;
     }
-    public withPayment(payment: EngineCreateReqPaymentEnum): EngineCreateReq {
+    public withPayment(payment: EngineCreateReqPaymentEnum | string): EngineCreateReq {
         this['payment'] = payment;
         return this;
     }
-    public withFlavor(flavor: EngineCreateReqFlavorEnum): EngineCreateReq {
+    public withFlavor(flavor: EngineCreateReqFlavorEnum | string): EngineCreateReq {
         this['flavor'] = flavor;
         return this;
     }
@@ -46,7 +46,7 @@ export class EngineCreateReq {
         this['azList'] = azList;
         return this;
     }
-    public withAuthType(authType: EngineCreateReqAuthTypeEnum): EngineCreateReq {
+    public withAuthType(authType: EngineCreateReqAuthTypeEnum | string): EngineCreateReq {
         this['authType'] = authType;
         return this;
     }
@@ -70,13 +70,13 @@ export class EngineCreateReq {
         this['auth_cred'] = authCred;
         return this;
     }
-    public set authCred(authCred: EngineRbacPwd | undefined) {
+    public set authCred(authCred: EngineRbacPwd  | undefined) {
         this['auth_cred'] = authCred;
     }
-    public get authCred() {
+    public get authCred(): EngineRbacPwd | undefined {
         return this['auth_cred'];
     }
-    public withSpecType(specType: EngineCreateReqSpecTypeEnum): EngineCreateReq {
+    public withSpecType(specType: EngineCreateReqSpecTypeEnum | string): EngineCreateReq {
         this['specType'] = specType;
         return this;
     }

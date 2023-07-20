@@ -1,10 +1,10 @@
 
 
 export class PageInfo {
-    private 'previous_marker': string | undefined;
-    private 'current_count': number | undefined;
-    private 'next_marker'?: string | undefined;
-    public constructor(previousMarker?: any, currentCount?: any) { 
+    private 'previous_marker'?: string;
+    private 'current_count'?: number;
+    private 'next_marker'?: string;
+    public constructor(previousMarker?: string, currentCount?: number) { 
         this['previous_marker'] = previousMarker;
         this['current_count'] = currentCount;
     }
@@ -12,30 +12,30 @@ export class PageInfo {
         this['previous_marker'] = previousMarker;
         return this;
     }
-    public set previousMarker(previousMarker: string | undefined) {
+    public set previousMarker(previousMarker: string  | undefined) {
         this['previous_marker'] = previousMarker;
     }
-    public get previousMarker() {
+    public get previousMarker(): string | undefined {
         return this['previous_marker'];
     }
     public withCurrentCount(currentCount: number): PageInfo {
         this['current_count'] = currentCount;
         return this;
     }
-    public set currentCount(currentCount: number | undefined) {
+    public set currentCount(currentCount: number  | undefined) {
         this['current_count'] = currentCount;
     }
-    public get currentCount() {
+    public get currentCount(): number | undefined {
         return this['current_count'];
     }
     public withNextMarker(nextMarker: string): PageInfo {
         this['next_marker'] = nextMarker;
         return this;
     }
-    public set nextMarker(nextMarker: string | undefined) {
+    public set nextMarker(nextMarker: string  | undefined) {
         this['next_marker'] = nextMarker;
     }
-    public get nextMarker() {
+    public get nextMarker(): string | undefined {
         return this['next_marker'];
     }
 }

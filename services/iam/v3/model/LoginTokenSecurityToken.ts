@@ -1,11 +1,11 @@
 
 
 export class LoginTokenSecurityToken {
-    public access: string;
-    public secret: string;
-    public id: string;
-    private 'duration_seconds'?: number | undefined;
-    public constructor(access?: any, secret?: any, id?: any) { 
+    public access?: string;
+    public secret?: string;
+    public id?: string;
+    private 'duration_seconds'?: number;
+    public constructor(access?: string, secret?: string, id?: string) { 
         this['access'] = access;
         this['secret'] = secret;
         this['id'] = id;
@@ -26,10 +26,10 @@ export class LoginTokenSecurityToken {
         this['duration_seconds'] = durationSeconds;
         return this;
     }
-    public set durationSeconds(durationSeconds: number | undefined) {
+    public set durationSeconds(durationSeconds: number  | undefined) {
         this['duration_seconds'] = durationSeconds;
     }
-    public get durationSeconds() {
+    public get durationSeconds(): number | undefined {
         return this['duration_seconds'];
     }
 }

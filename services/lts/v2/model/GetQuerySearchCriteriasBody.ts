@@ -4,7 +4,7 @@ export class GetQuerySearchCriteriasBody {
     public criteria?: string;
     public name?: string;
     public id?: string;
-    private 'search_type'?: string | undefined;
+    private 'search_type'?: string;
     public constructor() { 
     }
     public withCriteria(criteria: string): GetQuerySearchCriteriasBody {
@@ -23,10 +23,10 @@ export class GetQuerySearchCriteriasBody {
         this['search_type'] = searchType;
         return this;
     }
-    public set searchType(searchType: string | undefined) {
+    public set searchType(searchType: string  | undefined) {
         this['search_type'] = searchType;
     }
-    public get searchType() {
+    public get searchType(): string | undefined {
         return this['search_type'];
     }
 }

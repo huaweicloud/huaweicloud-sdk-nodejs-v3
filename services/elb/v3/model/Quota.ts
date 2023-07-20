@@ -1,23 +1,23 @@
 
 
 export class Quota {
-    private 'project_id': string | undefined;
-    public loadbalancer: number;
-    public certificate: number;
-    public listener: number;
-    public l7policy: number;
-    private 'condition_per_policy': number | undefined;
-    public pool: number;
-    public healthmonitor: number;
-    public member: number;
-    private 'members_per_pool': number | undefined;
-    private 'listeners_per_pool': number | undefined;
-    public ipgroup: number;
-    private 'ipgroup_bindings': number | undefined;
-    private 'ipgroup_max_length': number | undefined;
-    private 'security_policy': number | undefined;
-    private 'listeners_per_loadbalancer': number | undefined;
-    public constructor(projectId?: any, loadbalancer?: any, certificate?: any, listener?: any, l7policy?: any, conditionPerPolicy?: any, pool?: any, healthmonitor?: any, member?: any, membersPerPool?: any, listenersPerPool?: any, ipgroup?: any, ipgroupBindings?: any, ipgroupMaxLength?: any, securityPolicy?: any, listenersPerLoadbalancer?: any) { 
+    private 'project_id'?: string;
+    public loadbalancer?: number;
+    public certificate?: number;
+    public listener?: number;
+    public l7policy?: number;
+    private 'condition_per_policy'?: number;
+    public pool?: number;
+    public healthmonitor?: number;
+    public member?: number;
+    private 'members_per_pool'?: number;
+    private 'listeners_per_pool'?: number;
+    public ipgroup?: number;
+    private 'ipgroup_bindings'?: number;
+    private 'ipgroup_max_length'?: number;
+    private 'security_policy'?: number;
+    private 'listeners_per_loadbalancer'?: number;
+    public constructor(projectId?: string, loadbalancer?: number, certificate?: number, listener?: number, l7policy?: number, conditionPerPolicy?: number, pool?: number, healthmonitor?: number, member?: number, membersPerPool?: number, listenersPerPool?: number, ipgroup?: number, ipgroupBindings?: number, ipgroupMaxLength?: number, securityPolicy?: number, listenersPerLoadbalancer?: number) { 
         this['project_id'] = projectId;
         this['loadbalancer'] = loadbalancer;
         this['certificate'] = certificate;
@@ -39,10 +39,10 @@ export class Quota {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withLoadbalancer(loadbalancer: number): Quota {
@@ -65,10 +65,10 @@ export class Quota {
         this['condition_per_policy'] = conditionPerPolicy;
         return this;
     }
-    public set conditionPerPolicy(conditionPerPolicy: number | undefined) {
+    public set conditionPerPolicy(conditionPerPolicy: number  | undefined) {
         this['condition_per_policy'] = conditionPerPolicy;
     }
-    public get conditionPerPolicy() {
+    public get conditionPerPolicy(): number | undefined {
         return this['condition_per_policy'];
     }
     public withPool(pool: number): Quota {
@@ -87,20 +87,20 @@ export class Quota {
         this['members_per_pool'] = membersPerPool;
         return this;
     }
-    public set membersPerPool(membersPerPool: number | undefined) {
+    public set membersPerPool(membersPerPool: number  | undefined) {
         this['members_per_pool'] = membersPerPool;
     }
-    public get membersPerPool() {
+    public get membersPerPool(): number | undefined {
         return this['members_per_pool'];
     }
     public withListenersPerPool(listenersPerPool: number): Quota {
         this['listeners_per_pool'] = listenersPerPool;
         return this;
     }
-    public set listenersPerPool(listenersPerPool: number | undefined) {
+    public set listenersPerPool(listenersPerPool: number  | undefined) {
         this['listeners_per_pool'] = listenersPerPool;
     }
-    public get listenersPerPool() {
+    public get listenersPerPool(): number | undefined {
         return this['listeners_per_pool'];
     }
     public withIpgroup(ipgroup: number): Quota {
@@ -111,40 +111,40 @@ export class Quota {
         this['ipgroup_bindings'] = ipgroupBindings;
         return this;
     }
-    public set ipgroupBindings(ipgroupBindings: number | undefined) {
+    public set ipgroupBindings(ipgroupBindings: number  | undefined) {
         this['ipgroup_bindings'] = ipgroupBindings;
     }
-    public get ipgroupBindings() {
+    public get ipgroupBindings(): number | undefined {
         return this['ipgroup_bindings'];
     }
     public withIpgroupMaxLength(ipgroupMaxLength: number): Quota {
         this['ipgroup_max_length'] = ipgroupMaxLength;
         return this;
     }
-    public set ipgroupMaxLength(ipgroupMaxLength: number | undefined) {
+    public set ipgroupMaxLength(ipgroupMaxLength: number  | undefined) {
         this['ipgroup_max_length'] = ipgroupMaxLength;
     }
-    public get ipgroupMaxLength() {
+    public get ipgroupMaxLength(): number | undefined {
         return this['ipgroup_max_length'];
     }
     public withSecurityPolicy(securityPolicy: number): Quota {
         this['security_policy'] = securityPolicy;
         return this;
     }
-    public set securityPolicy(securityPolicy: number | undefined) {
+    public set securityPolicy(securityPolicy: number  | undefined) {
         this['security_policy'] = securityPolicy;
     }
-    public get securityPolicy() {
+    public get securityPolicy(): number | undefined {
         return this['security_policy'];
     }
     public withListenersPerLoadbalancer(listenersPerLoadbalancer: number): Quota {
         this['listeners_per_loadbalancer'] = listenersPerLoadbalancer;
         return this;
     }
-    public set listenersPerLoadbalancer(listenersPerLoadbalancer: number | undefined) {
+    public set listenersPerLoadbalancer(listenersPerLoadbalancer: number  | undefined) {
         this['listeners_per_loadbalancer'] = listenersPerLoadbalancer;
     }
-    public get listenersPerLoadbalancer() {
+    public get listenersPerLoadbalancer(): number | undefined {
         return this['listeners_per_loadbalancer'];
     }
 }

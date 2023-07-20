@@ -3,9 +3,9 @@
 export class PolicyParameterDefinition {
     public name?: string;
     public description?: string;
-    private 'allowed_values'?: Array<object> | undefined;
-    private 'default_value'?: string | undefined;
-    public type?: PolicyParameterDefinitionTypeEnum;
+    private 'allowed_values'?: Array<object>;
+    private 'default_value'?: string;
+    public type?: PolicyParameterDefinitionTypeEnum | string;
     public constructor() { 
     }
     public withName(name: string): PolicyParameterDefinition {
@@ -20,23 +20,23 @@ export class PolicyParameterDefinition {
         this['allowed_values'] = allowedValues;
         return this;
     }
-    public set allowedValues(allowedValues: Array<object> | undefined) {
+    public set allowedValues(allowedValues: Array<object>  | undefined) {
         this['allowed_values'] = allowedValues;
     }
-    public get allowedValues() {
+    public get allowedValues(): Array<object> | undefined {
         return this['allowed_values'];
     }
     public withDefaultValue(defaultValue: string): PolicyParameterDefinition {
         this['default_value'] = defaultValue;
         return this;
     }
-    public set defaultValue(defaultValue: string | undefined) {
+    public set defaultValue(defaultValue: string  | undefined) {
         this['default_value'] = defaultValue;
     }
-    public get defaultValue() {
+    public get defaultValue(): string | undefined {
         return this['default_value'];
     }
-    public withType(type: PolicyParameterDefinitionTypeEnum): PolicyParameterDefinition {
+    public withType(type: PolicyParameterDefinitionTypeEnum | string): PolicyParameterDefinition {
         this['type'] = type;
         return this;
     }

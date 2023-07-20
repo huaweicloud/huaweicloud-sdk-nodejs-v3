@@ -2,10 +2,10 @@ import { AccountAggregationSource } from './AccountAggregationSource';
 
 
 export class ConfigurationAggregatorRequest {
-    private 'aggregator_name': string | undefined;
-    private 'aggregator_type': string | undefined;
-    private 'account_aggregation_sources'?: AccountAggregationSource | undefined;
-    public constructor(aggregatorName?: any, aggregatorType?: any) { 
+    private 'aggregator_name'?: string;
+    private 'aggregator_type'?: string;
+    private 'account_aggregation_sources'?: AccountAggregationSource;
+    public constructor(aggregatorName?: string, aggregatorType?: string) { 
         this['aggregator_name'] = aggregatorName;
         this['aggregator_type'] = aggregatorType;
     }
@@ -13,30 +13,30 @@ export class ConfigurationAggregatorRequest {
         this['aggregator_name'] = aggregatorName;
         return this;
     }
-    public set aggregatorName(aggregatorName: string | undefined) {
+    public set aggregatorName(aggregatorName: string  | undefined) {
         this['aggregator_name'] = aggregatorName;
     }
-    public get aggregatorName() {
+    public get aggregatorName(): string | undefined {
         return this['aggregator_name'];
     }
     public withAggregatorType(aggregatorType: string): ConfigurationAggregatorRequest {
         this['aggregator_type'] = aggregatorType;
         return this;
     }
-    public set aggregatorType(aggregatorType: string | undefined) {
+    public set aggregatorType(aggregatorType: string  | undefined) {
         this['aggregator_type'] = aggregatorType;
     }
-    public get aggregatorType() {
+    public get aggregatorType(): string | undefined {
         return this['aggregator_type'];
     }
     public withAccountAggregationSources(accountAggregationSources: AccountAggregationSource): ConfigurationAggregatorRequest {
         this['account_aggregation_sources'] = accountAggregationSources;
         return this;
     }
-    public set accountAggregationSources(accountAggregationSources: AccountAggregationSource | undefined) {
+    public set accountAggregationSources(accountAggregationSources: AccountAggregationSource  | undefined) {
         this['account_aggregation_sources'] = accountAggregationSources;
     }
-    public get accountAggregationSources() {
+    public get accountAggregationSources(): AccountAggregationSource | undefined {
         return this['account_aggregation_sources'];
     }
 }

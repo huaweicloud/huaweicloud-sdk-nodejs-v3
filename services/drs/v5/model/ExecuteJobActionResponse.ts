@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ExecuteJobActionResponse extends SdkResponse {
-    private 'query_id'?: string | undefined;
+    private 'query_id'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class ExecuteJobActionResponse extends SdkResponse {
         this['query_id'] = queryId;
         return this;
     }
-    public set queryId(queryId: string | undefined) {
+    public set queryId(queryId: string  | undefined) {
         this['query_id'] = queryId;
     }
-    public get queryId() {
+    public get queryId(): string | undefined {
         return this['query_id'];
     }
 }

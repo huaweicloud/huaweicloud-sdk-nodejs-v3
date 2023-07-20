@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListFunctionReservedInstancesResponse extends SdkResponse {
     public reservedinstances?: Array<FuncReservedInstance>;
-    private 'page_info'?: PageInfo | undefined;
+    private 'page_info'?: PageInfo;
     public count?: number;
     public constructor() { 
         super();
@@ -18,10 +18,10 @@ export class ListFunctionReservedInstancesResponse extends SdkResponse {
         this['page_info'] = pageInfo;
         return this;
     }
-    public set pageInfo(pageInfo: PageInfo | undefined) {
+    public set pageInfo(pageInfo: PageInfo  | undefined) {
         this['page_info'] = pageInfo;
     }
-    public get pageInfo() {
+    public get pageInfo(): PageInfo | undefined {
         return this['page_info'];
     }
     public withCount(count: number): ListFunctionReservedInstancesResponse {

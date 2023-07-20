@@ -1,13 +1,13 @@
 
 
 export class AppAutoRecordMode {
-    public mode: AppAutoRecordModeModeEnum;
-    private 'record_rule_id'?: string | undefined;
-    private 'update_time'?: string | undefined;
-    public constructor(mode?: any) { 
+    public mode?: AppAutoRecordModeModeEnum | string;
+    private 'record_rule_id'?: string;
+    private 'update_time'?: string;
+    public constructor(mode?: string) { 
         this['mode'] = mode;
     }
-    public withMode(mode: AppAutoRecordModeModeEnum): AppAutoRecordMode {
+    public withMode(mode: AppAutoRecordModeModeEnum | string): AppAutoRecordMode {
         this['mode'] = mode;
         return this;
     }
@@ -15,20 +15,20 @@ export class AppAutoRecordMode {
         this['record_rule_id'] = recordRuleId;
         return this;
     }
-    public set recordRuleId(recordRuleId: string | undefined) {
+    public set recordRuleId(recordRuleId: string  | undefined) {
         this['record_rule_id'] = recordRuleId;
     }
-    public get recordRuleId() {
+    public get recordRuleId(): string | undefined {
         return this['record_rule_id'];
     }
     public withUpdateTime(updateTime: string): AppAutoRecordMode {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
 }

@@ -2,10 +2,10 @@ import { ActionsList } from './ActionsList';
 
 
 export class VideoResult {
-    public alive: boolean;
-    public actions: Array<ActionsList>;
-    public picture: string;
-    public constructor(alive?: any, actions?: any, picture?: any) { 
+    public alive?: boolean;
+    public actions?: Array<ActionsList>;
+    public picture?: string;
+    public constructor(alive?: boolean, actions?: Array<ActionsList>, picture?: string) { 
         this['alive'] = alive;
         this['actions'] = actions;
         this['picture'] = picture;

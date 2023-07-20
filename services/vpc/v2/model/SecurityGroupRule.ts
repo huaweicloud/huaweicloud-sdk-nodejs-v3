@@ -1,19 +1,19 @@
 
 
 export class SecurityGroupRule {
-    public id: string;
-    public description: string;
-    private 'security_group_id': string | undefined;
-    public direction: string;
-    public ethertype: string;
-    public protocol: string;
-    private 'port_range_min': number | undefined;
-    private 'port_range_max': number | undefined;
-    private 'remote_ip_prefix': string | undefined;
-    private 'remote_group_id': string | undefined;
-    private 'remote_address_group_id'?: string | undefined;
-    private 'tenant_id': string | undefined;
-    public constructor(id?: any, description?: any, securityGroupId?: any, direction?: any, ethertype?: any, protocol?: any, portRangeMin?: any, portRangeMax?: any, remoteIpPrefix?: any, remoteGroupId?: any, tenantId?: any) { 
+    public id?: string;
+    public description?: string;
+    private 'security_group_id'?: string;
+    public direction?: string;
+    public ethertype?: string;
+    public protocol?: string;
+    private 'port_range_min'?: number;
+    private 'port_range_max'?: number;
+    private 'remote_ip_prefix'?: string;
+    private 'remote_group_id'?: string;
+    private 'remote_address_group_id'?: string;
+    private 'tenant_id'?: string;
+    public constructor(id?: string, description?: string, securityGroupId?: string, direction?: string, ethertype?: string, protocol?: string, portRangeMin?: number, portRangeMax?: number, remoteIpPrefix?: string, remoteGroupId?: string, tenantId?: string) { 
         this['id'] = id;
         this['description'] = description;
         this['security_group_id'] = securityGroupId;
@@ -38,10 +38,10 @@ export class SecurityGroupRule {
         this['security_group_id'] = securityGroupId;
         return this;
     }
-    public set securityGroupId(securityGroupId: string | undefined) {
+    public set securityGroupId(securityGroupId: string  | undefined) {
         this['security_group_id'] = securityGroupId;
     }
-    public get securityGroupId() {
+    public get securityGroupId(): string | undefined {
         return this['security_group_id'];
     }
     public withDirection(direction: string): SecurityGroupRule {
@@ -60,60 +60,60 @@ export class SecurityGroupRule {
         this['port_range_min'] = portRangeMin;
         return this;
     }
-    public set portRangeMin(portRangeMin: number | undefined) {
+    public set portRangeMin(portRangeMin: number  | undefined) {
         this['port_range_min'] = portRangeMin;
     }
-    public get portRangeMin() {
+    public get portRangeMin(): number | undefined {
         return this['port_range_min'];
     }
     public withPortRangeMax(portRangeMax: number): SecurityGroupRule {
         this['port_range_max'] = portRangeMax;
         return this;
     }
-    public set portRangeMax(portRangeMax: number | undefined) {
+    public set portRangeMax(portRangeMax: number  | undefined) {
         this['port_range_max'] = portRangeMax;
     }
-    public get portRangeMax() {
+    public get portRangeMax(): number | undefined {
         return this['port_range_max'];
     }
     public withRemoteIpPrefix(remoteIpPrefix: string): SecurityGroupRule {
         this['remote_ip_prefix'] = remoteIpPrefix;
         return this;
     }
-    public set remoteIpPrefix(remoteIpPrefix: string | undefined) {
+    public set remoteIpPrefix(remoteIpPrefix: string  | undefined) {
         this['remote_ip_prefix'] = remoteIpPrefix;
     }
-    public get remoteIpPrefix() {
+    public get remoteIpPrefix(): string | undefined {
         return this['remote_ip_prefix'];
     }
     public withRemoteGroupId(remoteGroupId: string): SecurityGroupRule {
         this['remote_group_id'] = remoteGroupId;
         return this;
     }
-    public set remoteGroupId(remoteGroupId: string | undefined) {
+    public set remoteGroupId(remoteGroupId: string  | undefined) {
         this['remote_group_id'] = remoteGroupId;
     }
-    public get remoteGroupId() {
+    public get remoteGroupId(): string | undefined {
         return this['remote_group_id'];
     }
     public withRemoteAddressGroupId(remoteAddressGroupId: string): SecurityGroupRule {
         this['remote_address_group_id'] = remoteAddressGroupId;
         return this;
     }
-    public set remoteAddressGroupId(remoteAddressGroupId: string | undefined) {
+    public set remoteAddressGroupId(remoteAddressGroupId: string  | undefined) {
         this['remote_address_group_id'] = remoteAddressGroupId;
     }
-    public get remoteAddressGroupId() {
+    public get remoteAddressGroupId(): string | undefined {
         return this['remote_address_group_id'];
     }
     public withTenantId(tenantId: string): SecurityGroupRule {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
 }

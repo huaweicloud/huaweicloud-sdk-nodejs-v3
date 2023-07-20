@@ -1,20 +1,20 @@
 
 
 export class ListMessagesRequest {
-    public engine: ListMessagesRequestEngineEnum;
-    private 'instance_id': string | undefined;
-    public topic: string;
+    public engine?: ListMessagesRequestEngineEnum | string;
+    private 'instance_id'?: string;
+    public topic?: string;
     public limit?: string;
     public offset?: string;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
-    private 'msg_id'?: string | undefined;
-    public constructor(engine?: any, instanceId?: any, topic?: any) { 
+    private 'start_time'?: string;
+    private 'end_time'?: string;
+    private 'msg_id'?: string;
+    public constructor(engine?: string, instanceId?: string, topic?: string) { 
         this['engine'] = engine;
         this['instance_id'] = instanceId;
         this['topic'] = topic;
     }
-    public withEngine(engine: ListMessagesRequestEngineEnum): ListMessagesRequest {
+    public withEngine(engine: ListMessagesRequestEngineEnum | string): ListMessagesRequest {
         this['engine'] = engine;
         return this;
     }
@@ -22,10 +22,10 @@ export class ListMessagesRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withTopic(topic: string): ListMessagesRequest {
@@ -44,30 +44,30 @@ export class ListMessagesRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ListMessagesRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withMsgId(msgId: string): ListMessagesRequest {
         this['msg_id'] = msgId;
         return this;
     }
-    public set msgId(msgId: string | undefined) {
+    public set msgId(msgId: string  | undefined) {
         this['msg_id'] = msgId;
     }
-    public get msgId() {
+    public get msgId(): string | undefined {
         return this['msg_id'];
     }
 }

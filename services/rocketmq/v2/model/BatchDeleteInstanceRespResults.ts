@@ -1,11 +1,11 @@
 
 
 export class BatchDeleteInstanceRespResults {
-    public result?: BatchDeleteInstanceRespResultsResultEnum;
+    public result?: BatchDeleteInstanceRespResultsResultEnum | string;
     public instance?: string;
     public constructor() { 
     }
-    public withResult(result: BatchDeleteInstanceRespResultsResultEnum): BatchDeleteInstanceRespResults {
+    public withResult(result: BatchDeleteInstanceRespResultsResultEnum | string): BatchDeleteInstanceRespResults {
         this['result'] = result;
         return this;
     }

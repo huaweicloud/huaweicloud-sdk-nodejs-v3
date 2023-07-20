@@ -3,7 +3,7 @@
 export class ValueListResponseBody {
     public id?: string;
     public name?: string;
-    public type?: ValueListResponseBodyTypeEnum;
+    public type?: ValueListResponseBodyTypeEnum | string;
     public timestamp?: number;
     public values?: Array<string>;
     public producer?: number;
@@ -18,7 +18,7 @@ export class ValueListResponseBody {
         this['name'] = name;
         return this;
     }
-    public withType(type: ValueListResponseBodyTypeEnum): ValueListResponseBody {
+    public withType(type: ValueListResponseBodyTypeEnum | string): ValueListResponseBody {
         this['type'] = type;
         return this;
     }

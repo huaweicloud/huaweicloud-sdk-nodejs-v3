@@ -6,11 +6,11 @@ export class ModifyInstanceBody {
     public name?: string;
     public description?: string;
     public port?: number;
-    private 'rename_commands'?: RenameCommandResp | undefined;
-    private 'maintain_begin'?: string | undefined;
-    private 'maintain_end'?: string | undefined;
-    private 'security_group_id'?: string | undefined;
-    private 'instance_backup_policy'?: BackupPolicy | undefined;
+    private 'rename_commands'?: RenameCommandResp;
+    private 'maintain_begin'?: string;
+    private 'maintain_end'?: string;
+    private 'security_group_id'?: string;
+    private 'instance_backup_policy'?: BackupPolicy;
     public constructor() { 
     }
     public withName(name: string): ModifyInstanceBody {
@@ -29,50 +29,50 @@ export class ModifyInstanceBody {
         this['rename_commands'] = renameCommands;
         return this;
     }
-    public set renameCommands(renameCommands: RenameCommandResp | undefined) {
+    public set renameCommands(renameCommands: RenameCommandResp  | undefined) {
         this['rename_commands'] = renameCommands;
     }
-    public get renameCommands() {
+    public get renameCommands(): RenameCommandResp | undefined {
         return this['rename_commands'];
     }
     public withMaintainBegin(maintainBegin: string): ModifyInstanceBody {
         this['maintain_begin'] = maintainBegin;
         return this;
     }
-    public set maintainBegin(maintainBegin: string | undefined) {
+    public set maintainBegin(maintainBegin: string  | undefined) {
         this['maintain_begin'] = maintainBegin;
     }
-    public get maintainBegin() {
+    public get maintainBegin(): string | undefined {
         return this['maintain_begin'];
     }
     public withMaintainEnd(maintainEnd: string): ModifyInstanceBody {
         this['maintain_end'] = maintainEnd;
         return this;
     }
-    public set maintainEnd(maintainEnd: string | undefined) {
+    public set maintainEnd(maintainEnd: string  | undefined) {
         this['maintain_end'] = maintainEnd;
     }
-    public get maintainEnd() {
+    public get maintainEnd(): string | undefined {
         return this['maintain_end'];
     }
     public withSecurityGroupId(securityGroupId: string): ModifyInstanceBody {
         this['security_group_id'] = securityGroupId;
         return this;
     }
-    public set securityGroupId(securityGroupId: string | undefined) {
+    public set securityGroupId(securityGroupId: string  | undefined) {
         this['security_group_id'] = securityGroupId;
     }
-    public get securityGroupId() {
+    public get securityGroupId(): string | undefined {
         return this['security_group_id'];
     }
     public withInstanceBackupPolicy(instanceBackupPolicy: BackupPolicy): ModifyInstanceBody {
         this['instance_backup_policy'] = instanceBackupPolicy;
         return this;
     }
-    public set instanceBackupPolicy(instanceBackupPolicy: BackupPolicy | undefined) {
+    public set instanceBackupPolicy(instanceBackupPolicy: BackupPolicy  | undefined) {
         this['instance_backup_policy'] = instanceBackupPolicy;
     }
-    public get instanceBackupPolicy() {
+    public get instanceBackupPolicy(): BackupPolicy | undefined {
         return this['instance_backup_policy'];
     }
 }

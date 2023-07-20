@@ -1,7 +1,7 @@
 
 
 export class OpenAttendeeEntity {
-    public appId: string;
+    public appId?: string;
     public userAccount?: string;
     public userName?: string;
     public deptName?: string;
@@ -9,7 +9,7 @@ export class OpenAttendeeEntity {
     public email?: string;
     public sms?: string;
     public isHardTerminal?: boolean;
-    public constructor(appId?: any) { 
+    public constructor(appId?: string) { 
         this['appId'] = appId;
     }
     public withAppId(appId: string): OpenAttendeeEntity {

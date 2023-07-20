@@ -3,7 +3,7 @@ import { PreheatingResult } from './PreheatingResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowPreheatingAssetResponse extends SdkResponse {
-    private 'preheating_results'?: Array<PreheatingResult> | undefined;
+    private 'preheating_results'?: Array<PreheatingResult>;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ShowPreheatingAssetResponse extends SdkResponse {
         this['preheating_results'] = preheatingResults;
         return this;
     }
-    public set preheatingResults(preheatingResults: Array<PreheatingResult> | undefined) {
+    public set preheatingResults(preheatingResults: Array<PreheatingResult>  | undefined) {
         this['preheating_results'] = preheatingResults;
     }
-    public get preheatingResults() {
+    public get preheatingResults(): Array<PreheatingResult> | undefined {
         return this['preheating_results'];
     }
 }

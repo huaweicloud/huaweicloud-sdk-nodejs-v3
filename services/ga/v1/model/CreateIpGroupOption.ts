@@ -2,10 +2,10 @@ import { CreateIpGroupIpOption } from './CreateIpGroupIpOption';
 
 
 export class CreateIpGroupOption {
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'ip_list'?: Array<CreateIpGroupIpOption> | undefined;
-    public constructor(name?: any) { 
+    private 'ip_list'?: Array<CreateIpGroupIpOption>;
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): CreateIpGroupOption {
@@ -20,10 +20,10 @@ export class CreateIpGroupOption {
         this['ip_list'] = ipList;
         return this;
     }
-    public set ipList(ipList: Array<CreateIpGroupIpOption> | undefined) {
+    public set ipList(ipList: Array<CreateIpGroupIpOption>  | undefined) {
         this['ip_list'] = ipList;
     }
-    public get ipList() {
+    public get ipList(): Array<CreateIpGroupIpOption> | undefined {
         return this['ip_list'];
     }
 }

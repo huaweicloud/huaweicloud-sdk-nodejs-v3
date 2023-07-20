@@ -2,8 +2,8 @@ import { CreateSubnetOption } from './CreateSubnetOption';
 
 
 export class CreateSubnetRequestBody {
-    public subnet: CreateSubnetOption;
-    public constructor(subnet?: any) { 
+    public subnet?: CreateSubnetOption;
+    public constructor(subnet?: CreateSubnetOption) { 
         this['subnet'] = subnet;
     }
     public withSubnet(subnet: CreateSubnetOption): CreateSubnetRequestBody {

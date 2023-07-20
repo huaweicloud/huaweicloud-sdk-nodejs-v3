@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class UpdatePunishmentRuleResponse extends SdkResponse {
     public id?: string;
     public policyid?: string;
-    private 'block_time'?: number | undefined;
+    private 'block_time'?: number;
     public category?: string;
     public description?: string;
     public constructor() { 
@@ -22,10 +22,10 @@ export class UpdatePunishmentRuleResponse extends SdkResponse {
         this['block_time'] = blockTime;
         return this;
     }
-    public set blockTime(blockTime: number | undefined) {
+    public set blockTime(blockTime: number  | undefined) {
         this['block_time'] = blockTime;
     }
-    public get blockTime() {
+    public get blockTime(): number | undefined {
         return this['block_time'];
     }
     public withCategory(category: string): UpdatePunishmentRuleResponse {

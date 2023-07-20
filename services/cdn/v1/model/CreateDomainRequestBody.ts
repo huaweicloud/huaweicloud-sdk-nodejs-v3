@@ -2,8 +2,8 @@ import { DomainBody } from './DomainBody';
 
 
 export class CreateDomainRequestBody {
-    public domain: DomainBody;
-    public constructor(domain?: any) { 
+    public domain?: DomainBody;
+    public constructor(domain?: DomainBody) { 
         this['domain'] = domain;
     }
     public withDomain(domain: DomainBody): CreateDomainRequestBody {

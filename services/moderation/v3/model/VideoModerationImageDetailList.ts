@@ -5,12 +5,12 @@ import { VideoModerationImageDetailListQrLocation } from './VideoModerationImage
 
 export class VideoModerationImageDetailList {
     public confidence?: number;
-    public category?: VideoModerationImageDetailListCategoryEnum;
-    public suggestion?: VideoModerationImageDetailListSuggestionEnum;
+    public category?: VideoModerationImageDetailListCategoryEnum | string;
+    public suggestion?: VideoModerationImageDetailListSuggestionEnum | string;
     public label?: string;
-    private 'face_location'?: VideoModerationImageDetailListFaceLocation | undefined;
-    private 'qr_location'?: VideoModerationImageDetailListQrLocation | undefined;
-    private 'qr_content'?: string | undefined;
+    private 'face_location'?: VideoModerationImageDetailListFaceLocation;
+    private 'qr_location'?: VideoModerationImageDetailListQrLocation;
+    private 'qr_content'?: string;
     public segments?: Array<VideoModerationDetailSegment>;
     public constructor() { 
     }
@@ -18,11 +18,11 @@ export class VideoModerationImageDetailList {
         this['confidence'] = confidence;
         return this;
     }
-    public withCategory(category: VideoModerationImageDetailListCategoryEnum): VideoModerationImageDetailList {
+    public withCategory(category: VideoModerationImageDetailListCategoryEnum | string): VideoModerationImageDetailList {
         this['category'] = category;
         return this;
     }
-    public withSuggestion(suggestion: VideoModerationImageDetailListSuggestionEnum): VideoModerationImageDetailList {
+    public withSuggestion(suggestion: VideoModerationImageDetailListSuggestionEnum | string): VideoModerationImageDetailList {
         this['suggestion'] = suggestion;
         return this;
     }
@@ -34,30 +34,30 @@ export class VideoModerationImageDetailList {
         this['face_location'] = faceLocation;
         return this;
     }
-    public set faceLocation(faceLocation: VideoModerationImageDetailListFaceLocation | undefined) {
+    public set faceLocation(faceLocation: VideoModerationImageDetailListFaceLocation  | undefined) {
         this['face_location'] = faceLocation;
     }
-    public get faceLocation() {
+    public get faceLocation(): VideoModerationImageDetailListFaceLocation | undefined {
         return this['face_location'];
     }
     public withQrLocation(qrLocation: VideoModerationImageDetailListQrLocation): VideoModerationImageDetailList {
         this['qr_location'] = qrLocation;
         return this;
     }
-    public set qrLocation(qrLocation: VideoModerationImageDetailListQrLocation | undefined) {
+    public set qrLocation(qrLocation: VideoModerationImageDetailListQrLocation  | undefined) {
         this['qr_location'] = qrLocation;
     }
-    public get qrLocation() {
+    public get qrLocation(): VideoModerationImageDetailListQrLocation | undefined {
         return this['qr_location'];
     }
     public withQrContent(qrContent: string): VideoModerationImageDetailList {
         this['qr_content'] = qrContent;
         return this;
     }
-    public set qrContent(qrContent: string | undefined) {
+    public set qrContent(qrContent: string  | undefined) {
         this['qr_content'] = qrContent;
     }
-    public get qrContent() {
+    public get qrContent(): string | undefined {
         return this['qr_content'];
     }
     public withSegments(segments: Array<VideoModerationDetailSegment>): VideoModerationImageDetailList {

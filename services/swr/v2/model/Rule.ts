@@ -2,15 +2,15 @@ import { TagSelector } from './TagSelector';
 
 
 export class Rule {
-    public template: RuleTemplateEnum;
-    public params: object;
-    private 'tag_selectors': Array<TagSelector> | undefined;
-    public constructor(template?: any, params?: any, tagSelectors?: any) { 
+    public template?: RuleTemplateEnum | string;
+    public params?: object;
+    private 'tag_selectors'?: Array<TagSelector>;
+    public constructor(template?: string, params?: object, tagSelectors?: Array<TagSelector>) { 
         this['template'] = template;
         this['params'] = params;
         this['tag_selectors'] = tagSelectors;
     }
-    public withTemplate(template: RuleTemplateEnum): Rule {
+    public withTemplate(template: RuleTemplateEnum | string): Rule {
         this['template'] = template;
         return this;
     }
@@ -22,10 +22,10 @@ export class Rule {
         this['tag_selectors'] = tagSelectors;
         return this;
     }
-    public set tagSelectors(tagSelectors: Array<TagSelector> | undefined) {
+    public set tagSelectors(tagSelectors: Array<TagSelector>  | undefined) {
         this['tag_selectors'] = tagSelectors;
     }
-    public get tagSelectors() {
+    public get tagSelectors(): Array<TagSelector> | undefined {
         return this['tag_selectors'];
     }
 }

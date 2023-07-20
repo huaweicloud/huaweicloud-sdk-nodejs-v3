@@ -3,10 +3,10 @@ import { PostPaidServerEipExtendParam } from './PostPaidServerEipExtendParam';
 
 
 export class PostPaidServerEip {
-    public iptype: string;
-    public bandwidth: PostPaidServerEipBandwidth;
+    public iptype?: string;
+    public bandwidth?: PostPaidServerEipBandwidth;
     public extendparam?: PostPaidServerEipExtendParam;
-    public constructor(iptype?: any, bandwidth?: any) { 
+    public constructor(iptype?: string, bandwidth?: PostPaidServerEipBandwidth) { 
         this['iptype'] = iptype;
         this['bandwidth'] = bandwidth;
     }

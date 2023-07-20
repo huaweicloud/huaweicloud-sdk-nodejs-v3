@@ -1,23 +1,23 @@
 
 
 export class DeleteUserRepositoryAuthRequest {
-    private 'Content-Type': DeleteUserRepositoryAuthRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
+    private 'Content-Type'?: DeleteUserRepositoryAuthRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
     public body?: Array<string>;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: DeleteUserRepositoryAuthRequestContentTypeEnum): DeleteUserRepositoryAuthRequest {
+    public withContentType(contentType: DeleteUserRepositoryAuthRequestContentTypeEnum | string): DeleteUserRepositoryAuthRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: DeleteUserRepositoryAuthRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: DeleteUserRepositoryAuthRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): DeleteUserRepositoryAuthRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): DeleteUserRepositoryAuthRequest {

@@ -3,7 +3,7 @@ import { NetworkIpAvailability } from './NetworkIpAvailability';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowNetworkIpAvailabilitiesResponse extends SdkResponse {
-    private 'network_ip_availability'?: NetworkIpAvailability | undefined;
+    private 'network_ip_availability'?: NetworkIpAvailability;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ShowNetworkIpAvailabilitiesResponse extends SdkResponse {
         this['network_ip_availability'] = networkIpAvailability;
         return this;
     }
-    public set networkIpAvailability(networkIpAvailability: NetworkIpAvailability | undefined) {
+    public set networkIpAvailability(networkIpAvailability: NetworkIpAvailability  | undefined) {
         this['network_ip_availability'] = networkIpAvailability;
     }
-    public get networkIpAvailability() {
+    public get networkIpAvailability(): NetworkIpAvailability | undefined {
         return this['network_ip_availability'];
     }
 }

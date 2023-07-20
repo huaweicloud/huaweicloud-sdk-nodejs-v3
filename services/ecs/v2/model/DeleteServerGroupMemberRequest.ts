@@ -2,19 +2,19 @@ import { DeleteServerGroupMemberRequestBody } from './DeleteServerGroupMemberReq
 
 
 export class DeleteServerGroupMemberRequest {
-    private 'server_group_id': string | undefined;
+    private 'server_group_id'?: string;
     public body?: DeleteServerGroupMemberRequestBody;
-    public constructor(serverGroupId?: any) { 
+    public constructor(serverGroupId?: string) { 
         this['server_group_id'] = serverGroupId;
     }
     public withServerGroupId(serverGroupId: string): DeleteServerGroupMemberRequest {
         this['server_group_id'] = serverGroupId;
         return this;
     }
-    public set serverGroupId(serverGroupId: string | undefined) {
+    public set serverGroupId(serverGroupId: string  | undefined) {
         this['server_group_id'] = serverGroupId;
     }
-    public get serverGroupId() {
+    public get serverGroupId(): string | undefined {
         return this['server_group_id'];
     }
     public withBody(body: DeleteServerGroupMemberRequestBody): DeleteServerGroupMemberRequest {

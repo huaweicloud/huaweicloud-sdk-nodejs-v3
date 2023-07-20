@@ -1,9 +1,9 @@
 
 
 export class ApiVersionInfo {
-    public id: string;
-    public status: ApiVersionInfoStatusEnum;
-    public constructor(id?: any, status?: any) { 
+    public id?: string;
+    public status?: ApiVersionInfoStatusEnum | string;
+    public constructor(id?: string, status?: string) { 
         this['id'] = id;
         this['status'] = status;
     }
@@ -11,7 +11,7 @@ export class ApiVersionInfo {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: ApiVersionInfoStatusEnum): ApiVersionInfo {
+    public withStatus(status: ApiVersionInfoStatusEnum | string): ApiVersionInfo {
         this['status'] = status;
         return this;
     }

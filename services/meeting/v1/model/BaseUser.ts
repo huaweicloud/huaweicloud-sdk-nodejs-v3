@@ -1,14 +1,14 @@
 
 
 export class BaseUser {
-    public name: string;
-    public contact: string;
+    public name?: string;
+    public contact?: string;
     public country?: string;
     public deptCode?: string;
     public title?: string;
     public sortLevel?: number;
     public desc?: string;
-    public constructor(name?: any, contact?: any) { 
+    public constructor(name?: string, contact?: string) { 
         this['name'] = name;
         this['contact'] = contact;
     }

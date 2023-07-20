@@ -14,32 +14,32 @@ export class ShowHostResponse extends SdkResponse {
     public policyid?: string;
     public domainid?: string;
     public projectid?: string;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public protocol?: string;
     public server?: Array<CloudWafServer>;
     public proxy?: boolean;
-    private 'protect_status'?: number | undefined;
-    private 'access_status'?: number | undefined;
-    private 'access_code'?: string | undefined;
+    private 'protect_status'?: number;
+    private 'access_status'?: number;
+    private 'access_code'?: string;
     public locked?: number;
     public timestamp?: number;
     public certificateid?: string;
     public certificatename?: string;
-    public tls?: ShowHostResponseTlsEnum;
-    public cipher?: ShowHostResponseCipherEnum;
-    private 'block_page'?: BlockPage | undefined;
+    public tls?: ShowHostResponseTlsEnum | string;
+    public cipher?: ShowHostResponseCipherEnum | string;
+    private 'block_page'?: BlockPage;
     public extend?: { [key: string]: string; };
-    private 'traffic_mark'?: TrafficMark | undefined;
-    private 'circuit_breaker'?: CircuitBreaker | undefined;
-    private 'lb_algorithm'?: ShowHostResponseLbAlgorithmEnum | undefined;
-    private 'timeout_config'?: TimeoutConfig | undefined;
-    private 'web_tag'?: string | undefined;
+    private 'traffic_mark'?: TrafficMark;
+    private 'circuit_breaker'?: CircuitBreaker;
+    private 'lb_algorithm'?: ShowHostResponseLbAlgorithmEnum | string;
+    private 'timeout_config'?: TimeoutConfig;
+    private 'web_tag'?: string;
     public flag?: Flag;
     public description?: string;
-    private 'http2_enable'?: boolean | undefined;
-    private 'exclusive_ip'?: boolean | undefined;
-    private 'access_progress'?: Array<AccessProgress> | undefined;
-    private 'forward_header_map'?: { [key: string]: string; } | undefined;
+    private 'http2_enable'?: boolean;
+    private 'exclusive_ip'?: boolean;
+    private 'access_progress'?: Array<AccessProgress>;
+    private 'forward_header_map'?: { [key: string]: string; };
     public constructor() { 
         super();
     }
@@ -67,10 +67,10 @@ export class ShowHostResponse extends SdkResponse {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withProtocol(protocol: string): ShowHostResponse {
@@ -89,30 +89,30 @@ export class ShowHostResponse extends SdkResponse {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number | undefined) {
+    public set protectStatus(protectStatus: number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): number | undefined {
         return this['protect_status'];
     }
     public withAccessStatus(accessStatus: number): ShowHostResponse {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number | undefined) {
+    public set accessStatus(accessStatus: number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus() {
+    public get accessStatus(): number | undefined {
         return this['access_status'];
     }
     public withAccessCode(accessCode: string): ShowHostResponse {
         this['access_code'] = accessCode;
         return this;
     }
-    public set accessCode(accessCode: string | undefined) {
+    public set accessCode(accessCode: string  | undefined) {
         this['access_code'] = accessCode;
     }
-    public get accessCode() {
+    public get accessCode(): string | undefined {
         return this['access_code'];
     }
     public withLocked(locked: number): ShowHostResponse {
@@ -131,11 +131,11 @@ export class ShowHostResponse extends SdkResponse {
         this['certificatename'] = certificatename;
         return this;
     }
-    public withTls(tls: ShowHostResponseTlsEnum): ShowHostResponse {
+    public withTls(tls: ShowHostResponseTlsEnum | string): ShowHostResponse {
         this['tls'] = tls;
         return this;
     }
-    public withCipher(cipher: ShowHostResponseCipherEnum): ShowHostResponse {
+    public withCipher(cipher: ShowHostResponseCipherEnum | string): ShowHostResponse {
         this['cipher'] = cipher;
         return this;
     }
@@ -143,10 +143,10 @@ export class ShowHostResponse extends SdkResponse {
         this['block_page'] = blockPage;
         return this;
     }
-    public set blockPage(blockPage: BlockPage | undefined) {
+    public set blockPage(blockPage: BlockPage  | undefined) {
         this['block_page'] = blockPage;
     }
-    public get blockPage() {
+    public get blockPage(): BlockPage | undefined {
         return this['block_page'];
     }
     public withExtend(extend: { [key: string]: string; }): ShowHostResponse {
@@ -157,50 +157,50 @@ export class ShowHostResponse extends SdkResponse {
         this['traffic_mark'] = trafficMark;
         return this;
     }
-    public set trafficMark(trafficMark: TrafficMark | undefined) {
+    public set trafficMark(trafficMark: TrafficMark  | undefined) {
         this['traffic_mark'] = trafficMark;
     }
-    public get trafficMark() {
+    public get trafficMark(): TrafficMark | undefined {
         return this['traffic_mark'];
     }
     public withCircuitBreaker(circuitBreaker: CircuitBreaker): ShowHostResponse {
         this['circuit_breaker'] = circuitBreaker;
         return this;
     }
-    public set circuitBreaker(circuitBreaker: CircuitBreaker | undefined) {
+    public set circuitBreaker(circuitBreaker: CircuitBreaker  | undefined) {
         this['circuit_breaker'] = circuitBreaker;
     }
-    public get circuitBreaker() {
+    public get circuitBreaker(): CircuitBreaker | undefined {
         return this['circuit_breaker'];
     }
-    public withLbAlgorithm(lbAlgorithm: ShowHostResponseLbAlgorithmEnum): ShowHostResponse {
+    public withLbAlgorithm(lbAlgorithm: ShowHostResponseLbAlgorithmEnum | string): ShowHostResponse {
         this['lb_algorithm'] = lbAlgorithm;
         return this;
     }
-    public set lbAlgorithm(lbAlgorithm: ShowHostResponseLbAlgorithmEnum | undefined) {
+    public set lbAlgorithm(lbAlgorithm: ShowHostResponseLbAlgorithmEnum | string  | undefined) {
         this['lb_algorithm'] = lbAlgorithm;
     }
-    public get lbAlgorithm() {
+    public get lbAlgorithm(): ShowHostResponseLbAlgorithmEnum | string | undefined {
         return this['lb_algorithm'];
     }
     public withTimeoutConfig(timeoutConfig: TimeoutConfig): ShowHostResponse {
         this['timeout_config'] = timeoutConfig;
         return this;
     }
-    public set timeoutConfig(timeoutConfig: TimeoutConfig | undefined) {
+    public set timeoutConfig(timeoutConfig: TimeoutConfig  | undefined) {
         this['timeout_config'] = timeoutConfig;
     }
-    public get timeoutConfig() {
+    public get timeoutConfig(): TimeoutConfig | undefined {
         return this['timeout_config'];
     }
     public withWebTag(webTag: string): ShowHostResponse {
         this['web_tag'] = webTag;
         return this;
     }
-    public set webTag(webTag: string | undefined) {
+    public set webTag(webTag: string  | undefined) {
         this['web_tag'] = webTag;
     }
-    public get webTag() {
+    public get webTag(): string | undefined {
         return this['web_tag'];
     }
     public withFlag(flag: Flag): ShowHostResponse {
@@ -215,40 +215,40 @@ export class ShowHostResponse extends SdkResponse {
         this['http2_enable'] = http2Enable;
         return this;
     }
-    public set http2Enable(http2Enable: boolean | undefined) {
+    public set http2Enable(http2Enable: boolean  | undefined) {
         this['http2_enable'] = http2Enable;
     }
-    public get http2Enable() {
+    public get http2Enable(): boolean | undefined {
         return this['http2_enable'];
     }
     public withExclusiveIp(exclusiveIp: boolean): ShowHostResponse {
         this['exclusive_ip'] = exclusiveIp;
         return this;
     }
-    public set exclusiveIp(exclusiveIp: boolean | undefined) {
+    public set exclusiveIp(exclusiveIp: boolean  | undefined) {
         this['exclusive_ip'] = exclusiveIp;
     }
-    public get exclusiveIp() {
+    public get exclusiveIp(): boolean | undefined {
         return this['exclusive_ip'];
     }
     public withAccessProgress(accessProgress: Array<AccessProgress>): ShowHostResponse {
         this['access_progress'] = accessProgress;
         return this;
     }
-    public set accessProgress(accessProgress: Array<AccessProgress> | undefined) {
+    public set accessProgress(accessProgress: Array<AccessProgress>  | undefined) {
         this['access_progress'] = accessProgress;
     }
-    public get accessProgress() {
+    public get accessProgress(): Array<AccessProgress> | undefined {
         return this['access_progress'];
     }
     public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): ShowHostResponse {
         this['forward_header_map'] = forwardHeaderMap;
         return this;
     }
-    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; }  | undefined) {
         this['forward_header_map'] = forwardHeaderMap;
     }
-    public get forwardHeaderMap() {
+    public get forwardHeaderMap(): { [key: string]: string; } | undefined {
         return this['forward_header_map'];
     }
 }

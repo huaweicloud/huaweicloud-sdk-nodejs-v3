@@ -3,27 +3,27 @@ import { UpdatePoolSlowStartOption } from './UpdatePoolSlowStartOption';
 
 
 export class UpdatePoolOption {
-    private 'admin_state_up'?: boolean | undefined;
+    private 'admin_state_up'?: boolean;
     public description?: string;
-    private 'lb_algorithm'?: string | undefined;
+    private 'lb_algorithm'?: string;
     public name?: string;
-    private 'session_persistence'?: UpdatePoolSessionPersistenceOption | undefined;
-    private 'slow_start'?: UpdatePoolSlowStartOption | undefined;
-    private 'member_deletion_protection_enable'?: boolean | undefined;
-    private 'vpc_id'?: string | undefined;
+    private 'session_persistence'?: UpdatePoolSessionPersistenceOption;
+    private 'slow_start'?: UpdatePoolSlowStartOption;
+    private 'member_deletion_protection_enable'?: boolean;
+    private 'vpc_id'?: string;
     public type?: string;
-    private 'protection_status'?: UpdatePoolOptionProtectionStatusEnum | undefined;
-    private 'protection_reason'?: string | undefined;
+    private 'protection_status'?: UpdatePoolOptionProtectionStatusEnum | string;
+    private 'protection_reason'?: string;
     public constructor() { 
     }
     public withAdminStateUp(adminStateUp: boolean): UpdatePoolOption {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withDescription(description: string): UpdatePoolOption {
@@ -34,10 +34,10 @@ export class UpdatePoolOption {
         this['lb_algorithm'] = lbAlgorithm;
         return this;
     }
-    public set lbAlgorithm(lbAlgorithm: string | undefined) {
+    public set lbAlgorithm(lbAlgorithm: string  | undefined) {
         this['lb_algorithm'] = lbAlgorithm;
     }
-    public get lbAlgorithm() {
+    public get lbAlgorithm(): string | undefined {
         return this['lb_algorithm'];
     }
     public withName(name: string): UpdatePoolOption {
@@ -48,64 +48,64 @@ export class UpdatePoolOption {
         this['session_persistence'] = sessionPersistence;
         return this;
     }
-    public set sessionPersistence(sessionPersistence: UpdatePoolSessionPersistenceOption | undefined) {
+    public set sessionPersistence(sessionPersistence: UpdatePoolSessionPersistenceOption  | undefined) {
         this['session_persistence'] = sessionPersistence;
     }
-    public get sessionPersistence() {
+    public get sessionPersistence(): UpdatePoolSessionPersistenceOption | undefined {
         return this['session_persistence'];
     }
     public withSlowStart(slowStart: UpdatePoolSlowStartOption): UpdatePoolOption {
         this['slow_start'] = slowStart;
         return this;
     }
-    public set slowStart(slowStart: UpdatePoolSlowStartOption | undefined) {
+    public set slowStart(slowStart: UpdatePoolSlowStartOption  | undefined) {
         this['slow_start'] = slowStart;
     }
-    public get slowStart() {
+    public get slowStart(): UpdatePoolSlowStartOption | undefined {
         return this['slow_start'];
     }
     public withMemberDeletionProtectionEnable(memberDeletionProtectionEnable: boolean): UpdatePoolOption {
         this['member_deletion_protection_enable'] = memberDeletionProtectionEnable;
         return this;
     }
-    public set memberDeletionProtectionEnable(memberDeletionProtectionEnable: boolean | undefined) {
+    public set memberDeletionProtectionEnable(memberDeletionProtectionEnable: boolean  | undefined) {
         this['member_deletion_protection_enable'] = memberDeletionProtectionEnable;
     }
-    public get memberDeletionProtectionEnable() {
+    public get memberDeletionProtectionEnable(): boolean | undefined {
         return this['member_deletion_protection_enable'];
     }
     public withVpcId(vpcId: string): UpdatePoolOption {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withType(type: string): UpdatePoolOption {
         this['type'] = type;
         return this;
     }
-    public withProtectionStatus(protectionStatus: UpdatePoolOptionProtectionStatusEnum): UpdatePoolOption {
+    public withProtectionStatus(protectionStatus: UpdatePoolOptionProtectionStatusEnum | string): UpdatePoolOption {
         this['protection_status'] = protectionStatus;
         return this;
     }
-    public set protectionStatus(protectionStatus: UpdatePoolOptionProtectionStatusEnum | undefined) {
+    public set protectionStatus(protectionStatus: UpdatePoolOptionProtectionStatusEnum | string  | undefined) {
         this['protection_status'] = protectionStatus;
     }
-    public get protectionStatus() {
+    public get protectionStatus(): UpdatePoolOptionProtectionStatusEnum | string | undefined {
         return this['protection_status'];
     }
     public withProtectionReason(protectionReason: string): UpdatePoolOption {
         this['protection_reason'] = protectionReason;
         return this;
     }
-    public set protectionReason(protectionReason: string | undefined) {
+    public set protectionReason(protectionReason: string  | undefined) {
         this['protection_reason'] = protectionReason;
     }
-    public get protectionReason() {
+    public get protectionReason(): string | undefined {
         return this['protection_reason'];
     }
 }

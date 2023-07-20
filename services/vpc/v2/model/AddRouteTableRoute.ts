@@ -1,11 +1,11 @@
 
 
 export class AddRouteTableRoute {
-    public type: string;
-    public destination: string;
-    public nexthop: string;
+    public type?: string;
+    public destination?: string;
+    public nexthop?: string;
     public description?: string;
-    public constructor(type?: any, destination?: any, nexthop?: any) { 
+    public constructor(type?: string, destination?: string, nexthop?: string) { 
         this['type'] = type;
         this['destination'] = destination;
         this['nexthop'] = nexthop;

@@ -3,10 +3,10 @@ import { MappingRules } from './MappingRules';
 
 
 export class MappingResult {
-    public id: string;
-    public links: LinksSelf;
-    public rules: Array<MappingRules>;
-    public constructor(id?: any, links?: any, rules?: any) { 
+    public id?: string;
+    public links?: LinksSelf;
+    public rules?: Array<MappingRules>;
+    public constructor(id?: string, links?: LinksSelf, rules?: Array<MappingRules>) { 
         this['id'] = id;
         this['links'] = links;
         this['rules'] = rules;

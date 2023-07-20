@@ -1,7 +1,7 @@
 
 
 export class CreatePreheatingAssetReq {
-    private 'asset_id'?: string | undefined;
+    private 'asset_id'?: string;
     public urls?: Array<string>;
     public constructor() { 
     }
@@ -9,10 +9,10 @@ export class CreatePreheatingAssetReq {
         this['asset_id'] = assetId;
         return this;
     }
-    public set assetId(assetId: string | undefined) {
+    public set assetId(assetId: string  | undefined) {
         this['asset_id'] = assetId;
     }
-    public get assetId() {
+    public get assetId(): string | undefined {
         return this['asset_id'];
     }
     public withUrls(urls: Array<string>): CreatePreheatingAssetReq {

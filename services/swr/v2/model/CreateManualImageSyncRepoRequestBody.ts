@@ -1,11 +1,11 @@
 
 
 export class CreateManualImageSyncRepoRequestBody {
-    public imageTag: Array<string>;
+    public imageTag?: Array<string>;
     public override?: boolean;
-    public remoteNamespace: string;
-    public remoteRegionId: string;
-    public constructor(imageTag?: any, remoteNamespace?: any, remoteRegionId?: any) { 
+    public remoteNamespace?: string;
+    public remoteRegionId?: string;
+    public constructor(imageTag?: Array<string>, remoteNamespace?: string, remoteRegionId?: string) { 
         this['imageTag'] = imageTag;
         this['remoteNamespace'] = remoteNamespace;
         this['remoteRegionId'] = remoteRegionId;

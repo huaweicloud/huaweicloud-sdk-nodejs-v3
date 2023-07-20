@@ -5,14 +5,14 @@ import { ObsObjInfo } from './ObsObjInfo';
 
 
 export class OutputSetting {
-    public format?: OutputSettingFormatEnum;
+    public format?: OutputSettingFormatEnum | string;
     public video?: EditVideoInfo;
     public audio?: EditAudioInfo;
     public hls?: EditHlsInfo;
     public output?: ObsObjInfo;
     public constructor() { 
     }
-    public withFormat(format: OutputSettingFormatEnum): OutputSetting {
+    public withFormat(format: OutputSettingFormatEnum | string): OutputSetting {
         this['format'] = format;
         return this;
     }

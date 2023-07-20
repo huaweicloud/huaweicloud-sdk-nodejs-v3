@@ -2,7 +2,7 @@
 
 export class TopUrl {
     public value?: number;
-    private 'asset_id'?: string | undefined;
+    private 'asset_id'?: string;
     public title?: string;
     public duration?: number;
     public size?: number;
@@ -16,10 +16,10 @@ export class TopUrl {
         this['asset_id'] = assetId;
         return this;
     }
-    public set assetId(assetId: string | undefined) {
+    public set assetId(assetId: string  | undefined) {
         this['asset_id'] = assetId;
     }
-    public get assetId() {
+    public get assetId(): string | undefined {
         return this['asset_id'];
     }
     public withTitle(title: string): TopUrl {

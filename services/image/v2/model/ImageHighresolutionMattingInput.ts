@@ -2,9 +2,9 @@ import { ImageHighresolutionMattingInputData } from './ImageHighresolutionMattin
 
 
 export class ImageHighresolutionMattingInput {
-    public type: string;
-    public data: Array<ImageHighresolutionMattingInputData>;
-    public constructor(type?: any, data?: any) { 
+    public type?: string;
+    public data?: Array<ImageHighresolutionMattingInputData>;
+    public constructor(type?: string, data?: Array<ImageHighresolutionMattingInputData>) { 
         this['type'] = type;
         this['data'] = data;
     }

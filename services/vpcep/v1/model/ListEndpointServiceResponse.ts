@@ -3,8 +3,8 @@ import { ServiceList } from './ServiceList';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListEndpointServiceResponse extends SdkResponse {
-    private 'endpoint_services'?: Array<ServiceList> | undefined;
-    private 'total_count'?: number | undefined;
+    private 'endpoint_services'?: Array<ServiceList>;
+    private 'total_count'?: number;
     public constructor() { 
         super();
     }
@@ -12,20 +12,20 @@ export class ListEndpointServiceResponse extends SdkResponse {
         this['endpoint_services'] = endpointServices;
         return this;
     }
-    public set endpointServices(endpointServices: Array<ServiceList> | undefined) {
+    public set endpointServices(endpointServices: Array<ServiceList>  | undefined) {
         this['endpoint_services'] = endpointServices;
     }
-    public get endpointServices() {
+    public get endpointServices(): Array<ServiceList> | undefined {
         return this['endpoint_services'];
     }
     public withTotalCount(totalCount: number): ListEndpointServiceResponse {
         this['total_count'] = totalCount;
         return this;
     }
-    public set totalCount(totalCount: number | undefined) {
+    public set totalCount(totalCount: number  | undefined) {
         this['total_count'] = totalCount;
     }
-    public get totalCount() {
+    public get totalCount(): number | undefined {
         return this['total_count'];
     }
 }

@@ -3,7 +3,7 @@
 export class BindHost {
     public id?: string;
     public hostname?: string;
-    private 'waf_type'?: string | undefined;
+    private 'waf_type'?: string;
     public mode?: string;
     public constructor() { 
     }
@@ -19,10 +19,10 @@ export class BindHost {
         this['waf_type'] = wafType;
         return this;
     }
-    public set wafType(wafType: string | undefined) {
+    public set wafType(wafType: string  | undefined) {
         this['waf_type'] = wafType;
     }
-    public get wafType() {
+    public get wafType(): string | undefined {
         return this['waf_type'];
     }
     public withMode(mode: string): BindHost {

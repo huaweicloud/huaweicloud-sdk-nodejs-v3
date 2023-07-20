@@ -5,15 +5,15 @@ import { ResourceTypePrimitiveTypeHolder } from './ResourceTypePrimitiveTypeHold
 
 
 export class ExecutionPlanItem {
-    private 'resource_type'?: string | undefined;
-    private 'resource_name'?: string | undefined;
+    private 'resource_type'?: string;
+    private 'resource_name'?: string;
     public index?: string;
-    public action?: ExecutionPlanItemActionEnum;
-    private 'action_reason'?: string | undefined;
-    private 'provider_name'?: string | undefined;
-    public mode?: ExecutionPlanItemModeEnum;
+    public action?: ExecutionPlanItemActionEnum | string;
+    private 'action_reason'?: string;
+    private 'provider_name'?: string;
+    public mode?: ExecutionPlanItemModeEnum | string;
     public drifted?: boolean;
-    private 'resource_id'?: string | undefined;
+    private 'resource_id'?: string;
     public attributes?: Array<ExecutionPlanDiffAttribute>;
     public constructor() { 
     }
@@ -21,27 +21,27 @@ export class ExecutionPlanItem {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: string | undefined) {
+    public set resourceType(resourceType: string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): string | undefined {
         return this['resource_type'];
     }
     public withResourceName(resourceName: string): ExecutionPlanItem {
         this['resource_name'] = resourceName;
         return this;
     }
-    public set resourceName(resourceName: string | undefined) {
+    public set resourceName(resourceName: string  | undefined) {
         this['resource_name'] = resourceName;
     }
-    public get resourceName() {
+    public get resourceName(): string | undefined {
         return this['resource_name'];
     }
     public withIndex(index: string): ExecutionPlanItem {
         this['index'] = index;
         return this;
     }
-    public withAction(action: ExecutionPlanItemActionEnum): ExecutionPlanItem {
+    public withAction(action: ExecutionPlanItemActionEnum | string): ExecutionPlanItem {
         this['action'] = action;
         return this;
     }
@@ -49,23 +49,23 @@ export class ExecutionPlanItem {
         this['action_reason'] = actionReason;
         return this;
     }
-    public set actionReason(actionReason: string | undefined) {
+    public set actionReason(actionReason: string  | undefined) {
         this['action_reason'] = actionReason;
     }
-    public get actionReason() {
+    public get actionReason(): string | undefined {
         return this['action_reason'];
     }
     public withProviderName(providerName: string): ExecutionPlanItem {
         this['provider_name'] = providerName;
         return this;
     }
-    public set providerName(providerName: string | undefined) {
+    public set providerName(providerName: string  | undefined) {
         this['provider_name'] = providerName;
     }
-    public get providerName() {
+    public get providerName(): string | undefined {
         return this['provider_name'];
     }
-    public withMode(mode: ExecutionPlanItemModeEnum): ExecutionPlanItem {
+    public withMode(mode: ExecutionPlanItemModeEnum | string): ExecutionPlanItem {
         this['mode'] = mode;
         return this;
     }
@@ -77,10 +77,10 @@ export class ExecutionPlanItem {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
     public withAttributes(attributes: Array<ExecutionPlanDiffAttribute>): ExecutionPlanItem {

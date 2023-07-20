@@ -5,8 +5,8 @@ import { VideoTemplateInfo } from './VideoTemplateInfo';
 export class QualityInfo {
     public video?: VideoTemplateInfo;
     public audio?: AudioTemplateInfo;
-    public format: QualityInfoFormatEnum;
-    public constructor(format?: any) { 
+    public format?: QualityInfoFormatEnum | string;
+    public constructor(format?: string) { 
         this['format'] = format;
     }
     public withVideo(video: VideoTemplateInfo): QualityInfo {
@@ -17,7 +17,7 @@ export class QualityInfo {
         this['audio'] = audio;
         return this;
     }
-    public withFormat(format: QualityInfoFormatEnum): QualityInfo {
+    public withFormat(format: QualityInfoFormatEnum | string): QualityInfo {
         this['format'] = format;
         return this;
     }

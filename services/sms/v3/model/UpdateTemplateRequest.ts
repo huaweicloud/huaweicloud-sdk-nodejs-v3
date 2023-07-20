@@ -2,9 +2,9 @@ import { UpdateTemplateReq } from './UpdateTemplateReq';
 
 
 export class UpdateTemplateRequest {
-    public id: string;
+    public id?: string;
     public body?: UpdateTemplateReq;
-    public constructor(id?: any) { 
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withId(id: string): UpdateTemplateRequest {

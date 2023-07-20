@@ -1,10 +1,10 @@
 
 
 export class OpenPageInfo {
-    public offset: number;
-    public limit: number;
-    public count: number;
-    public constructor(offset?: any, limit?: any, count?: any) { 
+    public offset?: number;
+    public limit?: number;
+    public count?: number;
+    public constructor(offset?: number, limit?: number, count?: number) { 
         this['offset'] = offset;
         this['limit'] = limit;
         this['count'] = count;

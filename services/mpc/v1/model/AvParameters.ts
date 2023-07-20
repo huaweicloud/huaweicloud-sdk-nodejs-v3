@@ -6,8 +6,8 @@ import { VideoParameters } from './VideoParameters';
 export class AvParameters {
     public video?: VideoParameters;
     public audio?: Audio;
-    public common: Common;
-    public constructor(common?: any) { 
+    public common?: Common;
+    public constructor(common?: Common) { 
         this['common'] = common;
     }
     public withVideo(video: VideoParameters): AvParameters {

@@ -1,10 +1,10 @@
 
 
 export class AddOrRemoveServicePermissionsRequestBody {
-    public permissions: Array<string>;
-    private 'permission_type'?: AddOrRemoveServicePermissionsRequestBodyPermissionTypeEnum | undefined;
-    public action: AddOrRemoveServicePermissionsRequestBodyActionEnum;
-    public constructor(permissions?: any, action?: any) { 
+    public permissions?: Array<string>;
+    private 'permission_type'?: AddOrRemoveServicePermissionsRequestBodyPermissionTypeEnum | string;
+    public action?: AddOrRemoveServicePermissionsRequestBodyActionEnum | string;
+    public constructor(permissions?: Array<string>, action?: string) { 
         this['permissions'] = permissions;
         this['action'] = action;
     }
@@ -12,17 +12,17 @@ export class AddOrRemoveServicePermissionsRequestBody {
         this['permissions'] = permissions;
         return this;
     }
-    public withPermissionType(permissionType: AddOrRemoveServicePermissionsRequestBodyPermissionTypeEnum): AddOrRemoveServicePermissionsRequestBody {
+    public withPermissionType(permissionType: AddOrRemoveServicePermissionsRequestBodyPermissionTypeEnum | string): AddOrRemoveServicePermissionsRequestBody {
         this['permission_type'] = permissionType;
         return this;
     }
-    public set permissionType(permissionType: AddOrRemoveServicePermissionsRequestBodyPermissionTypeEnum | undefined) {
+    public set permissionType(permissionType: AddOrRemoveServicePermissionsRequestBodyPermissionTypeEnum | string  | undefined) {
         this['permission_type'] = permissionType;
     }
-    public get permissionType() {
+    public get permissionType(): AddOrRemoveServicePermissionsRequestBodyPermissionTypeEnum | string | undefined {
         return this['permission_type'];
     }
-    public withAction(action: AddOrRemoveServicePermissionsRequestBodyActionEnum): AddOrRemoveServicePermissionsRequestBody {
+    public withAction(action: AddOrRemoveServicePermissionsRequestBodyActionEnum | string): AddOrRemoveServicePermissionsRequestBody {
         this['action'] = action;
         return this;
     }

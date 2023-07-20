@@ -1,8 +1,8 @@
 
 
 export class RuleRef {
-    public id: string;
-    public constructor(id?: any) { 
+    public id?: string;
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withId(id: string): RuleRef {

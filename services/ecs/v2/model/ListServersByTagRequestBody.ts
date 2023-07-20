@@ -3,13 +3,13 @@ import { ServerTags } from './ServerTags';
 
 
 export class ListServersByTagRequestBody {
-    public action: string;
+    public action?: string;
     public limit?: string;
     public offset?: string;
     public tags?: Array<ServerTags>;
-    private 'not_tags'?: Array<ServerTags> | undefined;
+    private 'not_tags'?: Array<ServerTags>;
     public matches?: Array<ServerTagMatch>;
-    public constructor(action?: any) { 
+    public constructor(action?: string) { 
         this['action'] = action;
     }
     public withAction(action: string): ListServersByTagRequestBody {
@@ -32,10 +32,10 @@ export class ListServersByTagRequestBody {
         this['not_tags'] = notTags;
         return this;
     }
-    public set notTags(notTags: Array<ServerTags> | undefined) {
+    public set notTags(notTags: Array<ServerTags>  | undefined) {
         this['not_tags'] = notTags;
     }
-    public get notTags() {
+    public get notTags(): Array<ServerTags> | undefined {
         return this['not_tags'];
     }
     public withMatches(matches: Array<ServerTagMatch>): ListServersByTagRequestBody {

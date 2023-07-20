@@ -4,14 +4,14 @@ export class QueryUserDetailResp {
     public id?: string;
     public account?: string;
     public comment?: string;
-    private 'is_transfer'?: boolean | undefined;
+    private 'is_transfer'?: boolean;
     public privileges?: string;
     public password?: string;
     public roles?: Array<string>;
     public selected?: boolean;
-    private 'no_privileges'?: string | undefined;
-    private 'parent_account'?: string | undefined;
-    private 'no_parent_account'?: string | undefined;
+    private 'no_privileges'?: string;
+    private 'parent_account'?: string;
+    private 'no_parent_account'?: string;
     public constructor() { 
     }
     public withId(id: string): QueryUserDetailResp {
@@ -30,10 +30,10 @@ export class QueryUserDetailResp {
         this['is_transfer'] = isTransfer;
         return this;
     }
-    public set isTransfer(isTransfer: boolean | undefined) {
+    public set isTransfer(isTransfer: boolean  | undefined) {
         this['is_transfer'] = isTransfer;
     }
-    public get isTransfer() {
+    public get isTransfer(): boolean | undefined {
         return this['is_transfer'];
     }
     public withPrivileges(privileges: string): QueryUserDetailResp {
@@ -56,30 +56,30 @@ export class QueryUserDetailResp {
         this['no_privileges'] = noPrivileges;
         return this;
     }
-    public set noPrivileges(noPrivileges: string | undefined) {
+    public set noPrivileges(noPrivileges: string  | undefined) {
         this['no_privileges'] = noPrivileges;
     }
-    public get noPrivileges() {
+    public get noPrivileges(): string | undefined {
         return this['no_privileges'];
     }
     public withParentAccount(parentAccount: string): QueryUserDetailResp {
         this['parent_account'] = parentAccount;
         return this;
     }
-    public set parentAccount(parentAccount: string | undefined) {
+    public set parentAccount(parentAccount: string  | undefined) {
         this['parent_account'] = parentAccount;
     }
-    public get parentAccount() {
+    public get parentAccount(): string | undefined {
         return this['parent_account'];
     }
     public withNoParentAccount(noParentAccount: string): QueryUserDetailResp {
         this['no_parent_account'] = noParentAccount;
         return this;
     }
-    public set noParentAccount(noParentAccount: string | undefined) {
+    public set noParentAccount(noParentAccount: string  | undefined) {
         this['no_parent_account'] = noParentAccount;
     }
-    public get noParentAccount() {
+    public get noParentAccount(): string | undefined {
         return this['no_parent_account'];
     }
 }

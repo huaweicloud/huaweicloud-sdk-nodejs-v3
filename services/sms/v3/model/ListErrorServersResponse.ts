@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListErrorServersResponse extends SdkResponse {
     public count?: number;
-    private 'migration_errors'?: Array<MigrationErrors> | undefined;
+    private 'migration_errors'?: Array<MigrationErrors>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListErrorServersResponse extends SdkResponse {
         this['migration_errors'] = migrationErrors;
         return this;
     }
-    public set migrationErrors(migrationErrors: Array<MigrationErrors> | undefined) {
+    public set migrationErrors(migrationErrors: Array<MigrationErrors>  | undefined) {
         this['migration_errors'] = migrationErrors;
     }
-    public get migrationErrors() {
+    public get migrationErrors(): Array<MigrationErrors> | undefined {
         return this['migration_errors'];
     }
 }

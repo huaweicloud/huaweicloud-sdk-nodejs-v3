@@ -1,36 +1,36 @@
 
 
 export class ListCompositeHostsRequest {
-    private 'Content-Type': string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'Content-Type'?: string;
+    private 'enterprise_project_id'?: string;
     public page?: number;
     public pagesize?: number;
     public hostname?: string;
     public policyname?: string;
-    private 'protect_status'?: number | undefined;
-    private 'waf_type'?: string | undefined;
-    private 'is_https'?: boolean | undefined;
-    public constructor(contentType?: any) { 
+    private 'protect_status'?: number;
+    private 'waf_type'?: string;
+    private 'is_https'?: boolean;
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
     public withContentType(contentType: string): ListCompositeHostsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListCompositeHostsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withPage(page: number): ListCompositeHostsRequest {
@@ -53,30 +53,30 @@ export class ListCompositeHostsRequest {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number | undefined) {
+    public set protectStatus(protectStatus: number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): number | undefined {
         return this['protect_status'];
     }
     public withWafType(wafType: string): ListCompositeHostsRequest {
         this['waf_type'] = wafType;
         return this;
     }
-    public set wafType(wafType: string | undefined) {
+    public set wafType(wafType: string  | undefined) {
         this['waf_type'] = wafType;
     }
-    public get wafType() {
+    public get wafType(): string | undefined {
         return this['waf_type'];
     }
     public withIsHttps(isHttps: boolean): ListCompositeHostsRequest {
         this['is_https'] = isHttps;
         return this;
     }
-    public set isHttps(isHttps: boolean | undefined) {
+    public set isHttps(isHttps: boolean  | undefined) {
         this['is_https'] = isHttps;
     }
-    public get isHttps() {
+    public get isHttps(): boolean | undefined {
         return this['is_https'];
     }
 }

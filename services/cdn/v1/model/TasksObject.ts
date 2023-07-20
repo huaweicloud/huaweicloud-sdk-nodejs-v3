@@ -2,28 +2,28 @@
 
 export class TasksObject {
     public id?: string;
-    private 'task_type'?: TasksObjectTaskTypeEnum | undefined;
+    private 'task_type'?: TasksObjectTaskTypeEnum | string;
     public status?: string;
     public processing?: number;
     public succeed?: number;
     public failed?: number;
     public total?: number;
-    private 'create_time'?: number | undefined;
-    private 'file_type'?: TasksObjectFileTypeEnum | undefined;
+    private 'create_time'?: number;
+    private 'file_type'?: TasksObjectFileTypeEnum | string;
     public constructor() { 
     }
     public withId(id: string): TasksObject {
         this['id'] = id;
         return this;
     }
-    public withTaskType(taskType: TasksObjectTaskTypeEnum): TasksObject {
+    public withTaskType(taskType: TasksObjectTaskTypeEnum | string): TasksObject {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: TasksObjectTaskTypeEnum | undefined) {
+    public set taskType(taskType: TasksObjectTaskTypeEnum | string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): TasksObjectTaskTypeEnum | string | undefined {
         return this['task_type'];
     }
     public withStatus(status: string): TasksObject {
@@ -50,20 +50,20 @@ export class TasksObject {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: number | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
-    public withFileType(fileType: TasksObjectFileTypeEnum): TasksObject {
+    public withFileType(fileType: TasksObjectFileTypeEnum | string): TasksObject {
         this['file_type'] = fileType;
         return this;
     }
-    public set fileType(fileType: TasksObjectFileTypeEnum | undefined) {
+    public set fileType(fileType: TasksObjectFileTypeEnum | string  | undefined) {
         this['file_type'] = fileType;
     }
-    public get fileType() {
+    public get fileType(): TasksObjectFileTypeEnum | string | undefined {
         return this['file_type'];
     }
 }

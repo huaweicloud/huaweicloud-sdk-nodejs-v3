@@ -2,10 +2,10 @@ import { AddNode } from './AddNode';
 
 
 export class AddNodeList {
-    public apiVersion: string;
-    public kind: string;
-    public nodeList: Array<AddNode>;
-    public constructor(apiVersion?: any, kind?: any, nodeList?: any) { 
+    public apiVersion?: string;
+    public kind?: string;
+    public nodeList?: Array<AddNode>;
+    public constructor(apiVersion?: string, kind?: string, nodeList?: Array<AddNode>) { 
         this['apiVersion'] = apiVersion;
         this['kind'] = kind;
         this['nodeList'] = nodeList;

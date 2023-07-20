@@ -1,9 +1,9 @@
 
 
 export class SourceInstanceBody {
-    public addrs: string;
+    public addrs?: string;
     public password?: string;
-    public constructor(addrs?: any) { 
+    public constructor(addrs?: string) { 
         this['addrs'] = addrs;
     }
     public withAddrs(addrs: string): SourceInstanceBody {

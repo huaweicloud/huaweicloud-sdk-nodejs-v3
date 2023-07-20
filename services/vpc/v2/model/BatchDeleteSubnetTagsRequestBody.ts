@@ -2,13 +2,13 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class BatchDeleteSubnetTagsRequestBody {
-    public action: BatchDeleteSubnetTagsRequestBodyActionEnum;
-    public tags: Array<ResourceTag>;
-    public constructor(action?: any, tags?: any) { 
+    public action?: BatchDeleteSubnetTagsRequestBodyActionEnum | string;
+    public tags?: Array<ResourceTag>;
+    public constructor(action?: string, tags?: Array<ResourceTag>) { 
         this['action'] = action;
         this['tags'] = tags;
     }
-    public withAction(action: BatchDeleteSubnetTagsRequestBodyActionEnum): BatchDeleteSubnetTagsRequestBody {
+    public withAction(action: BatchDeleteSubnetTagsRequestBodyActionEnum | string): BatchDeleteSubnetTagsRequestBody {
         this['action'] = action;
         return this;
     }

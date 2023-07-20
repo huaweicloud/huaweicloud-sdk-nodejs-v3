@@ -1,22 +1,22 @@
 
 
 export class NeutronSecurityGroupRule {
-    public description: string;
-    public direction: NeutronSecurityGroupRuleDirectionEnum;
-    public ethertype: string;
-    public id: string;
-    private 'port_range_max': number | undefined;
-    private 'port_range_min': number | undefined;
-    public protocol: string;
-    private 'remote_group_id': string | undefined;
-    private 'remote_ip_prefix': string | undefined;
-    private 'remote_address_group_id'?: string | undefined;
-    private 'security_group_id': string | undefined;
-    private 'tenant_id': string | undefined;
-    private 'project_id': string | undefined;
-    private 'created_at': Date | undefined;
-    private 'updated_at': Date | undefined;
-    public constructor(description?: any, direction?: any, ethertype?: any, id?: any, portRangeMax?: any, portRangeMin?: any, protocol?: any, remoteGroupId?: any, remoteIpPrefix?: any, securityGroupId?: any, tenantId?: any, projectId?: any, createdAt?: any, updatedAt?: any) { 
+    public description?: string;
+    public direction?: NeutronSecurityGroupRuleDirectionEnum | string;
+    public ethertype?: string;
+    public id?: string;
+    private 'port_range_max'?: number;
+    private 'port_range_min'?: number;
+    public protocol?: string;
+    private 'remote_group_id'?: string;
+    private 'remote_ip_prefix'?: string;
+    private 'remote_address_group_id'?: string;
+    private 'security_group_id'?: string;
+    private 'tenant_id'?: string;
+    private 'project_id'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    public constructor(description?: string, direction?: string, ethertype?: string, id?: string, portRangeMax?: number, portRangeMin?: number, protocol?: string, remoteGroupId?: string, remoteIpPrefix?: string, securityGroupId?: string, tenantId?: string, projectId?: string, createdAt?: Date, updatedAt?: Date) { 
         this['description'] = description;
         this['direction'] = direction;
         this['ethertype'] = ethertype;
@@ -36,7 +36,7 @@ export class NeutronSecurityGroupRule {
         this['description'] = description;
         return this;
     }
-    public withDirection(direction: NeutronSecurityGroupRuleDirectionEnum): NeutronSecurityGroupRule {
+    public withDirection(direction: NeutronSecurityGroupRuleDirectionEnum | string): NeutronSecurityGroupRule {
         this['direction'] = direction;
         return this;
     }
@@ -52,20 +52,20 @@ export class NeutronSecurityGroupRule {
         this['port_range_max'] = portRangeMax;
         return this;
     }
-    public set portRangeMax(portRangeMax: number | undefined) {
+    public set portRangeMax(portRangeMax: number  | undefined) {
         this['port_range_max'] = portRangeMax;
     }
-    public get portRangeMax() {
+    public get portRangeMax(): number | undefined {
         return this['port_range_max'];
     }
     public withPortRangeMin(portRangeMin: number): NeutronSecurityGroupRule {
         this['port_range_min'] = portRangeMin;
         return this;
     }
-    public set portRangeMin(portRangeMin: number | undefined) {
+    public set portRangeMin(portRangeMin: number  | undefined) {
         this['port_range_min'] = portRangeMin;
     }
-    public get portRangeMin() {
+    public get portRangeMin(): number | undefined {
         return this['port_range_min'];
     }
     public withProtocol(protocol: string): NeutronSecurityGroupRule {
@@ -76,80 +76,80 @@ export class NeutronSecurityGroupRule {
         this['remote_group_id'] = remoteGroupId;
         return this;
     }
-    public set remoteGroupId(remoteGroupId: string | undefined) {
+    public set remoteGroupId(remoteGroupId: string  | undefined) {
         this['remote_group_id'] = remoteGroupId;
     }
-    public get remoteGroupId() {
+    public get remoteGroupId(): string | undefined {
         return this['remote_group_id'];
     }
     public withRemoteIpPrefix(remoteIpPrefix: string): NeutronSecurityGroupRule {
         this['remote_ip_prefix'] = remoteIpPrefix;
         return this;
     }
-    public set remoteIpPrefix(remoteIpPrefix: string | undefined) {
+    public set remoteIpPrefix(remoteIpPrefix: string  | undefined) {
         this['remote_ip_prefix'] = remoteIpPrefix;
     }
-    public get remoteIpPrefix() {
+    public get remoteIpPrefix(): string | undefined {
         return this['remote_ip_prefix'];
     }
     public withRemoteAddressGroupId(remoteAddressGroupId: string): NeutronSecurityGroupRule {
         this['remote_address_group_id'] = remoteAddressGroupId;
         return this;
     }
-    public set remoteAddressGroupId(remoteAddressGroupId: string | undefined) {
+    public set remoteAddressGroupId(remoteAddressGroupId: string  | undefined) {
         this['remote_address_group_id'] = remoteAddressGroupId;
     }
-    public get remoteAddressGroupId() {
+    public get remoteAddressGroupId(): string | undefined {
         return this['remote_address_group_id'];
     }
     public withSecurityGroupId(securityGroupId: string): NeutronSecurityGroupRule {
         this['security_group_id'] = securityGroupId;
         return this;
     }
-    public set securityGroupId(securityGroupId: string | undefined) {
+    public set securityGroupId(securityGroupId: string  | undefined) {
         this['security_group_id'] = securityGroupId;
     }
-    public get securityGroupId() {
+    public get securityGroupId(): string | undefined {
         return this['security_group_id'];
     }
     public withTenantId(tenantId: string): NeutronSecurityGroupRule {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withProjectId(projectId: string): NeutronSecurityGroupRule {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withCreatedAt(createdAt: Date): NeutronSecurityGroupRule {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): NeutronSecurityGroupRule {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
 }

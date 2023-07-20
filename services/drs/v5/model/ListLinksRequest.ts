@@ -1,31 +1,31 @@
 
 
 export class ListLinksRequest {
-    private 'X-Language'?: ListLinksRequestXLanguageEnum | undefined;
-    private 'job_type': ListLinksRequestJobTypeEnum | undefined;
+    private 'X-Language'?: ListLinksRequestXLanguageEnum | string;
+    private 'job_type'?: ListLinksRequestJobTypeEnum | string;
     public offset?: number;
     public limit?: number;
-    public constructor(jobType?: any) { 
+    public constructor(jobType?: string) { 
         this['job_type'] = jobType;
     }
-    public withXLanguage(xLanguage: ListLinksRequestXLanguageEnum): ListLinksRequest {
+    public withXLanguage(xLanguage: ListLinksRequestXLanguageEnum | string): ListLinksRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListLinksRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListLinksRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListLinksRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
-    public withJobType(jobType: ListLinksRequestJobTypeEnum): ListLinksRequest {
+    public withJobType(jobType: ListLinksRequestJobTypeEnum | string): ListLinksRequest {
         this['job_type'] = jobType;
         return this;
     }
-    public set jobType(jobType: ListLinksRequestJobTypeEnum | undefined) {
+    public set jobType(jobType: ListLinksRequestJobTypeEnum | string  | undefined) {
         this['job_type'] = jobType;
     }
-    public get jobType() {
+    public get jobType(): ListLinksRequestJobTypeEnum | string | undefined {
         return this['job_type'];
     }
     public withOffset(offset: number): ListLinksRequest {

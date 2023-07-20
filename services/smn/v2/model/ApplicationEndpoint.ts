@@ -1,12 +1,12 @@
 
 
 export class ApplicationEndpoint {
-    private 'create_time': string | undefined;
-    private 'endpoint_urn': string | undefined;
-    private 'user_data': string | undefined;
-    public enabled: string;
-    public token: string;
-    public constructor(createTime?: any, endpointUrn?: any, userData?: any, enabled?: any, token?: any) { 
+    private 'create_time'?: string;
+    private 'endpoint_urn'?: string;
+    private 'user_data'?: string;
+    public enabled?: string;
+    public token?: string;
+    public constructor(createTime?: string, endpointUrn?: string, userData?: string, enabled?: string, token?: string) { 
         this['create_time'] = createTime;
         this['endpoint_urn'] = endpointUrn;
         this['user_data'] = userData;
@@ -17,30 +17,30 @@ export class ApplicationEndpoint {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withEndpointUrn(endpointUrn: string): ApplicationEndpoint {
         this['endpoint_urn'] = endpointUrn;
         return this;
     }
-    public set endpointUrn(endpointUrn: string | undefined) {
+    public set endpointUrn(endpointUrn: string  | undefined) {
         this['endpoint_urn'] = endpointUrn;
     }
-    public get endpointUrn() {
+    public get endpointUrn(): string | undefined {
         return this['endpoint_urn'];
     }
     public withUserData(userData: string): ApplicationEndpoint {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withEnabled(enabled: string): ApplicationEndpoint {

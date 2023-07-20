@@ -1,10 +1,10 @@
 
 
 export class ExecutionPlanStatusPrimitiveTypeHolder {
-    public status?: ExecutionPlanStatusPrimitiveTypeHolderStatusEnum;
+    public status?: ExecutionPlanStatusPrimitiveTypeHolderStatusEnum | string;
     public constructor() { 
     }
-    public withStatus(status: ExecutionPlanStatusPrimitiveTypeHolderStatusEnum): ExecutionPlanStatusPrimitiveTypeHolder {
+    public withStatus(status: ExecutionPlanStatusPrimitiveTypeHolderStatusEnum | string): ExecutionPlanStatusPrimitiveTypeHolder {
         this['status'] = status;
         return this;
     }

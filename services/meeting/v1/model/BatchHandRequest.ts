@@ -2,10 +2,10 @@ import { RestBatchHandsUpReqBody } from './RestBatchHandsUpReqBody';
 
 
 export class BatchHandRequest {
-    public conferenceID: string;
-    private 'X-Conference-Authorization': string | undefined;
+    public conferenceID?: string;
+    private 'X-Conference-Authorization'?: string;
     public body?: RestBatchHandsUpReqBody;
-    public constructor(conferenceID?: any, xConferenceAuthorization?: any) { 
+    public constructor(conferenceID?: string, xConferenceAuthorization?: string) { 
         this['conferenceID'] = conferenceID;
         this['X-Conference-Authorization'] = xConferenceAuthorization;
     }
@@ -17,10 +17,10 @@ export class BatchHandRequest {
         this['X-Conference-Authorization'] = xConferenceAuthorization;
         return this;
     }
-    public set xConferenceAuthorization(xConferenceAuthorization: string | undefined) {
+    public set xConferenceAuthorization(xConferenceAuthorization: string  | undefined) {
         this['X-Conference-Authorization'] = xConferenceAuthorization;
     }
-    public get xConferenceAuthorization() {
+    public get xConferenceAuthorization(): string | undefined {
         return this['X-Conference-Authorization'];
     }
     public withBody(body: RestBatchHandsUpReqBody): BatchHandRequest {

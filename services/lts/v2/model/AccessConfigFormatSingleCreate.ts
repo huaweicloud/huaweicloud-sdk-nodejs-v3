@@ -1,11 +1,11 @@
 
 
 export class AccessConfigFormatSingleCreate {
-    public mode?: AccessConfigFormatSingleCreateModeEnum;
+    public mode?: AccessConfigFormatSingleCreateModeEnum | string;
     public value?: string;
     public constructor() { 
     }
-    public withMode(mode: AccessConfigFormatSingleCreateModeEnum): AccessConfigFormatSingleCreate {
+    public withMode(mode: AccessConfigFormatSingleCreateModeEnum | string): AccessConfigFormatSingleCreate {
         this['mode'] = mode;
         return this;
     }

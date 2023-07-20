@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class AddVaultResourceResponse extends SdkResponse {
-    private 'add_resource_ids'?: Array<string> | undefined;
+    private 'add_resource_ids'?: Array<string>;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class AddVaultResourceResponse extends SdkResponse {
         this['add_resource_ids'] = addResourceIds;
         return this;
     }
-    public set addResourceIds(addResourceIds: Array<string> | undefined) {
+    public set addResourceIds(addResourceIds: Array<string>  | undefined) {
         this['add_resource_ids'] = addResourceIds;
     }
-    public get addResourceIds() {
+    public get addResourceIds(): Array<string> | undefined {
         return this['add_resource_ids'];
     }
 }

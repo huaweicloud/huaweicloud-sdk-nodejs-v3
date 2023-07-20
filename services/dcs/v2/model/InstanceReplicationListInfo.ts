@@ -2,13 +2,13 @@ import { InstanceReplicationDimensionsInfo } from './InstanceReplicationDimensio
 
 
 export class InstanceReplicationListInfo {
-    private 'replication_role'?: string | undefined;
-    private 'replication_ip'?: string | undefined;
-    private 'is_replication'?: boolean | undefined;
-    private 'replication_id'?: string | undefined;
-    private 'node_id'?: string | undefined;
-    public status?: InstanceReplicationListInfoStatusEnum;
-    private 'az_code'?: string | undefined;
+    private 'replication_role'?: string;
+    private 'replication_ip'?: string;
+    private 'is_replication'?: boolean;
+    private 'replication_id'?: string;
+    private 'node_id'?: string;
+    public status?: InstanceReplicationListInfoStatusEnum | string;
+    private 'az_code'?: string;
     public dimensions?: Array<InstanceReplicationDimensionsInfo>;
     public constructor() { 
     }
@@ -16,53 +16,53 @@ export class InstanceReplicationListInfo {
         this['replication_role'] = replicationRole;
         return this;
     }
-    public set replicationRole(replicationRole: string | undefined) {
+    public set replicationRole(replicationRole: string  | undefined) {
         this['replication_role'] = replicationRole;
     }
-    public get replicationRole() {
+    public get replicationRole(): string | undefined {
         return this['replication_role'];
     }
     public withReplicationIp(replicationIp: string): InstanceReplicationListInfo {
         this['replication_ip'] = replicationIp;
         return this;
     }
-    public set replicationIp(replicationIp: string | undefined) {
+    public set replicationIp(replicationIp: string  | undefined) {
         this['replication_ip'] = replicationIp;
     }
-    public get replicationIp() {
+    public get replicationIp(): string | undefined {
         return this['replication_ip'];
     }
     public withIsReplication(isReplication: boolean): InstanceReplicationListInfo {
         this['is_replication'] = isReplication;
         return this;
     }
-    public set isReplication(isReplication: boolean | undefined) {
+    public set isReplication(isReplication: boolean  | undefined) {
         this['is_replication'] = isReplication;
     }
-    public get isReplication() {
+    public get isReplication(): boolean | undefined {
         return this['is_replication'];
     }
     public withReplicationId(replicationId: string): InstanceReplicationListInfo {
         this['replication_id'] = replicationId;
         return this;
     }
-    public set replicationId(replicationId: string | undefined) {
+    public set replicationId(replicationId: string  | undefined) {
         this['replication_id'] = replicationId;
     }
-    public get replicationId() {
+    public get replicationId(): string | undefined {
         return this['replication_id'];
     }
     public withNodeId(nodeId: string): InstanceReplicationListInfo {
         this['node_id'] = nodeId;
         return this;
     }
-    public set nodeId(nodeId: string | undefined) {
+    public set nodeId(nodeId: string  | undefined) {
         this['node_id'] = nodeId;
     }
-    public get nodeId() {
+    public get nodeId(): string | undefined {
         return this['node_id'];
     }
-    public withStatus(status: InstanceReplicationListInfoStatusEnum): InstanceReplicationListInfo {
+    public withStatus(status: InstanceReplicationListInfoStatusEnum | string): InstanceReplicationListInfo {
         this['status'] = status;
         return this;
     }
@@ -70,10 +70,10 @@ export class InstanceReplicationListInfo {
         this['az_code'] = azCode;
         return this;
     }
-    public set azCode(azCode: string | undefined) {
+    public set azCode(azCode: string  | undefined) {
         this['az_code'] = azCode;
     }
-    public get azCode() {
+    public get azCode(): string | undefined {
         return this['az_code'];
     }
     public withDimensions(dimensions: Array<InstanceReplicationDimensionsInfo>): InstanceReplicationListInfo {

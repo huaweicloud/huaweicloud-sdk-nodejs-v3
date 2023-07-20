@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class NovaListServersDetailsResponse extends SdkResponse {
     public servers?: Array<NovaServer>;
-    private 'servers_links'?: Array<PageLink> | undefined;
+    private 'servers_links'?: Array<PageLink>;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class NovaListServersDetailsResponse extends SdkResponse {
         this['servers_links'] = serversLinks;
         return this;
     }
-    public set serversLinks(serversLinks: Array<PageLink> | undefined) {
+    public set serversLinks(serversLinks: Array<PageLink>  | undefined) {
         this['servers_links'] = serversLinks;
     }
-    public get serversLinks() {
+    public get serversLinks(): Array<PageLink> | undefined {
         return this['servers_links'];
     }
 }

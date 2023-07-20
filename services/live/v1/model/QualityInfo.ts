@@ -2,18 +2,18 @@
 
 export class QualityInfo {
     public templateName?: string;
-    public quality: string;
-    private 'PVC'?: QualityInfoPvcEnum | undefined;
-    public hdlb?: QualityInfoHdlbEnum;
-    public codec?: QualityInfoCodecEnum;
+    public quality?: string;
+    private 'PVC'?: QualityInfoPvcEnum | string;
+    public hdlb?: QualityInfoHdlbEnum | string;
+    public codec?: QualityInfoCodecEnum | string;
     public width?: number;
     public height?: number;
-    public bitrate: number;
-    private 'video_frame_rate'?: number | undefined;
-    public protocol?: QualityInfoProtocolEnum;
+    public bitrate?: number;
+    private 'video_frame_rate'?: number;
+    public protocol?: QualityInfoProtocolEnum | string;
     public iFrameInterval?: number;
     public gop?: number;
-    public constructor(quality?: any, bitrate?: any) { 
+    public constructor(quality?: string, bitrate?: number) { 
         this['quality'] = quality;
         this['bitrate'] = bitrate;
     }
@@ -25,21 +25,21 @@ export class QualityInfo {
         this['quality'] = quality;
         return this;
     }
-    public withPvc(pvc: QualityInfoPvcEnum): QualityInfo {
+    public withPvc(pvc: QualityInfoPvcEnum | string): QualityInfo {
         this['PVC'] = pvc;
         return this;
     }
-    public set pvc(pvc: QualityInfoPvcEnum | undefined) {
+    public set pvc(pvc: QualityInfoPvcEnum | string  | undefined) {
         this['PVC'] = pvc;
     }
-    public get pvc() {
+    public get pvc(): QualityInfoPvcEnum | string | undefined {
         return this['PVC'];
     }
-    public withHdlb(hdlb: QualityInfoHdlbEnum): QualityInfo {
+    public withHdlb(hdlb: QualityInfoHdlbEnum | string): QualityInfo {
         this['hdlb'] = hdlb;
         return this;
     }
-    public withCodec(codec: QualityInfoCodecEnum): QualityInfo {
+    public withCodec(codec: QualityInfoCodecEnum | string): QualityInfo {
         this['codec'] = codec;
         return this;
     }
@@ -59,13 +59,13 @@ export class QualityInfo {
         this['video_frame_rate'] = videoFrameRate;
         return this;
     }
-    public set videoFrameRate(videoFrameRate: number | undefined) {
+    public set videoFrameRate(videoFrameRate: number  | undefined) {
         this['video_frame_rate'] = videoFrameRate;
     }
-    public get videoFrameRate() {
+    public get videoFrameRate(): number | undefined {
         return this['video_frame_rate'];
     }
-    public withProtocol(protocol: QualityInfoProtocolEnum): QualityInfo {
+    public withProtocol(protocol: QualityInfoProtocolEnum | string): QualityInfo {
         this['protocol'] = protocol;
         return this;
     }

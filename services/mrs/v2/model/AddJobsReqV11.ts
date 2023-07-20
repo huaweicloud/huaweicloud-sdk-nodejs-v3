@@ -1,19 +1,19 @@
 
 
 export class AddJobsReqV11 {
-    private 'job_type': number | undefined;
-    private 'job_name': string | undefined;
-    private 'jar_path'?: string | undefined;
-    private 'arguments'?: string | undefined;
+    private 'job_type'?: number;
+    private 'job_name'?: string;
+    private 'jar_path'?: string;
+    private 'arguments'?: string;
     public input?: string;
     public output?: string;
-    private 'job_log'?: string | undefined;
-    private 'hive_script_path'?: string | undefined;
+    private 'job_log'?: string;
+    private 'hive_script_path'?: string;
     public hql?: string;
-    private 'shutdown_cluster'?: boolean | undefined;
-    private 'submit_job_once_cluster_run': boolean | undefined;
-    private 'file_action'?: string | undefined;
-    public constructor(jobType?: any, jobName?: any, submitJobOnceClusterRun?: any) { 
+    private 'shutdown_cluster'?: boolean;
+    private 'submit_job_once_cluster_run'?: boolean;
+    private 'file_action'?: string;
+    public constructor(jobType?: number, jobName?: string, submitJobOnceClusterRun?: boolean) { 
         this['job_type'] = jobType;
         this['job_name'] = jobName;
         this['submit_job_once_cluster_run'] = submitJobOnceClusterRun;
@@ -22,40 +22,40 @@ export class AddJobsReqV11 {
         this['job_type'] = jobType;
         return this;
     }
-    public set jobType(jobType: number | undefined) {
+    public set jobType(jobType: number  | undefined) {
         this['job_type'] = jobType;
     }
-    public get jobType() {
+    public get jobType(): number | undefined {
         return this['job_type'];
     }
     public withJobName(jobName: string): AddJobsReqV11 {
         this['job_name'] = jobName;
         return this;
     }
-    public set jobName(jobName: string | undefined) {
+    public set jobName(jobName: string  | undefined) {
         this['job_name'] = jobName;
     }
-    public get jobName() {
+    public get jobName(): string | undefined {
         return this['job_name'];
     }
     public withJarPath(jarPath: string): AddJobsReqV11 {
         this['jar_path'] = jarPath;
         return this;
     }
-    public set jarPath(jarPath: string | undefined) {
+    public set jarPath(jarPath: string  | undefined) {
         this['jar_path'] = jarPath;
     }
-    public get jarPath() {
+    public get jarPath(): string | undefined {
         return this['jar_path'];
     }
     public withArguments(_arguments: string): AddJobsReqV11 {
         this['arguments'] = _arguments;
         return this;
     }
-    public set _arguments(_arguments: string | undefined) {
+    public set _arguments(_arguments: string  | undefined) {
         this['arguments'] = _arguments;
     }
-    public get _arguments() {
+    public get _arguments(): string | undefined {
         return this['arguments'];
     }
     public withInput(input: string): AddJobsReqV11 {
@@ -70,20 +70,20 @@ export class AddJobsReqV11 {
         this['job_log'] = jobLog;
         return this;
     }
-    public set jobLog(jobLog: string | undefined) {
+    public set jobLog(jobLog: string  | undefined) {
         this['job_log'] = jobLog;
     }
-    public get jobLog() {
+    public get jobLog(): string | undefined {
         return this['job_log'];
     }
     public withHiveScriptPath(hiveScriptPath: string): AddJobsReqV11 {
         this['hive_script_path'] = hiveScriptPath;
         return this;
     }
-    public set hiveScriptPath(hiveScriptPath: string | undefined) {
+    public set hiveScriptPath(hiveScriptPath: string  | undefined) {
         this['hive_script_path'] = hiveScriptPath;
     }
-    public get hiveScriptPath() {
+    public get hiveScriptPath(): string | undefined {
         return this['hive_script_path'];
     }
     public withHql(hql: string): AddJobsReqV11 {
@@ -94,30 +94,30 @@ export class AddJobsReqV11 {
         this['shutdown_cluster'] = shutdownCluster;
         return this;
     }
-    public set shutdownCluster(shutdownCluster: boolean | undefined) {
+    public set shutdownCluster(shutdownCluster: boolean  | undefined) {
         this['shutdown_cluster'] = shutdownCluster;
     }
-    public get shutdownCluster() {
+    public get shutdownCluster(): boolean | undefined {
         return this['shutdown_cluster'];
     }
     public withSubmitJobOnceClusterRun(submitJobOnceClusterRun: boolean): AddJobsReqV11 {
         this['submit_job_once_cluster_run'] = submitJobOnceClusterRun;
         return this;
     }
-    public set submitJobOnceClusterRun(submitJobOnceClusterRun: boolean | undefined) {
+    public set submitJobOnceClusterRun(submitJobOnceClusterRun: boolean  | undefined) {
         this['submit_job_once_cluster_run'] = submitJobOnceClusterRun;
     }
-    public get submitJobOnceClusterRun() {
+    public get submitJobOnceClusterRun(): boolean | undefined {
         return this['submit_job_once_cluster_run'];
     }
     public withFileAction(fileAction: string): AddJobsReqV11 {
         this['file_action'] = fileAction;
         return this;
     }
-    public set fileAction(fileAction: string | undefined) {
+    public set fileAction(fileAction: string  | undefined) {
         this['file_action'] = fileAction;
     }
-    public get fileAction() {
+    public get fileAction(): string | undefined {
         return this['file_action'];
     }
 }

@@ -1,9 +1,9 @@
 
 
 export class PreCheckInfo {
-    private 'job_id': string | undefined;
-    private 'precheck_mode': PreCheckInfoPrecheckModeEnum | undefined;
-    public constructor(jobId?: any, precheckMode?: any) { 
+    private 'job_id'?: string;
+    private 'precheck_mode'?: PreCheckInfoPrecheckModeEnum | string;
+    public constructor(jobId?: string, precheckMode?: string) { 
         this['job_id'] = jobId;
         this['precheck_mode'] = precheckMode;
     }
@@ -11,20 +11,20 @@ export class PreCheckInfo {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withPrecheckMode(precheckMode: PreCheckInfoPrecheckModeEnum): PreCheckInfo {
+    public withPrecheckMode(precheckMode: PreCheckInfoPrecheckModeEnum | string): PreCheckInfo {
         this['precheck_mode'] = precheckMode;
         return this;
     }
-    public set precheckMode(precheckMode: PreCheckInfoPrecheckModeEnum | undefined) {
+    public set precheckMode(precheckMode: PreCheckInfoPrecheckModeEnum | string  | undefined) {
         this['precheck_mode'] = precheckMode;
     }
-    public get precheckMode() {
+    public get precheckMode(): PreCheckInfoPrecheckModeEnum | string | undefined {
         return this['precheck_mode'];
     }
 }

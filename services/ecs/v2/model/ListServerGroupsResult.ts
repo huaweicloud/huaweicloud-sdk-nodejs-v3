@@ -1,12 +1,12 @@
 
 
 export class ListServerGroupsResult {
-    public id: string;
-    public members: Array<string>;
-    public metadata: { [key: string]: string; };
-    public name: string;
-    public policies: Array<string>;
-    public constructor(id?: any, members?: any, metadata?: any, name?: any, policies?: any) { 
+    public id?: string;
+    public members?: Array<string>;
+    public metadata?: { [key: string]: string; };
+    public name?: string;
+    public policies?: Array<string>;
+    public constructor(id?: string, members?: Array<string>, metadata?: { [key: string]: string; }, name?: string, policies?: Array<string>) { 
         this['id'] = id;
         this['members'] = members;
         this['metadata'] = metadata;

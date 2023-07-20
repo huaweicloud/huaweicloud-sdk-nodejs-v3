@@ -1,14 +1,14 @@
 
 
 export class ScaleScript {
-    public name: string;
-    public uri: string;
+    public name?: string;
+    public uri?: string;
     public parameters?: string;
-    public nodes: Array<string>;
-    private 'active_master'?: boolean | undefined;
-    private 'fail_action': ScaleScriptFailActionEnum | undefined;
-    private 'action_stage': ScaleScriptActionStageEnum | undefined;
-    public constructor(name?: any, uri?: any, nodes?: any, failAction?: any, actionStage?: any) { 
+    public nodes?: Array<string>;
+    private 'active_master'?: boolean;
+    private 'fail_action'?: ScaleScriptFailActionEnum | string;
+    private 'action_stage'?: ScaleScriptActionStageEnum | string;
+    public constructor(name?: string, uri?: string, nodes?: Array<string>, failAction?: string, actionStage?: string) { 
         this['name'] = name;
         this['uri'] = uri;
         this['nodes'] = nodes;
@@ -35,30 +35,30 @@ export class ScaleScript {
         this['active_master'] = activeMaster;
         return this;
     }
-    public set activeMaster(activeMaster: boolean | undefined) {
+    public set activeMaster(activeMaster: boolean  | undefined) {
         this['active_master'] = activeMaster;
     }
-    public get activeMaster() {
+    public get activeMaster(): boolean | undefined {
         return this['active_master'];
     }
-    public withFailAction(failAction: ScaleScriptFailActionEnum): ScaleScript {
+    public withFailAction(failAction: ScaleScriptFailActionEnum | string): ScaleScript {
         this['fail_action'] = failAction;
         return this;
     }
-    public set failAction(failAction: ScaleScriptFailActionEnum | undefined) {
+    public set failAction(failAction: ScaleScriptFailActionEnum | string  | undefined) {
         this['fail_action'] = failAction;
     }
-    public get failAction() {
+    public get failAction(): ScaleScriptFailActionEnum | string | undefined {
         return this['fail_action'];
     }
-    public withActionStage(actionStage: ScaleScriptActionStageEnum): ScaleScript {
+    public withActionStage(actionStage: ScaleScriptActionStageEnum | string): ScaleScript {
         this['action_stage'] = actionStage;
         return this;
     }
-    public set actionStage(actionStage: ScaleScriptActionStageEnum | undefined) {
+    public set actionStage(actionStage: ScaleScriptActionStageEnum | string  | undefined) {
         this['action_stage'] = actionStage;
     }
-    public get actionStage() {
+    public get actionStage(): ScaleScriptActionStageEnum | string | undefined {
         return this['action_stage'];
     }
 }

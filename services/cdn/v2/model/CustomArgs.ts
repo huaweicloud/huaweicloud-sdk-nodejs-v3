@@ -1,10 +1,10 @@
 
 
 export class CustomArgs {
-    public type: string;
-    public key: string;
-    public value: string;
-    public constructor(type?: any, key?: any, value?: any) { 
+    public type?: string;
+    public key?: string;
+    public value?: string;
+    public constructor(type?: string, key?: string, value?: string) { 
         this['type'] = type;
         this['key'] = key;
         this['value'] = value;

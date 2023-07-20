@@ -1,10 +1,10 @@
 
 
 export class PrePaidServerEipExtendParam {
-    public chargingMode?: PrePaidServerEipExtendParamChargingModeEnum;
+    public chargingMode?: PrePaidServerEipExtendParamChargingModeEnum | string;
     public constructor() { 
     }
-    public withChargingMode(chargingMode: PrePaidServerEipExtendParamChargingModeEnum): PrePaidServerEipExtendParam {
+    public withChargingMode(chargingMode: PrePaidServerEipExtendParamChargingModeEnum | string): PrePaidServerEipExtendParam {
         this['chargingMode'] = chargingMode;
         return this;
     }

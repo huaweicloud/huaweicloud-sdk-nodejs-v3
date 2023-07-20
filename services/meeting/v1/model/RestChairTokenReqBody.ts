@@ -1,9 +1,9 @@
 
 
 export class RestChairTokenReqBody {
-    public applyChair: number;
+    public applyChair?: number;
     public chairmanPwd?: string;
-    public constructor(applyChair?: any) { 
+    public constructor(applyChair?: number) { 
         this['applyChair'] = applyChair;
     }
     public withApplyChair(applyChair: number): RestChairTokenReqBody {

@@ -2,11 +2,11 @@ import { Tag } from './Tag';
 
 
 export class UpdatePtrReq {
-    public ptrdname: string;
+    public ptrdname?: string;
     public description?: string;
     public ttl?: number;
     public tags?: Array<Tag>;
-    public constructor(ptrdname?: any) { 
+    public constructor(ptrdname?: string) { 
         this['ptrdname'] = ptrdname;
     }
     public withPtrdname(ptrdname: string): UpdatePtrReq {

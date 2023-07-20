@@ -3,13 +3,13 @@ import { RestSubscriberInPic } from './RestSubscriberInPic';
 
 
 export class RestCustomMultiPictureBody {
-    public manualSet: number;
+    public manualSet?: number;
     public picLayoutInfo?: PicLayoutInfo;
     public imageType?: string;
     public subscriberInPics?: Array<RestSubscriberInPic>;
     public switchTime?: number;
     public multiPicSaveOnly?: boolean;
-    public constructor(manualSet?: any) { 
+    public constructor(manualSet?: number) { 
         this['manualSet'] = manualSet;
     }
     public withManualSet(manualSet: number): RestCustomMultiPictureBody {

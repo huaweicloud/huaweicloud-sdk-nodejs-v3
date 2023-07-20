@@ -2,11 +2,11 @@
 
 export class CreateGeoIpRuleRequestBody {
     public name?: string;
-    public geoip: string;
-    public white: number;
+    public geoip?: string;
+    public white?: number;
     public status?: number;
     public description?: string;
-    public constructor(geoip?: any, white?: any) { 
+    public constructor(geoip?: string, white?: number) { 
         this['geoip'] = geoip;
         this['white'] = white;
     }

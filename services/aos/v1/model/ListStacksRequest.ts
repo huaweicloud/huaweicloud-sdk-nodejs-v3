@@ -1,9 +1,9 @@
 
 
 export class ListStacksRequest {
-    private 'Client-Request-Id': string | undefined;
-    private 'project_id': string | undefined;
-    public constructor(clientRequestId?: any, projectId?: any) { 
+    private 'Client-Request-Id'?: string;
+    private 'project_id'?: string;
+    public constructor(clientRequestId?: string, projectId?: string) { 
         this['Client-Request-Id'] = clientRequestId;
         this['project_id'] = projectId;
     }
@@ -11,20 +11,20 @@ export class ListStacksRequest {
         this['Client-Request-Id'] = clientRequestId;
         return this;
     }
-    public set clientRequestId(clientRequestId: string | undefined) {
+    public set clientRequestId(clientRequestId: string  | undefined) {
         this['Client-Request-Id'] = clientRequestId;
     }
-    public get clientRequestId() {
+    public get clientRequestId(): string | undefined {
         return this['Client-Request-Id'];
     }
     public withProjectId(projectId: string): ListStacksRequest {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
 }

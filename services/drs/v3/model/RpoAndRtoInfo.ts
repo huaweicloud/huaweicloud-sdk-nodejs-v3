@@ -1,9 +1,9 @@
 
 
 export class RpoAndRtoInfo {
-    private 'check_point'?: string | undefined;
+    private 'check_point'?: string;
     public delay?: string;
-    private 'gtid_set'?: string | undefined;
+    private 'gtid_set'?: string;
     public time?: string;
     public constructor() { 
     }
@@ -11,10 +11,10 @@ export class RpoAndRtoInfo {
         this['check_point'] = checkPoint;
         return this;
     }
-    public set checkPoint(checkPoint: string | undefined) {
+    public set checkPoint(checkPoint: string  | undefined) {
         this['check_point'] = checkPoint;
     }
-    public get checkPoint() {
+    public get checkPoint(): string | undefined {
         return this['check_point'];
     }
     public withDelay(delay: string): RpoAndRtoInfo {
@@ -25,10 +25,10 @@ export class RpoAndRtoInfo {
         this['gtid_set'] = gtidSet;
         return this;
     }
-    public set gtidSet(gtidSet: string | undefined) {
+    public set gtidSet(gtidSet: string  | undefined) {
         this['gtid_set'] = gtidSet;
     }
-    public get gtidSet() {
+    public get gtidSet(): string | undefined {
         return this['gtid_set'];
     }
     public withTime(time: string): RpoAndRtoInfo {

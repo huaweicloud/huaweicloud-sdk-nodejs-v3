@@ -2,19 +2,19 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateRecordIndexResponse extends SdkResponse {
-    private 'index_url'?: string | undefined;
-    private 'publish_domain'?: string | undefined;
+    private 'index_url'?: string;
+    private 'publish_domain'?: string;
     public app?: string;
     public stream?: string;
-    private 'start_time'?: Date | undefined;
-    private 'end_time'?: Date | undefined;
+    private 'start_time'?: Date;
+    private 'end_time'?: Date;
     public duration?: number;
     public width?: number;
     public height?: number;
-    public location?: CreateRecordIndexResponseLocationEnum;
+    public location?: CreateRecordIndexResponseLocationEnum | string;
     public bucket?: string;
-    private 'object'?: string | undefined;
-    private 'X-Request-Id'?: string | undefined;
+    private 'object'?: string;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -22,20 +22,20 @@ export class CreateRecordIndexResponse extends SdkResponse {
         this['index_url'] = indexUrl;
         return this;
     }
-    public set indexUrl(indexUrl: string | undefined) {
+    public set indexUrl(indexUrl: string  | undefined) {
         this['index_url'] = indexUrl;
     }
-    public get indexUrl() {
+    public get indexUrl(): string | undefined {
         return this['index_url'];
     }
     public withPublishDomain(publishDomain: string): CreateRecordIndexResponse {
         this['publish_domain'] = publishDomain;
         return this;
     }
-    public set publishDomain(publishDomain: string | undefined) {
+    public set publishDomain(publishDomain: string  | undefined) {
         this['publish_domain'] = publishDomain;
     }
-    public get publishDomain() {
+    public get publishDomain(): string | undefined {
         return this['publish_domain'];
     }
     public withApp(app: string): CreateRecordIndexResponse {
@@ -50,20 +50,20 @@ export class CreateRecordIndexResponse extends SdkResponse {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: Date | undefined) {
+    public set startTime(startTime: Date  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): Date | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: Date): CreateRecordIndexResponse {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: Date | undefined) {
+    public set endTime(endTime: Date  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): Date | undefined {
         return this['end_time'];
     }
     public withDuration(duration: number): CreateRecordIndexResponse {
@@ -78,7 +78,7 @@ export class CreateRecordIndexResponse extends SdkResponse {
         this['height'] = height;
         return this;
     }
-    public withLocation(location: CreateRecordIndexResponseLocationEnum): CreateRecordIndexResponse {
+    public withLocation(location: CreateRecordIndexResponseLocationEnum | string): CreateRecordIndexResponse {
         this['location'] = location;
         return this;
     }
@@ -90,20 +90,20 @@ export class CreateRecordIndexResponse extends SdkResponse {
         this['object'] = modelObject;
         return this;
     }
-    public set modelObject(modelObject: string | undefined) {
+    public set modelObject(modelObject: string  | undefined) {
         this['object'] = modelObject;
     }
-    public get modelObject() {
+    public get modelObject(): string | undefined {
         return this['object'];
     }
     public withXRequestId(xRequestId: string): CreateRecordIndexResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-Request-Id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-Request-Id'];
     }
 }

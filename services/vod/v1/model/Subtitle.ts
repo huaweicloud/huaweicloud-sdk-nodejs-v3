@@ -1,12 +1,12 @@
 
 
 export class Subtitle {
-    public id: number;
-    public type: SubtitleTypeEnum;
-    public language: SubtitleLanguageEnum;
+    public id?: number;
+    public type?: SubtitleTypeEnum | string;
+    public language?: SubtitleLanguageEnum | string;
     public md5?: string;
     public description?: string;
-    public constructor(id?: any, type?: any, language?: any) { 
+    public constructor(id?: number, type?: string, language?: string) { 
         this['id'] = id;
         this['type'] = type;
         this['language'] = language;
@@ -15,11 +15,11 @@ export class Subtitle {
         this['id'] = id;
         return this;
     }
-    public withType(type: SubtitleTypeEnum): Subtitle {
+    public withType(type: SubtitleTypeEnum | string): Subtitle {
         this['type'] = type;
         return this;
     }
-    public withLanguage(language: SubtitleLanguageEnum): Subtitle {
+    public withLanguage(language: SubtitleLanguageEnum | string): Subtitle {
         this['language'] = language;
         return this;
     }

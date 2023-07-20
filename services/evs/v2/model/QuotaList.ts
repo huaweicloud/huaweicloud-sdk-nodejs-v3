@@ -19,26 +19,26 @@ import { QuotaDetailVolumesSSD } from './QuotaDetailVolumesSSD';
 
 
 export class QuotaList {
-    private 'backup_gigabytes': QuotaDetailBackupGigabytes | undefined;
-    public backups: QuotaDetailBackups;
-    public gigabytes: QuotaDetailGigabytes;
-    public id: string;
-    public snapshots: QuotaDetailSnapshots;
-    public volumes: QuotaDetailVolumes;
-    private 'gigabytes_SATA'?: QuotaDetailGigabytesSATA | undefined;
-    private 'snapshots_SATA'?: QuotaDetailSnapshotsSATA | undefined;
-    private 'volumes_SATA'?: QuotaDetailVolumesSATA | undefined;
-    private 'gigabytes_SAS'?: QuotaDetailGigabytesSAS | undefined;
-    private 'snapshots_SAS'?: QuotaDetailSnapshotsSAS | undefined;
-    private 'volumes_SAS'?: QuotaDetailVolumesSAS | undefined;
-    private 'gigabytes_SSD'?: QuotaDetailGigabytesSSD | undefined;
-    private 'snapshots_SSD'?: QuotaDetailSnapshotsSSD | undefined;
-    private 'volumes_SSD'?: QuotaDetailVolumesSSD | undefined;
-    private 'gigabytes_GPSSD'?: QuotaDetailGigabytesGPSSD | undefined;
-    private 'snapshots_GPSSD'?: QuotaDetailSnapshotsGPSSD | undefined;
-    private 'volumes_GPSSD'?: QuotaDetailVolumesGPSSD | undefined;
-    private 'per_volume_gigabytes'?: QuotaDetailPerVolumeGigabytes | undefined;
-    public constructor(backupGigabytes?: any, backups?: any, gigabytes?: any, id?: any, snapshots?: any, volumes?: any) { 
+    private 'backup_gigabytes'?: QuotaDetailBackupGigabytes;
+    public backups?: QuotaDetailBackups;
+    public gigabytes?: QuotaDetailGigabytes;
+    public id?: string;
+    public snapshots?: QuotaDetailSnapshots;
+    public volumes?: QuotaDetailVolumes;
+    private 'gigabytes_SATA'?: QuotaDetailGigabytesSATA;
+    private 'snapshots_SATA'?: QuotaDetailSnapshotsSATA;
+    private 'volumes_SATA'?: QuotaDetailVolumesSATA;
+    private 'gigabytes_SAS'?: QuotaDetailGigabytesSAS;
+    private 'snapshots_SAS'?: QuotaDetailSnapshotsSAS;
+    private 'volumes_SAS'?: QuotaDetailVolumesSAS;
+    private 'gigabytes_SSD'?: QuotaDetailGigabytesSSD;
+    private 'snapshots_SSD'?: QuotaDetailSnapshotsSSD;
+    private 'volumes_SSD'?: QuotaDetailVolumesSSD;
+    private 'gigabytes_GPSSD'?: QuotaDetailGigabytesGPSSD;
+    private 'snapshots_GPSSD'?: QuotaDetailSnapshotsGPSSD;
+    private 'volumes_GPSSD'?: QuotaDetailVolumesGPSSD;
+    private 'per_volume_gigabytes'?: QuotaDetailPerVolumeGigabytes;
+    public constructor(backupGigabytes?: QuotaDetailBackupGigabytes, backups?: QuotaDetailBackups, gigabytes?: QuotaDetailGigabytes, id?: string, snapshots?: QuotaDetailSnapshots, volumes?: QuotaDetailVolumes) { 
         this['backup_gigabytes'] = backupGigabytes;
         this['backups'] = backups;
         this['gigabytes'] = gigabytes;
@@ -50,10 +50,10 @@ export class QuotaList {
         this['backup_gigabytes'] = backupGigabytes;
         return this;
     }
-    public set backupGigabytes(backupGigabytes: QuotaDetailBackupGigabytes | undefined) {
+    public set backupGigabytes(backupGigabytes: QuotaDetailBackupGigabytes  | undefined) {
         this['backup_gigabytes'] = backupGigabytes;
     }
-    public get backupGigabytes() {
+    public get backupGigabytes(): QuotaDetailBackupGigabytes | undefined {
         return this['backup_gigabytes'];
     }
     public withBackups(backups: QuotaDetailBackups): QuotaList {
@@ -80,130 +80,130 @@ export class QuotaList {
         this['gigabytes_SATA'] = gigabytesSATA;
         return this;
     }
-    public set gigabytesSATA(gigabytesSATA: QuotaDetailGigabytesSATA | undefined) {
+    public set gigabytesSATA(gigabytesSATA: QuotaDetailGigabytesSATA  | undefined) {
         this['gigabytes_SATA'] = gigabytesSATA;
     }
-    public get gigabytesSATA() {
+    public get gigabytesSATA(): QuotaDetailGigabytesSATA | undefined {
         return this['gigabytes_SATA'];
     }
     public withSnapshotsSATA(snapshotsSATA: QuotaDetailSnapshotsSATA): QuotaList {
         this['snapshots_SATA'] = snapshotsSATA;
         return this;
     }
-    public set snapshotsSATA(snapshotsSATA: QuotaDetailSnapshotsSATA | undefined) {
+    public set snapshotsSATA(snapshotsSATA: QuotaDetailSnapshotsSATA  | undefined) {
         this['snapshots_SATA'] = snapshotsSATA;
     }
-    public get snapshotsSATA() {
+    public get snapshotsSATA(): QuotaDetailSnapshotsSATA | undefined {
         return this['snapshots_SATA'];
     }
     public withVolumesSATA(volumesSATA: QuotaDetailVolumesSATA): QuotaList {
         this['volumes_SATA'] = volumesSATA;
         return this;
     }
-    public set volumesSATA(volumesSATA: QuotaDetailVolumesSATA | undefined) {
+    public set volumesSATA(volumesSATA: QuotaDetailVolumesSATA  | undefined) {
         this['volumes_SATA'] = volumesSATA;
     }
-    public get volumesSATA() {
+    public get volumesSATA(): QuotaDetailVolumesSATA | undefined {
         return this['volumes_SATA'];
     }
     public withGigabytesSAS(gigabytesSAS: QuotaDetailGigabytesSAS): QuotaList {
         this['gigabytes_SAS'] = gigabytesSAS;
         return this;
     }
-    public set gigabytesSAS(gigabytesSAS: QuotaDetailGigabytesSAS | undefined) {
+    public set gigabytesSAS(gigabytesSAS: QuotaDetailGigabytesSAS  | undefined) {
         this['gigabytes_SAS'] = gigabytesSAS;
     }
-    public get gigabytesSAS() {
+    public get gigabytesSAS(): QuotaDetailGigabytesSAS | undefined {
         return this['gigabytes_SAS'];
     }
     public withSnapshotsSAS(snapshotsSAS: QuotaDetailSnapshotsSAS): QuotaList {
         this['snapshots_SAS'] = snapshotsSAS;
         return this;
     }
-    public set snapshotsSAS(snapshotsSAS: QuotaDetailSnapshotsSAS | undefined) {
+    public set snapshotsSAS(snapshotsSAS: QuotaDetailSnapshotsSAS  | undefined) {
         this['snapshots_SAS'] = snapshotsSAS;
     }
-    public get snapshotsSAS() {
+    public get snapshotsSAS(): QuotaDetailSnapshotsSAS | undefined {
         return this['snapshots_SAS'];
     }
     public withVolumesSAS(volumesSAS: QuotaDetailVolumesSAS): QuotaList {
         this['volumes_SAS'] = volumesSAS;
         return this;
     }
-    public set volumesSAS(volumesSAS: QuotaDetailVolumesSAS | undefined) {
+    public set volumesSAS(volumesSAS: QuotaDetailVolumesSAS  | undefined) {
         this['volumes_SAS'] = volumesSAS;
     }
-    public get volumesSAS() {
+    public get volumesSAS(): QuotaDetailVolumesSAS | undefined {
         return this['volumes_SAS'];
     }
     public withGigabytesSSD(gigabytesSSD: QuotaDetailGigabytesSSD): QuotaList {
         this['gigabytes_SSD'] = gigabytesSSD;
         return this;
     }
-    public set gigabytesSSD(gigabytesSSD: QuotaDetailGigabytesSSD | undefined) {
+    public set gigabytesSSD(gigabytesSSD: QuotaDetailGigabytesSSD  | undefined) {
         this['gigabytes_SSD'] = gigabytesSSD;
     }
-    public get gigabytesSSD() {
+    public get gigabytesSSD(): QuotaDetailGigabytesSSD | undefined {
         return this['gigabytes_SSD'];
     }
     public withSnapshotsSSD(snapshotsSSD: QuotaDetailSnapshotsSSD): QuotaList {
         this['snapshots_SSD'] = snapshotsSSD;
         return this;
     }
-    public set snapshotsSSD(snapshotsSSD: QuotaDetailSnapshotsSSD | undefined) {
+    public set snapshotsSSD(snapshotsSSD: QuotaDetailSnapshotsSSD  | undefined) {
         this['snapshots_SSD'] = snapshotsSSD;
     }
-    public get snapshotsSSD() {
+    public get snapshotsSSD(): QuotaDetailSnapshotsSSD | undefined {
         return this['snapshots_SSD'];
     }
     public withVolumesSSD(volumesSSD: QuotaDetailVolumesSSD): QuotaList {
         this['volumes_SSD'] = volumesSSD;
         return this;
     }
-    public set volumesSSD(volumesSSD: QuotaDetailVolumesSSD | undefined) {
+    public set volumesSSD(volumesSSD: QuotaDetailVolumesSSD  | undefined) {
         this['volumes_SSD'] = volumesSSD;
     }
-    public get volumesSSD() {
+    public get volumesSSD(): QuotaDetailVolumesSSD | undefined {
         return this['volumes_SSD'];
     }
     public withGigabytesGPSSD(gigabytesGPSSD: QuotaDetailGigabytesGPSSD): QuotaList {
         this['gigabytes_GPSSD'] = gigabytesGPSSD;
         return this;
     }
-    public set gigabytesGPSSD(gigabytesGPSSD: QuotaDetailGigabytesGPSSD | undefined) {
+    public set gigabytesGPSSD(gigabytesGPSSD: QuotaDetailGigabytesGPSSD  | undefined) {
         this['gigabytes_GPSSD'] = gigabytesGPSSD;
     }
-    public get gigabytesGPSSD() {
+    public get gigabytesGPSSD(): QuotaDetailGigabytesGPSSD | undefined {
         return this['gigabytes_GPSSD'];
     }
     public withSnapshotsGPSSD(snapshotsGPSSD: QuotaDetailSnapshotsGPSSD): QuotaList {
         this['snapshots_GPSSD'] = snapshotsGPSSD;
         return this;
     }
-    public set snapshotsGPSSD(snapshotsGPSSD: QuotaDetailSnapshotsGPSSD | undefined) {
+    public set snapshotsGPSSD(snapshotsGPSSD: QuotaDetailSnapshotsGPSSD  | undefined) {
         this['snapshots_GPSSD'] = snapshotsGPSSD;
     }
-    public get snapshotsGPSSD() {
+    public get snapshotsGPSSD(): QuotaDetailSnapshotsGPSSD | undefined {
         return this['snapshots_GPSSD'];
     }
     public withVolumesGPSSD(volumesGPSSD: QuotaDetailVolumesGPSSD): QuotaList {
         this['volumes_GPSSD'] = volumesGPSSD;
         return this;
     }
-    public set volumesGPSSD(volumesGPSSD: QuotaDetailVolumesGPSSD | undefined) {
+    public set volumesGPSSD(volumesGPSSD: QuotaDetailVolumesGPSSD  | undefined) {
         this['volumes_GPSSD'] = volumesGPSSD;
     }
-    public get volumesGPSSD() {
+    public get volumesGPSSD(): QuotaDetailVolumesGPSSD | undefined {
         return this['volumes_GPSSD'];
     }
     public withPerVolumeGigabytes(perVolumeGigabytes: QuotaDetailPerVolumeGigabytes): QuotaList {
         this['per_volume_gigabytes'] = perVolumeGigabytes;
         return this;
     }
-    public set perVolumeGigabytes(perVolumeGigabytes: QuotaDetailPerVolumeGigabytes | undefined) {
+    public set perVolumeGigabytes(perVolumeGigabytes: QuotaDetailPerVolumeGigabytes  | undefined) {
         this['per_volume_gigabytes'] = perVolumeGigabytes;
     }
-    public get perVolumeGigabytes() {
+    public get perVolumeGigabytes(): QuotaDetailPerVolumeGigabytes | undefined {
         return this['per_volume_gigabytes'];
     }
 }

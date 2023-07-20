@@ -7,7 +7,7 @@ export class RestScheduleConfDTO {
     public startTime?: string;
     public length?: number;
     public subject?: string;
-    public mediaTypes: string;
+    public mediaTypes?: string;
     public groupuri?: string;
     public attendees?: Array<RestAttendeeDTO>;
     public isAutoRecord?: number;
@@ -24,7 +24,7 @@ export class RestScheduleConfDTO {
     public cycleParams?: CycleParams;
     public vmrID?: string;
     public concurrentParticipants?: number;
-    public constructor(mediaTypes?: any) { 
+    public constructor(mediaTypes?: string) { 
         this['mediaTypes'] = mediaTypes;
     }
     public withStartTime(startTime: string): RestScheduleConfDTO {

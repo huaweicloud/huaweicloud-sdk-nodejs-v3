@@ -1,15 +1,15 @@
 
 
 export class VideoTemplateInfo {
-    public quality: VideoTemplateInfoQualityEnum;
+    public quality?: VideoTemplateInfoQualityEnum | string;
     public width?: number;
     public height?: number;
     public bitrate?: number;
-    private 'frame_rate'?: number | undefined;
-    public constructor(quality?: any) { 
+    private 'frame_rate'?: number;
+    public constructor(quality?: string) { 
         this['quality'] = quality;
     }
-    public withQuality(quality: VideoTemplateInfoQualityEnum): VideoTemplateInfo {
+    public withQuality(quality: VideoTemplateInfoQualityEnum | string): VideoTemplateInfo {
         this['quality'] = quality;
         return this;
     }
@@ -29,10 +29,10 @@ export class VideoTemplateInfo {
         this['frame_rate'] = frameRate;
         return this;
     }
-    public set frameRate(frameRate: number | undefined) {
+    public set frameRate(frameRate: number  | undefined) {
         this['frame_rate'] = frameRate;
     }
-    public get frameRate() {
+    public get frameRate(): number | undefined {
         return this['frame_rate'];
     }
 }

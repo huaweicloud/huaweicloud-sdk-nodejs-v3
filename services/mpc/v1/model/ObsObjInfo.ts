@@ -1,11 +1,11 @@
 
 
 export class ObsObjInfo {
-    public bucket: string;
-    public location: string;
-    private 'object': string | undefined;
-    private 'file_name'?: string | undefined;
-    public constructor(bucket?: any, location?: any, modelObject?: any) { 
+    public bucket?: string;
+    public location?: string;
+    private 'object'?: string;
+    private 'file_name'?: string;
+    public constructor(bucket?: string, location?: string, modelObject?: string) { 
         this['bucket'] = bucket;
         this['location'] = location;
         this['object'] = modelObject;
@@ -22,20 +22,20 @@ export class ObsObjInfo {
         this['object'] = modelObject;
         return this;
     }
-    public set modelObject(modelObject: string | undefined) {
+    public set modelObject(modelObject: string  | undefined) {
         this['object'] = modelObject;
     }
-    public get modelObject() {
+    public get modelObject(): string | undefined {
         return this['object'];
     }
     public withFileName(fileName: string): ObsObjInfo {
         this['file_name'] = fileName;
         return this;
     }
-    public set fileName(fileName: string | undefined) {
+    public set fileName(fileName: string  | undefined) {
         this['file_name'] = fileName;
     }
-    public get fileName() {
+    public get fileName(): string | undefined {
         return this['file_name'];
     }
 }

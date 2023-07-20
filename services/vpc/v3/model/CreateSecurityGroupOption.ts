@@ -1,10 +1,10 @@
 
 
 export class CreateSecurityGroupOption {
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'enterprise_project_id'?: string | undefined;
-    public constructor(name?: any) { 
+    private 'enterprise_project_id'?: string;
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): CreateSecurityGroupOption {
@@ -19,10 +19,10 @@ export class CreateSecurityGroupOption {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

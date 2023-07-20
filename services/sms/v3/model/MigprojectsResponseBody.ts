@@ -3,17 +3,17 @@
 export class MigprojectsResponseBody {
     public id?: string;
     public name?: string;
-    private 'use_public_ip'?: boolean | undefined;
+    private 'use_public_ip'?: boolean;
     public isdefault?: boolean;
-    private 'start_target_server'?: boolean | undefined;
+    private 'start_target_server'?: boolean;
     public region?: string;
-    private 'speed_limit'?: number | undefined;
-    private 'exist_server'?: boolean | undefined;
+    private 'speed_limit'?: number;
+    private 'exist_server'?: boolean;
     public description?: string;
-    public type?: MigprojectsResponseBodyTypeEnum;
-    private 'enterprise_project'?: string | undefined;
+    public type?: MigprojectsResponseBodyTypeEnum | string;
+    private 'enterprise_project'?: string;
     public syncing?: boolean;
-    private 'start_network_check'?: boolean | undefined;
+    private 'start_network_check'?: boolean;
     public constructor() { 
     }
     public withId(id: string): MigprojectsResponseBody {
@@ -28,10 +28,10 @@ export class MigprojectsResponseBody {
         this['use_public_ip'] = usePublicIp;
         return this;
     }
-    public set usePublicIp(usePublicIp: boolean | undefined) {
+    public set usePublicIp(usePublicIp: boolean  | undefined) {
         this['use_public_ip'] = usePublicIp;
     }
-    public get usePublicIp() {
+    public get usePublicIp(): boolean | undefined {
         return this['use_public_ip'];
     }
     public withIsdefault(isdefault: boolean): MigprojectsResponseBody {
@@ -42,10 +42,10 @@ export class MigprojectsResponseBody {
         this['start_target_server'] = startTargetServer;
         return this;
     }
-    public set startTargetServer(startTargetServer: boolean | undefined) {
+    public set startTargetServer(startTargetServer: boolean  | undefined) {
         this['start_target_server'] = startTargetServer;
     }
-    public get startTargetServer() {
+    public get startTargetServer(): boolean | undefined {
         return this['start_target_server'];
     }
     public withRegion(region: string): MigprojectsResponseBody {
@@ -56,27 +56,27 @@ export class MigprojectsResponseBody {
         this['speed_limit'] = speedLimit;
         return this;
     }
-    public set speedLimit(speedLimit: number | undefined) {
+    public set speedLimit(speedLimit: number  | undefined) {
         this['speed_limit'] = speedLimit;
     }
-    public get speedLimit() {
+    public get speedLimit(): number | undefined {
         return this['speed_limit'];
     }
     public withExistServer(existServer: boolean): MigprojectsResponseBody {
         this['exist_server'] = existServer;
         return this;
     }
-    public set existServer(existServer: boolean | undefined) {
+    public set existServer(existServer: boolean  | undefined) {
         this['exist_server'] = existServer;
     }
-    public get existServer() {
+    public get existServer(): boolean | undefined {
         return this['exist_server'];
     }
     public withDescription(description: string): MigprojectsResponseBody {
         this['description'] = description;
         return this;
     }
-    public withType(type: MigprojectsResponseBodyTypeEnum): MigprojectsResponseBody {
+    public withType(type: MigprojectsResponseBodyTypeEnum | string): MigprojectsResponseBody {
         this['type'] = type;
         return this;
     }
@@ -84,10 +84,10 @@ export class MigprojectsResponseBody {
         this['enterprise_project'] = enterpriseProject;
         return this;
     }
-    public set enterpriseProject(enterpriseProject: string | undefined) {
+    public set enterpriseProject(enterpriseProject: string  | undefined) {
         this['enterprise_project'] = enterpriseProject;
     }
-    public get enterpriseProject() {
+    public get enterpriseProject(): string | undefined {
         return this['enterprise_project'];
     }
     public withSyncing(syncing: boolean): MigprojectsResponseBody {
@@ -98,10 +98,10 @@ export class MigprojectsResponseBody {
         this['start_network_check'] = startNetworkCheck;
         return this;
     }
-    public set startNetworkCheck(startNetworkCheck: boolean | undefined) {
+    public set startNetworkCheck(startNetworkCheck: boolean  | undefined) {
         this['start_network_check'] = startNetworkCheck;
     }
-    public get startNetworkCheck() {
+    public get startNetworkCheck(): boolean | undefined {
         return this['start_network_check'];
     }
 }

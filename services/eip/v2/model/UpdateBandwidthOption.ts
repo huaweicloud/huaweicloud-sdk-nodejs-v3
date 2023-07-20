@@ -3,7 +3,7 @@
 export class UpdateBandwidthOption {
     public name?: string;
     public size?: number;
-    private 'charge_mode'?: UpdateBandwidthOptionChargeModeEnum | undefined;
+    private 'charge_mode'?: UpdateBandwidthOptionChargeModeEnum | string;
     public constructor() { 
     }
     public withName(name: string): UpdateBandwidthOption {
@@ -14,14 +14,14 @@ export class UpdateBandwidthOption {
         this['size'] = size;
         return this;
     }
-    public withChargeMode(chargeMode: UpdateBandwidthOptionChargeModeEnum): UpdateBandwidthOption {
+    public withChargeMode(chargeMode: UpdateBandwidthOptionChargeModeEnum | string): UpdateBandwidthOption {
         this['charge_mode'] = chargeMode;
         return this;
     }
-    public set chargeMode(chargeMode: UpdateBandwidthOptionChargeModeEnum | undefined) {
+    public set chargeMode(chargeMode: UpdateBandwidthOptionChargeModeEnum | string  | undefined) {
         this['charge_mode'] = chargeMode;
     }
-    public get chargeMode() {
+    public get chargeMode(): UpdateBandwidthOptionChargeModeEnum | string | undefined {
         return this['charge_mode'];
     }
 }

@@ -1,18 +1,18 @@
 
 
 export class UpdateWatermarkTemplateReq {
-    public id: string;
+    public id?: string;
     public name?: string;
     public dx?: string;
     public dy?: string;
-    public position?: UpdateWatermarkTemplateReqPositionEnum;
+    public position?: UpdateWatermarkTemplateReqPositionEnum | string;
     public width?: string;
     public height?: string;
-    private 'watermark_type'?: UpdateWatermarkTemplateReqWatermarkTypeEnum | undefined;
-    private 'image_process'?: UpdateWatermarkTemplateReqImageProcessEnum | undefined;
-    private 'timeline_start'?: string | undefined;
-    private 'timeline_duration'?: string | undefined;
-    public constructor(id?: any) { 
+    private 'watermark_type'?: UpdateWatermarkTemplateReqWatermarkTypeEnum | string;
+    private 'image_process'?: UpdateWatermarkTemplateReqImageProcessEnum | string;
+    private 'timeline_start'?: string;
+    private 'timeline_duration'?: string;
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withId(id: string): UpdateWatermarkTemplateReq {
@@ -31,7 +31,7 @@ export class UpdateWatermarkTemplateReq {
         this['dy'] = dy;
         return this;
     }
-    public withPosition(position: UpdateWatermarkTemplateReqPositionEnum): UpdateWatermarkTemplateReq {
+    public withPosition(position: UpdateWatermarkTemplateReqPositionEnum | string): UpdateWatermarkTemplateReq {
         this['position'] = position;
         return this;
     }
@@ -43,44 +43,44 @@ export class UpdateWatermarkTemplateReq {
         this['height'] = height;
         return this;
     }
-    public withWatermarkType(watermarkType: UpdateWatermarkTemplateReqWatermarkTypeEnum): UpdateWatermarkTemplateReq {
+    public withWatermarkType(watermarkType: UpdateWatermarkTemplateReqWatermarkTypeEnum | string): UpdateWatermarkTemplateReq {
         this['watermark_type'] = watermarkType;
         return this;
     }
-    public set watermarkType(watermarkType: UpdateWatermarkTemplateReqWatermarkTypeEnum | undefined) {
+    public set watermarkType(watermarkType: UpdateWatermarkTemplateReqWatermarkTypeEnum | string  | undefined) {
         this['watermark_type'] = watermarkType;
     }
-    public get watermarkType() {
+    public get watermarkType(): UpdateWatermarkTemplateReqWatermarkTypeEnum | string | undefined {
         return this['watermark_type'];
     }
-    public withImageProcess(imageProcess: UpdateWatermarkTemplateReqImageProcessEnum): UpdateWatermarkTemplateReq {
+    public withImageProcess(imageProcess: UpdateWatermarkTemplateReqImageProcessEnum | string): UpdateWatermarkTemplateReq {
         this['image_process'] = imageProcess;
         return this;
     }
-    public set imageProcess(imageProcess: UpdateWatermarkTemplateReqImageProcessEnum | undefined) {
+    public set imageProcess(imageProcess: UpdateWatermarkTemplateReqImageProcessEnum | string  | undefined) {
         this['image_process'] = imageProcess;
     }
-    public get imageProcess() {
+    public get imageProcess(): UpdateWatermarkTemplateReqImageProcessEnum | string | undefined {
         return this['image_process'];
     }
     public withTimelineStart(timelineStart: string): UpdateWatermarkTemplateReq {
         this['timeline_start'] = timelineStart;
         return this;
     }
-    public set timelineStart(timelineStart: string | undefined) {
+    public set timelineStart(timelineStart: string  | undefined) {
         this['timeline_start'] = timelineStart;
     }
-    public get timelineStart() {
+    public get timelineStart(): string | undefined {
         return this['timeline_start'];
     }
     public withTimelineDuration(timelineDuration: string): UpdateWatermarkTemplateReq {
         this['timeline_duration'] = timelineDuration;
         return this;
     }
-    public set timelineDuration(timelineDuration: string | undefined) {
+    public set timelineDuration(timelineDuration: string  | undefined) {
         this['timeline_duration'] = timelineDuration;
     }
-    public get timelineDuration() {
+    public get timelineDuration(): string | undefined {
         return this['timeline_duration'];
     }
 }

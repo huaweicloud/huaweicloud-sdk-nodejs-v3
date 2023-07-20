@@ -1,41 +1,41 @@
 
 
 export class DecryptDataRequestBody {
-    private 'cipher_text': string | undefined;
-    private 'encryption_algorithm'?: DecryptDataRequestBodyEncryptionAlgorithmEnum | undefined;
-    private 'key_id'?: string | undefined;
+    private 'cipher_text'?: string;
+    private 'encryption_algorithm'?: DecryptDataRequestBodyEncryptionAlgorithmEnum | string;
+    private 'key_id'?: string;
     public sequence?: string;
-    public constructor(cipherText?: any) { 
+    public constructor(cipherText?: string) { 
         this['cipher_text'] = cipherText;
     }
     public withCipherText(cipherText: string): DecryptDataRequestBody {
         this['cipher_text'] = cipherText;
         return this;
     }
-    public set cipherText(cipherText: string | undefined) {
+    public set cipherText(cipherText: string  | undefined) {
         this['cipher_text'] = cipherText;
     }
-    public get cipherText() {
+    public get cipherText(): string | undefined {
         return this['cipher_text'];
     }
-    public withEncryptionAlgorithm(encryptionAlgorithm: DecryptDataRequestBodyEncryptionAlgorithmEnum): DecryptDataRequestBody {
+    public withEncryptionAlgorithm(encryptionAlgorithm: DecryptDataRequestBodyEncryptionAlgorithmEnum | string): DecryptDataRequestBody {
         this['encryption_algorithm'] = encryptionAlgorithm;
         return this;
     }
-    public set encryptionAlgorithm(encryptionAlgorithm: DecryptDataRequestBodyEncryptionAlgorithmEnum | undefined) {
+    public set encryptionAlgorithm(encryptionAlgorithm: DecryptDataRequestBodyEncryptionAlgorithmEnum | string  | undefined) {
         this['encryption_algorithm'] = encryptionAlgorithm;
     }
-    public get encryptionAlgorithm() {
+    public get encryptionAlgorithm(): DecryptDataRequestBodyEncryptionAlgorithmEnum | string | undefined {
         return this['encryption_algorithm'];
     }
     public withKeyId(keyId: string): DecryptDataRequestBody {
         this['key_id'] = keyId;
         return this;
     }
-    public set keyId(keyId: string | undefined) {
+    public set keyId(keyId: string  | undefined) {
         this['key_id'] = keyId;
     }
-    public get keyId() {
+    public get keyId(): string | undefined {
         return this['key_id'];
     }
     public withSequence(sequence: string): DecryptDataRequestBody {

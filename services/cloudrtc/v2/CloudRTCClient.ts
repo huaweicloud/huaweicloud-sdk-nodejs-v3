@@ -35,7 +35,6 @@ import { MixJobReq } from './model/MixJobReq';
 import { MixLayoutPane } from './model/MixLayoutPane';
 import { MixParam } from './model/MixParam';
 import { MixUserBackgroundImage } from './model/MixUserBackgroundImage';
-import { PublishParam } from './model/PublishParam';
 import { RecordObsFileAddr } from './model/RecordObsFileAddr';
 import { RecordParam } from './model/RecordParam';
 import { RecordRule } from './model/RecordRule';

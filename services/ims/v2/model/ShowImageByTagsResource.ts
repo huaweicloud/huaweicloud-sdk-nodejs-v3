@@ -3,11 +3,11 @@ import { TagKeyValue } from './TagKeyValue';
 
 
 export class ShowImageByTagsResource {
-    private 'resource_id': string | undefined;
-    private 'resource_detail': QueryImageByTagsResourceDetail | undefined;
-    public tags: Array<TagKeyValue>;
-    private 'resource_name': string | undefined;
-    public constructor(resourceId?: any, resourceDetail?: any, tags?: any, resourceName?: any) { 
+    private 'resource_id'?: string;
+    private 'resource_detail'?: QueryImageByTagsResourceDetail;
+    public tags?: Array<TagKeyValue>;
+    private 'resource_name'?: string;
+    public constructor(resourceId?: string, resourceDetail?: QueryImageByTagsResourceDetail, tags?: Array<TagKeyValue>, resourceName?: string) { 
         this['resource_id'] = resourceId;
         this['resource_detail'] = resourceDetail;
         this['tags'] = tags;
@@ -17,20 +17,20 @@ export class ShowImageByTagsResource {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
     public withResourceDetail(resourceDetail: QueryImageByTagsResourceDetail): ShowImageByTagsResource {
         this['resource_detail'] = resourceDetail;
         return this;
     }
-    public set resourceDetail(resourceDetail: QueryImageByTagsResourceDetail | undefined) {
+    public set resourceDetail(resourceDetail: QueryImageByTagsResourceDetail  | undefined) {
         this['resource_detail'] = resourceDetail;
     }
-    public get resourceDetail() {
+    public get resourceDetail(): QueryImageByTagsResourceDetail | undefined {
         return this['resource_detail'];
     }
     public withTags(tags: Array<TagKeyValue>): ShowImageByTagsResource {
@@ -41,10 +41,10 @@ export class ShowImageByTagsResource {
         this['resource_name'] = resourceName;
         return this;
     }
-    public set resourceName(resourceName: string | undefined) {
+    public set resourceName(resourceName: string  | undefined) {
         this['resource_name'] = resourceName;
     }
-    public get resourceName() {
+    public get resourceName(): string | undefined {
         return this['resource_name'];
     }
 }

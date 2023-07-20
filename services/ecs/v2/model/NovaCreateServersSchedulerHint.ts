@@ -2,12 +2,12 @@
 
 export class NovaCreateServersSchedulerHint {
     public group?: string;
-    private 'different_host'?: Array<string> | undefined;
-    private 'same_host'?: Array<string> | undefined;
+    private 'different_host'?: Array<string>;
+    private 'same_host'?: Array<string>;
     public cidr?: string;
-    private 'build_near_host_ip'?: string | undefined;
+    private 'build_near_host_ip'?: string;
     public tenancy?: string;
-    private 'dedicated_host_id'?: string | undefined;
+    private 'dedicated_host_id'?: string;
     public constructor() { 
     }
     public withGroup(group: string): NovaCreateServersSchedulerHint {
@@ -18,20 +18,20 @@ export class NovaCreateServersSchedulerHint {
         this['different_host'] = differentHost;
         return this;
     }
-    public set differentHost(differentHost: Array<string> | undefined) {
+    public set differentHost(differentHost: Array<string>  | undefined) {
         this['different_host'] = differentHost;
     }
-    public get differentHost() {
+    public get differentHost(): Array<string> | undefined {
         return this['different_host'];
     }
     public withSameHost(sameHost: Array<string>): NovaCreateServersSchedulerHint {
         this['same_host'] = sameHost;
         return this;
     }
-    public set sameHost(sameHost: Array<string> | undefined) {
+    public set sameHost(sameHost: Array<string>  | undefined) {
         this['same_host'] = sameHost;
     }
-    public get sameHost() {
+    public get sameHost(): Array<string> | undefined {
         return this['same_host'];
     }
     public withCidr(cidr: string): NovaCreateServersSchedulerHint {
@@ -42,10 +42,10 @@ export class NovaCreateServersSchedulerHint {
         this['build_near_host_ip'] = buildNearHostIp;
         return this;
     }
-    public set buildNearHostIp(buildNearHostIp: string | undefined) {
+    public set buildNearHostIp(buildNearHostIp: string  | undefined) {
         this['build_near_host_ip'] = buildNearHostIp;
     }
-    public get buildNearHostIp() {
+    public get buildNearHostIp(): string | undefined {
         return this['build_near_host_ip'];
     }
     public withTenancy(tenancy: string): NovaCreateServersSchedulerHint {
@@ -56,10 +56,10 @@ export class NovaCreateServersSchedulerHint {
         this['dedicated_host_id'] = dedicatedHostId;
         return this;
     }
-    public set dedicatedHostId(dedicatedHostId: string | undefined) {
+    public set dedicatedHostId(dedicatedHostId: string  | undefined) {
         this['dedicated_host_id'] = dedicatedHostId;
     }
-    public get dedicatedHostId() {
+    public get dedicatedHostId(): string | undefined {
         return this['dedicated_host_id'];
     }
 }

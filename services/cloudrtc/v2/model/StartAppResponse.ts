@@ -3,9 +3,9 @@ import { AppState } from './AppState';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class StartAppResponse extends SdkResponse {
-    private 'app_id'?: string | undefined;
+    private 'app_id'?: string;
     public state?: AppState;
-    private 'X-request-Id'?: string | undefined;
+    private 'X-request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -13,10 +13,10 @@ export class StartAppResponse extends SdkResponse {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withState(state: AppState): StartAppResponse {
@@ -27,10 +27,10 @@ export class StartAppResponse extends SdkResponse {
         this['X-request-Id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-request-Id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-request-Id'];
     }
 }

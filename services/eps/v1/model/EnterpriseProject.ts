@@ -1,10 +1,10 @@
 
 
 export class EnterpriseProject {
-    public name: string;
+    public name?: string;
     public description?: string;
     public type?: string;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): EnterpriseProject {

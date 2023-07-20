@@ -3,15 +3,15 @@ import { PwdPassword } from './PwdPassword';
 
 
 export class MfaIdentity {
-    public methods: Array<MfaIdentityMethodsEnum>;
-    public password: PwdPassword;
-    public totp: MfaTotp;
-    public constructor(methods?: any, password?: any, totp?: any) { 
+    public methods?: Array<MfaIdentityMethodsEnum> | Array<string>;
+    public password?: PwdPassword;
+    public totp?: MfaTotp;
+    public constructor(methods?: Array<string>, password?: PwdPassword, totp?: MfaTotp) { 
         this['methods'] = methods;
         this['password'] = password;
         this['totp'] = totp;
     }
-    public withMethods(methods: Array<MfaIdentityMethodsEnum>): MfaIdentity {
+    public withMethods(methods: Array<MfaIdentityMethodsEnum> | Array<string>): MfaIdentity {
         this['methods'] = methods;
         return this;
     }

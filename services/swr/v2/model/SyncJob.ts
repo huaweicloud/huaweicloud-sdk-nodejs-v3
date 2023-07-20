@@ -1,21 +1,21 @@
 
 
 export class SyncJob {
-    public createdAt: string;
-    public domainID: string;
-    public domainName: string;
-    public id: number;
-    public namespace: string;
-    public override: boolean;
-    public remoteNamespace: string;
-    public remoteRegionId: string;
-    public repoName: string;
-    public status: string;
-    public syncOperatorId: string;
-    public syncOperatorName: string;
-    public tag: string;
-    public updatedAt: string;
-    public constructor(createdAt?: any, domainID?: any, domainName?: any, id?: any, namespace?: any, override?: any, remoteNamespace?: any, remoteRegionId?: any, repoName?: any, status?: any, syncOperatorId?: any, syncOperatorName?: any, tag?: any, updatedAt?: any) { 
+    public createdAt?: string;
+    public domainID?: string;
+    public domainName?: string;
+    public id?: number;
+    public namespace?: string;
+    public override?: boolean;
+    public remoteNamespace?: string;
+    public remoteRegionId?: string;
+    public repoName?: string;
+    public status?: string;
+    public syncOperatorId?: string;
+    public syncOperatorName?: string;
+    public tag?: string;
+    public updatedAt?: string;
+    public constructor(createdAt?: string, domainID?: string, domainName?: string, id?: number, namespace?: string, override?: boolean, remoteNamespace?: string, remoteRegionId?: string, repoName?: string, status?: string, syncOperatorId?: string, syncOperatorName?: string, tag?: string, updatedAt?: string) { 
         this['createdAt'] = createdAt;
         this['domainID'] = domainID;
         this['domainName'] = domainName;

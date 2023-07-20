@@ -1,14 +1,14 @@
 
 
 export class SecurityGroup {
-    public id: string;
-    public name: string;
-    public description: string;
-    private 'project_id': string | undefined;
-    private 'created_at': Date | undefined;
-    private 'updated_at': Date | undefined;
-    private 'enterprise_project_id': string | undefined;
-    public constructor(id?: any, name?: any, description?: any, projectId?: any, createdAt?: any, updatedAt?: any, enterpriseProjectId?: any) { 
+    public id?: string;
+    public name?: string;
+    public description?: string;
+    private 'project_id'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    private 'enterprise_project_id'?: string;
+    public constructor(id?: string, name?: string, description?: string, projectId?: string, createdAt?: Date, updatedAt?: Date, enterpriseProjectId?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -33,40 +33,40 @@ export class SecurityGroup {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withCreatedAt(createdAt: Date): SecurityGroup {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): SecurityGroup {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): SecurityGroup {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

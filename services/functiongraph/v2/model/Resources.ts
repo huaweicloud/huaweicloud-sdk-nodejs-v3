@@ -3,7 +3,7 @@
 export class Resources {
     public quota?: number;
     public used?: number;
-    public type?: ResourcesTypeEnum;
+    public type?: ResourcesTypeEnum | string;
     public unit?: string;
     public constructor() { 
     }
@@ -15,7 +15,7 @@ export class Resources {
         this['used'] = used;
         return this;
     }
-    public withType(type: ResourcesTypeEnum): Resources {
+    public withType(type: ResourcesTypeEnum | string): Resources {
         this['type'] = type;
         return this;
     }

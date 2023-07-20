@@ -2,9 +2,9 @@ import { ServerId } from './ServerId';
 
 
 export class BatchRebootSeversOption {
-    public servers: Array<ServerId>;
-    public type: BatchRebootSeversOptionTypeEnum;
-    public constructor(servers?: any, type?: any) { 
+    public servers?: Array<ServerId>;
+    public type?: BatchRebootSeversOptionTypeEnum | string;
+    public constructor(servers?: Array<ServerId>, type?: string) { 
         this['servers'] = servers;
         this['type'] = type;
     }
@@ -12,7 +12,7 @@ export class BatchRebootSeversOption {
         this['servers'] = servers;
         return this;
     }
-    public withType(type: BatchRebootSeversOptionTypeEnum): BatchRebootSeversOption {
+    public withType(type: BatchRebootSeversOptionTypeEnum | string): BatchRebootSeversOption {
         this['type'] = type;
         return this;
     }

@@ -1,41 +1,41 @@
 
 
 export class CreateDatakeyRequestBody {
-    private 'key_id': string | undefined;
-    private 'key_spec'?: CreateDatakeyRequestBodyKeySpecEnum | undefined;
-    private 'datakey_length'?: string | undefined;
+    private 'key_id'?: string;
+    private 'key_spec'?: CreateDatakeyRequestBodyKeySpecEnum | string;
+    private 'datakey_length'?: string;
     public sequence?: string;
-    public constructor(keyId?: any) { 
+    public constructor(keyId?: string) { 
         this['key_id'] = keyId;
     }
     public withKeyId(keyId: string): CreateDatakeyRequestBody {
         this['key_id'] = keyId;
         return this;
     }
-    public set keyId(keyId: string | undefined) {
+    public set keyId(keyId: string  | undefined) {
         this['key_id'] = keyId;
     }
-    public get keyId() {
+    public get keyId(): string | undefined {
         return this['key_id'];
     }
-    public withKeySpec(keySpec: CreateDatakeyRequestBodyKeySpecEnum): CreateDatakeyRequestBody {
+    public withKeySpec(keySpec: CreateDatakeyRequestBodyKeySpecEnum | string): CreateDatakeyRequestBody {
         this['key_spec'] = keySpec;
         return this;
     }
-    public set keySpec(keySpec: CreateDatakeyRequestBodyKeySpecEnum | undefined) {
+    public set keySpec(keySpec: CreateDatakeyRequestBodyKeySpecEnum | string  | undefined) {
         this['key_spec'] = keySpec;
     }
-    public get keySpec() {
+    public get keySpec(): CreateDatakeyRequestBodyKeySpecEnum | string | undefined {
         return this['key_spec'];
     }
     public withDatakeyLength(datakeyLength: string): CreateDatakeyRequestBody {
         this['datakey_length'] = datakeyLength;
         return this;
     }
-    public set datakeyLength(datakeyLength: string | undefined) {
+    public set datakeyLength(datakeyLength: string  | undefined) {
         this['datakey_length'] = datakeyLength;
     }
-    public get datakeyLength() {
+    public get datakeyLength(): string | undefined {
         return this['datakey_length'];
     }
     public withSequence(sequence: string): CreateDatakeyRequestBody {

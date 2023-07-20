@@ -5,10 +5,10 @@ export class UpStreamDetail {
     public fps?: number;
     public rate?: number;
     public delay?: number;
-    private 'gop_duration'?: number | undefined;
-    private 'last_video_pts'?: number | undefined;
-    private 'last_audio_pts'?: number | undefined;
-    private 'last_video_audio_pts_diff'?: number | undefined;
+    private 'gop_duration'?: number;
+    private 'last_video_pts'?: number;
+    private 'last_audio_pts'?: number;
+    private 'last_video_audio_pts_diff'?: number;
     public constructor() { 
     }
     public withTime(time: string): UpStreamDetail {
@@ -31,40 +31,40 @@ export class UpStreamDetail {
         this['gop_duration'] = gopDuration;
         return this;
     }
-    public set gopDuration(gopDuration: number | undefined) {
+    public set gopDuration(gopDuration: number  | undefined) {
         this['gop_duration'] = gopDuration;
     }
-    public get gopDuration() {
+    public get gopDuration(): number | undefined {
         return this['gop_duration'];
     }
     public withLastVideoPts(lastVideoPts: number): UpStreamDetail {
         this['last_video_pts'] = lastVideoPts;
         return this;
     }
-    public set lastVideoPts(lastVideoPts: number | undefined) {
+    public set lastVideoPts(lastVideoPts: number  | undefined) {
         this['last_video_pts'] = lastVideoPts;
     }
-    public get lastVideoPts() {
+    public get lastVideoPts(): number | undefined {
         return this['last_video_pts'];
     }
     public withLastAudioPts(lastAudioPts: number): UpStreamDetail {
         this['last_audio_pts'] = lastAudioPts;
         return this;
     }
-    public set lastAudioPts(lastAudioPts: number | undefined) {
+    public set lastAudioPts(lastAudioPts: number  | undefined) {
         this['last_audio_pts'] = lastAudioPts;
     }
-    public get lastAudioPts() {
+    public get lastAudioPts(): number | undefined {
         return this['last_audio_pts'];
     }
     public withLastVideoAudioPtsDiff(lastVideoAudioPtsDiff: number): UpStreamDetail {
         this['last_video_audio_pts_diff'] = lastVideoAudioPtsDiff;
         return this;
     }
-    public set lastVideoAudioPtsDiff(lastVideoAudioPtsDiff: number | undefined) {
+    public set lastVideoAudioPtsDiff(lastVideoAudioPtsDiff: number  | undefined) {
         this['last_video_audio_pts_diff'] = lastVideoAudioPtsDiff;
     }
-    public get lastVideoAudioPtsDiff() {
+    public get lastVideoAudioPtsDiff(): number | undefined {
         return this['last_video_audio_pts_diff'];
     }
 }

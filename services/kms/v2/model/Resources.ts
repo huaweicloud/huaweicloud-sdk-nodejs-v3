@@ -1,12 +1,12 @@
 
 
 export class Resources {
-    public type?: ResourcesTypeEnum;
+    public type?: ResourcesTypeEnum | string;
     public used?: number;
     public quota?: number;
     public constructor() { 
     }
-    public withType(type: ResourcesTypeEnum): Resources {
+    public withType(type: ResourcesTypeEnum | string): Resources {
         this['type'] = type;
         return this;
     }

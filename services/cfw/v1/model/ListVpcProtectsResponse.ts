@@ -3,7 +3,7 @@ import { VPCProtectsVo } from './VPCProtectsVo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListVpcProtectsResponse extends SdkResponse {
-    private 'trace_id'?: string | undefined;
+    private 'trace_id'?: string;
     public data?: VPCProtectsVo;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class ListVpcProtectsResponse extends SdkResponse {
         this['trace_id'] = traceId;
         return this;
     }
-    public set traceId(traceId: string | undefined) {
+    public set traceId(traceId: string  | undefined) {
         this['trace_id'] = traceId;
     }
-    public get traceId() {
+    public get traceId(): string | undefined {
         return this['trace_id'];
     }
     public withData(data: VPCProtectsVo): ListVpcProtectsResponse {

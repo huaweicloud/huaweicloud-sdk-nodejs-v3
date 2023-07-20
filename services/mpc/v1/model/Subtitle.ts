@@ -5,7 +5,7 @@ import { ObsObjInfo } from './ObsObjInfo';
 export class Subtitle {
     public input?: ObsObjInfo;
     public inputs?: Array<MulInputFileInfo>;
-    private 'subtitle_type'?: number | undefined;
+    private 'subtitle_type'?: number;
     public constructor() { 
     }
     public withInput(input: ObsObjInfo): Subtitle {
@@ -20,10 +20,10 @@ export class Subtitle {
         this['subtitle_type'] = subtitleType;
         return this;
     }
-    public set subtitleType(subtitleType: number | undefined) {
+    public set subtitleType(subtitleType: number  | undefined) {
         this['subtitle_type'] = subtitleType;
     }
-    public get subtitleType() {
+    public get subtitleType(): number | undefined {
         return this['subtitle_type'];
     }
 }

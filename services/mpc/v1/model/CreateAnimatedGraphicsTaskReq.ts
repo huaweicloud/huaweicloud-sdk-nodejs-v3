@@ -6,8 +6,8 @@ import { ObsObjInfo } from './ObsObjInfo';
 export class CreateAnimatedGraphicsTaskReq {
     public input?: ObsObjInfo;
     public output?: ObsObjInfo;
-    private 'user_data'?: string | undefined;
-    private 'output_param'?: AnimatedGraphicsOutputParam | undefined;
+    private 'user_data'?: string;
+    private 'output_param'?: AnimatedGraphicsOutputParam;
     public constructor() { 
     }
     public withInput(input: ObsObjInfo): CreateAnimatedGraphicsTaskReq {
@@ -22,20 +22,20 @@ export class CreateAnimatedGraphicsTaskReq {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withOutputParam(outputParam: AnimatedGraphicsOutputParam): CreateAnimatedGraphicsTaskReq {
         this['output_param'] = outputParam;
         return this;
     }
-    public set outputParam(outputParam: AnimatedGraphicsOutputParam | undefined) {
+    public set outputParam(outputParam: AnimatedGraphicsOutputParam  | undefined) {
         this['output_param'] = outputParam;
     }
-    public get outputParam() {
+    public get outputParam(): AnimatedGraphicsOutputParam | undefined {
         return this['output_param'];
     }
 }

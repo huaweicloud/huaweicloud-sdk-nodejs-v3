@@ -2,12 +2,12 @@ import { NetAddress } from './NetAddress';
 
 
 export class DmsRocketMQForwarding {
-    public addresses: Array<NetAddress>;
-    public topic: string;
-    public username: string;
-    public password: string;
-    private 'enable_ssl'?: boolean | undefined;
-    public constructor(addresses?: any, topic?: any, username?: any, password?: any) { 
+    public addresses?: Array<NetAddress>;
+    public topic?: string;
+    public username?: string;
+    public password?: string;
+    private 'enable_ssl'?: boolean;
+    public constructor(addresses?: Array<NetAddress>, topic?: string, username?: string, password?: string) { 
         this['addresses'] = addresses;
         this['topic'] = topic;
         this['username'] = username;
@@ -33,10 +33,10 @@ export class DmsRocketMQForwarding {
         this['enable_ssl'] = enableSsl;
         return this;
     }
-    public set enableSsl(enableSsl: boolean | undefined) {
+    public set enableSsl(enableSsl: boolean  | undefined) {
         this['enable_ssl'] = enableSsl;
     }
-    public get enableSsl() {
+    public get enableSsl(): boolean | undefined {
         return this['enable_ssl'];
     }
 }

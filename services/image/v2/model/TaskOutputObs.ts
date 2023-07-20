@@ -1,9 +1,9 @@
 
 
 export class TaskOutputObs {
-    public bucket: string;
-    public path: string;
-    public constructor(bucket?: any, path?: any) { 
+    public bucket?: string;
+    public path?: string;
+    public constructor(bucket?: string, path?: string) { 
         this['bucket'] = bucket;
         this['path'] = path;
     }

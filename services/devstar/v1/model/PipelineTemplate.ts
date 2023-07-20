@@ -4,7 +4,7 @@ export class PipelineTemplate {
     public name?: string;
     public id?: string;
     public description?: string;
-    private 'region_id'?: string | undefined;
+    private 'region_id'?: string;
     public url?: string;
     public constructor() { 
     }
@@ -24,10 +24,10 @@ export class PipelineTemplate {
         this['region_id'] = regionId;
         return this;
     }
-    public set regionId(regionId: string | undefined) {
+    public set regionId(regionId: string  | undefined) {
         this['region_id'] = regionId;
     }
-    public get regionId() {
+    public get regionId(): string | undefined {
         return this['region_id'];
     }
     public withUrl(url: string): PipelineTemplate {

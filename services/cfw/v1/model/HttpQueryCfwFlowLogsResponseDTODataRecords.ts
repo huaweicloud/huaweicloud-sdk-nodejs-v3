@@ -2,16 +2,16 @@
 
 export class HttpQueryCfwFlowLogsResponseDTODataRecords {
     public bytes?: number;
-    public direction?: HttpQueryCfwFlowLogsResponseDTODataRecordsDirectionEnum;
+    public direction?: HttpQueryCfwFlowLogsResponseDTODataRecordsDirectionEnum | string;
     public packets?: number;
-    private 'start_time'?: number | undefined;
-    private 'end_time'?: number | undefined;
-    private 'log_id'?: string | undefined;
-    private 'src_ip'?: string | undefined;
-    private 'src_port'?: string | undefined;
-    private 'dst_ip'?: string | undefined;
+    private 'start_time'?: number;
+    private 'end_time'?: number;
+    private 'log_id'?: string;
+    private 'src_ip'?: string;
+    private 'src_port'?: string;
+    private 'dst_ip'?: string;
     public app?: string;
-    private 'dst_port'?: string | undefined;
+    private 'dst_port'?: string;
     public protocol?: string;
     public constructor() { 
     }
@@ -19,7 +19,7 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['bytes'] = bytes;
         return this;
     }
-    public withDirection(direction: HttpQueryCfwFlowLogsResponseDTODataRecordsDirectionEnum): HttpQueryCfwFlowLogsResponseDTODataRecords {
+    public withDirection(direction: HttpQueryCfwFlowLogsResponseDTODataRecordsDirectionEnum | string): HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['direction'] = direction;
         return this;
     }
@@ -31,60 +31,60 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: number): HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: number | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
     public withLogId(logId: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['log_id'] = logId;
         return this;
     }
-    public set logId(logId: string | undefined) {
+    public set logId(logId: string  | undefined) {
         this['log_id'] = logId;
     }
-    public get logId() {
+    public get logId(): string | undefined {
         return this['log_id'];
     }
     public withSrcIp(srcIp: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['src_ip'] = srcIp;
         return this;
     }
-    public set srcIp(srcIp: string | undefined) {
+    public set srcIp(srcIp: string  | undefined) {
         this['src_ip'] = srcIp;
     }
-    public get srcIp() {
+    public get srcIp(): string | undefined {
         return this['src_ip'];
     }
     public withSrcPort(srcPort: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['src_port'] = srcPort;
         return this;
     }
-    public set srcPort(srcPort: string | undefined) {
+    public set srcPort(srcPort: string  | undefined) {
         this['src_port'] = srcPort;
     }
-    public get srcPort() {
+    public get srcPort(): string | undefined {
         return this['src_port'];
     }
     public withDstIp(dstIp: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['dst_ip'] = dstIp;
         return this;
     }
-    public set dstIp(dstIp: string | undefined) {
+    public set dstIp(dstIp: string  | undefined) {
         this['dst_ip'] = dstIp;
     }
-    public get dstIp() {
+    public get dstIp(): string | undefined {
         return this['dst_ip'];
     }
     public withApp(app: string): HttpQueryCfwFlowLogsResponseDTODataRecords {
@@ -95,10 +95,10 @@ export class HttpQueryCfwFlowLogsResponseDTODataRecords {
         this['dst_port'] = dstPort;
         return this;
     }
-    public set dstPort(dstPort: string | undefined) {
+    public set dstPort(dstPort: string  | undefined) {
         this['dst_port'] = dstPort;
     }
-    public get dstPort() {
+    public get dstPort(): string | undefined {
         return this['dst_port'];
     }
     public withProtocol(protocol: string): HttpQueryCfwFlowLogsResponseDTODataRecords {

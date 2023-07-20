@@ -1,9 +1,9 @@
 
 
 export class ShowUpgradeClusterTaskRequest {
-    private 'cluster_id': string | undefined;
-    private 'task_id': string | undefined;
-    public constructor(clusterId?: any, taskId?: any) { 
+    private 'cluster_id'?: string;
+    private 'task_id'?: string;
+    public constructor(clusterId?: string, taskId?: string) { 
         this['cluster_id'] = clusterId;
         this['task_id'] = taskId;
     }
@@ -11,20 +11,20 @@ export class ShowUpgradeClusterTaskRequest {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withTaskId(taskId: string): ShowUpgradeClusterTaskRequest {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
 }

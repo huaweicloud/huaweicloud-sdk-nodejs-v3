@@ -1,9 +1,9 @@
 
 
 export class RestMuteReqBody {
-    public isMute: number;
+    public isMute?: number;
     public allowUnmuteByOneself?: number;
-    public constructor(isMute?: any) { 
+    public constructor(isMute?: number) { 
         this['isMute'] = isMute;
     }
     public withIsMute(isMute: number): RestMuteReqBody {

@@ -1,13 +1,13 @@
 
 
 export class RecordCallbackConfigRequest {
-    private 'publish_domain': string | undefined;
-    public app: string;
-    private 'notify_callback_url'?: string | undefined;
-    private 'notify_event_subscription'?: Array<RecordCallbackConfigRequestNotifyEventSubscriptionEnum> | undefined;
-    private 'sign_type'?: RecordCallbackConfigRequestSignTypeEnum | undefined;
+    private 'publish_domain'?: string;
+    public app?: string;
+    private 'notify_callback_url'?: string;
+    private 'notify_event_subscription'?: Array<RecordCallbackConfigRequestNotifyEventSubscriptionEnum> | Array<string>;
+    private 'sign_type'?: RecordCallbackConfigRequestSignTypeEnum | string;
     public key?: string;
-    public constructor(publishDomain?: any, app?: any) { 
+    public constructor(publishDomain?: string, app?: string) { 
         this['publish_domain'] = publishDomain;
         this['app'] = app;
     }
@@ -15,10 +15,10 @@ export class RecordCallbackConfigRequest {
         this['publish_domain'] = publishDomain;
         return this;
     }
-    public set publishDomain(publishDomain: string | undefined) {
+    public set publishDomain(publishDomain: string  | undefined) {
         this['publish_domain'] = publishDomain;
     }
-    public get publishDomain() {
+    public get publishDomain(): string | undefined {
         return this['publish_domain'];
     }
     public withApp(app: string): RecordCallbackConfigRequest {
@@ -29,30 +29,30 @@ export class RecordCallbackConfigRequest {
         this['notify_callback_url'] = notifyCallbackUrl;
         return this;
     }
-    public set notifyCallbackUrl(notifyCallbackUrl: string | undefined) {
+    public set notifyCallbackUrl(notifyCallbackUrl: string  | undefined) {
         this['notify_callback_url'] = notifyCallbackUrl;
     }
-    public get notifyCallbackUrl() {
+    public get notifyCallbackUrl(): string | undefined {
         return this['notify_callback_url'];
     }
-    public withNotifyEventSubscription(notifyEventSubscription: Array<RecordCallbackConfigRequestNotifyEventSubscriptionEnum>): RecordCallbackConfigRequest {
+    public withNotifyEventSubscription(notifyEventSubscription: Array<RecordCallbackConfigRequestNotifyEventSubscriptionEnum> | Array<string>): RecordCallbackConfigRequest {
         this['notify_event_subscription'] = notifyEventSubscription;
         return this;
     }
-    public set notifyEventSubscription(notifyEventSubscription: Array<RecordCallbackConfigRequestNotifyEventSubscriptionEnum> | undefined) {
+    public set notifyEventSubscription(notifyEventSubscription: Array<RecordCallbackConfigRequestNotifyEventSubscriptionEnum> | Array<string>  | undefined) {
         this['notify_event_subscription'] = notifyEventSubscription;
     }
-    public get notifyEventSubscription() {
+    public get notifyEventSubscription(): Array<RecordCallbackConfigRequestNotifyEventSubscriptionEnum> | Array<string> | undefined {
         return this['notify_event_subscription'];
     }
-    public withSignType(signType: RecordCallbackConfigRequestSignTypeEnum): RecordCallbackConfigRequest {
+    public withSignType(signType: RecordCallbackConfigRequestSignTypeEnum | string): RecordCallbackConfigRequest {
         this['sign_type'] = signType;
         return this;
     }
-    public set signType(signType: RecordCallbackConfigRequestSignTypeEnum | undefined) {
+    public set signType(signType: RecordCallbackConfigRequestSignTypeEnum | string  | undefined) {
         this['sign_type'] = signType;
     }
-    public get signType() {
+    public get signType(): RecordCallbackConfigRequestSignTypeEnum | string | undefined {
         return this['sign_type'];
     }
     public withKey(key: string): RecordCallbackConfigRequest {

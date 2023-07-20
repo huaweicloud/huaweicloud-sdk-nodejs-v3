@@ -1,11 +1,11 @@
 
 
 export class NovaServerSchedulerHints {
-    public tenancy?: Array<NovaServerSchedulerHintsTenancyEnum>;
-    private 'dedicated_host_id'?: Array<string> | undefined;
+    public tenancy?: Array<NovaServerSchedulerHintsTenancyEnum> | Array<string>;
+    private 'dedicated_host_id'?: Array<string>;
     public constructor() { 
     }
-    public withTenancy(tenancy: Array<NovaServerSchedulerHintsTenancyEnum>): NovaServerSchedulerHints {
+    public withTenancy(tenancy: Array<NovaServerSchedulerHintsTenancyEnum> | Array<string>): NovaServerSchedulerHints {
         this['tenancy'] = tenancy;
         return this;
     }
@@ -13,10 +13,10 @@ export class NovaServerSchedulerHints {
         this['dedicated_host_id'] = dedicatedHostId;
         return this;
     }
-    public set dedicatedHostId(dedicatedHostId: Array<string> | undefined) {
+    public set dedicatedHostId(dedicatedHostId: Array<string>  | undefined) {
         this['dedicated_host_id'] = dedicatedHostId;
     }
-    public get dedicatedHostId() {
+    public get dedicatedHostId(): Array<string> | undefined {
         return this['dedicated_host_id'];
     }
 }

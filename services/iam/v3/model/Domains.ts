@@ -2,12 +2,12 @@ import { LinksSelf } from './LinksSelf';
 
 
 export class Domains {
-    public enabled: boolean;
-    public id: string;
-    public name: string;
-    public links: LinksSelf;
-    public description: string;
-    public constructor(enabled?: any, id?: any, name?: any, links?: any, description?: any) { 
+    public enabled?: boolean;
+    public id?: string;
+    public name?: string;
+    public links?: LinksSelf;
+    public description?: string;
+    public constructor(enabled?: boolean, id?: string, name?: string, links?: LinksSelf, description?: string) { 
         this['enabled'] = enabled;
         this['id'] = id;
         this['name'] = name;

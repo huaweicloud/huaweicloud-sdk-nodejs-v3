@@ -4,7 +4,7 @@ import { LoginTokenDomain } from './LoginTokenDomain';
 export class LoginTokenUser {
     public domain?: LoginTokenDomain;
     public name?: string;
-    private 'password_expires_at'?: string | undefined;
+    private 'password_expires_at'?: string;
     public id?: string;
     public constructor() { 
     }
@@ -20,10 +20,10 @@ export class LoginTokenUser {
         this['password_expires_at'] = passwordExpiresAt;
         return this;
     }
-    public set passwordExpiresAt(passwordExpiresAt: string | undefined) {
+    public set passwordExpiresAt(passwordExpiresAt: string  | undefined) {
         this['password_expires_at'] = passwordExpiresAt;
     }
-    public get passwordExpiresAt() {
+    public get passwordExpiresAt(): string | undefined {
         return this['password_expires_at'];
     }
     public withId(id: string): LoginTokenUser {

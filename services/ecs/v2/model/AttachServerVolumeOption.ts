@@ -2,11 +2,11 @@
 
 export class AttachServerVolumeOption {
     public device?: string;
-    public volumeId: string;
-    private 'volume_type'?: string | undefined;
+    public volumeId?: string;
+    private 'volume_type'?: string;
     public count?: number;
-    private 'hw:passthrough'?: string | undefined;
-    public constructor(volumeId?: any) { 
+    private 'hw:passthrough'?: string;
+    public constructor(volumeId?: string) { 
         this['volumeId'] = volumeId;
     }
     public withDevice(device: string): AttachServerVolumeOption {
@@ -21,10 +21,10 @@ export class AttachServerVolumeOption {
         this['volume_type'] = volumeType;
         return this;
     }
-    public set volumeType(volumeType: string | undefined) {
+    public set volumeType(volumeType: string  | undefined) {
         this['volume_type'] = volumeType;
     }
-    public get volumeType() {
+    public get volumeType(): string | undefined {
         return this['volume_type'];
     }
     public withCount(count: number): AttachServerVolumeOption {
@@ -35,10 +35,10 @@ export class AttachServerVolumeOption {
         this['hw:passthrough'] = hwPassthrough;
         return this;
     }
-    public set hwPassthrough(hwPassthrough: string | undefined) {
+    public set hwPassthrough(hwPassthrough: string  | undefined) {
         this['hw:passthrough'] = hwPassthrough;
     }
-    public get hwPassthrough() {
+    public get hwPassthrough(): string | undefined {
         return this['hw:passthrough'];
     }
 }

@@ -2,16 +2,16 @@
 
 export class QueryJobStatusResp {
     public id?: string;
-    public status?: QueryJobStatusRespStatusEnum;
-    private 'error_code'?: string | undefined;
-    private 'error_message'?: string | undefined;
+    public status?: QueryJobStatusRespStatusEnum | string;
+    private 'error_code'?: string;
+    private 'error_message'?: string;
     public constructor() { 
     }
     public withId(id: string): QueryJobStatusResp {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: QueryJobStatusRespStatusEnum): QueryJobStatusResp {
+    public withStatus(status: QueryJobStatusRespStatusEnum | string): QueryJobStatusResp {
         this['status'] = status;
         return this;
     }
@@ -19,20 +19,20 @@ export class QueryJobStatusResp {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
     public withErrorMessage(errorMessage: string): QueryJobStatusResp {
         this['error_message'] = errorMessage;
         return this;
     }
-    public set errorMessage(errorMessage: string | undefined) {
+    public set errorMessage(errorMessage: string  | undefined) {
         this['error_message'] = errorMessage;
     }
-    public get errorMessage() {
+    public get errorMessage(): string | undefined {
         return this['error_message'];
     }
 }

@@ -6,6 +6,7 @@ interface RegionMap {
 }
 
 export class CbrRegion {
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://cbr.eu-west-101.myhuaweicloud.eu"]);
     public static CN_NORTH_1 = new Region("cn-north-1", ["https://cbr.cn-north-1.myhuaweicloud.com"]);
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://cbr.cn-north-4.myhuaweicloud.com"]);
     public static CN_SOUTH_1 = new Region("cn-south-1", ["https://cbr.cn-south-1.myhuaweicloud.com"]);
@@ -29,6 +30,7 @@ export class CbrRegion {
     
 
     private static REGION_MAP: RegionMap = {
+        "eu-west-101":CbrRegion.EU_WEST_101,
         "cn-north-1":CbrRegion.CN_NORTH_1,
         "cn-north-4":CbrRegion.CN_NORTH_4,
         "cn-south-1":CbrRegion.CN_SOUTH_1,

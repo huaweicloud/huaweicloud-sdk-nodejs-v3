@@ -2,7 +2,7 @@ import { AddDeviceGroupDTO } from './AddDeviceGroupDTO';
 
 
 export class AddDeviceGroupRequest {
-    private 'Instance-Id'?: string | undefined;
+    private 'Instance-Id'?: string;
     public body?: AddDeviceGroupDTO;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class AddDeviceGroupRequest {
         this['Instance-Id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['Instance-Id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['Instance-Id'];
     }
     public withBody(body: AddDeviceGroupDTO): AddDeviceGroupRequest {

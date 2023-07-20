@@ -3,12 +3,12 @@ import { ItemsResponse } from './ItemsResponse';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class EstimateExecutionPlanPriceResponse extends SdkResponse {
-    public currency?: EstimateExecutionPlanPriceResponseCurrencyEnum;
+    public currency?: EstimateExecutionPlanPriceResponseCurrencyEnum | string;
     public items?: Array<ItemsResponse>;
     public constructor() { 
         super();
     }
-    public withCurrency(currency: EstimateExecutionPlanPriceResponseCurrencyEnum): EstimateExecutionPlanPriceResponse {
+    public withCurrency(currency: EstimateExecutionPlanPriceResponseCurrencyEnum | string): EstimateExecutionPlanPriceResponse {
         this['currency'] = currency;
         return this;
     }

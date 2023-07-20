@@ -1,15 +1,15 @@
 
 
 export class UpdateImageRequestBody {
-    public op: UpdateImageRequestBodyOpEnum;
-    public path: string;
-    public value: string;
-    public constructor(op?: any, path?: any, value?: any) { 
+    public op?: UpdateImageRequestBodyOpEnum | string;
+    public path?: string;
+    public value?: string;
+    public constructor(op?: string, path?: string, value?: string) { 
         this['op'] = op;
         this['path'] = path;
         this['value'] = value;
     }
-    public withOp(op: UpdateImageRequestBodyOpEnum): UpdateImageRequestBody {
+    public withOp(op: UpdateImageRequestBodyOpEnum | string): UpdateImageRequestBody {
         this['op'] = op;
         return this;
     }

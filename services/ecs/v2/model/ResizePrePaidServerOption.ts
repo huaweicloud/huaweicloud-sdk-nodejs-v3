@@ -2,11 +2,11 @@ import { ResizeServerExtendParam } from './ResizeServerExtendParam';
 
 
 export class ResizePrePaidServerOption {
-    public flavorRef: string;
-    private 'dedicated_host_id'?: string | undefined;
+    public flavorRef?: string;
+    private 'dedicated_host_id'?: string;
     public extendparam?: ResizeServerExtendParam;
     public mode?: string;
-    public constructor(flavorRef?: any) { 
+    public constructor(flavorRef?: string) { 
         this['flavorRef'] = flavorRef;
     }
     public withFlavorRef(flavorRef: string): ResizePrePaidServerOption {
@@ -17,10 +17,10 @@ export class ResizePrePaidServerOption {
         this['dedicated_host_id'] = dedicatedHostId;
         return this;
     }
-    public set dedicatedHostId(dedicatedHostId: string | undefined) {
+    public set dedicatedHostId(dedicatedHostId: string  | undefined) {
         this['dedicated_host_id'] = dedicatedHostId;
     }
-    public get dedicatedHostId() {
+    public get dedicatedHostId(): string | undefined {
         return this['dedicated_host_id'];
     }
     public withExtendparam(extendparam: ResizeServerExtendParam): ResizePrePaidServerOption {

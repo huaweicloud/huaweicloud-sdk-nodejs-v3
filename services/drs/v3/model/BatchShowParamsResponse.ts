@@ -3,7 +3,7 @@ import { QueryDbParamsResp } from './QueryDbParamsResp';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class BatchShowParamsResponse extends SdkResponse {
-    private 'params_list'?: Array<QueryDbParamsResp> | undefined;
+    private 'params_list'?: Array<QueryDbParamsResp>;
     public count?: number;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class BatchShowParamsResponse extends SdkResponse {
         this['params_list'] = paramsList;
         return this;
     }
-    public set paramsList(paramsList: Array<QueryDbParamsResp> | undefined) {
+    public set paramsList(paramsList: Array<QueryDbParamsResp>  | undefined) {
         this['params_list'] = paramsList;
     }
-    public get paramsList() {
+    public get paramsList(): Array<QueryDbParamsResp> | undefined {
         return this['params_list'];
     }
     public withCount(count: number): BatchShowParamsResponse {

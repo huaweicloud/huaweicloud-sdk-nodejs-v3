@@ -2,8 +2,8 @@ import { ConfigurationParameterValue } from './ConfigurationParameterValue';
 
 
 export class ConfigurationParameterValues {
-    public configurations: Array<ConfigurationParameterValue>;
-    public constructor(configurations?: any) { 
+    public configurations?: Array<ConfigurationParameterValue>;
+    public constructor(configurations?: Array<ConfigurationParameterValue>) { 
         this['configurations'] = configurations;
     }
     public withConfigurations(configurations: Array<ConfigurationParameterValue>): ConfigurationParameterValues {

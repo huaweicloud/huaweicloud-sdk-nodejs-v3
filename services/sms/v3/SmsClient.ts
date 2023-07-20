@@ -637,7 +637,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showOverview(): Promise<ShowOverviewResponse> {
+    public showOverview(showOverviewRequest?: ShowOverviewRequest): Promise<ShowOverviewResponse> {
         const options = ParamCreater().showOverview();
 
          // @ts-ignore
@@ -1068,7 +1068,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showConfig(): Promise<ShowConfigResponse> {
+    public showConfig(showConfigRequest?: ShowConfigRequest): Promise<ShowConfigResponse> {
         const options = ParamCreater().showConfig();
 
          // @ts-ignore
@@ -1086,7 +1086,7 @@ export class SmsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listApiVersion(): Promise<ListApiVersionResponse> {
+    public listApiVersion(listApiVersionRequest?: ListApiVersionRequest): Promise<ListApiVersionResponse> {
         const options = ParamCreater().listApiVersion();
 
          // @ts-ignore

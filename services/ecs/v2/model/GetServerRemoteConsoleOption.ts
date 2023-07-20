@@ -1,17 +1,17 @@
 
 
 export class GetServerRemoteConsoleOption {
-    public protocol: GetServerRemoteConsoleOptionProtocolEnum;
-    public type: GetServerRemoteConsoleOptionTypeEnum;
-    public constructor(protocol?: any, type?: any) { 
+    public protocol?: GetServerRemoteConsoleOptionProtocolEnum | string;
+    public type?: GetServerRemoteConsoleOptionTypeEnum | string;
+    public constructor(protocol?: string, type?: string) { 
         this['protocol'] = protocol;
         this['type'] = type;
     }
-    public withProtocol(protocol: GetServerRemoteConsoleOptionProtocolEnum): GetServerRemoteConsoleOption {
+    public withProtocol(protocol: GetServerRemoteConsoleOptionProtocolEnum | string): GetServerRemoteConsoleOption {
         this['protocol'] = protocol;
         return this;
     }
-    public withType(type: GetServerRemoteConsoleOptionTypeEnum): GetServerRemoteConsoleOption {
+    public withType(type: GetServerRemoteConsoleOptionTypeEnum | string): GetServerRemoteConsoleOption {
         this['type'] = type;
         return this;
     }

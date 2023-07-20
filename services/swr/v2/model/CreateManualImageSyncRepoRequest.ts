@@ -2,23 +2,23 @@ import { CreateManualImageSyncRepoRequestBody } from './CreateManualImageSyncRep
 
 
 export class CreateManualImageSyncRepoRequest {
-    private 'Content-Type': CreateManualImageSyncRepoRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
+    private 'Content-Type'?: CreateManualImageSyncRepoRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
     public body?: CreateManualImageSyncRepoRequestBody;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: CreateManualImageSyncRepoRequestContentTypeEnum): CreateManualImageSyncRepoRequest {
+    public withContentType(contentType: CreateManualImageSyncRepoRequestContentTypeEnum | string): CreateManualImageSyncRepoRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CreateManualImageSyncRepoRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: CreateManualImageSyncRepoRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CreateManualImageSyncRepoRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): CreateManualImageSyncRepoRequest {

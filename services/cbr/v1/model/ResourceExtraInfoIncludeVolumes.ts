@@ -1,9 +1,9 @@
 
 
 export class ResourceExtraInfoIncludeVolumes {
-    public id: string;
-    private 'os_version'?: string | undefined;
-    public constructor(id?: any) { 
+    public id?: string;
+    private 'os_version'?: string;
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withId(id: string): ResourceExtraInfoIncludeVolumes {
@@ -14,10 +14,10 @@ export class ResourceExtraInfoIncludeVolumes {
         this['os_version'] = osVersion;
         return this;
     }
-    public set osVersion(osVersion: string | undefined) {
+    public set osVersion(osVersion: string  | undefined) {
         this['os_version'] = osVersion;
     }
-    public get osVersion() {
+    public get osVersion(): string | undefined {
         return this['os_version'];
     }
 }

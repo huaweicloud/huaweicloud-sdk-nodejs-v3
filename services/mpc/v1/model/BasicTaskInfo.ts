@@ -2,10 +2,10 @@ import { ObsObjInfo } from './ObsObjInfo';
 
 
 export class BasicTaskInfo {
-    private 'task_id'?: string | undefined;
+    private 'task_id'?: string;
     public status?: string;
-    private 'create_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
+    private 'create_time'?: string;
+    private 'end_time'?: string;
     public output?: ObsObjInfo;
     public description?: string;
     public constructor() { 
@@ -14,10 +14,10 @@ export class BasicTaskInfo {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
     public withStatus(status: string): BasicTaskInfo {
@@ -28,20 +28,20 @@ export class BasicTaskInfo {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withEndTime(endTime: string): BasicTaskInfo {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withOutput(output: ObsObjInfo): BasicTaskInfo {

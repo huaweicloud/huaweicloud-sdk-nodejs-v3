@@ -1,9 +1,9 @@
 
 
 export class DeleteImageTagRequest {
-    private 'image_id': string | undefined;
-    public key: string;
-    public constructor(imageId?: any, key?: any) { 
+    private 'image_id'?: string;
+    public key?: string;
+    public constructor(imageId?: string, key?: string) { 
         this['image_id'] = imageId;
         this['key'] = key;
     }
@@ -11,10 +11,10 @@ export class DeleteImageTagRequest {
         this['image_id'] = imageId;
         return this;
     }
-    public set imageId(imageId: string | undefined) {
+    public set imageId(imageId: string  | undefined) {
         this['image_id'] = imageId;
     }
-    public get imageId() {
+    public get imageId(): string | undefined {
         return this['image_id'];
     }
     public withKey(key: string): DeleteImageTagRequest {

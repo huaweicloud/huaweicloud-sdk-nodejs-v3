@@ -1,10 +1,10 @@
 
 
 export class OriginRequestHeader {
-    public name: string;
+    public name?: string;
     public value?: string;
-    public action: string;
-    public constructor(name?: any, action?: any) { 
+    public action?: string;
+    public constructor(name?: string, action?: string) { 
         this['name'] = name;
         this['action'] = action;
     }

@@ -1,21 +1,21 @@
 
 
 export class ListCustomLineRequest {
-    private 'line_id'?: string | undefined;
+    private 'line_id'?: string;
     public name?: string;
     public limit?: number;
     public offset?: number;
-    private 'show_detail'?: boolean | undefined;
+    private 'show_detail'?: boolean;
     public constructor() { 
     }
     public withLineId(lineId: string): ListCustomLineRequest {
         this['line_id'] = lineId;
         return this;
     }
-    public set lineId(lineId: string | undefined) {
+    public set lineId(lineId: string  | undefined) {
         this['line_id'] = lineId;
     }
-    public get lineId() {
+    public get lineId(): string | undefined {
         return this['line_id'];
     }
     public withName(name: string): ListCustomLineRequest {
@@ -34,10 +34,10 @@ export class ListCustomLineRequest {
         this['show_detail'] = showDetail;
         return this;
     }
-    public set showDetail(showDetail: boolean | undefined) {
+    public set showDetail(showDetail: boolean  | undefined) {
         this['show_detail'] = showDetail;
     }
-    public get showDetail() {
+    public get showDetail(): boolean | undefined {
         return this['show_detail'];
     }
 }

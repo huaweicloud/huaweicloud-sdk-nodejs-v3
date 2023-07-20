@@ -3,9 +3,9 @@ import { AgencyTokenScope } from './AgencyTokenScope';
 
 
 export class AgencyTokenAuth {
-    public identity: AgencyTokenIdentity;
-    public scope: AgencyTokenScope;
-    public constructor(identity?: any, scope?: any) { 
+    public identity?: AgencyTokenIdentity;
+    public scope?: AgencyTokenScope;
+    public constructor(identity?: AgencyTokenIdentity, scope?: AgencyTokenScope) { 
         this['identity'] = identity;
         this['scope'] = scope;
     }

@@ -3,11 +3,11 @@ import { UpStreamDetail } from './UpStreamDetail';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListUpStreamDetailResponse extends SdkResponse {
-    private 'publish_domain'?: string | undefined;
+    private 'publish_domain'?: string;
     public app?: string;
     public stream?: string;
     public data?: Array<UpStreamDetail>;
-    private 'X-Request-Id'?: string | undefined;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -15,10 +15,10 @@ export class ListUpStreamDetailResponse extends SdkResponse {
         this['publish_domain'] = publishDomain;
         return this;
     }
-    public set publishDomain(publishDomain: string | undefined) {
+    public set publishDomain(publishDomain: string  | undefined) {
         this['publish_domain'] = publishDomain;
     }
-    public get publishDomain() {
+    public get publishDomain(): string | undefined {
         return this['publish_domain'];
     }
     public withApp(app: string): ListUpStreamDetailResponse {
@@ -37,10 +37,10 @@ export class ListUpStreamDetailResponse extends SdkResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-Request-Id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-Request-Id'];
     }
 }

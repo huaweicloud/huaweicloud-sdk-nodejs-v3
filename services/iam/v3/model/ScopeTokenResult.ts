@@ -6,15 +6,15 @@ import { TokenRole } from './TokenRole';
 
 
 export class ScopeTokenResult {
-    public methods: Array<string>;
-    private 'expires_at': string | undefined;
+    public methods?: Array<string>;
+    private 'expires_at'?: string;
     public catalog?: Array<TokenCatalog>;
-    public domain: TokenDomainResult;
-    public project: TokenProjectResult;
-    public roles: Array<TokenRole>;
-    public user: ScopedTokenUser;
-    private 'issued_at': string | undefined;
-    public constructor(methods?: any, expiresAt?: any, domain?: any, project?: any, roles?: any, user?: any, issuedAt?: any) { 
+    public domain?: TokenDomainResult;
+    public project?: TokenProjectResult;
+    public roles?: Array<TokenRole>;
+    public user?: ScopedTokenUser;
+    private 'issued_at'?: string;
+    public constructor(methods?: Array<string>, expiresAt?: string, domain?: TokenDomainResult, project?: TokenProjectResult, roles?: Array<TokenRole>, user?: ScopedTokenUser, issuedAt?: string) { 
         this['methods'] = methods;
         this['expires_at'] = expiresAt;
         this['domain'] = domain;
@@ -31,10 +31,10 @@ export class ScopeTokenResult {
         this['expires_at'] = expiresAt;
         return this;
     }
-    public set expiresAt(expiresAt: string | undefined) {
+    public set expiresAt(expiresAt: string  | undefined) {
         this['expires_at'] = expiresAt;
     }
-    public get expiresAt() {
+    public get expiresAt(): string | undefined {
         return this['expires_at'];
     }
     public withCatalog(catalog: Array<TokenCatalog>): ScopeTokenResult {
@@ -61,10 +61,10 @@ export class ScopeTokenResult {
         this['issued_at'] = issuedAt;
         return this;
     }
-    public set issuedAt(issuedAt: string | undefined) {
+    public set issuedAt(issuedAt: string  | undefined) {
         this['issued_at'] = issuedAt;
     }
-    public get issuedAt() {
+    public get issuedAt(): string | undefined {
         return this['issued_at'];
     }
 }

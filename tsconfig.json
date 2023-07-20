@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2020",
     "module": "commonjs",
     "strict": true,
     "noImplicitAny": true,
@@ -12,6 +12,7 @@
     "outDir": "./build"
   },
   "exclude": [
+    "node_modules",
     "example/index.ts",
     "sidecar"
   ]

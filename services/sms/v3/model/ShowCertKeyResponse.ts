@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowCertKeyResponse extends SdkResponse {
     public cert?: string;
-    private 'private_key'?: string | undefined;
+    private 'private_key'?: string;
     public constructor() { 
         super();
     }
@@ -15,10 +15,10 @@ export class ShowCertKeyResponse extends SdkResponse {
         this['private_key'] = privateKey;
         return this;
     }
-    public set privateKey(privateKey: string | undefined) {
+    public set privateKey(privateKey: string  | undefined) {
         this['private_key'] = privateKey;
     }
-    public get privateKey() {
+    public get privateKey(): string | undefined {
         return this['private_key'];
     }
 }

@@ -1,21 +1,21 @@
 
 
 export class ListInstanceConsumerGroupsRequest {
-    private 'instance_id': string | undefined;
+    private 'instance_id'?: string;
     public group?: string;
     public limit?: number;
     public offset?: number;
-    public constructor(instanceId?: any) { 
+    public constructor(instanceId?: string) { 
         this['instance_id'] = instanceId;
     }
     public withInstanceId(instanceId: string): ListInstanceConsumerGroupsRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withGroup(group: string): ListInstanceConsumerGroupsRequest {

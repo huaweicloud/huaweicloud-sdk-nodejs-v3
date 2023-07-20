@@ -1,22 +1,22 @@
 
 
 export class KeystoneUpdateUserOption {
-    private 'domain_id'?: string | undefined;
+    private 'domain_id'?: string;
     public name?: string;
     public password?: string;
     public enabled?: boolean;
     public description?: string;
-    private 'pwd_status'?: boolean | undefined;
+    private 'pwd_status'?: boolean;
     public constructor() { 
     }
     public withDomainId(domainId: string): KeystoneUpdateUserOption {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withName(name: string): KeystoneUpdateUserOption {
@@ -39,10 +39,10 @@ export class KeystoneUpdateUserOption {
         this['pwd_status'] = pwdStatus;
         return this;
     }
-    public set pwdStatus(pwdStatus: boolean | undefined) {
+    public set pwdStatus(pwdStatus: boolean  | undefined) {
         this['pwd_status'] = pwdStatus;
     }
-    public get pwdStatus() {
+    public get pwdStatus(): boolean | undefined {
         return this['pwd_status'];
     }
 }

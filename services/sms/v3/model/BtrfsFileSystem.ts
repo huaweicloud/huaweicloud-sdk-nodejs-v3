@@ -2,23 +2,23 @@ import { BtrfsSubvolumn } from './BtrfsSubvolumn';
 
 
 export class BtrfsFileSystem {
-    public name: string;
-    public label: string;
-    public uuid: string;
-    public device: string;
-    public size: number;
-    public nodesize: number;
-    public sectorsize: number;
-    private 'data_profile': string | undefined;
-    private 'system_profile': string | undefined;
-    private 'metadata_profile': string | undefined;
-    private 'global_reserve1': string | undefined;
-    private 'g_vol_used_size': number | undefined;
-    private 'default_subvolid': string | undefined;
-    private 'default_subvol_name': string | undefined;
-    private 'default_subvol_mountpath': string | undefined;
-    public subvolumn: Array<BtrfsSubvolumn>;
-    public constructor(name?: any, label?: any, uuid?: any, device?: any, size?: any, nodesize?: any, sectorsize?: any, dataProfile?: any, systemProfile?: any, metadataProfile?: any, globalReserve1?: any, gVolUsedSize?: any, defaultSubvolid?: any, defaultSubvolName?: any, defaultSubvolMountpath?: any, subvolumn?: any) { 
+    public name?: string;
+    public label?: string;
+    public uuid?: string;
+    public device?: string;
+    public size?: number;
+    public nodesize?: number;
+    public sectorsize?: number;
+    private 'data_profile'?: string;
+    private 'system_profile'?: string;
+    private 'metadata_profile'?: string;
+    private 'global_reserve1'?: string;
+    private 'g_vol_used_size'?: number;
+    private 'default_subvolid'?: string;
+    private 'default_subvol_name'?: string;
+    private 'default_subvol_mountpath'?: string;
+    public subvolumn?: Array<BtrfsSubvolumn>;
+    public constructor(name?: string, label?: string, uuid?: string, device?: string, size?: number, nodesize?: number, sectorsize?: number, dataProfile?: string, systemProfile?: string, metadataProfile?: string, globalReserve1?: string, gVolUsedSize?: number, defaultSubvolid?: string, defaultSubvolName?: string, defaultSubvolMountpath?: string, subvolumn?: Array<BtrfsSubvolumn>) { 
         this['name'] = name;
         this['label'] = label;
         this['uuid'] = uuid;
@@ -68,80 +68,80 @@ export class BtrfsFileSystem {
         this['data_profile'] = dataProfile;
         return this;
     }
-    public set dataProfile(dataProfile: string | undefined) {
+    public set dataProfile(dataProfile: string  | undefined) {
         this['data_profile'] = dataProfile;
     }
-    public get dataProfile() {
+    public get dataProfile(): string | undefined {
         return this['data_profile'];
     }
     public withSystemProfile(systemProfile: string): BtrfsFileSystem {
         this['system_profile'] = systemProfile;
         return this;
     }
-    public set systemProfile(systemProfile: string | undefined) {
+    public set systemProfile(systemProfile: string  | undefined) {
         this['system_profile'] = systemProfile;
     }
-    public get systemProfile() {
+    public get systemProfile(): string | undefined {
         return this['system_profile'];
     }
     public withMetadataProfile(metadataProfile: string): BtrfsFileSystem {
         this['metadata_profile'] = metadataProfile;
         return this;
     }
-    public set metadataProfile(metadataProfile: string | undefined) {
+    public set metadataProfile(metadataProfile: string  | undefined) {
         this['metadata_profile'] = metadataProfile;
     }
-    public get metadataProfile() {
+    public get metadataProfile(): string | undefined {
         return this['metadata_profile'];
     }
     public withGlobalReserve1(globalReserve1: string): BtrfsFileSystem {
         this['global_reserve1'] = globalReserve1;
         return this;
     }
-    public set globalReserve1(globalReserve1: string | undefined) {
+    public set globalReserve1(globalReserve1: string  | undefined) {
         this['global_reserve1'] = globalReserve1;
     }
-    public get globalReserve1() {
+    public get globalReserve1(): string | undefined {
         return this['global_reserve1'];
     }
     public withGVolUsedSize(gVolUsedSize: number): BtrfsFileSystem {
         this['g_vol_used_size'] = gVolUsedSize;
         return this;
     }
-    public set gVolUsedSize(gVolUsedSize: number | undefined) {
+    public set gVolUsedSize(gVolUsedSize: number  | undefined) {
         this['g_vol_used_size'] = gVolUsedSize;
     }
-    public get gVolUsedSize() {
+    public get gVolUsedSize(): number | undefined {
         return this['g_vol_used_size'];
     }
     public withDefaultSubvolid(defaultSubvolid: string): BtrfsFileSystem {
         this['default_subvolid'] = defaultSubvolid;
         return this;
     }
-    public set defaultSubvolid(defaultSubvolid: string | undefined) {
+    public set defaultSubvolid(defaultSubvolid: string  | undefined) {
         this['default_subvolid'] = defaultSubvolid;
     }
-    public get defaultSubvolid() {
+    public get defaultSubvolid(): string | undefined {
         return this['default_subvolid'];
     }
     public withDefaultSubvolName(defaultSubvolName: string): BtrfsFileSystem {
         this['default_subvol_name'] = defaultSubvolName;
         return this;
     }
-    public set defaultSubvolName(defaultSubvolName: string | undefined) {
+    public set defaultSubvolName(defaultSubvolName: string  | undefined) {
         this['default_subvol_name'] = defaultSubvolName;
     }
-    public get defaultSubvolName() {
+    public get defaultSubvolName(): string | undefined {
         return this['default_subvol_name'];
     }
     public withDefaultSubvolMountpath(defaultSubvolMountpath: string): BtrfsFileSystem {
         this['default_subvol_mountpath'] = defaultSubvolMountpath;
         return this;
     }
-    public set defaultSubvolMountpath(defaultSubvolMountpath: string | undefined) {
+    public set defaultSubvolMountpath(defaultSubvolMountpath: string  | undefined) {
         this['default_subvol_mountpath'] = defaultSubvolMountpath;
     }
-    public get defaultSubvolMountpath() {
+    public get defaultSubvolMountpath(): string | undefined {
         return this['default_subvol_mountpath'];
     }
     public withSubvolumn(subvolumn: Array<BtrfsSubvolumn>): BtrfsFileSystem {

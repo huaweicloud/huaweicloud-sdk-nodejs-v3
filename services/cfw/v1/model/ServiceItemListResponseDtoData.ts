@@ -5,7 +5,7 @@ export class ServiceItemListResponseDtoData {
     public offset?: number;
     public limit?: number;
     public total?: number;
-    private 'set_id'?: string | undefined;
+    private 'set_id'?: string;
     public records?: Array<ServiceItemListResponseDtoDataRecords>;
     public constructor() { 
     }
@@ -25,10 +25,10 @@ export class ServiceItemListResponseDtoData {
         this['set_id'] = setId;
         return this;
     }
-    public set setId(setId: string | undefined) {
+    public set setId(setId: string  | undefined) {
         this['set_id'] = setId;
     }
-    public get setId() {
+    public get setId(): string | undefined {
         return this['set_id'];
     }
     public withRecords(records: Array<ServiceItemListResponseDtoDataRecords>): ServiceItemListResponseDtoData {

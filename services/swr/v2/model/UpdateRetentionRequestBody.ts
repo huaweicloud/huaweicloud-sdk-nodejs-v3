@@ -2,9 +2,9 @@ import { Rule } from './Rule';
 
 
 export class UpdateRetentionRequestBody {
-    public algorithm: string;
-    public rules: Array<Rule>;
-    public constructor(algorithm?: any, rules?: any) { 
+    public algorithm?: string;
+    public rules?: Array<Rule>;
+    public constructor(algorithm?: string, rules?: Array<Rule>) { 
         this['algorithm'] = algorithm;
         this['rules'] = rules;
     }

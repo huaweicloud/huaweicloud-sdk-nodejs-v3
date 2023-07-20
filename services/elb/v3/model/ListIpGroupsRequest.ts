@@ -3,11 +3,11 @@
 export class ListIpGroupsRequest {
     public marker?: string;
     public limit?: number;
-    private 'page_reverse'?: boolean | undefined;
+    private 'page_reverse'?: boolean;
     public id?: Array<string>;
     public name?: Array<string>;
     public description?: Array<string>;
-    private 'ip_list'?: Array<string> | undefined;
+    private 'ip_list'?: Array<string>;
     public constructor() { 
     }
     public withMarker(marker: string): ListIpGroupsRequest {
@@ -22,10 +22,10 @@ export class ListIpGroupsRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withId(id: Array<string>): ListIpGroupsRequest {
@@ -44,10 +44,10 @@ export class ListIpGroupsRequest {
         this['ip_list'] = ipList;
         return this;
     }
-    public set ipList(ipList: Array<string> | undefined) {
+    public set ipList(ipList: Array<string>  | undefined) {
         this['ip_list'] = ipList;
     }
-    public get ipList() {
+    public get ipList(): Array<string> | undefined {
         return this['ip_list'];
     }
 }

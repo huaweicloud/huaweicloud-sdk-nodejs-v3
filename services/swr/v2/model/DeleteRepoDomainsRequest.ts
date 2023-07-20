@@ -1,24 +1,24 @@
 
 
 export class DeleteRepoDomainsRequest {
-    private 'Content-Type': DeleteRepoDomainsRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
-    private 'access_domain': string | undefined;
-    public constructor(contentType?: any, namespace?: any, repository?: any, accessDomain?: any) { 
+    private 'Content-Type'?: DeleteRepoDomainsRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
+    private 'access_domain'?: string;
+    public constructor(contentType?: string, namespace?: string, repository?: string, accessDomain?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
         this['access_domain'] = accessDomain;
     }
-    public withContentType(contentType: DeleteRepoDomainsRequestContentTypeEnum): DeleteRepoDomainsRequest {
+    public withContentType(contentType: DeleteRepoDomainsRequestContentTypeEnum | string): DeleteRepoDomainsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: DeleteRepoDomainsRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: DeleteRepoDomainsRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): DeleteRepoDomainsRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): DeleteRepoDomainsRequest {
@@ -33,10 +33,10 @@ export class DeleteRepoDomainsRequest {
         this['access_domain'] = accessDomain;
         return this;
     }
-    public set accessDomain(accessDomain: string | undefined) {
+    public set accessDomain(accessDomain: string  | undefined) {
         this['access_domain'] = accessDomain;
     }
-    public get accessDomain() {
+    public get accessDomain(): string | undefined {
         return this['access_domain'];
     }
 }

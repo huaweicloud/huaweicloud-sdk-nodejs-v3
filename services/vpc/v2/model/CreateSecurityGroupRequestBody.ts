@@ -2,18 +2,18 @@ import { CreateSecurityGroupOption } from './CreateSecurityGroupOption';
 
 
 export class CreateSecurityGroupRequestBody {
-    private 'security_group': CreateSecurityGroupOption | undefined;
-    public constructor(securityGroup?: any) { 
+    private 'security_group'?: CreateSecurityGroupOption;
+    public constructor(securityGroup?: CreateSecurityGroupOption) { 
         this['security_group'] = securityGroup;
     }
     public withSecurityGroup(securityGroup: CreateSecurityGroupOption): CreateSecurityGroupRequestBody {
         this['security_group'] = securityGroup;
         return this;
     }
-    public set securityGroup(securityGroup: CreateSecurityGroupOption | undefined) {
+    public set securityGroup(securityGroup: CreateSecurityGroupOption  | undefined) {
         this['security_group'] = securityGroup;
     }
-    public get securityGroup() {
+    public get securityGroup(): CreateSecurityGroupOption | undefined {
         return this['security_group'];
     }
 }

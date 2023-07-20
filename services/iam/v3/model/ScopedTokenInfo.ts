@@ -6,15 +6,15 @@ import { UnscopedTokenInfoCatalog } from './UnscopedTokenInfoCatalog';
 
 
 export class ScopedTokenInfo {
-    private 'expires_at': string | undefined;
-    public methods: Array<string>;
-    private 'issued_at': string | undefined;
-    public user: FederationUserBody;
+    private 'expires_at'?: string;
+    public methods?: Array<string>;
+    private 'issued_at'?: string;
+    public user?: FederationUserBody;
     public domain?: DomainInfo;
     public project?: ProjectInfo;
-    public roles: Array<ScopedTokenInfoRoles>;
-    public catalog: Array<UnscopedTokenInfoCatalog>;
-    public constructor(expiresAt?: any, methods?: any, issuedAt?: any, user?: any, roles?: any, catalog?: any) { 
+    public roles?: Array<ScopedTokenInfoRoles>;
+    public catalog?: Array<UnscopedTokenInfoCatalog>;
+    public constructor(expiresAt?: string, methods?: Array<string>, issuedAt?: string, user?: FederationUserBody, roles?: Array<ScopedTokenInfoRoles>, catalog?: Array<UnscopedTokenInfoCatalog>) { 
         this['expires_at'] = expiresAt;
         this['methods'] = methods;
         this['issued_at'] = issuedAt;
@@ -26,10 +26,10 @@ export class ScopedTokenInfo {
         this['expires_at'] = expiresAt;
         return this;
     }
-    public set expiresAt(expiresAt: string | undefined) {
+    public set expiresAt(expiresAt: string  | undefined) {
         this['expires_at'] = expiresAt;
     }
-    public get expiresAt() {
+    public get expiresAt(): string | undefined {
         return this['expires_at'];
     }
     public withMethods(methods: Array<string>): ScopedTokenInfo {
@@ -40,10 +40,10 @@ export class ScopedTokenInfo {
         this['issued_at'] = issuedAt;
         return this;
     }
-    public set issuedAt(issuedAt: string | undefined) {
+    public set issuedAt(issuedAt: string  | undefined) {
         this['issued_at'] = issuedAt;
     }
-    public get issuedAt() {
+    public get issuedAt(): string | undefined {
         return this['issued_at'];
     }
     public withUser(user: FederationUserBody): ScopedTokenInfo {

@@ -1,7 +1,7 @@
 
 
 export class UpdateRuleReq {
-    private 'rule_name'?: string | undefined;
+    private 'rule_name'?: string;
     public description?: string;
     public select?: string;
     public where?: string;
@@ -12,10 +12,10 @@ export class UpdateRuleReq {
         this['rule_name'] = ruleName;
         return this;
     }
-    public set ruleName(ruleName: string | undefined) {
+    public set ruleName(ruleName: string  | undefined) {
         this['rule_name'] = ruleName;
     }
-    public get ruleName() {
+    public get ruleName(): string | undefined {
         return this['rule_name'];
     }
     public withDescription(description: string): UpdateRuleReq {

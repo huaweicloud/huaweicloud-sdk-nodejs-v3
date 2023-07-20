@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowCdnStatisticsResponse extends SdkResponse {
-    private 'start_time'?: string | undefined;
+    private 'start_time'?: string;
     public interval?: number;
     public values?: Array<number>;
     public constructor() { 
@@ -12,10 +12,10 @@ export class ShowCdnStatisticsResponse extends SdkResponse {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withInterval(interval: number): ShowCdnStatisticsResponse {

@@ -2,12 +2,12 @@ import { DefaultRecordConfig } from './DefaultRecordConfig';
 
 
 export class RecordRuleRequest {
-    private 'publish_domain': string | undefined;
-    public app: string;
-    public stream: string;
-    private 'record_type'?: RecordRuleRequestRecordTypeEnum | undefined;
-    private 'default_record_config': DefaultRecordConfig | undefined;
-    public constructor(publishDomain?: any, app?: any, stream?: any, defaultRecordConfig?: any) { 
+    private 'publish_domain'?: string;
+    public app?: string;
+    public stream?: string;
+    private 'record_type'?: RecordRuleRequestRecordTypeEnum | string;
+    private 'default_record_config'?: DefaultRecordConfig;
+    public constructor(publishDomain?: string, app?: string, stream?: string, defaultRecordConfig?: DefaultRecordConfig) { 
         this['publish_domain'] = publishDomain;
         this['app'] = app;
         this['stream'] = stream;
@@ -17,10 +17,10 @@ export class RecordRuleRequest {
         this['publish_domain'] = publishDomain;
         return this;
     }
-    public set publishDomain(publishDomain: string | undefined) {
+    public set publishDomain(publishDomain: string  | undefined) {
         this['publish_domain'] = publishDomain;
     }
-    public get publishDomain() {
+    public get publishDomain(): string | undefined {
         return this['publish_domain'];
     }
     public withApp(app: string): RecordRuleRequest {
@@ -31,24 +31,24 @@ export class RecordRuleRequest {
         this['stream'] = stream;
         return this;
     }
-    public withRecordType(recordType: RecordRuleRequestRecordTypeEnum): RecordRuleRequest {
+    public withRecordType(recordType: RecordRuleRequestRecordTypeEnum | string): RecordRuleRequest {
         this['record_type'] = recordType;
         return this;
     }
-    public set recordType(recordType: RecordRuleRequestRecordTypeEnum | undefined) {
+    public set recordType(recordType: RecordRuleRequestRecordTypeEnum | string  | undefined) {
         this['record_type'] = recordType;
     }
-    public get recordType() {
+    public get recordType(): RecordRuleRequestRecordTypeEnum | string | undefined {
         return this['record_type'];
     }
     public withDefaultRecordConfig(defaultRecordConfig: DefaultRecordConfig): RecordRuleRequest {
         this['default_record_config'] = defaultRecordConfig;
         return this;
     }
-    public set defaultRecordConfig(defaultRecordConfig: DefaultRecordConfig | undefined) {
+    public set defaultRecordConfig(defaultRecordConfig: DefaultRecordConfig  | undefined) {
         this['default_record_config'] = defaultRecordConfig;
     }
-    public get defaultRecordConfig() {
+    public get defaultRecordConfig(): DefaultRecordConfig | undefined {
         return this['default_record_config'];
     }
 }

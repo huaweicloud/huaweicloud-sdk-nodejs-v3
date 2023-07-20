@@ -4,13 +4,13 @@ import { UnscopedTokenInfoRoles } from './UnscopedTokenInfoRoles';
 
 
 export class UnscopedTokenInfo {
-    private 'expires_at': string | undefined;
-    public methods: Array<string>;
-    private 'issued_at': string | undefined;
-    public user: FederationUserBody;
+    private 'expires_at'?: string;
+    public methods?: Array<string>;
+    private 'issued_at'?: string;
+    public user?: FederationUserBody;
     public roles?: Array<UnscopedTokenInfoRoles>;
     public catalog?: Array<UnscopedTokenInfoCatalog>;
-    public constructor(expiresAt?: any, methods?: any, issuedAt?: any, user?: any) { 
+    public constructor(expiresAt?: string, methods?: Array<string>, issuedAt?: string, user?: FederationUserBody) { 
         this['expires_at'] = expiresAt;
         this['methods'] = methods;
         this['issued_at'] = issuedAt;
@@ -20,10 +20,10 @@ export class UnscopedTokenInfo {
         this['expires_at'] = expiresAt;
         return this;
     }
-    public set expiresAt(expiresAt: string | undefined) {
+    public set expiresAt(expiresAt: string  | undefined) {
         this['expires_at'] = expiresAt;
     }
-    public get expiresAt() {
+    public get expiresAt(): string | undefined {
         return this['expires_at'];
     }
     public withMethods(methods: Array<string>): UnscopedTokenInfo {
@@ -34,10 +34,10 @@ export class UnscopedTokenInfo {
         this['issued_at'] = issuedAt;
         return this;
     }
-    public set issuedAt(issuedAt: string | undefined) {
+    public set issuedAt(issuedAt: string  | undefined) {
         this['issued_at'] = issuedAt;
     }
-    public get issuedAt() {
+    public get issuedAt(): string | undefined {
         return this['issued_at'];
     }
     public withUser(user: FederationUserBody): UnscopedTokenInfo {

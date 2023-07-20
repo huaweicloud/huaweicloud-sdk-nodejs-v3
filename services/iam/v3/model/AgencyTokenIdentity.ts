@@ -2,13 +2,13 @@ import { AgencyTokenAssumerole } from './AgencyTokenAssumerole';
 
 
 export class AgencyTokenIdentity {
-    public methods: Array<AgencyTokenIdentityMethodsEnum>;
-    private 'assume_role': AgencyTokenAssumerole | undefined;
-    public constructor(methods?: any, assumeRole?: any) { 
+    public methods?: Array<AgencyTokenIdentityMethodsEnum> | Array<string>;
+    private 'assume_role'?: AgencyTokenAssumerole;
+    public constructor(methods?: Array<string>, assumeRole?: AgencyTokenAssumerole) { 
         this['methods'] = methods;
         this['assume_role'] = assumeRole;
     }
-    public withMethods(methods: Array<AgencyTokenIdentityMethodsEnum>): AgencyTokenIdentity {
+    public withMethods(methods: Array<AgencyTokenIdentityMethodsEnum> | Array<string>): AgencyTokenIdentity {
         this['methods'] = methods;
         return this;
     }
@@ -16,10 +16,10 @@ export class AgencyTokenIdentity {
         this['assume_role'] = assumeRole;
         return this;
     }
-    public set assumeRole(assumeRole: AgencyTokenAssumerole | undefined) {
+    public set assumeRole(assumeRole: AgencyTokenAssumerole  | undefined) {
         this['assume_role'] = assumeRole;
     }
-    public get assumeRole() {
+    public get assumeRole(): AgencyTokenAssumerole | undefined {
         return this['assume_role'];
     }
 }

@@ -5,12 +5,12 @@ import { Runtime } from './Runtime';
 
 
 export class MigrateNodesSpec {
-    public os: string;
+    public os?: string;
     public extendParam?: MigrateNodeExtendParam;
-    public login: Login;
+    public login?: Login;
     public runtime?: Runtime;
-    public nodes: Array<NodeItem>;
-    public constructor(os?: any, login?: any, nodes?: any) { 
+    public nodes?: Array<NodeItem>;
+    public constructor(os?: string, login?: Login, nodes?: Array<NodeItem>) { 
         this['os'] = os;
         this['login'] = login;
         this['nodes'] = nodes;

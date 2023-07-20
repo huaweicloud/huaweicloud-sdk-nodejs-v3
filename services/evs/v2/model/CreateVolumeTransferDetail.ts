@@ -2,13 +2,13 @@ import { Link } from './Link';
 
 
 export class CreateVolumeTransferDetail {
-    private 'auth_key': string | undefined;
-    private 'created_at': string | undefined;
-    public id: string;
-    public links: Array<Link>;
-    public name: string;
-    private 'volume_id': string | undefined;
-    public constructor(authKey?: any, createdAt?: any, id?: any, links?: any, name?: any, volumeId?: any) { 
+    private 'auth_key'?: string;
+    private 'created_at'?: string;
+    public id?: string;
+    public links?: Array<Link>;
+    public name?: string;
+    private 'volume_id'?: string;
+    public constructor(authKey?: string, createdAt?: string, id?: string, links?: Array<Link>, name?: string, volumeId?: string) { 
         this['auth_key'] = authKey;
         this['created_at'] = createdAt;
         this['id'] = id;
@@ -20,20 +20,20 @@ export class CreateVolumeTransferDetail {
         this['auth_key'] = authKey;
         return this;
     }
-    public set authKey(authKey: string | undefined) {
+    public set authKey(authKey: string  | undefined) {
         this['auth_key'] = authKey;
     }
-    public get authKey() {
+    public get authKey(): string | undefined {
         return this['auth_key'];
     }
     public withCreatedAt(createdAt: string): CreateVolumeTransferDetail {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withId(id: string): CreateVolumeTransferDetail {
@@ -52,10 +52,10 @@ export class CreateVolumeTransferDetail {
         this['volume_id'] = volumeId;
         return this;
     }
-    public set volumeId(volumeId: string | undefined) {
+    public set volumeId(volumeId: string  | undefined) {
         this['volume_id'] = volumeId;
     }
-    public get volumeId() {
+    public get volumeId(): string | undefined {
         return this['volume_id'];
     }
 }

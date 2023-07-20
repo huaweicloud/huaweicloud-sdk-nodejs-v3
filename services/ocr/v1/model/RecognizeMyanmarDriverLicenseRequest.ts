@@ -2,7 +2,7 @@ import { MyanmarDriverLicenseRequestBody } from './MyanmarDriverLicenseRequestBo
 
 
 export class RecognizeMyanmarDriverLicenseRequest {
-    private 'Enterprise-Project-Id'?: string | undefined;
+    private 'Enterprise-Project-Id'?: string;
     public body?: MyanmarDriverLicenseRequestBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class RecognizeMyanmarDriverLicenseRequest {
         this['Enterprise-Project-Id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['Enterprise-Project-Id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['Enterprise-Project-Id'];
     }
     public withBody(body: MyanmarDriverLicenseRequestBody): RecognizeMyanmarDriverLicenseRequest {

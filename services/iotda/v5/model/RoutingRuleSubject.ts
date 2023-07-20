@@ -1,9 +1,9 @@
 
 
 export class RoutingRuleSubject {
-    public resource: string;
-    public event: string;
-    public constructor(resource?: any, event?: any) { 
+    public resource?: string;
+    public event?: string;
+    public constructor(resource?: string, event?: string) { 
         this['resource'] = resource;
         this['event'] = event;
     }

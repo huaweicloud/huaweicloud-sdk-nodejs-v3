@@ -1,15 +1,15 @@
 
 
 export class BatchJobActionReq {
-    public action: BatchJobActionReqActionEnum;
-    private 'job_id': string | undefined;
-    public property: string;
-    public constructor(action?: any, jobId?: any, property?: any) { 
+    public action?: BatchJobActionReqActionEnum | string;
+    private 'job_id'?: string;
+    public property?: string;
+    public constructor(action?: string, jobId?: string, property?: string) { 
         this['action'] = action;
         this['job_id'] = jobId;
         this['property'] = property;
     }
-    public withAction(action: BatchJobActionReqActionEnum): BatchJobActionReq {
+    public withAction(action: BatchJobActionReqActionEnum | string): BatchJobActionReq {
         this['action'] = action;
         return this;
     }
@@ -17,10 +17,10 @@ export class BatchJobActionReq {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
     public withProperty(property: string): BatchJobActionReq {

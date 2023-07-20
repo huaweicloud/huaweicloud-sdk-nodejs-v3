@@ -1,10 +1,10 @@
 
 
 export class ForceRedirectConfig {
-    public status: string;
+    public status?: string;
     public type?: string;
-    private 'redirect_code'?: number | undefined;
-    public constructor(status?: any) { 
+    private 'redirect_code'?: number;
+    public constructor(status?: string) { 
         this['status'] = status;
     }
     public withStatus(status: string): ForceRedirectConfig {
@@ -19,10 +19,10 @@ export class ForceRedirectConfig {
         this['redirect_code'] = redirectCode;
         return this;
     }
-    public set redirectCode(redirectCode: number | undefined) {
+    public set redirectCode(redirectCode: number  | undefined) {
         this['redirect_code'] = redirectCode;
     }
-    public get redirectCode() {
+    public get redirectCode(): number | undefined {
         return this['redirect_code'];
     }
 }

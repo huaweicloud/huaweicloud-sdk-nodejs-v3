@@ -1,11 +1,11 @@
 
 
 export class CbcProductInfoUpdate {
-    public productId: string;
-    public resourceSize: number;
+    public productId?: string;
+    public resourceSize?: number;
     public resourceSizeMeasureId?: number;
-    public resourceSpecCode: string;
-    public constructor(productId?: any, resourceSize?: any, resourceSpecCode?: any) { 
+    public resourceSpecCode?: string;
+    public constructor(productId?: string, resourceSize?: number, resourceSpecCode?: string) { 
         this['productId'] = productId;
         this['resourceSize'] = resourceSize;
         this['resourceSpecCode'] = resourceSpecCode;

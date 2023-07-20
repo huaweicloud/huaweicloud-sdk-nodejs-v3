@@ -5,7 +5,7 @@ export class VariableResponse {
     public name?: string;
     public type?: string;
     public description?: string;
-    private 'default'?: object | undefined;
+    private 'default'?: object;
     public sensitive?: boolean;
     public nullable?: boolean;
     public validations?: Array<VariableValidationResponse>;
@@ -27,10 +27,10 @@ export class VariableResponse {
         this['default'] = _default;
         return this;
     }
-    public set _default(_default: object | undefined) {
+    public set _default(_default: object  | undefined) {
         this['default'] = _default;
     }
-    public get _default() {
+    public get _default(): object | undefined {
         return this['default'];
     }
     public withSensitive(sensitive: boolean): VariableResponse {

@@ -6,44 +6,44 @@ import { StrategyConfig } from './StrategyConfig';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateFunctionMaxInstanceConfigResponse extends SdkResponse {
-    private 'func_urn'?: string | undefined;
-    private 'func_name'?: string | undefined;
-    private 'domain_id'?: string | undefined;
+    private 'func_urn'?: string;
+    private 'func_name'?: string;
+    private 'domain_id'?: string;
     public namespace?: string;
-    private 'project_name'?: string | undefined;
-    private 'package'?: string | undefined;
-    public runtime?: UpdateFunctionMaxInstanceConfigResponseRuntimeEnum;
+    private 'project_name'?: string;
+    private 'package'?: string;
+    public runtime?: UpdateFunctionMaxInstanceConfigResponseRuntimeEnum | string;
     public timeout?: number;
     public handler?: string;
-    private 'memory_size'?: number | undefined;
+    private 'memory_size'?: number;
     public cpu?: number;
-    private 'code_type'?: UpdateFunctionMaxInstanceConfigResponseCodeTypeEnum | undefined;
-    private 'code_url'?: string | undefined;
-    private 'code_filename'?: string | undefined;
-    private 'code_size'?: number | undefined;
-    private 'user_data'?: string | undefined;
-    private 'encrypted_user_data'?: string | undefined;
+    private 'code_type'?: UpdateFunctionMaxInstanceConfigResponseCodeTypeEnum | string;
+    private 'code_url'?: string;
+    private 'code_filename'?: string;
+    private 'code_size'?: number;
+    private 'user_data'?: string;
+    private 'encrypted_user_data'?: string;
     public digest?: string;
     public version?: string;
-    private 'image_name'?: string | undefined;
+    private 'image_name'?: string;
     public xrole?: string;
-    private 'app_xrole'?: string | undefined;
+    private 'app_xrole'?: string;
     public description?: string;
-    private 'last_modified'?: Date | undefined;
-    private 'func_vpc'?: FuncVpc | undefined;
-    private 'mount_config'?: MountConfig | undefined;
-    private 'strategy_config'?: StrategyConfig | undefined;
+    private 'last_modified'?: Date;
+    private 'func_vpc'?: FuncVpc;
+    private 'mount_config'?: MountConfig;
+    private 'strategy_config'?: StrategyConfig;
     public dependencies?: Array<Dependency>;
-    private 'initializer_handler'?: string | undefined;
-    private 'initializer_timeout'?: number | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'long_time'?: boolean | undefined;
-    private 'log_group_id'?: string | undefined;
-    private 'log_stream_id'?: string | undefined;
-    public type?: UpdateFunctionMaxInstanceConfigResponseTypeEnum;
-    private 'enable_dynamic_memory'?: boolean | undefined;
-    private 'is_stateful_function'?: boolean | undefined;
-    private 'domain_names'?: string | undefined;
+    private 'initializer_handler'?: string;
+    private 'initializer_timeout'?: number;
+    private 'enterprise_project_id'?: string;
+    private 'long_time'?: boolean;
+    private 'log_group_id'?: string;
+    private 'log_stream_id'?: string;
+    public type?: UpdateFunctionMaxInstanceConfigResponseTypeEnum | string;
+    private 'enable_dynamic_memory'?: boolean;
+    private 'is_stateful_function'?: boolean;
+    private 'domain_names'?: string;
     public constructor() { 
         super();
     }
@@ -51,30 +51,30 @@ export class UpdateFunctionMaxInstanceConfigResponse extends SdkResponse {
         this['func_urn'] = funcUrn;
         return this;
     }
-    public set funcUrn(funcUrn: string | undefined) {
+    public set funcUrn(funcUrn: string  | undefined) {
         this['func_urn'] = funcUrn;
     }
-    public get funcUrn() {
+    public get funcUrn(): string | undefined {
         return this['func_urn'];
     }
     public withFuncName(funcName: string): UpdateFunctionMaxInstanceConfigResponse {
         this['func_name'] = funcName;
         return this;
     }
-    public set funcName(funcName: string | undefined) {
+    public set funcName(funcName: string  | undefined) {
         this['func_name'] = funcName;
     }
-    public get funcName() {
+    public get funcName(): string | undefined {
         return this['func_name'];
     }
     public withDomainId(domainId: string): UpdateFunctionMaxInstanceConfigResponse {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withNamespace(namespace: string): UpdateFunctionMaxInstanceConfigResponse {
@@ -85,23 +85,23 @@ export class UpdateFunctionMaxInstanceConfigResponse extends SdkResponse {
         this['project_name'] = projectName;
         return this;
     }
-    public set projectName(projectName: string | undefined) {
+    public set projectName(projectName: string  | undefined) {
         this['project_name'] = projectName;
     }
-    public get projectName() {
+    public get projectName(): string | undefined {
         return this['project_name'];
     }
     public withPackage(_package: string): UpdateFunctionMaxInstanceConfigResponse {
         this['package'] = _package;
         return this;
     }
-    public set _package(_package: string | undefined) {
+    public set _package(_package: string  | undefined) {
         this['package'] = _package;
     }
-    public get _package() {
+    public get _package(): string | undefined {
         return this['package'];
     }
-    public withRuntime(runtime: UpdateFunctionMaxInstanceConfigResponseRuntimeEnum): UpdateFunctionMaxInstanceConfigResponse {
+    public withRuntime(runtime: UpdateFunctionMaxInstanceConfigResponseRuntimeEnum | string): UpdateFunctionMaxInstanceConfigResponse {
         this['runtime'] = runtime;
         return this;
     }
@@ -117,74 +117,74 @@ export class UpdateFunctionMaxInstanceConfigResponse extends SdkResponse {
         this['memory_size'] = memorySize;
         return this;
     }
-    public set memorySize(memorySize: number | undefined) {
+    public set memorySize(memorySize: number  | undefined) {
         this['memory_size'] = memorySize;
     }
-    public get memorySize() {
+    public get memorySize(): number | undefined {
         return this['memory_size'];
     }
     public withCpu(cpu: number): UpdateFunctionMaxInstanceConfigResponse {
         this['cpu'] = cpu;
         return this;
     }
-    public withCodeType(codeType: UpdateFunctionMaxInstanceConfigResponseCodeTypeEnum): UpdateFunctionMaxInstanceConfigResponse {
+    public withCodeType(codeType: UpdateFunctionMaxInstanceConfigResponseCodeTypeEnum | string): UpdateFunctionMaxInstanceConfigResponse {
         this['code_type'] = codeType;
         return this;
     }
-    public set codeType(codeType: UpdateFunctionMaxInstanceConfigResponseCodeTypeEnum | undefined) {
+    public set codeType(codeType: UpdateFunctionMaxInstanceConfigResponseCodeTypeEnum | string  | undefined) {
         this['code_type'] = codeType;
     }
-    public get codeType() {
+    public get codeType(): UpdateFunctionMaxInstanceConfigResponseCodeTypeEnum | string | undefined {
         return this['code_type'];
     }
     public withCodeUrl(codeUrl: string): UpdateFunctionMaxInstanceConfigResponse {
         this['code_url'] = codeUrl;
         return this;
     }
-    public set codeUrl(codeUrl: string | undefined) {
+    public set codeUrl(codeUrl: string  | undefined) {
         this['code_url'] = codeUrl;
     }
-    public get codeUrl() {
+    public get codeUrl(): string | undefined {
         return this['code_url'];
     }
     public withCodeFilename(codeFilename: string): UpdateFunctionMaxInstanceConfigResponse {
         this['code_filename'] = codeFilename;
         return this;
     }
-    public set codeFilename(codeFilename: string | undefined) {
+    public set codeFilename(codeFilename: string  | undefined) {
         this['code_filename'] = codeFilename;
     }
-    public get codeFilename() {
+    public get codeFilename(): string | undefined {
         return this['code_filename'];
     }
     public withCodeSize(codeSize: number): UpdateFunctionMaxInstanceConfigResponse {
         this['code_size'] = codeSize;
         return this;
     }
-    public set codeSize(codeSize: number | undefined) {
+    public set codeSize(codeSize: number  | undefined) {
         this['code_size'] = codeSize;
     }
-    public get codeSize() {
+    public get codeSize(): number | undefined {
         return this['code_size'];
     }
     public withUserData(userData: string): UpdateFunctionMaxInstanceConfigResponse {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withEncryptedUserData(encryptedUserData: string): UpdateFunctionMaxInstanceConfigResponse {
         this['encrypted_user_data'] = encryptedUserData;
         return this;
     }
-    public set encryptedUserData(encryptedUserData: string | undefined) {
+    public set encryptedUserData(encryptedUserData: string  | undefined) {
         this['encrypted_user_data'] = encryptedUserData;
     }
-    public get encryptedUserData() {
+    public get encryptedUserData(): string | undefined {
         return this['encrypted_user_data'];
     }
     public withDigest(digest: string): UpdateFunctionMaxInstanceConfigResponse {
@@ -199,10 +199,10 @@ export class UpdateFunctionMaxInstanceConfigResponse extends SdkResponse {
         this['image_name'] = imageName;
         return this;
     }
-    public set imageName(imageName: string | undefined) {
+    public set imageName(imageName: string  | undefined) {
         this['image_name'] = imageName;
     }
-    public get imageName() {
+    public get imageName(): string | undefined {
         return this['image_name'];
     }
     public withXrole(xrole: string): UpdateFunctionMaxInstanceConfigResponse {
@@ -213,10 +213,10 @@ export class UpdateFunctionMaxInstanceConfigResponse extends SdkResponse {
         this['app_xrole'] = appXrole;
         return this;
     }
-    public set appXrole(appXrole: string | undefined) {
+    public set appXrole(appXrole: string  | undefined) {
         this['app_xrole'] = appXrole;
     }
-    public get appXrole() {
+    public get appXrole(): string | undefined {
         return this['app_xrole'];
     }
     public withDescription(description: string): UpdateFunctionMaxInstanceConfigResponse {
@@ -227,40 +227,40 @@ export class UpdateFunctionMaxInstanceConfigResponse extends SdkResponse {
         this['last_modified'] = lastModified;
         return this;
     }
-    public set lastModified(lastModified: Date | undefined) {
+    public set lastModified(lastModified: Date  | undefined) {
         this['last_modified'] = lastModified;
     }
-    public get lastModified() {
+    public get lastModified(): Date | undefined {
         return this['last_modified'];
     }
     public withFuncVpc(funcVpc: FuncVpc): UpdateFunctionMaxInstanceConfigResponse {
         this['func_vpc'] = funcVpc;
         return this;
     }
-    public set funcVpc(funcVpc: FuncVpc | undefined) {
+    public set funcVpc(funcVpc: FuncVpc  | undefined) {
         this['func_vpc'] = funcVpc;
     }
-    public get funcVpc() {
+    public get funcVpc(): FuncVpc | undefined {
         return this['func_vpc'];
     }
     public withMountConfig(mountConfig: MountConfig): UpdateFunctionMaxInstanceConfigResponse {
         this['mount_config'] = mountConfig;
         return this;
     }
-    public set mountConfig(mountConfig: MountConfig | undefined) {
+    public set mountConfig(mountConfig: MountConfig  | undefined) {
         this['mount_config'] = mountConfig;
     }
-    public get mountConfig() {
+    public get mountConfig(): MountConfig | undefined {
         return this['mount_config'];
     }
     public withStrategyConfig(strategyConfig: StrategyConfig): UpdateFunctionMaxInstanceConfigResponse {
         this['strategy_config'] = strategyConfig;
         return this;
     }
-    public set strategyConfig(strategyConfig: StrategyConfig | undefined) {
+    public set strategyConfig(strategyConfig: StrategyConfig  | undefined) {
         this['strategy_config'] = strategyConfig;
     }
-    public get strategyConfig() {
+    public get strategyConfig(): StrategyConfig | undefined {
         return this['strategy_config'];
     }
     public withDependencies(dependencies: Array<Dependency>): UpdateFunctionMaxInstanceConfigResponse {
@@ -271,63 +271,63 @@ export class UpdateFunctionMaxInstanceConfigResponse extends SdkResponse {
         this['initializer_handler'] = initializerHandler;
         return this;
     }
-    public set initializerHandler(initializerHandler: string | undefined) {
+    public set initializerHandler(initializerHandler: string  | undefined) {
         this['initializer_handler'] = initializerHandler;
     }
-    public get initializerHandler() {
+    public get initializerHandler(): string | undefined {
         return this['initializer_handler'];
     }
     public withInitializerTimeout(initializerTimeout: number): UpdateFunctionMaxInstanceConfigResponse {
         this['initializer_timeout'] = initializerTimeout;
         return this;
     }
-    public set initializerTimeout(initializerTimeout: number | undefined) {
+    public set initializerTimeout(initializerTimeout: number  | undefined) {
         this['initializer_timeout'] = initializerTimeout;
     }
-    public get initializerTimeout() {
+    public get initializerTimeout(): number | undefined {
         return this['initializer_timeout'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): UpdateFunctionMaxInstanceConfigResponse {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withLongTime(longTime: boolean): UpdateFunctionMaxInstanceConfigResponse {
         this['long_time'] = longTime;
         return this;
     }
-    public set longTime(longTime: boolean | undefined) {
+    public set longTime(longTime: boolean  | undefined) {
         this['long_time'] = longTime;
     }
-    public get longTime() {
+    public get longTime(): boolean | undefined {
         return this['long_time'];
     }
     public withLogGroupId(logGroupId: string): UpdateFunctionMaxInstanceConfigResponse {
         this['log_group_id'] = logGroupId;
         return this;
     }
-    public set logGroupId(logGroupId: string | undefined) {
+    public set logGroupId(logGroupId: string  | undefined) {
         this['log_group_id'] = logGroupId;
     }
-    public get logGroupId() {
+    public get logGroupId(): string | undefined {
         return this['log_group_id'];
     }
     public withLogStreamId(logStreamId: string): UpdateFunctionMaxInstanceConfigResponse {
         this['log_stream_id'] = logStreamId;
         return this;
     }
-    public set logStreamId(logStreamId: string | undefined) {
+    public set logStreamId(logStreamId: string  | undefined) {
         this['log_stream_id'] = logStreamId;
     }
-    public get logStreamId() {
+    public get logStreamId(): string | undefined {
         return this['log_stream_id'];
     }
-    public withType(type: UpdateFunctionMaxInstanceConfigResponseTypeEnum): UpdateFunctionMaxInstanceConfigResponse {
+    public withType(type: UpdateFunctionMaxInstanceConfigResponseTypeEnum | string): UpdateFunctionMaxInstanceConfigResponse {
         this['type'] = type;
         return this;
     }
@@ -335,30 +335,30 @@ export class UpdateFunctionMaxInstanceConfigResponse extends SdkResponse {
         this['enable_dynamic_memory'] = enableDynamicMemory;
         return this;
     }
-    public set enableDynamicMemory(enableDynamicMemory: boolean | undefined) {
+    public set enableDynamicMemory(enableDynamicMemory: boolean  | undefined) {
         this['enable_dynamic_memory'] = enableDynamicMemory;
     }
-    public get enableDynamicMemory() {
+    public get enableDynamicMemory(): boolean | undefined {
         return this['enable_dynamic_memory'];
     }
     public withIsStatefulFunction(isStatefulFunction: boolean): UpdateFunctionMaxInstanceConfigResponse {
         this['is_stateful_function'] = isStatefulFunction;
         return this;
     }
-    public set isStatefulFunction(isStatefulFunction: boolean | undefined) {
+    public set isStatefulFunction(isStatefulFunction: boolean  | undefined) {
         this['is_stateful_function'] = isStatefulFunction;
     }
-    public get isStatefulFunction() {
+    public get isStatefulFunction(): boolean | undefined {
         return this['is_stateful_function'];
     }
     public withDomainNames(domainNames: string): UpdateFunctionMaxInstanceConfigResponse {
         this['domain_names'] = domainNames;
         return this;
     }
-    public set domainNames(domainNames: string | undefined) {
+    public set domainNames(domainNames: string  | undefined) {
         this['domain_names'] = domainNames;
     }
-    public get domainNames() {
+    public get domainNames(): string | undefined {
         return this['domain_names'];
     }
 }

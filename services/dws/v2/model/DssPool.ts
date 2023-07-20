@@ -1,15 +1,15 @@
 
 
 export class DssPool {
-    public id: string;
-    public name: string;
-    public type: string;
-    private 'project_id': string | undefined;
-    private 'availability_zone': string | undefined;
-    public capacity: number;
-    public status: string;
-    private 'created_at': string | undefined;
-    public constructor(id?: any, name?: any, type?: any, projectId?: any, availabilityZone?: any, capacity?: any, status?: any, createdAt?: any) { 
+    public id?: string;
+    public name?: string;
+    public type?: string;
+    private 'project_id'?: string;
+    private 'availability_zone'?: string;
+    public capacity?: number;
+    public status?: string;
+    private 'created_at'?: string;
+    public constructor(id?: string, name?: string, type?: string, projectId?: string, availabilityZone?: string, capacity?: number, status?: string, createdAt?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['type'] = type;
@@ -35,20 +35,20 @@ export class DssPool {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withAvailabilityZone(availabilityZone: string): DssPool {
         this['availability_zone'] = availabilityZone;
         return this;
     }
-    public set availabilityZone(availabilityZone: string | undefined) {
+    public set availabilityZone(availabilityZone: string  | undefined) {
         this['availability_zone'] = availabilityZone;
     }
-    public get availabilityZone() {
+    public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
     public withCapacity(capacity: number): DssPool {
@@ -63,10 +63,10 @@ export class DssPool {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
 }

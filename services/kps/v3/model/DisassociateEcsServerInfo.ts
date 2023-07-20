@@ -2,9 +2,9 @@ import { Auth } from './Auth';
 
 
 export class DisassociateEcsServerInfo {
-    public id: string;
+    public id?: string;
     public auth?: Auth;
-    public constructor(id?: any) { 
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withId(id: string): DisassociateEcsServerInfo {

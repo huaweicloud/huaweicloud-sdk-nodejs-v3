@@ -3,10 +3,10 @@ import { NodeSpecUpdate } from './NodeSpecUpdate';
 
 
 export class NodePoolSpecUpdate {
-    public nodeTemplate: NodeSpecUpdate;
-    public initialNodeCount: number;
-    public autoscaling: NodePoolNodeAutoscaling;
-    public constructor(nodeTemplate?: any, initialNodeCount?: any, autoscaling?: any) { 
+    public nodeTemplate?: NodeSpecUpdate;
+    public initialNodeCount?: number;
+    public autoscaling?: NodePoolNodeAutoscaling;
+    public constructor(nodeTemplate?: NodeSpecUpdate, initialNodeCount?: number, autoscaling?: NodePoolNodeAutoscaling) { 
         this['nodeTemplate'] = nodeTemplate;
         this['initialNodeCount'] = initialNodeCount;
         this['autoscaling'] = autoscaling;

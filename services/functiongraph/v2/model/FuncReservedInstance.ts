@@ -1,9 +1,9 @@
 
 
 export class FuncReservedInstance {
-    private 'func_urn': string | undefined;
-    public count: number;
-    public constructor(funcUrn?: any, count?: any) { 
+    private 'func_urn'?: string;
+    public count?: number;
+    public constructor(funcUrn?: string, count?: number) { 
         this['func_urn'] = funcUrn;
         this['count'] = count;
     }
@@ -11,10 +11,10 @@ export class FuncReservedInstance {
         this['func_urn'] = funcUrn;
         return this;
     }
-    public set funcUrn(funcUrn: string | undefined) {
+    public set funcUrn(funcUrn: string  | undefined) {
         this['func_urn'] = funcUrn;
     }
-    public get funcUrn() {
+    public get funcUrn(): string | undefined {
         return this['func_urn'];
     }
     public withCount(count: number): FuncReservedInstance {

@@ -2,8 +2,8 @@
 
 export class ExecutionPlanDiffAttribute {
     public name?: string;
-    private 'previous_value'?: string | undefined;
-    private 'target_value'?: string | undefined;
+    private 'previous_value'?: string;
+    private 'target_value'?: string;
     public constructor() { 
     }
     public withName(name: string): ExecutionPlanDiffAttribute {
@@ -14,20 +14,20 @@ export class ExecutionPlanDiffAttribute {
         this['previous_value'] = previousValue;
         return this;
     }
-    public set previousValue(previousValue: string | undefined) {
+    public set previousValue(previousValue: string  | undefined) {
         this['previous_value'] = previousValue;
     }
-    public get previousValue() {
+    public get previousValue(): string | undefined {
         return this['previous_value'];
     }
     public withTargetValue(targetValue: string): ExecutionPlanDiffAttribute {
         this['target_value'] = targetValue;
         return this;
     }
-    public set targetValue(targetValue: string | undefined) {
+    public set targetValue(targetValue: string  | undefined) {
         this['target_value'] = targetValue;
     }
-    public get targetValue() {
+    public get targetValue(): string | undefined {
         return this['target_value'];
     }
 }

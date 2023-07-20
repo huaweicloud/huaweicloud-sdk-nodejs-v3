@@ -3,9 +3,9 @@ import { RetentionLog } from './RetentionLog';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListRetentionHistoriesResponse extends SdkResponse {
-    private 'retention_log'?: Array<RetentionLog> | undefined;
+    private 'retention_log'?: Array<RetentionLog>;
     public total?: number;
-    private 'Content-Range'?: string | undefined;
+    private 'Content-Range'?: string;
     public constructor() { 
         super();
     }
@@ -13,10 +13,10 @@ export class ListRetentionHistoriesResponse extends SdkResponse {
         this['retention_log'] = retentionLog;
         return this;
     }
-    public set retentionLog(retentionLog: Array<RetentionLog> | undefined) {
+    public set retentionLog(retentionLog: Array<RetentionLog>  | undefined) {
         this['retention_log'] = retentionLog;
     }
-    public get retentionLog() {
+    public get retentionLog(): Array<RetentionLog> | undefined {
         return this['retention_log'];
     }
     public withTotal(total: number): ListRetentionHistoriesResponse {
@@ -27,10 +27,10 @@ export class ListRetentionHistoriesResponse extends SdkResponse {
         this['Content-Range'] = contentRange;
         return this;
     }
-    public set contentRange(contentRange: string | undefined) {
+    public set contentRange(contentRange: string  | undefined) {
         this['Content-Range'] = contentRange;
     }
-    public get contentRange() {
+    public get contentRange(): string | undefined {
         return this['Content-Range'];
     }
 }

@@ -125,7 +125,7 @@ export class EpsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listApiVersions(): Promise<ListApiVersionsResponse> {
+    public listApiVersions(listApiVersionsRequest?: ListApiVersionsRequest): Promise<ListApiVersionsResponse> {
         const options = ParamCreater().listApiVersions();
 
          // @ts-ignore
@@ -248,7 +248,7 @@ export class EpsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showEnterpriseProjectQuota(): Promise<ShowEnterpriseProjectQuotaResponse> {
+    public showEnterpriseProjectQuota(showEnterpriseProjectQuotaRequest?: ShowEnterpriseProjectQuotaRequest): Promise<ShowEnterpriseProjectQuotaResponse> {
         const options = ParamCreater().showEnterpriseProjectQuota();
 
          // @ts-ignore

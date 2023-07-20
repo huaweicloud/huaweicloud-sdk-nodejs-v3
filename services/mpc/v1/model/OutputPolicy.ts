@@ -1,17 +1,17 @@
 
 
 export class OutputPolicy {
-    private 'output_policy'?: OutputPolicyOutputPolicyEnum | undefined;
+    private 'output_policy'?: OutputPolicyOutputPolicyEnum | string;
     public constructor() { 
     }
-    public withOutputPolicy(outputPolicy: OutputPolicyOutputPolicyEnum): OutputPolicy {
+    public withOutputPolicy(outputPolicy: OutputPolicyOutputPolicyEnum | string): OutputPolicy {
         this['output_policy'] = outputPolicy;
         return this;
     }
-    public set outputPolicy(outputPolicy: OutputPolicyOutputPolicyEnum | undefined) {
+    public set outputPolicy(outputPolicy: OutputPolicyOutputPolicyEnum | string  | undefined) {
         this['output_policy'] = outputPolicy;
     }
-    public get outputPolicy() {
+    public get outputPolicy(): OutputPolicyOutputPolicyEnum | string | undefined {
         return this['output_policy'];
     }
 }

@@ -2,13 +2,13 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class BatchCreateSubnetTagsRequestBody {
-    public action: BatchCreateSubnetTagsRequestBodyActionEnum;
-    public tags: Array<ResourceTag>;
-    public constructor(action?: any, tags?: any) { 
+    public action?: BatchCreateSubnetTagsRequestBodyActionEnum | string;
+    public tags?: Array<ResourceTag>;
+    public constructor(action?: string, tags?: Array<ResourceTag>) { 
         this['action'] = action;
         this['tags'] = tags;
     }
-    public withAction(action: BatchCreateSubnetTagsRequestBodyActionEnum): BatchCreateSubnetTagsRequestBody {
+    public withAction(action: BatchCreateSubnetTagsRequestBodyActionEnum | string): BatchCreateSubnetTagsRequestBody {
         this['action'] = action;
         return this;
     }

@@ -3,12 +3,12 @@ import { ErrorResp } from './ErrorResp';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateJobResponse extends SdkResponse {
-    private 'error_code': string | undefined;
-    private 'error_msg': string | undefined;
-    public id: string;
-    public name: string;
-    public status: string;
-    public constructor(errorCode?: any, errorMsg?: any, id?: any, name?: any, status?: any) { 
+    private 'error_code'?: string;
+    private 'error_msg'?: string;
+    public id?: string;
+    public name?: string;
+    public status?: string;
+    public constructor(errorCode?: string, errorMsg?: string, id?: string, name?: string, status?: string) { 
         super();
         this['error_code'] = errorCode;
         this['error_msg'] = errorMsg;
@@ -20,20 +20,20 @@ export class UpdateJobResponse extends SdkResponse {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
     public withErrorMsg(errorMsg: string): UpdateJobResponse {
         this['error_msg'] = errorMsg;
         return this;
     }
-    public set errorMsg(errorMsg: string | undefined) {
+    public set errorMsg(errorMsg: string  | undefined) {
         this['error_msg'] = errorMsg;
     }
-    public get errorMsg() {
+    public get errorMsg(): string | undefined {
         return this['error_msg'];
     }
     public withId(id: string): UpdateJobResponse {

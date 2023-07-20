@@ -1,25 +1,25 @@
 
 
 export class ListStaticRoutesRequest {
-    private 'route_table_id': string | undefined;
+    private 'route_table_id'?: string;
     public limit?: number;
     public marker?: string;
     public destination?: Array<string>;
-    private 'attachment_id'?: Array<string> | undefined;
-    private 'resource_type'?: Array<ListStaticRoutesRequestResourceTypeEnum> | undefined;
-    private 'sort_key'?: Array<string> | undefined;
-    private 'sort_dir'?: Array<ListStaticRoutesRequestSortDirEnum> | undefined;
-    public constructor(routeTableId?: any) { 
+    private 'attachment_id'?: Array<string>;
+    private 'resource_type'?: Array<ListStaticRoutesRequestResourceTypeEnum> | Array<string>;
+    private 'sort_key'?: Array<string>;
+    private 'sort_dir'?: Array<ListStaticRoutesRequestSortDirEnum> | Array<string>;
+    public constructor(routeTableId?: string) { 
         this['route_table_id'] = routeTableId;
     }
     public withRouteTableId(routeTableId: string): ListStaticRoutesRequest {
         this['route_table_id'] = routeTableId;
         return this;
     }
-    public set routeTableId(routeTableId: string | undefined) {
+    public set routeTableId(routeTableId: string  | undefined) {
         this['route_table_id'] = routeTableId;
     }
-    public get routeTableId() {
+    public get routeTableId(): string | undefined {
         return this['route_table_id'];
     }
     public withLimit(limit: number): ListStaticRoutesRequest {
@@ -38,40 +38,40 @@ export class ListStaticRoutesRequest {
         this['attachment_id'] = attachmentId;
         return this;
     }
-    public set attachmentId(attachmentId: Array<string> | undefined) {
+    public set attachmentId(attachmentId: Array<string>  | undefined) {
         this['attachment_id'] = attachmentId;
     }
-    public get attachmentId() {
+    public get attachmentId(): Array<string> | undefined {
         return this['attachment_id'];
     }
-    public withResourceType(resourceType: Array<ListStaticRoutesRequestResourceTypeEnum>): ListStaticRoutesRequest {
+    public withResourceType(resourceType: Array<ListStaticRoutesRequestResourceTypeEnum> | Array<string>): ListStaticRoutesRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: Array<ListStaticRoutesRequestResourceTypeEnum> | undefined) {
+    public set resourceType(resourceType: Array<ListStaticRoutesRequestResourceTypeEnum> | Array<string>  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): Array<ListStaticRoutesRequestResourceTypeEnum> | Array<string> | undefined {
         return this['resource_type'];
     }
     public withSortKey(sortKey: Array<string>): ListStaticRoutesRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: Array<string> | undefined) {
+    public set sortKey(sortKey: Array<string>  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): Array<string> | undefined {
         return this['sort_key'];
     }
-    public withSortDir(sortDir: Array<ListStaticRoutesRequestSortDirEnum>): ListStaticRoutesRequest {
+    public withSortDir(sortDir: Array<ListStaticRoutesRequestSortDirEnum> | Array<string>): ListStaticRoutesRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: Array<ListStaticRoutesRequestSortDirEnum> | undefined) {
+    public set sortDir(sortDir: Array<ListStaticRoutesRequestSortDirEnum> | Array<string>  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): Array<ListStaticRoutesRequestSortDirEnum> | Array<string> | undefined {
         return this['sort_dir'];
     }
 }
@@ -87,7 +87,10 @@ export enum ListStaticRoutesRequestResourceTypeEnum {
     VGW = 'vgw',
     PEERING = 'peering',
     CAN = 'can',
-    GDGW = 'gdgw'
+    ECN = 'ecn',
+    GDGW = 'gdgw',
+    CONNECT = 'connect',
+    CFW = 'cfw'
 }
 /**
     * @export

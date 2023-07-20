@@ -3,15 +3,15 @@ import { Metadata } from './Metadata';
 
 
 export class Events {
-    public annotations: Annotations;
-    public metadata: Metadata;
-    private 'arrives_at': number | undefined;
-    private 'ends_at': number | undefined;
-    public id: string;
-    private 'starts_at': number | undefined;
-    public timeout: number;
-    public type: string;
-    public constructor(annotations?: any, metadata?: any, arrivesAt?: any, endsAt?: any, id?: any, startsAt?: any, timeout?: any, type?: any) { 
+    public annotations?: Annotations;
+    public metadata?: Metadata;
+    private 'arrives_at'?: number;
+    private 'ends_at'?: number;
+    public id?: string;
+    private 'starts_at'?: number;
+    public timeout?: number;
+    public type?: string;
+    public constructor(annotations?: Annotations, metadata?: Metadata, arrivesAt?: number, endsAt?: number, id?: string, startsAt?: number, timeout?: number, type?: string) { 
         this['annotations'] = annotations;
         this['metadata'] = metadata;
         this['arrives_at'] = arrivesAt;
@@ -33,20 +33,20 @@ export class Events {
         this['arrives_at'] = arrivesAt;
         return this;
     }
-    public set arrivesAt(arrivesAt: number | undefined) {
+    public set arrivesAt(arrivesAt: number  | undefined) {
         this['arrives_at'] = arrivesAt;
     }
-    public get arrivesAt() {
+    public get arrivesAt(): number | undefined {
         return this['arrives_at'];
     }
     public withEndsAt(endsAt: number): Events {
         this['ends_at'] = endsAt;
         return this;
     }
-    public set endsAt(endsAt: number | undefined) {
+    public set endsAt(endsAt: number  | undefined) {
         this['ends_at'] = endsAt;
     }
-    public get endsAt() {
+    public get endsAt(): number | undefined {
         return this['ends_at'];
     }
     public withId(id: string): Events {
@@ -57,10 +57,10 @@ export class Events {
         this['starts_at'] = startsAt;
         return this;
     }
-    public set startsAt(startsAt: number | undefined) {
+    public set startsAt(startsAt: number  | undefined) {
         this['starts_at'] = startsAt;
     }
-    public get startsAt() {
+    public get startsAt(): number | undefined {
         return this['starts_at'];
     }
     public withTimeout(timeout: number): Events {

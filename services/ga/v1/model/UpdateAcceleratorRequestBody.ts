@@ -2,8 +2,8 @@ import { UpdateAcceleratorOption } from './UpdateAcceleratorOption';
 
 
 export class UpdateAcceleratorRequestBody {
-    public accelerator: UpdateAcceleratorOption;
-    public constructor(accelerator?: any) { 
+    public accelerator?: UpdateAcceleratorOption;
+    public constructor(accelerator?: UpdateAcceleratorOption) { 
         this['accelerator'] = accelerator;
     }
     public withAccelerator(accelerator: UpdateAcceleratorOption): UpdateAcceleratorRequestBody {

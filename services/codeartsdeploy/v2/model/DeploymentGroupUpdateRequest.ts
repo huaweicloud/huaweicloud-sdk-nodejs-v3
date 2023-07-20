@@ -1,11 +1,11 @@
 
 
 export class DeploymentGroupUpdateRequest {
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'slave_cluster_id'?: string | undefined;
-    private 'auto_connection_test_switch'?: DeploymentGroupUpdateRequestAutoConnectionTestSwitchEnum | undefined;
-    public constructor(name?: any) { 
+    private 'slave_cluster_id'?: string;
+    private 'auto_connection_test_switch'?: DeploymentGroupUpdateRequestAutoConnectionTestSwitchEnum | number;
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): DeploymentGroupUpdateRequest {
@@ -20,20 +20,20 @@ export class DeploymentGroupUpdateRequest {
         this['slave_cluster_id'] = slaveClusterId;
         return this;
     }
-    public set slaveClusterId(slaveClusterId: string | undefined) {
+    public set slaveClusterId(slaveClusterId: string  | undefined) {
         this['slave_cluster_id'] = slaveClusterId;
     }
-    public get slaveClusterId() {
+    public get slaveClusterId(): string | undefined {
         return this['slave_cluster_id'];
     }
-    public withAutoConnectionTestSwitch(autoConnectionTestSwitch: DeploymentGroupUpdateRequestAutoConnectionTestSwitchEnum): DeploymentGroupUpdateRequest {
+    public withAutoConnectionTestSwitch(autoConnectionTestSwitch: DeploymentGroupUpdateRequestAutoConnectionTestSwitchEnum | number): DeploymentGroupUpdateRequest {
         this['auto_connection_test_switch'] = autoConnectionTestSwitch;
         return this;
     }
-    public set autoConnectionTestSwitch(autoConnectionTestSwitch: DeploymentGroupUpdateRequestAutoConnectionTestSwitchEnum | undefined) {
+    public set autoConnectionTestSwitch(autoConnectionTestSwitch: DeploymentGroupUpdateRequestAutoConnectionTestSwitchEnum | number  | undefined) {
         this['auto_connection_test_switch'] = autoConnectionTestSwitch;
     }
-    public get autoConnectionTestSwitch() {
+    public get autoConnectionTestSwitch(): DeploymentGroupUpdateRequestAutoConnectionTestSwitchEnum | number | undefined {
         return this['auto_connection_test_switch'];
     }
 }

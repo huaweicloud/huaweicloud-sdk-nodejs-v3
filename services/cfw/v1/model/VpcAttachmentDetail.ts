@@ -4,16 +4,16 @@ import { Tag } from './Tag';
 export class VpcAttachmentDetail {
     public id?: string;
     public name?: string;
-    private 'vpc_id'?: string | undefined;
-    private 'virsubnet_id'?: string | undefined;
+    private 'vpc_id'?: string;
+    private 'virsubnet_id'?: string;
     public state?: string;
-    private 'created_at'?: string | undefined;
-    private 'updated_at'?: string | undefined;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
     public tags?: Array<Tag>;
     public description?: string;
-    private 'project_id'?: string | undefined;
-    private 'vpc_project_id'?: string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'project_id'?: string;
+    private 'vpc_project_id'?: string;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withId(id: string): VpcAttachmentDetail {
@@ -28,20 +28,20 @@ export class VpcAttachmentDetail {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withVirsubnetId(virsubnetId: string): VpcAttachmentDetail {
         this['virsubnet_id'] = virsubnetId;
         return this;
     }
-    public set virsubnetId(virsubnetId: string | undefined) {
+    public set virsubnetId(virsubnetId: string  | undefined) {
         this['virsubnet_id'] = virsubnetId;
     }
-    public get virsubnetId() {
+    public get virsubnetId(): string | undefined {
         return this['virsubnet_id'];
     }
     public withState(state: string): VpcAttachmentDetail {
@@ -52,20 +52,20 @@ export class VpcAttachmentDetail {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): VpcAttachmentDetail {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withTags(tags: Array<Tag>): VpcAttachmentDetail {
@@ -80,30 +80,30 @@ export class VpcAttachmentDetail {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withVpcProjectId(vpcProjectId: string): VpcAttachmentDetail {
         this['vpc_project_id'] = vpcProjectId;
         return this;
     }
-    public set vpcProjectId(vpcProjectId: string | undefined) {
+    public set vpcProjectId(vpcProjectId: string  | undefined) {
         this['vpc_project_id'] = vpcProjectId;
     }
-    public get vpcProjectId() {
+    public get vpcProjectId(): string | undefined {
         return this['vpc_project_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): VpcAttachmentDetail {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

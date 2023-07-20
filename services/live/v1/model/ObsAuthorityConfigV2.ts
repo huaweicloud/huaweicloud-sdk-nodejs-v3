@@ -1,9 +1,9 @@
 
 
 export class ObsAuthorityConfigV2 {
-    public bucket: string;
-    public operation: number;
-    public constructor(bucket?: any, operation?: any) { 
+    public bucket?: string;
+    public operation?: number;
+    public constructor(bucket?: string, operation?: number) { 
         this['bucket'] = bucket;
         this['operation'] = operation;
     }

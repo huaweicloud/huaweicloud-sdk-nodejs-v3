@@ -2,23 +2,23 @@ import { CreateTriggerRequestBody } from './CreateTriggerRequestBody';
 
 
 export class CreateTriggerRequest {
-    private 'Content-Type': CreateTriggerRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
+    private 'Content-Type'?: CreateTriggerRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
     public body?: CreateTriggerRequestBody;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: CreateTriggerRequestContentTypeEnum): CreateTriggerRequest {
+    public withContentType(contentType: CreateTriggerRequestContentTypeEnum | string): CreateTriggerRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CreateTriggerRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: CreateTriggerRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CreateTriggerRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): CreateTriggerRequest {

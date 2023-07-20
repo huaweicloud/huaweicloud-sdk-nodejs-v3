@@ -1,8 +1,8 @@
 
 
 export class SearchUsersRequest {
-    private 'X-Request-Id'?: string | undefined;
-    private 'Accept-Language'?: string | undefined;
+    private 'X-Request-Id'?: string;
+    private 'Accept-Language'?: string;
     public offset?: number;
     public limit?: number;
     public searchKey?: string;
@@ -10,7 +10,7 @@ export class SearchUsersRequest {
     public isAsc?: boolean;
     public deptCode?: string;
     public enableSubDept?: boolean;
-    public adminType?: SearchUsersRequestAdminTypeEnum;
+    public adminType?: SearchUsersRequestAdminTypeEnum | number;
     public enableRoom?: boolean;
     public userType?: Array<number>;
     public status?: number;
@@ -21,20 +21,20 @@ export class SearchUsersRequest {
         this['X-Request-Id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-Request-Id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-Request-Id'];
     }
     public withAcceptLanguage(acceptLanguage: string): SearchUsersRequest {
         this['Accept-Language'] = acceptLanguage;
         return this;
     }
-    public set acceptLanguage(acceptLanguage: string | undefined) {
+    public set acceptLanguage(acceptLanguage: string  | undefined) {
         this['Accept-Language'] = acceptLanguage;
     }
-    public get acceptLanguage() {
+    public get acceptLanguage(): string | undefined {
         return this['Accept-Language'];
     }
     public withOffset(offset: number): SearchUsersRequest {
@@ -65,7 +65,7 @@ export class SearchUsersRequest {
         this['enableSubDept'] = enableSubDept;
         return this;
     }
-    public withAdminType(adminType: SearchUsersRequestAdminTypeEnum): SearchUsersRequest {
+    public withAdminType(adminType: SearchUsersRequestAdminTypeEnum | number): SearchUsersRequest {
         this['adminType'] = adminType;
         return this;
     }

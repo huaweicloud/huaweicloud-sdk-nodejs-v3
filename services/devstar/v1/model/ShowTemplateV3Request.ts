@@ -1,29 +1,29 @@
 
 
 export class ShowTemplateV3Request {
-    private 'X-Language'?: ShowTemplateV3RequestXLanguageEnum | undefined;
-    private 'template_id': string | undefined;
-    public constructor(templateId?: any) { 
+    private 'X-Language'?: ShowTemplateV3RequestXLanguageEnum | string;
+    private 'template_id'?: string;
+    public constructor(templateId?: string) { 
         this['template_id'] = templateId;
     }
-    public withXLanguage(xLanguage: ShowTemplateV3RequestXLanguageEnum): ShowTemplateV3Request {
+    public withXLanguage(xLanguage: ShowTemplateV3RequestXLanguageEnum | string): ShowTemplateV3Request {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ShowTemplateV3RequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ShowTemplateV3RequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ShowTemplateV3RequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withTemplateId(templateId: string): ShowTemplateV3Request {
         this['template_id'] = templateId;
         return this;
     }
-    public set templateId(templateId: string | undefined) {
+    public set templateId(templateId: string  | undefined) {
         this['template_id'] = templateId;
     }
-    public get templateId() {
+    public get templateId(): string | undefined {
         return this['template_id'];
     }
 }

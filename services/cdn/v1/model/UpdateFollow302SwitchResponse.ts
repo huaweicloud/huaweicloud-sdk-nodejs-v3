@@ -3,7 +3,7 @@ import { Follow302StatusBody } from './Follow302StatusBody';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateFollow302SwitchResponse extends SdkResponse {
-    private 'follow_status'?: Follow302StatusBody | undefined;
+    private 'follow_status'?: Follow302StatusBody;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class UpdateFollow302SwitchResponse extends SdkResponse {
         this['follow_status'] = followStatus;
         return this;
     }
-    public set followStatus(followStatus: Follow302StatusBody | undefined) {
+    public set followStatus(followStatus: Follow302StatusBody  | undefined) {
         this['follow_status'] = followStatus;
     }
-    public get followStatus() {
+    public get followStatus(): Follow302StatusBody | undefined {
         return this['follow_status'];
     }
 }

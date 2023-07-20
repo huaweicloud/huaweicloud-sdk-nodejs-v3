@@ -1,10 +1,10 @@
 
 
 export class IpsSwitchDTO {
-    private 'object_id': string | undefined;
-    private 'ips_type': IpsSwitchDTOIpsTypeEnum | undefined;
-    public status: number;
-    public constructor(objectId?: any, ipsType?: any, status?: any) { 
+    private 'object_id'?: string;
+    private 'ips_type'?: IpsSwitchDTOIpsTypeEnum | number;
+    public status?: number;
+    public constructor(objectId?: string, ipsType?: number, status?: number) { 
         this['object_id'] = objectId;
         this['ips_type'] = ipsType;
         this['status'] = status;
@@ -13,20 +13,20 @@ export class IpsSwitchDTO {
         this['object_id'] = objectId;
         return this;
     }
-    public set objectId(objectId: string | undefined) {
+    public set objectId(objectId: string  | undefined) {
         this['object_id'] = objectId;
     }
-    public get objectId() {
+    public get objectId(): string | undefined {
         return this['object_id'];
     }
-    public withIpsType(ipsType: IpsSwitchDTOIpsTypeEnum): IpsSwitchDTO {
+    public withIpsType(ipsType: IpsSwitchDTOIpsTypeEnum | number): IpsSwitchDTO {
         this['ips_type'] = ipsType;
         return this;
     }
-    public set ipsType(ipsType: IpsSwitchDTOIpsTypeEnum | undefined) {
+    public set ipsType(ipsType: IpsSwitchDTOIpsTypeEnum | number  | undefined) {
         this['ips_type'] = ipsType;
     }
-    public get ipsType() {
+    public get ipsType(): IpsSwitchDTOIpsTypeEnum | number | undefined {
         return this['ips_type'];
     }
     public withStatus(status: number): IpsSwitchDTO {

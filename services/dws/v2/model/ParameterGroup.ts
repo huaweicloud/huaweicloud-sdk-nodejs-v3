@@ -1,10 +1,10 @@
 
 
 export class ParameterGroup {
-    public id: string;
-    public name: string;
-    public status: string;
-    public constructor(id?: any, name?: any, status?: any) { 
+    public id?: string;
+    public name?: string;
+    public status?: string;
+    public constructor(id?: string, name?: string, status?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['status'] = status;

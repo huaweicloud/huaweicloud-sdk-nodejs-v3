@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateAssetCategoryResponse extends SdkResponse {
     public name?: string;
-    private 'parent_id'?: number | undefined;
+    private 'parent_id'?: number;
     public id?: number;
     public level?: number;
     public projectId?: string;
@@ -18,10 +18,10 @@ export class UpdateAssetCategoryResponse extends SdkResponse {
         this['parent_id'] = parentId;
         return this;
     }
-    public set parentId(parentId: number | undefined) {
+    public set parentId(parentId: number  | undefined) {
         this['parent_id'] = parentId;
     }
-    public get parentId() {
+    public get parentId(): number | undefined {
         return this['parent_id'];
     }
     public withId(id: number): UpdateAssetCategoryResponse {

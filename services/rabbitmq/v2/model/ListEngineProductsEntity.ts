@@ -4,13 +4,13 @@ import { ListEnginePropertiesEntity } from './ListEnginePropertiesEntity';
 
 export class ListEngineProductsEntity {
     public type?: string;
-    private 'product_id'?: string | undefined;
-    private 'ecs_flavor_id'?: string | undefined;
-    private 'billing_code'?: string | undefined;
-    private 'arch_types'?: Array<string> | undefined;
-    private 'charging_mode'?: Array<string> | undefined;
+    private 'product_id'?: string;
+    private 'ecs_flavor_id'?: string;
+    private 'billing_code'?: string;
+    private 'arch_types'?: Array<string>;
+    private 'charging_mode'?: Array<string>;
     public ios?: Array<ListEngineIosEntity>;
-    private 'support_features'?: Array<object> | undefined;
+    private 'support_features'?: Array<object>;
     public properties?: ListEnginePropertiesEntity;
     public constructor() { 
     }
@@ -22,50 +22,50 @@ export class ListEngineProductsEntity {
         this['product_id'] = productId;
         return this;
     }
-    public set productId(productId: string | undefined) {
+    public set productId(productId: string  | undefined) {
         this['product_id'] = productId;
     }
-    public get productId() {
+    public get productId(): string | undefined {
         return this['product_id'];
     }
     public withEcsFlavorId(ecsFlavorId: string): ListEngineProductsEntity {
         this['ecs_flavor_id'] = ecsFlavorId;
         return this;
     }
-    public set ecsFlavorId(ecsFlavorId: string | undefined) {
+    public set ecsFlavorId(ecsFlavorId: string  | undefined) {
         this['ecs_flavor_id'] = ecsFlavorId;
     }
-    public get ecsFlavorId() {
+    public get ecsFlavorId(): string | undefined {
         return this['ecs_flavor_id'];
     }
     public withBillingCode(billingCode: string): ListEngineProductsEntity {
         this['billing_code'] = billingCode;
         return this;
     }
-    public set billingCode(billingCode: string | undefined) {
+    public set billingCode(billingCode: string  | undefined) {
         this['billing_code'] = billingCode;
     }
-    public get billingCode() {
+    public get billingCode(): string | undefined {
         return this['billing_code'];
     }
     public withArchTypes(archTypes: Array<string>): ListEngineProductsEntity {
         this['arch_types'] = archTypes;
         return this;
     }
-    public set archTypes(archTypes: Array<string> | undefined) {
+    public set archTypes(archTypes: Array<string>  | undefined) {
         this['arch_types'] = archTypes;
     }
-    public get archTypes() {
+    public get archTypes(): Array<string> | undefined {
         return this['arch_types'];
     }
     public withChargingMode(chargingMode: Array<string>): ListEngineProductsEntity {
         this['charging_mode'] = chargingMode;
         return this;
     }
-    public set chargingMode(chargingMode: Array<string> | undefined) {
+    public set chargingMode(chargingMode: Array<string>  | undefined) {
         this['charging_mode'] = chargingMode;
     }
-    public get chargingMode() {
+    public get chargingMode(): Array<string> | undefined {
         return this['charging_mode'];
     }
     public withIos(ios: Array<ListEngineIosEntity>): ListEngineProductsEntity {
@@ -76,10 +76,10 @@ export class ListEngineProductsEntity {
         this['support_features'] = supportFeatures;
         return this;
     }
-    public set supportFeatures(supportFeatures: Array<object> | undefined) {
+    public set supportFeatures(supportFeatures: Array<object>  | undefined) {
         this['support_features'] = supportFeatures;
     }
-    public get supportFeatures() {
+    public get supportFeatures(): Array<object> | undefined {
         return this['support_features'];
     }
     public withProperties(properties: ListEnginePropertiesEntity): ListEngineProductsEntity {

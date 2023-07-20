@@ -1,10 +1,10 @@
 
 
 export class RevokeRoleFromUserOnEnterpriseProjectRequest {
-    private 'enterprise_project_id': string | undefined;
-    private 'user_id': string | undefined;
-    private 'role_id': string | undefined;
-    public constructor(enterpriseProjectId?: any, userId?: any, roleId?: any) { 
+    private 'enterprise_project_id'?: string;
+    private 'user_id'?: string;
+    private 'role_id'?: string;
+    public constructor(enterpriseProjectId?: string, userId?: string, roleId?: string) { 
         this['enterprise_project_id'] = enterpriseProjectId;
         this['user_id'] = userId;
         this['role_id'] = roleId;
@@ -13,30 +13,30 @@ export class RevokeRoleFromUserOnEnterpriseProjectRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withUserId(userId: string): RevokeRoleFromUserOnEnterpriseProjectRequest {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withRoleId(roleId: string): RevokeRoleFromUserOnEnterpriseProjectRequest {
         this['role_id'] = roleId;
         return this;
     }
-    public set roleId(roleId: string | undefined) {
+    public set roleId(roleId: string  | undefined) {
         this['role_id'] = roleId;
     }
-    public get roleId() {
+    public get roleId(): string | undefined {
         return this['role_id'];
     }
 }

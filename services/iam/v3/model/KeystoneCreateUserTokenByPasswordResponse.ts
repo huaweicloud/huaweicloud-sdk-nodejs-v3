@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class KeystoneCreateUserTokenByPasswordResponse extends SdkResponse {
     public token?: TokenResult;
-    private 'X-Subject-Token'?: string | undefined;
+    private 'X-Subject-Token'?: string;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class KeystoneCreateUserTokenByPasswordResponse extends SdkResponse {
         this['X-Subject-Token'] = xSubjectToken;
         return this;
     }
-    public set xSubjectToken(xSubjectToken: string | undefined) {
+    public set xSubjectToken(xSubjectToken: string  | undefined) {
         this['X-Subject-Token'] = xSubjectToken;
     }
-    public get xSubjectToken() {
+    public get xSubjectToken(): string | undefined {
         return this['X-Subject-Token'];
     }
 }

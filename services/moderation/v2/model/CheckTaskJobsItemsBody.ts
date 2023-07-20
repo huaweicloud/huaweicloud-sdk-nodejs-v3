@@ -1,20 +1,20 @@
 
 
 export class CheckTaskJobsItemsBody {
-    private 'job_id'?: string | undefined;
+    private 'job_id'?: string;
     public status?: string;
-    private 'create_time'?: string | undefined;
-    private 'update_time'?: string | undefined;
+    private 'create_time'?: string;
+    private 'update_time'?: string;
     public constructor() { 
     }
     public withJobId(jobId: string): CheckTaskJobsItemsBody {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
     public withStatus(status: string): CheckTaskJobsItemsBody {
@@ -25,20 +25,20 @@ export class CheckTaskJobsItemsBody {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withUpdateTime(updateTime: string): CheckTaskJobsItemsBody {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
 }

@@ -5,23 +5,23 @@ import { VideoObj } from './VideoObj';
 
 
 export class ModifyTransTemplateGroup {
-    private 'group_id': string | undefined;
+    private 'group_id'?: string;
     public name?: string;
     public videos?: Array<VideoObj>;
     public audio?: Audio;
-    private 'video_common'?: VideoCommon | undefined;
+    private 'video_common'?: VideoCommon;
     public common?: Common;
-    public constructor(groupId?: any) { 
+    public constructor(groupId?: string) { 
         this['group_id'] = groupId;
     }
     public withGroupId(groupId: string): ModifyTransTemplateGroup {
         this['group_id'] = groupId;
         return this;
     }
-    public set groupId(groupId: string | undefined) {
+    public set groupId(groupId: string  | undefined) {
         this['group_id'] = groupId;
     }
-    public get groupId() {
+    public get groupId(): string | undefined {
         return this['group_id'];
     }
     public withName(name: string): ModifyTransTemplateGroup {
@@ -40,10 +40,10 @@ export class ModifyTransTemplateGroup {
         this['video_common'] = videoCommon;
         return this;
     }
-    public set videoCommon(videoCommon: VideoCommon | undefined) {
+    public set videoCommon(videoCommon: VideoCommon  | undefined) {
         this['video_common'] = videoCommon;
     }
-    public get videoCommon() {
+    public get videoCommon(): VideoCommon | undefined {
         return this['video_common'];
     }
     public withCommon(common: Common): ModifyTransTemplateGroup {

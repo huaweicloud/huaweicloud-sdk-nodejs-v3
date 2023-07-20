@@ -1,31 +1,31 @@
 
 
 export class ShowTakeOverTaskDetailsRequest {
-    private 'X-Sdk-Date'?: string | undefined;
-    private 'task_id': string | undefined;
+    private 'X-Sdk-Date'?: string;
+    private 'task_id'?: string;
     public page?: number;
     public size?: number;
-    public constructor(taskId?: any) { 
+    public constructor(taskId?: string) { 
         this['task_id'] = taskId;
     }
     public withXSdkDate(xSdkDate: string): ShowTakeOverTaskDetailsRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withTaskId(taskId: string): ShowTakeOverTaskDetailsRequest {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
     public withPage(page: number): ShowTakeOverTaskDetailsRequest {

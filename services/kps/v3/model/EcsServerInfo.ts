@@ -2,10 +2,10 @@ import { Auth } from './Auth';
 
 
 export class EcsServerInfo {
-    public id: string;
+    public id?: string;
     public auth?: Auth;
-    private 'disable_password'?: boolean | undefined;
-    public constructor(id?: any) { 
+    private 'disable_password'?: boolean;
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withId(id: string): EcsServerInfo {
@@ -20,10 +20,10 @@ export class EcsServerInfo {
         this['disable_password'] = disablePassword;
         return this;
     }
-    public set disablePassword(disablePassword: boolean | undefined) {
+    public set disablePassword(disablePassword: boolean  | undefined) {
         this['disable_password'] = disablePassword;
     }
-    public get disablePassword() {
+    public get disablePassword(): boolean | undefined {
         return this['disable_password'];
     }
 }

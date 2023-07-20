@@ -1,11 +1,11 @@
 
 
 export class CreateRepoDomainsRequestBody {
-    private 'access_domain': string | undefined;
-    public permit: string;
-    public deadline: string;
+    private 'access_domain'?: string;
+    public permit?: string;
+    public deadline?: string;
     public description?: string;
-    public constructor(accessDomain?: any, permit?: any, deadline?: any) { 
+    public constructor(accessDomain?: string, permit?: string, deadline?: string) { 
         this['access_domain'] = accessDomain;
         this['permit'] = permit;
         this['deadline'] = deadline;
@@ -14,10 +14,10 @@ export class CreateRepoDomainsRequestBody {
         this['access_domain'] = accessDomain;
         return this;
     }
-    public set accessDomain(accessDomain: string | undefined) {
+    public set accessDomain(accessDomain: string  | undefined) {
         this['access_domain'] = accessDomain;
     }
-    public get accessDomain() {
+    public get accessDomain(): string | undefined {
         return this['access_domain'];
     }
     public withPermit(permit: string): CreateRepoDomainsRequestBody {

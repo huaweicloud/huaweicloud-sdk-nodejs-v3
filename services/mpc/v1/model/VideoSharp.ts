@@ -2,7 +2,7 @@
 
 export class VideoSharp {
     public name?: string;
-    private 'execution_order'?: number | undefined;
+    private 'execution_order'?: number;
     public amount?: string;
     public constructor() { 
     }
@@ -14,10 +14,10 @@ export class VideoSharp {
         this['execution_order'] = executionOrder;
         return this;
     }
-    public set executionOrder(executionOrder: number | undefined) {
+    public set executionOrder(executionOrder: number  | undefined) {
         this['execution_order'] = executionOrder;
     }
-    public get executionOrder() {
+    public get executionOrder(): number | undefined {
         return this['execution_order'];
     }
     public withAmount(amount: string): VideoSharp {

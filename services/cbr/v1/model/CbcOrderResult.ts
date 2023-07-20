@@ -2,10 +2,10 @@
 
 export class CbcOrderResult {
     public cloudServiceId?: string;
-    public orderId: string;
-    public subscribeResult: number;
+    public orderId?: string;
+    public subscribeResult?: number;
     public resourceId?: string;
-    public constructor(orderId?: any, subscribeResult?: any) { 
+    public constructor(orderId?: string, subscribeResult?: number) { 
         this['orderId'] = orderId;
         this['subscribeResult'] = subscribeResult;
     }

@@ -2,11 +2,11 @@ import { ResourceExtraInfo } from './ResourceExtraInfo';
 
 
 export class Resource {
-    private 'extra_info'?: ResourceExtraInfo | undefined;
-    public id: string;
+    private 'extra_info'?: ResourceExtraInfo;
+    public id?: string;
     public name?: string;
-    public type: string;
-    public constructor(id?: any, type?: any) { 
+    public type?: string;
+    public constructor(id?: string, type?: string) { 
         this['id'] = id;
         this['type'] = type;
     }
@@ -14,10 +14,10 @@ export class Resource {
         this['extra_info'] = extraInfo;
         return this;
     }
-    public set extraInfo(extraInfo: ResourceExtraInfo | undefined) {
+    public set extraInfo(extraInfo: ResourceExtraInfo  | undefined) {
         this['extra_info'] = extraInfo;
     }
-    public get extraInfo() {
+    public get extraInfo(): ResourceExtraInfo | undefined {
         return this['extra_info'];
     }
     public withId(id: string): Resource {

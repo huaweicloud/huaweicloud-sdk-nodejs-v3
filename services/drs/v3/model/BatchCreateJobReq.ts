@@ -2,8 +2,8 @@ import { CreateJobReq } from './CreateJobReq';
 
 
 export class BatchCreateJobReq {
-    public jobs: Array<CreateJobReq>;
-    public constructor(jobs?: any) { 
+    public jobs?: Array<CreateJobReq>;
+    public constructor(jobs?: Array<CreateJobReq>) { 
         this['jobs'] = jobs;
     }
     public withJobs(jobs: Array<CreateJobReq>): BatchCreateJobReq {

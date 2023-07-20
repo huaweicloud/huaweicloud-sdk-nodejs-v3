@@ -2,15 +2,15 @@
 
 export class MixLayoutPane {
     public id?: number;
-    private 'user_id'?: string | undefined;
-    private 'video_type'?: MixLayoutPaneVideoTypeEnum | undefined;
+    private 'user_id'?: string;
+    private 'video_type'?: MixLayoutPaneVideoTypeEnum | string;
     public x?: number;
     public y?: number;
     public width?: number;
     public height?: number;
     public zorder?: number;
-    private 'crop_mode'?: MixLayoutPaneCropModeEnum | undefined;
-    private 'filling_policy'?: MixLayoutPaneFillingPolicyEnum | undefined;
+    private 'crop_mode'?: MixLayoutPaneCropModeEnum | string;
+    private 'filling_policy'?: MixLayoutPaneFillingPolicyEnum | string;
     public constructor() { 
     }
     public withId(id: number): MixLayoutPane {
@@ -21,20 +21,20 @@ export class MixLayoutPane {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
-    public withVideoType(videoType: MixLayoutPaneVideoTypeEnum): MixLayoutPane {
+    public withVideoType(videoType: MixLayoutPaneVideoTypeEnum | string): MixLayoutPane {
         this['video_type'] = videoType;
         return this;
     }
-    public set videoType(videoType: MixLayoutPaneVideoTypeEnum | undefined) {
+    public set videoType(videoType: MixLayoutPaneVideoTypeEnum | string  | undefined) {
         this['video_type'] = videoType;
     }
-    public get videoType() {
+    public get videoType(): MixLayoutPaneVideoTypeEnum | string | undefined {
         return this['video_type'];
     }
     public withX(x: number): MixLayoutPane {
@@ -57,24 +57,24 @@ export class MixLayoutPane {
         this['zorder'] = zorder;
         return this;
     }
-    public withCropMode(cropMode: MixLayoutPaneCropModeEnum): MixLayoutPane {
+    public withCropMode(cropMode: MixLayoutPaneCropModeEnum | string): MixLayoutPane {
         this['crop_mode'] = cropMode;
         return this;
     }
-    public set cropMode(cropMode: MixLayoutPaneCropModeEnum | undefined) {
+    public set cropMode(cropMode: MixLayoutPaneCropModeEnum | string  | undefined) {
         this['crop_mode'] = cropMode;
     }
-    public get cropMode() {
+    public get cropMode(): MixLayoutPaneCropModeEnum | string | undefined {
         return this['crop_mode'];
     }
-    public withFillingPolicy(fillingPolicy: MixLayoutPaneFillingPolicyEnum): MixLayoutPane {
+    public withFillingPolicy(fillingPolicy: MixLayoutPaneFillingPolicyEnum | string): MixLayoutPane {
         this['filling_policy'] = fillingPolicy;
         return this;
     }
-    public set fillingPolicy(fillingPolicy: MixLayoutPaneFillingPolicyEnum | undefined) {
+    public set fillingPolicy(fillingPolicy: MixLayoutPaneFillingPolicyEnum | string  | undefined) {
         this['filling_policy'] = fillingPolicy;
     }
-    public get fillingPolicy() {
+    public get fillingPolicy(): MixLayoutPaneFillingPolicyEnum | string | undefined {
         return this['filling_policy'];
     }
 }

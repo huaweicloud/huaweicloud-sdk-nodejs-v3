@@ -2,10 +2,10 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowVocabularyResponse extends SdkResponse {
-    private 'vocabulary_id'?: string | undefined;
+    private 'vocabulary_id'?: string;
     public name?: string;
     public description?: string;
-    public language?: ShowVocabularyResponseLanguageEnum;
+    public language?: ShowVocabularyResponseLanguageEnum | string;
     public contents?: Array<string>;
     public constructor() { 
         super();
@@ -14,10 +14,10 @@ export class ShowVocabularyResponse extends SdkResponse {
         this['vocabulary_id'] = vocabularyId;
         return this;
     }
-    public set vocabularyId(vocabularyId: string | undefined) {
+    public set vocabularyId(vocabularyId: string  | undefined) {
         this['vocabulary_id'] = vocabularyId;
     }
-    public get vocabularyId() {
+    public get vocabularyId(): string | undefined {
         return this['vocabulary_id'];
     }
     public withName(name: string): ShowVocabularyResponse {
@@ -28,7 +28,7 @@ export class ShowVocabularyResponse extends SdkResponse {
         this['description'] = description;
         return this;
     }
-    public withLanguage(language: ShowVocabularyResponseLanguageEnum): ShowVocabularyResponse {
+    public withLanguage(language: ShowVocabularyResponseLanguageEnum | string): ShowVocabularyResponse {
         this['language'] = language;
         return this;
     }

@@ -3,7 +3,7 @@
 export class ListQuotasRespQuotasResources {
     public type?: string;
     public available?: number;
-    private 'edge_volume'?: number | undefined;
+    private 'edge_volume'?: number;
     public constructor() { 
     }
     public withType(type: string): ListQuotasRespQuotasResources {
@@ -18,10 +18,10 @@ export class ListQuotasRespQuotasResources {
         this['edge_volume'] = edgeVolume;
         return this;
     }
-    public set edgeVolume(edgeVolume: number | undefined) {
+    public set edgeVolume(edgeVolume: number  | undefined) {
         this['edge_volume'] = edgeVolume;
     }
-    public get edgeVolume() {
+    public get edgeVolume(): number | undefined {
         return this['edge_volume'];
     }
 }

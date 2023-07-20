@@ -7,23 +7,23 @@ import { VpcObject } from './VpcObject';
 
 export class TemplateResponseBody {
     public id?: string;
-    public name: string;
-    private 'is_template'?: string | undefined;
-    public region: string;
-    public projectid: string;
-    private 'target_server_name': string | undefined;
-    private 'availability_zone': string | undefined;
-    public volumetype: TemplateResponseBodyVolumetypeEnum;
-    public flavor: string;
-    public vpc: VpcObject;
-    public nics: Array<Nics>;
-    private 'security_groups': Array<SgObject> | undefined;
-    public publicip: PublicIp;
-    public disk: Array<TemplateDisk>;
-    private 'data_volume_type': TemplateResponseBodyDataVolumeTypeEnum | undefined;
-    private 'target_password': string | undefined;
-    private 'image_id'?: string | undefined;
-    public constructor(name?: any, region?: any, projectid?: any, targetServerName?: any, availabilityZone?: any, volumetype?: any, flavor?: any, vpc?: any, nics?: any, securityGroups?: any, publicip?: any, disk?: any, dataVolumeType?: any, targetPassword?: any) { 
+    public name?: string;
+    private 'is_template'?: string;
+    public region?: string;
+    public projectid?: string;
+    private 'target_server_name'?: string;
+    private 'availability_zone'?: string;
+    public volumetype?: TemplateResponseBodyVolumetypeEnum | string;
+    public flavor?: string;
+    public vpc?: VpcObject;
+    public nics?: Array<Nics>;
+    private 'security_groups'?: Array<SgObject>;
+    public publicip?: PublicIp;
+    public disk?: Array<TemplateDisk>;
+    private 'data_volume_type'?: TemplateResponseBodyDataVolumeTypeEnum | string;
+    private 'target_password'?: string;
+    private 'image_id'?: string;
+    public constructor(name?: string, region?: string, projectid?: string, targetServerName?: string, availabilityZone?: string, volumetype?: string, flavor?: string, vpc?: VpcObject, nics?: Array<Nics>, securityGroups?: Array<SgObject>, publicip?: PublicIp, disk?: Array<TemplateDisk>, dataVolumeType?: string, targetPassword?: string) { 
         this['name'] = name;
         this['region'] = region;
         this['projectid'] = projectid;
@@ -51,10 +51,10 @@ export class TemplateResponseBody {
         this['is_template'] = isTemplate;
         return this;
     }
-    public set isTemplate(isTemplate: string | undefined) {
+    public set isTemplate(isTemplate: string  | undefined) {
         this['is_template'] = isTemplate;
     }
-    public get isTemplate() {
+    public get isTemplate(): string | undefined {
         return this['is_template'];
     }
     public withRegion(region: string): TemplateResponseBody {
@@ -69,23 +69,23 @@ export class TemplateResponseBody {
         this['target_server_name'] = targetServerName;
         return this;
     }
-    public set targetServerName(targetServerName: string | undefined) {
+    public set targetServerName(targetServerName: string  | undefined) {
         this['target_server_name'] = targetServerName;
     }
-    public get targetServerName() {
+    public get targetServerName(): string | undefined {
         return this['target_server_name'];
     }
     public withAvailabilityZone(availabilityZone: string): TemplateResponseBody {
         this['availability_zone'] = availabilityZone;
         return this;
     }
-    public set availabilityZone(availabilityZone: string | undefined) {
+    public set availabilityZone(availabilityZone: string  | undefined) {
         this['availability_zone'] = availabilityZone;
     }
-    public get availabilityZone() {
+    public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
-    public withVolumetype(volumetype: TemplateResponseBodyVolumetypeEnum): TemplateResponseBody {
+    public withVolumetype(volumetype: TemplateResponseBodyVolumetypeEnum | string): TemplateResponseBody {
         this['volumetype'] = volumetype;
         return this;
     }
@@ -105,10 +105,10 @@ export class TemplateResponseBody {
         this['security_groups'] = securityGroups;
         return this;
     }
-    public set securityGroups(securityGroups: Array<SgObject> | undefined) {
+    public set securityGroups(securityGroups: Array<SgObject>  | undefined) {
         this['security_groups'] = securityGroups;
     }
-    public get securityGroups() {
+    public get securityGroups(): Array<SgObject> | undefined {
         return this['security_groups'];
     }
     public withPublicip(publicip: PublicIp): TemplateResponseBody {
@@ -119,34 +119,34 @@ export class TemplateResponseBody {
         this['disk'] = disk;
         return this;
     }
-    public withDataVolumeType(dataVolumeType: TemplateResponseBodyDataVolumeTypeEnum): TemplateResponseBody {
+    public withDataVolumeType(dataVolumeType: TemplateResponseBodyDataVolumeTypeEnum | string): TemplateResponseBody {
         this['data_volume_type'] = dataVolumeType;
         return this;
     }
-    public set dataVolumeType(dataVolumeType: TemplateResponseBodyDataVolumeTypeEnum | undefined) {
+    public set dataVolumeType(dataVolumeType: TemplateResponseBodyDataVolumeTypeEnum | string  | undefined) {
         this['data_volume_type'] = dataVolumeType;
     }
-    public get dataVolumeType() {
+    public get dataVolumeType(): TemplateResponseBodyDataVolumeTypeEnum | string | undefined {
         return this['data_volume_type'];
     }
     public withTargetPassword(targetPassword: string): TemplateResponseBody {
         this['target_password'] = targetPassword;
         return this;
     }
-    public set targetPassword(targetPassword: string | undefined) {
+    public set targetPassword(targetPassword: string  | undefined) {
         this['target_password'] = targetPassword;
     }
-    public get targetPassword() {
+    public get targetPassword(): string | undefined {
         return this['target_password'];
     }
     public withImageId(imageId: string): TemplateResponseBody {
         this['image_id'] = imageId;
         return this;
     }
-    public set imageId(imageId: string | undefined) {
+    public set imageId(imageId: string  | undefined) {
         this['image_id'] = imageId;
     }
-    public get imageId() {
+    public get imageId(): string | undefined {
         return this['image_id'];
     }
 }

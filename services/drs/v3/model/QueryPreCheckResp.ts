@@ -2,25 +2,25 @@ import { PrecheckResult } from './PrecheckResult';
 
 
 export class QueryPreCheckResp {
-    private 'precheck_id'?: string | undefined;
+    private 'precheck_id'?: string;
     public result?: boolean;
     public process?: string;
-    private 'total_passed_rate'?: string | undefined;
-    private 'rds_instance_id'?: string | undefined;
-    private 'job_direction'?: QueryPreCheckRespJobDirectionEnum | undefined;
-    private 'precheck_result'?: Array<PrecheckResult> | undefined;
-    private 'error_msg'?: string | undefined;
-    private 'error_code'?: string | undefined;
+    private 'total_passed_rate'?: string;
+    private 'rds_instance_id'?: string;
+    private 'job_direction'?: QueryPreCheckRespJobDirectionEnum | string;
+    private 'precheck_result'?: Array<PrecheckResult>;
+    private 'error_msg'?: string;
+    private 'error_code'?: string;
     public constructor() { 
     }
     public withPrecheckId(precheckId: string): QueryPreCheckResp {
         this['precheck_id'] = precheckId;
         return this;
     }
-    public set precheckId(precheckId: string | undefined) {
+    public set precheckId(precheckId: string  | undefined) {
         this['precheck_id'] = precheckId;
     }
-    public get precheckId() {
+    public get precheckId(): string | undefined {
         return this['precheck_id'];
     }
     public withResult(result: boolean): QueryPreCheckResp {
@@ -35,60 +35,60 @@ export class QueryPreCheckResp {
         this['total_passed_rate'] = totalPassedRate;
         return this;
     }
-    public set totalPassedRate(totalPassedRate: string | undefined) {
+    public set totalPassedRate(totalPassedRate: string  | undefined) {
         this['total_passed_rate'] = totalPassedRate;
     }
-    public get totalPassedRate() {
+    public get totalPassedRate(): string | undefined {
         return this['total_passed_rate'];
     }
     public withRdsInstanceId(rdsInstanceId: string): QueryPreCheckResp {
         this['rds_instance_id'] = rdsInstanceId;
         return this;
     }
-    public set rdsInstanceId(rdsInstanceId: string | undefined) {
+    public set rdsInstanceId(rdsInstanceId: string  | undefined) {
         this['rds_instance_id'] = rdsInstanceId;
     }
-    public get rdsInstanceId() {
+    public get rdsInstanceId(): string | undefined {
         return this['rds_instance_id'];
     }
-    public withJobDirection(jobDirection: QueryPreCheckRespJobDirectionEnum): QueryPreCheckResp {
+    public withJobDirection(jobDirection: QueryPreCheckRespJobDirectionEnum | string): QueryPreCheckResp {
         this['job_direction'] = jobDirection;
         return this;
     }
-    public set jobDirection(jobDirection: QueryPreCheckRespJobDirectionEnum | undefined) {
+    public set jobDirection(jobDirection: QueryPreCheckRespJobDirectionEnum | string  | undefined) {
         this['job_direction'] = jobDirection;
     }
-    public get jobDirection() {
+    public get jobDirection(): QueryPreCheckRespJobDirectionEnum | string | undefined {
         return this['job_direction'];
     }
     public withPrecheckResult(precheckResult: Array<PrecheckResult>): QueryPreCheckResp {
         this['precheck_result'] = precheckResult;
         return this;
     }
-    public set precheckResult(precheckResult: Array<PrecheckResult> | undefined) {
+    public set precheckResult(precheckResult: Array<PrecheckResult>  | undefined) {
         this['precheck_result'] = precheckResult;
     }
-    public get precheckResult() {
+    public get precheckResult(): Array<PrecheckResult> | undefined {
         return this['precheck_result'];
     }
     public withErrorMsg(errorMsg: string): QueryPreCheckResp {
         this['error_msg'] = errorMsg;
         return this;
     }
-    public set errorMsg(errorMsg: string | undefined) {
+    public set errorMsg(errorMsg: string  | undefined) {
         this['error_msg'] = errorMsg;
     }
-    public get errorMsg() {
+    public get errorMsg(): string | undefined {
         return this['error_msg'];
     }
     public withErrorCode(errorCode: string): QueryPreCheckResp {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
 }

@@ -1,9 +1,9 @@
 
 
 export class ReviewDetail {
-    public confidence: string;
+    public confidence?: string;
     public label?: string;
-    public constructor(confidence?: any) { 
+    public constructor(confidence?: string) { 
         this['confidence'] = confidence;
     }
     public withConfidence(confidence: string): ReviewDetail {

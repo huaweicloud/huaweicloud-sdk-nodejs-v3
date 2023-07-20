@@ -7,24 +7,24 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class CreatePremiumHostResponse extends SdkResponse {
     public id?: string;
     public hostname?: string;
-    public protocol?: CreatePremiumHostResponseProtocolEnum;
+    public protocol?: CreatePremiumHostResponseProtocolEnum | string;
     public server?: Array<PremiumWafServer>;
     public proxy?: boolean;
     public locked?: number;
     public timestamp?: number;
-    public tls?: CreatePremiumHostResponseTlsEnum;
-    public cipher?: CreatePremiumHostResponseCipherEnum;
+    public tls?: CreatePremiumHostResponseTlsEnum | string;
+    public cipher?: CreatePremiumHostResponseCipherEnum | string;
     public extend?: { [key: string]: string; };
     public flag?: Flag;
     public description?: string;
     public policyid?: string;
     public domainid?: string;
     public projectid?: string;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'protect_status'?: number | undefined;
-    private 'access_status'?: number | undefined;
-    private 'block_page'?: BlockPage | undefined;
-    private 'forward_header_map'?: { [key: string]: string; } | undefined;
+    private 'enterprise_project_id'?: string;
+    private 'protect_status'?: number;
+    private 'access_status'?: number;
+    private 'block_page'?: BlockPage;
+    private 'forward_header_map'?: { [key: string]: string; };
     public constructor() { 
         super();
     }
@@ -36,7 +36,7 @@ export class CreatePremiumHostResponse extends SdkResponse {
         this['hostname'] = hostname;
         return this;
     }
-    public withProtocol(protocol: CreatePremiumHostResponseProtocolEnum): CreatePremiumHostResponse {
+    public withProtocol(protocol: CreatePremiumHostResponseProtocolEnum | string): CreatePremiumHostResponse {
         this['protocol'] = protocol;
         return this;
     }
@@ -56,11 +56,11 @@ export class CreatePremiumHostResponse extends SdkResponse {
         this['timestamp'] = timestamp;
         return this;
     }
-    public withTls(tls: CreatePremiumHostResponseTlsEnum): CreatePremiumHostResponse {
+    public withTls(tls: CreatePremiumHostResponseTlsEnum | string): CreatePremiumHostResponse {
         this['tls'] = tls;
         return this;
     }
-    public withCipher(cipher: CreatePremiumHostResponseCipherEnum): CreatePremiumHostResponse {
+    public withCipher(cipher: CreatePremiumHostResponseCipherEnum | string): CreatePremiumHostResponse {
         this['cipher'] = cipher;
         return this;
     }
@@ -92,50 +92,50 @@ export class CreatePremiumHostResponse extends SdkResponse {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withProtectStatus(protectStatus: number): CreatePremiumHostResponse {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number | undefined) {
+    public set protectStatus(protectStatus: number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): number | undefined {
         return this['protect_status'];
     }
     public withAccessStatus(accessStatus: number): CreatePremiumHostResponse {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number | undefined) {
+    public set accessStatus(accessStatus: number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus() {
+    public get accessStatus(): number | undefined {
         return this['access_status'];
     }
     public withBlockPage(blockPage: BlockPage): CreatePremiumHostResponse {
         this['block_page'] = blockPage;
         return this;
     }
-    public set blockPage(blockPage: BlockPage | undefined) {
+    public set blockPage(blockPage: BlockPage  | undefined) {
         this['block_page'] = blockPage;
     }
-    public get blockPage() {
+    public get blockPage(): BlockPage | undefined {
         return this['block_page'];
     }
     public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): CreatePremiumHostResponse {
         this['forward_header_map'] = forwardHeaderMap;
         return this;
     }
-    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; }  | undefined) {
         this['forward_header_map'] = forwardHeaderMap;
     }
-    public get forwardHeaderMap() {
+    public get forwardHeaderMap(): { [key: string]: string; } | undefined {
         return this['forward_header_map'];
     }
 }

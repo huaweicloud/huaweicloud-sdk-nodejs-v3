@@ -72,6 +72,8 @@ export * from './model/DeleteApplicationRequest';
 export * from './model/DeleteApplicationResponse';
 export * from './model/DeleteBatchTaskFileRequest';
 export * from './model/DeleteBatchTaskFileResponse';
+export * from './model/DeleteBatchTaskRequest';
+export * from './model/DeleteBatchTaskResponse';
 export * from './model/DeleteCertificateRequest';
 export * from './model/DeleteCertificateResponse';
 export * from './model/DeleteDeviceGroupRequest';

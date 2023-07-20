@@ -2,16 +2,16 @@ import { RouteAttachment } from './RouteAttachment';
 
 
 export class Route {
-    public id: string;
-    public type: string;
+    public id?: string;
+    public type?: string;
     public state?: string;
-    private 'is_blackhole'?: boolean | undefined;
-    public destination: string;
-    public attachments: Array<RouteAttachment>;
-    private 'route_table_id': string | undefined;
-    private 'created_at': Date | undefined;
-    private 'updated_at'?: Date | undefined;
-    public constructor(id?: any, type?: any, destination?: any, attachments?: any, routeTableId?: any, createdAt?: any) { 
+    private 'is_blackhole'?: boolean;
+    public destination?: string;
+    public attachments?: Array<RouteAttachment>;
+    private 'route_table_id'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    public constructor(id?: string, type?: string, destination?: string, attachments?: Array<RouteAttachment>, routeTableId?: string, createdAt?: Date) { 
         this['id'] = id;
         this['type'] = type;
         this['destination'] = destination;
@@ -35,10 +35,10 @@ export class Route {
         this['is_blackhole'] = isBlackhole;
         return this;
     }
-    public set isBlackhole(isBlackhole: boolean | undefined) {
+    public set isBlackhole(isBlackhole: boolean  | undefined) {
         this['is_blackhole'] = isBlackhole;
     }
-    public get isBlackhole() {
+    public get isBlackhole(): boolean | undefined {
         return this['is_blackhole'];
     }
     public withDestination(destination: string): Route {
@@ -53,30 +53,30 @@ export class Route {
         this['route_table_id'] = routeTableId;
         return this;
     }
-    public set routeTableId(routeTableId: string | undefined) {
+    public set routeTableId(routeTableId: string  | undefined) {
         this['route_table_id'] = routeTableId;
     }
-    public get routeTableId() {
+    public get routeTableId(): string | undefined {
         return this['route_table_id'];
     }
     public withCreatedAt(createdAt: Date): Route {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): Route {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
 }

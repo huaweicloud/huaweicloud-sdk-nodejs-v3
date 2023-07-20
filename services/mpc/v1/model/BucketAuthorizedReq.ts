@@ -1,9 +1,9 @@
 
 
 export class BucketAuthorizedReq {
-    public bucket: string;
-    public operation: BucketAuthorizedReqOperationEnum;
-    public constructor(bucket?: any, operation?: any) { 
+    public bucket?: string;
+    public operation?: BucketAuthorizedReqOperationEnum | string;
+    public constructor(bucket?: string, operation?: string) { 
         this['bucket'] = bucket;
         this['operation'] = operation;
     }
@@ -11,7 +11,7 @@ export class BucketAuthorizedReq {
         this['bucket'] = bucket;
         return this;
     }
-    public withOperation(operation: BucketAuthorizedReqOperationEnum): BucketAuthorizedReq {
+    public withOperation(operation: BucketAuthorizedReqOperationEnum | string): BucketAuthorizedReq {
         this['operation'] = operation;
         return this;
     }

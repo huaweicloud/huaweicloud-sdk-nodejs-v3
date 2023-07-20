@@ -2,10 +2,10 @@ import { WordInfo } from './WordInfo';
 
 
 export class Result {
-    public text: string;
-    public score: number;
-    private 'word_info'?: Array<WordInfo> | undefined;
-    public constructor(text?: any, score?: any) { 
+    public text?: string;
+    public score?: number;
+    private 'word_info'?: Array<WordInfo>;
+    public constructor(text?: string, score?: number) { 
         this['text'] = text;
         this['score'] = score;
     }
@@ -21,10 +21,10 @@ export class Result {
         this['word_info'] = wordInfo;
         return this;
     }
-    public set wordInfo(wordInfo: Array<WordInfo> | undefined) {
+    public set wordInfo(wordInfo: Array<WordInfo>  | undefined) {
         this['word_info'] = wordInfo;
     }
-    public get wordInfo() {
+    public get wordInfo(): Array<WordInfo> | undefined {
         return this['word_info'];
     }
 }

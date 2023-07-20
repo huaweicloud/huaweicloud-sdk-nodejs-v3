@@ -1,10 +1,10 @@
 
 
 export class ListProductsRequest {
-    private 'Instance-Id'?: string | undefined;
+    private 'Instance-Id'?: string;
     public limit?: number;
     public marker?: string;
-    private 'app_id'?: string | undefined;
+    private 'app_id'?: string;
     public offset?: number;
     public constructor() { 
     }
@@ -12,10 +12,10 @@ export class ListProductsRequest {
         this['Instance-Id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['Instance-Id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['Instance-Id'];
     }
     public withLimit(limit: number): ListProductsRequest {
@@ -30,10 +30,10 @@ export class ListProductsRequest {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withOffset(offset: number): ListProductsRequest {

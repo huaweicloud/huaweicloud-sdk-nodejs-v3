@@ -1,9 +1,9 @@
 
 
 export class BatchUpdatePriorityRequestBody {
-    public id: string;
-    public priority: number;
-    public constructor(id?: any, priority?: any) { 
+    public id?: string;
+    public priority?: number;
+    public constructor(id?: string, priority?: number) { 
         this['id'] = id;
         this['priority'] = priority;
     }

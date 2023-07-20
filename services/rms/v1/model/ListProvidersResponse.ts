@@ -3,8 +3,8 @@ import { ResourceProviderResponse } from './ResourceProviderResponse';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListProvidersResponse extends SdkResponse {
-    private 'resource_providers'?: Array<ResourceProviderResponse> | undefined;
-    private 'total_count'?: number | undefined;
+    private 'resource_providers'?: Array<ResourceProviderResponse>;
+    private 'total_count'?: number;
     public constructor() { 
         super();
     }
@@ -12,20 +12,20 @@ export class ListProvidersResponse extends SdkResponse {
         this['resource_providers'] = resourceProviders;
         return this;
     }
-    public set resourceProviders(resourceProviders: Array<ResourceProviderResponse> | undefined) {
+    public set resourceProviders(resourceProviders: Array<ResourceProviderResponse>  | undefined) {
         this['resource_providers'] = resourceProviders;
     }
-    public get resourceProviders() {
+    public get resourceProviders(): Array<ResourceProviderResponse> | undefined {
         return this['resource_providers'];
     }
     public withTotalCount(totalCount: number): ListProvidersResponse {
         this['total_count'] = totalCount;
         return this;
     }
-    public set totalCount(totalCount: number | undefined) {
+    public set totalCount(totalCount: number  | undefined) {
         this['total_count'] = totalCount;
     }
-    public get totalCount() {
+    public get totalCount(): number | undefined {
         return this['total_count'];
     }
 }

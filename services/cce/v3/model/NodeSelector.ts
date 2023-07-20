@@ -1,10 +1,10 @@
 
 
 export class NodeSelector {
-    public key: string;
+    public key?: string;
     public value?: Array<string>;
-    public operator: string;
-    public constructor(key?: any, operator?: any) { 
+    public operator?: string;
+    public constructor(key?: string, operator?: string) { 
         this['key'] = key;
         this['operator'] = operator;
     }

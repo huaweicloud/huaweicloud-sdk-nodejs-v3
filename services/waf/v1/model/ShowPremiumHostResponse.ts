@@ -15,25 +15,25 @@ export class ShowPremiumHostResponse extends SdkResponse {
     public proxy?: boolean;
     public locked?: number;
     public timestamp?: number;
-    public tls?: ShowPremiumHostResponseTlsEnum;
-    public cipher?: ShowPremiumHostResponseCipherEnum;
+    public tls?: ShowPremiumHostResponseTlsEnum | string;
+    public cipher?: ShowPremiumHostResponseCipherEnum | string;
     public extend?: { [key: string]: string; };
     public flag?: Flag;
     public description?: string;
     public policyid?: string;
     public domainid?: string;
     public projectid?: string;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public certificateid?: string;
     public certificatename?: string;
-    private 'protect_status'?: number | undefined;
-    private 'access_status'?: number | undefined;
-    private 'web_tag'?: string | undefined;
-    private 'block_page'?: BlockPage | undefined;
-    private 'traffic_mark'?: TrafficMark | undefined;
-    private 'timeout_config'?: TimeoutConfig | undefined;
-    private 'forward_header_map'?: { [key: string]: string; } | undefined;
-    private 'access_progress'?: Array<AccessProgress> | undefined;
+    private 'protect_status'?: number;
+    private 'access_status'?: number;
+    private 'web_tag'?: string;
+    private 'block_page'?: BlockPage;
+    private 'traffic_mark'?: TrafficMark;
+    private 'timeout_config'?: TimeoutConfig;
+    private 'forward_header_map'?: { [key: string]: string; };
+    private 'access_progress'?: Array<AccessProgress>;
     public constructor() { 
         super();
     }
@@ -65,11 +65,11 @@ export class ShowPremiumHostResponse extends SdkResponse {
         this['timestamp'] = timestamp;
         return this;
     }
-    public withTls(tls: ShowPremiumHostResponseTlsEnum): ShowPremiumHostResponse {
+    public withTls(tls: ShowPremiumHostResponseTlsEnum | string): ShowPremiumHostResponse {
         this['tls'] = tls;
         return this;
     }
-    public withCipher(cipher: ShowPremiumHostResponseCipherEnum): ShowPremiumHostResponse {
+    public withCipher(cipher: ShowPremiumHostResponseCipherEnum | string): ShowPremiumHostResponse {
         this['cipher'] = cipher;
         return this;
     }
@@ -101,10 +101,10 @@ export class ShowPremiumHostResponse extends SdkResponse {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withCertificateid(certificateid: string): ShowPremiumHostResponse {
@@ -119,80 +119,80 @@ export class ShowPremiumHostResponse extends SdkResponse {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number | undefined) {
+    public set protectStatus(protectStatus: number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): number | undefined {
         return this['protect_status'];
     }
     public withAccessStatus(accessStatus: number): ShowPremiumHostResponse {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number | undefined) {
+    public set accessStatus(accessStatus: number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus() {
+    public get accessStatus(): number | undefined {
         return this['access_status'];
     }
     public withWebTag(webTag: string): ShowPremiumHostResponse {
         this['web_tag'] = webTag;
         return this;
     }
-    public set webTag(webTag: string | undefined) {
+    public set webTag(webTag: string  | undefined) {
         this['web_tag'] = webTag;
     }
-    public get webTag() {
+    public get webTag(): string | undefined {
         return this['web_tag'];
     }
     public withBlockPage(blockPage: BlockPage): ShowPremiumHostResponse {
         this['block_page'] = blockPage;
         return this;
     }
-    public set blockPage(blockPage: BlockPage | undefined) {
+    public set blockPage(blockPage: BlockPage  | undefined) {
         this['block_page'] = blockPage;
     }
-    public get blockPage() {
+    public get blockPage(): BlockPage | undefined {
         return this['block_page'];
     }
     public withTrafficMark(trafficMark: TrafficMark): ShowPremiumHostResponse {
         this['traffic_mark'] = trafficMark;
         return this;
     }
-    public set trafficMark(trafficMark: TrafficMark | undefined) {
+    public set trafficMark(trafficMark: TrafficMark  | undefined) {
         this['traffic_mark'] = trafficMark;
     }
-    public get trafficMark() {
+    public get trafficMark(): TrafficMark | undefined {
         return this['traffic_mark'];
     }
     public withTimeoutConfig(timeoutConfig: TimeoutConfig): ShowPremiumHostResponse {
         this['timeout_config'] = timeoutConfig;
         return this;
     }
-    public set timeoutConfig(timeoutConfig: TimeoutConfig | undefined) {
+    public set timeoutConfig(timeoutConfig: TimeoutConfig  | undefined) {
         this['timeout_config'] = timeoutConfig;
     }
-    public get timeoutConfig() {
+    public get timeoutConfig(): TimeoutConfig | undefined {
         return this['timeout_config'];
     }
     public withForwardHeaderMap(forwardHeaderMap: { [key: string]: string; }): ShowPremiumHostResponse {
         this['forward_header_map'] = forwardHeaderMap;
         return this;
     }
-    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; }  | undefined) {
         this['forward_header_map'] = forwardHeaderMap;
     }
-    public get forwardHeaderMap() {
+    public get forwardHeaderMap(): { [key: string]: string; } | undefined {
         return this['forward_header_map'];
     }
     public withAccessProgress(accessProgress: Array<AccessProgress>): ShowPremiumHostResponse {
         this['access_progress'] = accessProgress;
         return this;
     }
-    public set accessProgress(accessProgress: Array<AccessProgress> | undefined) {
+    public set accessProgress(accessProgress: Array<AccessProgress>  | undefined) {
         this['access_progress'] = accessProgress;
     }
-    public get accessProgress() {
+    public get accessProgress(): Array<AccessProgress> | undefined {
         return this['access_progress'];
     }
 }

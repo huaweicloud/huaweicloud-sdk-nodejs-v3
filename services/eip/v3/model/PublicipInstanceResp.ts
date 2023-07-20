@@ -4,25 +4,25 @@ import { VnicInfo } from './VnicInfo';
 
 export class PublicipInstanceResp {
     public id?: string;
-    private 'project_id'?: string | undefined;
-    private 'ip_version'?: PublicipInstanceRespIpVersionEnum | undefined;
-    private 'public_ip_address'?: string | undefined;
-    private 'public_ipv6_address'?: string | undefined;
-    public status?: PublicipInstanceRespStatusEnum;
+    private 'project_id'?: string;
+    private 'ip_version'?: PublicipInstanceRespIpVersionEnum | number;
+    private 'public_ip_address'?: string;
+    private 'public_ipv6_address'?: string;
+    public status?: PublicipInstanceRespStatusEnum | string;
     public description?: string;
-    private 'public_border_group'?: string | undefined;
-    private 'created_at'?: Date | undefined;
-    private 'updated_at'?: Date | undefined;
-    public type?: PublicipInstanceRespTypeEnum;
+    private 'public_border_group'?: string;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    public type?: PublicipInstanceRespTypeEnum | string;
     public vnic?: VnicInfo;
     public bandwidth?: PublicipBandwidthInfo;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'billing_info'?: string | undefined;
-    private 'lock_status'?: string | undefined;
-    private 'associate_instance_type'?: PublicipInstanceRespAssociateInstanceTypeEnum | undefined;
-    private 'associate_instance_id'?: string | undefined;
-    private 'publicip_pool_id'?: string | undefined;
-    private 'publicip_pool_name'?: string | undefined;
+    private 'enterprise_project_id'?: string;
+    private 'billing_info'?: string;
+    private 'lock_status'?: string;
+    private 'associate_instance_type'?: PublicipInstanceRespAssociateInstanceTypeEnum | string;
+    private 'associate_instance_id'?: string;
+    private 'publicip_pool_id'?: string;
+    private 'publicip_pool_name'?: string;
     public alias?: string;
     public constructor() { 
     }
@@ -34,43 +34,43 @@ export class PublicipInstanceResp {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withIpVersion(ipVersion: PublicipInstanceRespIpVersionEnum): PublicipInstanceResp {
+    public withIpVersion(ipVersion: PublicipInstanceRespIpVersionEnum | number): PublicipInstanceResp {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: PublicipInstanceRespIpVersionEnum | undefined) {
+    public set ipVersion(ipVersion: PublicipInstanceRespIpVersionEnum | number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion() {
+    public get ipVersion(): PublicipInstanceRespIpVersionEnum | number | undefined {
         return this['ip_version'];
     }
     public withPublicIpAddress(publicIpAddress: string): PublicipInstanceResp {
         this['public_ip_address'] = publicIpAddress;
         return this;
     }
-    public set publicIpAddress(publicIpAddress: string | undefined) {
+    public set publicIpAddress(publicIpAddress: string  | undefined) {
         this['public_ip_address'] = publicIpAddress;
     }
-    public get publicIpAddress() {
+    public get publicIpAddress(): string | undefined {
         return this['public_ip_address'];
     }
     public withPublicIpv6Address(publicIpv6Address: string): PublicipInstanceResp {
         this['public_ipv6_address'] = publicIpv6Address;
         return this;
     }
-    public set publicIpv6Address(publicIpv6Address: string | undefined) {
+    public set publicIpv6Address(publicIpv6Address: string  | undefined) {
         this['public_ipv6_address'] = publicIpv6Address;
     }
-    public get publicIpv6Address() {
+    public get publicIpv6Address(): string | undefined {
         return this['public_ipv6_address'];
     }
-    public withStatus(status: PublicipInstanceRespStatusEnum): PublicipInstanceResp {
+    public withStatus(status: PublicipInstanceRespStatusEnum | string): PublicipInstanceResp {
         this['status'] = status;
         return this;
     }
@@ -82,33 +82,33 @@ export class PublicipInstanceResp {
         this['public_border_group'] = publicBorderGroup;
         return this;
     }
-    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
         this['public_border_group'] = publicBorderGroup;
     }
-    public get publicBorderGroup() {
+    public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
     public withCreatedAt(createdAt: Date): PublicipInstanceResp {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): PublicipInstanceResp {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
-    public withType(type: PublicipInstanceRespTypeEnum): PublicipInstanceResp {
+    public withType(type: PublicipInstanceRespTypeEnum | string): PublicipInstanceResp {
         this['type'] = type;
         return this;
     }
@@ -124,70 +124,70 @@ export class PublicipInstanceResp {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withBillingInfo(billingInfo: string): PublicipInstanceResp {
         this['billing_info'] = billingInfo;
         return this;
     }
-    public set billingInfo(billingInfo: string | undefined) {
+    public set billingInfo(billingInfo: string  | undefined) {
         this['billing_info'] = billingInfo;
     }
-    public get billingInfo() {
+    public get billingInfo(): string | undefined {
         return this['billing_info'];
     }
     public withLockStatus(lockStatus: string): PublicipInstanceResp {
         this['lock_status'] = lockStatus;
         return this;
     }
-    public set lockStatus(lockStatus: string | undefined) {
+    public set lockStatus(lockStatus: string  | undefined) {
         this['lock_status'] = lockStatus;
     }
-    public get lockStatus() {
+    public get lockStatus(): string | undefined {
         return this['lock_status'];
     }
-    public withAssociateInstanceType(associateInstanceType: PublicipInstanceRespAssociateInstanceTypeEnum): PublicipInstanceResp {
+    public withAssociateInstanceType(associateInstanceType: PublicipInstanceRespAssociateInstanceTypeEnum | string): PublicipInstanceResp {
         this['associate_instance_type'] = associateInstanceType;
         return this;
     }
-    public set associateInstanceType(associateInstanceType: PublicipInstanceRespAssociateInstanceTypeEnum | undefined) {
+    public set associateInstanceType(associateInstanceType: PublicipInstanceRespAssociateInstanceTypeEnum | string  | undefined) {
         this['associate_instance_type'] = associateInstanceType;
     }
-    public get associateInstanceType() {
+    public get associateInstanceType(): PublicipInstanceRespAssociateInstanceTypeEnum | string | undefined {
         return this['associate_instance_type'];
     }
     public withAssociateInstanceId(associateInstanceId: string): PublicipInstanceResp {
         this['associate_instance_id'] = associateInstanceId;
         return this;
     }
-    public set associateInstanceId(associateInstanceId: string | undefined) {
+    public set associateInstanceId(associateInstanceId: string  | undefined) {
         this['associate_instance_id'] = associateInstanceId;
     }
-    public get associateInstanceId() {
+    public get associateInstanceId(): string | undefined {
         return this['associate_instance_id'];
     }
     public withPublicipPoolId(publicipPoolId: string): PublicipInstanceResp {
         this['publicip_pool_id'] = publicipPoolId;
         return this;
     }
-    public set publicipPoolId(publicipPoolId: string | undefined) {
+    public set publicipPoolId(publicipPoolId: string  | undefined) {
         this['publicip_pool_id'] = publicipPoolId;
     }
-    public get publicipPoolId() {
+    public get publicipPoolId(): string | undefined {
         return this['publicip_pool_id'];
     }
     public withPublicipPoolName(publicipPoolName: string): PublicipInstanceResp {
         this['publicip_pool_name'] = publicipPoolName;
         return this;
     }
-    public set publicipPoolName(publicipPoolName: string | undefined) {
+    public set publicipPoolName(publicipPoolName: string  | undefined) {
         this['publicip_pool_name'] = publicipPoolName;
     }
-    public get publicipPoolName() {
+    public get publicipPoolName(): string | undefined {
         return this['publicip_pool_name'];
     }
     public withAlias(alias: string): PublicipInstanceResp {

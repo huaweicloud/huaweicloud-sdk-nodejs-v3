@@ -5,8 +5,8 @@ export class NeutronListRoutersRequest {
     public marker?: string;
     public id?: string;
     public status?: string;
-    private 'tenant_id'?: string | undefined;
-    private 'admin_state_up'?: boolean | undefined;
+    private 'tenant_id'?: string;
+    private 'admin_state_up'?: boolean;
     public constructor() { 
     }
     public withLimit(limit: number): NeutronListRoutersRequest {
@@ -29,20 +29,20 @@ export class NeutronListRoutersRequest {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withAdminStateUp(adminStateUp: boolean): NeutronListRoutersRequest {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
 }

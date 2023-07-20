@@ -3,15 +3,15 @@ import { SpecClusterNode } from './SpecClusterNode';
 
 export class Spec {
     public id?: number;
-    private 'engine_id'?: string | undefined;
-    private 'spec_type'?: SpecSpecTypeEnum | undefined;
+    private 'engine_id'?: string;
+    private 'spec_type'?: SpecSpecTypeEnum | string;
     public cluster?: string;
-    private 'cluster_id'?: string | undefined;
-    private 'cluster_nodes'?: SpecClusterNode | undefined;
+    private 'cluster_id'?: string;
+    private 'cluster_nodes'?: SpecClusterNode;
     public flavor?: string;
     public region?: string;
     public version?: string;
-    private 'extend_param'?: string | undefined;
+    private 'extend_param'?: string;
     public constructor() { 
     }
     public withId(id: number): Spec {
@@ -22,20 +22,20 @@ export class Spec {
         this['engine_id'] = engineId;
         return this;
     }
-    public set engineId(engineId: string | undefined) {
+    public set engineId(engineId: string  | undefined) {
         this['engine_id'] = engineId;
     }
-    public get engineId() {
+    public get engineId(): string | undefined {
         return this['engine_id'];
     }
-    public withSpecType(specType: SpecSpecTypeEnum): Spec {
+    public withSpecType(specType: SpecSpecTypeEnum | string): Spec {
         this['spec_type'] = specType;
         return this;
     }
-    public set specType(specType: SpecSpecTypeEnum | undefined) {
+    public set specType(specType: SpecSpecTypeEnum | string  | undefined) {
         this['spec_type'] = specType;
     }
-    public get specType() {
+    public get specType(): SpecSpecTypeEnum | string | undefined {
         return this['spec_type'];
     }
     public withCluster(cluster: string): Spec {
@@ -46,20 +46,20 @@ export class Spec {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withClusterNodes(clusterNodes: SpecClusterNode): Spec {
         this['cluster_nodes'] = clusterNodes;
         return this;
     }
-    public set clusterNodes(clusterNodes: SpecClusterNode | undefined) {
+    public set clusterNodes(clusterNodes: SpecClusterNode  | undefined) {
         this['cluster_nodes'] = clusterNodes;
     }
-    public get clusterNodes() {
+    public get clusterNodes(): SpecClusterNode | undefined {
         return this['cluster_nodes'];
     }
     public withFlavor(flavor: string): Spec {
@@ -78,10 +78,10 @@ export class Spec {
         this['extend_param'] = extendParam;
         return this;
     }
-    public set extendParam(extendParam: string | undefined) {
+    public set extendParam(extendParam: string  | undefined) {
         this['extend_param'] = extendParam;
     }
-    public get extendParam() {
+    public get extendParam(): string | undefined {
         return this['extend_param'];
     }
 }

@@ -2,9 +2,9 @@ import { KeyChainInfo } from './KeyChainInfo';
 
 
 export class UpdateDomainKeyChainRequest {
-    public domain: string;
+    public domain?: string;
     public body?: KeyChainInfo;
-    public constructor(domain?: any) { 
+    public constructor(domain?: string) { 
         this['domain'] = domain;
     }
     public withDomain(domain: string): UpdateDomainKeyChainRequest {

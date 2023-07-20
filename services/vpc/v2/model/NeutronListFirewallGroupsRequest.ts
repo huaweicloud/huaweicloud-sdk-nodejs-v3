@@ -6,8 +6,8 @@ export class NeutronListFirewallGroupsRequest {
     public id?: Array<string>;
     public name?: Array<string>;
     public description?: Array<string>;
-    private 'ingress_firewall_policy_id'?: string | undefined;
-    private 'egress_firewall_policy_id'?: string | undefined;
+    private 'ingress_firewall_policy_id'?: string;
+    private 'egress_firewall_policy_id'?: string;
     public constructor() { 
     }
     public withMarker(marker: string): NeutronListFirewallGroupsRequest {
@@ -34,20 +34,20 @@ export class NeutronListFirewallGroupsRequest {
         this['ingress_firewall_policy_id'] = ingressFirewallPolicyId;
         return this;
     }
-    public set ingressFirewallPolicyId(ingressFirewallPolicyId: string | undefined) {
+    public set ingressFirewallPolicyId(ingressFirewallPolicyId: string  | undefined) {
         this['ingress_firewall_policy_id'] = ingressFirewallPolicyId;
     }
-    public get ingressFirewallPolicyId() {
+    public get ingressFirewallPolicyId(): string | undefined {
         return this['ingress_firewall_policy_id'];
     }
     public withEgressFirewallPolicyId(egressFirewallPolicyId: string): NeutronListFirewallGroupsRequest {
         this['egress_firewall_policy_id'] = egressFirewallPolicyId;
         return this;
     }
-    public set egressFirewallPolicyId(egressFirewallPolicyId: string | undefined) {
+    public set egressFirewallPolicyId(egressFirewallPolicyId: string  | undefined) {
         this['egress_firewall_policy_id'] = egressFirewallPolicyId;
     }
-    public get egressFirewallPolicyId() {
+    public get egressFirewallPolicyId(): string | undefined {
         return this['egress_firewall_policy_id'];
     }
 }

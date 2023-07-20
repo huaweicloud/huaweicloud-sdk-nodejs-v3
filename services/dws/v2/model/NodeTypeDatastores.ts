@@ -2,9 +2,9 @@ import { NodeTypeDatastoresAttachments } from './NodeTypeDatastoresAttachments';
 
 
 export class NodeTypeDatastores {
-    public version: string;
-    public attachments: NodeTypeDatastoresAttachments;
-    public constructor(version?: any, attachments?: any) { 
+    public version?: string;
+    public attachments?: NodeTypeDatastoresAttachments;
+    public constructor(version?: string, attachments?: NodeTypeDatastoresAttachments) { 
         this['version'] = version;
         this['attachments'] = attachments;
     }

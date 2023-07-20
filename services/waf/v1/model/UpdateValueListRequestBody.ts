@@ -1,11 +1,11 @@
 
 
 export class UpdateValueListRequestBody {
-    public name: string;
-    public type: UpdateValueListRequestBodyTypeEnum;
+    public name?: string;
+    public type?: UpdateValueListRequestBodyTypeEnum | string;
     public values?: Array<string>;
     public description?: string;
-    public constructor(name?: any, type?: any) { 
+    public constructor(name?: string, type?: string) { 
         this['name'] = name;
         this['type'] = type;
     }
@@ -13,7 +13,7 @@ export class UpdateValueListRequestBody {
         this['name'] = name;
         return this;
     }
-    public withType(type: UpdateValueListRequestBodyTypeEnum): UpdateValueListRequestBody {
+    public withType(type: UpdateValueListRequestBodyTypeEnum | string): UpdateValueListRequestBody {
         this['type'] = type;
         return this;
     }

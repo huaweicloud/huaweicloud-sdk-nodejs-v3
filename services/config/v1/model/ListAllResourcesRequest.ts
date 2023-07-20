@@ -1,8 +1,8 @@
 
 
 export class ListAllResourcesRequest {
-    private 'region_id'?: string | undefined;
-    private 'ep_id'?: string | undefined;
+    private 'region_id'?: string;
+    private 'ep_id'?: string;
     public type?: string;
     public limit?: number;
     public marker?: string;
@@ -15,20 +15,20 @@ export class ListAllResourcesRequest {
         this['region_id'] = regionId;
         return this;
     }
-    public set regionId(regionId: string | undefined) {
+    public set regionId(regionId: string  | undefined) {
         this['region_id'] = regionId;
     }
-    public get regionId() {
+    public get regionId(): string | undefined {
         return this['region_id'];
     }
     public withEpId(epId: string): ListAllResourcesRequest {
         this['ep_id'] = epId;
         return this;
     }
-    public set epId(epId: string | undefined) {
+    public set epId(epId: string  | undefined) {
         this['ep_id'] = epId;
     }
-    public get epId() {
+    public get epId(): string | undefined {
         return this['ep_id'];
     }
     public withType(type: string): ListAllResourcesRequest {

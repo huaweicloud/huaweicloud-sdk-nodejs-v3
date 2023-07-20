@@ -3,7 +3,7 @@ import { OperationLog } from './OperationLog';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListOpLogsResponse extends SdkResponse {
-    private 'operation_logs'?: Array<OperationLog> | undefined;
+    private 'operation_logs'?: Array<OperationLog>;
     public count?: number;
     public limit?: number;
     public offset?: number;
@@ -14,10 +14,10 @@ export class ListOpLogsResponse extends SdkResponse {
         this['operation_logs'] = operationLogs;
         return this;
     }
-    public set operationLogs(operationLogs: Array<OperationLog> | undefined) {
+    public set operationLogs(operationLogs: Array<OperationLog>  | undefined) {
         this['operation_logs'] = operationLogs;
     }
-    public get operationLogs() {
+    public get operationLogs(): Array<OperationLog> | undefined {
         return this['operation_logs'];
     }
     public withCount(count: number): ListOpLogsResponse {

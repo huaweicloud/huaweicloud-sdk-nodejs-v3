@@ -1,11 +1,11 @@
 
 
 export class CreateImageSyncRepoRequestBody {
-    public remoteRegionId: string;
-    public remoteNamespace: string;
+    public remoteRegionId?: string;
+    public remoteNamespace?: string;
     public syncAuto?: boolean;
     public override?: boolean;
-    public constructor(remoteRegionId?: any, remoteNamespace?: any) { 
+    public constructor(remoteRegionId?: string, remoteNamespace?: string) { 
         this['remoteRegionId'] = remoteRegionId;
         this['remoteNamespace'] = remoteNamespace;
     }

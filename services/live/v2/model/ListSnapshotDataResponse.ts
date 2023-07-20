@@ -3,9 +3,9 @@ import { SnapshotData } from './SnapshotData';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListSnapshotDataResponse extends SdkResponse {
-    private 'snapshot_list'?: Array<SnapshotData> | undefined;
+    private 'snapshot_list'?: Array<SnapshotData>;
     public total?: number;
-    private 'X-Request-Id'?: string | undefined;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -13,10 +13,10 @@ export class ListSnapshotDataResponse extends SdkResponse {
         this['snapshot_list'] = snapshotList;
         return this;
     }
-    public set snapshotList(snapshotList: Array<SnapshotData> | undefined) {
+    public set snapshotList(snapshotList: Array<SnapshotData>  | undefined) {
         this['snapshot_list'] = snapshotList;
     }
-    public get snapshotList() {
+    public get snapshotList(): Array<SnapshotData> | undefined {
         return this['snapshot_list'];
     }
     public withTotal(total: number): ListSnapshotDataResponse {
@@ -27,10 +27,10 @@ export class ListSnapshotDataResponse extends SdkResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-Request-Id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-Request-Id'];
     }
 }

@@ -3,11 +3,11 @@
 export class RtcServerRoomInfo {
     public domain?: string;
     public app?: string;
-    private 'room_id'?: string | undefined;
-    public state?: RtcServerRoomInfoStateEnum;
+    private 'room_id'?: string;
+    public state?: RtcServerRoomInfoStateEnum | string;
     public duration?: number;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
     public constructor() { 
     }
     public withDomain(domain: string): RtcServerRoomInfo {
@@ -22,13 +22,13 @@ export class RtcServerRoomInfo {
         this['room_id'] = roomId;
         return this;
     }
-    public set roomId(roomId: string | undefined) {
+    public set roomId(roomId: string  | undefined) {
         this['room_id'] = roomId;
     }
-    public get roomId() {
+    public get roomId(): string | undefined {
         return this['room_id'];
     }
-    public withState(state: RtcServerRoomInfoStateEnum): RtcServerRoomInfo {
+    public withState(state: RtcServerRoomInfoStateEnum | string): RtcServerRoomInfo {
         this['state'] = state;
         return this;
     }
@@ -40,20 +40,20 @@ export class RtcServerRoomInfo {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): RtcServerRoomInfo {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
 }

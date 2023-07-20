@@ -1,13 +1,13 @@
 
 
 export class UpdateTaskStatusReq {
-    public operation: UpdateTaskStatusReqOperationEnum;
+    public operation?: UpdateTaskStatusReqOperationEnum | string;
     public param?: { [key: string]: string; };
-    private 'switch_hce'?: boolean | undefined;
-    public constructor(operation?: any) { 
+    private 'switch_hce'?: boolean;
+    public constructor(operation?: string) { 
         this['operation'] = operation;
     }
-    public withOperation(operation: UpdateTaskStatusReqOperationEnum): UpdateTaskStatusReq {
+    public withOperation(operation: UpdateTaskStatusReqOperationEnum | string): UpdateTaskStatusReq {
         this['operation'] = operation;
         return this;
     }
@@ -19,10 +19,10 @@ export class UpdateTaskStatusReq {
         this['switch_hce'] = switchHce;
         return this;
     }
-    public set switchHce(switchHce: boolean | undefined) {
+    public set switchHce(switchHce: boolean  | undefined) {
         this['switch_hce'] = switchHce;
     }
-    public get switchHce() {
+    public get switchHce(): boolean | undefined {
         return this['switch_hce'];
     }
 }

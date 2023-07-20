@@ -1,9 +1,9 @@
 
 
 export class Nodes {
-    public id: string;
-    public status: string;
-    public constructor(id?: any, status?: any) { 
+    public id?: string;
+    public status?: string;
+    public constructor(id?: string, status?: string) { 
         this['id'] = id;
         this['status'] = status;
     }

@@ -1,10 +1,10 @@
 
 
 export class ShowQuotaRequest {
-    public type?: ShowQuotaRequestTypeEnum;
+    public type?: ShowQuotaRequestTypeEnum | string;
     public constructor() { 
     }
-    public withType(type: ShowQuotaRequestTypeEnum): ShowQuotaRequest {
+    public withType(type: ShowQuotaRequestTypeEnum | string): ShowQuotaRequest {
         this['type'] = type;
         return this;
     }

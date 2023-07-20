@@ -8,8 +8,8 @@ export class ListPrivateZonesRequest {
     public tags?: string;
     public name?: string;
     public status?: string;
-    private 'search_mode'?: string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'search_mode'?: string;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withType(type: string): ListPrivateZonesRequest {
@@ -44,20 +44,20 @@ export class ListPrivateZonesRequest {
         this['search_mode'] = searchMode;
         return this;
     }
-    public set searchMode(searchMode: string | undefined) {
+    public set searchMode(searchMode: string  | undefined) {
         this['search_mode'] = searchMode;
     }
-    public get searchMode() {
+    public get searchMode(): string | undefined {
         return this['search_mode'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListPrivateZonesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

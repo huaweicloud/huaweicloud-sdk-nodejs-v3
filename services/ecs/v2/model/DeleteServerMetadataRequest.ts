@@ -1,9 +1,9 @@
 
 
 export class DeleteServerMetadataRequest {
-    public key: string;
-    private 'server_id': string | undefined;
-    public constructor(key?: any, serverId?: any) { 
+    public key?: string;
+    private 'server_id'?: string;
+    public constructor(key?: string, serverId?: string) { 
         this['key'] = key;
         this['server_id'] = serverId;
     }
@@ -15,10 +15,10 @@ export class DeleteServerMetadataRequest {
         this['server_id'] = serverId;
         return this;
     }
-    public set serverId(serverId: string | undefined) {
+    public set serverId(serverId: string  | undefined) {
         this['server_id'] = serverId;
     }
-    public get serverId() {
+    public get serverId(): string | undefined {
         return this['server_id'];
     }
 }

@@ -4,7 +4,7 @@ import { EipSpec } from './EipSpec';
 export class MasterEIPResponseSpecSpec {
     public id?: string;
     public eip?: EipSpec;
-    private 'IsDynamic'?: boolean | undefined;
+    private 'IsDynamic'?: boolean;
     public constructor() { 
     }
     public withId(id: string): MasterEIPResponseSpecSpec {
@@ -19,10 +19,10 @@ export class MasterEIPResponseSpecSpec {
         this['IsDynamic'] = isDynamic;
         return this;
     }
-    public set isDynamic(isDynamic: boolean | undefined) {
+    public set isDynamic(isDynamic: boolean  | undefined) {
         this['IsDynamic'] = isDynamic;
     }
-    public get isDynamic() {
+    public get isDynamic(): boolean | undefined {
         return this['IsDynamic'];
     }
 }

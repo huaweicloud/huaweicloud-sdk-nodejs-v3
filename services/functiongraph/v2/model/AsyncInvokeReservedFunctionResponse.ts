@@ -2,8 +2,8 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class AsyncInvokeReservedFunctionResponse extends SdkResponse {
-    private 'instance_id'?: string | undefined;
-    private 'Content-Type'?: string | undefined;
+    private 'instance_id'?: string;
+    private 'Content-Type'?: string;
     public constructor() { 
         super();
     }
@@ -11,20 +11,20 @@ export class AsyncInvokeReservedFunctionResponse extends SdkResponse {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withContentType(contentType: string): AsyncInvokeReservedFunctionResponse {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
 }

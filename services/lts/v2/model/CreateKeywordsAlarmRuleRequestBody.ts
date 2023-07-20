@@ -4,19 +4,19 @@ import { SqlNotificationSaveRule } from './SqlNotificationSaveRule';
 
 
 export class CreateKeywordsAlarmRuleRequestBody {
-    private 'keywords_alarm_rule_name': string | undefined;
-    private 'keywords_alarm_rule_description'?: string | undefined;
-    private 'keywords_requests': Array<KeywordsRequest> | undefined;
-    public frequency: Frequency;
-    private 'keywords_alarm_level': CreateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum | undefined;
-    private 'keywords_alarm_send': boolean | undefined;
-    private 'domain_id': string | undefined;
-    private 'notification_save_rule'?: SqlNotificationSaveRule | undefined;
-    private 'trigger_condition_count'?: number | undefined;
-    private 'trigger_condition_frequency'?: number | undefined;
-    private 'whether_recovery_policy'?: boolean | undefined;
-    private 'recovery_policy'?: number | undefined;
-    public constructor(keywordsAlarmRuleName?: any, keywordsRequests?: any, frequency?: any, keywordsAlarmLevel?: any, keywordsAlarmSend?: any, domainId?: any) { 
+    private 'keywords_alarm_rule_name'?: string;
+    private 'keywords_alarm_rule_description'?: string;
+    private 'keywords_requests'?: Array<KeywordsRequest>;
+    public frequency?: Frequency;
+    private 'keywords_alarm_level'?: CreateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum | string;
+    private 'keywords_alarm_send'?: boolean;
+    private 'domain_id'?: string;
+    private 'notification_save_rule'?: SqlNotificationSaveRule;
+    private 'trigger_condition_count'?: number;
+    private 'trigger_condition_frequency'?: number;
+    private 'whether_recovery_policy'?: boolean;
+    private 'recovery_policy'?: number;
+    public constructor(keywordsAlarmRuleName?: string, keywordsRequests?: Array<KeywordsRequest>, frequency?: Frequency, keywordsAlarmLevel?: string, keywordsAlarmSend?: boolean, domainId?: string) { 
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
         this['keywords_requests'] = keywordsRequests;
         this['frequency'] = frequency;
@@ -28,114 +28,114 @@ export class CreateKeywordsAlarmRuleRequestBody {
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
         return this;
     }
-    public set keywordsAlarmRuleName(keywordsAlarmRuleName: string | undefined) {
+    public set keywordsAlarmRuleName(keywordsAlarmRuleName: string  | undefined) {
         this['keywords_alarm_rule_name'] = keywordsAlarmRuleName;
     }
-    public get keywordsAlarmRuleName() {
+    public get keywordsAlarmRuleName(): string | undefined {
         return this['keywords_alarm_rule_name'];
     }
     public withKeywordsAlarmRuleDescription(keywordsAlarmRuleDescription: string): CreateKeywordsAlarmRuleRequestBody {
         this['keywords_alarm_rule_description'] = keywordsAlarmRuleDescription;
         return this;
     }
-    public set keywordsAlarmRuleDescription(keywordsAlarmRuleDescription: string | undefined) {
+    public set keywordsAlarmRuleDescription(keywordsAlarmRuleDescription: string  | undefined) {
         this['keywords_alarm_rule_description'] = keywordsAlarmRuleDescription;
     }
-    public get keywordsAlarmRuleDescription() {
+    public get keywordsAlarmRuleDescription(): string | undefined {
         return this['keywords_alarm_rule_description'];
     }
     public withKeywordsRequests(keywordsRequests: Array<KeywordsRequest>): CreateKeywordsAlarmRuleRequestBody {
         this['keywords_requests'] = keywordsRequests;
         return this;
     }
-    public set keywordsRequests(keywordsRequests: Array<KeywordsRequest> | undefined) {
+    public set keywordsRequests(keywordsRequests: Array<KeywordsRequest>  | undefined) {
         this['keywords_requests'] = keywordsRequests;
     }
-    public get keywordsRequests() {
+    public get keywordsRequests(): Array<KeywordsRequest> | undefined {
         return this['keywords_requests'];
     }
     public withFrequency(frequency: Frequency): CreateKeywordsAlarmRuleRequestBody {
         this['frequency'] = frequency;
         return this;
     }
-    public withKeywordsAlarmLevel(keywordsAlarmLevel: CreateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum): CreateKeywordsAlarmRuleRequestBody {
+    public withKeywordsAlarmLevel(keywordsAlarmLevel: CreateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum | string): CreateKeywordsAlarmRuleRequestBody {
         this['keywords_alarm_level'] = keywordsAlarmLevel;
         return this;
     }
-    public set keywordsAlarmLevel(keywordsAlarmLevel: CreateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum | undefined) {
+    public set keywordsAlarmLevel(keywordsAlarmLevel: CreateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum | string  | undefined) {
         this['keywords_alarm_level'] = keywordsAlarmLevel;
     }
-    public get keywordsAlarmLevel() {
+    public get keywordsAlarmLevel(): CreateKeywordsAlarmRuleRequestBodyKeywordsAlarmLevelEnum | string | undefined {
         return this['keywords_alarm_level'];
     }
     public withKeywordsAlarmSend(keywordsAlarmSend: boolean): CreateKeywordsAlarmRuleRequestBody {
         this['keywords_alarm_send'] = keywordsAlarmSend;
         return this;
     }
-    public set keywordsAlarmSend(keywordsAlarmSend: boolean | undefined) {
+    public set keywordsAlarmSend(keywordsAlarmSend: boolean  | undefined) {
         this['keywords_alarm_send'] = keywordsAlarmSend;
     }
-    public get keywordsAlarmSend() {
+    public get keywordsAlarmSend(): boolean | undefined {
         return this['keywords_alarm_send'];
     }
     public withDomainId(domainId: string): CreateKeywordsAlarmRuleRequestBody {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withNotificationSaveRule(notificationSaveRule: SqlNotificationSaveRule): CreateKeywordsAlarmRuleRequestBody {
         this['notification_save_rule'] = notificationSaveRule;
         return this;
     }
-    public set notificationSaveRule(notificationSaveRule: SqlNotificationSaveRule | undefined) {
+    public set notificationSaveRule(notificationSaveRule: SqlNotificationSaveRule  | undefined) {
         this['notification_save_rule'] = notificationSaveRule;
     }
-    public get notificationSaveRule() {
+    public get notificationSaveRule(): SqlNotificationSaveRule | undefined {
         return this['notification_save_rule'];
     }
     public withTriggerConditionCount(triggerConditionCount: number): CreateKeywordsAlarmRuleRequestBody {
         this['trigger_condition_count'] = triggerConditionCount;
         return this;
     }
-    public set triggerConditionCount(triggerConditionCount: number | undefined) {
+    public set triggerConditionCount(triggerConditionCount: number  | undefined) {
         this['trigger_condition_count'] = triggerConditionCount;
     }
-    public get triggerConditionCount() {
+    public get triggerConditionCount(): number | undefined {
         return this['trigger_condition_count'];
     }
     public withTriggerConditionFrequency(triggerConditionFrequency: number): CreateKeywordsAlarmRuleRequestBody {
         this['trigger_condition_frequency'] = triggerConditionFrequency;
         return this;
     }
-    public set triggerConditionFrequency(triggerConditionFrequency: number | undefined) {
+    public set triggerConditionFrequency(triggerConditionFrequency: number  | undefined) {
         this['trigger_condition_frequency'] = triggerConditionFrequency;
     }
-    public get triggerConditionFrequency() {
+    public get triggerConditionFrequency(): number | undefined {
         return this['trigger_condition_frequency'];
     }
     public withWhetherRecoveryPolicy(whetherRecoveryPolicy: boolean): CreateKeywordsAlarmRuleRequestBody {
         this['whether_recovery_policy'] = whetherRecoveryPolicy;
         return this;
     }
-    public set whetherRecoveryPolicy(whetherRecoveryPolicy: boolean | undefined) {
+    public set whetherRecoveryPolicy(whetherRecoveryPolicy: boolean  | undefined) {
         this['whether_recovery_policy'] = whetherRecoveryPolicy;
     }
-    public get whetherRecoveryPolicy() {
+    public get whetherRecoveryPolicy(): boolean | undefined {
         return this['whether_recovery_policy'];
     }
     public withRecoveryPolicy(recoveryPolicy: number): CreateKeywordsAlarmRuleRequestBody {
         this['recovery_policy'] = recoveryPolicy;
         return this;
     }
-    public set recoveryPolicy(recoveryPolicy: number | undefined) {
+    public set recoveryPolicy(recoveryPolicy: number  | undefined) {
         this['recovery_policy'] = recoveryPolicy;
     }
-    public get recoveryPolicy() {
+    public get recoveryPolicy(): number | undefined {
         return this['recovery_policy'];
     }
 }

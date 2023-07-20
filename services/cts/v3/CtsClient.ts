@@ -164,7 +164,7 @@ export class CtsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listQuotas(): Promise<ListQuotasResponse> {
+    public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
         const options = ParamCreater().listQuotas();
 
          // @ts-ignore

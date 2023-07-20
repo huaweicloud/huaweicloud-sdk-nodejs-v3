@@ -3,9 +3,9 @@ import { Meta } from './Meta';
 
 
 export class IvsStandardByNameAndIdRequestBody {
-    public meta: Meta;
-    public data: IvsStandardByNameAndIdRequestBodyData;
-    public constructor(meta?: any, data?: any) { 
+    public meta?: Meta;
+    public data?: IvsStandardByNameAndIdRequestBodyData;
+    public constructor(meta?: Meta, data?: IvsStandardByNameAndIdRequestBodyData) { 
         this['meta'] = meta;
         this['data'] = data;
     }

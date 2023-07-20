@@ -9,37 +9,37 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class ClusterSpec {
-    public category?: ClusterSpecCategoryEnum;
-    public type?: ClusterSpecTypeEnum;
-    public flavor: string;
+    public category?: ClusterSpecCategoryEnum | string;
+    public type?: ClusterSpecTypeEnum | string;
+    public flavor?: string;
     public version?: string;
     public platformVersion?: string;
     public description?: string;
     public customSan?: Array<string>;
     public ipv6enable?: boolean;
-    public hostNetwork: HostNetwork;
-    public containerNetwork: ContainerNetwork;
+    public hostNetwork?: HostNetwork;
+    public containerNetwork?: ContainerNetwork;
     public eniNetwork?: EniNetwork;
     public authentication?: Authentication;
     public billingMode?: number;
     public masters?: Array<MasterSpec>;
     public kubernetesSvcIpRange?: string;
     public clusterTags?: Array<ResourceTag>;
-    public kubeProxyMode?: ClusterSpecKubeProxyModeEnum;
+    public kubeProxyMode?: ClusterSpecKubeProxyModeEnum | string;
     public az?: string;
     public extendParam?: ClusterExtendParam;
     public supportIstio?: boolean;
     public configurationsOverride?: Array<PackageConfiguration>;
-    public constructor(flavor?: any, hostNetwork?: any, containerNetwork?: any) { 
+    public constructor(flavor?: string, hostNetwork?: HostNetwork, containerNetwork?: ContainerNetwork) { 
         this['flavor'] = flavor;
         this['hostNetwork'] = hostNetwork;
         this['containerNetwork'] = containerNetwork;
     }
-    public withCategory(category: ClusterSpecCategoryEnum): ClusterSpec {
+    public withCategory(category: ClusterSpecCategoryEnum | string): ClusterSpec {
         this['category'] = category;
         return this;
     }
-    public withType(type: ClusterSpecTypeEnum): ClusterSpec {
+    public withType(type: ClusterSpecTypeEnum | string): ClusterSpec {
         this['type'] = type;
         return this;
     }
@@ -99,7 +99,7 @@ export class ClusterSpec {
         this['clusterTags'] = clusterTags;
         return this;
     }
-    public withKubeProxyMode(kubeProxyMode: ClusterSpecKubeProxyModeEnum): ClusterSpec {
+    public withKubeProxyMode(kubeProxyMode: ClusterSpecKubeProxyModeEnum | string): ClusterSpec {
         this['kubeProxyMode'] = kubeProxyMode;
         return this;
     }

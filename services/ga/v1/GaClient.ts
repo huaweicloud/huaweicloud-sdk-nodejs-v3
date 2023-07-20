@@ -855,7 +855,7 @@ export class GaClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listRegions(): Promise<ListRegionsResponse> {
+    public listRegions(listRegionsRequest?: ListRegionsRequest): Promise<ListRegionsResponse> {
         const options = ParamCreater().listRegions();
 
          // @ts-ignore

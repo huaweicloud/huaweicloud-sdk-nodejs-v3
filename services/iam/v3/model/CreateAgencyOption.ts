@@ -1,13 +1,13 @@
 
 
 export class CreateAgencyOption {
-    public name: string;
-    private 'domain_id': string | undefined;
-    private 'trust_domain_id'?: string | undefined;
-    private 'trust_domain_name'?: string | undefined;
+    public name?: string;
+    private 'domain_id'?: string;
+    private 'trust_domain_id'?: string;
+    private 'trust_domain_name'?: string;
     public description?: string;
-    public duration?: CreateAgencyOptionDurationEnum;
-    public constructor(name?: any, domainId?: any) { 
+    public duration?: CreateAgencyOptionDurationEnum | string;
+    public constructor(name?: string, domainId?: string) { 
         this['name'] = name;
         this['domain_id'] = domainId;
     }
@@ -19,37 +19,37 @@ export class CreateAgencyOption {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withTrustDomainId(trustDomainId: string): CreateAgencyOption {
         this['trust_domain_id'] = trustDomainId;
         return this;
     }
-    public set trustDomainId(trustDomainId: string | undefined) {
+    public set trustDomainId(trustDomainId: string  | undefined) {
         this['trust_domain_id'] = trustDomainId;
     }
-    public get trustDomainId() {
+    public get trustDomainId(): string | undefined {
         return this['trust_domain_id'];
     }
     public withTrustDomainName(trustDomainName: string): CreateAgencyOption {
         this['trust_domain_name'] = trustDomainName;
         return this;
     }
-    public set trustDomainName(trustDomainName: string | undefined) {
+    public set trustDomainName(trustDomainName: string  | undefined) {
         this['trust_domain_name'] = trustDomainName;
     }
-    public get trustDomainName() {
+    public get trustDomainName(): string | undefined {
         return this['trust_domain_name'];
     }
     public withDescription(description: string): CreateAgencyOption {
         this['description'] = description;
         return this;
     }
-    public withDuration(duration: CreateAgencyOptionDurationEnum): CreateAgencyOption {
+    public withDuration(duration: CreateAgencyOptionDurationEnum | string): CreateAgencyOption {
         this['duration'] = duration;
         return this;
     }

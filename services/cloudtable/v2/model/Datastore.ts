@@ -1,9 +1,9 @@
 
 
 export class Datastore {
-    public version: string;
-    public type: string;
-    public constructor(version?: any, type?: any) { 
+    public version?: string;
+    public type?: string;
+    public constructor(version?: string, type?: string) { 
         this['version'] = version;
         this['type'] = type;
     }

@@ -2,10 +2,10 @@
 
 export class ModifyTemplateGroupCollection {
     public name?: string;
-    private 'collection_id': string | undefined;
+    private 'collection_id'?: string;
     public description?: string;
-    private 'template_group_list'?: Array<string> | undefined;
-    public constructor(collectionId?: any) { 
+    private 'template_group_list'?: Array<string>;
+    public constructor(collectionId?: string) { 
         this['collection_id'] = collectionId;
     }
     public withName(name: string): ModifyTemplateGroupCollection {
@@ -16,10 +16,10 @@ export class ModifyTemplateGroupCollection {
         this['collection_id'] = collectionId;
         return this;
     }
-    public set collectionId(collectionId: string | undefined) {
+    public set collectionId(collectionId: string  | undefined) {
         this['collection_id'] = collectionId;
     }
-    public get collectionId() {
+    public get collectionId(): string | undefined {
         return this['collection_id'];
     }
     public withDescription(description: string): ModifyTemplateGroupCollection {
@@ -30,10 +30,10 @@ export class ModifyTemplateGroupCollection {
         this['template_group_list'] = templateGroupList;
         return this;
     }
-    public set templateGroupList(templateGroupList: Array<string> | undefined) {
+    public set templateGroupList(templateGroupList: Array<string>  | undefined) {
         this['template_group_list'] = templateGroupList;
     }
-    public get templateGroupList() {
+    public get templateGroupList(): Array<string> | undefined {
         return this['template_group_list'];
     }
 }

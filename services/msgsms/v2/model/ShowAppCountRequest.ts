@@ -1,9 +1,9 @@
 
 
 export class ShowAppCountRequest {
-    private 'Content-Type': string | undefined;
-    public region: string;
-    public constructor(contentType?: any, region?: any) { 
+    private 'Content-Type'?: string;
+    public region?: string;
+    public constructor(contentType?: string, region?: string) { 
         this['Content-Type'] = contentType;
         this['region'] = region;
     }
@@ -11,10 +11,10 @@ export class ShowAppCountRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withRegion(region: string): ShowAppCountRequest {

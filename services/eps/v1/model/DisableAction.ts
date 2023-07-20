@@ -1,11 +1,11 @@
 
 
 export class DisableAction {
-    public action: DisableActionActionEnum;
-    public constructor(action?: any) { 
+    public action?: DisableActionActionEnum | string;
+    public constructor(action?: string) { 
         this['action'] = action;
     }
-    public withAction(action: DisableActionActionEnum): DisableAction {
+    public withAction(action: DisableActionActionEnum | string): DisableAction {
         this['action'] = action;
         return this;
     }

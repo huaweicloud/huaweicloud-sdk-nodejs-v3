@@ -2,8 +2,8 @@ import { CreateLoadBalancerOption } from './CreateLoadBalancerOption';
 
 
 export class CreateLoadBalancerRequestBody {
-    public loadbalancer: CreateLoadBalancerOption;
-    public constructor(loadbalancer?: any) { 
+    public loadbalancer?: CreateLoadBalancerOption;
+    public constructor(loadbalancer?: CreateLoadBalancerOption) { 
         this['loadbalancer'] = loadbalancer;
     }
     public withLoadbalancer(loadbalancer: CreateLoadBalancerOption): CreateLoadBalancerRequestBody {

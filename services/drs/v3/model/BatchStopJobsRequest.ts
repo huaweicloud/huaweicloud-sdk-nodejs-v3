@@ -2,18 +2,18 @@ import { BatchPauseJobReq } from './BatchPauseJobReq';
 
 
 export class BatchStopJobsRequest {
-    private 'X-Language'?: BatchStopJobsRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchStopJobsRequestXLanguageEnum | string;
     public body?: BatchPauseJobReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchStopJobsRequestXLanguageEnum): BatchStopJobsRequest {
+    public withXLanguage(xLanguage: BatchStopJobsRequestXLanguageEnum | string): BatchStopJobsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchStopJobsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchStopJobsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchStopJobsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchPauseJobReq): BatchStopJobsRequest {

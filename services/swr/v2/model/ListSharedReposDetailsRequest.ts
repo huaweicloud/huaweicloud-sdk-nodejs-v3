@@ -1,26 +1,26 @@
 
 
 export class ListSharedReposDetailsRequest {
-    private 'Content-Type': ListSharedReposDetailsRequestContentTypeEnum | undefined;
+    private 'Content-Type'?: ListSharedReposDetailsRequestContentTypeEnum | string;
     public namespace?: string;
     public name?: string;
     public center?: string;
     public limit?: string;
     public offset?: string;
-    private 'order_column'?: string | undefined;
-    private 'order_type'?: string | undefined;
+    private 'order_column'?: string;
+    private 'order_type'?: string;
     public filter?: string;
-    public constructor(contentType?: any) { 
+    public constructor(contentType?: string) { 
         this['Content-Type'] = contentType;
     }
-    public withContentType(contentType: ListSharedReposDetailsRequestContentTypeEnum): ListSharedReposDetailsRequest {
+    public withContentType(contentType: ListSharedReposDetailsRequestContentTypeEnum | string): ListSharedReposDetailsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ListSharedReposDetailsRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ListSharedReposDetailsRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ListSharedReposDetailsRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): ListSharedReposDetailsRequest {
@@ -47,20 +47,20 @@ export class ListSharedReposDetailsRequest {
         this['order_column'] = orderColumn;
         return this;
     }
-    public set orderColumn(orderColumn: string | undefined) {
+    public set orderColumn(orderColumn: string  | undefined) {
         this['order_column'] = orderColumn;
     }
-    public get orderColumn() {
+    public get orderColumn(): string | undefined {
         return this['order_column'];
     }
     public withOrderType(orderType: string): ListSharedReposDetailsRequest {
         this['order_type'] = orderType;
         return this;
     }
-    public set orderType(orderType: string | undefined) {
+    public set orderType(orderType: string  | undefined) {
         this['order_type'] = orderType;
     }
-    public get orderType() {
+    public get orderType(): string | undefined {
         return this['order_type'];
     }
     public withFilter(filter: string): ListSharedReposDetailsRequest {

@@ -2,8 +2,8 @@
 
 export class ExportDlqMessageReq {
     public topic?: string;
-    private 'msg_id_list'?: Array<string> | undefined;
-    private 'uniq_key_list'?: Array<string> | undefined;
+    private 'msg_id_list'?: Array<string>;
+    private 'uniq_key_list'?: Array<string>;
     public constructor() { 
     }
     public withTopic(topic: string): ExportDlqMessageReq {
@@ -14,20 +14,20 @@ export class ExportDlqMessageReq {
         this['msg_id_list'] = msgIdList;
         return this;
     }
-    public set msgIdList(msgIdList: Array<string> | undefined) {
+    public set msgIdList(msgIdList: Array<string>  | undefined) {
         this['msg_id_list'] = msgIdList;
     }
-    public get msgIdList() {
+    public get msgIdList(): Array<string> | undefined {
         return this['msg_id_list'];
     }
     public withUniqKeyList(uniqKeyList: Array<string>): ExportDlqMessageReq {
         this['uniq_key_list'] = uniqKeyList;
         return this;
     }
-    public set uniqKeyList(uniqKeyList: Array<string> | undefined) {
+    public set uniqKeyList(uniqKeyList: Array<string>  | undefined) {
         this['uniq_key_list'] = uniqKeyList;
     }
-    public get uniqKeyList() {
+    public get uniqKeyList(): Array<string> | undefined {
         return this['uniq_key_list'];
     }
 }

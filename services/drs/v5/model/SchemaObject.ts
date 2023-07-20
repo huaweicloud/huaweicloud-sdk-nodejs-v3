@@ -2,7 +2,7 @@ import { TableObject } from './TableObject';
 
 
 export class SchemaObject {
-    private 'sync_type'?: string | undefined;
+    private 'sync_type'?: string;
     public name?: string;
     public all?: boolean;
     public tables?: { [key: string]: TableObject; };
@@ -12,10 +12,10 @@ export class SchemaObject {
         this['sync_type'] = syncType;
         return this;
     }
-    public set syncType(syncType: string | undefined) {
+    public set syncType(syncType: string  | undefined) {
         this['sync_type'] = syncType;
     }
-    public get syncType() {
+    public get syncType(): string | undefined {
         return this['sync_type'];
     }
     public withName(name: string): SchemaObject {

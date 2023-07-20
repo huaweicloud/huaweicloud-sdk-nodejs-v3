@@ -3,16 +3,16 @@ import { MixUserBackgroundImage } from './MixUserBackgroundImage';
 
 
 export class MixParam {
-    private 'room_id': string | undefined;
-    private 'encode_template': MixParamEncodeTemplateEnum | undefined;
-    private 'max_idle_time'?: number | undefined;
-    private 'layout_template'?: string | undefined;
-    private 'default_user_background_image'?: string | undefined;
-    private 'screen_background_image'?: string | undefined;
-    private 'background_image'?: string | undefined;
-    private 'layout_panes'?: Array<MixLayoutPane> | undefined;
-    private 'user_background_images'?: Array<MixUserBackgroundImage> | undefined;
-    public constructor(roomId?: any, encodeTemplate?: any) { 
+    private 'room_id'?: string;
+    private 'encode_template'?: MixParamEncodeTemplateEnum | string;
+    private 'max_idle_time'?: number;
+    private 'layout_template'?: string;
+    private 'default_user_background_image'?: string;
+    private 'screen_background_image'?: string;
+    private 'background_image'?: string;
+    private 'layout_panes'?: Array<MixLayoutPane>;
+    private 'user_background_images'?: Array<MixUserBackgroundImage>;
+    public constructor(roomId?: string, encodeTemplate?: string) { 
         this['room_id'] = roomId;
         this['encode_template'] = encodeTemplate;
     }
@@ -20,90 +20,90 @@ export class MixParam {
         this['room_id'] = roomId;
         return this;
     }
-    public set roomId(roomId: string | undefined) {
+    public set roomId(roomId: string  | undefined) {
         this['room_id'] = roomId;
     }
-    public get roomId() {
+    public get roomId(): string | undefined {
         return this['room_id'];
     }
-    public withEncodeTemplate(encodeTemplate: MixParamEncodeTemplateEnum): MixParam {
+    public withEncodeTemplate(encodeTemplate: MixParamEncodeTemplateEnum | string): MixParam {
         this['encode_template'] = encodeTemplate;
         return this;
     }
-    public set encodeTemplate(encodeTemplate: MixParamEncodeTemplateEnum | undefined) {
+    public set encodeTemplate(encodeTemplate: MixParamEncodeTemplateEnum | string  | undefined) {
         this['encode_template'] = encodeTemplate;
     }
-    public get encodeTemplate() {
+    public get encodeTemplate(): MixParamEncodeTemplateEnum | string | undefined {
         return this['encode_template'];
     }
     public withMaxIdleTime(maxIdleTime: number): MixParam {
         this['max_idle_time'] = maxIdleTime;
         return this;
     }
-    public set maxIdleTime(maxIdleTime: number | undefined) {
+    public set maxIdleTime(maxIdleTime: number  | undefined) {
         this['max_idle_time'] = maxIdleTime;
     }
-    public get maxIdleTime() {
+    public get maxIdleTime(): number | undefined {
         return this['max_idle_time'];
     }
     public withLayoutTemplate(layoutTemplate: string): MixParam {
         this['layout_template'] = layoutTemplate;
         return this;
     }
-    public set layoutTemplate(layoutTemplate: string | undefined) {
+    public set layoutTemplate(layoutTemplate: string  | undefined) {
         this['layout_template'] = layoutTemplate;
     }
-    public get layoutTemplate() {
+    public get layoutTemplate(): string | undefined {
         return this['layout_template'];
     }
     public withDefaultUserBackgroundImage(defaultUserBackgroundImage: string): MixParam {
         this['default_user_background_image'] = defaultUserBackgroundImage;
         return this;
     }
-    public set defaultUserBackgroundImage(defaultUserBackgroundImage: string | undefined) {
+    public set defaultUserBackgroundImage(defaultUserBackgroundImage: string  | undefined) {
         this['default_user_background_image'] = defaultUserBackgroundImage;
     }
-    public get defaultUserBackgroundImage() {
+    public get defaultUserBackgroundImage(): string | undefined {
         return this['default_user_background_image'];
     }
     public withScreenBackgroundImage(screenBackgroundImage: string): MixParam {
         this['screen_background_image'] = screenBackgroundImage;
         return this;
     }
-    public set screenBackgroundImage(screenBackgroundImage: string | undefined) {
+    public set screenBackgroundImage(screenBackgroundImage: string  | undefined) {
         this['screen_background_image'] = screenBackgroundImage;
     }
-    public get screenBackgroundImage() {
+    public get screenBackgroundImage(): string | undefined {
         return this['screen_background_image'];
     }
     public withBackgroundImage(backgroundImage: string): MixParam {
         this['background_image'] = backgroundImage;
         return this;
     }
-    public set backgroundImage(backgroundImage: string | undefined) {
+    public set backgroundImage(backgroundImage: string  | undefined) {
         this['background_image'] = backgroundImage;
     }
-    public get backgroundImage() {
+    public get backgroundImage(): string | undefined {
         return this['background_image'];
     }
     public withLayoutPanes(layoutPanes: Array<MixLayoutPane>): MixParam {
         this['layout_panes'] = layoutPanes;
         return this;
     }
-    public set layoutPanes(layoutPanes: Array<MixLayoutPane> | undefined) {
+    public set layoutPanes(layoutPanes: Array<MixLayoutPane>  | undefined) {
         this['layout_panes'] = layoutPanes;
     }
-    public get layoutPanes() {
+    public get layoutPanes(): Array<MixLayoutPane> | undefined {
         return this['layout_panes'];
     }
     public withUserBackgroundImages(userBackgroundImages: Array<MixUserBackgroundImage>): MixParam {
         this['user_background_images'] = userBackgroundImages;
         return this;
     }
-    public set userBackgroundImages(userBackgroundImages: Array<MixUserBackgroundImage> | undefined) {
+    public set userBackgroundImages(userBackgroundImages: Array<MixUserBackgroundImage>  | undefined) {
         this['user_background_images'] = userBackgroundImages;
     }
-    public get userBackgroundImages() {
+    public get userBackgroundImages(): Array<MixUserBackgroundImage> | undefined {
         return this['user_background_images'];
     }
 }

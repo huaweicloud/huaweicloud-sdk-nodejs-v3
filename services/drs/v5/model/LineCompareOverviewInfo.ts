@@ -1,32 +1,32 @@
 
 
 export class LineCompareOverviewInfo {
-    private 'source_db_name'?: string | undefined;
-    private 'target_db_name'?: string | undefined;
-    public status?: LineCompareOverviewInfoStatusEnum;
+    private 'source_db_name'?: string;
+    private 'target_db_name'?: string;
+    public status?: LineCompareOverviewInfoStatusEnum | string;
     public constructor() { 
     }
     public withSourceDbName(sourceDbName: string): LineCompareOverviewInfo {
         this['source_db_name'] = sourceDbName;
         return this;
     }
-    public set sourceDbName(sourceDbName: string | undefined) {
+    public set sourceDbName(sourceDbName: string  | undefined) {
         this['source_db_name'] = sourceDbName;
     }
-    public get sourceDbName() {
+    public get sourceDbName(): string | undefined {
         return this['source_db_name'];
     }
     public withTargetDbName(targetDbName: string): LineCompareOverviewInfo {
         this['target_db_name'] = targetDbName;
         return this;
     }
-    public set targetDbName(targetDbName: string | undefined) {
+    public set targetDbName(targetDbName: string  | undefined) {
         this['target_db_name'] = targetDbName;
     }
-    public get targetDbName() {
+    public get targetDbName(): string | undefined {
         return this['target_db_name'];
     }
-    public withStatus(status: LineCompareOverviewInfoStatusEnum): LineCompareOverviewInfo {
+    public withStatus(status: LineCompareOverviewInfoStatusEnum | string): LineCompareOverviewInfo {
         this['status'] = status;
         return this;
     }

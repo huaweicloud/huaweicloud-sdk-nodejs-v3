@@ -3,8 +3,8 @@
 export class ListBandwidthsRequest {
     public marker?: string;
     public limit?: number;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'share_type'?: ListBandwidthsRequestShareTypeEnum | undefined;
+    private 'enterprise_project_id'?: string;
+    private 'share_type'?: ListBandwidthsRequestShareTypeEnum | string;
     public constructor() { 
     }
     public withMarker(marker: string): ListBandwidthsRequest {
@@ -19,20 +19,20 @@ export class ListBandwidthsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withShareType(shareType: ListBandwidthsRequestShareTypeEnum): ListBandwidthsRequest {
+    public withShareType(shareType: ListBandwidthsRequestShareTypeEnum | string): ListBandwidthsRequest {
         this['share_type'] = shareType;
         return this;
     }
-    public set shareType(shareType: ListBandwidthsRequestShareTypeEnum | undefined) {
+    public set shareType(shareType: ListBandwidthsRequestShareTypeEnum | string  | undefined) {
         this['share_type'] = shareType;
     }
-    public get shareType() {
+    public get shareType(): ListBandwidthsRequestShareTypeEnum | string | undefined {
         return this['share_type'];
     }
 }

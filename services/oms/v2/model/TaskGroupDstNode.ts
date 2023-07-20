@@ -1,13 +1,13 @@
 
 
 export class TaskGroupDstNode {
-    public ak: string;
-    public sk: string;
-    public region: string;
-    public bucket: string;
-    private 'cloud_type'?: string | undefined;
-    private 'save_prefix'?: string | undefined;
-    public constructor(ak?: any, sk?: any, region?: any, bucket?: any) { 
+    public ak?: string;
+    public sk?: string;
+    public region?: string;
+    public bucket?: string;
+    private 'cloud_type'?: string;
+    private 'save_prefix'?: string;
+    public constructor(ak?: string, sk?: string, region?: string, bucket?: string) { 
         this['ak'] = ak;
         this['sk'] = sk;
         this['region'] = region;
@@ -33,20 +33,20 @@ export class TaskGroupDstNode {
         this['cloud_type'] = cloudType;
         return this;
     }
-    public set cloudType(cloudType: string | undefined) {
+    public set cloudType(cloudType: string  | undefined) {
         this['cloud_type'] = cloudType;
     }
-    public get cloudType() {
+    public get cloudType(): string | undefined {
         return this['cloud_type'];
     }
     public withSavePrefix(savePrefix: string): TaskGroupDstNode {
         this['save_prefix'] = savePrefix;
         return this;
     }
-    public set savePrefix(savePrefix: string | undefined) {
+    public set savePrefix(savePrefix: string  | undefined) {
         this['save_prefix'] = savePrefix;
     }
-    public get savePrefix() {
+    public get savePrefix(): string | undefined {
         return this['save_prefix'];
     }
 }

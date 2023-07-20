@@ -1,18 +1,18 @@
 
 
 export class BillingUpdate {
-    private 'consistent_level'?: BillingUpdateConsistentLevelEnum | undefined;
+    private 'consistent_level'?: BillingUpdateConsistentLevelEnum | string;
     public size?: number;
     public constructor() { 
     }
-    public withConsistentLevel(consistentLevel: BillingUpdateConsistentLevelEnum): BillingUpdate {
+    public withConsistentLevel(consistentLevel: BillingUpdateConsistentLevelEnum | string): BillingUpdate {
         this['consistent_level'] = consistentLevel;
         return this;
     }
-    public set consistentLevel(consistentLevel: BillingUpdateConsistentLevelEnum | undefined) {
+    public set consistentLevel(consistentLevel: BillingUpdateConsistentLevelEnum | string  | undefined) {
         this['consistent_level'] = consistentLevel;
     }
-    public get consistentLevel() {
+    public get consistentLevel(): BillingUpdateConsistentLevelEnum | string | undefined {
         return this['consistent_level'];
     }
     public withSize(size: number): BillingUpdate {

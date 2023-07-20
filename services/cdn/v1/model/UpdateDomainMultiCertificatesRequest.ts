@@ -2,7 +2,7 @@ import { UpdateDomainMultiCertificatesRequestBody } from './UpdateDomainMultiCer
 
 
 export class UpdateDomainMultiCertificatesRequest {
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public body?: UpdateDomainMultiCertificatesRequestBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class UpdateDomainMultiCertificatesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withBody(body: UpdateDomainMultiCertificatesRequestBody): UpdateDomainMultiCertificatesRequest {

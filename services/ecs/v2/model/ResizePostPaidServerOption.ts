@@ -1,9 +1,9 @@
 
 
 export class ResizePostPaidServerOption {
-    public flavorRef: string;
+    public flavorRef?: string;
     public mode?: string;
-    public constructor(flavorRef?: any) { 
+    public constructor(flavorRef?: string) { 
         this['flavorRef'] = flavorRef;
     }
     public withFlavorRef(flavorRef: string): ResizePostPaidServerOption {

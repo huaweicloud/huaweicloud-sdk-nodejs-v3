@@ -2,10 +2,10 @@
 
 export class InstanceRequestSpec {
     public version?: string;
-    public clusterID: string;
-    public values: { [key: string]: object; };
-    public addonTemplateName: string;
-    public constructor(clusterID?: any, values?: any, addonTemplateName?: any) { 
+    public clusterID?: string;
+    public values?: { [key: string]: object; };
+    public addonTemplateName?: string;
+    public constructor(clusterID?: string, values?: { [key: string]: object; }, addonTemplateName?: string) { 
         this['clusterID'] = clusterID;
         this['values'] = values;
         this['addonTemplateName'] = addonTemplateName;

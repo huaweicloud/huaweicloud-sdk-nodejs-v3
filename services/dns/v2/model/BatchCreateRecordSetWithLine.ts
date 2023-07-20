@@ -1,11 +1,11 @@
 
 
 export class BatchCreateRecordSetWithLine {
-    public line: string;
+    public line?: string;
     public ttl?: number;
     public weight?: number;
-    public records: Array<string>;
-    public constructor(line?: any, records?: any) { 
+    public records?: Array<string>;
+    public constructor(line?: string, records?: Array<string>) { 
         this['line'] = line;
         this['records'] = records;
     }

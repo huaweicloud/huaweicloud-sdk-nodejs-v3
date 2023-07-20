@@ -5,9 +5,9 @@ export class ListAddressGroupRequest {
     public marker?: string;
     public id?: Array<string>;
     public name?: Array<string>;
-    private 'ip_version'?: number | undefined;
+    private 'ip_version'?: number;
     public description?: Array<string>;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListAddressGroupRequest {
@@ -30,10 +30,10 @@ export class ListAddressGroupRequest {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: number | undefined) {
+    public set ipVersion(ipVersion: number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion() {
+    public get ipVersion(): number | undefined {
         return this['ip_version'];
     }
     public withDescription(description: Array<string>): ListAddressGroupRequest {
@@ -44,10 +44,10 @@ export class ListAddressGroupRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

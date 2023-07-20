@@ -1,19 +1,19 @@
 
 
 export class ListServersRequest {
-    public state?: ListServersRequestStateEnum;
+    public state?: ListServersRequestStateEnum | string;
     public name?: string;
     public id?: string;
     public ip?: string;
     public migproject?: string;
     public limit?: number;
     public offset?: number;
-    private 'migration_cycle'?: ListServersRequestMigrationCycleEnum | undefined;
+    private 'migration_cycle'?: ListServersRequestMigrationCycleEnum | string;
     public connected?: boolean;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
-    public withState(state: ListServersRequestStateEnum): ListServersRequest {
+    public withState(state: ListServersRequestStateEnum | string): ListServersRequest {
         this['state'] = state;
         return this;
     }
@@ -41,14 +41,14 @@ export class ListServersRequest {
         this['offset'] = offset;
         return this;
     }
-    public withMigrationCycle(migrationCycle: ListServersRequestMigrationCycleEnum): ListServersRequest {
+    public withMigrationCycle(migrationCycle: ListServersRequestMigrationCycleEnum | string): ListServersRequest {
         this['migration_cycle'] = migrationCycle;
         return this;
     }
-    public set migrationCycle(migrationCycle: ListServersRequestMigrationCycleEnum | undefined) {
+    public set migrationCycle(migrationCycle: ListServersRequestMigrationCycleEnum | string  | undefined) {
         this['migration_cycle'] = migrationCycle;
     }
-    public get migrationCycle() {
+    public get migrationCycle(): ListServersRequestMigrationCycleEnum | string | undefined {
         return this['migration_cycle'];
     }
     public withConnected(connected: boolean): ListServersRequest {
@@ -59,10 +59,10 @@ export class ListServersRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

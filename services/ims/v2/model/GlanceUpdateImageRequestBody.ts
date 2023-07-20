@@ -1,14 +1,14 @@
 
 
 export class GlanceUpdateImageRequestBody {
-    public op: GlanceUpdateImageRequestBodyOpEnum;
-    public path: string;
+    public op?: GlanceUpdateImageRequestBodyOpEnum | string;
+    public path?: string;
     public value?: string;
-    public constructor(op?: any, path?: any) { 
+    public constructor(op?: string, path?: string) { 
         this['op'] = op;
         this['path'] = path;
     }
-    public withOp(op: GlanceUpdateImageRequestBodyOpEnum): GlanceUpdateImageRequestBody {
+    public withOp(op: GlanceUpdateImageRequestBodyOpEnum | string): GlanceUpdateImageRequestBody {
         this['op'] = op;
         return this;
     }

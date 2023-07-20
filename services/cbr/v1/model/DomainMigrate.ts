@@ -1,9 +1,9 @@
 
 
 export class DomainMigrate {
-    private 'all_regions': boolean | undefined;
-    public reservation: number;
-    public constructor(allRegions?: any, reservation?: any) { 
+    private 'all_regions'?: boolean;
+    public reservation?: number;
+    public constructor(allRegions?: boolean, reservation?: number) { 
         this['all_regions'] = allRegions;
         this['reservation'] = reservation;
     }
@@ -11,10 +11,10 @@ export class DomainMigrate {
         this['all_regions'] = allRegions;
         return this;
     }
-    public set allRegions(allRegions: boolean | undefined) {
+    public set allRegions(allRegions: boolean  | undefined) {
         this['all_regions'] = allRegions;
     }
-    public get allRegions() {
+    public get allRegions(): boolean | undefined {
         return this['all_regions'];
     }
     public withReservation(reservation: number): DomainMigrate {

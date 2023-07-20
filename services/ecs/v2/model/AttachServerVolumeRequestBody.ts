@@ -2,9 +2,9 @@ import { AttachServerVolumeOption } from './AttachServerVolumeOption';
 
 
 export class AttachServerVolumeRequestBody {
-    public volumeAttachment: AttachServerVolumeOption;
-    private 'dry_run'?: boolean | undefined;
-    public constructor(volumeAttachment?: any) { 
+    public volumeAttachment?: AttachServerVolumeOption;
+    private 'dry_run'?: boolean;
+    public constructor(volumeAttachment?: AttachServerVolumeOption) { 
         this['volumeAttachment'] = volumeAttachment;
     }
     public withVolumeAttachment(volumeAttachment: AttachServerVolumeOption): AttachServerVolumeRequestBody {
@@ -15,10 +15,10 @@ export class AttachServerVolumeRequestBody {
         this['dry_run'] = dryRun;
         return this;
     }
-    public set dryRun(dryRun: boolean | undefined) {
+    public set dryRun(dryRun: boolean  | undefined) {
         this['dry_run'] = dryRun;
     }
-    public get dryRun() {
+    public get dryRun(): boolean | undefined {
         return this['dry_run'];
     }
 }

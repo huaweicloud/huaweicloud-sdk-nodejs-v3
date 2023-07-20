@@ -6,8 +6,8 @@ export class ListRocketInstanceTopicsResponse extends SdkResponse {
     public total?: number;
     public max?: number;
     public remaining?: number;
-    private 'next_offset'?: number | undefined;
-    private 'previous_offset'?: number | undefined;
+    private 'next_offset'?: number;
+    private 'previous_offset'?: number;
     public topics?: Array<Topic>;
     public constructor() { 
         super();
@@ -28,20 +28,20 @@ export class ListRocketInstanceTopicsResponse extends SdkResponse {
         this['next_offset'] = nextOffset;
         return this;
     }
-    public set nextOffset(nextOffset: number | undefined) {
+    public set nextOffset(nextOffset: number  | undefined) {
         this['next_offset'] = nextOffset;
     }
-    public get nextOffset() {
+    public get nextOffset(): number | undefined {
         return this['next_offset'];
     }
     public withPreviousOffset(previousOffset: number): ListRocketInstanceTopicsResponse {
         this['previous_offset'] = previousOffset;
         return this;
     }
-    public set previousOffset(previousOffset: number | undefined) {
+    public set previousOffset(previousOffset: number  | undefined) {
         this['previous_offset'] = previousOffset;
     }
-    public get previousOffset() {
+    public get previousOffset(): number | undefined {
         return this['previous_offset'];
     }
     public withTopics(topics: Array<Topic>): ListRocketInstanceTopicsResponse {

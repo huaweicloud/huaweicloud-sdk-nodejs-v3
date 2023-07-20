@@ -3,7 +3,7 @@ import { InstanceListInfo } from './InstanceListInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListInstancesResponse extends SdkResponse {
-    private 'instance_num'?: number | undefined;
+    private 'instance_num'?: number;
     public instances?: Array<InstanceListInfo>;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class ListInstancesResponse extends SdkResponse {
         this['instance_num'] = instanceNum;
         return this;
     }
-    public set instanceNum(instanceNum: number | undefined) {
+    public set instanceNum(instanceNum: number  | undefined) {
         this['instance_num'] = instanceNum;
     }
-    public get instanceNum() {
+    public get instanceNum(): number | undefined {
         return this['instance_num'];
     }
     public withInstances(instances: Array<InstanceListInfo>): ListInstancesResponse {

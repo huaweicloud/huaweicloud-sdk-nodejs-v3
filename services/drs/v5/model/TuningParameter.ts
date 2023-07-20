@@ -1,10 +1,10 @@
 
 
 export class TuningParameter {
-    private 'param_name': string | undefined;
-    private 'param_value': string | undefined;
-    public availability: boolean;
-    public constructor(paramName?: any, paramValue?: any, availability?: any) { 
+    private 'param_name'?: string;
+    private 'param_value'?: string;
+    public availability?: boolean;
+    public constructor(paramName?: string, paramValue?: string, availability?: boolean) { 
         this['param_name'] = paramName;
         this['param_value'] = paramValue;
         this['availability'] = availability;
@@ -13,20 +13,20 @@ export class TuningParameter {
         this['param_name'] = paramName;
         return this;
     }
-    public set paramName(paramName: string | undefined) {
+    public set paramName(paramName: string  | undefined) {
         this['param_name'] = paramName;
     }
-    public get paramName() {
+    public get paramName(): string | undefined {
         return this['param_name'];
     }
     public withParamValue(paramValue: string): TuningParameter {
         this['param_value'] = paramValue;
         return this;
     }
-    public set paramValue(paramValue: string | undefined) {
+    public set paramValue(paramValue: string  | undefined) {
         this['param_value'] = paramValue;
     }
-    public get paramValue() {
+    public get paramValue(): string | undefined {
         return this['param_value'];
     }
     public withAvailability(availability: boolean): TuningParameter {

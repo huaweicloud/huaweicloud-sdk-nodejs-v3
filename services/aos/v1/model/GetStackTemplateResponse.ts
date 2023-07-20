@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class GetStackTemplateResponse extends SdkResponse {
-    private 'Location'?: string | undefined;
+    private 'Location'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class GetStackTemplateResponse extends SdkResponse {
         this['Location'] = location;
         return this;
     }
-    public set location(location: string | undefined) {
+    public set location(location: string  | undefined) {
         this['Location'] = location;
     }
-    public get location() {
+    public get location(): string | undefined {
         return this['Location'];
     }
 }

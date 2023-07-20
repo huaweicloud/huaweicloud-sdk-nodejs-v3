@@ -1,7 +1,7 @@
 
 
 export class ListWatermarkTemplateRequest {
-    private 'X-Sdk-Date'?: string | undefined;
+    private 'X-Sdk-Date'?: string;
     public id?: Array<string>;
     public page?: number;
     public size?: number;
@@ -11,10 +11,10 @@ export class ListWatermarkTemplateRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withId(id: Array<string>): ListWatermarkTemplateRequest {

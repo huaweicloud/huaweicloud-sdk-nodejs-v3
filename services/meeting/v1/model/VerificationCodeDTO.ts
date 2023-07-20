@@ -1,10 +1,10 @@
 
 
 export class VerificationCodeDTO {
-    public contact: string;
+    public contact?: string;
     public verificationCode?: string;
     public country?: string;
-    public constructor(contact?: any) { 
+    public constructor(contact?: string) { 
         this['contact'] = contact;
     }
     public withContact(contact: string): VerificationCodeDTO {

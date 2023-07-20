@@ -3,11 +3,11 @@ import { Match } from './Match';
 
 export class ResqEpResouce {
     public projects?: Array<string>;
-    private 'resource_types': Array<string> | undefined;
+    private 'resource_types'?: Array<string>;
     public offset?: number;
     public limit?: number;
     public matches?: Array<Match>;
-    public constructor(resourceTypes?: any) { 
+    public constructor(resourceTypes?: Array<string>) { 
         this['resource_types'] = resourceTypes;
     }
     public withProjects(projects: Array<string>): ResqEpResouce {
@@ -18,10 +18,10 @@ export class ResqEpResouce {
         this['resource_types'] = resourceTypes;
         return this;
     }
-    public set resourceTypes(resourceTypes: Array<string> | undefined) {
+    public set resourceTypes(resourceTypes: Array<string>  | undefined) {
         this['resource_types'] = resourceTypes;
     }
-    public get resourceTypes() {
+    public get resourceTypes(): Array<string> | undefined {
         return this['resource_types'];
     }
     public withOffset(offset: number): ResqEpResouce {

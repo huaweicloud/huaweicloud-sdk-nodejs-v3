@@ -1,23 +1,23 @@
 
 
 export class ListEndpointsRequest {
-    private 'endpoint_group_id': string | undefined;
+    private 'endpoint_group_id'?: string;
     public limit?: number;
     public marker?: string;
-    private 'page_reverse'?: boolean | undefined;
+    private 'page_reverse'?: boolean;
     public id?: string;
-    public status?: ListEndpointsRequestStatusEnum;
-    public constructor(endpointGroupId?: any) { 
+    public status?: ListEndpointsRequestStatusEnum | string;
+    public constructor(endpointGroupId?: string) { 
         this['endpoint_group_id'] = endpointGroupId;
     }
     public withEndpointGroupId(endpointGroupId: string): ListEndpointsRequest {
         this['endpoint_group_id'] = endpointGroupId;
         return this;
     }
-    public set endpointGroupId(endpointGroupId: string | undefined) {
+    public set endpointGroupId(endpointGroupId: string  | undefined) {
         this['endpoint_group_id'] = endpointGroupId;
     }
-    public get endpointGroupId() {
+    public get endpointGroupId(): string | undefined {
         return this['endpoint_group_id'];
     }
     public withLimit(limit: number): ListEndpointsRequest {
@@ -32,17 +32,17 @@ export class ListEndpointsRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withId(id: string): ListEndpointsRequest {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: ListEndpointsRequestStatusEnum): ListEndpointsRequest {
+    public withStatus(status: ListEndpointsRequestStatusEnum | string): ListEndpointsRequest {
         this['status'] = status;
         return this;
     }

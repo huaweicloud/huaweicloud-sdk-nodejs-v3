@@ -3,9 +3,9 @@ import { AppAutoRecordMode } from './AppAutoRecordMode';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAutoRecordResponse extends SdkResponse {
-    private 'app_id'?: string | undefined;
-    private 'auto_record_mode'?: AppAutoRecordMode | undefined;
-    private 'X-request-Id'?: string | undefined;
+    private 'app_id'?: string;
+    private 'auto_record_mode'?: AppAutoRecordMode;
+    private 'X-request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -13,30 +13,30 @@ export class ShowAutoRecordResponse extends SdkResponse {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withAutoRecordMode(autoRecordMode: AppAutoRecordMode): ShowAutoRecordResponse {
         this['auto_record_mode'] = autoRecordMode;
         return this;
     }
-    public set autoRecordMode(autoRecordMode: AppAutoRecordMode | undefined) {
+    public set autoRecordMode(autoRecordMode: AppAutoRecordMode  | undefined) {
         this['auto_record_mode'] = autoRecordMode;
     }
-    public get autoRecordMode() {
+    public get autoRecordMode(): AppAutoRecordMode | undefined {
         return this['auto_record_mode'];
     }
     public withXRequestId(xRequestId: string): ShowAutoRecordResponse {
         this['X-request-Id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-request-Id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-request-Id'];
     }
 }

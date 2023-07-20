@@ -4,11 +4,11 @@ import { LoadBalancerStatusPool } from './LoadBalancerStatusPool';
 
 export class LoadBalancerStatusListener {
     public name?: string;
-    private 'provisioning_status'?: string | undefined;
+    private 'provisioning_status'?: string;
     public pools?: Array<LoadBalancerStatusPool>;
     public l7policies?: Array<LoadBalancerStatusPolicy>;
     public id?: string;
-    private 'operating_status'?: string | undefined;
+    private 'operating_status'?: string;
     public constructor() { 
     }
     public withName(name: string): LoadBalancerStatusListener {
@@ -19,10 +19,10 @@ export class LoadBalancerStatusListener {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: string | undefined) {
+    public set provisioningStatus(provisioningStatus: string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): string | undefined {
         return this['provisioning_status'];
     }
     public withPools(pools: Array<LoadBalancerStatusPool>): LoadBalancerStatusListener {
@@ -41,10 +41,10 @@ export class LoadBalancerStatusListener {
         this['operating_status'] = operatingStatus;
         return this;
     }
-    public set operatingStatus(operatingStatus: string | undefined) {
+    public set operatingStatus(operatingStatus: string  | undefined) {
         this['operating_status'] = operatingStatus;
     }
-    public get operatingStatus() {
+    public get operatingStatus(): string | undefined {
         return this['operating_status'];
     }
 }

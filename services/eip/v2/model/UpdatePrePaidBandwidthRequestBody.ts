@@ -3,9 +3,9 @@ import { UpdatePrePaidBandwidthOption } from './UpdatePrePaidBandwidthOption';
 
 
 export class UpdatePrePaidBandwidthRequestBody {
-    public bandwidth: UpdatePrePaidBandwidthOption;
+    public bandwidth?: UpdatePrePaidBandwidthOption;
     public extendParam?: UpdatePrePaidBandwidthExtendParamOption;
-    public constructor(bandwidth?: any) { 
+    public constructor(bandwidth?: UpdatePrePaidBandwidthOption) { 
         this['bandwidth'] = bandwidth;
     }
     public withBandwidth(bandwidth: UpdatePrePaidBandwidthOption): UpdatePrePaidBandwidthRequestBody {

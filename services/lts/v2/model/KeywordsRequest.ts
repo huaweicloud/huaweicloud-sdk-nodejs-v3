@@ -1,16 +1,16 @@
 
 
 export class KeywordsRequest {
-    private 'log_stream_id': string | undefined;
-    private 'log_stream_name'?: string | undefined;
-    private 'log_group_id': string | undefined;
-    private 'log_group_name'?: string | undefined;
-    public keywords: string;
-    public condition: KeywordsRequestConditionEnum;
-    private 'number': number | undefined;
-    private 'search_time_range': number | undefined;
-    private 'search_time_range_unit': KeywordsRequestSearchTimeRangeUnitEnum | undefined;
-    public constructor(logStreamId?: any, logGroupId?: any, keywords?: any, condition?: any, modelNumber?: any, searchTimeRange?: any, searchTimeRangeUnit?: any) { 
+    private 'log_stream_id'?: string;
+    private 'log_stream_name'?: string;
+    private 'log_group_id'?: string;
+    private 'log_group_name'?: string;
+    public keywords?: string;
+    public condition?: KeywordsRequestConditionEnum | string;
+    private 'number'?: number;
+    private 'search_time_range'?: number;
+    private 'search_time_range_unit'?: KeywordsRequestSearchTimeRangeUnitEnum | string;
+    public constructor(logStreamId?: string, logGroupId?: string, keywords?: string, condition?: string, modelNumber?: number, searchTimeRange?: number, searchTimeRangeUnit?: string) { 
         this['log_stream_id'] = logStreamId;
         this['log_group_id'] = logGroupId;
         this['keywords'] = keywords;
@@ -23,47 +23,47 @@ export class KeywordsRequest {
         this['log_stream_id'] = logStreamId;
         return this;
     }
-    public set logStreamId(logStreamId: string | undefined) {
+    public set logStreamId(logStreamId: string  | undefined) {
         this['log_stream_id'] = logStreamId;
     }
-    public get logStreamId() {
+    public get logStreamId(): string | undefined {
         return this['log_stream_id'];
     }
     public withLogStreamName(logStreamName: string): KeywordsRequest {
         this['log_stream_name'] = logStreamName;
         return this;
     }
-    public set logStreamName(logStreamName: string | undefined) {
+    public set logStreamName(logStreamName: string  | undefined) {
         this['log_stream_name'] = logStreamName;
     }
-    public get logStreamName() {
+    public get logStreamName(): string | undefined {
         return this['log_stream_name'];
     }
     public withLogGroupId(logGroupId: string): KeywordsRequest {
         this['log_group_id'] = logGroupId;
         return this;
     }
-    public set logGroupId(logGroupId: string | undefined) {
+    public set logGroupId(logGroupId: string  | undefined) {
         this['log_group_id'] = logGroupId;
     }
-    public get logGroupId() {
+    public get logGroupId(): string | undefined {
         return this['log_group_id'];
     }
     public withLogGroupName(logGroupName: string): KeywordsRequest {
         this['log_group_name'] = logGroupName;
         return this;
     }
-    public set logGroupName(logGroupName: string | undefined) {
+    public set logGroupName(logGroupName: string  | undefined) {
         this['log_group_name'] = logGroupName;
     }
-    public get logGroupName() {
+    public get logGroupName(): string | undefined {
         return this['log_group_name'];
     }
     public withKeywords(keywords: string): KeywordsRequest {
         this['keywords'] = keywords;
         return this;
     }
-    public withCondition(condition: KeywordsRequestConditionEnum): KeywordsRequest {
+    public withCondition(condition: KeywordsRequestConditionEnum | string): KeywordsRequest {
         this['condition'] = condition;
         return this;
     }
@@ -71,30 +71,30 @@ export class KeywordsRequest {
         this['number'] = modelNumber;
         return this;
     }
-    public set modelNumber(modelNumber: number | undefined) {
+    public set modelNumber(modelNumber: number  | undefined) {
         this['number'] = modelNumber;
     }
-    public get modelNumber() {
+    public get modelNumber(): number | undefined {
         return this['number'];
     }
     public withSearchTimeRange(searchTimeRange: number): KeywordsRequest {
         this['search_time_range'] = searchTimeRange;
         return this;
     }
-    public set searchTimeRange(searchTimeRange: number | undefined) {
+    public set searchTimeRange(searchTimeRange: number  | undefined) {
         this['search_time_range'] = searchTimeRange;
     }
-    public get searchTimeRange() {
+    public get searchTimeRange(): number | undefined {
         return this['search_time_range'];
     }
-    public withSearchTimeRangeUnit(searchTimeRangeUnit: KeywordsRequestSearchTimeRangeUnitEnum): KeywordsRequest {
+    public withSearchTimeRangeUnit(searchTimeRangeUnit: KeywordsRequestSearchTimeRangeUnitEnum | string): KeywordsRequest {
         this['search_time_range_unit'] = searchTimeRangeUnit;
         return this;
     }
-    public set searchTimeRangeUnit(searchTimeRangeUnit: KeywordsRequestSearchTimeRangeUnitEnum | undefined) {
+    public set searchTimeRangeUnit(searchTimeRangeUnit: KeywordsRequestSearchTimeRangeUnitEnum | string  | undefined) {
         this['search_time_range_unit'] = searchTimeRangeUnit;
     }
-    public get searchTimeRangeUnit() {
+    public get searchTimeRangeUnit(): KeywordsRequestSearchTimeRangeUnitEnum | string | undefined {
         return this['search_time_range_unit'];
     }
 }

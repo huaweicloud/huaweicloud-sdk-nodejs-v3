@@ -1,9 +1,9 @@
 
 
 export class HistoryInfo {
-    private 'history_id'?: string | undefined;
+    private 'history_id'?: string;
     public type?: string;
-    private 'created_at'?: string | undefined;
+    private 'created_at'?: string;
     public status?: string;
     public constructor() { 
     }
@@ -11,10 +11,10 @@ export class HistoryInfo {
         this['history_id'] = historyId;
         return this;
     }
-    public set historyId(historyId: string | undefined) {
+    public set historyId(historyId: string  | undefined) {
         this['history_id'] = historyId;
     }
-    public get historyId() {
+    public get historyId(): string | undefined {
         return this['history_id'];
     }
     public withType(type: string): HistoryInfo {
@@ -25,10 +25,10 @@ export class HistoryInfo {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withStatus(status: string): HistoryInfo {

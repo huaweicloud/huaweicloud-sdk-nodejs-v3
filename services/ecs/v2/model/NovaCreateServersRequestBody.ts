@@ -3,9 +3,9 @@ import { NovaCreateServersSchedulerHint } from './NovaCreateServersSchedulerHint
 
 
 export class NovaCreateServersRequestBody {
-    public server: NovaCreateServersOption;
-    private 'os:scheduler_hints'?: NovaCreateServersSchedulerHint | undefined;
-    public constructor(server?: any) { 
+    public server?: NovaCreateServersOption;
+    private 'os:scheduler_hints'?: NovaCreateServersSchedulerHint;
+    public constructor(server?: NovaCreateServersOption) { 
         this['server'] = server;
     }
     public withServer(server: NovaCreateServersOption): NovaCreateServersRequestBody {
@@ -16,10 +16,10 @@ export class NovaCreateServersRequestBody {
         this['os:scheduler_hints'] = osSchedulerHints;
         return this;
     }
-    public set osSchedulerHints(osSchedulerHints: NovaCreateServersSchedulerHint | undefined) {
+    public set osSchedulerHints(osSchedulerHints: NovaCreateServersSchedulerHint  | undefined) {
         this['os:scheduler_hints'] = osSchedulerHints;
     }
-    public get osSchedulerHints() {
+    public get osSchedulerHints(): NovaCreateServersSchedulerHint | undefined {
         return this['os:scheduler_hints'];
     }
 }

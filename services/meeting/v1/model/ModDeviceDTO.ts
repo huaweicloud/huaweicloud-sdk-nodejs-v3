@@ -2,20 +2,20 @@
 
 export class ModDeviceDTO {
     public name?: string;
-    public prjCodeMode?: ModDeviceDTOPrjCodeModeEnum;
+    public prjCodeMode?: ModDeviceDTOPrjCodeModeEnum | number;
     public deptCode?: string;
     public phone?: string;
     public country?: string;
     public email?: string;
     public description?: string;
-    public status?: ModDeviceDTOStatusEnum;
+    public status?: ModDeviceDTOStatusEnum | number;
     public constructor() { 
     }
     public withName(name: string): ModDeviceDTO {
         this['name'] = name;
         return this;
     }
-    public withPrjCodeMode(prjCodeMode: ModDeviceDTOPrjCodeModeEnum): ModDeviceDTO {
+    public withPrjCodeMode(prjCodeMode: ModDeviceDTOPrjCodeModeEnum | number): ModDeviceDTO {
         this['prjCodeMode'] = prjCodeMode;
         return this;
     }
@@ -39,7 +39,7 @@ export class ModDeviceDTO {
         this['description'] = description;
         return this;
     }
-    public withStatus(status: ModDeviceDTOStatusEnum): ModDeviceDTO {
+    public withStatus(status: ModDeviceDTOStatusEnum | number): ModDeviceDTO {
         this['status'] = status;
         return this;
     }

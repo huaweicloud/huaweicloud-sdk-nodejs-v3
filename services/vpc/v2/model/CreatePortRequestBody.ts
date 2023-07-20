@@ -2,8 +2,8 @@ import { CreatePortOption } from './CreatePortOption';
 
 
 export class CreatePortRequestBody {
-    public port: CreatePortOption;
-    public constructor(port?: any) { 
+    public port?: CreatePortOption;
+    public constructor(port?: CreatePortOption) { 
         this['port'] = port;
     }
     public withPort(port: CreatePortOption): CreatePortRequestBody {

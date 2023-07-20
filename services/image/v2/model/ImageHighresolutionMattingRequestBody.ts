@@ -5,11 +5,11 @@ import { TaskOutput } from './TaskOutput';
 
 
 export class ImageHighresolutionMattingRequestBody {
-    public input: ImageHighresolutionMattingInput;
-    public output: TaskOutput;
+    public input?: ImageHighresolutionMattingInput;
+    public output?: TaskOutput;
     public callback?: TaskCallback;
-    public config: ImageHighresolutionMattingConfig;
-    public constructor(input?: any, output?: any, config?: any) { 
+    public config?: ImageHighresolutionMattingConfig;
+    public constructor(input?: ImageHighresolutionMattingInput, output?: TaskOutput, config?: ImageHighresolutionMattingConfig) { 
         this['input'] = input;
         this['output'] = output;
         this['config'] = config;

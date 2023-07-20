@@ -2,7 +2,7 @@ import { DeleteStatus } from './DeleteStatus';
 
 
 export class NodeStatus {
-    public phase?: NodeStatusPhaseEnum;
+    public phase?: NodeStatusPhaseEnum | string;
     public lastProbeTime?: string;
     public jobID?: string;
     public serverId?: string;
@@ -12,7 +12,7 @@ export class NodeStatus {
     public deleteStatus?: DeleteStatus;
     public constructor() { 
     }
-    public withPhase(phase: NodeStatusPhaseEnum): NodeStatus {
+    public withPhase(phase: NodeStatusPhaseEnum | string): NodeStatus {
         this['phase'] = phase;
         return this;
     }

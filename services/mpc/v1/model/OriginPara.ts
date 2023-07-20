@@ -4,8 +4,8 @@ import { VideoInfo } from './VideoInfo';
 
 export class OriginPara {
     public duration?: number;
-    private 'duration_ms'?: number | undefined;
-    private 'file_format'?: string | undefined;
+    private 'duration_ms'?: number;
+    private 'file_format'?: string;
     public video?: VideoInfo;
     public audio?: AudioInfo;
     public constructor() { 
@@ -18,20 +18,20 @@ export class OriginPara {
         this['duration_ms'] = durationMs;
         return this;
     }
-    public set durationMs(durationMs: number | undefined) {
+    public set durationMs(durationMs: number  | undefined) {
         this['duration_ms'] = durationMs;
     }
-    public get durationMs() {
+    public get durationMs(): number | undefined {
         return this['duration_ms'];
     }
     public withFileFormat(fileFormat: string): OriginPara {
         this['file_format'] = fileFormat;
         return this;
     }
-    public set fileFormat(fileFormat: string | undefined) {
+    public set fileFormat(fileFormat: string  | undefined) {
         this['file_format'] = fileFormat;
     }
-    public get fileFormat() {
+    public get fileFormat(): string | undefined {
         return this['file_format'];
     }
     public withVideo(video: VideoInfo): OriginPara {

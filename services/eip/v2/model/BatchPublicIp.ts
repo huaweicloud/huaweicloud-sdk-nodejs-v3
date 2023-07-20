@@ -3,19 +3,19 @@ import { BatchProfile } from './BatchProfile';
 
 export class BatchPublicIp {
     public id?: string;
-    public type: BatchPublicIpTypeEnum;
-    private 'ip_version'?: string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
+    public type?: BatchPublicIpTypeEnum | string;
+    private 'ip_version'?: string;
+    private 'enterprise_project_id'?: string;
     public tags?: Array<string>;
     public profile?: BatchProfile;
-    public constructor(type?: any) { 
+    public constructor(type?: string) { 
         this['type'] = type;
     }
     public withId(id: string): BatchPublicIp {
         this['id'] = id;
         return this;
     }
-    public withType(type: BatchPublicIpTypeEnum): BatchPublicIp {
+    public withType(type: BatchPublicIpTypeEnum | string): BatchPublicIp {
         this['type'] = type;
         return this;
     }
@@ -23,20 +23,20 @@ export class BatchPublicIp {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: string | undefined) {
+    public set ipVersion(ipVersion: string  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion() {
+    public get ipVersion(): string | undefined {
         return this['ip_version'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): BatchPublicIp {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withTags(tags: Array<string>): BatchPublicIp {

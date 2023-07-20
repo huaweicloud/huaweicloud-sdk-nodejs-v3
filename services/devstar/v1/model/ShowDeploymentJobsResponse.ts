@@ -3,13 +3,13 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowDeploymentJobsResponse extends SdkResponse {
     public id?: number;
-    private 'job_id'?: string | undefined;
+    private 'job_id'?: string;
     public status?: number;
     public address?: string;
-    private 'deploy_parameters'?: string | undefined;
+    private 'deploy_parameters'?: string;
     public time?: number;
-    private 'creator_name'?: string | undefined;
-    private 'created_time'?: string | undefined;
+    private 'creator_name'?: string;
+    private 'created_time'?: string;
     public constructor() { 
         super();
     }
@@ -21,10 +21,10 @@ export class ShowDeploymentJobsResponse extends SdkResponse {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
     public withStatus(status: number): ShowDeploymentJobsResponse {
@@ -39,10 +39,10 @@ export class ShowDeploymentJobsResponse extends SdkResponse {
         this['deploy_parameters'] = deployParameters;
         return this;
     }
-    public set deployParameters(deployParameters: string | undefined) {
+    public set deployParameters(deployParameters: string  | undefined) {
         this['deploy_parameters'] = deployParameters;
     }
-    public get deployParameters() {
+    public get deployParameters(): string | undefined {
         return this['deploy_parameters'];
     }
     public withTime(time: number): ShowDeploymentJobsResponse {
@@ -53,20 +53,20 @@ export class ShowDeploymentJobsResponse extends SdkResponse {
         this['creator_name'] = creatorName;
         return this;
     }
-    public set creatorName(creatorName: string | undefined) {
+    public set creatorName(creatorName: string  | undefined) {
         this['creator_name'] = creatorName;
     }
-    public get creatorName() {
+    public get creatorName(): string | undefined {
         return this['creator_name'];
     }
     public withCreatedTime(createdTime: string): ShowDeploymentJobsResponse {
         this['created_time'] = createdTime;
         return this;
     }
-    public set createdTime(createdTime: string | undefined) {
+    public set createdTime(createdTime: string  | undefined) {
         this['created_time'] = createdTime;
     }
-    public get createdTime() {
+    public get createdTime(): string | undefined {
         return this['created_time'];
     }
 }

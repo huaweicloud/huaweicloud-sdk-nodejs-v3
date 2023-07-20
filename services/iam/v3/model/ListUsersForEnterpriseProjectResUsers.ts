@@ -1,14 +1,14 @@
 
 
 export class ListUsersForEnterpriseProjectResUsers {
-    private 'domain_id': string | undefined;
-    public id: string;
-    public name: string;
-    public enabled: boolean;
-    public description: string;
-    private 'policy_num': number | undefined;
-    private 'lastest_policy_time': number | undefined;
-    public constructor(domainId?: any, id?: any, name?: any, enabled?: any, description?: any, policyNum?: any, lastestPolicyTime?: any) { 
+    private 'domain_id'?: string;
+    public id?: string;
+    public name?: string;
+    public enabled?: boolean;
+    public description?: string;
+    private 'policy_num'?: number;
+    private 'lastest_policy_time'?: number;
+    public constructor(domainId?: string, id?: string, name?: string, enabled?: boolean, description?: string, policyNum?: number, lastestPolicyTime?: number) { 
         this['domain_id'] = domainId;
         this['id'] = id;
         this['name'] = name;
@@ -21,10 +21,10 @@ export class ListUsersForEnterpriseProjectResUsers {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withId(id: string): ListUsersForEnterpriseProjectResUsers {
@@ -47,20 +47,20 @@ export class ListUsersForEnterpriseProjectResUsers {
         this['policy_num'] = policyNum;
         return this;
     }
-    public set policyNum(policyNum: number | undefined) {
+    public set policyNum(policyNum: number  | undefined) {
         this['policy_num'] = policyNum;
     }
-    public get policyNum() {
+    public get policyNum(): number | undefined {
         return this['policy_num'];
     }
     public withLastestPolicyTime(lastestPolicyTime: number): ListUsersForEnterpriseProjectResUsers {
         this['lastest_policy_time'] = lastestPolicyTime;
         return this;
     }
-    public set lastestPolicyTime(lastestPolicyTime: number | undefined) {
+    public set lastestPolicyTime(lastestPolicyTime: number  | undefined) {
         this['lastest_policy_time'] = lastestPolicyTime;
     }
-    public get lastestPolicyTime() {
+    public get lastestPolicyTime(): number | undefined {
         return this['lastest_policy_time'];
     }
 }

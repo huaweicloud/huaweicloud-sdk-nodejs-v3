@@ -1,35 +1,35 @@
 
 
 export class TtsConfig {
-    private 'audio_format'?: TtsConfigAudioFormatEnum | undefined;
-    private 'sample_rate'?: TtsConfigSampleRateEnum | undefined;
-    public property?: TtsConfigPropertyEnum;
+    private 'audio_format'?: TtsConfigAudioFormatEnum | string;
+    private 'sample_rate'?: TtsConfigSampleRateEnum | string;
+    public property?: TtsConfigPropertyEnum | string;
     public speed?: number;
     public pitch?: number;
     public volume?: number;
     public constructor() { 
     }
-    public withAudioFormat(audioFormat: TtsConfigAudioFormatEnum): TtsConfig {
+    public withAudioFormat(audioFormat: TtsConfigAudioFormatEnum | string): TtsConfig {
         this['audio_format'] = audioFormat;
         return this;
     }
-    public set audioFormat(audioFormat: TtsConfigAudioFormatEnum | undefined) {
+    public set audioFormat(audioFormat: TtsConfigAudioFormatEnum | string  | undefined) {
         this['audio_format'] = audioFormat;
     }
-    public get audioFormat() {
+    public get audioFormat(): TtsConfigAudioFormatEnum | string | undefined {
         return this['audio_format'];
     }
-    public withSampleRate(sampleRate: TtsConfigSampleRateEnum): TtsConfig {
+    public withSampleRate(sampleRate: TtsConfigSampleRateEnum | string): TtsConfig {
         this['sample_rate'] = sampleRate;
         return this;
     }
-    public set sampleRate(sampleRate: TtsConfigSampleRateEnum | undefined) {
+    public set sampleRate(sampleRate: TtsConfigSampleRateEnum | string  | undefined) {
         this['sample_rate'] = sampleRate;
     }
-    public get sampleRate() {
+    public get sampleRate(): TtsConfigSampleRateEnum | string | undefined {
         return this['sample_rate'];
     }
-    public withProperty(property: TtsConfigPropertyEnum): TtsConfig {
+    public withProperty(property: TtsConfigPropertyEnum | string): TtsConfig {
         this['property'] = property;
         return this;
     }

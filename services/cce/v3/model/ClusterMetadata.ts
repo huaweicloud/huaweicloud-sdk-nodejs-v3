@@ -1,14 +1,14 @@
 
 
 export class ClusterMetadata {
-    public name: string;
+    public name?: string;
     public uid?: string;
     public alias?: string;
     public annotations?: { [key: string]: string; };
     public labels?: { [key: string]: string; };
     public creationTimestamp?: string;
     public updateTimestamp?: string;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): ClusterMetadata {

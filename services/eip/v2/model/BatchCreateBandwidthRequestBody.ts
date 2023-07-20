@@ -2,8 +2,8 @@ import { BatchCreateBandwidthOption } from './BatchCreateBandwidthOption';
 
 
 export class BatchCreateBandwidthRequestBody {
-    public bandwidth: BatchCreateBandwidthOption;
-    public constructor(bandwidth?: any) { 
+    public bandwidth?: BatchCreateBandwidthOption;
+    public constructor(bandwidth?: BatchCreateBandwidthOption) { 
         this['bandwidth'] = bandwidth;
     }
     public withBandwidth(bandwidth: BatchCreateBandwidthOption): BatchCreateBandwidthRequestBody {

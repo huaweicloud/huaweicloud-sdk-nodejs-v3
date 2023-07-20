@@ -2,9 +2,9 @@ import { InPlaceRollingUpdate } from './InPlaceRollingUpdate';
 
 
 export class UpgradeStrategy {
-    public type: string;
+    public type?: string;
     public inPlaceRollingUpdate?: InPlaceRollingUpdate;
-    public constructor(type?: any) { 
+    public constructor(type?: string) { 
         this['type'] = type;
     }
     public withType(type: string): UpgradeStrategy {

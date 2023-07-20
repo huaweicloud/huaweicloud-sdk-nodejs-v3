@@ -1,18 +1,18 @@
 
 
 export class JobNodeSpecInfo {
-    private 'node_type': JobNodeSpecInfoNodeTypeEnum | undefined;
-    public constructor(nodeType?: any) { 
+    private 'node_type'?: JobNodeSpecInfoNodeTypeEnum | string;
+    public constructor(nodeType?: string) { 
         this['node_type'] = nodeType;
     }
-    public withNodeType(nodeType: JobNodeSpecInfoNodeTypeEnum): JobNodeSpecInfo {
+    public withNodeType(nodeType: JobNodeSpecInfoNodeTypeEnum | string): JobNodeSpecInfo {
         this['node_type'] = nodeType;
         return this;
     }
-    public set nodeType(nodeType: JobNodeSpecInfoNodeTypeEnum | undefined) {
+    public set nodeType(nodeType: JobNodeSpecInfoNodeTypeEnum | string  | undefined) {
         this['node_type'] = nodeType;
     }
-    public get nodeType() {
+    public get nodeType(): JobNodeSpecInfoNodeTypeEnum | string | undefined {
         return this['node_type'];
     }
 }

@@ -2,18 +2,18 @@ import { BatchUpdateSrcUserReq } from './BatchUpdateSrcUserReq';
 
 
 export class BatchUpdateUserRequest {
-    private 'X-Language'?: BatchUpdateUserRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchUpdateUserRequestXLanguageEnum | string;
     public body?: BatchUpdateSrcUserReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchUpdateUserRequestXLanguageEnum): BatchUpdateUserRequest {
+    public withXLanguage(xLanguage: BatchUpdateUserRequestXLanguageEnum | string): BatchUpdateUserRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchUpdateUserRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchUpdateUserRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchUpdateUserRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchUpdateSrcUserReq): BatchUpdateUserRequest {

@@ -3,22 +3,22 @@ import { PrePaidServerDataVolumeMetadata } from './PrePaidServerDataVolumeMetada
 
 
 export class PrePaidServerDataVolume {
-    public volumetype: PrePaidServerDataVolumeVolumetypeEnum;
-    public size: number;
+    public volumetype?: PrePaidServerDataVolumeVolumetypeEnum | string;
+    public size?: number;
     public shareable?: boolean;
     public multiattach?: boolean;
-    private 'hw:passthrough'?: boolean | undefined;
+    private 'hw:passthrough'?: boolean;
     public extendparam?: PrePaidServerDataVolumeExtendParam;
-    private 'cluster_type'?: PrePaidServerDataVolumeClusterTypeEnum | undefined;
-    private 'cluster_id'?: string | undefined;
+    private 'cluster_type'?: PrePaidServerDataVolumeClusterTypeEnum | string;
+    private 'cluster_id'?: string;
     public metadata?: PrePaidServerDataVolumeMetadata;
-    private 'data_image_id'?: string | undefined;
-    private 'delete_on_termination'?: boolean | undefined;
-    public constructor(volumetype?: any, size?: any) { 
+    private 'data_image_id'?: string;
+    private 'delete_on_termination'?: boolean;
+    public constructor(volumetype?: string, size?: number) { 
         this['volumetype'] = volumetype;
         this['size'] = size;
     }
-    public withVolumetype(volumetype: PrePaidServerDataVolumeVolumetypeEnum): PrePaidServerDataVolume {
+    public withVolumetype(volumetype: PrePaidServerDataVolumeVolumetypeEnum | string): PrePaidServerDataVolume {
         this['volumetype'] = volumetype;
         return this;
     }
@@ -38,34 +38,34 @@ export class PrePaidServerDataVolume {
         this['hw:passthrough'] = hwPassthrough;
         return this;
     }
-    public set hwPassthrough(hwPassthrough: boolean | undefined) {
+    public set hwPassthrough(hwPassthrough: boolean  | undefined) {
         this['hw:passthrough'] = hwPassthrough;
     }
-    public get hwPassthrough() {
+    public get hwPassthrough(): boolean | undefined {
         return this['hw:passthrough'];
     }
     public withExtendparam(extendparam: PrePaidServerDataVolumeExtendParam): PrePaidServerDataVolume {
         this['extendparam'] = extendparam;
         return this;
     }
-    public withClusterType(clusterType: PrePaidServerDataVolumeClusterTypeEnum): PrePaidServerDataVolume {
+    public withClusterType(clusterType: PrePaidServerDataVolumeClusterTypeEnum | string): PrePaidServerDataVolume {
         this['cluster_type'] = clusterType;
         return this;
     }
-    public set clusterType(clusterType: PrePaidServerDataVolumeClusterTypeEnum | undefined) {
+    public set clusterType(clusterType: PrePaidServerDataVolumeClusterTypeEnum | string  | undefined) {
         this['cluster_type'] = clusterType;
     }
-    public get clusterType() {
+    public get clusterType(): PrePaidServerDataVolumeClusterTypeEnum | string | undefined {
         return this['cluster_type'];
     }
     public withClusterId(clusterId: string): PrePaidServerDataVolume {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withMetadata(metadata: PrePaidServerDataVolumeMetadata): PrePaidServerDataVolume {
@@ -76,20 +76,20 @@ export class PrePaidServerDataVolume {
         this['data_image_id'] = dataImageId;
         return this;
     }
-    public set dataImageId(dataImageId: string | undefined) {
+    public set dataImageId(dataImageId: string  | undefined) {
         this['data_image_id'] = dataImageId;
     }
-    public get dataImageId() {
+    public get dataImageId(): string | undefined {
         return this['data_image_id'];
     }
     public withDeleteOnTermination(deleteOnTermination: boolean): PrePaidServerDataVolume {
         this['delete_on_termination'] = deleteOnTermination;
         return this;
     }
-    public set deleteOnTermination(deleteOnTermination: boolean | undefined) {
+    public set deleteOnTermination(deleteOnTermination: boolean  | undefined) {
         this['delete_on_termination'] = deleteOnTermination;
     }
-    public get deleteOnTermination() {
+    public get deleteOnTermination(): boolean | undefined {
         return this['delete_on_termination'];
     }
 }

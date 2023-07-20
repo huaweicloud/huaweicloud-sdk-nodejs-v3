@@ -4,8 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreatePrePaidPublicipResponse extends SdkResponse {
     public publicip?: PublicipCreateResp;
-    private 'order_id'?: string | undefined;
-    private 'publicip_id'?: string | undefined;
+    private 'order_id'?: string;
+    private 'publicip_id'?: string;
     public constructor() { 
         super();
     }
@@ -17,20 +17,20 @@ export class CreatePrePaidPublicipResponse extends SdkResponse {
         this['order_id'] = orderId;
         return this;
     }
-    public set orderId(orderId: string | undefined) {
+    public set orderId(orderId: string  | undefined) {
         this['order_id'] = orderId;
     }
-    public get orderId() {
+    public get orderId(): string | undefined {
         return this['order_id'];
     }
     public withPublicipId(publicipId: string): CreatePrePaidPublicipResponse {
         this['publicip_id'] = publicipId;
         return this;
     }
-    public set publicipId(publicipId: string | undefined) {
+    public set publicipId(publicipId: string  | undefined) {
         this['publicip_id'] = publicipId;
     }
-    public get publicipId() {
+    public get publicipId(): string | undefined {
         return this['publicip_id'];
     }
 }

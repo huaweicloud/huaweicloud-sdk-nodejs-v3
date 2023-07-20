@@ -2,8 +2,8 @@
 
 export class IpsSwitchResponseDTO {
     public id?: string;
-    private 'basic_defense_status'?: number | undefined;
-    private 'virtual_patches_status'?: number | undefined;
+    private 'basic_defense_status'?: number;
+    private 'virtual_patches_status'?: number;
     public constructor() { 
     }
     public withId(id: string): IpsSwitchResponseDTO {
@@ -14,20 +14,20 @@ export class IpsSwitchResponseDTO {
         this['basic_defense_status'] = basicDefenseStatus;
         return this;
     }
-    public set basicDefenseStatus(basicDefenseStatus: number | undefined) {
+    public set basicDefenseStatus(basicDefenseStatus: number  | undefined) {
         this['basic_defense_status'] = basicDefenseStatus;
     }
-    public get basicDefenseStatus() {
+    public get basicDefenseStatus(): number | undefined {
         return this['basic_defense_status'];
     }
     public withVirtualPatchesStatus(virtualPatchesStatus: number): IpsSwitchResponseDTO {
         this['virtual_patches_status'] = virtualPatchesStatus;
         return this;
     }
-    public set virtualPatchesStatus(virtualPatchesStatus: number | undefined) {
+    public set virtualPatchesStatus(virtualPatchesStatus: number  | undefined) {
         this['virtual_patches_status'] = virtualPatchesStatus;
     }
-    public get virtualPatchesStatus() {
+    public get virtualPatchesStatus(): number | undefined {
         return this['virtual_patches_status'];
     }
 }

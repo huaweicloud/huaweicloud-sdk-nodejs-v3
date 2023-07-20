@@ -1,13 +1,13 @@
 
 
 export class CycleParams {
-    public startDate: string;
-    public endDate: string;
-    public cycle: string;
+    public startDate?: string;
+    public endDate?: string;
+    public cycle?: string;
     public interval?: number;
     public point?: Array<number>;
-    public preRemindDays: number;
-    public constructor(startDate?: any, endDate?: any, cycle?: any, preRemindDays?: any) { 
+    public preRemindDays?: number;
+    public constructor(startDate?: string, endDate?: string, cycle?: string, preRemindDays?: number) { 
         this['startDate'] = startDate;
         this['endDate'] = endDate;
         this['cycle'] = cycle;

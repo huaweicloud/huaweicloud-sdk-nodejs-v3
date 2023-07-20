@@ -3,15 +3,15 @@ import { DeploymentUpdateHost } from './DeploymentUpdateHost';
 
 
 export class DeploymentHostRequest {
-    private 'host_name': string | undefined;
-    public ip: string;
-    public port: number;
-    private 'as_proxy': boolean | undefined;
-    private 'proxy_host_id'?: string | undefined;
-    public authorization: DeploymentHostAuthorizationBody;
-    private 'install_icagent'?: boolean | undefined;
+    private 'host_name'?: string;
+    public ip?: string;
+    public port?: number;
+    private 'as_proxy'?: boolean;
+    private 'proxy_host_id'?: string;
+    public authorization?: DeploymentHostAuthorizationBody;
+    private 'install_icagent'?: boolean;
     public sync?: boolean;
-    public constructor(hostName?: any, ip?: any, port?: any, asProxy?: any, authorization?: any) { 
+    public constructor(hostName?: string, ip?: string, port?: number, asProxy?: boolean, authorization?: DeploymentHostAuthorizationBody) { 
         this['host_name'] = hostName;
         this['ip'] = ip;
         this['port'] = port;
@@ -22,10 +22,10 @@ export class DeploymentHostRequest {
         this['host_name'] = hostName;
         return this;
     }
-    public set hostName(hostName: string | undefined) {
+    public set hostName(hostName: string  | undefined) {
         this['host_name'] = hostName;
     }
-    public get hostName() {
+    public get hostName(): string | undefined {
         return this['host_name'];
     }
     public withIp(ip: string): DeploymentHostRequest {
@@ -40,20 +40,20 @@ export class DeploymentHostRequest {
         this['as_proxy'] = asProxy;
         return this;
     }
-    public set asProxy(asProxy: boolean | undefined) {
+    public set asProxy(asProxy: boolean  | undefined) {
         this['as_proxy'] = asProxy;
     }
-    public get asProxy() {
+    public get asProxy(): boolean | undefined {
         return this['as_proxy'];
     }
     public withProxyHostId(proxyHostId: string): DeploymentHostRequest {
         this['proxy_host_id'] = proxyHostId;
         return this;
     }
-    public set proxyHostId(proxyHostId: string | undefined) {
+    public set proxyHostId(proxyHostId: string  | undefined) {
         this['proxy_host_id'] = proxyHostId;
     }
-    public get proxyHostId() {
+    public get proxyHostId(): string | undefined {
         return this['proxy_host_id'];
     }
     public withAuthorization(authorization: DeploymentHostAuthorizationBody): DeploymentHostRequest {
@@ -64,10 +64,10 @@ export class DeploymentHostRequest {
         this['install_icagent'] = installIcagent;
         return this;
     }
-    public set installIcagent(installIcagent: boolean | undefined) {
+    public set installIcagent(installIcagent: boolean  | undefined) {
         this['install_icagent'] = installIcagent;
     }
-    public get installIcagent() {
+    public get installIcagent(): boolean | undefined {
         return this['install_icagent'];
     }
     public withSync(sync: boolean): DeploymentHostRequest {

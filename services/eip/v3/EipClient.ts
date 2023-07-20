@@ -6,17 +6,44 @@ import { AssociatePublicipsOption } from './model/AssociatePublicipsOption';
 import { AssociatePublicipsRequest } from './model/AssociatePublicipsRequest';
 import { AssociatePublicipsRequestBody } from './model/AssociatePublicipsRequestBody';
 import { AssociatePublicipsResponse } from './model/AssociatePublicipsResponse';
+import { AttachBatchPublicIpRequest } from './model/AttachBatchPublicIpRequest';
+import { AttachBatchPublicIpResponse } from './model/AttachBatchPublicIpResponse';
+import { AttachShareBandwidthRequest } from './model/AttachShareBandwidthRequest';
+import { AttachShareBandwidthResponse } from './model/AttachShareBandwidthResponse';
+import { AttachSharebwDict } from './model/AttachSharebwDict';
+import { AttachSharebwReq } from './model/AttachSharebwReq';
+import { BandWidthRules } from './model/BandWidthRules';
 import { BandwidthInfoResp } from './model/BandwidthInfoResp';
+import { BandwidthResp } from './model/BandwidthResp';
+import { BandwidthResponseBody } from './model/BandwidthResponseBody';
+import { BatchAttachSharebwDict } from './model/BatchAttachSharebwDict';
+import { BatchAttachSharebwReq } from './model/BatchAttachSharebwReq';
+import { BatchPublicipResp } from './model/BatchPublicipResp';
 import { BillingInfoDict } from './model/BillingInfoDict';
 import { CommonPoolDict } from './model/CommonPoolDict';
 import { CommonPoolsWithBorderGroupDict } from './model/CommonPoolsWithBorderGroupDict';
 import { CountEipAvailableResourcesRequest } from './model/CountEipAvailableResourcesRequest';
 import { CountEipAvailableResourcesResponse } from './model/CountEipAvailableResourcesResponse';
+import { DetachBatchPublicIpRequest } from './model/DetachBatchPublicIpRequest';
+import { DetachBatchPublicIpResponse } from './model/DetachBatchPublicIpResponse';
+import { DetachBatchSharedbwReq } from './model/DetachBatchSharedbwReq';
+import { DetachBatchSharedbwReqPublicips } from './model/DetachBatchSharedbwReqPublicips';
+import { DetachShareBandwidthRequest } from './model/DetachShareBandwidthRequest';
+import { DetachShareBandwidthResponse } from './model/DetachShareBandwidthResponse';
+import { DetachSharedbwDict } from './model/DetachSharedbwDict';
+import { DetachSharedbwReq } from './model/DetachSharedbwReq';
+import { DetachSharedbwReqPublicip } from './model/DetachSharedbwReqPublicip';
+import { DisableNat64Request } from './model/DisableNat64Request';
+import { DisableNat64Response } from './model/DisableNat64Response';
 import { DisassociatePublicipsOption } from './model/DisassociatePublicipsOption';
 import { DisassociatePublicipsRequest } from './model/DisassociatePublicipsRequest';
 import { DisassociatePublicipsRequestBody } from './model/DisassociatePublicipsRequestBody';
 import { DisassociatePublicipsResponse } from './model/DisassociatePublicipsResponse';
 import { EipResourcesAvailableV3RequestBody } from './model/EipResourcesAvailableV3RequestBody';
+import { EnableNat64Request } from './model/EnableNat64Request';
+import { EnableNat64Response } from './model/EnableNat64Response';
+import { ListBandwidthRequest } from './model/ListBandwidthRequest';
+import { ListBandwidthResponse } from './model/ListBandwidthResponse';
 import { ListCommonPoolsRequest } from './model/ListCommonPoolsRequest';
 import { ListCommonPoolsResponse } from './model/ListCommonPoolsResponse';
 import { ListPublicBorderGroupsRequest } from './model/ListPublicBorderGroupsRequest';
@@ -30,8 +57,10 @@ import { ListShareBandwidthTypesResponse } from './model/ListShareBandwidthTypes
 import { PageInfoOption } from './model/PageInfoOption';
 import { ProfileInfo } from './model/ProfileInfo';
 import { PublicipBandwidthInfo } from './model/PublicipBandwidthInfo';
+import { PublicipInfoResponseBody } from './model/PublicipInfoResponseBody';
 import { PublicipInstanceResp } from './model/PublicipInstanceResp';
 import { PublicipPoolShowResp } from './model/PublicipPoolShowResp';
+import { PublicipResp } from './model/PublicipResp';
 import { PublicipSingleShowResp } from './model/PublicipSingleShowResp';
 import { ShareBandwidthTypeShowResp } from './model/ShareBandwidthTypeShowResp';
 import { ShowPublicipPoolRequest } from './model/ShowPublicipPoolRequest';
@@ -44,6 +73,7 @@ import { UpdateAssociatePublicipResponse } from './model/UpdateAssociatePublicip
 import { UpdateDisassociatePublicipRequest } from './model/UpdateDisassociatePublicipRequest';
 import { UpdateDisassociatePublicipResponse } from './model/UpdateDisassociatePublicipResponse';
 import { VnicInfo } from './model/VnicInfo';
+import { VnicResp } from './model/VnicResp';
 
 export class EipClient {
     public static newBuilder(): ClientBuilder<EipClient> {
@@ -59,6 +89,40 @@ export class EipClient {
         return __dirname;
     }
 
+
+    /**
+     * 查询带宽列表
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 查询带宽列表
+     * @param {string} [limit] - 功能说明：每页返回的个数 - 取值范围：取值范围：1~[2000]，其中2000为局点差异项，具体取值由局点决定
+     * @param {string} [marker] - 功能说明：分页查询起始的资源ID，为空时为查询第一页
+     * @param {string} [id] - 功能说明：带宽唯一标识
+     * @param {string} [bandwidthType] - 功能说明：带宽类型，共享带宽默认为share。 - 取值范围：share，bgp，telcom，sbgp等。   - share：共享带宽   - bgp：动态bgp   - telcom ：联通   - sbgp：静态bgp
+     * @param {string} [name] - 功能说明：宽带名称，按照宽带名称过滤
+     * @param {string} [nameLike] - 功能说明：根据宽带名称模糊查询过滤
+     * @param {string} [ingressSize] - 功能说明：根据入云大小过滤
+     * @param {string} [adminState] - 功能说明：根据宽带状态过滤
+     * @param {string} [billingInfo] - 功能说明：根据计费信息过滤
+     * @param {string} [tags] - 功能说明：根据标签过滤
+     * @param {string} [enableBandwidthRules] - 功能说明：根据是否带宽分组使能过滤 - 取值范围：true、false
+     * @param {number} [ruleQuota] - 功能说明：根据规则数值过滤
+     * @param {string} [publicBorderGroup] - 功能说明：根据站点信息过滤
+     * @param {string} [chargeMode] - 功能说明：按流量计费,按带宽计费还是按增强型95计费 - 取值范围：bandwidth（按带宽计费），traffic（按流量计费），95peak_plus（按增强型95计费），不返回或者为空时表示是bandwidth - 约束：只有共享带宽支持95peak_plus（按增强型95计费），按增强型95计费时需要指定保底百分比，默认是20%
+     * @param {string} [size] - 功能说明：带宽大小。共享带宽的大小有最小值限制，默认为5M，可能因局点不同而不同。 - 取值范围：默认5Mbit/s~2000Mbit/s（具体范围以各区域配置为准，请参见控制台对应页面显示）。   调整带宽时的最小单位会根据带宽范围不同存在差异。 - 小于等于300Mbit/s：默认最小单位为1Mbit/s。 - 300Mbit/s~1000Mbit/s：默认最小单位为50Mbit/s。 - 大于1000Mbit/s：默认最小单位为500Mbit/s。
+     * @param {string} [type] - 功能说明：带宽类型，标识是否是共享带宽 - 取值范围：WHOLE，PER。   - WHOLE表示共享带宽   - PER表示独享带宽
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public listBandwidth(listBandwidthRequest?: ListBandwidthRequest): Promise<ListBandwidthResponse> {
+        const options = ParamCreater().listBandwidth(listBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
 
     /**
      * 查询公共池列表
@@ -202,6 +266,45 @@ export class EipClient {
     }
 
     /**
+     * 共享带宽批量加入弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 共享带宽批量加入弹性公网IP
+     * @param {BatchAttachSharebwReq} attachBatchPublicIpRequestBody 共享带宽批量加入弹性公网IP的请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public attachBatchPublicIp(attachBatchPublicIpRequest?: AttachBatchPublicIpRequest): Promise<AttachBatchPublicIpResponse> {
+        const options = ParamCreater().attachBatchPublicIp(attachBatchPublicIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 共享带宽加入弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 共享带宽加入弹性公网IP
+     * @param {string} publicipId 弹性公网ID
+     * @param {AttachSharebwReq} attachSharebwRequestBody 共享带宽加入弹性公网IP的请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public attachShareBandwidth(attachShareBandwidthRequest?: AttachShareBandwidthRequest): Promise<AttachShareBandwidthResponse> {
+        const options = ParamCreater().attachShareBandwidth(attachShareBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * IP池用于查询公网可用ip个数
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -221,6 +324,64 @@ export class EipClient {
     }
 
     /**
+     * 共享带宽批量移出弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 共享带宽批量移出弹性公网IP
+     * @param {DetachBatchSharedbwReq} detachBatchPublicIpRequestBody 共享带宽批量移出弹性公网IP的请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detachBatchPublicIp(detachBatchPublicIpRequest?: DetachBatchPublicIpRequest): Promise<DetachBatchPublicIpResponse> {
+        const options = ParamCreater().detachBatchPublicIp(detachBatchPublicIpRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 共享带宽移出弹性公网IP
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 共享带宽移出弹性公网IP
+     * @param {string} publicipId 弹性公网ID
+     * @param {DetachSharedbwReq} detachSharebwRequestBody 共享带宽移出弹性公网IP的请求参数
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public detachShareBandwidth(detachShareBandwidthRequest?: DetachShareBandwidthRequest): Promise<DetachShareBandwidthResponse> {
+        const options = ParamCreater().detachShareBandwidth(detachShareBandwidthRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 弹性公网IP关闭NAT64
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 弹性公网IP关闭NAT64
+     * @param {string} publicipId 弹性公网ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public disableNat64(disableNat64Request?: DisableNat64Request): Promise<DisableNat64Response> {
+        const options = ParamCreater().disableNat64(disableNat64Request);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
      * 解绑弹性公网IP
      * 
      * Please refer to HUAWEI cloud API Explorer for details.
@@ -232,6 +393,25 @@ export class EipClient {
      */
     public disassociatePublicips(disassociatePublicipsRequest?: DisassociatePublicipsRequest): Promise<DisassociatePublicipsResponse> {
         const options = ParamCreater().disassociatePublicips(disassociatePublicipsRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 弹性公网IP开启NAT64
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 弹性公网IP开启NAT64
+     * @param {string} publicipId 弹性公网ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public enableNat64(enableNat64Request?: EnableNat64Request): Promise<EnableNat64Response> {
+        const options = ParamCreater().enableNat64(enableNat64Request);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -361,6 +541,148 @@ export class EipClient {
 
 export const ParamCreater = function () {
     return {
+    
+        /**
+         * 查询带宽列表
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        listBandwidth(listBandwidthRequest?: ListBandwidthRequest) {
+            const options = {
+                method: "GET",
+                url: "/v3/{project_id}/eip/bandwidths",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            
+            let limit;
+            
+            let marker;
+            
+            let id;
+            
+            let bandwidthType;
+            
+            let name;
+            
+            let nameLike;
+            
+            let ingressSize;
+            
+            let adminState;
+            
+            let billingInfo;
+            
+            let tags;
+            
+            let enableBandwidthRules;
+            
+            let ruleQuota;
+            
+            let publicBorderGroup;
+            
+            let chargeMode;
+            
+            let size;
+            
+            let type;
+
+            if (listBandwidthRequest !== null && listBandwidthRequest !== undefined) {
+                if (listBandwidthRequest instanceof ListBandwidthRequest) {
+                    limit = listBandwidthRequest.limit;
+                    marker = listBandwidthRequest.marker;
+                    id = listBandwidthRequest.id;
+                    bandwidthType = listBandwidthRequest.bandwidthType;
+                    name = listBandwidthRequest.name;
+                    nameLike = listBandwidthRequest.nameLike;
+                    ingressSize = listBandwidthRequest.ingressSize;
+                    adminState = listBandwidthRequest.adminState;
+                    billingInfo = listBandwidthRequest.billingInfo;
+                    tags = listBandwidthRequest.tags;
+                    enableBandwidthRules = listBandwidthRequest.enableBandwidthRules;
+                    ruleQuota = listBandwidthRequest.ruleQuota;
+                    publicBorderGroup = listBandwidthRequest.publicBorderGroup;
+                    chargeMode = listBandwidthRequest.chargeMode;
+                    size = listBandwidthRequest.size;
+                    type = listBandwidthRequest.type;
+                } else {
+                    limit = listBandwidthRequest['limit'];
+                    marker = listBandwidthRequest['marker'];
+                    id = listBandwidthRequest['id'];
+                    bandwidthType = listBandwidthRequest['bandwidth_type'];
+                    name = listBandwidthRequest['name'];
+                    nameLike = listBandwidthRequest['name_like'];
+                    ingressSize = listBandwidthRequest['ingress_size'];
+                    adminState = listBandwidthRequest['admin_state'];
+                    billingInfo = listBandwidthRequest['billing_info'];
+                    tags = listBandwidthRequest['tags'];
+                    enableBandwidthRules = listBandwidthRequest['enable_bandwidth_rules'];
+                    ruleQuota = listBandwidthRequest['rule_quota'];
+                    publicBorderGroup = listBandwidthRequest['public_border_group'];
+                    chargeMode = listBandwidthRequest['charge_mode'];
+                    size = listBandwidthRequest['size'];
+                    type = listBandwidthRequest['type'];
+                }
+            }
+
+        
+            if (limit !== null && limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (marker !== null && marker !== undefined) {
+                localVarQueryParameter['marker'] = marker;
+            }
+            if (id !== null && id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (bandwidthType !== null && bandwidthType !== undefined) {
+                localVarQueryParameter['bandwidth_type'] = bandwidthType;
+            }
+            if (name !== null && name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+            if (nameLike !== null && nameLike !== undefined) {
+                localVarQueryParameter['name_like'] = nameLike;
+            }
+            if (ingressSize !== null && ingressSize !== undefined) {
+                localVarQueryParameter['ingress_size'] = ingressSize;
+            }
+            if (adminState !== null && adminState !== undefined) {
+                localVarQueryParameter['admin_state'] = adminState;
+            }
+            if (billingInfo !== null && billingInfo !== undefined) {
+                localVarQueryParameter['billing_info'] = billingInfo;
+            }
+            if (tags !== null && tags !== undefined) {
+                localVarQueryParameter['tags'] = tags;
+            }
+            if (enableBandwidthRules !== null && enableBandwidthRules !== undefined) {
+                localVarQueryParameter['enable_bandwidth_rules'] = enableBandwidthRules;
+            }
+            if (ruleQuota !== null && ruleQuota !== undefined) {
+                localVarQueryParameter['rule_quota'] = ruleQuota;
+            }
+            if (publicBorderGroup !== null && publicBorderGroup !== undefined) {
+                localVarQueryParameter['public_border_group'] = publicBorderGroup;
+            }
+            if (chargeMode !== null && chargeMode !== undefined) {
+                localVarQueryParameter['charge_mode'] = chargeMode;
+            }
+            if (size !== null && size !== undefined) {
+                localVarQueryParameter['size'] = size;
+            }
+            if (type !== null && type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+            options.queryParams = localVarQueryParameter;
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
     
         /**
          * 查询公共池列表
@@ -777,6 +1099,90 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 共享带宽批量加入弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        attachBatchPublicIp(attachBatchPublicIpRequest?: AttachBatchPublicIpRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/eip/publicips/attach-share-bandwidth",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (attachBatchPublicIpRequest !== null && attachBatchPublicIpRequest !== undefined) {
+                if (attachBatchPublicIpRequest instanceof AttachBatchPublicIpRequest) {
+                    body = attachBatchPublicIpRequest.body
+                } else {
+                    body = attachBatchPublicIpRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 共享带宽加入弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        attachShareBandwidth(attachShareBandwidthRequest?: AttachShareBandwidthRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/eip/publicips/{publicip_id}/attach-share-bandwidth",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let publicipId;
+
+            if (attachShareBandwidthRequest !== null && attachShareBandwidthRequest !== undefined) {
+                if (attachShareBandwidthRequest instanceof AttachShareBandwidthRequest) {
+                    publicipId = attachShareBandwidthRequest.publicipId;
+                    body = attachShareBandwidthRequest.body
+                } else {
+                    publicipId = attachShareBandwidthRequest['publicip_id'];
+                    body = attachShareBandwidthRequest['body'];
+                }
+            }
+
+        
+            if (publicipId === null || publicipId === undefined) {
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling attachShareBandwidth.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'publicip_id': publicipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * IP池用于查询公网可用ip个数
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -815,6 +1221,127 @@ export const ParamCreater = function () {
         },
     
         /**
+         * 共享带宽批量移出弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        detachBatchPublicIp(detachBatchPublicIpRequest?: DetachBatchPublicIpRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/eip/publicips/detach-share-bandwidth",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+
+            if (detachBatchPublicIpRequest !== null && detachBatchPublicIpRequest !== undefined) {
+                if (detachBatchPublicIpRequest instanceof DetachBatchPublicIpRequest) {
+                    body = detachBatchPublicIpRequest.body
+                } else {
+                    body = detachBatchPublicIpRequest['body'];
+                }
+            }
+
+        
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 共享带宽移出弹性公网IP
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        detachShareBandwidth(detachShareBandwidthRequest?: DetachShareBandwidthRequest) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/eip/publicips/{publicip_id}/detach-share-bandwidth",
+                contentType: "application/json;charset=UTF-8",
+                queryParams: {},
+                pathParams: {},
+                headers: {},
+                data: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            let body: any;
+            
+            let publicipId;
+
+            if (detachShareBandwidthRequest !== null && detachShareBandwidthRequest !== undefined) {
+                if (detachShareBandwidthRequest instanceof DetachShareBandwidthRequest) {
+                    publicipId = detachShareBandwidthRequest.publicipId;
+                    body = detachShareBandwidthRequest.body
+                } else {
+                    publicipId = detachShareBandwidthRequest['publicip_id'];
+                    body = detachShareBandwidthRequest['body'];
+                }
+            }
+
+        
+            if (publicipId === null || publicipId === undefined) {
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling detachShareBandwidth.');
+            }
+            if (body === null || body === undefined) {
+                throw new RequiredError('body','Required parameter body was null or undefined when calling body.');
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json;charset=UTF-8';
+
+            options.data = body !== undefined ? body : {};
+            options.pathParams = { 'publicip_id': publicipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 弹性公网IP关闭NAT64
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        disableNat64(disableNat64Request?: DisableNat64Request) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/eip/publicips/{publicip_id}/disable-nat64",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let publicipId;
+
+            if (disableNat64Request !== null && disableNat64Request !== undefined) {
+                if (disableNat64Request instanceof DisableNat64Request) {
+                    publicipId = disableNat64Request.publicipId;
+                } else {
+                    publicipId = disableNat64Request['publicip_id'];
+                }
+            }
+
+        
+            if (publicipId === null || publicipId === undefined) {
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling disableNat64.');
+            }
+
+            options.pathParams = { 'publicip_id': publicipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
          * 解绑弹性公网IP
          * 
          * Please refer to HUAWEI cloud API Explorer for details.
@@ -844,6 +1371,43 @@ export const ParamCreater = function () {
         
             if (publicipId === null || publicipId === undefined) {
             throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling disassociatePublicips.');
+            }
+
+            options.pathParams = { 'publicip_id': publicipId, };
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 弹性公网IP开启NAT64
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        enableNat64(enableNat64Request?: EnableNat64Request) {
+            const options = {
+                method: "POST",
+                url: "/v3/{project_id}/eip/publicips/{publicip_id}/enable-nat64",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let publicipId;
+
+            if (enableNat64Request !== null && enableNat64Request !== undefined) {
+                if (enableNat64Request instanceof EnableNat64Request) {
+                    publicipId = enableNat64Request.publicipId;
+                } else {
+                    publicipId = enableNat64Request['publicip_id'];
+                }
+            }
+
+        
+            if (publicipId === null || publicipId === undefined) {
+            throw new RequiredError('publicipId','Required parameter publicipId was null or undefined when calling enableNat64.');
             }
 
             options.pathParams = { 'publicip_id': publicipId, };

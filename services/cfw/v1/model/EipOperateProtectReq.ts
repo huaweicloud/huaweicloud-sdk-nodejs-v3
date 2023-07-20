@@ -2,10 +2,10 @@ import { EipOperateProtectReqIpInfos } from './EipOperateProtectReqIpInfos';
 
 
 export class EipOperateProtectReq {
-    private 'object_id': string | undefined;
-    public status: number;
-    private 'ip_infos': Array<EipOperateProtectReqIpInfos> | undefined;
-    public constructor(objectId?: any, status?: any, ipInfos?: any) { 
+    private 'object_id'?: string;
+    public status?: number;
+    private 'ip_infos'?: Array<EipOperateProtectReqIpInfos>;
+    public constructor(objectId?: string, status?: number, ipInfos?: Array<EipOperateProtectReqIpInfos>) { 
         this['object_id'] = objectId;
         this['status'] = status;
         this['ip_infos'] = ipInfos;
@@ -14,10 +14,10 @@ export class EipOperateProtectReq {
         this['object_id'] = objectId;
         return this;
     }
-    public set objectId(objectId: string | undefined) {
+    public set objectId(objectId: string  | undefined) {
         this['object_id'] = objectId;
     }
-    public get objectId() {
+    public get objectId(): string | undefined {
         return this['object_id'];
     }
     public withStatus(status: number): EipOperateProtectReq {
@@ -28,10 +28,10 @@ export class EipOperateProtectReq {
         this['ip_infos'] = ipInfos;
         return this;
     }
-    public set ipInfos(ipInfos: Array<EipOperateProtectReqIpInfos> | undefined) {
+    public set ipInfos(ipInfos: Array<EipOperateProtectReqIpInfos>  | undefined) {
         this['ip_infos'] = ipInfos;
     }
-    public get ipInfos() {
+    public get ipInfos(): Array<EipOperateProtectReqIpInfos> | undefined {
         return this['ip_infos'];
     }
 }

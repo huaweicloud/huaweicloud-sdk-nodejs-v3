@@ -2,16 +2,16 @@
 
 export class ClusterElbInfo {
     public id?: string;
-    private 'cluster_id'?: string | undefined;
+    private 'cluster_id'?: string;
     public name?: string;
     public description?: string;
-    private 'vip_address'?: string | undefined;
-    private 'vip_subnet_id'?: string | undefined;
-    private 'tenant_id'?: string | undefined;
+    private 'vip_address'?: string;
+    private 'vip_subnet_id'?: string;
+    private 'tenant_id'?: string;
     public type?: string;
-    private 'admin_state_up'?: boolean | undefined;
+    private 'admin_state_up'?: boolean;
     public bandwidth?: number;
-    private 'vpc_id'?: string | undefined;
+    private 'vpc_id'?: string;
     public constructor() { 
     }
     public withId(id: string): ClusterElbInfo {
@@ -22,10 +22,10 @@ export class ClusterElbInfo {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withName(name: string): ClusterElbInfo {
@@ -40,30 +40,30 @@ export class ClusterElbInfo {
         this['vip_address'] = vipAddress;
         return this;
     }
-    public set vipAddress(vipAddress: string | undefined) {
+    public set vipAddress(vipAddress: string  | undefined) {
         this['vip_address'] = vipAddress;
     }
-    public get vipAddress() {
+    public get vipAddress(): string | undefined {
         return this['vip_address'];
     }
     public withVipSubnetId(vipSubnetId: string): ClusterElbInfo {
         this['vip_subnet_id'] = vipSubnetId;
         return this;
     }
-    public set vipSubnetId(vipSubnetId: string | undefined) {
+    public set vipSubnetId(vipSubnetId: string  | undefined) {
         this['vip_subnet_id'] = vipSubnetId;
     }
-    public get vipSubnetId() {
+    public get vipSubnetId(): string | undefined {
         return this['vip_subnet_id'];
     }
     public withTenantId(tenantId: string): ClusterElbInfo {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withType(type: string): ClusterElbInfo {
@@ -74,10 +74,10 @@ export class ClusterElbInfo {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withBandwidth(bandwidth: number): ClusterElbInfo {
@@ -88,10 +88,10 @@ export class ClusterElbInfo {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
 }

@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateLoginTokenResponse extends SdkResponse {
     public logintoken?: LoginToken;
-    private 'X-Subject-LoginToken'?: string | undefined;
+    private 'X-Subject-LoginToken'?: string;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class CreateLoginTokenResponse extends SdkResponse {
         this['X-Subject-LoginToken'] = xSubjectLoginToken;
         return this;
     }
-    public set xSubjectLoginToken(xSubjectLoginToken: string | undefined) {
+    public set xSubjectLoginToken(xSubjectLoginToken: string  | undefined) {
         this['X-Subject-LoginToken'] = xSubjectLoginToken;
     }
-    public get xSubjectLoginToken() {
+    public get xSubjectLoginToken(): string | undefined {
         return this['X-Subject-LoginToken'];
     }
 }

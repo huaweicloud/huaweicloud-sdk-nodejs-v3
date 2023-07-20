@@ -1,11 +1,11 @@
 
 
 export class AddAddressItemsInfoDtoAddressItems {
-    public name: string;
-    private 'address_type'?: number | undefined;
+    public name?: string;
+    private 'address_type'?: number;
     public address?: string;
     public description?: string;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withName(name: string): AddAddressItemsInfoDtoAddressItems {
@@ -16,10 +16,10 @@ export class AddAddressItemsInfoDtoAddressItems {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: number | undefined) {
+    public set addressType(addressType: number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType() {
+    public get addressType(): number | undefined {
         return this['address_type'];
     }
     public withAddress(address: string): AddAddressItemsInfoDtoAddressItems {

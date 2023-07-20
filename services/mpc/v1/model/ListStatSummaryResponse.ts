@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ListStatSummaryResponse extends SdkResponse {
     public summary?: Array<StatSummary>;
     public total?: number;
-    private 'stat_type'?: ListStatSummaryResponseStatTypeEnum | undefined;
+    private 'stat_type'?: ListStatSummaryResponseStatTypeEnum | string;
     public constructor() { 
         super();
     }
@@ -17,14 +17,14 @@ export class ListStatSummaryResponse extends SdkResponse {
         this['total'] = total;
         return this;
     }
-    public withStatType(statType: ListStatSummaryResponseStatTypeEnum): ListStatSummaryResponse {
+    public withStatType(statType: ListStatSummaryResponseStatTypeEnum | string): ListStatSummaryResponse {
         this['stat_type'] = statType;
         return this;
     }
-    public set statType(statType: ListStatSummaryResponseStatTypeEnum | undefined) {
+    public set statType(statType: ListStatSummaryResponseStatTypeEnum | string  | undefined) {
         this['stat_type'] = statType;
     }
-    public get statType() {
+    public get statType(): ListStatSummaryResponseStatTypeEnum | string | undefined {
         return this['stat_type'];
     }
 }

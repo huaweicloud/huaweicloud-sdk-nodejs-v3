@@ -1,13 +1,13 @@
 
 
 export class MatchReq {
-    public key: MatchReqKeyEnum;
-    public value: string;
-    public constructor(key?: any, value?: any) { 
+    public key?: MatchReqKeyEnum | string;
+    public value?: string;
+    public constructor(key?: string, value?: string) { 
         this['key'] = key;
         this['value'] = value;
     }
-    public withKey(key: MatchReqKeyEnum): MatchReq {
+    public withKey(key: MatchReqKeyEnum | string): MatchReq {
         this['key'] = key;
         return this;
     }

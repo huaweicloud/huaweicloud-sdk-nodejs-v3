@@ -1,9 +1,9 @@
 
 
 export class MediaTypes {
-    public base: string;
-    public type: string;
-    public constructor(base?: any, type?: any) { 
+    public base?: string;
+    public type?: string;
+    public constructor(base?: string, type?: string) { 
         this['base'] = base;
         this['type'] = type;
     }

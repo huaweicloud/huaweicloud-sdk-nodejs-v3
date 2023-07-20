@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateLogDumpObsResponse extends SdkResponse {
-    private 'log_dump_obs_id'?: string | undefined;
+    private 'log_dump_obs_id'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class CreateLogDumpObsResponse extends SdkResponse {
         this['log_dump_obs_id'] = logDumpObsId;
         return this;
     }
-    public set logDumpObsId(logDumpObsId: string | undefined) {
+    public set logDumpObsId(logDumpObsId: string  | undefined) {
         this['log_dump_obs_id'] = logDumpObsId;
     }
-    public get logDumpObsId() {
+    public get logDumpObsId(): string | undefined {
         return this['log_dump_obs_id'];
     }
 }

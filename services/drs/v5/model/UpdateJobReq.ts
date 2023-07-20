@@ -2,13 +2,13 @@ import { UpdateJob } from './UpdateJob';
 
 
 export class UpdateJobReq {
-    public type: UpdateJobReqTypeEnum;
-    public params: UpdateJob;
-    public constructor(type?: any, params?: any) { 
+    public type?: UpdateJobReqTypeEnum | string;
+    public params?: UpdateJob;
+    public constructor(type?: string, params?: UpdateJob) { 
         this['type'] = type;
         this['params'] = params;
     }
-    public withType(type: UpdateJobReqTypeEnum): UpdateJobReq {
+    public withType(type: UpdateJobReqTypeEnum | string): UpdateJobReq {
         this['type'] = type;
         return this;
     }
@@ -27,7 +27,7 @@ export enum UpdateJobReqTypeEnum {
     DESCRIPTION = 'description',
     ALL = 'all',
     NETWORK = 'network',
-    POLICY_CONFIG = 'policy_config',
+    POLICY = 'policy',
     DB_OBJECT = 'db_object',
     PRECHECK = 'precheck'
 }

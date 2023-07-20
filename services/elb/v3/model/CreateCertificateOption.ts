@@ -1,28 +1,28 @@
 
 
 export class CreateCertificateOption {
-    private 'admin_state_up'?: boolean | undefined;
-    public certificate: string;
+    private 'admin_state_up'?: boolean;
+    public certificate?: string;
     public description?: string;
     public domain?: string;
     public name?: string;
-    private 'private_key'?: string | undefined;
-    private 'project_id'?: string | undefined;
-    public type?: CreateCertificateOptionTypeEnum;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'enc_certificate'?: string | undefined;
-    private 'enc_private_key'?: string | undefined;
-    public constructor(certificate?: any) { 
+    private 'private_key'?: string;
+    private 'project_id'?: string;
+    public type?: CreateCertificateOptionTypeEnum | string;
+    private 'enterprise_project_id'?: string;
+    private 'enc_certificate'?: string;
+    private 'enc_private_key'?: string;
+    public constructor(certificate?: string) { 
         this['certificate'] = certificate;
     }
     public withAdminStateUp(adminStateUp: boolean): CreateCertificateOption {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withCertificate(certificate: string): CreateCertificateOption {
@@ -45,23 +45,23 @@ export class CreateCertificateOption {
         this['private_key'] = privateKey;
         return this;
     }
-    public set privateKey(privateKey: string | undefined) {
+    public set privateKey(privateKey: string  | undefined) {
         this['private_key'] = privateKey;
     }
-    public get privateKey() {
+    public get privateKey(): string | undefined {
         return this['private_key'];
     }
     public withProjectId(projectId: string): CreateCertificateOption {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withType(type: CreateCertificateOptionTypeEnum): CreateCertificateOption {
+    public withType(type: CreateCertificateOptionTypeEnum | string): CreateCertificateOption {
         this['type'] = type;
         return this;
     }
@@ -69,30 +69,30 @@ export class CreateCertificateOption {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withEncCertificate(encCertificate: string): CreateCertificateOption {
         this['enc_certificate'] = encCertificate;
         return this;
     }
-    public set encCertificate(encCertificate: string | undefined) {
+    public set encCertificate(encCertificate: string  | undefined) {
         this['enc_certificate'] = encCertificate;
     }
-    public get encCertificate() {
+    public get encCertificate(): string | undefined {
         return this['enc_certificate'];
     }
     public withEncPrivateKey(encPrivateKey: string): CreateCertificateOption {
         this['enc_private_key'] = encPrivateKey;
         return this;
     }
-    public set encPrivateKey(encPrivateKey: string | undefined) {
+    public set encPrivateKey(encPrivateKey: string  | undefined) {
         this['enc_private_key'] = encPrivateKey;
     }
-    public get encPrivateKey() {
+    public get encPrivateKey(): string | undefined {
         return this['enc_private_key'];
     }
 }

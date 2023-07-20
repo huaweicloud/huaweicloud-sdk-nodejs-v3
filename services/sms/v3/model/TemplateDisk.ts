@@ -2,12 +2,12 @@
 
 export class TemplateDisk {
     public id?: number;
-    public index: number;
-    public name: string;
-    public disktype: string;
-    public size: number;
-    private 'device_use'?: string | undefined;
-    public constructor(index?: any, name?: any, disktype?: any, size?: any) { 
+    public index?: number;
+    public name?: string;
+    public disktype?: string;
+    public size?: number;
+    private 'device_use'?: string;
+    public constructor(index?: number, name?: string, disktype?: string, size?: number) { 
         this['index'] = index;
         this['name'] = name;
         this['disktype'] = disktype;
@@ -37,10 +37,10 @@ export class TemplateDisk {
         this['device_use'] = deviceUse;
         return this;
     }
-    public set deviceUse(deviceUse: string | undefined) {
+    public set deviceUse(deviceUse: string  | undefined) {
         this['device_use'] = deviceUse;
     }
-    public get deviceUse() {
+    public get deviceUse(): string | undefined {
         return this['device_use'];
     }
 }

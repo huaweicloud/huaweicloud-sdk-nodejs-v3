@@ -2,13 +2,13 @@ import { Links } from './Links';
 
 
 export class Service {
-    public name: string;
+    public name?: string;
     public description?: string;
-    public links: Links;
-    public id: string;
-    public type: string;
-    public enabled: boolean;
-    public constructor(name?: any, links?: any, id?: any, type?: any, enabled?: any) { 
+    public links?: Links;
+    public id?: string;
+    public type?: string;
+    public enabled?: boolean;
+    public constructor(name?: string, links?: Links, id?: string, type?: string, enabled?: boolean) { 
         this['name'] = name;
         this['links'] = links;
         this['id'] = id;

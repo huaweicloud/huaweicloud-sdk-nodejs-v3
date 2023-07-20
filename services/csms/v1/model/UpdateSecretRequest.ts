@@ -2,19 +2,19 @@ import { UpdateSecretRequestBody } from './UpdateSecretRequestBody';
 
 
 export class UpdateSecretRequest {
-    private 'secret_name': string | undefined;
+    private 'secret_name'?: string;
     public body?: UpdateSecretRequestBody;
-    public constructor(secretName?: any) { 
+    public constructor(secretName?: string) { 
         this['secret_name'] = secretName;
     }
     public withSecretName(secretName: string): UpdateSecretRequest {
         this['secret_name'] = secretName;
         return this;
     }
-    public set secretName(secretName: string | undefined) {
+    public set secretName(secretName: string  | undefined) {
         this['secret_name'] = secretName;
     }
-    public get secretName() {
+    public get secretName(): string | undefined {
         return this['secret_name'];
     }
     public withBody(body: UpdateSecretRequestBody): UpdateSecretRequest {

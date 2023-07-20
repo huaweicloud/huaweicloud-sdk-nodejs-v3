@@ -1,12 +1,12 @@
 
 
 export class CatalogEndpoints {
-    public id: string;
-    private 'interface': string | undefined;
-    public region: string;
-    private 'region_id': string | undefined;
-    public url: string;
-    public constructor(id?: any, _interface?: any, region?: any, regionId?: any, url?: any) { 
+    public id?: string;
+    private 'interface'?: string;
+    public region?: string;
+    private 'region_id'?: string;
+    public url?: string;
+    public constructor(id?: string, _interface?: string, region?: string, regionId?: string, url?: string) { 
         this['id'] = id;
         this['interface'] = _interface;
         this['region'] = region;
@@ -21,10 +21,10 @@ export class CatalogEndpoints {
         this['interface'] = _interface;
         return this;
     }
-    public set _interface(_interface: string | undefined) {
+    public set _interface(_interface: string  | undefined) {
         this['interface'] = _interface;
     }
-    public get _interface() {
+    public get _interface(): string | undefined {
         return this['interface'];
     }
     public withRegion(region: string): CatalogEndpoints {
@@ -35,10 +35,10 @@ export class CatalogEndpoints {
         this['region_id'] = regionId;
         return this;
     }
-    public set regionId(regionId: string | undefined) {
+    public set regionId(regionId: string  | undefined) {
         this['region_id'] = regionId;
     }
-    public get regionId() {
+    public get regionId(): string | undefined {
         return this['region_id'];
     }
     public withUrl(url: string): CatalogEndpoints {

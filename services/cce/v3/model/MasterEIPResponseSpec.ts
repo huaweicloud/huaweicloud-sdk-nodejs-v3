@@ -2,12 +2,12 @@ import { MasterEIPResponseSpecSpec } from './MasterEIPResponseSpecSpec';
 
 
 export class MasterEIPResponseSpec {
-    public action?: MasterEIPResponseSpecActionEnum;
+    public action?: MasterEIPResponseSpecActionEnum | string;
     public spec?: MasterEIPResponseSpecSpec;
     public elasticIp?: string;
     public constructor() { 
     }
-    public withAction(action: MasterEIPResponseSpecActionEnum): MasterEIPResponseSpec {
+    public withAction(action: MasterEIPResponseSpecActionEnum | string): MasterEIPResponseSpec {
         this['action'] = action;
         return this;
     }

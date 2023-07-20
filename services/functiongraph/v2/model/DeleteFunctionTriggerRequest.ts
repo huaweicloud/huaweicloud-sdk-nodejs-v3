@@ -1,10 +1,10 @@
 
 
 export class DeleteFunctionTriggerRequest {
-    private 'function_urn': string | undefined;
-    private 'trigger_type_code': DeleteFunctionTriggerRequestTriggerTypeCodeEnum | undefined;
-    private 'trigger_id': string | undefined;
-    public constructor(functionUrn?: any, triggerTypeCode?: any, triggerId?: any) { 
+    private 'function_urn'?: string;
+    private 'trigger_type_code'?: DeleteFunctionTriggerRequestTriggerTypeCodeEnum | string;
+    private 'trigger_id'?: string;
+    public constructor(functionUrn?: string, triggerTypeCode?: string, triggerId?: string) { 
         this['function_urn'] = functionUrn;
         this['trigger_type_code'] = triggerTypeCode;
         this['trigger_id'] = triggerId;
@@ -13,30 +13,30 @@ export class DeleteFunctionTriggerRequest {
         this['function_urn'] = functionUrn;
         return this;
     }
-    public set functionUrn(functionUrn: string | undefined) {
+    public set functionUrn(functionUrn: string  | undefined) {
         this['function_urn'] = functionUrn;
     }
-    public get functionUrn() {
+    public get functionUrn(): string | undefined {
         return this['function_urn'];
     }
-    public withTriggerTypeCode(triggerTypeCode: DeleteFunctionTriggerRequestTriggerTypeCodeEnum): DeleteFunctionTriggerRequest {
+    public withTriggerTypeCode(triggerTypeCode: DeleteFunctionTriggerRequestTriggerTypeCodeEnum | string): DeleteFunctionTriggerRequest {
         this['trigger_type_code'] = triggerTypeCode;
         return this;
     }
-    public set triggerTypeCode(triggerTypeCode: DeleteFunctionTriggerRequestTriggerTypeCodeEnum | undefined) {
+    public set triggerTypeCode(triggerTypeCode: DeleteFunctionTriggerRequestTriggerTypeCodeEnum | string  | undefined) {
         this['trigger_type_code'] = triggerTypeCode;
     }
-    public get triggerTypeCode() {
+    public get triggerTypeCode(): DeleteFunctionTriggerRequestTriggerTypeCodeEnum | string | undefined {
         return this['trigger_type_code'];
     }
     public withTriggerId(triggerId: string): DeleteFunctionTriggerRequest {
         this['trigger_id'] = triggerId;
         return this;
     }
-    public set triggerId(triggerId: string | undefined) {
+    public set triggerId(triggerId: string  | undefined) {
         this['trigger_id'] = triggerId;
     }
-    public get triggerId() {
+    public get triggerId(): string | undefined {
         return this['trigger_id'];
     }
 }

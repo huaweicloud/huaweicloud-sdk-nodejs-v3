@@ -1,11 +1,11 @@
 
 
 export class UpgradeAddonConfig {
-    public addonTemplateName: string;
-    public operation: string;
-    public version: string;
+    public addonTemplateName?: string;
+    public operation?: string;
+    public version?: string;
     public values?: object;
-    public constructor(addonTemplateName?: any, operation?: any, version?: any) { 
+    public constructor(addonTemplateName?: string, operation?: string, version?: string) { 
         this['addonTemplateName'] = addonTemplateName;
         this['operation'] = operation;
         this['version'] = version;

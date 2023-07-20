@@ -1,12 +1,12 @@
 
 
 export class ListStreamForbiddenRequest {
-    public domain: string;
-    private 'app_name'?: string | undefined;
-    private 'stream_name'?: string | undefined;
+    public domain?: string;
+    private 'app_name'?: string;
+    private 'stream_name'?: string;
     public page?: number;
     public size?: number;
-    public constructor(domain?: any) { 
+    public constructor(domain?: string) { 
         this['domain'] = domain;
     }
     public withDomain(domain: string): ListStreamForbiddenRequest {
@@ -17,20 +17,20 @@ export class ListStreamForbiddenRequest {
         this['app_name'] = appName;
         return this;
     }
-    public set appName(appName: string | undefined) {
+    public set appName(appName: string  | undefined) {
         this['app_name'] = appName;
     }
-    public get appName() {
+    public get appName(): string | undefined {
         return this['app_name'];
     }
     public withStreamName(streamName: string): ListStreamForbiddenRequest {
         this['stream_name'] = streamName;
         return this;
     }
-    public set streamName(streamName: string | undefined) {
+    public set streamName(streamName: string  | undefined) {
         this['stream_name'] = streamName;
     }
-    public get streamName() {
+    public get streamName(): string | undefined {
         return this['stream_name'];
     }
     public withPage(page: number): ListStreamForbiddenRequest {

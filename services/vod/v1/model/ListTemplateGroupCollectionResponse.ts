@@ -3,7 +3,7 @@ import { TemplateGroupCollection } from './TemplateGroupCollection';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListTemplateGroupCollectionResponse extends SdkResponse {
-    private 'template_group_collection_list'?: Array<TemplateGroupCollection> | undefined;
+    private 'template_group_collection_list'?: Array<TemplateGroupCollection>;
     public total?: number;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class ListTemplateGroupCollectionResponse extends SdkResponse {
         this['template_group_collection_list'] = templateGroupCollectionList;
         return this;
     }
-    public set templateGroupCollectionList(templateGroupCollectionList: Array<TemplateGroupCollection> | undefined) {
+    public set templateGroupCollectionList(templateGroupCollectionList: Array<TemplateGroupCollection>  | undefined) {
         this['template_group_collection_list'] = templateGroupCollectionList;
     }
-    public get templateGroupCollectionList() {
+    public get templateGroupCollectionList(): Array<TemplateGroupCollection> | undefined {
         return this['template_group_collection_list'];
     }
     public withTotal(total: number): ListTemplateGroupCollectionResponse {

@@ -1,16 +1,16 @@
 
 
 export class Snapshots {
-    public id: string;
-    public name: string;
-    public description: string;
-    public started: string;
-    public finished: string;
-    public size: number;
-    public status: string;
-    public type: string;
-    private 'cluster_id': string | undefined;
-    public constructor(id?: any, name?: any, description?: any, started?: any, finished?: any, size?: any, status?: any, type?: any, clusterId?: any) { 
+    public id?: string;
+    public name?: string;
+    public description?: string;
+    public started?: string;
+    public finished?: string;
+    public size?: number;
+    public status?: string;
+    public type?: string;
+    private 'cluster_id'?: string;
+    public constructor(id?: string, name?: string, description?: string, started?: string, finished?: string, size?: number, status?: string, type?: string, clusterId?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -57,10 +57,10 @@ export class Snapshots {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
 }

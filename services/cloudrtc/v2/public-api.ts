@@ -33,7 +33,6 @@ export * from './model/MixJobReq';
 export * from './model/MixLayoutPane';
 export * from './model/MixParam';
 export * from './model/MixUserBackgroundImage';
-export * from './model/PublishParam';
 export * from './model/RecordObsFileAddr';
 export * from './model/RecordParam';
 export * from './model/RecordRule';

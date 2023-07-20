@@ -2,7 +2,7 @@ import { BlackWhiteListResponseDataRecords } from './BlackWhiteListResponseDataR
 
 
 export class BlackWhiteListResponseData {
-    private 'object_id'?: string | undefined;
+    private 'object_id'?: string;
     public offset?: number;
     public limit?: number;
     public total?: number;
@@ -13,10 +13,10 @@ export class BlackWhiteListResponseData {
         this['object_id'] = objectId;
         return this;
     }
-    public set objectId(objectId: string | undefined) {
+    public set objectId(objectId: string  | undefined) {
         this['object_id'] = objectId;
     }
-    public get objectId() {
+    public get objectId(): string | undefined {
         return this['object_id'];
     }
     public withOffset(offset: number): BlackWhiteListResponseData {

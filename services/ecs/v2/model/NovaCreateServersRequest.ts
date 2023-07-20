@@ -2,7 +2,7 @@ import { NovaCreateServersRequestBody } from './NovaCreateServersRequestBody';
 
 
 export class NovaCreateServersRequest {
-    private 'OpenStack-API-Version'?: string | undefined;
+    private 'OpenStack-API-Version'?: string;
     public body?: NovaCreateServersRequestBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class NovaCreateServersRequest {
         this['OpenStack-API-Version'] = openStackAPIVersion;
         return this;
     }
-    public set openStackAPIVersion(openStackAPIVersion: string | undefined) {
+    public set openStackAPIVersion(openStackAPIVersion: string  | undefined) {
         this['OpenStack-API-Version'] = openStackAPIVersion;
     }
-    public get openStackAPIVersion() {
+    public get openStackAPIVersion(): string | undefined {
         return this['OpenStack-API-Version'];
     }
     public withBody(body: NovaCreateServersRequestBody): NovaCreateServersRequest {

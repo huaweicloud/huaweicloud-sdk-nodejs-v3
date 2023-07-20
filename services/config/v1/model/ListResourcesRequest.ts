@@ -1,14 +1,14 @@
 
 
 export class ListResourcesRequest {
-    public provider: string;
-    public type: string;
-    private 'region_id'?: string | undefined;
-    private 'ep_id'?: string | undefined;
+    public provider?: string;
+    public type?: string;
+    private 'region_id'?: string;
+    private 'ep_id'?: string;
     public tag?: { [key: string]: Array<string>; };
     public limit?: number;
     public marker?: string;
-    public constructor(provider?: any, type?: any) { 
+    public constructor(provider?: string, type?: string) { 
         this['provider'] = provider;
         this['type'] = type;
     }
@@ -24,20 +24,20 @@ export class ListResourcesRequest {
         this['region_id'] = regionId;
         return this;
     }
-    public set regionId(regionId: string | undefined) {
+    public set regionId(regionId: string  | undefined) {
         this['region_id'] = regionId;
     }
-    public get regionId() {
+    public get regionId(): string | undefined {
         return this['region_id'];
     }
     public withEpId(epId: string): ListResourcesRequest {
         this['ep_id'] = epId;
         return this;
     }
-    public set epId(epId: string | undefined) {
+    public set epId(epId: string  | undefined) {
         this['ep_id'] = epId;
     }
-    public get epId() {
+    public get epId(): string | undefined {
         return this['ep_id'];
     }
     public withTag(tag: { [key: string]: Array<string>; }): ListResourcesRequest {

@@ -1,66 +1,66 @@
 
 
 export class ObjectCompareResultOverview {
-    private 'object_type': ObjectCompareResultOverviewObjectTypeEnum | undefined;
-    private 'object_compare_result': ObjectCompareResultOverviewObjectCompareResultEnum | undefined;
-    private 'target_count': number | undefined;
-    private 'source_count': number | undefined;
-    private 'diff_count': number | undefined;
-    public constructor(objectType?: any, objectCompareResult?: any, targetCount?: any, sourceCount?: any, diffCount?: any) { 
+    private 'object_type'?: ObjectCompareResultOverviewObjectTypeEnum | string;
+    private 'object_compare_result'?: ObjectCompareResultOverviewObjectCompareResultEnum | string;
+    private 'target_count'?: number;
+    private 'source_count'?: number;
+    private 'diff_count'?: number;
+    public constructor(objectType?: string, objectCompareResult?: string, targetCount?: number, sourceCount?: number, diffCount?: number) { 
         this['object_type'] = objectType;
         this['object_compare_result'] = objectCompareResult;
         this['target_count'] = targetCount;
         this['source_count'] = sourceCount;
         this['diff_count'] = diffCount;
     }
-    public withObjectType(objectType: ObjectCompareResultOverviewObjectTypeEnum): ObjectCompareResultOverview {
+    public withObjectType(objectType: ObjectCompareResultOverviewObjectTypeEnum | string): ObjectCompareResultOverview {
         this['object_type'] = objectType;
         return this;
     }
-    public set objectType(objectType: ObjectCompareResultOverviewObjectTypeEnum | undefined) {
+    public set objectType(objectType: ObjectCompareResultOverviewObjectTypeEnum | string  | undefined) {
         this['object_type'] = objectType;
     }
-    public get objectType() {
+    public get objectType(): ObjectCompareResultOverviewObjectTypeEnum | string | undefined {
         return this['object_type'];
     }
-    public withObjectCompareResult(objectCompareResult: ObjectCompareResultOverviewObjectCompareResultEnum): ObjectCompareResultOverview {
+    public withObjectCompareResult(objectCompareResult: ObjectCompareResultOverviewObjectCompareResultEnum | string): ObjectCompareResultOverview {
         this['object_compare_result'] = objectCompareResult;
         return this;
     }
-    public set objectCompareResult(objectCompareResult: ObjectCompareResultOverviewObjectCompareResultEnum | undefined) {
+    public set objectCompareResult(objectCompareResult: ObjectCompareResultOverviewObjectCompareResultEnum | string  | undefined) {
         this['object_compare_result'] = objectCompareResult;
     }
-    public get objectCompareResult() {
+    public get objectCompareResult(): ObjectCompareResultOverviewObjectCompareResultEnum | string | undefined {
         return this['object_compare_result'];
     }
     public withTargetCount(targetCount: number): ObjectCompareResultOverview {
         this['target_count'] = targetCount;
         return this;
     }
-    public set targetCount(targetCount: number | undefined) {
+    public set targetCount(targetCount: number  | undefined) {
         this['target_count'] = targetCount;
     }
-    public get targetCount() {
+    public get targetCount(): number | undefined {
         return this['target_count'];
     }
     public withSourceCount(sourceCount: number): ObjectCompareResultOverview {
         this['source_count'] = sourceCount;
         return this;
     }
-    public set sourceCount(sourceCount: number | undefined) {
+    public set sourceCount(sourceCount: number  | undefined) {
         this['source_count'] = sourceCount;
     }
-    public get sourceCount() {
+    public get sourceCount(): number | undefined {
         return this['source_count'];
     }
     public withDiffCount(diffCount: number): ObjectCompareResultOverview {
         this['diff_count'] = diffCount;
         return this;
     }
-    public set diffCount(diffCount: number | undefined) {
+    public set diffCount(diffCount: number  | undefined) {
         this['diff_count'] = diffCount;
     }
-    public get diffCount() {
+    public get diffCount(): number | undefined {
         return this['diff_count'];
     }
 }

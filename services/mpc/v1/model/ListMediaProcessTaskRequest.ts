@@ -1,10 +1,10 @@
 
 
 export class ListMediaProcessTaskRequest {
-    private 'task_id'?: Array<string> | undefined;
-    public status?: ListMediaProcessTaskRequestStatusEnum;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
+    private 'task_id'?: Array<string>;
+    public status?: ListMediaProcessTaskRequestStatusEnum | string;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
     public page?: number;
     public size?: number;
     public constructor() { 
@@ -13,13 +13,13 @@ export class ListMediaProcessTaskRequest {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: Array<string> | undefined) {
+    public set taskId(taskId: Array<string>  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): Array<string> | undefined {
         return this['task_id'];
     }
-    public withStatus(status: ListMediaProcessTaskRequestStatusEnum): ListMediaProcessTaskRequest {
+    public withStatus(status: ListMediaProcessTaskRequestStatusEnum | string): ListMediaProcessTaskRequest {
         this['status'] = status;
         return this;
     }
@@ -27,20 +27,20 @@ export class ListMediaProcessTaskRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ListMediaProcessTaskRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withPage(page: number): ListMediaProcessTaskRequest {

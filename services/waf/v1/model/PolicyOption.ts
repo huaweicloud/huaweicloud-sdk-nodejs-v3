@@ -4,10 +4,10 @@ export class PolicyOption {
     public webattack?: boolean;
     public common?: boolean;
     public crawler?: boolean;
-    private 'crawler_engine'?: boolean | undefined;
-    private 'crawler_scanner'?: boolean | undefined;
-    private 'crawler_script'?: boolean | undefined;
-    private 'crawler_other'?: boolean | undefined;
+    private 'crawler_engine'?: boolean;
+    private 'crawler_scanner'?: boolean;
+    private 'crawler_script'?: boolean;
+    private 'crawler_other'?: boolean;
     public webshell?: boolean;
     public cc?: boolean;
     public custom?: boolean;
@@ -17,8 +17,8 @@ export class PolicyOption {
     public privacy?: boolean;
     public antitamper?: boolean;
     public antileakage?: boolean;
-    private 'bot_enable'?: boolean | undefined;
-    private 'modulex_enabled'?: boolean | undefined;
+    private 'bot_enable'?: boolean;
+    private 'modulex_enabled'?: boolean;
     public constructor() { 
     }
     public withWebattack(webattack: boolean): PolicyOption {
@@ -37,40 +37,40 @@ export class PolicyOption {
         this['crawler_engine'] = crawlerEngine;
         return this;
     }
-    public set crawlerEngine(crawlerEngine: boolean | undefined) {
+    public set crawlerEngine(crawlerEngine: boolean  | undefined) {
         this['crawler_engine'] = crawlerEngine;
     }
-    public get crawlerEngine() {
+    public get crawlerEngine(): boolean | undefined {
         return this['crawler_engine'];
     }
     public withCrawlerScanner(crawlerScanner: boolean): PolicyOption {
         this['crawler_scanner'] = crawlerScanner;
         return this;
     }
-    public set crawlerScanner(crawlerScanner: boolean | undefined) {
+    public set crawlerScanner(crawlerScanner: boolean  | undefined) {
         this['crawler_scanner'] = crawlerScanner;
     }
-    public get crawlerScanner() {
+    public get crawlerScanner(): boolean | undefined {
         return this['crawler_scanner'];
     }
     public withCrawlerScript(crawlerScript: boolean): PolicyOption {
         this['crawler_script'] = crawlerScript;
         return this;
     }
-    public set crawlerScript(crawlerScript: boolean | undefined) {
+    public set crawlerScript(crawlerScript: boolean  | undefined) {
         this['crawler_script'] = crawlerScript;
     }
-    public get crawlerScript() {
+    public get crawlerScript(): boolean | undefined {
         return this['crawler_script'];
     }
     public withCrawlerOther(crawlerOther: boolean): PolicyOption {
         this['crawler_other'] = crawlerOther;
         return this;
     }
-    public set crawlerOther(crawlerOther: boolean | undefined) {
+    public set crawlerOther(crawlerOther: boolean  | undefined) {
         this['crawler_other'] = crawlerOther;
     }
-    public get crawlerOther() {
+    public get crawlerOther(): boolean | undefined {
         return this['crawler_other'];
     }
     public withWebshell(webshell: boolean): PolicyOption {
@@ -113,20 +113,20 @@ export class PolicyOption {
         this['bot_enable'] = botEnable;
         return this;
     }
-    public set botEnable(botEnable: boolean | undefined) {
+    public set botEnable(botEnable: boolean  | undefined) {
         this['bot_enable'] = botEnable;
     }
-    public get botEnable() {
+    public get botEnable(): boolean | undefined {
         return this['bot_enable'];
     }
     public withModulexEnabled(modulexEnabled: boolean): PolicyOption {
         this['modulex_enabled'] = modulexEnabled;
         return this;
     }
-    public set modulexEnabled(modulexEnabled: boolean | undefined) {
+    public set modulexEnabled(modulexEnabled: boolean  | undefined) {
         this['modulex_enabled'] = modulexEnabled;
     }
-    public get modulexEnabled() {
+    public get modulexEnabled(): boolean | undefined {
         return this['modulex_enabled'];
     }
 }

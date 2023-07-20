@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListServersResponse extends SdkResponse {
     public count?: number;
-    private 'source_servers'?: Array<SourceServersResponseBody> | undefined;
+    private 'source_servers'?: Array<SourceServersResponseBody>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListServersResponse extends SdkResponse {
         this['source_servers'] = sourceServers;
         return this;
     }
-    public set sourceServers(sourceServers: Array<SourceServersResponseBody> | undefined) {
+    public set sourceServers(sourceServers: Array<SourceServersResponseBody>  | undefined) {
         this['source_servers'] = sourceServers;
     }
-    public get sourceServers() {
+    public get sourceServers(): Array<SourceServersResponseBody> | undefined {
         return this['source_servers'];
     }
 }

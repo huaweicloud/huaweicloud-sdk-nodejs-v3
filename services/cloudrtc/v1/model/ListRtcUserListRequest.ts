@@ -1,52 +1,52 @@
 
 
 export class ListRtcUserListRequest {
-    private 'Authorization'?: string | undefined;
-    private 'X-Sdk-Date'?: string | undefined;
-    private 'X-Project-Id'?: string | undefined;
-    public app: string;
-    private 'room_id'?: string | undefined;
+    private 'Authorization'?: string;
+    private 'X-Sdk-Date'?: string;
+    private 'X-Project-Id'?: string;
+    public app?: string;
+    private 'room_id'?: string;
     public uid?: string;
     public nickname?: string;
     public region?: Array<string>;
     public isp?: Array<string>;
     public state?: Array<string>;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
     public limit?: number;
     public offset?: number;
-    public type?: ListRtcUserListRequestTypeEnum;
-    public constructor(app?: any) { 
+    public type?: ListRtcUserListRequestTypeEnum | string;
+    public constructor(app?: string) { 
         this['app'] = app;
     }
     public withAuthorization(authorization: string): ListRtcUserListRequest {
         this['Authorization'] = authorization;
         return this;
     }
-    public set authorization(authorization: string | undefined) {
+    public set authorization(authorization: string  | undefined) {
         this['Authorization'] = authorization;
     }
-    public get authorization() {
+    public get authorization(): string | undefined {
         return this['Authorization'];
     }
     public withXSdkDate(xSdkDate: string): ListRtcUserListRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withXProjectId(xProjectId: string): ListRtcUserListRequest {
         this['X-Project-Id'] = xProjectId;
         return this;
     }
-    public set xProjectId(xProjectId: string | undefined) {
+    public set xProjectId(xProjectId: string  | undefined) {
         this['X-Project-Id'] = xProjectId;
     }
-    public get xProjectId() {
+    public get xProjectId(): string | undefined {
         return this['X-Project-Id'];
     }
     public withApp(app: string): ListRtcUserListRequest {
@@ -57,10 +57,10 @@ export class ListRtcUserListRequest {
         this['room_id'] = roomId;
         return this;
     }
-    public set roomId(roomId: string | undefined) {
+    public set roomId(roomId: string  | undefined) {
         this['room_id'] = roomId;
     }
-    public get roomId() {
+    public get roomId(): string | undefined {
         return this['room_id'];
     }
     public withUid(uid: string): ListRtcUserListRequest {
@@ -87,20 +87,20 @@ export class ListRtcUserListRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ListRtcUserListRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withLimit(limit: number): ListRtcUserListRequest {
@@ -111,7 +111,7 @@ export class ListRtcUserListRequest {
         this['offset'] = offset;
         return this;
     }
-    public withType(type: ListRtcUserListRequestTypeEnum): ListRtcUserListRequest {
+    public withType(type: ListRtcUserListRequestTypeEnum | string): ListRtcUserListRequest {
         this['type'] = type;
         return this;
     }

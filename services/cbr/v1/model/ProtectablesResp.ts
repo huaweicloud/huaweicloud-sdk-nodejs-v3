@@ -2,15 +2,15 @@ import { ProtectableResult } from './ProtectableResult';
 
 
 export class ProtectablesResp {
-    public children: Array<object>;
+    public children?: Array<object>;
     public detail?: object;
-    public id: string;
-    public name: string;
-    public protectable: ProtectableResult;
+    public id?: string;
+    public name?: string;
+    public protectable?: ProtectableResult;
     public size?: number;
-    public status?: ProtectablesRespStatusEnum;
-    public type: string;
-    public constructor(children?: any, id?: any, name?: any, protectable?: any, type?: any) { 
+    public status?: ProtectablesRespStatusEnum | string;
+    public type?: string;
+    public constructor(children?: Array<object>, id?: string, name?: string, protectable?: ProtectableResult, type?: string) { 
         this['children'] = children;
         this['id'] = id;
         this['name'] = name;
@@ -41,7 +41,7 @@ export class ProtectablesResp {
         this['size'] = size;
         return this;
     }
-    public withStatus(status: ProtectablesRespStatusEnum): ProtectablesResp {
+    public withStatus(status: ProtectablesRespStatusEnum | string): ProtectablesResp {
         this['status'] = status;
         return this;
     }

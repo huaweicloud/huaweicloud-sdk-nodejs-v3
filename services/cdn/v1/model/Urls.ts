@@ -5,10 +5,10 @@ export class Urls {
     public url?: string;
     public status?: string;
     public type?: string;
-    private 'task_id'?: number | undefined;
-    private 'modify_time'?: number | undefined;
-    private 'create_time'?: number | undefined;
-    private 'file_type'?: string | undefined;
+    private 'task_id'?: number;
+    private 'modify_time'?: number;
+    private 'create_time'?: number;
+    private 'file_type'?: string;
     public constructor() { 
     }
     public withId(id: number): Urls {
@@ -31,40 +31,40 @@ export class Urls {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: number | undefined) {
+    public set taskId(taskId: number  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): number | undefined {
         return this['task_id'];
     }
     public withModifyTime(modifyTime: number): Urls {
         this['modify_time'] = modifyTime;
         return this;
     }
-    public set modifyTime(modifyTime: number | undefined) {
+    public set modifyTime(modifyTime: number  | undefined) {
         this['modify_time'] = modifyTime;
     }
-    public get modifyTime() {
+    public get modifyTime(): number | undefined {
         return this['modify_time'];
     }
     public withCreateTime(createTime: number): Urls {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: number | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
     public withFileType(fileType: string): Urls {
         this['file_type'] = fileType;
         return this;
     }
-    public set fileType(fileType: string | undefined) {
+    public set fileType(fileType: string  | undefined) {
         this['file_type'] = fileType;
     }
-    public get fileType() {
+    public get fileType(): string | undefined {
         return this['file_type'];
     }
 }

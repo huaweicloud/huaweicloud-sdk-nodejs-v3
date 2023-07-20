@@ -1,13 +1,13 @@
 
 
 export class CreateCredentialResult {
-    private 'create_time': string | undefined;
-    public access: string;
-    public secret: string;
-    public status: string;
-    private 'user_id': string | undefined;
-    public description: string;
-    public constructor(createTime?: any, access?: any, secret?: any, status?: any, userId?: any, description?: any) { 
+    private 'create_time'?: string;
+    public access?: string;
+    public secret?: string;
+    public status?: string;
+    private 'user_id'?: string;
+    public description?: string;
+    public constructor(createTime?: string, access?: string, secret?: string, status?: string, userId?: string, description?: string) { 
         this['create_time'] = createTime;
         this['access'] = access;
         this['secret'] = secret;
@@ -19,10 +19,10 @@ export class CreateCredentialResult {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withAccess(access: string): CreateCredentialResult {
@@ -41,10 +41,10 @@ export class CreateCredentialResult {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withDescription(description: string): CreateCredentialResult {

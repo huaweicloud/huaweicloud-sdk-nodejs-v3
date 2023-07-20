@@ -1,10 +1,10 @@
 
 
 export class Runtime {
-    public name?: RuntimeNameEnum;
+    public name?: RuntimeNameEnum | string;
     public constructor() { 
     }
-    public withName(name: RuntimeNameEnum): Runtime {
+    public withName(name: RuntimeNameEnum | string): Runtime {
         this['name'] = name;
         return this;
     }

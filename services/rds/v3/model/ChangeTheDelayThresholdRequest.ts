@@ -1,0 +1,44 @@
+import { ChangingTheDelayThresholdRequestBody } from './ChangingTheDelayThresholdRequestBody';
+
+
+export class ChangeTheDelayThresholdRequest {
+    private 'X-Language'?: ChangeTheDelayThresholdRequestXLanguageEnum | string;
+    private 'instance_id'?: string;
+    public body?: ChangingTheDelayThresholdRequestBody;
+    public constructor(instanceId?: string) { 
+        this['instance_id'] = instanceId;
+    }
+    public withXLanguage(xLanguage: ChangeTheDelayThresholdRequestXLanguageEnum | string): ChangeTheDelayThresholdRequest {
+        this['X-Language'] = xLanguage;
+        return this;
+    }
+    public set xLanguage(xLanguage: ChangeTheDelayThresholdRequestXLanguageEnum | string  | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage(): ChangeTheDelayThresholdRequestXLanguageEnum | string | undefined {
+        return this['X-Language'];
+    }
+    public withInstanceId(instanceId: string): ChangeTheDelayThresholdRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withBody(body: ChangingTheDelayThresholdRequestBody): ChangeTheDelayThresholdRequest {
+        this['body'] = body;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ChangeTheDelayThresholdRequestXLanguageEnum {
+    ZH_CN = 'zh-cn',
+    EN_US = 'en-us'
+}

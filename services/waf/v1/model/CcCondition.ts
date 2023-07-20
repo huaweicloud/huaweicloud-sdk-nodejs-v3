@@ -1,16 +1,16 @@
 
 
 export class CcCondition {
-    public category: CcConditionCategoryEnum;
-    private 'logic_operation': string | undefined;
+    public category?: CcConditionCategoryEnum | string;
+    private 'logic_operation'?: string;
     public contents?: Array<string>;
-    private 'value_list_id'?: string | undefined;
+    private 'value_list_id'?: string;
     public index?: string;
-    public constructor(category?: any, logicOperation?: any) { 
+    public constructor(category?: string, logicOperation?: string) { 
         this['category'] = category;
         this['logic_operation'] = logicOperation;
     }
-    public withCategory(category: CcConditionCategoryEnum): CcCondition {
+    public withCategory(category: CcConditionCategoryEnum | string): CcCondition {
         this['category'] = category;
         return this;
     }
@@ -18,10 +18,10 @@ export class CcCondition {
         this['logic_operation'] = logicOperation;
         return this;
     }
-    public set logicOperation(logicOperation: string | undefined) {
+    public set logicOperation(logicOperation: string  | undefined) {
         this['logic_operation'] = logicOperation;
     }
-    public get logicOperation() {
+    public get logicOperation(): string | undefined {
         return this['logic_operation'];
     }
     public withContents(contents: Array<string>): CcCondition {
@@ -32,10 +32,10 @@ export class CcCondition {
         this['value_list_id'] = valueListId;
         return this;
     }
-    public set valueListId(valueListId: string | undefined) {
+    public set valueListId(valueListId: string  | undefined) {
         this['value_list_id'] = valueListId;
     }
-    public get valueListId() {
+    public get valueListId(): string | undefined {
         return this['value_list_id'];
     }
     public withIndex(index: string): CcCondition {

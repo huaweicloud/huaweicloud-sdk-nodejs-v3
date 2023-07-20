@@ -1,13 +1,13 @@
 
 
 export class GlanceImageMembers {
-    public status: string;
-    private 'created_at': string | undefined;
-    private 'updated_at': string | undefined;
-    private 'image_id': string | undefined;
-    private 'member_id': string | undefined;
-    public schema: string;
-    public constructor(status?: any, createdAt?: any, updatedAt?: any, imageId?: any, memberId?: any, schema?: any) { 
+    public status?: string;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    private 'image_id'?: string;
+    private 'member_id'?: string;
+    public schema?: string;
+    public constructor(status?: string, createdAt?: string, updatedAt?: string, imageId?: string, memberId?: string, schema?: string) { 
         this['status'] = status;
         this['created_at'] = createdAt;
         this['updated_at'] = updatedAt;
@@ -23,40 +23,40 @@ export class GlanceImageMembers {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): GlanceImageMembers {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withImageId(imageId: string): GlanceImageMembers {
         this['image_id'] = imageId;
         return this;
     }
-    public set imageId(imageId: string | undefined) {
+    public set imageId(imageId: string  | undefined) {
         this['image_id'] = imageId;
     }
-    public get imageId() {
+    public get imageId(): string | undefined {
         return this['image_id'];
     }
     public withMemberId(memberId: string): GlanceImageMembers {
         this['member_id'] = memberId;
         return this;
     }
-    public set memberId(memberId: string | undefined) {
+    public set memberId(memberId: string  | undefined) {
         this['member_id'] = memberId;
     }
-    public get memberId() {
+    public get memberId(): string | undefined {
         return this['member_id'];
     }
     public withSchema(schema: string): GlanceImageMembers {

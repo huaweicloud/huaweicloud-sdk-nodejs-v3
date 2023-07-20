@@ -2,8 +2,8 @@ import { MappingOption } from './MappingOption';
 
 
 export class KeystoneUpdateMappingRequestBody {
-    public mapping: MappingOption;
-    public constructor(mapping?: any) { 
+    public mapping?: MappingOption;
+    public constructor(mapping?: MappingOption) { 
         this['mapping'] = mapping;
     }
     public withMapping(mapping: MappingOption): KeystoneUpdateMappingRequestBody {

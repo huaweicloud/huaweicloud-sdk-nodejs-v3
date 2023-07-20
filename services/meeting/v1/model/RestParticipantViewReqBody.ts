@@ -1,9 +1,9 @@
 
 
 export class RestParticipantViewReqBody {
-    public viewType: number;
-    public participantID: string;
-    public constructor(viewType?: any, participantID?: any) { 
+    public viewType?: number;
+    public participantID?: string;
+    public constructor(viewType?: number, participantID?: string) { 
         this['viewType'] = viewType;
         this['participantID'] = participantID;
     }

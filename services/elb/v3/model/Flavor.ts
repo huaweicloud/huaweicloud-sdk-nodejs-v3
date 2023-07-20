@@ -2,14 +2,14 @@ import { FlavorInfo } from './FlavorInfo';
 
 
 export class Flavor {
-    public id: string;
-    public info: FlavorInfo;
-    public name: string;
-    public shared: boolean;
-    private 'project_id': string | undefined;
-    public type: string;
-    private 'flavor_sold_out': boolean | undefined;
-    public constructor(id?: any, info?: any, name?: any, shared?: any, projectId?: any, type?: any, flavorSoldOut?: any) { 
+    public id?: string;
+    public info?: FlavorInfo;
+    public name?: string;
+    public shared?: boolean;
+    private 'project_id'?: string;
+    public type?: string;
+    private 'flavor_sold_out'?: boolean;
+    public constructor(id?: string, info?: FlavorInfo, name?: string, shared?: boolean, projectId?: string, type?: string, flavorSoldOut?: boolean) { 
         this['id'] = id;
         this['info'] = info;
         this['name'] = name;
@@ -38,10 +38,10 @@ export class Flavor {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withType(type: string): Flavor {
@@ -52,10 +52,10 @@ export class Flavor {
         this['flavor_sold_out'] = flavorSoldOut;
         return this;
     }
-    public set flavorSoldOut(flavorSoldOut: boolean | undefined) {
+    public set flavorSoldOut(flavorSoldOut: boolean  | undefined) {
         this['flavor_sold_out'] = flavorSoldOut;
     }
-    public get flavorSoldOut() {
+    public get flavorSoldOut(): boolean | undefined {
         return this['flavor_sold_out'];
     }
 }

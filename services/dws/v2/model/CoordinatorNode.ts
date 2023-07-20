@@ -1,10 +1,10 @@
 
 
 export class CoordinatorNode {
-    public id: string;
-    public name: string;
-    private 'private_ip': string | undefined;
-    public constructor(id?: any, name?: any, privateIp?: any) { 
+    public id?: string;
+    public name?: string;
+    private 'private_ip'?: string;
+    public constructor(id?: string, name?: string, privateIp?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['private_ip'] = privateIp;
@@ -21,10 +21,10 @@ export class CoordinatorNode {
         this['private_ip'] = privateIp;
         return this;
     }
-    public set privateIp(privateIp: string | undefined) {
+    public set privateIp(privateIp: string  | undefined) {
         this['private_ip'] = privateIp;
     }
-    public get privateIp() {
+    public get privateIp(): string | undefined {
         return this['private_ip'];
     }
 }

@@ -10,10 +10,10 @@ export class DeletePremiumHostResponse extends SdkResponse {
     public flag?: Flag;
     public description?: string;
     public policyid?: string;
-    private 'protect_status'?: number | undefined;
-    private 'access_status'?: number | undefined;
-    private 'web_tag'?: string | undefined;
-    private 'host_id'?: string | undefined;
+    private 'protect_status'?: number;
+    private 'access_status'?: number;
+    private 'web_tag'?: string;
+    private 'host_id'?: string;
     public constructor() { 
         super();
     }
@@ -49,40 +49,40 @@ export class DeletePremiumHostResponse extends SdkResponse {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number | undefined) {
+    public set protectStatus(protectStatus: number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): number | undefined {
         return this['protect_status'];
     }
     public withAccessStatus(accessStatus: number): DeletePremiumHostResponse {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number | undefined) {
+    public set accessStatus(accessStatus: number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus() {
+    public get accessStatus(): number | undefined {
         return this['access_status'];
     }
     public withWebTag(webTag: string): DeletePremiumHostResponse {
         this['web_tag'] = webTag;
         return this;
     }
-    public set webTag(webTag: string | undefined) {
+    public set webTag(webTag: string  | undefined) {
         this['web_tag'] = webTag;
     }
-    public get webTag() {
+    public get webTag(): string | undefined {
         return this['web_tag'];
     }
     public withHostId(hostId: string): DeletePremiumHostResponse {
         this['host_id'] = hostId;
         return this;
     }
-    public set hostId(hostId: string | undefined) {
+    public set hostId(hostId: string  | undefined) {
         this['host_id'] = hostId;
     }
-    public get hostId() {
+    public get hostId(): string | undefined {
         return this['host_id'];
     }
 }

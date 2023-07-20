@@ -1,7 +1,7 @@
 
 
 export class UpdateSecretRequestBody {
-    private 'kms_key_id'?: string | undefined;
+    private 'kms_key_id'?: string;
     public description?: string;
     public constructor() { 
     }
@@ -9,10 +9,10 @@ export class UpdateSecretRequestBody {
         this['kms_key_id'] = kmsKeyId;
         return this;
     }
-    public set kmsKeyId(kmsKeyId: string | undefined) {
+    public set kmsKeyId(kmsKeyId: string  | undefined) {
         this['kms_key_id'] = kmsKeyId;
     }
-    public get kmsKeyId() {
+    public get kmsKeyId(): string | undefined {
         return this['kms_key_id'];
     }
     public withDescription(description: string): UpdateSecretRequestBody {

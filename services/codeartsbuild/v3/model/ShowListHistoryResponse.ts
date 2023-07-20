@@ -3,7 +3,7 @@ import { HistoryRecord } from './HistoryRecord';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowListHistoryResponse extends SdkResponse {
-    private 'history_records'?: Array<HistoryRecord> | undefined;
+    private 'history_records'?: Array<HistoryRecord>;
     public total?: number;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class ShowListHistoryResponse extends SdkResponse {
         this['history_records'] = historyRecords;
         return this;
     }
-    public set historyRecords(historyRecords: Array<HistoryRecord> | undefined) {
+    public set historyRecords(historyRecords: Array<HistoryRecord>  | undefined) {
         this['history_records'] = historyRecords;
     }
-    public get historyRecords() {
+    public get historyRecords(): Array<HistoryRecord> | undefined {
         return this['history_records'];
     }
     public withTotal(total: number): ShowListHistoryResponse {

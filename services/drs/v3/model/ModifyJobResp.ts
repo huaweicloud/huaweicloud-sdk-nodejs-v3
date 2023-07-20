@@ -1,11 +1,11 @@
 
 
 export class ModifyJobResp {
-    public id: string;
-    public status: ModifyJobRespStatusEnum;
-    private 'error_code'?: string | undefined;
-    private 'error_msg'?: string | undefined;
-    public constructor(id?: any, status?: any) { 
+    public id?: string;
+    public status?: ModifyJobRespStatusEnum | string;
+    private 'error_code'?: string;
+    private 'error_msg'?: string;
+    public constructor(id?: string, status?: string) { 
         this['id'] = id;
         this['status'] = status;
     }
@@ -13,7 +13,7 @@ export class ModifyJobResp {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: ModifyJobRespStatusEnum): ModifyJobResp {
+    public withStatus(status: ModifyJobRespStatusEnum | string): ModifyJobResp {
         this['status'] = status;
         return this;
     }
@@ -21,20 +21,20 @@ export class ModifyJobResp {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
     public withErrorMsg(errorMsg: string): ModifyJobResp {
         this['error_msg'] = errorMsg;
         return this;
     }
-    public set errorMsg(errorMsg: string | undefined) {
+    public set errorMsg(errorMsg: string  | undefined) {
         this['error_msg'] = errorMsg;
     }
-    public get errorMsg() {
+    public get errorMsg(): string | undefined {
         return this['error_msg'];
     }
 }

@@ -4,8 +4,8 @@ export class ShowGroupsRespGroupGroupMessageOffsets {
     public partition?: number;
     public lag?: number;
     public topic?: string;
-    private 'message_current_offset'?: number | undefined;
-    private 'message_log_end_offset'?: number | undefined;
+    private 'message_current_offset'?: number;
+    private 'message_log_end_offset'?: number;
     public constructor() { 
     }
     public withPartition(partition: number): ShowGroupsRespGroupGroupMessageOffsets {
@@ -24,20 +24,20 @@ export class ShowGroupsRespGroupGroupMessageOffsets {
         this['message_current_offset'] = messageCurrentOffset;
         return this;
     }
-    public set messageCurrentOffset(messageCurrentOffset: number | undefined) {
+    public set messageCurrentOffset(messageCurrentOffset: number  | undefined) {
         this['message_current_offset'] = messageCurrentOffset;
     }
-    public get messageCurrentOffset() {
+    public get messageCurrentOffset(): number | undefined {
         return this['message_current_offset'];
     }
     public withMessageLogEndOffset(messageLogEndOffset: number): ShowGroupsRespGroupGroupMessageOffsets {
         this['message_log_end_offset'] = messageLogEndOffset;
         return this;
     }
-    public set messageLogEndOffset(messageLogEndOffset: number | undefined) {
+    public set messageLogEndOffset(messageLogEndOffset: number  | undefined) {
         this['message_log_end_offset'] = messageLogEndOffset;
     }
-    public get messageLogEndOffset() {
+    public get messageLogEndOffset(): number | undefined {
         return this['message_log_end_offset'];
     }
 }

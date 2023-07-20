@@ -2,11 +2,11 @@ import { AudioInputBody } from './AudioInputBody';
 
 
 export class AudioCreateRequest {
-    public data: AudioInputBody;
-    private 'event_type': AudioCreateRequestEventTypeEnum | undefined;
-    public categories: Array<AudioCreateRequestCategoriesEnum>;
+    public data?: AudioInputBody;
+    private 'event_type'?: AudioCreateRequestEventTypeEnum | string;
+    public categories?: Array<AudioCreateRequestCategoriesEnum> | Array<string>;
     public callback?: string;
-    public constructor(data?: any, eventType?: any, categories?: any) { 
+    public constructor(data?: AudioInputBody, eventType?: string, categories?: Array<string>) { 
         this['data'] = data;
         this['event_type'] = eventType;
         this['categories'] = categories;
@@ -15,17 +15,17 @@ export class AudioCreateRequest {
         this['data'] = data;
         return this;
     }
-    public withEventType(eventType: AudioCreateRequestEventTypeEnum): AudioCreateRequest {
+    public withEventType(eventType: AudioCreateRequestEventTypeEnum | string): AudioCreateRequest {
         this['event_type'] = eventType;
         return this;
     }
-    public set eventType(eventType: AudioCreateRequestEventTypeEnum | undefined) {
+    public set eventType(eventType: AudioCreateRequestEventTypeEnum | string  | undefined) {
         this['event_type'] = eventType;
     }
-    public get eventType() {
+    public get eventType(): AudioCreateRequestEventTypeEnum | string | undefined {
         return this['event_type'];
     }
-    public withCategories(categories: Array<AudioCreateRequestCategoriesEnum>): AudioCreateRequest {
+    public withCategories(categories: Array<AudioCreateRequestCategoriesEnum> | Array<string>): AudioCreateRequest {
         this['categories'] = categories;
         return this;
     }

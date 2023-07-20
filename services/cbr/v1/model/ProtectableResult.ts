@@ -4,10 +4,10 @@ import { VaultGet } from './VaultGet';
 export class ProtectableResult {
     public code?: string;
     public reason?: string;
-    public result: boolean;
+    public result?: boolean;
     public vault?: VaultGet;
     public message?: string;
-    public constructor(result?: any) { 
+    public constructor(result?: boolean) { 
         this['result'] = result;
     }
     public withCode(code: string): ProtectableResult {

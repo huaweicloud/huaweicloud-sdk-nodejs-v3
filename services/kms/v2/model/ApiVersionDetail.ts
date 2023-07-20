@@ -7,7 +7,7 @@ export class ApiVersionDetail {
     public version?: string;
     public status?: string;
     public updated?: string;
-    private 'min_version'?: string | undefined;
+    private 'min_version'?: string;
     public constructor() { 
     }
     public withId(id: string): ApiVersionDetail {
@@ -34,10 +34,10 @@ export class ApiVersionDetail {
         this['min_version'] = minVersion;
         return this;
     }
-    public set minVersion(minVersion: string | undefined) {
+    public set minVersion(minVersion: string  | undefined) {
         this['min_version'] = minVersion;
     }
-    public get minVersion() {
+    public get minVersion(): string | undefined {
         return this['min_version'];
     }
 }

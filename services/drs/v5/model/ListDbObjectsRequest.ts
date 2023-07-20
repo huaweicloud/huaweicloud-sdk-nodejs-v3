@@ -1,13 +1,13 @@
 
 
 export class ListDbObjectsRequest {
-    private 'job_id': string | undefined;
-    private 'X-Language'?: ListDbObjectsRequestXLanguageEnum | undefined;
+    private 'job_id'?: string;
+    private 'X-Language'?: ListDbObjectsRequestXLanguageEnum | string;
     public offset?: number;
     public limit?: number;
-    public type: string;
-    private 'db_names'?: Array<string> | undefined;
-    public constructor(jobId?: any, type?: any) { 
+    public type?: string;
+    private 'db_names'?: Array<string>;
+    public constructor(jobId?: string, type?: string) { 
         this['job_id'] = jobId;
         this['type'] = type;
     }
@@ -15,20 +15,20 @@ export class ListDbObjectsRequest {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
-    public withXLanguage(xLanguage: ListDbObjectsRequestXLanguageEnum): ListDbObjectsRequest {
+    public withXLanguage(xLanguage: ListDbObjectsRequestXLanguageEnum | string): ListDbObjectsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListDbObjectsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListDbObjectsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListDbObjectsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withOffset(offset: number): ListDbObjectsRequest {
@@ -47,10 +47,10 @@ export class ListDbObjectsRequest {
         this['db_names'] = dbNames;
         return this;
     }
-    public set dbNames(dbNames: Array<string> | undefined) {
+    public set dbNames(dbNames: Array<string>  | undefined) {
         this['db_names'] = dbNames;
     }
-    public get dbNames() {
+    public get dbNames(): Array<string> | undefined {
         return this['db_names'];
     }
 }

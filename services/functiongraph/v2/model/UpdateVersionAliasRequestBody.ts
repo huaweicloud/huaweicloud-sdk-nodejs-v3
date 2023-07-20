@@ -1,10 +1,10 @@
 
 
 export class UpdateVersionAliasRequestBody {
-    public version: string;
+    public version?: string;
     public description?: string;
-    private 'additional_version_weights'?: { [key: string]: number; } | undefined;
-    public constructor(version?: any) { 
+    private 'additional_version_weights'?: { [key: string]: number; };
+    public constructor(version?: string) { 
         this['version'] = version;
     }
     public withVersion(version: string): UpdateVersionAliasRequestBody {
@@ -19,10 +19,10 @@ export class UpdateVersionAliasRequestBody {
         this['additional_version_weights'] = additionalVersionWeights;
         return this;
     }
-    public set additionalVersionWeights(additionalVersionWeights: { [key: string]: number; } | undefined) {
+    public set additionalVersionWeights(additionalVersionWeights: { [key: string]: number; }  | undefined) {
         this['additional_version_weights'] = additionalVersionWeights;
     }
-    public get additionalVersionWeights() {
+    public get additionalVersionWeights(): { [key: string]: number; } | undefined {
         return this['additional_version_weights'];
     }
 }

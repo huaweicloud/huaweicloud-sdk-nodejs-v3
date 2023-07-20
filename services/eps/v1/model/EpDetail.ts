@@ -1,14 +1,14 @@
 
 
 export class EpDetail {
-    public id: string;
-    public name: string;
-    public description: string;
-    public status: number;
-    private 'created_at': Date | undefined;
-    private 'updated_at': Date | undefined;
-    public type: EpDetailTypeEnum;
-    public constructor(id?: any, name?: any, description?: any, status?: any, createdAt?: any, updatedAt?: any, type?: any) { 
+    public id?: string;
+    public name?: string;
+    public description?: string;
+    public status?: number;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    public type?: EpDetailTypeEnum | string;
+    public constructor(id?: string, name?: string, description?: string, status?: number, createdAt?: Date, updatedAt?: Date, type?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['description'] = description;
@@ -37,23 +37,23 @@ export class EpDetail {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): EpDetail {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
-    public withType(type: EpDetailTypeEnum): EpDetail {
+    public withType(type: EpDetailTypeEnum | string): EpDetail {
         this['type'] = type;
         return this;
     }

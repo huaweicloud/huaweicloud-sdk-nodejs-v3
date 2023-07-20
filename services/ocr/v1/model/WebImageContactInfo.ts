@@ -6,7 +6,7 @@ export class WebImageContactInfo {
     public province?: string;
     public city?: string;
     public district?: string;
-    private 'detail_address'?: string | undefined;
+    private 'detail_address'?: string;
     public constructor() { 
     }
     public withName(name: string): WebImageContactInfo {
@@ -33,10 +33,10 @@ export class WebImageContactInfo {
         this['detail_address'] = detailAddress;
         return this;
     }
-    public set detailAddress(detailAddress: string | undefined) {
+    public set detailAddress(detailAddress: string  | undefined) {
         this['detail_address'] = detailAddress;
     }
-    public get detailAddress() {
+    public get detailAddress(): string | undefined {
         return this['detail_address'];
     }
 }

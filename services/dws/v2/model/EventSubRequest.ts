@@ -1,18 +1,18 @@
 
 
 export class EventSubRequest {
-    public name: string;
-    private 'source_type'?: string | undefined;
-    private 'source_id'?: string | undefined;
+    public name?: string;
+    private 'source_type'?: string;
+    private 'source_id'?: string;
     public category?: string;
     public severity?: string;
     public tag?: string;
     public enable?: number;
-    private 'notification_target': string | undefined;
-    private 'notification_target_name': string | undefined;
-    private 'notification_target_type': string | undefined;
-    private 'time_zone'?: string | undefined;
-    public constructor(name?: any, notificationTarget?: any, notificationTargetName?: any, notificationTargetType?: any) { 
+    private 'notification_target'?: string;
+    private 'notification_target_name'?: string;
+    private 'notification_target_type'?: string;
+    private 'time_zone'?: string;
+    public constructor(name?: string, notificationTarget?: string, notificationTargetName?: string, notificationTargetType?: string) { 
         this['name'] = name;
         this['notification_target'] = notificationTarget;
         this['notification_target_name'] = notificationTargetName;
@@ -26,20 +26,20 @@ export class EventSubRequest {
         this['source_type'] = sourceType;
         return this;
     }
-    public set sourceType(sourceType: string | undefined) {
+    public set sourceType(sourceType: string  | undefined) {
         this['source_type'] = sourceType;
     }
-    public get sourceType() {
+    public get sourceType(): string | undefined {
         return this['source_type'];
     }
     public withSourceId(sourceId: string): EventSubRequest {
         this['source_id'] = sourceId;
         return this;
     }
-    public set sourceId(sourceId: string | undefined) {
+    public set sourceId(sourceId: string  | undefined) {
         this['source_id'] = sourceId;
     }
-    public get sourceId() {
+    public get sourceId(): string | undefined {
         return this['source_id'];
     }
     public withCategory(category: string): EventSubRequest {
@@ -62,40 +62,40 @@ export class EventSubRequest {
         this['notification_target'] = notificationTarget;
         return this;
     }
-    public set notificationTarget(notificationTarget: string | undefined) {
+    public set notificationTarget(notificationTarget: string  | undefined) {
         this['notification_target'] = notificationTarget;
     }
-    public get notificationTarget() {
+    public get notificationTarget(): string | undefined {
         return this['notification_target'];
     }
     public withNotificationTargetName(notificationTargetName: string): EventSubRequest {
         this['notification_target_name'] = notificationTargetName;
         return this;
     }
-    public set notificationTargetName(notificationTargetName: string | undefined) {
+    public set notificationTargetName(notificationTargetName: string  | undefined) {
         this['notification_target_name'] = notificationTargetName;
     }
-    public get notificationTargetName() {
+    public get notificationTargetName(): string | undefined {
         return this['notification_target_name'];
     }
     public withNotificationTargetType(notificationTargetType: string): EventSubRequest {
         this['notification_target_type'] = notificationTargetType;
         return this;
     }
-    public set notificationTargetType(notificationTargetType: string | undefined) {
+    public set notificationTargetType(notificationTargetType: string  | undefined) {
         this['notification_target_type'] = notificationTargetType;
     }
-    public get notificationTargetType() {
+    public get notificationTargetType(): string | undefined {
         return this['notification_target_type'];
     }
     public withTimeZone(timeZone: string): EventSubRequest {
         this['time_zone'] = timeZone;
         return this;
     }
-    public set timeZone(timeZone: string | undefined) {
+    public set timeZone(timeZone: string  | undefined) {
         this['time_zone'] = timeZone;
     }
-    public get timeZone() {
+    public get timeZone(): string | undefined {
         return this['time_zone'];
     }
 }

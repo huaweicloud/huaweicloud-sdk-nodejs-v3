@@ -1,14 +1,14 @@
 
 
 export class CreateL7ruleReq {
-    private 'tenant_id'?: string | undefined;
-    private 'admin_state_up'?: boolean | undefined;
-    public type: CreateL7ruleReqTypeEnum;
-    private 'compare_type': string | undefined;
+    private 'tenant_id'?: string;
+    private 'admin_state_up'?: boolean;
+    public type?: CreateL7ruleReqTypeEnum | string;
+    private 'compare_type'?: string;
     public key?: string;
-    public value: string;
+    public value?: string;
     public invert?: boolean;
-    public constructor(type?: any, compareType?: any, value?: any) { 
+    public constructor(type?: string, compareType?: string, value?: string) { 
         this['type'] = type;
         this['compare_type'] = compareType;
         this['value'] = value;
@@ -17,23 +17,23 @@ export class CreateL7ruleReq {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withAdminStateUp(adminStateUp: boolean): CreateL7ruleReq {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
-    public withType(type: CreateL7ruleReqTypeEnum): CreateL7ruleReq {
+    public withType(type: CreateL7ruleReqTypeEnum | string): CreateL7ruleReq {
         this['type'] = type;
         return this;
     }
@@ -41,10 +41,10 @@ export class CreateL7ruleReq {
         this['compare_type'] = compareType;
         return this;
     }
-    public set compareType(compareType: string | undefined) {
+    public set compareType(compareType: string  | undefined) {
         this['compare_type'] = compareType;
     }
-    public get compareType() {
+    public get compareType(): string | undefined {
         return this['compare_type'];
     }
     public withKey(key: string): CreateL7ruleReq {

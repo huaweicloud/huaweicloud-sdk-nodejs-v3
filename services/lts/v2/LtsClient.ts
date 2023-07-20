@@ -1641,7 +1641,7 @@ export class LtsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showAomMappingRules(): Promise<ShowAomMappingRulesResponse> {
+    public showAomMappingRules(showAomMappingRulesRequest?: ShowAomMappingRulesRequest): Promise<ShowAomMappingRulesResponse> {
         const options = ParamCreater().showAomMappingRules();
 
          // @ts-ignore

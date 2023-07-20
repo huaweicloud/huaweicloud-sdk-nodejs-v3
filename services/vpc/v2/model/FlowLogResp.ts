@@ -1,21 +1,21 @@
 
 
 export class FlowLogResp {
-    public id: string;
-    public name: string;
-    private 'tenant_id': string | undefined;
-    public description: string;
-    private 'resource_type': FlowLogRespResourceTypeEnum | undefined;
-    private 'resource_id': string | undefined;
-    private 'traffic_type': FlowLogRespTrafficTypeEnum | undefined;
-    private 'log_group_id': string | undefined;
-    private 'log_topic_id': string | undefined;
-    private 'log_store_type': FlowLogRespLogStoreTypeEnum | undefined;
-    private 'created_at': string | undefined;
-    private 'updated_at': string | undefined;
-    private 'admin_state': boolean | undefined;
-    public status: FlowLogRespStatusEnum;
-    public constructor(id?: any, name?: any, tenantId?: any, description?: any, resourceType?: any, resourceId?: any, trafficType?: any, logGroupId?: any, logTopicId?: any, logStoreType?: any, createdAt?: any, updatedAt?: any, adminState?: any, status?: any) { 
+    public id?: string;
+    public name?: string;
+    private 'tenant_id'?: string;
+    public description?: string;
+    private 'resource_type'?: FlowLogRespResourceTypeEnum | string;
+    private 'resource_id'?: string;
+    private 'traffic_type'?: FlowLogRespTrafficTypeEnum | string;
+    private 'log_group_id'?: string;
+    private 'log_topic_id'?: string;
+    private 'log_store_type'?: FlowLogRespLogStoreTypeEnum | string;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    private 'admin_state'?: boolean;
+    public status?: FlowLogRespStatusEnum | string;
+    public constructor(id?: string, name?: string, tenantId?: string, description?: string, resourceType?: string, resourceId?: string, trafficType?: string, logGroupId?: string, logTopicId?: string, logStoreType?: string, createdAt?: string, updatedAt?: string, adminState?: boolean, status?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['tenant_id'] = tenantId;
@@ -43,107 +43,107 @@ export class FlowLogResp {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withDescription(description: string): FlowLogResp {
         this['description'] = description;
         return this;
     }
-    public withResourceType(resourceType: FlowLogRespResourceTypeEnum): FlowLogResp {
+    public withResourceType(resourceType: FlowLogRespResourceTypeEnum | string): FlowLogResp {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: FlowLogRespResourceTypeEnum | undefined) {
+    public set resourceType(resourceType: FlowLogRespResourceTypeEnum | string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): FlowLogRespResourceTypeEnum | string | undefined {
         return this['resource_type'];
     }
     public withResourceId(resourceId: string): FlowLogResp {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
-    public withTrafficType(trafficType: FlowLogRespTrafficTypeEnum): FlowLogResp {
+    public withTrafficType(trafficType: FlowLogRespTrafficTypeEnum | string): FlowLogResp {
         this['traffic_type'] = trafficType;
         return this;
     }
-    public set trafficType(trafficType: FlowLogRespTrafficTypeEnum | undefined) {
+    public set trafficType(trafficType: FlowLogRespTrafficTypeEnum | string  | undefined) {
         this['traffic_type'] = trafficType;
     }
-    public get trafficType() {
+    public get trafficType(): FlowLogRespTrafficTypeEnum | string | undefined {
         return this['traffic_type'];
     }
     public withLogGroupId(logGroupId: string): FlowLogResp {
         this['log_group_id'] = logGroupId;
         return this;
     }
-    public set logGroupId(logGroupId: string | undefined) {
+    public set logGroupId(logGroupId: string  | undefined) {
         this['log_group_id'] = logGroupId;
     }
-    public get logGroupId() {
+    public get logGroupId(): string | undefined {
         return this['log_group_id'];
     }
     public withLogTopicId(logTopicId: string): FlowLogResp {
         this['log_topic_id'] = logTopicId;
         return this;
     }
-    public set logTopicId(logTopicId: string | undefined) {
+    public set logTopicId(logTopicId: string  | undefined) {
         this['log_topic_id'] = logTopicId;
     }
-    public get logTopicId() {
+    public get logTopicId(): string | undefined {
         return this['log_topic_id'];
     }
-    public withLogStoreType(logStoreType: FlowLogRespLogStoreTypeEnum): FlowLogResp {
+    public withLogStoreType(logStoreType: FlowLogRespLogStoreTypeEnum | string): FlowLogResp {
         this['log_store_type'] = logStoreType;
         return this;
     }
-    public set logStoreType(logStoreType: FlowLogRespLogStoreTypeEnum | undefined) {
+    public set logStoreType(logStoreType: FlowLogRespLogStoreTypeEnum | string  | undefined) {
         this['log_store_type'] = logStoreType;
     }
-    public get logStoreType() {
+    public get logStoreType(): FlowLogRespLogStoreTypeEnum | string | undefined {
         return this['log_store_type'];
     }
     public withCreatedAt(createdAt: string): FlowLogResp {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): FlowLogResp {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withAdminState(adminState: boolean): FlowLogResp {
         this['admin_state'] = adminState;
         return this;
     }
-    public set adminState(adminState: boolean | undefined) {
+    public set adminState(adminState: boolean  | undefined) {
         this['admin_state'] = adminState;
     }
-    public get adminState() {
+    public get adminState(): boolean | undefined {
         return this['admin_state'];
     }
-    public withStatus(status: FlowLogRespStatusEnum): FlowLogResp {
+    public withStatus(status: FlowLogRespStatusEnum | string): FlowLogResp {
         this['status'] = status;
         return this;
     }

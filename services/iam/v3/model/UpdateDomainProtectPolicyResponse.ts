@@ -3,7 +3,7 @@ import { UpdateDomainProtectPolicyResponseBodyProtectPolicy } from './UpdateDoma
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateDomainProtectPolicyResponse extends SdkResponse {
-    private 'protect_policy'?: UpdateDomainProtectPolicyResponseBodyProtectPolicy | undefined;
+    private 'protect_policy'?: UpdateDomainProtectPolicyResponseBodyProtectPolicy;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class UpdateDomainProtectPolicyResponse extends SdkResponse {
         this['protect_policy'] = protectPolicy;
         return this;
     }
-    public set protectPolicy(protectPolicy: UpdateDomainProtectPolicyResponseBodyProtectPolicy | undefined) {
+    public set protectPolicy(protectPolicy: UpdateDomainProtectPolicyResponseBodyProtectPolicy  | undefined) {
         this['protect_policy'] = protectPolicy;
     }
-    public get protectPolicy() {
+    public get protectPolicy(): UpdateDomainProtectPolicyResponseBodyProtectPolicy | undefined {
         return this['protect_policy'];
     }
 }

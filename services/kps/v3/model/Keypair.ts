@@ -2,23 +2,23 @@
 
 export class Keypair {
     public name?: string;
-    public type?: KeypairTypeEnum;
-    public scope?: KeypairScopeEnum;
-    private 'public_key'?: string | undefined;
+    public type?: KeypairTypeEnum | string;
+    public scope?: KeypairScopeEnum | string;
+    private 'public_key'?: string;
     public fingerprint?: string;
-    private 'is_key_protection'?: boolean | undefined;
-    private 'frozen_state'?: string | undefined;
+    private 'is_key_protection'?: boolean;
+    private 'frozen_state'?: string;
     public constructor() { 
     }
     public withName(name: string): Keypair {
         this['name'] = name;
         return this;
     }
-    public withType(type: KeypairTypeEnum): Keypair {
+    public withType(type: KeypairTypeEnum | string): Keypair {
         this['type'] = type;
         return this;
     }
-    public withScope(scope: KeypairScopeEnum): Keypair {
+    public withScope(scope: KeypairScopeEnum | string): Keypair {
         this['scope'] = scope;
         return this;
     }
@@ -26,10 +26,10 @@ export class Keypair {
         this['public_key'] = publicKey;
         return this;
     }
-    public set publicKey(publicKey: string | undefined) {
+    public set publicKey(publicKey: string  | undefined) {
         this['public_key'] = publicKey;
     }
-    public get publicKey() {
+    public get publicKey(): string | undefined {
         return this['public_key'];
     }
     public withFingerprint(fingerprint: string): Keypair {
@@ -40,20 +40,20 @@ export class Keypair {
         this['is_key_protection'] = isKeyProtection;
         return this;
     }
-    public set isKeyProtection(isKeyProtection: boolean | undefined) {
+    public set isKeyProtection(isKeyProtection: boolean  | undefined) {
         this['is_key_protection'] = isKeyProtection;
     }
-    public get isKeyProtection() {
+    public get isKeyProtection(): boolean | undefined {
         return this['is_key_protection'];
     }
     public withFrozenState(frozenState: string): Keypair {
         this['frozen_state'] = frozenState;
         return this;
     }
-    public set frozenState(frozenState: string | undefined) {
+    public set frozenState(frozenState: string  | undefined) {
         this['frozen_state'] = frozenState;
     }
-    public get frozenState() {
+    public get frozenState(): string | undefined {
         return this['frozen_state'];
     }
 }

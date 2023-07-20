@@ -2,9 +2,9 @@ import { SelfLinksInfo } from './SelfLinksInfo';
 
 
 export class ProjectsListInfo {
-    private 'domain_id'?: string | undefined;
-    private 'is_domain'?: boolean | undefined;
-    private 'parent_id'?: string | undefined;
+    private 'domain_id'?: string;
+    private 'is_domain'?: boolean;
+    private 'parent_id'?: string;
     public name?: string;
     public description?: string;
     public id?: string;
@@ -16,30 +16,30 @@ export class ProjectsListInfo {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withIsDomain(isDomain: boolean): ProjectsListInfo {
         this['is_domain'] = isDomain;
         return this;
     }
-    public set isDomain(isDomain: boolean | undefined) {
+    public set isDomain(isDomain: boolean  | undefined) {
         this['is_domain'] = isDomain;
     }
-    public get isDomain() {
+    public get isDomain(): boolean | undefined {
         return this['is_domain'];
     }
     public withParentId(parentId: string): ProjectsListInfo {
         this['parent_id'] = parentId;
         return this;
     }
-    public set parentId(parentId: string | undefined) {
+    public set parentId(parentId: string  | undefined) {
         this['parent_id'] = parentId;
     }
-    public get parentId() {
+    public get parentId(): string | undefined {
         return this['parent_id'];
     }
     public withName(name: string): ProjectsListInfo {

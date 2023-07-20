@@ -9,20 +9,20 @@ export class UpdatePremiumHostRequestBody {
     public proxy?: boolean;
     public certificateid?: string;
     public certificatename?: string;
-    public tls?: UpdatePremiumHostRequestBodyTlsEnum;
-    public cipher?: UpdatePremiumHostRequestBodyCipherEnum;
+    public tls?: UpdatePremiumHostRequestBodyTlsEnum | string;
+    public cipher?: UpdatePremiumHostRequestBodyCipherEnum | string;
     public mode?: string;
     public locked?: number;
-    private 'protect_status'?: number | undefined;
-    private 'access_status'?: number | undefined;
+    private 'protect_status'?: number;
+    private 'access_status'?: number;
     public timestamp?: number;
-    private 'pool_ids'?: Array<string> | undefined;
-    private 'block_page'?: BlockPage | undefined;
-    private 'traffic_mark'?: TrafficMark | undefined;
-    private 'circuit_breaker'?: CircuitBreaker | undefined;
-    private 'timeout_config'?: TimeoutConfig | undefined;
+    private 'pool_ids'?: Array<string>;
+    private 'block_page'?: BlockPage;
+    private 'traffic_mark'?: TrafficMark;
+    private 'circuit_breaker'?: CircuitBreaker;
+    private 'timeout_config'?: TimeoutConfig;
     public flag?: HostFlag;
-    private 'forward_header_map'?: { [key: string]: string; } | undefined;
+    private 'forward_header_map'?: { [key: string]: string; };
     public constructor() { 
     }
     public withProxy(proxy: boolean): UpdatePremiumHostRequestBody {
@@ -37,11 +37,11 @@ export class UpdatePremiumHostRequestBody {
         this['certificatename'] = certificatename;
         return this;
     }
-    public withTls(tls: UpdatePremiumHostRequestBodyTlsEnum): UpdatePremiumHostRequestBody {
+    public withTls(tls: UpdatePremiumHostRequestBodyTlsEnum | string): UpdatePremiumHostRequestBody {
         this['tls'] = tls;
         return this;
     }
-    public withCipher(cipher: UpdatePremiumHostRequestBodyCipherEnum): UpdatePremiumHostRequestBody {
+    public withCipher(cipher: UpdatePremiumHostRequestBodyCipherEnum | string): UpdatePremiumHostRequestBody {
         this['cipher'] = cipher;
         return this;
     }
@@ -57,20 +57,20 @@ export class UpdatePremiumHostRequestBody {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number | undefined) {
+    public set protectStatus(protectStatus: number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): number | undefined {
         return this['protect_status'];
     }
     public withAccessStatus(accessStatus: number): UpdatePremiumHostRequestBody {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number | undefined) {
+    public set accessStatus(accessStatus: number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus() {
+    public get accessStatus(): number | undefined {
         return this['access_status'];
     }
     public withTimestamp(timestamp: number): UpdatePremiumHostRequestBody {
@@ -81,50 +81,50 @@ export class UpdatePremiumHostRequestBody {
         this['pool_ids'] = poolIds;
         return this;
     }
-    public set poolIds(poolIds: Array<string> | undefined) {
+    public set poolIds(poolIds: Array<string>  | undefined) {
         this['pool_ids'] = poolIds;
     }
-    public get poolIds() {
+    public get poolIds(): Array<string> | undefined {
         return this['pool_ids'];
     }
     public withBlockPage(blockPage: BlockPage): UpdatePremiumHostRequestBody {
         this['block_page'] = blockPage;
         return this;
     }
-    public set blockPage(blockPage: BlockPage | undefined) {
+    public set blockPage(blockPage: BlockPage  | undefined) {
         this['block_page'] = blockPage;
     }
-    public get blockPage() {
+    public get blockPage(): BlockPage | undefined {
         return this['block_page'];
     }
     public withTrafficMark(trafficMark: TrafficMark): UpdatePremiumHostRequestBody {
         this['traffic_mark'] = trafficMark;
         return this;
     }
-    public set trafficMark(trafficMark: TrafficMark | undefined) {
+    public set trafficMark(trafficMark: TrafficMark  | undefined) {
         this['traffic_mark'] = trafficMark;
     }
-    public get trafficMark() {
+    public get trafficMark(): TrafficMark | undefined {
         return this['traffic_mark'];
     }
     public withCircuitBreaker(circuitBreaker: CircuitBreaker): UpdatePremiumHostRequestBody {
         this['circuit_breaker'] = circuitBreaker;
         return this;
     }
-    public set circuitBreaker(circuitBreaker: CircuitBreaker | undefined) {
+    public set circuitBreaker(circuitBreaker: CircuitBreaker  | undefined) {
         this['circuit_breaker'] = circuitBreaker;
     }
-    public get circuitBreaker() {
+    public get circuitBreaker(): CircuitBreaker | undefined {
         return this['circuit_breaker'];
     }
     public withTimeoutConfig(timeoutConfig: TimeoutConfig): UpdatePremiumHostRequestBody {
         this['timeout_config'] = timeoutConfig;
         return this;
     }
-    public set timeoutConfig(timeoutConfig: TimeoutConfig | undefined) {
+    public set timeoutConfig(timeoutConfig: TimeoutConfig  | undefined) {
         this['timeout_config'] = timeoutConfig;
     }
-    public get timeoutConfig() {
+    public get timeoutConfig(): TimeoutConfig | undefined {
         return this['timeout_config'];
     }
     public withFlag(flag: HostFlag): UpdatePremiumHostRequestBody {
@@ -135,10 +135,10 @@ export class UpdatePremiumHostRequestBody {
         this['forward_header_map'] = forwardHeaderMap;
         return this;
     }
-    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; } | undefined) {
+    public set forwardHeaderMap(forwardHeaderMap: { [key: string]: string; }  | undefined) {
         this['forward_header_map'] = forwardHeaderMap;
     }
-    public get forwardHeaderMap() {
+    public get forwardHeaderMap(): { [key: string]: string; } | undefined {
         return this['forward_header_map'];
     }
 }

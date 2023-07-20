@@ -86,6 +86,7 @@ import { ImportFunctionRequestBody } from './model/ImportFunctionRequestBody';
 import { ImportFunctionResponse } from './model/ImportFunctionResponse';
 import { InvokeFunctionRequest } from './model/InvokeFunctionRequest';
 import { InvokeFunctionResponse } from './model/InvokeFunctionResponse';
+import { KvItem } from './model/KvItem';
 import { ListAsyncInvocationsRequest } from './model/ListAsyncInvocationsRequest';
 import { ListAsyncInvocationsResponse } from './model/ListAsyncInvocationsResponse';
 import { ListDependenciesRequest } from './model/ListDependenciesRequest';
@@ -748,7 +749,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public enableLtsLogs(): Promise<EnableLtsLogsResponse> {
+    public enableLtsLogs(enableLtsLogsRequest?: EnableLtsLogsRequest): Promise<EnableLtsLogsResponse> {
         const options = ParamCreater().enableLtsLogs();
 
          // @ts-ignore
@@ -1066,7 +1067,7 @@ export class FunctionGraphClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listQuotas(): Promise<ListQuotasResponse> {
+    public listQuotas(listQuotasRequest?: ListQuotasRequest): Promise<ListQuotasResponse> {
         const options = ParamCreater().listQuotas();
 
          // @ts-ignore

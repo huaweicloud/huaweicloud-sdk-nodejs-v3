@@ -4,14 +4,14 @@ import { UserTopicPerms } from './UserTopicPerms';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowUserResponse extends SdkResponse {
-    private 'access_key'?: string | undefined;
-    private 'secret_key'?: string | undefined;
-    private 'white_remote_address'?: string | undefined;
+    private 'access_key'?: string;
+    private 'secret_key'?: string;
+    private 'white_remote_address'?: string;
     public admin?: boolean;
-    private 'default_topic_perm'?: ShowUserResponseDefaultTopicPermEnum | undefined;
-    private 'default_group_perm'?: ShowUserResponseDefaultGroupPermEnum | undefined;
-    private 'topic_perms'?: Array<UserTopicPerms> | undefined;
-    private 'group_perms'?: Array<UserGroupPerms> | undefined;
+    private 'default_topic_perm'?: ShowUserResponseDefaultTopicPermEnum | string;
+    private 'default_group_perm'?: ShowUserResponseDefaultGroupPermEnum | string;
+    private 'topic_perms'?: Array<UserTopicPerms>;
+    private 'group_perms'?: Array<UserGroupPerms>;
     public constructor() { 
         super();
     }
@@ -19,74 +19,74 @@ export class ShowUserResponse extends SdkResponse {
         this['access_key'] = accessKey;
         return this;
     }
-    public set accessKey(accessKey: string | undefined) {
+    public set accessKey(accessKey: string  | undefined) {
         this['access_key'] = accessKey;
     }
-    public get accessKey() {
+    public get accessKey(): string | undefined {
         return this['access_key'];
     }
     public withSecretKey(secretKey: string): ShowUserResponse {
         this['secret_key'] = secretKey;
         return this;
     }
-    public set secretKey(secretKey: string | undefined) {
+    public set secretKey(secretKey: string  | undefined) {
         this['secret_key'] = secretKey;
     }
-    public get secretKey() {
+    public get secretKey(): string | undefined {
         return this['secret_key'];
     }
     public withWhiteRemoteAddress(whiteRemoteAddress: string): ShowUserResponse {
         this['white_remote_address'] = whiteRemoteAddress;
         return this;
     }
-    public set whiteRemoteAddress(whiteRemoteAddress: string | undefined) {
+    public set whiteRemoteAddress(whiteRemoteAddress: string  | undefined) {
         this['white_remote_address'] = whiteRemoteAddress;
     }
-    public get whiteRemoteAddress() {
+    public get whiteRemoteAddress(): string | undefined {
         return this['white_remote_address'];
     }
     public withAdmin(admin: boolean): ShowUserResponse {
         this['admin'] = admin;
         return this;
     }
-    public withDefaultTopicPerm(defaultTopicPerm: ShowUserResponseDefaultTopicPermEnum): ShowUserResponse {
+    public withDefaultTopicPerm(defaultTopicPerm: ShowUserResponseDefaultTopicPermEnum | string): ShowUserResponse {
         this['default_topic_perm'] = defaultTopicPerm;
         return this;
     }
-    public set defaultTopicPerm(defaultTopicPerm: ShowUserResponseDefaultTopicPermEnum | undefined) {
+    public set defaultTopicPerm(defaultTopicPerm: ShowUserResponseDefaultTopicPermEnum | string  | undefined) {
         this['default_topic_perm'] = defaultTopicPerm;
     }
-    public get defaultTopicPerm() {
+    public get defaultTopicPerm(): ShowUserResponseDefaultTopicPermEnum | string | undefined {
         return this['default_topic_perm'];
     }
-    public withDefaultGroupPerm(defaultGroupPerm: ShowUserResponseDefaultGroupPermEnum): ShowUserResponse {
+    public withDefaultGroupPerm(defaultGroupPerm: ShowUserResponseDefaultGroupPermEnum | string): ShowUserResponse {
         this['default_group_perm'] = defaultGroupPerm;
         return this;
     }
-    public set defaultGroupPerm(defaultGroupPerm: ShowUserResponseDefaultGroupPermEnum | undefined) {
+    public set defaultGroupPerm(defaultGroupPerm: ShowUserResponseDefaultGroupPermEnum | string  | undefined) {
         this['default_group_perm'] = defaultGroupPerm;
     }
-    public get defaultGroupPerm() {
+    public get defaultGroupPerm(): ShowUserResponseDefaultGroupPermEnum | string | undefined {
         return this['default_group_perm'];
     }
     public withTopicPerms(topicPerms: Array<UserTopicPerms>): ShowUserResponse {
         this['topic_perms'] = topicPerms;
         return this;
     }
-    public set topicPerms(topicPerms: Array<UserTopicPerms> | undefined) {
+    public set topicPerms(topicPerms: Array<UserTopicPerms>  | undefined) {
         this['topic_perms'] = topicPerms;
     }
-    public get topicPerms() {
+    public get topicPerms(): Array<UserTopicPerms> | undefined {
         return this['topic_perms'];
     }
     public withGroupPerms(groupPerms: Array<UserGroupPerms>): ShowUserResponse {
         this['group_perms'] = groupPerms;
         return this;
     }
-    public set groupPerms(groupPerms: Array<UserGroupPerms> | undefined) {
+    public set groupPerms(groupPerms: Array<UserGroupPerms>  | undefined) {
         this['group_perms'] = groupPerms;
     }
-    public get groupPerms() {
+    public get groupPerms(): Array<UserGroupPerms> | undefined {
         return this['group_perms'];
     }
 }

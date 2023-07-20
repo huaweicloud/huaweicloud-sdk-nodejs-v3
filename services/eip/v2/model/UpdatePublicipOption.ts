@@ -1,8 +1,8 @@
 
 
 export class UpdatePublicipOption {
-    private 'port_id'?: string | undefined;
-    private 'ip_version'?: UpdatePublicipOptionIpVersionEnum | undefined;
+    private 'port_id'?: string;
+    private 'ip_version'?: UpdatePublicipOptionIpVersionEnum | number;
     public alias?: string;
     public constructor() { 
     }
@@ -10,20 +10,20 @@ export class UpdatePublicipOption {
         this['port_id'] = portId;
         return this;
     }
-    public set portId(portId: string | undefined) {
+    public set portId(portId: string  | undefined) {
         this['port_id'] = portId;
     }
-    public get portId() {
+    public get portId(): string | undefined {
         return this['port_id'];
     }
-    public withIpVersion(ipVersion: UpdatePublicipOptionIpVersionEnum): UpdatePublicipOption {
+    public withIpVersion(ipVersion: UpdatePublicipOptionIpVersionEnum | number): UpdatePublicipOption {
         this['ip_version'] = ipVersion;
         return this;
     }
-    public set ipVersion(ipVersion: UpdatePublicipOptionIpVersionEnum | undefined) {
+    public set ipVersion(ipVersion: UpdatePublicipOptionIpVersionEnum | number  | undefined) {
         this['ip_version'] = ipVersion;
     }
-    public get ipVersion() {
+    public get ipVersion(): UpdatePublicipOptionIpVersionEnum | number | undefined {
         return this['ip_version'];
     }
     public withAlias(alias: string): UpdatePublicipOption {

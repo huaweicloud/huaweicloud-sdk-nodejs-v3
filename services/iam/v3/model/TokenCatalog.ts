@@ -2,11 +2,11 @@ import { TokenCatalogEndpoint } from './TokenCatalogEndpoint';
 
 
 export class TokenCatalog {
-    public type: string;
-    public id: string;
-    public name: string;
-    public endpoints: Array<TokenCatalogEndpoint>;
-    public constructor(type?: any, id?: any, name?: any, endpoints?: any) { 
+    public type?: string;
+    public id?: string;
+    public name?: string;
+    public endpoints?: Array<TokenCatalogEndpoint>;
+    public constructor(type?: string, id?: string, name?: string, endpoints?: Array<TokenCatalogEndpoint>) { 
         this['type'] = type;
         this['id'] = id;
         this['name'] = name;

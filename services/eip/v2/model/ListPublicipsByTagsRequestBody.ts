@@ -6,9 +6,9 @@ export class ListPublicipsByTagsRequestBody {
     public tags?: Array<TagReq>;
     public limit?: number;
     public offset?: number;
-    public action: ListPublicipsByTagsRequestBodyActionEnum;
+    public action?: ListPublicipsByTagsRequestBodyActionEnum | string;
     public matches?: Array<MatchReq>;
-    public constructor(action?: any) { 
+    public constructor(action?: string) { 
         this['action'] = action;
     }
     public withTags(tags: Array<TagReq>): ListPublicipsByTagsRequestBody {
@@ -23,7 +23,7 @@ export class ListPublicipsByTagsRequestBody {
         this['offset'] = offset;
         return this;
     }
-    public withAction(action: ListPublicipsByTagsRequestBodyActionEnum): ListPublicipsByTagsRequestBody {
+    public withAction(action: ListPublicipsByTagsRequestBodyActionEnum | string): ListPublicipsByTagsRequestBody {
         this['action'] = action;
         return this;
     }

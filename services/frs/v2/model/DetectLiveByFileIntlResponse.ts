@@ -4,8 +4,8 @@ import { WarningList } from './WarningList';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class DetectLiveByFileIntlResponse extends SdkResponse {
-    private 'video-result'?: LiveDetectRespVideoresult | undefined;
-    private 'warning-list'?: Array<WarningList> | undefined;
+    private 'video-result'?: LiveDetectRespVideoresult;
+    private 'warning-list'?: Array<WarningList>;
     public constructor() { 
         super();
     }
@@ -13,20 +13,20 @@ export class DetectLiveByFileIntlResponse extends SdkResponse {
         this['video-result'] = videoResult;
         return this;
     }
-    public set videoResult(videoResult: LiveDetectRespVideoresult | undefined) {
+    public set videoResult(videoResult: LiveDetectRespVideoresult  | undefined) {
         this['video-result'] = videoResult;
     }
-    public get videoResult() {
+    public get videoResult(): LiveDetectRespVideoresult | undefined {
         return this['video-result'];
     }
     public withWarningList(warningList: Array<WarningList>): DetectLiveByFileIntlResponse {
         this['warning-list'] = warningList;
         return this;
     }
-    public set warningList(warningList: Array<WarningList> | undefined) {
+    public set warningList(warningList: Array<WarningList>  | undefined) {
         this['warning-list'] = warningList;
     }
-    public get warningList() {
+    public get warningList(): Array<WarningList> | undefined {
         return this['warning-list'];
     }
 }

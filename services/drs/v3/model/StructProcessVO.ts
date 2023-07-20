@@ -1,13 +1,13 @@
 
 
 export class StructProcessVO {
-    public type: string;
-    public status: number;
-    private 'src_count': number | undefined;
-    private 'dst_count': number | undefined;
-    private 'start_time': number | undefined;
-    private 'end_time'?: number | undefined;
-    public constructor(type?: any, status?: any, srcCount?: any, dstCount?: any, startTime?: any) { 
+    public type?: string;
+    public status?: number;
+    private 'src_count'?: number;
+    private 'dst_count'?: number;
+    private 'start_time'?: number;
+    private 'end_time'?: number;
+    public constructor(type?: string, status?: number, srcCount?: number, dstCount?: number, startTime?: number) { 
         this['type'] = type;
         this['status'] = status;
         this['src_count'] = srcCount;
@@ -26,40 +26,40 @@ export class StructProcessVO {
         this['src_count'] = srcCount;
         return this;
     }
-    public set srcCount(srcCount: number | undefined) {
+    public set srcCount(srcCount: number  | undefined) {
         this['src_count'] = srcCount;
     }
-    public get srcCount() {
+    public get srcCount(): number | undefined {
         return this['src_count'];
     }
     public withDstCount(dstCount: number): StructProcessVO {
         this['dst_count'] = dstCount;
         return this;
     }
-    public set dstCount(dstCount: number | undefined) {
+    public set dstCount(dstCount: number  | undefined) {
         this['dst_count'] = dstCount;
     }
-    public get dstCount() {
+    public get dstCount(): number | undefined {
         return this['dst_count'];
     }
     public withStartTime(startTime: number): StructProcessVO {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: number): StructProcessVO {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: number | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
 }

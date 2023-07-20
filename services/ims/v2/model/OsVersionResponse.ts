@@ -2,10 +2,10 @@ import { Links } from './Links';
 
 
 export class OsVersionResponse {
-    public status: string;
+    public status?: string;
     public id?: string;
     public links?: Array<Links>;
-    public constructor(status?: any) { 
+    public constructor(status?: string) { 
         this['status'] = status;
     }
     public withStatus(status: string): OsVersionResponse {

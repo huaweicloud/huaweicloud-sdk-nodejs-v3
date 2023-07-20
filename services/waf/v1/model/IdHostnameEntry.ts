@@ -1,9 +1,9 @@
 
 
 export class IdHostnameEntry {
-    public id: string;
-    public hostname: string;
-    public constructor(id?: any, hostname?: any) { 
+    public id?: string;
+    public hostname?: string;
+    public constructor(id?: string, hostname?: string) { 
         this['id'] = id;
         this['hostname'] = hostname;
     }

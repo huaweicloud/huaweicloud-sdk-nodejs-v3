@@ -2,13 +2,13 @@ import { Links } from './Links';
 
 
 export class KeystoneGroupResult {
-    public description: string;
-    public id: string;
-    private 'domain_id': string | undefined;
-    public name: string;
-    public links: Links;
-    private 'create_time': number | undefined;
-    public constructor(description?: any, id?: any, domainId?: any, name?: any, links?: any, createTime?: any) { 
+    public description?: string;
+    public id?: string;
+    private 'domain_id'?: string;
+    public name?: string;
+    public links?: Links;
+    private 'create_time'?: number;
+    public constructor(description?: string, id?: string, domainId?: string, name?: string, links?: Links, createTime?: number) { 
         this['description'] = description;
         this['id'] = id;
         this['domain_id'] = domainId;
@@ -28,10 +28,10 @@ export class KeystoneGroupResult {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withName(name: string): KeystoneGroupResult {
@@ -46,10 +46,10 @@ export class KeystoneGroupResult {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: number | undefined) {
+    public set createTime(createTime: number  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): number | undefined {
         return this['create_time'];
     }
 }

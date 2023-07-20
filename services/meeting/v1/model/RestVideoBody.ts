@@ -1,8 +1,8 @@
 
 
 export class RestVideoBody {
-    public status: number;
-    public constructor(status?: any) { 
+    public status?: number;
+    public constructor(status?: number) { 
         this['status'] = status;
     }
     public withStatus(status: number): RestVideoBody {

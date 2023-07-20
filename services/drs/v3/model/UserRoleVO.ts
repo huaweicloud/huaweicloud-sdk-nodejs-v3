@@ -1,13 +1,13 @@
 
 
 export class UserRoleVO {
-    public role: string;
+    public role?: string;
     public comment?: string;
-    private 'is_transfer': boolean | undefined;
-    public privileges: string;
-    private 'inherits_roles'?: Array<string> | undefined;
+    private 'is_transfer'?: boolean;
+    public privileges?: string;
+    private 'inherits_roles'?: Array<string>;
     public selected?: boolean;
-    public constructor(role?: any, isTransfer?: any, privileges?: any) { 
+    public constructor(role?: string, isTransfer?: boolean, privileges?: string) { 
         this['role'] = role;
         this['is_transfer'] = isTransfer;
         this['privileges'] = privileges;
@@ -24,10 +24,10 @@ export class UserRoleVO {
         this['is_transfer'] = isTransfer;
         return this;
     }
-    public set isTransfer(isTransfer: boolean | undefined) {
+    public set isTransfer(isTransfer: boolean  | undefined) {
         this['is_transfer'] = isTransfer;
     }
-    public get isTransfer() {
+    public get isTransfer(): boolean | undefined {
         return this['is_transfer'];
     }
     public withPrivileges(privileges: string): UserRoleVO {
@@ -38,10 +38,10 @@ export class UserRoleVO {
         this['inherits_roles'] = inheritsRoles;
         return this;
     }
-    public set inheritsRoles(inheritsRoles: Array<string> | undefined) {
+    public set inheritsRoles(inheritsRoles: Array<string>  | undefined) {
         this['inherits_roles'] = inheritsRoles;
     }
-    public get inheritsRoles() {
+    public get inheritsRoles(): Array<string> | undefined {
         return this['inherits_roles'];
     }
     public withSelected(selected: boolean): UserRoleVO {

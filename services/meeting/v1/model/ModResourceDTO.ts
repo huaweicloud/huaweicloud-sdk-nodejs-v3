@@ -1,11 +1,11 @@
 
 
 export class ModResourceDTO {
-    public id: string;
+    public id?: string;
     public type?: string;
     public expireDate?: number;
     public isDisabled?: boolean;
-    public constructor(id?: any) { 
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withId(id: string): ModResourceDTO {

@@ -1,10 +1,10 @@
 
 
 export class UpdateIpGroupRequestBody {
-    public name: string;
-    public ips: string;
+    public name?: string;
+    public ips?: string;
     public description?: string;
-    public constructor(name?: any, ips?: any) { 
+    public constructor(name?: string, ips?: string) { 
         this['name'] = name;
         this['ips'] = ips;
     }

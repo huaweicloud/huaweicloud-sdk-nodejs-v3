@@ -2,10 +2,10 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdatePasswordResponse extends SdkResponse {
-    private 'lock_time'?: string | undefined;
-    public result?: UpdatePasswordResponseResultEnum;
-    private 'lock_time_left'?: string | undefined;
-    private 'retry_times_left'?: string | undefined;
+    private 'lock_time'?: string;
+    public result?: UpdatePasswordResponseResultEnum | string;
+    private 'lock_time_left'?: string;
+    private 'retry_times_left'?: string;
     public message?: string;
     public constructor() { 
         super();
@@ -14,13 +14,13 @@ export class UpdatePasswordResponse extends SdkResponse {
         this['lock_time'] = lockTime;
         return this;
     }
-    public set lockTime(lockTime: string | undefined) {
+    public set lockTime(lockTime: string  | undefined) {
         this['lock_time'] = lockTime;
     }
-    public get lockTime() {
+    public get lockTime(): string | undefined {
         return this['lock_time'];
     }
-    public withResult(result: UpdatePasswordResponseResultEnum): UpdatePasswordResponse {
+    public withResult(result: UpdatePasswordResponseResultEnum | string): UpdatePasswordResponse {
         this['result'] = result;
         return this;
     }
@@ -28,20 +28,20 @@ export class UpdatePasswordResponse extends SdkResponse {
         this['lock_time_left'] = lockTimeLeft;
         return this;
     }
-    public set lockTimeLeft(lockTimeLeft: string | undefined) {
+    public set lockTimeLeft(lockTimeLeft: string  | undefined) {
         this['lock_time_left'] = lockTimeLeft;
     }
-    public get lockTimeLeft() {
+    public get lockTimeLeft(): string | undefined {
         return this['lock_time_left'];
     }
     public withRetryTimesLeft(retryTimesLeft: string): UpdatePasswordResponse {
         this['retry_times_left'] = retryTimesLeft;
         return this;
     }
-    public set retryTimesLeft(retryTimesLeft: string | undefined) {
+    public set retryTimesLeft(retryTimesLeft: string  | undefined) {
         this['retry_times_left'] = retryTimesLeft;
     }
-    public get retryTimesLeft() {
+    public get retryTimesLeft(): string | undefined {
         return this['retry_times_left'];
     }
     public withMessage(message: string): UpdatePasswordResponse {

@@ -6,7 +6,7 @@ export class UpdateHealthCheckOption {
     public port?: number;
     public interval?: number;
     public timeout?: number;
-    private 'max_retries'?: number | undefined;
+    private 'max_retries'?: number;
     public enabled?: boolean;
     public constructor() { 
     }
@@ -30,10 +30,10 @@ export class UpdateHealthCheckOption {
         this['max_retries'] = maxRetries;
         return this;
     }
-    public set maxRetries(maxRetries: number | undefined) {
+    public set maxRetries(maxRetries: number  | undefined) {
         this['max_retries'] = maxRetries;
     }
-    public get maxRetries() {
+    public get maxRetries(): number | undefined {
         return this['max_retries'];
     }
     public withEnabled(enabled: boolean): UpdateHealthCheckOption {

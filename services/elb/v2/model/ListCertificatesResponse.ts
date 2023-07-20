@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListCertificatesResponse extends SdkResponse {
     public certificates?: Array<CertificateResp>;
-    private 'instance_num'?: number | undefined;
+    private 'instance_num'?: number;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListCertificatesResponse extends SdkResponse {
         this['instance_num'] = instanceNum;
         return this;
     }
-    public set instanceNum(instanceNum: number | undefined) {
+    public set instanceNum(instanceNum: number  | undefined) {
         this['instance_num'] = instanceNum;
     }
-    public get instanceNum() {
+    public get instanceNum(): number | undefined {
         return this['instance_num'];
     }
 }

@@ -3,9 +3,9 @@ import { UpgradeSpec } from './UpgradeSpec';
 
 
 export class UpgradeClusterRequestBody {
-    public metadata: UpgradeClusterRequestMetadata;
-    public spec: UpgradeSpec;
-    public constructor(metadata?: any, spec?: any) { 
+    public metadata?: UpgradeClusterRequestMetadata;
+    public spec?: UpgradeSpec;
+    public constructor(metadata?: UpgradeClusterRequestMetadata, spec?: UpgradeSpec) { 
         this['metadata'] = metadata;
         this['spec'] = spec;
     }

@@ -1,0 +1,44 @@
+import { UpdateDatabaseReq } from './UpdateDatabaseReq';
+
+
+export class UpdatePostgresqlDatabaseRequest {
+    private 'X-Language'?: UpdatePostgresqlDatabaseRequestXLanguageEnum | string;
+    private 'instance_id'?: string;
+    public body?: UpdateDatabaseReq;
+    public constructor(instanceId?: string) { 
+        this['instance_id'] = instanceId;
+    }
+    public withXLanguage(xLanguage: UpdatePostgresqlDatabaseRequestXLanguageEnum | string): UpdatePostgresqlDatabaseRequest {
+        this['X-Language'] = xLanguage;
+        return this;
+    }
+    public set xLanguage(xLanguage: UpdatePostgresqlDatabaseRequestXLanguageEnum | string  | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage(): UpdatePostgresqlDatabaseRequestXLanguageEnum | string | undefined {
+        return this['X-Language'];
+    }
+    public withInstanceId(instanceId: string): UpdatePostgresqlDatabaseRequest {
+        this['instance_id'] = instanceId;
+        return this;
+    }
+    public set instanceId(instanceId: string  | undefined) {
+        this['instance_id'] = instanceId;
+    }
+    public get instanceId(): string | undefined {
+        return this['instance_id'];
+    }
+    public withBody(body: UpdateDatabaseReq): UpdatePostgresqlDatabaseRequest {
+        this['body'] = body;
+        return this;
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UpdatePostgresqlDatabaseRequestXLanguageEnum {
+    ZH_CN = 'zh-cn',
+    EN_US = 'en-us'
+}

@@ -1,7 +1,7 @@
 
 
 export class UploadSignatureFileRequestBody {
-    public file: any;
+    public file?: any;
     public constructor(file?: any) { 
         this['file'] = file;
     }

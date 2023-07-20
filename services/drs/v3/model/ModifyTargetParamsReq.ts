@@ -2,13 +2,13 @@ import { ParamsReqBean } from './ParamsReqBean';
 
 
 export class ModifyTargetParamsReq {
-    public group: ModifyTargetParamsReqGroupEnum;
-    public params: Array<ParamsReqBean>;
-    public constructor(group?: any, params?: any) { 
+    public group?: ModifyTargetParamsReqGroupEnum | string;
+    public params?: Array<ParamsReqBean>;
+    public constructor(group?: string, params?: Array<ParamsReqBean>) { 
         this['group'] = group;
         this['params'] = params;
     }
-    public withGroup(group: ModifyTargetParamsReqGroupEnum): ModifyTargetParamsReq {
+    public withGroup(group: ModifyTargetParamsReqGroupEnum | string): ModifyTargetParamsReq {
         this['group'] = group;
         return this;
     }

@@ -1,9 +1,9 @@
 
 
 export class ShowPtrRecordSetRequest {
-    public region: string;
-    private 'floatingip_id': string | undefined;
-    public constructor(region?: any, floatingipId?: any) { 
+    public region?: string;
+    private 'floatingip_id'?: string;
+    public constructor(region?: string, floatingipId?: string) { 
         this['region'] = region;
         this['floatingip_id'] = floatingipId;
     }
@@ -15,10 +15,10 @@ export class ShowPtrRecordSetRequest {
         this['floatingip_id'] = floatingipId;
         return this;
     }
-    public set floatingipId(floatingipId: string | undefined) {
+    public set floatingipId(floatingipId: string  | undefined) {
         this['floatingip_id'] = floatingipId;
     }
-    public get floatingipId() {
+    public get floatingipId(): string | undefined {
         return this['floatingip_id'];
     }
 }

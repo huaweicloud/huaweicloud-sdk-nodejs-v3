@@ -1,10 +1,10 @@
 
 
 export class UpdateLineGroupsBody {
-    public name: string;
+    public name?: string;
     public description?: string;
-    public lines: Array<string>;
-    public constructor(name?: any, lines?: any) { 
+    public lines?: Array<string>;
+    public constructor(name?: string, lines?: Array<string>) { 
         this['name'] = name;
         this['lines'] = lines;
     }

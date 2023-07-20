@@ -1,8 +1,8 @@
 
 
 export class PreoccupyIp {
-    public total: number;
-    public constructor(total?: any) { 
+    public total?: number;
+    public constructor(total?: number) { 
         this['total'] = total;
     }
     public withTotal(total: number): PreoccupyIp {

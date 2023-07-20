@@ -4,14 +4,14 @@ import { TagValues } from './TagValues';
 
 export class ListTagReq {
     public tags?: Array<TagValues>;
-    private 'tags_any'?: Array<TagValues> | undefined;
-    private 'not_tags'?: Array<TagValues> | undefined;
-    private 'not_tags_any'?: Array<TagValues> | undefined;
+    private 'tags_any'?: Array<TagValues>;
+    private 'not_tags'?: Array<TagValues>;
+    private 'not_tags_any'?: Array<TagValues>;
     public limit?: number;
     public offset?: number;
-    public action: string;
+    public action?: string;
     public matches?: Array<Match>;
-    public constructor(action?: any) { 
+    public constructor(action?: string) { 
         this['action'] = action;
     }
     public withTags(tags: Array<TagValues>): ListTagReq {
@@ -22,30 +22,30 @@ export class ListTagReq {
         this['tags_any'] = tagsAny;
         return this;
     }
-    public set tagsAny(tagsAny: Array<TagValues> | undefined) {
+    public set tagsAny(tagsAny: Array<TagValues>  | undefined) {
         this['tags_any'] = tagsAny;
     }
-    public get tagsAny() {
+    public get tagsAny(): Array<TagValues> | undefined {
         return this['tags_any'];
     }
     public withNotTags(notTags: Array<TagValues>): ListTagReq {
         this['not_tags'] = notTags;
         return this;
     }
-    public set notTags(notTags: Array<TagValues> | undefined) {
+    public set notTags(notTags: Array<TagValues>  | undefined) {
         this['not_tags'] = notTags;
     }
-    public get notTags() {
+    public get notTags(): Array<TagValues> | undefined {
         return this['not_tags'];
     }
     public withNotTagsAny(notTagsAny: Array<TagValues>): ListTagReq {
         this['not_tags_any'] = notTagsAny;
         return this;
     }
-    public set notTagsAny(notTagsAny: Array<TagValues> | undefined) {
+    public set notTagsAny(notTagsAny: Array<TagValues>  | undefined) {
         this['not_tags_any'] = notTagsAny;
     }
-    public get notTagsAny() {
+    public get notTagsAny(): Array<TagValues> | undefined {
         return this['not_tags_any'];
     }
     public withLimit(limit: number): ListTagReq {

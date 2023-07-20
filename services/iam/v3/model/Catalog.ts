@@ -2,11 +2,11 @@ import { CatalogEndpoints } from './CatalogEndpoints';
 
 
 export class Catalog {
-    public endpoints: Array<CatalogEndpoints>;
-    public id: string;
-    public name: string;
-    public type: string;
-    public constructor(endpoints?: any, id?: any, name?: any, type?: any) { 
+    public endpoints?: Array<CatalogEndpoints>;
+    public id?: string;
+    public name?: string;
+    public type?: string;
+    public constructor(endpoints?: Array<CatalogEndpoints>, id?: string, name?: string, type?: string) { 
         this['endpoints'] = endpoints;
         this['id'] = id;
         this['name'] = name;

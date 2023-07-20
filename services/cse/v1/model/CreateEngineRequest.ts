@@ -2,7 +2,7 @@ import { EngineCreateReq } from './EngineCreateReq';
 
 
 export class CreateEngineRequest {
-    private 'X-Enterprise-Project-ID'?: string | undefined;
+    private 'X-Enterprise-Project-ID'?: string;
     public body?: EngineCreateReq;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class CreateEngineRequest {
         this['X-Enterprise-Project-ID'] = xEnterpriseProjectID;
         return this;
     }
-    public set xEnterpriseProjectID(xEnterpriseProjectID: string | undefined) {
+    public set xEnterpriseProjectID(xEnterpriseProjectID: string  | undefined) {
         this['X-Enterprise-Project-ID'] = xEnterpriseProjectID;
     }
-    public get xEnterpriseProjectID() {
+    public get xEnterpriseProjectID(): string | undefined {
         return this['X-Enterprise-Project-ID'];
     }
     public withBody(body: EngineCreateReq): CreateEngineRequest {

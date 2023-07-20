@@ -3,23 +3,23 @@ import { TableObject } from './TableObject';
 
 
 export class DatabaseObject {
-    private 'sync_type'?: DatabaseObjectSyncTypeEnum | undefined;
+    private 'sync_type'?: DatabaseObjectSyncTypeEnum | string;
     public name?: string;
     public all?: boolean;
     public schemas?: { [key: string]: SchemaObject; };
     public tables?: { [key: string]: TableObject; };
-    private 'total_table_num'?: number | undefined;
-    private 'is_synchronized'?: boolean | undefined;
+    private 'total_table_num'?: number;
+    private 'is_synchronized'?: boolean;
     public constructor() { 
     }
-    public withSyncType(syncType: DatabaseObjectSyncTypeEnum): DatabaseObject {
+    public withSyncType(syncType: DatabaseObjectSyncTypeEnum | string): DatabaseObject {
         this['sync_type'] = syncType;
         return this;
     }
-    public set syncType(syncType: DatabaseObjectSyncTypeEnum | undefined) {
+    public set syncType(syncType: DatabaseObjectSyncTypeEnum | string  | undefined) {
         this['sync_type'] = syncType;
     }
-    public get syncType() {
+    public get syncType(): DatabaseObjectSyncTypeEnum | string | undefined {
         return this['sync_type'];
     }
     public withName(name: string): DatabaseObject {
@@ -42,20 +42,20 @@ export class DatabaseObject {
         this['total_table_num'] = totalTableNum;
         return this;
     }
-    public set totalTableNum(totalTableNum: number | undefined) {
+    public set totalTableNum(totalTableNum: number  | undefined) {
         this['total_table_num'] = totalTableNum;
     }
-    public get totalTableNum() {
+    public get totalTableNum(): number | undefined {
         return this['total_table_num'];
     }
     public withIsSynchronized(isSynchronized: boolean): DatabaseObject {
         this['is_synchronized'] = isSynchronized;
         return this;
     }
-    public set isSynchronized(isSynchronized: boolean | undefined) {
+    public set isSynchronized(isSynchronized: boolean  | undefined) {
         this['is_synchronized'] = isSynchronized;
     }
-    public get isSynchronized() {
+    public get isSynchronized(): boolean | undefined {
         return this['is_synchronized'];
     }
 }

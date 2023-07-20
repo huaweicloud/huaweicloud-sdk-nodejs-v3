@@ -1,7 +1,7 @@
 
 
 export class AuthorizeConfigInfoRequestBody {
-    public enableSSO: boolean;
+    public enableSSO?: boolean;
     public domain?: string;
     public authorizeUrl?: string;
     public getTokenUrl?: string;
@@ -19,7 +19,7 @@ export class AuthorizeConfigInfoRequestBody {
     public thirdMobile?: string;
     public thirdAccessToken?: string;
     public thirdHeadImgUrl?: string;
-    public constructor(enableSSO?: any) { 
+    public constructor(enableSSO?: boolean) { 
         this['enableSSO'] = enableSSO;
     }
     public withEnableSSO(enableSSO: boolean): AuthorizeConfigInfoRequestBody {

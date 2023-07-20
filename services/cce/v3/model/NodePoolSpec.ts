@@ -5,17 +5,17 @@ import { SecurityID } from './SecurityID';
 
 
 export class NodePoolSpec {
-    public type?: NodePoolSpecTypeEnum;
-    public nodeTemplate: NodeSpec;
+    public type?: NodePoolSpecTypeEnum | string;
+    public nodeTemplate?: NodeSpec;
     public initialNodeCount?: number;
     public autoscaling?: NodePoolNodeAutoscaling;
     public nodeManagement?: NodeManagement;
     public podSecurityGroups?: Array<SecurityID>;
     public customSecurityGroups?: Array<string>;
-    public constructor(nodeTemplate?: any) { 
+    public constructor(nodeTemplate?: NodeSpec) { 
         this['nodeTemplate'] = nodeTemplate;
     }
-    public withType(type: NodePoolSpecTypeEnum): NodePoolSpec {
+    public withType(type: NodePoolSpecTypeEnum | string): NodePoolSpec {
         this['type'] = type;
         return this;
     }

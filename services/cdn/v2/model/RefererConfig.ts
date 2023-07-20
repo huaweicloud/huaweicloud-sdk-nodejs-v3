@@ -1,10 +1,10 @@
 
 
 export class RefererConfig {
-    public type: string;
+    public type?: string;
     public value?: string;
-    private 'include_empty'?: boolean | undefined;
-    public constructor(type?: any) { 
+    private 'include_empty'?: boolean;
+    public constructor(type?: string) { 
         this['type'] = type;
     }
     public withType(type: string): RefererConfig {
@@ -19,10 +19,10 @@ export class RefererConfig {
         this['include_empty'] = includeEmpty;
         return this;
     }
-    public set includeEmpty(includeEmpty: boolean | undefined) {
+    public set includeEmpty(includeEmpty: boolean  | undefined) {
         this['include_empty'] = includeEmpty;
     }
-    public get includeEmpty() {
+    public get includeEmpty(): boolean | undefined {
         return this['include_empty'];
     }
 }

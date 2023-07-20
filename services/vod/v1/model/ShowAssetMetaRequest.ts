@@ -1,16 +1,16 @@
 
 
 export class ShowAssetMetaRequest {
-    private 'X-Sdk-Date'?: string | undefined;
-    private 'asset_id'?: Array<string> | undefined;
-    public status?: Array<ShowAssetMetaRequestStatusEnum>;
-    public transcodeStatus?: Array<ShowAssetMetaRequestTranscodeStatusEnum>;
-    public assetStatus?: Array<ShowAssetMetaRequestAssetStatusEnum>;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
-    private 'category_id'?: number | undefined;
+    private 'X-Sdk-Date'?: string;
+    private 'asset_id'?: Array<string>;
+    public status?: Array<ShowAssetMetaRequestStatusEnum> | Array<string>;
+    public transcodeStatus?: Array<ShowAssetMetaRequestTranscodeStatusEnum> | Array<string>;
+    public assetStatus?: Array<ShowAssetMetaRequestAssetStatusEnum> | Array<string>;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
+    private 'category_id'?: number;
     public tags?: string;
-    private 'query_string'?: string | undefined;
+    private 'query_string'?: string;
     public page?: number;
     public size?: number;
     public constructor() { 
@@ -19,31 +19,31 @@ export class ShowAssetMetaRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withAssetId(assetId: Array<string>): ShowAssetMetaRequest {
         this['asset_id'] = assetId;
         return this;
     }
-    public set assetId(assetId: Array<string> | undefined) {
+    public set assetId(assetId: Array<string>  | undefined) {
         this['asset_id'] = assetId;
     }
-    public get assetId() {
+    public get assetId(): Array<string> | undefined {
         return this['asset_id'];
     }
-    public withStatus(status: Array<ShowAssetMetaRequestStatusEnum>): ShowAssetMetaRequest {
+    public withStatus(status: Array<ShowAssetMetaRequestStatusEnum> | Array<string>): ShowAssetMetaRequest {
         this['status'] = status;
         return this;
     }
-    public withTranscodeStatus(transcodeStatus: Array<ShowAssetMetaRequestTranscodeStatusEnum>): ShowAssetMetaRequest {
+    public withTranscodeStatus(transcodeStatus: Array<ShowAssetMetaRequestTranscodeStatusEnum> | Array<string>): ShowAssetMetaRequest {
         this['transcodeStatus'] = transcodeStatus;
         return this;
     }
-    public withAssetStatus(assetStatus: Array<ShowAssetMetaRequestAssetStatusEnum>): ShowAssetMetaRequest {
+    public withAssetStatus(assetStatus: Array<ShowAssetMetaRequestAssetStatusEnum> | Array<string>): ShowAssetMetaRequest {
         this['assetStatus'] = assetStatus;
         return this;
     }
@@ -51,30 +51,30 @@ export class ShowAssetMetaRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ShowAssetMetaRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withCategoryId(categoryId: number): ShowAssetMetaRequest {
         this['category_id'] = categoryId;
         return this;
     }
-    public set categoryId(categoryId: number | undefined) {
+    public set categoryId(categoryId: number  | undefined) {
         this['category_id'] = categoryId;
     }
-    public get categoryId() {
+    public get categoryId(): number | undefined {
         return this['category_id'];
     }
     public withTags(tags: string): ShowAssetMetaRequest {
@@ -85,10 +85,10 @@ export class ShowAssetMetaRequest {
         this['query_string'] = queryString;
         return this;
     }
-    public set queryString(queryString: string | undefined) {
+    public set queryString(queryString: string  | undefined) {
         this['query_string'] = queryString;
     }
-    public get queryString() {
+    public get queryString(): string | undefined {
         return this['query_string'];
     }
     public withPage(page: number): ShowAssetMetaRequest {

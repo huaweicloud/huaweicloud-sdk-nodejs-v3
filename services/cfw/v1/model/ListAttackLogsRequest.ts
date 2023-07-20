@@ -1,28 +1,28 @@
 
 
 export class ListAttackLogsRequest {
-    private 'project_id': string | undefined;
-    private 'start_time': number | undefined;
-    private 'end_time': number | undefined;
-    private 'src_ip'?: string | undefined;
-    private 'src_port'?: number | undefined;
-    private 'dst_ip'?: string | undefined;
-    private 'dst_port'?: number | undefined;
-    public protocol?: ListAttackLogsRequestProtocolEnum;
+    private 'project_id'?: string;
+    private 'start_time'?: number;
+    private 'end_time'?: number;
+    private 'src_ip'?: string;
+    private 'src_port'?: number;
+    private 'dst_ip'?: string;
+    private 'dst_port'?: number;
+    public protocol?: ListAttackLogsRequestProtocolEnum | string;
     public app?: string;
-    private 'log_id'?: string | undefined;
-    private 'next_date'?: number | undefined;
+    private 'log_id'?: string;
+    private 'next_date'?: number;
     public offset?: number;
-    public limit: number;
-    private 'fw_instance_id': string | undefined;
-    public action?: ListAttackLogsRequestActionEnum;
-    public direction?: ListAttackLogsRequestDirectionEnum;
-    private 'attack_type'?: string | undefined;
-    private 'attack_rule'?: string | undefined;
+    public limit?: number;
+    private 'fw_instance_id'?: string;
+    public action?: ListAttackLogsRequestActionEnum | string;
+    public direction?: ListAttackLogsRequestDirectionEnum | string;
+    private 'attack_type'?: string;
+    private 'attack_rule'?: string;
     public level?: string;
     public source?: string;
-    private 'enterprise_project_id'?: string | undefined;
-    public constructor(projectId?: any, startTime?: any, endTime?: any, limit?: any, fwInstanceId?: any) { 
+    private 'enterprise_project_id'?: string;
+    public constructor(projectId?: string, startTime?: number, endTime?: number, limit?: number, fwInstanceId?: string) { 
         this['project_id'] = projectId;
         this['start_time'] = startTime;
         this['end_time'] = endTime;
@@ -33,73 +33,73 @@ export class ListAttackLogsRequest {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withStartTime(startTime: number): ListAttackLogsRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: number): ListAttackLogsRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: number | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
     public withSrcIp(srcIp: string): ListAttackLogsRequest {
         this['src_ip'] = srcIp;
         return this;
     }
-    public set srcIp(srcIp: string | undefined) {
+    public set srcIp(srcIp: string  | undefined) {
         this['src_ip'] = srcIp;
     }
-    public get srcIp() {
+    public get srcIp(): string | undefined {
         return this['src_ip'];
     }
     public withSrcPort(srcPort: number): ListAttackLogsRequest {
         this['src_port'] = srcPort;
         return this;
     }
-    public set srcPort(srcPort: number | undefined) {
+    public set srcPort(srcPort: number  | undefined) {
         this['src_port'] = srcPort;
     }
-    public get srcPort() {
+    public get srcPort(): number | undefined {
         return this['src_port'];
     }
     public withDstIp(dstIp: string): ListAttackLogsRequest {
         this['dst_ip'] = dstIp;
         return this;
     }
-    public set dstIp(dstIp: string | undefined) {
+    public set dstIp(dstIp: string  | undefined) {
         this['dst_ip'] = dstIp;
     }
-    public get dstIp() {
+    public get dstIp(): string | undefined {
         return this['dst_ip'];
     }
     public withDstPort(dstPort: number): ListAttackLogsRequest {
         this['dst_port'] = dstPort;
         return this;
     }
-    public set dstPort(dstPort: number | undefined) {
+    public set dstPort(dstPort: number  | undefined) {
         this['dst_port'] = dstPort;
     }
-    public get dstPort() {
+    public get dstPort(): number | undefined {
         return this['dst_port'];
     }
-    public withProtocol(protocol: ListAttackLogsRequestProtocolEnum): ListAttackLogsRequest {
+    public withProtocol(protocol: ListAttackLogsRequestProtocolEnum | string): ListAttackLogsRequest {
         this['protocol'] = protocol;
         return this;
     }
@@ -111,20 +111,20 @@ export class ListAttackLogsRequest {
         this['log_id'] = logId;
         return this;
     }
-    public set logId(logId: string | undefined) {
+    public set logId(logId: string  | undefined) {
         this['log_id'] = logId;
     }
-    public get logId() {
+    public get logId(): string | undefined {
         return this['log_id'];
     }
     public withNextDate(nextDate: number): ListAttackLogsRequest {
         this['next_date'] = nextDate;
         return this;
     }
-    public set nextDate(nextDate: number | undefined) {
+    public set nextDate(nextDate: number  | undefined) {
         this['next_date'] = nextDate;
     }
-    public get nextDate() {
+    public get nextDate(): number | undefined {
         return this['next_date'];
     }
     public withOffset(offset: number): ListAttackLogsRequest {
@@ -139,17 +139,17 @@ export class ListAttackLogsRequest {
         this['fw_instance_id'] = fwInstanceId;
         return this;
     }
-    public set fwInstanceId(fwInstanceId: string | undefined) {
+    public set fwInstanceId(fwInstanceId: string  | undefined) {
         this['fw_instance_id'] = fwInstanceId;
     }
-    public get fwInstanceId() {
+    public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
     }
-    public withAction(action: ListAttackLogsRequestActionEnum): ListAttackLogsRequest {
+    public withAction(action: ListAttackLogsRequestActionEnum | string): ListAttackLogsRequest {
         this['action'] = action;
         return this;
     }
-    public withDirection(direction: ListAttackLogsRequestDirectionEnum): ListAttackLogsRequest {
+    public withDirection(direction: ListAttackLogsRequestDirectionEnum | string): ListAttackLogsRequest {
         this['direction'] = direction;
         return this;
     }
@@ -157,20 +157,20 @@ export class ListAttackLogsRequest {
         this['attack_type'] = attackType;
         return this;
     }
-    public set attackType(attackType: string | undefined) {
+    public set attackType(attackType: string  | undefined) {
         this['attack_type'] = attackType;
     }
-    public get attackType() {
+    public get attackType(): string | undefined {
         return this['attack_type'];
     }
     public withAttackRule(attackRule: string): ListAttackLogsRequest {
         this['attack_rule'] = attackRule;
         return this;
     }
-    public set attackRule(attackRule: string | undefined) {
+    public set attackRule(attackRule: string  | undefined) {
         this['attack_rule'] = attackRule;
     }
-    public get attackRule() {
+    public get attackRule(): string | undefined {
         return this['attack_rule'];
     }
     public withLevel(level: string): ListAttackLogsRequest {
@@ -185,10 +185,10 @@ export class ListAttackLogsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

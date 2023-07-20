@@ -5,14 +5,14 @@ export class WatermarkTemplate {
     public dx?: string;
     public dy?: string;
     public referpos?: string;
-    private 'timeline_start'?: string | undefined;
-    private 'timeline_duration'?: string | undefined;
-    private 'image_process'?: string | undefined;
+    private 'timeline_start'?: string;
+    private 'timeline_duration'?: string;
+    private 'image_process'?: string;
     public width?: string;
     public height?: string;
-    public base?: WatermarkTemplateBaseEnum;
-    private 'template_id'?: number | undefined;
-    private 'template_name'?: string | undefined;
+    public base?: WatermarkTemplateBaseEnum | string;
+    private 'template_id'?: number;
+    private 'template_name'?: string;
     public type?: string;
     public constructor() { 
     }
@@ -32,30 +32,30 @@ export class WatermarkTemplate {
         this['timeline_start'] = timelineStart;
         return this;
     }
-    public set timelineStart(timelineStart: string | undefined) {
+    public set timelineStart(timelineStart: string  | undefined) {
         this['timeline_start'] = timelineStart;
     }
-    public get timelineStart() {
+    public get timelineStart(): string | undefined {
         return this['timeline_start'];
     }
     public withTimelineDuration(timelineDuration: string): WatermarkTemplate {
         this['timeline_duration'] = timelineDuration;
         return this;
     }
-    public set timelineDuration(timelineDuration: string | undefined) {
+    public set timelineDuration(timelineDuration: string  | undefined) {
         this['timeline_duration'] = timelineDuration;
     }
-    public get timelineDuration() {
+    public get timelineDuration(): string | undefined {
         return this['timeline_duration'];
     }
     public withImageProcess(imageProcess: string): WatermarkTemplate {
         this['image_process'] = imageProcess;
         return this;
     }
-    public set imageProcess(imageProcess: string | undefined) {
+    public set imageProcess(imageProcess: string  | undefined) {
         this['image_process'] = imageProcess;
     }
-    public get imageProcess() {
+    public get imageProcess(): string | undefined {
         return this['image_process'];
     }
     public withWidth(width: string): WatermarkTemplate {
@@ -66,7 +66,7 @@ export class WatermarkTemplate {
         this['height'] = height;
         return this;
     }
-    public withBase(base: WatermarkTemplateBaseEnum): WatermarkTemplate {
+    public withBase(base: WatermarkTemplateBaseEnum | string): WatermarkTemplate {
         this['base'] = base;
         return this;
     }
@@ -74,20 +74,20 @@ export class WatermarkTemplate {
         this['template_id'] = templateId;
         return this;
     }
-    public set templateId(templateId: number | undefined) {
+    public set templateId(templateId: number  | undefined) {
         this['template_id'] = templateId;
     }
-    public get templateId() {
+    public get templateId(): number | undefined {
         return this['template_id'];
     }
     public withTemplateName(templateName: string): WatermarkTemplate {
         this['template_name'] = templateName;
         return this;
     }
-    public set templateName(templateName: string | undefined) {
+    public set templateName(templateName: string  | undefined) {
         this['template_name'] = templateName;
     }
-    public get templateName() {
+    public get templateName(): string | undefined {
         return this['template_name'];
     }
     public withType(type: string): WatermarkTemplate {

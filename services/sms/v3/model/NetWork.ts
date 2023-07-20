@@ -1,14 +1,14 @@
 
 
 export class NetWork {
-    public name: string;
-    public ip: string;
-    public netmask: string;
-    public gateway: string;
+    public name?: string;
+    public ip?: string;
+    public netmask?: string;
+    public gateway?: string;
     public mtu?: number;
-    public mac: string;
+    public mac?: string;
     public id?: string;
-    public constructor(name?: any, ip?: any, netmask?: any, gateway?: any, mac?: any) { 
+    public constructor(name?: string, ip?: string, netmask?: string, gateway?: string, mac?: string) { 
         this['name'] = name;
         this['ip'] = ip;
         this['netmask'] = netmask;

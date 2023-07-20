@@ -1,14 +1,14 @@
 
 
 export class VisionActiveCodeDTO {
-    public devType: string;
+    public devType?: string;
     public deptCode?: string;
-    public devName: string;
+    public devName?: string;
     public description?: string;
     public smsNumber?: string;
     public country?: string;
     public emailAddr?: string;
-    public constructor(devType?: any, devName?: any) { 
+    public constructor(devType?: string, devName?: string) { 
         this['devType'] = devType;
         this['devName'] = devName;
     }

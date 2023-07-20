@@ -1,25 +1,25 @@
 
 
 export class CreateUserResult {
-    private 'access_mode'?: string | undefined;
+    private 'access_mode'?: string;
     public status?: number;
-    private 'pwd_status'?: boolean | undefined;
-    private 'xuser_id'?: string | undefined;
-    private 'xuser_type'?: string | undefined;
+    private 'pwd_status'?: boolean;
+    private 'xuser_id'?: string;
+    private 'xuser_type'?: string;
     public description?: string;
-    public name: string;
+    public name?: string;
     public phone?: string;
-    private 'is_domain_owner'?: boolean | undefined;
-    private 'domain_id': string | undefined;
-    public enabled: boolean;
+    private 'is_domain_owner'?: boolean;
+    private 'domain_id'?: string;
+    public enabled?: boolean;
     public areacode?: string;
     public email?: string;
-    private 'create_time'?: string | undefined;
-    private 'xdomain_id'?: string | undefined;
-    private 'xdomain_type'?: string | undefined;
-    public id: string;
-    private 'password_expires_at'?: string | undefined;
-    public constructor(name?: any, domainId?: any, enabled?: any, id?: any) { 
+    private 'create_time'?: string;
+    private 'xdomain_id'?: string;
+    private 'xdomain_type'?: string;
+    public id?: string;
+    private 'password_expires_at'?: string;
+    public constructor(name?: string, domainId?: string, enabled?: boolean, id?: string) { 
         this['name'] = name;
         this['domain_id'] = domainId;
         this['enabled'] = enabled;
@@ -29,10 +29,10 @@ export class CreateUserResult {
         this['access_mode'] = accessMode;
         return this;
     }
-    public set accessMode(accessMode: string | undefined) {
+    public set accessMode(accessMode: string  | undefined) {
         this['access_mode'] = accessMode;
     }
-    public get accessMode() {
+    public get accessMode(): string | undefined {
         return this['access_mode'];
     }
     public withStatus(status: number): CreateUserResult {
@@ -43,30 +43,30 @@ export class CreateUserResult {
         this['pwd_status'] = pwdStatus;
         return this;
     }
-    public set pwdStatus(pwdStatus: boolean | undefined) {
+    public set pwdStatus(pwdStatus: boolean  | undefined) {
         this['pwd_status'] = pwdStatus;
     }
-    public get pwdStatus() {
+    public get pwdStatus(): boolean | undefined {
         return this['pwd_status'];
     }
     public withXuserId(xuserId: string): CreateUserResult {
         this['xuser_id'] = xuserId;
         return this;
     }
-    public set xuserId(xuserId: string | undefined) {
+    public set xuserId(xuserId: string  | undefined) {
         this['xuser_id'] = xuserId;
     }
-    public get xuserId() {
+    public get xuserId(): string | undefined {
         return this['xuser_id'];
     }
     public withXuserType(xuserType: string): CreateUserResult {
         this['xuser_type'] = xuserType;
         return this;
     }
-    public set xuserType(xuserType: string | undefined) {
+    public set xuserType(xuserType: string  | undefined) {
         this['xuser_type'] = xuserType;
     }
-    public get xuserType() {
+    public get xuserType(): string | undefined {
         return this['xuser_type'];
     }
     public withDescription(description: string): CreateUserResult {
@@ -85,20 +85,20 @@ export class CreateUserResult {
         this['is_domain_owner'] = isDomainOwner;
         return this;
     }
-    public set isDomainOwner(isDomainOwner: boolean | undefined) {
+    public set isDomainOwner(isDomainOwner: boolean  | undefined) {
         this['is_domain_owner'] = isDomainOwner;
     }
-    public get isDomainOwner() {
+    public get isDomainOwner(): boolean | undefined {
         return this['is_domain_owner'];
     }
     public withDomainId(domainId: string): CreateUserResult {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withEnabled(enabled: boolean): CreateUserResult {
@@ -117,30 +117,30 @@ export class CreateUserResult {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withXdomainId(xdomainId: string): CreateUserResult {
         this['xdomain_id'] = xdomainId;
         return this;
     }
-    public set xdomainId(xdomainId: string | undefined) {
+    public set xdomainId(xdomainId: string  | undefined) {
         this['xdomain_id'] = xdomainId;
     }
-    public get xdomainId() {
+    public get xdomainId(): string | undefined {
         return this['xdomain_id'];
     }
     public withXdomainType(xdomainType: string): CreateUserResult {
         this['xdomain_type'] = xdomainType;
         return this;
     }
-    public set xdomainType(xdomainType: string | undefined) {
+    public set xdomainType(xdomainType: string  | undefined) {
         this['xdomain_type'] = xdomainType;
     }
-    public get xdomainType() {
+    public get xdomainType(): string | undefined {
         return this['xdomain_type'];
     }
     public withId(id: string): CreateUserResult {
@@ -151,10 +151,10 @@ export class CreateUserResult {
         this['password_expires_at'] = passwordExpiresAt;
         return this;
     }
-    public set passwordExpiresAt(passwordExpiresAt: string | undefined) {
+    public set passwordExpiresAt(passwordExpiresAt: string  | undefined) {
         this['password_expires_at'] = passwordExpiresAt;
     }
-    public get passwordExpiresAt() {
+    public get passwordExpiresAt(): string | undefined {
         return this['password_expires_at'];
     }
 }

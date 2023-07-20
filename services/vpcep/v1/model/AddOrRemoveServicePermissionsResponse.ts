@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class AddOrRemoveServicePermissionsResponse extends SdkResponse {
     public permissions?: Array<string>;
-    private 'permission_type'?: AddOrRemoveServicePermissionsResponsePermissionTypeEnum | undefined;
+    private 'permission_type'?: AddOrRemoveServicePermissionsResponsePermissionTypeEnum | string;
     public constructor() { 
         super();
     }
@@ -11,14 +11,14 @@ export class AddOrRemoveServicePermissionsResponse extends SdkResponse {
         this['permissions'] = permissions;
         return this;
     }
-    public withPermissionType(permissionType: AddOrRemoveServicePermissionsResponsePermissionTypeEnum): AddOrRemoveServicePermissionsResponse {
+    public withPermissionType(permissionType: AddOrRemoveServicePermissionsResponsePermissionTypeEnum | string): AddOrRemoveServicePermissionsResponse {
         this['permission_type'] = permissionType;
         return this;
     }
-    public set permissionType(permissionType: AddOrRemoveServicePermissionsResponsePermissionTypeEnum | undefined) {
+    public set permissionType(permissionType: AddOrRemoveServicePermissionsResponsePermissionTypeEnum | string  | undefined) {
         this['permission_type'] = permissionType;
     }
-    public get permissionType() {
+    public get permissionType(): AddOrRemoveServicePermissionsResponsePermissionTypeEnum | string | undefined {
         return this['permission_type'];
     }
 }

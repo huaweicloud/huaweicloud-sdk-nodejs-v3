@@ -2,23 +2,23 @@ import { CreateImageSyncRepoRequestBody } from './CreateImageSyncRepoRequestBody
 
 
 export class CreateImageSyncRepoRequest {
-    private 'Content-Type': CreateImageSyncRepoRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
+    private 'Content-Type'?: CreateImageSyncRepoRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
     public body?: CreateImageSyncRepoRequestBody;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: CreateImageSyncRepoRequestContentTypeEnum): CreateImageSyncRepoRequest {
+    public withContentType(contentType: CreateImageSyncRepoRequestContentTypeEnum | string): CreateImageSyncRepoRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CreateImageSyncRepoRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: CreateImageSyncRepoRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CreateImageSyncRepoRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): CreateImageSyncRepoRequest {

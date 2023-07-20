@@ -2,11 +2,11 @@ import { UpdatePermissionDescRequest } from './UpdatePermissionDescRequest';
 
 
 export class UpdateEndpointServicePermissionDescRequest {
-    private 'Content-Type'?: string | undefined;
-    private 'vpc_endpoint_service_id': string | undefined;
-    private 'permission_id': string | undefined;
+    private 'Content-Type'?: string;
+    private 'vpc_endpoint_service_id'?: string;
+    private 'permission_id'?: string;
     public body?: UpdatePermissionDescRequest;
-    public constructor(vpcEndpointServiceId?: any, permissionId?: any) { 
+    public constructor(vpcEndpointServiceId?: string, permissionId?: string) { 
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
         this['permission_id'] = permissionId;
     }
@@ -14,30 +14,30 @@ export class UpdateEndpointServicePermissionDescRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withVpcEndpointServiceId(vpcEndpointServiceId: string): UpdateEndpointServicePermissionDescRequest {
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
         return this;
     }
-    public set vpcEndpointServiceId(vpcEndpointServiceId: string | undefined) {
+    public set vpcEndpointServiceId(vpcEndpointServiceId: string  | undefined) {
         this['vpc_endpoint_service_id'] = vpcEndpointServiceId;
     }
-    public get vpcEndpointServiceId() {
+    public get vpcEndpointServiceId(): string | undefined {
         return this['vpc_endpoint_service_id'];
     }
     public withPermissionId(permissionId: string): UpdateEndpointServicePermissionDescRequest {
         this['permission_id'] = permissionId;
         return this;
     }
-    public set permissionId(permissionId: string | undefined) {
+    public set permissionId(permissionId: string  | undefined) {
         this['permission_id'] = permissionId;
     }
-    public get permissionId() {
+    public get permissionId(): string | undefined {
         return this['permission_id'];
     }
     public withBody(body: UpdatePermissionDescRequest): UpdateEndpointServicePermissionDescRequest {

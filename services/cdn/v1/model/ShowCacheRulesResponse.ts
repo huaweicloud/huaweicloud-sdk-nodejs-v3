@@ -3,7 +3,7 @@ import { CacheConfig } from './CacheConfig';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowCacheRulesResponse extends SdkResponse {
-    private 'cache_config'?: CacheConfig | undefined;
+    private 'cache_config'?: CacheConfig;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ShowCacheRulesResponse extends SdkResponse {
         this['cache_config'] = cacheConfig;
         return this;
     }
-    public set cacheConfig(cacheConfig: CacheConfig | undefined) {
+    public set cacheConfig(cacheConfig: CacheConfig  | undefined) {
         this['cache_config'] = cacheConfig;
     }
-    public get cacheConfig() {
+    public get cacheConfig(): CacheConfig | undefined {
         return this['cache_config'];
     }
 }

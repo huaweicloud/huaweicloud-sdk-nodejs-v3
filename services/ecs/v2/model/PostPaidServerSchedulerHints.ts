@@ -2,7 +2,7 @@
 
 export class PostPaidServerSchedulerHints {
     public group?: string;
-    private 'dedicated_host_id'?: string | undefined;
+    private 'dedicated_host_id'?: string;
     public tenancy?: string;
     public constructor() { 
     }
@@ -14,10 +14,10 @@ export class PostPaidServerSchedulerHints {
         this['dedicated_host_id'] = dedicatedHostId;
         return this;
     }
-    public set dedicatedHostId(dedicatedHostId: string | undefined) {
+    public set dedicatedHostId(dedicatedHostId: string  | undefined) {
         this['dedicated_host_id'] = dedicatedHostId;
     }
-    public get dedicatedHostId() {
+    public get dedicatedHostId(): string | undefined {
         return this['dedicated_host_id'];
     }
     public withTenancy(tenancy: string): PostPaidServerSchedulerHints {

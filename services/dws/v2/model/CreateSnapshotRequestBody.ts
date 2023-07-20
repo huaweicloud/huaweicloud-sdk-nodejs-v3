@@ -2,8 +2,8 @@ import { Snapshot } from './Snapshot';
 
 
 export class CreateSnapshotRequestBody {
-    public snapshot: Snapshot;
-    public constructor(snapshot?: any) { 
+    public snapshot?: Snapshot;
+    public constructor(snapshot?: Snapshot) { 
         this['snapshot'] = snapshot;
     }
     public withSnapshot(snapshot: Snapshot): CreateSnapshotRequestBody {

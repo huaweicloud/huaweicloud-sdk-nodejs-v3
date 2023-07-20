@@ -9,7 +9,7 @@ export class UserVmrDTO {
     public vmrPkgName?: string;
     public vmrPkgParties?: number;
     public vmrPkgLength?: number;
-    public status?: UserVmrDTOStatusEnum;
+    public status?: UserVmrDTOStatusEnum | number;
     public constructor() { 
     }
     public withId(id: string): UserVmrDTO {
@@ -44,7 +44,7 @@ export class UserVmrDTO {
         this['vmrPkgLength'] = vmrPkgLength;
         return this;
     }
-    public withStatus(status: UserVmrDTOStatusEnum): UserVmrDTO {
+    public withStatus(status: UserVmrDTOStatusEnum | number): UserVmrDTO {
         this['status'] = status;
         return this;
     }

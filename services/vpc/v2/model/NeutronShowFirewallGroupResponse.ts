@@ -3,7 +3,7 @@ import { NeutronFirewallGroup } from './NeutronFirewallGroup';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class NeutronShowFirewallGroupResponse extends SdkResponse {
-    private 'firewall_group'?: NeutronFirewallGroup | undefined;
+    private 'firewall_group'?: NeutronFirewallGroup;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class NeutronShowFirewallGroupResponse extends SdkResponse {
         this['firewall_group'] = firewallGroup;
         return this;
     }
-    public set firewallGroup(firewallGroup: NeutronFirewallGroup | undefined) {
+    public set firewallGroup(firewallGroup: NeutronFirewallGroup  | undefined) {
         this['firewall_group'] = firewallGroup;
     }
-    public get firewallGroup() {
+    public get firewallGroup(): NeutronFirewallGroup | undefined {
         return this['firewall_group'];
     }
 }

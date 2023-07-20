@@ -2,13 +2,13 @@ import { ContainerCIDR } from './ContainerCIDR';
 
 
 export class ContainerNetwork {
-    public mode: ContainerNetworkModeEnum;
+    public mode?: ContainerNetworkModeEnum | string;
     public cidr?: string;
     public cidrs?: Array<ContainerCIDR>;
-    public constructor(mode?: any) { 
+    public constructor(mode?: string) { 
         this['mode'] = mode;
     }
-    public withMode(mode: ContainerNetworkModeEnum): ContainerNetwork {
+    public withMode(mode: ContainerNetworkModeEnum | string): ContainerNetwork {
         this['mode'] = mode;
         return this;
     }

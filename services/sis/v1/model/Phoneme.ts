@@ -3,13 +3,13 @@ import { PhonemePronunciation } from './PhonemePronunciation';
 
 
 export class Phoneme {
-    public arpa: string;
-    public ipa: string;
-    private 'start_time': number | undefined;
-    private 'end_time': number | undefined;
-    public fluency: PhonemeFluency;
-    public pronunciation: PhonemePronunciation;
-    public constructor(arpa?: any, ipa?: any, startTime?: any, endTime?: any, fluency?: any, pronunciation?: any) { 
+    public arpa?: string;
+    public ipa?: string;
+    private 'start_time'?: number;
+    private 'end_time'?: number;
+    public fluency?: PhonemeFluency;
+    public pronunciation?: PhonemePronunciation;
+    public constructor(arpa?: string, ipa?: string, startTime?: number, endTime?: number, fluency?: PhonemeFluency, pronunciation?: PhonemePronunciation) { 
         this['arpa'] = arpa;
         this['ipa'] = ipa;
         this['start_time'] = startTime;
@@ -29,20 +29,20 @@ export class Phoneme {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: number): Phoneme {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: number | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
     public withFluency(fluency: PhonemeFluency): Phoneme {

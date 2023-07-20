@@ -2,85 +2,85 @@ import { Subtitle } from './Subtitle';
 
 
 export class UploadAssetReq {
-    private 'asset_id': string | undefined;
-    private 'video_md5'?: string | undefined;
-    private 'video_name'?: string | undefined;
-    private 'video_type'?: UploadAssetReqVideoTypeEnum | undefined;
-    private 'cover_id'?: number | undefined;
-    private 'cover_type'?: UploadAssetReqCoverTypeEnum | undefined;
-    private 'cover_md5'?: string | undefined;
+    private 'asset_id'?: string;
+    private 'video_md5'?: string;
+    private 'video_name'?: string;
+    private 'video_type'?: UploadAssetReqVideoTypeEnum | string;
+    private 'cover_id'?: number;
+    private 'cover_type'?: UploadAssetReqCoverTypeEnum | string;
+    private 'cover_md5'?: string;
     public subtitles?: Array<Subtitle>;
-    public constructor(assetId?: any) { 
+    public constructor(assetId?: string) { 
         this['asset_id'] = assetId;
     }
     public withAssetId(assetId: string): UploadAssetReq {
         this['asset_id'] = assetId;
         return this;
     }
-    public set assetId(assetId: string | undefined) {
+    public set assetId(assetId: string  | undefined) {
         this['asset_id'] = assetId;
     }
-    public get assetId() {
+    public get assetId(): string | undefined {
         return this['asset_id'];
     }
     public withVideoMd5(videoMd5: string): UploadAssetReq {
         this['video_md5'] = videoMd5;
         return this;
     }
-    public set videoMd5(videoMd5: string | undefined) {
+    public set videoMd5(videoMd5: string  | undefined) {
         this['video_md5'] = videoMd5;
     }
-    public get videoMd5() {
+    public get videoMd5(): string | undefined {
         return this['video_md5'];
     }
     public withVideoName(videoName: string): UploadAssetReq {
         this['video_name'] = videoName;
         return this;
     }
-    public set videoName(videoName: string | undefined) {
+    public set videoName(videoName: string  | undefined) {
         this['video_name'] = videoName;
     }
-    public get videoName() {
+    public get videoName(): string | undefined {
         return this['video_name'];
     }
-    public withVideoType(videoType: UploadAssetReqVideoTypeEnum): UploadAssetReq {
+    public withVideoType(videoType: UploadAssetReqVideoTypeEnum | string): UploadAssetReq {
         this['video_type'] = videoType;
         return this;
     }
-    public set videoType(videoType: UploadAssetReqVideoTypeEnum | undefined) {
+    public set videoType(videoType: UploadAssetReqVideoTypeEnum | string  | undefined) {
         this['video_type'] = videoType;
     }
-    public get videoType() {
+    public get videoType(): UploadAssetReqVideoTypeEnum | string | undefined {
         return this['video_type'];
     }
     public withCoverId(coverId: number): UploadAssetReq {
         this['cover_id'] = coverId;
         return this;
     }
-    public set coverId(coverId: number | undefined) {
+    public set coverId(coverId: number  | undefined) {
         this['cover_id'] = coverId;
     }
-    public get coverId() {
+    public get coverId(): number | undefined {
         return this['cover_id'];
     }
-    public withCoverType(coverType: UploadAssetReqCoverTypeEnum): UploadAssetReq {
+    public withCoverType(coverType: UploadAssetReqCoverTypeEnum | string): UploadAssetReq {
         this['cover_type'] = coverType;
         return this;
     }
-    public set coverType(coverType: UploadAssetReqCoverTypeEnum | undefined) {
+    public set coverType(coverType: UploadAssetReqCoverTypeEnum | string  | undefined) {
         this['cover_type'] = coverType;
     }
-    public get coverType() {
+    public get coverType(): UploadAssetReqCoverTypeEnum | string | undefined {
         return this['cover_type'];
     }
     public withCoverMd5(coverMd5: string): UploadAssetReq {
         this['cover_md5'] = coverMd5;
         return this;
     }
-    public set coverMd5(coverMd5: string | undefined) {
+    public set coverMd5(coverMd5: string  | undefined) {
         this['cover_md5'] = coverMd5;
     }
-    public get coverMd5() {
+    public get coverMd5(): string | undefined {
         return this['cover_md5'];
     }
     public withSubtitles(subtitles: Array<Subtitle>): UploadAssetReq {

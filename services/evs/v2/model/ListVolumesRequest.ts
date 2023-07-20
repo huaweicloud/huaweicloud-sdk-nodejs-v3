@@ -4,21 +4,21 @@ export class ListVolumesRequest {
     public marker?: string;
     public name?: string;
     public limit?: number;
-    private 'sort_key'?: string | undefined;
+    private 'sort_key'?: string;
     public offset?: number;
-    private 'sort_dir'?: string | undefined;
+    private 'sort_dir'?: string;
     public status?: string;
     public metadata?: string;
-    private 'availability_zone'?: string | undefined;
+    private 'availability_zone'?: string;
     public multiattach?: boolean;
-    private 'service_type'?: string | undefined;
-    private 'dedicated_storage_id'?: string | undefined;
-    private 'dedicated_storage_name'?: string | undefined;
-    private 'volume_type_id'?: string | undefined;
+    private 'service_type'?: string;
+    private 'dedicated_storage_id'?: string;
+    private 'dedicated_storage_name'?: string;
+    private 'volume_type_id'?: string;
     public id?: string;
     public ids?: string;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'server_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
+    private 'server_id'?: string;
     public constructor() { 
     }
     public withMarker(marker: string): ListVolumesRequest {
@@ -37,10 +37,10 @@ export class ListVolumesRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: string | undefined) {
+    public set sortKey(sortKey: string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): string | undefined {
         return this['sort_key'];
     }
     public withOffset(offset: number): ListVolumesRequest {
@@ -51,10 +51,10 @@ export class ListVolumesRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: string | undefined) {
+    public set sortDir(sortDir: string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): string | undefined {
         return this['sort_dir'];
     }
     public withStatus(status: string): ListVolumesRequest {
@@ -69,10 +69,10 @@ export class ListVolumesRequest {
         this['availability_zone'] = availabilityZone;
         return this;
     }
-    public set availabilityZone(availabilityZone: string | undefined) {
+    public set availabilityZone(availabilityZone: string  | undefined) {
         this['availability_zone'] = availabilityZone;
     }
-    public get availabilityZone() {
+    public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
     public withMultiattach(multiattach: boolean): ListVolumesRequest {
@@ -83,40 +83,40 @@ export class ListVolumesRequest {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: string | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType() {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
     public withDedicatedStorageId(dedicatedStorageId: string): ListVolumesRequest {
         this['dedicated_storage_id'] = dedicatedStorageId;
         return this;
     }
-    public set dedicatedStorageId(dedicatedStorageId: string | undefined) {
+    public set dedicatedStorageId(dedicatedStorageId: string  | undefined) {
         this['dedicated_storage_id'] = dedicatedStorageId;
     }
-    public get dedicatedStorageId() {
+    public get dedicatedStorageId(): string | undefined {
         return this['dedicated_storage_id'];
     }
     public withDedicatedStorageName(dedicatedStorageName: string): ListVolumesRequest {
         this['dedicated_storage_name'] = dedicatedStorageName;
         return this;
     }
-    public set dedicatedStorageName(dedicatedStorageName: string | undefined) {
+    public set dedicatedStorageName(dedicatedStorageName: string  | undefined) {
         this['dedicated_storage_name'] = dedicatedStorageName;
     }
-    public get dedicatedStorageName() {
+    public get dedicatedStorageName(): string | undefined {
         return this['dedicated_storage_name'];
     }
     public withVolumeTypeId(volumeTypeId: string): ListVolumesRequest {
         this['volume_type_id'] = volumeTypeId;
         return this;
     }
-    public set volumeTypeId(volumeTypeId: string | undefined) {
+    public set volumeTypeId(volumeTypeId: string  | undefined) {
         this['volume_type_id'] = volumeTypeId;
     }
-    public get volumeTypeId() {
+    public get volumeTypeId(): string | undefined {
         return this['volume_type_id'];
     }
     public withId(id: string): ListVolumesRequest {
@@ -131,20 +131,20 @@ export class ListVolumesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withServerId(serverId: string): ListVolumesRequest {
         this['server_id'] = serverId;
         return this;
     }
-    public set serverId(serverId: string | undefined) {
+    public set serverId(serverId: string  | undefined) {
         this['server_id'] = serverId;
     }
-    public get serverId() {
+    public get serverId(): string | undefined {
         return this['server_id'];
     }
 }

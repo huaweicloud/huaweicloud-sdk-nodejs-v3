@@ -2,13 +2,13 @@ import { VolumeTypeExtraSpecs } from './VolumeTypeExtraSpecs';
 
 
 export class VolumeType {
-    public id: string;
-    public name: string;
-    private 'extra_specs'?: VolumeTypeExtraSpecs | undefined;
+    public id?: string;
+    public name?: string;
+    private 'extra_specs'?: VolumeTypeExtraSpecs;
     public description?: string;
-    private 'qos_specs_id'?: string | undefined;
-    private 'is_public'?: boolean | undefined;
-    public constructor(id?: any, name?: any) { 
+    private 'qos_specs_id'?: string;
+    private 'is_public'?: boolean;
+    public constructor(id?: string, name?: string) { 
         this['id'] = id;
         this['name'] = name;
     }
@@ -24,10 +24,10 @@ export class VolumeType {
         this['extra_specs'] = extraSpecs;
         return this;
     }
-    public set extraSpecs(extraSpecs: VolumeTypeExtraSpecs | undefined) {
+    public set extraSpecs(extraSpecs: VolumeTypeExtraSpecs  | undefined) {
         this['extra_specs'] = extraSpecs;
     }
-    public get extraSpecs() {
+    public get extraSpecs(): VolumeTypeExtraSpecs | undefined {
         return this['extra_specs'];
     }
     public withDescription(description: string): VolumeType {
@@ -38,20 +38,20 @@ export class VolumeType {
         this['qos_specs_id'] = qosSpecsId;
         return this;
     }
-    public set qosSpecsId(qosSpecsId: string | undefined) {
+    public set qosSpecsId(qosSpecsId: string  | undefined) {
         this['qos_specs_id'] = qosSpecsId;
     }
-    public get qosSpecsId() {
+    public get qosSpecsId(): string | undefined {
         return this['qos_specs_id'];
     }
     public withIsPublic(isPublic: boolean): VolumeType {
         this['is_public'] = isPublic;
         return this;
     }
-    public set isPublic(isPublic: boolean | undefined) {
+    public set isPublic(isPublic: boolean  | undefined) {
         this['is_public'] = isPublic;
     }
-    public get isPublic() {
+    public get isPublic(): boolean | undefined {
         return this['is_public'];
     }
 }

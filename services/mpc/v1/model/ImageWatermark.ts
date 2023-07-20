@@ -5,12 +5,12 @@ export class ImageWatermark {
     public dx?: string;
     public dy?: string;
     public referpos?: string;
-    private 'timeline_start'?: string | undefined;
-    private 'timeline_duration'?: string | undefined;
-    private 'image_process'?: string | undefined;
+    private 'timeline_start'?: string;
+    private 'timeline_duration'?: string;
+    private 'image_process'?: string;
     public width?: string;
     public height?: string;
-    public base?: ImageWatermarkBaseEnum;
+    public base?: ImageWatermarkBaseEnum | string;
     public constructor() { 
     }
     public withDx(dx: string): ImageWatermark {
@@ -29,30 +29,30 @@ export class ImageWatermark {
         this['timeline_start'] = timelineStart;
         return this;
     }
-    public set timelineStart(timelineStart: string | undefined) {
+    public set timelineStart(timelineStart: string  | undefined) {
         this['timeline_start'] = timelineStart;
     }
-    public get timelineStart() {
+    public get timelineStart(): string | undefined {
         return this['timeline_start'];
     }
     public withTimelineDuration(timelineDuration: string): ImageWatermark {
         this['timeline_duration'] = timelineDuration;
         return this;
     }
-    public set timelineDuration(timelineDuration: string | undefined) {
+    public set timelineDuration(timelineDuration: string  | undefined) {
         this['timeline_duration'] = timelineDuration;
     }
-    public get timelineDuration() {
+    public get timelineDuration(): string | undefined {
         return this['timeline_duration'];
     }
     public withImageProcess(imageProcess: string): ImageWatermark {
         this['image_process'] = imageProcess;
         return this;
     }
-    public set imageProcess(imageProcess: string | undefined) {
+    public set imageProcess(imageProcess: string  | undefined) {
         this['image_process'] = imageProcess;
     }
-    public get imageProcess() {
+    public get imageProcess(): string | undefined {
         return this['image_process'];
     }
     public withWidth(width: string): ImageWatermark {
@@ -63,7 +63,7 @@ export class ImageWatermark {
         this['height'] = height;
         return this;
     }
-    public withBase(base: ImageWatermarkBaseEnum): ImageWatermark {
+    public withBase(base: ImageWatermarkBaseEnum | string): ImageWatermark {
         this['base'] = base;
         return this;
     }

@@ -2,11 +2,11 @@ import { Rule } from './Rule';
 
 
 export class Retention {
-    public algorithm: string;
-    public id: number;
-    public rules: Array<Rule>;
-    public scope: string;
-    public constructor(algorithm?: any, id?: any, rules?: any, scope?: any) { 
+    public algorithm?: string;
+    public id?: number;
+    public rules?: Array<Rule>;
+    public scope?: string;
+    public constructor(algorithm?: string, id?: number, rules?: Array<Rule>, scope?: string) { 
         this['algorithm'] = algorithm;
         this['id'] = id;
         this['rules'] = rules;

@@ -2,8 +2,8 @@ import { ImageHighresolutionMattingInference } from './ImageHighresolutionMattin
 
 
 export class ImageHighresolutionMattingConfigCommon {
-    public inference: ImageHighresolutionMattingInference;
-    public constructor(inference?: any) { 
+    public inference?: ImageHighresolutionMattingInference;
+    public constructor(inference?: ImageHighresolutionMattingInference) { 
         this['inference'] = inference;
     }
     public withInference(inference: ImageHighresolutionMattingInference): ImageHighresolutionMattingConfigCommon {

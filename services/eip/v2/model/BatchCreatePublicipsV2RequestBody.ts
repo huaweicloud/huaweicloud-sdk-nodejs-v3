@@ -3,11 +3,11 @@ import { BatchPublicIp } from './BatchPublicIp';
 
 
 export class BatchCreatePublicipsV2RequestBody {
-    public bandwidth: BatchBandwidth;
-    public publicip: BatchPublicIp;
-    private 'publicip_number': number | undefined;
-    private 'enterprise_project_id': string | undefined;
-    public constructor(bandwidth?: any, publicip?: any, publicipNumber?: any, enterpriseProjectId?: any) { 
+    public bandwidth?: BatchBandwidth;
+    public publicip?: BatchPublicIp;
+    private 'publicip_number'?: number;
+    private 'enterprise_project_id'?: string;
+    public constructor(bandwidth?: BatchBandwidth, publicip?: BatchPublicIp, publicipNumber?: number, enterpriseProjectId?: string) { 
         this['bandwidth'] = bandwidth;
         this['publicip'] = publicip;
         this['publicip_number'] = publicipNumber;
@@ -25,20 +25,20 @@ export class BatchCreatePublicipsV2RequestBody {
         this['publicip_number'] = publicipNumber;
         return this;
     }
-    public set publicipNumber(publicipNumber: number | undefined) {
+    public set publicipNumber(publicipNumber: number  | undefined) {
         this['publicip_number'] = publicipNumber;
     }
-    public get publicipNumber() {
+    public get publicipNumber(): number | undefined {
         return this['publicip_number'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): BatchCreatePublicipsV2RequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

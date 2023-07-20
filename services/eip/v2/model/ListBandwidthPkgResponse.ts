@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListBandwidthPkgResponse extends SdkResponse {
     public bandwidthpkgs?: Array<BandwidthPkgResp>;
-    private 'bandwidthpkgs_links'?: Array<BandwidthPkgPage> | undefined;
+    private 'bandwidthpkgs_links'?: Array<BandwidthPkgPage>;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class ListBandwidthPkgResponse extends SdkResponse {
         this['bandwidthpkgs_links'] = bandwidthpkgsLinks;
         return this;
     }
-    public set bandwidthpkgsLinks(bandwidthpkgsLinks: Array<BandwidthPkgPage> | undefined) {
+    public set bandwidthpkgsLinks(bandwidthpkgsLinks: Array<BandwidthPkgPage>  | undefined) {
         this['bandwidthpkgs_links'] = bandwidthpkgsLinks;
     }
-    public get bandwidthpkgsLinks() {
+    public get bandwidthpkgsLinks(): Array<BandwidthPkgPage> | undefined {
         return this['bandwidthpkgs_links'];
     }
 }

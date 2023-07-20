@@ -3,7 +3,7 @@
 export class TrainTicketRequestBody {
     public image?: string;
     public url?: string;
-    private 'return_text_location'?: boolean | undefined;
+    private 'return_text_location'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): TrainTicketRequestBody {
@@ -18,10 +18,10 @@ export class TrainTicketRequestBody {
         this['return_text_location'] = returnTextLocation;
         return this;
     }
-    public set returnTextLocation(returnTextLocation: boolean | undefined) {
+    public set returnTextLocation(returnTextLocation: boolean  | undefined) {
         this['return_text_location'] = returnTextLocation;
     }
-    public get returnTextLocation() {
+    public get returnTextLocation(): boolean | undefined {
         return this['return_text_location'];
     }
 }

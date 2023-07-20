@@ -3,7 +3,7 @@ import { TemplateGroup } from './TemplateGroup';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateTemplateGroupResponse extends SdkResponse {
-    private 'template_group'?: TemplateGroup | undefined;
+    private 'template_group'?: TemplateGroup;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class CreateTemplateGroupResponse extends SdkResponse {
         this['template_group'] = templateGroup;
         return this;
     }
-    public set templateGroup(templateGroup: TemplateGroup | undefined) {
+    public set templateGroup(templateGroup: TemplateGroup  | undefined) {
         this['template_group'] = templateGroup;
     }
-    public get templateGroup() {
+    public get templateGroup(): TemplateGroup | undefined {
         return this['template_group'];
     }
 }

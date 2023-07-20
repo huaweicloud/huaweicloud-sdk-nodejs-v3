@@ -3,7 +3,7 @@ import { CategorySuggestions } from './CategorySuggestions';
 
 export class ImageModerationResult {
     public suggestion?: string;
-    private 'category_suggestions'?: CategorySuggestions | undefined;
+    private 'category_suggestions'?: CategorySuggestions;
     public constructor() { 
     }
     public withSuggestion(suggestion: string): ImageModerationResult {
@@ -14,10 +14,10 @@ export class ImageModerationResult {
         this['category_suggestions'] = categorySuggestions;
         return this;
     }
-    public set categorySuggestions(categorySuggestions: CategorySuggestions | undefined) {
+    public set categorySuggestions(categorySuggestions: CategorySuggestions  | undefined) {
         this['category_suggestions'] = categorySuggestions;
     }
-    public get categorySuggestions() {
+    public get categorySuggestions(): CategorySuggestions | undefined {
         return this['category_suggestions'];
     }
 }

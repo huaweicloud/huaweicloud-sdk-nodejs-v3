@@ -1,9 +1,9 @@
 
 
 export class TagSelector {
-    public kind: string;
-    public pattern: string;
-    public constructor(kind?: any, pattern?: any) { 
+    public kind?: string;
+    public pattern?: string;
+    public constructor(kind?: string, pattern?: string) { 
         this['kind'] = kind;
         this['pattern'] = pattern;
     }

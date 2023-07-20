@@ -1,10 +1,10 @@
 
 
 export class CreateCertificateRequestBody {
-    public name: string;
-    public content: string;
-    public key: string;
-    public constructor(name?: any, content?: any, key?: any) { 
+    public name?: string;
+    public content?: string;
+    public key?: string;
+    public constructor(name?: string, content?: string, key?: string) { 
         this['name'] = name;
         this['content'] = content;
         this['key'] = key;

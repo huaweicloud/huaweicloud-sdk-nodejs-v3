@@ -3,11 +3,11 @@
 export class SearchStatisticResourceInfoRequest {
     public offset?: number;
     public limit?: number;
-    public timeUnit: SearchStatisticResourceInfoRequestTimeUnitEnum;
-    public startTime: string;
-    public endTime: string;
-    public category: SearchStatisticResourceInfoRequestCategoryEnum;
-    public constructor(timeUnit?: any, startTime?: any, endTime?: any, category?: any) { 
+    public timeUnit?: SearchStatisticResourceInfoRequestTimeUnitEnum | string;
+    public startTime?: string;
+    public endTime?: string;
+    public category?: SearchStatisticResourceInfoRequestCategoryEnum | string;
+    public constructor(timeUnit?: string, startTime?: string, endTime?: string, category?: string) { 
         this['timeUnit'] = timeUnit;
         this['startTime'] = startTime;
         this['endTime'] = endTime;
@@ -21,7 +21,7 @@ export class SearchStatisticResourceInfoRequest {
         this['limit'] = limit;
         return this;
     }
-    public withTimeUnit(timeUnit: SearchStatisticResourceInfoRequestTimeUnitEnum): SearchStatisticResourceInfoRequest {
+    public withTimeUnit(timeUnit: SearchStatisticResourceInfoRequestTimeUnitEnum | string): SearchStatisticResourceInfoRequest {
         this['timeUnit'] = timeUnit;
         return this;
     }
@@ -33,7 +33,7 @@ export class SearchStatisticResourceInfoRequest {
         this['endTime'] = endTime;
         return this;
     }
-    public withCategory(category: SearchStatisticResourceInfoRequestCategoryEnum): SearchStatisticResourceInfoRequest {
+    public withCategory(category: SearchStatisticResourceInfoRequestCategoryEnum | string): SearchStatisticResourceInfoRequest {
         this['category'] = category;
         return this;
     }

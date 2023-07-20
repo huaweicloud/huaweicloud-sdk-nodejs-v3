@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdatePrePaidBandwidthResponse extends SdkResponse {
     public bandwidth?: BandwidthResp;
-    private 'order_id'?: string | undefined;
+    private 'order_id'?: string;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class UpdatePrePaidBandwidthResponse extends SdkResponse {
         this['order_id'] = orderId;
         return this;
     }
-    public set orderId(orderId: string | undefined) {
+    public set orderId(orderId: string  | undefined) {
         this['order_id'] = orderId;
     }
-    public get orderId() {
+    public get orderId(): string | undefined {
         return this['order_id'];
     }
 }

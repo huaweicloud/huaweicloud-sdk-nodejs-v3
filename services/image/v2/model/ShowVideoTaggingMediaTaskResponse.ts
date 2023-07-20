@@ -6,15 +6,15 @@ import { VideoTaggingTaskConfig } from './VideoTaggingTaskConfig';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowVideoTaggingMediaTaskResponse extends SdkResponse {
-    private 'task_id'?: string | undefined;
-    private 'create_time'?: string | undefined;
-    private 'update_time'?: string | undefined;
+    private 'task_id'?: string;
+    private 'create_time'?: string;
+    private 'update_time'?: string;
     public state?: string;
     public input?: VideoTaggingMediaTaskInput;
     public output?: TaskOutput;
     public config?: VideoTaggingTaskConfig;
     public callback?: TaskCallback;
-    private 'X-request-id'?: string | undefined;
+    private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
@@ -22,30 +22,30 @@ export class ShowVideoTaggingMediaTaskResponse extends SdkResponse {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
     public withCreateTime(createTime: string): ShowVideoTaggingMediaTaskResponse {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withUpdateTime(updateTime: string): ShowVideoTaggingMediaTaskResponse {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
     public withState(state: string): ShowVideoTaggingMediaTaskResponse {
@@ -72,10 +72,10 @@ export class ShowVideoTaggingMediaTaskResponse extends SdkResponse {
         this['X-request-id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-request-id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-request-id'];
     }
 }

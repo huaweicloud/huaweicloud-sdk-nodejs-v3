@@ -4,8 +4,8 @@ export class WebImageWordsBlockList {
     public words?: string;
     public confidence?: number;
     public location?: Array<Array<number>>;
-    private 'font_list'?: Array<string> | undefined;
-    private 'font_scores'?: Array<number> | undefined;
+    private 'font_list'?: Array<string>;
+    private 'font_scores'?: Array<number>;
     public constructor() { 
     }
     public withWords(words: string): WebImageWordsBlockList {
@@ -24,20 +24,20 @@ export class WebImageWordsBlockList {
         this['font_list'] = fontList;
         return this;
     }
-    public set fontList(fontList: Array<string> | undefined) {
+    public set fontList(fontList: Array<string>  | undefined) {
         this['font_list'] = fontList;
     }
-    public get fontList() {
+    public get fontList(): Array<string> | undefined {
         return this['font_list'];
     }
     public withFontScores(fontScores: Array<number>): WebImageWordsBlockList {
         this['font_scores'] = fontScores;
         return this;
     }
-    public set fontScores(fontScores: Array<number> | undefined) {
+    public set fontScores(fontScores: Array<number>  | undefined) {
         this['font_scores'] = fontScores;
     }
-    public get fontScores() {
+    public get fontScores(): Array<number> | undefined {
         return this['font_scores'];
     }
 }

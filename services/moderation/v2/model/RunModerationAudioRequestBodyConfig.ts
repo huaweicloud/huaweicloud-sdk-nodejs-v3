@@ -1,17 +1,17 @@
 
 
 export class RunModerationAudioRequestBodyConfig {
-    public format: RunModerationAudioRequestBodyConfigFormatEnum;
-    public property: RunModerationAudioRequestBodyConfigPropertyEnum;
-    public constructor(format?: any, property?: any) { 
+    public format?: RunModerationAudioRequestBodyConfigFormatEnum | string;
+    public property?: RunModerationAudioRequestBodyConfigPropertyEnum | string;
+    public constructor(format?: string, property?: string) { 
         this['format'] = format;
         this['property'] = property;
     }
-    public withFormat(format: RunModerationAudioRequestBodyConfigFormatEnum): RunModerationAudioRequestBodyConfig {
+    public withFormat(format: RunModerationAudioRequestBodyConfigFormatEnum | string): RunModerationAudioRequestBodyConfig {
         this['format'] = format;
         return this;
     }
-    public withProperty(property: RunModerationAudioRequestBodyConfigPropertyEnum): RunModerationAudioRequestBodyConfig {
+    public withProperty(property: RunModerationAudioRequestBodyConfigPropertyEnum | string): RunModerationAudioRequestBodyConfig {
         this['property'] = property;
         return this;
     }

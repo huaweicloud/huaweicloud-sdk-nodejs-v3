@@ -1,13 +1,13 @@
 
 
 export class ListProvidersRequest {
-    public locale?: ListProvidersRequestLocaleEnum;
+    public locale?: ListProvidersRequestLocaleEnum | string;
     public limit?: number;
     public offset?: number;
     public provider?: string;
     public constructor() { 
     }
-    public withLocale(locale: ListProvidersRequestLocaleEnum): ListProvidersRequest {
+    public withLocale(locale: ListProvidersRequestLocaleEnum | string): ListProvidersRequest {
         this['locale'] = locale;
         return this;
     }

@@ -1,31 +1,31 @@
 
 
 export class ListAsyncJobDetailRequest {
-    private 'async_job_id': string | undefined;
-    private 'X-Language'?: ListAsyncJobDetailRequestXLanguageEnum | undefined;
+    private 'async_job_id'?: string;
+    private 'X-Language'?: ListAsyncJobDetailRequestXLanguageEnum | string;
     public offset?: number;
     public limit?: number;
-    public constructor(asyncJobId?: any) { 
+    public constructor(asyncJobId?: string) { 
         this['async_job_id'] = asyncJobId;
     }
     public withAsyncJobId(asyncJobId: string): ListAsyncJobDetailRequest {
         this['async_job_id'] = asyncJobId;
         return this;
     }
-    public set asyncJobId(asyncJobId: string | undefined) {
+    public set asyncJobId(asyncJobId: string  | undefined) {
         this['async_job_id'] = asyncJobId;
     }
-    public get asyncJobId() {
+    public get asyncJobId(): string | undefined {
         return this['async_job_id'];
     }
-    public withXLanguage(xLanguage: ListAsyncJobDetailRequestXLanguageEnum): ListAsyncJobDetailRequest {
+    public withXLanguage(xLanguage: ListAsyncJobDetailRequestXLanguageEnum | string): ListAsyncJobDetailRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ListAsyncJobDetailRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ListAsyncJobDetailRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ListAsyncJobDetailRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withOffset(offset: number): ListAsyncJobDetailRequest {

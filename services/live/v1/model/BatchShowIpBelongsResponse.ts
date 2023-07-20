@@ -3,7 +3,7 @@ import { CdnIp } from './CdnIp';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class BatchShowIpBelongsResponse extends SdkResponse {
-    private 'cdn_ips'?: Array<CdnIp> | undefined;
+    private 'cdn_ips'?: Array<CdnIp>;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class BatchShowIpBelongsResponse extends SdkResponse {
         this['cdn_ips'] = cdnIps;
         return this;
     }
-    public set cdnIps(cdnIps: Array<CdnIp> | undefined) {
+    public set cdnIps(cdnIps: Array<CdnIp>  | undefined) {
         this['cdn_ips'] = cdnIps;
     }
-    public get cdnIps() {
+    public get cdnIps(): Array<CdnIp> | undefined {
         return this['cdn_ips'];
     }
 }

@@ -1,9 +1,9 @@
 
 
 export class ObsInfo {
-    public bucket: string;
-    private 'object': string | undefined;
-    public constructor(bucket?: any, modelObject?: any) { 
+    public bucket?: string;
+    private 'object'?: string;
+    public constructor(bucket?: string, modelObject?: string) { 
         this['bucket'] = bucket;
         this['object'] = modelObject;
     }
@@ -15,10 +15,10 @@ export class ObsInfo {
         this['object'] = modelObject;
         return this;
     }
-    public set modelObject(modelObject: string | undefined) {
+    public set modelObject(modelObject: string  | undefined) {
         this['object'] = modelObject;
     }
-    public get modelObject() {
+    public get modelObject(): string | undefined {
         return this['object'];
     }
 }

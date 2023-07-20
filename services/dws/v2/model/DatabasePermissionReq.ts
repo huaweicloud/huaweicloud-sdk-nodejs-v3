@@ -3,17 +3,17 @@ import { Revoke } from './Revoke';
 
 
 export class DatabasePermissionReq {
-    public type: string;
-    private 'is_grant': boolean | undefined;
-    private 'grant_list'?: Array<Grant> | undefined;
-    private 'revoke_list'?: Array<Revoke> | undefined;
-    private 'role_list': Array<string> | undefined;
-    private 'object_list': object | undefined;
+    public type?: string;
+    private 'is_grant'?: boolean;
+    private 'grant_list'?: Array<Grant>;
+    private 'revoke_list'?: Array<Revoke>;
+    private 'role_list'?: Array<string>;
+    private 'object_list'?: object;
     public cascade?: boolean;
-    public database: string;
+    public database?: string;
     public schema?: string;
     public table?: string;
-    public constructor(type?: any, isGrant?: any, roleList?: any, objectList?: any, database?: any) { 
+    public constructor(type?: string, isGrant?: boolean, roleList?: Array<string>, objectList?: object, database?: string) { 
         this['type'] = type;
         this['is_grant'] = isGrant;
         this['role_list'] = roleList;
@@ -28,50 +28,50 @@ export class DatabasePermissionReq {
         this['is_grant'] = isGrant;
         return this;
     }
-    public set isGrant(isGrant: boolean | undefined) {
+    public set isGrant(isGrant: boolean  | undefined) {
         this['is_grant'] = isGrant;
     }
-    public get isGrant() {
+    public get isGrant(): boolean | undefined {
         return this['is_grant'];
     }
     public withGrantList(grantList: Array<Grant>): DatabasePermissionReq {
         this['grant_list'] = grantList;
         return this;
     }
-    public set grantList(grantList: Array<Grant> | undefined) {
+    public set grantList(grantList: Array<Grant>  | undefined) {
         this['grant_list'] = grantList;
     }
-    public get grantList() {
+    public get grantList(): Array<Grant> | undefined {
         return this['grant_list'];
     }
     public withRevokeList(revokeList: Array<Revoke>): DatabasePermissionReq {
         this['revoke_list'] = revokeList;
         return this;
     }
-    public set revokeList(revokeList: Array<Revoke> | undefined) {
+    public set revokeList(revokeList: Array<Revoke>  | undefined) {
         this['revoke_list'] = revokeList;
     }
-    public get revokeList() {
+    public get revokeList(): Array<Revoke> | undefined {
         return this['revoke_list'];
     }
     public withRoleList(roleList: Array<string>): DatabasePermissionReq {
         this['role_list'] = roleList;
         return this;
     }
-    public set roleList(roleList: Array<string> | undefined) {
+    public set roleList(roleList: Array<string>  | undefined) {
         this['role_list'] = roleList;
     }
-    public get roleList() {
+    public get roleList(): Array<string> | undefined {
         return this['role_list'];
     }
     public withObjectList(objectList: object): DatabasePermissionReq {
         this['object_list'] = objectList;
         return this;
     }
-    public set objectList(objectList: object | undefined) {
+    public set objectList(objectList: object  | undefined) {
         this['object_list'] = objectList;
     }
-    public get objectList() {
+    public get objectList(): object | undefined {
         return this['object_list'];
     }
     public withCascade(cascade: boolean): DatabasePermissionReq {

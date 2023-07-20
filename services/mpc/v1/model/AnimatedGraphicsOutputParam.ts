@@ -1,19 +1,19 @@
 
 
 export class AnimatedGraphicsOutputParam {
-    public format?: AnimatedGraphicsOutputParamFormatEnum;
-    public width: number;
-    public height: number;
-    public start: number;
-    public end: number;
-    private 'frame_rate'?: number | undefined;
-    public constructor(width?: any, height?: any, start?: any, end?: any) { 
+    public format?: AnimatedGraphicsOutputParamFormatEnum | string;
+    public width?: number;
+    public height?: number;
+    public start?: number;
+    public end?: number;
+    private 'frame_rate'?: number;
+    public constructor(width?: number, height?: number, start?: number, end?: number) { 
         this['width'] = width;
         this['height'] = height;
         this['start'] = start;
         this['end'] = end;
     }
-    public withFormat(format: AnimatedGraphicsOutputParamFormatEnum): AnimatedGraphicsOutputParam {
+    public withFormat(format: AnimatedGraphicsOutputParamFormatEnum | string): AnimatedGraphicsOutputParam {
         this['format'] = format;
         return this;
     }
@@ -37,10 +37,10 @@ export class AnimatedGraphicsOutputParam {
         this['frame_rate'] = frameRate;
         return this;
     }
-    public set frameRate(frameRate: number | undefined) {
+    public set frameRate(frameRate: number  | undefined) {
         this['frame_rate'] = frameRate;
     }
-    public get frameRate() {
+    public get frameRate(): number | undefined {
         return this['frame_rate'];
     }
 }

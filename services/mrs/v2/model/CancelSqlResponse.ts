@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CancelSqlResponse extends SdkResponse {
     public message?: string;
-    public status?: CancelSqlResponseStatusEnum;
+    public status?: CancelSqlResponseStatusEnum | string;
     public constructor() { 
         super();
     }
@@ -11,7 +11,7 @@ export class CancelSqlResponse extends SdkResponse {
         this['message'] = message;
         return this;
     }
-    public withStatus(status: CancelSqlResponseStatusEnum): CancelSqlResponse {
+    public withStatus(status: CancelSqlResponseStatusEnum | string): CancelSqlResponse {
         this['status'] = status;
         return this;
     }

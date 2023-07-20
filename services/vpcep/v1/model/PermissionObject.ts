@@ -3,8 +3,8 @@
 export class PermissionObject {
     public id?: string;
     public permission?: string;
-    private 'permission_type'?: PermissionObjectPermissionTypeEnum | undefined;
-    private 'created_at'?: string | undefined;
+    private 'permission_type'?: PermissionObjectPermissionTypeEnum | string;
+    private 'created_at'?: string;
     public constructor() { 
     }
     public withId(id: string): PermissionObject {
@@ -15,24 +15,24 @@ export class PermissionObject {
         this['permission'] = permission;
         return this;
     }
-    public withPermissionType(permissionType: PermissionObjectPermissionTypeEnum): PermissionObject {
+    public withPermissionType(permissionType: PermissionObjectPermissionTypeEnum | string): PermissionObject {
         this['permission_type'] = permissionType;
         return this;
     }
-    public set permissionType(permissionType: PermissionObjectPermissionTypeEnum | undefined) {
+    public set permissionType(permissionType: PermissionObjectPermissionTypeEnum | string  | undefined) {
         this['permission_type'] = permissionType;
     }
-    public get permissionType() {
+    public get permissionType(): PermissionObjectPermissionTypeEnum | string | undefined {
         return this['permission_type'];
     }
     public withCreatedAt(createdAt: string): PermissionObject {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
 }

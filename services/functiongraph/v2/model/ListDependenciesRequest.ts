@@ -4,7 +4,7 @@ export class ListDependenciesRequest {
     public marker?: string;
     public maxitems?: string;
     public ispublic?: string;
-    private 'dependency_type'?: string | undefined;
+    private 'dependency_type'?: string;
     public runtime?: string;
     public name?: string;
     public limit?: string;
@@ -26,10 +26,10 @@ export class ListDependenciesRequest {
         this['dependency_type'] = dependencyType;
         return this;
     }
-    public set dependencyType(dependencyType: string | undefined) {
+    public set dependencyType(dependencyType: string  | undefined) {
         this['dependency_type'] = dependencyType;
     }
-    public get dependencyType() {
+    public get dependencyType(): string | undefined {
         return this['dependency_type'];
     }
     public withRuntime(runtime: string): ListDependenciesRequest {

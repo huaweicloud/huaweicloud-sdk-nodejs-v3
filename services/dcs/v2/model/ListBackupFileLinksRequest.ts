@@ -2,10 +2,10 @@ import { DownloadBackupFilesReq } from './DownloadBackupFilesReq';
 
 
 export class ListBackupFileLinksRequest {
-    private 'instance_id': string | undefined;
-    private 'backup_id': string | undefined;
+    private 'instance_id'?: string;
+    private 'backup_id'?: string;
     public body?: DownloadBackupFilesReq;
-    public constructor(instanceId?: any, backupId?: any) { 
+    public constructor(instanceId?: string, backupId?: string) { 
         this['instance_id'] = instanceId;
         this['backup_id'] = backupId;
     }
@@ -13,20 +13,20 @@ export class ListBackupFileLinksRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withBackupId(backupId: string): ListBackupFileLinksRequest {
         this['backup_id'] = backupId;
         return this;
     }
-    public set backupId(backupId: string | undefined) {
+    public set backupId(backupId: string  | undefined) {
         this['backup_id'] = backupId;
     }
-    public get backupId() {
+    public get backupId(): string | undefined {
         return this['backup_id'];
     }
     public withBody(body: DownloadBackupFilesReq): ListBackupFileLinksRequest {

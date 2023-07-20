@@ -1,10 +1,10 @@
 
 
 export class VerifyCodeSendDTOV1 {
-    public user: string;
+    public user?: string;
     public sendMethod?: string;
     public token?: string;
-    public constructor(user?: any) { 
+    public constructor(user?: string) { 
         this['user'] = user;
     }
     public withUser(user: string): VerifyCodeSendDTOV1 {

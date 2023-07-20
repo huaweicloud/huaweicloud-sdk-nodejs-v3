@@ -1,10 +1,10 @@
 
 
 export class FlavorLink {
-    public href: string;
-    public rel: string;
-    public type: string;
-    public constructor(href?: any, rel?: any, type?: any) { 
+    public href?: string;
+    public rel?: string;
+    public type?: string;
+    public constructor(href?: string, rel?: string, type?: string) { 
         this['href'] = href;
         this['rel'] = rel;
         this['type'] = type;

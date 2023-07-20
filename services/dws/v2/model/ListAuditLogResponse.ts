@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListAuditLogResponse extends SdkResponse {
     public records?: Array<AuditDumpRecord>;
-    private 'cluster_id'?: string | undefined;
+    private 'cluster_id'?: string;
     public count?: number;
     public constructor() { 
         super();
@@ -17,10 +17,10 @@ export class ListAuditLogResponse extends SdkResponse {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withCount(count: number): ListAuditLogResponse {

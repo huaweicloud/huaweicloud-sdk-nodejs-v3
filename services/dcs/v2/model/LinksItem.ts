@@ -1,7 +1,7 @@
 
 
 export class LinksItem {
-    private 'file_name'?: string | undefined;
+    private 'file_name'?: string;
     public link?: string;
     public constructor() { 
     }
@@ -9,10 +9,10 @@ export class LinksItem {
         this['file_name'] = fileName;
         return this;
     }
-    public set fileName(fileName: string | undefined) {
+    public set fileName(fileName: string  | undefined) {
         this['file_name'] = fileName;
     }
-    public get fileName() {
+    public get fileName(): string | undefined {
         return this['file_name'];
     }
     public withLink(link: string): LinksItem {

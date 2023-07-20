@@ -3,10 +3,10 @@
 export class ListWhitelistsRequest {
     public limit?: number;
     public marker?: string;
-    private 'page_reverse'?: boolean | undefined;
+    private 'page_reverse'?: boolean;
     public id?: string;
-    private 'enable_whitelist'?: boolean | undefined;
-    private 'listener_id'?: string | undefined;
+    private 'enable_whitelist'?: boolean;
+    private 'listener_id'?: string;
     public whitelist?: string;
     public constructor() { 
     }
@@ -22,10 +22,10 @@ export class ListWhitelistsRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withId(id: string): ListWhitelistsRequest {
@@ -36,20 +36,20 @@ export class ListWhitelistsRequest {
         this['enable_whitelist'] = enableWhitelist;
         return this;
     }
-    public set enableWhitelist(enableWhitelist: boolean | undefined) {
+    public set enableWhitelist(enableWhitelist: boolean  | undefined) {
         this['enable_whitelist'] = enableWhitelist;
     }
-    public get enableWhitelist() {
+    public get enableWhitelist(): boolean | undefined {
         return this['enable_whitelist'];
     }
     public withListenerId(listenerId: string): ListWhitelistsRequest {
         this['listener_id'] = listenerId;
         return this;
     }
-    public set listenerId(listenerId: string | undefined) {
+    public set listenerId(listenerId: string  | undefined) {
         this['listener_id'] = listenerId;
     }
-    public get listenerId() {
+    public get listenerId(): string | undefined {
         return this['listener_id'];
     }
     public withWhitelist(whitelist: string): ListWhitelistsRequest {

@@ -11,7 +11,7 @@ export class ModUserDTO {
     public signature?: string;
     public title?: string;
     public desc?: string;
-    public status?: ModUserDTOStatusEnum;
+    public status?: ModUserDTOStatusEnum | number;
     public sortLevel?: number;
     public hidePhone?: boolean;
     public constructor() { 
@@ -56,7 +56,7 @@ export class ModUserDTO {
         this['desc'] = desc;
         return this;
     }
-    public withStatus(status: ModUserDTOStatusEnum): ModUserDTO {
+    public withStatus(status: ModUserDTOStatusEnum | number): ModUserDTO {
         this['status'] = status;
         return this;
     }

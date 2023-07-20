@@ -2,9 +2,9 @@ import { RecordRuleRequest } from './RecordRuleRequest';
 
 
 export class UpdateRecordRuleRequest {
-    public id: string;
+    public id?: string;
     public body?: RecordRuleRequest;
-    public constructor(id?: any) { 
+    public constructor(id?: string) { 
         this['id'] = id;
     }
     public withId(id: string): UpdateRecordRuleRequest {

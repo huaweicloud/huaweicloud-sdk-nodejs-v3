@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowTopicAccessPolicyResponse extends SdkResponse {
     public name?: string;
-    private 'topic_type'?: number | undefined;
+    private 'topic_type'?: number;
     public policies?: Array<PolicyEntity>;
     public constructor() { 
         super();
@@ -17,10 +17,10 @@ export class ShowTopicAccessPolicyResponse extends SdkResponse {
         this['topic_type'] = topicType;
         return this;
     }
-    public set topicType(topicType: number | undefined) {
+    public set topicType(topicType: number  | undefined) {
         this['topic_type'] = topicType;
     }
-    public get topicType() {
+    public get topicType(): number | undefined {
         return this['topic_type'];
     }
     public withPolicies(policies: Array<PolicyEntity>): ShowTopicAccessPolicyResponse {

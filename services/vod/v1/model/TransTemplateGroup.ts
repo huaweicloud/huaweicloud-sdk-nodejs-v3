@@ -3,15 +3,15 @@ import { QualityInfo } from './QualityInfo';
 
 
 export class TransTemplateGroup {
-    public name: string;
-    public status?: TransTemplateGroupStatusEnum;
-    public type: TransTemplateGroupTypeEnum;
-    private 'auto_encrypt'?: number | undefined;
-    private 'quality_info_list'?: Array<QualityInfo> | undefined;
+    public name?: string;
+    public status?: TransTemplateGroupStatusEnum | string;
+    public type?: TransTemplateGroupTypeEnum | string;
+    private 'auto_encrypt'?: number;
+    private 'quality_info_list'?: Array<QualityInfo>;
     public common?: Common;
-    private 'watermark_template_ids'?: Array<string> | undefined;
+    private 'watermark_template_ids'?: Array<string>;
     public description?: string;
-    public constructor(name?: any, type?: any) { 
+    public constructor(name?: string, type?: string) { 
         this['name'] = name;
         this['type'] = type;
     }
@@ -19,11 +19,11 @@ export class TransTemplateGroup {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: TransTemplateGroupStatusEnum): TransTemplateGroup {
+    public withStatus(status: TransTemplateGroupStatusEnum | string): TransTemplateGroup {
         this['status'] = status;
         return this;
     }
-    public withType(type: TransTemplateGroupTypeEnum): TransTemplateGroup {
+    public withType(type: TransTemplateGroupTypeEnum | string): TransTemplateGroup {
         this['type'] = type;
         return this;
     }
@@ -31,20 +31,20 @@ export class TransTemplateGroup {
         this['auto_encrypt'] = autoEncrypt;
         return this;
     }
-    public set autoEncrypt(autoEncrypt: number | undefined) {
+    public set autoEncrypt(autoEncrypt: number  | undefined) {
         this['auto_encrypt'] = autoEncrypt;
     }
-    public get autoEncrypt() {
+    public get autoEncrypt(): number | undefined {
         return this['auto_encrypt'];
     }
     public withQualityInfoList(qualityInfoList: Array<QualityInfo>): TransTemplateGroup {
         this['quality_info_list'] = qualityInfoList;
         return this;
     }
-    public set qualityInfoList(qualityInfoList: Array<QualityInfo> | undefined) {
+    public set qualityInfoList(qualityInfoList: Array<QualityInfo>  | undefined) {
         this['quality_info_list'] = qualityInfoList;
     }
-    public get qualityInfoList() {
+    public get qualityInfoList(): Array<QualityInfo> | undefined {
         return this['quality_info_list'];
     }
     public withCommon(common: Common): TransTemplateGroup {
@@ -55,10 +55,10 @@ export class TransTemplateGroup {
         this['watermark_template_ids'] = watermarkTemplateIds;
         return this;
     }
-    public set watermarkTemplateIds(watermarkTemplateIds: Array<string> | undefined) {
+    public set watermarkTemplateIds(watermarkTemplateIds: Array<string>  | undefined) {
         this['watermark_template_ids'] = watermarkTemplateIds;
     }
-    public get watermarkTemplateIds() {
+    public get watermarkTemplateIds(): Array<string> | undefined {
         return this['watermark_template_ids'];
     }
     public withDescription(description: string): TransTemplateGroup {

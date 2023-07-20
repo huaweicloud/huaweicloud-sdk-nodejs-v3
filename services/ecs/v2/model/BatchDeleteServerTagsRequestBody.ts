@@ -2,13 +2,13 @@ import { ServerTag } from './ServerTag';
 
 
 export class BatchDeleteServerTagsRequestBody {
-    public action: BatchDeleteServerTagsRequestBodyActionEnum;
-    public tags: Array<ServerTag>;
-    public constructor(action?: any, tags?: any) { 
+    public action?: BatchDeleteServerTagsRequestBodyActionEnum | string;
+    public tags?: Array<ServerTag>;
+    public constructor(action?: string, tags?: Array<ServerTag>) { 
         this['action'] = action;
         this['tags'] = tags;
     }
-    public withAction(action: BatchDeleteServerTagsRequestBodyActionEnum): BatchDeleteServerTagsRequestBody {
+    public withAction(action: BatchDeleteServerTagsRequestBodyActionEnum | string): BatchDeleteServerTagsRequestBody {
         this['action'] = action;
         return this;
     }

@@ -1,9 +1,9 @@
 
 
 export class ListFunctionStatisticsRequest {
-    private 'func_urn': string | undefined;
-    public period: string;
-    public constructor(funcUrn?: any, period?: any) { 
+    private 'func_urn'?: string;
+    public period?: string;
+    public constructor(funcUrn?: string, period?: string) { 
         this['func_urn'] = funcUrn;
         this['period'] = period;
     }
@@ -11,10 +11,10 @@ export class ListFunctionStatisticsRequest {
         this['func_urn'] = funcUrn;
         return this;
     }
-    public set funcUrn(funcUrn: string | undefined) {
+    public set funcUrn(funcUrn: string  | undefined) {
         this['func_urn'] = funcUrn;
     }
-    public get funcUrn() {
+    public get funcUrn(): string | undefined {
         return this['func_urn'];
     }
     public withPeriod(period: string): ListFunctionStatisticsRequest {

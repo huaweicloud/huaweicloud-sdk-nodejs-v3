@@ -5,30 +5,30 @@ import { PolicyParameterValue } from './PolicyParameterValue';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowPolicyAssignmentResponse extends SdkResponse {
-    private 'policy_assignment_type'?: ShowPolicyAssignmentResponsePolicyAssignmentTypeEnum | undefined;
+    private 'policy_assignment_type'?: ShowPolicyAssignmentResponsePolicyAssignmentTypeEnum | string;
     public id?: string;
     public name?: string;
     public description?: string;
-    private 'policy_filter'?: PolicyFilterDefinition | undefined;
+    private 'policy_filter'?: PolicyFilterDefinition;
     public period?: string;
     public state?: string;
     public created?: string;
     public updated?: string;
-    private 'policy_definition_id'?: string | undefined;
-    private 'custom_policy'?: CustomPolicy | undefined;
+    private 'policy_definition_id'?: string;
+    private 'custom_policy'?: CustomPolicy;
     public parameters?: { [key: string]: PolicyParameterValue; };
-    private 'created_by'?: string | undefined;
+    private 'created_by'?: string;
     public constructor() { 
         super();
     }
-    public withPolicyAssignmentType(policyAssignmentType: ShowPolicyAssignmentResponsePolicyAssignmentTypeEnum): ShowPolicyAssignmentResponse {
+    public withPolicyAssignmentType(policyAssignmentType: ShowPolicyAssignmentResponsePolicyAssignmentTypeEnum | string): ShowPolicyAssignmentResponse {
         this['policy_assignment_type'] = policyAssignmentType;
         return this;
     }
-    public set policyAssignmentType(policyAssignmentType: ShowPolicyAssignmentResponsePolicyAssignmentTypeEnum | undefined) {
+    public set policyAssignmentType(policyAssignmentType: ShowPolicyAssignmentResponsePolicyAssignmentTypeEnum | string  | undefined) {
         this['policy_assignment_type'] = policyAssignmentType;
     }
-    public get policyAssignmentType() {
+    public get policyAssignmentType(): ShowPolicyAssignmentResponsePolicyAssignmentTypeEnum | string | undefined {
         return this['policy_assignment_type'];
     }
     public withId(id: string): ShowPolicyAssignmentResponse {
@@ -47,10 +47,10 @@ export class ShowPolicyAssignmentResponse extends SdkResponse {
         this['policy_filter'] = policyFilter;
         return this;
     }
-    public set policyFilter(policyFilter: PolicyFilterDefinition | undefined) {
+    public set policyFilter(policyFilter: PolicyFilterDefinition  | undefined) {
         this['policy_filter'] = policyFilter;
     }
-    public get policyFilter() {
+    public get policyFilter(): PolicyFilterDefinition | undefined {
         return this['policy_filter'];
     }
     public withPeriod(period: string): ShowPolicyAssignmentResponse {
@@ -73,20 +73,20 @@ export class ShowPolicyAssignmentResponse extends SdkResponse {
         this['policy_definition_id'] = policyDefinitionId;
         return this;
     }
-    public set policyDefinitionId(policyDefinitionId: string | undefined) {
+    public set policyDefinitionId(policyDefinitionId: string  | undefined) {
         this['policy_definition_id'] = policyDefinitionId;
     }
-    public get policyDefinitionId() {
+    public get policyDefinitionId(): string | undefined {
         return this['policy_definition_id'];
     }
     public withCustomPolicy(customPolicy: CustomPolicy): ShowPolicyAssignmentResponse {
         this['custom_policy'] = customPolicy;
         return this;
     }
-    public set customPolicy(customPolicy: CustomPolicy | undefined) {
+    public set customPolicy(customPolicy: CustomPolicy  | undefined) {
         this['custom_policy'] = customPolicy;
     }
-    public get customPolicy() {
+    public get customPolicy(): CustomPolicy | undefined {
         return this['custom_policy'];
     }
     public withParameters(parameters: { [key: string]: PolicyParameterValue; }): ShowPolicyAssignmentResponse {
@@ -97,10 +97,10 @@ export class ShowPolicyAssignmentResponse extends SdkResponse {
         this['created_by'] = createdBy;
         return this;
     }
-    public set createdBy(createdBy: string | undefined) {
+    public set createdBy(createdBy: string  | undefined) {
         this['created_by'] = createdBy;
     }
-    public get createdBy() {
+    public get createdBy(): string | undefined {
         return this['created_by'];
     }
 }

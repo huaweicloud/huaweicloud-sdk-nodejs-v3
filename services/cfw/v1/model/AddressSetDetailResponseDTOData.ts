@@ -4,7 +4,7 @@ export class AddressSetDetailResponseDTOData {
     public id?: string;
     public name?: string;
     public description?: string;
-    private 'address_type'?: AddressSetDetailResponseDTODataAddressTypeEnum | undefined;
+    private 'address_type'?: AddressSetDetailResponseDTODataAddressTypeEnum | number;
     public constructor() { 
     }
     public withId(id: string): AddressSetDetailResponseDTOData {
@@ -19,14 +19,14 @@ export class AddressSetDetailResponseDTOData {
         this['description'] = description;
         return this;
     }
-    public withAddressType(addressType: AddressSetDetailResponseDTODataAddressTypeEnum): AddressSetDetailResponseDTOData {
+    public withAddressType(addressType: AddressSetDetailResponseDTODataAddressTypeEnum | number): AddressSetDetailResponseDTOData {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: AddressSetDetailResponseDTODataAddressTypeEnum | undefined) {
+    public set addressType(addressType: AddressSetDetailResponseDTODataAddressTypeEnum | number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType() {
+    public get addressType(): AddressSetDetailResponseDTODataAddressTypeEnum | number | undefined {
         return this['address_type'];
     }
 }

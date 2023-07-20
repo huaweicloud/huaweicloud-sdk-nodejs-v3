@@ -6,7 +6,7 @@ export class PutSourceServerBody {
     public name?: string;
     public migprojectid?: string;
     public disks?: Array<PutDisk>;
-    private 'volume_groups'?: Array<PutVolumeGroups> | undefined;
+    private 'volume_groups'?: Array<PutVolumeGroups>;
     public constructor() { 
     }
     public withName(name: string): PutSourceServerBody {
@@ -25,10 +25,10 @@ export class PutSourceServerBody {
         this['volume_groups'] = volumeGroups;
         return this;
     }
-    public set volumeGroups(volumeGroups: Array<PutVolumeGroups> | undefined) {
+    public set volumeGroups(volumeGroups: Array<PutVolumeGroups>  | undefined) {
         this['volume_groups'] = volumeGroups;
     }
-    public get volumeGroups() {
+    public get volumeGroups(): Array<PutVolumeGroups> | undefined {
         return this['volume_groups'];
     }
 }

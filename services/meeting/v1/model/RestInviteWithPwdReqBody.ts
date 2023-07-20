@@ -1,13 +1,13 @@
 
 
 export class RestInviteWithPwdReqBody {
-    public callNum: string;
+    public callNum?: string;
     public orgID?: string;
-    public confID: string;
-    public pwd: string;
+    public confID?: string;
+    public pwd?: string;
     public numBelongsType?: number;
     public isNotOverlayPidName?: boolean;
-    public constructor(callNum?: any, confID?: any, pwd?: any) { 
+    public constructor(callNum?: string, confID?: string, pwd?: string) { 
         this['callNum'] = callNum;
         this['confID'] = confID;
         this['pwd'] = pwd;

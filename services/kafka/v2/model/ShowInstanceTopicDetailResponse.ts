@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowInstanceTopicDetailResponse extends SdkResponse {
     public topic?: string;
     public partitions?: Array<ShowInstanceTopicDetailRespPartitions>;
-    private 'group_subscribed'?: Array<string> | undefined;
+    private 'group_subscribed'?: Array<string>;
     public constructor() { 
         super();
     }
@@ -21,10 +21,10 @@ export class ShowInstanceTopicDetailResponse extends SdkResponse {
         this['group_subscribed'] = groupSubscribed;
         return this;
     }
-    public set groupSubscribed(groupSubscribed: Array<string> | undefined) {
+    public set groupSubscribed(groupSubscribed: Array<string>  | undefined) {
         this['group_subscribed'] = groupSubscribed;
     }
-    public get groupSubscribed() {
+    public get groupSubscribed(): Array<string> | undefined {
         return this['group_subscribed'];
     }
 }

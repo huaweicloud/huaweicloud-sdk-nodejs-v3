@@ -2,10 +2,10 @@ import { UpdatePtrReq } from './UpdatePtrReq';
 
 
 export class UpdatePtrRecordRequest {
-    public region: string;
-    private 'floatingip_id': string | undefined;
+    public region?: string;
+    private 'floatingip_id'?: string;
     public body?: UpdatePtrReq;
-    public constructor(region?: any, floatingipId?: any) { 
+    public constructor(region?: string, floatingipId?: string) { 
         this['region'] = region;
         this['floatingip_id'] = floatingipId;
     }
@@ -17,10 +17,10 @@ export class UpdatePtrRecordRequest {
         this['floatingip_id'] = floatingipId;
         return this;
     }
-    public set floatingipId(floatingipId: string | undefined) {
+    public set floatingipId(floatingipId: string  | undefined) {
         this['floatingip_id'] = floatingipId;
     }
-    public get floatingipId() {
+    public get floatingipId(): string | undefined {
         return this['floatingip_id'];
     }
     public withBody(body: UpdatePtrReq): UpdatePtrRecordRequest {

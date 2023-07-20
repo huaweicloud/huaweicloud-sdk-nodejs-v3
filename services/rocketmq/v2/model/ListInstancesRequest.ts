@@ -3,11 +3,11 @@
 export class ListInstancesRequest {
     public engine?: string;
     public name?: string;
-    private 'instance_id'?: string | undefined;
-    public status?: ListInstancesRequestStatusEnum;
-    private 'include_failure'?: ListInstancesRequestIncludeFailureEnum | undefined;
-    private 'exact_match_name'?: ListInstancesRequestExactMatchNameEnum | undefined;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'instance_id'?: string;
+    public status?: ListInstancesRequestStatusEnum | string;
+    private 'include_failure'?: ListInstancesRequestIncludeFailureEnum | string;
+    private 'exact_match_name'?: ListInstancesRequestExactMatchNameEnum | string;
+    private 'enterprise_project_id'?: string;
     public limit?: number;
     public offset?: number;
     public constructor() { 
@@ -24,44 +24,44 @@ export class ListInstancesRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
-    public withStatus(status: ListInstancesRequestStatusEnum): ListInstancesRequest {
+    public withStatus(status: ListInstancesRequestStatusEnum | string): ListInstancesRequest {
         this['status'] = status;
         return this;
     }
-    public withIncludeFailure(includeFailure: ListInstancesRequestIncludeFailureEnum): ListInstancesRequest {
+    public withIncludeFailure(includeFailure: ListInstancesRequestIncludeFailureEnum | string): ListInstancesRequest {
         this['include_failure'] = includeFailure;
         return this;
     }
-    public set includeFailure(includeFailure: ListInstancesRequestIncludeFailureEnum | undefined) {
+    public set includeFailure(includeFailure: ListInstancesRequestIncludeFailureEnum | string  | undefined) {
         this['include_failure'] = includeFailure;
     }
-    public get includeFailure() {
+    public get includeFailure(): ListInstancesRequestIncludeFailureEnum | string | undefined {
         return this['include_failure'];
     }
-    public withExactMatchName(exactMatchName: ListInstancesRequestExactMatchNameEnum): ListInstancesRequest {
+    public withExactMatchName(exactMatchName: ListInstancesRequestExactMatchNameEnum | string): ListInstancesRequest {
         this['exact_match_name'] = exactMatchName;
         return this;
     }
-    public set exactMatchName(exactMatchName: ListInstancesRequestExactMatchNameEnum | undefined) {
+    public set exactMatchName(exactMatchName: ListInstancesRequestExactMatchNameEnum | string  | undefined) {
         this['exact_match_name'] = exactMatchName;
     }
-    public get exactMatchName() {
+    public get exactMatchName(): ListInstancesRequestExactMatchNameEnum | string | undefined {
         return this['exact_match_name'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListInstancesRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withLimit(limit: number): ListInstancesRequest {

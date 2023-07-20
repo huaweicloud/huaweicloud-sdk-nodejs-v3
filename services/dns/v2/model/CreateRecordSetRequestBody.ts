@@ -2,14 +2,14 @@ import { Tag } from './Tag';
 
 
 export class CreateRecordSetRequestBody {
-    public name: string;
+    public name?: string;
     public description?: string;
-    public type: string;
+    public type?: string;
     public status?: string;
     public ttl?: number;
-    public records: Array<string>;
+    public records?: Array<string>;
     public tags?: Array<Tag>;
-    public constructor(name?: any, type?: any, records?: any) { 
+    public constructor(name?: string, type?: string, records?: Array<string>) { 
         this['name'] = name;
         this['type'] = type;
         this['records'] = records;

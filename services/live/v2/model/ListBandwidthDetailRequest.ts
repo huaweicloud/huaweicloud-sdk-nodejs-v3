@@ -1,27 +1,27 @@
 
 
 export class ListBandwidthDetailRequest {
-    private 'play_domains'?: Array<string> | undefined;
+    private 'play_domains'?: Array<string>;
     public app?: string;
     public stream?: string;
     public country?: Array<string>;
     public region?: Array<string>;
     public isp?: Array<string>;
-    public protocol?: ListBandwidthDetailRequestProtocolEnum;
-    public interval?: ListBandwidthDetailRequestIntervalEnum;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
-    private 'service_type'?: ListBandwidthDetailRequestServiceTypeEnum | undefined;
+    public protocol?: ListBandwidthDetailRequestProtocolEnum | string;
+    public interval?: ListBandwidthDetailRequestIntervalEnum | number;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
+    private 'service_type'?: ListBandwidthDetailRequestServiceTypeEnum | string;
     public constructor() { 
     }
     public withPlayDomains(playDomains: Array<string>): ListBandwidthDetailRequest {
         this['play_domains'] = playDomains;
         return this;
     }
-    public set playDomains(playDomains: Array<string> | undefined) {
+    public set playDomains(playDomains: Array<string>  | undefined) {
         this['play_domains'] = playDomains;
     }
-    public get playDomains() {
+    public get playDomains(): Array<string> | undefined {
         return this['play_domains'];
     }
     public withApp(app: string): ListBandwidthDetailRequest {
@@ -44,11 +44,11 @@ export class ListBandwidthDetailRequest {
         this['isp'] = isp;
         return this;
     }
-    public withProtocol(protocol: ListBandwidthDetailRequestProtocolEnum): ListBandwidthDetailRequest {
+    public withProtocol(protocol: ListBandwidthDetailRequestProtocolEnum | string): ListBandwidthDetailRequest {
         this['protocol'] = protocol;
         return this;
     }
-    public withInterval(interval: ListBandwidthDetailRequestIntervalEnum): ListBandwidthDetailRequest {
+    public withInterval(interval: ListBandwidthDetailRequestIntervalEnum | number): ListBandwidthDetailRequest {
         this['interval'] = interval;
         return this;
     }
@@ -56,30 +56,30 @@ export class ListBandwidthDetailRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ListBandwidthDetailRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
-    public withServiceType(serviceType: ListBandwidthDetailRequestServiceTypeEnum): ListBandwidthDetailRequest {
+    public withServiceType(serviceType: ListBandwidthDetailRequestServiceTypeEnum | string): ListBandwidthDetailRequest {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: ListBandwidthDetailRequestServiceTypeEnum | undefined) {
+    public set serviceType(serviceType: ListBandwidthDetailRequestServiceTypeEnum | string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType() {
+    public get serviceType(): ListBandwidthDetailRequestServiceTypeEnum | string | undefined {
         return this['service_type'];
     }
 }

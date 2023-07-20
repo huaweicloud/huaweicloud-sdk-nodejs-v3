@@ -2,11 +2,11 @@
 
 export class BatchCreateMembersOption {
     public name?: string;
-    public address: string;
-    private 'protocol_port': number | undefined;
-    private 'subnet_cidr_id'?: string | undefined;
+    public address?: string;
+    private 'protocol_port'?: number;
+    private 'subnet_cidr_id'?: string;
     public weight?: number;
-    public constructor(address?: any, protocolPort?: any) { 
+    public constructor(address?: string, protocolPort?: number) { 
         this['address'] = address;
         this['protocol_port'] = protocolPort;
     }
@@ -22,20 +22,20 @@ export class BatchCreateMembersOption {
         this['protocol_port'] = protocolPort;
         return this;
     }
-    public set protocolPort(protocolPort: number | undefined) {
+    public set protocolPort(protocolPort: number  | undefined) {
         this['protocol_port'] = protocolPort;
     }
-    public get protocolPort() {
+    public get protocolPort(): number | undefined {
         return this['protocol_port'];
     }
     public withSubnetCidrId(subnetCidrId: string): BatchCreateMembersOption {
         this['subnet_cidr_id'] = subnetCidrId;
         return this;
     }
-    public set subnetCidrId(subnetCidrId: string | undefined) {
+    public set subnetCidrId(subnetCidrId: string  | undefined) {
         this['subnet_cidr_id'] = subnetCidrId;
     }
-    public get subnetCidrId() {
+    public get subnetCidrId(): string | undefined {
         return this['subnet_cidr_id'];
     }
     public withWeight(weight: number): BatchCreateMembersOption {

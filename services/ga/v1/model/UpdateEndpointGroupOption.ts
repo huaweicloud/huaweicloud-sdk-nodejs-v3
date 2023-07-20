@@ -3,7 +3,7 @@
 export class UpdateEndpointGroupOption {
     public name?: string;
     public description?: string;
-    private 'traffic_dial_percentage'?: number | undefined;
+    private 'traffic_dial_percentage'?: number;
     public constructor() { 
     }
     public withName(name: string): UpdateEndpointGroupOption {
@@ -18,10 +18,10 @@ export class UpdateEndpointGroupOption {
         this['traffic_dial_percentage'] = trafficDialPercentage;
         return this;
     }
-    public set trafficDialPercentage(trafficDialPercentage: number | undefined) {
+    public set trafficDialPercentage(trafficDialPercentage: number  | undefined) {
         this['traffic_dial_percentage'] = trafficDialPercentage;
     }
-    public get trafficDialPercentage() {
+    public get trafficDialPercentage(): number | undefined {
         return this['traffic_dial_percentage'];
     }
 }

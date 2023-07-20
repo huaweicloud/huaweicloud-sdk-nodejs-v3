@@ -1,11 +1,11 @@
 
 
 export class CreateAntileakageRuleRequestBody {
-    public url: string;
-    public category: CreateAntileakageRuleRequestBodyCategoryEnum;
-    public contents: Array<string>;
+    public url?: string;
+    public category?: CreateAntileakageRuleRequestBodyCategoryEnum | string;
+    public contents?: Array<string>;
     public description?: string;
-    public constructor(url?: any, category?: any, contents?: any) { 
+    public constructor(url?: string, category?: string, contents?: Array<string>) { 
         this['url'] = url;
         this['category'] = category;
         this['contents'] = contents;
@@ -14,7 +14,7 @@ export class CreateAntileakageRuleRequestBody {
         this['url'] = url;
         return this;
     }
-    public withCategory(category: CreateAntileakageRuleRequestBodyCategoryEnum): CreateAntileakageRuleRequestBody {
+    public withCategory(category: CreateAntileakageRuleRequestBodyCategoryEnum | string): CreateAntileakageRuleRequestBody {
         this['category'] = category;
         return this;
     }

@@ -1,58 +1,58 @@
 
 
 export class CreateKeyRequestBody {
-    private 'key_alias': string | undefined;
-    private 'key_spec'?: CreateKeyRequestBodyKeySpecEnum | undefined;
-    private 'key_usage'?: CreateKeyRequestBodyKeyUsageEnum | undefined;
-    private 'key_description'?: string | undefined;
-    public origin?: CreateKeyRequestBodyOriginEnum;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'key_alias'?: string;
+    private 'key_spec'?: CreateKeyRequestBodyKeySpecEnum | string;
+    private 'key_usage'?: CreateKeyRequestBodyKeyUsageEnum | string;
+    private 'key_description'?: string;
+    public origin?: CreateKeyRequestBodyOriginEnum | string;
+    private 'enterprise_project_id'?: string;
     public sequence?: string;
-    private 'keystore_id'?: string | undefined;
-    public constructor(keyAlias?: any) { 
+    private 'keystore_id'?: string;
+    public constructor(keyAlias?: string) { 
         this['key_alias'] = keyAlias;
     }
     public withKeyAlias(keyAlias: string): CreateKeyRequestBody {
         this['key_alias'] = keyAlias;
         return this;
     }
-    public set keyAlias(keyAlias: string | undefined) {
+    public set keyAlias(keyAlias: string  | undefined) {
         this['key_alias'] = keyAlias;
     }
-    public get keyAlias() {
+    public get keyAlias(): string | undefined {
         return this['key_alias'];
     }
-    public withKeySpec(keySpec: CreateKeyRequestBodyKeySpecEnum): CreateKeyRequestBody {
+    public withKeySpec(keySpec: CreateKeyRequestBodyKeySpecEnum | string): CreateKeyRequestBody {
         this['key_spec'] = keySpec;
         return this;
     }
-    public set keySpec(keySpec: CreateKeyRequestBodyKeySpecEnum | undefined) {
+    public set keySpec(keySpec: CreateKeyRequestBodyKeySpecEnum | string  | undefined) {
         this['key_spec'] = keySpec;
     }
-    public get keySpec() {
+    public get keySpec(): CreateKeyRequestBodyKeySpecEnum | string | undefined {
         return this['key_spec'];
     }
-    public withKeyUsage(keyUsage: CreateKeyRequestBodyKeyUsageEnum): CreateKeyRequestBody {
+    public withKeyUsage(keyUsage: CreateKeyRequestBodyKeyUsageEnum | string): CreateKeyRequestBody {
         this['key_usage'] = keyUsage;
         return this;
     }
-    public set keyUsage(keyUsage: CreateKeyRequestBodyKeyUsageEnum | undefined) {
+    public set keyUsage(keyUsage: CreateKeyRequestBodyKeyUsageEnum | string  | undefined) {
         this['key_usage'] = keyUsage;
     }
-    public get keyUsage() {
+    public get keyUsage(): CreateKeyRequestBodyKeyUsageEnum | string | undefined {
         return this['key_usage'];
     }
     public withKeyDescription(keyDescription: string): CreateKeyRequestBody {
         this['key_description'] = keyDescription;
         return this;
     }
-    public set keyDescription(keyDescription: string | undefined) {
+    public set keyDescription(keyDescription: string  | undefined) {
         this['key_description'] = keyDescription;
     }
-    public get keyDescription() {
+    public get keyDescription(): string | undefined {
         return this['key_description'];
     }
-    public withOrigin(origin: CreateKeyRequestBodyOriginEnum): CreateKeyRequestBody {
+    public withOrigin(origin: CreateKeyRequestBodyOriginEnum | string): CreateKeyRequestBody {
         this['origin'] = origin;
         return this;
     }
@@ -60,10 +60,10 @@ export class CreateKeyRequestBody {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withSequence(sequence: string): CreateKeyRequestBody {
@@ -74,10 +74,10 @@ export class CreateKeyRequestBody {
         this['keystore_id'] = keystoreId;
         return this;
     }
-    public set keystoreId(keystoreId: string | undefined) {
+    public set keystoreId(keystoreId: string  | undefined) {
         this['keystore_id'] = keystoreId;
     }
-    public get keystoreId() {
+    public get keystoreId(): string | undefined {
         return this['keystore_id'];
     }
 }

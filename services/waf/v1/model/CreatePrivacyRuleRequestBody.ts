@@ -1,11 +1,11 @@
 
 
 export class CreatePrivacyRuleRequestBody {
-    public url: string;
-    public category: CreatePrivacyRuleRequestBodyCategoryEnum;
-    public index: string;
+    public url?: string;
+    public category?: CreatePrivacyRuleRequestBodyCategoryEnum | string;
+    public index?: string;
     public description?: string;
-    public constructor(url?: any, category?: any, index?: any) { 
+    public constructor(url?: string, category?: string, index?: string) { 
         this['url'] = url;
         this['category'] = category;
         this['index'] = index;
@@ -14,7 +14,7 @@ export class CreatePrivacyRuleRequestBody {
         this['url'] = url;
         return this;
     }
-    public withCategory(category: CreatePrivacyRuleRequestBodyCategoryEnum): CreatePrivacyRuleRequestBody {
+    public withCategory(category: CreatePrivacyRuleRequestBodyCategoryEnum | string): CreatePrivacyRuleRequestBody {
         this['category'] = category;
         return this;
     }

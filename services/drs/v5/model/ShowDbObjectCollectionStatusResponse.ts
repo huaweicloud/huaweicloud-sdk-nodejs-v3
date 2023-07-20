@@ -4,12 +4,12 @@ import { TargetRootDb } from './TargetRootDb';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowDbObjectCollectionStatusResponse extends SdkResponse {
-    private 'target_root_db'?: TargetRootDb | undefined;
-    private 'object_info'?: { [key: string]: DatabaseObject; } | undefined;
-    private 'max_table_num'?: number | undefined;
-    public status?: ShowDbObjectCollectionStatusResponseStatusEnum;
+    private 'target_root_db'?: TargetRootDb;
+    private 'object_info'?: { [key: string]: DatabaseObject; };
+    private 'max_table_num'?: number;
+    public status?: ShowDbObjectCollectionStatusResponseStatusEnum | string;
     public id?: string;
-    private 'object_scope'?: string | undefined;
+    private 'object_scope'?: string;
     public constructor() { 
         super();
     }
@@ -17,33 +17,33 @@ export class ShowDbObjectCollectionStatusResponse extends SdkResponse {
         this['target_root_db'] = targetRootDb;
         return this;
     }
-    public set targetRootDb(targetRootDb: TargetRootDb | undefined) {
+    public set targetRootDb(targetRootDb: TargetRootDb  | undefined) {
         this['target_root_db'] = targetRootDb;
     }
-    public get targetRootDb() {
+    public get targetRootDb(): TargetRootDb | undefined {
         return this['target_root_db'];
     }
     public withObjectInfo(objectInfo: { [key: string]: DatabaseObject; }): ShowDbObjectCollectionStatusResponse {
         this['object_info'] = objectInfo;
         return this;
     }
-    public set objectInfo(objectInfo: { [key: string]: DatabaseObject; } | undefined) {
+    public set objectInfo(objectInfo: { [key: string]: DatabaseObject; }  | undefined) {
         this['object_info'] = objectInfo;
     }
-    public get objectInfo() {
+    public get objectInfo(): { [key: string]: DatabaseObject; } | undefined {
         return this['object_info'];
     }
     public withMaxTableNum(maxTableNum: number): ShowDbObjectCollectionStatusResponse {
         this['max_table_num'] = maxTableNum;
         return this;
     }
-    public set maxTableNum(maxTableNum: number | undefined) {
+    public set maxTableNum(maxTableNum: number  | undefined) {
         this['max_table_num'] = maxTableNum;
     }
-    public get maxTableNum() {
+    public get maxTableNum(): number | undefined {
         return this['max_table_num'];
     }
-    public withStatus(status: ShowDbObjectCollectionStatusResponseStatusEnum): ShowDbObjectCollectionStatusResponse {
+    public withStatus(status: ShowDbObjectCollectionStatusResponseStatusEnum | string): ShowDbObjectCollectionStatusResponse {
         this['status'] = status;
         return this;
     }
@@ -55,10 +55,10 @@ export class ShowDbObjectCollectionStatusResponse extends SdkResponse {
         this['object_scope'] = objectScope;
         return this;
     }
-    public set objectScope(objectScope: string | undefined) {
+    public set objectScope(objectScope: string  | undefined) {
         this['object_scope'] = objectScope;
     }
-    public get objectScope() {
+    public get objectScope(): string | undefined {
         return this['object_scope'];
     }
 }

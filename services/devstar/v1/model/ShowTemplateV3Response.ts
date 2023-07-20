@@ -8,28 +8,28 @@ export class ShowTemplateV3Response extends SdkResponse {
     public id?: string;
     public title?: string;
     public description?: string;
-    private 'creator_id'?: string | undefined;
+    private 'creator_id'?: string;
     public creator?: string;
     public nickname?: string;
     public score?: number;
     public status?: number;
-    private 'view_count'?: number | undefined;
-    private 'usage_count'?: number | undefined;
-    private 'created_at'?: string | undefined;
-    private 'updated_at'?: string | undefined;
-    private 'published_at'?: string | undefined;
-    private 'favorite_state'?: number | undefined;
+    private 'view_count'?: number;
+    private 'usage_count'?: number;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    private 'published_at'?: string;
+    private 'favorite_state'?: number;
     public maintainers?: Array<string>;
-    private 'platform_source'?: number | undefined;
+    private 'platform_source'?: number;
     public properties?: object;
     public dependencies?: Array<object>;
-    private 'dependency_type'?: string | undefined;
+    private 'dependency_type'?: string;
     public store?: number;
-    private 'store_info'?: string | undefined;
-    private 'file_size'?: number | undefined;
+    private 'store_info'?: string;
+    private 'file_size'?: number;
     public deployment?: object;
-    private 'is_static'?: number | undefined;
-    private 'update_id'?: string | undefined;
+    private 'is_static'?: number;
+    private 'update_id'?: string;
     public topic?: Array<TopicCategory>;
     public tags?: Array<TagInfo>;
     public dependents?: Array<Dependent>;
@@ -52,10 +52,10 @@ export class ShowTemplateV3Response extends SdkResponse {
         this['creator_id'] = creatorId;
         return this;
     }
-    public set creatorId(creatorId: string | undefined) {
+    public set creatorId(creatorId: string  | undefined) {
         this['creator_id'] = creatorId;
     }
-    public get creatorId() {
+    public get creatorId(): string | undefined {
         return this['creator_id'];
     }
     public withCreator(creator: string): ShowTemplateV3Response {
@@ -78,60 +78,60 @@ export class ShowTemplateV3Response extends SdkResponse {
         this['view_count'] = viewCount;
         return this;
     }
-    public set viewCount(viewCount: number | undefined) {
+    public set viewCount(viewCount: number  | undefined) {
         this['view_count'] = viewCount;
     }
-    public get viewCount() {
+    public get viewCount(): number | undefined {
         return this['view_count'];
     }
     public withUsageCount(usageCount: number): ShowTemplateV3Response {
         this['usage_count'] = usageCount;
         return this;
     }
-    public set usageCount(usageCount: number | undefined) {
+    public set usageCount(usageCount: number  | undefined) {
         this['usage_count'] = usageCount;
     }
-    public get usageCount() {
+    public get usageCount(): number | undefined {
         return this['usage_count'];
     }
     public withCreatedAt(createdAt: string): ShowTemplateV3Response {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): ShowTemplateV3Response {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withPublishedAt(publishedAt: string): ShowTemplateV3Response {
         this['published_at'] = publishedAt;
         return this;
     }
-    public set publishedAt(publishedAt: string | undefined) {
+    public set publishedAt(publishedAt: string  | undefined) {
         this['published_at'] = publishedAt;
     }
-    public get publishedAt() {
+    public get publishedAt(): string | undefined {
         return this['published_at'];
     }
     public withFavoriteState(favoriteState: number): ShowTemplateV3Response {
         this['favorite_state'] = favoriteState;
         return this;
     }
-    public set favoriteState(favoriteState: number | undefined) {
+    public set favoriteState(favoriteState: number  | undefined) {
         this['favorite_state'] = favoriteState;
     }
-    public get favoriteState() {
+    public get favoriteState(): number | undefined {
         return this['favorite_state'];
     }
     public withMaintainers(maintainers: Array<string>): ShowTemplateV3Response {
@@ -142,10 +142,10 @@ export class ShowTemplateV3Response extends SdkResponse {
         this['platform_source'] = platformSource;
         return this;
     }
-    public set platformSource(platformSource: number | undefined) {
+    public set platformSource(platformSource: number  | undefined) {
         this['platform_source'] = platformSource;
     }
-    public get platformSource() {
+    public get platformSource(): number | undefined {
         return this['platform_source'];
     }
     public withProperties(properties: object): ShowTemplateV3Response {
@@ -160,10 +160,10 @@ export class ShowTemplateV3Response extends SdkResponse {
         this['dependency_type'] = dependencyType;
         return this;
     }
-    public set dependencyType(dependencyType: string | undefined) {
+    public set dependencyType(dependencyType: string  | undefined) {
         this['dependency_type'] = dependencyType;
     }
-    public get dependencyType() {
+    public get dependencyType(): string | undefined {
         return this['dependency_type'];
     }
     public withStore(store: number): ShowTemplateV3Response {
@@ -174,20 +174,20 @@ export class ShowTemplateV3Response extends SdkResponse {
         this['store_info'] = storeInfo;
         return this;
     }
-    public set storeInfo(storeInfo: string | undefined) {
+    public set storeInfo(storeInfo: string  | undefined) {
         this['store_info'] = storeInfo;
     }
-    public get storeInfo() {
+    public get storeInfo(): string | undefined {
         return this['store_info'];
     }
     public withFileSize(fileSize: number): ShowTemplateV3Response {
         this['file_size'] = fileSize;
         return this;
     }
-    public set fileSize(fileSize: number | undefined) {
+    public set fileSize(fileSize: number  | undefined) {
         this['file_size'] = fileSize;
     }
-    public get fileSize() {
+    public get fileSize(): number | undefined {
         return this['file_size'];
     }
     public withDeployment(deployment: object): ShowTemplateV3Response {
@@ -198,20 +198,20 @@ export class ShowTemplateV3Response extends SdkResponse {
         this['is_static'] = isStatic;
         return this;
     }
-    public set isStatic(isStatic: number | undefined) {
+    public set isStatic(isStatic: number  | undefined) {
         this['is_static'] = isStatic;
     }
-    public get isStatic() {
+    public get isStatic(): number | undefined {
         return this['is_static'];
     }
     public withUpdateId(updateId: string): ShowTemplateV3Response {
         this['update_id'] = updateId;
         return this;
     }
-    public set updateId(updateId: string | undefined) {
+    public set updateId(updateId: string  | undefined) {
         this['update_id'] = updateId;
     }
-    public get updateId() {
+    public get updateId(): string | undefined {
         return this['update_id'];
     }
     public withTopic(topic: Array<TopicCategory>): ShowTemplateV3Response {

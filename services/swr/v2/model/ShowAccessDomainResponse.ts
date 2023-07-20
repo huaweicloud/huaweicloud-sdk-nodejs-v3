@@ -5,12 +5,12 @@ export class ShowAccessDomainResponse extends SdkResponse {
     public exist?: boolean;
     public namespace?: string;
     public repository?: string;
-    private 'access_domain'?: string | undefined;
+    private 'access_domain'?: string;
     public permit?: string;
     public deadline?: string;
     public description?: string;
-    private 'creator_id'?: string | undefined;
-    private 'creator_name'?: string | undefined;
+    private 'creator_id'?: string;
+    private 'creator_name'?: string;
     public created?: string;
     public updated?: string;
     public status?: boolean;
@@ -33,10 +33,10 @@ export class ShowAccessDomainResponse extends SdkResponse {
         this['access_domain'] = accessDomain;
         return this;
     }
-    public set accessDomain(accessDomain: string | undefined) {
+    public set accessDomain(accessDomain: string  | undefined) {
         this['access_domain'] = accessDomain;
     }
-    public get accessDomain() {
+    public get accessDomain(): string | undefined {
         return this['access_domain'];
     }
     public withPermit(permit: string): ShowAccessDomainResponse {
@@ -55,20 +55,20 @@ export class ShowAccessDomainResponse extends SdkResponse {
         this['creator_id'] = creatorId;
         return this;
     }
-    public set creatorId(creatorId: string | undefined) {
+    public set creatorId(creatorId: string  | undefined) {
         this['creator_id'] = creatorId;
     }
-    public get creatorId() {
+    public get creatorId(): string | undefined {
         return this['creator_id'];
     }
     public withCreatorName(creatorName: string): ShowAccessDomainResponse {
         this['creator_name'] = creatorName;
         return this;
     }
-    public set creatorName(creatorName: string | undefined) {
+    public set creatorName(creatorName: string  | undefined) {
         this['creator_name'] = creatorName;
     }
-    public get creatorName() {
+    public get creatorName(): string | undefined {
         return this['creator_name'];
     }
     public withCreated(created: string): ShowAccessDomainResponse {

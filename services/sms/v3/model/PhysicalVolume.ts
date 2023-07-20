@@ -1,36 +1,36 @@
 
 
 export class PhysicalVolume {
-    private 'device_use'?: string | undefined;
-    private 'file_system'?: string | undefined;
+    private 'device_use'?: string;
+    private 'file_system'?: string;
     public index?: number;
-    private 'mount_point'?: string | undefined;
+    private 'mount_point'?: string;
     public name?: string;
     public size?: number;
-    private 'used_size'?: number | undefined;
-    private 'inode_size'?: number | undefined;
+    private 'used_size'?: number;
+    private 'inode_size'?: number;
     public uuid?: string;
-    private 'size_per_cluster'?: number | undefined;
+    private 'size_per_cluster'?: number;
     public constructor() { 
     }
     public withDeviceUse(deviceUse: string): PhysicalVolume {
         this['device_use'] = deviceUse;
         return this;
     }
-    public set deviceUse(deviceUse: string | undefined) {
+    public set deviceUse(deviceUse: string  | undefined) {
         this['device_use'] = deviceUse;
     }
-    public get deviceUse() {
+    public get deviceUse(): string | undefined {
         return this['device_use'];
     }
     public withFileSystem(fileSystem: string): PhysicalVolume {
         this['file_system'] = fileSystem;
         return this;
     }
-    public set fileSystem(fileSystem: string | undefined) {
+    public set fileSystem(fileSystem: string  | undefined) {
         this['file_system'] = fileSystem;
     }
-    public get fileSystem() {
+    public get fileSystem(): string | undefined {
         return this['file_system'];
     }
     public withIndex(index: number): PhysicalVolume {
@@ -41,10 +41,10 @@ export class PhysicalVolume {
         this['mount_point'] = mountPoint;
         return this;
     }
-    public set mountPoint(mountPoint: string | undefined) {
+    public set mountPoint(mountPoint: string  | undefined) {
         this['mount_point'] = mountPoint;
     }
-    public get mountPoint() {
+    public get mountPoint(): string | undefined {
         return this['mount_point'];
     }
     public withName(name: string): PhysicalVolume {
@@ -59,20 +59,20 @@ export class PhysicalVolume {
         this['used_size'] = usedSize;
         return this;
     }
-    public set usedSize(usedSize: number | undefined) {
+    public set usedSize(usedSize: number  | undefined) {
         this['used_size'] = usedSize;
     }
-    public get usedSize() {
+    public get usedSize(): number | undefined {
         return this['used_size'];
     }
     public withInodeSize(inodeSize: number): PhysicalVolume {
         this['inode_size'] = inodeSize;
         return this;
     }
-    public set inodeSize(inodeSize: number | undefined) {
+    public set inodeSize(inodeSize: number  | undefined) {
         this['inode_size'] = inodeSize;
     }
-    public get inodeSize() {
+    public get inodeSize(): number | undefined {
         return this['inode_size'];
     }
     public withUuid(uuid: string): PhysicalVolume {
@@ -83,10 +83,10 @@ export class PhysicalVolume {
         this['size_per_cluster'] = sizePerCluster;
         return this;
     }
-    public set sizePerCluster(sizePerCluster: number | undefined) {
+    public set sizePerCluster(sizePerCluster: number  | undefined) {
         this['size_per_cluster'] = sizePerCluster;
     }
-    public get sizePerCluster() {
+    public get sizePerCluster(): number | undefined {
         return this['size_per_cluster'];
     }
 }

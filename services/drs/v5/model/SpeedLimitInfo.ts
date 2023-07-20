@@ -1,10 +1,10 @@
 
 
 export class SpeedLimitInfo {
-    public begin: string;
-    public end: string;
-    public speed: string;
-    public constructor(begin?: any, end?: any, speed?: any) { 
+    public begin?: string;
+    public end?: string;
+    public speed?: string;
+    public constructor(begin?: string, end?: string, speed?: string) { 
         this['begin'] = begin;
         this['end'] = end;
         this['speed'] = speed;

@@ -2,14 +2,14 @@
 
 export class UserTopicPerms {
     public name?: string;
-    public perm?: UserTopicPermsPermEnum;
+    public perm?: UserTopicPermsPermEnum | string;
     public constructor() { 
     }
     public withName(name: string): UserTopicPerms {
         this['name'] = name;
         return this;
     }
-    public withPerm(perm: UserTopicPermsPermEnum): UserTopicPerms {
+    public withPerm(perm: UserTopicPermsPermEnum | string): UserTopicPerms {
         this['perm'] = perm;
         return this;
     }

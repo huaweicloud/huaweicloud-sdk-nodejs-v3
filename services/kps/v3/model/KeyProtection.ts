@@ -2,7 +2,7 @@ import { Encryption } from './Encryption';
 
 
 export class KeyProtection {
-    private 'private_key'?: string | undefined;
+    private 'private_key'?: string;
     public encryption?: Encryption;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class KeyProtection {
         this['private_key'] = privateKey;
         return this;
     }
-    public set privateKey(privateKey: string | undefined) {
+    public set privateKey(privateKey: string  | undefined) {
         this['private_key'] = privateKey;
     }
-    public get privateKey() {
+    public get privateKey(): string | undefined {
         return this['private_key'];
     }
     public withEncryption(encryption: Encryption): KeyProtection {

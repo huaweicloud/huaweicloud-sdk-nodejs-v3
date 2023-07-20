@@ -2,20 +2,20 @@ import { MetaData } from './MetaData';
 
 
 export class PlayInfo {
-    private 'play_type'?: string | undefined;
+    private 'play_type'?: string;
     public url?: string;
     public encrypted?: number;
-    private 'meta_data'?: MetaData | undefined;
+    private 'meta_data'?: MetaData;
     public constructor() { 
     }
     public withPlayType(playType: string): PlayInfo {
         this['play_type'] = playType;
         return this;
     }
-    public set playType(playType: string | undefined) {
+    public set playType(playType: string  | undefined) {
         this['play_type'] = playType;
     }
-    public get playType() {
+    public get playType(): string | undefined {
         return this['play_type'];
     }
     public withUrl(url: string): PlayInfo {
@@ -30,10 +30,10 @@ export class PlayInfo {
         this['meta_data'] = metaData;
         return this;
     }
-    public set metaData(metaData: MetaData | undefined) {
+    public set metaData(metaData: MetaData  | undefined) {
         this['meta_data'] = metaData;
     }
-    public get metaData() {
+    public get metaData(): MetaData | undefined {
         return this['meta_data'];
     }
 }

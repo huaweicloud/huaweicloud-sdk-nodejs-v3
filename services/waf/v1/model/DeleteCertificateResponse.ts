@@ -7,10 +7,10 @@ export class DeleteCertificateResponse extends SdkResponse {
     public name?: string;
     public content?: string;
     public key?: string;
-    private 'expire_time'?: number | undefined;
-    private 'exp_status'?: number | undefined;
+    private 'expire_time'?: number;
+    private 'exp_status'?: number;
     public timestamp?: number;
-    private 'bind_host'?: Array<BindHost> | undefined;
+    private 'bind_host'?: Array<BindHost>;
     public constructor() { 
         super();
     }
@@ -34,20 +34,20 @@ export class DeleteCertificateResponse extends SdkResponse {
         this['expire_time'] = expireTime;
         return this;
     }
-    public set expireTime(expireTime: number | undefined) {
+    public set expireTime(expireTime: number  | undefined) {
         this['expire_time'] = expireTime;
     }
-    public get expireTime() {
+    public get expireTime(): number | undefined {
         return this['expire_time'];
     }
     public withExpStatus(expStatus: number): DeleteCertificateResponse {
         this['exp_status'] = expStatus;
         return this;
     }
-    public set expStatus(expStatus: number | undefined) {
+    public set expStatus(expStatus: number  | undefined) {
         this['exp_status'] = expStatus;
     }
-    public get expStatus() {
+    public get expStatus(): number | undefined {
         return this['exp_status'];
     }
     public withTimestamp(timestamp: number): DeleteCertificateResponse {
@@ -58,10 +58,10 @@ export class DeleteCertificateResponse extends SdkResponse {
         this['bind_host'] = bindHost;
         return this;
     }
-    public set bindHost(bindHost: Array<BindHost> | undefined) {
+    public set bindHost(bindHost: Array<BindHost>  | undefined) {
         this['bind_host'] = bindHost;
     }
-    public get bindHost() {
+    public get bindHost(): Array<BindHost> | undefined {
         return this['bind_host'];
     }
 }

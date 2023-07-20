@@ -2,89 +2,89 @@ import { AnalysisInfo } from './AnalysisInfo';
 
 
 export class TranscriberConfig {
-    private 'audio_format'?: TranscriberConfigAudioFormatEnum | undefined;
-    public property: TranscriberConfigPropertyEnum;
-    private 'add_punc'?: TranscriberConfigAddPuncEnum | undefined;
-    private 'need_analysis_info'?: AnalysisInfo | undefined;
-    private 'vocabulary_id'?: string | undefined;
-    private 'digit_norm'?: TranscriberConfigDigitNormEnum | undefined;
-    private 'callback_url'?: string | undefined;
-    private 'need_word_info'?: TranscriberConfigNeedWordInfoEnum | undefined;
-    public constructor(property?: any) { 
+    private 'audio_format'?: TranscriberConfigAudioFormatEnum | string;
+    public property?: TranscriberConfigPropertyEnum | string;
+    private 'add_punc'?: TranscriberConfigAddPuncEnum | string;
+    private 'need_analysis_info'?: AnalysisInfo;
+    private 'vocabulary_id'?: string;
+    private 'digit_norm'?: TranscriberConfigDigitNormEnum | string;
+    private 'callback_url'?: string;
+    private 'need_word_info'?: TranscriberConfigNeedWordInfoEnum | string;
+    public constructor(property?: string) { 
         this['property'] = property;
     }
-    public withAudioFormat(audioFormat: TranscriberConfigAudioFormatEnum): TranscriberConfig {
+    public withAudioFormat(audioFormat: TranscriberConfigAudioFormatEnum | string): TranscriberConfig {
         this['audio_format'] = audioFormat;
         return this;
     }
-    public set audioFormat(audioFormat: TranscriberConfigAudioFormatEnum | undefined) {
+    public set audioFormat(audioFormat: TranscriberConfigAudioFormatEnum | string  | undefined) {
         this['audio_format'] = audioFormat;
     }
-    public get audioFormat() {
+    public get audioFormat(): TranscriberConfigAudioFormatEnum | string | undefined {
         return this['audio_format'];
     }
-    public withProperty(property: TranscriberConfigPropertyEnum): TranscriberConfig {
+    public withProperty(property: TranscriberConfigPropertyEnum | string): TranscriberConfig {
         this['property'] = property;
         return this;
     }
-    public withAddPunc(addPunc: TranscriberConfigAddPuncEnum): TranscriberConfig {
+    public withAddPunc(addPunc: TranscriberConfigAddPuncEnum | string): TranscriberConfig {
         this['add_punc'] = addPunc;
         return this;
     }
-    public set addPunc(addPunc: TranscriberConfigAddPuncEnum | undefined) {
+    public set addPunc(addPunc: TranscriberConfigAddPuncEnum | string  | undefined) {
         this['add_punc'] = addPunc;
     }
-    public get addPunc() {
+    public get addPunc(): TranscriberConfigAddPuncEnum | string | undefined {
         return this['add_punc'];
     }
     public withNeedAnalysisInfo(needAnalysisInfo: AnalysisInfo): TranscriberConfig {
         this['need_analysis_info'] = needAnalysisInfo;
         return this;
     }
-    public set needAnalysisInfo(needAnalysisInfo: AnalysisInfo | undefined) {
+    public set needAnalysisInfo(needAnalysisInfo: AnalysisInfo  | undefined) {
         this['need_analysis_info'] = needAnalysisInfo;
     }
-    public get needAnalysisInfo() {
+    public get needAnalysisInfo(): AnalysisInfo | undefined {
         return this['need_analysis_info'];
     }
     public withVocabularyId(vocabularyId: string): TranscriberConfig {
         this['vocabulary_id'] = vocabularyId;
         return this;
     }
-    public set vocabularyId(vocabularyId: string | undefined) {
+    public set vocabularyId(vocabularyId: string  | undefined) {
         this['vocabulary_id'] = vocabularyId;
     }
-    public get vocabularyId() {
+    public get vocabularyId(): string | undefined {
         return this['vocabulary_id'];
     }
-    public withDigitNorm(digitNorm: TranscriberConfigDigitNormEnum): TranscriberConfig {
+    public withDigitNorm(digitNorm: TranscriberConfigDigitNormEnum | string): TranscriberConfig {
         this['digit_norm'] = digitNorm;
         return this;
     }
-    public set digitNorm(digitNorm: TranscriberConfigDigitNormEnum | undefined) {
+    public set digitNorm(digitNorm: TranscriberConfigDigitNormEnum | string  | undefined) {
         this['digit_norm'] = digitNorm;
     }
-    public get digitNorm() {
+    public get digitNorm(): TranscriberConfigDigitNormEnum | string | undefined {
         return this['digit_norm'];
     }
     public withCallbackUrl(callbackUrl: string): TranscriberConfig {
         this['callback_url'] = callbackUrl;
         return this;
     }
-    public set callbackUrl(callbackUrl: string | undefined) {
+    public set callbackUrl(callbackUrl: string  | undefined) {
         this['callback_url'] = callbackUrl;
     }
-    public get callbackUrl() {
+    public get callbackUrl(): string | undefined {
         return this['callback_url'];
     }
-    public withNeedWordInfo(needWordInfo: TranscriberConfigNeedWordInfoEnum): TranscriberConfig {
+    public withNeedWordInfo(needWordInfo: TranscriberConfigNeedWordInfoEnum | string): TranscriberConfig {
         this['need_word_info'] = needWordInfo;
         return this;
     }
-    public set needWordInfo(needWordInfo: TranscriberConfigNeedWordInfoEnum | undefined) {
+    public set needWordInfo(needWordInfo: TranscriberConfigNeedWordInfoEnum | string  | undefined) {
         this['need_word_info'] = needWordInfo;
     }
-    public get needWordInfo() {
+    public get needWordInfo(): TranscriberConfigNeedWordInfoEnum | string | undefined {
         return this['need_word_info'];
     }
 }

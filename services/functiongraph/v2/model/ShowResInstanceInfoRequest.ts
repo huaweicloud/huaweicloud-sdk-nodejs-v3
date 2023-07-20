@@ -2,10 +2,10 @@ import { ListEnterpriseResourceRequestBody } from './ListEnterpriseResourceReque
 
 
 export class ShowResInstanceInfoRequest {
-    private 'resource_type': string | undefined;
-    public action: string;
+    private 'resource_type'?: string;
+    public action?: string;
     public body?: ListEnterpriseResourceRequestBody;
-    public constructor(resourceType?: any, action?: any) { 
+    public constructor(resourceType?: string, action?: string) { 
         this['resource_type'] = resourceType;
         this['action'] = action;
     }
@@ -13,10 +13,10 @@ export class ShowResInstanceInfoRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: string | undefined) {
+    public set resourceType(resourceType: string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): string | undefined {
         return this['resource_type'];
     }
     public withAction(action: string): ShowResInstanceInfoRequest {

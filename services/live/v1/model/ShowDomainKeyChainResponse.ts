@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowDomainKeyChainResponse extends SdkResponse {
     public key?: string;
-    private 'auth_type'?: ShowDomainKeyChainResponseAuthTypeEnum | undefined;
+    private 'auth_type'?: ShowDomainKeyChainResponseAuthTypeEnum | string;
     public timeout?: number;
     public constructor() { 
         super();
@@ -12,14 +12,14 @@ export class ShowDomainKeyChainResponse extends SdkResponse {
         this['key'] = key;
         return this;
     }
-    public withAuthType(authType: ShowDomainKeyChainResponseAuthTypeEnum): ShowDomainKeyChainResponse {
+    public withAuthType(authType: ShowDomainKeyChainResponseAuthTypeEnum | string): ShowDomainKeyChainResponse {
         this['auth_type'] = authType;
         return this;
     }
-    public set authType(authType: ShowDomainKeyChainResponseAuthTypeEnum | undefined) {
+    public set authType(authType: ShowDomainKeyChainResponseAuthTypeEnum | string  | undefined) {
         this['auth_type'] = authType;
     }
-    public get authType() {
+    public get authType(): ShowDomainKeyChainResponseAuthTypeEnum | string | undefined {
         return this['auth_type'];
     }
     public withTimeout(timeout: number): ShowDomainKeyChainResponse {

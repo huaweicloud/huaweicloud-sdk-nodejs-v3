@@ -742,7 +742,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listAvailableZones(): Promise<ListAvailableZonesResponse> {
+    public listAvailableZones(listAvailableZonesRequest?: ListAvailableZonesRequest): Promise<ListAvailableZonesResponse> {
         const options = ParamCreater().listAvailableZones();
 
          // @ts-ignore
@@ -1031,7 +1031,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listMaintenanceWindows(): Promise<ListMaintenanceWindowsResponse> {
+    public listMaintenanceWindows(listMaintenanceWindowsRequest?: ListMaintenanceWindowsRequest): Promise<ListMaintenanceWindowsResponse> {
         const options = ParamCreater().listMaintenanceWindows();
 
          // @ts-ignore
@@ -1202,7 +1202,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listStatisticsOfRunningInstances(): Promise<ListStatisticsOfRunningInstancesResponse> {
+    public listStatisticsOfRunningInstances(listStatisticsOfRunningInstancesRequest?: ListStatisticsOfRunningInstancesRequest): Promise<ListStatisticsOfRunningInstancesResponse> {
         const options = ParamCreater().listStatisticsOfRunningInstances();
 
          // @ts-ignore
@@ -1220,7 +1220,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listTagsOfTenant(): Promise<ListTagsOfTenantResponse> {
+    public listTagsOfTenant(listTagsOfTenantRequest?: ListTagsOfTenantRequest): Promise<ListTagsOfTenantResponse> {
         const options = ParamCreater().listTagsOfTenant();
 
          // @ts-ignore
@@ -1513,7 +1513,7 @@ export class DcsClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public showQuotaOfTenant(): Promise<ShowQuotaOfTenantResponse> {
+    public showQuotaOfTenant(showQuotaOfTenantRequest?: ShowQuotaOfTenantRequest): Promise<ShowQuotaOfTenantResponse> {
         const options = ParamCreater().showQuotaOfTenant();
 
          // @ts-ignore

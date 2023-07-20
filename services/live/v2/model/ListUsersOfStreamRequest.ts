@@ -1,28 +1,28 @@
 
 
 export class ListUsersOfStreamRequest {
-    private 'play_domain': string | undefined;
+    private 'play_domain'?: string;
     public app?: string;
     public stream?: string;
     public isp?: Array<string>;
     public country?: Array<string>;
     public region?: Array<string>;
-    public protocol?: ListUsersOfStreamRequestProtocolEnum;
-    public interval?: ListUsersOfStreamRequestIntervalEnum;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
-    private 'service_type'?: ListUsersOfStreamRequestServiceTypeEnum | undefined;
-    public constructor(playDomain?: any) { 
+    public protocol?: ListUsersOfStreamRequestProtocolEnum | string;
+    public interval?: ListUsersOfStreamRequestIntervalEnum | number;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
+    private 'service_type'?: ListUsersOfStreamRequestServiceTypeEnum | string;
+    public constructor(playDomain?: string) { 
         this['play_domain'] = playDomain;
     }
     public withPlayDomain(playDomain: string): ListUsersOfStreamRequest {
         this['play_domain'] = playDomain;
         return this;
     }
-    public set playDomain(playDomain: string | undefined) {
+    public set playDomain(playDomain: string  | undefined) {
         this['play_domain'] = playDomain;
     }
-    public get playDomain() {
+    public get playDomain(): string | undefined {
         return this['play_domain'];
     }
     public withApp(app: string): ListUsersOfStreamRequest {
@@ -45,11 +45,11 @@ export class ListUsersOfStreamRequest {
         this['region'] = region;
         return this;
     }
-    public withProtocol(protocol: ListUsersOfStreamRequestProtocolEnum): ListUsersOfStreamRequest {
+    public withProtocol(protocol: ListUsersOfStreamRequestProtocolEnum | string): ListUsersOfStreamRequest {
         this['protocol'] = protocol;
         return this;
     }
-    public withInterval(interval: ListUsersOfStreamRequestIntervalEnum): ListUsersOfStreamRequest {
+    public withInterval(interval: ListUsersOfStreamRequestIntervalEnum | number): ListUsersOfStreamRequest {
         this['interval'] = interval;
         return this;
     }
@@ -57,30 +57,30 @@ export class ListUsersOfStreamRequest {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ListUsersOfStreamRequest {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
-    public withServiceType(serviceType: ListUsersOfStreamRequestServiceTypeEnum): ListUsersOfStreamRequest {
+    public withServiceType(serviceType: ListUsersOfStreamRequestServiceTypeEnum | string): ListUsersOfStreamRequest {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: ListUsersOfStreamRequestServiceTypeEnum | undefined) {
+    public set serviceType(serviceType: ListUsersOfStreamRequestServiceTypeEnum | string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType() {
+    public get serviceType(): ListUsersOfStreamRequestServiceTypeEnum | string | undefined {
         return this['service_type'];
     }
 }

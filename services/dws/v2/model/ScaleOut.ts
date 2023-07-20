@@ -1,8 +1,8 @@
 
 
 export class ScaleOut {
-    public count: number;
-    public constructor(count?: any) { 
+    public count?: number;
+    public constructor(count?: number) { 
         this['count'] = count;
     }
     public withCount(count: number): ScaleOut {

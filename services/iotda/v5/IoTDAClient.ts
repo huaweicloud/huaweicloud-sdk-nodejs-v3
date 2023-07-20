@@ -74,6 +74,8 @@ import { DeleteApplicationRequest } from './model/DeleteApplicationRequest';
 import { DeleteApplicationResponse } from './model/DeleteApplicationResponse';
 import { DeleteBatchTaskFileRequest } from './model/DeleteBatchTaskFileRequest';
 import { DeleteBatchTaskFileResponse } from './model/DeleteBatchTaskFileResponse';
+import { DeleteBatchTaskRequest } from './model/DeleteBatchTaskRequest';
+import { DeleteBatchTaskResponse } from './model/DeleteBatchTaskResponse';
 import { DeleteCertificateRequest } from './model/DeleteCertificateRequest';
 import { DeleteCertificateResponse } from './model/DeleteCertificateResponse';
 import { DeleteDeviceGroupRequest } from './model/DeleteDeviceGroupRequest';
@@ -515,6 +517,26 @@ export class IoTDAClient {
      */
     public createBatchTask(createBatchTaskRequest?: CreateBatchTaskRequest): Promise<CreateBatchTaskResponse> {
         const options = ParamCreater().createBatchTask(createBatchTaskRequest);
+
+         // @ts-ignore
+        options['responseHeaders'] = [''];
+
+        return this.hcClient.sendRequest(options);
+    }
+
+    /**
+     * 应用服务器可调用此接口删除物联网平台中已经完成（状态为成功，失败，部分成功，已停止）的批量任务。
+     * 
+     * Please refer to HUAWEI cloud API Explorer for details.
+     *
+     * @summary 删除批量任务
+     * @param {string} taskId **参数说明**：批量任务ID，创建批量任务时由物联网平台分配获得。 **取值范围**：长度不超过24，只允许小写字母a到f、数字的组合。
+     * @param {string} [instanceId] **参数说明**：实例ID。物理多租下各实例的唯一标识，一般华为云租户无需携带该参数，仅在物理多租场景下从管理面访问API时需要携带该参数。您可以在IoTDA管理控制台界面，选择左侧导航栏“总览”页签查看当前实例的ID。
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public deleteBatchTask(deleteBatchTaskRequest?: DeleteBatchTaskRequest): Promise<DeleteBatchTaskResponse> {
+        const options = ParamCreater().deleteBatchTask(deleteBatchTaskRequest);
 
          // @ts-ignore
         options['responseHeaders'] = [''];
@@ -2621,6 +2643,50 @@ export const ParamCreater = function () {
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             options.data = body !== undefined ? body : {};
+            options.headers = localVarHeaderParameter;
+            return options;
+        },
+    
+        /**
+         * 应用服务器可调用此接口删除物联网平台中已经完成（状态为成功，失败，部分成功，已停止）的批量任务。
+         * 
+         * Please refer to HUAWEI cloud API Explorer for details.
+         */
+        deleteBatchTask(deleteBatchTaskRequest?: DeleteBatchTaskRequest) {
+            const options = {
+                method: "DELETE",
+                url: "/v5/iot/{project_id}/batchtasks/{task_id}",
+                contentType: "application/json",
+                queryParams: {},
+                pathParams: {},
+                headers: {}
+            };
+            const localVarHeaderParameter = {} as any;
+
+            
+            let taskId;
+            
+            let instanceId;
+
+            if (deleteBatchTaskRequest !== null && deleteBatchTaskRequest !== undefined) {
+                if (deleteBatchTaskRequest instanceof DeleteBatchTaskRequest) {
+                    taskId = deleteBatchTaskRequest.taskId;
+                    instanceId = deleteBatchTaskRequest.instanceId;
+                } else {
+                    taskId = deleteBatchTaskRequest['task_id'];
+                    instanceId = deleteBatchTaskRequest['Instance-Id'];
+                }
+            }
+
+        
+            if (taskId === null || taskId === undefined) {
+            throw new RequiredError('taskId','Required parameter taskId was null or undefined when calling deleteBatchTask.');
+            }
+            if (instanceId !== undefined && instanceId !== null) {
+                localVarHeaderParameter['Instance-Id'] = String(instanceId);
+            }
+
+            options.pathParams = { 'task_id': taskId, };
             options.headers = localVarHeaderParameter;
             return options;
         },

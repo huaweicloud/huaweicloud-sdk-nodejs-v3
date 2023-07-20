@@ -1,9 +1,9 @@
 
 
 export class RedistributionReq {
-    private 'redis_mode': string | undefined;
-    private 'parallel_jobs': number | undefined;
-    public constructor(redisMode?: any, parallelJobs?: any) { 
+    private 'redis_mode'?: string;
+    private 'parallel_jobs'?: number;
+    public constructor(redisMode?: string, parallelJobs?: number) { 
         this['redis_mode'] = redisMode;
         this['parallel_jobs'] = parallelJobs;
     }
@@ -11,20 +11,20 @@ export class RedistributionReq {
         this['redis_mode'] = redisMode;
         return this;
     }
-    public set redisMode(redisMode: string | undefined) {
+    public set redisMode(redisMode: string  | undefined) {
         this['redis_mode'] = redisMode;
     }
-    public get redisMode() {
+    public get redisMode(): string | undefined {
         return this['redis_mode'];
     }
     public withParallelJobs(parallelJobs: number): RedistributionReq {
         this['parallel_jobs'] = parallelJobs;
         return this;
     }
-    public set parallelJobs(parallelJobs: number | undefined) {
+    public set parallelJobs(parallelJobs: number  | undefined) {
         this['parallel_jobs'] = parallelJobs;
     }
-    public get parallelJobs() {
+    public get parallelJobs(): number | undefined {
         return this['parallel_jobs'];
     }
 }

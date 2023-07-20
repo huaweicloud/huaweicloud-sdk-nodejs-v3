@@ -5,10 +5,10 @@ export class ChangeServerOsWithCloudInitOption {
     public adminpass?: string;
     public keyname?: string;
     public userid?: string;
-    public imageid: string;
+    public imageid?: string;
     public metadata?: ChangeSeversOsMetadata;
     public mode?: string;
-    public constructor(imageid?: any) { 
+    public constructor(imageid?: string) { 
         this['imageid'] = imageid;
     }
     public withAdminpass(adminpass: string): ChangeServerOsWithCloudInitOption {

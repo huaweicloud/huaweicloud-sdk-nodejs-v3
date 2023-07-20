@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListTagValuesResponse extends SdkResponse {
     public values?: Array<string>;
-    private 'page_info'?: PageInfoTagValues | undefined;
+    private 'page_info'?: PageInfoTagValues;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListTagValuesResponse extends SdkResponse {
         this['page_info'] = pageInfo;
         return this;
     }
-    public set pageInfo(pageInfo: PageInfoTagValues | undefined) {
+    public set pageInfo(pageInfo: PageInfoTagValues  | undefined) {
         this['page_info'] = pageInfo;
     }
-    public get pageInfo() {
+    public get pageInfo(): PageInfoTagValues | undefined {
         return this['page_info'];
     }
 }

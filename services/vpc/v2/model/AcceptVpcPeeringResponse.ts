@@ -5,11 +5,11 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class AcceptVpcPeeringResponse extends SdkResponse {
     public id?: string;
     public name?: string;
-    public status?: AcceptVpcPeeringResponseStatusEnum;
-    private 'request_vpc_info'?: VpcInfo | undefined;
-    private 'accept_vpc_info'?: VpcInfo | undefined;
-    private 'created_at'?: Date | undefined;
-    private 'updated_at'?: Date | undefined;
+    public status?: AcceptVpcPeeringResponseStatusEnum | string;
+    private 'request_vpc_info'?: VpcInfo;
+    private 'accept_vpc_info'?: VpcInfo;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
     public description?: string;
     public constructor() { 
         super();
@@ -22,7 +22,7 @@ export class AcceptVpcPeeringResponse extends SdkResponse {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: AcceptVpcPeeringResponseStatusEnum): AcceptVpcPeeringResponse {
+    public withStatus(status: AcceptVpcPeeringResponseStatusEnum | string): AcceptVpcPeeringResponse {
         this['status'] = status;
         return this;
     }
@@ -30,40 +30,40 @@ export class AcceptVpcPeeringResponse extends SdkResponse {
         this['request_vpc_info'] = requestVpcInfo;
         return this;
     }
-    public set requestVpcInfo(requestVpcInfo: VpcInfo | undefined) {
+    public set requestVpcInfo(requestVpcInfo: VpcInfo  | undefined) {
         this['request_vpc_info'] = requestVpcInfo;
     }
-    public get requestVpcInfo() {
+    public get requestVpcInfo(): VpcInfo | undefined {
         return this['request_vpc_info'];
     }
     public withAcceptVpcInfo(acceptVpcInfo: VpcInfo): AcceptVpcPeeringResponse {
         this['accept_vpc_info'] = acceptVpcInfo;
         return this;
     }
-    public set acceptVpcInfo(acceptVpcInfo: VpcInfo | undefined) {
+    public set acceptVpcInfo(acceptVpcInfo: VpcInfo  | undefined) {
         this['accept_vpc_info'] = acceptVpcInfo;
     }
-    public get acceptVpcInfo() {
+    public get acceptVpcInfo(): VpcInfo | undefined {
         return this['accept_vpc_info'];
     }
     public withCreatedAt(createdAt: Date): AcceptVpcPeeringResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): AcceptVpcPeeringResponse {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withDescription(description: string): AcceptVpcPeeringResponse {

@@ -2,23 +2,23 @@ import { UserAuth } from './UserAuth';
 
 
 export class UpdateUserRepositoryAuthRequest {
-    private 'Content-Type': UpdateUserRepositoryAuthRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
+    private 'Content-Type'?: UpdateUserRepositoryAuthRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
     public body?: Array<UserAuth>;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: UpdateUserRepositoryAuthRequestContentTypeEnum): UpdateUserRepositoryAuthRequest {
+    public withContentType(contentType: UpdateUserRepositoryAuthRequestContentTypeEnum | string): UpdateUserRepositoryAuthRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: UpdateUserRepositoryAuthRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: UpdateUserRepositoryAuthRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): UpdateUserRepositoryAuthRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): UpdateUserRepositoryAuthRequest {

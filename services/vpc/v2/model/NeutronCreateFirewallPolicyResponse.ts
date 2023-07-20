@@ -3,7 +3,7 @@ import { NeutronFirewallPolicy } from './NeutronFirewallPolicy';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class NeutronCreateFirewallPolicyResponse extends SdkResponse {
-    private 'firewall_policy'?: NeutronFirewallPolicy | undefined;
+    private 'firewall_policy'?: NeutronFirewallPolicy;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class NeutronCreateFirewallPolicyResponse extends SdkResponse {
         this['firewall_policy'] = firewallPolicy;
         return this;
     }
-    public set firewallPolicy(firewallPolicy: NeutronFirewallPolicy | undefined) {
+    public set firewallPolicy(firewallPolicy: NeutronFirewallPolicy  | undefined) {
         this['firewall_policy'] = firewallPolicy;
     }
-    public get firewallPolicy() {
+    public get firewallPolicy(): NeutronFirewallPolicy | undefined {
         return this['firewall_policy'];
     }
 }

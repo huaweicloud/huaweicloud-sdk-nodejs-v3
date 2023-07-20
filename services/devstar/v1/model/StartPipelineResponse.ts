@@ -3,7 +3,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class StartPipelineResponse extends SdkResponse {
     public id?: string;
-    public result?: StartPipelineResponseResultEnum;
+    public result?: StartPipelineResponseResultEnum | string;
     public constructor() { 
         super();
     }
@@ -11,7 +11,7 @@ export class StartPipelineResponse extends SdkResponse {
         this['id'] = id;
         return this;
     }
-    public withResult(result: StartPipelineResponseResultEnum): StartPipelineResponse {
+    public withResult(result: StartPipelineResponseResultEnum | string): StartPipelineResponse {
         this['result'] = result;
         return this;
     }

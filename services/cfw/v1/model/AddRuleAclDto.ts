@@ -2,10 +2,10 @@ import { AddRuleAclDtoRules } from './AddRuleAclDtoRules';
 
 
 export class AddRuleAclDto {
-    private 'object_id': string | undefined;
-    public type: AddRuleAclDtoTypeEnum;
-    public rules: Array<AddRuleAclDtoRules>;
-    public constructor(objectId?: any, type?: any, rules?: any) { 
+    private 'object_id'?: string;
+    public type?: AddRuleAclDtoTypeEnum | number;
+    public rules?: Array<AddRuleAclDtoRules>;
+    public constructor(objectId?: string, type?: number, rules?: Array<AddRuleAclDtoRules>) { 
         this['object_id'] = objectId;
         this['type'] = type;
         this['rules'] = rules;
@@ -14,13 +14,13 @@ export class AddRuleAclDto {
         this['object_id'] = objectId;
         return this;
     }
-    public set objectId(objectId: string | undefined) {
+    public set objectId(objectId: string  | undefined) {
         this['object_id'] = objectId;
     }
-    public get objectId() {
+    public get objectId(): string | undefined {
         return this['object_id'];
     }
-    public withType(type: AddRuleAclDtoTypeEnum): AddRuleAclDto {
+    public withType(type: AddRuleAclDtoTypeEnum | number): AddRuleAclDto {
         this['type'] = type;
         return this;
     }

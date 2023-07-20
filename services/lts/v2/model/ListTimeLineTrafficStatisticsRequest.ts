@@ -2,10 +2,10 @@ import { TimelineTrafficStatisticsRequestBody } from './TimelineTrafficStatistic
 
 
 export class ListTimeLineTrafficStatisticsRequest {
-    private 'Content-Type': string | undefined;
-    public timezone: string;
+    private 'Content-Type'?: string;
+    public timezone?: string;
     public body?: TimelineTrafficStatisticsRequestBody;
-    public constructor(contentType?: any, timezone?: any) { 
+    public constructor(contentType?: string, timezone?: string) { 
         this['Content-Type'] = contentType;
         this['timezone'] = timezone;
     }
@@ -13,10 +13,10 @@ export class ListTimeLineTrafficStatisticsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withTimezone(timezone: string): ListTimeLineTrafficStatisticsRequest {

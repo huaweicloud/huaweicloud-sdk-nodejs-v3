@@ -1,19 +1,19 @@
 
 
 export class PacketMessage {
-    private 'hex_index'?: string | undefined;
+    private 'hex_index'?: string;
     public hexs?: Array<string>;
-    private 'utf8_String'?: string | undefined;
+    private 'utf8_String'?: string;
     public constructor() { 
     }
     public withHexIndex(hexIndex: string): PacketMessage {
         this['hex_index'] = hexIndex;
         return this;
     }
-    public set hexIndex(hexIndex: string | undefined) {
+    public set hexIndex(hexIndex: string  | undefined) {
         this['hex_index'] = hexIndex;
     }
-    public get hexIndex() {
+    public get hexIndex(): string | undefined {
         return this['hex_index'];
     }
     public withHexs(hexs: Array<string>): PacketMessage {
@@ -24,10 +24,10 @@ export class PacketMessage {
         this['utf8_String'] = utf8String;
         return this;
     }
-    public set utf8String(utf8String: string | undefined) {
+    public set utf8String(utf8String: string  | undefined) {
         this['utf8_String'] = utf8String;
     }
-    public get utf8String() {
+    public get utf8String(): string | undefined {
         return this['utf8_String'];
     }
 }

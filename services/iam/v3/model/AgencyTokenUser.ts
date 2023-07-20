@@ -2,10 +2,10 @@ import { AgencyTokenUserDomain } from './AgencyTokenUserDomain';
 
 
 export class AgencyTokenUser {
-    public name: string;
-    public id: string;
-    public domain: AgencyTokenUserDomain;
-    public constructor(name?: any, id?: any, domain?: any) { 
+    public name?: string;
+    public id?: string;
+    public domain?: AgencyTokenUserDomain;
+    public constructor(name?: string, id?: string, domain?: AgencyTokenUserDomain) { 
         this['name'] = name;
         this['id'] = id;
         this['domain'] = domain;

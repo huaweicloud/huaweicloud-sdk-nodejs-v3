@@ -1,11 +1,11 @@
 
 
 export class UpdateProjectOption {
-    public status: UpdateProjectOptionStatusEnum;
-    public constructor(status?: any) { 
+    public status?: UpdateProjectOptionStatusEnum | string;
+    public constructor(status?: string) { 
         this['status'] = status;
     }
-    public withStatus(status: UpdateProjectOptionStatusEnum): UpdateProjectOption {
+    public withStatus(status: UpdateProjectOptionStatusEnum | string): UpdateProjectOption {
         this['status'] = status;
         return this;
     }

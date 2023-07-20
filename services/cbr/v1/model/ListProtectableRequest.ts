@@ -5,11 +5,11 @@ export class ListProtectableRequest {
     public marker?: string;
     public name?: string;
     public offset?: number;
-    private 'protectable_type': ListProtectableRequestProtectableTypeEnum | undefined;
+    private 'protectable_type'?: ListProtectableRequestProtectableTypeEnum | string;
     public status?: string;
     public id?: string;
-    private 'server_id'?: string | undefined;
-    public constructor(protectableType?: any) { 
+    private 'server_id'?: string;
+    public constructor(protectableType?: string) { 
         this['protectable_type'] = protectableType;
     }
     public withLimit(limit: number): ListProtectableRequest {
@@ -28,14 +28,14 @@ export class ListProtectableRequest {
         this['offset'] = offset;
         return this;
     }
-    public withProtectableType(protectableType: ListProtectableRequestProtectableTypeEnum): ListProtectableRequest {
+    public withProtectableType(protectableType: ListProtectableRequestProtectableTypeEnum | string): ListProtectableRequest {
         this['protectable_type'] = protectableType;
         return this;
     }
-    public set protectableType(protectableType: ListProtectableRequestProtectableTypeEnum | undefined) {
+    public set protectableType(protectableType: ListProtectableRequestProtectableTypeEnum | string  | undefined) {
         this['protectable_type'] = protectableType;
     }
-    public get protectableType() {
+    public get protectableType(): ListProtectableRequestProtectableTypeEnum | string | undefined {
         return this['protectable_type'];
     }
     public withStatus(status: string): ListProtectableRequest {
@@ -50,10 +50,10 @@ export class ListProtectableRequest {
         this['server_id'] = serverId;
         return this;
     }
-    public set serverId(serverId: string | undefined) {
+    public set serverId(serverId: string  | undefined) {
         this['server_id'] = serverId;
     }
-    public get serverId() {
+    public get serverId(): string | undefined {
         return this['server_id'];
     }
 }

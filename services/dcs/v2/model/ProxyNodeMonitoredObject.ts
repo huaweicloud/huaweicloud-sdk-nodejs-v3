@@ -1,9 +1,9 @@
 
 
 export class ProxyNodeMonitoredObject {
-    private 'dcs_instance_id'?: string | undefined;
+    private 'dcs_instance_id'?: string;
     public name?: string;
-    private 'dcs_cluster_proxy_node'?: string | undefined;
+    private 'dcs_cluster_proxy_node'?: string;
     public status?: string;
     public constructor() { 
     }
@@ -11,10 +11,10 @@ export class ProxyNodeMonitoredObject {
         this['dcs_instance_id'] = dcsInstanceId;
         return this;
     }
-    public set dcsInstanceId(dcsInstanceId: string | undefined) {
+    public set dcsInstanceId(dcsInstanceId: string  | undefined) {
         this['dcs_instance_id'] = dcsInstanceId;
     }
-    public get dcsInstanceId() {
+    public get dcsInstanceId(): string | undefined {
         return this['dcs_instance_id'];
     }
     public withName(name: string): ProxyNodeMonitoredObject {
@@ -25,10 +25,10 @@ export class ProxyNodeMonitoredObject {
         this['dcs_cluster_proxy_node'] = dcsClusterProxyNode;
         return this;
     }
-    public set dcsClusterProxyNode(dcsClusterProxyNode: string | undefined) {
+    public set dcsClusterProxyNode(dcsClusterProxyNode: string  | undefined) {
         this['dcs_cluster_proxy_node'] = dcsClusterProxyNode;
     }
-    public get dcsClusterProxyNode() {
+    public get dcsClusterProxyNode(): string | undefined {
         return this['dcs_cluster_proxy_node'];
     }
     public withStatus(status: string): ProxyNodeMonitoredObject {

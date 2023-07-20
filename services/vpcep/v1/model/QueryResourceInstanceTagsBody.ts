@@ -4,16 +4,16 @@ import { TagValuesList } from './TagValuesList';
 
 export class QueryResourceInstanceTagsBody {
     public tags?: Array<TagValuesList>;
-    private 'tags_any'?: Array<TagValuesList> | undefined;
-    private 'not_tags'?: Array<TagValuesList> | undefined;
-    private 'not_tags_any'?: Array<TagValuesList> | undefined;
-    private 'sys_tags'?: Array<TagValuesList> | undefined;
+    private 'tags_any'?: Array<TagValuesList>;
+    private 'not_tags'?: Array<TagValuesList>;
+    private 'not_tags_any'?: Array<TagValuesList>;
+    private 'sys_tags'?: Array<TagValuesList>;
     public limit?: string;
     public offset?: string;
-    public action: string;
+    public action?: string;
     public matches?: Array<Match>;
-    private 'without_any_tag'?: boolean | undefined;
-    public constructor(action?: any) { 
+    private 'without_any_tag'?: boolean;
+    public constructor(action?: string) { 
         this['action'] = action;
     }
     public withTags(tags: Array<TagValuesList>): QueryResourceInstanceTagsBody {
@@ -24,40 +24,40 @@ export class QueryResourceInstanceTagsBody {
         this['tags_any'] = tagsAny;
         return this;
     }
-    public set tagsAny(tagsAny: Array<TagValuesList> | undefined) {
+    public set tagsAny(tagsAny: Array<TagValuesList>  | undefined) {
         this['tags_any'] = tagsAny;
     }
-    public get tagsAny() {
+    public get tagsAny(): Array<TagValuesList> | undefined {
         return this['tags_any'];
     }
     public withNotTags(notTags: Array<TagValuesList>): QueryResourceInstanceTagsBody {
         this['not_tags'] = notTags;
         return this;
     }
-    public set notTags(notTags: Array<TagValuesList> | undefined) {
+    public set notTags(notTags: Array<TagValuesList>  | undefined) {
         this['not_tags'] = notTags;
     }
-    public get notTags() {
+    public get notTags(): Array<TagValuesList> | undefined {
         return this['not_tags'];
     }
     public withNotTagsAny(notTagsAny: Array<TagValuesList>): QueryResourceInstanceTagsBody {
         this['not_tags_any'] = notTagsAny;
         return this;
     }
-    public set notTagsAny(notTagsAny: Array<TagValuesList> | undefined) {
+    public set notTagsAny(notTagsAny: Array<TagValuesList>  | undefined) {
         this['not_tags_any'] = notTagsAny;
     }
-    public get notTagsAny() {
+    public get notTagsAny(): Array<TagValuesList> | undefined {
         return this['not_tags_any'];
     }
     public withSysTags(sysTags: Array<TagValuesList>): QueryResourceInstanceTagsBody {
         this['sys_tags'] = sysTags;
         return this;
     }
-    public set sysTags(sysTags: Array<TagValuesList> | undefined) {
+    public set sysTags(sysTags: Array<TagValuesList>  | undefined) {
         this['sys_tags'] = sysTags;
     }
-    public get sysTags() {
+    public get sysTags(): Array<TagValuesList> | undefined {
         return this['sys_tags'];
     }
     public withLimit(limit: string): QueryResourceInstanceTagsBody {
@@ -80,10 +80,10 @@ export class QueryResourceInstanceTagsBody {
         this['without_any_tag'] = withoutAnyTag;
         return this;
     }
-    public set withoutAnyTag(withoutAnyTag: boolean | undefined) {
+    public set withoutAnyTag(withoutAnyTag: boolean  | undefined) {
         this['without_any_tag'] = withoutAnyTag;
     }
-    public get withoutAnyTag() {
+    public get withoutAnyTag(): boolean | undefined {
         return this['without_any_tag'];
     }
 }

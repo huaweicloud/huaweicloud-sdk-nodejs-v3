@@ -2,12 +2,12 @@
 
 export class UpdateBlackWhiteListDto {
     public direction?: number;
-    private 'address_type'?: number | undefined;
+    private 'address_type'?: number;
     public address?: string;
     public protocol?: number;
     public port?: string;
-    private 'list_type'?: UpdateBlackWhiteListDtoListTypeEnum | undefined;
-    private 'object_id'?: string | undefined;
+    private 'list_type'?: UpdateBlackWhiteListDtoListTypeEnum | number;
+    private 'object_id'?: string;
     public constructor() { 
     }
     public withDirection(direction: number): UpdateBlackWhiteListDto {
@@ -18,10 +18,10 @@ export class UpdateBlackWhiteListDto {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: number | undefined) {
+    public set addressType(addressType: number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType() {
+    public get addressType(): number | undefined {
         return this['address_type'];
     }
     public withAddress(address: string): UpdateBlackWhiteListDto {
@@ -36,24 +36,24 @@ export class UpdateBlackWhiteListDto {
         this['port'] = port;
         return this;
     }
-    public withListType(listType: UpdateBlackWhiteListDtoListTypeEnum): UpdateBlackWhiteListDto {
+    public withListType(listType: UpdateBlackWhiteListDtoListTypeEnum | number): UpdateBlackWhiteListDto {
         this['list_type'] = listType;
         return this;
     }
-    public set listType(listType: UpdateBlackWhiteListDtoListTypeEnum | undefined) {
+    public set listType(listType: UpdateBlackWhiteListDtoListTypeEnum | number  | undefined) {
         this['list_type'] = listType;
     }
-    public get listType() {
+    public get listType(): UpdateBlackWhiteListDtoListTypeEnum | number | undefined {
         return this['list_type'];
     }
     public withObjectId(objectId: string): UpdateBlackWhiteListDto {
         this['object_id'] = objectId;
         return this;
     }
-    public set objectId(objectId: string | undefined) {
+    public set objectId(objectId: string  | undefined) {
         this['object_id'] = objectId;
     }
-    public get objectId() {
+    public get objectId(): string | undefined {
         return this['object_id'];
     }
 }

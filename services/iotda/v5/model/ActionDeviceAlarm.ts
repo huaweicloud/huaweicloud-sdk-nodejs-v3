@@ -1,12 +1,12 @@
 
 
 export class ActionDeviceAlarm {
-    public name: string;
-    private 'alarm_status': string | undefined;
-    public severity: string;
+    public name?: string;
+    private 'alarm_status'?: string;
+    public severity?: string;
     public dimension?: string;
     public description?: string;
-    public constructor(name?: any, alarmStatus?: any, severity?: any) { 
+    public constructor(name?: string, alarmStatus?: string, severity?: string) { 
         this['name'] = name;
         this['alarm_status'] = alarmStatus;
         this['severity'] = severity;
@@ -19,10 +19,10 @@ export class ActionDeviceAlarm {
         this['alarm_status'] = alarmStatus;
         return this;
     }
-    public set alarmStatus(alarmStatus: string | undefined) {
+    public set alarmStatus(alarmStatus: string  | undefined) {
         this['alarm_status'] = alarmStatus;
     }
-    public get alarmStatus() {
+    public get alarmStatus(): string | undefined {
         return this['alarm_status'];
     }
     public withSeverity(severity: string): ActionDeviceAlarm {

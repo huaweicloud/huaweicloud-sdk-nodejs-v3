@@ -3,7 +3,7 @@ import { TaskInfo } from './TaskInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListDeployTasksResponse extends SdkResponse {
-    private 'total_num'?: number | undefined;
+    private 'total_num'?: number;
     public result?: Array<TaskInfo>;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class ListDeployTasksResponse extends SdkResponse {
         this['total_num'] = totalNum;
         return this;
     }
-    public set totalNum(totalNum: number | undefined) {
+    public set totalNum(totalNum: number  | undefined) {
         this['total_num'] = totalNum;
     }
-    public get totalNum() {
+    public get totalNum(): number | undefined {
         return this['total_num'];
     }
     public withResult(result: Array<TaskInfo>): ListDeployTasksResponse {

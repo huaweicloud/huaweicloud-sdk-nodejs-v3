@@ -3,11 +3,11 @@ import { Templatespec } from './Templatespec';
 
 
 export class AddonTemplate {
-    public kind: string;
-    public apiVersion: string;
-    public metadata: AddonMetadata;
-    public spec: Templatespec;
-    public constructor(kind?: any, apiVersion?: any, metadata?: any, spec?: any) { 
+    public kind?: string;
+    public apiVersion?: string;
+    public metadata?: AddonMetadata;
+    public spec?: Templatespec;
+    public constructor(kind?: string, apiVersion?: string, metadata?: AddonMetadata, spec?: Templatespec) { 
         this['kind'] = kind;
         this['apiVersion'] = apiVersion;
         this['metadata'] = metadata;

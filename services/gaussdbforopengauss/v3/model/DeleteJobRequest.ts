@@ -1,0 +1,38 @@
+
+
+export class DeleteJobRequest {
+    private 'X-Language'?: DeleteJobRequestXLanguageEnum | string;
+    private 'job_id'?: string;
+    public constructor(jobId?: string) { 
+        this['job_id'] = jobId;
+    }
+    public withXLanguage(xLanguage: DeleteJobRequestXLanguageEnum | string): DeleteJobRequest {
+        this['X-Language'] = xLanguage;
+        return this;
+    }
+    public set xLanguage(xLanguage: DeleteJobRequestXLanguageEnum | string  | undefined) {
+        this['X-Language'] = xLanguage;
+    }
+    public get xLanguage(): DeleteJobRequestXLanguageEnum | string | undefined {
+        return this['X-Language'];
+    }
+    public withJobId(jobId: string): DeleteJobRequest {
+        this['job_id'] = jobId;
+        return this;
+    }
+    public set jobId(jobId: string  | undefined) {
+        this['job_id'] = jobId;
+    }
+    public get jobId(): string | undefined {
+        return this['job_id'];
+    }
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum DeleteJobRequestXLanguageEnum {
+    ZH_CN = 'zh-cn',
+    EN_US = 'en-us'
+}

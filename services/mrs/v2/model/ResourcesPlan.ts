@@ -1,13 +1,13 @@
 
 
 export class ResourcesPlan {
-    private 'period_type': string | undefined;
-    private 'start_time': string | undefined;
-    private 'end_time': string | undefined;
-    private 'min_capacity': number | undefined;
-    private 'max_capacity': number | undefined;
-    private 'effective_days'?: Array<ResourcesPlanEffectiveDaysEnum> | undefined;
-    public constructor(periodType?: any, startTime?: any, endTime?: any, minCapacity?: any, maxCapacity?: any) { 
+    private 'period_type'?: string;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
+    private 'min_capacity'?: number;
+    private 'max_capacity'?: number;
+    private 'effective_days'?: Array<ResourcesPlanEffectiveDaysEnum> | Array<string>;
+    public constructor(periodType?: string, startTime?: string, endTime?: string, minCapacity?: number, maxCapacity?: number) { 
         this['period_type'] = periodType;
         this['start_time'] = startTime;
         this['end_time'] = endTime;
@@ -18,60 +18,60 @@ export class ResourcesPlan {
         this['period_type'] = periodType;
         return this;
     }
-    public set periodType(periodType: string | undefined) {
+    public set periodType(periodType: string  | undefined) {
         this['period_type'] = periodType;
     }
-    public get periodType() {
+    public get periodType(): string | undefined {
         return this['period_type'];
     }
     public withStartTime(startTime: string): ResourcesPlan {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ResourcesPlan {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withMinCapacity(minCapacity: number): ResourcesPlan {
         this['min_capacity'] = minCapacity;
         return this;
     }
-    public set minCapacity(minCapacity: number | undefined) {
+    public set minCapacity(minCapacity: number  | undefined) {
         this['min_capacity'] = minCapacity;
     }
-    public get minCapacity() {
+    public get minCapacity(): number | undefined {
         return this['min_capacity'];
     }
     public withMaxCapacity(maxCapacity: number): ResourcesPlan {
         this['max_capacity'] = maxCapacity;
         return this;
     }
-    public set maxCapacity(maxCapacity: number | undefined) {
+    public set maxCapacity(maxCapacity: number  | undefined) {
         this['max_capacity'] = maxCapacity;
     }
-    public get maxCapacity() {
+    public get maxCapacity(): number | undefined {
         return this['max_capacity'];
     }
-    public withEffectiveDays(effectiveDays: Array<ResourcesPlanEffectiveDaysEnum>): ResourcesPlan {
+    public withEffectiveDays(effectiveDays: Array<ResourcesPlanEffectiveDaysEnum> | Array<string>): ResourcesPlan {
         this['effective_days'] = effectiveDays;
         return this;
     }
-    public set effectiveDays(effectiveDays: Array<ResourcesPlanEffectiveDaysEnum> | undefined) {
+    public set effectiveDays(effectiveDays: Array<ResourcesPlanEffectiveDaysEnum> | Array<string>  | undefined) {
         this['effective_days'] = effectiveDays;
     }
-    public get effectiveDays() {
+    public get effectiveDays(): Array<ResourcesPlanEffectiveDaysEnum> | Array<string> | undefined {
         return this['effective_days'];
     }
 }

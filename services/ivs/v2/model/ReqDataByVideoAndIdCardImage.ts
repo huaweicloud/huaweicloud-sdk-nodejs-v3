@@ -1,12 +1,12 @@
 
 
 export class ReqDataByVideoAndIdCardImage {
-    private 'idcard_image1': string | undefined;
-    private 'idcard_image2'?: string | undefined;
-    public video: string;
-    public actions: string;
-    private 'nod_threshold'?: number | undefined;
-    public constructor(idcardImage1?: any, video?: any, actions?: any) { 
+    private 'idcard_image1'?: string;
+    private 'idcard_image2'?: string;
+    public video?: string;
+    public actions?: string;
+    private 'nod_threshold'?: number;
+    public constructor(idcardImage1?: string, video?: string, actions?: string) { 
         this['idcard_image1'] = idcardImage1;
         this['video'] = video;
         this['actions'] = actions;
@@ -15,20 +15,20 @@ export class ReqDataByVideoAndIdCardImage {
         this['idcard_image1'] = idcardImage1;
         return this;
     }
-    public set idcardImage1(idcardImage1: string | undefined) {
+    public set idcardImage1(idcardImage1: string  | undefined) {
         this['idcard_image1'] = idcardImage1;
     }
-    public get idcardImage1() {
+    public get idcardImage1(): string | undefined {
         return this['idcard_image1'];
     }
     public withIdcardImage2(idcardImage2: string): ReqDataByVideoAndIdCardImage {
         this['idcard_image2'] = idcardImage2;
         return this;
     }
-    public set idcardImage2(idcardImage2: string | undefined) {
+    public set idcardImage2(idcardImage2: string  | undefined) {
         this['idcard_image2'] = idcardImage2;
     }
-    public get idcardImage2() {
+    public get idcardImage2(): string | undefined {
         return this['idcard_image2'];
     }
     public withVideo(video: string): ReqDataByVideoAndIdCardImage {
@@ -43,10 +43,10 @@ export class ReqDataByVideoAndIdCardImage {
         this['nod_threshold'] = nodThreshold;
         return this;
     }
-    public set nodThreshold(nodThreshold: number | undefined) {
+    public set nodThreshold(nodThreshold: number  | undefined) {
         this['nod_threshold'] = nodThreshold;
     }
-    public get nodThreshold() {
+    public get nodThreshold(): number | undefined {
         return this['nod_threshold'];
     }
 }

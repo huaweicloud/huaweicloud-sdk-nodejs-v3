@@ -1,9 +1,9 @@
 
 
 export class PortRange {
-    private 'from_port': number | undefined;
-    private 'to_port': number | undefined;
-    public constructor(fromPort?: any, toPort?: any) { 
+    private 'from_port'?: number;
+    private 'to_port'?: number;
+    public constructor(fromPort?: number, toPort?: number) { 
         this['from_port'] = fromPort;
         this['to_port'] = toPort;
     }
@@ -11,20 +11,20 @@ export class PortRange {
         this['from_port'] = fromPort;
         return this;
     }
-    public set fromPort(fromPort: number | undefined) {
+    public set fromPort(fromPort: number  | undefined) {
         this['from_port'] = fromPort;
     }
-    public get fromPort() {
+    public get fromPort(): number | undefined {
         return this['from_port'];
     }
     public withToPort(toPort: number): PortRange {
         this['to_port'] = toPort;
         return this;
     }
-    public set toPort(toPort: number | undefined) {
+    public set toPort(toPort: number  | undefined) {
         this['to_port'] = toPort;
     }
-    public get toPort() {
+    public get toPort(): number | undefined {
         return this['to_port'];
     }
 }

@@ -2,7 +2,7 @@ import { BatchDeleteBody } from './BatchDeleteBody';
 
 
 export class BatchDeleteInstancesRequest {
-    private 'all_failure'?: boolean | undefined;
+    private 'all_failure'?: boolean;
     public body?: BatchDeleteBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class BatchDeleteInstancesRequest {
         this['all_failure'] = allFailure;
         return this;
     }
-    public set allFailure(allFailure: boolean | undefined) {
+    public set allFailure(allFailure: boolean  | undefined) {
         this['all_failure'] = allFailure;
     }
-    public get allFailure() {
+    public get allFailure(): boolean | undefined {
         return this['all_failure'];
     }
     public withBody(body: BatchDeleteBody): BatchDeleteInstancesRequest {

@@ -1,12 +1,12 @@
 
 
 export class CreateWhiteBlackIpRuleRequestBody {
-    public name: string;
+    public name?: string;
     public addr?: string;
     public description?: string;
-    public white: number;
-    private 'ip_group_id'?: string | undefined;
-    public constructor(name?: any, white?: any) { 
+    public white?: number;
+    private 'ip_group_id'?: string;
+    public constructor(name?: string, white?: number) { 
         this['name'] = name;
         this['white'] = white;
     }
@@ -30,10 +30,10 @@ export class CreateWhiteBlackIpRuleRequestBody {
         this['ip_group_id'] = ipGroupId;
         return this;
     }
-    public set ipGroupId(ipGroupId: string | undefined) {
+    public set ipGroupId(ipGroupId: string  | undefined) {
         this['ip_group_id'] = ipGroupId;
     }
-    public get ipGroupId() {
+    public get ipGroupId(): string | undefined {
         return this['ip_group_id'];
     }
 }

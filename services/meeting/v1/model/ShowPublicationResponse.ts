@@ -14,7 +14,7 @@ export class ShowPublicationResponse extends SdkResponse {
     public publishScope?: string;
     public startTime?: number;
     public endTime?: number;
-    public publishStatus?: ShowPublicationResponsePublishStatusEnum;
+    public publishStatus?: ShowPublicationResponsePublishStatusEnum | string;
     public programList?: Array<ProgramResponseBase>;
     public deptList?: Array<PublishDeptResponseDTO>;
     public deviceList?: Array<PublishDeviceResponseDTO>;
@@ -53,7 +53,7 @@ export class ShowPublicationResponse extends SdkResponse {
         this['endTime'] = endTime;
         return this;
     }
-    public withPublishStatus(publishStatus: ShowPublicationResponsePublishStatusEnum): ShowPublicationResponse {
+    public withPublishStatus(publishStatus: ShowPublicationResponsePublishStatusEnum | string): ShowPublicationResponse {
         this['publishStatus'] = publishStatus;
         return this;
     }

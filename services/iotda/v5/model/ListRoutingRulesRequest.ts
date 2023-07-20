@@ -1,12 +1,12 @@
 
 
 export class ListRoutingRulesRequest {
-    private 'Instance-Id'?: string | undefined;
+    private 'Instance-Id'?: string;
     public resource?: string;
     public event?: string;
-    private 'app_type'?: string | undefined;
-    private 'app_id'?: string | undefined;
-    private 'rule_name'?: string | undefined;
+    private 'app_type'?: string;
+    private 'app_id'?: string;
+    private 'rule_name'?: string;
     public active?: boolean;
     public limit?: number;
     public marker?: string;
@@ -17,10 +17,10 @@ export class ListRoutingRulesRequest {
         this['Instance-Id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['Instance-Id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['Instance-Id'];
     }
     public withResource(resource: string): ListRoutingRulesRequest {
@@ -35,30 +35,30 @@ export class ListRoutingRulesRequest {
         this['app_type'] = appType;
         return this;
     }
-    public set appType(appType: string | undefined) {
+    public set appType(appType: string  | undefined) {
         this['app_type'] = appType;
     }
-    public get appType() {
+    public get appType(): string | undefined {
         return this['app_type'];
     }
     public withAppId(appId: string): ListRoutingRulesRequest {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withRuleName(ruleName: string): ListRoutingRulesRequest {
         this['rule_name'] = ruleName;
         return this;
     }
-    public set ruleName(ruleName: string | undefined) {
+    public set ruleName(ruleName: string  | undefined) {
         this['rule_name'] = ruleName;
     }
-    public get ruleName() {
+    public get ruleName(): string | undefined {
         return this['rule_name'];
     }
     public withActive(active: boolean): ListRoutingRulesRequest {

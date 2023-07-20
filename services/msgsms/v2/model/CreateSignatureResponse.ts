@@ -3,8 +3,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateSignatureResponse extends SdkResponse {
     public id?: string;
-    private 'signature_id'?: string | undefined;
-    private 'signature_name'?: string | undefined;
+    private 'signature_id'?: string;
+    private 'signature_name'?: string;
     public constructor() { 
         super();
     }
@@ -16,20 +16,20 @@ export class CreateSignatureResponse extends SdkResponse {
         this['signature_id'] = signatureId;
         return this;
     }
-    public set signatureId(signatureId: string | undefined) {
+    public set signatureId(signatureId: string  | undefined) {
         this['signature_id'] = signatureId;
     }
-    public get signatureId() {
+    public get signatureId(): string | undefined {
         return this['signature_id'];
     }
     public withSignatureName(signatureName: string): CreateSignatureResponse {
         this['signature_name'] = signatureName;
         return this;
     }
-    public set signatureName(signatureName: string | undefined) {
+    public set signatureName(signatureName: string  | undefined) {
         this['signature_name'] = signatureName;
     }
-    public get signatureName() {
+    public get signatureName(): string | undefined {
         return this['signature_name'];
     }
 }

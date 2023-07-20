@@ -1,7 +1,7 @@
 
 
 export class ListWatermarkTemplateRequest {
-    private 'template_id'?: Array<number> | undefined;
+    private 'template_id'?: Array<number>;
     public page?: number;
     public size?: number;
     public constructor() { 
@@ -10,10 +10,10 @@ export class ListWatermarkTemplateRequest {
         this['template_id'] = templateId;
         return this;
     }
-    public set templateId(templateId: Array<number> | undefined) {
+    public set templateId(templateId: Array<number>  | undefined) {
         this['template_id'] = templateId;
     }
-    public get templateId() {
+    public get templateId(): Array<number> | undefined {
         return this['template_id'];
     }
     public withPage(page: number): ListWatermarkTemplateRequest {

@@ -1,9 +1,9 @@
 
 
 export class LVMConfig {
-    public lvType: string;
+    public lvType?: string;
     public path?: string;
-    public constructor(lvType?: any) { 
+    public constructor(lvType?: string) { 
         this['lvType'] = lvType;
     }
     public withLvType(lvType: string): LVMConfig {

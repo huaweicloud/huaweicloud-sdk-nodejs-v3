@@ -1,10 +1,10 @@
 
 
 export class SlideVerifyCodeSendDTO {
-    public user: string;
-    public clientType: number;
+    public user?: string;
+    public clientType?: number;
     public checkType?: number;
-    public constructor(user?: any, clientType?: any) { 
+    public constructor(user?: string, clientType?: number) { 
         this['user'] = user;
         this['clientType'] = clientType;
     }

@@ -1,19 +1,19 @@
 
 
 export class ThumbnailPara {
-    public type?: ThumbnailParaTypeEnum;
+    public type?: ThumbnailParaTypeEnum | string;
     public time?: number;
-    private 'start_time'?: number | undefined;
+    private 'start_time'?: number;
     public duration?: number;
     public dots?: Array<number>;
-    private 'output_filename'?: string | undefined;
+    private 'output_filename'?: string;
     public format?: number;
     public width?: number;
     public height?: number;
-    private 'max_length'?: number | undefined;
+    private 'max_length'?: number;
     public constructor() { 
     }
-    public withType(type: ThumbnailParaTypeEnum): ThumbnailPara {
+    public withType(type: ThumbnailParaTypeEnum | string): ThumbnailPara {
         this['type'] = type;
         return this;
     }
@@ -25,10 +25,10 @@ export class ThumbnailPara {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withDuration(duration: number): ThumbnailPara {
@@ -43,10 +43,10 @@ export class ThumbnailPara {
         this['output_filename'] = outputFilename;
         return this;
     }
-    public set outputFilename(outputFilename: string | undefined) {
+    public set outputFilename(outputFilename: string  | undefined) {
         this['output_filename'] = outputFilename;
     }
-    public get outputFilename() {
+    public get outputFilename(): string | undefined {
         return this['output_filename'];
     }
     public withFormat(format: number): ThumbnailPara {
@@ -65,10 +65,10 @@ export class ThumbnailPara {
         this['max_length'] = maxLength;
         return this;
     }
-    public set maxLength(maxLength: number | undefined) {
+    public set maxLength(maxLength: number  | undefined) {
         this['max_length'] = maxLength;
     }
-    public get maxLength() {
+    public get maxLength(): number | undefined {
         return this['max_length'];
     }
 }

@@ -1,10 +1,10 @@
 
 
 export class EpQuotas {
-    public quota: number;
-    public type: string;
-    public used: number;
-    public constructor(quota?: any, type?: any, used?: any) { 
+    public quota?: number;
+    public type?: string;
+    public used?: number;
+    public constructor(quota?: number, type?: string, used?: number) { 
         this['quota'] = quota;
         this['type'] = type;
         this['used'] = used;

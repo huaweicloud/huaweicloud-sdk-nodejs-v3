@@ -1,9 +1,9 @@
 
 
 export class StopMeetingRequest {
-    public conferenceID: string;
-    private 'X-Conference-Authorization': string | undefined;
-    public constructor(conferenceID?: any, xConferenceAuthorization?: any) { 
+    public conferenceID?: string;
+    private 'X-Conference-Authorization'?: string;
+    public constructor(conferenceID?: string, xConferenceAuthorization?: string) { 
         this['conferenceID'] = conferenceID;
         this['X-Conference-Authorization'] = xConferenceAuthorization;
     }
@@ -15,10 +15,10 @@ export class StopMeetingRequest {
         this['X-Conference-Authorization'] = xConferenceAuthorization;
         return this;
     }
-    public set xConferenceAuthorization(xConferenceAuthorization: string | undefined) {
+    public set xConferenceAuthorization(xConferenceAuthorization: string  | undefined) {
         this['X-Conference-Authorization'] = xConferenceAuthorization;
     }
-    public get xConferenceAuthorization() {
+    public get xConferenceAuthorization(): string | undefined {
         return this['X-Conference-Authorization'];
     }
 }

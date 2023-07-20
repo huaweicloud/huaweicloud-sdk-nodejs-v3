@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateRefreshTasksResponse extends SdkResponse {
-    private 'refresh_task'?: string | undefined;
+    private 'refresh_task'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class CreateRefreshTasksResponse extends SdkResponse {
         this['refresh_task'] = refreshTask;
         return this;
     }
-    public set refreshTask(refreshTask: string | undefined) {
+    public set refreshTask(refreshTask: string  | undefined) {
         this['refresh_task'] = refreshTask;
     }
-    public get refreshTask() {
+    public get refreshTask(): string | undefined {
         return this['refresh_task'];
     }
 }

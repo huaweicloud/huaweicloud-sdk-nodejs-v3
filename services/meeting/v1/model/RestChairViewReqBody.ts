@@ -1,11 +1,11 @@
 
 
 export class RestChairViewReqBody {
-    public viewType: number;
+    public viewType?: number;
     public participantID?: string;
     public switchTime?: number;
     public status?: number;
-    public constructor(viewType?: any) { 
+    public constructor(viewType?: number) { 
         this['viewType'] = viewType;
     }
     public withViewType(viewType: number): RestChairViewReqBody {

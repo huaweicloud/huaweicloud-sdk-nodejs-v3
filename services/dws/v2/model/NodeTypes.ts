@@ -6,17 +6,17 @@ import { VolumeResp } from './VolumeResp';
 
 
 export class NodeTypes {
-    private 'spec_name': string | undefined;
-    public detail: Array<Detail>;
-    public id: string;
-    private 'datastore_type': string | undefined;
-    private 'available_zones': Array<NodeTypeAvailableZones> | undefined;
-    public ram: number;
-    public vcpus: number;
-    public datastores: Array<NodeTypeDatastores>;
-    public volume: VolumeResp;
-    private 'elastic_volume_specs': Array<NodeTypeElasticVolumeSpecs> | undefined;
-    public constructor(specName?: any, detail?: any, id?: any, datastoreType?: any, availableZones?: any, ram?: any, vcpus?: any, datastores?: any, volume?: any, elasticVolumeSpecs?: any) { 
+    private 'spec_name'?: string;
+    public detail?: Array<Detail>;
+    public id?: string;
+    private 'datastore_type'?: string;
+    private 'available_zones'?: Array<NodeTypeAvailableZones>;
+    public ram?: number;
+    public vcpus?: number;
+    public datastores?: Array<NodeTypeDatastores>;
+    public volume?: VolumeResp;
+    private 'elastic_volume_specs'?: Array<NodeTypeElasticVolumeSpecs>;
+    public constructor(specName?: string, detail?: Array<Detail>, id?: string, datastoreType?: string, availableZones?: Array<NodeTypeAvailableZones>, ram?: number, vcpus?: number, datastores?: Array<NodeTypeDatastores>, volume?: VolumeResp, elasticVolumeSpecs?: Array<NodeTypeElasticVolumeSpecs>) { 
         this['spec_name'] = specName;
         this['detail'] = detail;
         this['id'] = id;
@@ -32,10 +32,10 @@ export class NodeTypes {
         this['spec_name'] = specName;
         return this;
     }
-    public set specName(specName: string | undefined) {
+    public set specName(specName: string  | undefined) {
         this['spec_name'] = specName;
     }
-    public get specName() {
+    public get specName(): string | undefined {
         return this['spec_name'];
     }
     public withDetail(detail: Array<Detail>): NodeTypes {
@@ -50,20 +50,20 @@ export class NodeTypes {
         this['datastore_type'] = datastoreType;
         return this;
     }
-    public set datastoreType(datastoreType: string | undefined) {
+    public set datastoreType(datastoreType: string  | undefined) {
         this['datastore_type'] = datastoreType;
     }
-    public get datastoreType() {
+    public get datastoreType(): string | undefined {
         return this['datastore_type'];
     }
     public withAvailableZones(availableZones: Array<NodeTypeAvailableZones>): NodeTypes {
         this['available_zones'] = availableZones;
         return this;
     }
-    public set availableZones(availableZones: Array<NodeTypeAvailableZones> | undefined) {
+    public set availableZones(availableZones: Array<NodeTypeAvailableZones>  | undefined) {
         this['available_zones'] = availableZones;
     }
-    public get availableZones() {
+    public get availableZones(): Array<NodeTypeAvailableZones> | undefined {
         return this['available_zones'];
     }
     public withRam(ram: number): NodeTypes {
@@ -86,10 +86,10 @@ export class NodeTypes {
         this['elastic_volume_specs'] = elasticVolumeSpecs;
         return this;
     }
-    public set elasticVolumeSpecs(elasticVolumeSpecs: Array<NodeTypeElasticVolumeSpecs> | undefined) {
+    public set elasticVolumeSpecs(elasticVolumeSpecs: Array<NodeTypeElasticVolumeSpecs>  | undefined) {
         this['elastic_volume_specs'] = elasticVolumeSpecs;
     }
-    public get elasticVolumeSpecs() {
+    public get elasticVolumeSpecs(): Array<NodeTypeElasticVolumeSpecs> | undefined {
         return this['elastic_volume_specs'];
     }
 }

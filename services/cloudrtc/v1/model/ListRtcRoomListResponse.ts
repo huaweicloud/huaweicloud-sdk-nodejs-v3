@@ -6,8 +6,8 @@ export class ListRtcRoomListResponse extends SdkResponse {
     public total?: number;
     public limit?: number;
     public offset?: number;
-    private 'room_info_list'?: Array<RtcServerRoomInfo> | undefined;
-    private 'X-request-id'?: string | undefined;
+    private 'room_info_list'?: Array<RtcServerRoomInfo>;
+    private 'X-request-id'?: string;
     public constructor() { 
         super();
     }
@@ -27,20 +27,20 @@ export class ListRtcRoomListResponse extends SdkResponse {
         this['room_info_list'] = roomInfoList;
         return this;
     }
-    public set roomInfoList(roomInfoList: Array<RtcServerRoomInfo> | undefined) {
+    public set roomInfoList(roomInfoList: Array<RtcServerRoomInfo>  | undefined) {
         this['room_info_list'] = roomInfoList;
     }
-    public get roomInfoList() {
+    public get roomInfoList(): Array<RtcServerRoomInfo> | undefined {
         return this['room_info_list'];
     }
     public withXRequestId(xRequestId: string): ListRtcRoomListResponse {
         this['X-request-id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-request-id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-request-id'];
     }
 }

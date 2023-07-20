@@ -1,9 +1,9 @@
 
 
 export class ConfirmImageUploadReq {
-    public id: string;
-    public status: ConfirmImageUploadReqStatusEnum;
-    public constructor(id?: any, status?: any) { 
+    public id?: string;
+    public status?: ConfirmImageUploadReqStatusEnum | string;
+    public constructor(id?: string, status?: string) { 
         this['id'] = id;
         this['status'] = status;
     }
@@ -11,7 +11,7 @@ export class ConfirmImageUploadReq {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: ConfirmImageUploadReqStatusEnum): ConfirmImageUploadReq {
+    public withStatus(status: ConfirmImageUploadReqStatusEnum | string): ConfirmImageUploadReq {
         this['status'] = status;
         return this;
     }

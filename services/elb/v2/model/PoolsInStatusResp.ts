@@ -3,13 +3,13 @@ import { MembersInStatusResp } from './MembersInStatusResp';
 
 
 export class PoolsInStatusResp {
-    public id: string;
-    public name: string;
-    public members: Array<MembersInStatusResp>;
-    private 'operating_status': string | undefined;
-    private 'provisioning_status': string | undefined;
-    public healthmonitor: HealthmonitorsInStatusResp;
-    public constructor(id?: any, name?: any, members?: any, operatingStatus?: any, provisioningStatus?: any, healthmonitor?: any) { 
+    public id?: string;
+    public name?: string;
+    public members?: Array<MembersInStatusResp>;
+    private 'operating_status'?: string;
+    private 'provisioning_status'?: string;
+    public healthmonitor?: HealthmonitorsInStatusResp;
+    public constructor(id?: string, name?: string, members?: Array<MembersInStatusResp>, operatingStatus?: string, provisioningStatus?: string, healthmonitor?: HealthmonitorsInStatusResp) { 
         this['id'] = id;
         this['name'] = name;
         this['members'] = members;
@@ -33,20 +33,20 @@ export class PoolsInStatusResp {
         this['operating_status'] = operatingStatus;
         return this;
     }
-    public set operatingStatus(operatingStatus: string | undefined) {
+    public set operatingStatus(operatingStatus: string  | undefined) {
         this['operating_status'] = operatingStatus;
     }
-    public get operatingStatus() {
+    public get operatingStatus(): string | undefined {
         return this['operating_status'];
     }
     public withProvisioningStatus(provisioningStatus: string): PoolsInStatusResp {
         this['provisioning_status'] = provisioningStatus;
         return this;
     }
-    public set provisioningStatus(provisioningStatus: string | undefined) {
+    public set provisioningStatus(provisioningStatus: string  | undefined) {
         this['provisioning_status'] = provisioningStatus;
     }
-    public get provisioningStatus() {
+    public get provisioningStatus(): string | undefined {
         return this['provisioning_status'];
     }
     public withHealthmonitor(healthmonitor: HealthmonitorsInStatusResp): PoolsInStatusResp {

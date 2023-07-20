@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowSyncJobResponse extends SdkResponse {
     public body?: Array<SyncJob>;
-    private 'Content-Range'?: string | undefined;
+    private 'Content-Range'?: string;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ShowSyncJobResponse extends SdkResponse {
         this['Content-Range'] = contentRange;
         return this;
     }
-    public set contentRange(contentRange: string | undefined) {
+    public set contentRange(contentRange: string  | undefined) {
         this['Content-Range'] = contentRange;
     }
-    public get contentRange() {
+    public get contentRange(): string | undefined {
         return this['Content-Range'];
     }
 }

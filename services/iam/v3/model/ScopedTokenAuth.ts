@@ -3,9 +3,9 @@ import { TokenSocpeOption } from './TokenSocpeOption';
 
 
 export class ScopedTokenAuth {
-    public identity: ScopedTokenIdentity;
-    public scope: TokenSocpeOption;
-    public constructor(identity?: any, scope?: any) { 
+    public identity?: ScopedTokenIdentity;
+    public scope?: TokenSocpeOption;
+    public constructor(identity?: ScopedTokenIdentity, scope?: TokenSocpeOption) { 
         this['identity'] = identity;
         this['scope'] = scope;
     }

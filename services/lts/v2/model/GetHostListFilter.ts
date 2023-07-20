@@ -1,50 +1,50 @@
 
 
 export class GetHostListFilter {
-    private 'host_name_list'?: Array<string> | undefined;
-    private 'host_ip_list'?: Array<string> | undefined;
-    private 'host_status'?: GetHostListFilterHostStatusEnum | undefined;
-    private 'host_version'?: string | undefined;
+    private 'host_name_list'?: Array<string>;
+    private 'host_ip_list'?: Array<string>;
+    private 'host_status'?: GetHostListFilterHostStatusEnum | string;
+    private 'host_version'?: string;
     public constructor() { 
     }
     public withHostNameList(hostNameList: Array<string>): GetHostListFilter {
         this['host_name_list'] = hostNameList;
         return this;
     }
-    public set hostNameList(hostNameList: Array<string> | undefined) {
+    public set hostNameList(hostNameList: Array<string>  | undefined) {
         this['host_name_list'] = hostNameList;
     }
-    public get hostNameList() {
+    public get hostNameList(): Array<string> | undefined {
         return this['host_name_list'];
     }
     public withHostIpList(hostIpList: Array<string>): GetHostListFilter {
         this['host_ip_list'] = hostIpList;
         return this;
     }
-    public set hostIpList(hostIpList: Array<string> | undefined) {
+    public set hostIpList(hostIpList: Array<string>  | undefined) {
         this['host_ip_list'] = hostIpList;
     }
-    public get hostIpList() {
+    public get hostIpList(): Array<string> | undefined {
         return this['host_ip_list'];
     }
-    public withHostStatus(hostStatus: GetHostListFilterHostStatusEnum): GetHostListFilter {
+    public withHostStatus(hostStatus: GetHostListFilterHostStatusEnum | string): GetHostListFilter {
         this['host_status'] = hostStatus;
         return this;
     }
-    public set hostStatus(hostStatus: GetHostListFilterHostStatusEnum | undefined) {
+    public set hostStatus(hostStatus: GetHostListFilterHostStatusEnum | string  | undefined) {
         this['host_status'] = hostStatus;
     }
-    public get hostStatus() {
+    public get hostStatus(): GetHostListFilterHostStatusEnum | string | undefined {
         return this['host_status'];
     }
     public withHostVersion(hostVersion: string): GetHostListFilter {
         this['host_version'] = hostVersion;
         return this;
     }
-    public set hostVersion(hostVersion: string | undefined) {
+    public set hostVersion(hostVersion: string  | undefined) {
         this['host_version'] = hostVersion;
     }
-    public get hostVersion() {
+    public get hostVersion(): string | undefined {
         return this['host_version'];
     }
 }

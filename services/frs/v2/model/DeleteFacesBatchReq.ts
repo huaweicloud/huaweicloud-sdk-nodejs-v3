@@ -1,8 +1,8 @@
 
 
 export class DeleteFacesBatchReq {
-    public filter: string;
-    public constructor(filter?: any) { 
+    public filter?: string;
+    public constructor(filter?: string) { 
         this['filter'] = filter;
     }
     public withFilter(filter: string): DeleteFacesBatchReq {

@@ -1,7 +1,7 @@
 
 
 export class FGSDeploymentJobsParam {
-    private 'file_id'?: string | undefined;
+    private 'file_id'?: string;
     public handler?: string;
     public constructor() { 
     }
@@ -9,10 +9,10 @@ export class FGSDeploymentJobsParam {
         this['file_id'] = fileId;
         return this;
     }
-    public set fileId(fileId: string | undefined) {
+    public set fileId(fileId: string  | undefined) {
         this['file_id'] = fileId;
     }
-    public get fileId() {
+    public get fileId(): string | undefined {
         return this['file_id'];
     }
     public withHandler(handler: string): FGSDeploymentJobsParam {

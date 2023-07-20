@@ -3,7 +3,7 @@
 export class ShowInstanceTopicDetailRespReplicas {
     public broker?: number;
     public leader?: boolean;
-    private 'in_sync'?: boolean | undefined;
+    private 'in_sync'?: boolean;
     public size?: number;
     public lag?: number;
     public constructor() { 
@@ -20,10 +20,10 @@ export class ShowInstanceTopicDetailRespReplicas {
         this['in_sync'] = inSync;
         return this;
     }
-    public set inSync(inSync: boolean | undefined) {
+    public set inSync(inSync: boolean  | undefined) {
         this['in_sync'] = inSync;
     }
-    public get inSync() {
+    public get inSync(): boolean | undefined {
         return this['in_sync'];
     }
     public withSize(size: number): ShowInstanceTopicDetailRespReplicas {

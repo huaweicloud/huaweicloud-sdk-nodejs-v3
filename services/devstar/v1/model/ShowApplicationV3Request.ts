@@ -1,29 +1,29 @@
 
 
 export class ShowApplicationV3Request {
-    private 'X-Language'?: ShowApplicationV3RequestXLanguageEnum | undefined;
-    private 'application_id': string | undefined;
-    public constructor(applicationId?: any) { 
+    private 'X-Language'?: ShowApplicationV3RequestXLanguageEnum | string;
+    private 'application_id'?: string;
+    public constructor(applicationId?: string) { 
         this['application_id'] = applicationId;
     }
-    public withXLanguage(xLanguage: ShowApplicationV3RequestXLanguageEnum): ShowApplicationV3Request {
+    public withXLanguage(xLanguage: ShowApplicationV3RequestXLanguageEnum | string): ShowApplicationV3Request {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: ShowApplicationV3RequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: ShowApplicationV3RequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): ShowApplicationV3RequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withApplicationId(applicationId: string): ShowApplicationV3Request {
         this['application_id'] = applicationId;
         return this;
     }
-    public set applicationId(applicationId: string | undefined) {
+    public set applicationId(applicationId: string  | undefined) {
         this['application_id'] = applicationId;
     }
-    public get applicationId() {
+    public get applicationId(): string | undefined {
         return this['application_id'];
     }
 }

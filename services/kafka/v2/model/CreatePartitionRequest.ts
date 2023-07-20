@@ -2,10 +2,10 @@ import { CreatePartitionReq } from './CreatePartitionReq';
 
 
 export class CreatePartitionRequest {
-    private 'instance_id': string | undefined;
-    public topic: string;
+    private 'instance_id'?: string;
+    public topic?: string;
     public body?: CreatePartitionReq;
-    public constructor(instanceId?: any, topic?: any) { 
+    public constructor(instanceId?: string, topic?: string) { 
         this['instance_id'] = instanceId;
         this['topic'] = topic;
     }
@@ -13,10 +13,10 @@ export class CreatePartitionRequest {
         this['instance_id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['instance_id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['instance_id'];
     }
     public withTopic(topic: string): CreatePartitionRequest {

@@ -3,8 +3,8 @@
 export class ImageTaggingBoundingBox {
     public width?: number;
     public height?: number;
-    private 'top_left_x'?: number | undefined;
-    private 'top_left_y'?: number | undefined;
+    private 'top_left_x'?: number;
+    private 'top_left_y'?: number;
     public constructor() { 
     }
     public withWidth(width: number): ImageTaggingBoundingBox {
@@ -19,20 +19,20 @@ export class ImageTaggingBoundingBox {
         this['top_left_x'] = topLeftX;
         return this;
     }
-    public set topLeftX(topLeftX: number | undefined) {
+    public set topLeftX(topLeftX: number  | undefined) {
         this['top_left_x'] = topLeftX;
     }
-    public get topLeftX() {
+    public get topLeftX(): number | undefined {
         return this['top_left_x'];
     }
     public withTopLeftY(topLeftY: number): ImageTaggingBoundingBox {
         this['top_left_y'] = topLeftY;
         return this;
     }
-    public set topLeftY(topLeftY: number | undefined) {
+    public set topLeftY(topLeftY: number  | undefined) {
         this['top_left_y'] = topLeftY;
     }
-    public get topLeftY() {
+    public get topLeftY(): number | undefined {
         return this['top_left_y'];
     }
 }

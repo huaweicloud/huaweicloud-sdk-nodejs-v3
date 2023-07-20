@@ -2,11 +2,11 @@ import { BatchCreateRecordSetWithLine } from './BatchCreateRecordSetWithLine';
 
 
 export class CreateRSetBatchLinesReq {
-    public name: string;
+    public name?: string;
     public description?: string;
-    public type: string;
-    public lines: Array<BatchCreateRecordSetWithLine>;
-    public constructor(name?: any, type?: any, lines?: any) { 
+    public type?: string;
+    public lines?: Array<BatchCreateRecordSetWithLine>;
+    public constructor(name?: string, type?: string, lines?: Array<BatchCreateRecordSetWithLine>) { 
         this['name'] = name;
         this['type'] = type;
         this['lines'] = lines;

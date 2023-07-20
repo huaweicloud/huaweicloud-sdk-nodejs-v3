@@ -3,7 +3,7 @@
 export class ListIpGroupsRequest {
     public limit?: number;
     public marker?: string;
-    private 'listener_id'?: string | undefined;
+    private 'listener_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListIpGroupsRequest {
@@ -18,10 +18,10 @@ export class ListIpGroupsRequest {
         this['listener_id'] = listenerId;
         return this;
     }
-    public set listenerId(listenerId: string | undefined) {
+    public set listenerId(listenerId: string  | undefined) {
         this['listener_id'] = listenerId;
     }
-    public get listenerId() {
+    public get listenerId(): string | undefined {
         return this['listener_id'];
     }
 }

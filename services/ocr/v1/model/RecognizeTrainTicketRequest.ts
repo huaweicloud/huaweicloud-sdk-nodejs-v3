@@ -2,7 +2,7 @@ import { TrainTicketRequestBody } from './TrainTicketRequestBody';
 
 
 export class RecognizeTrainTicketRequest {
-    private 'Enterprise-Project-Id'?: string | undefined;
+    private 'Enterprise-Project-Id'?: string;
     public body?: TrainTicketRequestBody;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class RecognizeTrainTicketRequest {
         this['Enterprise-Project-Id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['Enterprise-Project-Id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['Enterprise-Project-Id'];
     }
     public withBody(body: TrainTicketRequestBody): RecognizeTrainTicketRequest {

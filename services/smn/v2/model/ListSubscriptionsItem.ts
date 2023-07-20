@@ -1,14 +1,14 @@
 
 
 export class ListSubscriptionsItem {
-    private 'topic_urn': string | undefined;
-    public protocol: string;
-    private 'subscription_urn': string | undefined;
-    public owner: string;
-    public endpoint: string;
-    public remark: string;
-    public status: number;
-    public constructor(topicUrn?: any, protocol?: any, subscriptionUrn?: any, owner?: any, endpoint?: any, remark?: any, status?: any) { 
+    private 'topic_urn'?: string;
+    public protocol?: string;
+    private 'subscription_urn'?: string;
+    public owner?: string;
+    public endpoint?: string;
+    public remark?: string;
+    public status?: number;
+    public constructor(topicUrn?: string, protocol?: string, subscriptionUrn?: string, owner?: string, endpoint?: string, remark?: string, status?: number) { 
         this['topic_urn'] = topicUrn;
         this['protocol'] = protocol;
         this['subscription_urn'] = subscriptionUrn;
@@ -21,10 +21,10 @@ export class ListSubscriptionsItem {
         this['topic_urn'] = topicUrn;
         return this;
     }
-    public set topicUrn(topicUrn: string | undefined) {
+    public set topicUrn(topicUrn: string  | undefined) {
         this['topic_urn'] = topicUrn;
     }
-    public get topicUrn() {
+    public get topicUrn(): string | undefined {
         return this['topic_urn'];
     }
     public withProtocol(protocol: string): ListSubscriptionsItem {
@@ -35,10 +35,10 @@ export class ListSubscriptionsItem {
         this['subscription_urn'] = subscriptionUrn;
         return this;
     }
-    public set subscriptionUrn(subscriptionUrn: string | undefined) {
+    public set subscriptionUrn(subscriptionUrn: string  | undefined) {
         this['subscription_urn'] = subscriptionUrn;
     }
-    public get subscriptionUrn() {
+    public get subscriptionUrn(): string | undefined {
         return this['subscription_urn'];
     }
     public withOwner(owner: string): ListSubscriptionsItem {

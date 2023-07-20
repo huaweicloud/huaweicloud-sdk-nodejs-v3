@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateDeploymentHostResponse extends SdkResponse {
-    private 'host_id'?: string | undefined;
+    private 'host_id'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class CreateDeploymentHostResponse extends SdkResponse {
         this['host_id'] = hostId;
         return this;
     }
-    public set hostId(hostId: string | undefined) {
+    public set hostId(hostId: string  | undefined) {
         this['host_id'] = hostId;
     }
-    public get hostId() {
+    public get hostId(): string | undefined {
         return this['host_id'];
     }
 }

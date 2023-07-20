@@ -3,8 +3,8 @@ import { QueryTranscodingsTaskResponse } from './QueryTranscodingsTaskResponse';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListTranscodingTaskResponse extends SdkResponse {
-    private 'task_array'?: Array<QueryTranscodingsTaskResponse> | undefined;
-    private 'is_truncated'?: number | undefined;
+    private 'task_array'?: Array<QueryTranscodingsTaskResponse>;
+    private 'is_truncated'?: number;
     public total?: number;
     public constructor() { 
         super();
@@ -13,20 +13,20 @@ export class ListTranscodingTaskResponse extends SdkResponse {
         this['task_array'] = taskArray;
         return this;
     }
-    public set taskArray(taskArray: Array<QueryTranscodingsTaskResponse> | undefined) {
+    public set taskArray(taskArray: Array<QueryTranscodingsTaskResponse>  | undefined) {
         this['task_array'] = taskArray;
     }
-    public get taskArray() {
+    public get taskArray(): Array<QueryTranscodingsTaskResponse> | undefined {
         return this['task_array'];
     }
     public withIsTruncated(isTruncated: number): ListTranscodingTaskResponse {
         this['is_truncated'] = isTruncated;
         return this;
     }
-    public set isTruncated(isTruncated: number | undefined) {
+    public set isTruncated(isTruncated: number  | undefined) {
         this['is_truncated'] = isTruncated;
     }
-    public get isTruncated() {
+    public get isTruncated(): number | undefined {
         return this['is_truncated'];
     }
     public withTotal(total: number): ListTranscodingTaskResponse {

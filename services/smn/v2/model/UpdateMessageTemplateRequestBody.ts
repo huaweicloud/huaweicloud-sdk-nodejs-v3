@@ -1,8 +1,8 @@
 
 
 export class UpdateMessageTemplateRequestBody {
-    public content: string;
-    public constructor(content?: any) { 
+    public content?: string;
+    public constructor(content?: string) { 
         this['content'] = content;
     }
     public withContent(content: string): UpdateMessageTemplateRequestBody {

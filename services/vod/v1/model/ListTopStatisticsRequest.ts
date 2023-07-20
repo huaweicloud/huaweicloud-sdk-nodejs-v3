@@ -1,10 +1,10 @@
 
 
 export class ListTopStatisticsRequest {
-    private 'X-Sdk-Date'?: string | undefined;
-    public domain: string;
-    public date: string;
-    public constructor(domain?: any, date?: any) { 
+    private 'X-Sdk-Date'?: string;
+    public domain?: string;
+    public date?: string;
+    public constructor(domain?: string, date?: string) { 
         this['domain'] = domain;
         this['date'] = date;
     }
@@ -12,10 +12,10 @@ export class ListTopStatisticsRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withDomain(domain: string): ListTopStatisticsRequest {

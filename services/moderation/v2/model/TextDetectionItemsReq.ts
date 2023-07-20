@@ -1,9 +1,9 @@
 
 
 export class TextDetectionItemsReq {
-    public text: string;
+    public text?: string;
     public type?: string;
-    public constructor(text?: any) { 
+    public constructor(text?: string) { 
         this['text'] = text;
     }
     public withText(text: string): TextDetectionItemsReq {

@@ -1,10 +1,10 @@
 
 
 export class OpenNotifySetting {
-    public enableCalendar: string;
-    public enableSms: string;
-    public enableEmail: string;
-    public constructor(enableCalendar?: any, enableSms?: any, enableEmail?: any) { 
+    public enableCalendar?: string;
+    public enableSms?: string;
+    public enableEmail?: string;
+    public constructor(enableCalendar?: string, enableSms?: string, enableEmail?: string) { 
         this['enableCalendar'] = enableCalendar;
         this['enableSms'] = enableSms;
         this['enableEmail'] = enableEmail;

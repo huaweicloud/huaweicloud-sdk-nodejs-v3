@@ -2,15 +2,15 @@ import { VpcInfo } from './VpcInfo';
 
 
 export class VpcPeering {
-    public id: string;
-    public name: string;
-    public status: VpcPeeringStatusEnum;
-    private 'request_vpc_info': VpcInfo | undefined;
-    private 'accept_vpc_info': VpcInfo | undefined;
-    private 'created_at': Date | undefined;
-    private 'updated_at': Date | undefined;
-    public description: string;
-    public constructor(id?: any, name?: any, status?: any, requestVpcInfo?: any, acceptVpcInfo?: any, createdAt?: any, updatedAt?: any, description?: any) { 
+    public id?: string;
+    public name?: string;
+    public status?: VpcPeeringStatusEnum | string;
+    private 'request_vpc_info'?: VpcInfo;
+    private 'accept_vpc_info'?: VpcInfo;
+    private 'created_at'?: Date;
+    private 'updated_at'?: Date;
+    public description?: string;
+    public constructor(id?: string, name?: string, status?: string, requestVpcInfo?: VpcInfo, acceptVpcInfo?: VpcInfo, createdAt?: Date, updatedAt?: Date, description?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['status'] = status;
@@ -28,7 +28,7 @@ export class VpcPeering {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: VpcPeeringStatusEnum): VpcPeering {
+    public withStatus(status: VpcPeeringStatusEnum | string): VpcPeering {
         this['status'] = status;
         return this;
     }
@@ -36,40 +36,40 @@ export class VpcPeering {
         this['request_vpc_info'] = requestVpcInfo;
         return this;
     }
-    public set requestVpcInfo(requestVpcInfo: VpcInfo | undefined) {
+    public set requestVpcInfo(requestVpcInfo: VpcInfo  | undefined) {
         this['request_vpc_info'] = requestVpcInfo;
     }
-    public get requestVpcInfo() {
+    public get requestVpcInfo(): VpcInfo | undefined {
         return this['request_vpc_info'];
     }
     public withAcceptVpcInfo(acceptVpcInfo: VpcInfo): VpcPeering {
         this['accept_vpc_info'] = acceptVpcInfo;
         return this;
     }
-    public set acceptVpcInfo(acceptVpcInfo: VpcInfo | undefined) {
+    public set acceptVpcInfo(acceptVpcInfo: VpcInfo  | undefined) {
         this['accept_vpc_info'] = acceptVpcInfo;
     }
-    public get acceptVpcInfo() {
+    public get acceptVpcInfo(): VpcInfo | undefined {
         return this['accept_vpc_info'];
     }
     public withCreatedAt(createdAt: Date): VpcPeering {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: Date | undefined) {
+    public set createdAt(createdAt: Date  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): Date | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: Date): VpcPeering {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: Date | undefined) {
+    public set updatedAt(updatedAt: Date  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): Date | undefined {
         return this['updated_at'];
     }
     public withDescription(description: string): VpcPeering {

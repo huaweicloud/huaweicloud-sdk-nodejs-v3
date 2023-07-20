@@ -2,15 +2,15 @@ import { TaskPolicy } from './TaskPolicy';
 
 
 export class CreateBatchTask {
-    private 'app_id'?: string | undefined;
-    private 'task_name': string | undefined;
-    private 'task_type': string | undefined;
+    private 'app_id'?: string;
+    private 'task_name'?: string;
+    private 'task_type'?: string;
     public targets?: Array<string>;
-    private 'targets_filter'?: { [key: string]: object; } | undefined;
+    private 'targets_filter'?: { [key: string]: object; };
     public document?: object;
-    private 'task_policy'?: TaskPolicy | undefined;
-    private 'document_source'?: string | undefined;
-    public constructor(taskName?: any, taskType?: any) { 
+    private 'task_policy'?: TaskPolicy;
+    private 'document_source'?: string;
+    public constructor(taskName?: string, taskType?: string) { 
         this['task_name'] = taskName;
         this['task_type'] = taskType;
     }
@@ -18,30 +18,30 @@ export class CreateBatchTask {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withTaskName(taskName: string): CreateBatchTask {
         this['task_name'] = taskName;
         return this;
     }
-    public set taskName(taskName: string | undefined) {
+    public set taskName(taskName: string  | undefined) {
         this['task_name'] = taskName;
     }
-    public get taskName() {
+    public get taskName(): string | undefined {
         return this['task_name'];
     }
     public withTaskType(taskType: string): CreateBatchTask {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: string | undefined) {
+    public set taskType(taskType: string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): string | undefined {
         return this['task_type'];
     }
     public withTargets(targets: Array<string>): CreateBatchTask {
@@ -52,10 +52,10 @@ export class CreateBatchTask {
         this['targets_filter'] = targetsFilter;
         return this;
     }
-    public set targetsFilter(targetsFilter: { [key: string]: object; } | undefined) {
+    public set targetsFilter(targetsFilter: { [key: string]: object; }  | undefined) {
         this['targets_filter'] = targetsFilter;
     }
-    public get targetsFilter() {
+    public get targetsFilter(): { [key: string]: object; } | undefined {
         return this['targets_filter'];
     }
     public withDocument(document: object): CreateBatchTask {
@@ -66,20 +66,20 @@ export class CreateBatchTask {
         this['task_policy'] = taskPolicy;
         return this;
     }
-    public set taskPolicy(taskPolicy: TaskPolicy | undefined) {
+    public set taskPolicy(taskPolicy: TaskPolicy  | undefined) {
         this['task_policy'] = taskPolicy;
     }
-    public get taskPolicy() {
+    public get taskPolicy(): TaskPolicy | undefined {
         return this['task_policy'];
     }
     public withDocumentSource(documentSource: string): CreateBatchTask {
         this['document_source'] = documentSource;
         return this;
     }
-    public set documentSource(documentSource: string | undefined) {
+    public set documentSource(documentSource: string  | undefined) {
         this['document_source'] = documentSource;
     }
-    public get documentSource() {
+    public get documentSource(): string | undefined {
         return this['document_source'];
     }
 }

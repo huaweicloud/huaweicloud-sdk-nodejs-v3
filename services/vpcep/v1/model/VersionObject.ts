@@ -2,19 +2,19 @@ import { Link } from './Link';
 
 
 export class VersionObject {
-    public status?: VersionObjectStatusEnum;
-    public id?: VersionObjectIdEnum;
+    public status?: VersionObjectStatusEnum | string;
+    public id?: VersionObjectIdEnum | string;
     public updated?: string;
     public version?: string;
-    private 'min_version'?: string | undefined;
+    private 'min_version'?: string;
     public links?: Array<Link>;
     public constructor() { 
     }
-    public withStatus(status: VersionObjectStatusEnum): VersionObject {
+    public withStatus(status: VersionObjectStatusEnum | string): VersionObject {
         this['status'] = status;
         return this;
     }
-    public withId(id: VersionObjectIdEnum): VersionObject {
+    public withId(id: VersionObjectIdEnum | string): VersionObject {
         this['id'] = id;
         return this;
     }
@@ -30,10 +30,10 @@ export class VersionObject {
         this['min_version'] = minVersion;
         return this;
     }
-    public set minVersion(minVersion: string | undefined) {
+    public set minVersion(minVersion: string  | undefined) {
         this['min_version'] = minVersion;
     }
-    public get minVersion() {
+    public get minVersion(): string | undefined {
         return this['min_version'];
     }
     public withLinks(links: Array<Link>): VersionObject {

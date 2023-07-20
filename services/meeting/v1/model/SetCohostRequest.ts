@@ -2,11 +2,11 @@ import { RestSetCohostBody } from './RestSetCohostBody';
 
 
 export class SetCohostRequest {
-    public conferenceID: string;
-    public participantID: string;
-    private 'X-Conference-Authorization': string | undefined;
+    public conferenceID?: string;
+    public participantID?: string;
+    private 'X-Conference-Authorization'?: string;
     public body?: RestSetCohostBody;
-    public constructor(conferenceID?: any, participantID?: any, xConferenceAuthorization?: any) { 
+    public constructor(conferenceID?: string, participantID?: string, xConferenceAuthorization?: string) { 
         this['conferenceID'] = conferenceID;
         this['participantID'] = participantID;
         this['X-Conference-Authorization'] = xConferenceAuthorization;
@@ -23,10 +23,10 @@ export class SetCohostRequest {
         this['X-Conference-Authorization'] = xConferenceAuthorization;
         return this;
     }
-    public set xConferenceAuthorization(xConferenceAuthorization: string | undefined) {
+    public set xConferenceAuthorization(xConferenceAuthorization: string  | undefined) {
         this['X-Conference-Authorization'] = xConferenceAuthorization;
     }
-    public get xConferenceAuthorization() {
+    public get xConferenceAuthorization(): string | undefined {
         return this['X-Conference-Authorization'];
     }
     public withBody(body: RestSetCohostBody): SetCohostRequest {

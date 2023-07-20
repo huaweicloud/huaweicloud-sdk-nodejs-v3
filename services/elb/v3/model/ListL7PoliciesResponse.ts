@@ -4,8 +4,8 @@ import { PageInfo } from './PageInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListL7PoliciesResponse extends SdkResponse {
-    private 'request_id'?: string | undefined;
-    private 'page_info'?: PageInfo | undefined;
+    private 'request_id'?: string;
+    private 'page_info'?: PageInfo;
     public l7policies?: Array<L7Policy>;
     public constructor() { 
         super();
@@ -14,20 +14,20 @@ export class ListL7PoliciesResponse extends SdkResponse {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
     public withPageInfo(pageInfo: PageInfo): ListL7PoliciesResponse {
         this['page_info'] = pageInfo;
         return this;
     }
-    public set pageInfo(pageInfo: PageInfo | undefined) {
+    public set pageInfo(pageInfo: PageInfo  | undefined) {
         this['page_info'] = pageInfo;
     }
-    public get pageInfo() {
+    public get pageInfo(): PageInfo | undefined {
         return this['page_info'];
     }
     public withL7policies(l7policies: Array<L7Policy>): ListL7PoliciesResponse {

@@ -2,13 +2,13 @@
 
 export class SourceServerAssociatedWithTask {
     public id?: string;
-    public ip: string;
-    public name: string;
-    private 'os_type': SourceServerAssociatedWithTaskOsTypeEnum | undefined;
-    private 'os_version'?: string | undefined;
-    private 'oem_system'?: boolean | undefined;
-    public state?: SourceServerAssociatedWithTaskStateEnum;
-    public constructor(ip?: any, name?: any, osType?: any) { 
+    public ip?: string;
+    public name?: string;
+    private 'os_type'?: SourceServerAssociatedWithTaskOsTypeEnum | string;
+    private 'os_version'?: string;
+    private 'oem_system'?: boolean;
+    public state?: SourceServerAssociatedWithTaskStateEnum | string;
+    public constructor(ip?: string, name?: string, osType?: string) { 
         this['ip'] = ip;
         this['name'] = name;
         this['os_type'] = osType;
@@ -25,37 +25,37 @@ export class SourceServerAssociatedWithTask {
         this['name'] = name;
         return this;
     }
-    public withOsType(osType: SourceServerAssociatedWithTaskOsTypeEnum): SourceServerAssociatedWithTask {
+    public withOsType(osType: SourceServerAssociatedWithTaskOsTypeEnum | string): SourceServerAssociatedWithTask {
         this['os_type'] = osType;
         return this;
     }
-    public set osType(osType: SourceServerAssociatedWithTaskOsTypeEnum | undefined) {
+    public set osType(osType: SourceServerAssociatedWithTaskOsTypeEnum | string  | undefined) {
         this['os_type'] = osType;
     }
-    public get osType() {
+    public get osType(): SourceServerAssociatedWithTaskOsTypeEnum | string | undefined {
         return this['os_type'];
     }
     public withOsVersion(osVersion: string): SourceServerAssociatedWithTask {
         this['os_version'] = osVersion;
         return this;
     }
-    public set osVersion(osVersion: string | undefined) {
+    public set osVersion(osVersion: string  | undefined) {
         this['os_version'] = osVersion;
     }
-    public get osVersion() {
+    public get osVersion(): string | undefined {
         return this['os_version'];
     }
     public withOemSystem(oemSystem: boolean): SourceServerAssociatedWithTask {
         this['oem_system'] = oemSystem;
         return this;
     }
-    public set oemSystem(oemSystem: boolean | undefined) {
+    public set oemSystem(oemSystem: boolean  | undefined) {
         this['oem_system'] = oemSystem;
     }
-    public get oemSystem() {
+    public get oemSystem(): boolean | undefined {
         return this['oem_system'];
     }
-    public withState(state: SourceServerAssociatedWithTaskStateEnum): SourceServerAssociatedWithTask {
+    public withState(state: SourceServerAssociatedWithTaskStateEnum | string): SourceServerAssociatedWithTask {
         this['state'] = state;
         return this;
     }

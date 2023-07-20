@@ -1,48 +1,48 @@
 
 
 export class VehicleLicenseResult {
-    private 'number'?: string | undefined;
-    private 'vehicle_type'?: string | undefined;
+    private 'number'?: string;
+    private 'vehicle_type'?: string;
     public name?: string;
     public address?: string;
-    private 'use_character'?: string | undefined;
+    private 'use_character'?: string;
     public model?: string;
-    private 'engine_no'?: string | undefined;
+    private 'engine_no'?: string;
     public vin?: string;
-    private 'register_date'?: string | undefined;
-    private 'issue_date'?: string | undefined;
-    private 'issuing_authority'?: string | undefined;
-    private 'file_no'?: string | undefined;
-    private 'approved_passengers'?: string | undefined;
-    private 'gross_mass'?: string | undefined;
-    private 'unladen_mass'?: string | undefined;
-    private 'approved_load'?: string | undefined;
+    private 'register_date'?: string;
+    private 'issue_date'?: string;
+    private 'issuing_authority'?: string;
+    private 'file_no'?: string;
+    private 'approved_passengers'?: string;
+    private 'gross_mass'?: string;
+    private 'unladen_mass'?: string;
+    private 'approved_load'?: string;
     public dimension?: string;
-    private 'traction_mass'?: string | undefined;
+    private 'traction_mass'?: string;
     public remarks?: string;
-    private 'inspection_record'?: string | undefined;
-    private 'code_number'?: string | undefined;
-    private 'text_location'?: object | undefined;
+    private 'inspection_record'?: string;
+    private 'code_number'?: string;
+    private 'text_location'?: object;
     public constructor() { 
     }
     public withModelNumber(modelNumber: string): VehicleLicenseResult {
         this['number'] = modelNumber;
         return this;
     }
-    public set modelNumber(modelNumber: string | undefined) {
+    public set modelNumber(modelNumber: string  | undefined) {
         this['number'] = modelNumber;
     }
-    public get modelNumber() {
+    public get modelNumber(): string | undefined {
         return this['number'];
     }
     public withVehicleType(vehicleType: string): VehicleLicenseResult {
         this['vehicle_type'] = vehicleType;
         return this;
     }
-    public set vehicleType(vehicleType: string | undefined) {
+    public set vehicleType(vehicleType: string  | undefined) {
         this['vehicle_type'] = vehicleType;
     }
-    public get vehicleType() {
+    public get vehicleType(): string | undefined {
         return this['vehicle_type'];
     }
     public withName(name: string): VehicleLicenseResult {
@@ -57,10 +57,10 @@ export class VehicleLicenseResult {
         this['use_character'] = useCharacter;
         return this;
     }
-    public set useCharacter(useCharacter: string | undefined) {
+    public set useCharacter(useCharacter: string  | undefined) {
         this['use_character'] = useCharacter;
     }
-    public get useCharacter() {
+    public get useCharacter(): string | undefined {
         return this['use_character'];
     }
     public withModel(model: string): VehicleLicenseResult {
@@ -71,10 +71,10 @@ export class VehicleLicenseResult {
         this['engine_no'] = engineNo;
         return this;
     }
-    public set engineNo(engineNo: string | undefined) {
+    public set engineNo(engineNo: string  | undefined) {
         this['engine_no'] = engineNo;
     }
-    public get engineNo() {
+    public get engineNo(): string | undefined {
         return this['engine_no'];
     }
     public withVin(vin: string): VehicleLicenseResult {
@@ -85,80 +85,80 @@ export class VehicleLicenseResult {
         this['register_date'] = registerDate;
         return this;
     }
-    public set registerDate(registerDate: string | undefined) {
+    public set registerDate(registerDate: string  | undefined) {
         this['register_date'] = registerDate;
     }
-    public get registerDate() {
+    public get registerDate(): string | undefined {
         return this['register_date'];
     }
     public withIssueDate(issueDate: string): VehicleLicenseResult {
         this['issue_date'] = issueDate;
         return this;
     }
-    public set issueDate(issueDate: string | undefined) {
+    public set issueDate(issueDate: string  | undefined) {
         this['issue_date'] = issueDate;
     }
-    public get issueDate() {
+    public get issueDate(): string | undefined {
         return this['issue_date'];
     }
     public withIssuingAuthority(issuingAuthority: string): VehicleLicenseResult {
         this['issuing_authority'] = issuingAuthority;
         return this;
     }
-    public set issuingAuthority(issuingAuthority: string | undefined) {
+    public set issuingAuthority(issuingAuthority: string  | undefined) {
         this['issuing_authority'] = issuingAuthority;
     }
-    public get issuingAuthority() {
+    public get issuingAuthority(): string | undefined {
         return this['issuing_authority'];
     }
     public withFileNo(fileNo: string): VehicleLicenseResult {
         this['file_no'] = fileNo;
         return this;
     }
-    public set fileNo(fileNo: string | undefined) {
+    public set fileNo(fileNo: string  | undefined) {
         this['file_no'] = fileNo;
     }
-    public get fileNo() {
+    public get fileNo(): string | undefined {
         return this['file_no'];
     }
     public withApprovedPassengers(approvedPassengers: string): VehicleLicenseResult {
         this['approved_passengers'] = approvedPassengers;
         return this;
     }
-    public set approvedPassengers(approvedPassengers: string | undefined) {
+    public set approvedPassengers(approvedPassengers: string  | undefined) {
         this['approved_passengers'] = approvedPassengers;
     }
-    public get approvedPassengers() {
+    public get approvedPassengers(): string | undefined {
         return this['approved_passengers'];
     }
     public withGrossMass(grossMass: string): VehicleLicenseResult {
         this['gross_mass'] = grossMass;
         return this;
     }
-    public set grossMass(grossMass: string | undefined) {
+    public set grossMass(grossMass: string  | undefined) {
         this['gross_mass'] = grossMass;
     }
-    public get grossMass() {
+    public get grossMass(): string | undefined {
         return this['gross_mass'];
     }
     public withUnladenMass(unladenMass: string): VehicleLicenseResult {
         this['unladen_mass'] = unladenMass;
         return this;
     }
-    public set unladenMass(unladenMass: string | undefined) {
+    public set unladenMass(unladenMass: string  | undefined) {
         this['unladen_mass'] = unladenMass;
     }
-    public get unladenMass() {
+    public get unladenMass(): string | undefined {
         return this['unladen_mass'];
     }
     public withApprovedLoad(approvedLoad: string): VehicleLicenseResult {
         this['approved_load'] = approvedLoad;
         return this;
     }
-    public set approvedLoad(approvedLoad: string | undefined) {
+    public set approvedLoad(approvedLoad: string  | undefined) {
         this['approved_load'] = approvedLoad;
     }
-    public get approvedLoad() {
+    public get approvedLoad(): string | undefined {
         return this['approved_load'];
     }
     public withDimension(dimension: string): VehicleLicenseResult {
@@ -169,10 +169,10 @@ export class VehicleLicenseResult {
         this['traction_mass'] = tractionMass;
         return this;
     }
-    public set tractionMass(tractionMass: string | undefined) {
+    public set tractionMass(tractionMass: string  | undefined) {
         this['traction_mass'] = tractionMass;
     }
-    public get tractionMass() {
+    public get tractionMass(): string | undefined {
         return this['traction_mass'];
     }
     public withRemarks(remarks: string): VehicleLicenseResult {
@@ -183,30 +183,30 @@ export class VehicleLicenseResult {
         this['inspection_record'] = inspectionRecord;
         return this;
     }
-    public set inspectionRecord(inspectionRecord: string | undefined) {
+    public set inspectionRecord(inspectionRecord: string  | undefined) {
         this['inspection_record'] = inspectionRecord;
     }
-    public get inspectionRecord() {
+    public get inspectionRecord(): string | undefined {
         return this['inspection_record'];
     }
     public withCodeNumber(codeNumber: string): VehicleLicenseResult {
         this['code_number'] = codeNumber;
         return this;
     }
-    public set codeNumber(codeNumber: string | undefined) {
+    public set codeNumber(codeNumber: string  | undefined) {
         this['code_number'] = codeNumber;
     }
-    public get codeNumber() {
+    public get codeNumber(): string | undefined {
         return this['code_number'];
     }
     public withTextLocation(textLocation: object): VehicleLicenseResult {
         this['text_location'] = textLocation;
         return this;
     }
-    public set textLocation(textLocation: object | undefined) {
+    public set textLocation(textLocation: object  | undefined) {
         this['text_location'] = textLocation;
     }
-    public get textLocation() {
+    public get textLocation(): object | undefined {
         return this['text_location'];
     }
 }

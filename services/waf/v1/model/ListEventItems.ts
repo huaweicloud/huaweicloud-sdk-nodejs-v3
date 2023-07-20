@@ -10,19 +10,19 @@ export class ListEventItems {
     public attack?: string;
     public rule?: string;
     public payload?: string;
-    private 'payload_location'?: string | undefined;
+    private 'payload_location'?: string;
     public action?: string;
-    private 'request_line'?: string | undefined;
+    private 'request_line'?: string;
     public headers?: object;
     public cookie?: string;
     public status?: string;
-    private 'process_time'?: number | undefined;
+    private 'process_time'?: number;
     public region?: string;
-    private 'host_id'?: string | undefined;
-    private 'response_time'?: number | undefined;
-    private 'response_size'?: number | undefined;
-    private 'response_body'?: string | undefined;
-    private 'request_body'?: string | undefined;
+    private 'host_id'?: string;
+    private 'response_time'?: number;
+    private 'response_size'?: number;
+    private 'response_body'?: string;
+    private 'request_body'?: string;
     public constructor() { 
     }
     public withId(id: string): ListEventItems {
@@ -65,10 +65,10 @@ export class ListEventItems {
         this['payload_location'] = payloadLocation;
         return this;
     }
-    public set payloadLocation(payloadLocation: string | undefined) {
+    public set payloadLocation(payloadLocation: string  | undefined) {
         this['payload_location'] = payloadLocation;
     }
-    public get payloadLocation() {
+    public get payloadLocation(): string | undefined {
         return this['payload_location'];
     }
     public withAction(action: string): ListEventItems {
@@ -79,10 +79,10 @@ export class ListEventItems {
         this['request_line'] = requestLine;
         return this;
     }
-    public set requestLine(requestLine: string | undefined) {
+    public set requestLine(requestLine: string  | undefined) {
         this['request_line'] = requestLine;
     }
-    public get requestLine() {
+    public get requestLine(): string | undefined {
         return this['request_line'];
     }
     public withHeaders(headers: object): ListEventItems {
@@ -101,10 +101,10 @@ export class ListEventItems {
         this['process_time'] = processTime;
         return this;
     }
-    public set processTime(processTime: number | undefined) {
+    public set processTime(processTime: number  | undefined) {
         this['process_time'] = processTime;
     }
-    public get processTime() {
+    public get processTime(): number | undefined {
         return this['process_time'];
     }
     public withRegion(region: string): ListEventItems {
@@ -115,50 +115,50 @@ export class ListEventItems {
         this['host_id'] = hostId;
         return this;
     }
-    public set hostId(hostId: string | undefined) {
+    public set hostId(hostId: string  | undefined) {
         this['host_id'] = hostId;
     }
-    public get hostId() {
+    public get hostId(): string | undefined {
         return this['host_id'];
     }
     public withResponseTime(responseTime: number): ListEventItems {
         this['response_time'] = responseTime;
         return this;
     }
-    public set responseTime(responseTime: number | undefined) {
+    public set responseTime(responseTime: number  | undefined) {
         this['response_time'] = responseTime;
     }
-    public get responseTime() {
+    public get responseTime(): number | undefined {
         return this['response_time'];
     }
     public withResponseSize(responseSize: number): ListEventItems {
         this['response_size'] = responseSize;
         return this;
     }
-    public set responseSize(responseSize: number | undefined) {
+    public set responseSize(responseSize: number  | undefined) {
         this['response_size'] = responseSize;
     }
-    public get responseSize() {
+    public get responseSize(): number | undefined {
         return this['response_size'];
     }
     public withResponseBody(responseBody: string): ListEventItems {
         this['response_body'] = responseBody;
         return this;
     }
-    public set responseBody(responseBody: string | undefined) {
+    public set responseBody(responseBody: string  | undefined) {
         this['response_body'] = responseBody;
     }
-    public get responseBody() {
+    public get responseBody(): string | undefined {
         return this['response_body'];
     }
     public withRequestBody(requestBody: string): ListEventItems {
         this['request_body'] = requestBody;
         return this;
     }
-    public set requestBody(requestBody: string | undefined) {
+    public set requestBody(requestBody: string  | undefined) {
         this['request_body'] = requestBody;
     }
-    public get requestBody() {
+    public get requestBody(): string | undefined {
         return this['request_body'];
     }
 }

@@ -1,8 +1,8 @@
 
 
 export class InviteShareDTO {
-    public share: number;
-    public constructor(share?: any) { 
+    public share?: number;
+    public constructor(share?: number) { 
         this['share'] = share;
     }
     public withShare(share: number): InviteShareDTO {

@@ -2,7 +2,7 @@
 
 export class BigkeysBody {
     public name?: string;
-    public type?: BigkeysBodyTypeEnum;
+    public type?: BigkeysBodyTypeEnum | string;
     public shard?: string;
     public db?: number;
     public size?: number;
@@ -13,7 +13,7 @@ export class BigkeysBody {
         this['name'] = name;
         return this;
     }
-    public withType(type: BigkeysBodyTypeEnum): BigkeysBody {
+    public withType(type: BigkeysBodyTypeEnum | string): BigkeysBody {
         this['type'] = type;
         return this;
     }

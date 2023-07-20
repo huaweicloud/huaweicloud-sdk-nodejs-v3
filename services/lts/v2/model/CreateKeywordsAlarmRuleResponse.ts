@@ -2,7 +2,7 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateKeywordsAlarmRuleResponse extends SdkResponse {
-    private 'keywords_alarm_rule_id'?: string | undefined;
+    private 'keywords_alarm_rule_id'?: string;
     public constructor() { 
         super();
     }
@@ -10,10 +10,10 @@ export class CreateKeywordsAlarmRuleResponse extends SdkResponse {
         this['keywords_alarm_rule_id'] = keywordsAlarmRuleId;
         return this;
     }
-    public set keywordsAlarmRuleId(keywordsAlarmRuleId: string | undefined) {
+    public set keywordsAlarmRuleId(keywordsAlarmRuleId: string  | undefined) {
         this['keywords_alarm_rule_id'] = keywordsAlarmRuleId;
     }
-    public get keywordsAlarmRuleId() {
+    public get keywordsAlarmRuleId(): string | undefined {
         return this['keywords_alarm_rule_id'];
     }
 }

@@ -3,11 +3,11 @@
 export class ListEndpointGroupsRequest {
     public limit?: number;
     public marker?: string;
-    private 'page_reverse'?: boolean | undefined;
+    private 'page_reverse'?: boolean;
     public id?: string;
     public name?: string;
-    public status?: ListEndpointGroupsRequestStatusEnum;
-    private 'listener_id'?: string | undefined;
+    public status?: ListEndpointGroupsRequestStatusEnum | string;
+    private 'listener_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListEndpointGroupsRequest {
@@ -22,10 +22,10 @@ export class ListEndpointGroupsRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withId(id: string): ListEndpointGroupsRequest {
@@ -36,7 +36,7 @@ export class ListEndpointGroupsRequest {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: ListEndpointGroupsRequestStatusEnum): ListEndpointGroupsRequest {
+    public withStatus(status: ListEndpointGroupsRequestStatusEnum | string): ListEndpointGroupsRequest {
         this['status'] = status;
         return this;
     }
@@ -44,10 +44,10 @@ export class ListEndpointGroupsRequest {
         this['listener_id'] = listenerId;
         return this;
     }
-    public set listenerId(listenerId: string | undefined) {
+    public set listenerId(listenerId: string  | undefined) {
         this['listener_id'] = listenerId;
     }
-    public get listenerId() {
+    public get listenerId(): string | undefined {
         return this['listener_id'];
     }
 }

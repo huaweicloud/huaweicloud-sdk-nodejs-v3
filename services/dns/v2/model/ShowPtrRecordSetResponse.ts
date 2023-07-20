@@ -11,7 +11,7 @@ export class ShowPtrRecordSetResponse extends SdkResponse {
     public status?: string;
     public action?: string;
     public links?: PageLink;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
         super();
     }
@@ -51,10 +51,10 @@ export class ShowPtrRecordSetResponse extends SdkResponse {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

@@ -1,9 +1,9 @@
 
 
 export class KmsStructure {
-    public id: string;
-    private 'cipher_text': string | undefined;
-    public constructor(id?: any, cipherText?: any) { 
+    public id?: string;
+    private 'cipher_text'?: string;
+    public constructor(id?: string, cipherText?: string) { 
         this['id'] = id;
         this['cipher_text'] = cipherText;
     }
@@ -15,10 +15,10 @@ export class KmsStructure {
         this['cipher_text'] = cipherText;
         return this;
     }
-    public set cipherText(cipherText: string | undefined) {
+    public set cipherText(cipherText: string  | undefined) {
         this['cipher_text'] = cipherText;
     }
-    public get cipherText() {
+    public get cipherText(): string | undefined {
         return this['cipher_text'];
     }
 }

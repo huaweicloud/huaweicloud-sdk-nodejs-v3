@@ -2,23 +2,23 @@ import { CreateRepoDomainsRequestBody } from './CreateRepoDomainsRequestBody';
 
 
 export class CreateRepoDomainsRequest {
-    private 'Content-Type': CreateRepoDomainsRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
+    private 'Content-Type'?: CreateRepoDomainsRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
     public body?: CreateRepoDomainsRequestBody;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: CreateRepoDomainsRequestContentTypeEnum): CreateRepoDomainsRequest {
+    public withContentType(contentType: CreateRepoDomainsRequestContentTypeEnum | string): CreateRepoDomainsRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CreateRepoDomainsRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: CreateRepoDomainsRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CreateRepoDomainsRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): CreateRepoDomainsRequest {

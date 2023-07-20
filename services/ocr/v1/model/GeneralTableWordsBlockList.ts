@@ -5,10 +5,10 @@ export class GeneralTableWordsBlockList {
     public words?: string;
     public confidence?: number;
     public location?: Array<Array<number>>;
-    private 'words_list'?: Array<WordsListIem> | undefined;
+    private 'words_list'?: Array<WordsListIem>;
     public rows?: Array<number>;
     public columns?: Array<number>;
-    private 'cell_location'?: Array<Array<number>> | undefined;
+    private 'cell_location'?: Array<Array<number>>;
     public constructor() { 
     }
     public withWords(words: string): GeneralTableWordsBlockList {
@@ -27,10 +27,10 @@ export class GeneralTableWordsBlockList {
         this['words_list'] = wordsList;
         return this;
     }
-    public set wordsList(wordsList: Array<WordsListIem> | undefined) {
+    public set wordsList(wordsList: Array<WordsListIem>  | undefined) {
         this['words_list'] = wordsList;
     }
-    public get wordsList() {
+    public get wordsList(): Array<WordsListIem> | undefined {
         return this['words_list'];
     }
     public withRows(rows: Array<number>): GeneralTableWordsBlockList {
@@ -45,10 +45,10 @@ export class GeneralTableWordsBlockList {
         this['cell_location'] = cellLocation;
         return this;
     }
-    public set cellLocation(cellLocation: Array<Array<number>> | undefined) {
+    public set cellLocation(cellLocation: Array<Array<number>>  | undefined) {
         this['cell_location'] = cellLocation;
     }
-    public get cellLocation() {
+    public get cellLocation(): Array<Array<number>> | undefined {
         return this['cell_location'];
     }
 }

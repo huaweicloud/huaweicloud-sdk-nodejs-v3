@@ -3,32 +3,32 @@ import { QueryUserDetailResp } from './QueryUserDetailResp';
 
 
 export class QueryUserResp {
-    private 'job_id'?: string | undefined;
-    private 'is_global_password'?: string | undefined;
+    private 'job_id'?: string;
+    private 'is_global_password'?: string;
     public message?: string;
-    private 'user_list'?: Array<QueryUserDetailResp> | undefined;
-    private 'roles_list'?: Array<QueryRoleDetailResp> | undefined;
-    private 'is_success'?: boolean | undefined;
+    private 'user_list'?: Array<QueryUserDetailResp>;
+    private 'roles_list'?: Array<QueryRoleDetailResp>;
+    private 'is_success'?: boolean;
     public constructor() { 
     }
     public withJobId(jobId: string): QueryUserResp {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
     public withIsGlobalPassword(isGlobalPassword: string): QueryUserResp {
         this['is_global_password'] = isGlobalPassword;
         return this;
     }
-    public set isGlobalPassword(isGlobalPassword: string | undefined) {
+    public set isGlobalPassword(isGlobalPassword: string  | undefined) {
         this['is_global_password'] = isGlobalPassword;
     }
-    public get isGlobalPassword() {
+    public get isGlobalPassword(): string | undefined {
         return this['is_global_password'];
     }
     public withMessage(message: string): QueryUserResp {
@@ -39,30 +39,30 @@ export class QueryUserResp {
         this['user_list'] = userList;
         return this;
     }
-    public set userList(userList: Array<QueryUserDetailResp> | undefined) {
+    public set userList(userList: Array<QueryUserDetailResp>  | undefined) {
         this['user_list'] = userList;
     }
-    public get userList() {
+    public get userList(): Array<QueryUserDetailResp> | undefined {
         return this['user_list'];
     }
     public withRolesList(rolesList: Array<QueryRoleDetailResp>): QueryUserResp {
         this['roles_list'] = rolesList;
         return this;
     }
-    public set rolesList(rolesList: Array<QueryRoleDetailResp> | undefined) {
+    public set rolesList(rolesList: Array<QueryRoleDetailResp>  | undefined) {
         this['roles_list'] = rolesList;
     }
-    public get rolesList() {
+    public get rolesList(): Array<QueryRoleDetailResp> | undefined {
         return this['roles_list'];
     }
     public withIsSuccess(isSuccess: boolean): QueryUserResp {
         this['is_success'] = isSuccess;
         return this;
     }
-    public set isSuccess(isSuccess: boolean | undefined) {
+    public set isSuccess(isSuccess: boolean  | undefined) {
         this['is_success'] = isSuccess;
     }
-    public get isSuccess() {
+    public get isSuccess(): boolean | undefined {
         return this['is_success'];
     }
 }

@@ -2,7 +2,7 @@
 
 export class ResetDeviceSecret {
     public secret?: string;
-    private 'force_disconnect'?: boolean | undefined;
+    private 'force_disconnect'?: boolean;
     public constructor() { 
     }
     public withSecret(secret: string): ResetDeviceSecret {
@@ -13,10 +13,10 @@ export class ResetDeviceSecret {
         this['force_disconnect'] = forceDisconnect;
         return this;
     }
-    public set forceDisconnect(forceDisconnect: boolean | undefined) {
+    public set forceDisconnect(forceDisconnect: boolean  | undefined) {
         this['force_disconnect'] = forceDisconnect;
     }
-    public get forceDisconnect() {
+    public get forceDisconnect(): boolean | undefined {
         return this['force_disconnect'];
     }
 }

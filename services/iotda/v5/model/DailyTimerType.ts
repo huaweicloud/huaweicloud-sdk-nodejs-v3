@@ -1,9 +1,9 @@
 
 
 export class DailyTimerType {
-    public time: string;
-    private 'days_of_week'?: string | undefined;
-    public constructor(time?: any) { 
+    public time?: string;
+    private 'days_of_week'?: string;
+    public constructor(time?: string) { 
         this['time'] = time;
     }
     public withTime(time: string): DailyTimerType {
@@ -14,10 +14,10 @@ export class DailyTimerType {
         this['days_of_week'] = daysOfWeek;
         return this;
     }
-    public set daysOfWeek(daysOfWeek: string | undefined) {
+    public set daysOfWeek(daysOfWeek: string  | undefined) {
         this['days_of_week'] = daysOfWeek;
     }
-    public get daysOfWeek() {
+    public get daysOfWeek(): string | undefined {
         return this['days_of_week'];
     }
 }

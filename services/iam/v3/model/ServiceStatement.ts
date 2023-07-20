@@ -1,11 +1,11 @@
 
 
 export class ServiceStatement {
-    private 'Action': Array<string> | undefined;
-    private 'Effect': ServiceStatementEffectEnum | undefined;
-    private 'Condition'?: { [key: string]: { [key: string]: Array<string>; }; } | undefined;
-    private 'Resource'?: Array<string> | undefined;
-    public constructor(action?: any, effect?: any) { 
+    private 'Action'?: Array<string>;
+    private 'Effect'?: ServiceStatementEffectEnum | string;
+    private 'Condition'?: { [key: string]: { [key: string]: Array<string>; }; };
+    private 'Resource'?: Array<string>;
+    public constructor(action?: Array<string>, effect?: string) { 
         this['Action'] = action;
         this['Effect'] = effect;
     }
@@ -13,40 +13,40 @@ export class ServiceStatement {
         this['Action'] = action;
         return this;
     }
-    public set action(action: Array<string> | undefined) {
+    public set action(action: Array<string>  | undefined) {
         this['Action'] = action;
     }
-    public get action() {
+    public get action(): Array<string> | undefined {
         return this['Action'];
     }
-    public withEffect(effect: ServiceStatementEffectEnum): ServiceStatement {
+    public withEffect(effect: ServiceStatementEffectEnum | string): ServiceStatement {
         this['Effect'] = effect;
         return this;
     }
-    public set effect(effect: ServiceStatementEffectEnum | undefined) {
+    public set effect(effect: ServiceStatementEffectEnum | string  | undefined) {
         this['Effect'] = effect;
     }
-    public get effect() {
+    public get effect(): ServiceStatementEffectEnum | string | undefined {
         return this['Effect'];
     }
     public withCondition(condition: { [key: string]: { [key: string]: Array<string>; }; }): ServiceStatement {
         this['Condition'] = condition;
         return this;
     }
-    public set condition(condition: { [key: string]: { [key: string]: Array<string>; }; } | undefined) {
+    public set condition(condition: { [key: string]: { [key: string]: Array<string>; }; }  | undefined) {
         this['Condition'] = condition;
     }
-    public get condition() {
+    public get condition(): { [key: string]: { [key: string]: Array<string>; }; } | undefined {
         return this['Condition'];
     }
     public withResource(resource: Array<string>): ServiceStatement {
         this['Resource'] = resource;
         return this;
     }
-    public set resource(resource: Array<string> | undefined) {
+    public set resource(resource: Array<string>  | undefined) {
         this['Resource'] = resource;
     }
-    public get resource() {
+    public get resource(): Array<string> | undefined {
         return this['Resource'];
     }
 }

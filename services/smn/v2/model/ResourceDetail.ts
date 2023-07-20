@@ -1,11 +1,11 @@
 
 
 export class ResourceDetail {
-    private 'enterprise_project_id': string | undefined;
-    public detailId: string;
-    private 'topic_urn': string | undefined;
-    private 'display_name': string | undefined;
-    public constructor(enterpriseProjectId?: any, detailId?: any, topicUrn?: any, displayName?: any) { 
+    private 'enterprise_project_id'?: string;
+    public detailId?: string;
+    private 'topic_urn'?: string;
+    private 'display_name'?: string;
+    public constructor(enterpriseProjectId?: string, detailId?: string, topicUrn?: string, displayName?: string) { 
         this['enterprise_project_id'] = enterpriseProjectId;
         this['detailId'] = detailId;
         this['topic_urn'] = topicUrn;
@@ -15,10 +15,10 @@ export class ResourceDetail {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withDetailId(detailId: string): ResourceDetail {
@@ -29,20 +29,20 @@ export class ResourceDetail {
         this['topic_urn'] = topicUrn;
         return this;
     }
-    public set topicUrn(topicUrn: string | undefined) {
+    public set topicUrn(topicUrn: string  | undefined) {
         this['topic_urn'] = topicUrn;
     }
-    public get topicUrn() {
+    public get topicUrn(): string | undefined {
         return this['topic_urn'];
     }
     public withDisplayName(displayName: string): ResourceDetail {
         this['display_name'] = displayName;
         return this;
     }
-    public set displayName(displayName: string | undefined) {
+    public set displayName(displayName: string  | undefined) {
         this['display_name'] = displayName;
     }
-    public get displayName() {
+    public get displayName(): string | undefined {
         return this['display_name'];
     }
 }

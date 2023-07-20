@@ -7,44 +7,44 @@ import { StrategyConfig } from './StrategyConfig';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateFunctionVersionResponse extends SdkResponse {
-    private 'func_urn'?: string | undefined;
-    private 'func_name'?: string | undefined;
-    private 'domain_id'?: string | undefined;
+    private 'func_urn'?: string;
+    private 'func_name'?: string;
+    private 'domain_id'?: string;
     public namespace?: string;
-    private 'project_name'?: string | undefined;
-    private 'package'?: string | undefined;
-    public runtime?: CreateFunctionVersionResponseRuntimeEnum;
+    private 'project_name'?: string;
+    private 'package'?: string;
+    public runtime?: CreateFunctionVersionResponseRuntimeEnum | string;
     public timeout?: number;
     public handler?: string;
-    private 'memory_size'?: number | undefined;
+    private 'memory_size'?: number;
     public cpu?: number;
-    private 'code_type'?: CreateFunctionVersionResponseCodeTypeEnum | undefined;
-    private 'code_url'?: string | undefined;
-    private 'code_filename'?: string | undefined;
-    private 'code_size'?: number | undefined;
-    private 'user_data'?: string | undefined;
-    private 'encrypted_user_data'?: string | undefined;
+    private 'code_type'?: CreateFunctionVersionResponseCodeTypeEnum | string;
+    private 'code_url'?: string;
+    private 'code_filename'?: string;
+    private 'code_size'?: number;
+    private 'user_data'?: string;
+    private 'encrypted_user_data'?: string;
     public digest?: string;
     public version?: string;
-    private 'image_name'?: string | undefined;
+    private 'image_name'?: string;
     public xrole?: string;
-    private 'app_xrole'?: string | undefined;
+    private 'app_xrole'?: string;
     public description?: string;
-    private 'version_description'?: string | undefined;
-    private 'last_modified'?: Date | undefined;
-    private 'func_vpc'?: FuncVpc | undefined;
-    private 'mount_config'?: MountConfig | undefined;
-    private 'strategy_config'?: StrategyConfig | undefined;
+    private 'version_description'?: string;
+    private 'last_modified'?: Date;
+    private 'func_vpc'?: FuncVpc;
+    private 'mount_config'?: MountConfig;
+    private 'strategy_config'?: StrategyConfig;
     public dependencies?: Array<Dependency>;
-    private 'initializer_handler'?: string | undefined;
-    private 'initializer_timeout'?: number | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'long_time'?: boolean | undefined;
-    private 'log_group_id'?: string | undefined;
-    private 'log_stream_id'?: string | undefined;
-    public type?: CreateFunctionVersionResponseTypeEnum;
-    private 'enable_dynamic_memory'?: boolean | undefined;
-    private 'function_async_config'?: FunctionAsyncConfig | undefined;
+    private 'initializer_handler'?: string;
+    private 'initializer_timeout'?: number;
+    private 'enterprise_project_id'?: string;
+    private 'long_time'?: boolean;
+    private 'log_group_id'?: string;
+    private 'log_stream_id'?: string;
+    public type?: CreateFunctionVersionResponseTypeEnum | string;
+    private 'enable_dynamic_memory'?: boolean;
+    private 'function_async_config'?: FunctionAsyncConfig;
     public constructor() { 
         super();
     }
@@ -52,30 +52,30 @@ export class CreateFunctionVersionResponse extends SdkResponse {
         this['func_urn'] = funcUrn;
         return this;
     }
-    public set funcUrn(funcUrn: string | undefined) {
+    public set funcUrn(funcUrn: string  | undefined) {
         this['func_urn'] = funcUrn;
     }
-    public get funcUrn() {
+    public get funcUrn(): string | undefined {
         return this['func_urn'];
     }
     public withFuncName(funcName: string): CreateFunctionVersionResponse {
         this['func_name'] = funcName;
         return this;
     }
-    public set funcName(funcName: string | undefined) {
+    public set funcName(funcName: string  | undefined) {
         this['func_name'] = funcName;
     }
-    public get funcName() {
+    public get funcName(): string | undefined {
         return this['func_name'];
     }
     public withDomainId(domainId: string): CreateFunctionVersionResponse {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withNamespace(namespace: string): CreateFunctionVersionResponse {
@@ -86,23 +86,23 @@ export class CreateFunctionVersionResponse extends SdkResponse {
         this['project_name'] = projectName;
         return this;
     }
-    public set projectName(projectName: string | undefined) {
+    public set projectName(projectName: string  | undefined) {
         this['project_name'] = projectName;
     }
-    public get projectName() {
+    public get projectName(): string | undefined {
         return this['project_name'];
     }
     public withPackage(_package: string): CreateFunctionVersionResponse {
         this['package'] = _package;
         return this;
     }
-    public set _package(_package: string | undefined) {
+    public set _package(_package: string  | undefined) {
         this['package'] = _package;
     }
-    public get _package() {
+    public get _package(): string | undefined {
         return this['package'];
     }
-    public withRuntime(runtime: CreateFunctionVersionResponseRuntimeEnum): CreateFunctionVersionResponse {
+    public withRuntime(runtime: CreateFunctionVersionResponseRuntimeEnum | string): CreateFunctionVersionResponse {
         this['runtime'] = runtime;
         return this;
     }
@@ -118,74 +118,74 @@ export class CreateFunctionVersionResponse extends SdkResponse {
         this['memory_size'] = memorySize;
         return this;
     }
-    public set memorySize(memorySize: number | undefined) {
+    public set memorySize(memorySize: number  | undefined) {
         this['memory_size'] = memorySize;
     }
-    public get memorySize() {
+    public get memorySize(): number | undefined {
         return this['memory_size'];
     }
     public withCpu(cpu: number): CreateFunctionVersionResponse {
         this['cpu'] = cpu;
         return this;
     }
-    public withCodeType(codeType: CreateFunctionVersionResponseCodeTypeEnum): CreateFunctionVersionResponse {
+    public withCodeType(codeType: CreateFunctionVersionResponseCodeTypeEnum | string): CreateFunctionVersionResponse {
         this['code_type'] = codeType;
         return this;
     }
-    public set codeType(codeType: CreateFunctionVersionResponseCodeTypeEnum | undefined) {
+    public set codeType(codeType: CreateFunctionVersionResponseCodeTypeEnum | string  | undefined) {
         this['code_type'] = codeType;
     }
-    public get codeType() {
+    public get codeType(): CreateFunctionVersionResponseCodeTypeEnum | string | undefined {
         return this['code_type'];
     }
     public withCodeUrl(codeUrl: string): CreateFunctionVersionResponse {
         this['code_url'] = codeUrl;
         return this;
     }
-    public set codeUrl(codeUrl: string | undefined) {
+    public set codeUrl(codeUrl: string  | undefined) {
         this['code_url'] = codeUrl;
     }
-    public get codeUrl() {
+    public get codeUrl(): string | undefined {
         return this['code_url'];
     }
     public withCodeFilename(codeFilename: string): CreateFunctionVersionResponse {
         this['code_filename'] = codeFilename;
         return this;
     }
-    public set codeFilename(codeFilename: string | undefined) {
+    public set codeFilename(codeFilename: string  | undefined) {
         this['code_filename'] = codeFilename;
     }
-    public get codeFilename() {
+    public get codeFilename(): string | undefined {
         return this['code_filename'];
     }
     public withCodeSize(codeSize: number): CreateFunctionVersionResponse {
         this['code_size'] = codeSize;
         return this;
     }
-    public set codeSize(codeSize: number | undefined) {
+    public set codeSize(codeSize: number  | undefined) {
         this['code_size'] = codeSize;
     }
-    public get codeSize() {
+    public get codeSize(): number | undefined {
         return this['code_size'];
     }
     public withUserData(userData: string): CreateFunctionVersionResponse {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withEncryptedUserData(encryptedUserData: string): CreateFunctionVersionResponse {
         this['encrypted_user_data'] = encryptedUserData;
         return this;
     }
-    public set encryptedUserData(encryptedUserData: string | undefined) {
+    public set encryptedUserData(encryptedUserData: string  | undefined) {
         this['encrypted_user_data'] = encryptedUserData;
     }
-    public get encryptedUserData() {
+    public get encryptedUserData(): string | undefined {
         return this['encrypted_user_data'];
     }
     public withDigest(digest: string): CreateFunctionVersionResponse {
@@ -200,10 +200,10 @@ export class CreateFunctionVersionResponse extends SdkResponse {
         this['image_name'] = imageName;
         return this;
     }
-    public set imageName(imageName: string | undefined) {
+    public set imageName(imageName: string  | undefined) {
         this['image_name'] = imageName;
     }
-    public get imageName() {
+    public get imageName(): string | undefined {
         return this['image_name'];
     }
     public withXrole(xrole: string): CreateFunctionVersionResponse {
@@ -214,10 +214,10 @@ export class CreateFunctionVersionResponse extends SdkResponse {
         this['app_xrole'] = appXrole;
         return this;
     }
-    public set appXrole(appXrole: string | undefined) {
+    public set appXrole(appXrole: string  | undefined) {
         this['app_xrole'] = appXrole;
     }
-    public get appXrole() {
+    public get appXrole(): string | undefined {
         return this['app_xrole'];
     }
     public withDescription(description: string): CreateFunctionVersionResponse {
@@ -228,50 +228,50 @@ export class CreateFunctionVersionResponse extends SdkResponse {
         this['version_description'] = versionDescription;
         return this;
     }
-    public set versionDescription(versionDescription: string | undefined) {
+    public set versionDescription(versionDescription: string  | undefined) {
         this['version_description'] = versionDescription;
     }
-    public get versionDescription() {
+    public get versionDescription(): string | undefined {
         return this['version_description'];
     }
     public withLastModified(lastModified: Date): CreateFunctionVersionResponse {
         this['last_modified'] = lastModified;
         return this;
     }
-    public set lastModified(lastModified: Date | undefined) {
+    public set lastModified(lastModified: Date  | undefined) {
         this['last_modified'] = lastModified;
     }
-    public get lastModified() {
+    public get lastModified(): Date | undefined {
         return this['last_modified'];
     }
     public withFuncVpc(funcVpc: FuncVpc): CreateFunctionVersionResponse {
         this['func_vpc'] = funcVpc;
         return this;
     }
-    public set funcVpc(funcVpc: FuncVpc | undefined) {
+    public set funcVpc(funcVpc: FuncVpc  | undefined) {
         this['func_vpc'] = funcVpc;
     }
-    public get funcVpc() {
+    public get funcVpc(): FuncVpc | undefined {
         return this['func_vpc'];
     }
     public withMountConfig(mountConfig: MountConfig): CreateFunctionVersionResponse {
         this['mount_config'] = mountConfig;
         return this;
     }
-    public set mountConfig(mountConfig: MountConfig | undefined) {
+    public set mountConfig(mountConfig: MountConfig  | undefined) {
         this['mount_config'] = mountConfig;
     }
-    public get mountConfig() {
+    public get mountConfig(): MountConfig | undefined {
         return this['mount_config'];
     }
     public withStrategyConfig(strategyConfig: StrategyConfig): CreateFunctionVersionResponse {
         this['strategy_config'] = strategyConfig;
         return this;
     }
-    public set strategyConfig(strategyConfig: StrategyConfig | undefined) {
+    public set strategyConfig(strategyConfig: StrategyConfig  | undefined) {
         this['strategy_config'] = strategyConfig;
     }
-    public get strategyConfig() {
+    public get strategyConfig(): StrategyConfig | undefined {
         return this['strategy_config'];
     }
     public withDependencies(dependencies: Array<Dependency>): CreateFunctionVersionResponse {
@@ -282,63 +282,63 @@ export class CreateFunctionVersionResponse extends SdkResponse {
         this['initializer_handler'] = initializerHandler;
         return this;
     }
-    public set initializerHandler(initializerHandler: string | undefined) {
+    public set initializerHandler(initializerHandler: string  | undefined) {
         this['initializer_handler'] = initializerHandler;
     }
-    public get initializerHandler() {
+    public get initializerHandler(): string | undefined {
         return this['initializer_handler'];
     }
     public withInitializerTimeout(initializerTimeout: number): CreateFunctionVersionResponse {
         this['initializer_timeout'] = initializerTimeout;
         return this;
     }
-    public set initializerTimeout(initializerTimeout: number | undefined) {
+    public set initializerTimeout(initializerTimeout: number  | undefined) {
         this['initializer_timeout'] = initializerTimeout;
     }
-    public get initializerTimeout() {
+    public get initializerTimeout(): number | undefined {
         return this['initializer_timeout'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): CreateFunctionVersionResponse {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withLongTime(longTime: boolean): CreateFunctionVersionResponse {
         this['long_time'] = longTime;
         return this;
     }
-    public set longTime(longTime: boolean | undefined) {
+    public set longTime(longTime: boolean  | undefined) {
         this['long_time'] = longTime;
     }
-    public get longTime() {
+    public get longTime(): boolean | undefined {
         return this['long_time'];
     }
     public withLogGroupId(logGroupId: string): CreateFunctionVersionResponse {
         this['log_group_id'] = logGroupId;
         return this;
     }
-    public set logGroupId(logGroupId: string | undefined) {
+    public set logGroupId(logGroupId: string  | undefined) {
         this['log_group_id'] = logGroupId;
     }
-    public get logGroupId() {
+    public get logGroupId(): string | undefined {
         return this['log_group_id'];
     }
     public withLogStreamId(logStreamId: string): CreateFunctionVersionResponse {
         this['log_stream_id'] = logStreamId;
         return this;
     }
-    public set logStreamId(logStreamId: string | undefined) {
+    public set logStreamId(logStreamId: string  | undefined) {
         this['log_stream_id'] = logStreamId;
     }
-    public get logStreamId() {
+    public get logStreamId(): string | undefined {
         return this['log_stream_id'];
     }
-    public withType(type: CreateFunctionVersionResponseTypeEnum): CreateFunctionVersionResponse {
+    public withType(type: CreateFunctionVersionResponseTypeEnum | string): CreateFunctionVersionResponse {
         this['type'] = type;
         return this;
     }
@@ -346,20 +346,20 @@ export class CreateFunctionVersionResponse extends SdkResponse {
         this['enable_dynamic_memory'] = enableDynamicMemory;
         return this;
     }
-    public set enableDynamicMemory(enableDynamicMemory: boolean | undefined) {
+    public set enableDynamicMemory(enableDynamicMemory: boolean  | undefined) {
         this['enable_dynamic_memory'] = enableDynamicMemory;
     }
-    public get enableDynamicMemory() {
+    public get enableDynamicMemory(): boolean | undefined {
         return this['enable_dynamic_memory'];
     }
     public withFunctionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig): CreateFunctionVersionResponse {
         this['function_async_config'] = functionAsyncConfig;
         return this;
     }
-    public set functionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig | undefined) {
+    public set functionAsyncConfig(functionAsyncConfig: FunctionAsyncConfig  | undefined) {
         this['function_async_config'] = functionAsyncConfig;
     }
-    public get functionAsyncConfig() {
+    public get functionAsyncConfig(): FunctionAsyncConfig | undefined {
         return this['function_async_config'];
     }
 }

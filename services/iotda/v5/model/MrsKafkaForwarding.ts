@@ -2,10 +2,10 @@ import { NetAddress } from './NetAddress';
 
 
 export class MrsKafkaForwarding {
-    public addresses: Array<NetAddress>;
-    public topic: string;
-    private 'kerberos_authentication'?: boolean | undefined;
-    public constructor(addresses?: any, topic?: any) { 
+    public addresses?: Array<NetAddress>;
+    public topic?: string;
+    private 'kerberos_authentication'?: boolean;
+    public constructor(addresses?: Array<NetAddress>, topic?: string) { 
         this['addresses'] = addresses;
         this['topic'] = topic;
     }
@@ -21,10 +21,10 @@ export class MrsKafkaForwarding {
         this['kerberos_authentication'] = kerberosAuthentication;
         return this;
     }
-    public set kerberosAuthentication(kerberosAuthentication: boolean | undefined) {
+    public set kerberosAuthentication(kerberosAuthentication: boolean  | undefined) {
         this['kerberos_authentication'] = kerberosAuthentication;
     }
-    public get kerberosAuthentication() {
+    public get kerberosAuthentication(): boolean | undefined {
         return this['kerberos_authentication'];
     }
 }

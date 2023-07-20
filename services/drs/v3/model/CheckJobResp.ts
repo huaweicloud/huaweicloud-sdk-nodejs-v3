@@ -1,12 +1,12 @@
 
 
 export class CheckJobResp {
-    public id: string;
-    public status: CheckJobRespStatusEnum;
-    private 'error_code'?: string | undefined;
-    private 'error_msg'?: string | undefined;
+    public id?: string;
+    public status?: CheckJobRespStatusEnum | string;
+    private 'error_code'?: string;
+    private 'error_msg'?: string;
     public success?: boolean;
-    public constructor(id?: any, status?: any) { 
+    public constructor(id?: string, status?: string) { 
         this['id'] = id;
         this['status'] = status;
     }
@@ -14,7 +14,7 @@ export class CheckJobResp {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: CheckJobRespStatusEnum): CheckJobResp {
+    public withStatus(status: CheckJobRespStatusEnum | string): CheckJobResp {
         this['status'] = status;
         return this;
     }
@@ -22,20 +22,20 @@ export class CheckJobResp {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
     public withErrorMsg(errorMsg: string): CheckJobResp {
         this['error_msg'] = errorMsg;
         return this;
     }
-    public set errorMsg(errorMsg: string | undefined) {
+    public set errorMsg(errorMsg: string  | undefined) {
         this['error_msg'] = errorMsg;
     }
-    public get errorMsg() {
+    public get errorMsg(): string | undefined {
         return this['error_msg'];
     }
     public withSuccess(success: boolean): CheckJobResp {

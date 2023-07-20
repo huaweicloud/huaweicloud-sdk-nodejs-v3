@@ -4,11 +4,11 @@ import { Video } from './Video';
 
 
 export class QueryTransTemplate {
-    private 'template_name': string | undefined;
-    public video: Video;
+    private 'template_name'?: string;
+    public video?: Video;
     public audio?: Audio;
     public common?: Common;
-    public constructor(templateName?: any, video?: any) { 
+    public constructor(templateName?: string, video?: Video) { 
         this['template_name'] = templateName;
         this['video'] = video;
     }
@@ -16,10 +16,10 @@ export class QueryTransTemplate {
         this['template_name'] = templateName;
         return this;
     }
-    public set templateName(templateName: string | undefined) {
+    public set templateName(templateName: string  | undefined) {
         this['template_name'] = templateName;
     }
-    public get templateName() {
+    public get templateName(): string | undefined {
         return this['template_name'];
     }
     public withVideo(video: Video): QueryTransTemplate {

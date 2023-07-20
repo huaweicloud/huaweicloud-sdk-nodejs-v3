@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class NeutronListFloatingIpsResponse extends SdkResponse {
     public floatingips?: Array<FloatingIpResp>;
-    private 'floatingips_links'?: Array<Pager> | undefined;
+    private 'floatingips_links'?: Array<Pager>;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class NeutronListFloatingIpsResponse extends SdkResponse {
         this['floatingips_links'] = floatingipsLinks;
         return this;
     }
-    public set floatingipsLinks(floatingipsLinks: Array<Pager> | undefined) {
+    public set floatingipsLinks(floatingipsLinks: Array<Pager>  | undefined) {
         this['floatingips_links'] = floatingipsLinks;
     }
-    public get floatingipsLinks() {
+    public get floatingipsLinks(): Array<Pager> | undefined {
         return this['floatingips_links'];
     }
 }

@@ -1,20 +1,20 @@
 
 
 export class TriggerHistories {
-    public action: string;
-    private 'app_type': string | undefined;
-    public application: string;
-    private 'cluster_id': string | undefined;
-    private 'cluster_name': string | undefined;
-    private 'cluster_ns': string | undefined;
-    public condition: string;
-    public container: string;
-    private 'created_at': string | undefined;
-    private 'creator_name': string | undefined;
-    public detail: string;
-    public result: string;
-    public tag: string;
-    public constructor(action?: any, appType?: any, application?: any, clusterId?: any, clusterName?: any, clusterNs?: any, condition?: any, container?: any, createdAt?: any, creatorName?: any, detail?: any, result?: any, tag?: any) { 
+    public action?: string;
+    private 'app_type'?: string;
+    public application?: string;
+    private 'cluster_id'?: string;
+    private 'cluster_name'?: string;
+    private 'cluster_ns'?: string;
+    public condition?: string;
+    public container?: string;
+    private 'created_at'?: string;
+    private 'creator_name'?: string;
+    public detail?: string;
+    public result?: string;
+    public tag?: string;
+    public constructor(action?: string, appType?: string, application?: string, clusterId?: string, clusterName?: string, clusterNs?: string, condition?: string, container?: string, createdAt?: string, creatorName?: string, detail?: string, result?: string, tag?: string) { 
         this['action'] = action;
         this['app_type'] = appType;
         this['application'] = application;
@@ -37,10 +37,10 @@ export class TriggerHistories {
         this['app_type'] = appType;
         return this;
     }
-    public set appType(appType: string | undefined) {
+    public set appType(appType: string  | undefined) {
         this['app_type'] = appType;
     }
-    public get appType() {
+    public get appType(): string | undefined {
         return this['app_type'];
     }
     public withApplication(application: string): TriggerHistories {
@@ -51,30 +51,30 @@ export class TriggerHistories {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withClusterName(clusterName: string): TriggerHistories {
         this['cluster_name'] = clusterName;
         return this;
     }
-    public set clusterName(clusterName: string | undefined) {
+    public set clusterName(clusterName: string  | undefined) {
         this['cluster_name'] = clusterName;
     }
-    public get clusterName() {
+    public get clusterName(): string | undefined {
         return this['cluster_name'];
     }
     public withClusterNs(clusterNs: string): TriggerHistories {
         this['cluster_ns'] = clusterNs;
         return this;
     }
-    public set clusterNs(clusterNs: string | undefined) {
+    public set clusterNs(clusterNs: string  | undefined) {
         this['cluster_ns'] = clusterNs;
     }
-    public get clusterNs() {
+    public get clusterNs(): string | undefined {
         return this['cluster_ns'];
     }
     public withCondition(condition: string): TriggerHistories {
@@ -89,20 +89,20 @@ export class TriggerHistories {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withCreatorName(creatorName: string): TriggerHistories {
         this['creator_name'] = creatorName;
         return this;
     }
-    public set creatorName(creatorName: string | undefined) {
+    public set creatorName(creatorName: string  | undefined) {
         this['creator_name'] = creatorName;
     }
-    public get creatorName() {
+    public get creatorName(): string | undefined {
         return this['creator_name'];
     }
     public withDetail(detail: string): TriggerHistories {

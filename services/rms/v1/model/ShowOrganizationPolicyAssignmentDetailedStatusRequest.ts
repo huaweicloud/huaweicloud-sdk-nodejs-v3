@@ -1,12 +1,12 @@
 
 
 export class ShowOrganizationPolicyAssignmentDetailedStatusRequest {
-    private 'organization_id': string | undefined;
-    private 'organization_policy_assignment_name': string | undefined;
-    public status?: ShowOrganizationPolicyAssignmentDetailedStatusRequestStatusEnum;
+    private 'organization_id'?: string;
+    private 'organization_policy_assignment_name'?: string;
+    public status?: ShowOrganizationPolicyAssignmentDetailedStatusRequestStatusEnum | string;
     public limit?: number;
     public marker?: string;
-    public constructor(organizationId?: any, organizationPolicyAssignmentName?: any) { 
+    public constructor(organizationId?: string, organizationPolicyAssignmentName?: string) { 
         this['organization_id'] = organizationId;
         this['organization_policy_assignment_name'] = organizationPolicyAssignmentName;
     }
@@ -14,23 +14,23 @@ export class ShowOrganizationPolicyAssignmentDetailedStatusRequest {
         this['organization_id'] = organizationId;
         return this;
     }
-    public set organizationId(organizationId: string | undefined) {
+    public set organizationId(organizationId: string  | undefined) {
         this['organization_id'] = organizationId;
     }
-    public get organizationId() {
+    public get organizationId(): string | undefined {
         return this['organization_id'];
     }
     public withOrganizationPolicyAssignmentName(organizationPolicyAssignmentName: string): ShowOrganizationPolicyAssignmentDetailedStatusRequest {
         this['organization_policy_assignment_name'] = organizationPolicyAssignmentName;
         return this;
     }
-    public set organizationPolicyAssignmentName(organizationPolicyAssignmentName: string | undefined) {
+    public set organizationPolicyAssignmentName(organizationPolicyAssignmentName: string  | undefined) {
         this['organization_policy_assignment_name'] = organizationPolicyAssignmentName;
     }
-    public get organizationPolicyAssignmentName() {
+    public get organizationPolicyAssignmentName(): string | undefined {
         return this['organization_policy_assignment_name'];
     }
-    public withStatus(status: ShowOrganizationPolicyAssignmentDetailedStatusRequestStatusEnum): ShowOrganizationPolicyAssignmentDetailedStatusRequest {
+    public withStatus(status: ShowOrganizationPolicyAssignmentDetailedStatusRequestStatusEnum | string): ShowOrganizationPolicyAssignmentDetailedStatusRequest {
         this['status'] = status;
         return this;
     }

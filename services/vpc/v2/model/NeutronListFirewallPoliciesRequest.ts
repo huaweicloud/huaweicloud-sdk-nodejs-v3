@@ -6,7 +6,7 @@ export class NeutronListFirewallPoliciesRequest {
     public id?: Array<string>;
     public name?: Array<string>;
     public description?: Array<string>;
-    private 'tenant_id'?: string | undefined;
+    private 'tenant_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): NeutronListFirewallPoliciesRequest {
@@ -33,10 +33,10 @@ export class NeutronListFirewallPoliciesRequest {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
 }

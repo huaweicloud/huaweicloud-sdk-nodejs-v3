@@ -2,10 +2,10 @@ import { StorageSelectorsMatchLabels } from './StorageSelectorsMatchLabels';
 
 
 export class StorageSelectors {
-    public name: string;
-    public storageType: string;
+    public name?: string;
+    public storageType?: string;
     public matchLabels?: StorageSelectorsMatchLabels;
-    public constructor(name?: any, storageType?: any) { 
+    public constructor(name?: string, storageType?: string) { 
         this['name'] = name;
         this['storageType'] = storageType;
     }

@@ -1,33 +1,33 @@
 
 
 export class InstInfo {
-    private 'engine_type'?: InstInfoEngineTypeEnum | undefined;
-    private 'inst_type'?: InstInfoInstTypeEnum | undefined;
+    private 'engine_type'?: InstInfoEngineTypeEnum | string;
+    private 'inst_type'?: InstInfoInstTypeEnum | string;
     public ip?: string;
-    private 'public_ip'?: string | undefined;
-    private 'start_time'?: string | undefined;
-    public status?: InstInfoStatusEnum;
-    private 'volume_size'?: number | undefined;
+    private 'public_ip'?: string;
+    private 'start_time'?: string;
+    public status?: InstInfoStatusEnum | string;
+    private 'volume_size'?: number;
     public constructor() { 
     }
-    public withEngineType(engineType: InstInfoEngineTypeEnum): InstInfo {
+    public withEngineType(engineType: InstInfoEngineTypeEnum | string): InstInfo {
         this['engine_type'] = engineType;
         return this;
     }
-    public set engineType(engineType: InstInfoEngineTypeEnum | undefined) {
+    public set engineType(engineType: InstInfoEngineTypeEnum | string  | undefined) {
         this['engine_type'] = engineType;
     }
-    public get engineType() {
+    public get engineType(): InstInfoEngineTypeEnum | string | undefined {
         return this['engine_type'];
     }
-    public withInstType(instType: InstInfoInstTypeEnum): InstInfo {
+    public withInstType(instType: InstInfoInstTypeEnum | string): InstInfo {
         this['inst_type'] = instType;
         return this;
     }
-    public set instType(instType: InstInfoInstTypeEnum | undefined) {
+    public set instType(instType: InstInfoInstTypeEnum | string  | undefined) {
         this['inst_type'] = instType;
     }
-    public get instType() {
+    public get instType(): InstInfoInstTypeEnum | string | undefined {
         return this['inst_type'];
     }
     public withIp(ip: string): InstInfo {
@@ -38,23 +38,23 @@ export class InstInfo {
         this['public_ip'] = publicIp;
         return this;
     }
-    public set publicIp(publicIp: string | undefined) {
+    public set publicIp(publicIp: string  | undefined) {
         this['public_ip'] = publicIp;
     }
-    public get publicIp() {
+    public get publicIp(): string | undefined {
         return this['public_ip'];
     }
     public withStartTime(startTime: string): InstInfo {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
-    public withStatus(status: InstInfoStatusEnum): InstInfo {
+    public withStatus(status: InstInfoStatusEnum | string): InstInfo {
         this['status'] = status;
         return this;
     }
@@ -62,10 +62,10 @@ export class InstInfo {
         this['volume_size'] = volumeSize;
         return this;
     }
-    public set volumeSize(volumeSize: number | undefined) {
+    public set volumeSize(volumeSize: number  | undefined) {
         this['volume_size'] = volumeSize;
     }
-    public get volumeSize() {
+    public get volumeSize(): number | undefined {
         return this['volume_size'];
     }
 }

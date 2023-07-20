@@ -2,11 +2,11 @@ import { GeneralTextCharList } from './GeneralTextCharList';
 
 
 export class GeneralTextWordsBlockList {
-    public words: string;
-    public location: Array<Array<number>>;
-    public confidence: number;
-    private 'char_list': Array<GeneralTextCharList> | undefined;
-    public constructor(words?: any, location?: any, confidence?: any, charList?: any) { 
+    public words?: string;
+    public location?: Array<Array<number>>;
+    public confidence?: number;
+    private 'char_list'?: Array<GeneralTextCharList>;
+    public constructor(words?: string, location?: Array<Array<number>>, confidence?: number, charList?: Array<GeneralTextCharList>) { 
         this['words'] = words;
         this['location'] = location;
         this['confidence'] = confidence;
@@ -28,10 +28,10 @@ export class GeneralTextWordsBlockList {
         this['char_list'] = charList;
         return this;
     }
-    public set charList(charList: Array<GeneralTextCharList> | undefined) {
+    public set charList(charList: Array<GeneralTextCharList>  | undefined) {
         this['char_list'] = charList;
     }
-    public get charList() {
+    public get charList(): Array<GeneralTextCharList> | undefined {
         return this['char_list'];
     }
 }

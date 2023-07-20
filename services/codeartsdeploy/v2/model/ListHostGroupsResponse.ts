@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListHostGroupsResponse extends SdkResponse {
     public total?: number;
-    private 'host_groups'?: Array<DeploymentGroupDetail> | undefined;
+    private 'host_groups'?: Array<DeploymentGroupDetail>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListHostGroupsResponse extends SdkResponse {
         this['host_groups'] = hostGroups;
         return this;
     }
-    public set hostGroups(hostGroups: Array<DeploymentGroupDetail> | undefined) {
+    public set hostGroups(hostGroups: Array<DeploymentGroupDetail>  | undefined) {
         this['host_groups'] = hostGroups;
     }
-    public get hostGroups() {
+    public get hostGroups(): Array<DeploymentGroupDetail> | undefined {
         return this['host_groups'];
     }
 }

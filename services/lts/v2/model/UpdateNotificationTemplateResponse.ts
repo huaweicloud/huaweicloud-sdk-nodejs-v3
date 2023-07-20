@@ -7,7 +7,7 @@ export class UpdateNotificationTemplateResponse extends SdkResponse {
     public type?: Array<string>;
     public desc?: string;
     public source?: string;
-    public locale?: UpdateNotificationTemplateResponseLocaleEnum;
+    public locale?: UpdateNotificationTemplateResponseLocaleEnum | string;
     public templates?: Array<SubTemplate>;
     public constructor() { 
         super();
@@ -28,7 +28,7 @@ export class UpdateNotificationTemplateResponse extends SdkResponse {
         this['source'] = source;
         return this;
     }
-    public withLocale(locale: UpdateNotificationTemplateResponseLocaleEnum): UpdateNotificationTemplateResponse {
+    public withLocale(locale: UpdateNotificationTemplateResponseLocaleEnum | string): UpdateNotificationTemplateResponse {
         this['locale'] = locale;
         return this;
     }

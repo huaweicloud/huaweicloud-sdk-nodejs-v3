@@ -1,18 +1,18 @@
 
 
 export class SyncRepo {
-    public createdAt: string;
-    public domainID: string;
-    public domainName: string;
-    public id: number;
-    public namespace: string;
-    public override: boolean;
-    public remoteNamespace: string;
-    public remoteRegionId: string;
-    public repoName: string;
-    public syncAuto: boolean;
-    public updatedAt: string;
-    public constructor(createdAt?: any, domainID?: any, domainName?: any, id?: any, namespace?: any, override?: any, remoteNamespace?: any, remoteRegionId?: any, repoName?: any, syncAuto?: any, updatedAt?: any) { 
+    public createdAt?: string;
+    public domainID?: string;
+    public domainName?: string;
+    public id?: number;
+    public namespace?: string;
+    public override?: boolean;
+    public remoteNamespace?: string;
+    public remoteRegionId?: string;
+    public repoName?: string;
+    public syncAuto?: boolean;
+    public updatedAt?: string;
+    public constructor(createdAt?: string, domainID?: string, domainName?: string, id?: number, namespace?: string, override?: boolean, remoteNamespace?: string, remoteRegionId?: string, repoName?: string, syncAuto?: boolean, updatedAt?: string) { 
         this['createdAt'] = createdAt;
         this['domainID'] = domainID;
         this['domainName'] = domainName;

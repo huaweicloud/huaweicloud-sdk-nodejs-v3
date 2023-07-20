@@ -2,18 +2,18 @@ import { Topics } from './Topics';
 
 
 export class SqlNotificationSaveRule {
-    public language: SqlNotificationSaveRuleLanguageEnum;
+    public language?: SqlNotificationSaveRuleLanguageEnum | string;
     public timezone?: string;
-    private 'user_name': string | undefined;
-    public topics: Array<Topics>;
-    private 'template_name': string | undefined;
-    public constructor(language?: any, userName?: any, topics?: any, templateName?: any) { 
+    private 'user_name'?: string;
+    public topics?: Array<Topics>;
+    private 'template_name'?: string;
+    public constructor(language?: string, userName?: string, topics?: Array<Topics>, templateName?: string) { 
         this['language'] = language;
         this['user_name'] = userName;
         this['topics'] = topics;
         this['template_name'] = templateName;
     }
-    public withLanguage(language: SqlNotificationSaveRuleLanguageEnum): SqlNotificationSaveRule {
+    public withLanguage(language: SqlNotificationSaveRuleLanguageEnum | string): SqlNotificationSaveRule {
         this['language'] = language;
         return this;
     }
@@ -25,10 +25,10 @@ export class SqlNotificationSaveRule {
         this['user_name'] = userName;
         return this;
     }
-    public set userName(userName: string | undefined) {
+    public set userName(userName: string  | undefined) {
         this['user_name'] = userName;
     }
-    public get userName() {
+    public get userName(): string | undefined {
         return this['user_name'];
     }
     public withTopics(topics: Array<Topics>): SqlNotificationSaveRule {
@@ -39,10 +39,10 @@ export class SqlNotificationSaveRule {
         this['template_name'] = templateName;
         return this;
     }
-    public set templateName(templateName: string | undefined) {
+    public set templateName(templateName: string  | undefined) {
         this['template_name'] = templateName;
     }
-    public get templateName() {
+    public get templateName(): string | undefined {
         return this['template_name'];
     }
 }

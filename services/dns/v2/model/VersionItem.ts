@@ -7,7 +7,7 @@ export class VersionItem {
     public links?: Array<LinksItem>;
     public updated?: string;
     public version?: string;
-    private 'min_version'?: string | undefined;
+    private 'min_version'?: string;
     public constructor() { 
     }
     public withId(id: string): VersionItem {
@@ -34,10 +34,10 @@ export class VersionItem {
         this['min_version'] = minVersion;
         return this;
     }
-    public set minVersion(minVersion: string | undefined) {
+    public set minVersion(minVersion: string  | undefined) {
         this['min_version'] = minVersion;
     }
-    public get minVersion() {
+    public get minVersion(): string | undefined {
         return this['min_version'];
     }
 }

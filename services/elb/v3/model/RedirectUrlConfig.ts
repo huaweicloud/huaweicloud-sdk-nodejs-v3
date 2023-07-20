@@ -1,13 +1,13 @@
 
 
 export class RedirectUrlConfig {
-    public protocol: RedirectUrlConfigProtocolEnum;
-    public host: string;
-    public port: string;
-    public path: string;
-    public query: string;
-    private 'status_code': RedirectUrlConfigStatusCodeEnum | undefined;
-    public constructor(protocol?: any, host?: any, port?: any, path?: any, query?: any, statusCode?: any) { 
+    public protocol?: RedirectUrlConfigProtocolEnum | string;
+    public host?: string;
+    public port?: string;
+    public path?: string;
+    public query?: string;
+    private 'status_code'?: RedirectUrlConfigStatusCodeEnum | string;
+    public constructor(protocol?: string, host?: string, port?: string, path?: string, query?: string, statusCode?: string) { 
         this['protocol'] = protocol;
         this['host'] = host;
         this['port'] = port;
@@ -15,7 +15,7 @@ export class RedirectUrlConfig {
         this['query'] = query;
         this['status_code'] = statusCode;
     }
-    public withProtocol(protocol: RedirectUrlConfigProtocolEnum): RedirectUrlConfig {
+    public withProtocol(protocol: RedirectUrlConfigProtocolEnum | string): RedirectUrlConfig {
         this['protocol'] = protocol;
         return this;
     }
@@ -35,14 +35,14 @@ export class RedirectUrlConfig {
         this['query'] = query;
         return this;
     }
-    public withStatusCode(statusCode: RedirectUrlConfigStatusCodeEnum): RedirectUrlConfig {
+    public withStatusCode(statusCode: RedirectUrlConfigStatusCodeEnum | string): RedirectUrlConfig {
         this['status_code'] = statusCode;
         return this;
     }
-    public set statusCode(statusCode: RedirectUrlConfigStatusCodeEnum | undefined) {
+    public set statusCode(statusCode: RedirectUrlConfigStatusCodeEnum | string  | undefined) {
         this['status_code'] = statusCode;
     }
-    public get statusCode() {
+    public get statusCode(): RedirectUrlConfigStatusCodeEnum | string | undefined {
         return this['status_code'];
     }
 }

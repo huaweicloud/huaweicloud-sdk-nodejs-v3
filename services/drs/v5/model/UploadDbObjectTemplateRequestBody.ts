@@ -1,7 +1,7 @@
 
 
 export class UploadDbObjectTemplateRequestBody {
-    public file: any;
+    public file?: any;
     public constructor(file?: any) { 
         this['file'] = file;
     }

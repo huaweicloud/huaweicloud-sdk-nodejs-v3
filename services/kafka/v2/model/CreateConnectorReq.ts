@@ -1,13 +1,13 @@
 
 
 export class CreateConnectorReq {
-    public specification?: CreateConnectorReqSpecificationEnum;
-    private 'node_cnt'?: string | undefined;
-    private 'spec_code': string | undefined;
-    public constructor(specCode?: any) { 
+    public specification?: CreateConnectorReqSpecificationEnum | string;
+    private 'node_cnt'?: string;
+    private 'spec_code'?: string;
+    public constructor(specCode?: string) { 
         this['spec_code'] = specCode;
     }
-    public withSpecification(specification: CreateConnectorReqSpecificationEnum): CreateConnectorReq {
+    public withSpecification(specification: CreateConnectorReqSpecificationEnum | string): CreateConnectorReq {
         this['specification'] = specification;
         return this;
     }
@@ -15,20 +15,20 @@ export class CreateConnectorReq {
         this['node_cnt'] = nodeCnt;
         return this;
     }
-    public set nodeCnt(nodeCnt: string | undefined) {
+    public set nodeCnt(nodeCnt: string  | undefined) {
         this['node_cnt'] = nodeCnt;
     }
-    public get nodeCnt() {
+    public get nodeCnt(): string | undefined {
         return this['node_cnt'];
     }
     public withSpecCode(specCode: string): CreateConnectorReq {
         this['spec_code'] = specCode;
         return this;
     }
-    public set specCode(specCode: string | undefined) {
+    public set specCode(specCode: string  | undefined) {
         this['spec_code'] = specCode;
     }
-    public get specCode() {
+    public get specCode(): string | undefined {
         return this['spec_code'];
     }
 }

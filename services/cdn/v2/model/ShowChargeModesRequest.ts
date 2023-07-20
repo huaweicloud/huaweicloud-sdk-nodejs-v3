@@ -1,20 +1,20 @@
 
 
 export class ShowChargeModesRequest {
-    private 'product_type': string | undefined;
+    private 'product_type'?: string;
     public status?: string;
-    private 'service_area'?: string | undefined;
-    public constructor(productType?: any) { 
+    private 'service_area'?: string;
+    public constructor(productType?: string) { 
         this['product_type'] = productType;
     }
     public withProductType(productType: string): ShowChargeModesRequest {
         this['product_type'] = productType;
         return this;
     }
-    public set productType(productType: string | undefined) {
+    public set productType(productType: string  | undefined) {
         this['product_type'] = productType;
     }
-    public get productType() {
+    public get productType(): string | undefined {
         return this['product_type'];
     }
     public withStatus(status: string): ShowChargeModesRequest {
@@ -25,10 +25,10 @@ export class ShowChargeModesRequest {
         this['service_area'] = serviceArea;
         return this;
     }
-    public set serviceArea(serviceArea: string | undefined) {
+    public set serviceArea(serviceArea: string  | undefined) {
         this['service_area'] = serviceArea;
     }
-    public get serviceArea() {
+    public get serviceArea(): string | undefined {
         return this['service_area'];
     }
 }

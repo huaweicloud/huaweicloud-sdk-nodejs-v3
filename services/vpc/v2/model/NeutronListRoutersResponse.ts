@@ -5,7 +5,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class NeutronListRoutersResponse extends SdkResponse {
     public routers?: Array<NeutronRouter>;
-    private 'routers_links'?: Array<NeutronPageLink> | undefined;
+    private 'routers_links'?: Array<NeutronPageLink>;
     public constructor() { 
         super();
     }
@@ -17,10 +17,10 @@ export class NeutronListRoutersResponse extends SdkResponse {
         this['routers_links'] = routersLinks;
         return this;
     }
-    public set routersLinks(routersLinks: Array<NeutronPageLink> | undefined) {
+    public set routersLinks(routersLinks: Array<NeutronPageLink>  | undefined) {
         this['routers_links'] = routersLinks;
     }
-    public get routersLinks() {
+    public get routersLinks(): Array<NeutronPageLink> | undefined {
         return this['routers_links'];
     }
 }

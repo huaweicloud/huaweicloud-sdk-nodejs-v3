@@ -2,21 +2,21 @@ import { ResourcesFilters } from './ResourcesFilters';
 
 
 export class AggregateDiscoveredResourcesRequest {
-    private 'aggregator_id': string | undefined;
+    private 'aggregator_id'?: string;
     public filter?: ResourcesFilters;
     public provider?: string;
-    private 'resource_type'?: string | undefined;
-    public constructor(aggregatorId?: any) { 
+    private 'resource_type'?: string;
+    public constructor(aggregatorId?: string) { 
         this['aggregator_id'] = aggregatorId;
     }
     public withAggregatorId(aggregatorId: string): AggregateDiscoveredResourcesRequest {
         this['aggregator_id'] = aggregatorId;
         return this;
     }
-    public set aggregatorId(aggregatorId: string | undefined) {
+    public set aggregatorId(aggregatorId: string  | undefined) {
         this['aggregator_id'] = aggregatorId;
     }
-    public get aggregatorId() {
+    public get aggregatorId(): string | undefined {
         return this['aggregator_id'];
     }
     public withFilter(filter: ResourcesFilters): AggregateDiscoveredResourcesRequest {
@@ -31,10 +31,10 @@ export class AggregateDiscoveredResourcesRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: string | undefined) {
+    public set resourceType(resourceType: string  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): string | undefined {
         return this['resource_type'];
     }
 }

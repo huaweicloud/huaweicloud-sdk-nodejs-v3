@@ -3,13 +3,13 @@ import { CheckpointPlanCreate } from './CheckpointPlanCreate';
 
 
 export class CheckpointCreate {
-    private 'created_at': string | undefined;
-    public id: string;
-    private 'project_id': string | undefined;
-    public status: CheckpointCreateStatusEnum;
+    private 'created_at'?: string;
+    public id?: string;
+    private 'project_id'?: string;
+    public status?: CheckpointCreateStatusEnum | string;
     public vault?: CheckpointPlanCreate;
-    private 'extra_info'?: CheckpointExtraInfoResp | undefined;
-    public constructor(createdAt?: any, id?: any, projectId?: any, status?: any) { 
+    private 'extra_info'?: CheckpointExtraInfoResp;
+    public constructor(createdAt?: string, id?: string, projectId?: string, status?: string) { 
         this['created_at'] = createdAt;
         this['id'] = id;
         this['project_id'] = projectId;
@@ -19,10 +19,10 @@ export class CheckpointCreate {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withId(id: string): CheckpointCreate {
@@ -33,13 +33,13 @@ export class CheckpointCreate {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
-    public withStatus(status: CheckpointCreateStatusEnum): CheckpointCreate {
+    public withStatus(status: CheckpointCreateStatusEnum | string): CheckpointCreate {
         this['status'] = status;
         return this;
     }
@@ -51,10 +51,10 @@ export class CheckpointCreate {
         this['extra_info'] = extraInfo;
         return this;
     }
-    public set extraInfo(extraInfo: CheckpointExtraInfoResp | undefined) {
+    public set extraInfo(extraInfo: CheckpointExtraInfoResp  | undefined) {
         this['extra_info'] = extraInfo;
     }
-    public get extraInfo() {
+    public get extraInfo(): CheckpointExtraInfoResp | undefined {
         return this['extra_info'];
     }
 }

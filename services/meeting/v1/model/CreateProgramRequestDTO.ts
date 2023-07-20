@@ -3,9 +3,9 @@ import { ProgramRequestBase } from './ProgramRequestBase';
 
 
 export class CreateProgramRequestDTO {
-    public programName: string;
+    public programName?: string;
     public programItemList?: Array<ProgramItemRequestBase>;
-    public constructor(programName?: any) { 
+    public constructor(programName?: string) { 
         this['programName'] = programName;
     }
     public withProgramName(programName: string): CreateProgramRequestDTO {

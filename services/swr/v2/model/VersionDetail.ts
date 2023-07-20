@@ -2,13 +2,13 @@ import { Link } from './Link';
 
 
 export class VersionDetail {
-    public id: string;
-    public links: Link;
-    public version: string;
-    public status: string;
-    public updated: string;
-    private 'min_version': string | undefined;
-    public constructor(id?: any, links?: any, version?: any, status?: any, updated?: any, minVersion?: any) { 
+    public id?: string;
+    public links?: Link;
+    public version?: string;
+    public status?: string;
+    public updated?: string;
+    private 'min_version'?: string;
+    public constructor(id?: string, links?: Link, version?: string, status?: string, updated?: string, minVersion?: string) { 
         this['id'] = id;
         this['links'] = links;
         this['version'] = version;
@@ -40,10 +40,10 @@ export class VersionDetail {
         this['min_version'] = minVersion;
         return this;
     }
-    public set minVersion(minVersion: string | undefined) {
+    public set minVersion(minVersion: string  | undefined) {
         this['min_version'] = minVersion;
     }
-    public get minVersion() {
+    public get minVersion(): string | undefined {
         return this['min_version'];
     }
 }

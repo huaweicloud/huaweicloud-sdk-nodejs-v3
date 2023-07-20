@@ -1,16 +1,16 @@
 
 
 export class RecordObsFileAddr {
-    public location: RecordObsFileAddrLocationEnum;
-    private 'project_id': string | undefined;
-    public bucket: string;
-    private 'object'?: string | undefined;
-    public constructor(location?: any, projectId?: any, bucket?: any) { 
+    public location?: RecordObsFileAddrLocationEnum | string;
+    private 'project_id'?: string;
+    public bucket?: string;
+    private 'object'?: string;
+    public constructor(location?: string, projectId?: string, bucket?: string) { 
         this['location'] = location;
         this['project_id'] = projectId;
         this['bucket'] = bucket;
     }
-    public withLocation(location: RecordObsFileAddrLocationEnum): RecordObsFileAddr {
+    public withLocation(location: RecordObsFileAddrLocationEnum | string): RecordObsFileAddr {
         this['location'] = location;
         return this;
     }
@@ -18,10 +18,10 @@ export class RecordObsFileAddr {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withBucket(bucket: string): RecordObsFileAddr {
@@ -32,10 +32,10 @@ export class RecordObsFileAddr {
         this['object'] = modelObject;
         return this;
     }
-    public set modelObject(modelObject: string | undefined) {
+    public set modelObject(modelObject: string  | undefined) {
         this['object'] = modelObject;
     }
-    public get modelObject() {
+    public get modelObject(): string | undefined {
         return this['object'];
     }
 }

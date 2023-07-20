@@ -3,22 +3,22 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowRepositoryResponse extends SdkResponse {
     public id?: number;
-    private 'ns_id'?: number | undefined;
+    private 'ns_id'?: number;
     public name?: string;
     public category?: string;
     public description?: string;
-    private 'creator_id'?: string | undefined;
-    private 'creator_name'?: string | undefined;
+    private 'creator_id'?: string;
+    private 'creator_name'?: string;
     public size?: number;
-    private 'is_public'?: boolean | undefined;
-    private 'num_images'?: number | undefined;
-    private 'num_download'?: number | undefined;
+    private 'is_public'?: boolean;
+    private 'num_images'?: number;
+    private 'num_download'?: number;
     public url?: string;
     public path?: string;
-    private 'internal_path'?: string | undefined;
+    private 'internal_path'?: string;
     public created?: string;
     public updated?: string;
-    private 'domain_id'?: string | undefined;
+    private 'domain_id'?: string;
     public priority?: number;
     public constructor() { 
         super();
@@ -31,10 +31,10 @@ export class ShowRepositoryResponse extends SdkResponse {
         this['ns_id'] = nsId;
         return this;
     }
-    public set nsId(nsId: number | undefined) {
+    public set nsId(nsId: number  | undefined) {
         this['ns_id'] = nsId;
     }
-    public get nsId() {
+    public get nsId(): number | undefined {
         return this['ns_id'];
     }
     public withName(name: string): ShowRepositoryResponse {
@@ -53,20 +53,20 @@ export class ShowRepositoryResponse extends SdkResponse {
         this['creator_id'] = creatorId;
         return this;
     }
-    public set creatorId(creatorId: string | undefined) {
+    public set creatorId(creatorId: string  | undefined) {
         this['creator_id'] = creatorId;
     }
-    public get creatorId() {
+    public get creatorId(): string | undefined {
         return this['creator_id'];
     }
     public withCreatorName(creatorName: string): ShowRepositoryResponse {
         this['creator_name'] = creatorName;
         return this;
     }
-    public set creatorName(creatorName: string | undefined) {
+    public set creatorName(creatorName: string  | undefined) {
         this['creator_name'] = creatorName;
     }
-    public get creatorName() {
+    public get creatorName(): string | undefined {
         return this['creator_name'];
     }
     public withSize(size: number): ShowRepositoryResponse {
@@ -77,30 +77,30 @@ export class ShowRepositoryResponse extends SdkResponse {
         this['is_public'] = isPublic;
         return this;
     }
-    public set isPublic(isPublic: boolean | undefined) {
+    public set isPublic(isPublic: boolean  | undefined) {
         this['is_public'] = isPublic;
     }
-    public get isPublic() {
+    public get isPublic(): boolean | undefined {
         return this['is_public'];
     }
     public withNumImages(numImages: number): ShowRepositoryResponse {
         this['num_images'] = numImages;
         return this;
     }
-    public set numImages(numImages: number | undefined) {
+    public set numImages(numImages: number  | undefined) {
         this['num_images'] = numImages;
     }
-    public get numImages() {
+    public get numImages(): number | undefined {
         return this['num_images'];
     }
     public withNumDownload(numDownload: number): ShowRepositoryResponse {
         this['num_download'] = numDownload;
         return this;
     }
-    public set numDownload(numDownload: number | undefined) {
+    public set numDownload(numDownload: number  | undefined) {
         this['num_download'] = numDownload;
     }
-    public get numDownload() {
+    public get numDownload(): number | undefined {
         return this['num_download'];
     }
     public withUrl(url: string): ShowRepositoryResponse {
@@ -115,10 +115,10 @@ export class ShowRepositoryResponse extends SdkResponse {
         this['internal_path'] = internalPath;
         return this;
     }
-    public set internalPath(internalPath: string | undefined) {
+    public set internalPath(internalPath: string  | undefined) {
         this['internal_path'] = internalPath;
     }
-    public get internalPath() {
+    public get internalPath(): string | undefined {
         return this['internal_path'];
     }
     public withCreated(created: string): ShowRepositoryResponse {
@@ -133,10 +133,10 @@ export class ShowRepositoryResponse extends SdkResponse {
         this['domain_id'] = domainId;
         return this;
     }
-    public set domainId(domainId: string | undefined) {
+    public set domainId(domainId: string  | undefined) {
         this['domain_id'] = domainId;
     }
-    public get domainId() {
+    public get domainId(): string | undefined {
         return this['domain_id'];
     }
     public withPriority(priority: number): ShowRepositoryResponse {

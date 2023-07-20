@@ -2,15 +2,15 @@ import { ConfigurationParameterUnit } from './ConfigurationParameterUnit';
 
 
 export class ConfigurationParameter {
-    public name: string;
-    public values: Array<ConfigurationParameterUnit>;
-    public unit: string;
-    public type: string;
-    public readonly: boolean;
-    private 'value_range': string | undefined;
-    private 'restart_required': boolean | undefined;
-    public description: string;
-    public constructor(name?: any, values?: any, unit?: any, type?: any, readonly?: any, valueRange?: any, restartRequired?: any, description?: any) { 
+    public name?: string;
+    public values?: Array<ConfigurationParameterUnit>;
+    public unit?: string;
+    public type?: string;
+    public readonly?: boolean;
+    private 'value_range'?: string;
+    private 'restart_required'?: boolean;
+    public description?: string;
+    public constructor(name?: string, values?: Array<ConfigurationParameterUnit>, unit?: string, type?: string, readonly?: boolean, valueRange?: string, restartRequired?: boolean, description?: string) { 
         this['name'] = name;
         this['values'] = values;
         this['unit'] = unit;
@@ -44,20 +44,20 @@ export class ConfigurationParameter {
         this['value_range'] = valueRange;
         return this;
     }
-    public set valueRange(valueRange: string | undefined) {
+    public set valueRange(valueRange: string  | undefined) {
         this['value_range'] = valueRange;
     }
-    public get valueRange() {
+    public get valueRange(): string | undefined {
         return this['value_range'];
     }
     public withRestartRequired(restartRequired: boolean): ConfigurationParameter {
         this['restart_required'] = restartRequired;
         return this;
     }
-    public set restartRequired(restartRequired: boolean | undefined) {
+    public set restartRequired(restartRequired: boolean  | undefined) {
         this['restart_required'] = restartRequired;
     }
-    public get restartRequired() {
+    public get restartRequired(): boolean | undefined {
         return this['restart_required'];
     }
     public withDescription(description: string): ConfigurationParameter {

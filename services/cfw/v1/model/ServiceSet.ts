@@ -1,10 +1,10 @@
 
 
 export class ServiceSet {
-    private 'set_id'?: string | undefined;
+    private 'set_id'?: string;
     public name?: string;
     public description?: string;
-    private 'ref_count'?: number | undefined;
+    private 'ref_count'?: number;
     public status?: string;
     public constructor() { 
     }
@@ -12,10 +12,10 @@ export class ServiceSet {
         this['set_id'] = setId;
         return this;
     }
-    public set setId(setId: string | undefined) {
+    public set setId(setId: string  | undefined) {
         this['set_id'] = setId;
     }
-    public get setId() {
+    public get setId(): string | undefined {
         return this['set_id'];
     }
     public withName(name: string): ServiceSet {
@@ -30,10 +30,10 @@ export class ServiceSet {
         this['ref_count'] = refCount;
         return this;
     }
-    public set refCount(refCount: number | undefined) {
+    public set refCount(refCount: number  | undefined) {
         this['ref_count'] = refCount;
     }
-    public get refCount() {
+    public get refCount(): number | undefined {
         return this['ref_count'];
     }
     public withStatus(status: string): ServiceSet {

@@ -6,9 +6,9 @@ export class UpdateLineGroupsResponse extends SdkResponse {
     public lines?: Array<string>;
     public status?: string;
     public description?: string;
-    private 'line_id'?: string | undefined;
-    private 'created_at'?: string | undefined;
-    private 'updated_at'?: string | undefined;
+    private 'line_id'?: string;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
     public constructor() { 
         super();
     }
@@ -32,30 +32,30 @@ export class UpdateLineGroupsResponse extends SdkResponse {
         this['line_id'] = lineId;
         return this;
     }
-    public set lineId(lineId: string | undefined) {
+    public set lineId(lineId: string  | undefined) {
         this['line_id'] = lineId;
     }
-    public get lineId() {
+    public get lineId(): string | undefined {
         return this['line_id'];
     }
     public withCreatedAt(createdAt: string): UpdateLineGroupsResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): UpdateLineGroupsResponse {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
 }

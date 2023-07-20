@@ -9,9 +9,9 @@ export class SimplePremiumWafHost {
     public flag?: Flag;
     public description?: string;
     public policyid?: string;
-    private 'protect_status'?: number | undefined;
-    private 'access_status'?: number | undefined;
-    private 'web_tag'?: string | undefined;
+    private 'protect_status'?: number;
+    private 'access_status'?: number;
+    private 'web_tag'?: string;
     public hostid?: string;
     public constructor() { 
     }
@@ -47,30 +47,30 @@ export class SimplePremiumWafHost {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number | undefined) {
+    public set protectStatus(protectStatus: number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): number | undefined {
         return this['protect_status'];
     }
     public withAccessStatus(accessStatus: number): SimplePremiumWafHost {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number | undefined) {
+    public set accessStatus(accessStatus: number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus() {
+    public get accessStatus(): number | undefined {
         return this['access_status'];
     }
     public withWebTag(webTag: string): SimplePremiumWafHost {
         this['web_tag'] = webTag;
         return this;
     }
-    public set webTag(webTag: string | undefined) {
+    public set webTag(webTag: string  | undefined) {
         this['web_tag'] = webTag;
     }
-    public get webTag() {
+    public get webTag(): string | undefined {
         return this['web_tag'];
     }
     public withHostid(hostid: string): SimplePremiumWafHost {

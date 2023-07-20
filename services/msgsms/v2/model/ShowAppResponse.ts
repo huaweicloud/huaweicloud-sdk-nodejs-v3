@@ -4,26 +4,26 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowAppResponse extends SdkResponse {
     public id?: string;
-    private 'create_time'?: string | undefined;
-    private 'update_time'?: string | undefined;
-    private 'customer_id'?: string | undefined;
-    private 'resource_id'?: string | undefined;
-    private 'developer_account'?: string | undefined;
-    private 'app_name'?: string | undefined;
-    private 'omp_app_name'?: string | undefined;
-    private 'app_key'?: string | undefined;
-    private 'up_link_addr'?: string | undefined;
+    private 'create_time'?: string;
+    private 'update_time'?: string;
+    private 'customer_id'?: string;
+    private 'resource_id'?: string;
+    private 'developer_account'?: string;
+    private 'app_name'?: string;
+    private 'omp_app_name'?: string;
+    private 'app_key'?: string;
+    private 'up_link_addr'?: string;
     public status?: string;
     public industry?: number;
     public region?: string;
-    private 'intl_channel_num'?: string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'enterprise_project_name'?: string | undefined;
-    private 'ip_white_list'?: string | undefined;
-    private 'app_access_addr'?: string | undefined;
+    private 'intl_channel_num'?: string;
+    private 'enterprise_project_id'?: string;
+    private 'enterprise_project_name'?: string;
+    private 'ip_white_list'?: string;
+    private 'app_access_addr'?: string;
     public protocol?: string;
     public platform?: string;
-    private 'is_support_multiomp'?: boolean | undefined;
+    private 'is_support_multiomp'?: boolean;
     public tenant?: TenantBasic;
     public constructor() { 
         super();
@@ -36,90 +36,90 @@ export class ShowAppResponse extends SdkResponse {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withUpdateTime(updateTime: string): ShowAppResponse {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
     public withCustomerId(customerId: string): ShowAppResponse {
         this['customer_id'] = customerId;
         return this;
     }
-    public set customerId(customerId: string | undefined) {
+    public set customerId(customerId: string  | undefined) {
         this['customer_id'] = customerId;
     }
-    public get customerId() {
+    public get customerId(): string | undefined {
         return this['customer_id'];
     }
     public withResourceId(resourceId: string): ShowAppResponse {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: string | undefined) {
+    public set resourceId(resourceId: string  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): string | undefined {
         return this['resource_id'];
     }
     public withDeveloperAccount(developerAccount: string): ShowAppResponse {
         this['developer_account'] = developerAccount;
         return this;
     }
-    public set developerAccount(developerAccount: string | undefined) {
+    public set developerAccount(developerAccount: string  | undefined) {
         this['developer_account'] = developerAccount;
     }
-    public get developerAccount() {
+    public get developerAccount(): string | undefined {
         return this['developer_account'];
     }
     public withAppName(appName: string): ShowAppResponse {
         this['app_name'] = appName;
         return this;
     }
-    public set appName(appName: string | undefined) {
+    public set appName(appName: string  | undefined) {
         this['app_name'] = appName;
     }
-    public get appName() {
+    public get appName(): string | undefined {
         return this['app_name'];
     }
     public withOmpAppName(ompAppName: string): ShowAppResponse {
         this['omp_app_name'] = ompAppName;
         return this;
     }
-    public set ompAppName(ompAppName: string | undefined) {
+    public set ompAppName(ompAppName: string  | undefined) {
         this['omp_app_name'] = ompAppName;
     }
-    public get ompAppName() {
+    public get ompAppName(): string | undefined {
         return this['omp_app_name'];
     }
     public withAppKey(appKey: string): ShowAppResponse {
         this['app_key'] = appKey;
         return this;
     }
-    public set appKey(appKey: string | undefined) {
+    public set appKey(appKey: string  | undefined) {
         this['app_key'] = appKey;
     }
-    public get appKey() {
+    public get appKey(): string | undefined {
         return this['app_key'];
     }
     public withUpLinkAddr(upLinkAddr: string): ShowAppResponse {
         this['up_link_addr'] = upLinkAddr;
         return this;
     }
-    public set upLinkAddr(upLinkAddr: string | undefined) {
+    public set upLinkAddr(upLinkAddr: string  | undefined) {
         this['up_link_addr'] = upLinkAddr;
     }
-    public get upLinkAddr() {
+    public get upLinkAddr(): string | undefined {
         return this['up_link_addr'];
     }
     public withStatus(status: string): ShowAppResponse {
@@ -138,50 +138,50 @@ export class ShowAppResponse extends SdkResponse {
         this['intl_channel_num'] = intlChannelNum;
         return this;
     }
-    public set intlChannelNum(intlChannelNum: string | undefined) {
+    public set intlChannelNum(intlChannelNum: string  | undefined) {
         this['intl_channel_num'] = intlChannelNum;
     }
-    public get intlChannelNum() {
+    public get intlChannelNum(): string | undefined {
         return this['intl_channel_num'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ShowAppResponse {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withEnterpriseProjectName(enterpriseProjectName: string): ShowAppResponse {
         this['enterprise_project_name'] = enterpriseProjectName;
         return this;
     }
-    public set enterpriseProjectName(enterpriseProjectName: string | undefined) {
+    public set enterpriseProjectName(enterpriseProjectName: string  | undefined) {
         this['enterprise_project_name'] = enterpriseProjectName;
     }
-    public get enterpriseProjectName() {
+    public get enterpriseProjectName(): string | undefined {
         return this['enterprise_project_name'];
     }
     public withIpWhiteList(ipWhiteList: string): ShowAppResponse {
         this['ip_white_list'] = ipWhiteList;
         return this;
     }
-    public set ipWhiteList(ipWhiteList: string | undefined) {
+    public set ipWhiteList(ipWhiteList: string  | undefined) {
         this['ip_white_list'] = ipWhiteList;
     }
-    public get ipWhiteList() {
+    public get ipWhiteList(): string | undefined {
         return this['ip_white_list'];
     }
     public withAppAccessAddr(appAccessAddr: string): ShowAppResponse {
         this['app_access_addr'] = appAccessAddr;
         return this;
     }
-    public set appAccessAddr(appAccessAddr: string | undefined) {
+    public set appAccessAddr(appAccessAddr: string  | undefined) {
         this['app_access_addr'] = appAccessAddr;
     }
-    public get appAccessAddr() {
+    public get appAccessAddr(): string | undefined {
         return this['app_access_addr'];
     }
     public withProtocol(protocol: string): ShowAppResponse {
@@ -196,10 +196,10 @@ export class ShowAppResponse extends SdkResponse {
         this['is_support_multiomp'] = isSupportMultiomp;
         return this;
     }
-    public set isSupportMultiomp(isSupportMultiomp: boolean | undefined) {
+    public set isSupportMultiomp(isSupportMultiomp: boolean  | undefined) {
         this['is_support_multiomp'] = isSupportMultiomp;
     }
-    public get isSupportMultiomp() {
+    public get isSupportMultiomp(): boolean | undefined {
         return this['is_support_multiomp'];
     }
     public withTenant(tenant: TenantBasic): ShowAppResponse {

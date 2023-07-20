@@ -2,9 +2,9 @@
 
 export class ServiceSetDetailResponseDto {
     public id?: string;
-    public name: string;
+    public name?: string;
     public description?: string;
-    public constructor(name?: any) { 
+    public constructor(name?: string) { 
         this['name'] = name;
     }
     public withId(id: string): ServiceSetDetailResponseDto {

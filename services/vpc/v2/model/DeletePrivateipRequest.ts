@@ -1,18 +1,18 @@
 
 
 export class DeletePrivateipRequest {
-    private 'privateip_id': string | undefined;
-    public constructor(privateipId?: any) { 
+    private 'privateip_id'?: string;
+    public constructor(privateipId?: string) { 
         this['privateip_id'] = privateipId;
     }
     public withPrivateipId(privateipId: string): DeletePrivateipRequest {
         this['privateip_id'] = privateipId;
         return this;
     }
-    public set privateipId(privateipId: string | undefined) {
+    public set privateipId(privateipId: string  | undefined) {
         this['privateip_id'] = privateipId;
     }
-    public get privateipId() {
+    public get privateipId(): string | undefined {
         return this['privateip_id'];
     }
 }

@@ -4,16 +4,16 @@ import { OtaPackageInfo } from './OtaPackageInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateOtaPackageResponse extends SdkResponse {
-    private 'package_id'?: string | undefined;
-    private 'app_id'?: string | undefined;
-    private 'package_type'?: string | undefined;
-    private 'product_id'?: string | undefined;
+    private 'package_id'?: string;
+    private 'app_id'?: string;
+    private 'package_type'?: string;
+    private 'product_id'?: string;
     public version?: string;
-    private 'support_source_versions'?: Array<string> | undefined;
+    private 'support_source_versions'?: Array<string>;
     public description?: string;
-    private 'custom_info'?: string | undefined;
-    private 'create_time'?: string | undefined;
-    private 'file_location'?: FileLocation | undefined;
+    private 'custom_info'?: string;
+    private 'create_time'?: string;
+    private 'file_location'?: FileLocation;
     public constructor() { 
         super();
     }
@@ -21,40 +21,40 @@ export class CreateOtaPackageResponse extends SdkResponse {
         this['package_id'] = packageId;
         return this;
     }
-    public set packageId(packageId: string | undefined) {
+    public set packageId(packageId: string  | undefined) {
         this['package_id'] = packageId;
     }
-    public get packageId() {
+    public get packageId(): string | undefined {
         return this['package_id'];
     }
     public withAppId(appId: string): CreateOtaPackageResponse {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withPackageType(packageType: string): CreateOtaPackageResponse {
         this['package_type'] = packageType;
         return this;
     }
-    public set packageType(packageType: string | undefined) {
+    public set packageType(packageType: string  | undefined) {
         this['package_type'] = packageType;
     }
-    public get packageType() {
+    public get packageType(): string | undefined {
         return this['package_type'];
     }
     public withProductId(productId: string): CreateOtaPackageResponse {
         this['product_id'] = productId;
         return this;
     }
-    public set productId(productId: string | undefined) {
+    public set productId(productId: string  | undefined) {
         this['product_id'] = productId;
     }
-    public get productId() {
+    public get productId(): string | undefined {
         return this['product_id'];
     }
     public withVersion(version: string): CreateOtaPackageResponse {
@@ -65,10 +65,10 @@ export class CreateOtaPackageResponse extends SdkResponse {
         this['support_source_versions'] = supportSourceVersions;
         return this;
     }
-    public set supportSourceVersions(supportSourceVersions: Array<string> | undefined) {
+    public set supportSourceVersions(supportSourceVersions: Array<string>  | undefined) {
         this['support_source_versions'] = supportSourceVersions;
     }
-    public get supportSourceVersions() {
+    public get supportSourceVersions(): Array<string> | undefined {
         return this['support_source_versions'];
     }
     public withDescription(description: string): CreateOtaPackageResponse {
@@ -79,30 +79,30 @@ export class CreateOtaPackageResponse extends SdkResponse {
         this['custom_info'] = customInfo;
         return this;
     }
-    public set customInfo(customInfo: string | undefined) {
+    public set customInfo(customInfo: string  | undefined) {
         this['custom_info'] = customInfo;
     }
-    public get customInfo() {
+    public get customInfo(): string | undefined {
         return this['custom_info'];
     }
     public withCreateTime(createTime: string): CreateOtaPackageResponse {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withFileLocation(fileLocation: FileLocation): CreateOtaPackageResponse {
         this['file_location'] = fileLocation;
         return this;
     }
-    public set fileLocation(fileLocation: FileLocation | undefined) {
+    public set fileLocation(fileLocation: FileLocation  | undefined) {
         this['file_location'] = fileLocation;
     }
-    public get fileLocation() {
+    public get fileLocation(): FileLocation | undefined {
         return this['file_location'];
     }
 }

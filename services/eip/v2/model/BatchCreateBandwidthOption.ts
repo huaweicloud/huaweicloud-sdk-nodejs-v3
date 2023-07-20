@@ -1,11 +1,11 @@
 
 
 export class BatchCreateBandwidthOption {
-    public count: number;
-    public name: string;
-    public size: number;
-    private 'public_border_group'?: string | undefined;
-    public constructor(count?: any, name?: any, size?: any) { 
+    public count?: number;
+    public name?: string;
+    public size?: number;
+    private 'public_border_group'?: string;
+    public constructor(count?: number, name?: string, size?: number) { 
         this['count'] = count;
         this['name'] = name;
         this['size'] = size;
@@ -26,10 +26,10 @@ export class BatchCreateBandwidthOption {
         this['public_border_group'] = publicBorderGroup;
         return this;
     }
-    public set publicBorderGroup(publicBorderGroup: string | undefined) {
+    public set publicBorderGroup(publicBorderGroup: string  | undefined) {
         this['public_border_group'] = publicBorderGroup;
     }
-    public get publicBorderGroup() {
+    public get publicBorderGroup(): string | undefined {
         return this['public_border_group'];
     }
 }

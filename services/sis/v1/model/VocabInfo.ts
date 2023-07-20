@@ -1,11 +1,11 @@
 
 
 export class VocabInfo {
-    private 'vocabulary_id': string | undefined;
-    public name: string;
-    public language: VocabInfoLanguageEnum;
-    public description: string;
-    public constructor(vocabularyId?: any, name?: any, language?: any, description?: any) { 
+    private 'vocabulary_id'?: string;
+    public name?: string;
+    public language?: VocabInfoLanguageEnum | string;
+    public description?: string;
+    public constructor(vocabularyId?: string, name?: string, language?: string, description?: string) { 
         this['vocabulary_id'] = vocabularyId;
         this['name'] = name;
         this['language'] = language;
@@ -15,17 +15,17 @@ export class VocabInfo {
         this['vocabulary_id'] = vocabularyId;
         return this;
     }
-    public set vocabularyId(vocabularyId: string | undefined) {
+    public set vocabularyId(vocabularyId: string  | undefined) {
         this['vocabulary_id'] = vocabularyId;
     }
-    public get vocabularyId() {
+    public get vocabularyId(): string | undefined {
         return this['vocabulary_id'];
     }
     public withName(name: string): VocabInfo {
         this['name'] = name;
         return this;
     }
-    public withLanguage(language: VocabInfoLanguageEnum): VocabInfo {
+    public withLanguage(language: VocabInfoLanguageEnum | string): VocabInfo {
         this['language'] = language;
         return this;
     }

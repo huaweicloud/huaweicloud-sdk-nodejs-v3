@@ -1,10 +1,10 @@
 
 
 export class TransTemplateGroupCollection {
-    public name: string;
+    public name?: string;
     public description?: string;
-    private 'template_group_list': Array<string> | undefined;
-    public constructor(name?: any, templateGroupList?: any) { 
+    private 'template_group_list'?: Array<string>;
+    public constructor(name?: string, templateGroupList?: Array<string>) { 
         this['name'] = name;
         this['template_group_list'] = templateGroupList;
     }
@@ -20,10 +20,10 @@ export class TransTemplateGroupCollection {
         this['template_group_list'] = templateGroupList;
         return this;
     }
-    public set templateGroupList(templateGroupList: Array<string> | undefined) {
+    public set templateGroupList(templateGroupList: Array<string>  | undefined) {
         this['template_group_list'] = templateGroupList;
     }
-    public get templateGroupList() {
+    public get templateGroupList(): Array<string> | undefined {
         return this['template_group_list'];
     }
 }

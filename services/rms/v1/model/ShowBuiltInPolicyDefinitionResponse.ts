@@ -5,11 +5,11 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowBuiltInPolicyDefinitionResponse extends SdkResponse {
     public id?: string;
     public name?: string;
-    private 'policy_type'?: string | undefined;
+    private 'policy_type'?: string;
     public description?: string;
-    private 'policy_rule_type'?: string | undefined;
-    private 'policy_rule'?: object | undefined;
-    private 'trigger_type'?: string | undefined;
+    private 'policy_rule_type'?: string;
+    private 'policy_rule'?: object;
+    private 'trigger_type'?: string;
     public keywords?: Array<string>;
     public parameters?: { [key: string]: PolicyParameterDefinition; };
     public constructor() { 
@@ -27,10 +27,10 @@ export class ShowBuiltInPolicyDefinitionResponse extends SdkResponse {
         this['policy_type'] = policyType;
         return this;
     }
-    public set policyType(policyType: string | undefined) {
+    public set policyType(policyType: string  | undefined) {
         this['policy_type'] = policyType;
     }
-    public get policyType() {
+    public get policyType(): string | undefined {
         return this['policy_type'];
     }
     public withDescription(description: string): ShowBuiltInPolicyDefinitionResponse {
@@ -41,30 +41,30 @@ export class ShowBuiltInPolicyDefinitionResponse extends SdkResponse {
         this['policy_rule_type'] = policyRuleType;
         return this;
     }
-    public set policyRuleType(policyRuleType: string | undefined) {
+    public set policyRuleType(policyRuleType: string  | undefined) {
         this['policy_rule_type'] = policyRuleType;
     }
-    public get policyRuleType() {
+    public get policyRuleType(): string | undefined {
         return this['policy_rule_type'];
     }
     public withPolicyRule(policyRule: object): ShowBuiltInPolicyDefinitionResponse {
         this['policy_rule'] = policyRule;
         return this;
     }
-    public set policyRule(policyRule: object | undefined) {
+    public set policyRule(policyRule: object  | undefined) {
         this['policy_rule'] = policyRule;
     }
-    public get policyRule() {
+    public get policyRule(): object | undefined {
         return this['policy_rule'];
     }
     public withTriggerType(triggerType: string): ShowBuiltInPolicyDefinitionResponse {
         this['trigger_type'] = triggerType;
         return this;
     }
-    public set triggerType(triggerType: string | undefined) {
+    public set triggerType(triggerType: string  | undefined) {
         this['trigger_type'] = triggerType;
     }
-    public get triggerType() {
+    public get triggerType(): string | undefined {
         return this['trigger_type'];
     }
     public withKeywords(keywords: Array<string>): ShowBuiltInPolicyDefinitionResponse {

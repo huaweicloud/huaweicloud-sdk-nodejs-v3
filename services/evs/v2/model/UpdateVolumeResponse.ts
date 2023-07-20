@@ -6,25 +6,25 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class UpdateVolumeResponse extends SdkResponse {
     public attachments?: Array<Attachment>;
-    private 'availability_zone'?: string | undefined;
+    private 'availability_zone'?: string;
     public bootable?: string;
-    private 'created_at'?: string | undefined;
+    private 'created_at'?: string;
     public id?: string;
     public links?: Array<Link>;
     public metadata?: VolumeMetadata;
     public multiattach?: boolean;
     public name?: string;
-    private 'os-vol-host-attr:host'?: string | undefined;
-    private 'os-vol-tenant-attr:tenant_id'?: string | undefined;
+    private 'os-vol-host-attr:host'?: string;
+    private 'os-vol-tenant-attr:tenant_id'?: string;
     public shareable?: string;
     public size?: number;
-    private 'snapshot_id'?: string | undefined;
-    private 'source_volid'?: string | undefined;
+    private 'snapshot_id'?: string;
+    private 'source_volid'?: string;
     public status?: string;
-    private 'volume_image_metadata'?: object | undefined;
-    private 'volume_type'?: string | undefined;
+    private 'volume_image_metadata'?: object;
+    private 'volume_type'?: string;
     public description?: string;
-    private 'os-volume-replication:extended_status'?: string | undefined;
+    private 'os-volume-replication:extended_status'?: string;
     public constructor() { 
         super();
     }
@@ -36,10 +36,10 @@ export class UpdateVolumeResponse extends SdkResponse {
         this['availability_zone'] = availabilityZone;
         return this;
     }
-    public set availabilityZone(availabilityZone: string | undefined) {
+    public set availabilityZone(availabilityZone: string  | undefined) {
         this['availability_zone'] = availabilityZone;
     }
-    public get availabilityZone() {
+    public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
     public withBootable(bootable: string): UpdateVolumeResponse {
@@ -50,10 +50,10 @@ export class UpdateVolumeResponse extends SdkResponse {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withId(id: string): UpdateVolumeResponse {
@@ -80,20 +80,20 @@ export class UpdateVolumeResponse extends SdkResponse {
         this['os-vol-host-attr:host'] = osVolHostAttrHost;
         return this;
     }
-    public set osVolHostAttrHost(osVolHostAttrHost: string | undefined) {
+    public set osVolHostAttrHost(osVolHostAttrHost: string  | undefined) {
         this['os-vol-host-attr:host'] = osVolHostAttrHost;
     }
-    public get osVolHostAttrHost() {
+    public get osVolHostAttrHost(): string | undefined {
         return this['os-vol-host-attr:host'];
     }
     public withOsVolTenantAttrTenantId(osVolTenantAttrTenantId: string): UpdateVolumeResponse {
         this['os-vol-tenant-attr:tenant_id'] = osVolTenantAttrTenantId;
         return this;
     }
-    public set osVolTenantAttrTenantId(osVolTenantAttrTenantId: string | undefined) {
+    public set osVolTenantAttrTenantId(osVolTenantAttrTenantId: string  | undefined) {
         this['os-vol-tenant-attr:tenant_id'] = osVolTenantAttrTenantId;
     }
-    public get osVolTenantAttrTenantId() {
+    public get osVolTenantAttrTenantId(): string | undefined {
         return this['os-vol-tenant-attr:tenant_id'];
     }
     public withShareable(shareable: string): UpdateVolumeResponse {
@@ -108,20 +108,20 @@ export class UpdateVolumeResponse extends SdkResponse {
         this['snapshot_id'] = snapshotId;
         return this;
     }
-    public set snapshotId(snapshotId: string | undefined) {
+    public set snapshotId(snapshotId: string  | undefined) {
         this['snapshot_id'] = snapshotId;
     }
-    public get snapshotId() {
+    public get snapshotId(): string | undefined {
         return this['snapshot_id'];
     }
     public withSourceVolid(sourceVolid: string): UpdateVolumeResponse {
         this['source_volid'] = sourceVolid;
         return this;
     }
-    public set sourceVolid(sourceVolid: string | undefined) {
+    public set sourceVolid(sourceVolid: string  | undefined) {
         this['source_volid'] = sourceVolid;
     }
-    public get sourceVolid() {
+    public get sourceVolid(): string | undefined {
         return this['source_volid'];
     }
     public withStatus(status: string): UpdateVolumeResponse {
@@ -132,20 +132,20 @@ export class UpdateVolumeResponse extends SdkResponse {
         this['volume_image_metadata'] = volumeImageMetadata;
         return this;
     }
-    public set volumeImageMetadata(volumeImageMetadata: object | undefined) {
+    public set volumeImageMetadata(volumeImageMetadata: object  | undefined) {
         this['volume_image_metadata'] = volumeImageMetadata;
     }
-    public get volumeImageMetadata() {
+    public get volumeImageMetadata(): object | undefined {
         return this['volume_image_metadata'];
     }
     public withVolumeType(volumeType: string): UpdateVolumeResponse {
         this['volume_type'] = volumeType;
         return this;
     }
-    public set volumeType(volumeType: string | undefined) {
+    public set volumeType(volumeType: string  | undefined) {
         this['volume_type'] = volumeType;
     }
-    public get volumeType() {
+    public get volumeType(): string | undefined {
         return this['volume_type'];
     }
     public withDescription(description: string): UpdateVolumeResponse {
@@ -156,10 +156,10 @@ export class UpdateVolumeResponse extends SdkResponse {
         this['os-volume-replication:extended_status'] = osVolumeReplicationExtendedStatus;
         return this;
     }
-    public set osVolumeReplicationExtendedStatus(osVolumeReplicationExtendedStatus: string | undefined) {
+    public set osVolumeReplicationExtendedStatus(osVolumeReplicationExtendedStatus: string  | undefined) {
         this['os-volume-replication:extended_status'] = osVolumeReplicationExtendedStatus;
     }
-    public get osVolumeReplicationExtendedStatus() {
+    public get osVolumeReplicationExtendedStatus(): string | undefined {
         return this['os-volume-replication:extended_status'];
     }
 }

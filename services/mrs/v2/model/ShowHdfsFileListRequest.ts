@@ -1,13 +1,13 @@
 
 
 export class ShowHdfsFileListRequest {
-    private 'cluster_id': string | undefined;
-    public path: string;
+    private 'cluster_id'?: string;
+    public path?: string;
     public offset?: string;
     public limit?: string;
-    private 'sort_key'?: ShowHdfsFileListRequestSortKeyEnum | undefined;
-    public order?: ShowHdfsFileListRequestOrderEnum;
-    public constructor(clusterId?: any, path?: any) { 
+    private 'sort_key'?: ShowHdfsFileListRequestSortKeyEnum | string;
+    public order?: ShowHdfsFileListRequestOrderEnum | string;
+    public constructor(clusterId?: string, path?: string) { 
         this['cluster_id'] = clusterId;
         this['path'] = path;
     }
@@ -15,10 +15,10 @@ export class ShowHdfsFileListRequest {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withPath(path: string): ShowHdfsFileListRequest {
@@ -33,17 +33,17 @@ export class ShowHdfsFileListRequest {
         this['limit'] = limit;
         return this;
     }
-    public withSortKey(sortKey: ShowHdfsFileListRequestSortKeyEnum): ShowHdfsFileListRequest {
+    public withSortKey(sortKey: ShowHdfsFileListRequestSortKeyEnum | string): ShowHdfsFileListRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: ShowHdfsFileListRequestSortKeyEnum | undefined) {
+    public set sortKey(sortKey: ShowHdfsFileListRequestSortKeyEnum | string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): ShowHdfsFileListRequestSortKeyEnum | string | undefined {
         return this['sort_key'];
     }
-    public withOrder(order: ShowHdfsFileListRequestOrderEnum): ShowHdfsFileListRequest {
+    public withOrder(order: ShowHdfsFileListRequestOrderEnum | string): ShowHdfsFileListRequest {
         this['order'] = order;
         return this;
     }

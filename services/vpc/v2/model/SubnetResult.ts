@@ -1,9 +1,9 @@
 
 
 export class SubnetResult {
-    public id: string;
-    public status: SubnetResultStatusEnum;
-    public constructor(id?: any, status?: any) { 
+    public id?: string;
+    public status?: SubnetResultStatusEnum | string;
+    public constructor(id?: string, status?: string) { 
         this['id'] = id;
         this['status'] = status;
     }
@@ -11,7 +11,7 @@ export class SubnetResult {
         this['id'] = id;
         return this;
     }
-    public withStatus(status: SubnetResultStatusEnum): SubnetResult {
+    public withStatus(status: SubnetResultStatusEnum | string): SubnetResult {
         this['status'] = status;
         return this;
     }

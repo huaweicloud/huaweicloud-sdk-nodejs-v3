@@ -1,10 +1,10 @@
 
 
 export class StackStatusPrimitiveTypeHolder {
-    public status?: StackStatusPrimitiveTypeHolderStatusEnum;
+    public status?: StackStatusPrimitiveTypeHolderStatusEnum | string;
     public constructor() { 
     }
-    public withStatus(status: StackStatusPrimitiveTypeHolderStatusEnum): StackStatusPrimitiveTypeHolder {
+    public withStatus(status: StackStatusPrimitiveTypeHolderStatusEnum | string): StackStatusPrimitiveTypeHolder {
         this['status'] = status;
         return this;
     }

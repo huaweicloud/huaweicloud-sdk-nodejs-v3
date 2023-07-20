@@ -1,9 +1,9 @@
 
 
 export class VideoModerationResultRequestParamsData {
-    public url: string;
-    private 'frame_interval'?: number | undefined;
-    public constructor(url?: any) { 
+    public url?: string;
+    private 'frame_interval'?: number;
+    public constructor(url?: string) { 
         this['url'] = url;
     }
     public withUrl(url: string): VideoModerationResultRequestParamsData {
@@ -14,10 +14,10 @@ export class VideoModerationResultRequestParamsData {
         this['frame_interval'] = frameInterval;
         return this;
     }
-    public set frameInterval(frameInterval: number | undefined) {
+    public set frameInterval(frameInterval: number  | undefined) {
         this['frame_interval'] = frameInterval;
     }
-    public get frameInterval() {
+    public get frameInterval(): number | undefined {
         return this['frame_interval'];
     }
 }

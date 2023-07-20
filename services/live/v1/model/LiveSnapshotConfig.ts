@@ -2,15 +2,15 @@ import { ObsFileAddr } from './ObsFileAddr';
 
 
 export class LiveSnapshotConfig {
-    public domain: string;
-    private 'app_name': string | undefined;
-    private 'auth_key'?: string | undefined;
-    private 'time_interval': number | undefined;
-    private 'object_write_mode': number | undefined;
-    private 'obs_location': ObsFileAddr | undefined;
-    private 'call_back_enable'?: LiveSnapshotConfigCallBackEnableEnum | undefined;
-    private 'call_back_url'?: string | undefined;
-    public constructor(domain?: any, appName?: any, timeInterval?: any, objectWriteMode?: any, obsLocation?: any) { 
+    public domain?: string;
+    private 'app_name'?: string;
+    private 'auth_key'?: string;
+    private 'time_interval'?: number;
+    private 'object_write_mode'?: number;
+    private 'obs_location'?: ObsFileAddr;
+    private 'call_back_enable'?: LiveSnapshotConfigCallBackEnableEnum | string;
+    private 'call_back_url'?: string;
+    public constructor(domain?: string, appName?: string, timeInterval?: number, objectWriteMode?: number, obsLocation?: ObsFileAddr) { 
         this['domain'] = domain;
         this['app_name'] = appName;
         this['time_interval'] = timeInterval;
@@ -25,70 +25,70 @@ export class LiveSnapshotConfig {
         this['app_name'] = appName;
         return this;
     }
-    public set appName(appName: string | undefined) {
+    public set appName(appName: string  | undefined) {
         this['app_name'] = appName;
     }
-    public get appName() {
+    public get appName(): string | undefined {
         return this['app_name'];
     }
     public withAuthKey(authKey: string): LiveSnapshotConfig {
         this['auth_key'] = authKey;
         return this;
     }
-    public set authKey(authKey: string | undefined) {
+    public set authKey(authKey: string  | undefined) {
         this['auth_key'] = authKey;
     }
-    public get authKey() {
+    public get authKey(): string | undefined {
         return this['auth_key'];
     }
     public withTimeInterval(timeInterval: number): LiveSnapshotConfig {
         this['time_interval'] = timeInterval;
         return this;
     }
-    public set timeInterval(timeInterval: number | undefined) {
+    public set timeInterval(timeInterval: number  | undefined) {
         this['time_interval'] = timeInterval;
     }
-    public get timeInterval() {
+    public get timeInterval(): number | undefined {
         return this['time_interval'];
     }
     public withObjectWriteMode(objectWriteMode: number): LiveSnapshotConfig {
         this['object_write_mode'] = objectWriteMode;
         return this;
     }
-    public set objectWriteMode(objectWriteMode: number | undefined) {
+    public set objectWriteMode(objectWriteMode: number  | undefined) {
         this['object_write_mode'] = objectWriteMode;
     }
-    public get objectWriteMode() {
+    public get objectWriteMode(): number | undefined {
         return this['object_write_mode'];
     }
     public withObsLocation(obsLocation: ObsFileAddr): LiveSnapshotConfig {
         this['obs_location'] = obsLocation;
         return this;
     }
-    public set obsLocation(obsLocation: ObsFileAddr | undefined) {
+    public set obsLocation(obsLocation: ObsFileAddr  | undefined) {
         this['obs_location'] = obsLocation;
     }
-    public get obsLocation() {
+    public get obsLocation(): ObsFileAddr | undefined {
         return this['obs_location'];
     }
-    public withCallBackEnable(callBackEnable: LiveSnapshotConfigCallBackEnableEnum): LiveSnapshotConfig {
+    public withCallBackEnable(callBackEnable: LiveSnapshotConfigCallBackEnableEnum | string): LiveSnapshotConfig {
         this['call_back_enable'] = callBackEnable;
         return this;
     }
-    public set callBackEnable(callBackEnable: LiveSnapshotConfigCallBackEnableEnum | undefined) {
+    public set callBackEnable(callBackEnable: LiveSnapshotConfigCallBackEnableEnum | string  | undefined) {
         this['call_back_enable'] = callBackEnable;
     }
-    public get callBackEnable() {
+    public get callBackEnable(): LiveSnapshotConfigCallBackEnableEnum | string | undefined {
         return this['call_back_enable'];
     }
     public withCallBackUrl(callBackUrl: string): LiveSnapshotConfig {
         this['call_back_url'] = callBackUrl;
         return this;
     }
-    public set callBackUrl(callBackUrl: string | undefined) {
+    public set callBackUrl(callBackUrl: string  | undefined) {
         this['call_back_url'] = callBackUrl;
     }
-    public get callBackUrl() {
+    public get callBackUrl(): string | undefined {
         return this['call_back_url'];
     }
 }

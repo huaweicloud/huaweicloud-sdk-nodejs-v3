@@ -1,11 +1,11 @@
 
 
 export class Annotations {
-    public message: string;
-    private 'log_info': string | undefined;
-    private 'current_value': string | undefined;
-    private 'old_annotations': string | undefined;
-    public constructor(message?: any, logInfo?: any, currentValue?: any, oldAnnotations?: any) { 
+    public message?: string;
+    private 'log_info'?: string;
+    private 'current_value'?: string;
+    private 'old_annotations'?: string;
+    public constructor(message?: string, logInfo?: string, currentValue?: string, oldAnnotations?: string) { 
         this['message'] = message;
         this['log_info'] = logInfo;
         this['current_value'] = currentValue;
@@ -19,30 +19,30 @@ export class Annotations {
         this['log_info'] = logInfo;
         return this;
     }
-    public set logInfo(logInfo: string | undefined) {
+    public set logInfo(logInfo: string  | undefined) {
         this['log_info'] = logInfo;
     }
-    public get logInfo() {
+    public get logInfo(): string | undefined {
         return this['log_info'];
     }
     public withCurrentValue(currentValue: string): Annotations {
         this['current_value'] = currentValue;
         return this;
     }
-    public set currentValue(currentValue: string | undefined) {
+    public set currentValue(currentValue: string  | undefined) {
         this['current_value'] = currentValue;
     }
-    public get currentValue() {
+    public get currentValue(): string | undefined {
         return this['current_value'];
     }
     public withOldAnnotations(oldAnnotations: string): Annotations {
         this['old_annotations'] = oldAnnotations;
         return this;
     }
-    public set oldAnnotations(oldAnnotations: string | undefined) {
+    public set oldAnnotations(oldAnnotations: string  | undefined) {
         this['old_annotations'] = oldAnnotations;
     }
-    public get oldAnnotations() {
+    public get oldAnnotations(): string | undefined {
         return this['old_annotations'];
     }
 }

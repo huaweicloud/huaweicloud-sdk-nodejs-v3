@@ -2,7 +2,7 @@ import { AudioModerationResultRequestParamsData } from './AudioModerationResultR
 
 
 export class AudioModerationResultRequestParams {
-    private 'event_type'?: string | undefined;
+    private 'event_type'?: string;
     public data?: AudioModerationResultRequestParamsData;
     public callback?: string;
     public categories?: Array<string>;
@@ -12,10 +12,10 @@ export class AudioModerationResultRequestParams {
         this['event_type'] = eventType;
         return this;
     }
-    public set eventType(eventType: string | undefined) {
+    public set eventType(eventType: string  | undefined) {
         this['event_type'] = eventType;
     }
-    public get eventType() {
+    public get eventType(): string | undefined {
         return this['event_type'];
     }
     public withData(data: AudioModerationResultRequestParamsData): AudioModerationResultRequestParams {

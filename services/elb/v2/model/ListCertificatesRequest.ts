@@ -3,13 +3,13 @@
 export class ListCertificatesRequest {
     public limit?: number;
     public marker?: string;
-    private 'page_reverse'?: string | undefined;
+    private 'page_reverse'?: string;
     public id?: string;
     public name?: string;
     public description?: string;
     public type?: string;
     public domain?: string;
-    private 'private_key'?: string | undefined;
+    private 'private_key'?: string;
     public certificate?: string;
     public constructor() { 
     }
@@ -25,10 +25,10 @@ export class ListCertificatesRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: string | undefined) {
+    public set pageReverse(pageReverse: string  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): string | undefined {
         return this['page_reverse'];
     }
     public withId(id: string): ListCertificatesRequest {
@@ -55,10 +55,10 @@ export class ListCertificatesRequest {
         this['private_key'] = privateKey;
         return this;
     }
-    public set privateKey(privateKey: string | undefined) {
+    public set privateKey(privateKey: string  | undefined) {
         this['private_key'] = privateKey;
     }
-    public get privateKey() {
+    public get privateKey(): string | undefined {
         return this['private_key'];
     }
     public withCertificate(certificate: string): ListCertificatesRequest {

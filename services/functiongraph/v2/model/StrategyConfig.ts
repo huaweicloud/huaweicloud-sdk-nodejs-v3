@@ -1,9 +1,9 @@
 
 
 export class StrategyConfig {
-    public concurrency: number;
-    private 'concurrent_num': number | undefined;
-    public constructor(concurrency?: any, concurrentNum?: any) { 
+    public concurrency?: number;
+    private 'concurrent_num'?: number;
+    public constructor(concurrency?: number, concurrentNum?: number) { 
         this['concurrency'] = concurrency;
         this['concurrent_num'] = concurrentNum;
     }
@@ -15,10 +15,10 @@ export class StrategyConfig {
         this['concurrent_num'] = concurrentNum;
         return this;
     }
-    public set concurrentNum(concurrentNum: number | undefined) {
+    public set concurrentNum(concurrentNum: number  | undefined) {
         this['concurrent_num'] = concurrentNum;
     }
-    public get concurrentNum() {
+    public get concurrentNum(): number | undefined {
         return this['concurrent_num'];
     }
 }

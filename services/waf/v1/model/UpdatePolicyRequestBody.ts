@@ -7,13 +7,13 @@ import { PolicyOption } from './PolicyOption';
 export class UpdatePolicyRequestBody {
     public name?: string;
     public level?: number;
-    private 'full_detection'?: boolean | undefined;
-    private 'robot_action'?: Action | undefined;
+    private 'full_detection'?: boolean;
+    private 'robot_action'?: Action;
     public action?: PolicyAction;
     public options?: PolicyOption;
-    private 'modulex_options'?: { [key: string]: object; } | undefined;
+    private 'modulex_options'?: { [key: string]: object; };
     public hosts?: Array<string>;
-    private 'bind_host'?: Array<BindHost> | undefined;
+    private 'bind_host'?: Array<BindHost>;
     public extend?: { [key: string]: string; };
     public constructor() { 
     }
@@ -29,20 +29,20 @@ export class UpdatePolicyRequestBody {
         this['full_detection'] = fullDetection;
         return this;
     }
-    public set fullDetection(fullDetection: boolean | undefined) {
+    public set fullDetection(fullDetection: boolean  | undefined) {
         this['full_detection'] = fullDetection;
     }
-    public get fullDetection() {
+    public get fullDetection(): boolean | undefined {
         return this['full_detection'];
     }
     public withRobotAction(robotAction: Action): UpdatePolicyRequestBody {
         this['robot_action'] = robotAction;
         return this;
     }
-    public set robotAction(robotAction: Action | undefined) {
+    public set robotAction(robotAction: Action  | undefined) {
         this['robot_action'] = robotAction;
     }
-    public get robotAction() {
+    public get robotAction(): Action | undefined {
         return this['robot_action'];
     }
     public withAction(action: PolicyAction): UpdatePolicyRequestBody {
@@ -57,10 +57,10 @@ export class UpdatePolicyRequestBody {
         this['modulex_options'] = modulexOptions;
         return this;
     }
-    public set modulexOptions(modulexOptions: { [key: string]: object; } | undefined) {
+    public set modulexOptions(modulexOptions: { [key: string]: object; }  | undefined) {
         this['modulex_options'] = modulexOptions;
     }
-    public get modulexOptions() {
+    public get modulexOptions(): { [key: string]: object; } | undefined {
         return this['modulex_options'];
     }
     public withHosts(hosts: Array<string>): UpdatePolicyRequestBody {
@@ -71,10 +71,10 @@ export class UpdatePolicyRequestBody {
         this['bind_host'] = bindHost;
         return this;
     }
-    public set bindHost(bindHost: Array<BindHost> | undefined) {
+    public set bindHost(bindHost: Array<BindHost>  | undefined) {
         this['bind_host'] = bindHost;
     }
-    public get bindHost() {
+    public get bindHost(): Array<BindHost> | undefined {
         return this['bind_host'];
     }
     public withExtend(extend: { [key: string]: string; }): UpdatePolicyRequestBody {

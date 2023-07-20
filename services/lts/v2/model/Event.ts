@@ -2,9 +2,9 @@ import { Metadata } from './Metadata';
 
 
 export class Event {
-    public metadata: Metadata;
-    private 'starts_at': number | undefined;
-    public constructor(metadata?: any, startsAt?: any) { 
+    public metadata?: Metadata;
+    private 'starts_at'?: number;
+    public constructor(metadata?: Metadata, startsAt?: number) { 
         this['metadata'] = metadata;
         this['starts_at'] = startsAt;
     }
@@ -16,10 +16,10 @@ export class Event {
         this['starts_at'] = startsAt;
         return this;
     }
-    public set startsAt(startsAt: number | undefined) {
+    public set startsAt(startsAt: number  | undefined) {
         this['starts_at'] = startsAt;
     }
-    public get startsAt() {
+    public get startsAt(): number | undefined {
         return this['starts_at'];
     }
 }

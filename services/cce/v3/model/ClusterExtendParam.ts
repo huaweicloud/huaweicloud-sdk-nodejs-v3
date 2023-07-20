@@ -6,10 +6,10 @@ export class ClusterExtendParam {
     public enterpriseProjectId?: string;
     public kubeProxyMode?: string;
     public clusterExternalIP?: string;
-    private 'alpha.cce/fixPoolMask'?: string | undefined;
+    private 'alpha.cce/fixPoolMask'?: string;
     public decMasterFlavor?: string;
     public dockerUmaskMode?: string;
-    private 'kubernetes.io/cpuManagerPolicy'?: string | undefined;
+    private 'kubernetes.io/cpuManagerPolicy'?: string;
     public orderID?: string;
     public periodType?: string;
     public periodNum?: number;
@@ -42,10 +42,10 @@ export class ClusterExtendParam {
         this['alpha.cce/fixPoolMask'] = alphaCceFixPoolMask;
         return this;
     }
-    public set alphaCceFixPoolMask(alphaCceFixPoolMask: string | undefined) {
+    public set alphaCceFixPoolMask(alphaCceFixPoolMask: string  | undefined) {
         this['alpha.cce/fixPoolMask'] = alphaCceFixPoolMask;
     }
-    public get alphaCceFixPoolMask() {
+    public get alphaCceFixPoolMask(): string | undefined {
         return this['alpha.cce/fixPoolMask'];
     }
     public withDecMasterFlavor(decMasterFlavor: string): ClusterExtendParam {
@@ -60,10 +60,10 @@ export class ClusterExtendParam {
         this['kubernetes.io/cpuManagerPolicy'] = kubernetesIoCpuManagerPolicy;
         return this;
     }
-    public set kubernetesIoCpuManagerPolicy(kubernetesIoCpuManagerPolicy: string | undefined) {
+    public set kubernetesIoCpuManagerPolicy(kubernetesIoCpuManagerPolicy: string  | undefined) {
         this['kubernetes.io/cpuManagerPolicy'] = kubernetesIoCpuManagerPolicy;
     }
-    public get kubernetesIoCpuManagerPolicy() {
+    public get kubernetesIoCpuManagerPolicy(): string | undefined {
         return this['kubernetes.io/cpuManagerPolicy'];
     }
     public withOrderID(orderID: string): ClusterExtendParam {

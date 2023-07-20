@@ -1,9 +1,9 @@
 
 
 export class RestBatchHandsUpReqBody {
-    public handsState: number;
-    public pids: Array<string>;
-    public constructor(handsState?: any, pids?: any) { 
+    public handsState?: number;
+    public pids?: Array<string>;
+    public constructor(handsState?: number, pids?: Array<string>) { 
         this['handsState'] = handsState;
         this['pids'] = pids;
     }

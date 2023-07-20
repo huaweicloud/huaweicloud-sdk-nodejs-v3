@@ -3,12 +3,13 @@
 export class ListEnterpriseRoutersRequest {
     public limit?: number;
     public marker?: string;
-    private 'enterprise_project_id'?: Array<string> | undefined;
-    public state?: Array<ListEnterpriseRoutersRequestStateEnum>;
+    private 'enterprise_project_id'?: Array<string>;
+    public state?: Array<ListEnterpriseRoutersRequestStateEnum> | Array<string>;
     public id?: Array<string>;
-    private 'resource_id'?: Array<string> | undefined;
-    private 'sort_key'?: Array<string> | undefined;
-    private 'sort_dir'?: Array<ListEnterpriseRoutersRequestSortDirEnum> | undefined;
+    private 'resource_id'?: Array<string>;
+    private 'owned_by_self'?: boolean;
+    private 'sort_key'?: Array<string>;
+    private 'sort_dir'?: Array<ListEnterpriseRoutersRequestSortDirEnum> | Array<string>;
     public constructor() { 
     }
     public withLimit(limit: number): ListEnterpriseRoutersRequest {
@@ -23,13 +24,13 @@ export class ListEnterpriseRoutersRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: Array<string> | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: Array<string>  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): Array<string> | undefined {
         return this['enterprise_project_id'];
     }
-    public withState(state: Array<ListEnterpriseRoutersRequestStateEnum>): ListEnterpriseRoutersRequest {
+    public withState(state: Array<ListEnterpriseRoutersRequestStateEnum> | Array<string>): ListEnterpriseRoutersRequest {
         this['state'] = state;
         return this;
     }
@@ -41,30 +42,40 @@ export class ListEnterpriseRoutersRequest {
         this['resource_id'] = resourceId;
         return this;
     }
-    public set resourceId(resourceId: Array<string> | undefined) {
+    public set resourceId(resourceId: Array<string>  | undefined) {
         this['resource_id'] = resourceId;
     }
-    public get resourceId() {
+    public get resourceId(): Array<string> | undefined {
         return this['resource_id'];
+    }
+    public withOwnedBySelf(ownedBySelf: boolean): ListEnterpriseRoutersRequest {
+        this['owned_by_self'] = ownedBySelf;
+        return this;
+    }
+    public set ownedBySelf(ownedBySelf: boolean  | undefined) {
+        this['owned_by_self'] = ownedBySelf;
+    }
+    public get ownedBySelf(): boolean | undefined {
+        return this['owned_by_self'];
     }
     public withSortKey(sortKey: Array<string>): ListEnterpriseRoutersRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: Array<string> | undefined) {
+    public set sortKey(sortKey: Array<string>  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): Array<string> | undefined {
         return this['sort_key'];
     }
-    public withSortDir(sortDir: Array<ListEnterpriseRoutersRequestSortDirEnum>): ListEnterpriseRoutersRequest {
+    public withSortDir(sortDir: Array<ListEnterpriseRoutersRequestSortDirEnum> | Array<string>): ListEnterpriseRoutersRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: Array<ListEnterpriseRoutersRequestSortDirEnum> | undefined) {
+    public set sortDir(sortDir: Array<ListEnterpriseRoutersRequestSortDirEnum> | Array<string>  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): Array<ListEnterpriseRoutersRequestSortDirEnum> | Array<string> | undefined {
         return this['sort_dir'];
     }
 }

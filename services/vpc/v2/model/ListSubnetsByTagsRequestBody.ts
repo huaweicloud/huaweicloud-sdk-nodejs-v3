@@ -3,15 +3,15 @@ import { Match } from './Match';
 
 
 export class ListSubnetsByTagsRequestBody {
-    public action: ListSubnetsByTagsRequestBodyActionEnum;
+    public action?: ListSubnetsByTagsRequestBodyActionEnum | string;
     public limit?: number;
     public offset?: number;
     public matches?: Array<Match>;
     public tags?: Array<ListTag>;
-    public constructor(action?: any) { 
+    public constructor(action?: string) { 
         this['action'] = action;
     }
-    public withAction(action: ListSubnetsByTagsRequestBodyActionEnum): ListSubnetsByTagsRequestBody {
+    public withAction(action: ListSubnetsByTagsRequestBodyActionEnum | string): ListSubnetsByTagsRequestBody {
         this['action'] = action;
         return this;
     }

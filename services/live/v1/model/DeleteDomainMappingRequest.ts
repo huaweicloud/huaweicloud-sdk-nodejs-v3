@@ -1,9 +1,9 @@
 
 
 export class DeleteDomainMappingRequest {
-    private 'pull_domain': string | undefined;
-    private 'push_domain': string | undefined;
-    public constructor(pullDomain?: any, pushDomain?: any) { 
+    private 'pull_domain'?: string;
+    private 'push_domain'?: string;
+    public constructor(pullDomain?: string, pushDomain?: string) { 
         this['pull_domain'] = pullDomain;
         this['push_domain'] = pushDomain;
     }
@@ -11,20 +11,20 @@ export class DeleteDomainMappingRequest {
         this['pull_domain'] = pullDomain;
         return this;
     }
-    public set pullDomain(pullDomain: string | undefined) {
+    public set pullDomain(pullDomain: string  | undefined) {
         this['pull_domain'] = pullDomain;
     }
-    public get pullDomain() {
+    public get pullDomain(): string | undefined {
         return this['pull_domain'];
     }
     public withPushDomain(pushDomain: string): DeleteDomainMappingRequest {
         this['push_domain'] = pushDomain;
         return this;
     }
-    public set pushDomain(pushDomain: string | undefined) {
+    public set pushDomain(pushDomain: string  | undefined) {
         this['push_domain'] = pushDomain;
     }
-    public get pushDomain() {
+    public get pushDomain(): string | undefined {
         return this['push_domain'];
     }
 }

@@ -1,10 +1,10 @@
 
 
 export class QuotaDetail {
-    private 'in_use': number | undefined;
-    public limit: number;
-    public reserved: number;
-    public constructor(inUse?: any, limit?: any, reserved?: any) { 
+    private 'in_use'?: number;
+    public limit?: number;
+    public reserved?: number;
+    public constructor(inUse?: number, limit?: number, reserved?: number) { 
         this['in_use'] = inUse;
         this['limit'] = limit;
         this['reserved'] = reserved;
@@ -13,10 +13,10 @@ export class QuotaDetail {
         this['in_use'] = inUse;
         return this;
     }
-    public set inUse(inUse: number | undefined) {
+    public set inUse(inUse: number  | undefined) {
         this['in_use'] = inUse;
     }
-    public get inUse() {
+    public get inUse(): number | undefined {
         return this['in_use'];
     }
     public withLimit(limit: number): QuotaDetail {

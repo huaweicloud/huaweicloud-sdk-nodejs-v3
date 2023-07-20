@@ -1,21 +1,21 @@
 
 
 export class ListRuleAclsUsingGetRequest {
-    private 'project_id': string | undefined;
-    private 'object_id': string | undefined;
-    public type?: ListRuleAclsUsingGetRequestTypeEnum;
-    public protocol?: ListRuleAclsUsingGetRequestProtocolEnum;
+    private 'project_id'?: string;
+    private 'object_id'?: string;
+    public type?: ListRuleAclsUsingGetRequestTypeEnum | number;
+    public protocol?: ListRuleAclsUsingGetRequestProtocolEnum | number;
     public ip?: string;
     public name?: string;
     public direction?: number;
-    public status?: ListRuleAclsUsingGetRequestStatusEnum;
-    private 'action_type'?: ListRuleAclsUsingGetRequestActionTypeEnum | undefined;
-    private 'address_type'?: ListRuleAclsUsingGetRequestAddressTypeEnum | undefined;
-    public limit: number;
-    public offset: number;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'fw_instance_id'?: string | undefined;
-    public constructor(projectId?: any, objectId?: any, limit?: any, offset?: any) { 
+    public status?: ListRuleAclsUsingGetRequestStatusEnum | number;
+    private 'action_type'?: ListRuleAclsUsingGetRequestActionTypeEnum | number;
+    private 'address_type'?: ListRuleAclsUsingGetRequestAddressTypeEnum | number;
+    public limit?: number;
+    public offset?: number;
+    private 'enterprise_project_id'?: string;
+    private 'fw_instance_id'?: string;
+    public constructor(projectId?: string, objectId?: string, limit?: number, offset?: number) { 
         this['project_id'] = projectId;
         this['object_id'] = objectId;
         this['limit'] = limit;
@@ -25,27 +25,27 @@ export class ListRuleAclsUsingGetRequest {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withObjectId(objectId: string): ListRuleAclsUsingGetRequest {
         this['object_id'] = objectId;
         return this;
     }
-    public set objectId(objectId: string | undefined) {
+    public set objectId(objectId: string  | undefined) {
         this['object_id'] = objectId;
     }
-    public get objectId() {
+    public get objectId(): string | undefined {
         return this['object_id'];
     }
-    public withType(type: ListRuleAclsUsingGetRequestTypeEnum): ListRuleAclsUsingGetRequest {
+    public withType(type: ListRuleAclsUsingGetRequestTypeEnum | number): ListRuleAclsUsingGetRequest {
         this['type'] = type;
         return this;
     }
-    public withProtocol(protocol: ListRuleAclsUsingGetRequestProtocolEnum): ListRuleAclsUsingGetRequest {
+    public withProtocol(protocol: ListRuleAclsUsingGetRequestProtocolEnum | number): ListRuleAclsUsingGetRequest {
         this['protocol'] = protocol;
         return this;
     }
@@ -61,28 +61,28 @@ export class ListRuleAclsUsingGetRequest {
         this['direction'] = direction;
         return this;
     }
-    public withStatus(status: ListRuleAclsUsingGetRequestStatusEnum): ListRuleAclsUsingGetRequest {
+    public withStatus(status: ListRuleAclsUsingGetRequestStatusEnum | number): ListRuleAclsUsingGetRequest {
         this['status'] = status;
         return this;
     }
-    public withActionType(actionType: ListRuleAclsUsingGetRequestActionTypeEnum): ListRuleAclsUsingGetRequest {
+    public withActionType(actionType: ListRuleAclsUsingGetRequestActionTypeEnum | number): ListRuleAclsUsingGetRequest {
         this['action_type'] = actionType;
         return this;
     }
-    public set actionType(actionType: ListRuleAclsUsingGetRequestActionTypeEnum | undefined) {
+    public set actionType(actionType: ListRuleAclsUsingGetRequestActionTypeEnum | number  | undefined) {
         this['action_type'] = actionType;
     }
-    public get actionType() {
+    public get actionType(): ListRuleAclsUsingGetRequestActionTypeEnum | number | undefined {
         return this['action_type'];
     }
-    public withAddressType(addressType: ListRuleAclsUsingGetRequestAddressTypeEnum): ListRuleAclsUsingGetRequest {
+    public withAddressType(addressType: ListRuleAclsUsingGetRequestAddressTypeEnum | number): ListRuleAclsUsingGetRequest {
         this['address_type'] = addressType;
         return this;
     }
-    public set addressType(addressType: ListRuleAclsUsingGetRequestAddressTypeEnum | undefined) {
+    public set addressType(addressType: ListRuleAclsUsingGetRequestAddressTypeEnum | number  | undefined) {
         this['address_type'] = addressType;
     }
-    public get addressType() {
+    public get addressType(): ListRuleAclsUsingGetRequestAddressTypeEnum | number | undefined {
         return this['address_type'];
     }
     public withLimit(limit: number): ListRuleAclsUsingGetRequest {
@@ -97,20 +97,20 @@ export class ListRuleAclsUsingGetRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withFwInstanceId(fwInstanceId: string): ListRuleAclsUsingGetRequest {
         this['fw_instance_id'] = fwInstanceId;
         return this;
     }
-    public set fwInstanceId(fwInstanceId: string | undefined) {
+    public set fwInstanceId(fwInstanceId: string  | undefined) {
         this['fw_instance_id'] = fwInstanceId;
     }
-    public get fwInstanceId() {
+    public get fwInstanceId(): string | undefined {
         return this['fw_instance_id'];
     }
 }

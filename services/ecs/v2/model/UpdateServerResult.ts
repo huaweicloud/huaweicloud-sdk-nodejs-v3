@@ -4,28 +4,28 @@ import { UpdateServerAddress } from './UpdateServerAddress';
 
 
 export class UpdateServerResult {
-    private 'tenant_id': string | undefined;
-    public image: string;
-    public accessIPv4: string;
-    public accessIPv6: string;
-    public metadata: { [key: string]: string; };
-    public addresses: { [key: string]: Array<UpdateServerAddress>; };
-    public created: string;
-    public hostId: string;
-    public flavor: SimpleFlavor;
-    private 'OS-DCF:diskConfig'?: string | undefined;
-    private 'user_id': string | undefined;
-    public name: string;
-    public progress: number;
-    public links: Array<Link>;
-    public id: string;
-    public updated: string;
+    private 'tenant_id'?: string;
+    public image?: string;
+    public accessIPv4?: string;
+    public accessIPv6?: string;
+    public metadata?: { [key: string]: string; };
+    public addresses?: { [key: string]: Array<UpdateServerAddress>; };
+    public created?: string;
+    public hostId?: string;
+    public flavor?: SimpleFlavor;
+    private 'OS-DCF:diskConfig'?: string;
+    private 'user_id'?: string;
+    public name?: string;
+    public progress?: number;
+    public links?: Array<Link>;
+    public id?: string;
+    public updated?: string;
     public locked?: boolean;
     public description?: string;
-    public tags: Array<string>;
-    public status: string;
-    private 'OS-EXT-SRV-ATTR:hostname': string | undefined;
-    public constructor(tenantId?: any, image?: any, accessIPv4?: any, accessIPv6?: any, metadata?: any, addresses?: any, created?: any, hostId?: any, flavor?: any, userId?: any, name?: any, progress?: any, links?: any, id?: any, updated?: any, tags?: any, status?: any, oSEXTSRVATTRHostname?: any) { 
+    public tags?: Array<string>;
+    public status?: string;
+    private 'OS-EXT-SRV-ATTR:hostname'?: string;
+    public constructor(tenantId?: string, image?: string, accessIPv4?: string, accessIPv6?: string, metadata?: { [key: string]: string; }, addresses?: { [key: string]: Array<UpdateServerAddress>; }, created?: string, hostId?: string, flavor?: SimpleFlavor, userId?: string, name?: string, progress?: number, links?: Array<Link>, id?: string, updated?: string, tags?: Array<string>, status?: string, oSEXTSRVATTRHostname?: string) { 
         this['tenant_id'] = tenantId;
         this['image'] = image;
         this['accessIPv4'] = accessIPv4;
@@ -49,10 +49,10 @@ export class UpdateServerResult {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withImage(image: string): UpdateServerResult {
@@ -91,20 +91,20 @@ export class UpdateServerResult {
         this['OS-DCF:diskConfig'] = oSDCFDiskConfig;
         return this;
     }
-    public set oSDCFDiskConfig(oSDCFDiskConfig: string | undefined) {
+    public set oSDCFDiskConfig(oSDCFDiskConfig: string  | undefined) {
         this['OS-DCF:diskConfig'] = oSDCFDiskConfig;
     }
-    public get oSDCFDiskConfig() {
+    public get oSDCFDiskConfig(): string | undefined {
         return this['OS-DCF:diskConfig'];
     }
     public withUserId(userId: string): UpdateServerResult {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withName(name: string): UpdateServerResult {
@@ -147,10 +147,10 @@ export class UpdateServerResult {
         this['OS-EXT-SRV-ATTR:hostname'] = oSEXTSRVATTRHostname;
         return this;
     }
-    public set oSEXTSRVATTRHostname(oSEXTSRVATTRHostname: string | undefined) {
+    public set oSEXTSRVATTRHostname(oSEXTSRVATTRHostname: string  | undefined) {
         this['OS-EXT-SRV-ATTR:hostname'] = oSEXTSRVATTRHostname;
     }
-    public get oSEXTSRVATTRHostname() {
+    public get oSEXTSRVATTRHostname(): string | undefined {
         return this['OS-EXT-SRV-ATTR:hostname'];
     }
 }

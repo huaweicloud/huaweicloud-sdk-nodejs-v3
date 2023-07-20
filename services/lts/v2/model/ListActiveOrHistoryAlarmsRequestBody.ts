@@ -3,14 +3,14 @@ import { Sort } from './Sort';
 
 export class ListActiveOrHistoryAlarmsRequestBody {
     public step?: number;
-    private 'whether_custom_field': boolean | undefined;
-    private 'start_time'?: number | undefined;
-    private 'end_time'?: number | undefined;
-    private 'time_range'?: string | undefined;
+    private 'whether_custom_field'?: boolean;
+    private 'start_time'?: number;
+    private 'end_time'?: number;
+    private 'time_range'?: string;
     public search?: string;
-    private 'alarm_level_ids'?: Array<string> | undefined;
+    private 'alarm_level_ids'?: Array<string>;
     public sort?: Sort;
-    public constructor(whetherCustomField?: any) { 
+    public constructor(whetherCustomField?: boolean) { 
         this['whether_custom_field'] = whetherCustomField;
     }
     public withStep(step: number): ListActiveOrHistoryAlarmsRequestBody {
@@ -21,40 +21,40 @@ export class ListActiveOrHistoryAlarmsRequestBody {
         this['whether_custom_field'] = whetherCustomField;
         return this;
     }
-    public set whetherCustomField(whetherCustomField: boolean | undefined) {
+    public set whetherCustomField(whetherCustomField: boolean  | undefined) {
         this['whether_custom_field'] = whetherCustomField;
     }
-    public get whetherCustomField() {
+    public get whetherCustomField(): boolean | undefined {
         return this['whether_custom_field'];
     }
     public withStartTime(startTime: number): ListActiveOrHistoryAlarmsRequestBody {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: number | undefined) {
+    public set startTime(startTime: number  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): number | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: number): ListActiveOrHistoryAlarmsRequestBody {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: number | undefined) {
+    public set endTime(endTime: number  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): number | undefined {
         return this['end_time'];
     }
     public withTimeRange(timeRange: string): ListActiveOrHistoryAlarmsRequestBody {
         this['time_range'] = timeRange;
         return this;
     }
-    public set timeRange(timeRange: string | undefined) {
+    public set timeRange(timeRange: string  | undefined) {
         this['time_range'] = timeRange;
     }
-    public get timeRange() {
+    public get timeRange(): string | undefined {
         return this['time_range'];
     }
     public withSearch(search: string): ListActiveOrHistoryAlarmsRequestBody {
@@ -65,10 +65,10 @@ export class ListActiveOrHistoryAlarmsRequestBody {
         this['alarm_level_ids'] = alarmLevelIds;
         return this;
     }
-    public set alarmLevelIds(alarmLevelIds: Array<string> | undefined) {
+    public set alarmLevelIds(alarmLevelIds: Array<string>  | undefined) {
         this['alarm_level_ids'] = alarmLevelIds;
     }
-    public get alarmLevelIds() {
+    public get alarmLevelIds(): Array<string> | undefined {
         return this['alarm_level_ids'];
     }
     public withSort(sort: Sort): ListActiveOrHistoryAlarmsRequestBody {

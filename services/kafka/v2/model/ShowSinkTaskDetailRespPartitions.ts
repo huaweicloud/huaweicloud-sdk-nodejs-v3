@@ -1,10 +1,10 @@
 
 
 export class ShowSinkTaskDetailRespPartitions {
-    private 'partition_id'?: string | undefined;
+    private 'partition_id'?: string;
     public status?: string;
-    private 'last_transfer_offset'?: string | undefined;
-    private 'log_end_offset'?: string | undefined;
+    private 'last_transfer_offset'?: string;
+    private 'log_end_offset'?: string;
     public lag?: string;
     public constructor() { 
     }
@@ -12,10 +12,10 @@ export class ShowSinkTaskDetailRespPartitions {
         this['partition_id'] = partitionId;
         return this;
     }
-    public set partitionId(partitionId: string | undefined) {
+    public set partitionId(partitionId: string  | undefined) {
         this['partition_id'] = partitionId;
     }
-    public get partitionId() {
+    public get partitionId(): string | undefined {
         return this['partition_id'];
     }
     public withStatus(status: string): ShowSinkTaskDetailRespPartitions {
@@ -26,20 +26,20 @@ export class ShowSinkTaskDetailRespPartitions {
         this['last_transfer_offset'] = lastTransferOffset;
         return this;
     }
-    public set lastTransferOffset(lastTransferOffset: string | undefined) {
+    public set lastTransferOffset(lastTransferOffset: string  | undefined) {
         this['last_transfer_offset'] = lastTransferOffset;
     }
-    public get lastTransferOffset() {
+    public get lastTransferOffset(): string | undefined {
         return this['last_transfer_offset'];
     }
     public withLogEndOffset(logEndOffset: string): ShowSinkTaskDetailRespPartitions {
         this['log_end_offset'] = logEndOffset;
         return this;
     }
-    public set logEndOffset(logEndOffset: string | undefined) {
+    public set logEndOffset(logEndOffset: string  | undefined) {
         this['log_end_offset'] = logEndOffset;
     }
-    public get logEndOffset() {
+    public get logEndOffset(): string | undefined {
         return this['log_end_offset'];
     }
     public withLag(lag: string): ShowSinkTaskDetailRespPartitions {

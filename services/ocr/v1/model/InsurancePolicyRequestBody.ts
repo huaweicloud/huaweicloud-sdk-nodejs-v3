@@ -3,7 +3,7 @@
 export class InsurancePolicyRequestBody {
     public image?: string;
     public url?: string;
-    private 'detect_direction'?: boolean | undefined;
+    private 'detect_direction'?: boolean;
     public constructor() { 
     }
     public withImage(image: string): InsurancePolicyRequestBody {
@@ -18,10 +18,10 @@ export class InsurancePolicyRequestBody {
         this['detect_direction'] = detectDirection;
         return this;
     }
-    public set detectDirection(detectDirection: boolean | undefined) {
+    public set detectDirection(detectDirection: boolean  | undefined) {
         this['detect_direction'] = detectDirection;
     }
-    public get detectDirection() {
+    public get detectDirection(): boolean | undefined {
         return this['detect_direction'];
     }
 }

@@ -3,15 +3,15 @@ import { CustomConditions } from './CustomConditions';
 
 
 export class CreateCustomRuleRequestBody {
-    public time: boolean;
+    public time?: boolean;
     public start?: number;
     public terminal?: number;
     public description?: string;
-    public conditions: Array<CustomConditions>;
-    public action: CustomAction;
-    public priority: number;
-    public name: string;
-    public constructor(time?: any, conditions?: any, action?: any, priority?: any, name?: any) { 
+    public conditions?: Array<CustomConditions>;
+    public action?: CustomAction;
+    public priority?: number;
+    public name?: string;
+    public constructor(time?: boolean, conditions?: Array<CustomConditions>, action?: CustomAction, priority?: number, name?: string) { 
         this['time'] = time;
         this['conditions'] = conditions;
         this['action'] = action;

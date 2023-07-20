@@ -3,11 +3,11 @@
 export class ListAcceleratorsRequest {
     public limit?: number;
     public marker?: string;
-    private 'page_reverse'?: boolean | undefined;
+    private 'page_reverse'?: boolean;
     public id?: string;
     public name?: string;
-    public status?: ListAcceleratorsRequestStatusEnum;
-    private 'enterprise_project_id'?: string | undefined;
+    public status?: ListAcceleratorsRequestStatusEnum | string;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListAcceleratorsRequest {
@@ -22,10 +22,10 @@ export class ListAcceleratorsRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withId(id: string): ListAcceleratorsRequest {
@@ -36,7 +36,7 @@ export class ListAcceleratorsRequest {
         this['name'] = name;
         return this;
     }
-    public withStatus(status: ListAcceleratorsRequestStatusEnum): ListAcceleratorsRequest {
+    public withStatus(status: ListAcceleratorsRequestStatusEnum | string): ListAcceleratorsRequest {
         this['status'] = status;
         return this;
     }
@@ -44,10 +44,10 @@ export class ListAcceleratorsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

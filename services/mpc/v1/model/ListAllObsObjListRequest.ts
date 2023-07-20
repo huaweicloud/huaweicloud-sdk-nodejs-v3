@@ -1,10 +1,10 @@
 
 
 export class ListAllObsObjListRequest {
-    public bucket: string;
+    public bucket?: string;
     public prefix?: string;
     public type?: string;
-    public constructor(bucket?: any) { 
+    public constructor(bucket?: string) { 
         this['bucket'] = bucket;
     }
     public withBucket(bucket: string): ListAllObsObjListRequest {

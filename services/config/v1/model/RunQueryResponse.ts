@@ -3,7 +3,7 @@ import { QueryInfo } from './QueryInfo';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class RunQueryResponse extends SdkResponse {
-    private 'query_info'?: QueryInfo | undefined;
+    private 'query_info'?: QueryInfo;
     public results?: Array<object>;
     public constructor() { 
         super();
@@ -12,10 +12,10 @@ export class RunQueryResponse extends SdkResponse {
         this['query_info'] = queryInfo;
         return this;
     }
-    public set queryInfo(queryInfo: QueryInfo | undefined) {
+    public set queryInfo(queryInfo: QueryInfo  | undefined) {
         this['query_info'] = queryInfo;
     }
-    public get queryInfo() {
+    public get queryInfo(): QueryInfo | undefined {
         return this['query_info'];
     }
     public withResults(results: Array<object>): RunQueryResponse {

@@ -1,13 +1,13 @@
 
 
 export class DeleteSubtitle {
-    public type: DeleteSubtitleTypeEnum;
-    public language: string;
-    public constructor(type?: any, language?: any) { 
+    public type?: DeleteSubtitleTypeEnum | string;
+    public language?: string;
+    public constructor(type?: string, language?: string) { 
         this['type'] = type;
         this['language'] = language;
     }
-    public withType(type: DeleteSubtitleTypeEnum): DeleteSubtitle {
+    public withType(type: DeleteSubtitleTypeEnum | string): DeleteSubtitle {
         this['type'] = type;
         return this;
     }

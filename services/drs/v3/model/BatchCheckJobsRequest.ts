@@ -2,18 +2,18 @@ import { BatchPrecheckReq } from './BatchPrecheckReq';
 
 
 export class BatchCheckJobsRequest {
-    private 'X-Language'?: BatchCheckJobsRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchCheckJobsRequestXLanguageEnum | string;
     public body?: BatchPrecheckReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchCheckJobsRequestXLanguageEnum): BatchCheckJobsRequest {
+    public withXLanguage(xLanguage: BatchCheckJobsRequestXLanguageEnum | string): BatchCheckJobsRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchCheckJobsRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchCheckJobsRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchCheckJobsRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchPrecheckReq): BatchCheckJobsRequest {

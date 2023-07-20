@@ -2,19 +2,19 @@ import { NeutronUpdateNetworkRequestBody } from './NeutronUpdateNetworkRequestBo
 
 
 export class NeutronUpdateNetworkRequest {
-    private 'network_id': string | undefined;
+    private 'network_id'?: string;
     public body?: NeutronUpdateNetworkRequestBody;
-    public constructor(networkId?: any) { 
+    public constructor(networkId?: string) { 
         this['network_id'] = networkId;
     }
     public withNetworkId(networkId: string): NeutronUpdateNetworkRequest {
         this['network_id'] = networkId;
         return this;
     }
-    public set networkId(networkId: string | undefined) {
+    public set networkId(networkId: string  | undefined) {
         this['network_id'] = networkId;
     }
-    public get networkId() {
+    public get networkId(): string | undefined {
         return this['network_id'];
     }
     public withBody(body: NeutronUpdateNetworkRequestBody): NeutronUpdateNetworkRequest {

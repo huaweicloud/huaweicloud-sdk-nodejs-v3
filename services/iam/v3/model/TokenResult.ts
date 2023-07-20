@@ -6,15 +6,15 @@ import { TokenUserResult } from './TokenUserResult';
 
 
 export class TokenResult {
-    public catalog: Array<TokenCatalog>;
+    public catalog?: Array<TokenCatalog>;
     public domain?: TokenDomainResult;
-    private 'expires_at': string | undefined;
-    private 'issued_at': string | undefined;
-    public methods: Array<string>;
+    private 'expires_at'?: string;
+    private 'issued_at'?: string;
+    public methods?: Array<string>;
     public project?: TokenProjectResult;
-    public roles: Array<TokenRole>;
-    public user: TokenUserResult;
-    public constructor(catalog?: any, expiresAt?: any, issuedAt?: any, methods?: any, roles?: any, user?: any) { 
+    public roles?: Array<TokenRole>;
+    public user?: TokenUserResult;
+    public constructor(catalog?: Array<TokenCatalog>, expiresAt?: string, issuedAt?: string, methods?: Array<string>, roles?: Array<TokenRole>, user?: TokenUserResult) { 
         this['catalog'] = catalog;
         this['expires_at'] = expiresAt;
         this['issued_at'] = issuedAt;
@@ -34,20 +34,20 @@ export class TokenResult {
         this['expires_at'] = expiresAt;
         return this;
     }
-    public set expiresAt(expiresAt: string | undefined) {
+    public set expiresAt(expiresAt: string  | undefined) {
         this['expires_at'] = expiresAt;
     }
-    public get expiresAt() {
+    public get expiresAt(): string | undefined {
         return this['expires_at'];
     }
     public withIssuedAt(issuedAt: string): TokenResult {
         this['issued_at'] = issuedAt;
         return this;
     }
-    public set issuedAt(issuedAt: string | undefined) {
+    public set issuedAt(issuedAt: string  | undefined) {
         this['issued_at'] = issuedAt;
     }
-    public get issuedAt() {
+    public get issuedAt(): string | undefined {
         return this['issued_at'];
     }
     public withMethods(methods: Array<string>): TokenResult {

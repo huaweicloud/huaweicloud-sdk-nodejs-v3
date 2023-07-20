@@ -1,9 +1,9 @@
 
 
 export class VolumeResp {
-    public type: string;
-    public size: number;
-    public constructor(type?: any, size?: any) { 
+    public type?: string;
+    public size?: number;
+    public constructor(type?: string, size?: number) { 
         this['type'] = type;
         this['size'] = size;
     }

@@ -2,23 +2,23 @@ import { CreateRetentionRequestBody } from './CreateRetentionRequestBody';
 
 
 export class CreateRetentionRequest {
-    private 'Content-Type': CreateRetentionRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
+    private 'Content-Type'?: CreateRetentionRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
     public body?: CreateRetentionRequestBody;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: CreateRetentionRequestContentTypeEnum): CreateRetentionRequest {
+    public withContentType(contentType: CreateRetentionRequestContentTypeEnum | string): CreateRetentionRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CreateRetentionRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: CreateRetentionRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CreateRetentionRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): CreateRetentionRequest {

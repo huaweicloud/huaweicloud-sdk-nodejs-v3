@@ -780,7 +780,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listListenerTags(): Promise<ListListenerTagsResponse> {
+    public listListenerTags(listListenerTagsRequest?: ListListenerTagsRequest): Promise<ListListenerTagsResponse> {
         const options = ParamCreater().listListenerTags();
 
          // @ts-ignore
@@ -853,7 +853,7 @@ export class ElbClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listLoadbalancerTags(): Promise<ListLoadbalancerTagsResponse> {
+    public listLoadbalancerTags(listLoadbalancerTagsRequest?: ListLoadbalancerTagsRequest): Promise<ListLoadbalancerTagsResponse> {
         const options = ParamCreater().listLoadbalancerTags();
 
          // @ts-ignore

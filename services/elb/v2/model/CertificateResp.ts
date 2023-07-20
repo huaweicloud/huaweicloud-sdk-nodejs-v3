@@ -1,19 +1,19 @@
 
 
 export class CertificateResp {
-    public id: string;
-    private 'tenant_id': string | undefined;
-    private 'admin_state_up': boolean | undefined;
-    public name: string;
-    public description: string;
-    public type: CertificateRespTypeEnum;
-    public domain: string;
-    private 'private_key': string | undefined;
-    public certificate: string;
-    private 'expire_time': string | undefined;
-    private 'create_time': string | undefined;
-    private 'update_time': string | undefined;
-    public constructor(id?: any, tenantId?: any, adminStateUp?: any, name?: any, description?: any, type?: any, domain?: any, privateKey?: any, certificate?: any, expireTime?: any, createTime?: any, updateTime?: any) { 
+    public id?: string;
+    private 'tenant_id'?: string;
+    private 'admin_state_up'?: boolean;
+    public name?: string;
+    public description?: string;
+    public type?: CertificateRespTypeEnum | string;
+    public domain?: string;
+    private 'private_key'?: string;
+    public certificate?: string;
+    private 'expire_time'?: string;
+    private 'create_time'?: string;
+    private 'update_time'?: string;
+    public constructor(id?: string, tenantId?: string, adminStateUp?: boolean, name?: string, description?: string, type?: string, domain?: string, privateKey?: string, certificate?: string, expireTime?: string, createTime?: string, updateTime?: string) { 
         this['id'] = id;
         this['tenant_id'] = tenantId;
         this['admin_state_up'] = adminStateUp;
@@ -35,20 +35,20 @@ export class CertificateResp {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withAdminStateUp(adminStateUp: boolean): CertificateResp {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withName(name: string): CertificateResp {
@@ -59,7 +59,7 @@ export class CertificateResp {
         this['description'] = description;
         return this;
     }
-    public withType(type: CertificateRespTypeEnum): CertificateResp {
+    public withType(type: CertificateRespTypeEnum | string): CertificateResp {
         this['type'] = type;
         return this;
     }
@@ -71,10 +71,10 @@ export class CertificateResp {
         this['private_key'] = privateKey;
         return this;
     }
-    public set privateKey(privateKey: string | undefined) {
+    public set privateKey(privateKey: string  | undefined) {
         this['private_key'] = privateKey;
     }
-    public get privateKey() {
+    public get privateKey(): string | undefined {
         return this['private_key'];
     }
     public withCertificate(certificate: string): CertificateResp {
@@ -85,30 +85,30 @@ export class CertificateResp {
         this['expire_time'] = expireTime;
         return this;
     }
-    public set expireTime(expireTime: string | undefined) {
+    public set expireTime(expireTime: string  | undefined) {
         this['expire_time'] = expireTime;
     }
-    public get expireTime() {
+    public get expireTime(): string | undefined {
         return this['expire_time'];
     }
     public withCreateTime(createTime: string): CertificateResp {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withUpdateTime(updateTime: string): CertificateResp {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
 }

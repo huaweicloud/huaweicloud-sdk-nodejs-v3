@@ -2,13 +2,13 @@ import { PublicationRequestBase } from './PublicationRequestBase';
 
 
 export class UpdatePublicationRequestDTO {
-    public publishName: string;
-    public startTime: number;
-    public endTime: number;
-    public deptList: Array<string>;
-    public deviceList: Array<string>;
+    public publishName?: string;
+    public startTime?: number;
+    public endTime?: number;
+    public deptList?: Array<string>;
+    public deviceList?: Array<string>;
     public programList?: Array<string>;
-    public constructor(publishName?: any, startTime?: any, endTime?: any, deptList?: any, deviceList?: any) { 
+    public constructor(publishName?: string, startTime?: number, endTime?: number, deptList?: Array<string>, deviceList?: Array<string>) { 
         this['publishName'] = publishName;
         this['startTime'] = startTime;
         this['endTime'] = endTime;

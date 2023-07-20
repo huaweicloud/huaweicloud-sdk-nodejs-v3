@@ -3,8 +3,8 @@
 export class CreateTopicReq {
     public name?: string;
     public brokers?: Array<string>;
-    private 'queue_num'?: number | undefined;
-    public permission?: CreateTopicReqPermissionEnum;
+    private 'queue_num'?: number;
+    public permission?: CreateTopicReqPermissionEnum | string;
     public constructor() { 
     }
     public withName(name: string): CreateTopicReq {
@@ -19,13 +19,13 @@ export class CreateTopicReq {
         this['queue_num'] = queueNum;
         return this;
     }
-    public set queueNum(queueNum: number | undefined) {
+    public set queueNum(queueNum: number  | undefined) {
         this['queue_num'] = queueNum;
     }
-    public get queueNum() {
+    public get queueNum(): number | undefined {
         return this['queue_num'];
     }
-    public withPermission(permission: CreateTopicReqPermissionEnum): CreateTopicReq {
+    public withPermission(permission: CreateTopicReqPermissionEnum | string): CreateTopicReq {
         this['permission'] = permission;
         return this;
     }

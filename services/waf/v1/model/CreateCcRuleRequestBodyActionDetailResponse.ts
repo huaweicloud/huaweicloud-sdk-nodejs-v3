@@ -1,18 +1,18 @@
 
 
 export class CreateCcRuleRequestBodyActionDetailResponse {
-    private 'content_type'?: CreateCcRuleRequestBodyActionDetailResponseContentTypeEnum | undefined;
+    private 'content_type'?: CreateCcRuleRequestBodyActionDetailResponseContentTypeEnum | string;
     public content?: string;
     public constructor() { 
     }
-    public withContentType(contentType: CreateCcRuleRequestBodyActionDetailResponseContentTypeEnum): CreateCcRuleRequestBodyActionDetailResponse {
+    public withContentType(contentType: CreateCcRuleRequestBodyActionDetailResponseContentTypeEnum | string): CreateCcRuleRequestBodyActionDetailResponse {
         this['content_type'] = contentType;
         return this;
     }
-    public set contentType(contentType: CreateCcRuleRequestBodyActionDetailResponseContentTypeEnum | undefined) {
+    public set contentType(contentType: CreateCcRuleRequestBodyActionDetailResponseContentTypeEnum | string  | undefined) {
         this['content_type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): CreateCcRuleRequestBodyActionDetailResponseContentTypeEnum | string | undefined {
         return this['content_type'];
     }
     public withContent(content: string): CreateCcRuleRequestBodyActionDetailResponse {

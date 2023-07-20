@@ -3,20 +3,20 @@ import { SessionPersistence } from './SessionPersistence';
 
 
 export class PoolResp {
-    public id: string;
-    private 'project_id': string | undefined;
-    private 'tenant_id': string | undefined;
-    public name: string;
-    public description: string;
-    private 'admin_state_up': boolean | undefined;
-    public loadbalancers: Array<ResourceList>;
-    public listeners: Array<ResourceList>;
-    public members: Array<ResourceList>;
-    private 'healthmonitor_id': string | undefined;
-    private 'session_persistence': SessionPersistence | undefined;
-    public protocol: PoolRespProtocolEnum;
-    private 'lb_algorithm': PoolRespLbAlgorithmEnum | undefined;
-    public constructor(id?: any, projectId?: any, tenantId?: any, name?: any, description?: any, adminStateUp?: any, loadbalancers?: any, listeners?: any, members?: any, healthmonitorId?: any, sessionPersistence?: any, protocol?: any, lbAlgorithm?: any) { 
+    public id?: string;
+    private 'project_id'?: string;
+    private 'tenant_id'?: string;
+    public name?: string;
+    public description?: string;
+    private 'admin_state_up'?: boolean;
+    public loadbalancers?: Array<ResourceList>;
+    public listeners?: Array<ResourceList>;
+    public members?: Array<ResourceList>;
+    private 'healthmonitor_id'?: string;
+    private 'session_persistence'?: SessionPersistence;
+    public protocol?: PoolRespProtocolEnum | string;
+    private 'lb_algorithm'?: PoolRespLbAlgorithmEnum | string;
+    public constructor(id?: string, projectId?: string, tenantId?: string, name?: string, description?: string, adminStateUp?: boolean, loadbalancers?: Array<ResourceList>, listeners?: Array<ResourceList>, members?: Array<ResourceList>, healthmonitorId?: string, sessionPersistence?: SessionPersistence, protocol?: string, lbAlgorithm?: string) { 
         this['id'] = id;
         this['project_id'] = projectId;
         this['tenant_id'] = tenantId;
@@ -39,20 +39,20 @@ export class PoolResp {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withTenantId(tenantId: string): PoolResp {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withName(name: string): PoolResp {
@@ -67,10 +67,10 @@ export class PoolResp {
         this['admin_state_up'] = adminStateUp;
         return this;
     }
-    public set adminStateUp(adminStateUp: boolean | undefined) {
+    public set adminStateUp(adminStateUp: boolean  | undefined) {
         this['admin_state_up'] = adminStateUp;
     }
-    public get adminStateUp() {
+    public get adminStateUp(): boolean | undefined {
         return this['admin_state_up'];
     }
     public withLoadbalancers(loadbalancers: Array<ResourceList>): PoolResp {
@@ -89,34 +89,34 @@ export class PoolResp {
         this['healthmonitor_id'] = healthmonitorId;
         return this;
     }
-    public set healthmonitorId(healthmonitorId: string | undefined) {
+    public set healthmonitorId(healthmonitorId: string  | undefined) {
         this['healthmonitor_id'] = healthmonitorId;
     }
-    public get healthmonitorId() {
+    public get healthmonitorId(): string | undefined {
         return this['healthmonitor_id'];
     }
     public withSessionPersistence(sessionPersistence: SessionPersistence): PoolResp {
         this['session_persistence'] = sessionPersistence;
         return this;
     }
-    public set sessionPersistence(sessionPersistence: SessionPersistence | undefined) {
+    public set sessionPersistence(sessionPersistence: SessionPersistence  | undefined) {
         this['session_persistence'] = sessionPersistence;
     }
-    public get sessionPersistence() {
+    public get sessionPersistence(): SessionPersistence | undefined {
         return this['session_persistence'];
     }
-    public withProtocol(protocol: PoolRespProtocolEnum): PoolResp {
+    public withProtocol(protocol: PoolRespProtocolEnum | string): PoolResp {
         this['protocol'] = protocol;
         return this;
     }
-    public withLbAlgorithm(lbAlgorithm: PoolRespLbAlgorithmEnum): PoolResp {
+    public withLbAlgorithm(lbAlgorithm: PoolRespLbAlgorithmEnum | string): PoolResp {
         this['lb_algorithm'] = lbAlgorithm;
         return this;
     }
-    public set lbAlgorithm(lbAlgorithm: PoolRespLbAlgorithmEnum | undefined) {
+    public set lbAlgorithm(lbAlgorithm: PoolRespLbAlgorithmEnum | string  | undefined) {
         this['lb_algorithm'] = lbAlgorithm;
     }
-    public get lbAlgorithm() {
+    public get lbAlgorithm(): PoolRespLbAlgorithmEnum | string | undefined {
         return this['lb_algorithm'];
     }
 }

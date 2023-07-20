@@ -4,8 +4,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListRecordContentsResponse extends SdkResponse {
     public total?: number;
-    private 'record_contents'?: Array<RecordContentInfoV2> | undefined;
-    private 'X-Request-Id'?: string | undefined;
+    private 'record_contents'?: Array<RecordContentInfoV2>;
+    private 'X-Request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -17,20 +17,20 @@ export class ListRecordContentsResponse extends SdkResponse {
         this['record_contents'] = recordContents;
         return this;
     }
-    public set recordContents(recordContents: Array<RecordContentInfoV2> | undefined) {
+    public set recordContents(recordContents: Array<RecordContentInfoV2>  | undefined) {
         this['record_contents'] = recordContents;
     }
-    public get recordContents() {
+    public get recordContents(): Array<RecordContentInfoV2> | undefined {
         return this['record_contents'];
     }
     public withXRequestId(xRequestId: string): ListRecordContentsResponse {
         this['X-Request-Id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-Request-Id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-Request-Id'];
     }
 }

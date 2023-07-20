@@ -1,11 +1,11 @@
 
 
 export class AgentUpdate {
-    public status: AgentUpdateStatusEnum;
-    public constructor(status?: any) { 
+    public status?: AgentUpdateStatusEnum | string;
+    public constructor(status?: string) { 
         this['status'] = status;
     }
-    public withStatus(status: AgentUpdateStatusEnum): AgentUpdate {
+    public withStatus(status: AgentUpdateStatusEnum | string): AgentUpdate {
         this['status'] = status;
         return this;
     }

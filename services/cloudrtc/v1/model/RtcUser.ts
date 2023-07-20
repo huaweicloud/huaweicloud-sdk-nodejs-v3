@@ -3,19 +3,19 @@
 export class RtcUser {
     public domain?: string;
     public app?: string;
-    private 'room_id'?: string | undefined;
+    private 'room_id'?: string;
     public uid?: string;
     public session?: string;
-    public state?: RtcUserStateEnum;
-    private 'nick_name'?: string | undefined;
+    public state?: RtcUserStateEnum | string;
+    private 'nick_name'?: string;
     public ip?: string;
     public region?: string;
     public isp?: string;
-    private 'device_model'?: string | undefined;
+    private 'device_model'?: string;
     public platform?: string;
     public sdk?: string;
-    private 'join_time'?: string | undefined;
-    private 'leave_time'?: string | undefined;
+    private 'join_time'?: string;
+    private 'leave_time'?: string;
     public constructor() { 
     }
     public withDomain(domain: string): RtcUser {
@@ -30,10 +30,10 @@ export class RtcUser {
         this['room_id'] = roomId;
         return this;
     }
-    public set roomId(roomId: string | undefined) {
+    public set roomId(roomId: string  | undefined) {
         this['room_id'] = roomId;
     }
-    public get roomId() {
+    public get roomId(): string | undefined {
         return this['room_id'];
     }
     public withUid(uid: string): RtcUser {
@@ -44,7 +44,7 @@ export class RtcUser {
         this['session'] = session;
         return this;
     }
-    public withState(state: RtcUserStateEnum): RtcUser {
+    public withState(state: RtcUserStateEnum | string): RtcUser {
         this['state'] = state;
         return this;
     }
@@ -52,10 +52,10 @@ export class RtcUser {
         this['nick_name'] = nickName;
         return this;
     }
-    public set nickName(nickName: string | undefined) {
+    public set nickName(nickName: string  | undefined) {
         this['nick_name'] = nickName;
     }
-    public get nickName() {
+    public get nickName(): string | undefined {
         return this['nick_name'];
     }
     public withIp(ip: string): RtcUser {
@@ -74,10 +74,10 @@ export class RtcUser {
         this['device_model'] = deviceModel;
         return this;
     }
-    public set deviceModel(deviceModel: string | undefined) {
+    public set deviceModel(deviceModel: string  | undefined) {
         this['device_model'] = deviceModel;
     }
-    public get deviceModel() {
+    public get deviceModel(): string | undefined {
         return this['device_model'];
     }
     public withPlatform(platform: string): RtcUser {
@@ -92,20 +92,20 @@ export class RtcUser {
         this['join_time'] = joinTime;
         return this;
     }
-    public set joinTime(joinTime: string | undefined) {
+    public set joinTime(joinTime: string  | undefined) {
         this['join_time'] = joinTime;
     }
-    public get joinTime() {
+    public get joinTime(): string | undefined {
         return this['join_time'];
     }
     public withLeaveTime(leaveTime: string): RtcUser {
         this['leave_time'] = leaveTime;
         return this;
     }
-    public set leaveTime(leaveTime: string | undefined) {
+    public set leaveTime(leaveTime: string  | undefined) {
         this['leave_time'] = leaveTime;
     }
-    public get leaveTime() {
+    public get leaveTime(): string | undefined {
         return this['leave_time'];
     }
 }

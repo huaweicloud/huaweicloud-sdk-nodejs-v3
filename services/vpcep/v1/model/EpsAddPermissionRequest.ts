@@ -1,9 +1,9 @@
 
 
 export class EpsAddPermissionRequest {
-    public permission: string;
-    public description: string;
-    public constructor(permission?: any, description?: any) { 
+    public permission?: string;
+    public description?: string;
+    public constructor(permission?: string, description?: string) { 
         this['permission'] = permission;
         this['description'] = description;
     }

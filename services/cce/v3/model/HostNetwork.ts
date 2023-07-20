@@ -1,10 +1,10 @@
 
 
 export class HostNetwork {
-    public vpc: string;
-    public subnet: string;
-    private 'SecurityGroup'?: string | undefined;
-    public constructor(vpc?: any, subnet?: any) { 
+    public vpc?: string;
+    public subnet?: string;
+    private 'SecurityGroup'?: string;
+    public constructor(vpc?: string, subnet?: string) { 
         this['vpc'] = vpc;
         this['subnet'] = subnet;
     }
@@ -20,10 +20,10 @@ export class HostNetwork {
         this['SecurityGroup'] = securityGroup;
         return this;
     }
-    public set securityGroup(securityGroup: string | undefined) {
+    public set securityGroup(securityGroup: string  | undefined) {
         this['SecurityGroup'] = securityGroup;
     }
-    public get securityGroup() {
+    public get securityGroup(): string | undefined {
         return this['SecurityGroup'];
     }
 }

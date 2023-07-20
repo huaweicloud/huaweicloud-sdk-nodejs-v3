@@ -3,11 +3,11 @@ import { CheckpointResourceResp } from './CheckpointResourceResp';
 
 
 export class CheckpointPlanCreate {
-    public id: string;
-    public name: string;
+    public id?: string;
+    public name?: string;
     public resources?: Array<CheckpointResourceResp>;
-    private 'skipped_resources'?: Array<CheckpointCreateSkippedResource> | undefined;
-    public constructor(id?: any, name?: any) { 
+    private 'skipped_resources'?: Array<CheckpointCreateSkippedResource>;
+    public constructor(id?: string, name?: string) { 
         this['id'] = id;
         this['name'] = name;
     }
@@ -27,10 +27,10 @@ export class CheckpointPlanCreate {
         this['skipped_resources'] = skippedResources;
         return this;
     }
-    public set skippedResources(skippedResources: Array<CheckpointCreateSkippedResource> | undefined) {
+    public set skippedResources(skippedResources: Array<CheckpointCreateSkippedResource>  | undefined) {
         this['skipped_resources'] = skippedResources;
     }
-    public get skippedResources() {
+    public get skippedResources(): Array<CheckpointCreateSkippedResource> | undefined {
         return this['skipped_resources'];
     }
 }

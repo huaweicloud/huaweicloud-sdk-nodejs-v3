@@ -5,43 +5,43 @@ import { Throughput } from './Throughput';
 
 
 export class VolumeDetail {
-    public id: string;
-    public links: Array<Link>;
-    public name: string;
-    public status: string;
-    public attachments: Array<Attachment>;
-    private 'availability_zone': string | undefined;
-    private 'os-vol-host-attr:host': string | undefined;
-    private 'source_volid'?: string | undefined;
-    private 'snapshot_id': string | undefined;
-    public description: string;
-    private 'created_at': string | undefined;
-    private 'os-vol-tenant-attr:tenant_id': string | undefined;
-    private 'volume_image_metadata': { [key: string]: object; } | undefined;
-    private 'volume_type': string | undefined;
-    public size: number;
-    private 'consistencygroup_id'?: string | undefined;
-    public bootable: string;
-    public metadata: { [key: string]: object; };
-    private 'updated_at': string | undefined;
+    public id?: string;
+    public links?: Array<Link>;
+    public name?: string;
+    public status?: string;
+    public attachments?: Array<Attachment>;
+    private 'availability_zone'?: string;
+    private 'os-vol-host-attr:host'?: string;
+    private 'source_volid'?: string;
+    private 'snapshot_id'?: string;
+    public description?: string;
+    private 'created_at'?: string;
+    private 'os-vol-tenant-attr:tenant_id'?: string;
+    private 'volume_image_metadata'?: { [key: string]: object; };
+    private 'volume_type'?: string;
+    public size?: number;
+    private 'consistencygroup_id'?: string;
+    public bootable?: string;
+    public metadata?: { [key: string]: object; };
+    private 'updated_at'?: string;
     public encrypted?: boolean;
-    private 'replication_status': string | undefined;
-    private 'os-volume-replication:extended_status': string | undefined;
-    private 'os-vol-mig-status-attr:migstat': string | undefined;
-    private 'os-vol-mig-status-attr:name_id': string | undefined;
-    public shareable: string;
-    private 'user_id': string | undefined;
-    private 'service_type': string | undefined;
-    public multiattach: boolean;
-    private 'dedicated_storage_id'?: string | undefined;
-    private 'dedicated_storage_name'?: string | undefined;
-    public tags: { [key: string]: string; };
+    private 'replication_status'?: string;
+    private 'os-volume-replication:extended_status'?: string;
+    private 'os-vol-mig-status-attr:migstat'?: string;
+    private 'os-vol-mig-status-attr:name_id'?: string;
+    public shareable?: string;
+    private 'user_id'?: string;
+    private 'service_type'?: string;
+    public multiattach?: boolean;
+    private 'dedicated_storage_id'?: string;
+    private 'dedicated_storage_name'?: string;
+    public tags?: { [key: string]: string; };
     public wwn?: string;
-    private 'enterprise_project_id'?: string | undefined;
-    private 'serial_number'?: string | undefined;
+    private 'enterprise_project_id'?: string;
+    private 'serial_number'?: string;
     public iops?: Iops;
     public throughput?: Throughput;
-    public constructor(id?: any, links?: any, name?: any, status?: any, attachments?: any, availabilityZone?: any, osVolHostAttrHost?: any, snapshotId?: any, description?: any, createdAt?: any, osVolTenantAttrTenantId?: any, volumeImageMetadata?: any, volumeType?: any, size?: any, bootable?: any, metadata?: any, updatedAt?: any, replicationStatus?: any, osVolumeReplicationExtendedStatus?: any, osVolMigStatusAttrMigstat?: any, osVolMigStatusAttrNameId?: any, shareable?: any, userId?: any, serviceType?: any, multiattach?: any, tags?: any) { 
+    public constructor(id?: string, links?: Array<Link>, name?: string, status?: string, attachments?: Array<Attachment>, availabilityZone?: string, osVolHostAttrHost?: string, snapshotId?: string, description?: string, createdAt?: string, osVolTenantAttrTenantId?: string, volumeImageMetadata?: { [key: string]: object; }, volumeType?: string, size?: number, bootable?: string, metadata?: { [key: string]: object; }, updatedAt?: string, replicationStatus?: string, osVolumeReplicationExtendedStatus?: string, osVolMigStatusAttrMigstat?: string, osVolMigStatusAttrNameId?: string, shareable?: string, userId?: string, serviceType?: string, multiattach?: boolean, tags?: { [key: string]: string; }) { 
         this['id'] = id;
         this['links'] = links;
         this['name'] = name;
@@ -93,40 +93,40 @@ export class VolumeDetail {
         this['availability_zone'] = availabilityZone;
         return this;
     }
-    public set availabilityZone(availabilityZone: string | undefined) {
+    public set availabilityZone(availabilityZone: string  | undefined) {
         this['availability_zone'] = availabilityZone;
     }
-    public get availabilityZone() {
+    public get availabilityZone(): string | undefined {
         return this['availability_zone'];
     }
     public withOsVolHostAttrHost(osVolHostAttrHost: string): VolumeDetail {
         this['os-vol-host-attr:host'] = osVolHostAttrHost;
         return this;
     }
-    public set osVolHostAttrHost(osVolHostAttrHost: string | undefined) {
+    public set osVolHostAttrHost(osVolHostAttrHost: string  | undefined) {
         this['os-vol-host-attr:host'] = osVolHostAttrHost;
     }
-    public get osVolHostAttrHost() {
+    public get osVolHostAttrHost(): string | undefined {
         return this['os-vol-host-attr:host'];
     }
     public withSourceVolid(sourceVolid: string): VolumeDetail {
         this['source_volid'] = sourceVolid;
         return this;
     }
-    public set sourceVolid(sourceVolid: string | undefined) {
+    public set sourceVolid(sourceVolid: string  | undefined) {
         this['source_volid'] = sourceVolid;
     }
-    public get sourceVolid() {
+    public get sourceVolid(): string | undefined {
         return this['source_volid'];
     }
     public withSnapshotId(snapshotId: string): VolumeDetail {
         this['snapshot_id'] = snapshotId;
         return this;
     }
-    public set snapshotId(snapshotId: string | undefined) {
+    public set snapshotId(snapshotId: string  | undefined) {
         this['snapshot_id'] = snapshotId;
     }
-    public get snapshotId() {
+    public get snapshotId(): string | undefined {
         return this['snapshot_id'];
     }
     public withDescription(description: string): VolumeDetail {
@@ -137,40 +137,40 @@ export class VolumeDetail {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withOsVolTenantAttrTenantId(osVolTenantAttrTenantId: string): VolumeDetail {
         this['os-vol-tenant-attr:tenant_id'] = osVolTenantAttrTenantId;
         return this;
     }
-    public set osVolTenantAttrTenantId(osVolTenantAttrTenantId: string | undefined) {
+    public set osVolTenantAttrTenantId(osVolTenantAttrTenantId: string  | undefined) {
         this['os-vol-tenant-attr:tenant_id'] = osVolTenantAttrTenantId;
     }
-    public get osVolTenantAttrTenantId() {
+    public get osVolTenantAttrTenantId(): string | undefined {
         return this['os-vol-tenant-attr:tenant_id'];
     }
     public withVolumeImageMetadata(volumeImageMetadata: { [key: string]: object; }): VolumeDetail {
         this['volume_image_metadata'] = volumeImageMetadata;
         return this;
     }
-    public set volumeImageMetadata(volumeImageMetadata: { [key: string]: object; } | undefined) {
+    public set volumeImageMetadata(volumeImageMetadata: { [key: string]: object; }  | undefined) {
         this['volume_image_metadata'] = volumeImageMetadata;
     }
-    public get volumeImageMetadata() {
+    public get volumeImageMetadata(): { [key: string]: object; } | undefined {
         return this['volume_image_metadata'];
     }
     public withVolumeType(volumeType: string): VolumeDetail {
         this['volume_type'] = volumeType;
         return this;
     }
-    public set volumeType(volumeType: string | undefined) {
+    public set volumeType(volumeType: string  | undefined) {
         this['volume_type'] = volumeType;
     }
-    public get volumeType() {
+    public get volumeType(): string | undefined {
         return this['volume_type'];
     }
     public withSize(size: number): VolumeDetail {
@@ -181,10 +181,10 @@ export class VolumeDetail {
         this['consistencygroup_id'] = consistencygroupId;
         return this;
     }
-    public set consistencygroupId(consistencygroupId: string | undefined) {
+    public set consistencygroupId(consistencygroupId: string  | undefined) {
         this['consistencygroup_id'] = consistencygroupId;
     }
-    public get consistencygroupId() {
+    public get consistencygroupId(): string | undefined {
         return this['consistencygroup_id'];
     }
     public withBootable(bootable: string): VolumeDetail {
@@ -199,10 +199,10 @@ export class VolumeDetail {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withEncrypted(encrypted: boolean): VolumeDetail {
@@ -213,40 +213,40 @@ export class VolumeDetail {
         this['replication_status'] = replicationStatus;
         return this;
     }
-    public set replicationStatus(replicationStatus: string | undefined) {
+    public set replicationStatus(replicationStatus: string  | undefined) {
         this['replication_status'] = replicationStatus;
     }
-    public get replicationStatus() {
+    public get replicationStatus(): string | undefined {
         return this['replication_status'];
     }
     public withOsVolumeReplicationExtendedStatus(osVolumeReplicationExtendedStatus: string): VolumeDetail {
         this['os-volume-replication:extended_status'] = osVolumeReplicationExtendedStatus;
         return this;
     }
-    public set osVolumeReplicationExtendedStatus(osVolumeReplicationExtendedStatus: string | undefined) {
+    public set osVolumeReplicationExtendedStatus(osVolumeReplicationExtendedStatus: string  | undefined) {
         this['os-volume-replication:extended_status'] = osVolumeReplicationExtendedStatus;
     }
-    public get osVolumeReplicationExtendedStatus() {
+    public get osVolumeReplicationExtendedStatus(): string | undefined {
         return this['os-volume-replication:extended_status'];
     }
     public withOsVolMigStatusAttrMigstat(osVolMigStatusAttrMigstat: string): VolumeDetail {
         this['os-vol-mig-status-attr:migstat'] = osVolMigStatusAttrMigstat;
         return this;
     }
-    public set osVolMigStatusAttrMigstat(osVolMigStatusAttrMigstat: string | undefined) {
+    public set osVolMigStatusAttrMigstat(osVolMigStatusAttrMigstat: string  | undefined) {
         this['os-vol-mig-status-attr:migstat'] = osVolMigStatusAttrMigstat;
     }
-    public get osVolMigStatusAttrMigstat() {
+    public get osVolMigStatusAttrMigstat(): string | undefined {
         return this['os-vol-mig-status-attr:migstat'];
     }
     public withOsVolMigStatusAttrNameId(osVolMigStatusAttrNameId: string): VolumeDetail {
         this['os-vol-mig-status-attr:name_id'] = osVolMigStatusAttrNameId;
         return this;
     }
-    public set osVolMigStatusAttrNameId(osVolMigStatusAttrNameId: string | undefined) {
+    public set osVolMigStatusAttrNameId(osVolMigStatusAttrNameId: string  | undefined) {
         this['os-vol-mig-status-attr:name_id'] = osVolMigStatusAttrNameId;
     }
-    public get osVolMigStatusAttrNameId() {
+    public get osVolMigStatusAttrNameId(): string | undefined {
         return this['os-vol-mig-status-attr:name_id'];
     }
     public withShareable(shareable: string): VolumeDetail {
@@ -257,20 +257,20 @@ export class VolumeDetail {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withServiceType(serviceType: string): VolumeDetail {
         this['service_type'] = serviceType;
         return this;
     }
-    public set serviceType(serviceType: string | undefined) {
+    public set serviceType(serviceType: string  | undefined) {
         this['service_type'] = serviceType;
     }
-    public get serviceType() {
+    public get serviceType(): string | undefined {
         return this['service_type'];
     }
     public withMultiattach(multiattach: boolean): VolumeDetail {
@@ -281,20 +281,20 @@ export class VolumeDetail {
         this['dedicated_storage_id'] = dedicatedStorageId;
         return this;
     }
-    public set dedicatedStorageId(dedicatedStorageId: string | undefined) {
+    public set dedicatedStorageId(dedicatedStorageId: string  | undefined) {
         this['dedicated_storage_id'] = dedicatedStorageId;
     }
-    public get dedicatedStorageId() {
+    public get dedicatedStorageId(): string | undefined {
         return this['dedicated_storage_id'];
     }
     public withDedicatedStorageName(dedicatedStorageName: string): VolumeDetail {
         this['dedicated_storage_name'] = dedicatedStorageName;
         return this;
     }
-    public set dedicatedStorageName(dedicatedStorageName: string | undefined) {
+    public set dedicatedStorageName(dedicatedStorageName: string  | undefined) {
         this['dedicated_storage_name'] = dedicatedStorageName;
     }
-    public get dedicatedStorageName() {
+    public get dedicatedStorageName(): string | undefined {
         return this['dedicated_storage_name'];
     }
     public withTags(tags: { [key: string]: string; }): VolumeDetail {
@@ -309,20 +309,20 @@ export class VolumeDetail {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
     public withSerialNumber(serialNumber: string): VolumeDetail {
         this['serial_number'] = serialNumber;
         return this;
     }
-    public set serialNumber(serialNumber: string | undefined) {
+    public set serialNumber(serialNumber: string  | undefined) {
         this['serial_number'] = serialNumber;
     }
-    public get serialNumber() {
+    public get serialNumber(): string | undefined {
         return this['serial_number'];
     }
     public withIops(iops: Iops): VolumeDetail {

@@ -1,15 +1,15 @@
 
 
 export class UpdateRedirectUrlConfig {
-    public protocol?: UpdateRedirectUrlConfigProtocolEnum;
+    public protocol?: UpdateRedirectUrlConfigProtocolEnum | string;
     public host?: string;
     public port?: string;
     public path?: string;
     public query?: string;
-    private 'status_code'?: UpdateRedirectUrlConfigStatusCodeEnum | undefined;
+    private 'status_code'?: UpdateRedirectUrlConfigStatusCodeEnum | string;
     public constructor() { 
     }
-    public withProtocol(protocol: UpdateRedirectUrlConfigProtocolEnum): UpdateRedirectUrlConfig {
+    public withProtocol(protocol: UpdateRedirectUrlConfigProtocolEnum | string): UpdateRedirectUrlConfig {
         this['protocol'] = protocol;
         return this;
     }
@@ -29,14 +29,14 @@ export class UpdateRedirectUrlConfig {
         this['query'] = query;
         return this;
     }
-    public withStatusCode(statusCode: UpdateRedirectUrlConfigStatusCodeEnum): UpdateRedirectUrlConfig {
+    public withStatusCode(statusCode: UpdateRedirectUrlConfigStatusCodeEnum | string): UpdateRedirectUrlConfig {
         this['status_code'] = statusCode;
         return this;
     }
-    public set statusCode(statusCode: UpdateRedirectUrlConfigStatusCodeEnum | undefined) {
+    public set statusCode(statusCode: UpdateRedirectUrlConfigStatusCodeEnum | string  | undefined) {
         this['status_code'] = statusCode;
     }
-    public get statusCode() {
+    public get statusCode(): UpdateRedirectUrlConfigStatusCodeEnum | string | undefined {
         return this['status_code'];
     }
 }

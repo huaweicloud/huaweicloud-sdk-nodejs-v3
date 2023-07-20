@@ -4,13 +4,13 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class CreateRecordRuleResponse extends SdkResponse {
     public id?: string;
-    private 'publish_domain'?: string | undefined;
+    private 'publish_domain'?: string;
     public app?: string;
     public stream?: string;
-    private 'record_type'?: CreateRecordRuleResponseRecordTypeEnum | undefined;
-    private 'default_record_config'?: DefaultRecordConfig | undefined;
-    private 'create_time'?: string | undefined;
-    private 'update_time'?: string | undefined;
+    private 'record_type'?: CreateRecordRuleResponseRecordTypeEnum | string;
+    private 'default_record_config'?: DefaultRecordConfig;
+    private 'create_time'?: string;
+    private 'update_time'?: string;
     public constructor() { 
         super();
     }
@@ -22,10 +22,10 @@ export class CreateRecordRuleResponse extends SdkResponse {
         this['publish_domain'] = publishDomain;
         return this;
     }
-    public set publishDomain(publishDomain: string | undefined) {
+    public set publishDomain(publishDomain: string  | undefined) {
         this['publish_domain'] = publishDomain;
     }
-    public get publishDomain() {
+    public get publishDomain(): string | undefined {
         return this['publish_domain'];
     }
     public withApp(app: string): CreateRecordRuleResponse {
@@ -36,44 +36,44 @@ export class CreateRecordRuleResponse extends SdkResponse {
         this['stream'] = stream;
         return this;
     }
-    public withRecordType(recordType: CreateRecordRuleResponseRecordTypeEnum): CreateRecordRuleResponse {
+    public withRecordType(recordType: CreateRecordRuleResponseRecordTypeEnum | string): CreateRecordRuleResponse {
         this['record_type'] = recordType;
         return this;
     }
-    public set recordType(recordType: CreateRecordRuleResponseRecordTypeEnum | undefined) {
+    public set recordType(recordType: CreateRecordRuleResponseRecordTypeEnum | string  | undefined) {
         this['record_type'] = recordType;
     }
-    public get recordType() {
+    public get recordType(): CreateRecordRuleResponseRecordTypeEnum | string | undefined {
         return this['record_type'];
     }
     public withDefaultRecordConfig(defaultRecordConfig: DefaultRecordConfig): CreateRecordRuleResponse {
         this['default_record_config'] = defaultRecordConfig;
         return this;
     }
-    public set defaultRecordConfig(defaultRecordConfig: DefaultRecordConfig | undefined) {
+    public set defaultRecordConfig(defaultRecordConfig: DefaultRecordConfig  | undefined) {
         this['default_record_config'] = defaultRecordConfig;
     }
-    public get defaultRecordConfig() {
+    public get defaultRecordConfig(): DefaultRecordConfig | undefined {
         return this['default_record_config'];
     }
     public withCreateTime(createTime: string): CreateRecordRuleResponse {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withUpdateTime(updateTime: string): CreateRecordRuleResponse {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
 }

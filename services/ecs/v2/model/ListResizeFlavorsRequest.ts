@@ -1,23 +1,23 @@
 
 
 export class ListResizeFlavorsRequest {
-    private 'instance_uuid'?: string | undefined;
+    private 'instance_uuid'?: string;
     public limit?: number;
     public marker?: string;
-    private 'sort_dir'?: ListResizeFlavorsRequestSortDirEnum | undefined;
-    private 'sort_key'?: ListResizeFlavorsRequestSortKeyEnum | undefined;
-    private 'source_flavor_id'?: string | undefined;
-    private 'source_flavor_name'?: string | undefined;
+    private 'sort_dir'?: ListResizeFlavorsRequestSortDirEnum | string;
+    private 'sort_key'?: ListResizeFlavorsRequestSortKeyEnum | string;
+    private 'source_flavor_id'?: string;
+    private 'source_flavor_name'?: string;
     public constructor() { 
     }
     public withInstanceUuid(instanceUuid: string): ListResizeFlavorsRequest {
         this['instance_uuid'] = instanceUuid;
         return this;
     }
-    public set instanceUuid(instanceUuid: string | undefined) {
+    public set instanceUuid(instanceUuid: string  | undefined) {
         this['instance_uuid'] = instanceUuid;
     }
-    public get instanceUuid() {
+    public get instanceUuid(): string | undefined {
         return this['instance_uuid'];
     }
     public withLimit(limit: number): ListResizeFlavorsRequest {
@@ -28,44 +28,44 @@ export class ListResizeFlavorsRequest {
         this['marker'] = marker;
         return this;
     }
-    public withSortDir(sortDir: ListResizeFlavorsRequestSortDirEnum): ListResizeFlavorsRequest {
+    public withSortDir(sortDir: ListResizeFlavorsRequestSortDirEnum | string): ListResizeFlavorsRequest {
         this['sort_dir'] = sortDir;
         return this;
     }
-    public set sortDir(sortDir: ListResizeFlavorsRequestSortDirEnum | undefined) {
+    public set sortDir(sortDir: ListResizeFlavorsRequestSortDirEnum | string  | undefined) {
         this['sort_dir'] = sortDir;
     }
-    public get sortDir() {
+    public get sortDir(): ListResizeFlavorsRequestSortDirEnum | string | undefined {
         return this['sort_dir'];
     }
-    public withSortKey(sortKey: ListResizeFlavorsRequestSortKeyEnum): ListResizeFlavorsRequest {
+    public withSortKey(sortKey: ListResizeFlavorsRequestSortKeyEnum | string): ListResizeFlavorsRequest {
         this['sort_key'] = sortKey;
         return this;
     }
-    public set sortKey(sortKey: ListResizeFlavorsRequestSortKeyEnum | undefined) {
+    public set sortKey(sortKey: ListResizeFlavorsRequestSortKeyEnum | string  | undefined) {
         this['sort_key'] = sortKey;
     }
-    public get sortKey() {
+    public get sortKey(): ListResizeFlavorsRequestSortKeyEnum | string | undefined {
         return this['sort_key'];
     }
     public withSourceFlavorId(sourceFlavorId: string): ListResizeFlavorsRequest {
         this['source_flavor_id'] = sourceFlavorId;
         return this;
     }
-    public set sourceFlavorId(sourceFlavorId: string | undefined) {
+    public set sourceFlavorId(sourceFlavorId: string  | undefined) {
         this['source_flavor_id'] = sourceFlavorId;
     }
-    public get sourceFlavorId() {
+    public get sourceFlavorId(): string | undefined {
         return this['source_flavor_id'];
     }
     public withSourceFlavorName(sourceFlavorName: string): ListResizeFlavorsRequest {
         this['source_flavor_name'] = sourceFlavorName;
         return this;
     }
-    public set sourceFlavorName(sourceFlavorName: string | undefined) {
+    public set sourceFlavorName(sourceFlavorName: string  | undefined) {
         this['source_flavor_name'] = sourceFlavorName;
     }
-    public get sourceFlavorName() {
+    public get sourceFlavorName(): string | undefined {
         return this['source_flavor_name'];
     }
 }

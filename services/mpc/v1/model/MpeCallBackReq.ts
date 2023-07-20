@@ -2,32 +2,32 @@ import { MpeMetaData } from './MpeMetaData';
 
 
 export class MpeCallBackReq {
-    private 'task_type'?: MpeCallBackReqTaskTypeEnum | undefined;
-    private 'task_id'?: string | undefined;
+    private 'task_type'?: MpeCallBackReqTaskTypeEnum | string;
+    private 'task_id'?: string;
     public status?: string;
-    private 'complete_ratio'?: number | undefined;
+    private 'complete_ratio'?: number;
     public description?: string;
-    private 'meta_data'?: MpeMetaData | undefined;
+    private 'meta_data'?: MpeMetaData;
     public constructor() { 
     }
-    public withTaskType(taskType: MpeCallBackReqTaskTypeEnum): MpeCallBackReq {
+    public withTaskType(taskType: MpeCallBackReqTaskTypeEnum | string): MpeCallBackReq {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: MpeCallBackReqTaskTypeEnum | undefined) {
+    public set taskType(taskType: MpeCallBackReqTaskTypeEnum | string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): MpeCallBackReqTaskTypeEnum | string | undefined {
         return this['task_type'];
     }
     public withTaskId(taskId: string): MpeCallBackReq {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
     public withStatus(status: string): MpeCallBackReq {
@@ -38,10 +38,10 @@ export class MpeCallBackReq {
         this['complete_ratio'] = completeRatio;
         return this;
     }
-    public set completeRatio(completeRatio: number | undefined) {
+    public set completeRatio(completeRatio: number  | undefined) {
         this['complete_ratio'] = completeRatio;
     }
-    public get completeRatio() {
+    public get completeRatio(): number | undefined {
         return this['complete_ratio'];
     }
     public withDescription(description: string): MpeCallBackReq {
@@ -52,10 +52,10 @@ export class MpeCallBackReq {
         this['meta_data'] = metaData;
         return this;
     }
-    public set metaData(metaData: MpeMetaData | undefined) {
+    public set metaData(metaData: MpeMetaData  | undefined) {
         this['meta_data'] = metaData;
     }
-    public get metaData() {
+    public get metaData(): MpeMetaData | undefined {
         return this['meta_data'];
     }
 }

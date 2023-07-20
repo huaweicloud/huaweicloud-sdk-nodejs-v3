@@ -1,13 +1,13 @@
 
 
 export class ShowDatabaseAuthorityRequest {
-    private 'cluster_id': string | undefined;
-    public type: string;
-    public name: Array<string>;
-    public database: string;
+    private 'cluster_id'?: string;
+    public type?: string;
+    public name?: Array<string>;
+    public database?: string;
     public schema?: string;
     public table?: string;
-    public constructor(clusterId?: any, type?: any, name?: any, database?: any) { 
+    public constructor(clusterId?: string, type?: string, name?: Array<string>, database?: string) { 
         this['cluster_id'] = clusterId;
         this['type'] = type;
         this['name'] = name;
@@ -17,10 +17,10 @@ export class ShowDatabaseAuthorityRequest {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withType(type: string): ShowDatabaseAuthorityRequest {

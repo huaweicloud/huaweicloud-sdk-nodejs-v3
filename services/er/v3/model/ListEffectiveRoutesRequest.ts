@@ -1,22 +1,22 @@
 
 
 export class ListEffectiveRoutesRequest {
-    private 'route_table_id': string | undefined;
+    private 'route_table_id'?: string;
     public limit?: number;
     public marker?: string;
     public destination?: Array<string>;
-    private 'resource_type'?: Array<ListEffectiveRoutesRequestResourceTypeEnum> | undefined;
-    public constructor(routeTableId?: any) { 
+    private 'resource_type'?: Array<ListEffectiveRoutesRequestResourceTypeEnum> | Array<string>;
+    public constructor(routeTableId?: string) { 
         this['route_table_id'] = routeTableId;
     }
     public withRouteTableId(routeTableId: string): ListEffectiveRoutesRequest {
         this['route_table_id'] = routeTableId;
         return this;
     }
-    public set routeTableId(routeTableId: string | undefined) {
+    public set routeTableId(routeTableId: string  | undefined) {
         this['route_table_id'] = routeTableId;
     }
-    public get routeTableId() {
+    public get routeTableId(): string | undefined {
         return this['route_table_id'];
     }
     public withLimit(limit: number): ListEffectiveRoutesRequest {
@@ -31,14 +31,14 @@ export class ListEffectiveRoutesRequest {
         this['destination'] = destination;
         return this;
     }
-    public withResourceType(resourceType: Array<ListEffectiveRoutesRequestResourceTypeEnum>): ListEffectiveRoutesRequest {
+    public withResourceType(resourceType: Array<ListEffectiveRoutesRequestResourceTypeEnum> | Array<string>): ListEffectiveRoutesRequest {
         this['resource_type'] = resourceType;
         return this;
     }
-    public set resourceType(resourceType: Array<ListEffectiveRoutesRequestResourceTypeEnum> | undefined) {
+    public set resourceType(resourceType: Array<ListEffectiveRoutesRequestResourceTypeEnum> | Array<string>  | undefined) {
         this['resource_type'] = resourceType;
     }
-    public get resourceType() {
+    public get resourceType(): Array<ListEffectiveRoutesRequestResourceTypeEnum> | Array<string> | undefined {
         return this['resource_type'];
     }
 }
@@ -54,5 +54,8 @@ export enum ListEffectiveRoutesRequestResourceTypeEnum {
     VGW = 'vgw',
     PEERING = 'peering',
     CAN = 'can',
-    GDGW = 'gdgw'
+    ECN = 'ecn',
+    GDGW = 'gdgw',
+    CONNECT = 'connect',
+    CFW = 'cfw'
 }

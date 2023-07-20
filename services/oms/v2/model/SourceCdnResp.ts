@@ -1,10 +1,10 @@
 
 
 export class SourceCdnResp {
-    public domain: string;
-    public protocol: SourceCdnRespProtocolEnum;
-    private 'authentication_type'?: SourceCdnRespAuthenticationTypeEnum | undefined;
-    public constructor(domain?: any, protocol?: any) { 
+    public domain?: string;
+    public protocol?: SourceCdnRespProtocolEnum | string;
+    private 'authentication_type'?: SourceCdnRespAuthenticationTypeEnum | string;
+    public constructor(domain?: string, protocol?: string) { 
         this['domain'] = domain;
         this['protocol'] = protocol;
     }
@@ -12,18 +12,18 @@ export class SourceCdnResp {
         this['domain'] = domain;
         return this;
     }
-    public withProtocol(protocol: SourceCdnRespProtocolEnum): SourceCdnResp {
+    public withProtocol(protocol: SourceCdnRespProtocolEnum | string): SourceCdnResp {
         this['protocol'] = protocol;
         return this;
     }
-    public withAuthenticationType(authenticationType: SourceCdnRespAuthenticationTypeEnum): SourceCdnResp {
+    public withAuthenticationType(authenticationType: SourceCdnRespAuthenticationTypeEnum | string): SourceCdnResp {
         this['authentication_type'] = authenticationType;
         return this;
     }
-    public set authenticationType(authenticationType: SourceCdnRespAuthenticationTypeEnum | undefined) {
+    public set authenticationType(authenticationType: SourceCdnRespAuthenticationTypeEnum | string  | undefined) {
         this['authentication_type'] = authenticationType;
     }
-    public get authenticationType() {
+    public get authenticationType(): SourceCdnRespAuthenticationTypeEnum | string | undefined {
         return this['authentication_type'];
     }
 }

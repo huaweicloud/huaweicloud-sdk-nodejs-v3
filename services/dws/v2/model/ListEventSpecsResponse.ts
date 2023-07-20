@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListEventSpecsResponse extends SdkResponse {
     public count?: number;
-    private 'event_specs'?: Array<EventSpecResponse> | undefined;
+    private 'event_specs'?: Array<EventSpecResponse>;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListEventSpecsResponse extends SdkResponse {
         this['event_specs'] = eventSpecs;
         return this;
     }
-    public set eventSpecs(eventSpecs: Array<EventSpecResponse> | undefined) {
+    public set eventSpecs(eventSpecs: Array<EventSpecResponse>  | undefined) {
         this['event_specs'] = eventSpecs;
     }
-    public get eventSpecs() {
+    public get eventSpecs(): Array<EventSpecResponse> | undefined {
         return this['event_specs'];
     }
 }

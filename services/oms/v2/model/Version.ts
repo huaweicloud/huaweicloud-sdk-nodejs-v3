@@ -4,7 +4,7 @@ import { Link } from './Link';
 export class Version {
     public id?: string;
     public links?: Array<Link>;
-    public status?: VersionStatusEnum;
+    public status?: VersionStatusEnum | string;
     public updated?: string;
     public constructor() { 
     }
@@ -16,7 +16,7 @@ export class Version {
         this['links'] = links;
         return this;
     }
-    public withStatus(status: VersionStatusEnum): Version {
+    public withStatus(status: VersionStatusEnum | string): Version {
         this['status'] = status;
         return this;
     }

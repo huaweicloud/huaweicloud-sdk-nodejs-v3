@@ -3,9 +3,9 @@
 export class QueryRoleDetailResp {
     public role?: string;
     public comment?: string;
-    private 'is_transfer'?: boolean | undefined;
+    private 'is_transfer'?: boolean;
     public privileges?: string;
-    private 'inherits_roles'?: Array<string> | undefined;
+    private 'inherits_roles'?: Array<string>;
     public selected?: boolean;
     public constructor() { 
     }
@@ -21,10 +21,10 @@ export class QueryRoleDetailResp {
         this['is_transfer'] = isTransfer;
         return this;
     }
-    public set isTransfer(isTransfer: boolean | undefined) {
+    public set isTransfer(isTransfer: boolean  | undefined) {
         this['is_transfer'] = isTransfer;
     }
-    public get isTransfer() {
+    public get isTransfer(): boolean | undefined {
         return this['is_transfer'];
     }
     public withPrivileges(privileges: string): QueryRoleDetailResp {
@@ -35,10 +35,10 @@ export class QueryRoleDetailResp {
         this['inherits_roles'] = inheritsRoles;
         return this;
     }
-    public set inheritsRoles(inheritsRoles: Array<string> | undefined) {
+    public set inheritsRoles(inheritsRoles: Array<string>  | undefined) {
         this['inherits_roles'] = inheritsRoles;
     }
-    public get inheritsRoles() {
+    public get inheritsRoles(): Array<string> | undefined {
         return this['inherits_roles'];
     }
     public withSelected(selected: boolean): QueryRoleDetailResp {

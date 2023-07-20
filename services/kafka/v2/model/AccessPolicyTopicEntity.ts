@@ -2,9 +2,9 @@ import { AccessPolicyEntity } from './AccessPolicyEntity';
 
 
 export class AccessPolicyTopicEntity {
-    public name: string;
-    public policies: Array<AccessPolicyEntity>;
-    public constructor(name?: any, policies?: any) { 
+    public name?: string;
+    public policies?: Array<AccessPolicyEntity>;
+    public constructor(name?: string, policies?: Array<AccessPolicyEntity>) { 
         this['name'] = name;
         this['policies'] = policies;
     }

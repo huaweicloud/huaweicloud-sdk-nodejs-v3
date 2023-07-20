@@ -2,17 +2,17 @@
 
 export class PostPaidServerEipBandwidth {
     public size?: number;
-    public sharetype: PostPaidServerEipBandwidthSharetypeEnum;
+    public sharetype?: PostPaidServerEipBandwidthSharetypeEnum | string;
     public chargemode?: string;
     public id?: string;
-    public constructor(sharetype?: any) { 
+    public constructor(sharetype?: string) { 
         this['sharetype'] = sharetype;
     }
     public withSize(size: number): PostPaidServerEipBandwidth {
         this['size'] = size;
         return this;
     }
-    public withSharetype(sharetype: PostPaidServerEipBandwidthSharetypeEnum): PostPaidServerEipBandwidth {
+    public withSharetype(sharetype: PostPaidServerEipBandwidthSharetypeEnum | string): PostPaidServerEipBandwidth {
         this['sharetype'] = sharetype;
         return this;
     }

@@ -5,7 +5,7 @@ import { ObsObjInfo } from './ObsObjInfo';
 export class CreateExtractTaskReq {
     public input?: ObsObjInfo;
     public output?: ObsObjInfo;
-    private 'user_data'?: string | undefined;
+    private 'user_data'?: string;
     public sync?: number;
     public constructor() { 
     }
@@ -21,10 +21,10 @@ export class CreateExtractTaskReq {
         this['user_data'] = userData;
         return this;
     }
-    public set userData(userData: string | undefined) {
+    public set userData(userData: string  | undefined) {
         this['user_data'] = userData;
     }
-    public get userData() {
+    public get userData(): string | undefined {
         return this['user_data'];
     }
     public withSync(sync: number): CreateExtractTaskReq {

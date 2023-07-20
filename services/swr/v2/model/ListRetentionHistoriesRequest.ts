@@ -1,23 +1,23 @@
 
 
 export class ListRetentionHistoriesRequest {
-    private 'Content-Type': ListRetentionHistoriesRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
+    private 'Content-Type'?: ListRetentionHistoriesRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
     public filter?: string;
-    public constructor(contentType?: any, namespace?: any, repository?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
     }
-    public withContentType(contentType: ListRetentionHistoriesRequestContentTypeEnum): ListRetentionHistoriesRequest {
+    public withContentType(contentType: ListRetentionHistoriesRequestContentTypeEnum | string): ListRetentionHistoriesRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: ListRetentionHistoriesRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: ListRetentionHistoriesRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): ListRetentionHistoriesRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): ListRetentionHistoriesRequest {

@@ -1,13 +1,13 @@
 
 
 export class AdminDTO {
-    public account: string;
-    public name: string;
-    public pwd: string;
+    public account?: string;
+    public name?: string;
+    public pwd?: string;
     public email?: string;
     public phone?: string;
     public country?: string;
-    public constructor(account?: any, name?: any, pwd?: any) { 
+    public constructor(account?: string, name?: string, pwd?: string) { 
         this['account'] = account;
         this['name'] = name;
         this['pwd'] = pwd;

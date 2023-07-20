@@ -2,7 +2,7 @@ import { ConfirmAssetUploadReq } from './ConfirmAssetUploadReq';
 
 
 export class ConfirmAssetUploadRequest {
-    private 'X-Sdk-Date'?: string | undefined;
+    private 'X-Sdk-Date'?: string;
     public body?: ConfirmAssetUploadReq;
     public constructor() { 
     }
@@ -10,10 +10,10 @@ export class ConfirmAssetUploadRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withBody(body: ConfirmAssetUploadReq): ConfirmAssetUploadRequest {

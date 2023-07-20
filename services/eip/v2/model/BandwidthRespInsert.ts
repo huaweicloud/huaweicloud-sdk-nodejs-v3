@@ -3,40 +3,40 @@ import { PublicipInfoResp } from './PublicipInfoResp';
 
 
 export class BandwidthRespInsert {
-    private 'bandwidth_type'?: string | undefined;
-    private 'charge_mode'?: BandwidthRespInsertChargeModeEnum | undefined;
+    private 'bandwidth_type'?: string;
+    private 'charge_mode'?: BandwidthRespInsertChargeModeEnum | string;
     public id?: string;
     public name?: string;
-    private 'publicip_info'?: Array<PublicipInfoResp> | undefined;
-    private 'billing_info'?: string | undefined;
-    private 'share_type'?: BandwidthRespInsertShareTypeEnum | undefined;
+    private 'publicip_info'?: Array<PublicipInfoResp>;
+    private 'billing_info'?: string;
+    private 'share_type'?: BandwidthRespInsertShareTypeEnum | string;
     public size?: number;
-    private 'tenant_id'?: string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
-    public status?: BandwidthRespInsertStatusEnum;
-    private 'enable_bandwidth_rules'?: boolean | undefined;
-    private 'rule_quota'?: number | undefined;
-    private 'bandwidth_rules'?: Array<BandWidthRules> | undefined;
+    private 'tenant_id'?: string;
+    private 'enterprise_project_id'?: string;
+    public status?: BandwidthRespInsertStatusEnum | string;
+    private 'enable_bandwidth_rules'?: boolean;
+    private 'rule_quota'?: number;
+    private 'bandwidth_rules'?: Array<BandWidthRules>;
     public constructor() { 
     }
     public withBandwidthType(bandwidthType: string): BandwidthRespInsert {
         this['bandwidth_type'] = bandwidthType;
         return this;
     }
-    public set bandwidthType(bandwidthType: string | undefined) {
+    public set bandwidthType(bandwidthType: string  | undefined) {
         this['bandwidth_type'] = bandwidthType;
     }
-    public get bandwidthType() {
+    public get bandwidthType(): string | undefined {
         return this['bandwidth_type'];
     }
-    public withChargeMode(chargeMode: BandwidthRespInsertChargeModeEnum): BandwidthRespInsert {
+    public withChargeMode(chargeMode: BandwidthRespInsertChargeModeEnum | string): BandwidthRespInsert {
         this['charge_mode'] = chargeMode;
         return this;
     }
-    public set chargeMode(chargeMode: BandwidthRespInsertChargeModeEnum | undefined) {
+    public set chargeMode(chargeMode: BandwidthRespInsertChargeModeEnum | string  | undefined) {
         this['charge_mode'] = chargeMode;
     }
-    public get chargeMode() {
+    public get chargeMode(): BandwidthRespInsertChargeModeEnum | string | undefined {
         return this['charge_mode'];
     }
     public withId(id: string): BandwidthRespInsert {
@@ -51,30 +51,30 @@ export class BandwidthRespInsert {
         this['publicip_info'] = publicipInfo;
         return this;
     }
-    public set publicipInfo(publicipInfo: Array<PublicipInfoResp> | undefined) {
+    public set publicipInfo(publicipInfo: Array<PublicipInfoResp>  | undefined) {
         this['publicip_info'] = publicipInfo;
     }
-    public get publicipInfo() {
+    public get publicipInfo(): Array<PublicipInfoResp> | undefined {
         return this['publicip_info'];
     }
     public withBillingInfo(billingInfo: string): BandwidthRespInsert {
         this['billing_info'] = billingInfo;
         return this;
     }
-    public set billingInfo(billingInfo: string | undefined) {
+    public set billingInfo(billingInfo: string  | undefined) {
         this['billing_info'] = billingInfo;
     }
-    public get billingInfo() {
+    public get billingInfo(): string | undefined {
         return this['billing_info'];
     }
-    public withShareType(shareType: BandwidthRespInsertShareTypeEnum): BandwidthRespInsert {
+    public withShareType(shareType: BandwidthRespInsertShareTypeEnum | string): BandwidthRespInsert {
         this['share_type'] = shareType;
         return this;
     }
-    public set shareType(shareType: BandwidthRespInsertShareTypeEnum | undefined) {
+    public set shareType(shareType: BandwidthRespInsertShareTypeEnum | string  | undefined) {
         this['share_type'] = shareType;
     }
-    public get shareType() {
+    public get shareType(): BandwidthRespInsertShareTypeEnum | string | undefined {
         return this['share_type'];
     }
     public withSize(size: number): BandwidthRespInsert {
@@ -85,23 +85,23 @@ export class BandwidthRespInsert {
         this['tenant_id'] = tenantId;
         return this;
     }
-    public set tenantId(tenantId: string | undefined) {
+    public set tenantId(tenantId: string  | undefined) {
         this['tenant_id'] = tenantId;
     }
-    public get tenantId() {
+    public get tenantId(): string | undefined {
         return this['tenant_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): BandwidthRespInsert {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
-    public withStatus(status: BandwidthRespInsertStatusEnum): BandwidthRespInsert {
+    public withStatus(status: BandwidthRespInsertStatusEnum | string): BandwidthRespInsert {
         this['status'] = status;
         return this;
     }
@@ -109,30 +109,30 @@ export class BandwidthRespInsert {
         this['enable_bandwidth_rules'] = enableBandwidthRules;
         return this;
     }
-    public set enableBandwidthRules(enableBandwidthRules: boolean | undefined) {
+    public set enableBandwidthRules(enableBandwidthRules: boolean  | undefined) {
         this['enable_bandwidth_rules'] = enableBandwidthRules;
     }
-    public get enableBandwidthRules() {
+    public get enableBandwidthRules(): boolean | undefined {
         return this['enable_bandwidth_rules'];
     }
     public withRuleQuota(ruleQuota: number): BandwidthRespInsert {
         this['rule_quota'] = ruleQuota;
         return this;
     }
-    public set ruleQuota(ruleQuota: number | undefined) {
+    public set ruleQuota(ruleQuota: number  | undefined) {
         this['rule_quota'] = ruleQuota;
     }
-    public get ruleQuota() {
+    public get ruleQuota(): number | undefined {
         return this['rule_quota'];
     }
     public withBandwidthRules(bandwidthRules: Array<BandWidthRules>): BandwidthRespInsert {
         this['bandwidth_rules'] = bandwidthRules;
         return this;
     }
-    public set bandwidthRules(bandwidthRules: Array<BandWidthRules> | undefined) {
+    public set bandwidthRules(bandwidthRules: Array<BandWidthRules>  | undefined) {
         this['bandwidth_rules'] = bandwidthRules;
     }
-    public get bandwidthRules() {
+    public get bandwidthRules(): Array<BandWidthRules> | undefined {
         return this['bandwidth_rules'];
     }
 }

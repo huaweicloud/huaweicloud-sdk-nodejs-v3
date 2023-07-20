@@ -1,18 +1,18 @@
 
 
 export class AddDeviceDTO {
-    public name: string;
-    public model: string;
+    public name?: string;
+    public model?: string;
     public sn?: string;
-    public prjCodeMode?: AddDeviceDTOPrjCodeModeEnum;
+    public prjCodeMode?: AddDeviceDTOPrjCodeModeEnum | number;
     public deptCode?: string;
     public phone?: string;
     public country?: string;
     public email?: string;
     public description?: string;
-    public status?: AddDeviceDTOStatusEnum;
+    public status?: AddDeviceDTOStatusEnum | number;
     public sendNotify?: string;
-    public constructor(name?: any, model?: any) { 
+    public constructor(name?: string, model?: string) { 
         this['name'] = name;
         this['model'] = model;
     }
@@ -28,7 +28,7 @@ export class AddDeviceDTO {
         this['sn'] = sn;
         return this;
     }
-    public withPrjCodeMode(prjCodeMode: AddDeviceDTOPrjCodeModeEnum): AddDeviceDTO {
+    public withPrjCodeMode(prjCodeMode: AddDeviceDTOPrjCodeModeEnum | number): AddDeviceDTO {
         this['prjCodeMode'] = prjCodeMode;
         return this;
     }
@@ -52,7 +52,7 @@ export class AddDeviceDTO {
         this['description'] = description;
         return this;
     }
-    public withStatus(status: AddDeviceDTOStatusEnum): AddDeviceDTO {
+    public withStatus(status: AddDeviceDTOStatusEnum | number): AddDeviceDTO {
         this['status'] = status;
         return this;
     }

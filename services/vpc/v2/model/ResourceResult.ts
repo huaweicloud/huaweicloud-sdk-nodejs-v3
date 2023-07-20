@@ -1,17 +1,17 @@
 
 
 export class ResourceResult {
-    public type: ResourceResultTypeEnum;
-    public used: number;
-    public quota: number;
-    public min: number;
-    public constructor(type?: any, used?: any, quota?: any, min?: any) { 
+    public type?: ResourceResultTypeEnum | string;
+    public used?: number;
+    public quota?: number;
+    public min?: number;
+    public constructor(type?: string, used?: number, quota?: number, min?: number) { 
         this['type'] = type;
         this['used'] = used;
         this['quota'] = quota;
         this['min'] = min;
     }
-    public withType(type: ResourceResultTypeEnum): ResourceResult {
+    public withType(type: ResourceResultTypeEnum | string): ResourceResult {
         this['type'] = type;
         return this;
     }

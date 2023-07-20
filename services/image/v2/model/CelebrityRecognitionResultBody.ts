@@ -2,7 +2,7 @@
 
 export class CelebrityRecognitionResultBody {
     public confidence?: number;
-    private 'face_detail'?: object | undefined;
+    private 'face_detail'?: object;
     public label?: string;
     public constructor() { 
     }
@@ -14,10 +14,10 @@ export class CelebrityRecognitionResultBody {
         this['face_detail'] = faceDetail;
         return this;
     }
-    public set faceDetail(faceDetail: object | undefined) {
+    public set faceDetail(faceDetail: object  | undefined) {
         this['face_detail'] = faceDetail;
     }
-    public get faceDetail() {
+    public get faceDetail(): object | undefined {
         return this['face_detail'];
     }
     public withLabel(label: string): CelebrityRecognitionResultBody {

@@ -2,8 +2,8 @@
 
 export class UserPassword {
     public username?: string;
-    public password: string;
-    public constructor(password?: any) { 
+    public password?: string;
+    public constructor(password?: string) { 
         this['password'] = password;
     }
     public withUsername(username: string): UserPassword {

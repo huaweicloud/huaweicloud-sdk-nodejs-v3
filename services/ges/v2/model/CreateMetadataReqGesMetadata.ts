@@ -2,8 +2,8 @@ import { CreateMetadataReqGesMetadataLabels } from './CreateMetadataReqGesMetada
 
 
 export class CreateMetadataReqGesMetadata {
-    public labels: Array<CreateMetadataReqGesMetadataLabels>;
-    public constructor(labels?: any) { 
+    public labels?: Array<CreateMetadataReqGesMetadataLabels>;
+    public constructor(labels?: Array<CreateMetadataReqGesMetadataLabels>) { 
         this['labels'] = labels;
     }
     public withLabels(labels: Array<CreateMetadataReqGesMetadataLabels>): CreateMetadataReqGesMetadata {

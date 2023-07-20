@@ -3,13 +3,13 @@ import { IgnoreAdvanced } from './IgnoreAdvanced';
 
 
 export class UpdateIgnoreRuleRequestBody {
-    public domain: Array<string>;
-    public conditions: Array<CreateCondition>;
-    public mode: number;
-    public rule: string;
+    public domain?: Array<string>;
+    public conditions?: Array<CreateCondition>;
+    public mode?: number;
+    public rule?: string;
     public advanced?: IgnoreAdvanced;
     public description?: string;
-    public constructor(domain?: any, conditions?: any, mode?: any, rule?: any) { 
+    public constructor(domain?: Array<string>, conditions?: Array<CreateCondition>, mode?: number, rule?: string) { 
         this['domain'] = domain;
         this['conditions'] = conditions;
         this['mode'] = mode;

@@ -3,9 +3,9 @@ import { RulesRemote } from './RulesRemote';
 
 
 export class MappingRules {
-    public local: Array<RulesLocal>;
-    public remote: Array<RulesRemote>;
-    public constructor(local?: any, remote?: any) { 
+    public local?: Array<RulesLocal>;
+    public remote?: Array<RulesRemote>;
+    public constructor(local?: Array<RulesLocal>, remote?: Array<RulesRemote>) { 
         this['local'] = local;
         this['remote'] = remote;
     }

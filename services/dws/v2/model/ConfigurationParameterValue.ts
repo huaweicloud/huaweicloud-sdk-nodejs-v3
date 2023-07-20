@@ -1,10 +1,10 @@
 
 
 export class ConfigurationParameterValue {
-    public type: string;
-    public name: string;
-    public value: string;
-    public constructor(type?: any, name?: any, value?: any) { 
+    public type?: string;
+    public name?: string;
+    public value?: string;
+    public constructor(type?: string, name?: string, value?: string) { 
         this['type'] = type;
         this['name'] = name;
         this['value'] = value;

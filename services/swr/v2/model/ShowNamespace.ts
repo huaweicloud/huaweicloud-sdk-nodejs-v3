@@ -1,11 +1,11 @@
 
 
 export class ShowNamespace {
-    public id: number;
-    public name: string;
-    private 'creator_name': string | undefined;
-    public auth: ShowNamespaceAuthEnum;
-    public constructor(id?: any, name?: any, creatorName?: any, auth?: any) { 
+    public id?: number;
+    public name?: string;
+    private 'creator_name'?: string;
+    public auth?: ShowNamespaceAuthEnum | number;
+    public constructor(id?: number, name?: string, creatorName?: string, auth?: number) { 
         this['id'] = id;
         this['name'] = name;
         this['creator_name'] = creatorName;
@@ -23,13 +23,13 @@ export class ShowNamespace {
         this['creator_name'] = creatorName;
         return this;
     }
-    public set creatorName(creatorName: string | undefined) {
+    public set creatorName(creatorName: string  | undefined) {
         this['creator_name'] = creatorName;
     }
-    public get creatorName() {
+    public get creatorName(): string | undefined {
         return this['creator_name'];
     }
-    public withAuth(auth: ShowNamespaceAuthEnum): ShowNamespace {
+    public withAuth(auth: ShowNamespaceAuthEnum | number): ShowNamespace {
         this['auth'] = auth;
         return this;
     }

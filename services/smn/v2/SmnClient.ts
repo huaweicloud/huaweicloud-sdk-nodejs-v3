@@ -638,7 +638,7 @@ export class SmnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listVersion(): Promise<ListVersionResponse> {
+    public listVersion(listVersionRequest?: ListVersionRequest): Promise<ListVersionResponse> {
         const options = ParamCreater().listVersion();
 
          // @ts-ignore
@@ -656,7 +656,7 @@ export class SmnClient {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public listVersions(): Promise<ListVersionsResponse> {
+    public listVersions(listVersionsRequest?: ListVersionsRequest): Promise<ListVersionsResponse> {
         const options = ParamCreater().listVersions();
 
          // @ts-ignore

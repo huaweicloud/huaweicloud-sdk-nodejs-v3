@@ -1,11 +1,11 @@
 
 
 export class Auth {
-    public type?: AuthTypeEnum;
+    public type?: AuthTypeEnum | string;
     public key?: string;
     public constructor() { 
     }
-    public withType(type: AuthTypeEnum): Auth {
+    public withType(type: AuthTypeEnum | string): Auth {
         this['type'] = type;
         return this;
     }

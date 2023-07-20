@@ -2,9 +2,9 @@ import { ResourceTag } from './ResourceTag';
 
 
 export class BatchCreateOrDeleteResourceTagsRequestBody {
-    public tags: Array<ResourceTag>;
-    public action: string;
-    public constructor(tags?: any, action?: any) { 
+    public tags?: Array<ResourceTag>;
+    public action?: string;
+    public constructor(tags?: Array<ResourceTag>, action?: string) { 
         this['tags'] = tags;
         this['action'] = action;
     }

@@ -2,19 +2,19 @@ import { CreateApplicationEndpointRequestBody } from './CreateApplicationEndpoin
 
 
 export class CreateApplicationEndpointRequest {
-    private 'application_urn': string | undefined;
+    private 'application_urn'?: string;
     public body?: CreateApplicationEndpointRequestBody;
-    public constructor(applicationUrn?: any) { 
+    public constructor(applicationUrn?: string) { 
         this['application_urn'] = applicationUrn;
     }
     public withApplicationUrn(applicationUrn: string): CreateApplicationEndpointRequest {
         this['application_urn'] = applicationUrn;
         return this;
     }
-    public set applicationUrn(applicationUrn: string | undefined) {
+    public set applicationUrn(applicationUrn: string  | undefined) {
         this['application_urn'] = applicationUrn;
     }
-    public get applicationUrn() {
+    public get applicationUrn(): string | undefined {
         return this['application_urn'];
     }
     public withBody(body: CreateApplicationEndpointRequestBody): CreateApplicationEndpointRequest {

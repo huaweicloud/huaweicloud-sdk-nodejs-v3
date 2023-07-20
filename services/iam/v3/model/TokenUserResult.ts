@@ -2,11 +2,11 @@ import { TokenUserDomainResult } from './TokenUserDomainResult';
 
 
 export class TokenUserResult {
-    public name: string;
-    public id: string;
-    private 'password_expires_at': string | undefined;
-    public domain: TokenUserDomainResult;
-    public constructor(name?: any, id?: any, passwordExpiresAt?: any, domain?: any) { 
+    public name?: string;
+    public id?: string;
+    private 'password_expires_at'?: string;
+    public domain?: TokenUserDomainResult;
+    public constructor(name?: string, id?: string, passwordExpiresAt?: string, domain?: TokenUserDomainResult) { 
         this['name'] = name;
         this['id'] = id;
         this['password_expires_at'] = passwordExpiresAt;
@@ -24,10 +24,10 @@ export class TokenUserResult {
         this['password_expires_at'] = passwordExpiresAt;
         return this;
     }
-    public set passwordExpiresAt(passwordExpiresAt: string | undefined) {
+    public set passwordExpiresAt(passwordExpiresAt: string  | undefined) {
         this['password_expires_at'] = passwordExpiresAt;
     }
-    public get passwordExpiresAt() {
+    public get passwordExpiresAt(): string | undefined {
         return this['password_expires_at'];
     }
     public withDomain(domain: TokenUserDomainResult): TokenUserResult {

@@ -1,8 +1,8 @@
 
 
 export class BatchShowQueueRequest {
-    private 'Instance-Id'?: string | undefined;
-    private 'queue_name'?: string | undefined;
+    private 'Instance-Id'?: string;
+    private 'queue_name'?: string;
     public limit?: number;
     public marker?: string;
     public offset?: number;
@@ -12,20 +12,20 @@ export class BatchShowQueueRequest {
         this['Instance-Id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['Instance-Id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['Instance-Id'];
     }
     public withQueueName(queueName: string): BatchShowQueueRequest {
         this['queue_name'] = queueName;
         return this;
     }
-    public set queueName(queueName: string | undefined) {
+    public set queueName(queueName: string  | undefined) {
         this['queue_name'] = queueName;
     }
-    public get queueName() {
+    public get queueName(): string | undefined {
         return this['queue_name'];
     }
     public withLimit(limit: number): BatchShowQueueRequest {

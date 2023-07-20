@@ -6,22 +6,22 @@ import { TaskGroupSrcNode } from './TaskGroupSrcNode';
 
 
 export class CreateTaskGroupReq {
-    private 'src_node': TaskGroupSrcNode | undefined;
+    private 'src_node'?: TaskGroupSrcNode;
     public description?: string;
-    private 'dst_node': TaskGroupDstNode | undefined;
-    private 'enable_metadata_migration'?: boolean | undefined;
-    private 'enable_failed_object_recording'?: boolean | undefined;
-    private 'enable_restore'?: boolean | undefined;
-    private 'enable_kms': boolean | undefined;
-    private 'task_type'?: CreateTaskGroupReqTaskTypeEnum | undefined;
-    private 'bandwidth_policy'?: Array<BandwidthPolicyDto> | undefined;
-    private 'smn_config'?: SmnConfig | undefined;
-    private 'source_cdn'?: SourceCdnReq | undefined;
-    private 'migrate_since'?: number | undefined;
-    private 'object_overwrite_mode'?: CreateTaskGroupReqObjectOverwriteModeEnum | undefined;
-    private 'consistency_check'?: CreateTaskGroupReqConsistencyCheckEnum | undefined;
-    private 'enable_requester_pays'?: boolean | undefined;
-    public constructor(srcNode?: any, dstNode?: any, enableKms?: any) { 
+    private 'dst_node'?: TaskGroupDstNode;
+    private 'enable_metadata_migration'?: boolean;
+    private 'enable_failed_object_recording'?: boolean;
+    private 'enable_restore'?: boolean;
+    private 'enable_kms'?: boolean;
+    private 'task_type'?: CreateTaskGroupReqTaskTypeEnum | string;
+    private 'bandwidth_policy'?: Array<BandwidthPolicyDto>;
+    private 'smn_config'?: SmnConfig;
+    private 'source_cdn'?: SourceCdnReq;
+    private 'migrate_since'?: number;
+    private 'object_overwrite_mode'?: CreateTaskGroupReqObjectOverwriteModeEnum | string;
+    private 'consistency_check'?: CreateTaskGroupReqConsistencyCheckEnum | string;
+    private 'enable_requester_pays'?: boolean;
+    public constructor(srcNode?: TaskGroupSrcNode, dstNode?: TaskGroupDstNode, enableKms?: boolean) { 
         this['src_node'] = srcNode;
         this['dst_node'] = dstNode;
         this['enable_kms'] = enableKms;
@@ -30,10 +30,10 @@ export class CreateTaskGroupReq {
         this['src_node'] = srcNode;
         return this;
     }
-    public set srcNode(srcNode: TaskGroupSrcNode | undefined) {
+    public set srcNode(srcNode: TaskGroupSrcNode  | undefined) {
         this['src_node'] = srcNode;
     }
-    public get srcNode() {
+    public get srcNode(): TaskGroupSrcNode | undefined {
         return this['src_node'];
     }
     public withDescription(description: string): CreateTaskGroupReq {
@@ -44,130 +44,130 @@ export class CreateTaskGroupReq {
         this['dst_node'] = dstNode;
         return this;
     }
-    public set dstNode(dstNode: TaskGroupDstNode | undefined) {
+    public set dstNode(dstNode: TaskGroupDstNode  | undefined) {
         this['dst_node'] = dstNode;
     }
-    public get dstNode() {
+    public get dstNode(): TaskGroupDstNode | undefined {
         return this['dst_node'];
     }
     public withEnableMetadataMigration(enableMetadataMigration: boolean): CreateTaskGroupReq {
         this['enable_metadata_migration'] = enableMetadataMigration;
         return this;
     }
-    public set enableMetadataMigration(enableMetadataMigration: boolean | undefined) {
+    public set enableMetadataMigration(enableMetadataMigration: boolean  | undefined) {
         this['enable_metadata_migration'] = enableMetadataMigration;
     }
-    public get enableMetadataMigration() {
+    public get enableMetadataMigration(): boolean | undefined {
         return this['enable_metadata_migration'];
     }
     public withEnableFailedObjectRecording(enableFailedObjectRecording: boolean): CreateTaskGroupReq {
         this['enable_failed_object_recording'] = enableFailedObjectRecording;
         return this;
     }
-    public set enableFailedObjectRecording(enableFailedObjectRecording: boolean | undefined) {
+    public set enableFailedObjectRecording(enableFailedObjectRecording: boolean  | undefined) {
         this['enable_failed_object_recording'] = enableFailedObjectRecording;
     }
-    public get enableFailedObjectRecording() {
+    public get enableFailedObjectRecording(): boolean | undefined {
         return this['enable_failed_object_recording'];
     }
     public withEnableRestore(enableRestore: boolean): CreateTaskGroupReq {
         this['enable_restore'] = enableRestore;
         return this;
     }
-    public set enableRestore(enableRestore: boolean | undefined) {
+    public set enableRestore(enableRestore: boolean  | undefined) {
         this['enable_restore'] = enableRestore;
     }
-    public get enableRestore() {
+    public get enableRestore(): boolean | undefined {
         return this['enable_restore'];
     }
     public withEnableKms(enableKms: boolean): CreateTaskGroupReq {
         this['enable_kms'] = enableKms;
         return this;
     }
-    public set enableKms(enableKms: boolean | undefined) {
+    public set enableKms(enableKms: boolean  | undefined) {
         this['enable_kms'] = enableKms;
     }
-    public get enableKms() {
+    public get enableKms(): boolean | undefined {
         return this['enable_kms'];
     }
-    public withTaskType(taskType: CreateTaskGroupReqTaskTypeEnum): CreateTaskGroupReq {
+    public withTaskType(taskType: CreateTaskGroupReqTaskTypeEnum | string): CreateTaskGroupReq {
         this['task_type'] = taskType;
         return this;
     }
-    public set taskType(taskType: CreateTaskGroupReqTaskTypeEnum | undefined) {
+    public set taskType(taskType: CreateTaskGroupReqTaskTypeEnum | string  | undefined) {
         this['task_type'] = taskType;
     }
-    public get taskType() {
+    public get taskType(): CreateTaskGroupReqTaskTypeEnum | string | undefined {
         return this['task_type'];
     }
     public withBandwidthPolicy(bandwidthPolicy: Array<BandwidthPolicyDto>): CreateTaskGroupReq {
         this['bandwidth_policy'] = bandwidthPolicy;
         return this;
     }
-    public set bandwidthPolicy(bandwidthPolicy: Array<BandwidthPolicyDto> | undefined) {
+    public set bandwidthPolicy(bandwidthPolicy: Array<BandwidthPolicyDto>  | undefined) {
         this['bandwidth_policy'] = bandwidthPolicy;
     }
-    public get bandwidthPolicy() {
+    public get bandwidthPolicy(): Array<BandwidthPolicyDto> | undefined {
         return this['bandwidth_policy'];
     }
     public withSmnConfig(smnConfig: SmnConfig): CreateTaskGroupReq {
         this['smn_config'] = smnConfig;
         return this;
     }
-    public set smnConfig(smnConfig: SmnConfig | undefined) {
+    public set smnConfig(smnConfig: SmnConfig  | undefined) {
         this['smn_config'] = smnConfig;
     }
-    public get smnConfig() {
+    public get smnConfig(): SmnConfig | undefined {
         return this['smn_config'];
     }
     public withSourceCdn(sourceCdn: SourceCdnReq): CreateTaskGroupReq {
         this['source_cdn'] = sourceCdn;
         return this;
     }
-    public set sourceCdn(sourceCdn: SourceCdnReq | undefined) {
+    public set sourceCdn(sourceCdn: SourceCdnReq  | undefined) {
         this['source_cdn'] = sourceCdn;
     }
-    public get sourceCdn() {
+    public get sourceCdn(): SourceCdnReq | undefined {
         return this['source_cdn'];
     }
     public withMigrateSince(migrateSince: number): CreateTaskGroupReq {
         this['migrate_since'] = migrateSince;
         return this;
     }
-    public set migrateSince(migrateSince: number | undefined) {
+    public set migrateSince(migrateSince: number  | undefined) {
         this['migrate_since'] = migrateSince;
     }
-    public get migrateSince() {
+    public get migrateSince(): number | undefined {
         return this['migrate_since'];
     }
-    public withObjectOverwriteMode(objectOverwriteMode: CreateTaskGroupReqObjectOverwriteModeEnum): CreateTaskGroupReq {
+    public withObjectOverwriteMode(objectOverwriteMode: CreateTaskGroupReqObjectOverwriteModeEnum | string): CreateTaskGroupReq {
         this['object_overwrite_mode'] = objectOverwriteMode;
         return this;
     }
-    public set objectOverwriteMode(objectOverwriteMode: CreateTaskGroupReqObjectOverwriteModeEnum | undefined) {
+    public set objectOverwriteMode(objectOverwriteMode: CreateTaskGroupReqObjectOverwriteModeEnum | string  | undefined) {
         this['object_overwrite_mode'] = objectOverwriteMode;
     }
-    public get objectOverwriteMode() {
+    public get objectOverwriteMode(): CreateTaskGroupReqObjectOverwriteModeEnum | string | undefined {
         return this['object_overwrite_mode'];
     }
-    public withConsistencyCheck(consistencyCheck: CreateTaskGroupReqConsistencyCheckEnum): CreateTaskGroupReq {
+    public withConsistencyCheck(consistencyCheck: CreateTaskGroupReqConsistencyCheckEnum | string): CreateTaskGroupReq {
         this['consistency_check'] = consistencyCheck;
         return this;
     }
-    public set consistencyCheck(consistencyCheck: CreateTaskGroupReqConsistencyCheckEnum | undefined) {
+    public set consistencyCheck(consistencyCheck: CreateTaskGroupReqConsistencyCheckEnum | string  | undefined) {
         this['consistency_check'] = consistencyCheck;
     }
-    public get consistencyCheck() {
+    public get consistencyCheck(): CreateTaskGroupReqConsistencyCheckEnum | string | undefined {
         return this['consistency_check'];
     }
     public withEnableRequesterPays(enableRequesterPays: boolean): CreateTaskGroupReq {
         this['enable_requester_pays'] = enableRequesterPays;
         return this;
     }
-    public set enableRequesterPays(enableRequesterPays: boolean | undefined) {
+    public set enableRequesterPays(enableRequesterPays: boolean  | undefined) {
         this['enable_requester_pays'] = enableRequesterPays;
     }
-    public get enableRequesterPays() {
+    public get enableRequesterPays(): boolean | undefined {
         return this['enable_requester_pays'];
     }
 }

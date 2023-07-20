@@ -1,14 +1,14 @@
 
 
 export class SmnConfig {
-    public language?: SmnConfigLanguageEnum;
-    private 'topic_urn': string | undefined;
-    private 'trigger_conditions': Array<string> | undefined;
-    public constructor(topicUrn?: any, triggerConditions?: any) { 
+    public language?: SmnConfigLanguageEnum | string;
+    private 'topic_urn'?: string;
+    private 'trigger_conditions'?: Array<string>;
+    public constructor(topicUrn?: string, triggerConditions?: Array<string>) { 
         this['topic_urn'] = topicUrn;
         this['trigger_conditions'] = triggerConditions;
     }
-    public withLanguage(language: SmnConfigLanguageEnum): SmnConfig {
+    public withLanguage(language: SmnConfigLanguageEnum | string): SmnConfig {
         this['language'] = language;
         return this;
     }
@@ -16,20 +16,20 @@ export class SmnConfig {
         this['topic_urn'] = topicUrn;
         return this;
     }
-    public set topicUrn(topicUrn: string | undefined) {
+    public set topicUrn(topicUrn: string  | undefined) {
         this['topic_urn'] = topicUrn;
     }
-    public get topicUrn() {
+    public get topicUrn(): string | undefined {
         return this['topic_urn'];
     }
     public withTriggerConditions(triggerConditions: Array<string>): SmnConfig {
         this['trigger_conditions'] = triggerConditions;
         return this;
     }
-    public set triggerConditions(triggerConditions: Array<string> | undefined) {
+    public set triggerConditions(triggerConditions: Array<string>  | undefined) {
         this['trigger_conditions'] = triggerConditions;
     }
-    public get triggerConditions() {
+    public get triggerConditions(): Array<string> | undefined {
         return this['trigger_conditions'];
     }
 }

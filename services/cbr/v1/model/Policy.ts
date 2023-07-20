@@ -4,14 +4,14 @@ import { PolicyoODCreate } from './PolicyoODCreate';
 
 
 export class Policy {
-    public enabled: boolean;
-    public id: string;
-    public name: string;
-    private 'operation_definition': PolicyoODCreate | undefined;
-    private 'operation_type': PolicyOperationTypeEnum | undefined;
-    public trigger: PolicyTriggerResp;
-    private 'associated_vaults'?: Array<PolicyAssociateVault> | undefined;
-    public constructor(enabled?: any, id?: any, name?: any, operationDefinition?: any, operationType?: any, trigger?: any) { 
+    public enabled?: boolean;
+    public id?: string;
+    public name?: string;
+    private 'operation_definition'?: PolicyoODCreate;
+    private 'operation_type'?: PolicyOperationTypeEnum | string;
+    public trigger?: PolicyTriggerResp;
+    private 'associated_vaults'?: Array<PolicyAssociateVault>;
+    public constructor(enabled?: boolean, id?: string, name?: string, operationDefinition?: PolicyoODCreate, operationType?: string, trigger?: PolicyTriggerResp) { 
         this['enabled'] = enabled;
         this['id'] = id;
         this['name'] = name;
@@ -35,20 +35,20 @@ export class Policy {
         this['operation_definition'] = operationDefinition;
         return this;
     }
-    public set operationDefinition(operationDefinition: PolicyoODCreate | undefined) {
+    public set operationDefinition(operationDefinition: PolicyoODCreate  | undefined) {
         this['operation_definition'] = operationDefinition;
     }
-    public get operationDefinition() {
+    public get operationDefinition(): PolicyoODCreate | undefined {
         return this['operation_definition'];
     }
-    public withOperationType(operationType: PolicyOperationTypeEnum): Policy {
+    public withOperationType(operationType: PolicyOperationTypeEnum | string): Policy {
         this['operation_type'] = operationType;
         return this;
     }
-    public set operationType(operationType: PolicyOperationTypeEnum | undefined) {
+    public set operationType(operationType: PolicyOperationTypeEnum | string  | undefined) {
         this['operation_type'] = operationType;
     }
-    public get operationType() {
+    public get operationType(): PolicyOperationTypeEnum | string | undefined {
         return this['operation_type'];
     }
     public withTrigger(trigger: PolicyTriggerResp): Policy {
@@ -59,10 +59,10 @@ export class Policy {
         this['associated_vaults'] = associatedVaults;
         return this;
     }
-    public set associatedVaults(associatedVaults: Array<PolicyAssociateVault> | undefined) {
+    public set associatedVaults(associatedVaults: Array<PolicyAssociateVault>  | undefined) {
         this['associated_vaults'] = associatedVaults;
     }
-    public get associatedVaults() {
+    public get associatedVaults(): Array<PolicyAssociateVault> | undefined {
         return this['associated_vaults'];
     }
 }

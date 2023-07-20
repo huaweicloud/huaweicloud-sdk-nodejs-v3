@@ -1,18 +1,18 @@
 
 
 export class NeutronShowNetworkRequest {
-    private 'network_id': string | undefined;
-    public constructor(networkId?: any) { 
+    private 'network_id'?: string;
+    public constructor(networkId?: string) { 
         this['network_id'] = networkId;
     }
     public withNetworkId(networkId: string): NeutronShowNetworkRequest {
         this['network_id'] = networkId;
         return this;
     }
-    public set networkId(networkId: string | undefined) {
+    public set networkId(networkId: string  | undefined) {
         this['network_id'] = networkId;
     }
-    public get networkId() {
+    public get networkId(): string | undefined {
         return this['network_id'];
     }
 }

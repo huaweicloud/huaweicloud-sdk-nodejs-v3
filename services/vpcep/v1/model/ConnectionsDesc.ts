@@ -1,9 +1,9 @@
 
 
 export class ConnectionsDesc {
-    public id: string;
-    public description: string;
-    public constructor(id?: any, description?: any) { 
+    public id?: string;
+    public description?: string;
+    public constructor(id?: string, description?: string) { 
         this['id'] = id;
         this['description'] = description;
     }

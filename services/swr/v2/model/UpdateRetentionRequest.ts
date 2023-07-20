@@ -2,25 +2,25 @@ import { UpdateRetentionRequestBody } from './UpdateRetentionRequestBody';
 
 
 export class UpdateRetentionRequest {
-    private 'Content-Type': UpdateRetentionRequestContentTypeEnum | undefined;
-    public namespace: string;
-    public repository: string;
-    private 'retention_id': number | undefined;
+    private 'Content-Type'?: UpdateRetentionRequestContentTypeEnum | string;
+    public namespace?: string;
+    public repository?: string;
+    private 'retention_id'?: number;
     public body?: UpdateRetentionRequestBody;
-    public constructor(contentType?: any, namespace?: any, repository?: any, retentionId?: any) { 
+    public constructor(contentType?: string, namespace?: string, repository?: string, retentionId?: number) { 
         this['Content-Type'] = contentType;
         this['namespace'] = namespace;
         this['repository'] = repository;
         this['retention_id'] = retentionId;
     }
-    public withContentType(contentType: UpdateRetentionRequestContentTypeEnum): UpdateRetentionRequest {
+    public withContentType(contentType: UpdateRetentionRequestContentTypeEnum | string): UpdateRetentionRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: UpdateRetentionRequestContentTypeEnum | undefined) {
+    public set contentType(contentType: UpdateRetentionRequestContentTypeEnum | string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): UpdateRetentionRequestContentTypeEnum | string | undefined {
         return this['Content-Type'];
     }
     public withNamespace(namespace: string): UpdateRetentionRequest {
@@ -35,10 +35,10 @@ export class UpdateRetentionRequest {
         this['retention_id'] = retentionId;
         return this;
     }
-    public set retentionId(retentionId: number | undefined) {
+    public set retentionId(retentionId: number  | undefined) {
         this['retention_id'] = retentionId;
     }
-    public get retentionId() {
+    public get retentionId(): number | undefined {
         return this['retention_id'];
     }
     public withBody(body: UpdateRetentionRequestBody): UpdateRetentionRequest {

@@ -6,6 +6,7 @@ interface RegionMap {
 }
 
 export class RabbitMQRegion {
+    public static EU_WEST_101 = new Region("eu-west-101", ["https://dms.eu-west-101.myhuaweicloud.eu"]);
     public static CN_NORTH_1 = new Region("cn-north-1", ["https://dms.cn-north-1.myhuaweicloud.com"]);
     public static CN_NORTH_2 = new Region("cn-north-2", ["https://dms.cn-north-2.myhuaweicloud.com"]);
     public static CN_NORTH_4 = new Region("cn-north-4", ["https://dms.cn-north-4.myhuaweicloud.com"]);
@@ -29,6 +30,7 @@ export class RabbitMQRegion {
     
 
     private static REGION_MAP: RegionMap = {
+        "eu-west-101":RabbitMQRegion.EU_WEST_101,
         "cn-north-1":RabbitMQRegion.CN_NORTH_1,
         "cn-north-2":RabbitMQRegion.CN_NORTH_2,
         "cn-north-4":RabbitMQRegion.CN_NORTH_4,

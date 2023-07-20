@@ -3,9 +3,9 @@ import { StorageSelectors } from './StorageSelectors';
 
 
 export class Storage {
-    public storageSelectors: Array<StorageSelectors>;
-    public storageGroups: Array<StorageGroups>;
-    public constructor(storageSelectors?: any, storageGroups?: any) { 
+    public storageSelectors?: Array<StorageSelectors>;
+    public storageGroups?: Array<StorageGroups>;
+    public constructor(storageSelectors?: Array<StorageSelectors>, storageGroups?: Array<StorageGroups>) { 
         this['storageSelectors'] = storageSelectors;
         this['storageGroups'] = storageGroups;
     }

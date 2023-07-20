@@ -4,8 +4,8 @@ import { OsExtend } from './OsExtend';
 
 export class ResizeVolumeRequestBody {
     public bssParam?: BssParamForResizeVolume;
-    private 'os-extend': OsExtend | undefined;
-    public constructor(osExtend?: any) { 
+    private 'os-extend'?: OsExtend;
+    public constructor(osExtend?: OsExtend) { 
         this['os-extend'] = osExtend;
     }
     public withBssParam(bssParam: BssParamForResizeVolume): ResizeVolumeRequestBody {
@@ -16,10 +16,10 @@ export class ResizeVolumeRequestBody {
         this['os-extend'] = osExtend;
         return this;
     }
-    public set osExtend(osExtend: OsExtend | undefined) {
+    public set osExtend(osExtend: OsExtend  | undefined) {
         this['os-extend'] = osExtend;
     }
-    public get osExtend() {
+    public get osExtend(): OsExtend | undefined {
         return this['os-extend'];
     }
 }

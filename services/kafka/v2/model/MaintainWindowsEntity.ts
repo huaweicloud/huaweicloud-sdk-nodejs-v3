@@ -1,7 +1,7 @@
 
 
 export class MaintainWindowsEntity {
-    private 'default'?: boolean | undefined;
+    private 'default'?: boolean;
     public end?: string;
     public begin?: string;
     public seq?: number;
@@ -11,10 +11,10 @@ export class MaintainWindowsEntity {
         this['default'] = _default;
         return this;
     }
-    public set _default(_default: boolean | undefined) {
+    public set _default(_default: boolean  | undefined) {
         this['default'] = _default;
     }
-    public get _default() {
+    public get _default(): boolean | undefined {
         return this['default'];
     }
     public withEnd(end: string): MaintainWindowsEntity {

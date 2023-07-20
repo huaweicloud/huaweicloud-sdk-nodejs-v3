@@ -3,8 +3,8 @@ import { SecurityGroupRule } from './SecurityGroupRule';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowSecurityGroupRuleResponse extends SdkResponse {
-    private 'request_id'?: string | undefined;
-    private 'security_group_rule'?: SecurityGroupRule | undefined;
+    private 'request_id'?: string;
+    private 'security_group_rule'?: SecurityGroupRule;
     public constructor() { 
         super();
     }
@@ -12,20 +12,20 @@ export class ShowSecurityGroupRuleResponse extends SdkResponse {
         this['request_id'] = requestId;
         return this;
     }
-    public set requestId(requestId: string | undefined) {
+    public set requestId(requestId: string  | undefined) {
         this['request_id'] = requestId;
     }
-    public get requestId() {
+    public get requestId(): string | undefined {
         return this['request_id'];
     }
     public withSecurityGroupRule(securityGroupRule: SecurityGroupRule): ShowSecurityGroupRuleResponse {
         this['security_group_rule'] = securityGroupRule;
         return this;
     }
-    public set securityGroupRule(securityGroupRule: SecurityGroupRule | undefined) {
+    public set securityGroupRule(securityGroupRule: SecurityGroupRule  | undefined) {
         this['security_group_rule'] = securityGroupRule;
     }
-    public get securityGroupRule() {
+    public get securityGroupRule(): SecurityGroupRule | undefined {
         return this['security_group_rule'];
     }
 }

@@ -1,9 +1,9 @@
 
 
 export class ListTakeOverTaskRequest {
-    private 'X-Sdk-Date'?: string | undefined;
+    private 'X-Sdk-Date'?: string;
     public status?: string;
-    private 'task_id'?: string | undefined;
+    private 'task_id'?: string;
     public page?: number;
     public size?: number;
     public constructor() { 
@@ -12,10 +12,10 @@ export class ListTakeOverTaskRequest {
         this['X-Sdk-Date'] = xSdkDate;
         return this;
     }
-    public set xSdkDate(xSdkDate: string | undefined) {
+    public set xSdkDate(xSdkDate: string  | undefined) {
         this['X-Sdk-Date'] = xSdkDate;
     }
-    public get xSdkDate() {
+    public get xSdkDate(): string | undefined {
         return this['X-Sdk-Date'];
     }
     public withStatus(status: string): ListTakeOverTaskRequest {
@@ -26,10 +26,10 @@ export class ListTakeOverTaskRequest {
         this['task_id'] = taskId;
         return this;
     }
-    public set taskId(taskId: string | undefined) {
+    public set taskId(taskId: string  | undefined) {
         this['task_id'] = taskId;
     }
-    public get taskId() {
+    public get taskId(): string | undefined {
         return this['task_id'];
     }
     public withPage(page: number): ListTakeOverTaskRequest {

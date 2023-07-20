@@ -1,49 +1,49 @@
 
 
 export class Endpoint {
-    private 'db_type'?: EndpointDbTypeEnum | undefined;
-    private 'az_code'?: string | undefined;
+    private 'db_type'?: EndpointDbTypeEnum | string;
+    private 'az_code'?: string;
     public region?: string;
-    private 'inst_id'?: string | undefined;
-    private 'vpc_id'?: string | undefined;
-    private 'subnet_id'?: string | undefined;
-    private 'security_group_id'?: string | undefined;
-    private 'project_id'?: string | undefined;
-    private 'db_name'?: string | undefined;
-    private 'db_password'?: string | undefined;
-    private 'db_port'?: number | undefined;
-    private 'db_user'?: string | undefined;
-    private 'inst_name'?: string | undefined;
+    private 'inst_id'?: string;
+    private 'vpc_id'?: string;
+    private 'subnet_id'?: string;
+    private 'security_group_id'?: string;
+    private 'project_id'?: string;
+    private 'db_name'?: string;
+    private 'db_password'?: string;
+    private 'db_port'?: number;
+    private 'db_user'?: string;
+    private 'inst_name'?: string;
     public ip?: string;
-    private 'mongo_ha_mode'?: string | undefined;
-    private 'safe_mode'?: number | undefined;
-    private 'ssl_cert_password'?: string | undefined;
-    private 'ssl_cert_check_sum'?: string | undefined;
-    private 'ssl_cert_key'?: string | undefined;
-    private 'ssl_cert_name'?: string | undefined;
-    private 'ssl_link'?: boolean | undefined;
+    private 'mongo_ha_mode'?: string;
+    private 'safe_mode'?: number;
+    private 'ssl_cert_password'?: string;
+    private 'ssl_cert_check_sum'?: string;
+    private 'ssl_cert_key'?: string;
+    private 'ssl_cert_name'?: string;
+    private 'ssl_link'?: boolean;
     public topic?: string;
-    private 'cluster_mode'?: EndpointClusterModeEnum | undefined;
+    private 'cluster_mode'?: EndpointClusterModeEnum | string;
     public constructor() { 
     }
-    public withDbType(dbType: EndpointDbTypeEnum): Endpoint {
+    public withDbType(dbType: EndpointDbTypeEnum | string): Endpoint {
         this['db_type'] = dbType;
         return this;
     }
-    public set dbType(dbType: EndpointDbTypeEnum | undefined) {
+    public set dbType(dbType: EndpointDbTypeEnum | string  | undefined) {
         this['db_type'] = dbType;
     }
-    public get dbType() {
+    public get dbType(): EndpointDbTypeEnum | string | undefined {
         return this['db_type'];
     }
     public withAzCode(azCode: string): Endpoint {
         this['az_code'] = azCode;
         return this;
     }
-    public set azCode(azCode: string | undefined) {
+    public set azCode(azCode: string  | undefined) {
         this['az_code'] = azCode;
     }
-    public get azCode() {
+    public get azCode(): string | undefined {
         return this['az_code'];
     }
     public withRegion(region: string): Endpoint {
@@ -54,100 +54,100 @@ export class Endpoint {
         this['inst_id'] = instId;
         return this;
     }
-    public set instId(instId: string | undefined) {
+    public set instId(instId: string  | undefined) {
         this['inst_id'] = instId;
     }
-    public get instId() {
+    public get instId(): string | undefined {
         return this['inst_id'];
     }
     public withVpcId(vpcId: string): Endpoint {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withSubnetId(subnetId: string): Endpoint {
         this['subnet_id'] = subnetId;
         return this;
     }
-    public set subnetId(subnetId: string | undefined) {
+    public set subnetId(subnetId: string  | undefined) {
         this['subnet_id'] = subnetId;
     }
-    public get subnetId() {
+    public get subnetId(): string | undefined {
         return this['subnet_id'];
     }
     public withSecurityGroupId(securityGroupId: string): Endpoint {
         this['security_group_id'] = securityGroupId;
         return this;
     }
-    public set securityGroupId(securityGroupId: string | undefined) {
+    public set securityGroupId(securityGroupId: string  | undefined) {
         this['security_group_id'] = securityGroupId;
     }
-    public get securityGroupId() {
+    public get securityGroupId(): string | undefined {
         return this['security_group_id'];
     }
     public withProjectId(projectId: string): Endpoint {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withDbName(dbName: string): Endpoint {
         this['db_name'] = dbName;
         return this;
     }
-    public set dbName(dbName: string | undefined) {
+    public set dbName(dbName: string  | undefined) {
         this['db_name'] = dbName;
     }
-    public get dbName() {
+    public get dbName(): string | undefined {
         return this['db_name'];
     }
     public withDbPassword(dbPassword: string): Endpoint {
         this['db_password'] = dbPassword;
         return this;
     }
-    public set dbPassword(dbPassword: string | undefined) {
+    public set dbPassword(dbPassword: string  | undefined) {
         this['db_password'] = dbPassword;
     }
-    public get dbPassword() {
+    public get dbPassword(): string | undefined {
         return this['db_password'];
     }
     public withDbPort(dbPort: number): Endpoint {
         this['db_port'] = dbPort;
         return this;
     }
-    public set dbPort(dbPort: number | undefined) {
+    public set dbPort(dbPort: number  | undefined) {
         this['db_port'] = dbPort;
     }
-    public get dbPort() {
+    public get dbPort(): number | undefined {
         return this['db_port'];
     }
     public withDbUser(dbUser: string): Endpoint {
         this['db_user'] = dbUser;
         return this;
     }
-    public set dbUser(dbUser: string | undefined) {
+    public set dbUser(dbUser: string  | undefined) {
         this['db_user'] = dbUser;
     }
-    public get dbUser() {
+    public get dbUser(): string | undefined {
         return this['db_user'];
     }
     public withInstName(instName: string): Endpoint {
         this['inst_name'] = instName;
         return this;
     }
-    public set instName(instName: string | undefined) {
+    public set instName(instName: string  | undefined) {
         this['inst_name'] = instName;
     }
-    public get instName() {
+    public get instName(): string | undefined {
         return this['inst_name'];
     }
     public withIp(ip: string): Endpoint {
@@ -158,84 +158,84 @@ export class Endpoint {
         this['mongo_ha_mode'] = mongoHaMode;
         return this;
     }
-    public set mongoHaMode(mongoHaMode: string | undefined) {
+    public set mongoHaMode(mongoHaMode: string  | undefined) {
         this['mongo_ha_mode'] = mongoHaMode;
     }
-    public get mongoHaMode() {
+    public get mongoHaMode(): string | undefined {
         return this['mongo_ha_mode'];
     }
     public withSafeMode(safeMode: number): Endpoint {
         this['safe_mode'] = safeMode;
         return this;
     }
-    public set safeMode(safeMode: number | undefined) {
+    public set safeMode(safeMode: number  | undefined) {
         this['safe_mode'] = safeMode;
     }
-    public get safeMode() {
+    public get safeMode(): number | undefined {
         return this['safe_mode'];
     }
     public withSslCertPassword(sslCertPassword: string): Endpoint {
         this['ssl_cert_password'] = sslCertPassword;
         return this;
     }
-    public set sslCertPassword(sslCertPassword: string | undefined) {
+    public set sslCertPassword(sslCertPassword: string  | undefined) {
         this['ssl_cert_password'] = sslCertPassword;
     }
-    public get sslCertPassword() {
+    public get sslCertPassword(): string | undefined {
         return this['ssl_cert_password'];
     }
     public withSslCertCheckSum(sslCertCheckSum: string): Endpoint {
         this['ssl_cert_check_sum'] = sslCertCheckSum;
         return this;
     }
-    public set sslCertCheckSum(sslCertCheckSum: string | undefined) {
+    public set sslCertCheckSum(sslCertCheckSum: string  | undefined) {
         this['ssl_cert_check_sum'] = sslCertCheckSum;
     }
-    public get sslCertCheckSum() {
+    public get sslCertCheckSum(): string | undefined {
         return this['ssl_cert_check_sum'];
     }
     public withSslCertKey(sslCertKey: string): Endpoint {
         this['ssl_cert_key'] = sslCertKey;
         return this;
     }
-    public set sslCertKey(sslCertKey: string | undefined) {
+    public set sslCertKey(sslCertKey: string  | undefined) {
         this['ssl_cert_key'] = sslCertKey;
     }
-    public get sslCertKey() {
+    public get sslCertKey(): string | undefined {
         return this['ssl_cert_key'];
     }
     public withSslCertName(sslCertName: string): Endpoint {
         this['ssl_cert_name'] = sslCertName;
         return this;
     }
-    public set sslCertName(sslCertName: string | undefined) {
+    public set sslCertName(sslCertName: string  | undefined) {
         this['ssl_cert_name'] = sslCertName;
     }
-    public get sslCertName() {
+    public get sslCertName(): string | undefined {
         return this['ssl_cert_name'];
     }
     public withSslLink(sslLink: boolean): Endpoint {
         this['ssl_link'] = sslLink;
         return this;
     }
-    public set sslLink(sslLink: boolean | undefined) {
+    public set sslLink(sslLink: boolean  | undefined) {
         this['ssl_link'] = sslLink;
     }
-    public get sslLink() {
+    public get sslLink(): boolean | undefined {
         return this['ssl_link'];
     }
     public withTopic(topic: string): Endpoint {
         this['topic'] = topic;
         return this;
     }
-    public withClusterMode(clusterMode: EndpointClusterModeEnum): Endpoint {
+    public withClusterMode(clusterMode: EndpointClusterModeEnum | string): Endpoint {
         this['cluster_mode'] = clusterMode;
         return this;
     }
-    public set clusterMode(clusterMode: EndpointClusterModeEnum | undefined) {
+    public set clusterMode(clusterMode: EndpointClusterModeEnum | string  | undefined) {
         this['cluster_mode'] = clusterMode;
     }
-    public get clusterMode() {
+    public get clusterMode(): EndpointClusterModeEnum | string | undefined {
         return this['cluster_mode'];
     }
 }

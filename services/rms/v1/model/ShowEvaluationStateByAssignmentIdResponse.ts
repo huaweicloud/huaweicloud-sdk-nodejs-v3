@@ -2,11 +2,11 @@
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowEvaluationStateByAssignmentIdResponse extends SdkResponse {
-    private 'policy_assignment_id'?: string | undefined;
+    private 'policy_assignment_id'?: string;
     public state?: string;
-    private 'start_time'?: string | undefined;
-    private 'end_time'?: string | undefined;
-    private 'error_message'?: string | undefined;
+    private 'start_time'?: string;
+    private 'end_time'?: string;
+    private 'error_message'?: string;
     public constructor() { 
         super();
     }
@@ -14,10 +14,10 @@ export class ShowEvaluationStateByAssignmentIdResponse extends SdkResponse {
         this['policy_assignment_id'] = policyAssignmentId;
         return this;
     }
-    public set policyAssignmentId(policyAssignmentId: string | undefined) {
+    public set policyAssignmentId(policyAssignmentId: string  | undefined) {
         this['policy_assignment_id'] = policyAssignmentId;
     }
-    public get policyAssignmentId() {
+    public get policyAssignmentId(): string | undefined {
         return this['policy_assignment_id'];
     }
     public withState(state: string): ShowEvaluationStateByAssignmentIdResponse {
@@ -28,30 +28,30 @@ export class ShowEvaluationStateByAssignmentIdResponse extends SdkResponse {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withEndTime(endTime: string): ShowEvaluationStateByAssignmentIdResponse {
         this['end_time'] = endTime;
         return this;
     }
-    public set endTime(endTime: string | undefined) {
+    public set endTime(endTime: string  | undefined) {
         this['end_time'] = endTime;
     }
-    public get endTime() {
+    public get endTime(): string | undefined {
         return this['end_time'];
     }
     public withErrorMessage(errorMessage: string): ShowEvaluationStateByAssignmentIdResponse {
         this['error_message'] = errorMessage;
         return this;
     }
-    public set errorMessage(errorMessage: string | undefined) {
+    public set errorMessage(errorMessage: string  | undefined) {
         this['error_message'] = errorMessage;
     }
-    public get errorMessage() {
+    public get errorMessage(): string | undefined {
         return this['error_message'];
     }
 }

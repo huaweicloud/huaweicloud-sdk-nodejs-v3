@@ -5,8 +5,8 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 export class ShowTenantMetricResponse extends SdkResponse {
     public count?: Array<SlaReportsValue>;
     public duration?: Array<SlaReportsValue>;
-    private 'fail_count'?: Array<SlaReportsValue> | undefined;
-    private 'running_count'?: Array<SlaReportsValue> | undefined;
+    private 'fail_count'?: Array<SlaReportsValue>;
+    private 'running_count'?: Array<SlaReportsValue>;
     public constructor() { 
         super();
     }
@@ -22,20 +22,20 @@ export class ShowTenantMetricResponse extends SdkResponse {
         this['fail_count'] = failCount;
         return this;
     }
-    public set failCount(failCount: Array<SlaReportsValue> | undefined) {
+    public set failCount(failCount: Array<SlaReportsValue>  | undefined) {
         this['fail_count'] = failCount;
     }
-    public get failCount() {
+    public get failCount(): Array<SlaReportsValue> | undefined {
         return this['fail_count'];
     }
     public withRunningCount(runningCount: Array<SlaReportsValue>): ShowTenantMetricResponse {
         this['running_count'] = runningCount;
         return this;
     }
-    public set runningCount(runningCount: Array<SlaReportsValue> | undefined) {
+    public set runningCount(runningCount: Array<SlaReportsValue>  | undefined) {
         this['running_count'] = runningCount;
     }
-    public get runningCount() {
+    public get runningCount(): Array<SlaReportsValue> | undefined {
         return this['running_count'];
     }
 }

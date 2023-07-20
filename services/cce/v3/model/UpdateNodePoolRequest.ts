@@ -2,11 +2,11 @@ import { NodePoolUpdate } from './NodePoolUpdate';
 
 
 export class UpdateNodePoolRequest {
-    private 'cluster_id': string | undefined;
-    private 'nodepool_id': string | undefined;
-    private 'Content-Type': string | undefined;
+    private 'cluster_id'?: string;
+    private 'nodepool_id'?: string;
+    private 'Content-Type'?: string;
     public body?: NodePoolUpdate;
-    public constructor(clusterId?: any, nodepoolId?: any, contentType?: any) { 
+    public constructor(clusterId?: string, nodepoolId?: string, contentType?: string) { 
         this['cluster_id'] = clusterId;
         this['nodepool_id'] = nodepoolId;
         this['Content-Type'] = contentType;
@@ -15,30 +15,30 @@ export class UpdateNodePoolRequest {
         this['cluster_id'] = clusterId;
         return this;
     }
-    public set clusterId(clusterId: string | undefined) {
+    public set clusterId(clusterId: string  | undefined) {
         this['cluster_id'] = clusterId;
     }
-    public get clusterId() {
+    public get clusterId(): string | undefined {
         return this['cluster_id'];
     }
     public withNodepoolId(nodepoolId: string): UpdateNodePoolRequest {
         this['nodepool_id'] = nodepoolId;
         return this;
     }
-    public set nodepoolId(nodepoolId: string | undefined) {
+    public set nodepoolId(nodepoolId: string  | undefined) {
         this['nodepool_id'] = nodepoolId;
     }
-    public get nodepoolId() {
+    public get nodepoolId(): string | undefined {
         return this['nodepool_id'];
     }
     public withContentType(contentType: string): UpdateNodePoolRequest {
         this['Content-Type'] = contentType;
         return this;
     }
-    public set contentType(contentType: string | undefined) {
+    public set contentType(contentType: string  | undefined) {
         this['Content-Type'] = contentType;
     }
-    public get contentType() {
+    public get contentType(): string | undefined {
         return this['Content-Type'];
     }
     public withBody(body: NodePoolUpdate): UpdateNodePoolRequest {

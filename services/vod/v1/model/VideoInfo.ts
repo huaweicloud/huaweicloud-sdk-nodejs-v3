@@ -1,17 +1,17 @@
 
 
 export class VideoInfo {
-    public quality: VideoInfoQualityEnum;
+    public quality?: VideoInfoQualityEnum | string;
     public width?: number;
     public height?: number;
-    public bitrate: number;
-    private 'frame_rate': number | undefined;
-    public constructor(quality?: any, bitrate?: any, frameRate?: any) { 
+    public bitrate?: number;
+    private 'frame_rate'?: number;
+    public constructor(quality?: string, bitrate?: number, frameRate?: number) { 
         this['quality'] = quality;
         this['bitrate'] = bitrate;
         this['frame_rate'] = frameRate;
     }
-    public withQuality(quality: VideoInfoQualityEnum): VideoInfo {
+    public withQuality(quality: VideoInfoQualityEnum | string): VideoInfo {
         this['quality'] = quality;
         return this;
     }
@@ -31,10 +31,10 @@ export class VideoInfo {
         this['frame_rate'] = frameRate;
         return this;
     }
-    public set frameRate(frameRate: number | undefined) {
+    public set frameRate(frameRate: number  | undefined) {
         this['frame_rate'] = frameRate;
     }
-    public get frameRate() {
+    public get frameRate(): number | undefined {
         return this['frame_rate'];
     }
 }

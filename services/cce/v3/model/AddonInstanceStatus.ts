@@ -2,18 +2,18 @@ import { Versions } from './Versions';
 
 
 export class AddonInstanceStatus {
-    public status: AddonInstanceStatusStatusEnum;
-    private 'Reason': string | undefined;
-    public message: string;
+    public status?: AddonInstanceStatusStatusEnum | string;
+    private 'Reason'?: string;
+    public message?: string;
     public targetVersions?: Array<string>;
-    public currentVersion: Versions;
-    public constructor(status?: any, reason?: any, message?: any, currentVersion?: any) { 
+    public currentVersion?: Versions;
+    public constructor(status?: string, reason?: string, message?: string, currentVersion?: Versions) { 
         this['status'] = status;
         this['Reason'] = reason;
         this['message'] = message;
         this['currentVersion'] = currentVersion;
     }
-    public withStatus(status: AddonInstanceStatusStatusEnum): AddonInstanceStatus {
+    public withStatus(status: AddonInstanceStatusStatusEnum | string): AddonInstanceStatus {
         this['status'] = status;
         return this;
     }
@@ -21,10 +21,10 @@ export class AddonInstanceStatus {
         this['Reason'] = reason;
         return this;
     }
-    public set reason(reason: string | undefined) {
+    public set reason(reason: string  | undefined) {
         this['Reason'] = reason;
     }
-    public get reason() {
+    public get reason(): string | undefined {
         return this['Reason'];
     }
     public withMessage(message: string): AddonInstanceStatus {

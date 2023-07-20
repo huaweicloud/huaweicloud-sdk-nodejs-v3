@@ -1,9 +1,9 @@
 
 
 export class DomainIpv6SwitchReq {
-    public domain: string;
-    private 'is_ipv6'?: boolean | undefined;
-    public constructor(domain?: any) { 
+    public domain?: string;
+    private 'is_ipv6'?: boolean;
+    public constructor(domain?: string) { 
         this['domain'] = domain;
     }
     public withDomain(domain: string): DomainIpv6SwitchReq {
@@ -14,10 +14,10 @@ export class DomainIpv6SwitchReq {
         this['is_ipv6'] = isIpv6;
         return this;
     }
-    public set isIpv6(isIpv6: boolean | undefined) {
+    public set isIpv6(isIpv6: boolean  | undefined) {
         this['is_ipv6'] = isIpv6;
     }
-    public get isIpv6() {
+    public get isIpv6(): boolean | undefined {
         return this['is_ipv6'];
     }
 }

@@ -7,8 +7,8 @@ export class ImageTaggingItemBody {
     public confidence?: string;
     public type?: string;
     public tag?: string;
-    private 'i18n_tag'?: ImageTaggingItemBodyI18nTag | undefined;
-    private 'i18n_type'?: ImageTaggingItemBodyI18nType | undefined;
+    private 'i18n_tag'?: ImageTaggingItemBodyI18nTag;
+    private 'i18n_type'?: ImageTaggingItemBodyI18nType;
     public instances?: Array<ImageTaggingInstance>;
     public constructor() { 
     }
@@ -28,20 +28,20 @@ export class ImageTaggingItemBody {
         this['i18n_tag'] = i18nTag;
         return this;
     }
-    public set i18nTag(i18nTag: ImageTaggingItemBodyI18nTag | undefined) {
+    public set i18nTag(i18nTag: ImageTaggingItemBodyI18nTag  | undefined) {
         this['i18n_tag'] = i18nTag;
     }
-    public get i18nTag() {
+    public get i18nTag(): ImageTaggingItemBodyI18nTag | undefined {
         return this['i18n_tag'];
     }
     public withI18nType(i18nType: ImageTaggingItemBodyI18nType): ImageTaggingItemBody {
         this['i18n_type'] = i18nType;
         return this;
     }
-    public set i18nType(i18nType: ImageTaggingItemBodyI18nType | undefined) {
+    public set i18nType(i18nType: ImageTaggingItemBodyI18nType  | undefined) {
         this['i18n_type'] = i18nType;
     }
-    public get i18nType() {
+    public get i18nType(): ImageTaggingItemBodyI18nType | undefined {
         return this['i18n_type'];
     }
     public withInstances(instances: Array<ImageTaggingInstance>): ImageTaggingItemBody {

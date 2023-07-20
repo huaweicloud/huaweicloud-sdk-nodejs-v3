@@ -1,15 +1,15 @@
 
 
 export class Dependency {
-    public owner: string;
-    public link: string;
-    public runtime: DependencyRuntimeEnum;
-    public etag: string;
-    public size: number;
-    public name: string;
-    public description: string;
-    private 'file_name'?: string | undefined;
-    public constructor(owner?: any, link?: any, runtime?: any, etag?: any, size?: any, name?: any, description?: any) { 
+    public owner?: string;
+    public link?: string;
+    public runtime?: DependencyRuntimeEnum | string;
+    public etag?: string;
+    public size?: number;
+    public name?: string;
+    public description?: string;
+    private 'file_name'?: string;
+    public constructor(owner?: string, link?: string, runtime?: string, etag?: string, size?: number, name?: string, description?: string) { 
         this['owner'] = owner;
         this['link'] = link;
         this['runtime'] = runtime;
@@ -26,7 +26,7 @@ export class Dependency {
         this['link'] = link;
         return this;
     }
-    public withRuntime(runtime: DependencyRuntimeEnum): Dependency {
+    public withRuntime(runtime: DependencyRuntimeEnum | string): Dependency {
         this['runtime'] = runtime;
         return this;
     }
@@ -50,10 +50,10 @@ export class Dependency {
         this['file_name'] = fileName;
         return this;
     }
-    public set fileName(fileName: string | undefined) {
+    public set fileName(fileName: string  | undefined) {
         this['file_name'] = fileName;
     }
-    public get fileName() {
+    public get fileName(): string | undefined {
         return this['file_name'];
     }
 }

@@ -1,15 +1,15 @@
 
 
 export class EditVideoInfo {
-    public reference?: EditVideoInfoReferenceEnum;
+    public reference?: EditVideoInfoReferenceEnum | string;
     public width?: number;
     public height?: number;
-    public codec?: EditVideoInfoCodecEnum;
+    public codec?: EditVideoInfoCodecEnum | string;
     public bitrate?: number;
-    private 'frame_rate'?: number | undefined;
+    private 'frame_rate'?: number;
     public constructor() { 
     }
-    public withReference(reference: EditVideoInfoReferenceEnum): EditVideoInfo {
+    public withReference(reference: EditVideoInfoReferenceEnum | string): EditVideoInfo {
         this['reference'] = reference;
         return this;
     }
@@ -21,7 +21,7 @@ export class EditVideoInfo {
         this['height'] = height;
         return this;
     }
-    public withCodec(codec: EditVideoInfoCodecEnum): EditVideoInfo {
+    public withCodec(codec: EditVideoInfoCodecEnum | string): EditVideoInfo {
         this['codec'] = codec;
         return this;
     }
@@ -33,10 +33,10 @@ export class EditVideoInfo {
         this['frame_rate'] = frameRate;
         return this;
     }
-    public set frameRate(frameRate: number | undefined) {
+    public set frameRate(frameRate: number  | undefined) {
         this['frame_rate'] = frameRate;
     }
-    public get frameRate() {
+    public get frameRate(): number | undefined {
         return this['frame_rate'];
     }
 }

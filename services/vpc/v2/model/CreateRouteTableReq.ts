@@ -4,9 +4,9 @@ import { RouteTableRoute } from './RouteTableRoute';
 export class CreateRouteTableReq {
     public name?: string;
     public routes?: Array<RouteTableRoute>;
-    private 'vpc_id': string | undefined;
+    private 'vpc_id'?: string;
     public description?: string;
-    public constructor(vpcId?: any) { 
+    public constructor(vpcId?: string) { 
         this['vpc_id'] = vpcId;
     }
     public withName(name: string): CreateRouteTableReq {
@@ -21,10 +21,10 @@ export class CreateRouteTableReq {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withDescription(description: string): CreateRouteTableReq {

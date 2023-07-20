@@ -2,18 +2,18 @@ import { BatchLimitSpeedReq } from './BatchLimitSpeedReq';
 
 
 export class BatchSetSpeedRequest {
-    private 'X-Language'?: BatchSetSpeedRequestXLanguageEnum | undefined;
+    private 'X-Language'?: BatchSetSpeedRequestXLanguageEnum | string;
     public body?: BatchLimitSpeedReq;
     public constructor() { 
     }
-    public withXLanguage(xLanguage: BatchSetSpeedRequestXLanguageEnum): BatchSetSpeedRequest {
+    public withXLanguage(xLanguage: BatchSetSpeedRequestXLanguageEnum | string): BatchSetSpeedRequest {
         this['X-Language'] = xLanguage;
         return this;
     }
-    public set xLanguage(xLanguage: BatchSetSpeedRequestXLanguageEnum | undefined) {
+    public set xLanguage(xLanguage: BatchSetSpeedRequestXLanguageEnum | string  | undefined) {
         this['X-Language'] = xLanguage;
     }
-    public get xLanguage() {
+    public get xLanguage(): BatchSetSpeedRequestXLanguageEnum | string | undefined {
         return this['X-Language'];
     }
     public withBody(body: BatchLimitSpeedReq): BatchSetSpeedRequest {

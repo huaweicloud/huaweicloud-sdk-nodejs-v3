@@ -3,9 +3,9 @@ import { VolumeGroups } from './VolumeGroups';
 
 
 export class InitTargetServer {
-    public disks: Array<DiskIntargetServer>;
-    private 'volume_groups'?: Array<VolumeGroups> | undefined;
-    public constructor(disks?: any) { 
+    public disks?: Array<DiskIntargetServer>;
+    private 'volume_groups'?: Array<VolumeGroups>;
+    public constructor(disks?: Array<DiskIntargetServer>) { 
         this['disks'] = disks;
     }
     public withDisks(disks: Array<DiskIntargetServer>): InitTargetServer {
@@ -16,10 +16,10 @@ export class InitTargetServer {
         this['volume_groups'] = volumeGroups;
         return this;
     }
-    public set volumeGroups(volumeGroups: Array<VolumeGroups> | undefined) {
+    public set volumeGroups(volumeGroups: Array<VolumeGroups>  | undefined) {
         this['volume_groups'] = volumeGroups;
     }
-    public get volumeGroups() {
+    public get volumeGroups(): Array<VolumeGroups> | undefined {
         return this['volume_groups'];
     }
 }

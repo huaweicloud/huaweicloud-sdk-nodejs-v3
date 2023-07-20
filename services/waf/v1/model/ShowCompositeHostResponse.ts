@@ -9,19 +9,19 @@ export class ShowCompositeHostResponse extends SdkResponse {
     public hostid?: string;
     public hostname?: string;
     public policyid?: string;
-    private 'access_code'?: string | undefined;
-    private 'protect_status'?: number | undefined;
-    private 'access_status'?: number | undefined;
+    private 'access_code'?: string;
+    private 'protect_status'?: number;
+    private 'access_status'?: number;
     public proxy?: boolean;
     public timestamp?: number;
-    private 'paid_type'?: string | undefined;
+    private 'paid_type'?: string;
     public flag?: Flag;
-    private 'waf_type'?: string | undefined;
-    private 'web_tag'?: string | undefined;
-    private 'access_progress'?: Array<AccessProgress> | undefined;
-    private 'premium_waf_instances'?: Array<PremiumWafInstances> | undefined;
+    private 'waf_type'?: string;
+    private 'web_tag'?: string;
+    private 'access_progress'?: Array<AccessProgress>;
+    private 'premium_waf_instances'?: Array<PremiumWafInstances>;
     public description?: string;
-    private 'exclusive_ip'?: boolean | undefined;
+    private 'exclusive_ip'?: boolean;
     public region?: string;
     public constructor() { 
         super();
@@ -46,30 +46,30 @@ export class ShowCompositeHostResponse extends SdkResponse {
         this['access_code'] = accessCode;
         return this;
     }
-    public set accessCode(accessCode: string | undefined) {
+    public set accessCode(accessCode: string  | undefined) {
         this['access_code'] = accessCode;
     }
-    public get accessCode() {
+    public get accessCode(): string | undefined {
         return this['access_code'];
     }
     public withProtectStatus(protectStatus: number): ShowCompositeHostResponse {
         this['protect_status'] = protectStatus;
         return this;
     }
-    public set protectStatus(protectStatus: number | undefined) {
+    public set protectStatus(protectStatus: number  | undefined) {
         this['protect_status'] = protectStatus;
     }
-    public get protectStatus() {
+    public get protectStatus(): number | undefined {
         return this['protect_status'];
     }
     public withAccessStatus(accessStatus: number): ShowCompositeHostResponse {
         this['access_status'] = accessStatus;
         return this;
     }
-    public set accessStatus(accessStatus: number | undefined) {
+    public set accessStatus(accessStatus: number  | undefined) {
         this['access_status'] = accessStatus;
     }
-    public get accessStatus() {
+    public get accessStatus(): number | undefined {
         return this['access_status'];
     }
     public withProxy(proxy: boolean): ShowCompositeHostResponse {
@@ -84,10 +84,10 @@ export class ShowCompositeHostResponse extends SdkResponse {
         this['paid_type'] = paidType;
         return this;
     }
-    public set paidType(paidType: string | undefined) {
+    public set paidType(paidType: string  | undefined) {
         this['paid_type'] = paidType;
     }
-    public get paidType() {
+    public get paidType(): string | undefined {
         return this['paid_type'];
     }
     public withFlag(flag: Flag): ShowCompositeHostResponse {
@@ -98,40 +98,40 @@ export class ShowCompositeHostResponse extends SdkResponse {
         this['waf_type'] = wafType;
         return this;
     }
-    public set wafType(wafType: string | undefined) {
+    public set wafType(wafType: string  | undefined) {
         this['waf_type'] = wafType;
     }
-    public get wafType() {
+    public get wafType(): string | undefined {
         return this['waf_type'];
     }
     public withWebTag(webTag: string): ShowCompositeHostResponse {
         this['web_tag'] = webTag;
         return this;
     }
-    public set webTag(webTag: string | undefined) {
+    public set webTag(webTag: string  | undefined) {
         this['web_tag'] = webTag;
     }
-    public get webTag() {
+    public get webTag(): string | undefined {
         return this['web_tag'];
     }
     public withAccessProgress(accessProgress: Array<AccessProgress>): ShowCompositeHostResponse {
         this['access_progress'] = accessProgress;
         return this;
     }
-    public set accessProgress(accessProgress: Array<AccessProgress> | undefined) {
+    public set accessProgress(accessProgress: Array<AccessProgress>  | undefined) {
         this['access_progress'] = accessProgress;
     }
-    public get accessProgress() {
+    public get accessProgress(): Array<AccessProgress> | undefined {
         return this['access_progress'];
     }
     public withPremiumWafInstances(premiumWafInstances: Array<PremiumWafInstances>): ShowCompositeHostResponse {
         this['premium_waf_instances'] = premiumWafInstances;
         return this;
     }
-    public set premiumWafInstances(premiumWafInstances: Array<PremiumWafInstances> | undefined) {
+    public set premiumWafInstances(premiumWafInstances: Array<PremiumWafInstances>  | undefined) {
         this['premium_waf_instances'] = premiumWafInstances;
     }
-    public get premiumWafInstances() {
+    public get premiumWafInstances(): Array<PremiumWafInstances> | undefined {
         return this['premium_waf_instances'];
     }
     public withDescription(description: string): ShowCompositeHostResponse {
@@ -142,10 +142,10 @@ export class ShowCompositeHostResponse extends SdkResponse {
         this['exclusive_ip'] = exclusiveIp;
         return this;
     }
-    public set exclusiveIp(exclusiveIp: boolean | undefined) {
+    public set exclusiveIp(exclusiveIp: boolean  | undefined) {
         this['exclusive_ip'] = exclusiveIp;
     }
-    public get exclusiveIp() {
+    public get exclusiveIp(): boolean | undefined {
         return this['exclusive_ip'];
     }
     public withRegion(region: string): ShowCompositeHostResponse {

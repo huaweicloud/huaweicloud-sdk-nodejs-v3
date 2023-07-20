@@ -2,8 +2,8 @@ import { MfaTotpUser } from './MfaTotpUser';
 
 
 export class MfaTotp {
-    public user: MfaTotpUser;
-    public constructor(user?: any) { 
+    public user?: MfaTotpUser;
+    public constructor(user?: MfaTotpUser) { 
         this['user'] = user;
     }
     public withUser(user: MfaTotpUser): MfaTotp {

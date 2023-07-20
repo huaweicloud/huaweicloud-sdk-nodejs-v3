@@ -2,14 +2,14 @@ import { ResourceRequirements } from './ResourceRequirements';
 
 
 export class PersistentVolumeClaimSpec {
-    public volumeID: string;
-    public storageType: string;
-    public accessModes: Array<PersistentVolumeClaimSpecAccessModesEnum>;
+    public volumeID?: string;
+    public storageType?: string;
+    public accessModes?: Array<PersistentVolumeClaimSpecAccessModesEnum> | Array<string>;
     public storageClassName?: string;
     public volumeName?: string;
     public resources?: ResourceRequirements;
     public volumeMode?: string;
-    public constructor(volumeID?: any, storageType?: any, accessModes?: any) { 
+    public constructor(volumeID?: string, storageType?: string, accessModes?: Array<string>) { 
         this['volumeID'] = volumeID;
         this['storageType'] = storageType;
         this['accessModes'] = accessModes;
@@ -22,7 +22,7 @@ export class PersistentVolumeClaimSpec {
         this['storageType'] = storageType;
         return this;
     }
-    public withAccessModes(accessModes: Array<PersistentVolumeClaimSpecAccessModesEnum>): PersistentVolumeClaimSpec {
+    public withAccessModes(accessModes: Array<PersistentVolumeClaimSpecAccessModesEnum> | Array<string>): PersistentVolumeClaimSpec {
         this['accessModes'] = accessModes;
         return this;
     }

@@ -1,9 +1,9 @@
 
 
 export class UpdateLoginProject {
-    public enabled: boolean;
-    private 'verification_method': string | undefined;
-    public constructor(enabled?: any, verificationMethod?: any) { 
+    public enabled?: boolean;
+    private 'verification_method'?: string;
+    public constructor(enabled?: boolean, verificationMethod?: string) { 
         this['enabled'] = enabled;
         this['verification_method'] = verificationMethod;
     }
@@ -15,10 +15,10 @@ export class UpdateLoginProject {
         this['verification_method'] = verificationMethod;
         return this;
     }
-    public set verificationMethod(verificationMethod: string | undefined) {
+    public set verificationMethod(verificationMethod: string  | undefined) {
         this['verification_method'] = verificationMethod;
     }
-    public get verificationMethod() {
+    public get verificationMethod(): string | undefined {
         return this['verification_method'];
     }
 }

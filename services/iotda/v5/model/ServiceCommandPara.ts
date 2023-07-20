@@ -1,17 +1,17 @@
 
 
 export class ServiceCommandPara {
-    private 'para_name': string | undefined;
-    private 'data_type': string | undefined;
+    private 'para_name'?: string;
+    private 'data_type'?: string;
     public required?: boolean;
-    private 'enum_list'?: Array<string> | undefined;
+    private 'enum_list'?: Array<string>;
     public min?: string;
     public max?: string;
-    private 'max_length'?: number | undefined;
+    private 'max_length'?: number;
     public step?: number;
     public unit?: string;
     public description?: string;
-    public constructor(paraName?: any, dataType?: any) { 
+    public constructor(paraName?: string, dataType?: string) { 
         this['para_name'] = paraName;
         this['data_type'] = dataType;
     }
@@ -19,20 +19,20 @@ export class ServiceCommandPara {
         this['para_name'] = paraName;
         return this;
     }
-    public set paraName(paraName: string | undefined) {
+    public set paraName(paraName: string  | undefined) {
         this['para_name'] = paraName;
     }
-    public get paraName() {
+    public get paraName(): string | undefined {
         return this['para_name'];
     }
     public withDataType(dataType: string): ServiceCommandPara {
         this['data_type'] = dataType;
         return this;
     }
-    public set dataType(dataType: string | undefined) {
+    public set dataType(dataType: string  | undefined) {
         this['data_type'] = dataType;
     }
-    public get dataType() {
+    public get dataType(): string | undefined {
         return this['data_type'];
     }
     public withRequired(required: boolean): ServiceCommandPara {
@@ -43,10 +43,10 @@ export class ServiceCommandPara {
         this['enum_list'] = enumList;
         return this;
     }
-    public set enumList(enumList: Array<string> | undefined) {
+    public set enumList(enumList: Array<string>  | undefined) {
         this['enum_list'] = enumList;
     }
-    public get enumList() {
+    public get enumList(): Array<string> | undefined {
         return this['enum_list'];
     }
     public withMin(min: string): ServiceCommandPara {
@@ -61,10 +61,10 @@ export class ServiceCommandPara {
         this['max_length'] = maxLength;
         return this;
     }
-    public set maxLength(maxLength: number | undefined) {
+    public set maxLength(maxLength: number  | undefined) {
         this['max_length'] = maxLength;
     }
-    public get maxLength() {
+    public get maxLength(): number | undefined {
         return this['max_length'];
     }
     public withStep(step: number): ServiceCommandPara {

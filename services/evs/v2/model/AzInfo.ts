@@ -2,9 +2,9 @@ import { ZoneState } from './ZoneState';
 
 
 export class AzInfo {
-    public zoneName: string;
-    public zoneState: ZoneState;
-    public constructor(zoneName?: any, zoneState?: any) { 
+    public zoneName?: string;
+    public zoneState?: ZoneState;
+    public constructor(zoneName?: string, zoneState?: ZoneState) { 
         this['zoneName'] = zoneName;
         this['zoneState'] = zoneState;
     }

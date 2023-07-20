@@ -2,15 +2,15 @@ import { CycleSubConfConfigDTO } from './CycleSubConfConfigDTO';
 
 
 export class RestScheduleCycleConfDTO {
-    public cycleSubConfID: string;
-    public mediaTypes: string;
-    public startTime: string;
-    public length: number;
+    public cycleSubConfID?: string;
+    public mediaTypes?: string;
+    public startTime?: string;
+    public length?: number;
     public isAutoRecord?: number;
     public confConfigInfo?: CycleSubConfConfigDTO;
     public recordAuthType?: number;
     public description?: string;
-    public constructor(cycleSubConfID?: any, mediaTypes?: any, startTime?: any, length?: any) { 
+    public constructor(cycleSubConfID?: string, mediaTypes?: string, startTime?: string, length?: number) { 
         this['cycleSubConfID'] = cycleSubConfID;
         this['mediaTypes'] = mediaTypes;
         this['startTime'] = startTime;

@@ -9,13 +9,13 @@ export class WatermarkTemplate {
     public position?: string;
     public width?: string;
     public height?: string;
-    private 'create_time'?: string | undefined;
-    private 'image_url'?: string | undefined;
+    private 'create_time'?: string;
+    private 'image_url'?: string;
     public type?: string;
-    private 'watermark_type'?: string | undefined;
-    private 'image_process'?: string | undefined;
-    private 'timeline_start'?: string | undefined;
-    private 'timeline_duration'?: string | undefined;
+    private 'watermark_type'?: string;
+    private 'image_process'?: string;
+    private 'timeline_start'?: string;
+    private 'timeline_duration'?: string;
     public constructor() { 
     }
     public withName(name: string): WatermarkTemplate {
@@ -54,20 +54,20 @@ export class WatermarkTemplate {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withImageUrl(imageUrl: string): WatermarkTemplate {
         this['image_url'] = imageUrl;
         return this;
     }
-    public set imageUrl(imageUrl: string | undefined) {
+    public set imageUrl(imageUrl: string  | undefined) {
         this['image_url'] = imageUrl;
     }
-    public get imageUrl() {
+    public get imageUrl(): string | undefined {
         return this['image_url'];
     }
     public withType(type: string): WatermarkTemplate {
@@ -78,40 +78,40 @@ export class WatermarkTemplate {
         this['watermark_type'] = watermarkType;
         return this;
     }
-    public set watermarkType(watermarkType: string | undefined) {
+    public set watermarkType(watermarkType: string  | undefined) {
         this['watermark_type'] = watermarkType;
     }
-    public get watermarkType() {
+    public get watermarkType(): string | undefined {
         return this['watermark_type'];
     }
     public withImageProcess(imageProcess: string): WatermarkTemplate {
         this['image_process'] = imageProcess;
         return this;
     }
-    public set imageProcess(imageProcess: string | undefined) {
+    public set imageProcess(imageProcess: string  | undefined) {
         this['image_process'] = imageProcess;
     }
-    public get imageProcess() {
+    public get imageProcess(): string | undefined {
         return this['image_process'];
     }
     public withTimelineStart(timelineStart: string): WatermarkTemplate {
         this['timeline_start'] = timelineStart;
         return this;
     }
-    public set timelineStart(timelineStart: string | undefined) {
+    public set timelineStart(timelineStart: string  | undefined) {
         this['timeline_start'] = timelineStart;
     }
-    public get timelineStart() {
+    public get timelineStart(): string | undefined {
         return this['timeline_start'];
     }
     public withTimelineDuration(timelineDuration: string): WatermarkTemplate {
         this['timeline_duration'] = timelineDuration;
         return this;
     }
-    public set timelineDuration(timelineDuration: string | undefined) {
+    public set timelineDuration(timelineDuration: string  | undefined) {
         this['timeline_duration'] = timelineDuration;
     }
-    public get timelineDuration() {
+    public get timelineDuration(): string | undefined {
         return this['timeline_duration'];
     }
 }

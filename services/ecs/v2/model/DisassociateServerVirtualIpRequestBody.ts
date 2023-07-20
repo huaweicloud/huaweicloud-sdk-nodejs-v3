@@ -2,8 +2,8 @@ import { DisassociateServerVirtualIpOption } from './DisassociateServerVirtualIp
 
 
 export class DisassociateServerVirtualIpRequestBody {
-    public nic: DisassociateServerVirtualIpOption;
-    public constructor(nic?: any) { 
+    public nic?: DisassociateServerVirtualIpOption;
+    public constructor(nic?: DisassociateServerVirtualIpOption) { 
         this['nic'] = nic;
     }
     public withNic(nic: DisassociateServerVirtualIpOption): DisassociateServerVirtualIpRequestBody {

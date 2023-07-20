@@ -2,19 +2,19 @@ import { AssociateServerVirtualIpRequestBody } from './AssociateServerVirtualIpR
 
 
 export class AssociateServerVirtualIpRequest {
-    private 'nic_id': string | undefined;
+    private 'nic_id'?: string;
     public body?: AssociateServerVirtualIpRequestBody;
-    public constructor(nicId?: any) { 
+    public constructor(nicId?: string) { 
         this['nic_id'] = nicId;
     }
     public withNicId(nicId: string): AssociateServerVirtualIpRequest {
         this['nic_id'] = nicId;
         return this;
     }
-    public set nicId(nicId: string | undefined) {
+    public set nicId(nicId: string  | undefined) {
         this['nic_id'] = nicId;
     }
-    public get nicId() {
+    public get nicId(): string | undefined {
         return this['nic_id'];
     }
     public withBody(body: AssociateServerVirtualIpRequestBody): AssociateServerVirtualIpRequest {

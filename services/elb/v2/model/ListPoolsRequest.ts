@@ -3,17 +3,17 @@
 export class ListPoolsRequest {
     public limit?: number;
     public marker?: string;
-    private 'page_reverse'?: boolean | undefined;
+    private 'page_reverse'?: boolean;
     public id?: string;
     public name?: string;
     public description?: string;
-    private 'healthmonitor_id'?: string | undefined;
-    private 'loadbalancer_id'?: string | undefined;
+    private 'healthmonitor_id'?: string;
+    private 'loadbalancer_id'?: string;
     public protocol?: string;
-    private 'lb_algorithm'?: string | undefined;
-    private 'member_address'?: string | undefined;
-    private 'member_device_id'?: string | undefined;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'lb_algorithm'?: string;
+    private 'member_address'?: string;
+    private 'member_device_id'?: string;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
     public withLimit(limit: number): ListPoolsRequest {
@@ -28,10 +28,10 @@ export class ListPoolsRequest {
         this['page_reverse'] = pageReverse;
         return this;
     }
-    public set pageReverse(pageReverse: boolean | undefined) {
+    public set pageReverse(pageReverse: boolean  | undefined) {
         this['page_reverse'] = pageReverse;
     }
-    public get pageReverse() {
+    public get pageReverse(): boolean | undefined {
         return this['page_reverse'];
     }
     public withId(id: string): ListPoolsRequest {
@@ -50,20 +50,20 @@ export class ListPoolsRequest {
         this['healthmonitor_id'] = healthmonitorId;
         return this;
     }
-    public set healthmonitorId(healthmonitorId: string | undefined) {
+    public set healthmonitorId(healthmonitorId: string  | undefined) {
         this['healthmonitor_id'] = healthmonitorId;
     }
-    public get healthmonitorId() {
+    public get healthmonitorId(): string | undefined {
         return this['healthmonitor_id'];
     }
     public withLoadbalancerId(loadbalancerId: string): ListPoolsRequest {
         this['loadbalancer_id'] = loadbalancerId;
         return this;
     }
-    public set loadbalancerId(loadbalancerId: string | undefined) {
+    public set loadbalancerId(loadbalancerId: string  | undefined) {
         this['loadbalancer_id'] = loadbalancerId;
     }
-    public get loadbalancerId() {
+    public get loadbalancerId(): string | undefined {
         return this['loadbalancer_id'];
     }
     public withProtocol(protocol: string): ListPoolsRequest {
@@ -74,40 +74,40 @@ export class ListPoolsRequest {
         this['lb_algorithm'] = lbAlgorithm;
         return this;
     }
-    public set lbAlgorithm(lbAlgorithm: string | undefined) {
+    public set lbAlgorithm(lbAlgorithm: string  | undefined) {
         this['lb_algorithm'] = lbAlgorithm;
     }
-    public get lbAlgorithm() {
+    public get lbAlgorithm(): string | undefined {
         return this['lb_algorithm'];
     }
     public withMemberAddress(memberAddress: string): ListPoolsRequest {
         this['member_address'] = memberAddress;
         return this;
     }
-    public set memberAddress(memberAddress: string | undefined) {
+    public set memberAddress(memberAddress: string  | undefined) {
         this['member_address'] = memberAddress;
     }
-    public get memberAddress() {
+    public get memberAddress(): string | undefined {
         return this['member_address'];
     }
     public withMemberDeviceId(memberDeviceId: string): ListPoolsRequest {
         this['member_device_id'] = memberDeviceId;
         return this;
     }
-    public set memberDeviceId(memberDeviceId: string | undefined) {
+    public set memberDeviceId(memberDeviceId: string  | undefined) {
         this['member_device_id'] = memberDeviceId;
     }
-    public get memberDeviceId() {
+    public get memberDeviceId(): string | undefined {
         return this['member_device_id'];
     }
     public withEnterpriseProjectId(enterpriseProjectId: string): ListPoolsRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

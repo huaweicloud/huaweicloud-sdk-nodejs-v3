@@ -1,9 +1,9 @@
 
 
 export class Rule {
-    public type: string;
-    public param: string;
-    public constructor(type?: any, param?: any) { 
+    public type?: string;
+    public param?: string;
+    public constructor(type?: string, param?: string) { 
         this['type'] = type;
         this['param'] = param;
     }

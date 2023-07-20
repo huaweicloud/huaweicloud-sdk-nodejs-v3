@@ -2,7 +2,7 @@
 
 export class VariableValidationResponse {
     public condition?: string;
-    private 'error_message'?: string | undefined;
+    private 'error_message'?: string;
     public constructor() { 
     }
     public withCondition(condition: string): VariableValidationResponse {
@@ -13,10 +13,10 @@ export class VariableValidationResponse {
         this['error_message'] = errorMessage;
         return this;
     }
-    public set errorMessage(errorMessage: string | undefined) {
+    public set errorMessage(errorMessage: string  | undefined) {
         this['error_message'] = errorMessage;
     }
-    public get errorMessage() {
+    public get errorMessage(): string | undefined {
         return this['error_message'];
     }
 }

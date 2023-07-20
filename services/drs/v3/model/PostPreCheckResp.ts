@@ -2,10 +2,10 @@
 
 export class PostPreCheckResp {
     public id?: string;
-    private 'precheck_id'?: string | undefined;
-    public status?: PostPreCheckRespStatusEnum;
-    private 'error_code'?: string | undefined;
-    private 'error_msg'?: string | undefined;
+    private 'precheck_id'?: string;
+    public status?: PostPreCheckRespStatusEnum | string;
+    private 'error_code'?: string;
+    private 'error_msg'?: string;
     public constructor() { 
     }
     public withId(id: string): PostPreCheckResp {
@@ -16,13 +16,13 @@ export class PostPreCheckResp {
         this['precheck_id'] = precheckId;
         return this;
     }
-    public set precheckId(precheckId: string | undefined) {
+    public set precheckId(precheckId: string  | undefined) {
         this['precheck_id'] = precheckId;
     }
-    public get precheckId() {
+    public get precheckId(): string | undefined {
         return this['precheck_id'];
     }
-    public withStatus(status: PostPreCheckRespStatusEnum): PostPreCheckResp {
+    public withStatus(status: PostPreCheckRespStatusEnum | string): PostPreCheckResp {
         this['status'] = status;
         return this;
     }
@@ -30,20 +30,20 @@ export class PostPreCheckResp {
         this['error_code'] = errorCode;
         return this;
     }
-    public set errorCode(errorCode: string | undefined) {
+    public set errorCode(errorCode: string  | undefined) {
         this['error_code'] = errorCode;
     }
-    public get errorCode() {
+    public get errorCode(): string | undefined {
         return this['error_code'];
     }
     public withErrorMsg(errorMsg: string): PostPreCheckResp {
         this['error_msg'] = errorMsg;
         return this;
     }
-    public set errorMsg(errorMsg: string | undefined) {
+    public set errorMsg(errorMsg: string  | undefined) {
         this['error_msg'] = errorMsg;
     }
-    public get errorMsg() {
+    public get errorMsg(): string | undefined {
         return this['error_msg'];
     }
 }

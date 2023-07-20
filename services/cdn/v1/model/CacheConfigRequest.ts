@@ -3,8 +3,8 @@ import { Rules } from './Rules';
 
 
 export class CacheConfigRequest {
-    private 'ignore_url_parameter'?: boolean | undefined;
-    private 'follow_origin'?: boolean | undefined;
+    private 'ignore_url_parameter'?: boolean;
+    private 'follow_origin'?: boolean;
     public compress?: CompressRequest;
     public rules?: Array<Rules>;
     public constructor() { 
@@ -13,20 +13,20 @@ export class CacheConfigRequest {
         this['ignore_url_parameter'] = ignoreUrlParameter;
         return this;
     }
-    public set ignoreUrlParameter(ignoreUrlParameter: boolean | undefined) {
+    public set ignoreUrlParameter(ignoreUrlParameter: boolean  | undefined) {
         this['ignore_url_parameter'] = ignoreUrlParameter;
     }
-    public get ignoreUrlParameter() {
+    public get ignoreUrlParameter(): boolean | undefined {
         return this['ignore_url_parameter'];
     }
     public withFollowOrigin(followOrigin: boolean): CacheConfigRequest {
         this['follow_origin'] = followOrigin;
         return this;
     }
-    public set followOrigin(followOrigin: boolean | undefined) {
+    public set followOrigin(followOrigin: boolean  | undefined) {
         this['follow_origin'] = followOrigin;
     }
-    public get followOrigin() {
+    public get followOrigin(): boolean | undefined {
         return this['follow_origin'];
     }
     public withCompress(compress: CompressRequest): CacheConfigRequest {

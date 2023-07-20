@@ -1,11 +1,11 @@
 
 
 export class Nics {
-    public id: string;
-    public name: string;
-    public cidr: string;
+    public id?: string;
+    public name?: string;
+    public cidr?: string;
     public ip?: string;
-    public constructor(id?: any, name?: any, cidr?: any) { 
+    public constructor(id?: string, name?: string, cidr?: string) { 
         this['id'] = id;
         this['name'] = name;
         this['cidr'] = cidr;

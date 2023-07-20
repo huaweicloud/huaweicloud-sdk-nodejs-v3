@@ -4,7 +4,7 @@ import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ListDeployTaskHistoryByDateResponse extends SdkResponse {
     public result?: Array<ExecuteRecordV2Body>;
-    private 'total_num'?: number | undefined;
+    private 'total_num'?: number;
     public constructor() { 
         super();
     }
@@ -16,10 +16,10 @@ export class ListDeployTaskHistoryByDateResponse extends SdkResponse {
         this['total_num'] = totalNum;
         return this;
     }
-    public set totalNum(totalNum: number | undefined) {
+    public set totalNum(totalNum: number  | undefined) {
         this['total_num'] = totalNum;
     }
-    public get totalNum() {
+    public get totalNum(): number | undefined {
         return this['total_num'];
     }
 }

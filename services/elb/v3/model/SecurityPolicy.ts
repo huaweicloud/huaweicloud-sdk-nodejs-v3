@@ -2,16 +2,16 @@ import { ListenerRef } from './ListenerRef';
 
 
 export class SecurityPolicy {
-    public id: string;
-    private 'project_id': string | undefined;
-    public name: string;
-    public description: string;
-    public listeners: Array<ListenerRef>;
-    public protocols: Array<string>;
-    public ciphers: Array<string>;
-    private 'created_at': string | undefined;
-    private 'updated_at': string | undefined;
-    public constructor(id?: any, projectId?: any, name?: any, description?: any, listeners?: any, protocols?: any, ciphers?: any, createdAt?: any, updatedAt?: any) { 
+    public id?: string;
+    private 'project_id'?: string;
+    public name?: string;
+    public description?: string;
+    public listeners?: Array<ListenerRef>;
+    public protocols?: Array<string>;
+    public ciphers?: Array<string>;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    public constructor(id?: string, projectId?: string, name?: string, description?: string, listeners?: Array<ListenerRef>, protocols?: Array<string>, ciphers?: Array<string>, createdAt?: string, updatedAt?: string) { 
         this['id'] = id;
         this['project_id'] = projectId;
         this['name'] = name;
@@ -30,10 +30,10 @@ export class SecurityPolicy {
         this['project_id'] = projectId;
         return this;
     }
-    public set projectId(projectId: string | undefined) {
+    public set projectId(projectId: string  | undefined) {
         this['project_id'] = projectId;
     }
-    public get projectId() {
+    public get projectId(): string | undefined {
         return this['project_id'];
     }
     public withName(name: string): SecurityPolicy {
@@ -60,20 +60,20 @@ export class SecurityPolicy {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): SecurityPolicy {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
 }

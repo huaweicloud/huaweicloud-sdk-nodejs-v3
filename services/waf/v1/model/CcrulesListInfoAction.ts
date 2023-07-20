@@ -2,12 +2,12 @@ import { CcrulesListInfoActionDetail } from './CcrulesListInfoActionDetail';
 
 
 export class CcrulesListInfoAction {
-    public category: CcrulesListInfoActionCategoryEnum;
+    public category?: CcrulesListInfoActionCategoryEnum | string;
     public detail?: CcrulesListInfoActionDetail;
-    public constructor(category?: any) { 
+    public constructor(category?: string) { 
         this['category'] = category;
     }
-    public withCategory(category: CcrulesListInfoActionCategoryEnum): CcrulesListInfoAction {
+    public withCategory(category: CcrulesListInfoActionCategoryEnum | string): CcrulesListInfoAction {
         this['category'] = category;
         return this;
     }

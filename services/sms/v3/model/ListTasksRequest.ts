@@ -1,16 +1,16 @@
 
 
 export class ListTasksRequest {
-    public state?: ListTasksRequestStateEnum;
+    public state?: ListTasksRequestStateEnum | string;
     public name?: string;
     public id?: string;
-    private 'source_server_id'?: string | undefined;
+    private 'source_server_id'?: string;
     public limit?: number;
     public offset?: number;
-    private 'enterprise_project_id'?: string | undefined;
+    private 'enterprise_project_id'?: string;
     public constructor() { 
     }
-    public withState(state: ListTasksRequestStateEnum): ListTasksRequest {
+    public withState(state: ListTasksRequestStateEnum | string): ListTasksRequest {
         this['state'] = state;
         return this;
     }
@@ -26,10 +26,10 @@ export class ListTasksRequest {
         this['source_server_id'] = sourceServerId;
         return this;
     }
-    public set sourceServerId(sourceServerId: string | undefined) {
+    public set sourceServerId(sourceServerId: string  | undefined) {
         this['source_server_id'] = sourceServerId;
     }
-    public get sourceServerId() {
+    public get sourceServerId(): string | undefined {
         return this['source_server_id'];
     }
     public withLimit(limit: number): ListTasksRequest {
@@ -44,10 +44,10 @@ export class ListTasksRequest {
         this['enterprise_project_id'] = enterpriseProjectId;
         return this;
     }
-    public set enterpriseProjectId(enterpriseProjectId: string | undefined) {
+    public set enterpriseProjectId(enterpriseProjectId: string  | undefined) {
         this['enterprise_project_id'] = enterpriseProjectId;
     }
-    public get enterpriseProjectId() {
+    public get enterpriseProjectId(): string | undefined {
         return this['enterprise_project_id'];
     }
 }

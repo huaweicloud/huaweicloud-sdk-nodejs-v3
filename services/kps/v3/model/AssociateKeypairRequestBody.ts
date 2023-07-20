@@ -2,9 +2,9 @@ import { EcsServerInfo } from './EcsServerInfo';
 
 
 export class AssociateKeypairRequestBody {
-    private 'keypair_name': string | undefined;
-    public server: EcsServerInfo;
-    public constructor(keypairName?: any, server?: any) { 
+    private 'keypair_name'?: string;
+    public server?: EcsServerInfo;
+    public constructor(keypairName?: string, server?: EcsServerInfo) { 
         this['keypair_name'] = keypairName;
         this['server'] = server;
     }
@@ -12,10 +12,10 @@ export class AssociateKeypairRequestBody {
         this['keypair_name'] = keypairName;
         return this;
     }
-    public set keypairName(keypairName: string | undefined) {
+    public set keypairName(keypairName: string  | undefined) {
         this['keypair_name'] = keypairName;
     }
-    public get keypairName() {
+    public get keypairName(): string | undefined {
         return this['keypair_name'];
     }
     public withServer(server: EcsServerInfo): AssociateKeypairRequestBody {

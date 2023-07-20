@@ -1,25 +1,25 @@
 
 
 export class ShowReposResp {
-    public name: string;
-    public category: string;
-    public description: string;
-    public size: number;
-    private 'is_public': boolean | undefined;
-    private 'num_images': number | undefined;
-    private 'num_download': number | undefined;
-    private 'created_at': string | undefined;
-    private 'updated_at': string | undefined;
-    public logo: string;
-    public url: string;
-    public path: string;
-    private 'internal_path': string | undefined;
-    private 'domain_name': string | undefined;
-    public namespace: string;
-    public tags: Array<string>;
-    public status: boolean;
-    private 'total_range': number | undefined;
-    public constructor(name?: any, category?: any, description?: any, size?: any, isPublic?: any, numImages?: any, numDownload?: any, createdAt?: any, updatedAt?: any, logo?: any, url?: any, path?: any, internalPath?: any, domainName?: any, namespace?: any, tags?: any, status?: any, totalRange?: any) { 
+    public name?: string;
+    public category?: string;
+    public description?: string;
+    public size?: number;
+    private 'is_public'?: boolean;
+    private 'num_images'?: number;
+    private 'num_download'?: number;
+    private 'created_at'?: string;
+    private 'updated_at'?: string;
+    public logo?: string;
+    public url?: string;
+    public path?: string;
+    private 'internal_path'?: string;
+    private 'domain_name'?: string;
+    public namespace?: string;
+    public tags?: Array<string>;
+    public status?: boolean;
+    private 'total_range'?: number;
+    public constructor(name?: string, category?: string, description?: string, size?: number, isPublic?: boolean, numImages?: number, numDownload?: number, createdAt?: string, updatedAt?: string, logo?: string, url?: string, path?: string, internalPath?: string, domainName?: string, namespace?: string, tags?: Array<string>, status?: boolean, totalRange?: number) { 
         this['name'] = name;
         this['category'] = category;
         this['description'] = description;
@@ -59,50 +59,50 @@ export class ShowReposResp {
         this['is_public'] = isPublic;
         return this;
     }
-    public set isPublic(isPublic: boolean | undefined) {
+    public set isPublic(isPublic: boolean  | undefined) {
         this['is_public'] = isPublic;
     }
-    public get isPublic() {
+    public get isPublic(): boolean | undefined {
         return this['is_public'];
     }
     public withNumImages(numImages: number): ShowReposResp {
         this['num_images'] = numImages;
         return this;
     }
-    public set numImages(numImages: number | undefined) {
+    public set numImages(numImages: number  | undefined) {
         this['num_images'] = numImages;
     }
-    public get numImages() {
+    public get numImages(): number | undefined {
         return this['num_images'];
     }
     public withNumDownload(numDownload: number): ShowReposResp {
         this['num_download'] = numDownload;
         return this;
     }
-    public set numDownload(numDownload: number | undefined) {
+    public set numDownload(numDownload: number  | undefined) {
         this['num_download'] = numDownload;
     }
-    public get numDownload() {
+    public get numDownload(): number | undefined {
         return this['num_download'];
     }
     public withCreatedAt(createdAt: string): ShowReposResp {
         this['created_at'] = createdAt;
         return this;
     }
-    public set createdAt(createdAt: string | undefined) {
+    public set createdAt(createdAt: string  | undefined) {
         this['created_at'] = createdAt;
     }
-    public get createdAt() {
+    public get createdAt(): string | undefined {
         return this['created_at'];
     }
     public withUpdatedAt(updatedAt: string): ShowReposResp {
         this['updated_at'] = updatedAt;
         return this;
     }
-    public set updatedAt(updatedAt: string | undefined) {
+    public set updatedAt(updatedAt: string  | undefined) {
         this['updated_at'] = updatedAt;
     }
-    public get updatedAt() {
+    public get updatedAt(): string | undefined {
         return this['updated_at'];
     }
     public withLogo(logo: string): ShowReposResp {
@@ -121,20 +121,20 @@ export class ShowReposResp {
         this['internal_path'] = internalPath;
         return this;
     }
-    public set internalPath(internalPath: string | undefined) {
+    public set internalPath(internalPath: string  | undefined) {
         this['internal_path'] = internalPath;
     }
-    public get internalPath() {
+    public get internalPath(): string | undefined {
         return this['internal_path'];
     }
     public withDomainName(domainName: string): ShowReposResp {
         this['domain_name'] = domainName;
         return this;
     }
-    public set domainName(domainName: string | undefined) {
+    public set domainName(domainName: string  | undefined) {
         this['domain_name'] = domainName;
     }
-    public get domainName() {
+    public get domainName(): string | undefined {
         return this['domain_name'];
     }
     public withNamespace(namespace: string): ShowReposResp {
@@ -153,10 +153,10 @@ export class ShowReposResp {
         this['total_range'] = totalRange;
         return this;
     }
-    public set totalRange(totalRange: number | undefined) {
+    public set totalRange(totalRange: number  | undefined) {
         this['total_range'] = totalRange;
     }
-    public get totalRange() {
+    public get totalRange(): number | undefined {
         return this['total_range'];
     }
 }

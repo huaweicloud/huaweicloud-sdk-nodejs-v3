@@ -3,7 +3,7 @@ import { ShowServerGroupResult } from './ShowServerGroupResult';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowServerGroupResponse extends SdkResponse {
-    private 'server_group'?: ShowServerGroupResult | undefined;
+    private 'server_group'?: ShowServerGroupResult;
     public constructor() { 
         super();
     }
@@ -11,10 +11,10 @@ export class ShowServerGroupResponse extends SdkResponse {
         this['server_group'] = serverGroup;
         return this;
     }
-    public set serverGroup(serverGroup: ShowServerGroupResult | undefined) {
+    public set serverGroup(serverGroup: ShowServerGroupResult  | undefined) {
         this['server_group'] = serverGroup;
     }
-    public get serverGroup() {
+    public get serverGroup(): ShowServerGroupResult | undefined {
         return this['server_group'];
     }
 }

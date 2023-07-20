@@ -1,8 +1,8 @@
 
 
 export class NovaAvailabilityZoneState {
-    public available: boolean;
-    public constructor(available?: any) { 
+    public available?: boolean;
+    public constructor(available?: boolean) { 
         this['available'] = available;
     }
     public withAvailable(available: boolean): NovaAvailabilityZoneState {

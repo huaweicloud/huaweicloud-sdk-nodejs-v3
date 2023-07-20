@@ -11,7 +11,7 @@ export class IgnoreRuleBody {
     public url?: string;
     public rule?: string;
     public mode?: number;
-    private 'url_logic'?: string | undefined;
+    private 'url_logic'?: string;
     public conditions?: Array<Condition>;
     public domain?: Array<string>;
     public advanced?: Array<Advanced>;
@@ -53,10 +53,10 @@ export class IgnoreRuleBody {
         this['url_logic'] = urlLogic;
         return this;
     }
-    public set urlLogic(urlLogic: string | undefined) {
+    public set urlLogic(urlLogic: string  | undefined) {
         this['url_logic'] = urlLogic;
     }
-    public get urlLogic() {
+    public get urlLogic(): string | undefined {
         return this['url_logic'];
     }
     public withConditions(conditions: Array<Condition>): IgnoreRuleBody {

@@ -2,19 +2,19 @@ import { CreateVpcResourceTagRequestBody } from './CreateVpcResourceTagRequestBo
 
 
 export class CreateVpcResourceTagRequest {
-    private 'vpc_id': string | undefined;
+    private 'vpc_id'?: string;
     public body?: CreateVpcResourceTagRequestBody;
-    public constructor(vpcId?: any) { 
+    public constructor(vpcId?: string) { 
         this['vpc_id'] = vpcId;
     }
     public withVpcId(vpcId: string): CreateVpcResourceTagRequest {
         this['vpc_id'] = vpcId;
         return this;
     }
-    public set vpcId(vpcId: string | undefined) {
+    public set vpcId(vpcId: string  | undefined) {
         this['vpc_id'] = vpcId;
     }
-    public get vpcId() {
+    public get vpcId(): string | undefined {
         return this['vpc_id'];
     }
     public withBody(body: CreateVpcResourceTagRequestBody): CreateVpcResourceTagRequest {

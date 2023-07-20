@@ -3,24 +3,24 @@ import { RecordParam } from './RecordParam';
 import { SdkResponse } from "@huaweicloud/huaweicloud-sdk-core/SdkResponse";
 
 export class ShowIndividualStreamJobResponse extends SdkResponse {
-    private 'job_id'?: string | undefined;
-    private 'stream_name'?: string | undefined;
-    private 'app_id'?: string | undefined;
-    private 'room_id'?: string | undefined;
-    private 'user_id'?: string | undefined;
-    private 'is_record_audio'?: boolean | undefined;
-    private 'video_type'?: ShowIndividualStreamJobResponseVideoTypeEnum | undefined;
-    private 'select_stream_type'?: ShowIndividualStreamJobResponseSelectStreamTypeEnum | undefined;
-    private 'max_idle_time'?: number | undefined;
-    private 'record_param'?: RecordParam | undefined;
-    private 'create_time'?: string | undefined;
-    private 'update_time'?: string | undefined;
-    public state?: ShowIndividualStreamJobResponseStateEnum;
-    private 'stop_reason'?: ShowIndividualStreamJobResponseStopReasonEnum | undefined;
+    private 'job_id'?: string;
+    private 'stream_name'?: string;
+    private 'app_id'?: string;
+    private 'room_id'?: string;
+    private 'user_id'?: string;
+    private 'is_record_audio'?: boolean;
+    private 'video_type'?: ShowIndividualStreamJobResponseVideoTypeEnum | string;
+    private 'select_stream_type'?: ShowIndividualStreamJobResponseSelectStreamTypeEnum | string;
+    private 'max_idle_time'?: number;
+    private 'record_param'?: RecordParam;
+    private 'create_time'?: string;
+    private 'update_time'?: string;
+    public state?: ShowIndividualStreamJobResponseStateEnum | string;
+    private 'stop_reason'?: ShowIndividualStreamJobResponseStopReasonEnum | string;
     public description?: string;
-    private 'start_time'?: string | undefined;
-    private 'stop_time'?: string | undefined;
-    private 'X-request-Id'?: string | undefined;
+    private 'start_time'?: string;
+    private 'stop_time'?: string;
+    private 'X-request-Id'?: string;
     public constructor() { 
         super();
     }
@@ -28,134 +28,134 @@ export class ShowIndividualStreamJobResponse extends SdkResponse {
         this['job_id'] = jobId;
         return this;
     }
-    public set jobId(jobId: string | undefined) {
+    public set jobId(jobId: string  | undefined) {
         this['job_id'] = jobId;
     }
-    public get jobId() {
+    public get jobId(): string | undefined {
         return this['job_id'];
     }
     public withStreamName(streamName: string): ShowIndividualStreamJobResponse {
         this['stream_name'] = streamName;
         return this;
     }
-    public set streamName(streamName: string | undefined) {
+    public set streamName(streamName: string  | undefined) {
         this['stream_name'] = streamName;
     }
-    public get streamName() {
+    public get streamName(): string | undefined {
         return this['stream_name'];
     }
     public withAppId(appId: string): ShowIndividualStreamJobResponse {
         this['app_id'] = appId;
         return this;
     }
-    public set appId(appId: string | undefined) {
+    public set appId(appId: string  | undefined) {
         this['app_id'] = appId;
     }
-    public get appId() {
+    public get appId(): string | undefined {
         return this['app_id'];
     }
     public withRoomId(roomId: string): ShowIndividualStreamJobResponse {
         this['room_id'] = roomId;
         return this;
     }
-    public set roomId(roomId: string | undefined) {
+    public set roomId(roomId: string  | undefined) {
         this['room_id'] = roomId;
     }
-    public get roomId() {
+    public get roomId(): string | undefined {
         return this['room_id'];
     }
     public withUserId(userId: string): ShowIndividualStreamJobResponse {
         this['user_id'] = userId;
         return this;
     }
-    public set userId(userId: string | undefined) {
+    public set userId(userId: string  | undefined) {
         this['user_id'] = userId;
     }
-    public get userId() {
+    public get userId(): string | undefined {
         return this['user_id'];
     }
     public withIsRecordAudio(isRecordAudio: boolean): ShowIndividualStreamJobResponse {
         this['is_record_audio'] = isRecordAudio;
         return this;
     }
-    public set isRecordAudio(isRecordAudio: boolean | undefined) {
+    public set isRecordAudio(isRecordAudio: boolean  | undefined) {
         this['is_record_audio'] = isRecordAudio;
     }
-    public get isRecordAudio() {
+    public get isRecordAudio(): boolean | undefined {
         return this['is_record_audio'];
     }
-    public withVideoType(videoType: ShowIndividualStreamJobResponseVideoTypeEnum): ShowIndividualStreamJobResponse {
+    public withVideoType(videoType: ShowIndividualStreamJobResponseVideoTypeEnum | string): ShowIndividualStreamJobResponse {
         this['video_type'] = videoType;
         return this;
     }
-    public set videoType(videoType: ShowIndividualStreamJobResponseVideoTypeEnum | undefined) {
+    public set videoType(videoType: ShowIndividualStreamJobResponseVideoTypeEnum | string  | undefined) {
         this['video_type'] = videoType;
     }
-    public get videoType() {
+    public get videoType(): ShowIndividualStreamJobResponseVideoTypeEnum | string | undefined {
         return this['video_type'];
     }
-    public withSelectStreamType(selectStreamType: ShowIndividualStreamJobResponseSelectStreamTypeEnum): ShowIndividualStreamJobResponse {
+    public withSelectStreamType(selectStreamType: ShowIndividualStreamJobResponseSelectStreamTypeEnum | string): ShowIndividualStreamJobResponse {
         this['select_stream_type'] = selectStreamType;
         return this;
     }
-    public set selectStreamType(selectStreamType: ShowIndividualStreamJobResponseSelectStreamTypeEnum | undefined) {
+    public set selectStreamType(selectStreamType: ShowIndividualStreamJobResponseSelectStreamTypeEnum | string  | undefined) {
         this['select_stream_type'] = selectStreamType;
     }
-    public get selectStreamType() {
+    public get selectStreamType(): ShowIndividualStreamJobResponseSelectStreamTypeEnum | string | undefined {
         return this['select_stream_type'];
     }
     public withMaxIdleTime(maxIdleTime: number): ShowIndividualStreamJobResponse {
         this['max_idle_time'] = maxIdleTime;
         return this;
     }
-    public set maxIdleTime(maxIdleTime: number | undefined) {
+    public set maxIdleTime(maxIdleTime: number  | undefined) {
         this['max_idle_time'] = maxIdleTime;
     }
-    public get maxIdleTime() {
+    public get maxIdleTime(): number | undefined {
         return this['max_idle_time'];
     }
     public withRecordParam(recordParam: RecordParam): ShowIndividualStreamJobResponse {
         this['record_param'] = recordParam;
         return this;
     }
-    public set recordParam(recordParam: RecordParam | undefined) {
+    public set recordParam(recordParam: RecordParam  | undefined) {
         this['record_param'] = recordParam;
     }
-    public get recordParam() {
+    public get recordParam(): RecordParam | undefined {
         return this['record_param'];
     }
     public withCreateTime(createTime: string): ShowIndividualStreamJobResponse {
         this['create_time'] = createTime;
         return this;
     }
-    public set createTime(createTime: string | undefined) {
+    public set createTime(createTime: string  | undefined) {
         this['create_time'] = createTime;
     }
-    public get createTime() {
+    public get createTime(): string | undefined {
         return this['create_time'];
     }
     public withUpdateTime(updateTime: string): ShowIndividualStreamJobResponse {
         this['update_time'] = updateTime;
         return this;
     }
-    public set updateTime(updateTime: string | undefined) {
+    public set updateTime(updateTime: string  | undefined) {
         this['update_time'] = updateTime;
     }
-    public get updateTime() {
+    public get updateTime(): string | undefined {
         return this['update_time'];
     }
-    public withState(state: ShowIndividualStreamJobResponseStateEnum): ShowIndividualStreamJobResponse {
+    public withState(state: ShowIndividualStreamJobResponseStateEnum | string): ShowIndividualStreamJobResponse {
         this['state'] = state;
         return this;
     }
-    public withStopReason(stopReason: ShowIndividualStreamJobResponseStopReasonEnum): ShowIndividualStreamJobResponse {
+    public withStopReason(stopReason: ShowIndividualStreamJobResponseStopReasonEnum | string): ShowIndividualStreamJobResponse {
         this['stop_reason'] = stopReason;
         return this;
     }
-    public set stopReason(stopReason: ShowIndividualStreamJobResponseStopReasonEnum | undefined) {
+    public set stopReason(stopReason: ShowIndividualStreamJobResponseStopReasonEnum | string  | undefined) {
         this['stop_reason'] = stopReason;
     }
-    public get stopReason() {
+    public get stopReason(): ShowIndividualStreamJobResponseStopReasonEnum | string | undefined {
         return this['stop_reason'];
     }
     public withDescription(description: string): ShowIndividualStreamJobResponse {
@@ -166,30 +166,30 @@ export class ShowIndividualStreamJobResponse extends SdkResponse {
         this['start_time'] = startTime;
         return this;
     }
-    public set startTime(startTime: string | undefined) {
+    public set startTime(startTime: string  | undefined) {
         this['start_time'] = startTime;
     }
-    public get startTime() {
+    public get startTime(): string | undefined {
         return this['start_time'];
     }
     public withStopTime(stopTime: string): ShowIndividualStreamJobResponse {
         this['stop_time'] = stopTime;
         return this;
     }
-    public set stopTime(stopTime: string | undefined) {
+    public set stopTime(stopTime: string  | undefined) {
         this['stop_time'] = stopTime;
     }
-    public get stopTime() {
+    public get stopTime(): string | undefined {
         return this['stop_time'];
     }
     public withXRequestId(xRequestId: string): ShowIndividualStreamJobResponse {
         this['X-request-Id'] = xRequestId;
         return this;
     }
-    public set xRequestId(xRequestId: string | undefined) {
+    public set xRequestId(xRequestId: string  | undefined) {
         this['X-request-Id'] = xRequestId;
     }
-    public get xRequestId() {
+    public get xRequestId(): string | undefined {
         return this['X-request-Id'];
     }
 }

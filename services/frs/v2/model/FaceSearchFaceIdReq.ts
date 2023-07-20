@@ -2,12 +2,12 @@
 
 export class FaceSearchFaceIdReq {
     public filter?: string;
-    private 'top_n'?: number | undefined;
-    private 'face_id': string | undefined;
-    private 'return_fields'?: Array<string> | undefined;
+    private 'top_n'?: number;
+    private 'face_id'?: string;
+    private 'return_fields'?: Array<string>;
     public threshold?: number;
     public sort?: Array<{ [key: string]: string; }>;
-    public constructor(faceId?: any) { 
+    public constructor(faceId?: string) { 
         this['face_id'] = faceId;
     }
     public withFilter(filter: string): FaceSearchFaceIdReq {
@@ -18,30 +18,30 @@ export class FaceSearchFaceIdReq {
         this['top_n'] = topN;
         return this;
     }
-    public set topN(topN: number | undefined) {
+    public set topN(topN: number  | undefined) {
         this['top_n'] = topN;
     }
-    public get topN() {
+    public get topN(): number | undefined {
         return this['top_n'];
     }
     public withFaceId(faceId: string): FaceSearchFaceIdReq {
         this['face_id'] = faceId;
         return this;
     }
-    public set faceId(faceId: string | undefined) {
+    public set faceId(faceId: string  | undefined) {
         this['face_id'] = faceId;
     }
-    public get faceId() {
+    public get faceId(): string | undefined {
         return this['face_id'];
     }
     public withReturnFields(returnFields: Array<string>): FaceSearchFaceIdReq {
         this['return_fields'] = returnFields;
         return this;
     }
-    public set returnFields(returnFields: Array<string> | undefined) {
+    public set returnFields(returnFields: Array<string>  | undefined) {
         this['return_fields'] = returnFields;
     }
-    public get returnFields() {
+    public get returnFields(): Array<string> | undefined {
         return this['return_fields'];
     }
     public withThreshold(threshold: number): FaceSearchFaceIdReq {

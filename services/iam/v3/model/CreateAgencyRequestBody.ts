@@ -2,8 +2,8 @@ import { CreateAgencyOption } from './CreateAgencyOption';
 
 
 export class CreateAgencyRequestBody {
-    public agency: CreateAgencyOption;
-    public constructor(agency?: any) { 
+    public agency?: CreateAgencyOption;
+    public constructor(agency?: CreateAgencyOption) { 
         this['agency'] = agency;
     }
     public withAgency(agency: CreateAgencyOption): CreateAgencyRequestBody {

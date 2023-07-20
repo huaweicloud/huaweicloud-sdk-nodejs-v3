@@ -2,7 +2,7 @@ import { QueryResourceByTagsDTO } from './QueryResourceByTagsDTO';
 
 
 export class ListResourcesByTagsRequest {
-    private 'Instance-Id'?: string | undefined;
+    private 'Instance-Id'?: string;
     public limit?: number;
     public marker?: string;
     public offset?: number;
@@ -13,10 +13,10 @@ export class ListResourcesByTagsRequest {
         this['Instance-Id'] = instanceId;
         return this;
     }
-    public set instanceId(instanceId: string | undefined) {
+    public set instanceId(instanceId: string  | undefined) {
         this['Instance-Id'] = instanceId;
     }
-    public get instanceId() {
+    public get instanceId(): string | undefined {
         return this['Instance-Id'];
     }
     public withLimit(limit: number): ListResourcesByTagsRequest {
